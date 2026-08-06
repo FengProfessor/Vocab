@@ -17,6 +17,8 @@ import { NotificationBell } from '@/components/NotificationBell';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { FreeQuotaBanner } from '@/components/upsell/FreeQuotaBanner';
 import { CohortProPromoBanner } from '@/components/upsell/CohortProPromoBanner';
+import { UpgradeGiftModal } from '@/components/campaign/UpgradeGiftModal';
+
 import { useGamification } from '@/hooks/useGamification';
 import { supabase, type Profile } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
@@ -483,11 +485,13 @@ export function StudentShell({
             </span>
             <span>Đăng xuất</span>
           </button>
-        </div>
-      </aside>
       )}
 
+      {/* Quà tri ân 7 ngày Pro nâng cấp máy chủ */}
+      <UpgradeGiftModal />
+
       {/* ═══ MAIN ═══ */}
+
       <main
         className={cn(
           'flex min-h-dvh min-w-0 flex-1 flex-col',
