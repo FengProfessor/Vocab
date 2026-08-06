@@ -53,10 +53,8 @@ async function main() {
     log("No changes detected in out/*.json to commit.");
   }
 
-  // 4. Trigger production deploy on Vercel
-  log("Step 4: Deploying to Vercel Production...");
-  runCmd('npx', ['vercel', '--prod', '--yes']);
-  log("Vercel deploy command executed.");
+  // 4. Deployment is automatically triggered on PC Server via GitHub Webhook when git push completes
+  log("Step 4: Changes pushed to main. Self-Hosted PC Server will auto-deploy via GitHub Webhook.");
 }
 
 main().catch((err) => {

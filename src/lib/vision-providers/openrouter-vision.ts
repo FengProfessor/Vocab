@@ -56,7 +56,7 @@ Return ONLY one JSON object on one line:
         'Content-Type': 'application/json',
         Authorization: `Bearer ${key}`,
         // OpenRouter rate-limits theo HTTP-Referer, gán title app để identify
-        'HTTP-Referer': 'https://lingopro.vercel.app',
+        'HTTP-Referer': process.env.NEXT_PUBLIC_APP_URL || 'https://lingopro.online',
         'X-Title': 'LingoPro Vocab Image Verify',
       },
       body: JSON.stringify({

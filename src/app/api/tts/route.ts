@@ -89,11 +89,10 @@ export async function GET(req: NextRequest) {
     status: 200,
     headers: {
       'Content-Type': 'audio/mpeg',
-      // Browser + CDN cache: từ vựng lặp lại không tốn quota
-      // CDN + browser: cùng từ không đốt Fluid CPU lại
-      'Cache-Control': 'public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400, immutable',
-      'CDN-Cache-Control': 'public, s-maxage=2592000',
-      'Vercel-CDN-Cache-Control': 'public, s-maxage=2592000',
+      // Browser + Cloudflare CDN cache: từ vựng lặp lại được cache tại Edge 1 năm
+      'Cache-Control': 'public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=86400, immutable',
+      'CDN-Cache-Control': 'public, s-maxage=31536000',
+      'Cloudflare-CDN-Cache-Control': 'public, s-maxage=31536000',
       'X-TTS-Source': 'neural',
     },
   });

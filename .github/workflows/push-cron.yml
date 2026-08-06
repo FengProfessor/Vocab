@@ -1,9 +1,9 @@
 name: Dense Due Push Notifications
 
-# Trigger /api/cron/push-due mỗi 15 phút (backup song song Vercel hourly cron).
+# Trigger /api/cron/push-due mỗi 15 phút trên Self-Hosted PC Server.
 # Cooldown re-nag ~90p trong route; im 22:30–05:30 VN.
 #
-# BẮT BUỘC: GitHub repo secret CRON_SECRET = đúng env CRON_SECRET production (Vercel).
+# BẮT BUỘC: GitHub repo secret CRON_SECRET = đúng env CRON_SECRET production trên PC Server.
 # Secret sai → HTTP 401 → học sinh không nhận TB. Check: Actions tab + log HTTP code.
 
 on:
@@ -20,7 +20,7 @@ jobs:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
         run: |
           if [ -z "$CRON_SECRET" ]; then
-            echo "::error::Missing CRON_SECRET repo secret — set it to match Vercel CRON_SECRET"
+            echo "::error::Missing CRON_SECRET repo secret — set it to match server .env.local CRON_SECRET"
             exit 1
           fi
           code=$(curl -sS -o /tmp/resp.json -w "%{http_code}" \
@@ -31,7 +31,7 @@ jobs:
           cat /tmp/resp.json || true
           echo ""
           if [ "$code" != "200" ]; then
-            echo "::error::push-due failed HTTP $code (thường do CRON_SECRET sai so với Vercel)"
+            echo "::error::push-due failed HTTP $code (thường do CRON_SECRET sai so với server .env.local)"
             exit 1
           fi
           # Log tóm tắt notified nếu JSON parse được

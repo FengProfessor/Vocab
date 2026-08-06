@@ -264,7 +264,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       'public, max-age=604800, s-maxage=31536000, stale-while-revalidate=604800, immutable',
     );
     headers.set('CDN-Cache-Control', 'public, s-maxage=31536000');
-    headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=31536000');
+    headers.set('Cloudflare-CDN-Cache-Control', 'public, s-maxage=31536000');
     headers.set('X-Content-Type-Options', 'nosniff');
 
     return new NextResponse(buffer, { status: 200, headers });
