@@ -177,10 +177,7 @@ export function UpgradeGiftModal() {
     }
 
 
-    // Delay nhẹ 800ms để dashboard tải xong trước khi bật quà
-    const timer = setTimeout(() => {
-      void checkAndClaimGift();
-    }, 800);
+    void checkAndClaimGift();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user) {
@@ -189,10 +186,10 @@ export function UpgradeGiftModal() {
     });
 
     return () => {
-      clearTimeout(timer);
       subscription?.unsubscribe();
     };
   }, []);
+
 
 
   const handleClose = () => {
