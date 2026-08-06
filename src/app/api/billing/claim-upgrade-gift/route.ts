@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 
+const CAMPAIGN_KEY = 'campaign_upgrade_gift_20260806';
+
 export async function POST(req: NextRequest) {
   try {
     const supabase = createServiceClient();
@@ -30,38 +32,35 @@ export async function POST(req: NextRequest) {
       .from('subscription_history')
       .select('id')
       .eq('user_id', user.id)
-      .eq('note', 'server_upgrade_gift_7d')
-      .limit(1);
+      .eq('reason', CAMPAIGN_KEY)
+      .maybeSingle();
 
-    const alreadyClaimedInDb = (history && history.length > 0);
-
-    // Tính toán hạn dùng 7 ngày
-    const now = new Date();
-    let newExpiresAt: Date;
-    let isExtended = false;
-
-    if (profile.plan === 'pro' && profile.plan_expires_at) {
-      const currentExpiry = new Date(profile.plan_expires_at);
-      if (currentExpiry > now) {
-        newExpiresAt = new Date(currentExpiry.getTime() + 7 * 24 * 60 * 60 * 1000);
-        isExtended = true;
-      } else {
-        newExpiresAt = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
-      }
-    } else {
-      newExpiresAt = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
-    }
+    const alreadyClaimedInDb = !!history;
 
     if (alreadyClaimedInDb) {
       return NextResponse.json({
         success: true,
         alreadyClaimed: true,
-        isExtended,
-        plan: 'pro',
+        plan: profile.plan || 'pro',
         planExpiresAt: profile.plan_expires_at,
         message: 'Bạn đã nhận quà 7 ngày Pro nâng cấp máy chủ.',
       });
     }
+
+    // Tính toán hạn dùng 7 ngày
+    const now = new Date();
+    let startsFrom = now;
+    let isExtended = false;
+
+    if (profile.plan_expires_at) {
+      const curExp = new Date(profile.plan_expires_at);
+      if (curExp > now) {
+        startsFrom = curExp;
+        isExtended = true;
+      }
+    }
+
+    const newExpiresAt = new Date(startsFrom.getTime() + 7 * 24 * 60 * 60 * 1000);
 
     // 3. Cập nhật gói PRO cho user
     await supabase
@@ -75,12 +74,9 @@ export async function POST(req: NextRequest) {
     // 4. Ghi lịch sử nâng cấp
     await supabase.from('subscription_history').insert({
       user_id: user.id,
-      amount: 0,
-      plan: 'pro',
-      status: 'completed',
-      period_months: 1,
-      payment_method: 'gift_campaign',
-      note: 'server_upgrade_gift_7d',
+      old_plan: profile.plan || 'free',
+      new_plan: 'pro',
+      reason: CAMPAIGN_KEY,
     });
 
     return NextResponse.json({
@@ -93,7 +89,7 @@ export async function POST(req: NextRequest) {
     });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
-    console.error('[Campaign] claim-upgrade-gift error:', msg);
+    console.error('[Billing] claim-upgrade-gift error:', msg);
     return NextResponse.json({ error: msg }, { status: 500 });
   }
 }

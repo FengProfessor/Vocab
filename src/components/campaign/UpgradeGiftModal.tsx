@@ -73,7 +73,7 @@ export function UpgradeGiftModal() {
             .from('subscription_history')
             .select('id')
             .eq('user_id', userId)
-            .eq('note', 'server_upgrade_gift_7d')
+            .eq('reason', 'campaign_upgrade_gift_20260806')
             .limit(1);
 
           const alreadyClaimed = (history && history.length > 0);
@@ -104,14 +104,12 @@ export function UpgradeGiftModal() {
 
             await supabase.from('subscription_history').insert({
               user_id: userId,
-              amount: 0,
-              plan: 'pro',
-              status: 'completed',
-              period_months: 1,
-              payment_method: 'gift_campaign',
-              note: 'server_upgrade_gift_7d',
+              old_plan: profile?.plan || 'free',
+              new_plan: 'pro',
+              reason: 'campaign_upgrade_gift_20260806',
             });
           }
+
 
           data = {
             success: true,
