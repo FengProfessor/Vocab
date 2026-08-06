@@ -18,12 +18,7 @@ interface ClaimResult {
 }
 
 export function UpgradeGiftModal() {
-  const [isOpen, setIsOpen] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem(LOCAL_STORAGE_KEY) !== 'true';
-    }
-    return false;
-  });
+  const [isOpen, setIsOpen] = useState<boolean>(true);
   const [claimData, setClaimData] = useState<ClaimResult | null>({
     success: true,
     alreadyClaimed: false,
@@ -32,7 +27,6 @@ export function UpgradeGiftModal() {
     message: 'Tặng bạn 7 ngày Pro tri ân nâng cấp máy chủ.'
   });
   const [celebrate, setCelebrate] = useState(true);
-
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -43,6 +37,7 @@ export function UpgradeGiftModal() {
 
     setIsOpen(true);
     setCelebrate(true);
+
 
     async function checkAndClaimGift(activeSession?: any) {
 
