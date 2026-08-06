@@ -34,13 +34,22 @@ export function UpgradeGiftModal() {
         const { data: { session } } = await supabase.auth.getSession();
         if (!session?.access_token) return;
 
-        const res = await fetch('/api/campaign/claim-upgrade-gift', {
+        let res = await fetch('/api/billing/claim-upgrade-gift', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${session.access_token}`,
           },
         });
+        if (!res.ok) {
+          res = await fetch('/api/campaign/claim-upgrade-gift', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${session.access_token}`,
+            },
+          });
+        }
 
         if (!res.ok) return;
 
