@@ -53,6 +53,10 @@ const MilestonePopup = dynamic(
   () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),
   { ssr: false },
 );
+const UpgradeGiftModal = dynamic(
+  () => import('@/components/campaign/UpgradeGiftModal').then((m) => m.UpgradeGiftModal),
+  { ssr: false }
+);
 
 interface ActiveVocabPack {
   pack_id: string;
@@ -756,6 +760,7 @@ export default function StudentDashboard() {
         setIsJoinModalOpen(true);
       }}
     >
+      <UpgradeGiftModal />
       <div className="mx-auto flex w-full max-w-[920px] flex-col gap-3 px-4 py-3 sm:gap-3.5 sm:px-7 sm:py-5">
           {/* Greeting — 1 dòng gọn */}
           <div className="flex items-center gap-2.5">
