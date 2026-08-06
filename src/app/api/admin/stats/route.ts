@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { createServiceClient, fetchAllRows } from '@/lib/supabase';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
+export const dynamic = 'force-dynamic';
+
 type ProfileRow = { id: string; email: string; full_name: string; role: string; created_at: string };
 type QuizRow = { user_id: string; accuracy: number; completed_at: string };
 

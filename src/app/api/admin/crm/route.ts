@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
+export const dynamic = 'force-dynamic';
+
 // Fail-closed: ADMIN_EMAILS chưa cấu hình → mảng rỗng → mọi request 403
 const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
 
