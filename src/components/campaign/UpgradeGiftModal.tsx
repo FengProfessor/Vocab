@@ -32,31 +32,100 @@ export function UpgradeGiftModal() {
     async function checkAndClaimGift() {
       try {
         const { data: { session } } = await supabase.auth.getSession();
-        if (!session?.access_token) return;
+        if (!session?.access_token || !session.user) return;
 
-        let res = await fetch('/api/billing/claim-upgrade-gift', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${session.access_token}`,
-          },
-        });
-        if (!res.ok) {
-          res = await fetch('/api/campaign/claim-upgrade-gift', {
+        let data: ClaimResult | null = null;
+
+        try {
+          let res = await fetch('/api/billing/claim-upgrade-gift', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               Authorization: `Bearer ${session.access_token}`,
             },
           });
+          if (!res.ok) {
+            res = await fetch('/api/campaign/claim-upgrade-gift', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${session.access_token}`,
+              },
+            });
+          }
+          if (res.ok) {
+            data = await res.json();
+          }
+        } catch {
+          data = null;
         }
 
-        if (!res.ok) return;
+        // Fallback trực tiếp qua Supabase nếu API bị vướng
+        if (!data || !data.success) {
+          const userId = session.user.id;
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('plan, plan_expires_at')
+            .eq('id', userId)
+            .maybeSingle();
 
-        const data: ClaimResult = await res.json();
+          const { data: history } = await supabase
+            .from('subscription_history')
+            .select('id')
+            .eq('user_id', userId)
+            .eq('note', 'server_upgrade_gift_7d')
+            .limit(1);
+
+          const alreadyClaimed = (history && history.length > 0);
+          const now = new Date();
+          let newExpiresAt: Date;
+          let isExtended = false;
+
+          if (profile?.plan === 'pro' && profile.plan_expires_at) {
+            const currentExpiry = new Date(profile.plan_expires_at);
+            if (currentExpiry > now) {
+              newExpiresAt = new Date(currentExpiry.getTime() + 7 * 24 * 60 * 60 * 1000);
+              isExtended = true;
+            } else {
+              newExpiresAt = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+            }
+          } else {
+            newExpiresAt = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+          }
+
+          if (!alreadyClaimed) {
+            await supabase
+              .from('profiles')
+              .update({
+                plan: 'pro',
+                plan_expires_at: newExpiresAt.toISOString(),
+              })
+              .eq('id', userId);
+
+            await supabase.from('subscription_history').insert({
+              user_id: userId,
+              amount: 0,
+              plan: 'pro',
+              status: 'completed',
+              period_months: 1,
+              payment_method: 'gift_campaign',
+              note: 'server_upgrade_gift_7d',
+            });
+          }
+
+          data = {
+            success: true,
+            alreadyClaimed: !!alreadyClaimed,
+            isExtended,
+            daysAdded: 7,
+            planExpiresAt: alreadyClaimed && profile?.plan_expires_at ? profile.plan_expires_at : newExpiresAt.toISOString(),
+            message: '7 ngày Pro tri ân nâng cấp máy chủ.',
+          };
+        }
+
         if (!isSubscribed) return;
 
-        if (data.success) {
+        if (data && data.success) {
           setClaimData(data);
           setIsOpen(true);
           setCelebrate(true);
@@ -65,6 +134,7 @@ export function UpgradeGiftModal() {
         console.error('[UpgradeGiftModal] Error checking gift:', err);
       }
     }
+
 
     // Delay nhẹ 1s để dashboard tải xong trước khi bật quà
     const timer = setTimeout(() => {
