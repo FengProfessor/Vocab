@@ -275,12 +275,15 @@ export function StudentShell({
   const showChrome = !effectiveImmersive;
 
   return (
-    <div
-      className={cn(
-        'flex min-h-dvh w-full font-sans',
-        effectiveImmersive ? 'bg-background' : 'bg-[#f7f8fc]',
-      )}
-    >
+    <>
+      <UpgradeGiftModal />
+      <div
+        className={cn(
+          'flex min-h-dvh w-full font-sans',
+          effectiveImmersive ? 'bg-background' : 'bg-[#f7f8fc]',
+        )}
+      >
+
       {/* ═══ MOBILE DRAWER ═══ */}
       {showChrome && isMenuOpen && (
         <div className="fixed inset-0 z-[100] md:hidden">
@@ -487,10 +490,8 @@ export function StudentShell({
           </button>
       )}
 
-      {/* Quà tri ân 7 ngày Pro nâng cấp máy chủ */}
-      <UpgradeGiftModal />
-
       {/* ═══ MAIN ═══ */}
+
 
       <main
         className={cn(
@@ -640,5 +641,7 @@ export function StudentShell({
         />
       )}
     </div>
+    </>
   );
 }
+
