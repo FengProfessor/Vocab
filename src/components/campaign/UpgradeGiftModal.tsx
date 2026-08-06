@@ -6,7 +6,8 @@ import { Celebration } from '@/components/gamification/Celebration';
 import { Mascot } from '@/components/gamification/Mascot';
 import { Sparkles, Gift, CheckCircle2, X } from 'lucide-react';
 
-const LOCAL_STORAGE_KEY = 'lingopro_upgrade_gift_confirmed_20260806_v2';
+const LOCAL_STORAGE_KEY = 'lingopro_upgrade_gift_confirmed_20260806_v3';
+
 
 interface ClaimResult {
   success: boolean;
