@@ -731,38 +731,24 @@ export default function StudentDashboard() {
     return result;
   }, [words, debouncedQuery, statusFilter, sortBy]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-dvh bg-muted/40 p-8 flex items-center justify-center">
-        <Loader2 className="h-10 w-10 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  const masteredCount = words.filter((w) => w.srsLevel === 5).length;
-  const badges = earnedBadges(gamification, masteredCount);
-
-  const mascotMood: MascotMood = reviewDueCount > 0 ? 'cheer' : studyStreak === 0 ? 'sleepy' : 'happy';
-  const greeting = (() => {
-    const h = new Date().getHours();
-    if (h < 12) return 'Chào buổi sáng';
-    if (h < 18) return 'Chào buổi chiều';
-    return 'Chào buổi tối';
-  })();
-
-  const hasClass = joinedClass;
-
   return (
-    <StudentShell
-      title="Dashboard"
-      contentClassName="p-0"
-      onJoinClass={() => {
-        setJoinError(null);
-        setJoinCode('');
-        setIsJoinModalOpen(true);
-      }}
-    >
+    <>
       <UpgradeGiftModal />
+      {isLoading ? (
+        <div className="min-h-dvh bg-muted/40 p-8 flex items-center justify-center">
+          <Loader2 className="h-10 w-10 animate-spin text-primary" />
+        </div>
+      ) : (
+        <StudentShell
+          title="Dashboard"
+          contentClassName="p-0"
+          onJoinClass={() => {
+            setJoinError(null);
+            setJoinCode('');
+            setIsJoinModalOpen(true);
+          }}
+        >
+
       <div className="mx-auto flex w-full max-w-[920px] flex-col gap-3 px-4 py-3 sm:gap-3.5 sm:px-7 sm:py-5">
           {/* Greeting — 1 dòng gọn */}
           <div className="flex items-center gap-2.5">
@@ -1372,6 +1358,9 @@ export default function StudentDashboard() {
         </div>
       )}
 
-    </StudentShell>
+        </StudentShell>
+      )}
+    </>
   );
 }
+
