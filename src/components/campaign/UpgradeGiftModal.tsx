@@ -27,8 +27,6 @@ export function UpgradeGiftModal() {
     if (typeof window === 'undefined') return;
     if (localStorage.getItem(LOCAL_STORAGE_KEY) === 'true') return;
 
-    let isSubscribed = true;
-
     async function checkAndClaimGift(activeSession?: any) {
       try {
         let session = activeSession;
@@ -157,13 +155,12 @@ export function UpgradeGiftModal() {
     }, 800);
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.user && isSubscribed) {
+      if (session?.user) {
         void checkAndClaimGift(session);
       }
     });
 
     return () => {
-      isSubscribed = false;
       clearTimeout(timer);
       subscription?.unsubscribe();
     };
