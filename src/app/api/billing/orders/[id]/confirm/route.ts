@@ -5,9 +5,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { confirmOrder } from '@/lib/billing';
+import { getAdminEmails } from '@/lib/api-security';
 
-// Fail-closed: env rỗng → mảng rỗng → mọi request đều 403 (tránh [''].includes('') = true)
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
+export const dynamic = 'force-dynamic';
 
 export async function POST(
   req: NextRequest,
@@ -24,7 +24,11 @@ export async function POST(
     const { data: { user } } = await supabase.auth.getUser(token);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const isAdmin = ADMIN_EMAILS.includes(user.email?.toLowerCase() ?? '');
+    const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
+    const callerEmail = (callerProfile?.email || user.email || '').toLowerCase().trim();
+    const adminEmails = getAdminEmails();
+    const isAdmin = callerProfile?.role === 'admin' || Boolean(callerEmail && adminEmails.includes(callerEmail));
+
     if (!isAdmin) {
       return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
     }

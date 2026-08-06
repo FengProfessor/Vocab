@@ -6,9 +6,9 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { getAdminEmails } from '@/lib/api-security';
 
-// Fail-closed: env rỗng → mảng rỗng → mọi request đều 403 (tránh [''].includes('') = true)
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
   try {
@@ -22,8 +22,9 @@ export async function GET(req: NextRequest) {
 
     const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
     const callerEmail = (callerProfile?.email || user.email || '').toLowerCase().trim();
+    const adminEmails = getAdminEmails();
     const isAdminRole = callerProfile?.role === 'admin';
-    const isWhitelisted = ADMIN_EMAILS.length > 0 && Boolean(callerEmail && ADMIN_EMAILS.includes(callerEmail));
+    const isWhitelisted = Boolean(callerEmail && adminEmails.includes(callerEmail));
 
     if (!isAdminRole && !isWhitelisted) {
       return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
