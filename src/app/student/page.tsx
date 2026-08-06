@@ -53,10 +53,8 @@ const MilestonePopup = dynamic(
   () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),
   { ssr: false }
 );
-const UpgradeGiftModal = dynamic(
-  () => import('@/components/campaign/UpgradeGiftModal').then((m) => m.UpgradeGiftModal),
-  { ssr: false }
-);
+import { UpgradeGiftModal } from '@/components/campaign/UpgradeGiftModal';
+
 
 
 
