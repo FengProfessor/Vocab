@@ -14,12 +14,16 @@ const WEAK_SECRETS = new Set([
   'bot-secret',
 ]);
 
-/**
- * Shared security helpers for API route handlers.
- * - JWT auth verification (Supabase access token from `Authorization: Bearer` header)
- * - Extension token verification (long-lived `lpext_` token, hashed in `extension_tokens`)
- * - Simple in-memory IP rate limiter (no external deps)
- */
+/** Shared Admin email whitelist — default taphong2002@gmail.com if env not configured */
+const DEFAULT_ADMIN_EMAILS = ['taphong2002@gmail.com'];
+
+export function getAdminEmails(): string[] {
+  const env = (process.env.ADMIN_EMAILS ?? '')
+    .split(',')
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+  return env.length > 0 ? env : DEFAULT_ADMIN_EMAILS;
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Auth

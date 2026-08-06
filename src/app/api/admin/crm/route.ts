@@ -1,11 +1,8 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
-import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
+import { getAuthUser, unauthorized, safeErrorResponse, getAdminEmails } from '@/lib/api-security';
 
 export const dynamic = 'force-dynamic';
-
-// Fail-closed: ADMIN_EMAILS chưa cấu hình → mảng rỗng → mọi request 403
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
 
 const DAY = 24 * 60 * 60 * 1000;
 const PAGE = 1000;
@@ -92,9 +89,10 @@ export async function GET(req: Request): Promise<NextResponse> {
       .eq('id', auth.userId)
       .maybeSingle();
 
+    const adminEmails = getAdminEmails();
     const callerEmail = (callerProfile?.email || auth.email || '').toLowerCase().trim();
     const isAdminRole = callerProfile?.role === 'admin';
-    const isWhitelisted = ADMIN_EMAILS.length > 0 && Boolean(callerEmail && ADMIN_EMAILS.includes(callerEmail));
+    const isWhitelisted = Boolean(callerEmail && adminEmails.includes(callerEmail));
 
     if (!isAdminRole && !isWhitelisted) {
       return NextResponse.json(

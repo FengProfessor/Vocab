@@ -1,14 +1,11 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, fetchAllRows } from '@/lib/supabase';
-import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
+import { getAuthUser, unauthorized, safeErrorResponse, getAdminEmails } from '@/lib/api-security';
 
 export const dynamic = 'force-dynamic';
 
 type ProfileRow = { id: string; email: string; full_name: string; role: string; created_at: string };
 type QuizRow = { user_id: string; accuracy: number; completed_at: string };
-
-// Fail-closed: nếu ADMIN_EMAILS chưa cấu hình → mảng rỗng → mọi request đều 403
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '').split(',').map(e => e.trim().toLowerCase()).filter(Boolean);
 
 /**
  * GET /api/admin/stats
@@ -27,9 +24,10 @@ export async function GET(req: Request): Promise<NextResponse> {
       .eq('id', auth.userId)
       .maybeSingle();
 
+    const adminEmails = getAdminEmails();
     const callerEmail = (callerProfile?.email || auth.email || '').toLowerCase().trim();
     const isAdminRole = callerProfile?.role === 'admin';
-    const isWhitelisted = ADMIN_EMAILS.length > 0 && Boolean(callerEmail && ADMIN_EMAILS.includes(callerEmail));
+    const isWhitelisted = Boolean(callerEmail && adminEmails.includes(callerEmail));
 
     if (!isAdminRole && !isWhitelisted) {
       return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
