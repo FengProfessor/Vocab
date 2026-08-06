@@ -51,7 +51,6 @@ export function UpgradeGiftModal() {
           setClaimData(data);
           setIsOpen(true);
           setCelebrate(true);
-          localStorage.setItem(LOCAL_STORAGE_KEY, 'true');
         }
       } catch (err) {
         console.error('[UpgradeGiftModal] Error checking gift:', err);
@@ -70,8 +69,12 @@ export function UpgradeGiftModal() {
   }, []);
 
   const handleClose = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(LOCAL_STORAGE_KEY, 'true');
+    }
     setIsOpen(false);
   };
+
 
   if (!isOpen || !claimData) return null;
 
