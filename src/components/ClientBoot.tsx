@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
+import { UpgradeGiftModal } from '@/components/campaign/UpgradeGiftModal';
 
 /**
  * Boot client-only extras từ root layout.
@@ -60,6 +61,7 @@ function isTourPath(pathname: string): boolean {
 }
 
 export function ClientBoot() {
+
   const pathname = usePathname() ?? '';
   const light = isLightPath(pathname);
 
@@ -71,10 +73,11 @@ export function ClientBoot() {
     <>
       <FirebaseInitializer />
       <InstallPrompt />
-      {/* Tạm thời tắt hướng dẫn tân thủ (TourBootstrap) */}
-      {/* {isTourPath(pathname) ? <TourBootstrap /> : null} */}
+      {/* Quà tri ân 7 ngày Pro nâng cấp máy chủ */}
+      {isTourPath(pathname) ? <UpgradeGiftModal /> : null}
       {/* Soft: hết hạn / 150+ từ · Hard: FREE_WORD_LIMIT qua event */}
       {isTourPath(pathname) ? <UpsellProvider /> : null}
     </>
   );
 }
+
