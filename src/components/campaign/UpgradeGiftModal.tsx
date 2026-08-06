@@ -138,14 +138,18 @@ export function UpgradeGiftModal() {
         }
 
         if (data && data.success) {
-
+          (window as any).__upgrade_gift_debug = { data, isOpen: true };
           setClaimData(data);
           setIsOpen(true);
           setCelebrate(true);
+        } else {
+          (window as any).__upgrade_gift_debug = { data, isOpen: false, reason: 'data_not_success' };
         }
-      } catch (err) {
+      } catch (err: any) {
+        (window as any).__upgrade_gift_debug = { error: err?.message || String(err), isOpen: false };
         console.error('[UpgradeGiftModal] Error checking gift:', err);
       }
+
     }
 
 
