@@ -35,11 +35,17 @@ export function UpgradeGiftModal() {
 
 
   useEffect(() => {
-    // 1. Nếu đã nhận trên trình duyệt này -> bỏ qua
     if (typeof window === 'undefined') return;
-    if (localStorage.getItem(LOCAL_STORAGE_KEY) === 'true') return;
+    if (localStorage.getItem(LOCAL_STORAGE_KEY) === 'true') {
+      setIsOpen(false);
+      return;
+    }
+
+    setIsOpen(true);
+    setCelebrate(true);
 
     async function checkAndClaimGift(activeSession?: any) {
+
       try {
         let session = activeSession;
         if (!session) {
