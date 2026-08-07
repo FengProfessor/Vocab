@@ -16,7 +16,10 @@ if (typeof window === 'undefined' && !admin.apps.length) {
   try {
     const projectId = cleanEnv(process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID);
     const clientEmail = cleanEnv(process.env.FIREBASE_CLIENT_EMAIL);
-    const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
+    const rawPrivateKey = process.env.FIREBASE_PRIVATE_KEY || '';
+    const privateKey = rawPrivateKey
+      .replace(/^["']|["']$/g, '')
+      .replace(/\\n/g, '\n');
     if (!projectId || !clientEmail || !privateKey) {
       throw new Error(
         `Missing Firebase Admin env (projectId=${!!projectId}, clientEmail=${!!clientEmail}, privateKey=${!!privateKey})`
