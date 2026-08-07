@@ -3,13 +3,6 @@ name: Daily Supabase Backup
 # Sao lưu toàn bộ database Supabase mỗi đêm — MIỄN PHÍ, không cần Supabase Pro.
 # Cách hoạt động: pg_dump xuất toàn bộ DB ra 1 file .sql → nén gzip → cất vào
 # "Artifacts" của GitHub (giữ 30 ngày). Mất data thì tải file về dựng lại.
-#
-# CẦN LÀM 1 LẦN: thêm repo secret SUPABASE_DB_URL
-#   GitHub repo → Settings → Secrets and variables → Actions → New repository secret
-#   Tên:  SUPABASE_DB_URL
-#   Giá trị: Session pooler URI
-#     postgresql://postgres.<ref>:<password>@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres
-#     (LingoPro: dùng aws-1, không phải aws-0)
 
 on:
   schedule:
@@ -36,10 +29,20 @@ jobs:
           SQL_FILE="lingopro_backup_${STAMP}.sql"
           GZ_FILE="${SQL_FILE}.gz"
 
+          # Sửa URL Supabase để chạy pg_dump an toàn trên GitHub Actions:
+          # 1. Đổi port Transaction (6543) sang Session (5432)
+          PG_URL="${DATABASE_URL/6543/5432}"
+          
+          # 2. Nếu dùng pooler Supavisor, username phải là postgres.[project-id]
+          # Project ID của app là jyhdxhqkftirncbstfpe
+          if [[ "$PG_URL" == *"pooler.supabase.com"* ]] && [[ "$PG_URL" == *"postgres:"* ]]; then
+            PG_URL="${PG_URL/postgres:/postgres.jyhdxhqkftirncbstfpe:}"
+          fi
+
           # set -o pipefail: pg_dump lỗi → pipeline fail (tránh gzip file rác)
           set -o pipefail
-          docker run --rm postgres:17 \
-            pg_dump --no-owner --no-privileges "$DATABASE_URL" \
+          docker run --rm postgres:15-alpine \
+            pg_dump --no-owner --no-privileges "$PG_URL" \
             > "$SQL_FILE"
 
           # File SQL phải có nội dung thật
@@ -75,10 +78,3 @@ jobs:
           name: lingopro-backup-${{ env.STAMP }}
           path: lingopro_backup_*.sql.gz
           retention-days: 30
-
-# ─────────────────────────────────────────────────────────────────────
-# CÁCH KHÔI PHỤC:
-#   1. Actions → artifact → tải .sql.gz
-#   2. gunzip -t file.sql.gz && gunzip file.sql.gz
-#   3. psql "<session-pooler-uri>" < file.sql  (nên restore DB mới/sạch)
-# ─────────────────────────────────────────────────────────────────────
