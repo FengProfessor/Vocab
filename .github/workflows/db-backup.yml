@@ -35,8 +35,8 @@ jobs:
           
           # 2. Nếu dùng pooler Supavisor, username phải là postgres.[project-id]
           # Project ID của app là jyhdxhqkftirncbstfpe
-          if [[ "$PG_URL" == *"pooler.supabase.com"* ]] && [[ "$PG_URL" == *"postgres:"* ]]; then
-            PG_URL="${PG_URL/postgres:/postgres.jyhdxhqkftirncbstfpe:}"
+          if [[ "$PG_URL" == *"pooler.supabase.com"* ]] && [[ "$PG_URL" == *"://postgres:"* ]]; then
+            PG_URL=$(echo "$PG_URL" | sed 's|://postgres:|://postgres.jyhdxhqkftirncbstfpe:|')
           fi
 
           # set -o pipefail: pg_dump lỗi → pipeline fail (tránh gzip file rác)
