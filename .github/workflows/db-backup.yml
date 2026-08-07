@@ -33,16 +33,17 @@ jobs:
           # 1. Đổi port Transaction (6543) sang Session (5432)
           PG_URL="${DATABASE_URL/6543/5432}"
           
-          # 2. Nếu dùng pooler Supavisor, username phải là postgres.[project-id]
-          # Project ID của app là jyhdxhqkftirncbstfpe
-          if [[ "$PG_URL" == *"pooler.supabase.com"* ]] && [[ "$PG_URL" == *"://postgres:"* ]]; then
-            PG_URL=$(echo "$PG_URL" | sed 's|://postgres:|://postgres.jyhdxhqkftirncbstfpe:|')
+          # 2. Nếu dùng pooler Supavisor, username bắt buộc phải là postgres.[project-id]
+          # Bỏ qua username trong URL và ép cứng bằng cờ -U để pg_dump luôn đúng.
+          PG_USER="postgres"
+          if [[ "$PG_URL" == *"pooler.supabase.com"* ]]; then
+            PG_USER="postgres.jyhdxhqkftirncbstfpe"
           fi
 
           # set -o pipefail: pg_dump lỗi → pipeline fail (tránh gzip file rác)
           set -o pipefail
           docker run --rm postgres:15-alpine \
-            pg_dump --no-owner --no-privileges "$PG_URL" \
+            pg_dump --no-owner --no-privileges -U "$PG_USER" "$PG_URL" \
             > "$SQL_FILE"
 
           # File SQL phải có nội dung thật
