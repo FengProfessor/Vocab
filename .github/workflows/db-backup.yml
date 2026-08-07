@@ -29,9 +29,9 @@ jobs:
           SQL_FILE="lingopro_backup_${STAMP}.sql"
           GZ_FILE="${SQL_FILE}.gz"
 
-          # Sửa URL Supabase để chạy pg_dump an toàn trên GitHub Actions:
           # 1. Đổi port Transaction (6543) sang Session (5432)
-          PG_URL="${DATABASE_URL/6543/5432}"
+          # ĐỒNG THỜI xóa sạch dấu xuống dòng (\n, \r) hoặc khoảng trắng dư thừa do copy/paste
+          PG_URL=$(echo "${DATABASE_URL/6543/5432}" | tr -d '\n\r ')
           
           # 2. Nếu dùng pooler Supavisor, username bắt buộc phải là postgres.[project-id]
           # Bỏ qua username trong URL và ép cứng bằng cờ -U để pg_dump luôn đúng.
