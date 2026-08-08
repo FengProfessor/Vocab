@@ -14,11 +14,13 @@ import {
 } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase';
 import {
-  resolvePlanByUserId,
-  checkAndConsumeCodemixUpgrade,
   FREE_CODEMIX_UPGRADE_DAILY_LIMIT,
   type Plan,
 } from '@/lib/entitlement';
+import {
+  resolvePlanByUserId,
+  checkAndConsumeCodemixUpgrade,
+} from '@/lib/entitlement-server';
 import { hasGeminiKeys } from '@/lib/gemini-multi';
 
 export const maxDuration = 60;

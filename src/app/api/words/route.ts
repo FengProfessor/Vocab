@@ -12,7 +12,7 @@ import {
   userCanWriteClassroom,
 } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
-import { checkWordSaveQuota, resolvePlanByUserId } from '@/lib/entitlement';
+import { checkWordSaveQuota, resolvePlanByUserId } from '@/lib/entitlement-server';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 
 /**

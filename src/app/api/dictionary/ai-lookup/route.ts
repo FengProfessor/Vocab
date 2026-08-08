@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase";
 import { getRouter } from "@/lib/ai-router";
 import { sanitizeForPrompt, checkRateLimitAsync, safeErrorResponse, getAuthUser, unauthorized } from "@/lib/api-security";
-import { checkAndConsumeDailyAI, resolvePlanByUserId } from "@/lib/entitlement";
+import { checkAndConsumeDailyAI, resolvePlanByUserId } from "@/lib/entitlement-server";
 
 // Gọi AI sinh từ điển khi cache miss. Hobby mặc định 10s có thể kill sớm.
 export const maxDuration = 30;

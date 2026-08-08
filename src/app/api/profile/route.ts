@@ -10,9 +10,9 @@ import {
   FREE_WORD_SAVE_MONTHLY_LIMIT,
   getEffectivePlan,
   getRemainingDays,
-  getWordSaveUsage,
   type Plan,
 } from '@/lib/entitlement';
+import { getWordSaveUsage } from '@/lib/entitlement-server';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {

@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase';
 import { checkRateLimitAsync, safeErrorResponse } from '@/lib/api-security';
-import { resolveUserPlan, checkAccess } from '@/lib/entitlement';
+import { checkAccess } from '@/lib/entitlement';
+import { resolveUserPlan } from '@/lib/entitlement-server';
 import { normalizeLessonExercise } from '@/lib/grammar-exercises';
 
 // Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.

@@ -8,7 +8,8 @@ import {
   checkRateLimitAsync,
   safeErrorResponse,
 } from '@/lib/api-security';
-import { checkAccess, resolvePlanByUserId } from '@/lib/entitlement';
+import { checkAccess } from '@/lib/entitlement';
+import { resolvePlanByUserId } from '@/lib/entitlement-server';
 import { matchGoldenSentence } from '@/lib/ai-sentence-golden';
 
 export const maxDuration = 30;

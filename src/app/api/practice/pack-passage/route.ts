@@ -21,11 +21,13 @@ import {
 } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase';
 import {
-  resolvePlanByUserId,
-  checkAndConsumePackReading,
   FREE_PACK_READING_DAILY_LIMIT,
   type Plan,
 } from '@/lib/entitlement';
+import {
+  resolvePlanByUserId,
+  checkAndConsumePackReading,
+} from '@/lib/entitlement-server';
 
 /** Gen AI + retry length có thể >60s */
 export const maxDuration = 120;
