@@ -68,19 +68,6 @@ async function groqProxyGenerate(
 async function localCLIGenerate(prompt: string): Promise<string> {
   return new Promise((resolve, reject) => {
     // Generate a unique temp file name using Date.now() + Math.random()
-    const tmpId = Date.now().toString(36) + '-' + Math.random().toString(36).substring(2, 9);
-    // Vị trí lưu tạm: trong thư mục tmp của OS (nếu có) hoặc tmp của project
-    const tmpDir = process.env.TEMP || process.env.TMP || '/tmp';
-    const tmpOutFile = path.join(tmpDir, `tmp-llm-${tmpId}.json`).replace(/\\/g, '/');
-
-    // Dọn dẹp file cũ nếu có (an toàn)
-    if (existsSync(tmpOutFile)) {
-      try {
-        const fs = require('node:fs');
-        fs.unlinkSync(tmpOutFile);
-      } catch {}
-    }
-
     const binName = process.platform === 'win32' ? 'codex.cmd' : 'codex';
     const args = [
       'exec',
