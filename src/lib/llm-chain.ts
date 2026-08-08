@@ -1,5 +1,4 @@
 import { spawn } from 'node:child_process';
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { geminiGenerate, hasGeminiKeys } from '@/lib/gemini-multi';
 
@@ -82,11 +81,10 @@ async function localCLIGenerate(prompt: string): Promise<string> {
       } catch {}
     }
 
-    const binName = process.platform === 'win32' ? 'codex-headless.cmd' : 'codex-headless';
+    const binName = process.platform === 'win32' ? 'codex.cmd' : 'codex';
     const args = [
-      '--ephemeral',
-      '--sandbox', 'read-only',
-      '--output-last-message', tmpOutFile,
+      'exec',
+      '--json',
       '-'
     ];
 
@@ -100,13 +98,16 @@ async function localCLIGenerate(prompt: string): Promise<string> {
     child.stdin.write(prompt);
     child.stdin.end();
 
-    // Thu thập stderr để log lỗi nếu có
+    let stdoutOut = '';
+    child.stdout.on('data', (data) => {
+      stdoutOut += data.toString();
+    });
+
     let stderrOut = '';
     child.stderr.on('data', (data) => {
       stderrOut += data.toString();
     });
 
-    // Hẹn giờ timeout để kill child process
     const timeoutId = setTimeout(() => {
       child.kill('SIGKILL');
       reject(new Error(`${LOG} Local CLI Timeout sau 5 phút.`));
@@ -120,25 +121,35 @@ async function localCLIGenerate(prompt: string): Promise<string> {
         return;
       }
 
-      if (!existsSync(tmpOutFile)) {
-        reject(new Error(`${LOG} Local CLI chạy xong nhưng không tạo ra file output: ${tmpOutFile}`));
-        return;
-      }
-
+      // Try to parse the output. Codex might stream JSONL items. We look for 'item.completed' and extract agent_message
       try {
-        const content = readFileSync(tmpOutFile, 'utf-8');
-        try {
-          const fs = require('node:fs');
-          fs.unlinkSync(tmpOutFile);
-        } catch {} // Cleanup
+        let content = '';
+        const lines = stdoutOut.split('\n');
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          try {
+            const parsed = JSON.parse(line);
+            if (parsed && parsed.type === 'item.completed' && parsed.agent_message) {
+              content = parsed.agent_message;
+              break;
+            }
+          } catch (e) {
+            // ignore non-json lines
+          }
+        }
         
+        // If not found in stream, maybe it just returned raw json?
+        if (!content) {
+          content = stdoutOut;
+        }
+
         if (!content.trim()) {
            reject(new Error(`${LOG} Local CLI trả về nội dung rỗng.`));
            return;
         }
         resolve(content);
       } catch (err) {
-        reject(new Error(`${LOG} Lỗi đọc file kết quả Local CLI: ${String(err)}`));
+        reject(new Error(`${LOG} Lỗi đọc kết quả Local CLI: ${String(err)}`));
       }
     });
     
@@ -161,7 +172,7 @@ export async function generateWith3StepFallback(
   const jsonMode = opts.jsonMode ?? true;
   const temperature = opts.temperature ?? 0.35;
 
-  let lastError: Error | null = null;
+  const errors: string[] = [];
   
   // ==========================
   // STEP 1: GEMINI DIRECT
@@ -172,9 +183,12 @@ export async function generateWith3StepFallback(
       const text = await geminiGenerate(prompt, { json: jsonMode, temperature });
       return { text, provider: 'gemini' };
     } catch (err: unknown) {
-      lastError = err instanceof Error ? err : new Error(String(err));
-      console.warn(`${LOG} Step 1 (Gemini) thất bại: ${lastError.message.slice(0, 200)}`);
+      const e = err instanceof Error ? err : new Error(String(err));
+      console.warn(`${LOG} Step 1 (Gemini) thất bại: ${e.message.slice(0, 200)}`);
+      errors.push(`Gemini: ${e.message}`);
     }
+  } else {
+    errors.push('Gemini: Not preferred or missing keys');
   }
 
   // ==========================
@@ -186,25 +200,28 @@ export async function generateWith3StepFallback(
       const text = await groqProxyGenerate(prompt, jsonMode, temperature);
       return { text, provider: 'groq-proxy' };
     } catch (err: unknown) {
-      lastError = err instanceof Error ? err : new Error(String(err));
-      console.warn(`${LOG} Step 2 (Groq Proxy) thất bại: ${lastError.message.slice(0, 200)}`);
+      const e = err instanceof Error ? err : new Error(String(err));
+      console.warn(`${LOG} Step 2 (Groq Proxy) thất bại: ${e.message.slice(0, 200)}`);
+      errors.push(`Groq: ${e.message}`);
     }
   } else {
     console.warn(`${LOG} Bỏ qua Step 2 (Groq Proxy) vì thiếu biến GROQ_PROXY_URL`);
+    errors.push('Groq: Missing GROQ_PROXY_URL');
   }
 
   // ==========================
   // STEP 3: LOCAL CLI
   // ==========================
   try {
-    console.log(`${LOG} Step 3: Fallback cuối cùng sang Local CLI (codex-headless)...`);
+    console.log(`${LOG} Step 3: Fallback cuối cùng sang Local CLI (codex exec)...`);
     const text = await localCLIGenerate(prompt);
     return { text, provider: 'local-cli' };
   } catch (err: unknown) {
-    lastError = err instanceof Error ? err : new Error(String(err));
-    console.warn(`${LOG} Step 3 (Local CLI) thất bại: ${lastError.message.slice(0, 200)}`);
+    const e = err instanceof Error ? err : new Error(String(err));
+    console.warn(`${LOG} Step 3 (Local CLI) thất bại: ${e.message.slice(0, 200)}`);
+    errors.push(`Local CLI: ${e.message}`);
   }
 
   // Nếu cả 3 step đều fail
-  throw new Error(`${LOG} Cả 3 bước fallback đều thất bại. Lỗi cuối cùng: ${lastError?.message}`);
+  throw new Error(`${LOG} Fallback thất bại toàn tập. Chi tiết: ${errors.join(' | ')}`);
 }
