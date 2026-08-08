@@ -100,39 +100,54 @@ export async function geminiGenerate(
   prompt: string,
   opts?: { json?: boolean; temperature?: number; model?: string },
 ): Promise<string> {
-  const entry = pickKeyOnce();
   const modelName = opts?.model || resolveGeminiModel();
   const json = opts?.json ?? true;
   const temperature = opts?.temperature ?? 0.3;
 
-  try {
-    entry.calls += 1;
-    const genAI = new GoogleGenerativeAI(entry.key);
-    const model = genAI.getGenerativeModel({
-      model: modelName,
-      generationConfig: {
-        temperature,
-        ...(json ? { responseMimeType: 'application/json' } : {}),
-      },
-    });
-    console.log(
-      `${LOG} model=${modelName} key=...${entry.key.slice(-6)} calls=${entry.calls} nextRR=${rr}`,
-    );
-    const r = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-    });
-    const text = (r.response.text() || '').trim();
-    if (!text) throw new Error(`${LOG} empty response`);
-    return text;
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : String(err);
-    if (/429|Too Many Requests|quota|rate.?limit/i.test(msg)) {
-      mark429(entry);
-      throw new Error(`${LOG} 429 on ...${entry.key.slice(-6)} (no same-request rotate)`);
+  loadKeys();
+  const maxAttempts = Math.max(keys.length, 1);
+  let lastError: Error = new Error(`${LOG} No Gemini keys available`);
+
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    let entry: KeyState;
+    try {
+      entry = pickKeyOnce();
+    } catch (e: any) {
+      throw lastError;
     }
-    if (/404|not found|no longer/i.test(msg)) {
-      throw new Error(`${LOG} model unavailable: ${modelName} · ${msg.slice(0, 160)}`);
+
+    try {
+      entry.calls += 1;
+      const genAI = new GoogleGenerativeAI(entry.key);
+      const model = genAI.getGenerativeModel({
+        model: modelName,
+        generationConfig: {
+          temperature,
+          ...(json ? { responseMimeType: 'application/json' } : {}),
+        },
+      });
+      console.log(
+        `${LOG} model=${modelName} key=...${entry.key.slice(-6)} calls=${entry.calls} attempt=${attempt + 1}`,
+      );
+      const r = await model.generateContent({
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      });
+      const text = (r.response.text() || '').trim();
+      if (!text) throw new Error(`${LOG} empty response`);
+      return text;
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      if (/429|Too Many Requests|quota|rate.?limit/i.test(msg)) {
+        mark429(entry);
+        lastError = new Error(`${LOG} 429 on ...${entry.key.slice(-6)}`);
+        console.warn(`${LOG} 429 on ...${entry.key.slice(-6)}, trying next key...`);
+        continue;
+      }
+      if (/404|not found|no longer/i.test(msg)) {
+        throw new Error(`${LOG} model unavailable: ${modelName} · ${msg.slice(0, 160)}`);
+      }
+      throw err instanceof Error ? err : new Error(msg);
     }
-    throw err instanceof Error ? err : new Error(msg);
   }
+  throw lastError;
 }

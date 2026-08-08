@@ -59,3 +59,92 @@ export function dueReminderHtml(name: string, dueCount: number, appUrl = 'https:
     </td></tr>
   </table></body></html>`;
 }
+
+export function activeUserHtml(name: string, appUrl = 'https://lingopro.online'): string {
+  const firstName = (name || 'bạn').split(' ').pop();
+  return `<!DOCTYPE html><html lang="vi"><body style="margin:0;background:#f1f5f9;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f9;padding:24px 0">
+    <tr><td align="center">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+        <tr><td style="background:linear-gradient(135deg,#10b981,#059669);padding:28px;text-align:center">
+          <img src="${appUrl}/icons/logo-mail.png" width="56" height="56" alt="LingoPro" style="border-radius:12px;display:inline-block">
+          <div style="color:#fff;font-size:20px;font-weight:800;margin-top:10px">LingoPro</div>
+        </td></tr>
+        <tr><td style="padding:28px">
+          <div style="font-size:18px;font-weight:800;color:#0f172a">Tuyệt vời quá ${firstName}! 🔥</div>
+          <div style="font-size:14px;color:#475569;margin-top:8px;line-height:1.6">
+            LingoPro thấy bạn đang học rất chăm chỉ trong những ngày qua. Hãy duy trì phong độ này nhé! Mỗi ngày chỉ cần 10 phút là bạn sẽ tiến bộ vượt bậc.
+          </div>
+          <a href="${appUrl}/student" style="display:inline-block;margin-top:20px;background:#10b981;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 28px;border-radius:12px">Tiếp tục học ngay →</a>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table></body></html>`;
+}
+
+export function lowEngagementHtml(name: string, appUrl = 'https://lingopro.online'): string {
+  const firstName = (name || 'bạn').split(' ').pop();
+  return `<!DOCTYPE html><html lang="vi"><body style="margin:0;background:#f1f5f9;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f9;padding:24px 0">
+    <tr><td align="center">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+        <tr><td style="background:linear-gradient(135deg,#f59e0b,#d97706);padding:28px;text-align:center">
+          <img src="${appUrl}/icons/logo-mail.png" width="56" height="56" alt="LingoPro" style="border-radius:12px;display:inline-block">
+          <div style="color:#fff;font-size:20px;font-weight:800;margin-top:10px">LingoPro</div>
+        </td></tr>
+        <tr><td style="padding:28px">
+          <div style="font-size:18px;font-weight:800;color:#0f172a">LingoPro nhớ ${firstName} quá! 🥺</div>
+          <div style="font-size:14px;color:#475569;margin-top:8px;line-height:1.6">
+            Dạo này bạn đang bận rộn phải không? Chỉ cần ôn lại 5 từ vựng hôm nay thôi để không bị quên những gì đã học nhé!
+          </div>
+          <a href="${appUrl}/student" style="display:inline-block;margin-top:20px;background:#f59e0b;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 28px;border-radius:12px">Học 5 phút ngay →</a>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table></body></html>`;
+}
+
+export function churningUserHtml(name: string, appUrl = 'https://lingopro.online'): string {
+  const firstName = (name || 'bạn').split(' ').pop();
+  return `<!DOCTYPE html><html lang="vi"><body style="margin:0;background:#f1f5f9;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f9;padding:24px 0">
+    <tr><td align="center">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+        <tr><td style="background:linear-gradient(135deg,#ef4444,#b91c1c);padding:28px;text-align:center">
+          <img src="${appUrl}/icons/logo-mail.png" width="56" height="56" alt="LingoPro" style="border-radius:12px;display:inline-block">
+          <div style="color:#fff;font-size:20px;font-weight:800;margin-top:10px">LingoPro</div>
+        </td></tr>
+        <tr><td style="padding:28px">
+          <div style="font-size:18px;font-weight:800;color:#0f172a">${firstName} ơi, đừng bỏ cuộc nhé! 🚀</div>
+          <div style="font-size:14px;color:#475569;margin-top:8px;line-height:1.6">
+            Đã lâu rồi LingoPro không thấy bạn vào học. Việc học tiếng Anh cần sự kiên trì. 
+            <br><br>🎁 <b>LingoPro tặng bạn mã giảm giá 30%</b> cho gói Pro để tiếp thêm động lực! Nhập mã <b>COMEBACK30</b> khi đăng ký nhé.
+          </div>
+          <a href="${appUrl}/student" style="display:inline-block;margin-top:20px;background:#ef4444;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 28px;border-radius:12px">Lấy lại động lực →</a>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table></body></html>`;
+}
+
+export function registeredOnlyHtml(name: string, appUrl = 'https://lingopro.online'): string {
+  const firstName = (name || 'bạn').split(' ').pop();
+  return `<!DOCTYPE html><html lang="vi"><body style="margin:0;background:#f1f5f9;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f9;padding:24px 0">
+    <tr><td align="center">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+        <tr><td style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);padding:28px;text-align:center">
+          <img src="${appUrl}/icons/logo-mail.png" width="56" height="56" alt="LingoPro" style="border-radius:12px;display:inline-block">
+          <div style="color:#fff;font-size:20px;font-weight:800;margin-top:10px">LingoPro</div>
+        </td></tr>
+        <tr><td style="padding:28px">
+          <div style="font-size:18px;font-weight:800;color:#0f172a">Chào mừng ${firstName} đến với LingoPro! 🎉</div>
+          <div style="font-size:14px;color:#475569;margin-top:8px;line-height:1.6">
+            Cảm ơn bạn đã đăng ký LingoPro. Hệ thống học từ vựng thông minh đã sẵn sàng. Hãy bắt đầu bài học đầu tiên ngay hôm nay nhé!
+          </div>
+          <a href="${appUrl}/student" style="display:inline-block;margin-top:20px;background:#3b82f6;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 28px;border-radius:12px">Bắt đầu học ngay →</a>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table></body></html>`;
+}

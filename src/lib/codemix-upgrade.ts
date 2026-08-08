@@ -6,7 +6,8 @@
  */
 import { getRouter } from '@/lib/ai-router';
 import { sanitizeForPrompt } from '@/lib/api-security';
-import { geminiGenerate, hasGeminiKeys, resolveGeminiModel } from '@/lib/gemini-multi';
+import { hasGeminiKeys } from '@/lib/gemini-multi';
+import { generateWith3StepFallback } from '@/lib/llm-chain';
 
 export interface CodeMixWord {
   word: string;
@@ -179,14 +180,14 @@ function validateUpgrade(
 
   const english = asString(parsed.english);
   const plain = stripBold(english);
-  const meaning = asString(parsed.meaning_vi);
-  const wow = asString(parsed.wow_note_vi);
+  const meaning = cleanVi(asString(parsed.meaning_vi), 800);
+  const wow = cleanVi(asString(parsed.wow_note_vi), 220);
   const wordsRaw = Array.isArray(parsed.words) ? parsed.words : [];
 
   if (plain.length < 20) hard.push('english_too_short');
   if (meaning.trim().length < 8) hard.push('meaning_vi_empty');
 
-  const viMarkdown = (s: string) => /\*\*|#{1,6}\s|```/.test(s);
+  const viMarkdown = (s: string) => /#{1,6}\s|```/.test(s);
   if (viMarkdown(meaning) || viMarkdown(wow)) hard.push('vi_markdown');
 
   // Adv jammed before common nouns (classic POS fail)
@@ -366,22 +367,12 @@ async function callModel(
   prompt: string,
   preferGemini: boolean
 ): Promise<{ rawText: string; providerNote: string }> {
-  if (preferGemini) {
-    try {
-      const rawText = await geminiGenerate(prompt, {
-        json: true,
-        temperature: 0.22,
-      });
-      return { rawText, providerNote: `gemini:${resolveGeminiModel()}` };
-    } catch (gemErr: unknown) {
-      const gmsg = gemErr instanceof Error ? gemErr.message : String(gemErr);
-      console.warn(`${LOG} Gemini fail → Zhipu: ${gmsg.slice(0, 160)}`);
-      const rawText = await getRouter().generate(prompt, 'smart', true);
-      return { rawText, providerNote: 'zhipu-fallback' };
-    }
-  }
-  const rawText = await getRouter().generate(prompt, 'smart', true);
-  return { rawText, providerNote: 'zhipu' };
+  const { text: rawText, provider: providerNote } = await generateWith3StepFallback(prompt, {
+    preferGemini,
+    jsonMode: true,
+    temperature: 0.22,
+  });
+  return { rawText, providerNote };
 }
 
 export async function upgradeCodeMixToEnglish(

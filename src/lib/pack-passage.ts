@@ -10,7 +10,8 @@ import {
   getPackReadingLevel,
   type PackReadingLevel,
 } from '@/lib/pack-levels';
-import { geminiGenerate, hasGeminiKeys, resolveGeminiModel } from '@/lib/gemini-multi';
+import { hasGeminiKeys } from '@/lib/gemini-multi';
+import { generateWith3StepFallback } from '@/lib/llm-chain';
 
 export interface PackWord {
   word: string;
@@ -523,12 +524,6 @@ export async function generatePackPassage(
   const minAcceptWords = Math.floor(readingLevel.minWords * 0.9);
   const maxAttempts = 3;
   const preferGemini = opts.preferGemini ?? hasGeminiKeys();
-  // Lazy: chỉ init Zhipu router khi cần
-  let router: ReturnType<typeof getRouter> | null = null;
-  const getZhipuRouter = () => {
-    if (!router) router = getRouter();
-    return router;
-  };
 
   let attempts = 0;
   let lastError: Error | null = null;
@@ -536,7 +531,7 @@ export async function generatePackPassage(
   let expandLength = false;
   let prevWordCount: number | undefined;
   let best: PackPassageResult | null = null;
-  let usedProvider = preferGemini ? `gemini:${resolveGeminiModel()}` : 'zhipu';
+  let usedProvider = preferGemini ? 'gemini' : 'zhipu';
 
   while (attempts < maxAttempts) {
     attempts += 1;
@@ -550,21 +545,12 @@ export async function generatePackPassage(
         prevWordCount,
       });
 
-      let rawText: string;
-      if (preferGemini && hasGeminiKeys()) {
-        try {
-          rawText = await geminiGenerate(prompt, { json: true, temperature: 0.35 });
-          usedProvider = `gemini:${resolveGeminiModel()}`;
-        } catch (gemErr: unknown) {
-          const gmsg = gemErr instanceof Error ? gemErr.message : String(gemErr);
-          console.warn(`[PackPassage] Gemini pool fail → Zhipu: ${gmsg.slice(0, 160)}`);
-          rawText = await getZhipuRouter().generate(prompt, 'smart', true);
-          usedProvider = 'zhipu-fallback';
-        }
-      } else {
-        rawText = await getZhipuRouter().generate(prompt, 'smart', true);
-        usedProvider = 'zhipu';
-      }
+      const { text: rawText, provider } = await generateWith3StepFallback(prompt, {
+        preferGemini,
+        jsonMode: true,
+        temperature: 0.35,
+      });
+      usedProvider = provider;
 
       const parsed = parseJsonObject(rawText);
       const result = normalizeResult(parsed, targets, attempts, theme, readingLevel);

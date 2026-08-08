@@ -19,6 +19,7 @@ import {
   FREE_CODEMIX_UPGRADE_DAILY_LIMIT,
   type Plan,
 } from '@/lib/entitlement';
+import { hasGeminiKeys } from '@/lib/gemini-multi';
 
 export const maxDuration = 60;
 
@@ -166,9 +167,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       counted: plan === 'free',
     };
 
-    // Pro → Gemini (nhanh/chất hơn); Free → Zhipu
-    const isPro = plan !== 'free';
-    const preferGemini = isPro;
+    const preferGemini = hasGeminiKeys();
 
     console.log(
       `[CodeMixUpgrade] plan=${plan} gemini=${preferGemini} words=${words.length} level=${level}`,
