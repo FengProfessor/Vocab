@@ -33,7 +33,7 @@ import {
 import {
   PACK_PASSAGE_MAX_WORDS,
   PACK_PASSAGE_MIN_WORDS,
-} from '@/lib/pack-passage';
+} from '@/lib/pack-passage-constants';
 
 interface PoolWord {
   id?: string;

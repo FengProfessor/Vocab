@@ -17,8 +17,8 @@ export interface CodeMixWord {
 }
 
 /** Số từ target / lượt luyện (bulk chọn). */
-export const CODEMIX_MIN_WORDS = 1;
-export const CODEMIX_MAX_WORDS = 20;
+import { CODEMIX_MIN_WORDS, CODEMIX_MAX_WORDS } from './codemix-constants';
+export { CODEMIX_MIN_WORDS, CODEMIX_MAX_WORDS };
 
 export interface WordWowExplain {
   word: string;

@@ -22,7 +22,7 @@ import { FREE_CODEMIX_UPGRADE_DAILY_LIMIT } from '@/lib/entitlement';
 import {
   CODEMIX_MAX_WORDS,
   CODEMIX_MIN_WORDS,
-} from '@/lib/codemix-upgrade';
+} from '@/lib/codemix-constants';
 import { StudentShell } from '@/components/student/StudentShell';
 
 type Phase = 'pick' | 'write' | 'upgrade';

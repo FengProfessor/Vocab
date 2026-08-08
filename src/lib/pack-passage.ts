@@ -63,8 +63,10 @@ export interface PackPassageResult {
   };
 }
 
-export const PACK_PASSAGE_MIN_WORDS = 5;
-export const PACK_PASSAGE_MAX_WORDS = 25;
+import { PACK_PASSAGE_MIN_WORDS, PACK_PASSAGE_MAX_WORDS } from './pack-passage-constants';
+
+export { PACK_PASSAGE_MIN_WORDS, PACK_PASSAGE_MAX_WORDS };
+
 const MIN_WORDS = PACK_PASSAGE_MIN_WORDS;
 const MAX_WORDS = PACK_PASSAGE_MAX_WORDS;
 
