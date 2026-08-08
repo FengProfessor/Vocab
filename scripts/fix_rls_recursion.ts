@@ -59,22 +59,22 @@ async function fixRls() {
 
   // Actually the above still might recurse. Let's use the foolproof "no-loop" way:
   // Use a function with SECURITY DEFINER to check if a user is a teacher of a classroom.
-  const bypassSql = \`
+  const bypassSql = `
     create or replace function public.is_classroom_teacher(cls_id uuid)
-    returns boolean as \$\$
+    returns boolean as $$
       select exists (
         select 1 from public.classrooms
         where id = cls_id and teacher_id = auth.uid()
       );
-    \$\$ language sql security definer;
+    $$ language sql security definer;
 
     create or replace function public.is_classroom_student(cls_id uuid)
-    returns boolean as \$\$
+    returns boolean as $$
       select exists (
         select 1 from public.enrollments
         where classroom_id = cls_id and student_id = auth.uid()
       );
-    \$\$ language sql security definer;
+    $$ language sql security definer;
 
     -- Update policies to use these functions
     drop policy if exists "Students can view joined classrooms" on public.classrooms;
@@ -84,7 +84,7 @@ async function fixRls() {
     drop policy if exists "Teachers view their class enrollments" on public.enrollments;
     create policy "Teachers view their class enrollments" on public.enrollments 
     for select using (is_classroom_teacher(classroom_id));
-  \`;
+  `;
 
   console.log('Please execute the following SQL in your Supabase SQL Editor to fix the infinite recursion:');
   console.log(bypassSql);

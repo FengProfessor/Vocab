@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
 import { createServiceClient } from '@/lib/supabase';
 import { sendPushNotificationToUser } from '@/lib/notifications';
 
@@ -11,10 +10,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
-    const supabaseAuth = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    );
+    const supabaseAuth = createServiceClient();
     const { data: { user }, error: authError } = await supabaseAuth.auth.getUser(token);
     if (authError || !user) {
       return NextResponse.json({ success: false, error: 'Invalid token' }, { status: 401 });
