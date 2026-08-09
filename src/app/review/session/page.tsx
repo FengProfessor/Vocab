@@ -165,20 +165,24 @@ function SessionContent() {
   useEffect(() => {
     const init = async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) {
+        // getSession() trả cả user + token → tránh gọi getUser() riêng + 2× getSession() trong authFetch
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session?.user) {
           router.push('/auth');
           return;
         }
+        const user = session.user;
+        const token = session.access_token;
         setUserId(user.id);
 
         const base = classroomId
           ? `/api/words?classroomId=${classroomId}`
           : `/api/words`;
         // Pool nhẹ (80 từ) cho distractor MCQ; queue due cap SESSION_CAP
+        // Truyền token sẵn → authFetch không gọi getSession() lại (tiết kiệm ~400ms)
         const [allRes, dueRes] = await Promise.all([
-          authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=80`),
-          authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`),
+          authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=80`, {}, token),
+          authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {}, token),
         ]);
         const allJson = await allRes.json();
         const dueJson = await dueRes.json();

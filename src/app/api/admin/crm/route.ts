@@ -156,23 +156,27 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     // Words + quiz + SRS: paginate + order ổn định
+    // Parallelize: words chunks + quiz + SRS chạy đồng thời (trước: serial chunk → rồi quiz/srs)
     const classroomIds = classroomRows.map(c => c.id);
     const CHUNK_SIZE = 50;
-    const wordRows: WordRow[] = [];
+    const wordChunkPromises: Promise<WordRow[]>[] = [];
     for (let i = 0; i < classroomIds.length; i += CHUNK_SIZE) {
       const chunk = classroomIds.slice(i, i + CHUNK_SIZE);
-      const batch = await fetchAllPages<WordRow>((from, to) =>
-        supabase
-          .from('words')
-          .select('classroom_id, created_at')
-          .in('classroom_id', chunk)
-          .order('classroom_id')
-          .range(from, to) as PromiseLike<{ data: WordRow[] | null; error: { message: string } | null }>,
+      wordChunkPromises.push(
+        fetchAllPages<WordRow>((from, to) =>
+          supabase
+            .from('words')
+            .select('classroom_id, created_at')
+            .in('classroom_id', chunk)
+            .order('classroom_id')
+            .range(from, to) as PromiseLike<{ data: WordRow[] | null; error: { message: string } | null }>,
+        ),
       );
-      wordRows.push(...batch);
     }
 
-    const [quizRows, srsRows] = await Promise.all([
+    // Chạy tất cả song song: N word chunks + quiz + SRS
+    const [wordChunkResults, quizRows, srsRows] = await Promise.all([
+      Promise.all(wordChunkPromises),
       fetchAllPages<QuizRow>((from, to) =>
         supabase
           .from('quiz_results')
@@ -188,6 +192,7 @@ export async function GET(req: Request): Promise<NextResponse> {
           .range(from, to) as PromiseLike<{ data: SrsRow[] | null; error: { message: string } | null }>,
       ),
     ]);
+    const wordRows = wordChunkResults.flat();
 
     const wordCountByUser = new Map<string, number>();
     const lastActiveByUser = new Map<string, number>();

@@ -7,6 +7,11 @@ import { ChevronLeft, Loader2 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { HUB_MODES } from '@/lib/review-modes';
 import { authFetch } from '@/lib/auth-fetch';
+import { supabase } from '@/lib/supabase';
+import {
+  readWordSummaryCache,
+  writeWordSummaryCache,
+} from '@/lib/word-summary-cache';
 
 function ReviewHubContent() {
   const searchParams = useSearchParams();
@@ -15,15 +20,36 @@ function ReviewHubContent() {
 
   useEffect(() => {
     let cancelled = false;
+
+    // Paint từ cache ngay (stale-while-revalidate) — không chờ network
     (async () => {
       try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session?.user) return;
+        const token = session.access_token;
+
+        // Stale paint: hiện số cache cũ trước khi network trả về
+        const cached = readWordSummaryCache(session.user.id);
+        if (cached && !cancelled) {
+          setDueCount(cached.reviewDueCount ?? 0);
+        }
+
         const url = classParam
           ? `/api/words?classroomId=${classParam}&filter=review`
           : `/api/words?filter=review`;
-        const res = await authFetch(url);
+        const res = await authFetch(url, {}, token);
         const data = await res.json();
         if (!cancelled && data.success && Array.isArray(data.data)) {
-          setDueCount(data.data.length);
+          const count = data.data.length;
+          setDueCount(count);
+          // Ghi cache cho lần sau paint ngay
+          writeWordSummaryCache(session.user.id, {
+            total: cached?.total ?? count,
+            newCount: cached?.newCount ?? 0,
+            reviewDueCount: count,
+            dueCount: cached?.dueCount ?? count,
+            classroomId: cached?.classroomId ?? null,
+          });
         } else if (!cancelled) {
           setDueCount(0);
         }

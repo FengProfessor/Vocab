@@ -10,7 +10,6 @@ import {
   CreditCard, TrendingUp, Building2, Brain, RotateCcw,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
-import { authFetch } from '@/lib/auth-fetch';
 import { formatVND } from '@/lib/billing';
 
 const CrmSignupChart = dynamic(
@@ -116,6 +115,8 @@ const shiftDateKey = (key: string, days: number): string => {
   return dt.toISOString().slice(0, 10);
 };
 
+const TABLE_PAGE = 50; // Progressive rendering — tránh paint 500+ rows cùng lúc
+
 export default function CrmDashboard() {
   const router = useRouter();
   const [data, setData] = useState<CrmData | null>(null);
@@ -131,14 +132,19 @@ export default function CrmDashboard() {
   const [reviewFilter, setReviewFilter] = useState<ReviewFilter>('');
   const [reviewDate, setReviewDate] = useState(''); // YYYY-MM-DD — ôn cuối đúng ngày
   const [selected, setSelected] = useState<Customer | null>(null);
+  /** Progressive table: chỉ render TABLE_PAGE rows đầu, bấm "Xem thêm" để mở rộng */
+  const [visibleCount, setVisibleCount] = useState(TABLE_PAGE);
 
   const loadData = useCallback(async () => {
     setIsLoading(true);
     setError('');
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) { router.push('/auth'); return; }
-      const res = await authFetch('/api/admin/crm');
+      // getSession() → trả cả user + token, tránh gọi getUser() riêng + getSession() trong authFetch
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.user) { router.push('/auth'); return; }
+      const res = await fetch('/api/admin/crm', {
+        headers: { Authorization: `Bearer ${session.access_token}` },
+      });
       const json = await res.json().catch(() => null);
 
       if (res.status === 403) {
@@ -214,6 +220,8 @@ export default function CrmDashboard() {
         return tb - ta;
       });
     }
+    // Reset visible rows khi filter thay đổi
+    setVisibleCount(TABLE_PAGE);
     return list;
   }, [data, query, planFilter, lifeFilter, sourceFilter, upsellHot, reviewFilter, reviewDate]);
 
@@ -521,7 +529,7 @@ export default function CrmDashboard() {
               <tbody className="divide-y">
                 {filtered.length === 0 ? (
                   <tr><td colSpan={12} className="px-5 py-10 text-center text-muted-foreground">Không có khách phù hợp.</td></tr>
-                ) : filtered.map(c => (
+                ) : filtered.slice(0, visibleCount).map(c => (
                   <tr key={c.id} onClick={() => setSelected(c)}
                     className={`hover:bg-muted/20 transition-colors cursor-pointer ${
                       c.plan === 'free' && c.wordCount >= 150 ? 'bg-orange-500/[0.04]' : ''
@@ -571,6 +579,17 @@ export default function CrmDashboard() {
                 ))}
               </tbody>
             </table>
+            {filtered.length > visibleCount && (
+              <div className="flex items-center justify-center border-t px-4 py-3">
+                <button
+                  type="button"
+                  onClick={() => setVisibleCount((v) => v + TABLE_PAGE)}
+                  className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+                >
+                  Xem thêm {Math.min(TABLE_PAGE, filtered.length - visibleCount)} người (đang hiện {visibleCount}/{filtered.length})
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </main>

@@ -703,28 +703,33 @@ export async function GET(req: Request): Promise<NextResponse> {
       const remaining = reviewCap - dueIds.length;
       let newWordIds: string[] = [];
       if (remaining > 0) {
-        // Lấy tất cả word_id mà user ĐÃ có srs_progress (kể cả review_count=0)
-        const { data: allSrsRows } = await supabase
-          .from('srs_progress')
-          .select('word_id')
-          .eq('user_id', userId)
-          .limit(10000);
-        const knownIds = new Set((allSrsRows || []).map((r) => r.word_id as string));
-        // Thêm dueIds vào set (phòng trùng)
-        for (const id of dueIds) knownIds.add(id);
-
-        // Lấy từ trong classroom, chưa có SRS, mới nhất trước
+        // Lấy từ trong classroom, mới nhất trước — chỉ lấy dư gấp 3 limit (nhẹ)
+        const dueIdSet = new Set(dueIds);
         const { data: candidateRows } = await supabase
           .from('words')
           .select('id')
           .eq('classroom_id', classroomId)
           .order('created_at', { ascending: false })
-          .limit(remaining * 3); // lấy dư để lọc
+          .limit(remaining * 3);
 
-        newWordIds = (candidateRows || [])
+        // Lọc bỏ các từ đã due (đã có ở trên)
+        const candidateIds = (candidateRows || [])
           .map((r) => r.id as string)
-          .filter((id) => !knownIds.has(id))
-          .slice(0, remaining);
+          .filter((id) => !dueIdSet.has(id));
+
+        if (candidateIds.length > 0) {
+          // Chỉ check srs_progress cho candidate nhỏ (~30-75 rows) thay vì scan 10k
+          const { data: hasSrsRows } = await supabase
+            .from('srs_progress')
+            .select('word_id')
+            .eq('user_id', userId)
+            .in('word_id', candidateIds);
+          const hasSrsSet = new Set((hasSrsRows || []).map((r) => r.word_id as string));
+
+          newWordIds = candidateIds
+            .filter((id) => !hasSrsSet.has(id))
+            .slice(0, remaining);
+        }
       }
 
       const allIds = [...dueIds, ...newWordIds];

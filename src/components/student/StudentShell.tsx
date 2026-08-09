@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   ArrowDownToLine,
@@ -15,9 +16,20 @@ import {
 } from 'lucide-react';
 import { NotificationBell } from '@/components/NotificationBell';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
-import { FreeQuotaBanner } from '@/components/upsell/FreeQuotaBanner';
-import { CohortProPromoBanner } from '@/components/upsell/CohortProPromoBanner';
-import { UpgradeGiftModal } from '@/components/campaign/UpgradeGiftModal';
+
+// Dynamic imports — marketing/upsell không cần ngay cho initial render
+const FreeQuotaBanner = dynamic(
+  () => import('@/components/upsell/FreeQuotaBanner').then((m) => m.FreeQuotaBanner),
+  { ssr: false },
+);
+const CohortProPromoBanner = dynamic(
+  () => import('@/components/upsell/CohortProPromoBanner').then((m) => m.CohortProPromoBanner),
+  { ssr: false },
+);
+const UpgradeGiftModal = dynamic(
+  () => import('@/components/campaign/UpgradeGiftModal').then((m) => m.UpgradeGiftModal),
+  { ssr: false },
+);
 
 import { useGamification } from '@/hooks/useGamification';
 import { supabase, type Profile } from '@/lib/supabase';
