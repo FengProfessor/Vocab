@@ -26,14 +26,24 @@ import path from 'path';
 let prebuiltCache: Record<string, any> | null = null;
 function getPrebuiltPassages(): Record<string, any> {
   if (prebuiltCache) return prebuiltCache;
-  try {
-    const filePath = path.join(process.cwd(), 'src', 'data', 'vocab', 'prebuilt-pack-passages.json');
-    if (fs.existsSync(filePath)) {
-      prebuiltCache = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      return prebuiltCache || {};
+  const candidates = [
+    path.join(process.cwd(), 'src', 'data', 'vocab', 'prebuilt-pack-passages.json'),
+    path.join(process.cwd(), 'data', 'vocab', 'prebuilt-pack-passages.json'),
+    path.resolve(__dirname, '../../../../../../src/data/vocab/prebuilt-pack-passages.json'),
+    path.resolve(__dirname, '../../../../../src/data/vocab/prebuilt-pack-passages.json'),
+    path.resolve(__dirname, '../../../../src/data/vocab/prebuilt-pack-passages.json'),
+  ];
+  for (const filePath of candidates) {
+    try {
+      if (fs.existsSync(filePath)) {
+        const content = fs.readFileSync(filePath, 'utf8');
+        prebuiltCache = JSON.parse(content);
+        console.log(`[PackPassage] Loaded prebuilt passages from: ${filePath}`);
+        return prebuiltCache || {};
+      }
+    } catch (e) {
+      console.warn(`[PackPassage] Path check failed for ${filePath}:`, e);
     }
-  } catch (e) {
-    console.error('[PackPassage] Failed to load prebuilt passages:', e);
   }
   return {};
 }

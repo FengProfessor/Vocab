@@ -35,6 +35,8 @@ jobs:
             if [ -d ".next/standalone" ]; then
               cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
               cp -r public .next/standalone/ 2>/dev/null || true
+              mkdir -p .next/standalone/src 2>/dev/null || true
+              cp -r src/data .next/standalone/src/ 2>/dev/null || true
             fi
             
             echo "🔄 Restarting lingopro.service..."
