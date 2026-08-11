@@ -671,43 +671,56 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         </CardContent>
       </Card>
 
-      <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
-        <Button
-          variant="outline"
-          className="flex-1 h-14 rounded-2xl font-bold border-2"
-          onClick={async () => {
-            const roadmapStep = searchParams.get('roadmapStep');
-            // Retry ghi step nếu còn remainingNew=0 và chưa chắc đã ghi
-            if (roadmapStep && remainingNew === 0) {
-              const result = await completeRoadmapStep(roadmapStep);
-              if (result) toast.success(`+${result.xpAwarded} XP lộ trình`);
-              else if (getLastRoadmapStepError()) toast.error(getLastRoadmapStepError()!);
-            }
-            router.push(roadmapStep ? '/journey' : '/student');
-          }}
-        >
-          <ChevronLeft className="mr-2 h-5 w-5" /> {searchParams.get('roadmapStep') ? 'Về lộ trình' : 'Dashboard'}
-        </Button>
-        {remainingNew > 0 ? (
-          <Button className="flex-1 h-14 rounded-2xl bg-indigo-600 text-white font-bold border-b-4 border-indigo-800 active:translate-y-0.5 active:border-b-0" onClick={() => window.location.reload()}>
-            <RotateCcw className="mr-2 h-5 w-5" /> Học tiếp ({remainingNew})
-          </Button>
-        ) : (
+      <div className="flex flex-col gap-3 w-full max-w-sm">
+        {batch.length > 0 && (
           <Button
-            className="flex-1 h-14 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
-            onClick={async () => {
-              const roadmapStep = searchParams.get('roadmapStep');
-              if (roadmapStep) {
-                await completeRoadmapStep(roadmapStep);
-                router.push('/journey');
-                return;
-              }
-              router.push(classroomId ? `/flashcard?class=${classroomId}` : '/flashcard');
+            className="w-full h-14 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-black text-base shadow-lg shadow-teal-200 border-b-4 border-teal-800 active:translate-y-0.5 active:border-b-0 flex items-center justify-center gap-2"
+            onClick={() => {
+              const wordsStr = batch.map((w) => w.word).join(',');
+              router.push(`/practice/pack-reading?words=${encodeURIComponent(wordsStr)}`);
             }}
           >
-            <GraduationCap className="mr-2 h-5 w-5" /> {searchParams.get('roadmapStep') ? 'Tiếp lộ trình' : 'Ôn tập'}
+            <BookOpen className="h-5 w-5" /> 📖 Luyện đọc & Đục lỗ {batch.length} từ vừa học
           </Button>
         )}
+
+        <div className="flex flex-col sm:flex-row gap-3 w-full">
+          <Button
+            variant="outline"
+            className="flex-1 h-12 rounded-2xl font-bold border-2"
+            onClick={async () => {
+              const roadmapStep = searchParams.get('roadmapStep');
+              if (roadmapStep && remainingNew === 0) {
+                const result = await completeRoadmapStep(roadmapStep);
+                if (result) toast.success(`+${result.xpAwarded} XP lộ trình`);
+                else if (getLastRoadmapStepError()) toast.error(getLastRoadmapStepError()!);
+              }
+              router.push(roadmapStep ? '/journey' : '/student');
+            }}
+          >
+            <ChevronLeft className="mr-2 h-4 w-4" /> {searchParams.get('roadmapStep') ? 'Về lộ trình' : 'Dashboard'}
+          </Button>
+          {remainingNew > 0 ? (
+            <Button className="flex-1 h-12 rounded-2xl bg-indigo-600 text-white font-bold border-b-4 border-indigo-800 active:translate-y-0.5 active:border-b-0" onClick={() => window.location.reload()}>
+              <RotateCcw className="mr-2 h-4 w-4" /> Học tiếp ({remainingNew})
+            </Button>
+          ) : (
+            <Button
+              className="flex-1 h-12 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
+              onClick={async () => {
+                const roadmapStep = searchParams.get('roadmapStep');
+                if (roadmapStep) {
+                  await completeRoadmapStep(roadmapStep);
+                  router.push('/journey');
+                  return;
+                }
+                router.push(classroomId ? `/flashcard?class=${classroomId}` : '/flashcard');
+              }}
+            >
+              <GraduationCap className="mr-2 h-4 w-4" /> {searchParams.get('roadmapStep') ? 'Tiếp lộ trình' : 'Ôn tập'}
+            </Button>
+          )}
+        </div>
       </div>
     </div>
   );

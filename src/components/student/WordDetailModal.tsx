@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
-import type { Word, SRSProgress } from '@/lib/supabase';
+import type { Word, SRSProgress, RichCollocationEntry, WordFamilyEntry } from '@/lib/supabase';
 import { stabilityToLevel } from '@/lib/srs';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -18,6 +18,9 @@ import {
   Repeat,
   Activity,
   ImageOff,
+  GitFork,
+  Link2,
+  Users,
 } from 'lucide-react';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { resolveImageSrc } from '@/lib/media-url';
@@ -203,8 +206,32 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
   const dotCount = Math.min(reviewCount, 5);
   const dots = Array.from({ length: 5 }, (_, i) => i < dotCount);
 
-  // Lấy meanings từ dictionary_data nếu có
-  const meanings = word?.dictionary_data?.results?.[0]?.meanings || [];
+  // Lấy dữ liệu nâng cao từ dictionary_data nếu có
+  const dictData = word?.dictionary_data;
+  const meanings = dictData?.results?.[0]?.meanings || [];
+  const morphology = dictData?.morphology;
+
+  const rawColls = dictData?.collocations || [];
+  const meaningsColls = (dictData?.results?.flatMap(r => r.meanings?.flatMap(m => m.collocations || []) || []) || []);
+  const allColls = [...rawColls, ...meaningsColls];
+  const collocationsMap = new Map<string, RichCollocationEntry>();
+  for (const c of allColls) {
+    if (typeof c === 'string' && c.trim()) {
+      if (!collocationsMap.has(c.trim().toLowerCase())) collocationsMap.set(c.trim().toLowerCase(), { phrase: c.trim() });
+    } else if (c && typeof c === 'object' && c.phrase) {
+      if (!collocationsMap.has(c.phrase.trim().toLowerCase())) collocationsMap.set(c.phrase.trim().toLowerCase(), c);
+    }
+  }
+  const collocations = Array.from(collocationsMap.values());
+
+  const rawFamily = dictData?.familyWords || [];
+  const familyWords: WordFamilyEntry[] = rawFamily.map(item => {
+    if (typeof item === 'string') {
+      const m = item.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
+      return m ? { word: m[1].trim(), pos: m[2].trim() } : { word: item.trim() };
+    }
+    return item;
+  }).filter(f => f.word);
 
   return (
     <div
@@ -436,6 +463,83 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                     </div>
                   </div>
                 )}
+              </div>
+            )}
+
+            {/* Morphology / Cấu tạo từ */}
+            {morphology && (morphology.rootWord || (morphology.prefixes?.length ?? 0) > 0 || (morphology.suffixes?.length ?? 0) > 0) && (
+              <div className="px-6 pb-4">
+                <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 space-y-1.5 text-xs">
+                  <div className="flex items-center gap-1.5 font-black uppercase text-[10px] text-amber-700 dark:text-amber-400">
+                    <GitFork className="h-3.5 w-3.5" />
+                    <span>Cấu tạo từ (Morphology)</span>
+                  </div>
+                  {morphology.rootWord && (
+                    <p className="text-slate-700 dark:text-slate-300">
+                      <span className="font-semibold text-muted-foreground">Từ gốc: </span>
+                      <strong className="text-primary">{morphology.rootWord}</strong>
+                      {morphology.rootMeaning && <span className="text-muted-foreground ml-1">({morphology.rootMeaning})</span>}
+                    </p>
+                  )}
+                  {(morphology.prefixes?.length ?? 0) > 0 && (
+                    <p className="text-slate-700 dark:text-slate-300">
+                      <span className="font-semibold text-muted-foreground">Tiền tố: </span>
+                      {morphology.prefixes!.map((p, i) => (
+                        <span key={i} className="mr-2 inline-block">
+                          <code className="bg-white/60 dark:bg-black/40 px-1 rounded text-[10px]">{p.affix}</code> {p.meaning_vi ? `(${p.meaning_vi})` : ''}
+                        </span>
+                      ))}
+                    </p>
+                  )}
+                  {(morphology.suffixes?.length ?? 0) > 0 && (
+                    <p className="text-slate-700 dark:text-slate-300">
+                      <span className="font-semibold text-muted-foreground">Hậu tố: </span>
+                      {morphology.suffixes!.map((s, i) => (
+                        <span key={i} className="mr-2 inline-block">
+                          <code className="bg-white/60 dark:bg-black/40 px-1 rounded text-[10px]">{s.affix}</code> {s.meaning_vi ? `(${s.meaning_vi})` : ''}
+                        </span>
+                      ))}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Collocations */}
+            {collocations.length > 0 && (
+              <div className="px-6 pb-4 space-y-1.5">
+                <h4 className="text-[10px] font-black uppercase text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
+                  <Link2 className="h-3 w-3" /> Collocations (Cụm từ đi kèm)
+                </h4>
+                <div className="space-y-1">
+                  {collocations.slice(0, 4).map((col, i) => (
+                    <div key={i} className="bg-indigo-500/5 border border-indigo-500/20 rounded-lg p-2 text-xs flex items-center justify-between">
+                      <div>
+                        <span className="font-bold text-slate-800 dark:text-slate-200">{col.phrase}</span>
+                        {col.type && <span className="ml-1.5 text-[9px] uppercase font-bold text-indigo-500">[{col.type}]</span>}
+                        {col.meaning_vi && <p className="text-[11px] text-muted-foreground">{col.meaning_vi}</p>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Word Family */}
+            {familyWords.length > 0 && (
+              <div className="px-6 pb-4 space-y-1.5">
+                <h4 className="text-[10px] font-black uppercase text-sky-600 dark:text-sky-400 flex items-center gap-1">
+                  <Users className="h-3 w-3" /> Họ từ vựng (Word Family)
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {familyWords.map((fw, i) => (
+                    <span key={i} className="text-xs bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 px-2 py-1 rounded-md flex items-center gap-1">
+                      <strong className="font-semibold">{fw.word}</strong>
+                      {fw.pos && <span className="text-[10px] italic opacity-80">({fw.pos})</span>}
+                      {fw.meaning && <span className="text-[11px] opacity-90">: {fw.meaning}</span>}
+                    </span>
+                  ))}
+                </div>
               </div>
             )}
 

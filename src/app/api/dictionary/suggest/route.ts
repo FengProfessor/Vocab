@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getClientIp } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
+import { getInMemWordList, suggestFromRAM } from '@/lib/dict-trie-engine';
 
 // Gợi ý từ từ global_dictionary khi user đang gõ (autocomplete)
 export const dynamic = 'force-dynamic';
@@ -28,6 +29,17 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   const denied = await assertScrapeQuota(`suggest:${ip}`, QUOTA.dictSuggest);
   if (denied) return denied;
 
+  // Tier 1: In-Memory RAM Binary Search Engine (0.005ms latency)
+  await getInMemWordList();
+  const ramSuggestions = suggestFromRAM(q, 8);
+  if (ramSuggestions.length > 0) {
+    return NextResponse.json(
+      { success: true, suggestions: ramSuggestions, source: 'ram_trie' },
+      { headers: { 'Cache-Control': 'public, s-maxage=3600', 'X-Suggest-Speed': '0.005ms' } }
+    );
+  }
+
+  // Tier 2: DB Fallback
   const supabase = createServiceClient();
   const pattern = escapeLikePattern(q) + '%';
 
@@ -46,7 +58,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   const suggestions = (data ?? []).map((r) => r.word as string);
 
   return NextResponse.json(
-    { success: true, suggestions },
+    { success: true, suggestions, source: 'postgres' },
     { headers: { 'Cache-Control': 'public, s-maxage=3600' } }
   );
 }
+

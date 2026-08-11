@@ -300,7 +300,7 @@ QUESTION RULES:
 2. GROUNDED ONLY: every fact in question and answer MUST appear in the passage.
 3. Do NOT invent days/times/places not in the passage.
 4. "answer" = exact copy of one option string (never just a letter).
-5. "explain": 1 short, friendly, and encouraging Vietnamese sentence quoting the passage (e.g., "Chính xác! Trong bài có nói: '...' nghĩa là...").
+5. "explain": Viết 2-3 câu giải thích chi tiết, tự nhiên bằng tiếng Việt. Phân tích sâu ngữ cảnh và nghĩa của từ vựng để học sinh hiểu bản chất TẠI SAO đáp án đó đúng. KHÔNG dùng các cụm từ khen ngợi công nghiệp/rập khuôn ở đầu câu (TUYỆT ĐỐI CẤM dùng: "Chính xác!", "Đúng rồi!", "Tuyệt vời!"). Hãy giải thích như một gia sư chuyên môn sâu (VD: "Ở đoạn 2, cụm từ... được dùng để chỉ..., qua đó ta thấy...").
 
 CLOZE RULES:
 1. Rewrite the passage replacing exactly ${numCloze} target words with {{0}}, {{1}}, etc.
@@ -315,6 +315,7 @@ Return ONLY valid JSON (no markdown fence):
 {
   "title": "...",
   "passage": "... with **target** words ...",
+  "translation": "Bản dịch toàn bộ đoạn văn sang tiếng Việt một cách tự nhiên và truyền cảm...",
   "level": "A2",
   "usedWords": ["word1", "word2"],
   "questions": [

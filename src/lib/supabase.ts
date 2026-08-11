@@ -152,13 +152,32 @@ export interface Word {
   srsLevel?: number;
 }
 
+export interface RichCollocationEntry {
+  phrase: string;
+  meaning_vi?: string;
+  type?: string; // e.g. 'v+n', 'adj+n', 'prep+n', 'phrasal_verb'
+  example?: string;
+}
+
+export interface MorphologyAffix {
+  affix: string;
+  meaning_vi?: string;
+}
+
+export interface MorphologyData {
+  rootWord?: string;
+  rootMeaning?: string;
+  prefixes?: MorphologyAffix[];
+  suffixes?: MorphologyAffix[];
+}
+
 export interface DictionaryMeaning {
   pos?: string;
   definition?: string;
   example?: string;
   /** Sub VI của example (nếu có) */
   example_vi?: string;
-  collocations?: string[];
+  collocations?: (string | RichCollocationEntry)[];
 }
 
 /** Một từ trong word family (từ phái sinh) kèm nghĩa Việt. */
@@ -166,6 +185,8 @@ export interface WordFamilyEntry {
   word: string;
   pos?: string;
   meaning?: string;
+  ipa?: string;
+  example?: string;
 }
 
 export interface DictionaryData {
@@ -174,6 +195,8 @@ export interface DictionaryData {
   results?: { meanings?: DictionaryMeaning[] }[];
   /** Dạng cũ: string[] ("word (pos)"). Dạng mới: WordFamilyEntry[] (có nghĩa Việt). Reader phải chấp nhận cả hai. */
   familyWords?: (string | WordFamilyEntry)[];
+  collocations?: (string | RichCollocationEntry)[];
+  morphology?: MorphologyData;
   synonyms?: string[];
   antonyms?: string[];
   image_search_query?: string;

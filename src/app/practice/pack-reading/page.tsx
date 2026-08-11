@@ -8,6 +8,8 @@
 
 import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { resolvePack } from '@/lib/vocab-catalog';
 import {
   BookOpen,
   Check,
@@ -228,6 +230,11 @@ function renderClozeText(
 }
 
 function PackReadingInner() {
+  const searchParams = useSearchParams();
+  const paramPackId = searchParams.get('packId');
+  const paramWords = searchParams.get('words');
+  const paramTheme = searchParams.get('themeId');
+
   const { isPaid, plan, loading: planLoading } = usePlan();
   const [step, setStep] = useState<Step>(1);
   const [pool, setPool] = useState<PoolWord[]>([]);
@@ -256,6 +263,47 @@ function PackReadingInner() {
   const [qRevealed, setQRevealed] = useState(false);
   const [clozeAnswers, setClozeAnswers] = useState<Record<number, string>>({});
   const [clozeRevealed, setClozeRevealed] = useState(false);
+
+  // Tự động nhận dạng từ vựng từ URL query (packId / words / themeId)
+  useEffect(() => {
+    let wordList: string[] = [];
+    if (paramWords) {
+      wordList = paramWords.split(',').map((s) => s.trim()).filter(Boolean);
+    } else if (paramPackId) {
+      const resolved = resolvePack(paramPackId);
+      if (resolved && resolved.words) {
+        wordList = resolved.words;
+      }
+    }
+
+    if (wordList.length > 0) {
+      const customPool: PoolWord[] = wordList.map((w, idx) => ({
+        id: `custom-${idx}`,
+        word: w,
+        translation: w,
+        review_count: 1,
+        srsLevel: 1,
+        stability: 1,
+        isDue: false,
+        mastery: 50,
+        bucket: 'weak',
+      }));
+
+      setPool((prev) => {
+        const existingKeys = new Set(prev.map((p) => normalize(p.word)));
+        const newItems = customPool.filter((p) => !existingKeys.has(normalize(p.word)));
+        return [...prev, ...newItems];
+      });
+
+      setSelectedKeys(new Set(wordList.map((w) => normalize(w))));
+      setStep(2); // Tự động nhảy sang Bước 2 (Chọn chủ đề bài đọc)
+      setPoolSource('mine');
+
+      if (paramTheme) {
+        setThemeId(paramTheme);
+      }
+    }
+  }, [paramPackId, paramWords, paramTheme]);
 
   // Load chỉ từ ĐÃ HỌC + SRS bucket + lần đúng quiz (giống quiz / đặt câu)
   useEffect(() => {

@@ -43,6 +43,17 @@ const MODES = [
     sub: 'text-teal-700/75',
     arrow: 'text-teal-400',
   },
+  {
+    href: '/practice/daily-reading',
+    emoji: '🌅',
+    title: 'Bài đọc hàng ngày',
+    desc: 'Tự động tạo đêm qua · đọc + quiz + điền từ + từ mới',
+    ring: 'border-indigo-200 bg-indigo-50/70 hover:border-indigo-400 hover:bg-indigo-50',
+    badge: 'bg-indigo-600',
+    text: 'text-indigo-900',
+    sub: 'text-indigo-700/75',
+    arrow: 'text-indigo-400',
+  },
 ] as const;
 
 export default function PracticeHubPage() {

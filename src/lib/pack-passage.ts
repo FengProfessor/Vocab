@@ -272,15 +272,14 @@ UNIT / TITLE: "${sanitizeForPrompt(title, 100)}"
 Target words (${words.length}) — use the given sense when provided:
 ${lines}
 ${force}
-PASSAGE RULES (length is non-negotiable):
-1. **WORD COUNT is the #1 requirement:** the "passage" field MUST contain **${rl.minWords} to ${rl.maxWords} English words** (${rl.paragraphs}). 
-   - Under ${rl.minWords} words = FAILED output.
-   - Aim for the middle of the range (~${midWords} words).
-   - Expand with setting, sequence of events, simple dialogue, cause–effect — do not pad with repeated lists of the same words.
+PASSAGE RULES (vocabulary in context & clear simple grammar are priority #1):
+1. **WORD COUNT & GRAMMAR SIMPLICITY:** The "passage" field MUST contain **${rl.minWords} to ${rl.maxWords} English words** (${rl.paragraphs}).
+   - **KEEP GRAMMAR SIMPLE AND CLEAR:** Use short, direct SVO (Subject + Verb + Object) sentences. Avoid complex relative clauses, passive voice, or long nested phrases.
+   - The main goal is for Vietnamese learners to immediately understand HOW each target word is used in a clear, natural real-life context.
 2. Use at least 80% of target words naturally (prefer 100%).
 3. First occurrence of each used target word MUST be wrapped like **word** (base form as in the list when possible).
 4. Passage body: ENGLISH ONLY. No Vietnamese words, no Vietnamese glosses inside the passage.
-5. Do NOT invent wrong meanings; respect Vietnamese glosses for sense only.
+5. Make the context around each target word so clear that its meaning becomes self-evident.
 6. Stay inside the theme; title reflects ${theme.labelEn}.
 7. Before you finish JSON, silently count words in "passage". If below ${rl.minWords}, add another paragraph until you reach the range.
 

@@ -78,8 +78,7 @@ If it IS a real English word or phrase, return ONLY a valid JSON object with thi
         {
           "pos": "Từ loại (e.g. Danh từ, Động từ, Tính từ)",
           "definition": "Vietnamese meaning",
-          "example": "An English example sentence",
-          "collocations": ["collocation 1", "collocation 2"]
+          "example": "An English example sentence"
         }
       ]
     }
@@ -87,11 +86,20 @@ If it IS a real English word or phrase, return ONLY a valid JSON object with thi
   "synonyms": ["3-5 common English synonyms"],
   "antonyms": ["3-5 common English antonyms or empty array if none"],
   "familyWords": [
-    { "word": "base or derived form", "pos": "noun/verb/adjective/adverb", "meaning": "Vietnamese short meaning" }
-  ]
+    { "word": "derived form", "pos": "noun/verb/adjective/adverb", "meaning": "Vietnamese short meaning" }
+  ],
+  "collocations": [
+    { "phrase": "English collocation", "meaning_vi": "Vietnamese meaning", "type": "v+n / adj+n / prep+n / phrasal" }
+  ],
+  "morphology": {
+    "rootWord": "English root word (e.g. depend for independence)",
+    "rootMeaning": "Vietnamese meaning of root word",
+    "prefixes": [ { "affix": "prefix (e.g. in-)", "meaning_vi": "phủ định / không" } ],
+    "suffixes": [ { "affix": "suffix (e.g. -ence)", "meaning_vi": "danh từ chỉ tính chất" } ]
+  }
 }
-Include the 3 most common meanings. Always include both UK and US pronunciation entries in "pronunciations" — even if the IPA is identical, still return two separate objects with "region": "UK" and "region": "US".
-Include 3-5 synonyms, antonyms when natural (else []), and 2-5 word-family forms (e.g. happy/happiness/happily) with short Vietnamese meanings.
+Include the 3 most common meanings. Always include both UK and US pronunciation entries in "pronunciations".
+Include 3-5 synonyms, 2-5 word-family forms, 3-6 natural collocations with Vietnamese meanings, and morphological decomposition (root, prefixes, suffixes if applicable).
 Do not include markdown tags like \`\`\`json. Just the raw JSON.`;
 
     let text = (await getRouter().generate(prompt, 'normal', true)).trim();

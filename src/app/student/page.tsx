@@ -55,7 +55,53 @@ const MilestonePopup = dynamic(
 );
 import { UpgradeGiftModal } from '@/components/campaign/UpgradeGiftModal';
 
+/** Compact notification card: "You have a daily reading exercise!" */
+function DailyReadingCard() {
+  const [hasNew, setHasNew] = useState(false);
+  const [title, setTitle] = useState('');
+  const [wordCount, setWordCount] = useState(0);
 
+  useEffect(() => {
+    let cancelled = false;
+    authFetch('/api/practice/daily-reading')
+      .then((r) => r.json())
+      .then((json) => {
+        if (cancelled) return;
+        if (json?.success && json.hasNew && Array.isArray(json.exercises)) {
+          const unfinished = json.exercises.find(
+            (e: { completion?: { completedAt?: string } | null }) => !e.completion?.completedAt,
+          );
+          if (unfinished) {
+            setHasNew(true);
+            setTitle(unfinished.title || 'Bài đọc hàng ngày');
+            setWordCount(unfinished.sourceWords?.length || 0);
+          }
+        }
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
+  if (!hasNew) return null;
+
+  return (
+    <Link
+      href="/practice/daily-reading"
+      className="flex items-center gap-3 rounded-xl border border-indigo-200 bg-gradient-to-r from-indigo-50 to-white px-3 py-2.5 shadow-sm transition-all hover:border-indigo-300 hover:shadow-md active:scale-[0.99]"
+    >
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-lg text-white shadow-sm">
+        🌅
+      </span>
+      <div className="min-w-0 flex-1">
+        <p className="text-xs font-black text-indigo-900">Bài luyện đọc mới!</p>
+        <p className="mt-0.5 truncate text-[11px] text-indigo-700/80">
+          &ldquo;{title}&rdquo; · {wordCount} từ · Đọc + quiz + điền từ
+        </p>
+      </div>
+      <ArrowRight className="h-4 w-4 shrink-0 text-indigo-400" />
+    </Link>
+  );
+}
 
 
 interface ActiveVocabPack {
@@ -795,6 +841,9 @@ export default function StudentDashboard() {
 
           {/* Desktop banner; mobile = fixed popup trong component */}
           <EnableNotifications />
+
+          {/* Daily reading notification */}
+          <DailyReadingCard />
 
           {/* CTA chính: số Học / Ôn TO — ưu tiên visual mobile */}
           <div className="grid grid-cols-2 gap-2">

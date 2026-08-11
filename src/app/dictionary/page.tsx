@@ -3,12 +3,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
-import type { DictionaryData, DictionaryMeaning, WordFamilyEntry } from '@/lib/supabase';
+import type { DictionaryData, DictionaryMeaning, WordFamilyEntry, RichCollocationEntry, MorphologyData } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import {
-  Search, Loader2, Volume2, X, CheckCircle2
+  Search, Loader2, Volume2, X, CheckCircle2, Layers, GitFork, Link2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { StudentShell } from '@/components/student/StudentShell';
@@ -192,6 +192,23 @@ function normalizeFamilyWords(raw: DictionaryData['familyWords']): WordFamilyEnt
     }
     return item;
   }).filter(e => e.word);
+}
+
+/** Chuẩn hóa collocations (chuỗi hoặc object RichCollocationEntry) → RichCollocationEntry[]. */
+function normalizeCollocations(rawColls?: (string | RichCollocationEntry)[], meaningsColls?: (string | RichCollocationEntry)[]): RichCollocationEntry[] {
+  const combined = [...(rawColls || []), ...(meaningsColls || [])];
+  if (!combined.length) return [];
+  const map = new Map<string, RichCollocationEntry>();
+  for (const c of combined) {
+    if (typeof c === 'string') {
+      const phrase = c.trim();
+      if (phrase && !map.has(phrase.toLowerCase())) map.set(phrase.toLowerCase(), { phrase });
+    } else if (c && typeof c === 'object' && c.phrase) {
+      const phrase = c.phrase.trim();
+      if (phrase && !map.has(phrase.toLowerCase())) map.set(phrase.toLowerCase(), c);
+    }
+  }
+  return Array.from(map.values());
 }
 
 /** Bỏ slash bao ngoài — DB đôi khi lưu `/ˈ…/` trong khi UI bọc thêm `/{ipa}/` → //…// */
@@ -605,7 +622,7 @@ export default function DictionaryPage() {
       } catch {
         // AbortError hoặc network error — bỏ qua
       }
-    }, 400); // debounce dài hơn → bớt /api/dictionary/suggest (Vercel functions)
+    }, 150); // Debounce siêu tốc 150ms với In-Memory RAM Trie Engine (0.005ms latency)
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -695,6 +712,10 @@ export default function DictionaryPage() {
       }
     }
   }
+
+  const meaningsColls = allMeanings.flatMap(m => m.meaning.collocations || []);
+  const collocations = normalizeCollocations(result?.data.collocations, meaningsColls);
+  const morphology: MorphologyData | undefined = result?.data.morphology;
 
   const familyWords = normalizeFamilyWords(result?.data.familyWords);
   const hasPronunciations = (result?.data.pronunciations?.length ?? 0) > 0;
@@ -1149,6 +1170,95 @@ export default function DictionaryPage() {
                     </div>
                   </div>
                 )}
+              </div>
+            )}
+
+            {/* Morphology / Cấu tạo từ */}
+            {morphology && (morphology.rootWord || (morphology.prefixes?.length ?? 0) > 0 || (morphology.suffixes?.length ?? 0) > 0) && (
+              <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-3.5 space-y-2">
+                <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                  <GitFork className="h-4 w-4" />
+                  <span>Cấu tạo từ (Morphology)</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  {morphology.rootWord && (
+                    <div className="bg-background/80 rounded-lg p-2 border border-border/40">
+                      <span className="font-semibold text-muted-foreground">Từ gốc: </span>
+                      <button
+                        type="button"
+                        onClick={() => { setQuery(morphology.rootWord!); lookup(morphology.rootWord!); }}
+                        className="font-bold text-primary hover:underline"
+                      >
+                        {morphology.rootWord}
+                      </button>
+                      {morphology.rootMeaning && (
+                        <span className="text-muted-foreground ml-1">({morphology.rootMeaning})</span>
+                      )}
+                    </div>
+                  )}
+                  {(morphology.prefixes?.length ?? 0) > 0 && (
+                    <div className="bg-background/80 rounded-lg p-2 border border-border/40">
+                      <span className="font-semibold text-muted-foreground">Tiền tố: </span>
+                      {morphology.prefixes!.map((p, i) => (
+                        <span key={i} className="inline-block mr-2 font-medium text-foreground">
+                          <code className="bg-muted px-1 rounded text-[11px]">{p.affix}</code> {p.meaning_vi ? `(${p.meaning_vi})` : ''}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {(morphology.suffixes?.length ?? 0) > 0 && (
+                    <div className="bg-background/80 rounded-lg p-2 border border-border/40">
+                      <span className="font-semibold text-muted-foreground">Hậu tố: </span>
+                      {morphology.suffixes!.map((s, i) => (
+                        <span key={i} className="inline-block mr-2 font-medium text-foreground">
+                          <code className="bg-muted px-1 rounded text-[11px]">{s.affix}</code> {s.meaning_vi ? `(${s.meaning_vi})` : ''}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Collocations */}
+            {collocations.length > 0 && (
+              <div>
+                <div className="flex items-center gap-1.5 mb-2">
+                  <Link2 className="h-4 w-4 text-indigo-500" />
+                  <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic font-semibold">
+                    Cụm từ hay đi kèm (Collocations)
+                  </h2>
+                </div>
+                <div className="space-y-2">
+                  {collocations.map((col, i) => (
+                    <div
+                      key={`col-${i}`}
+                      className="bg-indigo-500/5 hover:bg-indigo-500/10 border border-indigo-500/20 rounded-xl p-3 flex items-center justify-between gap-3 transition-colors"
+                    >
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span className="font-semibold text-sm text-foreground break-words">{col.phrase}</span>
+                          {col.type && (
+                            <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">
+                              {col.type}
+                            </span>
+                          )}
+                        </div>
+                        {col.meaning_vi && (
+                          <p className="text-xs text-muted-foreground mt-0.5">{col.meaning_vi}</p>
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => { setQuery(col.phrase); lookup(col.phrase); }}
+                        className="shrink-0 p-1.5 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
+                        title="Tra cụm từ này"
+                      >
+                        <Search className="h-4 w-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 

@@ -20,6 +20,9 @@ import {
   getAuthUser,
 } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase';
+import prebuiltPassagesArtifact from '@/data/vocab/prebuilt-pack-passages.json';
+
+const prebuiltPassages = prebuiltPassagesArtifact as Record<string, any>;
 import {
   FREE_PACK_READING_DAILY_LIMIT,
   type Plan,
@@ -169,15 +172,23 @@ export async function POST(req: Request): Promise<NextResponse> {
         : undefined;
 
     if (typeof body.packId === 'string' && body.packId.trim()) {
-      const pack = DEMO_PACKS.find((p) => p.id === body.packId);
-      if (!pack) {
-        return NextResponse.json(
-          { success: false, error: `packId không tồn tại: ${body.packId}` },
-          { status: 400 },
-        );
+      const prebuilt = prebuiltPassages[body.packId.trim()];
+      if (prebuilt) {
+        return NextResponse.json({
+          success: true,
+          data: prebuilt,
+          meta: {
+            prebuilt: true,
+            fastLookup: true,
+            latencyMs: 0
+          }
+        });
       }
-      if (words.length === 0) words = pack.words;
-      title = title || pack.title;
+      const pack = DEMO_PACKS.find((p) => p.id === body.packId);
+      if (pack) {
+        if (words.length === 0) words = pack.words;
+        title = title || pack.title;
+      }
     }
 
     if (words.length === 0 && typeof body.text === 'string') {
