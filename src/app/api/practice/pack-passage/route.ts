@@ -19,10 +19,23 @@ import {
   isValidString,
   getAuthUser,
 } from '@/lib/api-security';
-import { createServiceClient } from '@/lib/supabase';
-import prebuiltPassagesArtifact from '@/data/vocab/prebuilt-pack-passages.json';
+import fs from 'fs';
+import path from 'path';
 
-const prebuiltPassages = prebuiltPassagesArtifact as Record<string, any>;
+let prebuiltCache: Record<string, any> | null = null;
+function getPrebuiltPassages(): Record<string, any> {
+  if (prebuiltCache) return prebuiltCache;
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'data', 'vocab', 'prebuilt-pack-passages.json');
+    if (fs.existsSync(filePath)) {
+      prebuiltCache = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      return prebuiltCache || {};
+    }
+  } catch (e) {
+    console.error('[PackPassage] Failed to load prebuilt passages:', e);
+  }
+  return {};
+}
 import {
   FREE_PACK_READING_DAILY_LIMIT,
   type Plan,
@@ -172,7 +185,8 @@ export async function POST(req: Request): Promise<NextResponse> {
         : undefined;
 
     if (typeof body.packId === 'string' && body.packId.trim()) {
-      const prebuilt = prebuiltPassages[body.packId.trim()];
+      const prebuiltStore = getPrebuiltPassages();
+      const prebuilt = prebuiltStore[body.packId.trim()];
       if (prebuilt) {
         return NextResponse.json({
           success: true,
