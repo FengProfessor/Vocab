@@ -19,6 +19,7 @@ import {
   isValidString,
   getAuthUser,
 } from '@/lib/api-security';
+import { createServiceClient } from '@/lib/supabase';
 import fs from 'fs';
 import path from 'path';
 
