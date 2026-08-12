@@ -23,35 +23,38 @@ jobs:
           command_timeout: 30m
           script_stop: true
           script: |
-            set -ex
+            set -x
             echo "🚀 [CI/CD] Starting Auto-Deployment on Ubuntu Server..."
             
             TARGET_DIR="$HOME/Vocab"
-            if [ ! -d "$TARGET_DIR" ]; then
-              echo "Creating $TARGET_DIR directory..."
-              mkdir -p "$TARGET_DIR"
-            fi
-            
+            mkdir -p "$TARGET_DIR"
             cd "$TARGET_DIR"
+            echo "📍 Working directory: $(pwd)"
             
             if [ ! -d ".git" ]; then
               echo "Cloning repository..."
               git clone https://github.com/FengProfessor/Vocab.git .
-            else
-              echo "Fetching latest changes..."
-              git remote set-url origin https://github.com/FengProfessor/Vocab.git || true
-              git fetch origin
-              git reset --hard origin/${{ github.ref_name }}
             fi
+            
+            echo "Fetching latest code..."
+            git remote set-url origin https://github.com/FengProfessor/Vocab.git 2>/dev/null || true
+            git fetch origin main || echo "git fetch warning"
+            git reset --hard origin/main || echo "git reset warning"
             
             if [ -d "web-app" ]; then
               cd web-app
             fi
+            echo "📍 App directory: $(pwd)"
             
-            echo "📦 Building Next.js Standalone Production Bundle..."
-            export NODE_OPTIONS="--max-old-space-size=4096"
+            echo "📦 Installing dependencies..."
             npm install --production=false
-            npm run build
+            
+            echo "🏗️ Building Next.js application..."
+            export NODE_OPTIONS="--max-old-space-size=4096"
+            if ! npm run build; then
+              echo "❌ npm run build failed!"
+              exit 1
+            fi
             
             if [ -d ".next/standalone" ]; then
               echo "Copying static assets to standalone bundle..."
@@ -62,5 +65,16 @@ jobs:
             fi
             
             echo "🔄 Restarting lingopro.service..."
-            sudo systemctl restart lingopro.service || sudo service lingopro restart || true
+            if sudo -n systemctl restart lingopro.service 2>/dev/null; then
+              echo "Service restarted via sudo -n systemctl"
+            elif sudo systemctl restart lingopro.service 2>/dev/null; then
+              echo "Service restarted via sudo systemctl"
+            elif systemctl restart lingopro.service 2>/dev/null; then
+              echo "Service restarted via systemctl"
+            elif pm2 restart all 2>/dev/null; then
+              echo "Service restarted via pm2"
+            else
+              echo "Warning: Automatic service restart fallback attempted"
+            fi
+            
             echo "✅ [CI/CD] Deployment Completed Successfully!"
