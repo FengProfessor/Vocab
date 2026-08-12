@@ -18,9 +18,10 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SERVER_PORT }}
+          port: ${{ secrets.SERVER_PORT != '' && secrets.SERVER_PORT || 22 }}
           timeout: 60s
           command_timeout: 15m
+          script_stop: true
           script: |
             echo "🚀 [CI/CD] Starting Auto-Deployment on Ubuntu Server..."
             cd ~/Vocab || exit 1
