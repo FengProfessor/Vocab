@@ -23,11 +23,25 @@ jobs:
           command_timeout: 30m
           script_stop: true
           script: |
-            set -x
+            set -ex
             echo "🚀 [CI/CD] Starting Auto-Deployment on Ubuntu Server..."
-            cd ~/Vocab || exit 1
-            git fetch origin
-            git reset --hard origin/${{ github.ref_name }}
+            
+            TARGET_DIR="$HOME/Vocab"
+            if [ ! -d "$TARGET_DIR" ]; then
+              echo "Creating $TARGET_DIR directory..."
+              mkdir -p "$TARGET_DIR"
+            fi
+            
+            cd "$TARGET_DIR"
+            
+            if [ ! -d ".git" ]; then
+              echo "Cloning repository..."
+              git clone https://github.com/FengProfessor/Vocab.git .
+            else
+              echo "Fetching latest changes..."
+              git fetch origin
+              git reset --hard origin/${{ github.ref_name }}
+            fi
             
             if [ -d "web-app" ]; then
               cd web-app
@@ -38,6 +52,7 @@ jobs:
             npm run build
             
             if [ -d ".next/standalone" ]; then
+              echo "Copying static assets to standalone bundle..."
               cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
               cp -r public .next/standalone/ 2>/dev/null || true
               mkdir -p .next/standalone/src 2>/dev/null || true
