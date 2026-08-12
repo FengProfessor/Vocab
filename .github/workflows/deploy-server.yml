@@ -18,7 +18,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SERVER_PORT != '' && secrets.SERVER_PORT || 22 }}
+          port: 22
           timeout: 120s
           command_timeout: 30m
           script_stop: true
@@ -39,6 +39,7 @@ jobs:
               git clone https://github.com/FengProfessor/Vocab.git .
             else
               echo "Fetching latest changes..."
+              git remote set-url origin https://github.com/FengProfessor/Vocab.git || true
               git fetch origin
               git reset --hard origin/${{ github.ref_name }}
             fi
@@ -48,6 +49,7 @@ jobs:
             fi
             
             echo "📦 Building Next.js Standalone Production Bundle..."
+            export NODE_OPTIONS="--max-old-space-size=4096"
             npm install --production=false
             npm run build
             
@@ -60,5 +62,5 @@ jobs:
             fi
             
             echo "🔄 Restarting lingopro.service..."
-            sudo systemctl restart lingopro.service
+            sudo systemctl restart lingopro.service || sudo service lingopro restart || true
             echo "✅ [CI/CD] Deployment Completed Successfully!"
