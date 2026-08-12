@@ -19,10 +19,11 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SERVER_PORT != '' && secrets.SERVER_PORT || 22 }}
-          timeout: 60s
-          command_timeout: 15m
+          timeout: 120s
+          command_timeout: 30m
           script_stop: true
           script: |
+            set -x
             echo "🚀 [CI/CD] Starting Auto-Deployment on Ubuntu Server..."
             cd ~/Vocab || exit 1
             git fetch origin
