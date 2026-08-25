@@ -51,6 +51,13 @@ jobs:
             fi
             echo "📍 App directory: $(pwd)"
             
+            echo "🔐 Updating CRON_SECRET in .env.local..."
+            if grep -q "^CRON_SECRET=" .env.local 2>/dev/null; then
+              sed -i "s/^CRON_SECRET=.*/CRON_SECRET=\"\${{ secrets.CRON_SECRET }}\"/" .env.local
+            else
+              echo "CRON_SECRET=\"\${{ secrets.CRON_SECRET }}\"" >> .env.local
+            fi
+            
             echo "📦 Installing dependencies..."
             npm install --production=false
             
