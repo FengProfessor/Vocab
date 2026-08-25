@@ -51,11 +51,11 @@ jobs:
             fi
             echo "📍 App directory: $(pwd)"
             
-            echo "🔐 Updating CRON_SECRET in .env.local..."
-            if grep -q "^CRON_SECRET=" .env.local 2>/dev/null; then
-              sed -i "s/^CRON_SECRET=.*/CRON_SECRET=\"\${{ secrets.CRON_SECRET }}\"/" .env.local
+            echo "🔐 Updating CRON_SECRET in .env..."
+            if grep -q "^CRON_SECRET=" .env 2>/dev/null; then
+              sed -i "s/^CRON_SECRET=.*/CRON_SECRET=\"\${{ secrets.CRON_SECRET }}\"/" .env
             else
-              echo "CRON_SECRET=\"\${{ secrets.CRON_SECRET }}\"" >> .env.local
+              echo "CRON_SECRET=\"\${{ secrets.CRON_SECRET }}\"" >> .env
             fi
             
             echo "📦 Installing dependencies..."
