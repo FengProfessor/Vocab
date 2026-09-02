@@ -24,15 +24,18 @@ if [[ -z "${CRON_SECRET:-}" ]]; then
   exit 1
 fi
 
-CRON_LINE="0 19 * * * curl -fsS -H \"Authorization: Bearer ${CRON_SECRET}\" \"https://${DOMAIN}/api/cron/check-expired\" >> ${LOG_FILE} 2>&1"
+CRON_LINE_1="0 19 * * * curl -fsS -H \"Authorization: Bearer ${CRON_SECRET}\" \"https://${DOMAIN}/api/cron/check-expired\" >> ${LOG_FILE} 2>&1"
+CRON_LINE_2="*/15 * * * * curl -fsS -H \"Authorization: Bearer ${CRON_SECRET}\" \"https://${DOMAIN}/api/cron/push-due\" >> ${LOG_FILE} 2>&1"
 
 # Xóa dòng cũ lingopro cron rồi thêm mới
 TMP="$(mktemp)"
-crontab -l 2>/dev/null | grep -v 'lingopro\|/api/cron/check-expired' >"$TMP" || true
-echo "$CRON_LINE" >>"$TMP"
+crontab -l 2>/dev/null | grep -v 'lingopro\|/api/cron/check-expired\|/api/cron/push-due' >"$TMP" || true
+echo "$CRON_LINE_1" >>"$TMP"
+echo "$CRON_LINE_2" >>"$TMP"
 crontab "$TMP"
 rm -f "$TMP"
 touch "$LOG_FILE"
 chmod 644 "$LOG_FILE" || true
 
 echo "[cron] Đã cài: 0 19 * * * → https://${DOMAIN}/api/cron/check-expired"
+echo "[cron] Đã cài: */15 * * * * → https://${DOMAIN}/api/cron/push-due"
