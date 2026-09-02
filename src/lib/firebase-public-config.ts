@@ -50,8 +50,8 @@ if (hasAnyFirebaseEnv && !hasFullFirebaseEnv) {
   console.warn('[FCM] Partial Firebase env on server/build — using bundled config.');
 }
 
-// Luôn dùng bundled — Vercel env từng bị PowerShell echo dính \r\n vào VAPID → 401 FCM.
-export const firebasePublicConfig: FirebasePublicConfig = FALLBACK_FIREBASE_PUBLIC_CONFIG;
+// Luôn dùng env nếu có đủ các trường, nếu không dùng fallback
+export const firebasePublicConfig: FirebasePublicConfig = hasFullFirebaseEnv ? envFirebasePublicConfig : FALLBACK_FIREBASE_PUBLIC_CONFIG;
 // Luôn bundled — không phụ thuộc Vercel env CRLF
 
 export const firebaseWebConfig: FirebaseWebConfig = {

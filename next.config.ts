@@ -70,7 +70,7 @@ const nextConfig: NextConfig = {
   async headers() {
     // SW cần importScripts từ gstatic — CSP global worker-src 'self' sẽ chặn FCM.
     const fcmSwCsp =
-      "default-src 'none'; script-src 'self' https://www.gstatic.com; connect-src 'self' https://*.googleapis.com https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com";
+      "default-src 'none'; script-src 'self' https://www.gstatic.com; connect-src 'self' https://*.googleapis.com https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com; img-src 'self' data: https:;";
     const fcmSwHeaders = [
       { key: 'Content-Type', value: 'application/javascript; charset=utf-8' },
       { key: 'Service-Worker-Allowed', value: '/' },
