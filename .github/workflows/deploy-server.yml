@@ -52,21 +52,18 @@ jobs:
             echo "📍 App directory: $(pwd)"
             
             echo "🔐 Updating CRON_SECRET in .env..."
-            if grep -q "^CRON_SECRET=" .env 2>/dev/null; then
-              sed -i "s/^CRON_SECRET=.*/CRON_SECRET=\"\${{ secrets.CRON_SECRET }}\"/" .env
-            else
-              echo "CRON_SECRET=\"\${{ secrets.CRON_SECRET }}\"" >> .env
-            fi
+            touch .env .env.local
+            sed -i '/^CRON_SECRET=/d' .env || true
+            echo "CRON_SECRET=\"${{ secrets.CRON_SECRET }}\"" >> .env
+            sed -i '/^CRON_SECRET=/d' .env.local || true
+            echo "CRON_SECRET=\"${{ secrets.CRON_SECRET }}\"" >> .env.local
             
             echo "📦 Installing dependencies..."
             npm install --production=false
             
             echo "🏗️ Building Next.js application..."
             export NODE_OPTIONS="--max-old-space-size=4096"
-            if ! npm run build; then
-              echo "❌ npm run build failed!"
-              exit 1
-            fi
+            npm run build
             
             if [ -d ".next/standalone" ]; then
               echo "Copying static assets to standalone bundle..."
@@ -77,16 +74,6 @@ jobs:
             fi
             
             echo "🔄 Restarting lingopro.service..."
-            if sudo -n systemctl restart lingopro.service 2>/dev/null; then
-              echo "Service restarted via sudo -n systemctl"
-            elif sudo systemctl restart lingopro.service 2>/dev/null; then
-              echo "Service restarted via sudo systemctl"
-            elif systemctl restart lingopro.service 2>/dev/null; then
-              echo "Service restarted via systemctl"
-            elif pm2 restart all 2>/dev/null; then
-              echo "Service restarted via pm2"
-            else
-              echo "Warning: Automatic service restart fallback attempted"
-            fi
+            sudo systemctl restart lingopro.service 2>/dev/null || sudo -n systemctl restart lingopro.service 2>/dev/null || systemctl restart lingopro.service 2>/dev/null || pm2 restart all 2>/dev/null || echo "Service restart fallback attempted"
             
             echo "✅ [CI/CD] Deployment Completed Successfully!"
