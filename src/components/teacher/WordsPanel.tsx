@@ -6,7 +6,7 @@ import type { Word } from '@/lib/supabase';
 import { Plus, Loader2, Trash2, Sparkles, BookOpen, Volume2, Download } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
-import { speak as speakEn } from '@/lib/study';
+import { speak as speakEn, parseIpa } from '@/lib/study';
 
 type StatusFilter = 'all' | 'pending' | 'approved' | 'rejected';
 
@@ -262,7 +262,7 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
                         {w.pos}
                       </span>
                     )}
-                    {w.ipa && <span className="text-xs text-muted-foreground font-mono">{w.ipa}</span>}
+                    {w.ipa && <span className="text-xs text-muted-foreground font-mono">{parseIpa(w.ipa)}</span>}
                   </div>
                   <p className="text-sm font-semibold text-foreground/90">{w.translation}</p>
                   {w.example && (

@@ -72,15 +72,15 @@ export default function PracticeHubPage() {
             <Link
               key={m.href}
               href={m.href}
-              className={`flex items-center gap-3 rounded-xl border px-3 py-3 shadow-sm transition-all hover:shadow active:scale-[0.99] ${m.ring}`}
+              className={`flex items-center gap-3 rounded-xl border px-4 py-5 shadow-sm transition-all hover:shadow active:scale-[0.99] ${m.ring}`}
             >
               <span
-                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xl text-white shadow-sm ${m.badge}`}
+                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl text-white shadow-sm ${m.badge}`}
               >
                 {m.emoji}
               </span>
               <div className="min-w-0 flex-1">
-                <p className={`text-sm font-black ${m.text}`}>{m.title}</p>
+                <p className={`text-base font-black ${m.text}`}>{m.title}</p>
                 <p className={`mt-0.5 text-[11px] font-medium leading-snug ${m.sub}`}>
                   {m.desc}
                 </p>

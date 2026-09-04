@@ -38,18 +38,46 @@ type GdRow = {
   } | null;
 };
 
+const IPA_PHONETIC_MARKERS = /[ˈˌːˑəæɑɒɔɜɛɪʊʌɨʉɵɤɯʏøœɐɶᵻᵿθðʃʒŋɹɾɟɡβɸçʝɣχʁħʕʋɰɬɮɺɥʍʔ]/;
+
 /** Lấy IPA trực tiếp — không phụ thuộc whitelist chặt (tránh mất phiên âm trên PDF). */
-function pickIpa(data: GdRow['data']): string {
+function pickIpa(data: GdRow['data'], headword?: string): string {
   if (!data) return '';
 
   const clean = (raw: string | undefined | null): string => {
     if (!raw || typeof raw !== 'string') return '';
     let s = raw.trim();
     if (!s || /^https?:/i.test(s) || s.includes('://') || s.includes('.com/')) return '';
+
+    // Decode URL-encoded IPA (e.g. %CB%88...)
+    if (/%[0-9A-Fa-f]{2}/.test(s)) {
+      try { s = decodeURIComponent(s); } catch {}
+    }
+
     s = s.replace(/^\/+|\/+$/g, '').trim();
     s = s.replace(/^(US|UK|AmE|BrE|GA|RP)\s*[:：]?\s*/i, '').trim();
     s = s.replace(/^\/+|\/+$/g, '').trim();
     if (!s || s.length > 100) return '';
+
+    if (/^(n\/a|unknown|placeholder|none|null|\.|\-|\?+|gibberish|not found|undefined)$/i.test(s)) {
+      return '';
+    }
+
+    // Reject fake word-as-IPA
+    if (headword) {
+      const normHead = headword.toLowerCase().replace(/[\/\-_]/g, ' ').replace(/\s+/g, ' ').trim();
+      const normIpa = s.toLowerCase().replace(/[\/\-_]/g, ' ').replace(/\s+/g, ' ').trim();
+      if (normHead === normIpa && !IPA_PHONETIC_MARKERS.test(s)) {
+        return '';
+      }
+    }
+    if (s.includes(' ') && !IPA_PHONETIC_MARKERS.test(s)) {
+      return '';
+    }
+    if (s.length >= 4 && !IPA_PHONETIC_MARKERS.test(s) && /^[a-zA-Z\s\-_]+$/.test(s)) {
+      return '';
+    }
+
     return s;
   };
 
@@ -97,7 +125,7 @@ function pickGloss(row: GdRow): WordGloss {
     pos: (m?.pos ?? '').trim(),
     definition: (m?.definition ?? '').trim(),
     example: (m?.example ?? '').trim(),
-    ipa: pickIpa(row.data),
+    ipa: pickIpa(row.data, row.word),
   };
 }
 

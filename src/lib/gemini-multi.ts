@@ -49,11 +49,13 @@ export function geminiKeyCount(): number {
 }
 
 export function resolveGeminiModel(): string {
-  return (
+  const envModel =
     process.env.GEMINI_MODEL?.trim() ||
-    process.env.GEMINI_PACK_MODEL?.trim() ||
-    'gemini-3.5-flash-lite'
-  );
+    process.env.GEMINI_PACK_MODEL?.trim();
+  if (!envModel || envModel === 'gemini-2.0-flash' || envModel === 'gemini-3.5-flash-lite') {
+    return 'gemini-3.6-flash';
+  }
+  return envModel;
 }
 
 /**
@@ -112,7 +114,7 @@ export async function geminiGenerate(
     let entry: KeyState;
     try {
       entry = pickKeyOnce();
-    } catch (e: any) {
+    } catch (_e: unknown) {
       throw lastError;
     }
 
@@ -143,7 +145,16 @@ export async function geminiGenerate(
         console.warn(`${LOG} 429 on ...${entry.key.slice(-6)}, trying next key...`);
         continue;
       }
+      if (/503|500|502|504|Service Unavailable|high demand|overloaded|fetch failed|econnreset|etimedout/i.test(msg)) {
+        lastError = new Error(`${LOG} transient error on ...${entry.key.slice(-6)}: ${msg.slice(0, 100)}`);
+        console.warn(`${LOG} transient error on ...${entry.key.slice(-6)}: ${msg.slice(0, 80)}, trying next key...`);
+        continue;
+      }
       if (/404|not found|no longer/i.test(msg)) {
+        if (modelName !== 'gemini-3.6-flash') {
+          console.warn(`${LOG} model ${modelName} returned 404, falling back to gemini-3.6-flash...`);
+          return geminiGenerate(prompt, { ...opts, model: 'gemini-3.6-flash' });
+        }
         throw new Error(`${LOG} model unavailable: ${modelName} · ${msg.slice(0, 160)}`);
       }
       throw err instanceof Error ? err : new Error(msg);

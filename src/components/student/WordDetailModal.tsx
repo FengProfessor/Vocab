@@ -23,6 +23,7 @@ import {
   Users,
 } from 'lucide-react';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { parseIpa } from '@/lib/study';
 import { resolveImageSrc } from '@/lib/media-url';
 
 // Mở rộng kiểu Word để chứa các field SRS có sẵn từ join (stability, difficulty,...)
@@ -225,13 +226,14 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
   const collocations = Array.from(collocationsMap.values());
 
   const rawFamily = dictData?.familyWords || [];
+  const headwordLower = (word?.word || '').trim().toLowerCase();
   const familyWords: WordFamilyEntry[] = rawFamily.map(item => {
     if (typeof item === 'string') {
       const m = item.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
       return m ? { word: m[1].trim(), pos: m[2].trim() } : { word: item.trim() };
     }
     return item;
-  }).filter(f => f.word);
+  }).filter(f => f.word && f.word.trim().toLowerCase() !== headwordLower);
 
   return (
     <div
@@ -295,8 +297,8 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                   </Badge>
                 )}
                 {word.ipa && (
-                  <span className="text-sm font-semibold text-muted-foreground italic">
-                    {word.ipa}
+                  <span className="text-sm font-semibold text-muted-foreground font-mono">
+                    {parseIpa(word.ipa)}
                   </span>
                 )}
               </div>

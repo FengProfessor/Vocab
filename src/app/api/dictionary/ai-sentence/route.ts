@@ -494,7 +494,7 @@ CRITICAL:
       let logic = normalizeLogic(aiJson.logic);
       if (!logic) logic = detectComparativeLogic(sentence);
 
-      let segments = Array.isArray(aiJson.segments)
+      const segments = Array.isArray(aiJson.segments)
         ? aiJson.segments
             .map(normalizeSegment)
             .filter((s): s is SentenceSegment => s !== null)

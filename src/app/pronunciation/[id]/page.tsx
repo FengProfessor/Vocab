@@ -29,7 +29,7 @@ interface Lesson {
 const DRILL_ROUNDS = 8;
 
 function isPlayableWord(s: string): boolean {
-  return /^[a-zA-Z' ]+$/.test(s) && s.split(' ').length <= 3;
+  return /^[a-zA-Z' -]+$/.test(s.trim()) && s.trim().split(/\s+/).length <= 10;
 }
 
 export default function PronunciationLessonPage() {

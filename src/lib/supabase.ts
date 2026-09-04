@@ -39,7 +39,7 @@ export function createServiceClient() {
  * Pass a callback that builds the query with a `.range(from, to)`.
  */
 export async function fetchAllRows<T = any>(buildQuery: (from: number, to: number) => any): Promise<T[]> {
-  let all: T[] = [];
+  const all: T[] = [];
   let from = 0;
   const step = 1000;
   while (true) {

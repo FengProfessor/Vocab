@@ -274,7 +274,7 @@ export default function PackPracticeDemoPage() {
     try {
       // NLM infographic target ~35–45 từ; demo pack 12 từ → pad bằng lặp sense gần (hoặc báo lỗi API)
       // Gửi list hiện có; API prepareInfographicWords sẽ validate min
-      let words = [...mindmapWords];
+      const words = [...mindmapWords];
       if (words.length < 35) {
         // pad nhẹ để demo: nhân bản biến thể không trùng word key — API dedupe → có thể fail min
         // tốt hơn: ghép 3 pack demo

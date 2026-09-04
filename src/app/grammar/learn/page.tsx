@@ -127,7 +127,7 @@ function ensureMarkdownTableFormat(text: string): string {
   let inTable = false;
 
   for (let i = 0; i < lines.length; i++) {
-    let line = lines[i].trim();
+    const line = lines[i].trim();
     if (!line) continue;
 
     if (line.includes('|') && !line.startsWith('#') && !line.startsWith('```')) {
@@ -773,7 +773,7 @@ function InlineLessonQuizPanel({
 function formatSectionTitle(rawTitle: string, idx: number): string {
   if (!rawTitle) return 'Tổng quan bài học';
 
-  let cleaned = rawTitle.trim();
+  const cleaned = rawTitle.trim();
 
   // If generic "Phần 1", "Phần 2"
   if (/^Phần\s+\d+$/i.test(cleaned)) {

@@ -281,13 +281,41 @@ export function verdictToQuality(v: Verdict): 0 | 3 | 4 {
   return 0;
 }
 
-/** IPA có thể là chuỗi thuần hoặc JSON {uk,us}. Trả về chuỗi hiển thị được. */
+const IPA_PHONETIC_MARKERS = /[ˈˌːˑəæɑɒɔɜɛɪʊʌɨʉɵɤɯʏøœɐɶᵻᵿθðʃʒŋɹɾɟɡβɸçʝɣχʁħʕʋɰɬɮɺɥʍʔ]/;
+
+/** IPA có thể là chuỗi thuần hoặc JSON {uk,us}. Trả về chuỗi IPA chuẩn bọc trong /.../. */
 export function parseIpa(raw?: string): string {
   if (!raw) return '';
+  let str = raw;
   try {
     const parsed = JSON.parse(raw);
-    return parsed.uk || parsed.us || (Object.values(parsed)[0] as string) || raw;
+    str = parsed.uk || parsed.us || (Object.values(parsed)[0] as string) || raw;
   } catch {
-    return raw;
+    str = raw;
   }
+  if (typeof str !== 'string') return '';
+  let bare = str.trim().replace(/^\/+|\/+$/g, '').trim();
+  if (!bare) return '';
+
+  // Decode URL-encoded IPA (e.g. %CB%88...)
+  if (/%[0-9A-Fa-f]{2}/.test(bare)) {
+    try {
+      bare = decodeURIComponent(bare).replace(/^\/+|\/+$/g, '').trim();
+    } catch {}
+  }
+
+  // Garbage placeholders
+  if (/^(n\/a|unknown|placeholder|none|null|\.|\-|\?+|gibberish|not found|undefined)$/i.test(bare)) {
+    return '';
+  }
+
+  // Reject fake word-as-IPA (e.g. "abandoned", "a bad penny" without any phonetic symbols or stress marks)
+  if (bare.includes(' ') && !IPA_PHONETIC_MARKERS.test(bare)) {
+    return '';
+  }
+  if (bare.length >= 4 && !IPA_PHONETIC_MARKERS.test(bare) && /^[a-zA-Z\s\-_]+$/.test(bare)) {
+    return '';
+  }
+
+  return `/${bare}/`;
 }

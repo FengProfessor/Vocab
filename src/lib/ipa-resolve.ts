@@ -38,9 +38,15 @@ export interface ResolveIpaOptions {
   preferRegion?: 'US' | 'UK';
 }
 
-function cleanIpa(raw: string | undefined | null): string | undefined {
+const IPA_PHONETIC_MARKERS = /[ˈˌːˑəæɑɒɔɜɛɪʊʌɨʉɵɤɯʏøœɐɶᵻᵿθðʃʒŋɹɾɟɡβɸçʝɣχʁħʕʋɰɬɮɺɥʍʔ]/;
+
+function cleanIpa(raw: string | undefined | null, headword?: string): string | undefined {
   if (!raw) return undefined;
   let s = raw.trim();
+  // Decode URL-encoded IPA if present (e.g. %CB%88...)
+  if (/%[0-9A-Fa-f]{2}/.test(s)) {
+    try { s = decodeURIComponent(s); } catch {}
+  }
   // Bỏ slash bao ngoài + nhãn vùng
   s = s.replace(/^\/+|\/+$/g, '').trim();
   s = s.replace(/^(US|UK|AmE|BrE|GA|RP)\s*[:：]?\s*/i, '').trim();
@@ -48,7 +54,30 @@ function cleanIpa(raw: string | undefined | null): string | undefined {
   if (!s || s.length > 100) return undefined;
   // URL / path không phải IPA
   if (/^https?:/i.test(s) || s.includes('://') || s.includes('.com')) return undefined;
-  // Chỉ cần có ký tự IPA-ish hoặc chữ Latin (không whitelist chặt — trước đây loại nhầm)
+
+  // Garbage / placeholder strings
+  if (/^(n\/a|unknown|placeholder|none|null|\.|\-|\?+|gibberish|not found|undefined)$/i.test(s)) {
+    return undefined;
+  }
+
+  // Reject fake word-as-IPA (e.g. /aback/ for "aback", /a bad penny/ for "a bad penny")
+  if (headword) {
+    const normHead = headword.toLowerCase().replace(/[\/\-_]/g, ' ').replace(/\s+/g, ' ').trim();
+    const normIpa = s.toLowerCase().replace(/[\/\-_]/g, ' ').replace(/\s+/g, ' ').trim();
+    if (normHead === normIpa && !IPA_PHONETIC_MARKERS.test(s)) {
+      return undefined;
+    }
+  }
+
+  if (s.includes(' ') && !IPA_PHONETIC_MARKERS.test(s)) {
+    return undefined;
+  }
+
+  if (s.length >= 4 && !IPA_PHONETIC_MARKERS.test(s) && /^[a-zA-Z\s\-_]+$/.test(s)) {
+    return undefined;
+  }
+
+  // Chỉ cần có ký tự IPA-ish hoặc chữ Latin
   if (!/[a-zæɑɒɔəɜɛɪʊʌθðʃʒŋɹɾɟɡɨʉɵɤɯʏøœɐɶæʏβɸçʝɣχʁħʕʋɰɬɮɺɥʍʔˈˌːˑᵻᵿ]/i.test(s)) return undefined;
   return s;
 }
@@ -60,7 +89,8 @@ function isVerifiedSource(src: IpaSource | undefined): boolean {
 /** Lấy IPA từ DictionaryData / payload free dict. */
 export function extractIpaFromDictionaryData(
   data: unknown,
-  preferRegion: 'US' | 'UK' = 'US'
+  preferRegion: 'US' | 'UK' = 'US',
+  headword?: string
 ): string | undefined {
   if (!data || typeof data !== 'object') return undefined;
   const d = data as DictionaryData & {
@@ -74,28 +104,28 @@ export function extractIpaFromDictionaryData(
   if (Array.isArray(prons) && prons.length) {
     const preferred = prons.find((p) => p.region === preferRegion && (p.ipa || p.text || p.phonetic));
     if (preferred) {
-      const ipa = cleanIpa(preferred.ipa || preferred.text || preferred.phonetic);
+      const ipa = cleanIpa(preferred.ipa || preferred.text || preferred.phonetic, headword);
       if (ipa) return ipa;
     }
     const other = preferRegion === 'US' ? 'UK' : 'US';
     const alt = prons.find((p) => p.region === other && (p.ipa || p.text || p.phonetic));
     if (alt) {
-      const ipa = cleanIpa(alt.ipa || alt.text || alt.phonetic);
+      const ipa = cleanIpa(alt.ipa || alt.text || alt.phonetic, headword);
       if (ipa) return ipa;
     }
     for (const p of prons) {
-      const ipa = cleanIpa(p.ipa || p.text || p.phonetic);
+      const ipa = cleanIpa(p.ipa || p.text || p.phonetic, headword);
       if (ipa) return ipa;
     }
   }
 
   if (typeof d.phonetic === 'string') {
-    const ipa = cleanIpa(d.phonetic);
+    const ipa = cleanIpa(d.phonetic, headword);
     if (ipa) return ipa;
   }
   if (Array.isArray(d.phonetics)) {
     for (const p of d.phonetics) {
-      const ipa = cleanIpa(p?.text || (p as { ipa?: string })?.ipa);
+      const ipa = cleanIpa(p?.text || (p as { ipa?: string })?.ipa, headword);
       if (ipa) return ipa;
     }
   }
@@ -106,7 +136,7 @@ export function extractIpaFromDictionaryData(
     for (const key of preferRegion === 'US'
       ? (['ipaUs', 'ipa', 'ipaUk', 'phonetic'] as const)
       : (['ipaUk', 'ipa', 'ipaUs', 'phonetic'] as const)) {
-      const ipa = cleanIpa(ov[key]);
+      const ipa = cleanIpa(ov[key], headword);
       if (ipa) return ipa;
     }
   }
@@ -186,7 +216,7 @@ async function fetchFreeDictIpa(
     const json = (await res.json()) as unknown;
     if (!Array.isArray(json) || !json[0]) return {};
     return {
-      ipa: extractIpaFromDictionaryData(json[0], preferRegion),
+      ipa: extractIpaFromDictionaryData(json[0], preferRegion, word),
       visualCue: extractVisualCue(json[0], word),
     };
   } catch {
@@ -285,13 +315,13 @@ export async function resolveWordIpas(
 
   const words: IpaResolvedWord[] = inputs.map((w) => {
     let translation = w.translation;
-    let ipa = cleanIpa(w.ipa);
+    let ipa = cleanIpa(w.ipa, w.word);
     let source: IpaSource | undefined = ipa ? 'input' : undefined;
 
     if (!ipa && translation) {
       const peeled = peelInlineIpa(translation);
       if (peeled.ipa) {
-        ipa = peeled.ipa;
+        ipa = cleanIpa(peeled.ipa, w.word);
         translation = peeled.text || undefined;
         source = 'input';
       }
@@ -325,7 +355,7 @@ export async function resolveWordIpas(
         const data = map.get(w.word);
         if (!data) continue;
         if (!w.ipa) {
-          const ipa = extractIpaFromDictionaryData(data, preferRegion);
+          const ipa = extractIpaFromDictionaryData(data, preferRegion, w.word);
           if (ipa) {
             w.ipa = ipa;
             w.ipaSource = 'global_dictionary';

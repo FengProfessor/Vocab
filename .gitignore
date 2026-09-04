@@ -74,3 +74,6 @@ inspect_all_columns.js
 # Local testing media and reports (onboarding test screenshots, debug clips)
 /public/onboarding-test/
 # Demo videos (extension-lookup, intro-save-word, teacher-flow…) PHẢI commit — đừng ignore
+
+.agents/
+*.pid

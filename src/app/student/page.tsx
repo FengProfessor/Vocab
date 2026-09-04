@@ -39,6 +39,7 @@ import {
 } from '@/lib/word-summary-cache';
 import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 import { STAMPEDE_MODE } from '@/lib/stampede';
+import { parseIpa } from '@/lib/study';
 
 // Modal — chỉ tải khi mở / sau shell
 const WordDetailModal = dynamic(
@@ -845,56 +846,89 @@ export default function StudentDashboard() {
           {/* Daily reading notification */}
           <DailyReadingCard />
 
-          {/* CTA chính: số Học / Ôn TO — ưu tiên visual mobile */}
-          <div className="grid grid-cols-2 gap-2">
+          {/* CTA chính: Học + Ôn + Luyện Tập Siêu To, Nổi Bật, Dễ Thấy, Dễ Bấm */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Thẻ Học Từ Mới */}
             <Link
               href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}
               data-onboarding="learn"
-              className={`group flex min-h-[88px] flex-col items-center justify-center rounded-2xl border px-2 py-3 text-center shadow-sm transition-all sm:min-h-[72px] sm:items-stretch sm:px-3 sm:py-2.5 sm:text-left ${
-                !countsReady || newCount > 0
-                  ? 'border-indigo-100 bg-white hover:border-indigo-300 hover:shadow-md'
-                  : 'pointer-events-none border-transparent bg-slate-50 opacity-60'
-              }`}
+              className="group relative flex items-center justify-between rounded-2xl border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-500 to-indigo-700 p-4 text-white shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/30 active:scale-[0.98]"
             >
-              <div className="flex w-full items-center justify-center gap-1 sm:justify-start sm:gap-1.5">
-                <span className="text-base leading-none sm:text-lg">📖</span>
-                <span className="text-xs font-black text-slate-800 sm:text-sm">Cần học</span>
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-2xl backdrop-blur-sm shadow-inner">
+                  📖
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-black uppercase tracking-wider text-indigo-100">Học Từ Mới</span>
+                    <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold text-white backdrop-blur-sm">
+                      {countsReady ? (newCount > 0 ? `${newCount} từ` : 'Tất cả') : '...'}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-xs text-indigo-100/90 font-medium">
+                    {newCount > 0 ? 'Bấm vào để nạp từ mới ngay' : 'Học lại flashcard từ đã lưu'}
+                  </p>
+                </div>
               </div>
-              <div
-                className={`mt-1 text-4xl font-black leading-none tabular-nums tracking-tight sm:mt-0.5 sm:text-3xl ${
-                  !countsReady ? 'animate-pulse text-indigo-300' : newCount > 0 ? 'text-indigo-600' : 'text-slate-300'
-                }`}
-              >
-                {countsReady ? newCount : '…'}
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-indigo-700 font-bold shadow-sm group-hover:translate-x-0.5 transition-transform">
+                <ArrowRight className="h-5 w-5" />
               </div>
-              <p className="mt-1 text-[10px] font-semibold text-muted-foreground sm:text-[11px]">
-                {!countsReady ? 'Đang tải…' : newCount > 0 ? 'từ mới' : 'Hết từ mới 🎉'}
-              </p>
+            </Link>
+
+            {/* Thẻ Ôn Tập FSRS */}
+            <Link
+              href={classroomId ? `/review?class=${classroomId}` : '/review'}
+              data-onboarding="review"
+              className="group relative flex items-center justify-between rounded-2xl border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-500 to-teal-700 p-4 text-white shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/30 active:scale-[0.98]"
+            >
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-2xl backdrop-blur-sm shadow-inner">
+                  🔄
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-black uppercase tracking-wider text-emerald-100">Ôn Tập FSRS</span>
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold backdrop-blur-sm ${reviewDueCount > 0 ? 'bg-amber-400 text-amber-950 animate-pulse' : 'bg-white/20 text-white'}`}>
+                      {countsReady ? (reviewDueCount > 0 ? `${reviewDueCount} cần ôn` : 'Đã sẵn sàng') : '...'}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-xs text-emerald-100/90 font-medium">
+                    {reviewDueCount > 0 ? 'Đến hạn ôn trước khi quên' : 'Ôn luyện tự do củng cố trí nhớ'}
+                  </p>
+                </div>
+              </div>
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-emerald-700 font-bold shadow-sm group-hover:translate-x-0.5 transition-transform">
+                <ArrowRight className="h-5 w-5" />
+              </div>
+            </Link>
+          </div>
+
+          {/* Nút Phụ: Luyện Tập Đa Dạng & Sử Dụng Từ */}
+          <div className="flex items-center gap-2">
+            <Link
+              href="/practice"
+              className="flex-1 flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 shadow-sm hover:border-indigo-200 hover:bg-slate-50 transition active:scale-[0.99]"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-lg">⚡</span>
+                <span className="text-xs font-bold text-slate-800">Quiz nhớ nhanh & Đặt câu</span>
+              </div>
+              <span className="text-xs font-bold text-indigo-600 flex items-center gap-1">
+                Luyện tập <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </Link>
 
             <Link
-              href={(!countsReady || reviewDueCount > 0) && classroomId ? `/review?class=${classroomId}` : reviewDueCount > 0 ? '/review' : '#'}
-              data-onboarding="review"
-              className={`group flex min-h-[88px] flex-col items-center justify-center rounded-2xl border px-2 py-3 text-center shadow-sm transition-all sm:min-h-[72px] sm:items-stretch sm:px-3 sm:py-2.5 sm:text-left ${
-                !countsReady || reviewDueCount > 0
-                  ? 'border-emerald-100 bg-white hover:border-emerald-300 hover:shadow-md'
-                  : 'pointer-events-none border-transparent bg-slate-50 opacity-60'
-              }`}
+              href="/journey"
+              className="flex-1 flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 shadow-sm hover:border-sky-200 hover:bg-slate-50 transition active:scale-[0.99]"
             >
-              <div className="flex w-full items-center justify-center gap-1 sm:justify-start sm:gap-1.5">
-                <span className="text-base leading-none sm:text-lg">🔄</span>
-                <span className="text-xs font-black text-slate-800 sm:text-sm">Cần ôn</span>
+              <div className="flex items-center gap-2.5">
+                <span className="text-lg">🗺️</span>
+                <span className="text-xs font-bold text-slate-800">Lộ trình học A0–B2</span>
               </div>
-              <div
-                className={`mt-1 text-4xl font-black leading-none tabular-nums tracking-tight sm:mt-0.5 sm:text-3xl ${
-                  !countsReady ? 'animate-pulse text-emerald-300' : reviewDueCount > 0 ? 'text-emerald-600' : 'text-slate-300'
-                }`}
-              >
-                {countsReady ? reviewDueCount : '…'}
-              </div>
-              <p className="mt-1 text-[10px] font-semibold text-muted-foreground sm:text-[11px]">
-                {!countsReady ? 'Đang tải…' : reviewDueCount > 0 ? 'đến hạn nhớ' : 'Chưa có due'}
-              </p>
+              <span className="text-xs font-bold text-sky-600 flex items-center gap-1">
+                Vào chặng <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </Link>
           </div>
 
@@ -1251,7 +1285,7 @@ export default function StudentDashboard() {
                         </span>
                       </div>
                       {word.ipa && (
-                        <div className="truncate text-[11px] font-semibold text-muted-foreground">{word.ipa}</div>
+                        <div className="truncate text-[11px] font-semibold text-muted-foreground font-mono">{parseIpa(word.ipa)}</div>
                       )}
                     </div>
                     <Badge className={`shrink-0 text-[10px] ${(word.srsLevel ?? 0) >= 5 ? 'bg-emerald-500' : 'bg-primary/15 text-primary'}`}>
@@ -1345,8 +1379,8 @@ export default function StudentDashboard() {
                           {def.pos || entry.pos || 'Word'}
                         </Badge>
                         {entry.pronunciations?.[0]?.ipa && (
-                          <span className="text-xs font-bold text-muted-foreground italic">
-                            {entry.pronunciations[0].ipa}
+                          <span className="text-xs font-bold text-muted-foreground font-mono">
+                            {parseIpa(entry.pronunciations[0].ipa)}
                           </span>
                         )}
                       </div>

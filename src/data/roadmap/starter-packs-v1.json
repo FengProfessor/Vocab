@@ -1,6 +1,6 @@
 {
-  "version": "starter-v1",
-  "note": "Pack sinh tồn A0 — tạo tay theo docs/roadmap-research/03-vocab-level-map.md (A0: chào hỏi, số, màu, đồ vật lớp học, đồ dùng cá nhân) vì catalog-v3 không có pack nào đủ cơ bản (teacher review 06, fix #1). Import qua /api/import/packages với prefix starter-.",
+  "version": "starter-v2",
+  "note": "Pack sinh tồn A0 — tạo tay theo docs/roadmap-research/03-vocab-level-map.md (A0: chào hỏi, số, màu, đồ vật lớp học, đồ dùng cá nhân, đồ ăn, cơ thể, động từ sinh tồn, động vật, quần áo, thời tiết, sinh hoạt) gồm 12 packs x 12 từ = 144 từ cơ bản cho 6 Chặng A0.",
   "packs": [
     {
       "id": "starter-a0-greetings",
@@ -43,14 +43,19 @@
       "words": ["go", "come", "see", "have", "want", "like", "know", "make", "give", "take", "say", "help"]
     },
     {
-      "id": "starter-a0-weather",
-      "title": "Thời tiết",
-      "words": ["sun", "rain", "wind", "cloud", "hot", "cold", "warm", "snow", "storm", "sky", "weather", "wet"]
-    },
-    {
       "id": "starter-a0-animals",
       "title": "Con vật",
       "words": ["dog", "cat", "bird", "fish", "cow", "pig", "duck", "horse", "chicken", "tiger", "elephant", "animal"]
+    },
+    {
+      "id": "starter-a0-clothes",
+      "title": "Quần áo & đồ dùng",
+      "words": ["shirt", "pants", "dress", "shoes", "hat", "jacket", "coat", "skirt", "wear", "buy", "big", "small"]
+    },
+    {
+      "id": "starter-a0-weather",
+      "title": "Thời tiết",
+      "words": ["sun", "rain", "wind", "cloud", "hot", "cold", "warm", "snow", "storm", "sky", "weather", "wet"]
     },
     {
       "id": "starter-a0-daily",

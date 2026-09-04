@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getRouter } from '@/lib/ai-router';
 import { getAuthUser, unauthorized, checkRateLimitAsync, tooManyRequests, safeErrorResponse } from '@/lib/api-security';
+import { parseIpa } from '@/lib/study';
 
 /** Trần số từ gọi AI trong 1 request khi client không chỉ định wordIds (chống đốt quota). */
 const MAX_AI_WORDS_PER_REQUEST = 60;
@@ -167,7 +168,7 @@ export async function POST(req: Request): Promise<NextResponse> {
             .from('words')
             .update({
               translation: gdMeaning.definition,
-              ipa: gdData?.pronunciations?.[0]?.ipa || '',
+              ipa: parseIpa(gdData?.pronunciations?.[0]?.ipa) || '',
               pos: gdMeaning.pos || '',
               example: gdMeaning.example || '',
               example_vi: gdMeaning.example_vi || '',

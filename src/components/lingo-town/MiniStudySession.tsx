@@ -8,7 +8,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { authFetch } from '@/lib/auth-fetch';
 import type { ActivityKind } from '@/lib/lingo-town-activities';
 import { GROVE_WORDS } from '@/lib/lingo-town';
-import { speak } from '@/lib/study';
+import { speak, parseIpa } from '@/lib/study';
 
 export interface StudyWord {
   id: string;
@@ -148,7 +148,7 @@ export function MiniStudySession({ kind, onProgress }: Props) {
                 );
                 setDictResult(
                   w
-                    ? `${w.word} — ${w.translation}${w.ipa ? ` /${w.ipa}/` : ''}`
+                    ? `${w.word} — ${w.translation}${w.ipa ? ` ${parseIpa(w.ipa)}` : ''}`
                     : `“${dictQ}” — mở full từ điển để tra sâu (panel này tra trong deck ôn).`
                 );
               }
@@ -207,7 +207,7 @@ export function MiniStudySession({ kind, onProgress }: Props) {
           <p className="text-xs text-amber-100/45">Gõ tiếng Anh</p>
           <p className="text-2xl font-semibold text-amber-50">{current.translation}</p>
           {current.ipa && (
-            <p className="text-xs text-amber-100/35">/{current.ipa}/</p>
+            <p className="text-xs text-amber-100/35">{parseIpa(current.ipa)}</p>
           )}
         </div>
         <input
@@ -273,7 +273,7 @@ export function MiniStudySession({ kind, onProgress }: Props) {
           <p className="text-xs text-amber-100/45 mb-1">Chọn nghĩa đúng</p>
           <p className="text-3xl font-bold tracking-wide text-amber-50">{current.word}</p>
           {current.ipa && (
-            <p className="text-xs text-amber-100/40 mt-1">/{current.ipa}/</p>
+            <p className="text-xs text-amber-100/40 mt-1">{parseIpa(current.ipa)}</p>
           )}
           <button
             type="button"
@@ -375,7 +375,7 @@ function FlashBody({
             </p>
             <p className="text-3xl font-bold text-amber-50">{current.word}</p>
             {current.ipa && (
-              <p className="text-sm text-amber-100/40 mt-2">/{current.ipa}/</p>
+              <p className="text-sm text-amber-100/40 mt-2">{parseIpa(current.ipa)}</p>
             )}
           </>
         ) : (

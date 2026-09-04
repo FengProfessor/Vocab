@@ -4,7 +4,8 @@
 
 create table if not exists public.daily_reading_exercises (
   id uuid default gen_random_uuid() primary key,
-  classroom_id uuid references public.classrooms(id) on delete cascade not null,
+  -- null = bài cá nhân không gắn với lớp; set classroom_id nếu theo lớp
+  classroom_id uuid references public.classrooms(id) on delete cascade,
   -- null = bài chung cả lớp; set user_id nếu per-user mode
   target_user_id uuid references public.profiles(id) on delete cascade,
 
@@ -40,15 +41,26 @@ create table if not exists public.daily_reading_exercises (
   unique nulls not distinct (classroom_id, exercise_date, target_user_id)
 );
 
+-- Ensure classroom_id is nullable if table was previously created with NOT NULL constraint
+do $$
+begin
+  alter table public.daily_reading_exercises alter column classroom_id drop not null;
+exception
+  when others then null;
+end $$;
+
 comment on table public.daily_reading_exercises is
   'Nightly NLM-generated reading exercises from daily vocabulary. One per classroom per day.';
 
--- Fast lookups
+-- Fast lookups & Strict uniqueness
 create index if not exists daily_reading_exercises_classroom_date_idx
   on public.daily_reading_exercises(classroom_id, exercise_date desc);
-create index if not exists daily_reading_exercises_user_date_idx
-  on public.daily_reading_exercises(target_user_id, exercise_date desc)
+create unique index if not exists daily_reading_exercises_user_date_uidx
+  on public.daily_reading_exercises(target_user_id, exercise_date)
   where target_user_id is not null;
+create unique index if not exists daily_reading_exercises_class_date_uidx
+  on public.daily_reading_exercises(classroom_id, exercise_date)
+  where target_user_id is null;
 create index if not exists daily_reading_exercises_date_status_idx
   on public.daily_reading_exercises(exercise_date, status);
 

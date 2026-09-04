@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { toast } from 'sonner';
 import { XP_PER_CORRECT_QUIZ } from '@/lib/gamification';
 import { StudentShell } from '@/components/student/StudentShell';
+import { parseIpa } from '@/lib/study';
 
 // Quiz mode: 'meaning_to_word' = thấy nghĩa → chọn từ tiếng Anh
 //            'word_to_meaning' = thấy từ tiếng Anh → chọn nghĩa tiếng Việt
@@ -28,14 +29,6 @@ interface WordItem {
 
 function shuffle<T>(arr: T[]): T[] {
   return [...arr].sort(() => Math.random() - 0.5);
-}
-
-function parseIpa(raw?: string): string {
-  if (!raw) return '';
-  try {
-    const parsed = JSON.parse(raw);
-    return parsed.uk || parsed.us || (Object.values(parsed)[0] as string) || raw;
-  } catch { return raw; }
 }
 
 function buildChoices(correct: WordItem, all: WordItem[], mode: QuizMode): string[] {

@@ -190,12 +190,12 @@ function validateUpgrade(
   const viMarkdown = (s: string) => /#{1,6}\s|```/.test(s);
   if (viMarkdown(meaning) || viMarkdown(wow)) hard.push('vi_markdown');
 
-  // Adv jammed before common nouns (classic POS fail)
+  // Adv jammed before common nouns (classic POS fail, but allow valid -ly adjectives like timely/costly/friendly)
+  const LY_ADJECTIVES = /^(timely|costly|deadly|orderly|friendly|ugly|lively|lonely|lovely|likely|daily|weekly|monthly|yearly|brotherly|sisterly|fatherly|motherly|heavenly|earthly|scholarly|cowardly|comely)$/i;
+  const advNounMatch = plain.match(/\b(\w+ly)\s+(situation|problem|pressure|issue|condition|decision|moment|position)\b/i);
   if (
     /\bacademic\s+perilously\b/i.test(plain) ||
-    /\b\w+ly\s+(situation|problem|pressure|issue|condition|decision|moment|position)\b/i.test(
-      plain
-    )
+    (advNounMatch && !LY_ADJECTIVES.test(advNounMatch[1]))
   ) {
     hard.push('bad_collocation_adv_before_noun');
   }
@@ -218,8 +218,15 @@ function validateUpgrade(
   const low = plain.toLowerCase();
   const missing = targets.filter((t) => {
     const w = t.word.toLowerCase();
-    const stem = w.replace(/ly$/i, '').replace(/e$/i, '');
-    return !low.includes(w) && !(stem.length >= 4 && low.includes(stem));
+    const stem = w.endsWith('ily')
+      ? w.slice(0, -3) + 'y' // happily -> happy, easily -> easy
+      : w.replace(/ly$/i, '').replace(/e$/i, '');
+    const bareStem = w.replace(/(?:ily|ly|e)$/i, '');
+    return (
+      !low.includes(w) &&
+      !(stem.length >= 4 && low.includes(stem)) &&
+      !(bareStem.length >= 4 && low.includes(bareStem))
+    );
   });
   if (missing.length) {
     soft.push(`missing_targets:${missing.map((m) => m.word).join(',')}`);

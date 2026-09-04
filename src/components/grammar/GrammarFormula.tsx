@@ -4,7 +4,7 @@ import React from 'react';
 
 function cleanFormulaToken(raw: string): string {
   if (!raw) return '';
-  let s = raw.trim().replace(/^\{|\}$/g, '').trim();
+  const s = raw.trim().replace(/^\{|\}$/g, '').trim();
 
   const keyMap: Record<string, string> = {
     'S:S': 'S (Chủ ngữ)',

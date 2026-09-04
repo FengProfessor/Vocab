@@ -12,6 +12,36 @@ export const dynamic = 'force-dynamic';
  *
  * Body: { word, translation, pos?, classroomId, exerciseId? }
  */
+async function getOrCreatePersonalClassroom(
+  supabase: ReturnType<typeof createServiceClient>,
+  userId: string,
+): Promise<string> {
+  const { data: existing } = await supabase
+    .from('classrooms')
+    .select('id')
+    .eq('teacher_id', userId)
+    .eq('name', '__personal__')
+    .maybeSingle();
+
+  if (existing?.id) {
+    return existing.id as string;
+  }
+
+  const { data: created, error } = await supabase
+    .from('classrooms')
+    .insert({
+      teacher_id: userId,
+      name: '__personal__',
+      description: 'Personal word list',
+      invite_code: `P-${userId.slice(0, 8).toUpperCase()}`,
+    })
+    .select('id')
+    .single();
+
+  if (error) throw new Error(`Cannot create personal classroom: ${error.message}`);
+  return created.id as string;
+}
+
 export async function POST(req: Request): Promise<NextResponse> {
   try {
     const auth = await getAuthUser(req);
@@ -30,7 +60,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     const word = (body.word || '').trim().toLowerCase();
     const translation = (body.translation || '').trim();
     const pos = (body.pos || '').trim();
-    const classroomId = (body.classroomId || '').trim();
+    const rawClassroomId = (body.classroomId || '').trim();
 
     if (!word || !isValidString(word, 50)) {
       return NextResponse.json({ success: false, error: 'Invalid word' }, { status: 400 });
@@ -38,40 +68,41 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (!translation || !isValidString(translation, 200)) {
       return NextResponse.json({ success: false, error: 'Invalid translation' }, { status: 400 });
     }
-    if (!classroomId) {
-      return NextResponse.json({ success: false, error: 'Missing classroomId' }, { status: 400 });
-    }
 
     const supabase = createServiceClient();
 
-    // Verify enrollment or teacher ownership
-    const [{ data: enrolled }, { data: owned }] = await Promise.all([
-      supabase
-        .from('enrollments')
-        .select('id')
-        .eq('student_id', auth.userId)
-        .eq('classroom_id', classroomId)
-        .maybeSingle(),
-      supabase
-        .from('classrooms')
-        .select('id')
-        .eq('id', classroomId)
-        .eq('teacher_id', auth.userId)
-        .maybeSingle(),
-    ]);
+    // Resolve target classroom:
+    // If classroomId provided, verify enrollment or teacher ownership.
+    // If not provided or user not authorized, fallback to user's personal classroom.
+    let targetClassroomId = rawClassroomId;
+    if (targetClassroomId) {
+      const [{ data: enrolled }, { data: owned }] = await Promise.all([
+        supabase
+          .from('enrollments')
+          .select('id')
+          .eq('student_id', auth.userId)
+          .eq('classroom_id', targetClassroomId)
+          .maybeSingle(),
+        supabase
+          .from('classrooms')
+          .select('id')
+          .eq('id', targetClassroomId)
+          .eq('teacher_id', auth.userId)
+          .maybeSingle(),
+      ]);
 
-    if (!enrolled && !owned) {
-      return NextResponse.json(
-        { success: false, error: 'Not enrolled in this classroom' },
-        { status: 403 },
-      );
+      if (!enrolled && !owned) {
+        targetClassroomId = await getOrCreatePersonalClassroom(supabase, auth.userId);
+      }
+    } else {
+      targetClassroomId = await getOrCreatePersonalClassroom(supabase, auth.userId);
     }
 
     // Check if word already exists in this classroom
     const { data: existing } = await supabase
       .from('words')
       .select('id')
-      .eq('classroom_id', classroomId)
+      .eq('classroom_id', targetClassroomId)
       .ilike('word', word)
       .maybeSingle();
 
@@ -84,7 +115,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       const { data: newWord, error: insertErr } = await supabase
         .from('words')
         .insert({
-          classroom_id: classroomId,
+          classroom_id: targetClassroomId,
           added_by: auth.userId,
           word,
           translation,

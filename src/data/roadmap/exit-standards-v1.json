@@ -4,25 +4,27 @@
   "levels": {
     "A0": {
       "labelVi": "Mất gốc → sẵn sàng A1",
-      "targetLemmas": "120–200 trong path",
+      "targetLemmas": "144 từ sinh tồn (12 packs)",
       "canDo": [
-        "Chào hỏi, tự giới thiệu tên/tuổi đơn giản",
-        "Nói số, màu, đồ vật quanh mình",
-        "Phát âm được âm cuối /p t k/ và đuôi -s cơ bản",
-        "Dùng I am / This is / my..."
+        "Chào hỏi, cảm ơn, tự giới thiệu bản thân và gia đình đơn giản",
+        "Đọc và hiểu số đếm, màu sắc, đồ vật trong phòng và đồ ăn uống",
+        "Biết gọi tên bộ phận cơ thể, con vật, quần áo, thời tiết và hoạt động hằng ngày",
+        "Sử dụng đại từ, to be, từ chỉ định (this/that), tính từ sở hữu, danh từ số nhiều và tính từ cơ bản",
+        "Phát âm chuẩn trọng âm từ, bật âm cuối /p t k/, đuôi -s/-es và phân biệt /p/ vs /b/"
       ],
-      "notYet": ["Kể chuyện quá khứ", "Thảo luận ý kiến dài"]
+      "notYet": ["Kể chuyện quá khứ", "Thảo luận ý kiến dài", "Giao tiếp công việc phức tạp"]
     },
     "A1": {
       "labelVi": "Sơ cấp 1 (core)",
-      "targetLemmas": "~300–400 tích lũy path",
+      "targetLemmas": "~400–500 tích lũy path",
       "canDo": [
-        "Nói về gia đình, nhà cửa, bữa ăn, quần áo",
-        "Mô tả thói quen với Present Simple",
-        "Hỏi wh- questions đơn giản",
-        "Nghe phân biệt cặp âm cơ bản + weak forms can/a/the"
+        "Mô tả không gian với There is / There are và giới từ chỉ nơi chốn",
+        "Nói về thói quen, nhịp sống thường nhật với Hiện tại đơn và Trạng từ tần suất",
+        "Diễn đạt hành động đang xảy ra với Hiện tại tiếp diễn và quyền sở hữu với Have got",
+        "Đặt và trả lời các câu hỏi thông tin với Wh- questions",
+        "Nghe phân biệt /iː/ vs /ɪ/, /l/ vs /n/, phụ âm /w/, /j/ và ngữ điệu câu hỏi"
       ],
-      "notYet": ["Kể chuyện quá khứ liền mạch", "Đọc bài báo"]
+      "notYet": ["Kể chuyện quá khứ liền mạch", "Đọc bài báo dài", "Thì hoàn thành"]
     },
     "A2": {
       "labelVi": "Sơ cấp 2 (core)",

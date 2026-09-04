@@ -1,17 +1,20 @@
 /**
- * Nightly NLM-generated reading exercises from daily vocabulary.
+ * Nightly NLM-generated reading exercises personalized per user.
  *
- * For each classroom that had new words today:
- *   1. Gather today's words (+ due words if < MIN_WORDS)
- *   2. Ask NLM to generate a reading passage + MCQ + cloze + bonus vocab
- *   3. Upsert result into daily_reading_exercises (exercise_date = tomorrow)
- *   4. Send push notification to enrolled students
+ * For each active user (added words today or has SRS reviews due):
+ *   1. Gather user's words (words.added_by = user_id)
+ *   2. Supplement with due SRS words if < threshold (3 for B2-C1, 5 for A1-B1)
+ *   3. Automatically adapt CEFR level (A1-A2, B1-B2, C1-C2)
+ *   4. Ask NLM to generate personalized reading passage + MCQ + cloze + bonus vocab
+ *   5. Save result into daily_reading_exercises (exercise_date = tomorrow, target_user_id = user_id)
+ *   6. Send push notification to user
  *
  * Usage:
  *   npx tsx scripts/generate-daily-reading-nlm.ts
  *   npx tsx scripts/generate-daily-reading-nlm.ts --dry
- *   npx tsx scripts/generate-daily-reading-nlm.ts --classroom=<uuid>
- *   npx tsx scripts/generate-daily-reading-nlm.ts --profile=burn-minh
+ *   npx tsx scripts/generate-daily-reading-nlm.ts --user=taphong2002@gmail.com
+ *   npx tsx scripts/generate-daily-reading-nlm.ts --user=<uuid>
+ *   npx tsx scripts/generate-daily-reading-nlm.ts --profile=burn-minh --delay=12000
  *
  * Env:
  *   NLM_NOTEBOOK_ID or scripts/.nlm-notebook-id
@@ -24,6 +27,12 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import dotenv from 'dotenv';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import {
+  analyzeVocabularyTier,
+  checkPassageRepetition,
+  type AdaptiveLevelConfig,
+} from '../src/lib/daily-reading-level';
+import { geminiGenerate, hasGeminiKeys } from '../src/lib/gemini-multi';
 
 const execFileAsync = promisify(execFile);
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
@@ -35,12 +44,16 @@ function getArg(name: string): string | undefined {
 }
 
 const DRY = process.argv.includes('--dry');
+const MOCK = process.argv.includes('--mock');
+const FORCE = process.argv.includes('--force') || process.argv.includes('--refresh');
+const USER_FILTER = getArg('user');
 const CLASSROOM_FILTER = getArg('classroom');
 const NLM_PROFILE = getArg('profile') || process.env.NLM_PROFILE || 'burn-minh';
 const DELAY_MS = parseInt(getArg('delay') || '12000', 10);
-const MIN_WORDS = 5;
 const MAX_WORDS = 20;
 const SKIP_PUSH = process.argv.includes('--no-push');
+const DATE_ARG = getArg('date') || getArg('exercise-date');
+const SOURCE_DATE_ARG = getArg('source-date');
 
 // ── NLM binary ──
 const NLM_PATH =
@@ -58,52 +71,126 @@ const supabase: SupabaseClient = createClient(
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-// ── Date helpers ──
-function todayVN(): string {
-  return new Date(
-    new Date().toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' }),
-  )
-    .toISOString()
-    .slice(0, 10);
+// ── Date helpers (timezone-safe Asia/Ho_Chi_Minh) ──
+export function getVietnamDate(offsetDays = 0): string {
+  const d = new Date();
+  if (offsetDays !== 0) {
+    d.setDate(d.getDate() + offsetDays);
+  }
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(d);
 }
 
-function tomorrowVN(): string {
-  const d = new Date(
-    new Date().toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' }),
-  );
-  d.setDate(d.getDate() + 1);
-  return d.toISOString().slice(0, 10);
+export function getVietnamHour(): number {
+  const hrStr = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    hour: 'numeric',
+    hour12: false,
+  }).format(new Date());
+  return parseInt(hrStr, 10);
 }
 
-// ── NLM CLI wrapper (reuse from backfill-core-senses-nlm.ts) ──
+export function todayVN(): string {
+  return getVietnamDate(0);
+}
+
+export function tomorrowVN(): string {
+  return getVietnamDate(1);
+}
+
+/**
+ * Resolves exerciseDate and sourceDate according to execution context:
+ * - If --date or --exercise-date is provided: respects it directly.
+ * - At 2:00 AM (local VN hour < 5): exercise is for TODAY (ready when students wake up),
+ *   source words from YESTERDAY.
+ * - Daytime/evening (hour >= 5): exercise is pre-generated for TOMORROW,
+ *   source words from TODAY.
+ */
+export function resolveExerciseDates(): { exerciseDate: string; sourceDate: string } {
+  if (DATE_ARG) {
+    const exDate = DATE_ARG;
+    const [y, m, d] = exDate.split('-').map(Number);
+    const prev = new Date(Date.UTC(y, m - 1, d - 1)).toISOString().slice(0, 10);
+    return { exerciseDate: exDate, sourceDate: SOURCE_DATE_ARG || prev };
+  }
+
+  const vnHour = getVietnamHour();
+  if (vnHour < 5) {
+    return {
+      exerciseDate: getVietnamDate(0),
+      sourceDate: SOURCE_DATE_ARG || getVietnamDate(-1),
+    };
+  }
+
+  return {
+    exerciseDate: getVietnamDate(1),
+    sourceDate: SOURCE_DATE_ARG || getVietnamDate(0),
+  };
+}
+
+// ── NLM CLI wrapper ──
 function withProfile(args: string[]): string[] {
   if (args.includes('-p') || args.includes('--profile')) return args;
+  // If calling 'notebook query', place -p before notebookId and question so CLI parser parses correctly
+  if (args[0] === 'notebook' && args[1] === 'query') {
+    return ['notebook', 'query', '-p', NLM_PROFILE, ...args.slice(2)];
+  }
   return [...args, '-p', NLM_PROFILE];
+}
+
+export let nlmKnownUnavailableReason: string | null = null;
+
+export function setNlmKnownUnavailableReason(reason: string | null): void {
+  nlmKnownUnavailableReason = reason;
+}
+
+export function isNlmAuthOrNetworkError(text: string): boolean {
+  return /authentication may have expired|cookies have expired|code 16|authentication expired|authentication error|clientauthenticationerror|run ['"]?nlm login['"]?|http 40[13]|fetch failed|econnrefused|econnreset|etimedout|enotfound|timed? ?out|nlm_auth_expired/i.test(
+    text,
+  );
 }
 
 async function nlm(args: string[], timeoutMs = 300_000): Promise<string> {
   const finalArgs = withProfile(args);
-  const { stdout, stderr } = await execFileAsync(NLM_PATH, finalArgs, {
-    timeout: timeoutMs,
-    maxBuffer: 8 * 1024 * 1024,
-    windowsHide: true,
-    encoding: 'utf8',
-    env: { ...process.env, NLM_PROFILE, NOTEBOOKLM_PROFILE: NLM_PROFILE },
-  });
-  const out = `${stdout || ''}\n${stderr || ''}`.trim();
-  if (/authentication may have expired|Cookies have expired|Code 16/i.test(out)) {
-    throw new Error('NLM_AUTH_EXPIRED — chạy: nlm login -p ' + NLM_PROFILE);
+  try {
+    const { stdout, stderr } = await execFileAsync(NLM_PATH, finalArgs, {
+      timeout: timeoutMs,
+      maxBuffer: 8 * 1024 * 1024,
+      windowsHide: true,
+      encoding: 'utf8',
+      env: { ...process.env, NLM_PROFILE, NOTEBOOKLM_PROFILE: NLM_PROFILE },
+    });
+    const out = `${stdout || ''}\n${stderr || ''}`.trim();
+    if (isNlmAuthOrNetworkError(out)) {
+      nlmKnownUnavailableReason = `NLM auth error: ${out.slice(0, 100)}`;
+      throw new Error(`NLM_AUTH_EXPIRED: ${out.slice(0, 160)}`);
+    }
+    return out;
+  } catch (err: unknown) {
+    const execErr = err as { message?: string; stdout?: string; stderr?: string };
+    const combinedOutput = [execErr.message, execErr.stdout, execErr.stderr]
+      .filter(Boolean)
+      .join('\n');
+    if (isNlmAuthOrNetworkError(combinedOutput)) {
+      const summary = (execErr.stdout || execErr.stderr || execErr.message || 'NLM auth expired').trim().slice(0, 120);
+      nlmKnownUnavailableReason = `NLM auth error: ${summary}`;
+      throw new Error(`NLM_AUTH_EXPIRED: ${summary}`);
+    }
+    throw err instanceof Error ? err : new Error(combinedOutput || String(err));
   }
-  return out;
 }
 
 function getNotebookId(): string {
   if (process.env.NLM_NOTEBOOK_ID) return process.env.NLM_NOTEBOOK_ID.trim();
   if (fs.existsSync(NOTEBOOK_ID_FILE)) return fs.readFileSync(NOTEBOOK_ID_FILE, 'utf8').trim();
-  throw new Error('Chưa có notebook. Set NLM_NOTEBOOK_ID hoặc chạy backfill-core-senses-nlm.ts --setup');
+  return '';
 }
 
-// ── JSON parsing (tolerant — NLM output can be messy) ──
+// ── JSON parsing ──
 function parseJsonLoose(raw: string): unknown {
   let text = raw.trim();
   const fence = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
@@ -123,23 +210,26 @@ function parseJsonLoose(raw: string): unknown {
 }
 
 // ── Types ──
-interface WordItem {
+export interface WordItem {
   word: string;
   translation: string;
   pos?: string;
 }
 
-interface ClassroomWords {
-  classroomId: string;
-  classroomName: string;
-  teacherId: string;
+export interface UserCandidate {
+  userId: string;
+  email: string;
+  fullName: string;
+  primaryClassroomId?: string;
   words: WordItem[];
+  levelConfig: AdaptiveLevelConfig;
 }
 
-interface GeneratedExercise {
+export interface GeneratedExercise {
   title: string;
   passage: string;
   passagePlain: string;
+  translation?: string;
   level: string;
   questions: Array<{
     q: string;
@@ -156,60 +246,132 @@ interface GeneratedExercise {
   bonusWords: Array<{ word: string; translation: string; pos?: string; definition_en?: string }>;
 }
 
-// ── Gather today's words per classroom ──
-async function gatherClassroomWords(): Promise<ClassroomWords[]> {
-  const today = todayVN();
-  console.log(`[daily-reading] Gathering words for date: ${today}`);
+// ── Strip markdown bold ──
+function stripBold(s: string): string {
+  return s.replace(/\*\*([^*]+)\*\*/g, '$1');
+}
 
-  // Get all classrooms
-  let classrooms: Array<{ id: string; name: string; teacher_id: string }> = [];
-  if (CLASSROOM_FILTER) {
-    const { data } = await supabase
-      .from('classrooms')
-      .select('id, name, teacher_id')
-      .eq('id', CLASSROOM_FILTER)
-      .single();
-    if (data) classrooms = [data];
-  } else {
-    const { data } = await supabase.from('classrooms').select('id, name, teacher_id');
-    classrooms = data || [];
+// ── Clean option text ──
+function cleanChoice(s: string): string {
+  return s
+    .replace(/^\s*[A-Da-d][).:]\s*/u, '')
+    .replace(/\*\*/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// ── Find used words with inflection tolerance ──
+export function findUsedWords(passage: string, targets: string[]): { used: string[]; missing: string[] } {
+  const lower = passage.toLowerCase();
+  const used: string[] = [];
+  const missing: string[] = [];
+
+  // Extract bold words from passage if present (e.g. **word**)
+  const boldMatches = new Set<string>();
+  const boldRegex = /\*\*([^*]+)\*\*/g;
+  let bm: RegExpExecArray | null;
+  while ((bm = boldRegex.exec(passage)) !== null) {
+    boldMatches.add(bm[1].toLowerCase().trim());
   }
 
-  const results: ClassroomWords[] = [];
+  for (const w of targets) {
+    const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    let matched = false;
 
-  for (const cls of classrooms) {
-    // Words added today
-    const { data: todayWords } = await supabase
-      .from('words')
-      .select('word, translation, pos')
-      .eq('classroom_id', cls.id)
-      .gte('created_at', `${today}T00:00:00+07:00`)
-      .lt('created_at', `${today}T23:59:59+07:00`)
-      .order('created_at', { ascending: false });
-
-    const words: WordItem[] = [];
-    const seen = new Set<string>();
-
-    for (const w of todayWords || []) {
-      const key = (w.word || '').trim().toLowerCase();
-      if (!key || key.length > 50 || seen.has(key)) continue;
-      const vi = (w.translation || '').trim();
-      if (!vi || vi.length < 2) continue;
-      seen.add(key);
-      words.push({ word: key, translation: vi, pos: w.pos || undefined });
+    // 1. Direct match (phrase or word)
+    if (w.includes(' ') || w.includes('-')) {
+      matched = new RegExp(esc, 'i').test(lower);
+    } else {
+      // Inflection-tolerant match:
+      // handles plurals (-s, -es, -ies), past (-ed, -d), gerund (-ing)
+      let pattern = `\\b${esc}(?:s|es|ed|ing|d)?\\b`;
+      if (w.endsWith('y')) {
+        const stem = w.slice(0, -1).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        pattern = `\\b(?:${esc}|${stem}ies|${esc}(?:s|ed|ing)?)\\b`;
+      } else if (w.endsWith('e')) {
+        const stem = w.slice(0, -1).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        pattern = `\\b(?:${esc}|${stem}(?:es|ed|ing)|${esc}s?)\\b`;
+      }
+      matched = new RegExp(pattern, 'i').test(lower);
     }
 
-    // If too few words, supplement with recent words from the same classroom
-    if (words.length < MIN_WORDS && words.length > 0) {
-      const { data: recentWords } = await supabase
-        .from('words')
-        .select('word, translation, pos')
-        .eq('classroom_id', cls.id)
-        .lt('created_at', `${today}T00:00:00+07:00`)
-        .order('created_at', { ascending: false })
-        .limit(MAX_WORDS - words.length);
+    // 2. Bold tags check fallback
+    if (!matched) {
+      for (const b of boldMatches) {
+        if (b === w || b.startsWith(w) || (w.length > 4 && b.includes(w))) {
+          matched = true;
+          break;
+        }
+      }
+    }
 
-      for (const w of recentWords || []) {
+    if (matched) used.push(w);
+    else missing.push(w);
+  }
+  return { used, missing };
+}
+
+// ── Gather words for one user (R1: added_by = user_id + SRS due fallback) ──
+export async function gatherUserWords(
+  user: {
+    id: string;
+    email: string;
+    full_name?: string;
+  },
+  dates?: { sourceDate: string; exerciseDate: string },
+): Promise<UserCandidate | null> {
+  const { sourceDate, exerciseDate } = dates || resolveExerciseDates();
+  const userId = user.id;
+
+  // 1. Words added in target cycle (from sourceDate 00:00 through exerciseDate 23:59)
+  const { data: todayWords } = await supabase
+    .from('words')
+    .select('id, word, translation, pos, classroom_id')
+    .eq('added_by', userId)
+    .gte('created_at', `${sourceDate}T00:00:00+07:00`)
+    .lte('created_at', `${exerciseDate}T23:59:59+07:00`)
+    .order('created_at', { ascending: false });
+
+  const words: WordItem[] = [];
+  const seen = new Set<string>();
+  let primaryClassroomId: string | undefined;
+
+  for (const w of todayWords || []) {
+    const key = (w.word || '').trim().toLowerCase();
+    if (!key || key.length > 50 || seen.has(key)) continue;
+    const vi = (w.translation || '').trim();
+    if (!vi || vi.length < 2) continue;
+    seen.add(key);
+    words.push({ word: key, translation: vi, pos: w.pos || undefined });
+    if (!primaryClassroomId && w.classroom_id) primaryClassroomId = w.classroom_id;
+  }
+
+  const todayNewCount = words.length;
+
+  // 2. Initial level check to know minimum threshold
+  let levelConfig = analyzeVocabularyTier(words);
+  let threshold = levelConfig.minThreshold;
+
+  // 3. If below threshold, supplement with words due for SRS review of this user
+  if (words.length < threshold) {
+    const { data: dueSrs } = await supabase
+      .from('srs_progress')
+      .select('word_id')
+      .eq('user_id', userId)
+      .lte('next_review_date', `${exerciseDate}T23:59:59+07:00`)
+      .limit(MAX_WORDS * 2);
+
+    const dueWordIds = (dueSrs || [])
+      .map((s) => s.word_id)
+      .filter((id): id is string => !!id);
+
+    if (dueWordIds.length > 0) {
+      const { data: srsWords } = await supabase
+        .from('words')
+        .select('id, word, translation, pos, classroom_id')
+        .in('id', dueWordIds.slice(0, 50));
+
+      for (const w of srsWords || []) {
         if (words.length >= MAX_WORDS) break;
         const key = (w.word || '').trim().toLowerCase();
         if (!key || seen.has(key)) continue;
@@ -217,42 +379,97 @@ async function gatherClassroomWords(): Promise<ClassroomWords[]> {
         if (!vi || vi.length < 2) continue;
         seen.add(key);
         words.push({ word: key, translation: vi, pos: w.pos || undefined });
+        if (!primaryClassroomId && w.classroom_id) primaryClassroomId = w.classroom_id;
       }
     }
-
-    if (words.length < MIN_WORDS) {
-      console.log(`  [${cls.name}] only ${words.length} words — skip (need ≥${MIN_WORDS})`);
-      continue;
-    }
-
-    // Cap at MAX_WORDS
-    results.push({
-      classroomId: cls.id,
-      classroomName: cls.name,
-      teacherId: cls.teacher_id,
-      words: words.slice(0, MAX_WORDS),
-    });
   }
 
-  return results;
+  // 4. Resolve primary classroom: prioritize enrolled classroom so teachers can see progress
+  if (!primaryClassroomId) {
+    const { data: enrollment } = await supabase
+      .from('enrollments')
+      .select('classroom_id')
+      .eq('student_id', userId)
+      .limit(1)
+      .maybeSingle();
+    if (enrollment?.classroom_id) {
+      primaryClassroomId = enrollment.classroom_id;
+    }
+  }
+
+  // Fallback to owned classroom if user is a teacher
+  if (!primaryClassroomId) {
+    const { data: ownedCls } = await supabase
+      .from('classrooms')
+      .select('id')
+      .eq('teacher_id', userId)
+      .limit(1)
+      .maybeSingle();
+    if (ownedCls?.id) {
+      primaryClassroomId = ownedCls.id;
+    }
+  }
+
+  // 5. Re-evaluate adaptive level on the complete candidate word set
+  const candidateWords = words.slice(0, MAX_WORDS);
+  levelConfig = analyzeVocabularyTier(candidateWords);
+  threshold = levelConfig.minThreshold;
+
+  // Requirement R1 Gate check:
+  // "Nếu user không có từ mới và kho từ < 3 từ, bỏ qua không sinh bài rỗng để tiết kiệm tài nguyên."
+  if (todayNewCount === 0 && candidateWords.length < 3) {
+    console.log(`  [${user.email || userId}] 0 new words & word pool < 3 — skip (save resources)`);
+    return null;
+  }
+
+  // Threshold check: 3 for B2-C1, 5 for A1-B1
+  if (candidateWords.length < threshold) {
+    console.log(
+      `  [${user.email || userId}] only ${candidateWords.length} words (need >= ${threshold} for ${levelConfig.cefr}) — skip`,
+    );
+    return null;
+  }
+
+  return {
+    userId,
+    email: user.email || '',
+    fullName: user.full_name || user.email?.split('@')[0] || 'Learner',
+    primaryClassroomId,
+    words: candidateWords,
+    levelConfig,
+  };
 }
 
-// ── Check if exercise already exists for tomorrow ──
-async function exerciseExists(classroomId: string): Promise<boolean> {
-  const tomorrow = tomorrowVN();
-  const { data } = await supabase
-    .from('daily_reading_exercises')
-    .select('id')
-    .eq('classroom_id', classroomId)
-    .eq('exercise_date', tomorrow)
-    .is('target_user_id', null)
-    .eq('status', 'ready')
-    .maybeSingle();
-  return !!data;
+// ── Check if exercise already exists and passes Quality Gate for exerciseDate ──
+async function exerciseExists(userId: string, exerciseDate: string): Promise<boolean> {
+  if (FORCE) return false;
+  try {
+    const { data } = await supabase
+      .from('daily_reading_exercises')
+      .select('id, passage')
+      .eq('exercise_date', exerciseDate)
+      .eq('target_user_id', userId)
+      .eq('status', 'ready')
+      .limit(1);
+    if (!data || data.length === 0) return false;
+    const passage = data[0].passage || '';
+    const quality = checkPassageRepetition(passage);
+    if (!quality.passed) {
+      console.log(`   [quality-gate] Existing exercise for ${exerciseDate} failed Quality Gate (${quality.reason}) — will re-generate.`);
+      return false;
+    }
+    return true;
+  } catch {
+    return false;
+  }
 }
 
-// ── Build NLM prompt ──
-function buildPrompt(words: WordItem[], classroomName: string): string {
+// ── Build Adaptive NLM prompt (R2) ──
+export function buildPrompt(
+  words: WordItem[],
+  levelConfig: AdaptiveLevelConfig,
+  userDisplayName: string,
+): string {
   const wordLines = words
     .map((w) => {
       const bits = [`- ${w.word}`];
@@ -262,53 +479,40 @@ function buildPrompt(words: WordItem[], classroomName: string): string {
     })
     .join('\n');
 
-  const numQuestions = words.length <= 8 ? 4 : words.length <= 12 ? 5 : 6;
-  const numCloze = Math.min(6, Math.max(4, Math.floor(words.length * 0.5)));
+  const numQuestions = levelConfig.numQuestions;
+  const numCloze = levelConfig.clozeBlanksCount;
 
-  return `You are an expert ESL teacher and a creative writer.
-Write ONE reading passage that recycles ALL the target vocabulary words below.
-Your goal is to make the student say "WOW, this is so fun to read!"
+  return `You are an expert ESL educator and a gifted writer.
+Write ONE reading passage tailored for Vietnamese learner "${userDisplayName}" that naturally incorporates ALL target vocabulary words below.
 
-CLASS: "${classroomName}"
+TARGET LEVEL: ${levelConfig.labelEn} (${levelConfig.cefr})
+- Passage length target: EXACTLY ${levelConfig.minWords}–${levelConfig.maxWords} English words (${levelConfig.paragraphs}).
+- Complexity: ${levelConfig.complexity}
+- Style guidelines: ${levelConfig.passageGuidelines}
+- Question focus: ${levelConfig.questionGuidelines}
+
 Target words (${words.length}):
 ${wordLines}
 
 PASSAGE RULES:
-1. Write 150-300 English words (2-3 paragraphs). Make it HIGHLY ENGAGING but REALISTIC (e.g., a funny diary entry, an interesting modern lifestyle article, a relatable daily life story). Do NOT write sci-fi, fantasy, or boring textbook essays.
-2. Use ALL target words naturally, avoiding forced or rigid sentences. The story must flow beautifully. First occurrence of each target word MUST be wrapped in **markdown bold**.
-3. Passage body: ENGLISH ONLY. No Vietnamese inside the passage.
-4. Theme: Auto-detect from the words — MUST pick ONE of the following realistic topics:
-   - Daily Life
-   - School & Education
-   - Environment
-   - Health
-   - Food & Dining
-   - Travel & Transportation
-   - Work & Career
-   - Technology
-   - Entertainment & Media
-   - Sports
-   - Society & Community
-   - Shopping & Money
-   - Nature & Animals
-   - Science
-   - Friends & Emotions
-5. Level: A2-B1 (Simple grammar but vivid, emotional, and captivating context).
+1. Write ${levelConfig.minWords}–${levelConfig.maxWords} English words.
+2. Use ALL target words naturally in realistic contexts. First occurrence of each target word MUST be wrapped in **markdown bold**.
+3. Passage body: ENGLISH ONLY. No Vietnamese inside the passage body.
+4. Auto-detect a realistic theme from the words (Daily Life, Science & Tech, Environment, Education & Work, Culture & Society, Health & Emotions).
+5. ANTI-REPETITION MANDATE (QUALITY GATE): TUYỆT ĐỐI KHÔNG dùng các câu mẫu máy móc rập khuôn (ví dụ: cấm dùng 'In this context, X plays an essential role', 'impacts the overarching...', hoặc lặp lại cùng một khuôn mẫu ngữ pháp). Mỗi câu phải có cấu trúc ngữ pháp độc lập, tự nhiên, sinh động và kết nối logic mượt mà.
 
 QUESTION RULES:
 1. Exactly ${numQuestions} MCQs. Each: "q", 4 "options", "answer", "explain".
-2. GROUNDED ONLY: every fact in question and answer MUST appear in the passage.
-3. Do NOT invent days/times/places not in the passage.
-4. "answer" = exact copy of one option string (never just a letter).
-5. "explain": Viết 2-3 câu giải thích chi tiết, tự nhiên bằng tiếng Việt. Phân tích sâu ngữ cảnh và nghĩa của từ vựng để học sinh hiểu bản chất TẠI SAO đáp án đó đúng. KHÔNG dùng các cụm từ khen ngợi công nghiệp/rập khuôn ở đầu câu (TUYỆT ĐỐI CẤM dùng: "Chính xác!", "Đúng rồi!", "Tuyệt vời!"). Hãy giải thích như một gia sư chuyên môn sâu (VD: "Ở đoạn 2, cụm từ... được dùng để chỉ..., qua đó ta thấy...").
+2. GROUNDED ONLY: every fact in question and answer MUST appear in the passage. Never invent unmentioned days, times, or places.
+3. "answer" = exact copy of one option string (never just a letter).
+4. "explain": Viết 2-3 câu giải thích chi tiết, tự nhiên bằng tiếng Việt. Phân tích sâu ngữ cảnh và nghĩa của từ vựng để học sinh hiểu bản chất TẠI SAO đáp án đó đúng. TUYỆT ĐỐI CẤM dùng các cụm từ khen ngợi công nghiệp ở đầu câu (như "Chính xác!", "Đúng rồi!", "Tuyệt vời!").
 
 CLOZE RULES:
 1. Rewrite the passage replacing exactly ${numCloze} target words with {{0}}, {{1}}, etc.
-2. Each blank: "answer" = target word; "options" = 4 real English words (1 correct + 3 clever distractors).
+2. Each blank: "id" (number), "answer" (target word), "options" (4 real English words: 1 correct + 3 clever distractors).
 
 BONUS VOCABULARY:
-Include 3-5 bonus words that appear in the passage but are NOT in the target list.
-These should be highly useful, practical B1-B2 words that wow the student.
+Include 2-4 bonus words that appear in the passage but are NOT in the target list.
 For each: word, translation (Vietnamese), pos, definition_en.
 
 Return ONLY valid JSON (no markdown fence):
@@ -316,7 +520,7 @@ Return ONLY valid JSON (no markdown fence):
   "title": "...",
   "passage": "... with **target** words ...",
   "translation": "Bản dịch toàn bộ đoạn văn sang tiếng Việt một cách tự nhiên và truyền cảm...",
-  "level": "A2",
+  "level": "${levelConfig.cefr}",
   "usedWords": ["word1", "word2"],
   "questions": [
     {"q": "...", "options": ["A","B","C","D"], "answer": "B", "explain": "..."}
@@ -333,38 +537,8 @@ Return ONLY valid JSON (no markdown fence):
 }`;
 }
 
-// ── Strip markdown bold ──
-function stripBold(s: string): string {
-  return s.replace(/\*\*([^*]+)\*\*/g, '$1');
-}
-
-// ── Clean option text ──
-function cleanChoice(s: string): string {
-  return s
-    .replace(/^\s*[A-Da-d][).:]\s*/u, '')
-    .replace(/\*\*/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-// ── Find used words ──
-function findUsedWords(passage: string, targets: string[]): { used: string[]; missing: string[] } {
-  const lower = passage.toLowerCase();
-  const used: string[] = [];
-  const missing: string[] = [];
-  for (const w of targets) {
-    const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const re = w.includes(' ') || w.includes('-')
-      ? new RegExp(esc, 'i')
-      : new RegExp(`\\b${esc}\\b`, 'i');
-    if (re.test(lower)) used.push(w);
-    else missing.push(w);
-  }
-  return { used, missing };
-}
-
 // ── Normalize NLM response ──
-function normalizeResponse(raw: Record<string, unknown>, targets: string[]): GeneratedExercise {
+export function normalizeResponse(raw: Record<string, unknown>, targets: string[]): GeneratedExercise {
   const passage = String(raw.passage || '').trim();
   if (!passage || passage.length < 40) throw new Error('Passage quá ngắn hoặc trống');
 
@@ -408,9 +582,10 @@ function normalizeResponse(raw: Record<string, unknown>, targets: string[]): Gen
     .filter((x): x is NonNullable<typeof x> => x !== null);
 
   // Cloze
-  const clozeObj = raw.cloze && typeof raw.cloze === 'object'
-    ? (raw.cloze as Record<string, unknown>)
-    : {};
+  const clozeObj =
+    raw.cloze && typeof raw.cloze === 'object'
+      ? (raw.cloze as Record<string, unknown>)
+      : {};
   let clozeText = String(clozeObj.text || '').trim();
   const blanksRaw = Array.isArray(clozeObj.blanks) ? clozeObj.blanks : [];
   const blanks = blanksRaw
@@ -437,13 +612,13 @@ function normalizeResponse(raw: Record<string, unknown>, targets: string[]): Gen
     .filter((x): x is NonNullable<typeof x> => x !== null);
 
   // Fallback cloze from passage
-  if (!clozeText || blanks.length < 3) {
+  if (!clozeText || blanks.length < 2) {
     let t = passagePlain;
     const autoBlanks: typeof blanks = [];
-    const n = Math.min(6, Math.max(4, usedWords.length));
+    const n = Math.min(usedWords.length, Math.min(8, Math.max(2, Math.round(usedWords.length * 0.5))));
     usedWords.slice(0, n).forEach((w, i) => {
       const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const re = new RegExp(`\\b${esc}\\b`, 'i');
+      const re = new RegExp(`\\b${esc}(?:s|es|ed|ing|d)?\\b`, 'i');
       if (re.test(t)) {
         t = t.replace(re, `{{${i}}}`);
         autoBlanks.push({
@@ -453,7 +628,7 @@ function normalizeResponse(raw: Record<string, unknown>, targets: string[]): Gen
         });
       }
     });
-    if (autoBlanks.length >= blanks.length) {
+    if (autoBlanks.length >= blanks.length && autoBlanks.length >= 2) {
       clozeText = t;
       blanks.length = 0;
       blanks.push(...autoBlanks);
@@ -477,6 +652,7 @@ function normalizeResponse(raw: Record<string, unknown>, targets: string[]): Gen
     title: String(raw.title || 'Daily Reading').trim().slice(0, 120),
     passage,
     passagePlain,
+    translation: raw.translation ? String(raw.translation).trim() : undefined,
     level: String(raw.level || 'A2').trim(),
     questions,
     cloze: { text: clozeText || passagePlain, blanks },
@@ -486,20 +662,113 @@ function normalizeResponse(raw: Record<string, unknown>, targets: string[]): Gen
   };
 }
 
-// ── Generate exercise for one classroom ──
-async function generateForClassroom(
-  notebookId: string,
-  cw: ClassroomWords,
-): Promise<GeneratedExercise | null> {
-  const prompt = buildPrompt(cw.words, cw.classroomName);
-  const targets = cw.words.map((w) => w.word);
+export interface GenerationResult {
+  exercise: GeneratedExercise;
+  engine: 'nlm' | 'gemini_fallback';
+  fallbackReason?: string;
+}
 
+// ── Gemini fallback generator ──
+export async function generateWithGeminiFallback(
+  basePrompt: string,
+  candidate: UserCandidate,
+): Promise<GeneratedExercise | null> {
+  const targets = candidate.words.map((w) => w.word);
   const maxAttempts = 2;
-  let best: GeneratedExercise | null = null;
+  let currentPrompt = basePrompt;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      console.log(`  [nlm] attempt ${attempt}/${maxAttempts} for "${cw.classroomName}" (${cw.words.length} words)`);
+      console.log(
+        `  [gemini-fallback] Attempt ${attempt}/${maxAttempts} for "${candidate.fullName}" (${candidate.words.length} words, tier ${candidate.levelConfig.cefr})...`,
+      );
+      const rawOutput = await geminiGenerate(currentPrompt, {
+        json: true,
+        temperature: 0.35,
+      });
+
+      let parsed = parseJsonLoose(rawOutput) as Record<string, unknown>;
+      if (typeof parsed.answer === 'string') {
+        parsed = parseJsonLoose(parsed.answer) as Record<string, unknown>;
+      }
+
+      const result = normalizeResponse(parsed, targets);
+      if (!result.level) result.level = candidate.levelConfig.cefr;
+
+      // Quality Gate: Anti-Repetition Check
+      const repCheck = checkPassageRepetition(result.passage, targets);
+      if (!repCheck.passed) {
+        console.warn(
+          `  [quality-gate] Gemini attempt ${attempt} REJECTED: ${repCheck.reason}`,
+        );
+        if (attempt < maxAttempts) {
+          currentPrompt = `${basePrompt}\n\nCRITICAL RE-GENERATION NOTICE: Your previous passage was REJECTED by the Quality Gate because it contained repetitive sentence frames (${repCheck.reason}). Rewrite the passage completely. Every single sentence must have diverse, unique grammar with zero formulaic repetition!`;
+          await sleep(2000);
+          continue;
+        }
+        return null;
+      }
+
+      console.log(`  [quality-gate] ✓ Anti-Repetition Check passed for Gemini output!`);
+
+      if (result.coverage >= 0.70 && result.questions.length >= 3) {
+        return result;
+      }
+
+      console.log(
+        `  [gemini-fallback] coverage=${(result.coverage * 100).toFixed(0)}% questions=${result.questions.length} — retry`,
+      );
+    } catch (err) {
+      console.error(
+        `  [gemini-fallback] Attempt ${attempt} failed:`,
+        err instanceof Error ? err.message : err,
+      );
+    }
+
+    if (attempt < maxAttempts) await sleep(2000);
+  }
+
+  return null;
+}
+
+// ── Generate exercise for one user ──
+export async function generateForUser(
+  notebookId: string,
+  candidate: UserCandidate,
+): Promise<GenerationResult | null> {
+  const prompt = buildPrompt(candidate.words, candidate.levelConfig, candidate.fullName);
+  const targets = candidate.words.map((w) => w.word);
+
+  const forceGemini =
+    process.argv.includes('--gemini') || process.argv.includes('--gemini-only');
+
+  // 1. Direct Gemini if requested, NLM binary/notebook not available, or NLM known unavailable in this run
+  if (forceGemini || !fs.existsSync(NLM_PATH) || !notebookId || nlmKnownUnavailableReason) {
+    if (nlmKnownUnavailableReason) {
+      console.log(`  [generator] NLM previously unavailable (${nlmKnownUnavailableReason}). Using Gemini Multi-Key directly...`);
+    } else {
+      console.log(`  [generator] Directly utilizing Gemini Multi-Key engine...`);
+    }
+    const geminiEx = await generateWithGeminiFallback(prompt, candidate);
+    return geminiEx
+      ? {
+          exercise: geminiEx,
+          engine: 'gemini_fallback',
+          fallbackReason: nlmKnownUnavailableReason || 'NLM unavailable or forced Gemini',
+        }
+      : null;
+  }
+
+  // 2. Primary engine: NotebookLM CLI
+  const maxAttempts = 2;
+  let best: GeneratedExercise | null = null;
+  let failureReason = '';
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      console.log(
+        `  [nlm] attempt ${attempt}/${maxAttempts} for "${candidate.fullName}" (${candidate.words.length} words, tier ${candidate.levelConfig.cefr})`,
+      );
       const rawOutput = await nlm(['notebook', 'query', notebookId, prompt], 300_000);
       console.log(`  [nlm] raw head: ${rawOutput.slice(0, 150).replace(/\s+/g, ' ')}`);
 
@@ -508,219 +777,338 @@ async function generateForClassroom(
         parsed = parseJsonLoose(parsed.answer) as Record<string, unknown>;
       }
       const result = normalizeResponse(parsed, targets);
+      if (!result.level) result.level = candidate.levelConfig.cefr;
+
+      // Quality Gate: Anti-Repetition Check
+      const repCheck = checkPassageRepetition(result.passage, targets);
+      if (!repCheck.passed) {
+        console.warn(`  [quality-gate] NLM passage REJECTED: ${repCheck.reason}`);
+        failureReason = repCheck.reason || 'NLM generated repetitive templates';
+        break; // Switch to Gemini fallback immediately
+      }
 
       if (!best || result.coverage > best.coverage) {
         best = result;
       }
 
       if (result.coverage >= 0.75 && result.questions.length >= 3) {
-        return result;
+        return { exercise: result, engine: 'nlm' };
       }
 
-      console.log(`  [nlm] coverage=${(result.coverage * 100).toFixed(0)}% questions=${result.questions.length} — retry`);
+      console.log(
+        `  [nlm] coverage=${(result.coverage * 100).toFixed(0)}% questions=${result.questions.length} — retry`,
+      );
     } catch (e) {
-      console.error(`  [nlm] attempt ${attempt} failed:`, e instanceof Error ? e.message : e);
-      if (String(e).includes('NLM_AUTH_EXPIRED')) throw e;
+      const msg = e instanceof Error ? e.message : String(e);
+      console.error(`  [nlm] attempt ${attempt} failed:`, msg);
+      failureReason = msg;
+      if (isNlmAuthOrNetworkError(msg)) {
+        console.warn(
+          `  [nlm] Auth or network error detected (${msg.slice(0, 100)}). Activating automatic Gemini fallback...`,
+        );
+        break;
+      }
     }
 
     if (attempt < maxAttempts) await sleep(DELAY_MS);
   }
 
-  return best;
+  // If NLM had a valid passage that passed Quality Gate
+  if (best && best.coverage >= 0.75 && best.questions.length >= 3) {
+    const repCheck = checkPassageRepetition(best.passage, targets);
+    if (repCheck.passed) {
+      return { exercise: best, engine: 'nlm' };
+    }
+  }
+
+  // 3. Fallback to Gemini Multi-Key Engine
+  console.log(
+    `  [fallback] NLM failed or unviable (${failureReason || 'low coverage'}). Falling back to Gemini Multi-Key...`,
+  );
+  const fallbackEx = await generateWithGeminiFallback(prompt, candidate);
+  if (fallbackEx) {
+    return {
+      exercise: fallbackEx,
+      engine: 'gemini_fallback',
+      fallbackReason: failureReason || 'NLM unviable',
+    };
+  }
+
+  return null;
 }
 
-// ── Save exercise to DB ──
+// ── Save exercise to DB (R3: target_user_id = user_id) ──
 async function saveExercise(
-  classroomId: string,
+  candidate: UserCandidate,
   sourceDate: string,
   exerciseDate: string,
-  sourceWords: WordItem[],
   exercise: GeneratedExercise,
   meta: Record<string, unknown>,
 ): Promise<boolean> {
   if (DRY) {
-    console.log(`  [dry] Would save: "${exercise.title}" coverage=${(exercise.coverage * 100).toFixed(0)}%`);
+    console.log(
+      `  [dry] Would save for user ${candidate.email}: "${exercise.title}" level=${exercise.level} coverage=${(exercise.coverage * 100).toFixed(0)}%`,
+    );
     return true;
   }
 
-  const { error } = await supabase.from('daily_reading_exercises').upsert(
-    {
-      classroom_id: classroomId,
-      target_user_id: null,
-      exercise_date: exerciseDate,
-      source_date: sourceDate,
-      title: exercise.title,
-      passage: exercise.passage,
-      passage_plain: exercise.passagePlain,
-      level: exercise.level,
-      questions: exercise.questions,
-      cloze: exercise.cloze,
-      source_words: sourceWords,
-      used_words: exercise.usedWords,
-      coverage: exercise.coverage,
-      bonus_words: exercise.bonusWords,
-      status: 'ready',
-      error_message: null,
-      generated_at: new Date().toISOString(),
-      generation_meta: meta,
+  // Find existing row ID if already present for this user & date
+  let existingId: string | undefined;
+  try {
+    const { data: existing } = await supabase
+      .from('daily_reading_exercises')
+      .select('id')
+      .eq('target_user_id', candidate.userId)
+      .eq('exercise_date', exerciseDate)
+      .limit(1);
+    if (existing && existing.length > 0) {
+      existingId = existing[0].id;
+    }
+  } catch {}
+
+  const rowData: Record<string, unknown> = {
+    classroom_id: candidate.primaryClassroomId || null,
+    target_user_id: candidate.userId,
+    exercise_date: exerciseDate,
+    source_date: sourceDate,
+    title: exercise.title,
+    passage: exercise.passage,
+    passage_plain: exercise.passagePlain,
+    level: exercise.level || candidate.levelConfig.cefr,
+    questions: exercise.questions,
+    cloze: exercise.cloze,
+    source_words: candidate.words,
+    used_words: exercise.usedWords,
+    coverage: exercise.coverage,
+    bonus_words: exercise.bonusWords,
+    status: 'ready',
+    error_message: null,
+    generated_at: new Date().toISOString(),
+    generation_meta: {
+      ...meta,
+      ...(exercise.translation ? { translation: exercise.translation } : {}),
     },
-    {
-      onConflict: 'classroom_id,exercise_date,target_user_id',
-    },
-  );
+  };
+
+  let error;
+  if (existingId) {
+    const res = await supabase.from('daily_reading_exercises').update(rowData).eq('id', existingId);
+    error = res.error;
+  } else {
+    const res = await supabase.from('daily_reading_exercises').insert(rowData);
+    error = res.error;
+  }
 
   if (error) {
-    console.error(`  [db] Save failed:`, error.message);
+    console.error(`  [db] Save failed for user ${candidate.email}:`, error.message);
     return false;
   }
 
   return true;
 }
 
-// ── Push notification to students ──
-async function notifyStudents(classroomId: string, title: string): Promise<number> {
-  if (SKIP_PUSH || DRY) return 0;
+// ── Push notification to user ──
+async function notifyUser(userId: string, title: string): Promise<boolean> {
+  if (SKIP_PUSH || DRY) return false;
 
   try {
-    // Dynamic import to avoid Firebase init issues in some environments
     const { sendPushNotificationToUser } = await import('../src/lib/notifications');
-
-    const { data: enrollments } = await supabase
-      .from('enrollments')
-      .select('student_id')
-      .eq('classroom_id', classroomId);
-
-    if (!enrollments?.length) return 0;
-
-    let sent = 0;
-    for (const e of enrollments) {
-      try {
-        const result = await sendPushNotificationToUser(
-          e.student_id,
-          '📖 Bài luyện đọc mới!',
-          `"${title}" — Đọc và làm bài ngay khi thức dậy nhé!`,
-          '/practice/daily-reading',
-        );
-        if ((result as { messageId?: string })?.messageId) sent++;
-      } catch {
-        // Skip silently — not critical
-      }
-    }
-    return sent;
-  } catch (e) {
-    console.warn('  [push] notification module unavailable:', e instanceof Error ? e.message : e);
-    return 0;
+    const result = await sendPushNotificationToUser(
+      userId,
+      '📖 Bài luyện đọc mới!',
+      `"${title}" — Đọc và làm bài cá nhân hóa ngay khi thức dậy nhé!`,
+      '/practice/daily-reading',
+    );
+    return !!(result as { messageId?: string })?.messageId;
+  } catch {
+    return false;
   }
+}
+
+// ── Active Users Queue ──
+async function getActiveUsersQueue(
+  sourceDate: string,
+  exerciseDate: string,
+): Promise<Array<{ id: string; email: string; full_name?: string }>> {
+  if (USER_FILTER) {
+    let q = supabase.from('profiles').select('id, email, full_name');
+    if (USER_FILTER.includes('@')) {
+      q = q.eq('email', USER_FILTER);
+    } else {
+      q = q.eq('id', USER_FILTER);
+    }
+    const { data, error } = await q.maybeSingle();
+    if (error || !data) {
+      console.error(`User not found for filter: ${USER_FILTER}`);
+      return [];
+    }
+    return [data];
+  }
+
+  // 1. Users who added words in current cycle (from sourceDate 00:00 through exerciseDate 23:59)
+  const { data: wordUsers } = await supabase
+    .from('words')
+    .select('added_by')
+    .gte('created_at', `${sourceDate}T00:00:00+07:00`)
+    .lte('created_at', `${exerciseDate}T23:59:59+07:00`)
+    .not('added_by', 'is', null);
+
+  // 2. Users who have due SRS reviews
+  const { data: srsUsers } = await supabase
+    .from('srs_progress')
+    .select('user_id')
+    .lte('next_review_date', `${exerciseDate}T23:59:59+07:00`);
+
+  const userIds = new Set<string>();
+  for (const w of wordUsers || []) if (w.added_by) userIds.add(w.added_by);
+  for (const s of srsUsers || []) if (s.user_id) userIds.add(s.user_id);
+
+  if (userIds.size === 0) return [];
+
+  // Batch query profiles to avoid URI length overflow in postgREST
+  const idList = Array.from(userIds);
+  const profiles: Array<{ id: string; email: string; full_name?: string }> = [];
+  const chunkSize = 50;
+  for (let i = 0; i < idList.length; i += chunkSize) {
+    const chunk = idList.slice(i, i + chunkSize);
+    const { data } = await supabase
+      .from('profiles')
+      .select('id, email, full_name')
+      .in('id', chunk);
+    if (data) profiles.push(...data);
+  }
+
+  return profiles;
 }
 
 // ── Main ──
 async function main() {
-  console.log('=== Daily Reading Exercise Generator (NLM) ===');
+  console.log('=== Personalized Daily Reading Exercise Generator (NLM) ===');
   console.log(`profile=${NLM_PROFILE} dry=${DRY} delay=${DELAY_MS}ms`);
-  console.log(`today=${todayVN()} exercise_date=${tomorrowVN()}`);
 
-  if (!fs.existsSync(NLM_PATH)) {
-    console.error('nlm.exe not found:', NLM_PATH);
-    process.exit(1);
+  const { exerciseDate, sourceDate } = resolveExerciseDates();
+  console.log(`source_date=${sourceDate} exercise_date=${exerciseDate}`);
+
+  const hasNlm = fs.existsSync(NLM_PATH);
+  if (!hasNlm) {
+    console.warn(`[NLM] nlm.exe not found at ${NLM_PATH}. Proceeding with Gemini Multi-Key fallback.`);
   }
 
-  // Auth check removed because NLM CLI handles it automatically
-
   const notebookId = getNotebookId();
-  console.log('notebook:', notebookId);
+  if (notebookId) {
+    console.log('notebook:', notebookId);
+  }
 
-  // Gather words
-  const classrooms = await gatherClassroomWords();
-  console.log(`\nFound ${classrooms.length} classroom(s) with enough words today`);
+  // Active Users Queue
+  const activeUsers = await getActiveUsersQueue(sourceDate, exerciseDate);
+  console.log(`\nActive users queue: ${activeUsers.length} user(s)`);
 
-  if (classrooms.length === 0) {
-    console.log('No classrooms with new words — nothing to generate.');
+  if (activeUsers.length === 0) {
+    console.log('No active users with new words or due reviews in this window — nothing to generate.');
     return;
   }
 
-  const today = todayVN();
-  const tomorrow = tomorrowVN();
   let totalOk = 0;
   let totalFail = 0;
   let totalPush = 0;
 
-  for (const cw of classrooms) {
-    console.log(`\n── Classroom: "${cw.classroomName}" (${cw.words.length} words) ──`);
-    console.log(`   words: ${cw.words.map((w) => w.word).join(', ')}`);
+  for (let i = 0; i < activeUsers.length; i++) {
+    const user = activeUsers[i];
+    console.log(`\n[${i + 1}/${activeUsers.length}] Processing user: ${user.email} (${user.id})`);
 
-    // Check if already generated
-    if (!DRY && await exerciseExists(cw.classroomId)) {
-      console.log('  Already has exercise for tomorrow — skip');
+    const candidate = await gatherUserWords(user, { sourceDate, exerciseDate });
+    if (!candidate) continue;
+
+    console.log(
+      `   Words (${candidate.words.length}): ${candidate.words.map((w) => w.word).join(', ')}`,
+    );
+    console.log(
+      `   Adaptive Level: ${candidate.levelConfig.labelEn} (${candidate.levelConfig.cefr}) [Target: ${candidate.levelConfig.minWords}-${candidate.levelConfig.maxWords} words]`,
+    );
+
+    // Check if already generated for exerciseDate
+    if (!DRY && (await exerciseExists(candidate.userId, exerciseDate))) {
+      console.log(`   Already has valid exercise for ${exerciseDate} — skip`);
       continue;
     }
 
     const startMs = Date.now();
 
     try {
-      const exercise = await generateForClassroom(notebookId, cw);
+      const genResult = await generateForUser(notebookId, candidate);
 
-      if (!exercise) {
-        console.error('  Failed to generate exercise');
-        // Save failure record
-        if (!DRY) {
-          await supabase.from('daily_reading_exercises').upsert(
-            {
-              classroom_id: cw.classroomId,
-              target_user_id: null,
-              exercise_date: tomorrow,
-              source_date: today,
-              title: `[Failed] ${cw.classroomName}`,
-              passage: '',
-              passage_plain: '',
-              questions: [],
-              cloze: {},
-              source_words: cw.words,
-              used_words: [],
-              coverage: 0,
-              status: 'failed',
-              error_message: 'NLM failed to generate valid exercise after max attempts',
-              generated_at: new Date().toISOString(),
-              generation_meta: { nlm_profile: NLM_PROFILE, notebook_id: notebookId },
-            },
-            { onConflict: 'classroom_id,exercise_date,target_user_id' },
-          );
-        }
+      if (!genResult || !genResult.exercise) {
+        console.error('   Failed to generate exercise');
         totalFail++;
         continue;
       }
 
+      const { exercise, engine, fallbackReason } = genResult;
       const durationMs = Date.now() - startMs;
-      const meta = {
+      const meta: Record<string, unknown> = {
+        engine,
         nlm_profile: NLM_PROFILE,
-        notebook_id: notebookId,
+        notebook_id: notebookId || null,
         duration_ms: durationMs,
-        word_count: cw.words.length,
+        word_count: candidate.words.length,
+        adaptive_level: candidate.levelConfig.cefr,
+        quality_gate: 'passed',
       };
+      if (fallbackReason) {
+        meta.fallback_reason = fallbackReason;
+      }
 
-      const saved = await saveExercise(cw.classroomId, today, tomorrow, cw.words, exercise, meta);
+      const saved = await saveExercise(candidate, sourceDate, exerciseDate, exercise, meta);
 
       if (saved) {
         totalOk++;
-        console.log(`  ✓ "${exercise.title}" · coverage=${(exercise.coverage * 100).toFixed(0)}% · ${exercise.questions.length} MCQs · ${exercise.cloze.blanks.length} cloze · ${exercise.bonusWords.length} bonus · ${(durationMs / 1000).toFixed(1)}s`);
+        console.log(
+          `   ✓ [${engine}] "${exercise.title}" · Level ${exercise.level} · coverage=${(exercise.coverage * 100).toFixed(0)}% · ${exercise.questions.length} MCQs · ${exercise.cloze.blanks.length} cloze · ${exercise.bonusWords.length} bonus · ${(durationMs / 1000).toFixed(1)}s`,
+        );
 
         // Push notification
-        const pushCount = await notifyStudents(cw.classroomId, exercise.title);
-        totalPush += pushCount;
-        if (pushCount > 0) console.log(`  📱 Notified ${pushCount} student(s)`);
+        const notified = await notifyUser(candidate.userId, exercise.title);
+        if (notified) {
+          totalPush++;
+          console.log(`   📱 Notified user ${candidate.email}`);
+        }
       } else {
         totalFail++;
       }
     } catch (e) {
-      totalFail++;
-      console.error(`  Classroom error:`, e instanceof Error ? e.message : e);
-      if (String(e).includes('NLM_AUTH_EXPIRED')) {
-        console.error('NLM auth expired — stopping.');
-        process.exit(2);
+      console.error(`   User generation error:`, e instanceof Error ? e.message : e);
+      try {
+        console.log(`   Attempting emergency Gemini fallback for ${candidate.email}...`);
+        const fallbackPrompt = buildPrompt(candidate.words, candidate.levelConfig, candidate.fullName);
+        const fallbackEx = await generateWithGeminiFallback(fallbackPrompt, candidate);
+        if (fallbackEx) {
+          const durationMs = Date.now() - startMs;
+          const meta = {
+            engine: 'gemini_fallback',
+            nlm_profile: NLM_PROFILE,
+            duration_ms: durationMs,
+            word_count: candidate.words.length,
+            adaptive_level: candidate.levelConfig.cefr,
+            fallback_reason: e instanceof Error ? e.message : String(e),
+            quality_gate: 'passed',
+          };
+          const saved = await saveExercise(candidate, sourceDate, exerciseDate, fallbackEx, meta);
+          if (saved) {
+            totalOk++;
+            console.log(`   ✓ Recovered with Gemini fallback for ${candidate.email}!`);
+            await notifyUser(candidate.userId, fallbackEx.title);
+            continue;
+          }
+        }
+      } catch (gemErr) {
+        console.error(`   Emergency Gemini fallback failed:`, gemErr instanceof Error ? gemErr.message : gemErr);
       }
+      totalFail++;
     }
 
-    // Delay between classrooms
-    if (classrooms.indexOf(cw) < classrooms.length - 1) {
+    // Delay between users
+    if (i < activeUsers.length - 1) {
+      console.log(`   Waiting ${DELAY_MS}ms before next user...`);
       await sleep(DELAY_MS);
     }
   }
@@ -729,7 +1117,10 @@ async function main() {
   console.log(`ok=${totalOk} fail=${totalFail} push=${totalPush}`);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// Run if directly executed
+if (require.main === module || process.argv[1]?.endsWith('generate-daily-reading-nlm.ts')) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

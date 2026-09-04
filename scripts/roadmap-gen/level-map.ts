@@ -21,12 +21,13 @@ export const LEVELS: { id: RoadmapLevelId; title: string; titleVi: string; descr
 
 /** Grammar topic slug → cấp, theo thứ tự dạy trong từng cấp (62 topic). */
 export const GRAMMAR_LEVEL_MAP: Record<RoadmapLevelId, string[]> = {
-  A0: ['personal-pronouns', 'verb-to-be', 'demonstratives', 'possessives'],
+  A0: ['personal-pronouns', 'verb-to-be', 'demonstratives', 'possessives', 'plural-nouns', 'adjectives-basic'],
   A1: [
+    // there-is/are + articles TRƯỚC present-simple: xây dựng tư duy cấu trúc tồn tại & đồ vật,
     // present-simple TRƯỚC have-got: dạy do-support xong mới tới "have got",
     // tránh lỗi "Do you have got?" của học viên Việt (teacher review 06 mục A)
-    'plural-nouns', 'adjectives-basic', 'there-is-there-are', 'articles',
-    'present-simple', 'have-got', 'wh-questions', 'adverbs-frequency', 'present-continuous',
+    'there-is-there-are', 'articles', 'present-simple', 'have-got',
+    'wh-questions', 'adverbs-frequency', 'present-continuous',
     'prepositions-place', 'imperatives', 'modals-ability',
   ],
   A2: [
@@ -63,9 +64,10 @@ export const GRAMMAR_DB_LEVEL: Record<RoadmapLevelId, 'beginner' | 'intermediate
 
 /** Pronunciation lesson id → cấp (id khớp src/data/pronunciation/lessons-v1.json). */
 export const PRONUNCIATION_LEVEL_MAP: Record<RoadmapLevelId, string[]> = {
-  A0: ['word-stress-basics', 'final-stops-ptk', 'final-s-z'],
-  // A1 12 chặng: thêm /w/ /j/ (lỗi phổ biến người Việt) — 5 bài rải đều thay vì 3
-  A1: ['initial-p-b', 'w-initial', 'vowel-i-long-short', 'j-glide', 'final-l-n'],
+  // A0: 6 chặng — 4 bài phát âm sửa lỗi nuốt âm cuối & trọng âm từ sinh tồn
+  A0: ['word-stress-basics', 'initial-p-b', 'final-stops-ptk', 'final-s-z'],
+  // A1: 10 chặng — 4 bài rèn luyện nguyên âm căng/chùng và phụ âm trượt
+  A1: ['w-initial', 'vowel-i-long-short', 'j-glide', 'final-l-n'],
   // final-clusters-ed đặt vị trí #3 để slot rơi sát chặng past-simple (unit 4 A2) —
   // dạy quá khứ phải dạy đọc -ed cùng lúc (teacher review 06, fix #2)
   A2: ['sentence-rhythm', 's-vs-sh', 'final-clusters-ed', 'vowel-u-long-short', 'vowel-ae-e', 'final-n-ng', 'basic-intonation'],
@@ -84,8 +86,8 @@ export const SUBTOPIC_LEVEL_RULES: Record<RoadmapLevelId, { allow?: RegExp; bloc
     block: /education|cultural|diversity|university|sea games|system|academ/i,
   },
   A1: {
-    allow: /family|friend|home|hous|food|drink|cook|cloth|animal|pet|weather|hobb|music|time|day|school|daily|routine|body|health/i,
-    block: /sea games|gender|community|higher education|cultural|diversity|academ|water sports/i,
+    allow: /family|friend|home|hous|apartment|food|drink|cook|eat|cloth|animal|pet|weather|hobb|music|time|day|daily|routine|body|health|life|living|feeling|emotion|travel|transport|action|verb|gia đình|cơ thể|sức khỏe|ăn uống|nhà cửa|thời gian|thiên nhiên|du lịch|cảm xúc|tính từ|động từ/i,
+    block: /education|system|primary|secondary|school system|sea games|gender|community|higher education|cultural|diversity|academ|water sports|ý tưởng/i,
   },
   A2: {
     // Chỉ chặn chủ đề rõ ràng B1+; sports/entertainment vẫn cho (kho A2 mỏng nếu chặn hết)
@@ -162,11 +164,23 @@ export const SUBTOPIC_TITLE_VI: Record<string, string> = {
   'cultural identity': 'Bản sắc văn hóa',
   'the world of work': 'Thế giới công việc',
   'lifelong learning': 'Học tập suốt đời',
+  'gia đình & quan hệ': 'Gia đình & Mối quan hệ',
+  'cơ thể & sức khỏe': 'Cơ thể & Sức khỏe',
+  'ăn uống & nhà bếp': 'Ăn uống & Nhà bếp',
+  'nhà cửa & đồ dùng': 'Nhà cửa & Đồ dùng',
+  'học tập & trường lớp': 'Học tập & Trường lớp',
+  'du lịch & giao thông': 'Du lịch & Giao thông',
+  'thiên nhiên & môi trường': 'Thiên nhiên & Môi trường',
+  'tiền bạc & mua sắm': 'Tiền bạc & Mua sắm',
+  'thời gian & nơi chốn': 'Thời gian & Nơi chốn',
+  'cảm xúc & tính cách': 'Cảm xúc & Tính cách',
+  'động từ cốt lõi & hành động': 'Động từ cốt lõi & Hành động',
+  'tính từ & mô tả': 'Tính từ & Mô tả',
 };
 
 /** Trả tên tiếng Việt cho subtopic title (bỏ hậu tố phân số "1/6"); null nếu chưa có bản dịch. */
 export function subtopicTitleVi(title: string): string | null {
-  const base = title.replace(/\s*\d+\/\d+\s*$/, '').trim().toLowerCase();
+  const base = title.replace(/\s*·\s*chặng\s*\d+\/\d+\s*$/i, '').replace(/\s*\d+\/\d+\s*$/, '').trim().toLowerCase();
   return SUBTOPIC_TITLE_VI[base] ?? null;
 }
 
@@ -175,9 +189,10 @@ export function subtopicTitleVi(title: string): string | null {
  * từ các route này theo thứ tự, lọc published). Chi tiết subtopic cụ thể chọn trong generate.ts.
  */
 export const VOCAB_ROUTE_PRIORITY: Record<RoadmapLevelId, string[]> = {
-  // Route pool rộng cho A0-A1 vì generator lọc gắt pack ≥80% từ đơn (doi-song nhiều cụm/idiom)
+  // A0 dùng trọn vẹn 12 starter packs (144 từ sinh tồn)
   A0: ['doi-song', 'du-lich', 'hoc-tap'],
-  A1: ['doi-song', 'du-lich', 'hoc-tap', 'suc-khoe', 'thpt-lop-10'],
+  // A1: Ưu tiên kho Oxford 3000 nền tảng (Gia đình, Ăn uống, Nhà cửa, Cơ thể, Thời gian) + đời sống, du lịch, sức khỏe
+  A1: ['oxford-core', 'doi-song', 'du-lich', 'suc-khoe', 'thpt-lop-10'],
   A2: ['du-lich', 'suc-khoe', 'doi-song', 'hoc-tap', 'thpt-lop-10', 'cong-nghe'],
   // Mở màn B1 bằng đời sống/sức khỏe/công nghệ (chủ đề gần gũi) thay vì TOEIC collocations;
   // di-lam (chứa "200 Collocations TOEIC") đẩy xuống giữa (teacher review mục B)

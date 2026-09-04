@@ -14,6 +14,7 @@ import {
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { checkWordSaveQuota, resolvePlanByUserId } from '@/lib/entitlement-server';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
+import { parseIpa } from '@/lib/study';
 
 /**
  * Kiểm tra user có quyền trên word (qua classroom): user là owner classroom,
@@ -291,7 +292,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
         updateData = {
           word: lower,
           translation: gdMeaning.definition,
-          ipa: gdData?.pronunciations?.[0]?.ipa || '',
+          ipa: parseIpa(gdData?.pronunciations?.[0]?.ipa) || '',
           pos: gdMeaning.pos || '',
           example: gdMeaning.example || '',
           example_vi: gdMeaning.example_vi || '',
@@ -549,7 +550,7 @@ export async function POST(req: Request): Promise<NextResponse> {
           const actualDictData = dictData?.results?.[0];
           // Extract primary meaning and IPA from the nested data
           if (actualDictData?.meanings && actualDictData.meanings.length > 0) {
-            initialIpa = actualDictData.pronunciations?.[0]?.ipa || '';
+            initialIpa = parseIpa(actualDictData.pronunciations?.[0]?.ipa) || '';
             initialTranslation = actualDictData.meanings[0].definition || initialTranslation;
             initialPos = actualDictData.meanings[0].pos || '';
           }

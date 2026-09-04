@@ -78,7 +78,7 @@ function sanitizeSynAntPayload(
     return out;
   };
 
-  let synonyms = clean(asStringList(payload.synonyms), 'syn');
+  const synonyms = clean(asStringList(payload.synonyms), 'syn');
   let antonyms = clean(asStringList(payload.antonyms), 'ant');
   const synSet = new Set(synonyms);
   antonyms = antonyms.filter((a) => !synSet.has(a));

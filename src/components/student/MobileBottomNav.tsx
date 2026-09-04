@@ -109,7 +109,7 @@ export function MobileBottomNav({
                 data-onboarding={onboardingId}
                 aria-label={tab.label}
                 aria-current={active ? 'page' : undefined}
-                className="relative flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-end pb-1 touch-manipulation"
+                className="relative flex min-h-[48px] min-w-[48px] min-w-0 flex-1 flex-col items-center justify-end pb-1 touch-manipulation"
               >
                 <span
                   className={cn(
@@ -140,7 +140,7 @@ export function MobileBottomNav({
               data-onboarding={onboardingId}
               aria-label={tab.label}
               aria-current={active ? 'page' : undefined}
-              className="relative flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 touch-manipulation transition-colors active:opacity-80"
+              className="relative flex min-h-[48px] min-w-[48px] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 touch-manipulation transition-colors active:opacity-80"
             >
               <span className="relative text-[22px] leading-none">
                 {tab.emoji}

@@ -50,8 +50,9 @@ interface WordItem {
 
 interface DailyExercise {
   id: string;
-  classroomId: string;
+  classroomId: string | null;
   classroomName: string;
+  isPersonal?: boolean;
   exerciseDate: string;
   sourceDate: string;
   title: string;
@@ -133,6 +134,39 @@ function renderClozeText(
   return nodes;
 }
 
+export function renderFormattedPassage(text: string, sourceWords?: WordItem[]): ReactNode {
+  if (!text) return null;
+  const wordMap = new Map<string, string>();
+  for (const w of sourceWords || []) {
+    if (w.word && w.translation) {
+      wordMap.set(w.word.trim().toLowerCase(), w.translation.trim());
+    }
+  }
+
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      const target = part.slice(2, -2);
+      const trans = wordMap.get(target.trim().toLowerCase());
+      return (
+        <strong
+          key={i}
+          title={trans ? `${target}: ${trans}` : target}
+          className="group relative inline-block font-bold text-indigo-700 bg-indigo-50/90 hover:bg-indigo-100 hover:text-indigo-900 px-1.5 py-0.5 rounded transition-colors cursor-help"
+        >
+          {target}
+          {trans && (
+            <span className="hidden group-hover:inline-block absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1 text-[11px] font-medium text-white bg-slate-900/95 backdrop-blur rounded shadow-lg whitespace-nowrap z-30 pointer-events-none">
+              {target}: {trans}
+            </span>
+          )}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 function formatDate(dateStr: string): string {
   try {
     const d = new Date(dateStr + 'T00:00:00+07:00');
@@ -191,8 +225,10 @@ export default function DailyReadingPage() {
 
   const exercise = exercises[selectedIdx] ?? null;
 
-  // Reset state when switching exercises
-  useEffect(() => {
+  // Handle switching exercises without cascading useEffect renders
+  const handleSelectExercise = (idx: number) => {
+    if (idx === selectedIdx) return;
+    setSelectedIdx(idx);
     setQAnswers({});
     setQRevealed(false);
     setClozeAnswers({});
@@ -200,7 +236,7 @@ export default function DailyReadingPage() {
     setShowWordBank(true);
     setShowTranslation(false);
     setTab('passage');
-  }, [selectedIdx]);
+  };
 
   // MCQ score
   const qScore = useMemo(() => {
@@ -212,15 +248,33 @@ export default function DailyReadingPage() {
     return { ok, total: exercise.questions.length };
   }, [exercise, qAnswers, qRevealed]);
 
-  // Cloze score
+  // Identify blanks that actually appear in the cloze text
+  const textBlankIds = useMemo(() => {
+    if (!exercise?.cloze?.text) return [];
+    const matches = Array.from(exercise.cloze.text.matchAll(/\{\{(\d+)\}\}/g));
+    const ids = new Set<number>();
+    for (const m of matches) {
+      const id = Number(m[1]);
+      if (exercise.cloze.blanks.some((b) => b.id === id) || exercise.cloze.blanks[id]) {
+        ids.add(id);
+      }
+    }
+    return Array.from(ids);
+  }, [exercise]);
+
+  // Cloze score (grounded on blanks actually present in text)
   const clozeScore = useMemo(() => {
     if (!exercise || !clozeRevealed) return null;
     let ok = 0;
-    exercise.cloze.blanks.forEach((b) => {
-      if ((clozeAnswers[b.id] || '').toLowerCase() === b.answer.toLowerCase()) ok++;
+    const targetIds = textBlankIds.length > 0 ? textBlankIds : exercise.cloze.blanks.map((b) => b.id);
+    targetIds.forEach((id) => {
+      const blank = exercise.cloze.blanks.find((b) => b.id === id) ?? exercise.cloze.blanks[id];
+      if (blank && (clozeAnswers[id] || '').toLowerCase() === blank.answer.toLowerCase()) {
+        ok++;
+      }
     });
-    return { ok, total: exercise.cloze.blanks.length };
-  }, [exercise, clozeAnswers, clozeRevealed]);
+    return { ok, total: targetIds.length };
+  }, [exercise, clozeAnswers, clozeRevealed, textBlankIds]);
 
   // Derived word bank for Cloze
   const wordBank = useMemo(() => {
@@ -230,32 +284,90 @@ export default function DailyReadingPage() {
     return Array.from(words).sort();
   }, [exercise]);
 
-  // Submit completion
-  const submitCompletion = useCallback(async () => {
-    if (!exercise) return;
-    try {
-      await authFetch('/api/practice/daily-reading', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          exerciseId: exercise.id,
-          mcqScore: qScore?.ok || 0,
-          mcqTotal: qScore?.total || 0,
-          clozeScore: clozeScore?.ok || 0,
-          clozeTotal: clozeScore?.total || 0,
-        }),
-      });
-    } catch {
-      // Non-critical
-    }
-  }, [exercise, qScore, clozeScore]);
+  // Cloze submission readiness: every visible blank must be filled
+  const canSubmitCloze = useMemo(() => {
+    if (!exercise) return false;
+    const targetIds = textBlankIds.length > 0 ? textBlankIds : exercise.cloze.blanks.map((b) => b.id);
+    if (targetIds.length === 0) return false;
+    return targetIds.every((id) => Boolean((clozeAnswers[id] || '').trim()));
+  }, [exercise, textBlankIds, clozeAnswers]);
 
-  // Auto-submit when both revealed
-  useEffect(() => {
-    if (qRevealed && clozeRevealed) {
-      submitCompletion();
-    }
-  }, [qRevealed, clozeRevealed, submitCompletion]);
+  // Submit completion (allows saving MCQ and Cloze independently while preserving prior section score)
+  const submitCompletion = useCallback(
+    async (mcqScoreVal: number, mcqTotalVal: number, clozeScoreVal: number, clozeTotalVal: number) => {
+      if (!exercise) return;
+      try {
+        await authFetch('/api/practice/daily-reading', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            exerciseId: exercise.id,
+            mcqScore: mcqScoreVal,
+            mcqTotal: mcqTotalVal,
+            clozeScore: clozeScoreVal,
+            clozeTotal: clozeTotalVal,
+          }),
+        });
+
+        // Optimistically update local exercise completion state
+        setExercises((prev) =>
+          prev.map((e) =>
+            e.id === exercise.id
+              ? {
+                  ...e,
+                  completion: {
+                    mcqScore: mcqScoreVal,
+                    mcqTotal: mcqTotalVal,
+                    clozeScore: clozeScoreVal,
+                    clozeTotal: clozeTotalVal,
+                    completedAt: new Date().toISOString(),
+                  },
+                }
+              : e,
+          ),
+        );
+      } catch {
+        // Non-critical
+      }
+    },
+    [exercise],
+  );
+
+  const handleGradeMcq = useCallback(() => {
+    setQRevealed(true);
+    if (!exercise) return;
+    let ok = 0;
+    exercise.questions.forEach((q, i) => {
+      if ((qAnswers[i] || '').trim() === q.answer.trim()) ok++;
+    });
+    const finalMcqScore = ok;
+    const finalMcqTotal = exercise.questions.length;
+    const finalClozeScore = clozeScore?.ok ?? exercise.completion?.clozeScore ?? 0;
+    const targetClozeTotal =
+      textBlankIds.length > 0 ? textBlankIds.length : exercise.cloze.blanks.length;
+    const finalClozeTotal =
+      clozeScore?.total ?? exercise.completion?.clozeTotal ?? targetClozeTotal;
+    void submitCompletion(finalMcqScore, finalMcqTotal, finalClozeScore, finalClozeTotal);
+  }, [exercise, qAnswers, clozeScore, textBlankIds, submitCompletion]);
+
+  const handleGradeCloze = useCallback(() => {
+    setClozeRevealed(true);
+    if (!exercise) return;
+    let ok = 0;
+    const targetIds =
+      textBlankIds.length > 0 ? textBlankIds : exercise.cloze.blanks.map((b) => b.id);
+    targetIds.forEach((id) => {
+      const blank = exercise.cloze.blanks.find((b) => b.id === id) ?? exercise.cloze.blanks[id];
+      if (blank && (clozeAnswers[id] || '').toLowerCase() === blank.answer.toLowerCase()) {
+        ok++;
+      }
+    });
+    const finalClozeScore = ok;
+    const finalClozeTotal = targetIds.length;
+    const finalMcqScore = qScore?.ok ?? exercise.completion?.mcqScore ?? 0;
+    const finalMcqTotal = exercise.completion?.mcqTotal ?? exercise.questions.length;
+    void submitCompletion(finalMcqScore, finalMcqTotal, finalClozeScore, finalClozeTotal);
+  }, [exercise, clozeAnswers, qScore, textBlankIds, submitCompletion]);
 
   // Save bonus word
   const saveWord = useCallback(
@@ -270,7 +382,7 @@ export default function DailyReadingPage() {
             word: w.word,
             translation: w.translation,
             pos: w.pos,
-            classroomId: exercise.classroomId,
+            classroomId: exercise.classroomId || undefined,
             exerciseId: exercise.id,
           }),
         });
@@ -326,19 +438,45 @@ export default function DailyReadingPage() {
         )}
 
         {!loading && !error && exercises.length === 0 && (
-          <div className="mx-auto max-w-2xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-6 text-center">
-            <BookMarked className="mx-auto h-8 w-8 text-amber-400" />
-            <p className="mt-2 text-sm font-bold text-amber-900">Chưa có bài tập</p>
-            <p className="mt-1 text-xs text-amber-700">
-              Bài luyện đọc được tạo tự động mỗi đêm từ từ vựng bạn học trong ngày.
-              Thêm từ mới và quay lại vào sáng mai!
+          <div className="mx-auto max-w-2xl rounded-2xl border border-amber-200/80 bg-gradient-to-b from-amber-50/90 to-amber-50/40 p-6 text-center shadow-sm">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-amber-600 ring-4 ring-amber-50">
+              <BookMarked className="h-7 w-7" />
+            </div>
+            <h2 className="mt-3 text-base font-black text-slate-900">
+              Chưa có bài đọc cá nhân hóa hôm nay
+            </h2>
+            <p className="mt-1.5 text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
+              Hệ thống tự động phân tích cấp độ và tạo bài đọc riêng biệt cho bạn vào lúc <strong>2:00 AM</strong> mỗi đêm dựa trên từ vựng mới lưu trong ngày kết hợp các từ đến hạn ôn tập SRS.
             </p>
-            <Link
-              href="/flashcard"
-              className="mt-3 inline-flex items-center gap-1 rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-amber-700"
-            >
-              Học flashcard ngay
-            </Link>
+            <div className="mt-4 rounded-xl border border-amber-200/60 bg-white/80 p-3 text-left max-w-md mx-auto text-[11px] text-slate-600 space-y-1">
+              <div className="flex items-center gap-1.5 font-bold text-amber-900">
+                <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+                <span>Điều kiện tạo bài đọc tự động:</span>
+              </div>
+              <p>• Từ nâng cao (B2–C1): Chỉ cần lưu từ <strong>3 từ</strong>.</p>
+              <p>• Từ cơ bản (A1–B1): Cần tích lũy từ <strong>5 từ</strong>.</p>
+              <p className="text-[10px] text-slate-500 italic">Nếu chưa đủ từ mới, hệ thống tự động bù bằng từ đến hạn ôn tập SRS của bạn.</p>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+              <Link
+                href="/dictionary"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600 px-3.5 py-2 text-xs font-bold text-white shadow-sm hover:bg-indigo-700 transition-colors"
+              >
+                <Plus className="h-3.5 w-3.5" /> Tra & lưu từ mới
+              </Link>
+              <Link
+                href="/review"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
+              >
+                Ôn tập SRS
+              </Link>
+              <Link
+                href="/flashcard"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-amber-300 bg-amber-100/70 px-3.5 py-2 text-xs font-bold text-amber-900 hover:bg-amber-200/70 transition-colors"
+              >
+                Học flashcard
+              </Link>
+            </div>
           </div>
         )}
 
@@ -349,7 +487,7 @@ export default function DailyReadingPage() {
               <button
                 key={ex.id}
                 type="button"
-                onClick={() => setSelectedIdx(idx)}
+                onClick={() => handleSelectExercise(idx)}
                 className={`shrink-0 rounded-lg border px-2.5 py-1.5 text-xs font-bold transition-colors ${
                   idx === selectedIdx
                     ? 'border-indigo-400 bg-indigo-50 text-indigo-800'
@@ -378,6 +516,11 @@ export default function DailyReadingPage() {
                     <span className="rounded-full border border-slate-200 bg-white px-1.5 py-0.5 font-bold">
                       {exercise.level}
                     </span>
+                    {exercise.isPersonal && (
+                      <span className="inline-flex items-center gap-0.5 rounded-full border border-indigo-200 bg-indigo-50 px-1.5 py-0.5 font-bold text-indigo-700">
+                        <Sparkles className="h-2.5 w-2.5" /> Cá nhân hóa
+                      </span>
+                    )}
                     <span>{exercise.classroomName}</span>
                     <span>·</span>
                     <span>{exercise.sourceWords.length} từ</span>
@@ -431,23 +574,27 @@ export default function DailyReadingPage() {
                 <div className="lg:col-span-2">
                   <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-4">
                     <p className="whitespace-pre-line text-sm leading-[1.8] text-slate-800">
-                      {exercise.passagePlain}
+                      {renderFormattedPassage(exercise.passage || exercise.passagePlain, exercise.sourceWords)}
                     </p>
                     
                     {exercise.translation && (
-                      <div className="mt-4 border-t border-slate-100 pt-3">
+                      <div className="mt-5 border-t border-slate-100 pt-4">
                         <button
                           type="button"
                           onClick={() => setShowTranslation(!showTranslation)}
-                          className="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-indigo-600 transition-colors"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-bold text-indigo-700 hover:bg-indigo-100 transition-colors shadow-sm"
                         >
                           <BookOpen className="h-3.5 w-3.5" />
-                          {showTranslation ? 'Ẩn bản dịch' : 'Xem bản dịch tiếng Việt'}
+                          {showTranslation ? 'Ẩn bản dịch tiếng Việt' : '📖 Xem bản dịch tiếng Việt'}
                         </button>
                         
                         {showTranslation && (
-                          <div className="mt-3 rounded-lg bg-slate-50 p-3.5 border border-slate-100">
-                            <p className="whitespace-pre-line text-[13px] leading-[1.8] text-slate-700 italic">
+                          <div className="mt-3 rounded-xl bg-slate-50 p-4 border border-slate-200/80 shadow-sm">
+                            <div className="flex items-center gap-1.5 mb-2 text-xs font-bold text-indigo-900 uppercase tracking-wider">
+                              <Sparkles className="h-3.5 w-3.5 text-indigo-600" />
+                              <span>Bản dịch tiếng Việt tham khảo:</span>
+                            </div>
+                            <p className="whitespace-pre-line text-sm leading-[1.8] text-slate-700">
                               {exercise.translation}
                             </p>
                           </div>
@@ -528,7 +675,7 @@ export default function DailyReadingPage() {
                   {!qRevealed ? (
                     <button
                       type="button"
-                      onClick={() => setQRevealed(true)}
+                      onClick={handleGradeMcq}
                       disabled={Object.keys(qAnswers).length < exercise.questions.length}
                       className="w-full rounded-xl bg-indigo-600 py-2.5 text-sm font-bold text-white hover:bg-indigo-700 disabled:opacity-40"
                     >
@@ -623,11 +770,8 @@ export default function DailyReadingPage() {
                 {!clozeRevealed ? (
                   <button
                     type="button"
-                    onClick={() => setClozeRevealed(true)}
-                    disabled={
-                      Object.keys(clozeAnswers).length < exercise.cloze.blanks.length ||
-                      Object.values(clozeAnswers).some((v) => !v)
-                    }
+                    onClick={handleGradeCloze}
+                    disabled={!canSubmitCloze}
                     className="w-full rounded-xl bg-indigo-600 py-2.5 text-sm font-bold text-white hover:bg-indigo-700 disabled:opacity-40"
                   >
                     Chấm điểm
@@ -667,7 +811,9 @@ export default function DailyReadingPage() {
                   </h3>
                   <div className="space-y-1.5">
                     {exercise.sourceWords.map((w) => {
-                      const isUsed = exercise.usedWords.includes(w.word);
+                      const isUsed = exercise.usedWords.some(
+                        (u) => u.trim().toLowerCase() === w.word.trim().toLowerCase(),
+                      );
                       return (
                         <div
                           key={w.word}

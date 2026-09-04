@@ -182,16 +182,17 @@ function speakWord(word: string, lang: 'en-GB' | 'en-US') {
   speak(word, 1.0, lang);
 }
 
-/** Chuẩn hóa familyWords (string cũ hoặc object mới) → WordFamilyEntry[]. Parse "word (pos)" nếu là string. */
-function normalizeFamilyWords(raw: DictionaryData['familyWords']): WordFamilyEntry[] {
+/** Chuẩn hóa familyWords (string cũ hoặc object mới) → WordFamilyEntry[]. Lọc bỏ chính headword để tránh lặp và lệch nghĩa. */
+function normalizeFamilyWords(raw: DictionaryData['familyWords'], headword?: string): WordFamilyEntry[] {
   if (!raw?.length) return [];
+  const headLower = headword?.trim().toLowerCase();
   return raw.map((item): WordFamilyEntry => {
     if (typeof item === 'string') {
       const m = item.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
       return m ? { word: m[1].trim(), pos: m[2].trim() } : { word: item.trim() };
     }
     return item;
-  }).filter(e => e.word);
+  }).filter(e => e.word && (!headLower || e.word.trim().toLowerCase() !== headLower));
 }
 
 /** Chuẩn hóa collocations (chuỗi hoặc object RichCollocationEntry) → RichCollocationEntry[]. */
@@ -211,10 +212,28 @@ function normalizeCollocations(rawColls?: (string | RichCollocationEntry)[], mea
   return Array.from(map.values());
 }
 
-/** Bỏ slash bao ngoài — DB đôi khi lưu `/ˈ…/` trong khi UI bọc thêm `/{ipa}/` → //…// */
+const IPA_PHONETIC_MARKERS = /[ˈˌːˑəæɑɒɔɜɛɪʊʌɨʉɵɤɯʏøœɐɶᵻᵿθðʃʒŋɹɾɟɡβɸçʝɣχʁħʕʋɰɬɮɺɥʍʔ]/;
+
+/** Bỏ slash bao ngoài, decode URL-encoding và loại bỏ placeholder giả dạng chữ tiếng Anh */
 function formatIpa(raw: string | undefined | null): string {
   if (!raw) return '';
-  return raw.trim().replace(/^\/+|\/+$/g, '').trim();
+  let str = raw;
+  try {
+    const p = JSON.parse(raw);
+    str = p.uk || p.us || Object.values(p)[0] || raw;
+  } catch {}
+  if (typeof str !== 'string') return '';
+  let bare = str.trim().replace(/^\/+|\/+$/g, '').trim();
+  if (!bare) return '';
+  if (/%[0-9A-Fa-f]{2}/.test(bare)) {
+    try { bare = decodeURIComponent(bare).replace(/^\/+|\/+$/g, '').trim(); } catch {}
+  }
+  if (/^(n\/a|unknown|placeholder|none|null|\.|\-|\?+|gibberish|not found|undefined)$/i.test(bare)) {
+    return '';
+  }
+  if (bare.includes(' ') && !IPA_PHONETIC_MARKERS.test(bare)) return '';
+  if (bare.length >= 4 && !IPA_PHONETIC_MARKERS.test(bare) && /^[a-zA-Z\s\-_]+$/.test(bare)) return '';
+  return bare;
 }
 
 /** Kiểm tra data có phải kết quả rác không (IPA placeholder hoặc nghĩa bịa) */
@@ -717,7 +736,7 @@ export default function DictionaryPage() {
   const collocations = normalizeCollocations(result?.data.collocations, meaningsColls);
   const morphology: MorphologyData | undefined = result?.data.morphology;
 
-  const familyWords = normalizeFamilyWords(result?.data.familyWords);
+  const familyWords = normalizeFamilyWords(result?.data.familyWords, result?.data.word);
   const hasPronunciations = (result?.data.pronunciations?.length ?? 0) > 0;
   const ukPron = result?.data.pronunciations?.find(p => p.region === 'UK');
   const usPron = result?.data.pronunciations?.find(p => p.region === 'US');

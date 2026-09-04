@@ -666,7 +666,7 @@ function SessionContent() {
                       </span>
                     )}
                     {current.ipa && (
-                      <span className="font-mono text-xs text-slate-500">/{parseIpa(current.ipa)}/</span>
+                      <span className="font-mono text-xs text-slate-500">{parseIpa(current.ipa)}</span>
                     )}
                     <span className="text-slate-300">•</span>
                     <span className="font-bold text-indigo-700">{current.translation}</span>

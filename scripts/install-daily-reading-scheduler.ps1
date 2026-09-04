@@ -28,15 +28,25 @@ $settings = New-ScheduledTaskSettingsSet `
   -RestartCount 2 `
   -RestartInterval (New-TimeSpan -Minutes 5)
 
-# Register
-Register-ScheduledTask `
-  -TaskName $taskName `
-  -Trigger $trigger `
-  -Action $action `
-  -Settings $settings `
-  -Description "LingoPro: Generate daily reading exercises via NLM at 2AM" `
-  -RunLevel Highest `
-  -Force
+try {
+  Register-ScheduledTask `
+    -TaskName $taskName `
+    -Trigger $trigger `
+    -Action $action `
+    -Settings $settings `
+    -Description "LingoPro: Generate daily reading exercises via NLM at 2AM" `
+    -RunLevel Highest `
+    -Force -ErrorAction Stop
+} catch {
+  Write-Host "Notice: Non-admin environment detected, registering task for current user..." -ForegroundColor Yellow
+  Register-ScheduledTask `
+    -TaskName $taskName `
+    -Trigger $trigger `
+    -Action $action `
+    -Settings $settings `
+    -Description "LingoPro: Generate daily reading exercises via NLM at 2AM" `
+    -Force
+}
 
 Write-Host "Task '$taskName' registered successfully." -ForegroundColor Green
 Write-Host "Trigger: Daily at 02:00 AM"

@@ -19,7 +19,7 @@ export async function getInMemWordList(): Promise<string[]> {
   IS_LOADING = true;
   try {
     const supabase = createServiceClient();
-    let allWords: string[] = [];
+    const allWords: string[] = [];
     let page = 0;
     const pageSize = 1000;
 

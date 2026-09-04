@@ -27,7 +27,7 @@ export function ensureMarkdownTableFormat(text: string): string {
   let inTable = false;
 
   for (let i = 0; i < lines.length; i++) {
-    let line = lines[i].trim();
+    const line = lines[i].trim();
     if (!line) continue;
 
     if (line.includes('|') && !line.startsWith('#') && !line.startsWith('```')) {

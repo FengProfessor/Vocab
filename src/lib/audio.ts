@@ -109,7 +109,7 @@ function playUrl(url: string, rate = 1.0, myGen: number): Promise<boolean> {
   });
 }
 
-async function freeDictUrl(word: string): Promise<string | null> {
+async function freeDictUrl(word: string, region: 'UK' | 'US' = 'US'): Promise<string | null> {
   try {
     const res = await fetch(`${FREE_DICT}${encodeURIComponent(word)}`, {
       signal: AbortSignal.timeout(4000),
@@ -121,6 +121,9 @@ async function freeDictUrl(word: string): Promise<string | null> {
       .map((p) => p.audio || '')
       .filter(Boolean);
     if (!urls.length) return null;
+    if (region === 'UK') {
+      return urls.find((u) => /uk[_-]|\/uk\//i.test(u)) ?? urls.find((u) => /gb[_-]|\/gb\//i.test(u)) ?? urls[0] ?? null;
+    }
     return urls.find((u) => /us[_-]|\/us\//i.test(u)) ?? urls[0] ?? null;
   } catch {
     return null;
@@ -146,7 +149,7 @@ function youdaoUrl(word: string, region: 'UK' | 'US' = 'US'): string {
 }
 
 /**
- * Phát âm 1 từ/cụm: Oxford mp3 người thật studio → neural TTS → Youdao → Web Speech.
+ * Phát âm 1 từ/cụm: Oxford mp3 người thật studio → Wikimedia người thật → Youdao → Neural TTS → Web Speech.
  * rate: 1.0 thường, 0.6 chậm.
  * region: 'UK' (Anh - Anh) hoặc 'US' (Anh - Mỹ).
  */
@@ -192,7 +195,7 @@ export async function playWordAudio(
   }
 
   // 2) URL truyền vào (DB audio_real)
-  if (audioUrl && region === 'US') {
+  if (audioUrl) {
     if (!alive()) return 'tts';
     if (await playUrl(audioUrl, mp3Rate, myGen)) {
       urlCache.set(cacheKey, audioUrl);
@@ -200,14 +203,24 @@ export async function playWordAudio(
     }
   }
 
-  // 3) Youdao direct voice theo vùng (UK type=1 / US type=2)
+  // 3) Wikimedia Commons / Free Dictionary API (mp3 người thật)
+  if (!isPhrase) {
+    if (!alive()) return 'tts';
+    const fd = await freeDictUrl(text, region);
+    if (fd && (await playUrl(fd, mp3Rate, myGen))) {
+      urlCache.set(cacheKey, fd);
+      return 'real';
+    }
+  }
+
+  // 4) Youdao direct voice theo vùng (UK type=1 / US type=2)
   const ydUrl = youdaoUrl(text, region);
   if (await playUrl(ydUrl, mp3Rate, myGen)) {
     urlCache.set(cacheKey, ydUrl);
     return 'real';
   }
 
-  // 4) Neural TTS (Google Translate / Youdao proxy) — rõ, hỗ trợ cụm
+  // 5) Neural TTS (Google Translate / Youdao proxy) — rõ, hỗ trợ cụm
   if (!alive()) return 'tts';
   const neural = neuralUrl(text);
   if (await playUrl(neural, mp3Rate, myGen)) {
@@ -215,7 +228,7 @@ export async function playWordAudio(
     return 'neural';
   }
 
-  // 5) Web Speech robot — chỉ khi request còn là latest
+  // 6) Web Speech robot — chỉ khi request còn là latest
   if (!alive()) return 'tts';
   speakLocal(text, rate, region === 'UK' ? 'en-GB' : 'en-US');
   if (!alive()) {
