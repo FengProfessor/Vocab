@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import {
   ArrowLeftRight,
   Volume2,
@@ -13,10 +13,12 @@ import {
   CornerDownLeft,
   Clipboard,
   Languages,
+  Brain,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { speak } from '@/lib/study';
+import { authFetch } from '@/lib/auth-fetch';
 
 const STORAGE_KEY = 'lingo_sentence_history_v1';
 const MAX_HISTORY = 10;
@@ -32,6 +34,28 @@ interface TranslationHistoryItem {
   fromCache?: boolean;
 }
 
+interface SentenceKernel {
+  s: string;
+  v: string;
+  o?: string;
+  translation_vi: string;
+}
+
+interface SentenceChunk {
+  text: string;
+  base: string;
+  meaning_vi: string;
+  pos?: string;
+}
+
+interface SentenceAnalysis {
+  sentence: string;
+  translation_vi: string;
+  structure?: string;
+  kernel?: SentenceKernel;
+  chunks?: SentenceChunk[];
+}
+
 export function SentenceTranslator() {
   const [sourceLang, setSourceLang] = useState<'en' | 'vi'>('en');
   const [targetLang, setTargetLang] = useState<'en' | 'vi'>('vi');
@@ -41,6 +65,11 @@ export function SentenceTranslator() {
   const [fromCache, setFromCache] = useState(false);
   const [provider, setProvider] = useState<string>('');
   const [copied, setCopied] = useState(false);
+
+  // SVO breakdown state (Groq LPU)
+  const [svoLoading, setSvoLoading] = useState(false);
+  const [svoData, setSvoData] = useState<SentenceAnalysis | null>(null);
+  const [showSvo, setShowSvo] = useState(false);
   const [history, setHistory] = useState<TranslationHistoryItem[]>(() => {
     if (typeof window === 'undefined') return [];
     try {
@@ -92,10 +121,68 @@ export function SentenceTranslator() {
     const nextTarget = sourceLang;
     setSourceLang(nextSource);
     setTargetLang(nextTarget);
+    setSvoData(null);
+    setShowSvo(false);
 
     if (resultText) {
       setInputText(resultText);
       setResultText(inputText);
+    }
+  };
+
+  const handleAnalyzeSvo = async () => {
+    if (showSvo && svoData) {
+      setShowSvo(false);
+      return;
+    }
+
+    if (svoData) {
+      setShowSvo(true);
+      return;
+    }
+
+    const text = (sourceLang === 'en' ? inputText : resultText).trim();
+    if (!text) {
+      toast.error('Cần có câu tiếng Anh để bóc tách SVO');
+      return;
+    }
+
+    setSvoLoading(true);
+    try {
+      const res = await authFetch('/api/dictionary/ai-sentence', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ sentence: text }),
+      });
+
+      const json = await res.json();
+      if (!res.ok || !json.success) {
+        if (res.status === 401) {
+          toast.error('Vui lòng đăng nhập để sử dụng tính năng bóc tách SVO');
+          return;
+        }
+        if (json.code === 'PRO_REQUIRED') {
+          toast.error('Bạn đã dùng hết lượt phân tích câu AI hôm nay');
+          return;
+        }
+        throw new Error(json.error || 'Không thể phân tích SVO');
+      }
+
+      const analysis = json.analysis || json.data?.sentenceAnalysis;
+      if (analysis && (analysis.kernel || analysis.chunks)) {
+        setSvoData(analysis);
+        setShowSvo(true);
+        toast.success('Bóc tách S-V-O thành công!');
+      } else {
+        toast.error('Không tìm thấy cấu trúc câu hợp lệ');
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Lỗi khi gọi AI phân tích';
+      toast.error(msg);
+    } finally {
+      setSvoLoading(false);
     }
   };
 
@@ -114,6 +201,8 @@ export function SentenceTranslator() {
     setIsLoading(true);
     setResultText('');
     setCopied(false);
+    setSvoData(null);
+    setShowSvo(false);
 
     try {
       const res = await fetch('/api/translate', {
@@ -384,9 +473,107 @@ export function SentenceTranslator() {
               <span>Đang xử lý bản dịch với LibreTranslate...</span>
             </div>
           ) : (
-            <p className="text-base sm:text-lg text-foreground font-medium leading-relaxed select-text">
-              {resultText}
-            </p>
+            <>
+              <p className="text-base sm:text-lg text-foreground font-medium leading-relaxed select-text">
+                {resultText}
+              </p>
+
+              {resultText && (
+                <div className="mt-3 pt-3 border-t border-border/50">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      onClick={() => void handleAnalyzeSvo()}
+                      disabled={svoLoading}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/80 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 text-xs font-semibold hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-all active:scale-95 shadow-sm"
+                    >
+                      {svoLoading ? (
+                        <>
+                          <Loader2 className="h-3.5 w-3.5 animate-spin text-indigo-600 dark:text-indigo-400" />
+                          <span>Groq AI đang bóc tách SVO...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Brain className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
+                          <span>{showSvo ? 'Ẩn phân tích S-V-O' : '🧠 Bóc tách cấu trúc S - V - O (Groq LPU)'}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Khung hiển thị bóc tách SVO */}
+                  {showSvo && svoData && (
+                    <div className="mt-3 p-3.5 rounded-xl border border-indigo-100 dark:border-indigo-900/50 bg-indigo-50/40 dark:bg-indigo-950/20 space-y-3 animate-in fade-in-50 duration-200">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-indigo-900 dark:text-indigo-200 flex items-center gap-1.5">
+                          <span>Khung xương câu cốt lõi</span>
+                          {svoData.structure && (
+                            <span className="text-[10px] font-semibold bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 px-2 py-0.5 rounded-full">
+                              {svoData.structure}
+                            </span>
+                          )}
+                        </span>
+                      </div>
+
+                      {svoData.kernel && (
+                        <div className="flex flex-wrap gap-2">
+                          {svoData.kernel.s && (
+                            <div className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-300/80 bg-emerald-50 dark:bg-emerald-950/50 px-3 py-1.5 text-sm">
+                              <span className="text-[10px] font-black bg-emerald-600 text-white px-1.5 py-0.5 rounded-md">S</span>
+                              <strong className="text-emerald-900 dark:text-emerald-200">{svoData.kernel.s}</strong>
+                            </div>
+                          )}
+                          {svoData.kernel.v && (
+                            <div className="inline-flex items-center gap-1.5 rounded-xl border border-sky-300/80 bg-sky-50 dark:bg-sky-950/50 px-3 py-1.5 text-sm">
+                              <span className="text-[10px] font-black bg-sky-600 text-white px-1.5 py-0.5 rounded-md">V</span>
+                              <strong className="text-sky-900 dark:text-sky-200">{svoData.kernel.v}</strong>
+                            </div>
+                          )}
+                          {svoData.kernel.o && (
+                            <div className="inline-flex items-center gap-1.5 rounded-xl border border-amber-300/80 bg-amber-50 dark:bg-amber-950/50 px-3 py-1.5 text-sm">
+                              <span className="text-[10px] font-black bg-amber-600 text-white px-1.5 py-0.5 rounded-md">O</span>
+                              <strong className="text-amber-900 dark:text-amber-200">{svoData.kernel.o}</strong>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {svoData.chunks && svoData.chunks.length > 0 && (
+                        <div className="pt-2 border-t border-indigo-100/60 dark:border-indigo-900/30">
+                          <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider mb-2">
+                            Từ vựng & Cụm từ trong câu:
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {svoData.chunks.slice(0, 6).map((chunk, idx) => (
+                              <div
+                                key={idx}
+                                className="flex items-start justify-between p-2 rounded-lg bg-background/80 border border-border/60 text-xs"
+                              >
+                                <div>
+                                  <span className="font-semibold text-foreground">{chunk.text || chunk.base}</span>
+                                  {chunk.pos && (
+                                    <span className="ml-1 text-[10px] text-muted-foreground italic">({chunk.pos})</span>
+                                  )}
+                                  <p className="text-muted-foreground text-[11px] mt-0.5">{chunk.meaning_vi}</p>
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={() => handleSpeak(chunk.text || chunk.base, 'en')}
+                                  className="p-1 text-muted-foreground hover:text-foreground"
+                                  title="Phát âm"
+                                >
+                                  <Volume2 className="h-3.5 w-3.5" />
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
           )}
         </div>
       )}

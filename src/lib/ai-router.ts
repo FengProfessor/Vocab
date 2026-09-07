@@ -40,9 +40,9 @@ const ZHIPU_BASE =
     .replace(/\/$/, '');
 
 const GROQ_MODEL_MAP: Record<ModelTier, string> = {
-  fast: 'llama-3.1-8b-instant',
-  normal: 'llama-3.1-8b-instant',
-  smart: 'llama-3.3-70b-versatile',
+  fast: process.env.GROQ_MODEL_FAST?.trim() || 'groq/compound-mini',
+  normal: process.env.GROQ_MODEL_NORMAL?.trim() || 'groq/compound-mini',
+  smart: process.env.GROQ_MODEL_SMART?.trim() || 'groq/compound',
 };
 
 const TIMEOUT_MAP: Record<ModelTier, number> = {
@@ -193,8 +193,9 @@ export class AIRouter {
     if (available.length === 0) {
       throw new Error('[AIRouter] All keys in cooldown');
     }
-    // Ưu tiên zhipu còn available, rồi groq
-    const preferred = available.filter((k) => k.provider === 'zhipu');
+    // Ưu tiên provider theo cấu hình (mặc định groq để đạt tốc độ siêu nhanh 200ms, fallback sang zhipu)
+    const prefer = process.env.PREFER_AI_PROVIDER || 'groq';
+    const preferred = available.filter((k) => k.provider === prefer);
     const pool = preferred.length > 0 ? preferred : available;
     this.rrIndex = (this.rrIndex + 1) % pool.length;
     return pool[this.rrIndex];
