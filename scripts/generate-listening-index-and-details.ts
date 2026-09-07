@@ -73,9 +73,22 @@ export function generateIndexAndDetails(): { indexCount: number; detailsCount: n
   }
   console.log(`[PASS] Wrote ${detailCount} individual detail files to ${DETAILS_DIR_PATH}`);
 
+  // 3. Purge all orphan/junk files from details/ directory
+  const validFileNames = new Set(videos.map((v) => `${v.id}.json`));
+  const existingFiles = fs.readdirSync(DETAILS_DIR_PATH);
+  let purgedCount = 0;
+  for (const file of existingFiles) {
+    if (file.endsWith('.json') && !validFileNames.has(file)) {
+      fs.unlinkSync(path.join(DETAILS_DIR_PATH, file));
+      purgedCount++;
+    }
+  }
+  console.log(`[PASS] Purged ${purgedCount} orphan/junk files from ${DETAILS_DIR_PATH}`);
+
   return {
     indexCount: indexItems.length,
     detailsCount: detailCount,
+    purgedCount,
     indexSizeKb,
   };
 }
@@ -84,5 +97,6 @@ if (require.main === module) {
   const result = generateIndexAndDetails();
   console.log(`\nSuccessfully synchronized two-tier listening architecture:`);
   console.log(`- Index: ${result.indexCount} videos (${result.indexSizeKb.toFixed(2)} KB)`);
-  console.log(`- Details: ${result.detailsCount} individual JSON files\n`);
+  console.log(`- Details: ${result.detailsCount} individual JSON files`);
+  console.log(`- Purged: ${result.purgedCount} orphan/junk files\n`);
 }
