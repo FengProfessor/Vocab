@@ -48,6 +48,25 @@ services:
     networks:
       - web
 
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    restart: unless-stopped
+    environment:
+      LT_LOAD_ONLY: "en,vi"
+      LT_UPDATE_MODELS: "true"
+    expose:
+      - "5000"
+    volumes:
+      - libretranslate_data:/home/libretranslate/.local
+    networks:
+      - web
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:5000/languages", "-o", "/dev/null"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
 networks:
   web:
     driver: bridge
@@ -55,3 +74,4 @@ networks:
 volumes:
   caddy_data:
   caddy_config:
+  libretranslate_data:

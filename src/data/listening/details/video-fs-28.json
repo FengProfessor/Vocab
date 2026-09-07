@@ -1,0 +1,204 @@
+{
+  "id": "video-fs-28",
+  "youtubeId": "nBbfOxDNOoa",
+  "title": "Food Chemistry: The Maillard Reaction in Cooking",
+  "channel": "TED-Ed",
+  "duration": 1160,
+  "durationDisplay": "19:20",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/nBbfOxDNOoa/hqdefault.jpg",
+  "description": "Hóa học ẩm thực: phản ứng Maillard tạo màu nâu và hương thơm quyến rũ khi nấu nướng.",
+  "coreVocabulary": [
+    {
+      "word": "caramelize",
+      "phonetic": "/ˈkærəməlaɪz/",
+      "viDefinition": "caramel hóa (đường)",
+      "contextSentence": "High roasting heat causes natural sugars to caramelize into rich flavors."
+    },
+    {
+      "word": "aroma",
+      "phonetic": "/əˈrəʊmə/",
+      "viDefinition": "hương thơm quyến rũ",
+      "contextSentence": "The Maillard reaction releases hundreds of complex volatile aroma molecules."
+    },
+    {
+      "word": "amino",
+      "phonetic": "/əˈmiːnəʊ/",
+      "viDefinition": "thuộc a-xít amin (amino acid)",
+      "contextSentence": "Amino acids combine with reducing sugars under dry intense cooking heat."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-28-cue-1",
+      "start": 0,
+      "end": 116,
+      "en": "Welcome to TED-Ed, uncovering the magnificent molecular physics inside your frying pan.",
+      "vi": "Chào mừng đến với TED-Ed, khám phá vật lý phân tử kỳ diệu bên trong chiếc chảo rán của bạn."
+    },
+    {
+      "id": "video-fs-28-cue-2",
+      "start": 116,
+      "end": 232,
+      "en": "Why does a seared steak smell infinitely more appetizing than a boiled piece of meat?",
+      "vi": "Tại sao một miếng bít tết áp chảo lại có mùi thơm hấp dẫn vô cùng hơn một miếng thịt luộc?"
+    },
+    {
+      "id": "video-fs-28-cue-3",
+      "start": 232,
+      "end": 348,
+      "en": "The answer lies in one of culinary science's most celebrated chemical phenomena: the Maillard reaction.",
+      "vi": "Câu trả lời nằm ở một trong những hiện tượng hóa học được tôn vinh nhất của khoa học ẩm thực: phản ứng Maillard."
+    },
+    {
+      "id": "video-fs-28-cue-4",
+      "start": 348,
+      "end": 464,
+      "en": "Discovered by French chemist Louis-Camille Maillard in nineteen twelve, it occurs above one hundred forty degrees Celsius.",
+      "vi": "Được phát hiện bởi nhà hóa học người Pháp Louis-Camille Maillard vào năm 1912, nó diễn ra ở nhiệt độ trên một trăm bốn mươi độ C."
+    },
+    {
+      "id": "video-fs-28-cue-5",
+      "start": 464,
+      "end": 580,
+      "en": "Under intense dry heat, amino acids and reducing sugars collide in a cascade of reactions.",
+      "vi": "Dưới nhiệt khô cường độ cao, các axit amin và đường khử va chạm trong một chuỗi phản ứng liên hoàn."
+    },
+    {
+      "id": "video-fs-28-cue-6",
+      "start": 580,
+      "end": 696,
+      "en": "This molecular dance synthesizes hundreds of new volatile aroma compounds simultaneously.",
+      "vi": "Vũ điệu phân tử này tổng hợp đồng thời hàng trăm hợp chất hương thơm dễ bay hơi mới."
+    },
+    {
+      "id": "video-fs-28-cue-7",
+      "start": 696,
+      "end": 812,
+      "en": "These compounds produce the savory, nutty, roasted notes of toasted bread and roasted coffee.",
+      "vi": "Những hợp chất này tạo ra những nốt hương vị đậm đà, béo ngậy, rang nướng của bánh mì nướng và cà phê rang."
+    },
+    {
+      "id": "video-fs-28-cue-8",
+      "start": 812,
+      "end": 928,
+      "en": "Moisture is the enemy of the reaction; steam caps temperatures at one hundred degrees.",
+      "vi": "Độ ẩm là kẻ thù của phản ứng; hơi nước giới hạn nhiệt độ ở mức một trăm độ."
+    },
+    {
+      "id": "video-fs-28-cue-9",
+      "start": 928,
+      "end": 1044,
+      "en": "This is why professional chefs pat steaks bone-dry before searing them in cast-iron skillets.",
+      "vi": "Đây là lý do tại sao các đầu bếp chuyên nghiệp thấm khô bít tết trước khi áp chảo trong chảo gang."
+    },
+    {
+      "id": "video-fs-28-cue-10",
+      "start": 1044,
+      "end": 1160,
+      "en": "Cooking is not merely survival; it is delicious applied chemistry transforming the sensory world.",
+      "vi": "Nấu ăn không chỉ đơn thuần là sinh tồn; đó là hóa học ứng dụng thơm ngon làm thay đổi thế giới cảm quan."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-28-cloze-1",
+      "cueId": "video-fs-28-cue-3",
+      "sentence": "The {{blank}} lies in one of culinary science's most celebrated chemical phenomena: the Maillard reaction.",
+      "blankWord": "answer",
+      "hintVi": "Nghĩa gợi ý: Câu trả lời nằm ở một trong những hiện t...",
+      "timestamp": 232,
+      "options": [
+        "temporary",
+        "answer",
+        "convenient",
+        "preliminary"
+      ]
+    },
+    {
+      "id": "video-fs-28-cloze-2",
+      "cueId": "video-fs-28-cue-5",
+      "sentence": "{{blank}} intense dry heat, amino acids and reducing sugars collide in a cascade of reactions.",
+      "blankWord": "under",
+      "hintVi": "Nghĩa gợi ý: Dưới nhiệt khô cường độ cao, các axit am...",
+      "timestamp": 464,
+      "options": [
+        "substantial",
+        "under",
+        "criterion",
+        "gradual"
+      ]
+    },
+    {
+      "id": "video-fs-28-cloze-3",
+      "cueId": "video-fs-28-cue-8",
+      "sentence": "{{blank}} is the enemy of the reaction; steam caps temperatures at one hundred degrees.",
+      "blankWord": "moisture",
+      "hintVi": "Nghĩa gợi ý: Độ ẩm là kẻ thù của phản ứng; hơi nước g...",
+      "timestamp": 812,
+      "options": [
+        "moisture",
+        "vibrant",
+        "priority",
+        "fundamental"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-28-q1",
+      "question": "What is the primary focus of the video 'Food Chemistry: The Maillard Reaction in Cooking'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice food chemistry: the maillard reaction in cooking effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores food chemistry: the maillard reaction in cooking, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 116
+    },
+    {
+      "id": "video-fs-28-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Under...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Under intense dry heat, amino acids and reducing sugars coll..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Under intense dry heat, amino acids and reducing sugars collide in a cascade of reactions.', showing its practical importance.",
+      "timestampSeek": 464
+    },
+    {
+      "id": "video-fs-28-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Cooking is not merely survival; it is delicious applied chemistry..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Cooking is not merely survival; it is delicious applied chemistry transforming the sensory world., providing a meaningful summary for learners.",
+      "timestampSeek": 1044
+    },
+    {
+      "id": "video-fs-28-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'These...'?",
+      "options": [
+        "It highlights that: These compounds produce the savory, nutty, roasted notes of ...",
+        "It warns that following this method produces immediate failure.",
+        "It states this step should always be skipped by beginners.",
+        "It claims this factor has zero impact on the final outcome."
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker specifically highlights: 'These compounds produce the savory, nutty, roasted notes of toasted bread and roasted coffee.', providing deeper technical insight.",
+      "timestampSeek": 696
+    }
+  ]
+}

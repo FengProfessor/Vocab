@@ -1,0 +1,191 @@
+{
+  "id": "video-sc-03",
+  "youtubeId": "mkuZhNcOYdh",
+  "title": "Talking About the Weather Naturally",
+  "channel": "RealLife English",
+  "duration": 250,
+  "durationDisplay": "04:10",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "social_conversations",
+  "topicDisplay": "Giao tiếp & Đời sống xã hội",
+  "thumbnailUrl": "https://img.youtube.com/vi/mkuZhNcOYdh/hqdefault.jpg",
+  "description": "Nghệ thuật trò chuyện về thời tiết - chủ đề mở màn kinh điển trong văn hóa Anh - Mỹ.",
+  "coreVocabulary": [
+    {
+      "word": "breeze",
+      "phonetic": "/briːz/",
+      "viDefinition": "làn gió nhẹ, gió thoảng",
+      "contextSentence": "A refreshing cool breeze swept through the city streets."
+    },
+    {
+      "word": "forecast",
+      "phonetic": "/ˈfɔːkɑːst/",
+      "viDefinition": "dự báo (thời tiết)",
+      "contextSentence": "The morning forecast predicts heavy showers by afternoon."
+    },
+    {
+      "word": "overcast",
+      "phonetic": "/ˌəʊvəˈkɑːst/",
+      "viDefinition": "u ám, nhiều mây xám",
+      "contextSentence": "The sky looked gray and overcast all morning."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sc-03-cue-1",
+      "start": 0,
+      "end": 25,
+      "en": "Welcome to RealLife English, connecting you to global native expressions.",
+      "vi": "Chào mừng đến với RealLife English, kết nối bạn với những cách diễn đạt bản xứ toàn cầu."
+    },
+    {
+      "id": "video-sc-03-cue-2",
+      "start": 25,
+      "end": 50,
+      "en": "In English-speaking countries, commenting on weather is the supreme icebreaker.",
+      "vi": "Tại các quốc gia nói tiếng Anh, bình luận về thời tiết là cách mở đầu câu chuyện tối thượng."
+    },
+    {
+      "id": "video-sc-03-cue-3",
+      "start": 50,
+      "end": 75,
+      "en": "It provides a neutral, uncontroversial topic that everyone experiences.",
+      "vi": "Nó cung cấp một chủ đề trung lập, không gây tranh cãi mà ai cũng cùng trải nghiệm."
+    },
+    {
+      "id": "video-sc-03-cue-4",
+      "start": 75,
+      "end": 100,
+      "en": "On a gloomy day, you can say: 'It looks quite gray and overcast today, doesn't it?'",
+      "vi": "Vào một ngày u ám, bạn có thể nói: 'Hôm nay trời trông khá xám xịt và nhiều mây, phải không?'"
+    },
+    {
+      "id": "video-sc-03-cue-5",
+      "start": 100,
+      "end": 125,
+      "en": "Notice how native speakers frequently use tag questions to invite agreement.",
+      "vi": "Hãy để ý cách người bản ngữ thường xuyên dùng câu hỏi đuôi để gợi mở sự đồng tình."
+    },
+    {
+      "id": "video-sc-03-cue-6",
+      "start": 125,
+      "end": 150,
+      "en": "Check the local weather forecast so you can anticipate weekend sunshine.",
+      "vi": "Kiểm tra dự báo thời tiết địa phương để bạn có thể đón chờ nắng ấm cuối tuần."
+    },
+    {
+      "id": "video-sc-03-cue-7",
+      "start": 150,
+      "end": 175,
+      "en": "When spring arrives, praise the delightful warmth and gentle cool breeze.",
+      "vi": "Khi mùa xuân đến, hãy khen ngợi sự ấm áp dễ chịu và làn gió mát nhẹ nhàng."
+    },
+    {
+      "id": "video-sc-03-cue-8",
+      "start": 175,
+      "end": 200,
+      "en": "If rain starts pouring suddenly, share a laugh about forgetting umbrellas.",
+      "vi": "Nếu trời bất chợt đổ mưa rào, hãy cùng cười về việc quên mang theo ô."
+    },
+    {
+      "id": "video-sc-03-cue-9",
+      "start": 200,
+      "end": 225,
+      "en": "Weather small talk serves as a stepping stone toward deeper conversations.",
+      "vi": "Trò chuyện về thời tiết đóng vai trò như một bàn đạp hướng tới những cuộc trò chuyện sâu sắc hơn."
+    },
+    {
+      "id": "video-sc-03-cue-10",
+      "start": 225,
+      "end": 250,
+      "en": "Mastering these simple phrases ensures you are never stuck for words.",
+      "vi": "Làm chủ những cụm từ đơn giản này đảm bảo bạn sẽ không bao giờ bị bí từ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sc-03-cloze-1",
+      "cueId": "video-sc-03-cue-3",
+      "sentence": "It {{blank}} a neutral, uncontroversial topic that everyone experiences.",
+      "blankWord": "provides",
+      "hintVi": "Nghĩa gợi ý: Nó cung cấp một chủ đề trung lập, không ...",
+      "timestamp": 50,
+      "options": [
+        "advantage",
+        "provides",
+        "vibrant",
+        "favorable"
+      ]
+    },
+    {
+      "id": "video-sc-03-cloze-2",
+      "cueId": "video-sc-03-cue-5",
+      "sentence": "{{blank}} how native speakers frequently use tag questions to invite agreement.",
+      "blankWord": "notice",
+      "hintVi": "Nghĩa gợi ý: Hãy để ý cách người bản ngữ thường xuyên...",
+      "timestamp": 100,
+      "options": [
+        "moderate",
+        "notice",
+        "protocol",
+        "component"
+      ]
+    },
+    {
+      "id": "video-sc-03-cloze-3",
+      "cueId": "video-sc-03-cue-8",
+      "sentence": "If rain {{blank}} pouring suddenly, share a laugh about forgetting umbrellas.",
+      "blankWord": "starts",
+      "hintVi": "Nghĩa gợi ý: Nếu trời bất chợt đổ mưa rào, hãy cùng c...",
+      "timestamp": 175,
+      "options": [
+        "routine",
+        "moderate",
+        "vulnerable",
+        "starts"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sc-03-q1",
+      "question": "What is the primary focus of the video 'Talking About the Weather Naturally'?",
+      "options": [
+        "To explain and practice talking about the weather naturally effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores talking about the weather naturally, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 25
+    },
+    {
+      "id": "video-sc-03-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Notice...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Notice how native speakers frequently use tag questions to i..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Notice how native speakers frequently use tag questions to invite agreement.', showing its practical importance.",
+      "timestampSeek": 100
+    },
+    {
+      "id": "video-sc-03-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Mastering these simple phrases ensures you are never stuck for wo...",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Mastering these simple phrases ensures you are never stuck for words., providing a meaningful summary for learners.",
+      "timestampSeek": 225
+    }
+  ]
+}

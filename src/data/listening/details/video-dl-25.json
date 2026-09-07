@@ -1,0 +1,204 @@
+{
+  "id": "video-dl-25",
+  "youtubeId": "Ud_V9-TC5SS",
+  "title": "Circadian Rhythms and Peak Daily Performance",
+  "channel": "Oxford Online English",
+  "duration": 740,
+  "durationDisplay": "12:20",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/Ud_V9-TC5SS/hqdefault.jpg",
+  "description": "Ứng dụng nhịp sinh học cơ thể để tối ưu hóa hiệu suất làm việc và giấc ngủ.",
+  "coreVocabulary": [
+    {
+      "word": "circadian",
+      "phonetic": "/sɜːˈkeɪdiən/",
+      "viDefinition": "thuộc nhịp sinh học 24 giờ",
+      "contextSentence": "Our circadian rhythm regulates hormone secretion and body temperature."
+    },
+    {
+      "word": "melatonin",
+      "phonetic": "/ˌmeləˈtəʊnɪn/",
+      "viDefinition": "hoóc-môn điều hòa giấc ngủ",
+      "contextSentence": "Darkness stimulates the pineal gland to release soothing melatonin."
+    },
+    {
+      "word": "alertness",
+      "phonetic": "/əˈlɜːtnəs/",
+      "viDefinition": "sự tỉnh táo, cảnh giác",
+      "contextSentence": "Natural morning sunlight boosts cortisol for peak cognitive alertness."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-25-cue-1",
+      "start": 0,
+      "end": 74,
+      "en": "Welcome to Oxford Online English, bridging biology and practical everyday living.",
+      "vi": "Chào mừng đến với Oxford Online English, kết nối sinh học và đời sống thực tế hàng ngày."
+    },
+    {
+      "id": "video-dl-25-cue-2",
+      "start": 74,
+      "end": 148,
+      "en": "Every cell in the human body operates on an internal twenty-four-hour master clock.",
+      "vi": "Mọi tế bào trong cơ thể con người đều hoạt động dựa trên một đồng hồ tổng thể hai mươi bốn giờ bên trong."
+    },
+    {
+      "id": "video-dl-25-cue-3",
+      "start": 148,
+      "end": 222,
+      "en": "Aligning your daily schedule with your circadian rhythm yields effortless vigor.",
+      "vi": "Điều chỉnh lịch trình hàng ngày phù hợp với nhịp sinh học mang lại sức sống dồi dào."
+    },
+    {
+      "id": "video-dl-25-cue-4",
+      "start": 222,
+      "end": 296,
+      "en": "Exposure to outdoor sunlight within thirty minutes of waking anchors the rhythm.",
+      "vi": "Tiếp xúc với ánh sáng mặt trời ngoài trời trong vòng ba mươi phút sau khi thức dậy sẽ định vị nhịp sinh học."
+    },
+    {
+      "id": "video-dl-25-cue-5",
+      "start": 296,
+      "end": 370,
+      "en": "This morning photon exposure optimizes daytime alertness and focus.",
+      "vi": "Sự tiếp xúc với photon ánh sáng buổi sáng này tối ưu hóa sự tỉnh táo và tập trung ban ngày."
+    },
+    {
+      "id": "video-dl-25-cue-6",
+      "start": 370,
+      "end": 444,
+      "en": "Schedule demanding analytical tasks during your morning cognitive peak.",
+      "vi": "Lên lịch cho các nhiệm vụ phân tích đòi hỏi cao trong thời gian đỉnh cao nhận thức buổi sáng."
+    },
+    {
+      "id": "video-dl-25-cue-7",
+      "start": 444,
+      "end": 518,
+      "en": "Avoid intense overhead fluorescent lighting and digital screens after sunset.",
+      "vi": "Tránh ánh sáng huỳnh quang chói chang trên trần và màn hình kỹ thuật số sau khi mặt trời lặn."
+    },
+    {
+      "id": "video-dl-25-cue-8",
+      "start": 518,
+      "end": 592,
+      "en": "Dim conditions signal the brain to produce natural, restorative melatonin.",
+      "vi": "Điều kiện ánh sáng mờ báo hiệu cho não sản xuất melatonin tự nhiên phục hồi."
+    },
+    {
+      "id": "video-dl-25-cue-9",
+      "start": 592,
+      "end": 666,
+      "en": "Consistent wake-up times matter far more than erratic variable bedtimes.",
+      "vi": "Thời gian thức dậy đều đặn quan trọng hơn nhiều so với giờ đi ngủ thất thường."
+    },
+    {
+      "id": "video-dl-25-cue-10",
+      "start": 666,
+      "end": 740,
+      "en": "Honor your biological rhythm, and your body will reward you with sustained vitality.",
+      "vi": "Hãy tôn trọng nhịp sinh học của bạn, và cơ thể sẽ thưởng cho bạn sức sống bền bỉ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-25-cloze-1",
+      "cueId": "video-dl-25-cue-3",
+      "sentence": "{{blank}} your daily schedule with your circadian rhythm yields effortless vigor.",
+      "blankWord": "aligning",
+      "hintVi": "Nghĩa gợi ý: Điều chỉnh lịch trình hàng ngày phù hợp ...",
+      "timestamp": 148,
+      "options": [
+        "aligning",
+        "perspective",
+        "protocol",
+        "flexible"
+      ]
+    },
+    {
+      "id": "video-dl-25-cloze-2",
+      "cueId": "video-dl-25-cue-5",
+      "sentence": "This {{blank}} photon exposure optimizes daytime alertness and focus.",
+      "blankWord": "morning",
+      "hintVi": "Nghĩa gợi ý: Sự tiếp xúc với photon ánh sáng buổi sán...",
+      "timestamp": 296,
+      "options": [
+        "priority",
+        "vibrant",
+        "morning",
+        "subsequent"
+      ]
+    },
+    {
+      "id": "video-dl-25-cloze-3",
+      "cueId": "video-dl-25-cue-8",
+      "sentence": "Dim {{blank}} signal the brain to produce natural, restorative melatonin.",
+      "blankWord": "conditions",
+      "hintVi": "Nghĩa gợi ý: Điều kiện ánh sáng mờ báo hiệu cho não s...",
+      "timestamp": 518,
+      "options": [
+        "preliminary",
+        "favorable",
+        "conditions",
+        "balance"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-25-q1",
+      "question": "What is the primary focus of the video 'Circadian Rhythms and Peak Daily Performance'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice circadian rhythms and peak daily performance effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores circadian rhythms and peak daily performance, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 74
+    },
+    {
+      "id": "video-dl-25-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'This...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: This morning photon exposure optimizes daytime alertness and...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'This morning photon exposure optimizes daytime alertness and focus.', showing its practical importance.",
+      "timestampSeek": 296
+    },
+    {
+      "id": "video-dl-25-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Honor your biological rhythm, and your body will reward you with ..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Honor your biological rhythm, and your body will reward you with sustained vitality., providing a meaningful summary for learners.",
+      "timestampSeek": 666
+    },
+    {
+      "id": "video-dl-25-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Avoid...'?",
+      "options": [
+        "It claims this factor has zero impact on the final outcome.",
+        "It highlights that: Avoid intense overhead fluorescent lighting and digital scre...",
+        "It warns that following this method produces immediate failure.",
+        "It states this step should always be skipped by beginners."
+      ],
+      "correctIndex": 1,
+      "explanation": "The speaker specifically highlights: 'Avoid intense overhead fluorescent lighting and digital screens after sunset.', providing deeper technical insight.",
+      "timestampSeek": 444
+    }
+  ]
+}

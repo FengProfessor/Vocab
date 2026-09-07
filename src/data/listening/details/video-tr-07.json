@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-07",
+  "youtubeId": "klHu85uPRTS",
+  "title": "Asking About Bus Schedules and Transfers",
+  "channel": "Oxford Online English",
+  "duration": 270,
+  "durationDisplay": "04:30",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/klHu85uPRTS/hqdefault.jpg",
+  "description": "Cách tra cứu tuyến xe buýt liên tỉnh, hỏi điểm chuyển tuyến và thời gian khởi hành.",
+  "coreVocabulary": [
+    {
+      "word": "timetable",
+      "phonetic": "/ˈtaɪmteɪbl/",
+      "viDefinition": "lịch trình xe chạy, thời gian biểu",
+      "contextSentence": "Check the printed bus timetable posted at the shelter."
+    },
+    {
+      "word": "transfer",
+      "phonetic": "/trænsˈfɜː(r)/",
+      "viDefinition": "chuyển xe, đổi tuyến",
+      "contextSentence": "You need to transfer to bus number forty-two at the central square."
+    },
+    {
+      "word": "frequency",
+      "phonetic": "/ˈfriːkwənsi/",
+      "viDefinition": "tần suất xe chạy",
+      "contextSentence": "Buses run with high frequency every ten minutes during rush hour."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-07-cue-1",
+      "start": 0,
+      "end": 27,
+      "en": "Welcome to Oxford Online English, helping you travel with linguistic confidence.",
+      "vi": "Chào mừng đến với Oxford Online English, giúp bạn du lịch với sự tự tin về ngôn ngữ."
+    },
+    {
+      "id": "video-tr-07-cue-2",
+      "start": 27,
+      "end": 54,
+      "en": "Intercity and regional buses are fantastic ways to explore scenic rural towns.",
+      "vi": "Xe buýt liên tỉnh và khu vực là những cách tuyệt vời để khám phá các thị trấn nông thôn tuyệt đẹp."
+    },
+    {
+      "id": "video-tr-07-cue-3",
+      "start": 54,
+      "end": 81,
+      "en": "Approach the information kiosk and ask: 'Which bus route goes to the coastal village?'",
+      "vi": "Tiến lại quầy thông tin và hỏi: 'Tuyến xe buýt nào đi đến ngôi làng ven biển ạ?'"
+    },
+    {
+      "id": "video-tr-07-cue-4",
+      "start": 81,
+      "end": 108,
+      "en": "Inspect the posted timetable to verify departure times and service frequencies.",
+      "vi": "Xem kỹ thời gian biểu đã dán để xác minh giờ khởi hành và tần suất phục vụ."
+    },
+    {
+      "id": "video-tr-07-cue-5",
+      "start": 108,
+      "end": 135,
+      "en": "Ask the station clerk: 'Do I need to transfer buses, or is this a direct route?'",
+      "vi": "Hỏi nhân viên nhà ga: 'Tôi có cần phải chuyển xe không, hay đây là tuyến đi thẳng ạ?'"
+    },
+    {
+      "id": "video-tr-07-cue-6",
+      "start": 135,
+      "end": 162,
+      "en": "The clerk may clarify: 'Transfer at the junction onto coach number twelve.'",
+      "vi": "Nhân viên có thể giải thích rõ: 'Hãy chuyển xe tại ngã ba sang xe khách số mười hai.'"
+    },
+    {
+      "id": "video-tr-07-cue-7",
+      "start": 162,
+      "end": 189,
+      "en": "Purchase your ticket in advance to guarantee an assigned window seat.",
+      "vi": "Mua vé trước để đảm bảo có chỗ ngồi cạnh cửa sổ được chỉ định."
+    },
+    {
+      "id": "video-tr-07-cue-8",
+      "start": 189,
+      "end": 216,
+      "en": "Arrive at the numbered departure platform fifteen minutes before boarding begins.",
+      "vi": "Đến bến khởi hành có đánh số mười lăm phút trước khi bắt đầu lên xe."
+    },
+    {
+      "id": "video-tr-07-cue-9",
+      "start": 216,
+      "end": 243,
+      "en": "Store bulky backpacks underneath in the bus luggage compartment.",
+      "vi": "Cất ba lô cồng kềnh ở phía dưới trong khoang hành lý của xe buýt."
+    },
+    {
+      "id": "video-tr-07-cue-10",
+      "start": 243,
+      "end": 270,
+      "en": "Public transit takes you off the beaten path into authentic cultural heartlands.",
+      "vi": "Phương tiện công cộng đưa bạn rời khỏi những lối mòn thông thường để vào những vùng đất văn hóa chân thực."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-07-cloze-1",
+      "cueId": "video-tr-07-cue-3",
+      "sentence": "{{blank}} the information kiosk and ask: 'Which bus route goes to the coastal village?'",
+      "blankWord": "approach",
+      "hintVi": "Nghĩa gợi ý: Tiến lại quầy thông tin và hỏi: 'Tuyến x...",
+      "timestamp": 54,
+      "options": [
+        "fundamental",
+        "subsequent",
+        "adequate",
+        "approach"
+      ]
+    },
+    {
+      "id": "video-tr-07-cloze-2",
+      "cueId": "video-tr-07-cue-5",
+      "sentence": "Ask the {{blank}} clerk: 'Do I need to transfer buses, or is this a direct route?'",
+      "blankWord": "station",
+      "hintVi": "Nghĩa gợi ý: Hỏi nhân viên nhà ga: 'Tôi có cần phải c...",
+      "timestamp": 108,
+      "options": [
+        "perceptive",
+        "priority",
+        "station",
+        "deliberate"
+      ]
+    },
+    {
+      "id": "video-tr-07-cloze-3",
+      "cueId": "video-tr-07-cue-8",
+      "sentence": "{{blank}} at the numbered departure platform fifteen minutes before boarding begins.",
+      "blankWord": "arrive",
+      "hintVi": "Nghĩa gợi ý: Đến bến khởi hành có đánh số mười lăm ph...",
+      "timestamp": 189,
+      "options": [
+        "favorable",
+        "innovative",
+        "arrive",
+        "extensive"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-07-q1",
+      "question": "What is the primary focus of the video 'Asking About Bus Schedules and Transfers'?",
+      "options": [
+        "To explain and practice asking about bus schedules and transfers effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores asking about bus schedules and transfers, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 27
+    },
+    {
+      "id": "video-tr-07-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Ask...'?",
+      "options": [
+        "It emphasizes that: Ask the station clerk: 'Do I need to transfer buses, or is t...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'Ask the station clerk: 'Do I need to transfer buses, or is this a direct route?'', showing its practical importance.",
+      "timestampSeek": 108
+    },
+    {
+      "id": "video-tr-07-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Public transit takes you off the beaten path into authentic cultu..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Public transit takes you off the beaten path into authentic cultural heartlands., providing a meaningful summary for learners.",
+      "timestampSeek": 243
+    }
+  ]
+}

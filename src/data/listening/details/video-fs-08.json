@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-08",
+  "youtubeId": "AZ9uHxGp1eB",
+  "title": "At the Artisan Bakery: Fresh Breads",
+  "channel": "Learn English with Gill",
+  "duration": 280,
+  "durationDisplay": "04:40",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/AZ9uHxGp1eB/hqdefault.jpg",
+  "description": "Từ vựng các loại bánh mì: sourdough, baguette, bánh sừng bò và bánh ngọt.",
+  "coreVocabulary": [
+    {
+      "word": "sourdough",
+      "phonetic": "/ˈsaʊədəʊ/",
+      "viDefinition": "bánh mì men chua truyền thống",
+      "contextSentence": "This artisan sourdough loaf has a golden crust and chewy crumb."
+    },
+    {
+      "word": "croissant",
+      "phonetic": "/ˈkrwæsɒ̃/",
+      "viDefinition": "bánh sừng bò, bánh croa-xăng",
+      "contextSentence": "A flaky, buttery croissant pairs divinely with black coffee."
+    },
+    {
+      "word": "crust",
+      "phonetic": "/krʌst/",
+      "viDefinition": "vỏ bánh (giòn)",
+      "contextSentence": "I love bread with a dark, deeply caramelized, crunchy crust."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-08-cue-1",
+      "start": 0,
+      "end": 28,
+      "en": "Welcome back to Gill's culinary corner, smelling the aroma of fresh baking today.",
+      "vi": "Chào mừng quay lại với góc ẩm thực của Gill, hôm nay chúng ta cùng ngửi mùi thơm của bánh mới nướng."
+    },
+    {
+      "id": "video-fs-08-cue-2",
+      "start": 28,
+      "end": 56,
+      "en": "Neighborhood artisan bakeries are treasure troves of traditional craftsmanship.",
+      "vi": "Các tiệm bánh thủ công trong khu phố là những kho báu của tay nghề thủ công truyền thống."
+    },
+    {
+      "id": "video-fs-08-cue-3",
+      "start": 56,
+      "end": 84,
+      "en": "Glass display cases are piled high with glistening pastries and rustic loaves.",
+      "vi": "Những chiếc tủ kính trưng bày chất đầy bánh ngọt bóng bẩy và những ổ bánh mì mộc mạc."
+    },
+    {
+      "id": "video-fs-08-cue-4",
+      "start": 84,
+      "end": 112,
+      "en": "Ask the baker: 'Could you please slice this round sourdough loaf for me?'",
+      "vi": "Hỏi thợ làm bánh: 'Làm ơn cắt lát ổ bánh mì men chua tròn này giúp tôi được không?'"
+    },
+    {
+      "id": "video-fs-08-cue-5",
+      "start": 112,
+      "end": 140,
+      "en": "Inquire about freshness: 'Were these chocolate croissants baked this morning?'",
+      "vi": "Hỏi về độ tươi mới: 'Những chiếc bánh sừng bò sô-cô-la này có được nướng vào sáng nay không ạ?'"
+    },
+    {
+      "id": "video-fs-08-cue-6",
+      "start": 140,
+      "end": 168,
+      "en": "Bakers take tremendous pride in their sourdough starter and long fermentation.",
+      "vi": "Các thợ làm bánh vô cùng tự hào về men khởi động chua và quá trình lên men kéo dài của họ."
+    },
+    {
+      "id": "video-fs-08-cue-7",
+      "start": 168,
+      "end": 196,
+      "en": "A great European loaf features a thick, crunchy outer crust and open interior crumb.",
+      "vi": "Một ổ bánh mì Châu Âu tuyệt hảo có lớp vỏ ngoài dày, giòn rụm và ruột bánh xốp mở bên trong."
+    },
+    {
+      "id": "video-fs-08-cue-8",
+      "start": 196,
+      "end": 224,
+      "en": "Pick up a few almond pastries and fruit tarts wrapped in brown bakery paper.",
+      "vi": "Chọn một vài chiếc bánh ngọt hạnh nhân và bánh tart hoa quả được bọc trong giấy xi măng của tiệm bánh."
+    },
+    {
+      "id": "video-fs-08-cue-9",
+      "start": 224,
+      "end": 252,
+      "en": "Pay the cashier and carry your warm, fragrant loaf home for breakfast.",
+      "vi": "Thanh toán cho thu ngân và mang ổ bánh mì ấm nóng, thơm lừng về nhà cho bữa sáng."
+    },
+    {
+      "id": "video-fs-08-cue-10",
+      "start": 252,
+      "end": 280,
+      "en": "Supporting local bakeries keeps authentic culinary heritage alive in communities.",
+      "vi": "Ủng hộ các tiệm bánh địa phương giữ cho di sản ẩm thực chân chính luôn sống động trong các cộng đồng."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-08-cloze-1",
+      "cueId": "video-fs-08-cue-3",
+      "sentence": "{{blank}} display cases are piled high with glistening pastries and rustic loaves.",
+      "blankWord": "glass",
+      "hintVi": "Nghĩa gợi ý: Những chiếc tủ kính trưng bày chất đầy b...",
+      "timestamp": 56,
+      "options": [
+        "alternative",
+        "glass",
+        "tremendous",
+        "substantial"
+      ]
+    },
+    {
+      "id": "video-fs-08-cloze-2",
+      "cueId": "video-fs-08-cue-5",
+      "sentence": "{{blank}} about freshness: 'Were these chocolate croissants baked this morning?'",
+      "blankWord": "inquire",
+      "hintVi": "Nghĩa gợi ý: Hỏi về độ tươi mới: 'Những chiếc bánh sừ...",
+      "timestamp": 112,
+      "options": [
+        "component",
+        "temporary",
+        "inquire",
+        "gradual"
+      ]
+    },
+    {
+      "id": "video-fs-08-cloze-3",
+      "cueId": "video-fs-08-cue-8",
+      "sentence": "Pick up a few {{blank}} pastries and fruit tarts wrapped in brown bakery paper.",
+      "blankWord": "almond",
+      "hintVi": "Nghĩa gợi ý: Chọn một vài chiếc bánh ngọt hạnh nhân v...",
+      "timestamp": 196,
+      "options": [
+        "extensive",
+        "tremendous",
+        "almond",
+        "dimension"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-08-q1",
+      "question": "What is the primary focus of the video 'At the Artisan Bakery: Fresh Breads'?",
+      "options": [
+        "To explain and practice at the artisan bakery: fresh breads effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores at the artisan bakery: fresh breads, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 28
+    },
+    {
+      "id": "video-fs-08-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Inquire...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Inquire about freshness: 'Were these chocolate croissants ba...",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Inquire about freshness: 'Were these chocolate croissants baked this morning?'', showing its practical importance.",
+      "timestampSeek": 112
+    },
+    {
+      "id": "video-fs-08-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Supporting local bakeries keeps authentic culinary heritage alive...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Supporting local bakeries keeps authentic culinary heritage alive in communities., providing a meaningful summary for learners.",
+      "timestampSeek": 252
+    }
+  ]
+}

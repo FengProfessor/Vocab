@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-09",
+  "youtubeId": "-VHRreZPQHW",
+  "title": "Shopping for Electronics: Comparing Warranties",
+  "channel": "English with Lucy",
+  "duration": 300,
+  "durationDisplay": "05:00",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/-VHRreZPQHW/hqdefault.jpg",
+  "description": "Cách hỏi thông số kỹ thuật điện thoại/máy tính, so sánh giá và bảo hành.",
+  "coreVocabulary": [
+    {
+      "word": "warranty",
+      "phonetic": "/ˈwɒrənti/",
+      "viDefinition": "chế độ bảo hành",
+      "contextSentence": "Does this laptop come with a two-year manufacturer warranty?"
+    },
+    {
+      "word": "specification",
+      "phonetic": "/ˌspesɪfɪˈkeɪʃn/",
+      "viDefinition": "thông số kỹ thuật",
+      "contextSentence": "Check the hardware specification sheet for battery life and RAM."
+    },
+    {
+      "word": "durable",
+      "phonetic": "/ˈdjʊərəbl/",
+      "viDefinition": "bền bỉ, dùng được lâu",
+      "contextSentence": "This metallic casing makes the tablet exceptionally durable."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-09-cue-1",
+      "start": 0,
+      "end": 30,
+      "en": "Hello tech shoppers, Lucy here guiding you through consumer electronics purchases.",
+      "vi": "Xin chào những người mua sắm công nghệ, Lucy ở đây hướng dẫn bạn mua sắm đồ điện tử tiêu dùng."
+    },
+    {
+      "id": "video-fs-09-cue-2",
+      "start": 30,
+      "end": 60,
+      "en": "Buying laptops, cameras, or smartphones represents a major financial investment.",
+      "vi": "Mua máy tính xách tay, máy ảnh hoặc điện thoại thông minh là một khoản đầu tư tài chính lớn."
+    },
+    {
+      "id": "video-fs-09-cue-3",
+      "start": 60,
+      "end": 90,
+      "en": "Ask the sales specialist to explain the detailed hardware specification differences.",
+      "vi": "Nhờ chuyên viên bán hàng giải thích các điểm khác biệt chi tiết về thông số kỹ thuật phần cứng."
+    },
+    {
+      "id": "video-fs-09-cue-4",
+      "start": 90,
+      "end": 120,
+      "en": "Inquire about performance: 'How many gigabytes of memory does this processor support?'",
+      "vi": "Hỏi thăm về hiệu năng: 'Bộ vi xử lý này hỗ trợ bao nhiêu gigabyte bộ nhớ ạ?'"
+    },
+    {
+      "id": "video-fs-09-cue-5",
+      "start": 120,
+      "end": 150,
+      "en": "Check the battery duration: 'How many hours will it last on a single charge?'",
+      "vi": "Kiểm tra thời lượng pin: 'Nó sẽ dùng được bao nhiêu giờ chỉ với một lần sạc ạ?'"
+    },
+    {
+      "id": "video-fs-09-cue-6",
+      "start": 150,
+      "end": 180,
+      "en": "Ensure the physical build quality is sturdy and exceptionally durable for travel.",
+      "vi": "Đảm bảo chất lượng cấu tạo vật lý chắc chắn và đặc biệt bền bỉ cho việc đi lại."
+    },
+    {
+      "id": "video-fs-09-cue-7",
+      "start": 180,
+      "end": 210,
+      "en": "Inquire about after-sales protection: 'What does the standard warranty cover?'",
+      "vi": "Hỏi về chế độ bảo vệ sau bán hàng: 'Gói bảo hành tiêu chuẩn bao gồm những gì ạ?'"
+    },
+    {
+      "id": "video-fs-09-cue-8",
+      "start": 210,
+      "end": 240,
+      "en": "Understand whether accidental drops and liquid spills are covered by the policy.",
+      "vi": "Hiểu rõ xem các sự cố rơi vỡ ngẫu nhiên và đổ nước có được bảo hiểm chi trả hay không."
+    },
+    {
+      "id": "video-fs-09-cue-9",
+      "start": 240,
+      "end": 270,
+      "en": "Ask if the store offers a price-match guarantee against competitor online retailers.",
+      "vi": "Hỏi xem cửa hàng có cam kết khớp giá với các nhà bán lẻ trực tuyến cạnh tranh không."
+    },
+    {
+      "id": "video-fs-09-cue-10",
+      "start": 270,
+      "end": 300,
+      "en": "Informed consumer research guarantees you receive peak value for your hard-earned money.",
+      "vi": "Nghiên cứu kỹ lưỡng của người tiêu dùng có hiểu biết đảm bảo bạn nhận được giá trị đỉnh cao cho số tiền vất vả kiếm được."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-09-cloze-1",
+      "cueId": "video-fs-09-cue-3",
+      "sentence": "Ask the {{blank}} specialist to explain the detailed hardware specification differences.",
+      "blankWord": "sales",
+      "hintVi": "Nghĩa gợi ý: Nhờ chuyên viên bán hàng giải thích các ...",
+      "timestamp": 60,
+      "options": [
+        "sales",
+        "strategy",
+        "fundamental",
+        "vibrant"
+      ]
+    },
+    {
+      "id": "video-fs-09-cloze-2",
+      "cueId": "video-fs-09-cue-5",
+      "sentence": "{{blank}} the battery duration: 'How many hours will it last on a single charge?'",
+      "blankWord": "check",
+      "hintVi": "Nghĩa gợi ý: Kiểm tra thời lượng pin: 'Nó sẽ dùng đượ...",
+      "timestamp": 120,
+      "options": [
+        "component",
+        "adequate",
+        "simultaneous",
+        "check"
+      ]
+    },
+    {
+      "id": "video-fs-09-cloze-3",
+      "cueId": "video-fs-09-cue-8",
+      "sentence": "{{blank}} whether accidental drops and liquid spills are covered by the policy.",
+      "blankWord": "understand",
+      "hintVi": "Nghĩa gợi ý: Hiểu rõ xem các sự cố rơi vỡ ngẫu nhiên ...",
+      "timestamp": 210,
+      "options": [
+        "perspective",
+        "subsequent",
+        "priority",
+        "understand"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-09-q1",
+      "question": "What is the primary focus of the video 'Shopping for Electronics: Comparing Warranties'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice shopping for electronics: comparing warranties effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores shopping for electronics: comparing warranties, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 30
+    },
+    {
+      "id": "video-fs-09-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Check...'?",
+      "options": [
+        "It emphasizes that: Check the battery duration: 'How many hours will it last on ...",
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'Check the battery duration: 'How many hours will it last on a single charge?'', showing its practical importance.",
+      "timestampSeek": 120
+    },
+    {
+      "id": "video-fs-09-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Informed consumer research guarantees you receive peak value for ...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Informed consumer research guarantees you receive peak value for your hard-earned money., providing a meaningful summary for learners.",
+      "timestampSeek": 270
+    }
+  ]
+}

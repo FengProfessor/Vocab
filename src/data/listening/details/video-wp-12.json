@@ -1,0 +1,191 @@
+{
+  "id": "video-wp-12",
+  "youtubeId": "vmSQJeWT_2u",
+  "title": "Explaining Technical Ideas to Non-Tech Teams",
+  "channel": "CareerVidz",
+  "duration": 510,
+  "durationDisplay": "08:30",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/vmSQJeWT_2u/hqdefault.jpg",
+  "description": "Kỹ năng dịch thuật ngữ kỹ thuật sang ngôn ngữ kinh doanh dễ hiểu cho phòng ban khác.",
+  "coreVocabulary": [
+    {
+      "word": "analogy",
+      "phonetic": "/əˈnælədʒi/",
+      "viDefinition": "sự tương tự, phép so sánh ẩn dụ",
+      "contextSentence": "Using an intuitive analogy bridges technical complexity with business logic."
+    },
+    {
+      "word": "jargon",
+      "phonetic": "/ˈdʒɑːɡən/",
+      "viDefinition": "thuật ngữ chuyên ngành, tiếng lóng kỹ thuật",
+      "contextSentence": "Eliminate confusing engineering jargon when addressing marketing leaders."
+    },
+    {
+      "word": "tangible",
+      "phonetic": "/ˈtændʒəbl/",
+      "viDefinition": "hữu hình, thực tế rõ ràng",
+      "contextSentence": "Explain how the software upgrade delivers tangible revenue growth."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-12-cue-1",
+      "start": 0,
+      "end": 51,
+      "en": "Welcome to CareerVidz, bridging the gap between engineers and executive decision-makers.",
+      "vi": "Chào mừng đến với CareerVidz, thu hẹp khoảng cách giữa các kỹ sư và những người ra quyết định cấp cao."
+    },
+    {
+      "id": "video-wp-12-cue-2",
+      "start": 51,
+      "end": 102,
+      "en": "Brilliant engineers often struggle to persuade business stakeholders.",
+      "vi": "Những kỹ sư tài ba thường gặp khó khăn trong việc thuyết phục các bên liên quan kinh doanh."
+    },
+    {
+      "id": "video-wp-12-cue-3",
+      "start": 102,
+      "end": 153,
+      "en": "The root cause is speaking in dense technical acronyms and obscure jargon.",
+      "vi": "Nguyên nhân gốc rễ là nói bằng những từ viết tắt kỹ thuật dày đặc và thuật ngữ khó hiểu."
+    },
+    {
+      "id": "video-wp-12-cue-4",
+      "start": 153,
+      "end": 204,
+      "en": "Learn to translate technical architecture into bottom-line business value.",
+      "vi": "Học cách dịch kiến trúc kỹ thuật thành giá trị kinh doanh cốt lõi."
+    },
+    {
+      "id": "video-wp-12-cue-5",
+      "start": 204,
+      "end": 255,
+      "en": "Employ a vivid analogy: compare cloud storage to renting an expandable warehouse.",
+      "vi": "Sử dụng một phép so sánh sinh động: ví lưu trữ đám mây như việc thuê một nhà kho có thể mở rộng."
+    },
+    {
+      "id": "video-wp-12-cue-6",
+      "start": 255,
+      "end": 306,
+      "en": "Focus on tangible user outcomes rather than the underlying database schema.",
+      "vi": "Tập trung vào các kết quả hữu hình cho người dùng hơn là lược đồ cơ sở dữ liệu bên dưới."
+    },
+    {
+      "id": "video-wp-12-cue-7",
+      "start": 306,
+      "end": 357,
+      "en": "Explain how technical debt reduction protects security and prevents revenue loss.",
+      "vi": "Giải thích việc giảm nợ kỹ thuật bảo vệ an ninh và ngăn ngừa mất mát doanh thu ra sao."
+    },
+    {
+      "id": "video-wp-12-cue-8",
+      "start": 357,
+      "end": 408,
+      "en": "Check for comprehension frequently: 'Does this workflow make practical sense?'",
+      "vi": "Kiểm tra mức độ hiểu thường xuyên: 'Quy trình làm việc này có hợp lý trên thực tế không?'"
+    },
+    {
+      "id": "video-wp-12-cue-9",
+      "start": 408,
+      "end": 459,
+      "en": "The ultimate mark of mastery is explaining complex engineering simply.",
+      "vi": "Dấu hiệu tối thượng của sự thành thạo là giải thích kỹ thuật phức tạp một cách đơn giản."
+    },
+    {
+      "id": "video-wp-12-cue-10",
+      "start": 459,
+      "end": 510,
+      "en": "Engineers who master business translation become invaluable organizational leaders.",
+      "vi": "Những kỹ sư làm chủ việc diễn đạt kinh doanh sẽ trở thành những nhà lãnh đạo tổ chức vô giá."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-12-cloze-1",
+      "cueId": "video-wp-12-cue-3",
+      "sentence": "The root {{blank}} is speaking in dense technical acronyms and obscure jargon.",
+      "blankWord": "cause",
+      "hintVi": "Nghĩa gợi ý: Nguyên nhân gốc rễ là nói bằng những từ ...",
+      "timestamp": 102,
+      "options": [
+        "strategy",
+        "dimension",
+        "cause",
+        "continuous"
+      ]
+    },
+    {
+      "id": "video-wp-12-cloze-2",
+      "cueId": "video-wp-12-cue-5",
+      "sentence": "{{blank}} a vivid analogy: compare cloud storage to renting an expandable warehouse.",
+      "blankWord": "employ",
+      "hintVi": "Nghĩa gợi ý: Sử dụng một phép so sánh sinh động: ví l...",
+      "timestamp": 204,
+      "options": [
+        "favorable",
+        "essential",
+        "employ",
+        "prominent"
+      ]
+    },
+    {
+      "id": "video-wp-12-cloze-3",
+      "cueId": "video-wp-12-cue-8",
+      "sentence": "{{blank}} for comprehension frequently: 'Does this workflow make practical sense?'",
+      "blankWord": "check",
+      "hintVi": "Nghĩa gợi ý: Kiểm tra mức độ hiểu thường xuyên: 'Quy ...",
+      "timestamp": 357,
+      "options": [
+        "gradual",
+        "remarkable",
+        "spontaneous",
+        "check"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-12-q1",
+      "question": "What is the primary focus of the video 'Explaining Technical Ideas to Non-Tech Teams'?",
+      "options": [
+        "To explain and practice explaining technical ideas to non-tech teams effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores explaining technical ideas to non-tech teams, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 51
+    },
+    {
+      "id": "video-wp-12-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Employ...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Employ a vivid analogy: compare cloud storage to renting an ...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Employ a vivid analogy: compare cloud storage to renting an expandable warehouse.', showing its practical importance.",
+      "timestampSeek": 204
+    },
+    {
+      "id": "video-wp-12-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Engineers who master business translation become invaluable organ...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Engineers who master business translation become invaluable organizational leaders., providing a meaningful summary for learners.",
+      "timestampSeek": 459
+    }
+  ]
+}

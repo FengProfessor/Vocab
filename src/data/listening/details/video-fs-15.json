@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-15",
+  "youtubeId": "qNbHwF2WwxL",
+  "title": "Opening a Local Bank Account Abroad",
+  "channel": "English with Lucy",
+  "duration": 510,
+  "durationDisplay": "08:30",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/qNbHwF2WwxL/hqdefault.jpg",
+  "description": "Thủ tục mở tài khoản ngân hàng: giấy tờ cư trú, phí duy trì và thẻ ghi nợ.",
+  "coreVocabulary": [
+    {
+      "word": "residency",
+      "phonetic": "/ˈrezɪdənsi/",
+      "viDefinition": "tình trạng cư trú, giấy tờ cư trú",
+      "contextSentence": "You must present certified proof of legal residential residency."
+    },
+    {
+      "word": "statement",
+      "phonetic": "/ˈsteɪtmənt/",
+      "viDefinition": "sao kê tài khoản ngân hàng",
+      "contextSentence": "A monthly bank statement details all incoming and outgoing funds."
+    },
+    {
+      "word": "overdraft",
+      "phonetic": "/ˈəʊvədrɑːft/",
+      "viDefinition": "thấu chi (rút quá số tiền có trong tài khoản)",
+      "contextSentence": "Inquire whether your checking account includes overdraft protection."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-15-cue-1",
+      "start": 0,
+      "end": 51,
+      "en": "Hello everyone, Lucy is here to help you navigate international banking systems.",
+      "vi": "Chào mọi người, Lucy ở đây giúp bạn điều hướng các hệ thống ngân hàng quốc tế."
+    },
+    {
+      "id": "video-fs-15-cue-2",
+      "start": 51,
+      "end": 102,
+      "en": "Establishing a local checking account is essential when moving or studying abroad.",
+      "vi": "Thiết lập một tài khoản vãng lai địa phương là điều thiết yếu khi chuyển đến sống hoặc du học ở nước ngoài."
+    },
+    {
+      "id": "video-fs-15-cue-3",
+      "start": 102,
+      "end": 153,
+      "en": "Schedule an in-person appointment with a personal accounts representative.",
+      "vi": "Lên lịch một cuộc hẹn trực tiếp với đại diện tài khoản cá nhân."
+    },
+    {
+      "id": "video-fs-15-cue-4",
+      "start": 153,
+      "end": 204,
+      "en": "Bring your primary passport, immigration visa, and certified proof of local residency.",
+      "vi": "Mang theo hộ chiếu chính, thị thực nhập cảnh và bằng chứng cư trú địa phương đã được chứng thực."
+    },
+    {
+      "id": "video-fs-15-cue-5",
+      "start": 204,
+      "end": 255,
+      "en": "Utility bills or a registered rental tenancy agreement serve as residency proof.",
+      "vi": "Hóa đơn điện nước hoặc hợp đồng thuê nhà đã đăng ký có thể làm bằng chứng cư trú."
+    },
+    {
+      "id": "video-fs-15-cue-6",
+      "start": 255,
+      "end": 306,
+      "en": "Ask about monthly maintenance fees and minimum daily account balance thresholds.",
+      "vi": "Hỏi về phí duy trì hàng tháng và ngưỡng số dư tài khoản tối thiểu hàng ngày."
+    },
+    {
+      "id": "video-fs-15-cue-7",
+      "start": 306,
+      "end": 357,
+      "en": "Inquire whether the debit card includes contactless technology and overdraft features.",
+      "vi": "Hỏi thăm xem thẻ ghi nợ có bao gồm công nghệ không tiếp xúc và tính năng thấu chi không."
+    },
+    {
+      "id": "video-fs-15-cue-8",
+      "start": 357,
+      "end": 408,
+      "en": "Download and activate the bank's secure mobile smartphone application on-site.",
+      "vi": "Tải xuống và kích hoạt ứng dụng điện thoại thông minh bảo mật của ngân hàng ngay tại chỗ."
+    },
+    {
+      "id": "video-fs-15-cue-9",
+      "start": 408,
+      "end": 459,
+      "en": "Set up paperless electronic monthly statement delivery to protect your privacy.",
+      "vi": "Thiết lập việc gửi sao kê điện tử hàng tháng không dùng giấy để bảo vệ quyền riêng tư của bạn."
+    },
+    {
+      "id": "video-fs-15-cue-10",
+      "start": 459,
+      "end": 510,
+      "en": "Financial integration into your new host country provides stability and independence.",
+      "vi": "Hòa nhập tài chính vào quốc gia tiếp nhận mới mang lại sự ổn định và độc lập."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-15-cloze-1",
+      "cueId": "video-fs-15-cue-3",
+      "sentence": "{{blank}} an in-person appointment with a personal accounts representative.",
+      "blankWord": "schedule",
+      "hintVi": "Nghĩa gợi ý: Lên lịch một cuộc hẹn trực tiếp với đại ...",
+      "timestamp": 102,
+      "options": [
+        "dimension",
+        "schedule",
+        "spontaneous",
+        "balance"
+      ]
+    },
+    {
+      "id": "video-fs-15-cloze-2",
+      "cueId": "video-fs-15-cue-5",
+      "sentence": "{{blank}} bills or a registered rental tenancy agreement serve as residency proof.",
+      "blankWord": "utility",
+      "hintVi": "Nghĩa gợi ý: Hóa đơn điện nước hoặc hợp đồng thuê nhà...",
+      "timestamp": 204,
+      "options": [
+        "moderate",
+        "reliable",
+        "protocol",
+        "utility"
+      ]
+    },
+    {
+      "id": "video-fs-15-cloze-3",
+      "cueId": "video-fs-15-cue-8",
+      "sentence": "{{blank}} and activate the bank's secure mobile smartphone application on-site.",
+      "blankWord": "download",
+      "hintVi": "Nghĩa gợi ý: Tải xuống và kích hoạt ứng dụng điện tho...",
+      "timestamp": 357,
+      "options": [
+        "download",
+        "extensive",
+        "advantage",
+        "spontaneous"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-15-q1",
+      "question": "What is the primary focus of the video 'Opening a Local Bank Account Abroad'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice opening a local bank account abroad effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores opening a local bank account abroad, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 51
+    },
+    {
+      "id": "video-fs-15-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Utility...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Utility bills or a registered rental tenancy agreement serve...",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Utility bills or a registered rental tenancy agreement serve as residency proof.', showing its practical importance.",
+      "timestampSeek": 204
+    },
+    {
+      "id": "video-fs-15-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Financial integration into your new host country provides stabili...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Financial integration into your new host country provides stability and independence., providing a meaningful summary for learners.",
+      "timestampSeek": 459
+    }
+  ]
+}

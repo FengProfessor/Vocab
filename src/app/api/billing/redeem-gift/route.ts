@@ -12,6 +12,8 @@ import {
   createOrder,
   isTrialCouponCode,
   trialCouponDays,
+  isKhaiGiangCampaignCode,
+  KHAI_GIANG_CAMPAIGN_CODES,
 } from '@/lib/billing';
 
 export async function POST(req: NextRequest) {
@@ -29,10 +31,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = (await req.json()) as { code?: string };
-    const code = body.code?.trim().toUpperCase() ?? '';
+    const body = (await req.json().catch(() => ({}))) as { code?: string };
+    const code = (body.code ?? '').trim().toUpperCase();
     if (!code) {
-      return NextResponse.json({ error: 'Nhập mã quà' }, { status: 400 });
+      return NextResponse.json({ error: 'Vui lòng nhập mã quà tặng.' }, { status: 400 });
     }
 
     if (!isTrialCouponCode(code)) {
@@ -43,6 +45,26 @@ export async function POST(req: NextRequest) {
         },
         { status: 400 },
       );
+    }
+
+    // Kiểm tra chống lạm dụng: mỗi tài khoản chỉ được kích hoạt 1 lần
+    const codesToCheck = isKhaiGiangCampaignCode(code)
+      ? [...KHAI_GIANG_CAMPAIGN_CODES]
+      : [code];
+
+    const { data: existingOrder } = await supabase
+      .from('orders')
+      .select('id')
+      .eq('user_id', user.id)
+      .in('coupon_code', codesToCheck)
+      .eq('status', 'paid')
+      .maybeSingle();
+
+    if (existingOrder) {
+      const errorMsg = isKhaiGiangCampaignCode(code)
+        ? 'Tài khoản của bạn đã kích hoạt gói quà tặng Khai Giảng rồi.'
+        : `Tài khoản của bạn đã kích hoạt mã ${code} rồi.`;
+      return NextResponse.json({ error: errorMsg }, { status: 400 });
     }
 
     const days = trialCouponDays(code) ?? 7;
@@ -66,8 +88,20 @@ export async function POST(req: NextRequest) {
       period_months?: number;
     };
 
+    let planExpiresAt = (result as { planExpiresAt?: string }).planExpiresAt;
+    if (!planExpiresAt) {
+      const { data: updatedProfile } = await supabase
+        .from('profiles')
+        .select('plan_expires_at')
+        .eq('id', user.id)
+        .maybeSingle();
+      planExpiresAt = updatedProfile?.plan_expires_at ?? undefined;
+    }
+
     return NextResponse.json({
       success: true,
+      plan: 'pro',
+      planExpiresAt,
       gift: true,
       trialDays: days,
       message: `Đã nhận ${days} ngày Pro miễn phí.`,

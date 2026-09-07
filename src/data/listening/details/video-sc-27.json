@@ -1,0 +1,204 @@
+{
+  "id": "video-sc-27",
+  "youtubeId": "jNGyullxXIn",
+  "title": "Resolving Interpersonal Misunderstandings Maturely",
+  "channel": "Oxford Online English",
+  "duration": 780,
+  "durationDisplay": "13:00",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "social_conversations",
+  "topicDisplay": "Giao tiếp & Đời sống xã hội",
+  "thumbnailUrl": "https://img.youtube.com/vi/jNGyullxXIn/hqdefault.jpg",
+  "description": "Giải quyết hiểu lầm giữa bạn bè hoặc đối tác một cách chín chắn, tránh để bụng.",
+  "coreVocabulary": [
+    {
+      "word": "misconception",
+      "phonetic": "/ˌmɪskənˈsepʃn/",
+      "viDefinition": "quan niệm sai lầm, sự hiểu sai",
+      "contextSentence": "A minor misconception quickly escalates if left unaddressed."
+    },
+    {
+      "word": "clarification",
+      "phonetic": "/ˌklærəfɪˈkeɪʃn/",
+      "viDefinition": "sự làm rõ, thanh minh",
+      "contextSentence": "Seeking gentle clarification prevents toxic assumptions from festering."
+    },
+    {
+      "word": "reconciliation",
+      "phonetic": "/ˌrekənsɪliˈeɪʃn/",
+      "viDefinition": "sự hòa giải, hàn gắn",
+      "contextSentence": "Heartfelt reconciliation deepens trust beyond its original baseline."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sc-27-cue-1",
+      "start": 0,
+      "end": 78,
+      "en": "Welcome to Oxford Online English, advancing your mature relational dialogue skills.",
+      "vi": "Chào mừng đến với Oxford Online English, nâng cao kỹ năng đối thoại quan hệ chín chắn."
+    },
+    {
+      "id": "video-sc-27-cue-2",
+      "start": 78,
+      "end": 156,
+      "en": "Even among closest companions, ambiguous text messages breed painful misunderstandings.",
+      "vi": "Ngay cả giữa những người bạn thân thiết nhất, những tin nhắn mơ hồ cũng nuôi dưỡng sự hiểu lầm đau đớn."
+    },
+    {
+      "id": "video-sc-27-cue-3",
+      "start": 156,
+      "end": 234,
+      "en": "A tiny misconception can metastasize into bitterness when communication stops.",
+      "vi": "Một sự hiểu sai nhỏ có thể di căn thành sự cay đắng khi sự giao tiếp dừng lại."
+    },
+    {
+      "id": "video-sc-27-cue-4",
+      "start": 234,
+      "end": 312,
+      "en": "Never address grievances over written chat; schedule an in-person or voice call.",
+      "vi": "Đừng bao giờ giải quyết bất bình qua tin nhắn văn bản; hãy lên lịch gọi điện trực tiếp hoặc gặp mặt."
+    },
+    {
+      "id": "video-sc-27-cue-5",
+      "start": 312,
+      "end": 390,
+      "en": "Begin with vulnerability rather than accusation: 'I felt hurt, but I want to understand.'",
+      "vi": "Bắt đầu bằng sự mở lòng thay vì buộc tội: 'Tôi cảm thấy bị tổn thương, nhưng tôi muốn hiểu rõ hơn.'"
+    },
+    {
+      "id": "video-sc-27-cue-6",
+      "start": 390,
+      "end": 468,
+      "en": "Seek prompt clarification: 'Could you help me understand what was intended?'",
+      "vi": "Tìm kiếm sự làm rõ kịp thời: 'Bạn có thể giúp tôi hiểu ý định thực sự lúc đó là gì không?'"
+    },
+    {
+      "id": "video-sc-27-cue-7",
+      "start": 468,
+      "end": 546,
+      "en": "Distinguish between their observable impact and their unexpressed intent.",
+      "vi": "Phân biệt giữa tác động có thể quan sát được của họ và ý định chưa được bộc lộ của họ."
+    },
+    {
+      "id": "video-sc-27-cue-8",
+      "start": 546,
+      "end": 624,
+      "en": "Apologize for your own contribution toward the friction without defensive caveats.",
+      "vi": "Xin lỗi vì phần đóng góp của chính bạn vào sự xích mích mà không cần những lời bào chữa."
+    },
+    {
+      "id": "video-sc-27-cue-9",
+      "start": 624,
+      "end": 702,
+      "en": "True reconciliation repairs the rupture and fortifies the emotional bond.",
+      "vi": "Sự hòa giải thực sự hàn gắn vết nứt và củng cố thêm mối gắn kết cảm xúc."
+    },
+    {
+      "id": "video-sc-27-cue-10",
+      "start": 702,
+      "end": 780,
+      "en": "Mature relationships are not absent of conflict; they are resilient through it.",
+      "vi": "Những mối quan hệ chín chắn không phải là không có xung đột; chúng kiên cường vượt qua nó."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sc-27-cloze-1",
+      "cueId": "video-sc-27-cue-3",
+      "sentence": "A tiny {{blank}} can metastasize into bitterness when communication stops.",
+      "blankWord": "misconception",
+      "hintVi": "Nghĩa gợi ý: Một sự hiểu sai nhỏ có thể di căn thành ...",
+      "timestamp": 156,
+      "options": [
+        "priority",
+        "simultaneous",
+        "accurate",
+        "misconception"
+      ]
+    },
+    {
+      "id": "video-sc-27-cloze-2",
+      "cueId": "video-sc-27-cue-5",
+      "sentence": "{{blank}} with vulnerability rather than accusation: 'I felt hurt, but I want to understand.'",
+      "blankWord": "begin",
+      "hintVi": "Nghĩa gợi ý: Bắt đầu bằng sự mở lòng thay vì buộc tội...",
+      "timestamp": 312,
+      "options": [
+        "flexible",
+        "favorable",
+        "balance",
+        "begin"
+      ]
+    },
+    {
+      "id": "video-sc-27-cloze-3",
+      "cueId": "video-sc-27-cue-8",
+      "sentence": "{{blank}} for your own contribution toward the friction without defensive caveats.",
+      "blankWord": "apologize",
+      "hintVi": "Nghĩa gợi ý: Xin lỗi vì phần đóng góp của chính bạn v...",
+      "timestamp": 546,
+      "options": [
+        "strategy",
+        "apologize",
+        "reliable",
+        "accurate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sc-27-q1",
+      "question": "What is the primary focus of the video 'Resolving Interpersonal Misunderstandings Maturely'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice resolving interpersonal misunderstandings maturely effectively.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores resolving interpersonal misunderstandings maturely, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 78
+    },
+    {
+      "id": "video-sc-27-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Begin...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Begin with vulnerability rather than accusation: 'I felt hur...",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Begin with vulnerability rather than accusation: 'I felt hurt, but I want to understand.'', showing its practical importance.",
+      "timestampSeek": 312
+    },
+    {
+      "id": "video-sc-27-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Mature relationships are not absent of conflict; they are resilie..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Mature relationships are not absent of conflict; they are resilient through it., providing a meaningful summary for learners.",
+      "timestampSeek": 702
+    },
+    {
+      "id": "video-sc-27-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Distinguish...'?",
+      "options": [
+        "It highlights that: Distinguish between their observable impact and their unexpr...",
+        "It warns that following this method produces immediate failure.",
+        "It states this step should always be skipped by beginners.",
+        "It claims this factor has zero impact on the final outcome."
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker specifically highlights: 'Distinguish between their observable impact and their unexpressed intent.', providing deeper technical insight.",
+      "timestampSeek": 468
+    }
+  ]
+}

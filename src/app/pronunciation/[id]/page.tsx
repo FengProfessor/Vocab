@@ -6,25 +6,21 @@
  * drillType khác minimal-pair (stress/intonation/listening) → luyện nghe theo cặp có chú thích.
  * Xong drill → POST roadmap progress (nếu mở từ lộ trình).
  */
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useCallback } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
-import { playWordAudio } from '@/lib/audio';
+import { playWordAudio, stopWordAudio } from '@/lib/audio';
 import { speak } from '@/lib/study';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Volume2, ArrowLeft, Ear } from 'lucide-react';
 import Link from 'next/link';
 import pronunciationData from '@/data/pronunciation/lessons-v1.json';
+import { InteractiveIpaVideoPlayer, pauseIpaVideo } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
+import type { PronunciationLesson, RachelVideoMeta } from '@/types/pronunciation';
 
 interface MinimalPair { a: string; b: string; note: string }
-interface Lesson {
-  id: string; level: string; title: string; ipa: string;
-  whyHard: string; mouthTip: string; exampleWords: string[];
-  drillType: 'minimal-pair' | 'stress' | 'intonation' | 'listening';
-  minimalPairs: MinimalPair[];
-}
 
 const DRILL_ROUNDS = 8;
 
@@ -39,9 +35,25 @@ export default function PronunciationLessonPage() {
   const stepId = searchParams.get('roadmapStep') ?? '';
 
   const lesson = useMemo(() => {
-    const lessons = (pronunciationData as { lessons: Lesson[] }).lessons;
+    const lessons = (pronunciationData as { lessons: PronunciationLesson[] }).lessons;
     return lessons.find((l) => l.id === id) ?? null;
   }, [id]);
+
+  const videoMeta: RachelVideoMeta | undefined = useMemo(() => {
+    if (!lesson) return undefined;
+    if (lesson.video) return lesson.video;
+    if (lesson.youtubeVideoId) {
+      return {
+        youtubeVideoId: lesson.youtubeVideoId,
+        startSeconds: lesson.startSeconds ?? 0,
+        endSeconds: lesson.endSeconds ?? 0,
+        channelName: (lesson.channelName as "Rachel's English") || "Rachel's English",
+        videoTip: lesson.videoTip || lesson.mouthTip || '',
+        clipTitle: lesson.title,
+      };
+    }
+    return undefined;
+  }, [lesson]);
 
   const [phase, setPhase] = useState<'learn' | 'drill' | 'done'>('learn');
   const [rounds, setRounds] = useState<{ pair: MinimalPair; target: string }[]>([]);
@@ -57,6 +69,7 @@ export default function PronunciationLessonPage() {
 
   const startDrill = (): void => {
     if (!lesson) return;
+    pauseIpaVideo();
     const playable = lesson.minimalPairs.filter((p) => isPlayableWord(p.a) && isPlayableWord(p.b));
     const generated: { pair: MinimalPair; target: string }[] = [];
     for (let i = 0; i < DRILL_ROUNDS; i++) {
@@ -72,6 +85,7 @@ export default function PronunciationLessonPage() {
 
   useEffect(() => {
     if (phase === 'drill' && round && picked === null) {
+      pauseIpaVideo();
       void playWordAudio(round.target, null, 0.9);
     }
   }, [phase, round, picked]);
@@ -88,6 +102,7 @@ export default function PronunciationLessonPage() {
       setPicked(null);
       return;
     }
+    pauseIpaVideo();
     setPhase('done');
     if (stepId) {
       setSubmitting(true);
@@ -112,16 +127,29 @@ export default function PronunciationLessonPage() {
     return (
       <div className="mx-auto max-w-lg p-4 space-y-6">
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" onClick={() => setPhase('learn')}><ArrowLeft className="w-4 h-4" /></Button>
+          <Button variant="ghost" size="icon" onClick={() => { pauseIpaVideo(); setPhase('learn'); }}><ArrowLeft className="w-4 h-4" /></Button>
           <div className="h-3 flex-1 overflow-hidden rounded-full bg-muted">
             <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${Math.round(((roundIdx + (picked ? 1 : 0)) / rounds.length) * 100)}%` }} />
           </div>
           <span className="text-sm text-muted-foreground">{roundIdx + 1}/{rounds.length}</span>
         </div>
 
+        {/* Collapsible articulation video: collapsed by default during drills to conserve viewport */}
+        {videoMeta && (
+          <InteractiveIpaVideoPlayer
+            video={videoMeta}
+            ipa={lesson.ipa}
+            title={lesson.title}
+            collapsible={true}
+            defaultCollapsed={true}
+            compact={true}
+            onPlay={() => stopWordAudio()}
+          />
+        )}
+
         <div className="text-center space-y-4">
           <p className="text-muted-foreground">Nghe và chọn đúng từ:</p>
-          <Button variant="outline" size="lg" onClick={() => void playWordAudio(round.target, null, 0.9)}>
+          <Button variant="outline" size="lg" onClick={() => { pauseIpaVideo(); void playWordAudio(round.target, null, 0.9); }}>
             <Volume2 className="w-5 h-5 mr-2" /> Nghe lại
           </Button>
         </div>
@@ -180,7 +208,7 @@ export default function PronunciationLessonPage() {
   return (
     <div className="mx-auto max-w-lg p-4 pb-24 space-y-6">
       <div className="flex items-center justify-between">
-        <Link href="/journey"><Button variant="ghost" size="sm"><ArrowLeft className="w-4 h-4 mr-1" /> Lộ trình</Button></Link>
+        <Link href="/journey" onClick={() => pauseIpaVideo()}><Button variant="ghost" size="sm"><ArrowLeft className="w-4 h-4 mr-1" /> Lộ trình</Button></Link>
         <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium">Cấp {lesson.level}</span>
       </div>
 
@@ -188,6 +216,17 @@ export default function PronunciationLessonPage() {
         <div className="text-5xl font-bold text-primary">{lesson.ipa}</div>
         <h1 className="text-2xl font-bold">{lesson.title}</h1>
       </div>
+
+      {/* Hero Video Player */}
+      {videoMeta && (
+        <InteractiveIpaVideoPlayer
+          video={videoMeta}
+          ipa={lesson.ipa}
+          title={lesson.title}
+          collapsible={false}
+          onPlay={() => stopWordAudio()}
+        />
+      )}
 
       <Card>
         <CardContent className="p-4 space-y-1">
@@ -207,7 +246,11 @@ export default function PronunciationLessonPage() {
         <div className="flex flex-wrap gap-2">
           {lesson.exampleWords.map((w) => (
             <Button key={w} variant="outline" size="sm"
-              onClick={() => { if (isPlayableWord(w)) void playWordAudio(w, null, 0.9); else speak(w, 0.9); }}>
+              onClick={() => {
+                pauseIpaVideo();
+                if (isPlayableWord(w)) void playWordAudio(w, null, 0.9);
+                else speak(w, 0.9);
+              }}>
               <Volume2 className="w-3.5 h-3.5 mr-1.5" /> {w}
             </Button>
           ))}
@@ -222,8 +265,8 @@ export default function PronunciationLessonPage() {
               <span><b>{p.a}</b> vs <b>{p.b}</b></span>
               {isPlayableWord(p.a) && isPlayableWord(p.b) && (
                 <span className="flex gap-1">
-                  <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => void playWordAudio(p.a, null, 0.9)}><Volume2 className="w-3.5 h-3.5" /></Button>
-                  <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => void playWordAudio(p.b, null, 0.9)}><Volume2 className="w-3.5 h-3.5" /></Button>
+                  <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => { pauseIpaVideo(); void playWordAudio(p.a, null, 0.9); }}><Volume2 className="w-3.5 h-3.5" /></Button>
+                  <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => { pauseIpaVideo(); void playWordAudio(p.b, null, 0.9); }}><Volume2 className="w-3.5 h-3.5" /></Button>
                 </span>
               )}
             </div>
@@ -238,6 +281,7 @@ export default function PronunciationLessonPage() {
       ) : (
         <Button variant="chunky" size="lg" className="w-full" disabled={submitting}
           onClick={async () => {
+            pauseIpaVideo();
             if (stepId) {
               setSubmitting(true);
               const result = await completeRoadmapStep(stepId);

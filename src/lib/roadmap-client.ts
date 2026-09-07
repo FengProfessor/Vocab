@@ -2,6 +2,7 @@
 'use client';
 
 import { authFetch } from './auth-fetch';
+import exitStandardsArtifact from '@/data/roadmap/exit-standards-v1.json';
 
 export type RoadmapStepViewType =
   | 'vocab' | 'grammar' | 'pronunciation' | 'checkpoint'
@@ -17,25 +18,122 @@ export interface RoadmapStepView {
   score: number | null;
   /** Step vừa được credit từ kho (vocab/grammar đã học ngoài lộ trình). */
   fromLibrary?: boolean;
+  estimatedMinutes?: number;
+  canDo?: string[];
+  topicPreview?: string;
 }
-export interface RoadmapUnitView { id: string; index: number; title: string; steps: RoadmapStepView[] }
+export interface RoadmapUnitView {
+  id: string;
+  index: number;
+  title: string;
+  steps: RoadmapStepView[];
+  estimatedMinutes?: number;
+  canDo?: string[];
+  topicPreview?: string;
+  badgeIcon?: string;
+  badgeName?: string;
+  progressPct?: number;
+  status?: 'completed' | 'current' | 'locked' | 'review' | 'in-progress';
+  completedStepsCount?: number;
+  totalStepsCount?: number;
+  earnedBadge?: { name: string; icon: string } | null;
+}
 export interface RoadmapLevelView {
   id: string; title: string; titleVi: string; description: string; isStartLevel: boolean; units: RoadmapUnitView[];
 }
 
 export type RoadmapTrackId = 'cefr' | 'thpt';
 
-// ── Exit standards (stub) ──
-// Ở đây thay vì roadmap.ts để tránh kéo ~157KB JSON lộ trình vào bundle client
-// chỉ vì 2 hàm hằng số (roadmap.ts build index từ 6 file JSON ở top-level, không tree-shake được).
-export type ExitStandard = { canDo: string[]; notYet: string[] };
-
-export function getExitDisclaimer(): string {
-  return 'Chuẩn đầu ra theo CEFR. Ôn đều SRS để giữ từ và kỹ năng lâu dài.';
+// ── Exit standards ──
+export interface ExitStandard {
+  labelVi?: string;
+  targetLemmas?: string;
+  canDo: string[];
+  notYet: string[];
 }
 
-export function getExitStandard(_levelId: string): ExitStandard | null {
-  return null;
+export function getExitDisclaimer(): string {
+  return (exitStandardsArtifact as { disclaimer?: string }).disclaimer || 'Chuẩn đầu ra theo CEFR. Ôn đều SRS để giữ từ và kỹ năng lâu dài.';
+}
+
+export function getExitStandard(levelId: string): ExitStandard | null {
+  const levels = (exitStandardsArtifact as unknown as { levels: Record<string, ExitStandard> }).levels;
+  return levels[levelId] ?? null;
+}
+
+// ── Tiến độ & Thống kê Chặng (Unit Progress & Calculation Helpers) ──
+
+/** Tính tỷ lệ hoàn thành chặng (0 - 100%) */
+export function calculateUnitCompletion(
+  unit: { steps: { id: string }[] },
+  completedStepIds: Set<string> | string[]
+): number {
+  if (!unit.steps || unit.steps.length === 0) return 0;
+  const completedSet = completedStepIds instanceof Set ? completedStepIds : new Set(completedStepIds);
+  const doneCount = unit.steps.filter((s) => completedSet.has(s.id)).length;
+  return Math.round((doneCount / unit.steps.length) * 100);
+}
+
+/** Xác định trạng thái học tập của chặng: completed | in-progress | locked */
+export function getUnitStatus(
+  unit: { steps: { id: string }[] },
+  completedStepIds: Set<string> | string[],
+  currentStepId?: string | null
+): 'completed' | 'in-progress' | 'locked' {
+  if (!unit.steps || unit.steps.length === 0) return 'locked';
+  const completedSet = completedStepIds instanceof Set ? completedStepIds : new Set(completedStepIds);
+  const isAllDone = unit.steps.every((s) => completedSet.has(s.id));
+  if (isAllDone) return 'completed';
+
+  const hasAnyDone = unit.steps.some((s) => completedSet.has(s.id));
+  const hasCurrentStep = currentStepId ? unit.steps.some((s) => s.id === currentStepId) : false;
+  if (hasAnyDone || hasCurrentStep) return 'in-progress';
+
+  return 'locked';
+}
+
+/** Tính tổng thời lượng ước tính (phút) của 1 chặng */
+export function calculateUnitDuration(unit: {
+  estimatedMinutes?: number;
+  steps?: { estimatedMinutes?: number }[];
+}): number {
+  if (typeof unit.estimatedMinutes === 'number' && unit.estimatedMinutes > 0) {
+    return unit.estimatedMinutes;
+  }
+  if (unit.steps && unit.steps.length > 0) {
+    return unit.steps.reduce((sum, s) => sum + (s.estimatedMinutes || 10), 0);
+  }
+  return 45;
+}
+
+/** Tính tổng thời lượng ước tính (phút) của nhiều chặng hoặc cả cấp độ */
+export function calculateTotalDuration(
+  units: { estimatedMinutes?: number; steps?: { estimatedMinutes?: number }[] }[]
+): number {
+  return units.reduce((sum, u) => sum + calculateUnitDuration(u), 0);
+}
+
+/** Lấy danh sách huy hiệu chặng đã đạt được */
+export function getEarnedUnitBadges(
+  units: (RoadmapUnitView | { id: string; badgeName?: string; badgeIcon?: string; steps: { id: string }[] })[],
+  completedStepIds: Set<string> | string[]
+): Array<{ unitId: string; badgeName: string; badgeIcon: string }> {
+  const completedSet = completedStepIds instanceof Set ? completedStepIds : new Set(completedStepIds);
+  const earned: Array<{ unitId: string; badgeName: string; badgeIcon: string }> = [];
+
+  for (const unit of units) {
+    if (unit.steps && unit.steps.length > 0 && unit.steps.every((s) => completedSet.has(s.id))) {
+      if (unit.badgeName && unit.badgeIcon) {
+        earned.push({
+          unitId: unit.id,
+          badgeName: unit.badgeName,
+          badgeIcon: unit.badgeIcon,
+        });
+      }
+    }
+  }
+
+  return earned;
 }
 
 export interface RoadmapEnrollmentView {

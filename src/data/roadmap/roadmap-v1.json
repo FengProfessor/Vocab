@@ -18,34 +18,68 @@
               "type": "vocab",
               "ref": "starter-a0-greetings",
               "title": "Chào hỏi & lịch sự",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Chào hỏi & lịch sự\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Chào hỏi & lịch sự, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-starter-a0-people",
               "type": "vocab",
               "ref": "starter-a0-people",
               "title": "Tôi & gia đình",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Tôi & gia đình\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Tôi & gia đình, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-personal-pronouns",
               "type": "grammar",
               "ref": "personal-pronouns",
-              "title": "Đại từ nhân xưng"
+              "title": "Đại từ nhân xưng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Đại từ nhân xưng\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Đại từ nhân xưng, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-word-stress-basics",
               "type": "pronunciation",
               "ref": "word-stress-basics",
-              "title": "Trọng âm từ cơ bản"
+              "title": "Trọng âm từ cơ bản",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Trọng âm từ cơ bản\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Trọng âm từ cơ bản\"."
             },
             {
               "id": "sc-a0-1",
               "type": "checkpoint",
               "ref": "u-a0-1",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Tự giới thiệu bản thân, gửi lời chào và cảm ơn tự nhiên bằng tiếng Anh.",
+            "Sử dụng chính xác các đại từ nhân xưng chủ ngữ (I, you, he, she, it, we, they) và tân ngữ.",
+            "Nhận biết và nhấn đúng trọng âm của các từ vựng 2 âm tiết cơ bản."
+          ],
+          "topicPreview": "Làm chủ từ vựng chào hỏi & gia đình, nắm chắc đại từ nhân xưng và quy tắc trọng âm cơ bản.",
+          "badgeIcon": "🌱",
+          "badgeName": "Mầm Xanh Giao Tiếp"
         },
         {
           "id": "u-a0-2",
@@ -57,34 +91,68 @@
               "type": "vocab",
               "ref": "starter-a0-numbers",
               "title": "Số đếm & thời gian",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Số đếm & thời gian\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Số đếm & thời gian, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-starter-a0-colors",
               "type": "vocab",
               "ref": "starter-a0-colors",
               "title": "Màu sắc",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Màu sắc\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Màu sắc, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-verb-to-be",
               "type": "grammar",
               "ref": "verb-to-be",
-              "title": "Động từ to be (am / is / are)"
+              "title": "Động từ to be (am / is / are)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Động từ to be (am / is / are)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Động từ to be (am / is / are), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-initial-p-b",
               "type": "pronunciation",
               "ref": "initial-p-b",
-              "title": "/p/ vs /b/ đầu từ"
+              "title": "/p/ vs /b/ đầu từ",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/p/ vs /b/ đầu từ\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/p/ vs /b/ đầu từ\"."
             },
             {
               "id": "sc-a0-2",
               "type": "checkpoint",
               "ref": "u-a0-2",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Đọc, đếm số và nhận diện các màu sắc phổ biến trong đời sống.",
+            "Chia và sử dụng thành thạo động từ to be (am/is/are) ở các thể khẳng định, phủ định và nghi vấn.",
+            "Phát âm chuẩn xác và phân biệt rõ ràng cặp phụ âm /p/ và /b/ ở đầu từ."
+          ],
+          "topicPreview": "Học từ vựng số đếm & màu sắc, làm chủ động từ to be và luyện cặp âm /p/ vs /b/.",
+          "badgeIcon": "⚡",
+          "badgeName": "Nắm Vững To Be"
         },
         {
           "id": "u-a0-3",
@@ -96,28 +164,57 @@
               "type": "vocab",
               "ref": "starter-a0-classroom",
               "title": "Đồ vật quanh ta",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Đồ vật quanh ta\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Đồ vật quanh ta, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-starter-a0-food",
               "type": "vocab",
               "ref": "starter-a0-food",
               "title": "Đồ ăn thức uống cơ bản",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Đồ ăn thức uống cơ bản\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Đồ ăn thức uống cơ bản, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-demonstratives",
               "type": "grammar",
               "ref": "demonstratives",
-              "title": "Từ chỉ định (this/that/these/those)"
+              "title": "Từ chỉ định (this/that/these/those)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Từ chỉ định (this/that/these/those)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Từ chỉ định (this/that/these/those), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a0-3",
               "type": "checkpoint",
               "ref": "u-a0-3",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Gọi tên chính xác các đồ vật quen thuộc trong phòng và lớp học.",
+            "Sử dụng linh hoạt các đại từ chỉ định this, that, these, those theo khoảng cách và số lượng.",
+            "Bật rõ âm đuôi /p/, /t/, /k/ giúp phát âm rõ ràng, không bị nuốt âm."
+          ],
+          "topicPreview": "Nhận diện đồ vật xung quanh, làm chủ đại từ chỉ định this/that/these/those và luyện bật âm cuối.",
+          "badgeIcon": "👉",
+          "badgeName": "Bậc Thầy Chỉ Định"
         },
         {
           "id": "u-a0-4",
@@ -129,34 +226,68 @@
               "type": "vocab",
               "ref": "starter-a0-body",
               "title": "Cơ thể",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Cơ thể\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Cơ thể, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-starter-a0-verbs",
               "type": "vocab",
               "ref": "starter-a0-verbs",
               "title": "Động từ sống còn",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Động từ sống còn\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Động từ sống còn, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-possessives",
               "type": "grammar",
               "ref": "possessives",
-              "title": "Tính từ & đại từ sở hữu"
+              "title": "Tính từ & đại từ sở hữu",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Tính từ & đại từ sở hữu\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Tính từ & đại từ sở hữu, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-final-stops-ptk",
               "type": "pronunciation",
               "ref": "final-stops-ptk",
-              "title": "Bật âm cuối /p/ /t/ /k/"
+              "title": "Bật âm cuối /p/ /t/ /k/",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Bật âm cuối /p/ /t/ /k/\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Bật âm cuối /p/ /t/ /k/\"."
             },
             {
               "id": "sc-a0-4",
               "type": "checkpoint",
               "ref": "u-a0-4",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Gọi tên các món ăn và thức uống quen thuộc trong bữa ăn hàng ngày.",
+            "Biểu đạt quyền sở hữu chuẩn xác với tính từ sở hữu (my, your, his, her...) và đại từ sở hữu.",
+            "Phát âm chuẩn xác đuôi -s/-es theo 3 quy tắc /s/, /z/, /ɪz/."
+          ],
+          "topicPreview": "Nạp từ vựng ẩm thực, nắm vững tính từ & đại từ sở hữu và quy tắc phát âm đuôi -s/-es.",
+          "badgeIcon": "🔑",
+          "badgeName": "Chủ Quyền Ngôn Ngữ"
         },
         {
           "id": "u-a0-5",
@@ -168,34 +299,68 @@
               "type": "vocab",
               "ref": "starter-a0-animals",
               "title": "Con vật",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Con vật\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Con vật, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-starter-a0-clothes",
               "type": "vocab",
               "ref": "starter-a0-clothes",
               "title": "Quần áo & đồ dùng",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Quần áo & đồ dùng\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Quần áo & đồ dùng, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-plural-nouns",
               "type": "grammar",
               "ref": "plural-nouns",
-              "title": "Danh từ số nhiều"
+              "title": "Danh từ số nhiều",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Danh từ số nhiều\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Danh từ số nhiều, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-final-s-z",
               "type": "pronunciation",
               "ref": "final-s-z",
-              "title": "Âm cuối /s/ /z/ và đuôi -s/-es"
+              "title": "Âm cuối /s/ /z/ và đuôi -s/-es",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Âm cuối /s/ /z/ và đuôi -s/-es\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Âm cuối /s/ /z/ và đuôi -s/-es\"."
             },
             {
               "id": "sc-a0-5",
               "type": "checkpoint",
               "ref": "u-a0-5",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Nhận biết và gọi tên các con vật và trang phục thường ngày.",
+            "Chuyển đổi danh từ số ít sang số nhiều chuẩn quy tắc và ghi nhớ các dạng bất quy tắc thông dụng.",
+            "Luyện phát âm ngữ điệu lên giọng ở cuối câu hỏi Yes/No."
+          ],
+          "topicPreview": "Mở rộng vốn từ động vật & quần áo, thành thạo biến đổi danh từ số nhiều và ngữ điệu câu hỏi.",
+          "badgeIcon": "📦",
+          "badgeName": "Chinh Phục Số Nhiều"
         },
         {
           "id": "u-a0-6",
@@ -207,28 +372,57 @@
               "type": "vocab",
               "ref": "starter-a0-weather",
               "title": "Thời tiết",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Thời tiết\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Thời tiết, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-starter-a0-daily",
               "type": "vocab",
               "ref": "starter-a0-daily",
               "title": "Sinh hoạt hằng ngày",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Sinh hoạt hằng ngày\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Sinh hoạt hằng ngày, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-adjectives-basic",
               "type": "grammar",
               "ref": "adjectives-basic",
-              "title": "Tính từ cơ bản"
+              "title": "Tính từ cơ bản",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Tính từ cơ bản\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Tính từ cơ bản, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a0-6",
               "type": "checkpoint",
               "ref": "u-a0-6",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Mô tả thời tiết và các hoạt động thường nhật một cách tự nhiên.",
+            "Sử dụng các tính từ miêu tả cơ bản và sắp xếp đúng trật tự tính từ trước danh từ.",
+            "Phân biệt rõ ràng cặp nguyên âm /iː/ dài và /ɪ/ ngắn trong từ vựng thực tế."
+          ],
+          "topicPreview": "Từ vựng thời tiết & thói quen, trật tự tính từ và cặp âm /iː/ vs /ɪ/, sẵn sàng tiến lên A1.",
+          "badgeIcon": "🏆",
+          "badgeName": "Tốt Nghiệp Cấp A0"
         }
       ]
     },
@@ -248,34 +442,68 @@
               "type": "vocab",
               "ref": "st-a5653de09276-p0",
               "title": "Gia đình & Mối quan hệ · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Gia đình & Mối quan hệ · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Gia đình & Mối quan hệ · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-a5653de09276-p1",
               "type": "vocab",
               "ref": "st-a5653de09276-p1",
               "title": "Gia đình & Mối quan hệ · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Gia đình & Mối quan hệ · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Gia đình & Mối quan hệ · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-there-is-there-are",
               "type": "grammar",
               "ref": "there-is-there-are",
-              "title": "Cấu trúc There is / There are"
+              "title": "Cấu trúc There is / There are",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Cấu trúc There is / There are\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Cấu trúc There is / There are, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-w-initial",
               "type": "pronunciation",
               "ref": "w-initial",
-              "title": "/w/ đầu từ (wet, want)"
+              "title": "/w/ đầu từ (wet, want)",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/w/ đầu từ (wet, want)\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/w/ đầu từ (wet, want)\"."
             },
             {
               "id": "sc-a1-1",
               "type": "checkpoint",
               "ref": "u-a1-1",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Mô tả chi tiết phòng ốc, nội thất và không gian sống xung quanh.",
+            "Sử dụng thành thạo cấu trúc There is / There are để nói về sự tồn tại của sự vật.",
+            "Luyện phát âm chuẩn phụ âm /w/ và /j/ trong các từ thông dụng."
+          ],
+          "topicPreview": "Khám phá từ vựng nhà cửa, thành thạo cấu trúc There is / There are và cách dùng a/an/some.",
+          "badgeIcon": "🏡",
+          "badgeName": "Mô Tả Không Gian"
         },
         {
           "id": "u-a1-2",
@@ -287,28 +515,57 @@
               "type": "vocab",
               "ref": "st-a5653de09276-p2",
               "title": "Gia đình & Mối quan hệ · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Gia đình & Mối quan hệ · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Gia đình & Mối quan hệ · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-a5653de09276-p3",
               "type": "vocab",
               "ref": "st-a5653de09276-p3",
               "title": "Gia đình & Mối quan hệ · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Gia đình & Mối quan hệ · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Gia đình & Mối quan hệ · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-articles",
               "type": "grammar",
               "ref": "articles",
-              "title": "Mạo từ (a / an / the)"
+              "title": "Mạo từ (a / an / the)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Mạo từ (a / an / the)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Mạo từ (a / an / the), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a1-2",
               "type": "checkpoint",
               "ref": "u-a1-2",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Gọi tên các địa điểm công cộng và dịch vụ trong thị trấn/thành phố.",
+            "Phân biệt chính xác cách dùng mạo từ bất định (a/an), mạo từ xác định (the) và trường hợp không dùng mạo từ.",
+            "Luyện phát âm phân biệt cặp phụ âm /l/ và /n/ không bị ngọng."
+          ],
+          "topicPreview": "Vốn từ thị trấn & địa điểm, giải mã quy tắc dùng mạo từ a/an/the và luyện âm /l/ vs /n/.",
+          "badgeIcon": "📚",
+          "badgeName": "Bậc Thầy Mạo Từ"
         },
         {
           "id": "u-a1-3",
@@ -320,34 +577,68 @@
               "type": "vocab",
               "ref": "st-a2bfbec6f010-p0",
               "title": "Cơ thể & Sức khỏe · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Cơ thể & Sức khỏe · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Cơ thể & Sức khỏe · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-a2bfbec6f010-p1",
               "type": "vocab",
               "ref": "st-a2bfbec6f010-p1",
               "title": "Cơ thể & Sức khỏe · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Cơ thể & Sức khỏe · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Cơ thể & Sức khỏe · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-present-simple",
               "type": "grammar",
               "ref": "present-simple",
-              "title": "Thì Hiện tại đơn"
+              "title": "Thì Hiện tại đơn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Hiện tại đơn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Hiện tại đơn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-vowel-i-long-short",
               "type": "pronunciation",
               "ref": "vowel-i-long-short",
-              "title": "/iː/ dài vs /ɪ/ ngắn"
+              "title": "/iː/ dài vs /ɪ/ ngắn",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/iː/ dài vs /ɪ/ ngắn\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/iː/ dài vs /ɪ/ ngắn\"."
             },
             {
               "id": "sc-a1-3",
               "type": "checkpoint",
               "ref": "u-a1-3",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Trình bày chi tiết lịch trình và thói quen sinh hoạt hàng ngày bằng tiếng Anh.",
+            "Sử dụng thành thạo thì Hiện tại đơn (Present Simple) với ngôi thứ ba số ít và trợ động từ do/does.",
+            "Nhận biết và nhấn đúng trọng âm câu trong các phát ngôn khẳng định."
+          ],
+          "topicPreview": "Chủ đề thói quen mỗi ngày, làm chủ thì Hiện tại đơn và nhấn trọng âm từ khóa trong câu.",
+          "badgeIcon": "⏰",
+          "badgeName": "Nhịp Sống Thường Nhật"
         },
         {
           "id": "u-a1-4",
@@ -359,28 +650,57 @@
               "type": "vocab",
               "ref": "st-a2bfbec6f010-p2",
               "title": "Cơ thể & Sức khỏe · Phần 1",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Cơ thể & Sức khỏe · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Cơ thể & Sức khỏe · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-a2bfbec6f010-p3",
               "type": "vocab",
               "ref": "st-a2bfbec6f010-p3",
               "title": "Cơ thể & Sức khỏe · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Cơ thể & Sức khỏe · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Cơ thể & Sức khỏe · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-have-got",
               "type": "grammar",
               "ref": "have-got",
-              "title": "Cấu trúc have got / has got"
+              "title": "Cấu trúc have got / has got",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Cấu trúc have got / has got\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Cấu trúc have got / has got, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a1-4",
               "type": "checkpoint",
               "ref": "u-a1-4",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Miêu tả ngoại hình, tính cách và các đặc điểm nổi bật của người khác.",
+            "Sử dụng cấu trúc have got / has got để diễn đạt quyền sở hữu và đặc điểm thể chất.",
+            "Phát âm chuẩn âm /s/ và /ʃ/ giúp tránh nhầm lẫn các từ đồng âm dị nghĩa."
+          ],
+          "topicPreview": "Từ vựng miêu tả ngoại hình, sử dụng cấu trúc have got và phân biệt âm /s/ vs /ʃ/.",
+          "badgeIcon": "🎁",
+          "badgeName": "Sở Hữu Tự Tin"
         },
         {
           "id": "u-a1-5",
@@ -392,28 +712,57 @@
               "type": "vocab",
               "ref": "st-5d931466614c-p0",
               "title": "Ăn uống & Nhà bếp · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Ăn uống & Nhà bếp · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Ăn uống & Nhà bếp · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-5d931466614c-p1",
               "type": "vocab",
               "ref": "st-5d931466614c-p1",
               "title": "Ăn uống & Nhà bếp · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Ăn uống & Nhà bếp · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Ăn uống & Nhà bếp · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-wh-questions",
               "type": "grammar",
               "ref": "wh-questions",
-              "title": "Câu hỏi với từ để hỏi (Wh-)"
+              "title": "Câu hỏi với từ để hỏi (Wh-)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu hỏi với từ để hỏi (Wh-)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu hỏi với từ để hỏi (Wh-), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a1-5",
               "type": "checkpoint",
               "ref": "u-a1-5",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Nói về các công việc, nghề nghiệp và nơi làm việc bằng tiếng Anh.",
+            "Đặt câu hỏi thông tin linh hoạt với từ để hỏi Wh- (Who, What, Where, When, Why, How).",
+            "Hạ giọng đúng chuẩn ở cuối câu hỏi Wh- trong giao tiếp hàng ngày."
+          ],
+          "topicPreview": "Vốn từ nghề nghiệp phong phú, làm chủ cách đặt câu hỏi Wh- và ngữ điệu câu hỏi thông tin.",
+          "badgeIcon": "❓",
+          "badgeName": "Người Hỏi Thông Thái"
         },
         {
           "id": "u-a1-6",
@@ -425,34 +774,68 @@
               "type": "vocab",
               "ref": "st-5d931466614c-p2",
               "title": "Ăn uống & Nhà bếp · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Ăn uống & Nhà bếp · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Ăn uống & Nhà bếp · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-5d931466614c-p3",
               "type": "vocab",
               "ref": "st-5d931466614c-p3",
               "title": "Ăn uống & Nhà bếp · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Ăn uống & Nhà bếp · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Ăn uống & Nhà bếp · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-adverbs-frequency",
               "type": "grammar",
               "ref": "adverbs-frequency",
-              "title": "Trạng từ chỉ tần suất"
+              "title": "Trạng từ chỉ tần suất",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Trạng từ chỉ tần suất\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Trạng từ chỉ tần suất, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-j-glide",
               "type": "pronunciation",
               "ref": "j-glide",
-              "title": "/j/ đầu từ (yes, year)"
+              "title": "/j/ đầu từ (yes, year)",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/j/ đầu từ (yes, year)\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/j/ đầu từ (yes, year)\"."
             },
             {
               "id": "sc-a1-6",
               "type": "checkpoint",
               "ref": "u-a1-6",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Chia sẻ về sở thích, hoạt động giải trí lúc rảnh rỗi và thời gian biểu.",
+            "Đặt đúng vị trí của trạng từ chỉ tần suất (always, usually, often, sometimes, never) trong câu.",
+            "Luyện phát âm liên kết âm (linking sounds) giữa phụ âm cuối và nguyên âm đầu."
+          ],
+          "topicPreview": "Chủ đề sở thích & giải trí, quy tắc vị trí trạng từ tần suất và kỹ thuật nối âm mượt mà.",
+          "badgeIcon": "🔄",
+          "badgeName": "Thói Quen Bền Vững"
         },
         {
           "id": "u-a1-7",
@@ -464,28 +847,57 @@
               "type": "vocab",
               "ref": "st-a6b03a4d5e36-p0",
               "title": "Nhà cửa & Đồ dùng · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Nhà cửa & Đồ dùng · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Nhà cửa & Đồ dùng · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-a6b03a4d5e36-p1",
               "type": "vocab",
               "ref": "st-a6b03a4d5e36-p1",
               "title": "Nhà cửa & Đồ dùng · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Nhà cửa & Đồ dùng · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Nhà cửa & Đồ dùng · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-present-continuous",
               "type": "grammar",
               "ref": "present-continuous",
-              "title": "Thì Hiện tại tiếp diễn"
+              "title": "Thì Hiện tại tiếp diễn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Hiện tại tiếp diễn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Hiện tại tiếp diễn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a1-7",
               "type": "checkpoint",
               "ref": "u-a1-7",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Mô tả các hành động và sự việc đang diễn ra ngay tại thời điểm nói.",
+            "Sử dụng chuẩn xác thì Hiện tại tiếp diễn (Present Continuous) và quy tắc thêm đuôi -ing.",
+            "Phân biệt rõ ràng cặp nguyên âm /e/ và /æ/ trong giao tiếp thực tế."
+          ],
+          "topicPreview": "Hành động đang diễn ra, làm chủ thì Hiện tại tiếp diễn và phân biệt âm /e/ vs /æ/.",
+          "badgeIcon": "⚡",
+          "badgeName": "Hành Động Tức Thời"
         },
         {
           "id": "u-a1-8",
@@ -497,34 +909,68 @@
               "type": "vocab",
               "ref": "st-a6b03a4d5e36-p2",
               "title": "Nhà cửa & Đồ dùng · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Nhà cửa & Đồ dùng · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Nhà cửa & Đồ dùng · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-a6b03a4d5e36-p3",
               "type": "vocab",
               "ref": "st-a6b03a4d5e36-p3",
               "title": "Nhà cửa & Đồ dùng · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Nhà cửa & Đồ dùng · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Nhà cửa & Đồ dùng · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-prepositions-place",
               "type": "grammar",
               "ref": "prepositions-place",
-              "title": "Giới từ chỉ nơi chốn"
+              "title": "Giới từ chỉ nơi chốn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Giới từ chỉ nơi chốn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Giới từ chỉ nơi chốn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-final-l-n",
               "type": "pronunciation",
               "ref": "final-l-n",
-              "title": "Âm cuối /l/ vs /n/"
+              "title": "Âm cuối /l/ vs /n/",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Âm cuối /l/ vs /n/\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Âm cuối /l/ vs /n/\"."
             },
             {
               "id": "sc-a1-8",
               "type": "checkpoint",
               "ref": "u-a1-8",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Chỉ đường và xác định vị trí các đồ vật, địa điểm trong thành phố.",
+            "Sử dụng chính xác các giới từ chỉ nơi chốn (in, on, at, next to, between, behind...).",
+            "Phát âm chuẩn âm /θ/ và /ð/ (cặp âm th) tự nhiên không bị gượng."
+          ],
+          "topicPreview": "Hỏi và chỉ đường tự tin, thành thạo giới từ chỉ vị trí và thuần thục cặp âm th /θ/ vs /ð/.",
+          "badgeIcon": "🗺️",
+          "badgeName": "Định Vị Chuẩn Xác"
         },
         {
           "id": "u-a1-9",
@@ -536,28 +982,57 @@
               "type": "vocab",
               "ref": "st-57f579714152-p0",
               "title": "Du lịch & Giao thông · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Du lịch & Giao thông · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Du lịch & Giao thông · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-57f579714152-p1",
               "type": "vocab",
               "ref": "st-57f579714152-p1",
               "title": "Du lịch & Giao thông · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Du lịch & Giao thông · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Du lịch & Giao thông · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-imperatives",
               "type": "grammar",
               "ref": "imperatives",
-              "title": "Câu mệnh lệnh"
+              "title": "Câu mệnh lệnh",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu mệnh lệnh\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu mệnh lệnh, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a1-9",
               "type": "checkpoint",
               "ref": "u-a1-9",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Hiểu và đưa ra các hướng dẫn, biển báo và lời chỉ dẫn giao thông hoặc lớp học.",
+            "Sử dụng câu mệnh lệnh khẳng định và phủ định (Imperatives) một cách lịch sự.",
+            "Luyện ngữ điệu dứt khoát nhưng nhã nhặn khi đưa ra yêu cầu."
+          ],
+          "topicPreview": "Từ vựng chỉ dẫn & giao thông, cấu trúc câu mệnh lệnh và văn phong hướng dẫn thực tế.",
+          "badgeIcon": "📢",
+          "badgeName": "Giao Tiếp Mệnh Lệnh"
         },
         {
           "id": "u-a1-10",
@@ -569,28 +1044,57 @@
               "type": "vocab",
               "ref": "st-57f579714152-p2",
               "title": "Du lịch & Giao thông · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Du lịch & Giao thông · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Du lịch & Giao thông · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-57f579714152-p3",
               "type": "vocab",
               "ref": "st-57f579714152-p3",
               "title": "Du lịch & Giao thông · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Du lịch & Giao thông · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Du lịch & Giao thông · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-modals-ability",
               "type": "grammar",
               "ref": "modals-ability",
-              "title": "Động từ khuyết thiếu: khả năng (can/could)"
+              "title": "Động từ khuyết thiếu: khả năng (can/could)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Động từ khuyết thiếu: khả năng (can/could)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Động từ khuyết thiếu: khả năng (can/could), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a1-10",
               "type": "checkpoint",
               "ref": "u-a1-10",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Diễn đạt khả năng thể chất, kỹ năng và tài năng của bản thân và người khác.",
+            "Sử dụng thành thạo modal verb can / can't ở dạng khẳng định, phủ định và câu hỏi.",
+            "Phân biệt dạng phát âm mạnh (strong form) và yếu (weak form) của can và can't."
+          ],
+          "topicPreview": "Nói về kỹ năng & tài năng, làm chủ modal verb can/can't và chuẩn bị hành trang lên A2.",
+          "badgeIcon": "🌟",
+          "badgeName": "Tốt Nghiệp Cấp A1"
         }
       ]
     },
@@ -610,34 +1114,68 @@
               "type": "vocab",
               "ref": "st-afe16b5298e5-p0",
               "title": "Legacy Unit 9: Cities Of The Future · Phần 1",
-              "wordCount": 16
+              "wordCount": 16,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 16 từ vựng chủ đề \"Legacy Unit 9: Cities Of The Future · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 16 từ vựng cốt lõi về Legacy Unit 9: Cities Of The Future · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-eecf44a16fcb-p0",
               "type": "vocab",
               "ref": "st-eecf44a16fcb-p0",
               "title": "Thể thao · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Thể thao · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Thể thao · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-countable-uncountable",
               "type": "grammar",
               "ref": "countable-uncountable",
-              "title": "Danh từ đếm được & không đếm được"
+              "title": "Danh từ đếm được & không đếm được",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Danh từ đếm được & không đếm được\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Danh từ đếm được & không đếm được, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-sentence-rhythm",
               "type": "pronunciation",
               "ref": "sentence-rhythm",
-              "title": "Trọng âm câu & nhịp điệu"
+              "title": "Trọng âm câu & nhịp điệu",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Trọng âm câu & nhịp điệu\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Trọng âm câu & nhịp điệu\"."
             },
             {
               "id": "sc-a2-1",
               "type": "checkpoint",
               "ref": "u-a2-1",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 58,
+          "canDo": [
+            "Gọi tên các nguyên liệu nấu ăn, đồ uống và đơn vị đo lường.",
+            "Phân biệt danh từ đếm được và không đếm được trong câu khẳng định và phủ định.",
+            "Luyện phát âm chuẩn đuôi danh từ chỉ đơn vị đo lường."
+          ],
+          "topicPreview": "Thực phẩm & nấu ăn, quy tắc danh từ đếm được / không đếm được và các trường hợp đặc biệt.",
+          "badgeIcon": "⚖️",
+          "badgeName": "Cân Đo Đong Đếm"
         },
         {
           "id": "u-a2-2",
@@ -649,34 +1187,68 @@
               "type": "vocab",
               "ref": "st-eecf44a16fcb-p1",
               "title": "Thể thao · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Thể thao · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Thể thao · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-eecf44a16fcb-p4",
               "type": "vocab",
               "ref": "st-eecf44a16fcb-p4",
               "title": "Thể thao · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Thể thao · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Thể thao · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-quantifiers",
               "type": "grammar",
               "ref": "quantifiers",
-              "title": "Lượng từ (some/any/much/many)"
+              "title": "Lượng từ (some/any/much/many)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Lượng từ (some/any/much/many)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Lượng từ (some/any/much/many), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-s-vs-sh",
               "type": "pronunciation",
               "ref": "s-vs-sh",
-              "title": "/s/ vs /ʃ/"
+              "title": "/s/ vs /ʃ/",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/s/ vs /ʃ/\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/s/ vs /ʃ/\"."
             },
             {
               "id": "sc-a2-2",
               "type": "checkpoint",
               "ref": "u-a2-2",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 58,
+          "canDo": [
+            "Mô tả số lượng hàng hóa khi đi chợ, siêu thị và mua sắm.",
+            "Sử dụng chính xác lượng từ: some, any, much, many, a lot of, a few, a little.",
+            "Nắm bắt ngữ điệu khi liệt kê đồ vật trong câu giao tiếp."
+          ],
+          "topicPreview": "Từ vựng mua sắm & siêu thị, làm chủ hệ thống lượng từ và ngữ điệu liệt kê tự nhiên.",
+          "badgeIcon": "📊",
+          "badgeName": "Bậc Thầy Lượng Từ"
         },
         {
           "id": "u-a2-3",
@@ -688,28 +1260,57 @@
               "type": "vocab",
               "ref": "st-81bc6676876c-p4",
               "title": "Thể thao & Giải trí · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Thể thao & Giải trí · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Thể thao & Giải trí · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-4cd972d14bcb-p9",
               "type": "vocab",
               "ref": "st-4cd972d14bcb-p9",
               "title": "Giáo dục · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Giáo dục · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Giáo dục · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-prepositions-time",
               "type": "grammar",
               "ref": "prepositions-time",
-              "title": "Giới từ chỉ thời gian (in/on/at)"
+              "title": "Giới từ chỉ thời gian (in/on/at)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Giới từ chỉ thời gian (in/on/at)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Giới từ chỉ thời gian (in/on/at), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a2-3",
               "type": "checkpoint",
               "ref": "u-a2-3",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 46,
+          "canDo": [
+            "Nói về các sự kiện, ngày lễ, mùa trong năm và các mốc lịch sử.",
+            "Phân biệt và áp dụng chính xác bộ ba giới từ thời gian in, on, at.",
+            "Luyện phát âm các ngày trong tuần và tháng trong năm trôi chảy."
+          ],
+          "topicPreview": "Lịch trình sự kiện & ngày lễ, mẹo nhớ thần tốc giới từ in/on/at cho thời gian.",
+          "badgeIcon": "🗓️",
+          "badgeName": "Bậc Thầy Thời Gian"
         },
         {
           "id": "u-a2-4",
@@ -721,34 +1322,68 @@
               "type": "vocab",
               "ref": "st-f8af75920592-p0",
               "title": "Legacy Unit 7: Further Education · Phần 1",
-              "wordCount": 16
+              "wordCount": 16,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 16 từ vựng chủ đề \"Legacy Unit 7: Further Education · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 16 từ vựng cốt lõi về Legacy Unit 7: Further Education · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-4c0b35f14ebc-p0",
               "type": "vocab",
               "ref": "st-4c0b35f14ebc-p0",
               "title": "Hệ thống giáo dục · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Hệ thống giáo dục · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Hệ thống giáo dục · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-past-simple",
               "type": "grammar",
               "ref": "past-simple",
-              "title": "Thì Quá khứ đơn"
+              "title": "Thì Quá khứ đơn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Quá khứ đơn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Quá khứ đơn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-final-clusters-ed",
               "type": "pronunciation",
               "ref": "final-clusters-ed",
-              "title": "Cụm phụ âm cuối & đuôi -ed"
+              "title": "Cụm phụ âm cuối & đuôi -ed",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Cụm phụ âm cuối & đuôi -ed\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Cụm phụ âm cuối & đuôi -ed\"."
             },
             {
               "id": "sc-a2-4",
               "type": "checkpoint",
               "ref": "u-a2-4",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 56,
+          "canDo": [
+            "Kể lại các sự kiện đã diễn ra và trạng thái trong quá khứ.",
+            "Sử dụng thì Quá khứ đơn (Past Simple) với động từ to be (was/were) và động từ có quy tắc.",
+            "Phát âm chuẩn xác 3 đuôi phát âm -ed (/t/, /d/, /ɪd/) không nhầm lẫn."
+          ],
+          "topicPreview": "Kể chuyện quá khứ, chia động từ to be was/were và quy tắc vàng phát âm đuôi -ed.",
+          "badgeIcon": "📜",
+          "badgeName": "Ký Ức Quá Khứ"
         },
         {
           "id": "u-a2-5",
@@ -760,28 +1395,57 @@
               "type": "vocab",
               "ref": "st-4c0b35f14ebc-p1",
               "title": "Hệ thống giáo dục · Phần 1",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Hệ thống giáo dục · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Hệ thống giáo dục · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-e797d01716fd-p0",
               "type": "vocab",
               "ref": "st-e797d01716fd-p0",
               "title": "Phát minh · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Phát minh · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Phát minh · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-past-continuous",
               "type": "grammar",
               "ref": "past-continuous",
-              "title": "Thì Quá khứ tiếp diễn"
+              "title": "Thì Quá khứ tiếp diễn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Quá khứ tiếp diễn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Quá khứ tiếp diễn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a2-5",
               "type": "checkpoint",
               "ref": "u-a2-5",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 46,
+          "canDo": [
+            "Miêu tả bối cảnh và hành động đang diễn ra tại một thời điểm xác định trong quá khứ.",
+            "Phối hợp thì Quá khứ tiếp diễn và Quá khứ đơn với liên từ When và While.",
+            "Nhấn trọng âm câu khi kể chuyện có hai hành động diễn ra song song hoặc cắt ngang."
+          ],
+          "topicPreview": "Kể lại bối cảnh, phối hợp Quá khứ tiếp diễn & Quá khứ đơn với liên từ When/While.",
+          "badgeIcon": "🎬",
+          "badgeName": "Khoảnh Khắc Song Song"
         },
         {
           "id": "u-a2-6",
@@ -793,34 +1457,68 @@
               "type": "vocab",
               "ref": "st-e797d01716fd-p1",
               "title": "Phát minh · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Phát minh · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Phát minh · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-c4d557fe5580-p0",
               "type": "vocab",
               "ref": "st-c4d557fe5580-p0",
               "title": "Cách học mới · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Cách học mới · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Cách học mới · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-be-going-to",
               "type": "grammar",
               "ref": "be-going-to",
-              "title": "Tương lai gần (be going to)"
+              "title": "Tương lai gần (be going to)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Tương lai gần (be going to)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Tương lai gần (be going to), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-vowel-u-long-short",
               "type": "pronunciation",
               "ref": "vowel-u-long-short",
-              "title": "/uː/ dài vs /ʊ/ ngắn"
+              "title": "/uː/ dài vs /ʊ/ ngắn",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/uː/ dài vs /ʊ/ ngắn\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/uː/ dài vs /ʊ/ ngắn\"."
             },
             {
               "id": "sc-a2-6",
               "type": "checkpoint",
               "ref": "u-a2-6",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 58,
+          "canDo": [
+            "Trình bày về các kế hoạch, dự định tương lai và các chuyến đi sắp tới.",
+            "Sử dụng cấu trúc be going to để diễn tả dự định có từ trước hoặc dự đoán có căn cứ.",
+            "Luyện phát âm dạng rút gọn gonna trong văn phong giao tiếp thân mật."
+          ],
+          "topicPreview": "Từ vựng du lịch & kế hoạch, làm chủ cấu trúc be going to cho dự định tương lai.",
+          "badgeIcon": "🎯",
+          "badgeName": "Nhà Lập Kế Hoạch"
         },
         {
           "id": "u-a2-7",
@@ -832,34 +1530,68 @@
               "type": "vocab",
               "ref": "st-6fe862e82f1f-p0",
               "title": "Bảo vệ môi trường · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Bảo vệ môi trường · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Bảo vệ môi trường · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-6e414416cd83-p0",
               "type": "vocab",
               "ref": "st-6e414416cd83-p0",
               "title": "Du lịch sinh thái · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Du lịch sinh thái · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Du lịch sinh thái · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-future-will",
               "type": "grammar",
               "ref": "future-will",
-              "title": "Thì Tương lai đơn (will)"
+              "title": "Thì Tương lai đơn (will)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Tương lai đơn (will)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Tương lai đơn (will), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-vowel-ae-e",
               "type": "pronunciation",
               "ref": "vowel-ae-e",
-              "title": "/æ/ vs /e/"
+              "title": "/æ/ vs /e/",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/æ/ vs /e/\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/æ/ vs /e/\"."
             },
             {
               "id": "sc-a2-7",
               "type": "checkpoint",
               "ref": "u-a2-7",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 56,
+          "canDo": [
+            "Đưa ra lời dự đoán không có căn cứ rõ ràng, lời hứa và quyết định tức thì.",
+            "Sử dụng thì Tương lai đơn (will / won't) và phân biệt với be going to.",
+            "Phát âm dạng viết tắt 'll và won't chuẩn xác trong câu."
+          ],
+          "topicPreview": "Đưa ra dự đoán & lời hứa, phân biệt will vs be going to và phát âm rút gọn 'll.",
+          "badgeIcon": "🔮",
+          "badgeName": "Dự Đoán Tương Lai"
         },
         {
           "id": "u-a2-8",
@@ -871,28 +1603,57 @@
               "type": "vocab",
               "ref": "st-dbdaa66610bc-p0",
               "title": "Khoa học & Công nghệ · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Khoa học & Công nghệ · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Khoa học & Công nghệ · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-dbdaa66610bc-p1",
               "type": "vocab",
               "ref": "st-dbdaa66610bc-p1",
               "title": "Khoa học & Công nghệ · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Khoa học & Công nghệ · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Khoa học & Công nghệ · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-comparatives-superlatives",
               "type": "grammar",
               "ref": "comparatives-superlatives",
-              "title": "So sánh hơn & so sánh nhất"
+              "title": "So sánh hơn & so sánh nhất",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"So sánh hơn & so sánh nhất\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc So sánh hơn & so sánh nhất, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a2-8",
               "type": "checkpoint",
               "ref": "u-a2-8",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "So sánh người, đồ vật, địa điểm theo các tiêu chí khác nhau.",
+            "Sử dụng thành thạo cấu trúc so sánh hơn và so sánh nhất cho tính từ ngắn và tính từ dài.",
+            "Luyện phát âm đuôi -er và -est tự nhiên, không nhấn trọng âm vào hậu tố."
+          ],
+          "topicPreview": "Từ vựng miêu tả phong phú, toàn diện cấu trúc so sánh hơn & nhất và các ngoại lệ.",
+          "badgeIcon": "👑",
+          "badgeName": "Đỉnh Cao So Sánh"
         },
         {
           "id": "u-a2-9",
@@ -904,34 +1665,68 @@
               "type": "vocab",
               "ref": "st-dbdaa66610bc-p2",
               "title": "Khoa học & Công nghệ · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Khoa học & Công nghệ · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Khoa học & Công nghệ · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-dbdaa66610bc-p3",
               "type": "vocab",
               "ref": "st-dbdaa66610bc-p3",
               "title": "Khoa học & Công nghệ · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Khoa học & Công nghệ · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Khoa học & Công nghệ · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-modals-permission",
               "type": "grammar",
               "ref": "modals-permission",
-              "title": "Khuyết thiếu: xin phép & yêu cầu"
+              "title": "Khuyết thiếu: xin phép & yêu cầu",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Khuyết thiếu: xin phép & yêu cầu\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Khuyết thiếu: xin phép & yêu cầu, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-final-n-ng",
               "type": "pronunciation",
               "ref": "final-n-ng",
-              "title": "Âm cuối /n/ vs /ŋ/"
+              "title": "Âm cuối /n/ vs /ŋ/",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Âm cuối /n/ vs /ŋ/\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Âm cuối /n/ vs /ŋ/\"."
             },
             {
               "id": "sc-a2-9",
               "type": "checkpoint",
               "ref": "u-a2-9",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Đưa ra lời xin phép, đề nghị giúp đỡ và yêu cầu một cách lịch sự trong nhà hàng/khách sạn.",
+            "Sử dụng linh hoạt các modal verbs: May, Could, Would like, Can.",
+            "Luyện ngữ điệu mềm mại, lịch thiệp khi đưa ra yêu cầu."
+          ],
+          "topicPreview": "Dịch vụ nhà hàng & khách sạn, mẫu câu đề nghị lịch sự với May/Could/Would like.",
+          "badgeIcon": "🤝",
+          "badgeName": "Giao Tiếp Lịch Thiệp"
         },
         {
           "id": "u-a2-10",
@@ -943,28 +1738,57 @@
               "type": "vocab",
               "ref": "st-fc32593c8e8c-p0",
               "title": "Giải trí & Truyền thông · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Giải trí & Truyền thông · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Giải trí & Truyền thông · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-fc32593c8e8c-p1",
               "type": "vocab",
               "ref": "st-fc32593c8e8c-p1",
               "title": "Giải trí & Truyền thông · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Giải trí & Truyền thông · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Giải trí & Truyền thông · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-modals-obligation",
               "type": "grammar",
               "ref": "modals-obligation",
-              "title": "Khuyết thiếu: bắt buộc (must/have to)"
+              "title": "Khuyết thiếu: bắt buộc (must/have to)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Khuyết thiếu: bắt buộc (must/have to)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Khuyết thiếu: bắt buộc (must/have to), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a2-10",
               "type": "checkpoint",
               "ref": "u-a2-10",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Nói về nội quy trường học, luật lệ giao thông và các điều cấm kỵ.",
+            "Phân biệt sự khác nhau giữa Must (bắt buộc chủ quan) và Have to (bắt buộc khách quan).",
+            "Hiểu rõ sự khác biệt giữa Mustn't (cấm đoán) và Don't have to (không cần thiết)."
+          ],
+          "topicPreview": "Luật lệ & quy tắc giao thông, phân biệt sắc thái must vs have to và mustn't vs don't have to.",
+          "badgeIcon": "🛡️",
+          "badgeName": "Quy Tắc & Bổn Phận"
         },
         {
           "id": "u-a2-11",
@@ -976,34 +1800,68 @@
               "type": "vocab",
               "ref": "st-fc32593c8e8c-p2",
               "title": "Giải trí & Truyền thông · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Giải trí & Truyền thông · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Giải trí & Truyền thông · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-fc32593c8e8c-p3",
               "type": "vocab",
               "ref": "st-fc32593c8e8c-p3",
               "title": "Giải trí & Truyền thông · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Giải trí & Truyền thông · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Giải trí & Truyền thông · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-modals-advice",
               "type": "grammar",
               "ref": "modals-advice",
-              "title": "Khuyết thiếu: lời khuyên (should)"
+              "title": "Khuyết thiếu: lời khuyên (should)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Khuyết thiếu: lời khuyên (should)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Khuyết thiếu: lời khuyên (should), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-basic-intonation",
               "type": "pronunciation",
               "ref": "basic-intonation",
-              "title": "Ngữ điệu cơ bản ↘↗"
+              "title": "Ngữ điệu cơ bản ↘↗",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Ngữ điệu cơ bản ↘↗\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Ngữ điệu cơ bản ↘↗\"."
             },
             {
               "id": "sc-a2-11",
               "type": "checkpoint",
               "ref": "u-a2-11",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Mô tả các triệu chứng sức khỏe thông thường và đưa ra lời khuyên hữu ích.",
+            "Sử dụng modal verb Should / Shouldn't và Ought to để đưa ra lời khuyên hợp lý.",
+            "Luyện phát âm giảm âm should've và shouldn't trong câu nói nhanh."
+          ],
+          "topicPreview": "Từ vựng sức khỏe & bệnh tật, đưa ra lời khuyên chân thành với should/shouldn't.",
+          "badgeIcon": "💡",
+          "badgeName": "Cố Vấn Đáng Tin"
         },
         {
           "id": "u-a2-12",
@@ -1015,28 +1873,57 @@
               "type": "vocab",
               "ref": "st-81bc6676876c-p5",
               "title": "Thể thao & Giải trí · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Thể thao & Giải trí · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Thể thao & Giải trí · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-81bc6676876c-p6",
               "type": "vocab",
               "ref": "st-81bc6676876c-p6",
               "title": "Thể thao & Giải trí · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Thể thao & Giải trí · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Thể thao & Giải trí · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-conditionals-0-1",
               "type": "grammar",
               "ref": "conditionals-0-1",
-              "title": "Câu điều kiện loại 0 & loại 1"
+              "title": "Câu điều kiện loại 0 & loại 1",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu điều kiện loại 0 & loại 1\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu điều kiện loại 0 & loại 1, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-a2-12",
               "type": "checkpoint",
               "ref": "u-a2-12",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Nói về sự thật khoa học hiển nhiên và các tình huống có thể xảy ra trong tương lai.",
+            "Sử dụng thành thạo Câu điều kiện loại 0 (Zero Conditional) và loại 1 (First Conditional).",
+            "Luyện ngữ điệu nâng nhẹ ở mệnh đề If và hạ giọng ở mệnh đề chính."
+          ],
+          "topicPreview": "Khoa học & đời sống, làm chủ câu điều kiện loại 0 & 1, sẵn sàng bứt phá lên B1.",
+          "badgeIcon": "🏆",
+          "badgeName": "Tốt Nghiệp Cấp A2"
         }
       ]
     },
@@ -1056,34 +1943,68 @@
               "type": "vocab",
               "ref": "st-cb942718c15f-p0",
               "title": "Gia đình · Phần 1",
-              "wordCount": 19
+              "wordCount": 19,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 19 từ vựng chủ đề \"Gia đình · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 19 từ vựng cốt lõi về Gia đình · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-6a1d7b1df8e4-p0",
               "type": "vocab",
               "ref": "st-6a1d7b1df8e4-p0",
               "title": "Gia đình & Các mối quan hệ · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Gia đình & Các mối quan hệ · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Gia đình & Các mối quan hệ · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-used-to",
               "type": "grammar",
               "ref": "used-to",
-              "title": "Cấu trúc Used to"
+              "title": "Cấu trúc Used to",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Cấu trúc Used to\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Cấu trúc Used to, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-schwa",
               "type": "pronunciation",
               "ref": "schwa",
-              "title": "Âm schwa /ə/"
+              "title": "Âm schwa /ə/",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Âm schwa /ə/\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Âm schwa /ə/\"."
             },
             {
               "id": "sc-b1-1",
               "type": "checkpoint",
               "ref": "u-b1-1",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 58,
+          "canDo": [
+            "Kể về những thói quen hoặc trạng thái trong quá khứ nay không còn nữa.",
+            "Phân biệt rõ ràng Used to + V, Be used to + V-ing và Get used to + V-ing.",
+            "Luyện phát âm nối âm used to /juːst tu/ tự nhiên như người bản xứ."
+          ],
+          "topicPreview": "Ký ức tuổi thơ, làm chủ cấu trúc used to và phân biệt với be/get used to.",
+          "badgeIcon": "🕰️",
+          "badgeName": "Hồi Tưởng Kỷ Niệm"
         },
         {
           "id": "u-b1-2",
@@ -1095,28 +2016,57 @@
               "type": "vocab",
               "ref": "st-6a1d7b1df8e4-p1",
               "title": "Gia đình & Các mối quan hệ · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Gia đình & Các mối quan hệ · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Gia đình & Các mối quan hệ · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-6a1d7b1df8e4-p2",
               "type": "vocab",
               "ref": "st-6a1d7b1df8e4-p2",
               "title": "Gia đình & Các mối quan hệ · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Gia đình & Các mối quan hệ · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Gia đình & Các mối quan hệ · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-present-perfect",
               "type": "grammar",
               "ref": "present-perfect",
-              "title": "Thì Hiện tại hoàn thành"
+              "title": "Thì Hiện tại hoàn thành",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Hiện tại hoàn thành\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Hiện tại hoàn thành, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-2",
               "type": "checkpoint",
               "ref": "u-b1-2",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Diễn tả trải nghiệm sống, sự việc xảy ra trong quá khứ kéo dài đến hiện tại.",
+            "Sử dụng thành thạo thì Hiện tại hoàn thành với các phó từ: already, yet, just, ever, never, for, since.",
+            "Phân biệt thì Hiện tại hoàn thành và Quá khứ đơn trong bài tập và giao tiếp."
+          ],
+          "topicPreview": "Trải nghiệm cá nhân, làm chủ thì Hiện tại hoàn thành và phân biệt với Quá khứ đơn.",
+          "badgeIcon": "⏳",
+          "badgeName": "Cầu Nối Thời Gian"
         },
         {
           "id": "u-b1-3",
@@ -1128,28 +2078,57 @@
               "type": "vocab",
               "ref": "st-ebfad9b20a2b-p0",
               "title": "Hành động & Ứng xử · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Hành động & Ứng xử · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Hành động & Ứng xử · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-ebfad9b20a2b-p1",
               "type": "vocab",
               "ref": "st-ebfad9b20a2b-p1",
               "title": "Hành động & Ứng xử · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Hành động & Ứng xử · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Hành động & Ứng xử · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-conjunctions-linking",
               "type": "grammar",
               "ref": "conjunctions-linking",
-              "title": "Liên từ & từ nối"
+              "title": "Liên từ & từ nối",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Liên từ & từ nối\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Liên từ & từ nối, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-3",
               "type": "checkpoint",
               "ref": "u-b1-3",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 48,
+          "canDo": [
+            "Kết nối các ý tưởng phức tạp, biểu đạt mối quan hệ nguyên nhân, kết quả và đối lập.",
+            "Sử dụng chính xác các liên từ và từ nối: Although, Despite, Because, Therefore, However...",
+            "Luyện nhịp điệu ngắt nghỉ khi sử dụng từ nối đầu câu trong bài nói/viết."
+          ],
+          "topicPreview": "Kỹ năng viết luận & liên kết câu, sử dụng thành thạo liên từ nguyên nhân - nhượng bộ.",
+          "badgeIcon": "🔗",
+          "badgeName": "Mạch Văn Uyển Chuyển"
         },
         {
           "id": "u-b1-4",
@@ -1161,34 +2140,68 @@
               "type": "vocab",
               "ref": "st-ebfad9b20a2b-p2",
               "title": "Hành động & Ứng xử · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Hành động & Ứng xử · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Hành động & Ứng xử · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-ebfad9b20a2b-p3",
               "type": "vocab",
               "ref": "st-ebfad9b20a2b-p3",
               "title": "Hành động & Ứng xử · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Hành động & Ứng xử · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Hành động & Ứng xử · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-present-perfect-continuous",
               "type": "grammar",
               "ref": "present-perfect-continuous",
-              "title": "Hiện tại hoàn thành tiếp diễn"
+              "title": "Hiện tại hoàn thành tiếp diễn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Hiện tại hoàn thành tiếp diễn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Hiện tại hoàn thành tiếp diễn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-weak-forms",
               "type": "pronunciation",
               "ref": "weak-forms",
-              "title": "Weak forms — dạng yếu của từ ngữ pháp"
+              "title": "Weak forms — dạng yếu của từ ngữ pháp",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Weak forms — dạng yếu của từ ngữ pháp\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Weak forms — dạng yếu của từ ngữ pháp\"."
             },
             {
               "id": "sc-b1-4",
               "type": "checkpoint",
               "ref": "u-b1-4",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 58,
+          "canDo": [
+            "Nhấn mạnh tính liên tục và kết quả kéo dài của một hành động từ quá khứ đến hiện tại.",
+            "Sử dụng thành thạo thì Hiện tại hoàn thành tiếp diễn và phân biệt với Hiện tại hoàn thành đơn.",
+            "Nhận biết các động từ trạng thái (stative verbs) không dùng ở thể tiếp diễn."
+          ],
+          "topicPreview": "Nhấn mạnh quá trình & hệ quả, làm chủ Hiện tại hoàn thành tiếp diễn và stative verbs.",
+          "badgeIcon": "🌊",
+          "badgeName": "Tiến Trình Liền Mạch"
         },
         {
           "id": "u-b1-5",
@@ -1200,28 +2213,57 @@
               "type": "vocab",
               "ref": "st-a6d639f5ebfc-p0",
               "title": "Quần áo & Trang phục · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Quần áo & Trang phục · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Quần áo & Trang phục · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-a6d639f5ebfc-p1",
               "type": "vocab",
               "ref": "st-a6d639f5ebfc-p1",
               "title": "Quần áo & Trang phục · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Quần áo & Trang phục · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Quần áo & Trang phục · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-phrasal-verbs",
               "type": "grammar",
               "ref": "phrasal-verbs",
-              "title": "Cụm động từ (nhập môn)"
+              "title": "Cụm động từ (nhập môn)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Cụm động từ (nhập môn)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Cụm động từ (nhập môn), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-5",
               "type": "checkpoint",
               "ref": "u-b1-5",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Vận dụng các cụm động từ thông dụng nhất trong sinh hoạt và giao tiếp công việc.",
+            "Hiểu bản chất ngữ nghĩa của tiểu từ (up, off, on, out, away) ghép với động từ gốc.",
+            "Phân biệt cụm động từ có thể tách rời (separable) và không thể tách rời (inseparable)."
+          ],
+          "topicPreview": "Nhập môn Phrasal Verbs thông dụng, quy tắc tách rời và mẹo ghi nhớ tiểu từ.",
+          "badgeIcon": "🚀",
+          "badgeName": "Cụm Động Từ Khởi Đầu"
         },
         {
           "id": "u-b1-6",
@@ -1233,28 +2275,57 @@
               "type": "vocab",
               "ref": "st-a6d639f5ebfc-p2",
               "title": "Quần áo & Trang phục · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Quần áo & Trang phục · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Quần áo & Trang phục · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-a6d639f5ebfc-p3",
               "type": "vocab",
               "ref": "st-a6d639f5ebfc-p3",
               "title": "Quần áo & Trang phục · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Quần áo & Trang phục · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Quần áo & Trang phục · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-past-perfect",
               "type": "grammar",
               "ref": "past-perfect",
-              "title": "Thì Quá khứ hoàn thành"
+              "title": "Thì Quá khứ hoàn thành",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Quá khứ hoàn thành\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Quá khứ hoàn thành, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-6",
               "type": "checkpoint",
               "ref": "u-b1-6",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Xác định rõ ràng thứ tự trước - sau của hai hành động đã diễn ra trong quá khứ.",
+            "Sử dụng thì Quá khứ hoàn thành (Past Perfect) kết hợp với Quá khứ đơn và các từ nối by the time, before, after.",
+            "Luyện phát âm rút gọn 'd trong thì Quá khứ hoàn thành."
+          ],
+          "topicPreview": "Kể chuyện đa mốc thời gian, phối hợp thì Quá khứ hoàn thành với before/after/by the time.",
+          "badgeIcon": "⏮️",
+          "badgeName": "Mốc Thời Gian Sâu"
         },
         {
           "id": "u-b1-7",
@@ -1266,34 +2337,68 @@
               "type": "vocab",
               "ref": "st-aa43fc15a9be-p0",
               "title": "Phim & Sách · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Phim & Sách · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Phim & Sách · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-aa43fc15a9be-p1",
               "type": "vocab",
               "ref": "st-aa43fc15a9be-p1",
               "title": "Phim & Sách · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Phim & Sách · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Phim & Sách · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-future-continuous",
               "type": "grammar",
               "ref": "future-continuous",
-              "title": "Thì Tương lai tiếp diễn"
+              "title": "Thì Tương lai tiếp diễn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Tương lai tiếp diễn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Tương lai tiếp diễn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-linking",
               "type": "pronunciation",
               "ref": "linking",
-              "title": "Nối âm (linking)"
+              "title": "Nối âm (linking)",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Nối âm (linking)\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Nối âm (linking)\"."
             },
             {
               "id": "sc-b1-7",
               "type": "checkpoint",
               "ref": "u-b1-7",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Diễn tả một hành động sẽ đang diễn ra tại một thời điểm cụ thể trong tương lai.",
+            "Sử dụng thì Tương lai tiếp diễn (will be doing) cho lịch trình và sự việc được sắp đặt.",
+            "Luyện ngữ điệu dự báo tương lai chuyên nghiệp."
+          ],
+          "topicPreview": "Công việc & lịch trình tương lai, làm chủ thì Tương lai tiếp diễn trong giao tiếp.",
+          "badgeIcon": "📅",
+          "badgeName": "Tương Lai Đang Diễn Ra"
         },
         {
           "id": "u-b1-8",
@@ -1305,28 +2410,57 @@
               "type": "vocab",
               "ref": "st-aa43fc15a9be-p2",
               "title": "Phim & Sách · Phần 1",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Phim & Sách · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Phim & Sách · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-0309de5a7285-p0",
               "type": "vocab",
               "ref": "st-0309de5a7285-p0",
               "title": "Sức khỏe & Bệnh tật · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Sức khỏe & Bệnh tật · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Sức khỏe & Bệnh tật · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-passive-voice",
               "type": "grammar",
               "ref": "passive-voice",
-              "title": "Câu bị động"
+              "title": "Câu bị động",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu bị động\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu bị động, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-8",
               "type": "checkpoint",
               "ref": "u-b1-8",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Viết và nói về các quy trình, tin tức báo chí nơi hành động quan trọng hơn người thực hiện.",
+            "Chuyển đổi câu chủ động sang câu bị động (Passive Voice) ở các thì cơ bản.",
+            "Luyện nhận diện âm đuôi phân từ hai trong câu bị động."
+          ],
+          "topicPreview": "Văn phong báo chí & tin tức, cấu trúc câu bị động ở các thì và cách dùng By/With.",
+          "badgeIcon": "🛡️",
+          "badgeName": "Chủ Thể Khách Quan"
         },
         {
           "id": "u-b1-9",
@@ -1338,28 +2472,57 @@
               "type": "vocab",
               "ref": "st-0309de5a7285-p1",
               "title": "Sức khỏe & Bệnh tật · Phần 1",
-              "wordCount": 11
+              "wordCount": 11,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 11 từ vựng chủ đề \"Sức khỏe & Bệnh tật · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 11 từ vựng cốt lõi về Sức khỏe & Bệnh tật · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-0309de5a7285-p2",
               "type": "vocab",
               "ref": "st-0309de5a7285-p2",
               "title": "Sức khỏe & Bệnh tật · Phần 2",
-              "wordCount": 11
+              "wordCount": 11,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 11 từ vựng chủ đề \"Sức khỏe & Bệnh tật · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 11 từ vựng cốt lõi về Sức khỏe & Bệnh tật · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-gerunds-infinitives",
               "type": "grammar",
               "ref": "gerunds-infinitives",
-              "title": "Danh động từ & động từ nguyên mẫu"
+              "title": "Danh động từ & động từ nguyên mẫu",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Danh động từ & động từ nguyên mẫu\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Danh động từ & động từ nguyên mẫu, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-9",
               "type": "checkpoint",
               "ref": "u-b1-9",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Sử dụng đúng dạng động từ theo sau các động từ phổ biến (V-ing hay To-infinitive).",
+            "Phân biệt sự biến đổi nghĩa của các động từ đặc biệt: remember, stop, try, forget, regret.",
+            "Vận dụng danh động từ làm chủ ngữ trong câu tiếng Anh chuẩn mực."
+          ],
+          "topicPreview": "Bảng quy tắc Gerunds vs Infinitives, các cặp động từ đổi nghĩa và ứng dụng thực tế.",
+          "badgeIcon": "🎯",
+          "badgeName": "Lựa Chọn Dạng Động Từ"
         },
         {
           "id": "u-b1-10",
@@ -1371,34 +2534,68 @@
               "type": "vocab",
               "ref": "st-62dc6e721060-p0",
               "title": "Legacy Unit 10: Healthy Life Styles And Longevity · Phần 1",
-              "wordCount": 11
+              "wordCount": 11,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 11 từ vựng chủ đề \"Legacy Unit 10: Healthy Life Styles And Longevity · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 11 từ vựng cốt lõi về Legacy Unit 10: Healthy Life Styles And Longevity · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-56c676568318-p0",
               "type": "vocab",
               "ref": "st-56c676568318-p0",
               "title": "Thể thao dưới nước · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Thể thao dưới nước · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Thể thao dưới nước · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-reported-speech",
               "type": "grammar",
               "ref": "reported-speech",
-              "title": "Câu tường thuật"
+              "title": "Câu tường thuật",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu tường thuật\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu tường thuật, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-v-f-final",
               "type": "pronunciation",
               "ref": "v-f-final",
-              "title": "/v/ vs /f/ (nhất là cuối từ)"
+              "title": "/v/ vs /f/ (nhất là cuối từ)",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/v/ vs /f/ (nhất là cuối từ)\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/v/ vs /f/ (nhất là cuối từ)\"."
             },
             {
               "id": "sc-b1-10",
               "type": "checkpoint",
               "ref": "u-b1-10",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Tường thuật lại lời nói, câu hỏi và yêu cầu của người khác một cách chính xác.",
+            "Áp dụng thành thạo quy tắc lùi thì, đổi đại từ và trạng từ chỉ thời gian/nơi chốn trong câu tường thuật.",
+            "Sử dụng các động từ tường thuật đa dạng: tell, say, ask, advise, promise, suggest."
+          ],
+          "topicPreview": "Báo cáo & truyền đạt thông tin, làm chủ câu tường thuật và các động từ dẫn xuất.",
+          "badgeIcon": "📢",
+          "badgeName": "Người Truyền Tin"
         },
         {
           "id": "u-b1-11",
@@ -1410,28 +2607,57 @@
               "type": "vocab",
               "ref": "st-56c676568318-p1",
               "title": "Thể thao dưới nước · Phần 1",
-              "wordCount": 11
+              "wordCount": 11,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 11 từ vựng chủ đề \"Thể thao dưới nước · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 11 từ vựng cốt lõi về Thể thao dưới nước · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-31fde43dd7f5-p0",
               "type": "vocab",
               "ref": "st-31fde43dd7f5-p0",
               "title": "Giao tiếp & Thông tin · Phần 2",
-              "wordCount": 19
+              "wordCount": 19,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 19 từ vựng chủ đề \"Giao tiếp & Thông tin · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 19 từ vựng cốt lõi về Giao tiếp & Thông tin · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-relative-clauses",
               "type": "grammar",
               "ref": "relative-clauses",
-              "title": "Mệnh đề quan hệ"
+              "title": "Mệnh đề quan hệ",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Mệnh đề quan hệ\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Mệnh đề quan hệ, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-11",
               "type": "checkpoint",
               "ref": "u-b1-11",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 46,
+          "canDo": [
+            "Bổ sung thông tin chi tiết cho danh từ mà không cần tách thành nhiều câu đơn.",
+            "Sử dụng đại từ quan hệ (who, whom, which, that, whose) và phân biệt mệnh đề quan hệ xác định / không xác định.",
+            "Luyện ngắt giọng đúng chỗ ở dấu phẩy của mệnh đề quan hệ không xác định."
+          ],
+          "topicPreview": "Kỹ năng nâng cấp câu văn, phân biệt mệnh đề quan hệ xác định & không xác định.",
+          "badgeIcon": "🧩",
+          "badgeName": "Mảnh Ghép Thông Tin"
         },
         {
           "id": "u-b1-12",
@@ -1443,28 +2669,57 @@
               "type": "vocab",
               "ref": "st-543f143800bd-p0",
               "title": "Truyền thông đại chúng · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Truyền thông đại chúng · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Truyền thông đại chúng · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-543f143800bd-p1",
               "type": "vocab",
               "ref": "st-543f143800bd-p1",
               "title": "Truyền thông đại chúng · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Truyền thông đại chúng · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Truyền thông đại chúng · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-question-tags",
               "type": "grammar",
               "ref": "question-tags",
-              "title": "Câu hỏi đuôi"
+              "title": "Câu hỏi đuôi",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu hỏi đuôi\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu hỏi đuôi, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-12",
               "type": "checkpoint",
               "ref": "u-b1-12",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Duy trì hội thoại, xác nhận thông tin và kiểm tra sự đồng tình của người nghe.",
+            "Thành lập câu hỏi đuôi (Tag Questions) chính xác với tất cả các thì và đại từ.",
+            "Điều khiển ngữ điệu lên giọng (hỏi thật) hoặc xuống giọng (chờ đồng tình) trong câu hỏi đuôi."
+          ],
+          "topicPreview": "Nghệ thuật giao tiếp tương tác, quy tắc thành lập câu hỏi đuôi và kiểm soát ngữ điệu.",
+          "badgeIcon": "💬",
+          "badgeName": "Tương Tác Khéo Léo"
         },
         {
           "id": "u-b1-13",
@@ -1476,34 +2731,68 @@
               "type": "vocab",
               "ref": "st-543f143800bd-p2",
               "title": "Truyền thông đại chúng · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Truyền thông đại chúng · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Truyền thông đại chúng · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-350ee406d40a-p0",
               "type": "vocab",
               "ref": "st-350ee406d40a-p0",
               "title": "200 Collocations TOEIC Cần Thiết · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"200 Collocations TOEIC Cần Thiết · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về 200 Collocations TOEIC Cần Thiết · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-second-conditional",
               "type": "grammar",
               "ref": "second-conditional",
-              "title": "Câu điều kiện loại 2"
+              "title": "Câu điều kiện loại 2",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu điều kiện loại 2\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu điều kiện loại 2, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-th-voiceless",
               "type": "pronunciation",
               "ref": "th-voiceless",
-              "title": "/θ/ — \"th\" điếc (think)"
+              "title": "/θ/ — \"th\" điếc (think)",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/θ/ — \"th\" điếc (think)\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/θ/ — \"th\" điếc (think)\"."
             },
             {
               "id": "sc-b1-13",
               "type": "checkpoint",
               "ref": "u-b1-13",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 56,
+          "canDo": [
+            "Nói về những giả định không có thật hoặc khó xảy ra ở hiện tại.",
+            "Sử dụng thành thạo Câu điều kiện loại 2 (If + past simple, would/could + V).",
+            "Đưa ra lời khuyên với mẫu câu kinh điển If I were you, I would..."
+          ],
+          "topicPreview": "Giả định phi thực tế, cấu trúc câu điều kiện loại 2 và cách khuyên nhủ If I were you.",
+          "badgeIcon": "💭",
+          "badgeName": "Thế Giới Tưởng Tượng"
         },
         {
           "id": "u-b1-14",
@@ -1515,28 +2804,57 @@
               "type": "vocab",
               "ref": "st-350ee406d40a-p1",
               "title": "200 Collocations TOEIC Cần Thiết · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"200 Collocations TOEIC Cần Thiết · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về 200 Collocations TOEIC Cần Thiết · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-350ee406d40a-p2",
               "type": "vocab",
               "ref": "st-350ee406d40a-p2",
               "title": "200 Collocations TOEIC Cần Thiết · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"200 Collocations TOEIC Cần Thiết · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về 200 Collocations TOEIC Cần Thiết · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-third-conditional",
               "type": "grammar",
               "ref": "third-conditional",
-              "title": "Câu điều kiện loại 3"
+              "title": "Câu điều kiện loại 3",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu điều kiện loại 3\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu điều kiện loại 3, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-14",
               "type": "checkpoint",
               "ref": "u-b1-14",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 48,
+          "canDo": [
+            "Bày tỏ sự nuối tiếc hoặc trách móc về những sự việc đã xảy ra trong quá khứ.",
+            "Sử dụng Câu điều kiện loại 3 (If + past perfect, would have + P2).",
+            "Luyện phát âm rút gọn would've / could've tự nhiên trong giao tiếp."
+          ],
+          "topicPreview": "Diễn tả sự hối tiếc, làm chủ câu điều kiện loại 3 và phát âm would have done.",
+          "badgeIcon": "🍂",
+          "badgeName": "Nuối Tiếc Quá Khứ"
         },
         {
           "id": "u-b1-15",
@@ -1548,28 +2866,57 @@
               "type": "vocab",
               "ref": "st-350ee406d40a-p3",
               "title": "200 Collocations TOEIC Cần Thiết · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"200 Collocations TOEIC Cần Thiết · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về 200 Collocations TOEIC Cần Thiết · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-6b0f849ec0cf-p0",
               "type": "vocab",
               "ref": "st-6b0f849ec0cf-p0",
               "title": "Kinh doanh · Phần 2",
-              "wordCount": 11
+              "wordCount": 11,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 11 từ vựng chủ đề \"Kinh doanh · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 11 từ vựng cốt lõi về Kinh doanh · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-modals-deduction",
               "type": "grammar",
               "ref": "modals-deduction",
-              "title": "Khuyết thiếu: suy đoán (must/might/can't)"
+              "title": "Khuyết thiếu: suy đoán (must/might/can't)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Khuyết thiếu: suy đoán (must/might/can't)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Khuyết thiếu: suy đoán (must/might/can't), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b1-15",
               "type": "checkpoint",
               "ref": "u-b1-15",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 46,
+          "canDo": [
+            "Đưa ra các suy đoán logic ở hiện tại dựa trên các chứng cứ sẵn có.",
+            "Sử dụng chuẩn xác modal verbs suy đoán: must be (chắc chắn), might/could be (có thể), can't be (chắc chắn không).",
+            "Đạt chuẩn năng lực trung cấp B1 toàn diện, sẵn sàng cho các bài thi học thuật."
+          ],
+          "topicPreview": "Tư duy phản biện & suy đoán logic, modal verbs phỏng đoán và tổng kết cấp độ B1.",
+          "badgeIcon": "🎖️",
+          "badgeName": "Tốt Nghiệp Cấp B1"
         }
       ]
     },
@@ -1589,34 +2936,68 @@
               "type": "vocab",
               "ref": "st-46201479320d-p0",
               "title": "Giáo dục · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Giáo dục · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Giáo dục · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-46201479320d-p1",
               "type": "vocab",
               "ref": "st-46201479320d-p1",
               "title": "Giáo dục · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Giáo dục · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Giáo dục · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-past-perfect-continuous",
               "type": "grammar",
               "ref": "past-perfect-continuous",
-              "title": "Quá khứ hoàn thành tiếp diễn"
+              "title": "Quá khứ hoàn thành tiếp diễn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Quá khứ hoàn thành tiếp diễn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Quá khứ hoàn thành tiếp diễn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-th-voiced",
               "type": "pronunciation",
               "ref": "th-voiced",
-              "title": "/ð/ — \"th\" kêu (this)"
+              "title": "/ð/ — \"th\" kêu (this)",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/ð/ — \"th\" kêu (this)\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/ð/ — \"th\" kêu (this)\"."
             },
             {
               "id": "sc-b2-1",
               "type": "checkpoint",
               "ref": "u-b2-1",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Mô tả hành động kéo dài liên tục trước một thời điểm hoặc một hành động khác trong quá khứ.",
+            "Sử dụng thì Quá khứ hoàn thành tiếp diễn (had been doing) để chỉ nguyên nhân của sự việc trong quá khứ.",
+            "Luyện phân biệt Quá khứ hoàn thành đơn và Quá khứ hoàn thành tiếp diễn."
+          ],
+          "topicPreview": "Nhấn mạnh quá trình kéo dài trong quá khứ, cấu trúc Had been V-ing và bối cảnh sử dụng.",
+          "badgeIcon": "⏳",
+          "badgeName": "Dòng Chảy Thời Gian"
         },
         {
           "id": "u-b2-2",
@@ -1628,28 +3009,57 @@
               "type": "vocab",
               "ref": "st-46201479320d-p2",
               "title": "Giáo dục · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Giáo dục · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Giáo dục · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-46201479320d-p3",
               "type": "vocab",
               "ref": "st-46201479320d-p3",
               "title": "Giáo dục · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Giáo dục · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Giáo dục · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-future-perfect",
               "type": "grammar",
               "ref": "future-perfect",
-              "title": "Thì Tương lai hoàn thành"
+              "title": "Thì Tương lai hoàn thành",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thì Tương lai hoàn thành\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thì Tương lai hoàn thành, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-2",
               "type": "checkpoint",
               "ref": "u-b2-2",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Nói về một mục tiêu hoặc sự kiện sẽ được hoàn thành trước một thời điểm trong tương lai.",
+            "Sử dụng thì Tương lai hoàn thành (will have done) kết hợp với các trạng từ By, By the time, Before.",
+            "Luyện nhịp điệu câu khi phát biểu về lộ trình sự nghiệp tương lai."
+          ],
+          "topicPreview": "Thiết lập cột mốc tương lai, làm chủ thì Tương lai hoàn thành với By the time.",
+          "badgeIcon": "🏁",
+          "badgeName": "Cột Mốc Hoàn Thành"
         },
         {
           "id": "u-b2-3",
@@ -1661,28 +3071,57 @@
               "type": "vocab",
               "ref": "st-c26a16e45a74-p0",
               "title": "Môi trường & Khí hậu · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Môi trường & Khí hậu · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Môi trường & Khí hậu · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-c26a16e45a74-p1",
               "type": "vocab",
               "ref": "st-c26a16e45a74-p1",
               "title": "Môi trường & Khí hậu · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Môi trường & Khí hậu · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Môi trường & Khí hậu · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-future-in-the-past",
               "type": "grammar",
               "ref": "future-in-the-past",
-              "title": "Tương lai trong quá khứ"
+              "title": "Tương lai trong quá khứ",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Tương lai trong quá khứ\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Tương lai trong quá khứ, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-3",
               "type": "checkpoint",
               "ref": "u-b2-3",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 46,
+          "canDo": [
+            "Diễn đạt những kế hoạch, dự định ban đầu trong quá khứ nhưng đã bị thay đổi hoặc không xảy ra.",
+            "Sử dụng các cấu trúc Tương lai trong quá khứ (was/were going to, would, was to).",
+            "Luyện ngữ điệu giải thích lý do khi thay đổi kế hoạch trong công việc."
+          ],
+          "topicPreview": "Kế hoạch trong quá khứ, cấu trúc was/were going to diễn tả dự định chưa thành.",
+          "badgeIcon": "🔄",
+          "badgeName": "Kế Hoạch Bỏ Lỡ"
         },
         {
           "id": "u-b2-4",
@@ -1694,34 +3133,68 @@
               "type": "vocab",
               "ref": "st-c26a16e45a74-p2",
               "title": "Môi trường & Khí hậu · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Môi trường & Khí hậu · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Môi trường & Khí hậu · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-c26a16e45a74-p3",
               "type": "vocab",
               "ref": "st-c26a16e45a74-p3",
               "title": "Môi trường & Khí hậu · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Môi trường & Khí hậu · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Môi trường & Khí hậu · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-mixed-conditionals",
               "type": "grammar",
               "ref": "mixed-conditionals",
-              "title": "Câu điều kiện hỗn hợp"
+              "title": "Câu điều kiện hỗn hợp",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu điều kiện hỗn hợp\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu điều kiện hỗn hợp, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-vowel-uh-ah",
               "type": "pronunciation",
               "ref": "vowel-uh-ah",
-              "title": "/ʌ/ vs /ɑː/ (và /ɒ/)"
+              "title": "/ʌ/ vs /ɑː/ (và /ɒ/)",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/ʌ/ vs /ɑː/ (và /ɒ/)\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/ʌ/ vs /ɑː/ (và /ɒ/)\"."
             },
             {
               "id": "sc-b2-4",
               "type": "checkpoint",
               "ref": "u-b2-4",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Diễn đạt mối quan hệ giả định giữa quá khứ và kết quả ở hiện tại (hoặc ngược lại).",
+            "Sử dụng thành thạo Câu điều kiện hỗn hợp (Mixed Conditionals: loại 3 + 2 và loại 2 + 3).",
+            "Nâng cao kỹ năng lập luận logic đa chiều trong văn bản học thuật."
+          ],
+          "topicPreview": "Tư duy logic nâng cao, làm chủ câu điều kiện hỗn hợp giải quyết bài toán nhân quả phức tạp.",
+          "badgeIcon": "🔀",
+          "badgeName": "Giả Định Kết Hợp"
         },
         {
           "id": "u-b2-5",
@@ -1733,28 +3206,57 @@
               "type": "vocab",
               "ref": "st-5363da1ba5ac-p0",
               "title": "Khoa học & Công nghệ · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Khoa học & Công nghệ · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Khoa học & Công nghệ · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-5363da1ba5ac-p1",
               "type": "vocab",
               "ref": "st-5363da1ba5ac-p1",
               "title": "Khoa học & Công nghệ · Phần 2",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Khoa học & Công nghệ · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Khoa học & Công nghệ · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-wish-if-only",
               "type": "grammar",
               "ref": "wish-if-only",
-              "title": "Cấu trúc Wish / If only"
+              "title": "Cấu trúc Wish / If only",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Cấu trúc Wish / If only\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Cấu trúc Wish / If only, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-5",
               "type": "checkpoint",
               "ref": "u-b2-5",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 48,
+          "canDo": [
+            "Bày tỏ ước muốn, sự tiếc nuối và phàn nàn ở cả hiện tại, quá khứ và tương lai.",
+            "Sử dụng thành thạo các cấu trúc Wish và If only theo 3 mốc thời gian.",
+            "Nhận biết sắc thái cảm xúc nhấn mạnh khi dùng If only thay cho Wish."
+          ],
+          "topicPreview": "Biểu đạt cảm xúc ước nguyện, toàn diện cấu trúc Wish / If only cho 3 thì.",
+          "badgeIcon": "✨",
+          "badgeName": "Ước Vọng Đa Chiều"
         },
         {
           "id": "u-b2-6",
@@ -1766,28 +3268,57 @@
               "type": "vocab",
               "ref": "st-5363da1ba5ac-p2",
               "title": "Khoa học & Công nghệ · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Khoa học & Công nghệ · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Khoa học & Công nghệ · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-5363da1ba5ac-p3",
               "type": "vocab",
               "ref": "st-5363da1ba5ac-p3",
               "title": "Khoa học & Công nghệ · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Khoa học & Công nghệ · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Khoa học & Công nghệ · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-modals-perfect",
               "type": "grammar",
               "ref": "modals-perfect",
-              "title": "Khuyết thiếu hoàn thành (should have...)"
+              "title": "Khuyết thiếu hoàn thành (should have...)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Khuyết thiếu hoàn thành (should have...)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Khuyết thiếu hoàn thành (should have...), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-6",
               "type": "checkpoint",
               "ref": "u-b2-6",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 46,
+          "canDo": [
+            "Đưa ra nhận xét, đánh giá hoặc suy đoán logic về những sự việc đã diễn ra trong quá khứ.",
+            "Sử dụng thành thạo Modal verbs hoàn thành: should have, could have, must have, can't have done.",
+            "Luyện phát âm nối âm nhanh should've / could've / must've chuẩn bản xứ."
+          ],
+          "topicPreview": "Kỹ năng phản biện & suy luận quá khứ, modal verbs hoàn thành (must have / should have done).",
+          "badgeIcon": "⚖️",
+          "badgeName": "Đánh Giá Quá Khứ"
         },
         {
           "id": "u-b2-7",
@@ -1799,34 +3330,68 @@
               "type": "vocab",
               "ref": "st-0d666fe79091-p0",
               "title": "Sức khỏe & Y tế · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Sức khỏe & Y tế · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Sức khỏe & Y tế · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-0d666fe79091-p1",
               "type": "vocab",
               "ref": "st-0d666fe79091-p1",
               "title": "Sức khỏe & Y tế · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Sức khỏe & Y tế · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Sức khỏe & Y tế · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-causative",
               "type": "grammar",
               "ref": "causative",
-              "title": "Thể nhờ/sai bảo (have/get sth done)"
+              "title": "Thể nhờ/sai bảo (have/get sth done)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thể nhờ/sai bảo (have/get sth done)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thể nhờ/sai bảo (have/get sth done), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-diphthongs",
               "type": "pronunciation",
               "ref": "diphthongs",
-              "title": "Nguyên âm đôi /eɪ aɪ oʊ aʊ/ + giữ âm cuối"
+              "title": "Nguyên âm đôi /eɪ aɪ oʊ aʊ/ + giữ âm cuối",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"Nguyên âm đôi /eɪ aɪ oʊ aʊ/ + giữ âm cuối\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"Nguyên âm đôi /eɪ aɪ oʊ aʊ/ + giữ âm cuối\"."
             },
             {
               "id": "sc-b2-7",
               "type": "checkpoint",
               "ref": "u-b2-7",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Nói về các dịch vụ thuê ngoài hoặc sự việc người khác làm cho mình.",
+            "Sử dụng cấu trúc thể nhờ/sai bảo: have something done, get something done, make/let someone do.",
+            "Áp dụng thể nhờ vả trong email công việc và đàm phán hợp đồng."
+          ],
+          "topicPreview": "Văn phong chuyên nghiệp & dịch vụ, cấu trúc causative have/get something done.",
+          "badgeIcon": "🛠️",
+          "badgeName": "Ủy Thác Chuyên Nghiệp"
         },
         {
           "id": "u-b2-8",
@@ -1838,28 +3403,57 @@
               "type": "vocab",
               "ref": "st-0d666fe79091-p2",
               "title": "Sức khỏe & Y tế · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Sức khỏe & Y tế · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Sức khỏe & Y tế · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-0d666fe79091-p3",
               "type": "vocab",
               "ref": "st-0d666fe79091-p3",
               "title": "Sức khỏe & Y tế · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Sức khỏe & Y tế · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Sức khỏe & Y tế · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-advanced-passive",
               "type": "grammar",
               "ref": "advanced-passive",
-              "title": "Bị động nâng cao"
+              "title": "Bị động nâng cao",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Bị động nâng cao\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Bị động nâng cao, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-8",
               "type": "checkpoint",
               "ref": "u-b2-8",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Viết các nhận định mang tính trung lập, truyền tải quan điểm dư luận trong bài luận.",
+            "Sử dụng câu bị động đặc biệt với động từ chỉ ý kiến/nhận thức: It is said that..., S is thought to have done...",
+            "Luyện sử dụng thể bị động kép trong các bài báo cáo khoa học."
+          ],
+          "topicPreview": "Văn phong học thuật đỉnh cao, thể bị động khách quan (impersonal passive).",
+          "badgeIcon": "🏛️",
+          "badgeName": "Khách Quan Học Thuật"
         },
         {
           "id": "u-b2-9",
@@ -1871,28 +3465,57 @@
               "type": "vocab",
               "ref": "st-f2f6c51e131e-p0",
               "title": "Xã hội & Văn hóa · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Xã hội & Văn hóa · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Xã hội & Văn hóa · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-f2f6c51e131e-p1",
               "type": "vocab",
               "ref": "st-f2f6c51e131e-p1",
               "title": "Xã hội & Văn hóa · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Xã hội & Văn hóa · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Xã hội & Văn hóa · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-advanced-relative-clauses",
               "type": "grammar",
               "ref": "advanced-relative-clauses",
-              "title": "Mệnh đề quan hệ nâng cao"
+              "title": "Mệnh đề quan hệ nâng cao",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Mệnh đề quan hệ nâng cao\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Mệnh đề quan hệ nâng cao, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-9",
               "type": "checkpoint",
               "ref": "u-b2-9",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Sử dụng các giới từ đi kèm đại từ quan hệ (whom, which) một cách trang trọng.",
+            "Áp dụng mệnh đề quan hệ với lượng từ: of which, of whom, neither of which...",
+            "Nâng cấp câu văn học thuật đạt chuẩn bài thi IELTS 6.5+."
+          ],
+          "topicPreview": "Cấu trúc câu phức nâng cao, mệnh đề quan hệ trang trọng giới từ + whom/which.",
+          "badgeIcon": "💎",
+          "badgeName": "Liên Kết Tinh Tế"
         },
         {
           "id": "u-b2-10",
@@ -1904,34 +3527,68 @@
               "type": "vocab",
               "ref": "st-f2f6c51e131e-p2",
               "title": "Xã hội & Văn hóa · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Xã hội & Văn hóa · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Xã hội & Văn hóa · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-f2f6c51e131e-p3",
               "type": "vocab",
               "ref": "st-f2f6c51e131e-p3",
               "title": "Xã hội & Văn hóa · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Xã hội & Văn hóa · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Xã hội & Văn hóa · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-participle-clauses",
               "type": "grammar",
               "ref": "participle-clauses",
-              "title": "Mệnh đề phân từ"
+              "title": "Mệnh đề phân từ",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Mệnh đề phân từ\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Mệnh đề phân từ, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-r-l-z",
               "type": "pronunciation",
               "ref": "r-l-z",
-              "title": "/r/ vs /l/ vs /z/ (d/gi/r giọng Bắc)"
+              "title": "/r/ vs /l/ vs /z/ (d/gi/r giọng Bắc)",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/r/ vs /l/ vs /z/ (d/gi/r giọng Bắc)\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/r/ vs /l/ vs /z/ (d/gi/r giọng Bắc)\"."
             },
             {
               "id": "sc-b2-10",
               "type": "checkpoint",
               "ref": "u-b2-10",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Rút gọn câu văn bằng cách sử dụng mệnh đề phân từ hiện tại (V-ing) và phân từ hoàn thành (Having done).",
+            "Diễn tả hai hành động có cùng chủ ngữ diễn ra đồng thời hoặc nối tiếp nhau một cách súc tích.",
+            "Tránh lỗi phân từ treo (dangling participle) trong văn bản tiếng Anh."
+          ],
+          "topicPreview": "Kỹ thuật rút gọn câu tối ưu, làm chủ Participle Clauses tăng điểm writing.",
+          "badgeIcon": "✂️",
+          "badgeName": "Tinh Gọn Câu Văn"
         },
         {
           "id": "u-b2-11",
@@ -1943,28 +3600,57 @@
               "type": "vocab",
               "ref": "st-eff92eff33ca-p0",
               "title": "Truyền thông & Giải trí · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Truyền thông & Giải trí · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Truyền thông & Giải trí · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-eff92eff33ca-p1",
               "type": "vocab",
               "ref": "st-eff92eff33ca-p1",
               "title": "Truyền thông & Giải trí · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Truyền thông & Giải trí · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Truyền thông & Giải trí · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-ellipsis-substitution",
               "type": "grammar",
               "ref": "ellipsis-substitution",
-              "title": "Lược bỏ & thay thế"
+              "title": "Lược bỏ & thay thế",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Lược bỏ & thay thế\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Lược bỏ & thay thế, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-11",
               "type": "checkpoint",
               "ref": "u-b2-11",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Tránh lặp từ trong câu văn bằng các kỹ thuật lược bỏ (ellipsis) và thay thế (substitution).",
+            "Sử dụng các từ thay thế như one/ones, so, not, do so một cách tự nhiên.",
+            "Nâng cao tính mạch lạc và độ trôi chảy của văn bản."
+          ],
+          "topicPreview": "Kỹ năng hành văn cô đọng, kỹ thuật lược bỏ và thay thế từ ngữ bản xứ.",
+          "badgeIcon": "⚡",
+          "badgeName": "Súc Tích Tối Đa"
         },
         {
           "id": "u-b2-12",
@@ -1976,28 +3662,57 @@
               "type": "vocab",
               "ref": "st-eff92eff33ca-p2",
               "title": "Truyền thông & Giải trí · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Truyền thông & Giải trí · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Truyền thông & Giải trí · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-eff92eff33ca-p3",
               "type": "vocab",
               "ref": "st-eff92eff33ca-p3",
               "title": "Truyền thông & Giải trí · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Truyền thông & Giải trí · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Truyền thông & Giải trí · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-subjunctive",
               "type": "grammar",
               "ref": "subjunctive",
-              "title": "Thức giả định"
+              "title": "Thức giả định",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Thức giả định\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Thức giả định, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-12",
               "type": "checkpoint",
               "ref": "u-b2-12",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Sử dụng các cấu trúc yêu cầu, khuyến nghị mang tính nghi thức cao trong văn kiện chính thống.",
+            "Áp dụng thức giả định hiện tại (Subjunctive mood) với động từ nguyên thể không to sau suggest, insist, demand...",
+            "Vận dụng cấu trúc It is essential/crucial that S (should) do something."
+          ],
+          "topicPreview": "Ngữ pháp học thuật formal, thức giả định Subjunctive Mood trong văn bản trang trọng.",
+          "badgeIcon": "📜",
+          "badgeName": "Thức Giả Định Trang Trọng"
         },
         {
           "id": "u-b2-13",
@@ -2009,34 +3724,68 @@
               "type": "vocab",
               "ref": "st-2435fc0fd3e4-p0",
               "title": "Du lịch & Đô thị hóa · Phần 1",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Du lịch & Đô thị hóa · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Du lịch & Đô thị hóa · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-2435fc0fd3e4-p1",
               "type": "vocab",
               "ref": "st-2435fc0fd3e4-p1",
               "title": "Du lịch & Đô thị hóa · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Du lịch & Đô thị hóa · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Du lịch & Đô thị hóa · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-emphasis-structures",
               "type": "grammar",
               "ref": "emphasis-structures",
-              "title": "Cấu trúc nhấn mạnh"
+              "title": "Cấu trúc nhấn mạnh",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Cấu trúc nhấn mạnh\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Cấu trúc nhấn mạnh, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-ch-j",
               "type": "pronunciation",
               "ref": "ch-j",
-              "title": "/tʃ/ vs /dʒ/"
+              "title": "/tʃ/ vs /dʒ/",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/tʃ/ vs /dʒ/\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/tʃ/ vs /dʒ/\"."
             },
             {
               "id": "sc-b2-13",
               "type": "checkpoint",
               "ref": "u-b2-13",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Làm nổi bật thông điệp then chốt trong bài thuyết trình hoặc bài viết.",
+            "Sử dụng trợ động từ do/does/did trong câu khẳng định để nhấn mạnh sự thật.",
+            "Áp dụng cấu trúc What S + V + is... để thu hút sự chú ý của người nghe."
+          ],
+          "topicPreview": "Kỹ thuật hùng biện & nhấn mạnh, sử dụng do/did khẳng định và cấu trúc pseudo-cleft.",
+          "badgeIcon": "🔥",
+          "badgeName": "Nhấn Mạnh Ý Tưởng"
         },
         {
           "id": "u-b2-14",
@@ -2048,28 +3797,57 @@
               "type": "vocab",
               "ref": "st-2435fc0fd3e4-p2",
               "title": "Du lịch & Đô thị hóa · Phần 1",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Du lịch & Đô thị hóa · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Du lịch & Đô thị hóa · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-2435fc0fd3e4-p3",
               "type": "vocab",
               "ref": "st-2435fc0fd3e4-p3",
               "title": "Du lịch & Đô thị hóa · Phần 2",
-              "wordCount": 11
+              "wordCount": 11,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 11 từ vựng chủ đề \"Du lịch & Đô thị hóa · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 11 từ vựng cốt lõi về Du lịch & Đô thị hóa · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-cleft-sentences",
               "type": "grammar",
               "ref": "cleft-sentences",
-              "title": "Câu chẻ (nhấn mạnh)"
+              "title": "Câu chẻ (nhấn mạnh)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Câu chẻ (nhấn mạnh)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Câu chẻ (nhấn mạnh), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-14",
               "type": "checkpoint",
               "ref": "u-b2-14",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Tập trung sự chú ý của người đọc vào một chủ thể, tân ngữ hoặc trạng ngữ cụ thể.",
+            "Sử dụng thành thạo câu chẻ: It is/was... that... và các biến thể nâng cao.",
+            "Phân biệt chính xác cách chia thì trong câu chẻ nhấn mạnh quá khứ."
+          ],
+          "topicPreview": "Bậc thầy câu chẻ (Cleft sentences), kỹ thuật chẻ câu nhấn mạnh chuẩn ngữ pháp.",
+          "badgeIcon": "🎯",
+          "badgeName": "Tiêu Điểm Trọng Tâm"
         },
         {
           "id": "u-b2-15",
@@ -2081,28 +3859,57 @@
               "type": "vocab",
               "ref": "st-f0ef05be515d-p0",
               "title": "Pháp luật & Vấn đề xã hội · Phần 1",
-              "wordCount": 15
+              "wordCount": 15,
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Nắm vững và vận dụng 15 từ vựng chủ đề \"Pháp luật & Vấn đề xã hội · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 15 từ vựng cốt lõi về Pháp luật & Vấn đề xã hội · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-f0ef05be515d-p1",
               "type": "vocab",
               "ref": "st-f0ef05be515d-p1",
               "title": "Pháp luật & Vấn đề xã hội · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Pháp luật & Vấn đề xã hội · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Pháp luật & Vấn đề xã hội · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-inversion",
               "type": "grammar",
               "ref": "inversion",
-              "title": "Đảo ngữ"
+              "title": "Đảo ngữ",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Đảo ngữ\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Đảo ngữ, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-15",
               "type": "checkpoint",
               "ref": "u-b2-15",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 46,
+          "canDo": [
+            "Tạo ấn tượng mạnh mẽ và kịch tính cho câu văn học thuật.",
+            "Áp dụng thành thạo cấu trúc đảo ngữ với trạng từ phủ định: Never, Seldom, Rarely, Hardly, No sooner...",
+            "Làm chủ đảo ngữ câu điều kiện bỏ If (Should / Were / Had)."
+          ],
+          "topicPreview": "Nghệ thuật đảo ngữ (Inversion), công thức đảo ngữ phủ định và đảo ngữ câu điều kiện.",
+          "badgeIcon": "🌀",
+          "badgeName": "Đỉnh Cao Đảo Ngữ"
         },
         {
           "id": "u-b2-16",
@@ -2114,34 +3921,68 @@
               "type": "vocab",
               "ref": "st-f0ef05be515d-p2",
               "title": "Pháp luật & Vấn đề xã hội · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Pháp luật & Vấn đề xã hội · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Pháp luật & Vấn đề xã hội · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-f0ef05be515d-p3",
               "type": "vocab",
               "ref": "st-f0ef05be515d-p3",
               "title": "Pháp luật & Vấn đề xã hội · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"Pháp luật & Vấn đề xã hội · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về Pháp luật & Vấn đề xã hội · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-discourse-markers",
               "type": "grammar",
               "ref": "discourse-markers",
-              "title": "Từ nối diễn ngôn"
+              "title": "Từ nối diễn ngôn",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Từ nối diễn ngôn\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Từ nối diễn ngôn, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sp-vowel-aw-o",
               "type": "pronunciation",
               "ref": "vowel-aw-o",
-              "title": "/ɔː/ vs /ɒ/"
+              "title": "/ɔː/ vs /ɒ/",
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Phát âm chuẩn xác, phân biệt rõ âm thanh và luyện phản xạ nghe với bài học \"/ɔː/ vs /ɒ/\"."
+              ],
+              "topicPreview": "Luyện tập khẩu hình, quy tắc phát âm/trọng âm và bài tập phân biệt cặp âm tối thiểu của \"/ɔː/ vs /ɒ/\"."
             },
             {
               "id": "sc-b2-16",
               "type": "checkpoint",
               "ref": "u-b2-16",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 54,
+          "canDo": [
+            "Dẫn dắt bài nói và bài viết học thuật mạch lạc với các liên từ diễn ngôn cao cấp.",
+            "Sử dụng chính xác: Furthermore, In contrast, Consequently, Notwithstanding, As a matter of fact.",
+            "Kiểm soát cấu trúc đoạn văn nghị luận chặt chẽ và thuyết phục."
+          ],
+          "topicPreview": "Từ nối học thuật (Discourse markers), xây dựng mạch lập luận logic cho bài essay.",
+          "badgeIcon": "🌐",
+          "badgeName": "Dẫn Dắt Diễn Ngôn"
         },
         {
           "id": "u-b2-17",
@@ -2153,28 +3994,57 @@
               "type": "vocab",
               "ref": "st-1910717886b9-p0",
               "title": "Academic Word List (AWL) 1/5 · Phần 1",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Academic Word List (AWL) 1/5 · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Academic Word List (AWL) 1/5 · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-1910717886b9-p1",
               "type": "vocab",
               "ref": "st-1910717886b9-p1",
               "title": "Academic Word List (AWL) 1/5 · Phần 2",
-              "wordCount": 13
+              "wordCount": 13,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 13 từ vựng chủ đề \"Academic Word List (AWL) 1/5 · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 13 từ vựng cốt lõi về Academic Word List (AWL) 1/5 · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-nominalisation",
               "type": "grammar",
               "ref": "nominalisation",
-              "title": "Danh từ hóa"
+              "title": "Danh từ hóa",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Danh từ hóa\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Danh từ hóa, các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-17",
               "type": "checkpoint",
               "ref": "u-b2-17",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Chuyển đổi các câu văn mang phong cách nói thường ngày thành câu văn học thuật trang trọng.",
+            "Áp dụng kỹ thuật danh từ hóa (Nominalisation) biến động từ/tính từ thành cụm danh từ súc tích.",
+            "Nâng tầm bài viết học thuật đạt chuẩn nghiên cứu đại học."
+          ],
+          "topicPreview": "Kỹ thuật Nominalisation (Danh từ hóa), nâng cấp văn phong từ bình dân lên học thuật chuyên sâu.",
+          "badgeIcon": "📐",
+          "badgeName": "Học Thuật Hóa Văn Bản"
         },
         {
           "id": "u-b2-18",
@@ -2186,28 +4056,57 @@
               "type": "vocab",
               "ref": "st-1910717886b9-p2",
               "title": "Academic Word List (AWL) 1/5 · Phần 1",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Academic Word List (AWL) 1/5 · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Academic Word List (AWL) 1/5 · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-1910717886b9-p3",
               "type": "vocab",
               "ref": "st-1910717886b9-p3",
               "title": "Academic Word List (AWL) 1/5 · Phần 2",
-              "wordCount": 12
+              "wordCount": 12,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 12 từ vựng chủ đề \"Academic Word List (AWL) 1/5 · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 12 từ vựng cốt lõi về Academic Word List (AWL) 1/5 · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-hedging-language",
               "type": "grammar",
               "ref": "hedging-language",
-              "title": "Ngôn ngữ rào đón (hedging)"
+              "title": "Ngôn ngữ rào đón (hedging)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Ngôn ngữ rào đón (hedging)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Ngôn ngữ rào đón (hedging), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-18",
               "type": "checkpoint",
               "ref": "u-b2-18",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Trình bày các nhận định khoa học thận trọng, tránh khẳng định tuyệt đối hoá thiếu căn cứ.",
+            "Sử dụng các kỹ thuật Hedging: it appears that, arguably, tends to, presumably...",
+            "Viết bài nghiên cứu và báo cáo khoa học với độ khách quan chuẩn mực quốc tế."
+          ],
+          "topicPreview": "Kỹ năng rào đón (Hedging), phương pháp phát biểu cẩn trọng trong học thuật quốc tế.",
+          "badgeIcon": "🛡️",
+          "badgeName": "Ngôn Ngữ Rào Đón"
         },
         {
           "id": "u-b2-19",
@@ -2219,28 +4118,57 @@
               "type": "vocab",
               "ref": "st-46f63d7ec470-p0",
               "title": "NAWL 1/3 · Phần 1",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"NAWL 1/3 · Phần 1\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về NAWL 1/3 · Phần 1, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sv-st-46f63d7ec470-p1",
               "type": "vocab",
               "ref": "st-46f63d7ec470-p1",
               "title": "NAWL 1/3 · Phần 2",
-              "wordCount": 14
+              "wordCount": 14,
+              "estimatedMinutes": 10,
+              "canDo": [
+                "Nắm vững và vận dụng 14 từ vựng chủ đề \"NAWL 1/3 · Phần 2\" vào ngữ cảnh thực tế."
+              ],
+              "topicPreview": "Học 14 từ vựng cốt lõi về NAWL 1/3 · Phần 2, kèm phiên âm IPA chuẩn, nghĩa tiếng Việt và ví dụ câu."
             },
             {
               "id": "sg-grammatical-collocations",
               "type": "grammar",
               "ref": "grammatical-collocations",
-              "title": "Kết hợp ngữ pháp (collocations)"
+              "title": "Kết hợp ngữ pháp (collocations)",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Làm chủ công thức, cách dùng và dấu hiệu nhận biết của \"Kết hợp ngữ pháp (collocations)\", tránh các bẫy đề thi."
+              ],
+              "topicPreview": "Lý thuyết trọng tâm về cấu trúc Kết hợp ngữ pháp (collocations), các trường hợp đặc biệt và bài tập vận dụng."
             },
             {
               "id": "sc-b2-19",
               "type": "checkpoint",
               "ref": "u-b2-19",
-              "title": "Checkpoint — Vượt chặng"
+              "title": "Checkpoint — Vượt chặng",
+              "estimatedMinutes": 12,
+              "canDo": [
+                "Kiểm tra toàn diện kiến thức từ vựng, ngữ pháp và phát âm của chặng với mục tiêu đạt ≥ 80%."
+              ],
+              "topicPreview": "Bài kiểm tra tổng hợp 15 câu đa kỹ năng kèm phản hồi chẩn đoán chi tiết điểm mạnh và điểm yếu."
             }
-          ]
+          ],
+          "estimatedMinutes": 45,
+          "canDo": [
+            "Vận dụng tự nhiên các cụm từ cố định (collocations) và thành ngữ học thuật trong mọi ngữ cảnh.",
+            "Xử lý thành thạo các cấu trúc ngữ pháp phức tạp nhất của tiếng Anh học thuật.",
+            "Đạt chuẩn năng lực tiếng Anh B2 CEFR vững chắc, sẵn sàng chinh phục IELTS 7.0+."
+          ],
+          "topicPreview": "Tổng kết ngữ pháp & từ vựng B2 đỉnh cao, làm chủ Collocations và sẵn sàng vươn tầm thế giới.",
+          "badgeIcon": "🏔️",
+          "badgeName": "Đỉnh Cao B2 Toàn Năng"
         }
       ]
     }

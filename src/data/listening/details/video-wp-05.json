@@ -1,0 +1,191 @@
+{
+  "id": "video-wp-05",
+  "youtubeId": "e-WKtud2Yr9",
+  "title": "Taking Phone Messages at the Reception",
+  "channel": "Oxford Online English",
+  "duration": 300,
+  "durationDisplay": "05:00",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/e-WKtud2Yr9/hqdefault.jpg",
+  "description": "Kỹ năng nghe điện thoại công ty, ghi chép lời nhắn và chuyển máy cho đồng nghiệp.",
+  "coreVocabulary": [
+    {
+      "word": "transfer",
+      "phonetic": "/trænsˈfɜː(r)/",
+      "viDefinition": "chuyển (cuộc gọi), chuyển máy",
+      "contextSentence": "Please hold the line while I transfer your call to accounts."
+    },
+    {
+      "word": "inquiry",
+      "phonetic": "/ɪnˈkwaɪəri/",
+      "viDefinition": "yêu cầu, thắc mắc",
+      "contextSentence": "I will direct your inquiry to our senior technical consultant."
+    },
+    {
+      "word": "extension",
+      "phonetic": "/ɪkˈstenʃn/",
+      "viDefinition": "số máy lẻ (điện thoại nội bộ)",
+      "contextSentence": "Her direct telephone extension is four-zero-two."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-05-cue-1",
+      "start": 0,
+      "end": 30,
+      "en": "Welcome to Oxford Online English's reception and administration tutorial.",
+      "vi": "Chào mừng đến với bài hướng dẫn lễ tân và hành chính của Oxford Online English."
+    },
+    {
+      "id": "video-wp-05-cue-2",
+      "start": 30,
+      "end": 60,
+      "en": "Answering the corporate telephone professionally represents the entire firm.",
+      "vi": "Trả lời điện thoại công ty một cách chuyên nghiệp đại diện cho toàn bộ doanh nghiệp."
+    },
+    {
+      "id": "video-wp-05-cue-3",
+      "start": 60,
+      "end": 90,
+      "en": "Answer within three rings with: 'Good morning, Acme Corp, how may I help you?'",
+      "vi": "Nhấc máy trong vòng ba hồi chuông với câu: 'Chào buổi sáng, Công ty Acme, tôi có thể giúp gì cho bạn?'"
+    },
+    {
+      "id": "video-wp-05-cue-4",
+      "start": 90,
+      "end": 120,
+      "en": "Listen carefully to determine who the external caller wishes to reach.",
+      "vi": "Lắng nghe cẩn thận để xác định người gọi từ bên ngoài muốn liên hệ với ai."
+    },
+    {
+      "id": "video-wp-05-cue-5",
+      "start": 120,
+      "end": 150,
+      "en": "Say: 'One moment please, I will transfer your call to that extension.'",
+      "vi": "Nói: 'Xin chờ một lát, tôi sẽ chuyển cuộc gọi của bạn đến số máy lẻ đó.'"
+    },
+    {
+      "id": "video-wp-05-cue-6",
+      "start": 150,
+      "end": 180,
+      "en": "If the colleague is in a meeting, offer: 'Would you like to leave a message?'",
+      "vi": "Nếu đồng nghiệp đang bận họp, hãy đề nghị: 'Bạn có muốn để lại lời nhắn không?'"
+    },
+    {
+      "id": "video-wp-05-cue-7",
+      "start": 180,
+      "end": 210,
+      "en": "Write down the caller's full name, company, and callback telephone number.",
+      "vi": "Ghi lại họ tên đầy đủ của người gọi, công ty và số điện thoại gọi lại."
+    },
+    {
+      "id": "video-wp-05-cue-8",
+      "start": 210,
+      "end": 240,
+      "en": "Repeat the numbers back to verify that your record is completely accurate.",
+      "vi": "Lặp lại các con số để xác minh rằng bản ghi chép của bạn hoàn toàn chính xác."
+    },
+    {
+      "id": "video-wp-05-cue-9",
+      "start": 240,
+      "end": 270,
+      "en": "Send a polite email notification to your colleague with the full inquiry.",
+      "vi": "Gửi một thông báo email lịch sự cho đồng nghiệp với toàn bộ yêu cầu."
+    },
+    {
+      "id": "video-wp-05-cue-10",
+      "start": 270,
+      "end": 300,
+      "en": "Polite telephone etiquette establishes immediate client confidence and trust.",
+      "vi": "Nghi thức điện thoại lịch thiệp thiết lập niềm tin và sự tự tin tức thì của khách hàng."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-05-cloze-1",
+      "cueId": "video-wp-05-cue-3",
+      "sentence": "{{blank}} within three rings with: 'Good morning, Acme Corp, how may I help you?'",
+      "blankWord": "answer",
+      "hintVi": "Nghĩa gợi ý: Nhấc máy trong vòng ba hồi chuông với câ...",
+      "timestamp": 60,
+      "options": [
+        "criterion",
+        "tremendous",
+        "efficient",
+        "answer"
+      ]
+    },
+    {
+      "id": "video-wp-05-cloze-2",
+      "cueId": "video-wp-05-cue-5",
+      "sentence": "Say: 'One {{blank}} please, I will transfer your call to that extension.'",
+      "blankWord": "moment",
+      "hintVi": "Nghĩa gợi ý: Nói: 'Xin chờ một lát, tôi sẽ chuyển cuộ...",
+      "timestamp": 120,
+      "options": [
+        "alternative",
+        "moment",
+        "criterion",
+        "perspective"
+      ]
+    },
+    {
+      "id": "video-wp-05-cloze-3",
+      "cueId": "video-wp-05-cue-8",
+      "sentence": "{{blank}} the numbers back to verify that your record is completely accurate.",
+      "blankWord": "repeat",
+      "hintVi": "Nghĩa gợi ý: Lặp lại các con số để xác minh rằng bản ...",
+      "timestamp": 210,
+      "options": [
+        "framework",
+        "repeat",
+        "gradual",
+        "criterion"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-05-q1",
+      "question": "What is the primary focus of the video 'Taking Phone Messages at the Reception'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice taking phone messages at the reception effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores taking phone messages at the reception, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 30
+    },
+    {
+      "id": "video-wp-05-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Say:...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Say: 'One moment please, I will transfer your call to that e...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Say: 'One moment please, I will transfer your call to that extension.'', showing its practical importance.",
+      "timestampSeek": 120
+    },
+    {
+      "id": "video-wp-05-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Polite telephone etiquette establishes immediate client confidenc...",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Polite telephone etiquette establishes immediate client confidence and trust., providing a meaningful summary for learners.",
+      "timestampSeek": 270
+    }
+  ]
+}

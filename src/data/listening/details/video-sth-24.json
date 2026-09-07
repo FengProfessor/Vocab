@@ -1,0 +1,204 @@
+{
+  "id": "video-sth-24",
+  "youtubeId": "vARERrBhaEe",
+  "title": "Epigenetics: How Environment Shapes Gene Expression",
+  "channel": "TED-Ed",
+  "duration": 880,
+  "durationDisplay": "14:40",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/vARERrBhaEe/hqdefault.jpg",
+  "description": "Di truyền học biểu sinh: môi trường sống và thói quen bật tắt các công tắc gen như thế nào.",
+  "coreVocabulary": [
+    {
+      "word": "epigenetics",
+      "phonetic": "/ˌepɪdʒəˈnetɪks/",
+      "viDefinition": "di truyền học biểu sinh",
+      "contextSentence": "Epigenetics reveals how lifestyle factors modify gene expression without altering underlying DNA."
+    },
+    {
+      "word": "methylation",
+      "phonetic": "/ˌmeθɪˈleɪʃn/",
+      "viDefinition": "sự methyl hóa (gắn nhóm methyl vào DNA)",
+      "contextSentence": "DNA methylation acts as molecular biochemical switches silencing specific genetic sequences."
+    },
+    {
+      "word": "histone",
+      "phonetic": "/ˈhɪstəʊn/",
+      "viDefinition": "protein histone (quấn quanh DNA)",
+      "contextSentence": "Chemical remodeling of histone spools dictates whether cellular transcriptional machinery can read genes."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-24-cue-1",
+      "start": 0,
+      "end": 88,
+      "en": "Welcome to TED-Ed, discovering why your DNA sequence is not your unalterable biological destiny.",
+      "vi": "Chào mừng đến với TED-Ed, khám phá lý do tại sao trình tự DNA không phải là số phận sinh học không thể thay đổi của bạn."
+    },
+    {
+      "id": "video-sth-24-cue-2",
+      "start": 88,
+      "end": 176,
+      "en": "When the Human Genome Project mapped our nucleotide code, scientists hoped to explain all human disease.",
+      "vi": "Khi Dự án Bộ gen Người lập bản đồ mã nucleotide, các nhà khoa học đã hy vọng giải thích được mọi bệnh tật của con người."
+    },
+    {
+      "id": "video-sth-24-cue-3",
+      "start": 176,
+      "end": 264,
+      "en": "Yet identical twins with identical DNA sequences develop radically divergent illnesses as they age.",
+      "vi": "Tuy nhiên, những cặp song sinh cùng trứng có trình tự DNA giống hệt nhau lại phát triển các căn bệnh hoàn toàn khác nhau khi già đi."
+    },
+    {
+      "id": "video-sth-24-cue-4",
+      "start": 264,
+      "end": 352,
+      "en": "The revolutionary explanation lies in epigenetics: the molecular software controlling the genetic hardware.",
+      "vi": "Lời giải thích mang tính cách mạng nằm ở di truyền học biểu sinh: phần mềm phân tử điều khiển phần cứng di truyền."
+    },
+    {
+      "id": "video-sth-24-cue-5",
+      "start": 352,
+      "end": 440,
+      "en": "Think of your DNA sequence as a magnificent piano containing twenty thousand distinct keys.",
+      "vi": "Hãy nghĩ về trình tự DNA của bạn như một cây đàn piano lộng lẫy chứa hai mươi nghìn phím đàn riêng biệt."
+    },
+    {
+      "id": "video-sth-24-cue-6",
+      "start": 440,
+      "end": 528,
+      "en": "Epigenetic marks act as the pianist, determining which keys are played loudly, softly, or muted.",
+      "vi": "Các dấu ấn biểu sinh đóng vai trò như nghệ sĩ dương cầm, xác định phím nào được chơi to, chơi nhỏ hay tắt tiếng."
+    },
+    {
+      "id": "video-sth-24-cue-7",
+      "start": 528,
+      "end": 616,
+      "en": "DNA methylation attaches tiny carbon-hydrogen tags to cytosine bases, turning specific genes off.",
+      "vi": "Sự methyl hóa DNA gắn các thẻ carbon-hydro nhỏ vào các bazơ cytosine, làm tắt các gen cụ thể."
+    },
+    {
+      "id": "video-sth-24-cue-8",
+      "start": 616,
+      "end": 704,
+      "en": "Meanwhile, environmental factors like chronic stress, nutrition, and exercise remodel histone proteins.",
+      "vi": "Trong khi đó, các yếu tố môi trường như căng thẳng mãn tính, dinh dưỡng và tập thể dục sẽ tái cấu trúc các protein histone."
+    },
+    {
+      "id": "video-sth-24-cue-9",
+      "start": 704,
+      "end": 792,
+      "en": "Tightly wound histones sequester genes away from transcriptional enzymes, preventing expression.",
+      "vi": "Các histone quấn chặt sẽ cô lập các gen khỏi các enzyme phiên mã, ngăn chặn sự biểu hiện."
+    },
+    {
+      "id": "video-sth-24-cue-10",
+      "start": 792,
+      "end": 880,
+      "en": "Through conscious lifestyle choices, you hold the biological power to orchestrate your own genetic symphony.",
+      "vi": "Thông qua các lựa chọn lối sống có ý thức, bạn nắm giữ sức mạnh sinh học để dàn dựng bản giao hưởng di truyền của chính mình."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-24-cloze-1",
+      "cueId": "video-sth-24-cue-3",
+      "sentence": "Yet {{blank}} twins with identical DNA sequences develop radically divergent illnesses as they age.",
+      "blankWord": "identical",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, những cặp song sinh cùng trứn...",
+      "timestamp": 176,
+      "options": [
+        "component",
+        "dimension",
+        "identical",
+        "subsequent"
+      ]
+    },
+    {
+      "id": "video-sth-24-cloze-2",
+      "cueId": "video-sth-24-cue-5",
+      "sentence": "{{blank}} of your DNA sequence as a magnificent piano containing twenty thousand distinct keys.",
+      "blankWord": "think",
+      "hintVi": "Nghĩa gợi ý: Hãy nghĩ về trình tự DNA của bạn như một...",
+      "timestamp": 352,
+      "options": [
+        "vibrant",
+        "think",
+        "preliminary",
+        "criterion"
+      ]
+    },
+    {
+      "id": "video-sth-24-cloze-3",
+      "cueId": "video-sth-24-cue-8",
+      "sentence": "{{blank}}, environmental factors like chronic stress, nutrition, and exercise remodel histone proteins.",
+      "blankWord": "meanwhile",
+      "hintVi": "Nghĩa gợi ý: Trong khi đó, các yếu tố môi trường như ...",
+      "timestamp": 616,
+      "options": [
+        "meanwhile",
+        "flexible",
+        "advantage",
+        "vulnerable"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-24-q1",
+      "question": "What is the primary focus of the video 'Epigenetics: How Environment Shapes Gene Expression'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice epigenetics: how environment shapes gene expression effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores epigenetics: how environment shapes gene expression, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 88
+    },
+    {
+      "id": "video-sth-24-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Think...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Think of your DNA sequence as a magnificent piano containing...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Think of your DNA sequence as a magnificent piano containing twenty thousand distinct keys.', showing its practical importance.",
+      "timestampSeek": 352
+    },
+    {
+      "id": "video-sth-24-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Through conscious lifestyle choices, you hold the biological powe...",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Through conscious lifestyle choices, you hold the biological power to orchestrate your own genetic symphony., providing a meaningful summary for learners.",
+      "timestampSeek": 792
+    },
+    {
+      "id": "video-sth-24-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'DNA...'?",
+      "options": [
+        "It claims this factor has zero impact on the final outcome.",
+        "It warns that following this method produces immediate failure.",
+        "It states this step should always be skipped by beginners.",
+        "It highlights that: DNA methylation attaches tiny carbon-hydrogen tags to cytosi..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The speaker specifically highlights: 'DNA methylation attaches tiny carbon-hydrogen tags to cytosine bases, turning specific genes off.', providing deeper technical insight.",
+      "timestampSeek": 528
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-sc-02",
+  "youtubeId": "pCr5_NN8nuv",
+  "title": "Starting a Friendly Chat with Neighbors",
+  "channel": "Oxford Online English",
+  "duration": 230,
+  "durationDisplay": "03:50",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "social_conversations",
+  "topicDisplay": "Giao tiếp & Đời sống xã hội",
+  "thumbnailUrl": "https://img.youtube.com/vi/pCr5_NN8nuv/hqdefault.jpg",
+  "description": "Các câu chào hỏi tự nhiên với hàng xóm ở sảnh chung cư hoặc trên vỉa hè.",
+  "coreVocabulary": [
+    {
+      "word": "neighbor",
+      "phonetic": "/ˈneɪbə(r)/",
+      "viDefinition": "hàng xóm, người láng giềng",
+      "contextSentence": "Being a considerate neighbor creates a harmonious community."
+    },
+    {
+      "word": "pleasant",
+      "phonetic": "/ˈpleznt/",
+      "viDefinition": "dễ chịu, thoải mái",
+      "contextSentence": "We enjoyed a pleasant conversation by the mailboxes."
+    },
+    {
+      "word": "hallway",
+      "phonetic": "/ˈhɔːlweɪ/",
+      "viDefinition": "hành lang (trong tòa nhà)",
+      "contextSentence": "I ran into Mrs. Davis in the apartment hallway."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sc-02-cue-1",
+      "start": 0,
+      "end": 23,
+      "en": "Welcome to Oxford Online English, helping you communicate naturally every day.",
+      "vi": "Chào mừng đến với Oxford Online English, giúp bạn giao tiếp tự nhiên mỗi ngày."
+    },
+    {
+      "id": "video-sc-02-cue-2",
+      "start": 23,
+      "end": 46,
+      "en": "Building good relations with your neighbors makes apartment living delightful.",
+      "vi": "Xây dựng mối quan hệ tốt với hàng xóm khiến cuộc sống chung cư trở nên thú vị."
+    },
+    {
+      "id": "video-sc-02-cue-3",
+      "start": 46,
+      "end": 69,
+      "en": "When you see someone in the hallway, offer a friendly greeting.",
+      "vi": "Khi bạn nhìn thấy ai đó ở hành lang, hãy gửi một lời chào thân thiện."
+    },
+    {
+      "id": "video-sc-02-cue-4",
+      "start": 69,
+      "end": 92,
+      "en": "A simple 'Good morning, how are you doing today?' breaks any awkward silence.",
+      "vi": "Một câu 'Chào buổi sáng, hôm nay bạn thế nào?' đơn giản sẽ phá vỡ mọi sự im lặng ngượng ngùng."
+    },
+    {
+      "id": "video-sc-02-cue-5",
+      "start": 92,
+      "end": 115,
+      "en": "Talk about shared neighborhood happenings like building renovations or gardens.",
+      "vi": "Nói về những sự việc chung trong khu xóm như việc cải tạo tòa nhà hoặc vườn cây."
+    },
+    {
+      "id": "video-sc-02-cue-6",
+      "start": 115,
+      "end": 138,
+      "en": "It is always pleasant to acknowledge people who share your residential floor.",
+      "vi": "Thật dễ chịu khi chào hỏi những người cùng tầng căn hộ với bạn."
+    },
+    {
+      "id": "video-sc-02-cue-7",
+      "start": 138,
+      "end": 161,
+      "en": "If you receive a package for them by mistake, bring it over with a smile.",
+      "vi": "Nếu bạn nhận nhầm bưu kiện của họ, hãy mang sang kèm theo một nụ cười."
+    },
+    {
+      "id": "video-sc-02-cue-8",
+      "start": 161,
+      "end": 184,
+      "en": "Avoid prying into personal matters; keep opening topics light and polite.",
+      "vi": "Tránh tọc mạch vào chuyện riêng tư; hãy giữ các chủ đề mở đầu nhẹ nhàng và lịch sự."
+    },
+    {
+      "id": "video-sc-02-cue-9",
+      "start": 184,
+      "end": 207,
+      "en": "Wish them a productive week as you head toward the elevator doors.",
+      "vi": "Chúc họ một tuần làm việc hiệu quả khi bạn tiến về phía cửa thang máy."
+    },
+    {
+      "id": "video-sc-02-cue-10",
+      "start": 207,
+      "end": 230,
+      "en": "Kind neighborly words transform cold apartment blocks into caring communities.",
+      "vi": "Những lời nói láng giềng tử tế biến những khối nhà chung cư lạnh lẽo thành cộng đồng ấm áp."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sc-02-cloze-1",
+      "cueId": "video-sc-02-cue-3",
+      "sentence": "When you see {{blank}} in the hallway, offer a friendly greeting.",
+      "blankWord": "someone",
+      "hintVi": "Nghĩa gợi ý: Khi bạn nhìn thấy ai đó ở hành lang, hãy...",
+      "timestamp": 46,
+      "options": [
+        "strategy",
+        "vibrant",
+        "someone",
+        "simultaneous"
+      ]
+    },
+    {
+      "id": "video-sc-02-cloze-2",
+      "cueId": "video-sc-02-cue-5",
+      "sentence": "Talk about {{blank}} neighborhood happenings like building renovations or gardens.",
+      "blankWord": "shared",
+      "hintVi": "Nghĩa gợi ý: Nói về những sự việc chung trong khu xóm...",
+      "timestamp": 92,
+      "options": [
+        "vibrant",
+        "prominent",
+        "component",
+        "shared"
+      ]
+    },
+    {
+      "id": "video-sc-02-cloze-3",
+      "cueId": "video-sc-02-cue-8",
+      "sentence": "{{blank}} prying into personal matters; keep opening topics light and polite.",
+      "blankWord": "avoid",
+      "hintVi": "Nghĩa gợi ý: Tránh tọc mạch vào chuyện riêng tư; hãy ...",
+      "timestamp": 161,
+      "options": [
+        "continuous",
+        "avoid",
+        "flexible",
+        "vibrant"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sc-02-q1",
+      "question": "What is the primary focus of the video 'Starting a Friendly Chat with Neighbors'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice starting a friendly chat with neighbors effectively.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores starting a friendly chat with neighbors, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 23
+    },
+    {
+      "id": "video-sc-02-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Talk...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Talk about shared neighborhood happenings like building reno..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Talk about shared neighborhood happenings like building renovations or gardens.', showing its practical importance.",
+      "timestampSeek": 92
+    },
+    {
+      "id": "video-sc-02-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Kind neighborly words transform cold apartment blocks into caring...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Kind neighborly words transform cold apartment blocks into caring communities., providing a meaningful summary for learners.",
+      "timestampSeek": 207
+    }
+  ]
+}

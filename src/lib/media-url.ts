@@ -28,6 +28,7 @@ const DIRECT_IMAGE_HOST_SUFFIXES = [
   'r2.dev',
   'amazonaws.com',
   'google.com',
+  'youtube.com',
   'ytimg.com',
   'twimg.com',
   'fbcdn.net',

@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-02",
+  "youtubeId": "t5dlZ72pfBO",
+  "title": "Supermarket Produce: Fruits and Weighing",
+  "channel": "Learn English with Gill",
+  "duration": 230,
+  "durationDisplay": "03:50",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/t5dlZ72pfBO/hqdefault.jpg",
+  "description": "Từ vựng mua rau củ quả tươi tại siêu thị, cân ký và kiểm tra độ chín.",
+  "coreVocabulary": [
+    {
+      "word": "produce",
+      "phonetic": "/ˈprɒdjuːs/",
+      "viDefinition": "nông sản tươi, rau củ quả",
+      "contextSentence": "The organic produce section offers crisp local apples and kale."
+    },
+    {
+      "word": "scale",
+      "phonetic": "/skeɪl/",
+      "viDefinition": "cân điện tử (trong siêu thị)",
+      "contextSentence": "Weigh your bag of sweet oranges on the digital scale."
+    },
+    {
+      "word": "ripe",
+      "phonetic": "/raɪp/",
+      "viDefinition": "chín (hoa quả, trái cây)",
+      "contextSentence": "Select yellow bananas that are sweet, fragrant, and perfectly ripe."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-02-cue-1",
+      "start": 0,
+      "end": 23,
+      "en": "Welcome back to everyday English with Gill, shopping for healthy food today.",
+      "vi": "Chào mừng quay lại với tiếng Anh đời sống cùng Gill, hôm nay chúng ta đi mua thực phẩm lành mạnh."
+    },
+    {
+      "id": "video-fs-02-cue-2",
+      "start": 23,
+      "end": 46,
+      "en": "The fresh produce department is always the most colorful aisle in the supermarket.",
+      "vi": "Khu vực nông sản tươi luôn là lối đi rực rỡ sắc màu nhất trong siêu thị."
+    },
+    {
+      "id": "video-fs-02-cue-3",
+      "start": 46,
+      "end": 69,
+      "en": "Pick up a lightweight plastic or mesh bag from the dispenser roll.",
+      "vi": "Lấy một chiếc túi nhựa nhẹ hoặc túi lưới từ cuộn phân phối."
+    },
+    {
+      "id": "video-fs-02-cue-4",
+      "start": 69,
+      "end": 92,
+      "en": "Select firm avocados that will be perfectly ripe in two days.",
+      "vi": "Chọn những quả bơ chắc tay sẽ chín hoàn hảo sau hai ngày nữa."
+    },
+    {
+      "id": "video-fs-02-cue-5",
+      "start": 92,
+      "end": 115,
+      "en": "Place your bag of fresh green apples onto the digital electronic scale.",
+      "vi": "Đặt túi táo xanh tươi của bạn lên chiếc cân điện tử kỹ thuật số."
+    },
+    {
+      "id": "video-fs-02-cue-6",
+      "start": 115,
+      "end": 138,
+      "en": "Punch in the three-digit item code displayed on the fruit sign.",
+      "vi": "Bấm mã sản phẩm gồm ba chữ số được hiển thị trên biển báo hoa quả."
+    },
+    {
+      "id": "video-fs-02-cue-7",
+      "start": 138,
+      "end": 161,
+      "en": "The scale prints an adhesive barcode sticker to attach onto the bag.",
+      "vi": "Chiếc cân sẽ in một nhãn mã vạch dán để gắn lên túi."
+    },
+    {
+      "id": "video-fs-02-cue-8",
+      "start": 161,
+      "end": 184,
+      "en": "Inspect leafy vegetables like spinach and lettuce to ensure they are crisp.",
+      "vi": "Kiểm tra các loại rau ăn lá như rau chân vịt và xà lách để đảm bảo chúng giòn tươi."
+    },
+    {
+      "id": "video-fs-02-cue-9",
+      "start": 184,
+      "end": 207,
+      "en": "Buying seasonal fruits guarantees superior flavor and saves household money.",
+      "vi": "Mua hoa quả theo mùa đảm bảo hương vị vượt trội và tiết kiệm tiền cho gia đình."
+    },
+    {
+      "id": "video-fs-02-cue-10",
+      "start": 207,
+      "end": 230,
+      "en": "Filling your basket with wholesome fresh food is an investment in vitality.",
+      "vi": "Lấp đầy giỏ hàng của bạn bằng thực phẩm tươi sạch bổ dưỡng là một sự đầu tư vào sức sống."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-02-cloze-1",
+      "cueId": "video-fs-02-cue-3",
+      "sentence": "Pick up a {{blank}} plastic or mesh bag from the dispenser roll.",
+      "blankWord": "lightweight",
+      "hintVi": "Nghĩa gợi ý: Lấy một chiếc túi nhựa nhẹ hoặc túi lưới...",
+      "timestamp": 46,
+      "options": [
+        "flexible",
+        "tremendous",
+        "vulnerable",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "video-fs-02-cloze-2",
+      "cueId": "video-fs-02-cue-5",
+      "sentence": "{{blank}} your bag of fresh green apples onto the digital electronic scale.",
+      "blankWord": "place",
+      "hintVi": "Nghĩa gợi ý: Đặt túi táo xanh tươi của bạn lên chiếc ...",
+      "timestamp": 92,
+      "options": [
+        "place",
+        "accurate",
+        "vulnerable",
+        "routine"
+      ]
+    },
+    {
+      "id": "video-fs-02-cloze-3",
+      "cueId": "video-fs-02-cue-8",
+      "sentence": "{{blank}} leafy vegetables like spinach and lettuce to ensure they are crisp.",
+      "blankWord": "inspect",
+      "hintVi": "Nghĩa gợi ý: Kiểm tra các loại rau ăn lá như rau chân...",
+      "timestamp": 161,
+      "options": [
+        "criterion",
+        "spontaneous",
+        "inspect",
+        "sufficient"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-02-q1",
+      "question": "What is the primary focus of the video 'Supermarket Produce: Fruits and Weighing'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice supermarket produce: fruits and weighing effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores supermarket produce: fruits and weighing, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 23
+    },
+    {
+      "id": "video-fs-02-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Place...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Place your bag of fresh green apples onto the digital electr..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Place your bag of fresh green apples onto the digital electronic scale.', showing its practical importance.",
+      "timestampSeek": 92
+    },
+    {
+      "id": "video-fs-02-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Filling your basket with wholesome fresh food is an investment in...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Filling your basket with wholesome fresh food is an investment in vitality., providing a meaningful summary for learners.",
+      "timestampSeek": 207
+    }
+  ]
+}

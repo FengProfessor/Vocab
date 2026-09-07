@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-01",
+  "youtubeId": "vmrAaf4rMJc",
+  "title": "Checking Baggage at the Airport Counter",
+  "channel": "Oxford Online English",
+  "duration": 220,
+  "durationDisplay": "03:40",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/vmrAaf4rMJc/hqdefault.jpg",
+  "description": "Cách làm thủ tục gửi hành lý tại quầy check-in sân bay và kiểm tra cân nặng hành lý.",
+  "coreVocabulary": [
+    {
+      "word": "baggage",
+      "phonetic": "/ˈbæɡɪdʒ/",
+      "viDefinition": "hành lý (xách tay hoặc ký gửi)",
+      "contextSentence": "Please place your checked baggage onto the conveyor scale."
+    },
+    {
+      "word": "scale",
+      "phonetic": "/skeɪl/",
+      "viDefinition": "cân đo trọng lượng",
+      "contextSentence": "The digital scale displays twenty-two kilograms."
+    },
+    {
+      "word": "tag",
+      "phonetic": "/tæɡ/",
+      "viDefinition": "thẻ đeo hành lý",
+      "contextSentence": "The airline agent attached a barcode tag to my suitcase."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-01-cue-1",
+      "start": 0,
+      "end": 22,
+      "en": "Welcome to Oxford Online English's comprehensive airport travel series.",
+      "vi": "Chào mừng đến với chuỗi bài du lịch sân bay toàn diện của Oxford Online English."
+    },
+    {
+      "id": "video-tr-01-cue-2",
+      "start": 22,
+      "end": 44,
+      "en": "When you arrive at the international terminal, locate your airline's check-in counter.",
+      "vi": "Khi bạn đến nhà ga quốc tế, hãy tìm quầy làm thủ tục của hãng hàng không của bạn."
+    },
+    {
+      "id": "video-tr-01-cue-3",
+      "start": 44,
+      "end": 66,
+      "en": "Have your passport and flight booking confirmation ready in your hand.",
+      "vi": "Chuẩn bị sẵn hộ chiếu và giấy xác nhận đặt chỗ chuyến bay trong tay bạn."
+    },
+    {
+      "id": "video-tr-01-cue-4",
+      "start": 66,
+      "end": 88,
+      "en": "The agent will greet you: 'Good morning, where are you flying today?'",
+      "vi": "Nhân viên sẽ chào bạn: 'Chào buổi sáng, hôm nay bạn bay đi đâu?'"
+    },
+    {
+      "id": "video-tr-01-cue-5",
+      "start": 88,
+      "end": 110,
+      "en": "Place your heavy checked baggage onto the conveyor belt scale.",
+      "vi": "Đặt hành lý ký gửi nặng của bạn lên chiếc cân băng chuyền."
+    },
+    {
+      "id": "video-tr-01-cue-6",
+      "start": 110,
+      "end": 132,
+      "en": "Ensure your suitcase does not exceed the airline's weight allowance limit.",
+      "vi": "Đảm bảo vali của bạn không vượt quá giới hạn trọng lượng cho phép của hãng."
+    },
+    {
+      "id": "video-tr-01-cue-7",
+      "start": 132,
+      "end": 154,
+      "en": "The agent will print a durable baggage tag and attach it securely.",
+      "vi": "Nhân viên sẽ in một thẻ hành lý bền và gắn chắc chắn vào vali."
+    },
+    {
+      "id": "video-tr-01-cue-8",
+      "start": 154,
+      "end": 176,
+      "en": "Take your stamped boarding pass and verify your departure gate number.",
+      "vi": "Nhận thẻ lên máy bay đã đóng dấu và xác minh số cổng khởi hành của bạn."
+    },
+    {
+      "id": "video-tr-01-cue-9",
+      "start": 176,
+      "end": 198,
+      "en": "Proceed directly toward the international security screening checkpoint.",
+      "vi": "Đi thẳng về phía điểm kiểm tra an ninh quốc tế."
+    },
+    {
+      "id": "video-tr-01-cue-10",
+      "start": 198,
+      "end": 220,
+      "en": "Smooth airport check-in starts every journey with confidence and joy.",
+      "vi": "Làm thủ tục sân bay suôn sẻ bắt đầu mọi chuyến đi với sự tự tin và niềm vui."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-01-cloze-1",
+      "cueId": "video-tr-01-cue-3",
+      "sentence": "Have your {{blank}} and flight booking confirmation ready in your hand.",
+      "blankWord": "passport",
+      "hintVi": "Nghĩa gợi ý: Chuẩn bị sẵn hộ chiếu và giấy xác nhận đ...",
+      "timestamp": 44,
+      "options": [
+        "passport",
+        "remarkable",
+        "dimension",
+        "resource"
+      ]
+    },
+    {
+      "id": "video-tr-01-cloze-2",
+      "cueId": "video-tr-01-cue-5",
+      "sentence": "{{blank}} your heavy checked baggage onto the conveyor belt scale.",
+      "blankWord": "place",
+      "hintVi": "Nghĩa gợi ý: Đặt hành lý ký gửi nặng của bạn lên chiế...",
+      "timestamp": 88,
+      "options": [
+        "resource",
+        "convenient",
+        "place",
+        "consistent"
+      ]
+    },
+    {
+      "id": "video-tr-01-cloze-3",
+      "cueId": "video-tr-01-cue-8",
+      "sentence": "Take your {{blank}} boarding pass and verify your departure gate number.",
+      "blankWord": "stamped",
+      "hintVi": "Nghĩa gợi ý: Nhận thẻ lên máy bay đã đóng dấu và xác ...",
+      "timestamp": 154,
+      "options": [
+        "efficient",
+        "perceptive",
+        "adequate",
+        "stamped"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-01-q1",
+      "question": "What is the primary focus of the video 'Checking Baggage at the Airport Counter'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice checking baggage at the airport counter effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores checking baggage at the airport counter, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 22
+    },
+    {
+      "id": "video-tr-01-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Place...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Place your heavy checked baggage onto the conveyor belt scal...",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Place your heavy checked baggage onto the conveyor belt scale.', showing its practical importance.",
+      "timestampSeek": 88
+    },
+    {
+      "id": "video-tr-01-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Smooth airport check-in starts every journey with confidence and ...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Smooth airport check-in starts every journey with confidence and joy., providing a meaningful summary for learners.",
+      "timestampSeek": 198
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-wp-17",
+  "youtubeId": "aHHGH60Rtw9",
+  "title": "Crisis Communication and Managing Team Burnout",
+  "channel": "Harvard Business Review",
+  "duration": 510,
+  "durationDisplay": "08:30",
+  "durationCategory": "short",
+  "cefrLevel": "B2",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/aHHGH60Rtw9/hqdefault.jpg",
+  "description": "Giao tiếp trong khủng hoảng: minh bạch thông tin, trấn an tinh thần và chống kiệt sức.",
+  "coreVocabulary": [
+    {
+      "word": "burnout",
+      "phonetic": "/ˈbɜːnaʊt/",
+      "viDefinition": "sự kiệt sức (do công việc kéo dài)",
+      "contextSentence": "Chronic stress without recovery leads directly to professional burnout."
+    },
+    {
+      "word": "transparency",
+      "phonetic": "/trænˈspærənsi/",
+      "viDefinition": "sự minh bạch, rõ ràng",
+      "contextSentence": "Executive transparency dispels panic and re-establishes corporate trust."
+    },
+    {
+      "word": "resilience",
+      "phonetic": "/rɪˈzɪliəns/",
+      "viDefinition": "sự kiên cường, khả năng phục hồi",
+      "contextSentence": "Nurturing collective team resilience protects performance over time."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-17-cue-1",
+      "start": 0,
+      "end": 51,
+      "en": "Welcome to Harvard Business Review's crisis leadership executive briefings.",
+      "vi": "Chào mừng đến với các bản tóm tắt điều hành lãnh đạo khủng hoảng của Harvard Business Review."
+    },
+    {
+      "id": "video-wp-17-cue-2",
+      "start": 51,
+      "end": 102,
+      "en": "When market shocks, layoffs, or cyber intrusions strike, panic spreads rapidly.",
+      "vi": "Khi những cú sốc thị trường, sa thải nhân viên hoặc xâm nhập mạng ập đến, sự hoảng loạn lan nhanh."
+    },
+    {
+      "id": "video-wp-17-cue-3",
+      "start": 102,
+      "end": 153,
+      "en": "The primary failure in corporate emergencies is communication silence.",
+      "vi": "Thất bại hàng đầu trong các tình huống khẩn cấp của doanh nghiệp là sự im lặng trong giao tiếp."
+    },
+    {
+      "id": "video-wp-17-cue-4",
+      "start": 153,
+      "end": 204,
+      "en": "In the absence of facts, human imagination invariably manufactures terrifying rumors.",
+      "vi": "Khi thiếu vắng sự thật, trí tưởng tượng con người luôn luôn tạo ra những tin đồn đáng sợ."
+    },
+    {
+      "id": "video-wp-17-cue-5",
+      "start": 204,
+      "end": 255,
+      "en": "Leaders must communicate with unwavering transparency and emotional steadying.",
+      "vi": "Các nhà lãnh đạo phải giao tiếp với sự minh bạch kiên định và sự vững vàng cảm xúc."
+    },
+    {
+      "id": "video-wp-17-cue-6",
+      "start": 255,
+      "end": 306,
+      "en": "Acknowledge difficult realities candidly without false optimistic sugarcoating.",
+      "vi": "Thừa nhận những thực tế khó khăn một cách thẳng thắn mà không bọc đường lạc quan giả tạo."
+    },
+    {
+      "id": "video-wp-17-cue-7",
+      "start": 306,
+      "end": 357,
+      "en": "Recognize that prolonged emergency sprints rapidly deplete staff and cause burnout.",
+      "vi": "Nhận ra rằng những giai đoạn chạy nước rút khẩn cấp kéo dài sẽ nhanh chóng làm kiệt quệ nhân viên và gây kiệt sức."
+    },
+    {
+      "id": "video-wp-17-cue-8",
+      "start": 357,
+      "end": 408,
+      "en": "Enforce mandatory rest cycles to rebuild psychological and physiological resilience.",
+      "vi": "Thực thi các chu kỳ nghỉ ngơi bắt buộc để xây dựng lại khả năng phục hồi tâm lý và sinh lý."
+    },
+    {
+      "id": "video-wp-17-cue-9",
+      "start": 408,
+      "end": 459,
+      "en": "Clarify revised corporate priorities so teams focus on essential survival vectors.",
+      "vi": "Làm rõ các ưu tiên doanh nghiệp đã được điều chỉnh để các nhóm tập trung vào các hướng sinh tồn thiết yếu."
+    },
+    {
+      "id": "video-wp-17-cue-10",
+      "start": 459,
+      "end": 510,
+      "en": "Courageous, compassionate leadership in crisis cements loyalty for decades.",
+      "vi": "Sự lãnh đạo dũng cảm, giàu lòng trắc ẩn trong khủng hoảng sẽ gắn kết lòng trung thành trong nhiều thập kỷ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-17-cloze-1",
+      "cueId": "video-wp-17-cue-3",
+      "sentence": "The {{blank}} failure in corporate emergencies is communication silence.",
+      "blankWord": "primary",
+      "hintVi": "Nghĩa gợi ý: Thất bại hàng đầu trong các tình huống k...",
+      "timestamp": 102,
+      "options": [
+        "vulnerable",
+        "primary",
+        "advantage",
+        "gradual"
+      ]
+    },
+    {
+      "id": "video-wp-17-cloze-2",
+      "cueId": "video-wp-17-cue-5",
+      "sentence": "{{blank}} must communicate with unwavering transparency and emotional steadying.",
+      "blankWord": "leaders",
+      "hintVi": "Nghĩa gợi ý: Các nhà lãnh đạo phải giao tiếp với sự m...",
+      "timestamp": 204,
+      "options": [
+        "criterion",
+        "leaders",
+        "resource",
+        "vibrant"
+      ]
+    },
+    {
+      "id": "video-wp-17-cloze-3",
+      "cueId": "video-wp-17-cue-8",
+      "sentence": "{{blank}} mandatory rest cycles to rebuild psychological and physiological resilience.",
+      "blankWord": "enforce",
+      "hintVi": "Nghĩa gợi ý: Thực thi các chu kỳ nghỉ ngơi bắt buộc đ...",
+      "timestamp": 357,
+      "options": [
+        "consistent",
+        "enforce",
+        "simultaneous",
+        "efficient"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-17-q1",
+      "question": "What is the primary focus of the video 'Crisis Communication and Managing Team Burnout'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice crisis communication and managing team burnout effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores crisis communication and managing team burnout, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 51
+    },
+    {
+      "id": "video-wp-17-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Leaders...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Leaders must communicate with unwavering transparency and em...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Leaders must communicate with unwavering transparency and emotional steadying.', showing its practical importance.",
+      "timestampSeek": 204
+    },
+    {
+      "id": "video-wp-17-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Courageous, compassionate leadership in crisis cements loyalty fo...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Courageous, compassionate leadership in crisis cements loyalty for decades., providing a meaningful summary for learners.",
+      "timestampSeek": 459
+    }
+  ]
+}

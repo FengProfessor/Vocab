@@ -1,0 +1,191 @@
+{
+  "id": "video-sc-09",
+  "youtubeId": "jG1AW1TUSx5",
+  "title": "Talking About Movies and Favorite Shows",
+  "channel": "BBC Learning English",
+  "duration": 280,
+  "durationDisplay": "04:40",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "social_conversations",
+  "topicDisplay": "Giao tiếp & Đời sống xã hội",
+  "thumbnailUrl": "https://img.youtube.com/vi/jG1AW1TUSx5/hqdefault.jpg",
+  "description": "Từ vựng bình luận phim ảnh, cốt truyện và gợi ý các series truyền hình yêu thích.",
+  "coreVocabulary": [
+    {
+      "word": "genre",
+      "phonetic": "/ˈʒɒnrə/",
+      "viDefinition": "thể loại (phim, nhạc, sách)",
+      "contextSentence": "Science fiction has always been my favorite cinematic genre."
+    },
+    {
+      "word": "recommend",
+      "phonetic": "/ˌrekəˈmend/",
+      "viDefinition": "giới thiệu, khuyên xem",
+      "contextSentence": "Can you recommend an inspiring documentary on Netflix?"
+    },
+    {
+      "word": "plot",
+      "phonetic": "/plɒt/",
+      "viDefinition": "cốt truyện, tình tiết phim",
+      "contextSentence": "The intricate movie plot kept audiences guessing until the final scene."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sc-09-cue-1",
+      "start": 0,
+      "end": 28,
+      "en": "Welcome to BBC Learning English's entertainment conversation workshop.",
+      "vi": "Chào mừng đến với buổi thảo luận hội thoại giải trí của BBC Learning English."
+    },
+    {
+      "id": "video-sc-09-cue-2",
+      "start": 28,
+      "end": 56,
+      "en": "Discussing films and television series is a universally beloved small talk topic.",
+      "vi": "Thảo luận về phim điện ảnh và các bộ phim truyền hình là một chủ đề làm quen được yêu thích toàn cầu."
+    },
+    {
+      "id": "video-sc-09-cue-3",
+      "start": 56,
+      "end": 84,
+      "en": "Ask your friends: 'Have you watched anything exciting on streaming lately?'",
+      "vi": "Hỏi bạn bè của bạn: 'Gần đây bạn có xem bộ phim nào thú vị trên các kênh trực tuyến không?'"
+    },
+    {
+      "id": "video-sc-09-cue-4",
+      "start": 84,
+      "end": 112,
+      "en": "Talk about your preferred cinematic genre, whether mystery, comedy, or drama.",
+      "vi": "Nói về thể loại điện ảnh ưa thích của bạn, dù là trinh thám bí ẩn, hài kịch hay chính kịch."
+    },
+    {
+      "id": "video-sc-09-cue-5",
+      "start": 112,
+      "end": 140,
+      "en": "I usually recommend historical documentaries because they expand my worldview.",
+      "vi": "Tôi thường giới thiệu các bộ phim tài liệu lịch sử vì chúng mở rộng thế giới quan của tôi."
+    },
+    {
+      "id": "video-sc-09-cue-6",
+      "start": 140,
+      "end": 168,
+      "en": "Discuss whether the movie plot was fast-paced, suspenseful, or predictable.",
+      "vi": "Thảo luận xem cốt truyện của bộ phim có dồn dập, hồi hộp hay dễ đoán trước."
+    },
+    {
+      "id": "video-sc-09-cue-7",
+      "start": 168,
+      "end": 196,
+      "en": "Be careful not to reveal major spoilers before your friends have watched.",
+      "vi": "Hãy cẩn thận đừng tiết lộ những tình tiết then chốt trước khi bạn bè của bạn kịp xem."
+    },
+    {
+      "id": "video-sc-09-cue-8",
+      "start": 196,
+      "end": 224,
+      "en": "Praise the lead actor's charismatic performance and convincing emotional depth.",
+      "vi": "Khen ngợi màn thể hiện đầy cuốn hút và chiều sâu cảm xúc thuyết phục của diễn viên chính."
+    },
+    {
+      "id": "video-sc-09-cue-9",
+      "start": 224,
+      "end": 252,
+      "en": "Cinema provides a shared cultural mirror reflecting our human experience.",
+      "vi": "Điện ảnh cung cấp một tấm gương văn hóa chung phản chiếu trải nghiệm con người chúng ta."
+    },
+    {
+      "id": "video-sc-09-cue-10",
+      "start": 252,
+      "end": 280,
+      "en": "Sharing movie opinions sparks vibrant debates and deepens friendships.",
+      "vi": "Chia sẻ quan điểm về phim ảnh khơi dậy những cuộc tranh luận sôi nổi và làm sâu sắc thêm tình bạn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sc-09-cloze-1",
+      "cueId": "video-sc-09-cue-3",
+      "sentence": "Ask your {{blank}}: 'Have you watched anything exciting on streaming lately?'",
+      "blankWord": "friends",
+      "hintVi": "Nghĩa gợi ý: Hỏi bạn bè của bạn: 'Gần đây bạn có xem ...",
+      "timestamp": 56,
+      "options": [
+        "extensive",
+        "friends",
+        "dimension",
+        "tremendous"
+      ]
+    },
+    {
+      "id": "video-sc-09-cloze-2",
+      "cueId": "video-sc-09-cue-5",
+      "sentence": "I {{blank}} recommend historical documentaries because they expand my worldview.",
+      "blankWord": "usually",
+      "hintVi": "Nghĩa gợi ý: Tôi thường giới thiệu các bộ phim tài li...",
+      "timestamp": 112,
+      "options": [
+        "perceptive",
+        "prominent",
+        "usually",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-sc-09-cloze-3",
+      "cueId": "video-sc-09-cue-8",
+      "sentence": "{{blank}} the lead actor's charismatic performance and convincing emotional depth.",
+      "blankWord": "praise",
+      "hintVi": "Nghĩa gợi ý: Khen ngợi màn thể hiện đầy cuốn hút và c...",
+      "timestamp": 196,
+      "options": [
+        "component",
+        "remarkable",
+        "praise",
+        "innovative"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sc-09-q1",
+      "question": "What is the primary focus of the video 'Talking About Movies and Favorite Shows'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice talking about movies and favorite shows effectively.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores talking about movies and favorite shows, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 28
+    },
+    {
+      "id": "video-sc-09-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'I...'?",
+      "options": [
+        "It emphasizes that: I usually recommend historical documentaries because they ex...",
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'I usually recommend historical documentaries because they expand my worldview.', showing its practical importance.",
+      "timestampSeek": 112
+    },
+    {
+      "id": "video-sc-09-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Sharing movie opinions sparks vibrant debates and deepens friends...",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Sharing movie opinions sparks vibrant debates and deepens friendships., providing a meaningful summary for learners.",
+      "timestampSeek": 252
+    }
+  ]
+}

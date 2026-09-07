@@ -73,6 +73,8 @@ export interface Profile {
   fcm_token?: string | null;
   plan?: Plan;
   plan_expires_at?: string | null;
+  province?: string | null;
+  city?: string | null;
 }
 
 /** Token dài hạn cho Chrome Extension — DB chỉ lưu SHA-256 hash (service-role only). */

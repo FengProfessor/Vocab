@@ -1,0 +1,191 @@
+{
+  "id": "video-dl-08",
+  "youtubeId": "rMd8zkQhAeU",
+  "title": "Managing Household Trash and Recycling",
+  "channel": "EnglishClass101",
+  "duration": 350,
+  "durationDisplay": "05:50",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/rMd8zkQhAeU/hqdefault.jpg",
+  "description": "Cách phân loại rác thải gia đình, tái chế chai nhựa và bảo vệ môi trường khu dân cư.",
+  "coreVocabulary": [
+    {
+      "word": "recycle",
+      "phonetic": "/ˌriːˈsaɪkl/",
+      "viDefinition": "tái chế",
+      "contextSentence": "Remember to recycle clean plastic bottles and cardboard boxes."
+    },
+    {
+      "word": "compost",
+      "phonetic": "/ˈkɒmpɒst/",
+      "viDefinition": "phân hữu cơ, ủ rác hữu cơ",
+      "contextSentence": "Food scraps can be turned into rich compost for the garden."
+    },
+    {
+      "word": "dispose",
+      "phonetic": "/dɪˈspəʊz/",
+      "viDefinition": "vứt bỏ, xử lý rác",
+      "contextSentence": "Please dispose of used batteries in the designated container."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-08-cue-1",
+      "start": 0,
+      "end": 35,
+      "en": "Today we are talking about household waste and practical recycling.",
+      "vi": "Hôm nay chúng ta nói về rác thải gia đình và việc tái chế thiết thực."
+    },
+    {
+      "id": "video-dl-08-cue-2",
+      "start": 35,
+      "end": 70,
+      "en": "Managing garbage properly keeps our streets and neighborhoods pristine.",
+      "vi": "Quản lý rác thải đúng cách giữ cho đường phố và khu xóm của chúng ta luôn tinh tươm."
+    },
+    {
+      "id": "video-dl-08-cue-3",
+      "start": 70,
+      "end": 105,
+      "en": "Place three separate bins in your kitchen for different waste categories.",
+      "vi": "Đặt ba thùng rác riêng biệt trong bếp của bạn cho các loại rác khác nhau."
+    },
+    {
+      "id": "video-dl-08-cue-4",
+      "start": 105,
+      "end": 140,
+      "en": "Cardboard, clean paper, and plastic containers are easy to recycle.",
+      "vi": "Bìa carton, giấy sạch và hộp nhựa rất dễ tái chế."
+    },
+    {
+      "id": "video-dl-08-cue-5",
+      "start": 140,
+      "end": 175,
+      "en": "Rinse food residues out of glass jars before tossing them into bins.",
+      "vi": "Tráng sạch cặn thức ăn khỏi lọ thủy tinh trước khi vứt vào thùng."
+    },
+    {
+      "id": "video-dl-08-cue-6",
+      "start": 175,
+      "end": 210,
+      "en": "Vegetable peelings and coffee grounds make wonderful organic compost.",
+      "vi": "Vỏ rau củ và bã cà phê tạo nên phân hữu cơ tuyệt vời."
+    },
+    {
+      "id": "video-dl-08-cue-7",
+      "start": 210,
+      "end": 245,
+      "en": "Never throw hazardous chemicals or batteries into regular trash.",
+      "vi": "Không bao giờ vứt hóa chất nguy hại hoặc pin vào rác thông thường."
+    },
+    {
+      "id": "video-dl-08-cue-8",
+      "start": 245,
+      "end": 280,
+      "en": "Learn how to dispose of electronics safely at the city recycling center.",
+      "vi": "Học cách vứt bỏ đồ điện tử an toàn tại trung tâm tái chế của thành phố."
+    },
+    {
+      "id": "video-dl-08-cue-9",
+      "start": 280,
+      "end": 315,
+      "en": "Take your garbage bags out to the curb on scheduled collection days.",
+      "vi": "Mang túi rác của bạn ra lề đường vào những ngày thu gom theo lịch trình."
+    },
+    {
+      "id": "video-dl-08-cue-10",
+      "start": 315,
+      "end": 350,
+      "en": "Small conscious choices at home contribute to a greener planet.",
+      "vi": "Những lựa chọn có ý thức nhỏ tại nhà đóng góp cho một hành tinh xanh hơn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-08-cloze-1",
+      "cueId": "video-dl-08-cue-3",
+      "sentence": "{{blank}} three separate bins in your kitchen for different waste categories.",
+      "blankWord": "place",
+      "hintVi": "Nghĩa gợi ý: Đặt ba thùng rác riêng biệt trong bếp củ...",
+      "timestamp": 70,
+      "options": [
+        "innovative",
+        "temporary",
+        "place",
+        "criterion"
+      ]
+    },
+    {
+      "id": "video-dl-08-cloze-2",
+      "cueId": "video-dl-08-cue-5",
+      "sentence": "{{blank}} food residues out of glass jars before tossing them into bins.",
+      "blankWord": "rinse",
+      "hintVi": "Nghĩa gợi ý: Tráng sạch cặn thức ăn khỏi lọ thủy tinh...",
+      "timestamp": 140,
+      "options": [
+        "vibrant",
+        "strategy",
+        "rinse",
+        "perceptive"
+      ]
+    },
+    {
+      "id": "video-dl-08-cloze-3",
+      "cueId": "video-dl-08-cue-8",
+      "sentence": "{{blank}} how to dispose of electronics safely at the city recycling center.",
+      "blankWord": "learn",
+      "hintVi": "Nghĩa gợi ý: Học cách vứt bỏ đồ điện tử an toàn tại t...",
+      "timestamp": 245,
+      "options": [
+        "tremendous",
+        "learn",
+        "alternative",
+        "perceptive"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-08-q1",
+      "question": "What is the primary focus of the video 'Managing Household Trash and Recycling'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice managing household trash and recycling effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores managing household trash and recycling, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 35
+    },
+    {
+      "id": "video-dl-08-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Rinse...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Rinse food residues out of glass jars before tossing them in...",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Rinse food residues out of glass jars before tossing them into bins.', showing its practical importance.",
+      "timestampSeek": 140
+    },
+    {
+      "id": "video-dl-08-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Small conscious choices at home contribute to a greener planet....",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Small conscious choices at home contribute to a greener planet., providing a meaningful summary for learners.",
+      "timestampSeek": 315
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-dl-09",
+  "youtubeId": "Dr-DFcE8P0n",
+  "title": "Watering Plants and Balcony Gardening",
+  "channel": "Speak English With Vanessa",
+  "duration": 260,
+  "durationDisplay": "04:20",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/Dr-DFcE8P0n/hqdefault.jpg",
+  "description": "Từ vựng chăm sóc cây cảnh trong nhà, tưới cây và tạo không gian xanh mát ban công.",
+  "coreVocabulary": [
+    {
+      "word": "soil",
+      "phonetic": "/sɔɪl/",
+      "viDefinition": "đất trồng cây",
+      "contextSentence": "Check if the soil feels dry before pouring more water."
+    },
+    {
+      "word": "bloom",
+      "phonetic": "/bluːm/",
+      "viDefinition": "nở hoa, bông hoa",
+      "contextSentence": "These potted roses will bloom beautifully during spring."
+    },
+    {
+      "word": "prune",
+      "phonetic": "/pruːn/",
+      "viDefinition": "cắt tỉa (cành, lá)",
+      "contextSentence": "Prune away dead leaves to encourage healthy new growth."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-09-cue-1",
+      "start": 0,
+      "end": 26,
+      "en": "Hello plant lovers, let's step out onto the green balcony today.",
+      "vi": "Xin chào những người yêu cây, hôm nay chúng ta hãy bước ra ban công xanh mát."
+    },
+    {
+      "id": "video-dl-09-cue-2",
+      "start": 26,
+      "end": 52,
+      "en": "Growing potted plants in your apartment brings nature into daily life.",
+      "vi": "Trồng cây trong chậu tại căn hộ mang thiên nhiên vào cuộc sống hàng ngày."
+    },
+    {
+      "id": "video-dl-09-cue-3",
+      "start": 52,
+      "end": 78,
+      "en": "Always check the top inch of soil with your finger before watering.",
+      "vi": "Luôn kiểm tra lớp đất trên cùng bằng ngón tay trước khi tưới nước."
+    },
+    {
+      "id": "video-dl-09-cue-4",
+      "start": 78,
+      "end": 104,
+      "en": "Overwatering causes root rot, so moderation is the golden rule.",
+      "vi": "Tưới nước quá nhiều gây thối rễ, vì vậy vừa phải là nguyên tắc vàng."
+    },
+    {
+      "id": "video-dl-09-cue-5",
+      "start": 104,
+      "end": 130,
+      "en": "Use a gentle watering can to distribute moisture evenly.",
+      "vi": "Dùng bình tưới nước nhẹ nhàng để phân bổ độ ẩm đồng đều."
+    },
+    {
+      "id": "video-dl-09-cue-6",
+      "start": 130,
+      "end": 156,
+      "en": "Give your flowering pots enough sunlight so blossoms can bloom brightly.",
+      "vi": "Cho các chậu hoa đủ ánh nắng để những bông hoa có thể nở rực rỡ."
+    },
+    {
+      "id": "video-dl-09-cue-7",
+      "start": 156,
+      "end": 182,
+      "en": "Carefully prune yellowing stems with sharp garden shears.",
+      "vi": "Cẩn thận cắt tỉa những cành cây ngả vàng bằng kéo làm vườn sắc."
+    },
+    {
+      "id": "video-dl-09-cue-8",
+      "start": 182,
+      "end": 208,
+      "en": "Wipe broad green leaves with a damp cloth to remove household dust.",
+      "vi": "Lau những chiếc lá xanh rộng bằng khăn ẩm để loại bỏ bụi trong nhà."
+    },
+    {
+      "id": "video-dl-09-cue-9",
+      "start": 208,
+      "end": 234,
+      "en": "Fertilize every couple of weeks during the warm summer growing season.",
+      "vi": "Bón phân vài tuần một lần trong mùa sinh trưởng ấm áp của mùa hè."
+    },
+    {
+      "id": "video-dl-09-cue-10",
+      "start": 234,
+      "end": 260,
+      "en": "Caring for living greenery teaches patience and brings inner peace.",
+      "vi": "Chăm sóc cây cối xanh tươi dạy ta sự kiên nhẫn và mang lại sự bình yên trong tâm hồn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-09-cloze-1",
+      "cueId": "video-dl-09-cue-3",
+      "sentence": "{{blank}} check the top inch of soil with your finger before watering.",
+      "blankWord": "always",
+      "hintVi": "Nghĩa gợi ý: Luôn kiểm tra lớp đất trên cùng bằng ngó...",
+      "timestamp": 52,
+      "options": [
+        "balance",
+        "gradual",
+        "always",
+        "protocol"
+      ]
+    },
+    {
+      "id": "video-dl-09-cloze-2",
+      "cueId": "video-dl-09-cue-5",
+      "sentence": "Use a {{blank}} watering can to distribute moisture evenly.",
+      "blankWord": "gentle",
+      "hintVi": "Nghĩa gợi ý: Dùng bình tưới nước nhẹ nhàng để phân bổ...",
+      "timestamp": 104,
+      "options": [
+        "fundamental",
+        "gentle",
+        "component",
+        "routine"
+      ]
+    },
+    {
+      "id": "video-dl-09-cloze-3",
+      "cueId": "video-dl-09-cue-8",
+      "sentence": "Wipe {{blank}} green leaves with a damp cloth to remove household dust.",
+      "blankWord": "broad",
+      "hintVi": "Nghĩa gợi ý: Lau những chiếc lá xanh rộng bằng khăn ẩ...",
+      "timestamp": 182,
+      "options": [
+        "dimension",
+        "adequate",
+        "gradual",
+        "broad"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-09-q1",
+      "question": "What is the primary focus of the video 'Watering Plants and Balcony Gardening'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice watering plants and balcony gardening effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores watering plants and balcony gardening, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 26
+    },
+    {
+      "id": "video-dl-09-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Use...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Use a gentle watering can to distribute moisture evenly...."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Use a gentle watering can to distribute moisture evenly.', showing its practical importance.",
+      "timestampSeek": 104
+    },
+    {
+      "id": "video-dl-09-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Caring for living greenery teaches patience and brings inner peac...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Caring for living greenery teaches patience and brings inner peace., providing a meaningful summary for learners.",
+      "timestampSeek": 234
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-06",
+  "youtubeId": "7SAXIRAutrs",
+  "title": "Taking a City Taxi and Giving Directions",
+  "channel": "Learn English with Bob the Canadian",
+  "duration": 250,
+  "durationDisplay": "04:10",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/7SAXIRAutrs/hqdefault.jpg",
+  "description": "Cách bắt taxi, nói địa chỉ cần đến và hỏi về cước phí đồng hồ đo.",
+  "coreVocabulary": [
+    {
+      "word": "fare",
+      "phonetic": "/feə(r)/",
+      "viDefinition": "tiền cước taxi",
+      "contextSentence": "The meter calculates the taxi fare based on distance and traffic."
+    },
+    {
+      "word": "destination",
+      "phonetic": "/ˌdestɪˈneɪʃn/",
+      "viDefinition": "điểm đến",
+      "contextSentence": "Tell the driver your destination address clearly before starting."
+    },
+    {
+      "word": "receipt",
+      "phonetic": "/rɪˈsiːt/",
+      "viDefinition": "hóa đơn, biên lai",
+      "contextSentence": "Could you please print a receipt for my travel expense report?"
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-06-cue-1",
+      "start": 0,
+      "end": 25,
+      "en": "Welcome back everyone, today Bob shows you how to hail and take city cabs.",
+      "vi": "Chào mừng quay lại mọi người, hôm nay Bob chỉ cho bạn cách vẫy và đi taxi trong thành phố."
+    },
+    {
+      "id": "video-tr-06-cue-2",
+      "start": 25,
+      "end": 50,
+      "en": "Taking a taxi is convenient when you have heavy suitcases or travel late at night.",
+      "vi": "Đi taxi rất tiện lợi khi bạn có vali nặng hoặc đi lại vào lúc đêm muộn."
+    },
+    {
+      "id": "video-tr-06-cue-3",
+      "start": 50,
+      "end": 75,
+      "en": "Hail a licensed taxi from an official taxi stand outside the railway station.",
+      "vi": "Vẫy một chiếc taxi có giấy phép từ điểm đỗ taxi chính thức bên ngoài nhà ga xe lửa."
+    },
+    {
+      "id": "video-tr-06-cue-4",
+      "start": 75,
+      "end": 100,
+      "en": "Greet the driver warmly and state your destination clearly: 'To the Grand Plaza Hotel, please.'",
+      "vi": "Chào tài xế niềm nở và nêu điểm đến rõ ràng: 'Làm ơn cho tôi đến Khách sạn Grand Plaza.'"
+    },
+    {
+      "id": "video-tr-06-cue-5",
+      "start": 100,
+      "end": 125,
+      "en": "Make sure the driver activates the official dashboard meter when departing.",
+      "vi": "Đảm bảo tài xế bật đồng hồ đo chính thức trên bảng điều khiển khi khởi hành."
+    },
+    {
+      "id": "video-tr-06-cue-6",
+      "start": 125,
+      "end": 150,
+      "en": "You can follow along on your smartphone map to verify the chosen driving route.",
+      "vi": "Bạn có thể theo dõi trên bản đồ điện thoại thông minh để kiểm tra lộ trình lái xe đã chọn."
+    },
+    {
+      "id": "video-tr-06-cue-7",
+      "start": 150,
+      "end": 175,
+      "en": "If you prefer a cooler temperature, ask: 'Could you turn up the air conditioning?'",
+      "vi": "Nếu bạn thích nhiệt độ mát hơn, hãy hỏi: 'Bác tài có thể bật thêm điều hòa được không?'"
+    },
+    {
+      "id": "video-tr-06-cue-8",
+      "start": 175,
+      "end": 200,
+      "en": "When you arrive, look at the meter display to see the final taxi fare.",
+      "vi": "Khi bạn đến nơi, hãy nhìn vào màn hình đồng hồ để xem mức cước taxi cuối cùng."
+    },
+    {
+      "id": "video-tr-06-cue-9",
+      "start": 200,
+      "end": 225,
+      "en": "Pay with local cash or your card and ask: 'May I please have a printed receipt?'",
+      "vi": "Thanh toán bằng tiền mặt địa phương hoặc thẻ và hỏi: 'Làm ơn cho tôi xin hóa đơn in được không?'"
+    },
+    {
+      "id": "video-tr-06-cue-10",
+      "start": 225,
+      "end": 250,
+      "en": "Safe and courteous taxi rides make urban exploring effortless and secure.",
+      "vi": "Những chuyến đi taxi an toàn và lịch thiệp khiến việc khám phá đô thị trở nên dễ dàng và an tâm."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-06-cloze-1",
+      "cueId": "video-tr-06-cue-3",
+      "sentence": "Hail a {{blank}} taxi from an official taxi stand outside the railway station.",
+      "blankWord": "licensed",
+      "hintVi": "Nghĩa gợi ý: Vẫy một chiếc taxi có giấy phép từ điểm ...",
+      "timestamp": 50,
+      "options": [
+        "licensed",
+        "flexible",
+        "preliminary",
+        "innovative"
+      ]
+    },
+    {
+      "id": "video-tr-06-cloze-2",
+      "cueId": "video-tr-06-cue-5",
+      "sentence": "Make sure the {{blank}} activates the official dashboard meter when departing.",
+      "blankWord": "driver",
+      "hintVi": "Nghĩa gợi ý: Đảm bảo tài xế bật đồng hồ đo chính thức...",
+      "timestamp": 100,
+      "options": [
+        "tremendous",
+        "consistent",
+        "strategy",
+        "driver"
+      ]
+    },
+    {
+      "id": "video-tr-06-cloze-3",
+      "cueId": "video-tr-06-cue-8",
+      "sentence": "When you {{blank}}, look at the meter display to see the final taxi fare.",
+      "blankWord": "arrive",
+      "hintVi": "Nghĩa gợi ý: Khi bạn đến nơi, hãy nhìn vào màn hình đ...",
+      "timestamp": 175,
+      "options": [
+        "arrive",
+        "convenient",
+        "flexible",
+        "advantage"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-06-q1",
+      "question": "What is the primary focus of the video 'Taking a City Taxi and Giving Directions'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice taking a city taxi and giving directions effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores taking a city taxi and giving directions, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 25
+    },
+    {
+      "id": "video-tr-06-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Make...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Make sure the driver activates the official dashboard meter ...",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Make sure the driver activates the official dashboard meter when departing.', showing its practical importance.",
+      "timestampSeek": 100
+    },
+    {
+      "id": "video-tr-06-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Safe and courteous taxi rides make urban exploring effortless and...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Safe and courteous taxi rides make urban exploring effortless and secure., providing a meaningful summary for learners.",
+      "timestampSeek": 225
+    }
+  ]
+}

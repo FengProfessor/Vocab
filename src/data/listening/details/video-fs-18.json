@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-18",
+  "youtubeId": "4cHjNnfx1B6",
+  "title": "The Art of Wine Tasting and Flavor Descriptors",
+  "channel": "English with Lucy",
+  "duration": 580,
+  "durationDisplay": "09:40",
+  "durationCategory": "short",
+  "cefrLevel": "B2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/4cHjNnfx1B6/hqdefault.jpg",
+  "description": "Nghệ thuật thẩm định rượu vang: hương thơm, tannin, độ chua và hậu vị kéo dài.",
+  "coreVocabulary": [
+    {
+      "word": "tannin",
+      "phonetic": "/ˈtænɪn/",
+      "viDefinition": "chất chát tannin (trong vỏ nho, gỗ sồi)",
+      "contextSentence": "Bold red wines feature structured tannins that dry the gums pleasantly."
+    },
+    {
+      "word": "aromatic",
+      "phonetic": "/ˌærəˈmætɪk/",
+      "viDefinition": "thơm ngát, ngào ngạt hương hoa quả",
+      "contextSentence": "This chilled white wine offers delicate aromatic floral bouquets."
+    },
+    {
+      "word": "finish",
+      "phonetic": "/ˈfɪnɪʃ/",
+      "viDefinition": "hậu vị (cảm giác đọng lại sau khi nuốt)",
+      "contextSentence": "A truly magnificent vintage leaves a persistent, complex finish."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-18-cue-1",
+      "start": 0,
+      "end": 58,
+      "en": "Hello wine connoisseurs, Lucy here guiding you through the sensory world of viticulture.",
+      "vi": "Xin chào những người sành rượu vang, Lucy ở đây hướng dẫn bạn qua thế giới cảm quan của nghề trồng nho."
+    },
+    {
+      "id": "video-fs-18-cue-2",
+      "start": 58,
+      "end": 116,
+      "en": "Tasting fine wine is a sophisticated sensory discipline combining sight, smell, and taste.",
+      "vi": "Nếm rượu vang hảo hạng là một bộ môn cảm quan tinh tế kết hợp thị giác, khứu giác và vị giác."
+    },
+    {
+      "id": "video-fs-18-cue-3",
+      "start": 116,
+      "end": 174,
+      "en": "Hold the crystal wine glass by the stem to avoid warming the liquid with your fingers.",
+      "vi": "Cầm ly rượu vang pha lê bằng phần cuống để tránh làm ấm chất lỏng bằng ngón tay của bạn."
+    },
+    {
+      "id": "video-fs-18-cue-4",
+      "start": 174,
+      "end": 232,
+      "en": "Tilt the glass against a white napkin to observe color hue and rim variation.",
+      "vi": "Nghiêng ly trên một chiếc khăn ăn màu trắng để quan sát sắc thái màu sắc và viền rượu."
+    },
+    {
+      "id": "video-fs-18-cue-5",
+      "start": 232,
+      "end": 290,
+      "en": "Swirl the vintage gently to aerate the wine and release its volatile aromatic compounds.",
+      "vi": "Lắc nhẹ ly rượu niên vụ để sục khí cho rượu và giải phóng các hợp chất thơm dễ bay hơi."
+    },
+    {
+      "id": "video-fs-18-cue-6",
+      "start": 290,
+      "end": 348,
+      "en": "Inhale deeply through your nose, identifying notes of dark blackberries, vanilla, or tobacco.",
+      "vi": "Hít sâu qua mũi, nhận diện những nốt hương của quả dâu đen chín, vani hoặc thuốc lá."
+    },
+    {
+      "id": "video-fs-18-cue-7",
+      "start": 348,
+      "end": 406,
+      "en": "Take a measured sip, drawing in a breath of air across your palate to open flavors.",
+      "vi": "Nhấp một ngụm vừa phải, hít một luồng không khí qua vòm miệng để mở bung các tầng hương vị."
+    },
+    {
+      "id": "video-fs-18-cue-8",
+      "start": 406,
+      "end": 464,
+      "en": "Evaluate the structural balance between crisp acidity and velvety grape tannins.",
+      "vi": "Đánh giá sự cân bằng cấu trúc giữa độ chua thanh giòn và chất chát tannin mềm như nhung của nho."
+    },
+    {
+      "id": "video-fs-18-cue-9",
+      "start": 464,
+      "end": 522,
+      "en": "Notice the lingering finish: how many seconds do the nuanced flavors echo in your throat?",
+      "vi": "Để ý hậu vị đọng lại: hương vị tinh tế vang vọng trong cổ họng bạn trong bao nhiêu giây?"
+    },
+    {
+      "id": "video-fs-18-cue-10",
+      "start": 522,
+      "end": 580,
+      "en": "Appreciating wine is paying homage to earth, sun, oak, and centuries of human craft.",
+      "vi": "Thưởng thức rượu vang là sự tôn kính đối với đất, nắng, gỗ sồi và hàng thế kỷ bàn tay con người."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-18-cloze-1",
+      "cueId": "video-fs-18-cue-3",
+      "sentence": "Hold the {{blank}} wine glass by the stem to avoid warming the liquid with your fingers.",
+      "blankWord": "crystal",
+      "hintVi": "Nghĩa gợi ý: Cầm ly rượu vang pha lê bằng phần cuống ...",
+      "timestamp": 116,
+      "options": [
+        "gradual",
+        "simultaneous",
+        "crystal",
+        "spontaneous"
+      ]
+    },
+    {
+      "id": "video-fs-18-cloze-2",
+      "cueId": "video-fs-18-cue-5",
+      "sentence": "{{blank}} the vintage gently to aerate the wine and release its volatile aromatic compounds.",
+      "blankWord": "swirl",
+      "hintVi": "Nghĩa gợi ý: Lắc nhẹ ly rượu niên vụ để sục khí cho r...",
+      "timestamp": 232,
+      "options": [
+        "remarkable",
+        "swirl",
+        "fundamental",
+        "convenient"
+      ]
+    },
+    {
+      "id": "video-fs-18-cloze-3",
+      "cueId": "video-fs-18-cue-8",
+      "sentence": "{{blank}} the structural balance between crisp acidity and velvety grape tannins.",
+      "blankWord": "evaluate",
+      "hintVi": "Nghĩa gợi ý: Đánh giá sự cân bằng cấu trúc giữa độ ch...",
+      "timestamp": 406,
+      "options": [
+        "substantial",
+        "evaluate",
+        "framework",
+        "vibrant"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-18-q1",
+      "question": "What is the primary focus of the video 'The Art of Wine Tasting and Flavor Descriptors'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice the art of wine tasting and flavor descriptors effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores the art of wine tasting and flavor descriptors, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 58
+    },
+    {
+      "id": "video-fs-18-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Swirl...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Swirl the vintage gently to aerate the wine and release its ...",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Swirl the vintage gently to aerate the wine and release its volatile aromatic compounds.', showing its practical importance.",
+      "timestampSeek": 232
+    },
+    {
+      "id": "video-fs-18-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Appreciating wine is paying homage to earth, sun, oak, and centur...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Appreciating wine is paying homage to earth, sun, oak, and centuries of human craft., providing a meaningful summary for learners.",
+      "timestampSeek": 522
+    }
+  ]
+}

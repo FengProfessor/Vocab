@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-18",
+  "youtubeId": "r1AKF50kn7e",
+  "title": "Renewable Energy Grids and Battery Storage",
+  "channel": "SciShow",
+  "duration": 570,
+  "durationDisplay": "09:30",
+  "durationCategory": "short",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/r1AKF50kn7e/hqdefault.jpg",
+  "description": "Lưới điện tái tạo: thách thức gián đoạn nguồn điện và công nghệ lưu trữ pin quy mô lớn.",
+  "coreVocabulary": [
+    {
+      "word": "intermittent",
+      "phonetic": "/ˌɪntəˈmɪtənt/",
+      "viDefinition": "ngắt quãng, không liên tục",
+      "contextSentence": "Wind and solar energy generation are inherently intermittent across weather cycles."
+    },
+    {
+      "word": "grid",
+      "phonetic": "/ɡrɪd/",
+      "viDefinition": "lưới điện quốc gia",
+      "contextSentence": "Modern electrical grids require millisecond balancing between instantaneous generation and load."
+    },
+    {
+      "word": "capacity",
+      "phonetic": "/kəˈpæsəti/",
+      "viDefinition": "công suất lưu trữ, dung lượng",
+      "contextSentence": "Utility-scale lithium-iron-phosphate battery banks offer gigawatt-hour storage capacity."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-18-cue-1",
+      "start": 0,
+      "end": 57,
+      "en": "Welcome to SciShow, exploring the monumental engineering challenge of decarbonizing modern power grids.",
+      "vi": "Chào mừng đến với SciShow, khám phá thách thức kỹ thuật to lớn trong việc khử carbon cho các lưới điện hiện đại."
+    },
+    {
+      "id": "video-sth-18-cue-2",
+      "start": 57,
+      "end": 114,
+      "en": "Transitioning away from fossil fuels toward wind and solar energy is vital for climate stabilization.",
+      "vi": "Chuyển đổi khỏi nhiên liệu hóa thạch sang năng lượng gió và mặt trời là điều sống còn để ổn định khí hậu."
+    },
+    {
+      "id": "video-sth-18-cue-3",
+      "start": 114,
+      "end": 171,
+      "en": "However, electrical grids are exquisitely sensitive machines requiring perfect balance every millisecond.",
+      "vi": "Tuy nhiên, các lưới điện là những cỗ máy cực kỳ nhạy cảm đòi hỏi sự cân bằng hoàn hảo từng mili giây."
+    },
+    {
+      "id": "video-sth-18-cue-4",
+      "start": 171,
+      "end": 228,
+      "en": "Traditional coal and natural gas plants provide dispatchable baseload power on demand.",
+      "vi": "Các nhà máy than và khí đốt truyền thống cung cấp nguồn điện phụ tải cơ sở có thể điều động theo yêu cầu."
+    },
+    {
+      "id": "video-sth-18-cue-5",
+      "start": 228,
+      "end": 285,
+      "en": "In contrast, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.",
+      "vi": "Ngược lại, năng lượng mặt trời và gió vốn ngắt quãng: mây che khuất ánh nắng và gió lặng."
+    },
+    {
+      "id": "video-sth-18-cue-6",
+      "start": 285,
+      "end": 342,
+      "en": "This creates the notorious 'duck curve'—an excess of midday solar followed by severe evening deficits.",
+      "vi": "Điều này tạo ra 'đường cong con vịt' khét tiếng—dư thừa năng lượng mặt trời giữa trưa kéo theo sự thiếu hụt nghiêm trọng vào buổi tối."
+    },
+    {
+      "id": "video-sth-18-cue-7",
+      "start": 342,
+      "end": 399,
+      "en": "To bridge this temporal mismatch, grid operators are deploying utility-scale battery storage farms.",
+      "vi": "Để thu hẹp sự lệch pha về thời gian này, các nhà vận hành lưới điện đang triển khai các trang trại lưu trữ pin quy mô lớn."
+    },
+    {
+      "id": "video-sth-18-cue-8",
+      "start": 399,
+      "end": 456,
+      "en": "Lithium-iron-phosphate batteries absorb surplus noon electricity and discharge it during peak dinnertime hours.",
+      "vi": "Pin lithium-sắt-phốt-phát hấp thụ lượng điện dư thừa vào buổi trưa và xả ra vào các giờ cao điểm ăn tối."
+    },
+    {
+      "id": "video-sth-18-cue-9",
+      "start": 456,
+      "end": 513,
+      "en": "Emerging alternatives include pumped hydroelectric reservoirs, compressed air caverns, and thermal storage.",
+      "vi": "Các giải pháp thay thế mới nổi bao gồm các hồ chứa thủy điện tích năng, hang động khí nén và lưu trữ nhiệt."
+    },
+    {
+      "id": "video-sth-18-cue-10",
+      "start": 513,
+      "end": 570,
+      "en": "Building intelligent, resilient storage infrastructure turns intermittent green breezes into reliable 24/7 power.",
+      "vi": "Xây dựng cơ sở hạ tầng lưu trữ thông minh, kiên cường sẽ biến những làn gió xanh ngắt quãng thành nguồn điện đáng tin cậy 24/7."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-18-cloze-1",
+      "cueId": "video-sth-18-cue-3",
+      "sentence": "{{blank}}, electrical grids are exquisitely sensitive machines requiring perfect balance every millisecond.",
+      "blankWord": "however",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, các lưới điện là những cỗ máy...",
+      "timestamp": 114,
+      "options": [
+        "spontaneous",
+        "essential",
+        "however",
+        "vulnerable"
+      ]
+    },
+    {
+      "id": "video-sth-18-cloze-2",
+      "cueId": "video-sth-18-cue-5",
+      "sentence": "In {{blank}}, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.",
+      "blankWord": "contrast",
+      "hintVi": "Nghĩa gợi ý: Ngược lại, năng lượng mặt trời và gió vố...",
+      "timestamp": 228,
+      "options": [
+        "priority",
+        "extensive",
+        "contrast",
+        "flexible"
+      ]
+    },
+    {
+      "id": "video-sth-18-cloze-3",
+      "cueId": "video-sth-18-cue-8",
+      "sentence": "Lithium-iron-phosphate {{blank}} absorb surplus noon electricity and discharge it during peak dinnertime hours.",
+      "blankWord": "batteries",
+      "hintVi": "Nghĩa gợi ý: Pin lithium-sắt-phốt-phát hấp thụ lượng ...",
+      "timestamp": 399,
+      "options": [
+        "favorable",
+        "consistent",
+        "batteries",
+        "priority"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-18-q1",
+      "question": "What is the primary focus of the video 'Renewable Energy Grids and Battery Storage'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice renewable energy grids and battery storage effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores renewable energy grids and battery storage, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 57
+    },
+    {
+      "id": "video-sth-18-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'In...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: In contrast, solar and wind power are inherently intermitten..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'In contrast, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.', showing its practical importance.",
+      "timestampSeek": 228
+    },
+    {
+      "id": "video-sth-18-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Building intelligent, resilient storage infrastructure turns inte...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Building intelligent, resilient storage infrastructure turns intermittent green breezes into reliable 24/7 power., providing a meaningful summary for learners.",
+      "timestampSeek": 513
+    }
+  ]
+}

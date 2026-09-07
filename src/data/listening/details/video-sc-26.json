@@ -1,0 +1,204 @@
+{
+  "id": "video-sc-26",
+  "youtubeId": "Wxmqs33iOw2",
+  "title": "The Psychology of First Impressions",
+  "channel": "The School of Life",
+  "duration": 690,
+  "durationDisplay": "11:30",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "social_conversations",
+  "topicDisplay": "Giao tiếp & Đời sống xã hội",
+  "thumbnailUrl": "https://img.youtube.com/vi/Wxmqs33iOw2/hqdefault.jpg",
+  "description": "Khoa học nhận thức về ấn tượng đầu tiên: hiệu ứng hào quang và ngôn ngữ cơ thể.",
+  "coreVocabulary": [
+    {
+      "word": "perception",
+      "phonetic": "/pəˈsepʃn/",
+      "viDefinition": "sự nhận thức, cảm nhận",
+      "contextSentence": "Our perception of strangers forms within a fraction of a second."
+    },
+    {
+      "word": "halo",
+      "phonetic": "/ˈheɪləʊ/",
+      "viDefinition": "hào quang (trong hiệu ứng tâm lý Halo Effect)",
+      "contextSentence": "The halo effect causes us to attribute wisdom to confident speakers."
+    },
+    {
+      "word": "authenticity",
+      "phonetic": "/ˌɔːθenˈtɪsəti/",
+      "viDefinition": "tính chân thật, sự xác thực",
+      "contextSentence": "Radical authenticity cuts through polished superficial pretension."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sc-26-cue-1",
+      "start": 0,
+      "end": 69,
+      "en": "Welcome to The School of Life, examining the hidden emotional machinery of daily encounters.",
+      "vi": "Chào mừng đến với The School of Life, xem xét bộ máy cảm xúc tiềm ẩn của những cuộc gặp gỡ hàng ngày."
+    },
+    {
+      "id": "video-sc-26-cue-2",
+      "start": 69,
+      "end": 138,
+      "en": "Cognitive psychologists prove that human brains form judgments in seven seconds.",
+      "vi": "Các nhà tâm lý học nhận thức chứng minh não người hình thành phán đoán chỉ trong bảy giây."
+    },
+    {
+      "id": "video-sc-26-cue-3",
+      "start": 138,
+      "end": 207,
+      "en": "Our ancient ancestors needed rapid perception to assess threats and potential allies.",
+      "vi": "Tổ tiên thời cổ đại của chúng ta cần sự nhận thức nhanh chóng để đánh giá các mối đe dọa và đồng minh tiềm năng."
+    },
+    {
+      "id": "video-sc-26-cue-4",
+      "start": 207,
+      "end": 276,
+      "en": "The psychological halo effect causes us to assume charismatic people possess virtue.",
+      "vi": "Hiệu ứng tâm lý hào quang khiến chúng ta cho rằng những người lôi cuốn sở hữu cả đức hạnh."
+    },
+    {
+      "id": "video-sc-26-cue-5",
+      "start": 276,
+      "end": 345,
+      "en": "However, rehearsed artificial charm feels hollow and generates instinctive suspicion.",
+      "vi": "Tuy nhiên, sự quyến rũ giả tạo được luyện tập nghe rất rỗng tuếch và tạo ra sự nghi ngờ bản năng."
+    },
+    {
+      "id": "video-sc-26-cue-6",
+      "start": 345,
+      "end": 414,
+      "en": "True charismatic power flows not from arrogance, but from unfeigned authenticity.",
+      "vi": "Sức mạnh lôi cuốn thực sự bắt nguồn không phải từ sự kiêu ngạo, mà từ tính chân thật không giả tạo."
+    },
+    {
+      "id": "video-sc-26-cue-7",
+      "start": 414,
+      "end": 483,
+      "en": "When you accept your quirks, you liberate others to drop their defensive masks.",
+      "vi": "Khi bạn chấp nhận những nét kỳ quặc của mình, bạn giải phóng người khác cởi bỏ lớp mặt nạ phòng thủ."
+    },
+    {
+      "id": "video-sc-26-cue-8",
+      "start": 483,
+      "end": 552,
+      "en": "Signal warmth before signaling competence; humans desire safety before admiration.",
+      "vi": "Hãy phát tín hiệu về sự ấm áp trước khi thể hiện năng lực; con người khao khát sự an toàn trước sự ngưỡng mộ."
+    },
+    {
+      "id": "video-sc-26-cue-9",
+      "start": 552,
+      "end": 621,
+      "en": "Listen with your whole being, as if the speaker were the only person alive.",
+      "vi": "Hãy lắng nghe bằng toàn bộ con người bạn, như thể người đang nói là người duy nhất còn sống."
+    },
+    {
+      "id": "video-sc-26-cue-10",
+      "start": 621,
+      "end": 690,
+      "en": "The most memorable first impression is making the other person feel magnificent.",
+      "vi": "Ấn tượng đầu tiên đáng nhớ nhất chính là làm cho người đối diện cảm thấy họ thật tuyệt vời."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sc-26-cloze-1",
+      "cueId": "video-sc-26-cue-3",
+      "sentence": "Our {{blank}} ancestors needed rapid perception to assess threats and potential allies.",
+      "blankWord": "ancient",
+      "hintVi": "Nghĩa gợi ý: Tổ tiên thời cổ đại của chúng ta cần sự ...",
+      "timestamp": 138,
+      "options": [
+        "ancient",
+        "reliable",
+        "preliminary",
+        "dimension"
+      ]
+    },
+    {
+      "id": "video-sc-26-cloze-2",
+      "cueId": "video-sc-26-cue-5",
+      "sentence": "{{blank}}, rehearsed artificial charm feels hollow and generates instinctive suspicion.",
+      "blankWord": "however",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, sự quyến rũ giả tạo được luyệ...",
+      "timestamp": 276,
+      "options": [
+        "perspective",
+        "preliminary",
+        "criterion",
+        "however"
+      ]
+    },
+    {
+      "id": "video-sc-26-cloze-3",
+      "cueId": "video-sc-26-cue-8",
+      "sentence": "{{blank}} warmth before signaling competence; humans desire safety before admiration.",
+      "blankWord": "signal",
+      "hintVi": "Nghĩa gợi ý: Hãy phát tín hiệu về sự ấm áp trước khi ...",
+      "timestamp": 483,
+      "options": [
+        "favorable",
+        "signal",
+        "balance",
+        "efficient"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sc-26-q1",
+      "question": "What is the primary focus of the video 'The Psychology of First Impressions'?",
+      "options": [
+        "To explain and practice the psychology of first impressions effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores the psychology of first impressions, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 69
+    },
+    {
+      "id": "video-sc-26-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'However,...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: However, rehearsed artificial charm feels hollow and generat...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'However, rehearsed artificial charm feels hollow and generates instinctive suspicion.', showing its practical importance.",
+      "timestampSeek": 276
+    },
+    {
+      "id": "video-sc-26-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: The most memorable first impression is making the other person fe..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that The most memorable first impression is making the other person feel magnificent., providing a meaningful summary for learners.",
+      "timestampSeek": 621
+    },
+    {
+      "id": "video-sc-26-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'When...'?",
+      "options": [
+        "It warns that following this method produces immediate failure.",
+        "It claims this factor has zero impact on the final outcome.",
+        "It highlights that: When you accept your quirks, you liberate others to drop the...",
+        "It states this step should always be skipped by beginners."
+      ],
+      "correctIndex": 2,
+      "explanation": "The speaker specifically highlights: 'When you accept your quirks, you liberate others to drop their defensive masks.', providing deeper technical insight.",
+      "timestampSeek": 414
+    }
+  ]
+}

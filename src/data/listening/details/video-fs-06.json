@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-06",
+  "youtubeId": "F7W417ExGQO",
+  "title": "Ordering Fast Food at a Drive-Thru",
+  "channel": "Learn English with Gill",
+  "duration": 240,
+  "durationDisplay": "04:00",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/F7W417ExGQO/hqdefault.jpg",
+  "description": "Giao tiếp qua loa đàm thoại tại cửa hàng drive-thru thức ăn nhanh.",
+  "coreVocabulary": [
+    {
+      "word": "combo",
+      "phonetic": "/ˈkɒmbəʊ/",
+      "viDefinition": "suất ăn kết hợp (combo gồm đồ ăn + nước)",
+      "contextSentence": "I would like the classic cheeseburger combo with curly fries."
+    },
+    {
+      "word": "intercom",
+      "phonetic": "/ˈɪntəkɒm/",
+      "viDefinition": "loa đàm thoại (tại trạm gọi món drive-thru)",
+      "contextSentence": "Speak clearly into the microphone intercom when ordering."
+    },
+    {
+      "word": "condiment",
+      "phonetic": "/ˈkɒndɪmənt/",
+      "viDefinition": "gia vị ăn kèm (tương ớt, sốt cà chua)",
+      "contextSentence": "Please include extra ketchup and mayonnaise condiments in the bag."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-06-cue-1",
+      "start": 0,
+      "end": 24,
+      "en": "Welcome back to Learn English with Gill, driving up to a fast-food lane today.",
+      "vi": "Chào mừng quay lại với Learn English with Gill, hôm nay chúng ta lái xe vào làn thức ăn nhanh."
+    },
+    {
+      "id": "video-fs-06-cue-2",
+      "start": 24,
+      "end": 48,
+      "en": "Ordering through a drive-thru speaker requires crisp, clear English pronunciation.",
+      "vi": "Gọi món qua loa đàm thoại drive-thru đòi hỏi phát âm tiếng Anh rõ ràng, rành mạch."
+    },
+    {
+      "id": "video-fs-06-cue-3",
+      "start": 48,
+      "end": 72,
+      "en": "Drive your car slowly up to the brightly lit outdoor menu display board.",
+      "vi": "Lái xe từ từ đến bảng hiển thị thực đơn ngoài trời có đèn sáng rực rỡ."
+    },
+    {
+      "id": "video-fs-06-cue-4",
+      "start": 72,
+      "end": 96,
+      "en": "A voice over the intercom will greet you: 'Welcome, what can I get you today?'",
+      "vi": "Một giọng nói qua loa đàm thoại sẽ chào bạn: 'Chào mừng quý khách, hôm nay quý khách dùng gì ạ?'"
+    },
+    {
+      "id": "video-fs-06-cue-5",
+      "start": 96,
+      "end": 120,
+      "en": "Order by combo number: 'Could I please get a number two cheeseburger combo?'",
+      "vi": "Gọi món theo số combo: 'Làm ơn cho tôi một suất combo số hai bánh burger phô mai?'"
+    },
+    {
+      "id": "video-fs-06-cue-6",
+      "start": 120,
+      "end": 144,
+      "en": "The voice will ask: 'What size drink would you like, and would you like curly fries?'",
+      "vi": "Giọng nói sẽ hỏi: 'Quý khách muốn đồ uống kích cỡ nào, và có dùng khoai tây chiên xoắn không ạ?'"
+    },
+    {
+      "id": "video-fs-06-cue-7",
+      "start": 144,
+      "end": 168,
+      "en": "Specify your sauce preferences: 'Could you please toss in extra barbecue condiments?'",
+      "vi": "Nêu rõ sở thích về nước sốt của bạn: 'Làm ơn cho thêm gia vị sốt thịt nướng được không ạ?'"
+    },
+    {
+      "id": "video-fs-06-cue-8",
+      "start": 168,
+      "end": 192,
+      "en": "Drive around to the first window to pay and collect your paper receipt.",
+      "vi": "Lái xe vòng sang cửa sổ đầu tiên để thanh toán và lấy biên lai giấy."
+    },
+    {
+      "id": "video-fs-06-cue-9",
+      "start": 192,
+      "end": 216,
+      "en": "Pull up to the second window to receive your hot, steaming takeout bag.",
+      "vi": "Tiến lên cửa sổ thứ hai để nhận túi đồ ăn mang về nóng hổi bốc khói."
+    },
+    {
+      "id": "video-fs-06-cue-10",
+      "start": 216,
+      "end": 240,
+      "en": "Quick and convenient meals keep busy road travelers fueled and moving forward.",
+      "vi": "Những bữa ăn nhanh gọn và tiện lợi giúp những người đi đường bận rộn nạp năng lượng để tiếp tục hành trình."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-06-cloze-1",
+      "cueId": "video-fs-06-cue-3",
+      "sentence": "{{blank}} your car slowly up to the brightly lit outdoor menu display board.",
+      "blankWord": "drive",
+      "hintVi": "Nghĩa gợi ý: Lái xe từ từ đến bảng hiển thị thực đơn ...",
+      "timestamp": 48,
+      "options": [
+        "moderate",
+        "substantial",
+        "drive",
+        "fundamental"
+      ]
+    },
+    {
+      "id": "video-fs-06-cloze-2",
+      "cueId": "video-fs-06-cue-5",
+      "sentence": "{{blank}} by combo number: 'Could I please get a number two cheeseburger combo?'",
+      "blankWord": "order",
+      "hintVi": "Nghĩa gợi ý: Gọi món theo số combo: 'Làm ơn cho tôi m...",
+      "timestamp": 96,
+      "options": [
+        "efficient",
+        "order",
+        "moderate",
+        "convenient"
+      ]
+    },
+    {
+      "id": "video-fs-06-cloze-3",
+      "cueId": "video-fs-06-cue-8",
+      "sentence": "{{blank}} around to the first window to pay and collect your paper receipt.",
+      "blankWord": "drive",
+      "hintVi": "Nghĩa gợi ý: Lái xe vòng sang cửa sổ đầu tiên để than...",
+      "timestamp": 168,
+      "options": [
+        "essential",
+        "drive",
+        "dimension",
+        "perspective"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-06-q1",
+      "question": "What is the primary focus of the video 'Ordering Fast Food at a Drive-Thru'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice ordering fast food at a drive-thru effectively.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores ordering fast food at a drive-thru, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 24
+    },
+    {
+      "id": "video-fs-06-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Order...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Order by combo number: 'Could I please get a number two chee...",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Order by combo number: 'Could I please get a number two cheeseburger combo?'', showing its practical importance.",
+      "timestampSeek": 96
+    },
+    {
+      "id": "video-fs-06-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Quick and convenient meals keep busy road travelers fueled and mo..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Quick and convenient meals keep busy road travelers fueled and moving forward., providing a meaningful summary for learners.",
+      "timestampSeek": 216
+    }
+  ]
+}

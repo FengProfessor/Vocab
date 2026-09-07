@@ -1,0 +1,204 @@
+{
+  "id": "video-sth-20",
+  "youtubeId": "gRAKlImmyAu",
+  "title": "The Science of Stress Hormones and Recovery",
+  "channel": "TED-Ed",
+  "duration": 730,
+  "durationDisplay": "12:10",
+  "durationCategory": "medium",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/gRAKlImmyAu/hqdefault.jpg",
+  "description": "Khoa học về hormone căng thẳng cortisol, adrenaline và các phương pháp phục hồi thể chất tinh thần.",
+  "coreVocabulary": [
+    {
+      "word": "cortisol",
+      "phonetic": "/ˈkɔːtɪsɒl/",
+      "viDefinition": "hormone căng thẳng cortisol",
+      "contextSentence": "Elevated chronic cortisol levels impair immune defense and disrupt restful sleep."
+    },
+    {
+      "word": "adrenaline",
+      "phonetic": "/əˈdrenəlɪn/",
+      "viDefinition": "hormone adrenaline (kích thích phản ứng)",
+      "contextSentence": "Adrenaline surges accelerate heart rates to prepare the body for fight or flight."
+    },
+    {
+      "word": "resilience",
+      "phonetic": "/rɪˈzɪliəns/",
+      "viDefinition": "khả năng phục hồi, sự kiên cường",
+      "contextSentence": "Daily mindfulness practice builds neurobiological resilience against chronic emotional stressors."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-20-cue-1",
+      "start": 0,
+      "end": 73,
+      "en": "Welcome to TED-Ed, exploring the neuroendocrine chemistry of human stress and restorative recovery.",
+      "vi": "Chào mừng đến với TED-Ed, khám phá hóa học thần kinh nội tiết về sự căng thẳng và phục hồi của con người."
+    },
+    {
+      "id": "video-sth-20-cue-2",
+      "start": 73,
+      "end": 146,
+      "en": "When an ancient ancestor encountered a predatory saber-toothed tiger, acute stress saved their physical life.",
+      "vi": "Khi một tổ tiên thời cổ đại chạm trán với hổ răng kiếm săn mồi, sự căng thẳng cấp tính đã cứu sống thể xác họ."
+    },
+    {
+      "id": "video-sth-20-cue-3",
+      "start": 146,
+      "end": 219,
+      "en": "The amygdala instantly signals the adrenal glands to flood the bloodstream with adrenaline.",
+      "vi": "Hạch hạnh nhân ngay lập tức phát tín hiệu cho tuyến thượng thận tràn ngập adrenaline vào máu."
+    },
+    {
+      "id": "video-sth-20-cue-4",
+      "start": 219,
+      "end": 292,
+      "en": "Heart rate accelerates, pupils dilate, and blood shunts away from digestion toward major muscles.",
+      "vi": "Nhịp tim tăng tốc, đồng tử giãn ra và máu chuyển hướng từ tiêu hóa sang các cơ bắp chính."
+    },
+    {
+      "id": "video-sth-20-cue-5",
+      "start": 292,
+      "end": 365,
+      "en": "Simultaneously, the adrenal cortex releases cortisol, elevating glucose levels for rapid muscular energy.",
+      "vi": "Đồng thời, vỏ thượng thận tiết ra cortisol, làm tăng lượng glucose cho năng lượng cơ bắp nhanh chóng."
+    },
+    {
+      "id": "video-sth-20-cue-6",
+      "start": 365,
+      "end": 438,
+      "en": "In modern life, traffic jams, unpaid bills, and work deadlines trigger this exact same survival response.",
+      "vi": "Trong cuộc sống hiện đại, tắc đường, hóa đơn chưa thanh toán và hạn chót công việc kích hoạt phản ứng sinh tồn tương tự."
+    },
+    {
+      "id": "video-sth-20-cue-7",
+      "start": 438,
+      "end": 511,
+      "en": "However, because we cannot run away from a mortgage, cortisol lingers in chronic circulation.",
+      "vi": "Tuy nhiên, vì chúng ta không thể chạy trốn khỏi khoản thế chấp ngân hàng, cortisol vẫn lưu thông mãn tính."
+    },
+    {
+      "id": "video-sth-20-cue-8",
+      "start": 511,
+      "end": 584,
+      "en": "Chronic cortisol suppresses the immune system, elevates blood pressure, and shrinks memory centers.",
+      "vi": "Cortisol mãn tính ức chế hệ thống miễn dịch, làm tăng huyết áp và thu hẹp các trung tâm ghi nhớ."
+    },
+    {
+      "id": "video-sth-20-cue-9",
+      "start": 584,
+      "end": 657,
+      "en": "Fortunately, active recovery practices like diaphragmatic breathing activate the calming parasympathetic nervous system.",
+      "vi": "May mắn thay, các thực hành phục hồi chủ động như thở bằng cơ hoành kích hoạt hệ thần kinh phó giao cảm giúp xoa dịu."
+    },
+    {
+      "id": "video-sth-20-cue-10",
+      "start": 657,
+      "end": 730,
+      "en": "Intentional relaxation resets endocrine balance, transforming toxic stress into adaptive biological resilience.",
+      "vi": "Sự thư giãn có chủ đích sẽ thiết lập lại sự cân bằng nội tiết, biến căng thẳng độc hại thành khả năng phục hồi sinh học thích ứng."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-20-cloze-1",
+      "cueId": "video-sth-20-cue-3",
+      "sentence": "The {{blank}} instantly signals the adrenal glands to flood the bloodstream with adrenaline.",
+      "blankWord": "amygdala",
+      "hintVi": "Nghĩa gợi ý: Hạch hạnh nhân ngay lập tức phát tín hiệ...",
+      "timestamp": 146,
+      "options": [
+        "resource",
+        "protocol",
+        "perceptive",
+        "amygdala"
+      ]
+    },
+    {
+      "id": "video-sth-20-cloze-2",
+      "cueId": "video-sth-20-cue-5",
+      "sentence": "{{blank}}, the adrenal cortex releases cortisol, elevating glucose levels for rapid muscular energy.",
+      "blankWord": "simultaneously",
+      "hintVi": "Nghĩa gợi ý: Đồng thời, vỏ thượng thận tiết ra cortis...",
+      "timestamp": 292,
+      "options": [
+        "simultaneously",
+        "strategy",
+        "accurate",
+        "deliberate"
+      ]
+    },
+    {
+      "id": "video-sth-20-cloze-3",
+      "cueId": "video-sth-20-cue-8",
+      "sentence": "{{blank}} cortisol suppresses the immune system, elevates blood pressure, and shrinks memory centers.",
+      "blankWord": "chronic",
+      "hintVi": "Nghĩa gợi ý: Cortisol mãn tính ức chế hệ thống miễn d...",
+      "timestamp": 511,
+      "options": [
+        "balance",
+        "gradual",
+        "resource",
+        "chronic"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-20-q1",
+      "question": "What is the primary focus of the video 'The Science of Stress Hormones and Recovery'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice the science of stress hormones and recovery effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores the science of stress hormones and recovery, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 73
+    },
+    {
+      "id": "video-sth-20-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Simultaneously,...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Simultaneously, the adrenal cortex releases cortisol, elevat..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Simultaneously, the adrenal cortex releases cortisol, elevating glucose levels for rapid muscular energy.', showing its practical importance.",
+      "timestampSeek": 292
+    },
+    {
+      "id": "video-sth-20-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Intentional relaxation resets endocrine balance, transforming tox...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Intentional relaxation resets endocrine balance, transforming toxic stress into adaptive biological resilience., providing a meaningful summary for learners.",
+      "timestampSeek": 657
+    },
+    {
+      "id": "video-sth-20-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'However,...'?",
+      "options": [
+        "It warns that following this method produces immediate failure.",
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners.",
+        "It highlights that: However, because we cannot run away from a mortgage, cortiso..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The speaker specifically highlights: 'However, because we cannot run away from a mortgage, cortisol lingers in chronic circulation.', providing deeper technical insight.",
+      "timestampSeek": 438
+    }
+  ]
+}

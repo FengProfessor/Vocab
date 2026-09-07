@@ -70,6 +70,8 @@ interface StudentShellProps {
   immersive?: boolean;
   /** Callback mở modal tham gia lớp (dùng ở Dashboard) */
   onJoinClass?: () => void;
+  /** Yêu cầu đăng nhập để truy cập (mặc định true). Đặt false cho các trang công khai / dùng thử như Luyện nghe */
+  requireAuth?: boolean;
 }
 
 export function StudentShell({
@@ -79,6 +81,7 @@ export function StudentShell({
   hideMobileNav = false,
   immersive = false,
   onJoinClass,
+  requireAuth = true,
 }: StudentShellProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -116,7 +119,9 @@ export function StudentShell({
       try {
         const { data: { session } } = await supabase.auth.getSession();
         if (!session?.user) {
-          router.push('/auth');
+          if (requireAuth) {
+            router.push('/auth');
+          }
           return;
         }
 
@@ -275,12 +280,13 @@ export function StudentShell({
     </Link>
   );
 
-  const initials = (profile?.full_name ?? profileEmail ?? 'U')
+  const initials = (profile?.full_name || profileEmail || 'U')
     .split(' ')
+    .filter(Boolean)
     .map((word) => word[0])
     .slice(0, 2)
     .join('')
-    .toUpperCase();
+    .toUpperCase() || 'U';
 
   const currentLevel = xpToLevel(gamification.total_xp);
   const showBottomNav = !hideMobileNav && !effectiveImmersive;

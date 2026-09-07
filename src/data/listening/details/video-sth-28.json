@@ -1,0 +1,204 @@
+{
+  "id": "video-sth-28",
+  "youtubeId": "gVzXGQf7R7B",
+  "title": "The Immunology of mRNA Vaccines",
+  "channel": "TED-Ed",
+  "duration": 1200,
+  "durationDisplay": "20:00",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/gVzXGQf7R7B/hqdefault.jpg",
+  "description": "Miễn dịch học vắc-xin mRNA: cách gửi bản thiết kế phân tử dạy cơ thể chống lại mầm bệnh.",
+  "coreVocabulary": [
+    {
+      "word": "immunology",
+      "phonetic": "/ˌɪmjuˈnɒlədʒi/",
+      "viDefinition": "miễn dịch học",
+      "contextSentence": "Modern immunology harnesses genetic instructions to prime systemic defenses against novel pathogens."
+    },
+    {
+      "word": "pathogen",
+      "phonetic": "/ˈpæθədʒən/",
+      "viDefinition": "mầm bệnh, vi sinh vật gây bệnh",
+      "contextSentence": "Neutralizing antibodies target surface spike proteins to disarm the virulent pathogen."
+    },
+    {
+      "word": "lipid",
+      "phonetic": "/ˈlɪpɪd/",
+      "viDefinition": "chất béo, màng lipid",
+      "contextSentence": "Lipid nanoparticles encapsulate fragile synthetic mRNA strands to prevent enzymatic degradation."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-28-cue-1",
+      "start": 0,
+      "end": 120,
+      "en": "Welcome to TED-Ed, exploring the revolutionary biomedical breakthrough that altered pandemic history: mRNA vaccines.",
+      "vi": "Chào mừng đến với TED-Ed, khám phá bước đột phá y sinh mang tính cách mạng đã thay đổi lịch sử đại dịch: vắc-xin mRNA."
+    },
+    {
+      "id": "video-sth-28-cue-2",
+      "start": 120,
+      "end": 240,
+      "en": "Traditional vaccines take years to develop, requiring scientists to cultivate weakened or inactivated viral particles.",
+      "vi": "Vắc-xin truyền thống mất nhiều năm để phát triển, đòi hỏi các nhà khoa học phải nuôi cấy các hạt virus bị suy yếu hoặc bất hoạt."
+    },
+    {
+      "id": "video-sth-28-cue-3",
+      "start": 240,
+      "end": 360,
+      "en": "Messenger RNA technology fundamentally re-imagined the vaccine paradigm by delivering temporary genetic blueprints.",
+      "vi": "Công nghệ RNA thông tin đã tái định hình căn bản mô hình vắc-xin bằng cách cung cấp các bản thiết kế di truyền tạm thời."
+    },
+    {
+      "id": "video-sth-28-cue-4",
+      "start": 360,
+      "end": 480,
+      "en": "Instead of injecting the actual virus, an mRNA vaccine delivers molecular instructions directly to human cells.",
+      "vi": "Thay vì tiêm virus thực sự, vắc-xin mRNA cung cấp các hướng dẫn phân tử trực tiếp đến các tế bào con người."
+    },
+    {
+      "id": "video-sth-28-cue-5",
+      "start": 480,
+      "end": 600,
+      "en": "Fragile mRNA molecules are cloaked inside protective microscopic lipid nanoparticles.",
+      "vi": "Các phân tử mRNA mỏng manh được che chở bên trong các hạt nano lipid siêu nhỏ bảo vệ."
+    },
+    {
+      "id": "video-sth-28-cue-6",
+      "start": 600,
+      "end": 720,
+      "en": "Once inside host cells, cellular ribosomes read the mRNA sequence to assemble harmless viral spike proteins.",
+      "vi": "Khi đã vào bên trong tế bào vật chủ, các ribosome tế bào sẽ đọc chuỗi mRNA để lắp ráp các protein gai virus vô hại."
+    },
+    {
+      "id": "video-sth-28-cue-7",
+      "start": 720,
+      "end": 840,
+      "en": "These synthetic proteins migrate to the cell surface, triggering an alert across the immune system.",
+      "vi": "Những protein tổng hợp này di chuyển đến bề mặt tế bào, kích hoạt cảnh báo trên toàn hệ thống miễn dịch."
+    },
+    {
+      "id": "video-sth-28-cue-8",
+      "start": 840,
+      "end": 960,
+      "en": "Helper T cells and B cells recognize the alien antigen, manufacturing millions of high-affinity neutralizing antibodies.",
+      "vi": "Các tế bào T hỗ trợ và tế bào B nhận diện kháng nguyên lạ, sản xuất hàng triệu kháng thể trung hòa có ái lực cao."
+    },
+    {
+      "id": "video-sth-28-cue-9",
+      "start": 960,
+      "end": 1080,
+      "en": "Within days, the body breaks down and clears the fragile mRNA molecule completely.",
+      "vi": "Trong vòng vài ngày, cơ thể sẽ phân hủy và dọn sạch phân tử mRNA mỏng manh một cách hoàn toàn."
+    },
+    {
+      "id": "video-sth-28-cue-10",
+      "start": 1080,
+      "end": 1200,
+      "en": "The enduring legacy is immunological memory: a vigilant biological army primed to neutralize future infections instantly.",
+      "vi": "Di sản lâu dài là trí nhớ miễn dịch: một đội quân sinh học cảnh giác sẵn sàng vô hiệu hóa các bệnh nhiễm trùng trong tương lai ngay lập tức."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-28-cloze-1",
+      "cueId": "video-sth-28-cue-3",
+      "sentence": "{{blank}} RNA technology fundamentally re-imagined the vaccine paradigm by delivering temporary genetic blueprints.",
+      "blankWord": "messenger",
+      "hintVi": "Nghĩa gợi ý: Công nghệ RNA thông tin đã tái định hình...",
+      "timestamp": 240,
+      "options": [
+        "innovative",
+        "reliable",
+        "messenger",
+        "accurate"
+      ]
+    },
+    {
+      "id": "video-sth-28-cloze-2",
+      "cueId": "video-sth-28-cue-5",
+      "sentence": "{{blank}} mRNA molecules are cloaked inside protective microscopic lipid nanoparticles.",
+      "blankWord": "fragile",
+      "hintVi": "Nghĩa gợi ý: Các phân tử mRNA mỏng manh được che chở ...",
+      "timestamp": 480,
+      "options": [
+        "fragile",
+        "essential",
+        "vulnerable",
+        "strategy"
+      ]
+    },
+    {
+      "id": "video-sth-28-cloze-3",
+      "cueId": "video-sth-28-cue-8",
+      "sentence": "{{blank}} T cells and B cells recognize the alien antigen, manufacturing millions of high-affinity neutralizing antibodies.",
+      "blankWord": "helper",
+      "hintVi": "Nghĩa gợi ý: Các tế bào T hỗ trợ và tế bào B nhận diệ...",
+      "timestamp": 840,
+      "options": [
+        "convenient",
+        "helper",
+        "protocol",
+        "sufficient"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-28-q1",
+      "question": "What is the primary focus of the video 'The Immunology of mRNA Vaccines'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice the immunology of mrna vaccines effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores the immunology of mrna vaccines, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 120
+    },
+    {
+      "id": "video-sth-28-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Fragile...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Fragile mRNA molecules are cloaked inside protective microsc..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Fragile mRNA molecules are cloaked inside protective microscopic lipid nanoparticles.', showing its practical importance.",
+      "timestampSeek": 480
+    },
+    {
+      "id": "video-sth-28-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: The enduring legacy is immunological memory: a vigilant biologica...",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that The enduring legacy is immunological memory: a vigilant biological army primed to neutralize future infections instantly., providing a meaningful summary for learners.",
+      "timestampSeek": 1080
+    },
+    {
+      "id": "video-sth-28-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'These...'?",
+      "options": [
+        "It states this step should always be skipped by beginners.",
+        "It warns that following this method produces immediate failure.",
+        "It highlights that: These synthetic proteins migrate to the cell surface, trigge...",
+        "It claims this factor has zero impact on the final outcome."
+      ],
+      "correctIndex": 2,
+      "explanation": "The speaker specifically highlights: 'These synthetic proteins migrate to the cell surface, triggering an alert across the immune system.', providing deeper technical insight.",
+      "timestampSeek": 720
+    }
+  ]
+}

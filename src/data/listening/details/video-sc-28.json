@@ -1,0 +1,204 @@
+{
+  "id": "video-sc-28",
+  "youtubeId": "pwIemJUV3CJ",
+  "title": "Debating Sensitive Topics with Respect and Logic",
+  "channel": "BBC Learning English",
+  "duration": 890,
+  "durationDisplay": "14:50",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "social_conversations",
+  "topicDisplay": "Giao tiếp & Đời sống xã hội",
+  "thumbnailUrl": "https://img.youtube.com/vi/pwIemJUV3CJ/hqdefault.jpg",
+  "description": "Cách tranh luận về các chủ đề nóng trong xã hội dựa trên logic, tôn trọng sự khác biệt.",
+  "coreVocabulary": [
+    {
+      "word": "intellectual",
+      "phonetic": "/ˌɪntəˈlektʃuəl/",
+      "viDefinition": "thuộc trí tuệ, có tính học thuật",
+      "contextSentence": "Intellectual humility is the prerequisite for productive ideological debate."
+    },
+    {
+      "word": "fallacy",
+      "phonetic": "/ˈfæləsi/",
+      "viDefinition": "ngụy biện, sai lầm logic",
+      "contextSentence": "Spotting a logical fallacy helps disentangle emotion from objective reality."
+    },
+    {
+      "word": "civility",
+      "phonetic": "/səˈvɪləti/",
+      "viDefinition": "sự lịch thiệp, tính văn minh",
+      "contextSentence": "Democratic discourse collapses when basic civility is abandoned."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sc-28-cue-1",
+      "start": 0,
+      "end": 89,
+      "en": "Welcome to BBC Learning English's political and philosophical discourse laboratory.",
+      "vi": "Chào mừng đến với phòng thí nghiệm đối thoại chính trị và triết học của BBC Learning English."
+    },
+    {
+      "id": "video-sc-28-cue-2",
+      "start": 89,
+      "end": 178,
+      "en": "In an era of ideological polarization, arguing constructively has become an endangered art.",
+      "vi": "Trong thời đại phân cực tư tưởng, tranh luận mang tính xây dựng đã trở thành một nghệ thuật gặp nguy hiểm."
+    },
+    {
+      "id": "video-sc-28-cue-3",
+      "start": 178,
+      "end": 267,
+      "en": "Tribal passions often override intellectual humility and evidence-based inquiry.",
+      "vi": "Niềm đam mê bè phái thường lấn át sự khiêm tốn trí tuệ và sự tìm tòi dựa trên bằng chứng."
+    },
+    {
+      "id": "video-sc-28-cue-4",
+      "start": 267,
+      "end": 356,
+      "en": "To debate honorably, you must first articulate your opponent's position better than they can.",
+      "vi": "Để tranh luận có danh dự, trước tiên bạn phải diễn đạt quan điểm của đối thủ tốt hơn chính họ."
+    },
+    {
+      "id": "video-sc-28-cue-5",
+      "start": 356,
+      "end": 445,
+      "en": "This technique, known as steelmanning, eliminates cheap caricatures and strawman attacks.",
+      "vi": "Kỹ thuật này, được gọi là steelmanning, loại bỏ những sự bóp méo rẻ tiền và đòn tấn công người rơm."
+    },
+    {
+      "id": "video-sc-28-cue-6",
+      "start": 445,
+      "end": 534,
+      "en": "Learn to identify common logical fallacy patterns like ad hominem and false dichotomies.",
+      "vi": "Học cách xác định các mô hình ngụy biện logic phổ biến như công kích cá nhân và nhị phân giả tạo."
+    },
+    {
+      "id": "video-sc-28-cue-7",
+      "start": 534,
+      "end": 623,
+      "en": "Maintain rigorous civility even when facing provocative or emotionally charged claims.",
+      "vi": "Duy trì sự lịch thiệp nghiêm cẩn ngay cả khi đối mặt với những tuyên bố khiêu khích hoặc đầy cảm xúc."
+    },
+    {
+      "id": "video-sc-28-cue-8",
+      "start": 623,
+      "end": 712,
+      "en": "Acknowledge valid counter-evidence that challenges your cherished preconceptions.",
+      "vi": "Thừa nhận các bằng chứng phản bác hợp lý thách thức những định kiến yêu quý của bạn."
+    },
+    {
+      "id": "video-sc-28-cue-9",
+      "start": 712,
+      "end": 801,
+      "en": "The goal of public debate is not victory over enemies, but collective arrival at truth.",
+      "vi": "Mục tiêu của cuộc tranh luận công khai không phải là chiến thắng kẻ thù, mà là tập thể cùng chạm đến sự thật."
+    },
+    {
+      "id": "video-sc-28-cue-10",
+      "start": 801,
+      "end": 890,
+      "en": "When civil discourse prevails, society flourishes in peaceful, vibrant coexistence.",
+      "vi": "Khi đối thoại văn minh chiếm ưu thế, xã hội sẽ phát triển rực rỡ trong sự cùng tồn tại hòa bình và sống động."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sc-28-cloze-1",
+      "cueId": "video-sc-28-cue-3",
+      "sentence": "{{blank}} passions often override intellectual humility and evidence-based inquiry.",
+      "blankWord": "tribal",
+      "hintVi": "Nghĩa gợi ý: Niềm đam mê bè phái thường lấn át sự khi...",
+      "timestamp": 178,
+      "options": [
+        "adequate",
+        "gradual",
+        "tribal",
+        "essential"
+      ]
+    },
+    {
+      "id": "video-sc-28-cloze-2",
+      "cueId": "video-sc-28-cue-5",
+      "sentence": "This {{blank}}, known as steelmanning, eliminates cheap caricatures and strawman attacks.",
+      "blankWord": "technique",
+      "hintVi": "Nghĩa gợi ý: Kỹ thuật này, được gọi là steelmanning, ...",
+      "timestamp": 356,
+      "options": [
+        "fundamental",
+        "innovative",
+        "subsequent",
+        "technique"
+      ]
+    },
+    {
+      "id": "video-sc-28-cloze-3",
+      "cueId": "video-sc-28-cue-8",
+      "sentence": "{{blank}} valid counter-evidence that challenges your cherished preconceptions.",
+      "blankWord": "acknowledge",
+      "hintVi": "Nghĩa gợi ý: Thừa nhận các bằng chứng phản bác hợp lý...",
+      "timestamp": 623,
+      "options": [
+        "favorable",
+        "adequate",
+        "acknowledge",
+        "temporary"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sc-28-q1",
+      "question": "What is the primary focus of the video 'Debating Sensitive Topics with Respect and Logic'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice debating sensitive topics with respect and logic effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores debating sensitive topics with respect and logic, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 89
+    },
+    {
+      "id": "video-sc-28-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'This...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: This technique, known as steelmanning, eliminates cheap cari..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'This technique, known as steelmanning, eliminates cheap caricatures and strawman attacks.', showing its practical importance.",
+      "timestampSeek": 356
+    },
+    {
+      "id": "video-sc-28-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: When civil discourse prevails, society flourishes in peaceful, vi...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that When civil discourse prevails, society flourishes in peaceful, vibrant coexistence., providing a meaningful summary for learners.",
+      "timestampSeek": 801
+    },
+    {
+      "id": "video-sc-28-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Maintain...'?",
+      "options": [
+        "It highlights that: Maintain rigorous civility even when facing provocative or e...",
+        "It warns that following this method produces immediate failure.",
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners."
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker specifically highlights: 'Maintain rigorous civility even when facing provocative or emotionally charged claims.', providing deeper technical insight.",
+      "timestampSeek": 534
+    }
+  ]
+}

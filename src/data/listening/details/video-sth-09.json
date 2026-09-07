@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-09",
+  "youtubeId": "ueHC6DNMhMg",
+  "title": "Cloud Storage and File Syncing Explained",
+  "channel": "SciShow",
+  "duration": 420,
+  "durationDisplay": "07:00",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/ueHC6DNMhMg/hqdefault.jpg",
+  "description": "Công nghệ lưu trữ đám mây: dữ liệu được lưu trên các trung tâm máy chủ khổng lồ như thế nào.",
+  "coreVocabulary": [
+    {
+      "word": "server",
+      "phonetic": "/ˈsɜːvə(r)/",
+      "viDefinition": "máy chủ (hệ thống máy tính)",
+      "contextSentence": "Cloud data is mirrored across hundreds of redundant enterprise servers."
+    },
+    {
+      "word": "redundancy",
+      "phonetic": "/rɪˈdʌndənsi/",
+      "viDefinition": "sự dự phòng (để tránh mất mát)",
+      "contextSentence": "Data redundancy protects user files if individual hard drives fail."
+    },
+    {
+      "word": "datacenter",
+      "phonetic": "/ˈdeɪtəsentə(r)/",
+      "viDefinition": "trung tâm dữ liệu",
+      "contextSentence": "Massive cooling systems keep servers chilled inside Arctic datacenters."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-09-cue-1",
+      "start": 0,
+      "end": 42,
+      "en": "Welcome to SciShow, pulling back the digital curtain on cloud computing infrastructure.",
+      "vi": "Chào mừng đến với SciShow, vén bức màn kỹ thuật số về cơ sở hạ tầng điện toán đám mây."
+    },
+    {
+      "id": "video-sth-09-cue-2",
+      "start": 42,
+      "end": 84,
+      "en": "When we save photos to 'the cloud,' our files do not float in the sky.",
+      "vi": "Khi chúng ta lưu ảnh lên 'đám mây', các tệp của chúng ta không lơ lửng trên bầu trời."
+    },
+    {
+      "id": "video-sth-09-cue-3",
+      "start": 84,
+      "end": 126,
+      "en": "The cloud is a physical network of massive industrial data centers spread across continents.",
+      "vi": "Đám mây là một mạng lưới vật lý gồm các trung tâm dữ liệu công nghiệp khổng lồ trải rộng khắp các châu lục."
+    },
+    {
+      "id": "video-sth-09-cue-4",
+      "start": 126,
+      "end": 168,
+      "en": "Inside warehouse-sized facilities, thousands of high-performance server racks run day and night.",
+      "vi": "Bên trong các cơ sở rộng bằng nhà kho, hàng nghìn giá đỡ máy chủ hiệu suất cao hoạt động ngày đêm."
+    },
+    {
+      "id": "video-sth-09-cue-5",
+      "start": 168,
+      "end": 210,
+      "en": "When you upload a vacation video, it is sliced into encrypted packets over the internet.",
+      "vi": "Khi bạn tải lên một video kỳ nghỉ, nó được chia thành các gói được mã hóa qua internet."
+    },
+    {
+      "id": "video-sth-09-cue-6",
+      "start": 210,
+      "end": 252,
+      "en": "Storage engineers utilize data redundancy: your files are cloned across multiple physical drives.",
+      "vi": "Các kỹ sư lưu trữ sử dụng tính năng dự phòng dữ liệu: tệp của bạn được nhân bản trên nhiều ổ đĩa vật lý."
+    },
+    {
+      "id": "video-sth-09-cue-7",
+      "start": 252,
+      "end": 294,
+      "en": "If one server motherboard crashes or burns out, identical copies remain instantly accessible.",
+      "vi": "Nếu một bo mạch chủ máy chủ bị hỏng hoặc cháy, các bản sao giống hệt vẫn có thể truy cập ngay lập tức."
+    },
+    {
+      "id": "video-sth-09-cue-8",
+      "start": 294,
+      "end": 336,
+      "en": "Massive industrial air-conditioning systems and liquid cooling prevent sensitive silicon chips from overheating.",
+      "vi": "Các hệ thống điều hòa công nghiệp khổng lồ và làm mát bằng chất lỏng ngăn các chip silicon nhạy cảm bị quá nhiệt."
+    },
+    {
+      "id": "video-sth-09-cue-9",
+      "start": 336,
+      "end": 378,
+      "en": "Modern synchronization algorithms ensure your edits reflect on phones and laptops within seconds.",
+      "vi": "Các thuật toán đồng bộ hóa hiện đại đảm bảo các chỉnh sửa của bạn hiển thị trên điện thoại và máy tính xách tay trong vài giây."
+    },
+    {
+      "id": "video-sth-09-cue-10",
+      "start": 378,
+      "end": 420,
+      "en": "The cloud represents humanity's collective brain, anchoring ethereal data into tangible hardware.",
+      "vi": "Đám mây đại diện cho bộ não tập thể của nhân loại, gắn kết dữ liệu thanh tao vào phần cứng hữu hình."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-09-cloze-1",
+      "cueId": "video-sth-09-cue-3",
+      "sentence": "The {{blank}} is a physical network of massive industrial data centers spread across continents.",
+      "blankWord": "cloud",
+      "hintVi": "Nghĩa gợi ý: Đám mây là một mạng lưới vật lý gồm các ...",
+      "timestamp": 84,
+      "options": [
+        "accurate",
+        "criterion",
+        "cloud",
+        "innovative"
+      ]
+    },
+    {
+      "id": "video-sth-09-cloze-2",
+      "cueId": "video-sth-09-cue-5",
+      "sentence": "When you {{blank}} a vacation video, it is sliced into encrypted packets over the internet.",
+      "blankWord": "upload",
+      "hintVi": "Nghĩa gợi ý: Khi bạn tải lên một video kỳ nghỉ, nó đư...",
+      "timestamp": 168,
+      "options": [
+        "essential",
+        "alternative",
+        "vibrant",
+        "upload"
+      ]
+    },
+    {
+      "id": "video-sth-09-cloze-3",
+      "cueId": "video-sth-09-cue-8",
+      "sentence": "{{blank}} industrial air-conditioning systems and liquid cooling prevent sensitive silicon chips from overheating.",
+      "blankWord": "massive",
+      "hintVi": "Nghĩa gợi ý: Các hệ thống điều hòa công nghiệp khổng ...",
+      "timestamp": 294,
+      "options": [
+        "flexible",
+        "resource",
+        "massive",
+        "favorable"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-09-q1",
+      "question": "What is the primary focus of the video 'Cloud Storage and File Syncing Explained'?",
+      "options": [
+        "To explain and practice cloud storage and file syncing explained effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores cloud storage and file syncing explained, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 42
+    },
+    {
+      "id": "video-sth-09-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'When...'?",
+      "options": [
+        "It emphasizes that: When you upload a vacation video, it is sliced into encrypte...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'When you upload a vacation video, it is sliced into encrypted packets over the internet.', showing its practical importance.",
+      "timestampSeek": 168
+    },
+    {
+      "id": "video-sth-09-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: The cloud represents humanity's collective brain, anchoring ether...",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that The cloud represents humanity's collective brain, anchoring ethereal data into tangible hardware., providing a meaningful summary for learners.",
+      "timestampSeek": 378
+    }
+  ]
+}

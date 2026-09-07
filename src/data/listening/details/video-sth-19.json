@@ -1,0 +1,204 @@
+{
+  "id": "video-sth-19",
+  "youtubeId": "eAWojlkeKpQ",
+  "title": "Everyday Tech Habits for Cyber Hygiene and Privacy",
+  "channel": "TED-Ed",
+  "duration": 670,
+  "durationDisplay": "11:10",
+  "durationCategory": "medium",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/eAWojlkeKpQ/hqdefault.jpg",
+  "description": "Thói quen an toàn mạng hàng ngày: mật khẩu mạnh, xác thực hai lớp và bảo vệ dữ liệu cá nhân.",
+  "coreVocabulary": [
+    {
+      "word": "authentication",
+      "phonetic": "/ɔːˌθentɪˈkeɪʃn/",
+      "viDefinition": "sự xác thực danh tính",
+      "contextSentence": "Enabling two-factor authentication blocks ninety-nine percent of unauthorized account breaches."
+    },
+    {
+      "word": "phishing",
+      "phonetic": "/ˈfɪʃɪŋ/",
+      "viDefinition": "lừa đảo qua mạng (giả mạo)",
+      "contextSentence": "Phishing emails impersonate reputable banks to harvest unsuspecting login credentials."
+    },
+    {
+      "word": "credential",
+      "phonetic": "/krəˈdenʃl/",
+      "viDefinition": "thông tin đăng nhập (tên người dùng, mật khẩu)",
+      "contextSentence": "Never reuse identical password credentials across multiple online financial portals."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-19-cue-1",
+      "start": 0,
+      "end": 67,
+      "en": "Welcome to TED-Ed, safeguarding your digital identity in an era of relentless cyber threats.",
+      "vi": "Chào mừng đến với TED-Ed, bảo vệ danh tính kỹ thuật số của bạn trong thời đại của các mối đe dọa mạng không ngừng."
+    },
+    {
+      "id": "video-sth-19-cue-2",
+      "start": 67,
+      "end": 134,
+      "en": "Every day, billions of humans input sensitive financial, personal, and medical data into web browsers.",
+      "vi": "Mỗi ngày, hàng tỷ con người nhập dữ liệu nhạy cảm về tài chính, cá nhân và y tế vào các trình duyệt web."
+    },
+    {
+      "id": "video-sth-19-cue-3",
+      "start": 134,
+      "end": 201,
+      "en": "Yet basic cyber hygiene habits are widely neglected, leaving doors wide open to digital predators.",
+      "vi": "Tuy nhiên, các thói quen vệ sinh mạng cơ bản lại bị lơ là rộng rãi, để ngỏ cửa cho những kẻ săn mồi kỹ thuật số."
+    },
+    {
+      "id": "video-sth-19-cue-4",
+      "start": 201,
+      "end": 268,
+      "en": "The most common security vulnerability remains password reuse across multiple consumer platforms.",
+      "vi": "Lỗ hổng bảo mật phổ biến nhất vẫn là việc tái sử dụng mật khẩu trên nhiều nền tảng tiêu dùng."
+    },
+    {
+      "id": "video-sth-19-cue-5",
+      "start": 268,
+      "end": 335,
+      "en": "When an obscure retail site suffers a database leak, automated bots test those credentials everywhere.",
+      "vi": "Khi một trang web bán lẻ ít tên tuổi bị rò rỉ cơ sở dữ liệu, các bot tự động sẽ thử các thông tin đăng nhập đó ở khắp mọi nơi."
+    },
+    {
+      "id": "video-sth-19-cue-6",
+      "start": 335,
+      "end": 402,
+      "en": "Adopting a dedicated password manager allows you to generate long, unpredictable cryptographic passwords.",
+      "vi": "Sử dụng một trình quản lý mật khẩu chuyên dụng cho phép bạn tạo các mật khẩu mật mã dài, khó đoán."
+    },
+    {
+      "id": "video-sth-19-cue-7",
+      "start": 402,
+      "end": 469,
+      "en": "Always enable two-factor authentication, preferably using an authenticator app rather than SMS text codes.",
+      "vi": "Luôn bật xác thực hai yếu tố, tốt nhất là sử dụng ứng dụng xác thực thay vì mã tin nhắn SMS."
+    },
+    {
+      "id": "video-sth-19-cue-8",
+      "start": 469,
+      "end": 536,
+      "en": "Stay vigilant against deceptive phishing emails masquerading as urgent notifications from banking institutions.",
+      "vi": "Hãy cảnh giác trước các email lừa đảo mạo danh thông báo khẩn cấp từ các tổ chức ngân hàng."
+    },
+    {
+      "id": "video-sth-19-cue-9",
+      "start": 536,
+      "end": 603,
+      "en": "Inspect web URLs carefully before entering login credentials or credit card numbers.",
+      "vi": "Kiểm tra kỹ các URL trang web trước khi nhập thông tin đăng nhập hoặc số thẻ tín dụng."
+    },
+    {
+      "id": "video-sth-19-cue-10",
+      "start": 603,
+      "end": 670,
+      "en": "Cultivating proactive cyber habits guarantees that technological connectivity enriches life without compromising privacy.",
+      "vi": "Nuôi dưỡng các thói quen mạng chủ động đảm bảo rằng sự kết nối công nghệ làm phong phú thêm cuộc sống mà không ảnh hưởng đến quyền riêng tư."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-19-cloze-1",
+      "cueId": "video-sth-19-cue-3",
+      "sentence": "Yet {{blank}} cyber hygiene habits are widely neglected, leaving doors wide open to digital predators.",
+      "blankWord": "basic",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, các thói quen vệ sinh mạng cơ...",
+      "timestamp": 134,
+      "options": [
+        "deliberate",
+        "basic",
+        "framework",
+        "innovative"
+      ]
+    },
+    {
+      "id": "video-sth-19-cloze-2",
+      "cueId": "video-sth-19-cue-5",
+      "sentence": "When an {{blank}} retail site suffers a database leak, automated bots test those credentials everywhere.",
+      "blankWord": "obscure",
+      "hintVi": "Nghĩa gợi ý: Khi một trang web bán lẻ ít tên tuổi bị ...",
+      "timestamp": 268,
+      "options": [
+        "extensive",
+        "obscure",
+        "perspective",
+        "preliminary"
+      ]
+    },
+    {
+      "id": "video-sth-19-cloze-3",
+      "cueId": "video-sth-19-cue-8",
+      "sentence": "Stay {{blank}} against deceptive phishing emails masquerading as urgent notifications from banking institutions.",
+      "blankWord": "vigilant",
+      "hintVi": "Nghĩa gợi ý: Hãy cảnh giác trước các email lừa đảo mạ...",
+      "timestamp": 469,
+      "options": [
+        "advantage",
+        "protocol",
+        "vigilant",
+        "gradual"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-19-q1",
+      "question": "What is the primary focus of the video 'Everyday Tech Habits for Cyber Hygiene and Privacy'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice everyday tech habits for cyber hygiene and privacy effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores everyday tech habits for cyber hygiene and privacy, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 67
+    },
+    {
+      "id": "video-sth-19-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'When...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: When an obscure retail site suffers a database leak, automat...",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'When an obscure retail site suffers a database leak, automated bots test those credentials everywhere.', showing its practical importance.",
+      "timestampSeek": 268
+    },
+    {
+      "id": "video-sth-19-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Cultivating proactive cyber habits guarantees that technological ...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Cultivating proactive cyber habits guarantees that technological connectivity enriches life without compromising privacy., providing a meaningful summary for learners.",
+      "timestampSeek": 603
+    },
+    {
+      "id": "video-sth-19-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Always...'?",
+      "options": [
+        "It highlights that: Always enable two-factor authentication, preferably using an...",
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners.",
+        "It warns that following this method produces immediate failure."
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker specifically highlights: 'Always enable two-factor authentication, preferably using an authenticator app rather than SMS text codes.', providing deeper technical insight.",
+      "timestampSeek": 402
+    }
+  ]
+}

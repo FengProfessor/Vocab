@@ -33,6 +33,7 @@ const display = 'font-bold tracking-tight';
 const OAUTH_ROLE_KEY = 'lingopro_oauth_role';
 const OAUTH_PILOT_KEY = 'lingopro_oauth_pilot';
 const OAUTH_SOURCE_KEY = 'lingopro_oauth_source';
+const OAUTH_REDIRECT_TO_KEY = 'lingopro_oauth_redirect_to';
 
 type Mode = 'login' | 'signup';
 
@@ -90,14 +91,26 @@ export default function AuthPage() {
     return () => window.clearTimeout(timer);
   }, []);
 
-  /** Role từ JWT metadata — KHÔNG query profiles. Default student. */
+  /** Role từ JWT metadata — KHÔNG query profiles. Default student hoặc redirectTo. */
   const destFromSession = (user: { user_metadata?: Record<string, unknown> } | null | undefined) => {
     const metaRole = user?.user_metadata?.role;
     if (metaRole === 'teacher') return '/teacher';
+    const params = new URLSearchParams(window.location.search);
     const wantTeacher =
-      new URLSearchParams(window.location.search).get('role') === 'teacher' ||
+      params.get('role') === 'teacher' ||
       sessionStorage.getItem(OAUTH_ROLE_KEY) === 'teacher';
-    return wantTeacher ? '/teacher' : '/student';
+    if (wantTeacher) return '/teacher';
+
+    const redirectTo =
+      params.get('redirectTo') ||
+      sessionStorage.getItem(OAUTH_REDIRECT_TO_KEY);
+    if (redirectTo && redirectTo.startsWith('/') && !redirectTo.startsWith('//')) {
+      try {
+        sessionStorage.removeItem(OAUTH_REDIRECT_TO_KEY);
+      } catch {}
+      return redirectTo;
+    }
+    return '/student';
   };
 
   useEffect(() => {
@@ -284,10 +297,13 @@ export default function AuthPage() {
       sessionStorage.setItem(OAUTH_ROLE_KEY, role);
       const pilot = params.get('pilot') ?? sessionStorage.getItem('teacher_pilot_plan');
       const source = params.get('utm_source') ?? sessionStorage.getItem('teacher_pilot_source');
+      const redirectToParam = params.get('redirectTo');
       if (pilot) sessionStorage.setItem(OAUTH_PILOT_KEY, pilot.slice(0, 40));
       else sessionStorage.removeItem(OAUTH_PILOT_KEY);
       if (source) sessionStorage.setItem(OAUTH_SOURCE_KEY, source.slice(0, 80));
       else sessionStorage.removeItem(OAUTH_SOURCE_KEY);
+      if (redirectToParam) sessionStorage.setItem(OAUTH_REDIRECT_TO_KEY, redirectToParam);
+      else sessionStorage.removeItem(OAUTH_REDIRECT_TO_KEY);
 
       // Chỉ path sạch — Google + Supabase reject redirect lạ / query
       const redirectTo = `${window.location.origin}/auth/callback`;
@@ -478,7 +494,7 @@ export default function AuthPage() {
                     onClick={async () => {
                       const { data: { session } } = await supabase.auth.getSession();
                       window.location.replace(
-                        session ? destFromSession(session.user) : '/student',
+                        destFromSession(session?.user),
                       );
                     }}
                     className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#2d7f5e] text-sm font-black text-white shadow-lg active:scale-[0.98]"

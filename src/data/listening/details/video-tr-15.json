@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-15",
+  "youtubeId": "deWTv0fHeaX",
+  "title": "Exchanging Foreign Currency and Avoiding Fees",
+  "channel": "Wolters World",
+  "duration": 490,
+  "durationDisplay": "08:10",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/deWTv0fHeaX/hqdefault.jpg",
+  "description": "Mẹo đổi ngoại tệ thông minh: tránh bẫy phí ở sân bay và dùng thẻ ATM địa phương.",
+  "coreVocabulary": [
+    {
+      "word": "currency",
+      "phonetic": "/ˈkʌrənsi/",
+      "viDefinition": "tiền tệ, ngoại tệ",
+      "contextSentence": "Always withdraw local currency directly from bank-owned ATMs."
+    },
+    {
+      "word": "commission",
+      "phonetic": "/kəˈmɪʃn/",
+      "viDefinition": "tiền hoa hồng, phí dịch vụ",
+      "contextSentence": "Airport currency kiosks charge exorbitant hidden commission fees."
+    },
+    {
+      "word": "transaction",
+      "phonetic": "/trænˈzækʃn/",
+      "viDefinition": "giao dịch (ngân hàng)",
+      "contextSentence": "Credit cards with zero foreign transaction fees save travelers a fortune."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-15-cue-1",
+      "start": 0,
+      "end": 49,
+      "en": "Hey everybody, Mark from Wolters World saving you serious money on global travel.",
+      "vi": "Chào mọi người, Mark từ Wolters World ở đây giúp bạn tiết kiệm tiền đáng kể khi du lịch toàn cầu."
+    },
+    {
+      "id": "video-tr-15-cue-2",
+      "start": 49,
+      "end": 98,
+      "en": "Exchanging money incorrectly is the easiest way to lose ten percent of your budget.",
+      "vi": "Đổi tiền không đúng cách là cách dễ nhất để mất mười phần trăm ngân sách của bạn."
+    },
+    {
+      "id": "video-tr-15-cue-3",
+      "start": 98,
+      "end": 147,
+      "en": "Avoid airport currency exchange booths advertising 'Zero Percent Commission'.",
+      "vi": "Tránh các quầy đổi tiền ở sân bay quảng cáo 'Không phần trăm hoa hồng'."
+    },
+    {
+      "id": "video-tr-15-cue-4",
+      "start": 147,
+      "end": 196,
+      "en": "They make their predatory profit by offering disastrous, manipulative exchange rates.",
+      "vi": "Họ kiếm lợi nhuận bóc lột bằng cách đưa ra các tỷ giá hối đoái thảm hại và thao túng."
+    },
+    {
+      "id": "video-tr-15-cue-5",
+      "start": 196,
+      "end": 245,
+      "en": "The gold standard rule: use an official bank-affiliated ATM inside a bank branch.",
+      "vi": "Quy tắc tiêu chuẩn vàng: dùng máy ATM trực thuộc ngân hàng chính thức bên trong chi nhánh ngân hàng."
+    },
+    {
+      "id": "video-tr-15-cue-6",
+      "start": 245,
+      "end": 294,
+      "en": "When the ATM prompts: 'Charge in your home currency or local currency?', always pick local.",
+      "vi": "Khi máy ATM hỏi: 'Thanh toán bằng đồng tiền quê nhà hay đồng nội tệ?', luôn chọn đồng nội tệ."
+    },
+    {
+      "id": "video-tr-15-cue-7",
+      "start": 294,
+      "end": 343,
+      "en": "Choosing your home currency activates dynamic currency conversion with massive markups.",
+      "vi": "Chọn đồng tiền quê nhà sẽ kích hoạt tính năng chuyển đổi tiền tệ động với mức chênh lệch giá khổng lồ."
+    },
+    {
+      "id": "video-tr-15-cue-8",
+      "start": 343,
+      "end": 392,
+      "en": "Carry two different credit cards with verified zero foreign transaction fees.",
+      "vi": "Mang theo hai thẻ tín dụng khác nhau đã được xác minh không có phí giao dịch nước ngoài."
+    },
+    {
+      "id": "video-tr-15-cue-9",
+      "start": 392,
+      "end": 441,
+      "en": "Keep a modest emergency stash of crisp US dollars or Euros hidden in your luggage.",
+      "vi": "Giữ một khoản dự phòng khẩn cấp khiêm tốn bằng tiền đô la Mỹ hoặc Euro mới phẳng giấu trong hành lý."
+    },
+    {
+      "id": "video-tr-15-cue-10",
+      "start": 441,
+      "end": 490,
+      "en": "Smart financial travel habits keep your hard-earned funds where they belong: in your pocket.",
+      "vi": "Những thói quen tài chính thông minh khi du lịch giữ tiền bạc vất vả kiếm được ở đúng nơi nó thuộc về: trong túi bạn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-15-cloze-1",
+      "cueId": "video-tr-15-cue-3",
+      "sentence": "{{blank}} airport currency exchange booths advertising 'Zero Percent Commission'.",
+      "blankWord": "avoid",
+      "hintVi": "Nghĩa gợi ý: Tránh các quầy đổi tiền ở sân bay quảng ...",
+      "timestamp": 98,
+      "options": [
+        "deliberate",
+        "tremendous",
+        "avoid",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-tr-15-cloze-2",
+      "cueId": "video-tr-15-cue-5",
+      "sentence": "The gold {{blank}} rule: use an official bank-affiliated ATM inside a bank branch.",
+      "blankWord": "standard",
+      "hintVi": "Nghĩa gợi ý: Quy tắc tiêu chuẩn vàng: dùng máy ATM tr...",
+      "timestamp": 196,
+      "options": [
+        "dimension",
+        "standard",
+        "subsequent",
+        "substantial"
+      ]
+    },
+    {
+      "id": "video-tr-15-cloze-3",
+      "cueId": "video-tr-15-cue-8",
+      "sentence": "{{blank}} two different credit cards with verified zero foreign transaction fees.",
+      "blankWord": "carry",
+      "hintVi": "Nghĩa gợi ý: Mang theo hai thẻ tín dụng khác nhau đã ...",
+      "timestamp": 343,
+      "options": [
+        "carry",
+        "gradual",
+        "flexible",
+        "vulnerable"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-15-q1",
+      "question": "What is the primary focus of the video 'Exchanging Foreign Currency and Avoiding Fees'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice exchanging foreign currency and avoiding fees effectively.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores exchanging foreign currency and avoiding fees, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 49
+    },
+    {
+      "id": "video-tr-15-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: The gold standard rule: use an official bank-affiliated ATM ...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'The gold standard rule: use an official bank-affiliated ATM inside a bank branch.', showing its practical importance.",
+      "timestampSeek": 196
+    },
+    {
+      "id": "video-tr-15-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Smart financial travel habits keep your hard-earned funds where t..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Smart financial travel habits keep your hard-earned funds where they belong: in your pocket., providing a meaningful summary for learners.",
+      "timestampSeek": 441
+    }
+  ]
+}

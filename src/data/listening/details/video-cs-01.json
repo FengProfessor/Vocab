@@ -1,0 +1,191 @@
+{
+  "id": "video-cs-01",
+  "youtubeId": "X8Orl_pNFGs",
+  "title": "Afternoon Tea Tradition in Britain",
+  "channel": "English with Lucy",
+  "duration": 220,
+  "durationDisplay": "03:40",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "culture",
+  "topicDisplay": "Văn hóa, TED & Câu chuyện",
+  "thumbnailUrl": "https://img.youtube.com/vi/X8Orl_pNFGs/hqdefault.jpg",
+  "description": "Phong tục uống trà chiều của người Anh: các loại trà, bánh ngọt và quy tắc lịch sự.",
+  "coreVocabulary": [
+    {
+      "word": "scone",
+      "phonetic": "/skɒn/",
+      "viDefinition": "bánh nướng xốp kiểu Anh (ăn kèm mứt và kem)",
+      "contextSentence": "Warm baked scones are served with clotted cream and strawberry jam."
+    },
+    {
+      "word": "porcelain",
+      "phonetic": "/ˈpɔːsəlɪn/",
+      "viDefinition": "đồ sứ, tách trà sứ",
+      "contextSentence": "Delicate floral porcelain cups enhance the classic afternoon tea experience."
+    },
+    {
+      "word": "etiquette",
+      "phonetic": "/ˈetɪket/",
+      "viDefinition": "phép lịch sự, quy tắc ứng xử",
+      "contextSentence": "British afternoon tea etiquette requires stirring tea gently without clinking."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-cs-01-cue-1",
+      "start": 0,
+      "end": 22,
+      "en": "Hello everyone, Lucy here sharing one of Britain's most cherished rituals: afternoon tea.",
+      "vi": "Xin chào mọi người, Lucy ở đây chia sẻ một trong những nghi thức được yêu thích nhất của nước Anh: trà chiều."
+    },
+    {
+      "id": "video-cs-01-cue-2",
+      "start": 22,
+      "end": 44,
+      "en": "Invented by the Duchess of Bedford in the nineteenth century, it began as a light afternoon snack.",
+      "vi": "Được phát minh bởi Nữ công tước Bedford vào thế kỷ 19, nó bắt đầu như một bữa ăn nhẹ vào buổi chiều."
+    },
+    {
+      "id": "video-cs-01-cue-3",
+      "start": 44,
+      "end": 66,
+      "en": "Today, it is enjoyed in luxury hotels and cozy country tearooms alike.",
+      "vi": "Ngày nay, nó được thưởng thức trong các khách sạn sang trọng cũng như các quán trà ấm cúng ở vùng quê."
+    },
+    {
+      "id": "video-cs-01-cue-4",
+      "start": 66,
+      "end": 88,
+      "en": "A tiered stand arrives holding delicate finger sandwiches with crusts removed.",
+      "vi": "Một chiếc giá nhiều tầng được mang ra đựng những chiếc bánh kẹp nhỏ xinh đã cắt bỏ viền."
+    },
+    {
+      "id": "video-cs-01-cue-5",
+      "start": 88,
+      "end": 110,
+      "en": "Freshly baked scones are served warm, accompanied by sweet clotted cream and jam.",
+      "vi": "Bánh nướng mới ra lò được phục vụ khi còn ấm, ăn kèm với kem đặc béo ngậy và mứt."
+    },
+    {
+      "id": "video-cs-01-cue-6",
+      "start": 110,
+      "end": 132,
+      "en": "Pour aromatic Earl Grey tea into fine porcelain cups from an ornate teapot.",
+      "vi": "Rót trà Earl Grey thơm ngát vào những chiếc tách sứ trang nhã từ chiếc ấm trà hoa văn."
+    },
+    {
+      "id": "video-cs-01-cue-7",
+      "start": 132,
+      "end": 154,
+      "en": "Stir your tea gently in a straight motion rather than clinking against the cup rim.",
+      "vi": "Khuấy trà nhẹ nhàng theo đường thẳng thay vì gõ lách cách vào vành tách."
+    },
+    {
+      "id": "video-cs-01-cue-8",
+      "start": 154,
+      "end": 176,
+      "en": "Top tiers feature miniature fruit tarts, chocolate eclairs, and lemon macarons.",
+      "vi": "Tầng trên cùng là những chiếc bánh tart trái cây mini, bánh su kem sô-cô-la và macaron chanh."
+    },
+    {
+      "id": "video-cs-01-cue-9",
+      "start": 176,
+      "end": 198,
+      "en": "Afternoon tea is an unhurried social occasion to converse with dear friends.",
+      "vi": "Trà chiều là một dịp giao lưu không vội vã để trò chuyện cùng những người bạn thân thương."
+    },
+    {
+      "id": "video-cs-01-cue-10",
+      "start": 198,
+      "end": 220,
+      "en": "Slow down and savor this quintessential celebration of British hospitality.",
+      "vi": "Hãy sống chậm lại và thưởng thức nét tôn vinh tinh túy này của lòng hiếu khách nước Anh."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-cs-01-cloze-1",
+      "cueId": "video-cs-01-cue-3",
+      "sentence": "{{blank}}, it is enjoyed in luxury hotels and cozy country tearooms alike.",
+      "blankWord": "today",
+      "hintVi": "Nghĩa gợi ý: Ngày nay, nó được thưởng thức trong các ...",
+      "timestamp": 44,
+      "options": [
+        "preliminary",
+        "favorable",
+        "remarkable",
+        "today"
+      ]
+    },
+    {
+      "id": "video-cs-01-cloze-2",
+      "cueId": "video-cs-01-cue-5",
+      "sentence": "{{blank}} baked scones are served warm, accompanied by sweet clotted cream and jam.",
+      "blankWord": "freshly",
+      "hintVi": "Nghĩa gợi ý: Bánh nướng mới ra lò được phục vụ khi cò...",
+      "timestamp": 88,
+      "options": [
+        "essential",
+        "sufficient",
+        "freshly",
+        "reliable"
+      ]
+    },
+    {
+      "id": "video-cs-01-cloze-3",
+      "cueId": "video-cs-01-cue-8",
+      "sentence": "Top {{blank}} feature miniature fruit tarts, chocolate eclairs, and lemon macarons.",
+      "blankWord": "tiers",
+      "hintVi": "Nghĩa gợi ý: Tầng trên cùng là những chiếc bánh tart ...",
+      "timestamp": 154,
+      "options": [
+        "tiers",
+        "preliminary",
+        "adequate",
+        "reliable"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-cs-01-q1",
+      "question": "What is the primary focus of the video 'Afternoon Tea Tradition in Britain'?",
+      "options": [
+        "To explain and practice afternoon tea tradition in britain effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores afternoon tea tradition in britain, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 22
+    },
+    {
+      "id": "video-cs-01-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Freshly...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Freshly baked scones are served warm, accompanied by sweet c..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Freshly baked scones are served warm, accompanied by sweet clotted cream and jam.', showing its practical importance.",
+      "timestampSeek": 88
+    },
+    {
+      "id": "video-cs-01-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Slow down and savor this quintessential celebration of British ho..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Slow down and savor this quintessential celebration of British hospitality., providing a meaningful summary for learners.",
+      "timestampSeek": 198
+    }
+  ]
+}

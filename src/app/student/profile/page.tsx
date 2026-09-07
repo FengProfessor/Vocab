@@ -33,6 +33,7 @@ import {
   xpToLevel,
 } from '@/lib/gamification';
 import { supabase, type Profile } from '@/lib/supabase';
+import { PROVINCES } from '@/lib/provinces';
 
 type StudentProfile = Profile & {
   telegram_id?: string | null;
@@ -88,6 +89,7 @@ export default function ProfilePage() {
   const [fullName, setFullName] = useState('');
   const [dailyGoal, setDailyGoal] = useState(30);
   const [notificationHour, setNotificationHour] = useState(8);
+  const [province, setProvince] = useState('');
 
   const router = useRouter();
   const { data: gamification } = useGamification(profile?.id ?? null);
@@ -135,6 +137,7 @@ export default function ProfilePage() {
         setFullName(nextProfile.full_name ?? '');
         setDailyGoal(nextProfile.daily_goal ?? 30);
         setNotificationHour(nextProfile.notification_hour ?? 8);
+        setProvince(nextProfile.province ?? '');
       }
 
       if (statsResponse?.success) {
@@ -167,6 +170,7 @@ export default function ProfilePage() {
           full_name: fullName,
           daily_goal: dailyGoal,
           notification_hour: notificationHour,
+          province: province.trim() || null,
         }),
       });
 
@@ -556,6 +560,25 @@ export default function ProfilePage() {
               {Array.from({ length: 17 }, (_, index) => index + 6).map((hour) => (
                 <option key={hour} value={hour}>
                   {String(hour).padStart(2, '0')}:00
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="province-select" className="text-xs font-bold">
+              Tỉnh / Thành phố
+            </Label>
+            <select
+              id="province-select"
+              value={province}
+              onChange={(e) => setProvince(e.target.value)}
+              className="h-9 w-full cursor-pointer appearance-none rounded-lg border bg-background px-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/30"
+            >
+              <option value="">-- Chưa chọn Tỉnh / Thành phố --</option>
+              {PROVINCES.map((p) => (
+                <option key={p} value={p}>
+                  {p}
                 </option>
               ))}
             </select>

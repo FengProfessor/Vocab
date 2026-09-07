@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-12",
+  "youtubeId": "U-BNnwl3bGu",
+  "title": "Handling a Flight Delay and Claiming Vouchers",
+  "channel": "Oxford Online English",
+  "duration": 400,
+  "durationDisplay": "06:40",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/U-BNnwl3bGu/hqdefault.jpg",
+  "description": "Quyền lợi hành khách khi chuyến bay bị hoãn: phiếu ăn uống, khách sạn và bồi thường.",
+  "coreVocabulary": [
+    {
+      "word": "delay",
+      "phonetic": "/dɪˈleɪ/",
+      "viDefinition": "sự chậm trễ, hoãn chuyến",
+      "contextSentence": "A five-hour mechanical flight delay entitles passengers to airline compensation."
+    },
+    {
+      "word": "voucher",
+      "phonetic": "/ˈvaʊtʃə(r)/",
+      "viDefinition": "phiếu giảm giá, phiếu đổi dịch vụ",
+      "contextSentence": "The gate agent issued meal vouchers redeemable at airport restaurants."
+    },
+    {
+      "word": "compensation",
+      "phonetic": "/ˌkɒmpenˈseɪʃn/",
+      "viDefinition": "sự bồi thường, tiền đền bù",
+      "contextSentence": "European regulations mandate cash compensation for cancellations caused by airlines."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-12-cue-1",
+      "start": 0,
+      "end": 40,
+      "en": "Welcome to Oxford Online English, helping you stand up for your consumer travel rights.",
+      "vi": "Chào mừng đến với Oxford Online English, giúp bạn bảo vệ quyền lợi du lịch của người tiêu dùng."
+    },
+    {
+      "id": "video-tr-12-cue-2",
+      "start": 40,
+      "end": 80,
+      "en": "Severe weather and mechanical breakdowns frequently disrupt complex airline schedules.",
+      "vi": "Thời tiết khắc nghiệt và sự cố cơ khí thường xuyên làm gián đoạn lịch bay phức tạp."
+    },
+    {
+      "id": "video-tr-12-cue-3",
+      "start": 80,
+      "end": 120,
+      "en": "When your flight is delayed beyond three hours, specific passenger rights activate.",
+      "vi": "Khi chuyến bay của bạn bị hoãn trên ba tiếng, các quyền hành khách cụ thể sẽ được kích hoạt."
+    },
+    {
+      "id": "video-tr-12-cue-4",
+      "start": 120,
+      "end": 160,
+      "en": "Under European regulation EU261, airlines must provide meals, drinks, and communications.",
+      "vi": "Theo quy định EU261 của Châu Âu, các hãng hàng không phải cung cấp bữa ăn, đồ uống và phương tiện liên lạc."
+    },
+    {
+      "id": "video-tr-12-cue-5",
+      "start": 160,
+      "end": 200,
+      "en": "Approach the service desk calmly: 'Could you please issue meal vouchers for our wait?'",
+      "vi": "Tiến lại bàn dịch vụ một cách bình tĩnh: 'Làm ơn cấp phiếu ăn cho thời gian chờ của chúng tôi được không?'"
+    },
+    {
+      "id": "video-tr-12-cue-6",
+      "start": 200,
+      "end": 240,
+      "en": "If a delay forces an overnight stay, the airline must furnish complimentary hotel rooms.",
+      "vi": "Nếu việc hoãn chuyến buộc phải ở lại qua đêm, hãng hàng không phải cung cấp phòng khách sạn miễn phí."
+    },
+    {
+      "id": "video-tr-12-cue-7",
+      "start": 240,
+      "end": 280,
+      "en": "Ground transportation between the airport and hotel lodging must also be provided.",
+      "vi": "Phương tiện di chuyển mặt đất giữa sân bay và nơi ở khách sạn cũng phải được cung cấp."
+    },
+    {
+      "id": "video-tr-12-cue-8",
+      "start": 280,
+      "end": 320,
+      "en": "Keep all receipts for out-of-pocket food purchases if vouchers are unavailable.",
+      "vi": "Giữ lại tất cả các hóa đơn mua đồ ăn tự chi trả nếu không có phiếu dịch vụ."
+    },
+    {
+      "id": "video-tr-12-cue-9",
+      "start": 320,
+      "end": 360,
+      "en": "If delays stem from airline operational failures, apply for monetary cash compensation.",
+      "vi": "Nếu sự chậm trễ bắt nguồn từ lỗi vận hành của hãng, hãy nộp đơn xin bồi thường bằng tiền mặt."
+    },
+    {
+      "id": "video-tr-12-cue-10",
+      "start": 360,
+      "end": 400,
+      "en": "Composed assertiveness backed by consumer law resolves airport crises rapidly.",
+      "vi": "Sự quả quyết điềm tĩnh được pháp luật người tiêu dùng hậu thuẫn sẽ giải quyết các khủng hoảng sân bay nhanh chóng."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-12-cloze-1",
+      "cueId": "video-tr-12-cue-3",
+      "sentence": "When your {{blank}} is delayed beyond three hours, specific passenger rights activate.",
+      "blankWord": "flight",
+      "hintVi": "Nghĩa gợi ý: Khi chuyến bay của bạn bị hoãn trên ba t...",
+      "timestamp": 80,
+      "options": [
+        "flight",
+        "reliable",
+        "criterion",
+        "efficient"
+      ]
+    },
+    {
+      "id": "video-tr-12-cloze-2",
+      "cueId": "video-tr-12-cue-5",
+      "sentence": "{{blank}} the service desk calmly: 'Could you please issue meal vouchers for our wait?'",
+      "blankWord": "approach",
+      "hintVi": "Nghĩa gợi ý: Tiến lại bàn dịch vụ một cách bình tĩnh:...",
+      "timestamp": 160,
+      "options": [
+        "approach",
+        "fundamental",
+        "sufficient",
+        "adequate"
+      ]
+    },
+    {
+      "id": "video-tr-12-cloze-3",
+      "cueId": "video-tr-12-cue-8",
+      "sentence": "Keep all {{blank}} for out-of-pocket food purchases if vouchers are unavailable.",
+      "blankWord": "receipts",
+      "hintVi": "Nghĩa gợi ý: Giữ lại tất cả các hóa đơn mua đồ ăn tự ...",
+      "timestamp": 280,
+      "options": [
+        "receipts",
+        "subsequent",
+        "strategy",
+        "resource"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-12-q1",
+      "question": "What is the primary focus of the video 'Handling a Flight Delay and Claiming Vouchers'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice handling a flight delay and claiming vouchers effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores handling a flight delay and claiming vouchers, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 40
+    },
+    {
+      "id": "video-tr-12-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Approach...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Approach the service desk calmly: 'Could you please issue me...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Approach the service desk calmly: 'Could you please issue meal vouchers for our wait?'', showing its practical importance.",
+      "timestampSeek": 160
+    },
+    {
+      "id": "video-tr-12-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Composed assertiveness backed by consumer law resolves airport cr...",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Composed assertiveness backed by consumer law resolves airport crises rapidly., providing a meaningful summary for learners.",
+      "timestampSeek": 360
+    }
+  ]
+}

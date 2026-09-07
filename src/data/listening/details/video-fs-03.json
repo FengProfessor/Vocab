@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-03",
+  "youtubeId": "PKWCRcs-PvS",
+  "title": "Booking a Table at a Casual Restaurant",
+  "channel": "English with Lucy",
+  "duration": 250,
+  "durationDisplay": "04:10",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/PKWCRcs-PvS/hqdefault.jpg",
+  "description": "Cách gọi điện đặt bàn ăn tối, chọn chỗ ngồi ngoài trời hoặc trong nhà.",
+  "coreVocabulary": [
+    {
+      "word": "patio",
+      "phonetic": "/ˈpætiəʊ/",
+      "viDefinition": "hiên ngoài trời, sân hiên ăn uống",
+      "contextSentence": "We would love to reserve a breezy table out on the patio."
+    },
+    {
+      "word": "party",
+      "phonetic": "/ˈpɑːti/",
+      "viDefinition": "nhóm người, đoàn khách (trong nhà hàng)",
+      "contextSentence": "We have a party of four arriving at seven-thirty tonight."
+    },
+    {
+      "word": "confirm",
+      "phonetic": "/kənˈfɜːm/",
+      "viDefinition": "xác nhận đặt bàn",
+      "contextSentence": "The restaurant sent a text message to confirm our booking."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-03-cue-1",
+      "start": 0,
+      "end": 25,
+      "en": "Hello food lovers, Lucy here helping you secure the best restaurant seats.",
+      "vi": "Xin chào những người yêu ẩm thực, Lucy ở đây giúp bạn giữ được những chỗ ngồi tốt nhất trong nhà hàng."
+    },
+    {
+      "id": "video-fs-03-cue-2",
+      "start": 25,
+      "end": 50,
+      "en": "Popular bistros and pizzerias fill up rapidly on Friday and Saturday evenings.",
+      "vi": "Các quán rượu nhỏ và tiệm pizza nổi tiếng sẽ kín chỗ rất nhanh vào tối thứ Sáu và thứ Bảy."
+    },
+    {
+      "id": "video-fs-03-cue-3",
+      "start": 50,
+      "end": 75,
+      "en": "Call the restaurant directly to secure a reservation in advance.",
+      "vi": "Hãy gọi điện trực tiếp cho nhà hàng để đảm bảo đặt bàn trước."
+    },
+    {
+      "id": "video-fs-03-cue-4",
+      "start": 75,
+      "end": 100,
+      "en": "Say: 'Hello, I would like to book a dinner table for a party of four.'",
+      "vi": "Nói: 'Xin chào, tôi muốn đặt một bàn ăn tối cho một đoàn bốn người.'"
+    },
+    {
+      "id": "video-fs-03-cue-5",
+      "start": 100,
+      "end": 125,
+      "en": "Specify your preferred time: 'Would you have availability around seven-thirty?'",
+      "vi": "Nêu rõ thời gian ưa thích của bạn: 'Nhà hàng còn chỗ vào khoảng bảy giờ ba mươi không ạ?'"
+    },
+    {
+      "id": "video-fs-03-cue-6",
+      "start": 125,
+      "end": 150,
+      "en": "If the weather is warm, request: 'Could we be seated outside on the garden patio?'",
+      "vi": "Nếu thời tiết ấm áp, hãy yêu cầu: 'Chúng tôi có thể được ngồi ngoài sân hiên vườn được không?'"
+    },
+    {
+      "id": "video-fs-03-cue-7",
+      "start": 150,
+      "end": 175,
+      "en": "Inform the host of any special occasions like a family birthday celebration.",
+      "vi": "Thông báo cho người đón tiếp về bất kỳ dịp đặc biệt nào như tiệc sinh nhật gia đình."
+    },
+    {
+      "id": "video-fs-03-cue-8",
+      "start": 175,
+      "end": 200,
+      "en": "Give your name and contact phone number so they can confirm the booking.",
+      "vi": "Cung cấp tên và số điện thoại liên lạc của bạn để họ có thể xác nhận việc đặt bàn."
+    },
+    {
+      "id": "video-fs-03-cue-9",
+      "start": 200,
+      "end": 225,
+      "en": "Arrive punctually so your reserved table is not given away to walk-in patrons.",
+      "vi": "Đến đúng giờ để bàn đã đặt của bạn không bị nhường cho những khách vãng lai."
+    },
+    {
+      "id": "video-fs-03-cue-10",
+      "start": 225,
+      "end": 250,
+      "en": "Enjoying delightful cuisine with people you love is life's sweetest pleasure.",
+      "vi": "Thưởng thức ẩm thực tuyệt vời bên những người bạn yêu thương là niềm vui ngọt ngào nhất của cuộc đời."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-03-cloze-1",
+      "cueId": "video-fs-03-cue-3",
+      "sentence": "Call the {{blank}} directly to secure a reservation in advance.",
+      "blankWord": "restaurant",
+      "hintVi": "Nghĩa gợi ý: Hãy gọi điện trực tiếp cho nhà hàng để đ...",
+      "timestamp": 50,
+      "options": [
+        "gradual",
+        "efficient",
+        "preliminary",
+        "restaurant"
+      ]
+    },
+    {
+      "id": "video-fs-03-cloze-2",
+      "cueId": "video-fs-03-cue-5",
+      "sentence": "{{blank}} your preferred time: 'Would you have availability around seven-thirty?'",
+      "blankWord": "specify",
+      "hintVi": "Nghĩa gợi ý: Nêu rõ thời gian ưa thích của bạn: 'Nhà ...",
+      "timestamp": 100,
+      "options": [
+        "specify",
+        "remarkable",
+        "innovative",
+        "simultaneous"
+      ]
+    },
+    {
+      "id": "video-fs-03-cloze-3",
+      "cueId": "video-fs-03-cue-8",
+      "sentence": "Give your name and {{blank}} phone number so they can confirm the booking.",
+      "blankWord": "contact",
+      "hintVi": "Nghĩa gợi ý: Cung cấp tên và số điện thoại liên lạc c...",
+      "timestamp": 175,
+      "options": [
+        "preliminary",
+        "contact",
+        "remarkable",
+        "innovative"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-03-q1",
+      "question": "What is the primary focus of the video 'Booking a Table at a Casual Restaurant'?",
+      "options": [
+        "To explain and practice booking a table at a casual restaurant effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores booking a table at a casual restaurant, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 25
+    },
+    {
+      "id": "video-fs-03-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Specify...'?",
+      "options": [
+        "It emphasizes that: Specify your preferred time: 'Would you have availability ar...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'Specify your preferred time: 'Would you have availability around seven-thirty?'', showing its practical importance.",
+      "timestampSeek": 100
+    },
+    {
+      "id": "video-fs-03-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Enjoying delightful cuisine with people you love is life's sweete..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Enjoying delightful cuisine with people you love is life's sweetest pleasure., providing a meaningful summary for learners.",
+      "timestampSeek": 225
+    }
+  ]
+}

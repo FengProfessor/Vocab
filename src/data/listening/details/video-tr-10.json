@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-10",
+  "youtubeId": "dGwLIMwykBL",
+  "title": "Reporting Lost Luggage at Baggage Claim",
+  "channel": "Oxford Online English",
+  "duration": 330,
+  "durationDisplay": "05:30",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/dGwLIMwykBL/hqdefault.jpg",
+  "description": "Cách xử lý khi thất lạc hành lý tại sân bay: điền tờ khai và cung cấp địa chỉ nhận lại.",
+  "coreVocabulary": [
+    {
+      "word": "claim",
+      "phonetic": "/kleɪm/",
+      "viDefinition": "quầy nhận hành lý, yêu cầu bồi thường",
+      "contextSentence": "Wait at the baggage claim carousel for your flight's suitcases."
+    },
+    {
+      "word": "lost-and-found",
+      "phonetic": "/ˌlɒst ənd ˈfaʊnd/",
+      "viDefinition": "bộ phận tìm hành lý thất lạc",
+      "contextSentence": "Visit the airline lost-and-found desk to file a missing bag report."
+    },
+    {
+      "word": "courier",
+      "phonetic": "/ˈkʊriə(r)/",
+      "viDefinition": "dịch vụ chuyển phát nhanh, người đưa thư",
+      "contextSentence": "The airline will courier your delayed luggage directly to your hotel."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-10-cue-1",
+      "start": 0,
+      "end": 33,
+      "en": "Welcome to Oxford Online English, helping you resolve unexpected travel mishaps.",
+      "vi": "Chào mừng đến với Oxford Online English, giúp bạn giải quyết những sự cố du lịch bất ngờ."
+    },
+    {
+      "id": "video-tr-10-cue-2",
+      "start": 33,
+      "end": 66,
+      "en": "Standing at the baggage claim carousel while luggage stops appearing is alarming.",
+      "vi": "Đứng tại băng chuyền nhận hành lý trong khi hành lý ngừng xuất hiện quả là đáng báo động."
+    },
+    {
+      "id": "video-tr-10-cue-3",
+      "start": 66,
+      "end": 99,
+      "en": "Do not panic; airlines track every bag electronically and most are delivered soon.",
+      "vi": "Đừng hoảng loạn; các hãng hàng không theo dõi mọi kiện hành lý bằng điện tử và hầu hết được giao sớm."
+    },
+    {
+      "id": "video-tr-10-cue-4",
+      "start": 99,
+      "end": 132,
+      "en": "Proceed directly to the airline baggage service desk in the arrivals hall.",
+      "vi": "Đi thẳng đến bàn dịch vụ hành lý của hãng hàng không tại sảnh đến."
+    },
+    {
+      "id": "video-tr-10-cue-5",
+      "start": 132,
+      "end": 165,
+      "en": "Say: 'My flight landed from London, but my checked suitcase did not appear.'",
+      "vi": "Nói: 'Chuyến bay của tôi hạ cánh từ London, nhưng vali ký gửi của tôi không xuất hiện.'"
+    },
+    {
+      "id": "video-tr-10-cue-6",
+      "start": 165,
+      "end": 198,
+      "en": "Hand over your original boarding pass with the small barcode baggage claim sticker.",
+      "vi": "Giao thẻ lên máy bay gốc có dán nhãn mã vạch nhận hành lý nhỏ."
+    },
+    {
+      "id": "video-tr-10-cue-7",
+      "start": 198,
+      "end": 231,
+      "en": "Describe the bag in detail: color, brand, material, and distinctive luggage tags.",
+      "vi": "Mô tả chiếc túi chi tiết: màu sắc, thương hiệu, chất liệu và thẻ hành lý đặc trưng."
+    },
+    {
+      "id": "video-tr-10-cue-8",
+      "start": 231,
+      "end": 264,
+      "en": "Fill out the Property Irregularity Report and provide your local hotel address.",
+      "vi": "Điền vào Báo cáo Bất thường về Tài sản và cung cấp địa chỉ khách sạn địa phương của bạn."
+    },
+    {
+      "id": "video-tr-10-cue-9",
+      "start": 264,
+      "end": 297,
+      "en": "The agent will confirm: 'We will courier the bag to your lodging free of charge.'",
+      "vi": "Nhân viên sẽ xác nhận: 'Chúng tôi sẽ chuyển phát nhanh chiếc túi đến nơi ở của bạn miễn phí.'"
+    },
+    {
+      "id": "video-tr-10-cue-10",
+      "start": 297,
+      "end": 330,
+      "en": "Knowing your rights keeps you calm and empowered during international travel.",
+      "vi": "Biết được quyền lợi của mình giúp bạn giữ bình tĩnh và tự tin trong suốt chuyến du lịch quốc tế."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-10-cloze-1",
+      "cueId": "video-tr-10-cue-3",
+      "sentence": "Do not {{blank}}; airlines track every bag electronically and most are delivered soon.",
+      "blankWord": "panic",
+      "hintVi": "Nghĩa gợi ý: Đừng hoảng loạn; các hãng hàng không the...",
+      "timestamp": 66,
+      "options": [
+        "framework",
+        "subsequent",
+        "vulnerable",
+        "panic"
+      ]
+    },
+    {
+      "id": "video-tr-10-cloze-2",
+      "cueId": "video-tr-10-cue-5",
+      "sentence": "Say: 'My {{blank}} landed from London, but my checked suitcase did not appear.'",
+      "blankWord": "flight",
+      "hintVi": "Nghĩa gợi ý: Nói: 'Chuyến bay của tôi hạ cánh từ Lond...",
+      "timestamp": 132,
+      "options": [
+        "perceptive",
+        "routine",
+        "preliminary",
+        "flight"
+      ]
+    },
+    {
+      "id": "video-tr-10-cloze-3",
+      "cueId": "video-tr-10-cue-8",
+      "sentence": "Fill out the {{blank}} Irregularity Report and provide your local hotel address.",
+      "blankWord": "property",
+      "hintVi": "Nghĩa gợi ý: Điền vào Báo cáo Bất thường về Tài sản v...",
+      "timestamp": 231,
+      "options": [
+        "vulnerable",
+        "protocol",
+        "property",
+        "alternative"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-10-q1",
+      "question": "What is the primary focus of the video 'Reporting Lost Luggage at Baggage Claim'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice reporting lost luggage at baggage claim effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores reporting lost luggage at baggage claim, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 33
+    },
+    {
+      "id": "video-tr-10-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Say:...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Say: 'My flight landed from London, but my checked suitcase ...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Say: 'My flight landed from London, but my checked suitcase did not appear.'', showing its practical importance.",
+      "timestampSeek": 132
+    },
+    {
+      "id": "video-tr-10-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Knowing your rights keeps you calm and empowered during internati..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Knowing your rights keeps you calm and empowered during international travel., providing a meaningful summary for learners.",
+      "timestampSeek": 297
+    }
+  ]
+}

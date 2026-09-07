@@ -1,0 +1,204 @@
+{
+  "id": "video-tr-23",
+  "youtubeId": "sBa-4O0GayV",
+  "title": "Common Scams in Global Tourist Hotspots",
+  "channel": "Wolters World",
+  "duration": 900,
+  "durationDisplay": "15:00",
+  "durationCategory": "medium",
+  "cefrLevel": "B1",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/sBa-4O0GayV/hqdefault.jpg",
+  "description": "Cách nhận diện và phòng tránh các chiêu trò lừa đảo khách du lịch phổ biến nhất.",
+  "coreVocabulary": [
+    {
+      "word": "scam",
+      "phonetic": "/skæm/",
+      "viDefinition": "trò lừa đảo, mánh khóe chiếm đoạt",
+      "contextSentence": "Being aware of common street scams keeps your wallet completely secure."
+    },
+    {
+      "word": "distract",
+      "phonetic": "/dɪˈstrækt/",
+      "viDefinition": "làm xao nhãng, đánh lạc hướng",
+      "contextSentence": "Pickpocket teams create deliberate commotion to distract unsuspecting victims."
+    },
+    {
+      "word": "counterfeit",
+      "phonetic": "/ˈkaʊntəfɪt/",
+      "viDefinition": "hàng giả, tiền giả",
+      "contextSentence": "Inspect designer souvenirs carefully to avoid buying counterfeit goods."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-23-cue-1",
+      "start": 0,
+      "end": 90,
+      "en": "Hey travelers, Mark from Wolters World protecting your wallet from international tricksters.",
+      "vi": "Chào các du khách, Mark từ Wolters World ở đây bảo vệ ví tiền của bạn khỏi những kẻ lừa đảo quốc tế."
+    },
+    {
+      "id": "video-tr-23-cue-2",
+      "start": 90,
+      "end": 180,
+      "en": "Every major tourist capital attracts opportunistic street hustlers and pickpockets.",
+      "vi": "Mọi thủ đô du lịch lớn đều thu hút những kẻ lừa đảo đường phố cơ hội và móc túi."
+    },
+    {
+      "id": "video-tr-23-cue-3",
+      "start": 180,
+      "end": 270,
+      "en": "The most common tactic is the distraction technique near crowded monuments.",
+      "vi": "Chiến thuật phổ biến nhất là kỹ thuật đánh lạc hướng gần các di tích đông đúc."
+    },
+    {
+      "id": "video-tr-23-cue-4",
+      "start": 270,
+      "end": 360,
+      "en": "Someone might spill sauce on your jacket, drop a ring, or thrust petitions in your face.",
+      "vi": "Ai đó có thể làm đổ nước sốt lên áo khoác của bạn, đánh rơi nhẫn hoặc dí đơn kiến nghị vào mặt bạn."
+    },
+    {
+      "id": "video-tr-23-cue-5",
+      "start": 360,
+      "end": 450,
+      "en": "While you are bewildered, an accomplice reaches into your unzipped backpack pocket.",
+      "vi": "Trong khi bạn đang hoang mang, một đồng phạm sẽ thò tay vào túi ba lô chưa kéo khóa của bạn."
+    },
+    {
+      "id": "video-tr-23-cue-6",
+      "start": 450,
+      "end": 540,
+      "en": "Never sign street petitions or accept 'free' friendship bracelets tied onto your wrist.",
+      "vi": "Đừng bao giờ ký các đơn kiến nghị trên đường phố hoặc nhận vòng tay tình bạn 'miễn phí' buộc vào cổ tay."
+    },
+    {
+      "id": "video-tr-23-cue-7",
+      "start": 540,
+      "end": 630,
+      "en": "Always keep your passport and primary credit cards inside an internal money belt.",
+      "vi": "Luôn giữ hộ chiếu và thẻ tín dụng chính bên trong một chiếc túi đựng tiền đeo bên trong."
+    },
+    {
+      "id": "video-tr-23-cue-8",
+      "start": 630,
+      "end": 720,
+      "en": "Be wary of taxis without meters offering flat rates double the standard price.",
+      "vi": "Hãy cảnh giác với những chiếc taxi không có đồng hồ đưa ra mức giá trọn gói gấp đôi giá tiêu chuẩn."
+    },
+    {
+      "id": "video-tr-23-cue-9",
+      "start": 720,
+      "end": 810,
+      "en": "Politely but firmly state: 'No thank you' and walk away with purposeful stride.",
+      "vi": "Nói một cách lịch sự nhưng kiên quyết: 'Không, cảm ơn' và bước đi với sải chân dứt khoát."
+    },
+    {
+      "id": "video-tr-23-cue-10",
+      "start": 810,
+      "end": 900,
+      "en": "Vigilance without paranoia allows you to explore the world with joyous confidence.",
+      "vi": "Cảnh giác mà không hoang tưởng cho phép bạn khám phá thế giới với sự tự tin vui tươi."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-23-cloze-1",
+      "cueId": "video-tr-23-cue-3",
+      "sentence": "The most {{blank}} tactic is the distraction technique near crowded monuments.",
+      "blankWord": "common",
+      "hintVi": "Nghĩa gợi ý: Chiến thuật phổ biến nhất là kỹ thuật đá...",
+      "timestamp": 180,
+      "options": [
+        "dimension",
+        "extensive",
+        "common",
+        "resource"
+      ]
+    },
+    {
+      "id": "video-tr-23-cloze-2",
+      "cueId": "video-tr-23-cue-5",
+      "sentence": "{{blank}} you are bewildered, an accomplice reaches into your unzipped backpack pocket.",
+      "blankWord": "while",
+      "hintVi": "Nghĩa gợi ý: Trong khi bạn đang hoang mang, một đồng ...",
+      "timestamp": 360,
+      "options": [
+        "deliberate",
+        "while",
+        "extensive",
+        "vibrant"
+      ]
+    },
+    {
+      "id": "video-tr-23-cloze-3",
+      "cueId": "video-tr-23-cue-8",
+      "sentence": "Be wary of {{blank}} without meters offering flat rates double the standard price.",
+      "blankWord": "taxis",
+      "hintVi": "Nghĩa gợi ý: Hãy cảnh giác với những chiếc taxi không...",
+      "timestamp": 630,
+      "options": [
+        "taxis",
+        "temporary",
+        "simultaneous",
+        "innovative"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-23-q1",
+      "question": "What is the primary focus of the video 'Common Scams in Global Tourist Hotspots'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice common scams in global tourist hotspots effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores common scams in global tourist hotspots, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 90
+    },
+    {
+      "id": "video-tr-23-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'While...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: While you are bewildered, an accomplice reaches into your un...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'While you are bewildered, an accomplice reaches into your unzipped backpack pocket.', showing its practical importance.",
+      "timestampSeek": 360
+    },
+    {
+      "id": "video-tr-23-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Vigilance without paranoia allows you to explore the world with j...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Vigilance without paranoia allows you to explore the world with joyous confidence., providing a meaningful summary for learners.",
+      "timestampSeek": 810
+    },
+    {
+      "id": "video-tr-23-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Always...'?",
+      "options": [
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners.",
+        "It highlights that: Always keep your passport and primary credit cards inside an...",
+        "It warns that following this method produces immediate failure."
+      ],
+      "correctIndex": 2,
+      "explanation": "The speaker specifically highlights: 'Always keep your passport and primary credit cards inside an internal money belt.', providing deeper technical insight.",
+      "timestampSeek": 540
+    }
+  ]
+}

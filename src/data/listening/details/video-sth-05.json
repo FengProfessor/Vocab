@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-05",
+  "youtubeId": "l5RXPBBtn-i",
+  "title": "Good Sleep Habits for Busy Students",
+  "channel": "English with Lucy",
+  "duration": 255,
+  "durationDisplay": "04:15",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/l5RXPBBtn-i/hqdefault.jpg",
+  "description": "Thói quen ngủ tốt giúp học sinh, sinh viên ghi nhớ bài học và phục hồi năng lượng.",
+  "coreVocabulary": [
+    {
+      "word": "routine",
+      "phonetic": "/ruːˈtiːn/",
+      "viDefinition": "thói quen định kỳ, chu trình đều đặn",
+      "contextSentence": "Establishing an evening sleep routine calms an overactive mind."
+    },
+    {
+      "word": "melatonin",
+      "phonetic": "/ˌmeləˈtəʊnɪn/",
+      "viDefinition": "hoóc-môn điều hòa giấc ngủ melatonin",
+      "contextSentence": "Darkness stimulates natural melatonin production in the brain."
+    },
+    {
+      "word": "circadian",
+      "phonetic": "/sɜːˈkeɪdiən/",
+      "viDefinition": "thuộc nhịp sinh học (24 giờ)",
+      "contextSentence": "Consistent wake times stabilize your internal circadian clock."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-05-cue-1",
+      "start": 0,
+      "end": 25.5,
+      "en": "Hello dedicated learners, Lucy here focusing on the vital science of sleep.",
+      "vi": "Xin chào các học viên chăm chỉ, Lucy ở đây tập trung vào khoa học quan trọng về giấc ngủ."
+    },
+    {
+      "id": "video-sth-05-cue-2",
+      "start": 25.5,
+      "end": 51,
+      "en": "During exam weeks, many students sacrifice deep sleep to study late into the night.",
+      "vi": "Trong các tuần thi, nhiều học sinh hy sinh giấc ngủ sâu để thức khuya học bài."
+    },
+    {
+      "id": "video-sth-05-cue-3",
+      "start": 51,
+      "end": 76.5,
+      "en": "However, neuroscience proves that sleep is when the brain consolidates new memories.",
+      "vi": "Tuy nhiên, khoa học thần kinh chứng minh rằng giấc ngủ là lúc não bộ củng cố những ký ức mới."
+    },
+    {
+      "id": "video-sth-05-cue-4",
+      "start": 76.5,
+      "end": 102,
+      "en": "Without adequate rest, vocabulary and grammar rules evaporate from your mind.",
+      "vi": "Nếu không được nghỉ ngơi đầy đủ, từ vựng và quy tắc ngữ pháp sẽ bốc hơi khỏi tâm trí bạn."
+    },
+    {
+      "id": "video-sth-05-cue-5",
+      "start": 102,
+      "end": 127.5,
+      "en": "Create a calming bedtime routine thirty minutes before turning off lights.",
+      "vi": "Hãy tạo một chu trình đi ngủ thư giãn ba mươi phút trước khi tắt đèn."
+    },
+    {
+      "id": "video-sth-05-cue-6",
+      "start": 127.5,
+      "end": 153,
+      "en": "Dim bright bedroom lamps to encourage your body to produce natural melatonin.",
+      "vi": "Làm mờ đèn phòng ngủ sáng để khuyến khích cơ thể sản sinh melatonin tự nhiên."
+    },
+    {
+      "id": "video-sth-05-cue-7",
+      "start": 153,
+      "end": 178.5,
+      "en": "Keep electronic screens out of bed because blue light disrupts melatonin secretion.",
+      "vi": "Để màn hình điện tử xa giường ngủ vì ánh sáng xanh phá vỡ sự tiết melatonin."
+    },
+    {
+      "id": "video-sth-05-cue-8",
+      "start": 178.5,
+      "end": 204,
+      "en": "Maintain a consistent wake-up schedule, even on weekend mornings.",
+      "vi": "Duy trì lịch thức dậy nhất quán, ngay cả vào các buổi sáng cuối tuần."
+    },
+    {
+      "id": "video-sth-05-cue-9",
+      "start": 204,
+      "end": 229.5,
+      "en": "A cool, dark, and quiet bedroom creates the ideal sanctuary for restorative slumber.",
+      "vi": "Một phòng ngủ mát mẻ, tối và yên tĩnh tạo nên nơi trú ẩn lý tưởng cho giấc ngủ phục hồi."
+    },
+    {
+      "id": "video-sth-05-cue-10",
+      "start": 229.5,
+      "end": 255,
+      "en": "Prioritize sleep as an essential pillar of academic excellence and mental clarity.",
+      "vi": "Hãy ưu tiên giấc ngủ như một trụ cột thiết yếu của thành tích học tập và sự minh mẫn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-05-cloze-1",
+      "cueId": "video-sth-05-cue-3",
+      "sentence": "{{blank}}, neuroscience proves that sleep is when the brain consolidates new memories.",
+      "blankWord": "however",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, khoa học thần kinh chứng minh...",
+      "timestamp": 51,
+      "options": [
+        "deliberate",
+        "continuous",
+        "however",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-sth-05-cloze-2",
+      "cueId": "video-sth-05-cue-5",
+      "sentence": "{{blank}} a calming bedtime routine thirty minutes before turning off lights.",
+      "blankWord": "create",
+      "hintVi": "Nghĩa gợi ý: Hãy tạo một chu trình đi ngủ thư giãn ba...",
+      "timestamp": 102,
+      "options": [
+        "component",
+        "perspective",
+        "alternative",
+        "create"
+      ]
+    },
+    {
+      "id": "video-sth-05-cloze-3",
+      "cueId": "video-sth-05-cue-8",
+      "sentence": "{{blank}} a consistent wake-up schedule, even on weekend mornings.",
+      "blankWord": "maintain",
+      "hintVi": "Nghĩa gợi ý: Duy trì lịch thức dậy nhất quán, ngay cả...",
+      "timestamp": 178.5,
+      "options": [
+        "tremendous",
+        "maintain",
+        "flexible",
+        "gradual"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-05-q1",
+      "question": "What is the primary focus of the video 'Good Sleep Habits for Busy Students'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice good sleep habits for busy students effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores good sleep habits for busy students, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 25.5
+    },
+    {
+      "id": "video-sth-05-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Create...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Create a calming bedtime routine thirty minutes before turni...",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Create a calming bedtime routine thirty minutes before turning off lights.', showing its practical importance.",
+      "timestampSeek": 102
+    },
+    {
+      "id": "video-sth-05-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Prioritize sleep as an essential pillar of academic excellence an...",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Prioritize sleep as an essential pillar of academic excellence and mental clarity., providing a meaningful summary for learners.",
+      "timestampSeek": 229.5
+    }
+  ]
+}

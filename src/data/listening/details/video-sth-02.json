@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-02",
+  "youtubeId": "ivKB3Zo6WLQ",
+  "title": "Smartphone Settings and Battery Health",
+  "channel": "Learn English with Gill",
+  "duration": 225,
+  "durationDisplay": "03:45",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/ivKB3Zo6WLQ/hqdefault.jpg",
+  "description": "Cách điều chỉnh cài đặt điện thoại để tiết kiệm pin và bảo vệ tuổi thọ thiết bị.",
+  "coreVocabulary": [
+    {
+      "word": "battery",
+      "phonetic": "/ˈbætəri/",
+      "viDefinition": "pin điện thoại, ắc quy",
+      "contextSentence": "My phone battery drops quickly when using GPS maps."
+    },
+    {
+      "word": "brightness",
+      "phonetic": "/ˈbraɪtnəs/",
+      "viDefinition": "độ sáng màn hình",
+      "contextSentence": "Lower the screen brightness to extend battery endurance."
+    },
+    {
+      "word": "charger",
+      "phonetic": "/ˈtʃɑːdʒə(r)/",
+      "viDefinition": "củ sạc, dây sạc",
+      "contextSentence": "Always plug your smartphone into a certified fast charger."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-02-cue-1",
+      "start": 0,
+      "end": 22.5,
+      "en": "Welcome back to Learn English with Gill, discussing everyday technology today.",
+      "vi": "Chào mừng quay lại với Learn English with Gill, thảo luận về công nghệ hàng ngày hôm nay."
+    },
+    {
+      "id": "video-sth-02-cue-2",
+      "start": 22.5,
+      "end": 45,
+      "en": "Smartphones are essential tools, but running out of battery causes huge stress.",
+      "vi": "Điện thoại thông minh là công cụ thiết yếu, nhưng hết pin gây ra căng thẳng rất lớn."
+    },
+    {
+      "id": "video-sth-02-cue-3",
+      "start": 45,
+      "end": 67.5,
+      "en": "Opening your settings menu reveals simple ways to save energy.",
+      "vi": "Mở menu cài đặt sẽ cho thấy những cách đơn giản để tiết kiệm năng lượng."
+    },
+    {
+      "id": "video-sth-02-cue-4",
+      "start": 67.5,
+      "end": 90,
+      "en": "First, turn on auto-brightness so the screen adjusts to room lighting.",
+      "vi": "Trước tiên, hãy bật độ sáng tự động để màn hình tự điều chỉnh theo ánh sáng phòng."
+    },
+    {
+      "id": "video-sth-02-cue-5",
+      "start": 90,
+      "end": 112.5,
+      "en": "Bright screens consume more lithium battery power than any other phone component.",
+      "vi": "Màn hình sáng tiêu thụ nhiều năng lượng pin lithium hơn bất kỳ thành phần nào khác của điện thoại."
+    },
+    {
+      "id": "video-sth-02-cue-6",
+      "start": 112.5,
+      "end": 135,
+      "en": "Second, close background social media applications that refresh continuously.",
+      "vi": "Thứ hai, hãy đóng các ứng dụng mạng xã hội chạy ngầm liên tục làm mới dữ liệu."
+    },
+    {
+      "id": "video-sth-02-cue-7",
+      "start": 135,
+      "end": 157.5,
+      "en": "Activate low power mode when your battery level falls under twenty percent.",
+      "vi": "Kích hoạt chế độ tiết kiệm pin khi mức pin giảm xuống dưới hai mươi phần trăm."
+    },
+    {
+      "id": "video-sth-02-cue-8",
+      "start": 157.5,
+      "end": 180,
+      "en": "Avoid leaving your mobile phone in direct sunlight or hot car interiors.",
+      "vi": "Tránh để điện thoại di động của bạn dưới ánh nắng trực tiếp hoặc bên trong xe hơi nóng."
+    },
+    {
+      "id": "video-sth-02-cue-9",
+      "start": 180,
+      "end": 202.5,
+      "en": "High temperatures degrade lithium battery lifespan faster than regular usage.",
+      "vi": "Nhiệt độ cao làm giảm tuổi thọ pin lithium nhanh hơn so với việc sử dụng thông thường."
+    },
+    {
+      "id": "video-sth-02-cue-10",
+      "start": 202.5,
+      "end": 225,
+      "en": "Smart device management ensures your phone stays charged through busy days.",
+      "vi": "Quản lý thiết bị thông minh đảm bảo điện thoại của bạn luôn đủ pin suốt những ngày bận rộn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-02-cloze-1",
+      "cueId": "video-sth-02-cue-3",
+      "sentence": "{{blank}} your settings menu reveals simple ways to save energy.",
+      "blankWord": "opening",
+      "hintVi": "Nghĩa gợi ý: Mở menu cài đặt sẽ cho thấy những cách đ...",
+      "timestamp": 45,
+      "options": [
+        "essential",
+        "remarkable",
+        "opening",
+        "substantial"
+      ]
+    },
+    {
+      "id": "video-sth-02-cloze-2",
+      "cueId": "video-sth-02-cue-5",
+      "sentence": "{{blank}} screens consume more lithium battery power than any other phone component.",
+      "blankWord": "bright",
+      "hintVi": "Nghĩa gợi ý: Màn hình sáng tiêu thụ nhiều năng lượng ...",
+      "timestamp": 90,
+      "options": [
+        "simultaneous",
+        "bright",
+        "deliberate",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-sth-02-cloze-3",
+      "cueId": "video-sth-02-cue-8",
+      "sentence": "{{blank}} leaving your mobile phone in direct sunlight or hot car interiors.",
+      "blankWord": "avoid",
+      "hintVi": "Nghĩa gợi ý: Tránh để điện thoại di động của bạn dưới...",
+      "timestamp": 157.5,
+      "options": [
+        "dimension",
+        "fundamental",
+        "avoid",
+        "moderate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-02-q1",
+      "question": "What is the primary focus of the video 'Smartphone Settings and Battery Health'?",
+      "options": [
+        "To explain and practice smartphone settings and battery health effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores smartphone settings and battery health, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 22.5
+    },
+    {
+      "id": "video-sth-02-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Bright...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Bright screens consume more lithium battery power than any o...",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Bright screens consume more lithium battery power than any other phone component.', showing its practical importance.",
+      "timestampSeek": 90
+    },
+    {
+      "id": "video-sth-02-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Smart device management ensures your phone stays charged through ...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Smart device management ensures your phone stays charged through busy days., providing a meaningful summary for learners.",
+      "timestampSeek": 202.5
+    }
+  ]
+}

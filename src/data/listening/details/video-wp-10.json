@@ -1,0 +1,191 @@
+{
+  "id": "video-wp-10",
+  "youtubeId": "OVK5iUs79JR",
+  "title": "Giving Updates on Project Milestones",
+  "channel": "Oxford Online English",
+  "duration": 450,
+  "durationDisplay": "07:30",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/OVK5iUs79JR/hqdefault.jpg",
+  "description": "Báo cáo tiến độ dự án cho quản lý cấp cao: số liệu, rủi ro và các bước tiếp theo.",
+  "coreVocabulary": [
+    {
+      "word": "milestone",
+      "phonetic": "/ˈmaɪlstəʊn/",
+      "viDefinition": "cột mốc (dự án)",
+      "contextSentence": "Achieving this design milestone keeps the launch schedule on track."
+    },
+    {
+      "word": "variance",
+      "phonetic": "/ˈveəriəns/",
+      "viDefinition": "sự chênh lệch (so với kế hoạch)",
+      "contextSentence": "We analyzed the minor budget variance and adjusted future spending."
+    },
+    {
+      "word": "mitigate",
+      "phonetic": "/ˈmɪtɪɡeɪt/",
+      "viDefinition": "giảm thiểu (rủi ro)",
+      "contextSentence": "We adopted proactive measures to mitigate vendor supply delays."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-10-cue-1",
+      "start": 0,
+      "end": 45,
+      "en": "Welcome to Oxford Online English, advancing your management reporting skills.",
+      "vi": "Chào mừng đến với Oxford Online English, nâng cao kỹ năng báo cáo quản lý của bạn."
+    },
+    {
+      "id": "video-wp-10-cue-2",
+      "start": 45,
+      "end": 90,
+      "en": "Senior executives desire high-level clarity, not granular operational weeds.",
+      "vi": "Các nhà điều hành cấp cao mong muốn sự rõ ràng ở tầm bao quát, chứ không phải những chi tiết vụn vặt vận hành."
+    },
+    {
+      "id": "video-wp-10-cue-3",
+      "start": 90,
+      "end": 135,
+      "en": "Structure your milestone update using the traffic light convention: green, amber, red.",
+      "vi": "Cấu trúc báo cáo cột mốc của bạn bằng quy ước đèn giao thông: xanh lá, hổ phách, đỏ."
+    },
+    {
+      "id": "video-wp-10-cue-4",
+      "start": 135,
+      "end": 180,
+      "en": "State clearly whether your project is currently on schedule and within budget.",
+      "vi": "Nêu rõ ràng liệu dự án của bạn hiện có đang đúng tiến độ và trong ngân sách hay không."
+    },
+    {
+      "id": "video-wp-10-cue-5",
+      "start": 180,
+      "end": 225,
+      "en": "Highlight the major milestone accomplished during the preceding month.",
+      "vi": "Làm nổi bật cột mốc quan trọng đã đạt được trong tháng trước."
+    },
+    {
+      "id": "video-wp-10-cue-6",
+      "start": 225,
+      "end": 270,
+      "en": "If there is a variance between planned and actual costs, explain it concisely.",
+      "vi": "Nếu có sự chênh lệch giữa chi phí kế hoạch và thực tế, hãy giải thích nó một cách súc tích."
+    },
+    {
+      "id": "video-wp-10-cue-7",
+      "start": 270,
+      "end": 315,
+      "en": "Present the concrete strategies you implemented to mitigate emerging project risks.",
+      "vi": "Trình bày các chiến lược cụ thể mà bạn đã thực hiện để giảm thiểu các rủi ro dự án mới phát sinh."
+    },
+    {
+      "id": "video-wp-10-cue-8",
+      "start": 315,
+      "end": 360,
+      "en": "Outline the upcoming three key priorities slated for the next operational cycle.",
+      "vi": "Phác thảo ba ưu tiên then chốt sắp tới được lên kế hoạch cho chu kỳ vận hành tiếp theo."
+    },
+    {
+      "id": "video-wp-10-cue-9",
+      "start": 360,
+      "end": 405,
+      "en": "Leave ample time for executive questions and strategic directional inputs.",
+      "vi": "Dành nhiều thời gian cho các câu hỏi của ban điều hành và các ý kiến định hướng chiến lược."
+    },
+    {
+      "id": "video-wp-10-cue-10",
+      "start": 405,
+      "end": 450,
+      "en": "Transparent project reporting inspires executive confidence and organizational trust.",
+      "vi": "Báo cáo dự án minh bạch khơi dậy sự tự tin của ban điều hành và niềm tin của tổ chức."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-10-cloze-1",
+      "cueId": "video-wp-10-cue-3",
+      "sentence": "{{blank}} your milestone update using the traffic light convention: green, amber, red.",
+      "blankWord": "structure",
+      "hintVi": "Nghĩa gợi ý: Cấu trúc báo cáo cột mốc của bạn bằng qu...",
+      "timestamp": 90,
+      "options": [
+        "flexible",
+        "routine",
+        "resource",
+        "structure"
+      ]
+    },
+    {
+      "id": "video-wp-10-cloze-2",
+      "cueId": "video-wp-10-cue-5",
+      "sentence": "{{blank}} the major milestone accomplished during the preceding month.",
+      "blankWord": "highlight",
+      "hintVi": "Nghĩa gợi ý: Làm nổi bật cột mốc quan trọng đã đạt đư...",
+      "timestamp": 180,
+      "options": [
+        "priority",
+        "highlight",
+        "flexible",
+        "vulnerable"
+      ]
+    },
+    {
+      "id": "video-wp-10-cloze-3",
+      "cueId": "video-wp-10-cue-8",
+      "sentence": "{{blank}} the upcoming three key priorities slated for the next operational cycle.",
+      "blankWord": "outline",
+      "hintVi": "Nghĩa gợi ý: Phác thảo ba ưu tiên then chốt sắp tới đ...",
+      "timestamp": 315,
+      "options": [
+        "outline",
+        "gradual",
+        "perspective",
+        "vulnerable"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-10-q1",
+      "question": "What is the primary focus of the video 'Giving Updates on Project Milestones'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice giving updates on project milestones effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores giving updates on project milestones, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 45
+    },
+    {
+      "id": "video-wp-10-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Highlight...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Highlight the major milestone accomplished during the preced...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Highlight the major milestone accomplished during the preceding month.', showing its practical importance.",
+      "timestampSeek": 180
+    },
+    {
+      "id": "video-wp-10-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Transparent project reporting inspires executive confidence and o...",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Transparent project reporting inspires executive confidence and organizational trust., providing a meaningful summary for learners.",
+      "timestampSeek": 405
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-16",
+  "youtubeId": "6_7GkOuI5Qm",
+  "title": "Emergency at the Pharmacy While Traveling",
+  "channel": "mmmEnglish",
+  "duration": 520,
+  "durationDisplay": "08:40",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/6_7GkOuI5Qm/hqdefault.jpg",
+  "description": "Cách mô tả triệu chứng bệnh đột xuất và mua thuốc tại hiệu thuốc nước ngoài.",
+  "coreVocabulary": [
+    {
+      "word": "pharmacy",
+      "phonetic": "/ˈfɑːməsi/",
+      "viDefinition": "hiệu thuốc, nhà thuốc",
+      "contextSentence": "Locate the nearest green cross sign indicating a local pharmacy."
+    },
+    {
+      "word": "prescription",
+      "phonetic": "/prɪˈskrɪpʃn/",
+      "viDefinition": "đơn thuốc của bác sĩ",
+      "contextSentence": "Some strong painkillers require an official doctor's prescription."
+    },
+    {
+      "word": "dosage",
+      "phonetic": "/ˈdəʊsɪdʒ/",
+      "viDefinition": "liều lượng dùng thuốc",
+      "contextSentence": "The pharmacist explained the exact daily dosage on the medication box."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-16-cue-1",
+      "start": 0,
+      "end": 52,
+      "en": "Hello travelers, Emma here with crucial health vocabulary for international journeys.",
+      "vi": "Xin chào các du khách, Emma ở đây với từ vựng sức khỏe quan trọng cho các chuyến đi quốc tế."
+    },
+    {
+      "id": "video-tr-16-cue-2",
+      "start": 52,
+      "end": 104,
+      "en": "Falling sick with stomach flu or allergic reactions in a foreign land is stressful.",
+      "vi": "Bị ốm vì cúm dạ dày hoặc dị ứng ở nơi đất khách quê người thật căng thẳng."
+    },
+    {
+      "id": "video-tr-16-cue-3",
+      "start": 104,
+      "end": 156,
+      "en": "In Europe, pharmacies are easily identified by a glowing green cross illuminated outside.",
+      "vi": "Ở Châu Âu, các hiệu thuốc rất dễ nhận biết bằng biểu tượng chữ thập xanh lá phát sáng bên ngoài."
+    },
+    {
+      "id": "video-tr-16-cue-4",
+      "start": 156,
+      "end": 208,
+      "en": "Pharmacists abroad are highly trained medical professionals who prescribe basic remedies.",
+      "vi": "Các dược sĩ ở nước ngoài là những chuyên gia y tế được đào tạo chuyên sâu có thể kê đơn các loại thuốc cơ bản."
+    },
+    {
+      "id": "video-tr-16-cue-5",
+      "start": 208,
+      "end": 260,
+      "en": "Explain your symptoms clearly: 'I have severe motion sickness, nausea, and a headache.'",
+      "vi": "Giải thích các triệu chứng của bạn rõ ràng: 'Tôi bị say xe nặng, buồn nôn và đau đầu.'"
+    },
+    {
+      "id": "video-tr-16-cue-6",
+      "start": 260,
+      "end": 312,
+      "en": "State any medical allergies: 'I am allergic to penicillin and aspirin products.'",
+      "vi": "Nêu bất kỳ dị ứng y tế nào: 'Tôi bị dị ứng với penicillin và các sản phẩm aspirin.'"
+    },
+    {
+      "id": "video-tr-16-cue-7",
+      "start": 312,
+      "end": 364,
+      "en": "Ask whether the requested medication requires an official physician's prescription.",
+      "vi": "Hỏi xem loại thuốc được yêu cầu có cần đơn thuốc chính thức của bác sĩ không."
+    },
+    {
+      "id": "video-tr-16-cue-8",
+      "start": 364,
+      "end": 416,
+      "en": "Inquire about proper dosage: 'How many tablets should I swallow after meals?'",
+      "vi": "Hỏi thăm về liều lượng phù hợp: 'Tôi nên uống bao nhiêu viên sau bữa ăn ạ?'"
+    },
+    {
+      "id": "video-tr-16-cue-9",
+      "start": 416,
+      "end": 468,
+      "en": "Check if the medication causes drowsiness before driving a rental car.",
+      "vi": "Kiểm tra xem thuốc có gây buồn ngủ không trước khi lái xe ô tô thuê."
+    },
+    {
+      "id": "video-tr-16-cue-10",
+      "start": 468,
+      "end": 520,
+      "en": "A well-stocked personal medical travel kit brings peace of mind across every border.",
+      "vi": "Một bộ dụng cụ y tế cá nhân du lịch đầy đủ mang lại sự an tâm qua mọi biên giới."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-16-cloze-1",
+      "cueId": "video-tr-16-cue-3",
+      "sentence": "In {{blank}}, pharmacies are easily identified by a glowing green cross illuminated outside.",
+      "blankWord": "europe",
+      "hintVi": "Nghĩa gợi ý: Ở Châu Âu, các hiệu thuốc rất dễ nhận bi...",
+      "timestamp": 104,
+      "options": [
+        "convenient",
+        "europe",
+        "criterion",
+        "routine"
+      ]
+    },
+    {
+      "id": "video-tr-16-cloze-2",
+      "cueId": "video-tr-16-cue-5",
+      "sentence": "{{blank}} your symptoms clearly: 'I have severe motion sickness, nausea, and a headache.'",
+      "blankWord": "explain",
+      "hintVi": "Nghĩa gợi ý: Giải thích các triệu chứng của bạn rõ rà...",
+      "timestamp": 208,
+      "options": [
+        "explain",
+        "component",
+        "essential",
+        "sufficient"
+      ]
+    },
+    {
+      "id": "video-tr-16-cloze-3",
+      "cueId": "video-tr-16-cue-8",
+      "sentence": "{{blank}} about proper dosage: 'How many tablets should I swallow after meals?'",
+      "blankWord": "inquire",
+      "hintVi": "Nghĩa gợi ý: Hỏi thăm về liều lượng phù hợp: 'Tôi nên...",
+      "timestamp": 364,
+      "options": [
+        "tremendous",
+        "framework",
+        "inquire",
+        "consistent"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-16-q1",
+      "question": "What is the primary focus of the video 'Emergency at the Pharmacy While Traveling'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice emergency at the pharmacy while traveling effectively.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores emergency at the pharmacy while traveling, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 52
+    },
+    {
+      "id": "video-tr-16-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Explain...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Explain your symptoms clearly: 'I have severe motion sicknes...",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Explain your symptoms clearly: 'I have severe motion sickness, nausea, and a headache.'', showing its practical importance.",
+      "timestampSeek": 208
+    },
+    {
+      "id": "video-tr-16-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: A well-stocked personal medical travel kit brings peace of mind a...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that A well-stocked personal medical travel kit brings peace of mind across every border., providing a meaningful summary for learners.",
+      "timestampSeek": 468
+    }
+  ]
+}

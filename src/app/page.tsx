@@ -264,6 +264,9 @@ export default function LandingPage() {
 
           <nav className="hidden items-center gap-5 text-sm font-bold text-[#6d574a] md:flex" aria-label="Điều hướng chính">
             <a href="#cach-hoc" className="hover:text-[#241710]">Cách học</a>
+            <Link href="/ipa" className="hover:text-[#241710] font-bold text-amber-800 dark:text-amber-500">
+              🗣️ Phiên Âm IPA
+            </Link>
             <a href="#video-demo" className="hover:text-[#241710]">Video</a>
             <a href="#demo" className="hover:text-[#241710]">Thử tra từ</a>
             <a href="#bang-gia" className="hover:text-[#241710]">Giá</a>
@@ -821,6 +824,7 @@ export default function LandingPage() {
             </div>
           </div>
           <nav className="flex flex-wrap gap-x-4 gap-y-2 font-semibold" aria-label="Footer">
+            <Link href="/ipa" className="hover:text-[#241710] font-bold">Phiên Âm IPA</Link>
             <Link href="/download" className="hover:text-[#241710]">Desktop</Link>
             <Link href="/for-teachers" className="hover:text-[#241710]">Giáo viên</Link>
             <Link href="/auth" className="hover:text-[#241710]">Đăng nhập</Link>

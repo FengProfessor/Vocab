@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-10",
+  "youtubeId": "CF9qT1-HdjO",
+  "title": "Understanding Nutrition Labels and Calories",
+  "channel": "TED-Ed",
+  "duration": 440,
+  "durationDisplay": "07:20",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/CF9qT1-HdjO/hqdefault.jpg",
+  "description": "Cách đọc nhãn dinh dưỡng thực phẩm, phân biệt chất béo tốt và nhận diện đường ẩn.",
+  "coreVocabulary": [
+    {
+      "word": "macronutrient",
+      "phonetic": "/ˌmækrəʊˈnjuːtriənt/",
+      "viDefinition": "chất dinh dưỡng đa lượng (protein, carbs, fat)",
+      "contextSentence": "Protein, carbohydrates, and lipids are the three primary dietary macronutrients."
+    },
+    {
+      "word": "sodium",
+      "phonetic": "/ˈsəʊdiəm/",
+      "viDefinition": "natri (thành phần trong muối ăn)",
+      "contextSentence": "Excess dietary sodium consumption contributes to high cardiovascular blood pressure."
+    },
+    {
+      "word": "fiber",
+      "phonetic": "/ˈfaɪbə(r)/",
+      "viDefinition": "chất xơ",
+      "contextSentence": "Dietary fiber slows carbohydrate absorption and promotes healthy digestion."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-10-cue-1",
+      "start": 0,
+      "end": 44,
+      "en": "Welcome to TED-Ed, transforming confusing supermarket nutrition facts into empowering knowledge.",
+      "vi": "Chào mừng đến với TED-Ed, biến các thông tin dinh dưỡng khó hiểu trong siêu thị thành kiến thức hữu ích."
+    },
+    {
+      "id": "video-sth-10-cue-2",
+      "start": 44,
+      "end": 88,
+      "en": "Food packaging is covered with clever marketing slogans designed to entice hungry shoppers.",
+      "vi": "Bao bì thực phẩm được bao phủ bởi các khẩu hiệu tiếp thị thông minh nhằm thu hút người mua sắm đang đói."
+    },
+    {
+      "id": "video-sth-10-cue-3",
+      "start": 88,
+      "end": 132,
+      "en": "However, the standardized black-and-white nutrition facts label contains objective reality.",
+      "vi": "Tuy nhiên, nhãn thông tin dinh dưỡng tiêu chuẩn màu đen trắng lại chứa đựng thực tế khách quan."
+    },
+    {
+      "id": "video-sth-10-cue-4",
+      "start": 132,
+      "end": 176,
+      "en": "Always examine serving size first; packaged snacks often deceptively contain multiple portions.",
+      "vi": "Luôn kiểm tra kích thước khẩu phần trước; các món ăn nhẹ đóng gói thường chứa nhiều khẩu phần một cách đánh lừa."
+    },
+    {
+      "id": "video-sth-10-cue-5",
+      "start": 176,
+      "end": 220,
+      "en": "Calories measure the thermal energy your body extracts from metabolizing food items.",
+      "vi": "Calo đo năng lượng nhiệt mà cơ thể bạn chiết xuất từ quá trình chuyển hóa các món ăn."
+    },
+    {
+      "id": "video-sth-10-cue-6",
+      "start": 220,
+      "end": 264,
+      "en": "Macronutrients include proteins for muscle repair, carbohydrates for quick energy, and lipids.",
+      "vi": "Các chất dinh dưỡng đa lượng bao gồm protein để phục hồi cơ bắp, carbohydrate cho năng lượng nhanh và chất béo."
+    },
+    {
+      "id": "video-sth-10-cue-7",
+      "start": 264,
+      "end": 308,
+      "en": "Distinguish between harmful trans fats and beneficial monounsaturated fatty acids.",
+      "vi": "Phân biệt giữa chất béo chuyển hóa có hại và axit béo không bão hòa đơn có lợi."
+    },
+    {
+      "id": "video-sth-10-cue-8",
+      "start": 308,
+      "end": 352,
+      "en": "Scrutinize the 'added sugars' line; manufacturers hide sweeteners under dozens of chemical pseudonyms.",
+      "vi": "Xem xét kỹ dòng 'đường bổ sung'; các nhà sản xuất giấu chất tạo ngọt dưới hàng tá bí danh hóa học."
+    },
+    {
+      "id": "video-sth-10-cue-9",
+      "start": 352,
+      "end": 396,
+      "en": "Check dietary fiber content: high fiber stabilizes blood sugar and supports microbiome diversity.",
+      "vi": "Kiểm tra hàm lượng chất xơ: chất xơ cao giúp ổn định đường huyết và hỗ trợ sự đa dạng của hệ vi sinh vật."
+    },
+    {
+      "id": "video-sth-10-cue-10",
+      "start": 396,
+      "end": 440,
+      "en": "Becoming a literate label reader empowers you to nourish your body with mindful intention.",
+      "vi": "Trở thành một người biết đọc nhãn dinh dưỡng giúp bạn nuôi dưỡng cơ thể bằng sự chú tâm có chủ đích."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-10-cloze-1",
+      "cueId": "video-sth-10-cue-3",
+      "sentence": "{{blank}}, the standardized black-and-white nutrition facts label contains objective reality.",
+      "blankWord": "however",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, nhãn thông tin dinh dưỡng tiê...",
+      "timestamp": 88,
+      "options": [
+        "moderate",
+        "however",
+        "efficient",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-sth-10-cloze-2",
+      "cueId": "video-sth-10-cue-5",
+      "sentence": "{{blank}} measure the thermal energy your body extracts from metabolizing food items.",
+      "blankWord": "calories",
+      "hintVi": "Nghĩa gợi ý: Calo đo năng lượng nhiệt mà cơ thể bạn c...",
+      "timestamp": 176,
+      "options": [
+        "calories",
+        "perspective",
+        "spontaneous",
+        "sufficient"
+      ]
+    },
+    {
+      "id": "video-sth-10-cloze-3",
+      "cueId": "video-sth-10-cue-8",
+      "sentence": "{{blank}} the 'added sugars' line; manufacturers hide sweeteners under dozens of chemical pseudonyms.",
+      "blankWord": "scrutinize",
+      "hintVi": "Nghĩa gợi ý: Xem xét kỹ dòng 'đường bổ sung'; các nhà...",
+      "timestamp": 308,
+      "options": [
+        "remarkable",
+        "extensive",
+        "simultaneous",
+        "scrutinize"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-10-q1",
+      "question": "What is the primary focus of the video 'Understanding Nutrition Labels and Calories'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice understanding nutrition labels and calories effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores understanding nutrition labels and calories, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 44
+    },
+    {
+      "id": "video-sth-10-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Calories...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Calories measure the thermal energy your body extracts from ...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Calories measure the thermal energy your body extracts from metabolizing food items.', showing its practical importance.",
+      "timestampSeek": 176
+    },
+    {
+      "id": "video-sth-10-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Becoming a literate label reader empowers you to nourish your bod...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Becoming a literate label reader empowers you to nourish your body with mindful intention., providing a meaningful summary for learners.",
+      "timestampSeek": 396
+    }
+  ]
+}

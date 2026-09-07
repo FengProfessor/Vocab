@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-13",
+  "youtubeId": "veh4WLIIDta",
+  "title": "Booking Guided Excursions and Asking Details",
+  "channel": "mmmEnglish",
+  "duration": 430,
+  "durationDisplay": "07:10",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/veh4WLIIDta/hqdefault.jpg",
+  "description": "Cách đặt tour tham quan có hướng dẫn viên: hỏi về phương tiện, đồ ăn và trang phục.",
+  "coreVocabulary": [
+    {
+      "word": "excursion",
+      "phonetic": "/ɪkˈskɜːʃn/",
+      "viDefinition": "chuyến tham quan, dã ngoại",
+      "contextSentence": "We booked a full-day guided excursion to the ancient Mayan ruins."
+    },
+    {
+      "word": "itinerary",
+      "phonetic": "/aɪˈtɪnərəri/",
+      "viDefinition": "lịch trình chi tiết chuyến đi",
+      "contextSentence": "Review the tour itinerary to see how much walking is required."
+    },
+    {
+      "word": "guide",
+      "phonetic": "/ɡaɪd/",
+      "viDefinition": "hướng dẫn viên du lịch",
+      "contextSentence": "A knowledgeable local guide brings historical landmarks alive."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-13-cue-1",
+      "start": 0,
+      "end": 43,
+      "en": "Hello world travelers, Emma from mmmEnglish is here to help you explore like a pro.",
+      "vi": "Xin chào các du khách thế giới, Emma từ mmmEnglish ở đây giúp bạn khám phá như một chuyên gia."
+    },
+    {
+      "id": "video-tr-13-cue-2",
+      "start": 43,
+      "end": 86,
+      "en": "Organized day excursions take the logistical headache out of regional sightseeing.",
+      "vi": "Các chuyến tham quan có tổ chức trong ngày loại bỏ những đau đầu về hậu cần khi đi ngắm cảnh khu vực."
+    },
+    {
+      "id": "video-tr-13-cue-3",
+      "start": 86,
+      "end": 129,
+      "en": "Before booking a tour online, inquire thoroughly about specific itinerary details.",
+      "vi": "Trước khi đặt tour trực tuyến, hãy hỏi kỹ về các chi tiết lịch trình cụ thể."
+    },
+    {
+      "id": "video-tr-13-cue-4",
+      "start": 129,
+      "end": 172,
+      "en": "Ask the operator: 'Does the quoted price include admission tickets and national park fees?'",
+      "vi": "Hỏi nhà điều hành: 'Giá báo đã bao gồm vé vào cửa và phí công viên quốc gia chưa ạ?'"
+    },
+    {
+      "id": "video-tr-13-cue-5",
+      "start": 172,
+      "end": 215,
+      "en": "Verify whether hotel pick-up and drop-off are covered in the standard package.",
+      "vi": "Xác minh xem việc đón và trả tại khách sạn có nằm trong gói tiêu chuẩn hay không."
+    },
+    {
+      "id": "video-tr-13-cue-6",
+      "start": 215,
+      "end": 258,
+      "en": "Inquire about physical demands: 'How strenuous is the uphill hiking involved?'",
+      "vi": "Hỏi thăm về yêu cầu thể lực: 'Chuyến đi bộ leo dốc đòi hỏi gắng sức ở mức độ nào?'"
+    },
+    {
+      "id": "video-tr-13-cue-7",
+      "start": 258,
+      "end": 301,
+      "en": "Ask what attire is recommended, especially when visiting sacred temples or churches.",
+      "vi": "Hỏi trang phục nào được khuyến nghị, đặc biệt khi đến thăm các ngôi đền hoặc nhà thờ linh thiêng."
+    },
+    {
+      "id": "video-tr-13-cue-8",
+      "start": 301,
+      "end": 344,
+      "en": "Check if vegetarian or gluten-free lunch options are accommodated upon request.",
+      "vi": "Kiểm tra xem các lựa chọn ăn trưa chay hoặc không chứa gluten có được đáp ứng theo yêu cầu không."
+    },
+    {
+      "id": "video-tr-13-cue-9",
+      "start": 344,
+      "end": 387,
+      "en": "A passionate local guide provides cultural historical context that guidebooks miss.",
+      "vi": "Một hướng dẫn viên địa phương tâm huyết mang lại bối cảnh lịch sử văn hóa mà sách hướng dẫn bỏ lỡ."
+    },
+    {
+      "id": "video-tr-13-cue-10",
+      "start": 387,
+      "end": 430,
+      "en": "Curiosity and thorough questioning guarantee rewarding, memorable travel excursions.",
+      "vi": "Sự tò mò và việc đặt câu hỏi thấu đáo đảm bảo những chuyến du ngoạn bổ ích và đáng nhớ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-13-cloze-1",
+      "cueId": "video-tr-13-cue-3",
+      "sentence": "{{blank}} booking a tour online, inquire thoroughly about specific itinerary details.",
+      "blankWord": "before",
+      "hintVi": "Nghĩa gợi ý: Trước khi đặt tour trực tuyến, hãy hỏi k...",
+      "timestamp": 86,
+      "options": [
+        "before",
+        "remarkable",
+        "accurate",
+        "strategy"
+      ]
+    },
+    {
+      "id": "video-tr-13-cloze-2",
+      "cueId": "video-tr-13-cue-5",
+      "sentence": "{{blank}} whether hotel pick-up and drop-off are covered in the standard package.",
+      "blankWord": "verify",
+      "hintVi": "Nghĩa gợi ý: Xác minh xem việc đón và trả tại khách s...",
+      "timestamp": 172,
+      "options": [
+        "balance",
+        "moderate",
+        "advantage",
+        "verify"
+      ]
+    },
+    {
+      "id": "video-tr-13-cloze-3",
+      "cueId": "video-tr-13-cue-8",
+      "sentence": "{{blank}} if vegetarian or gluten-free lunch options are accommodated upon request.",
+      "blankWord": "check",
+      "hintVi": "Nghĩa gợi ý: Kiểm tra xem các lựa chọn ăn trưa chay h...",
+      "timestamp": 301,
+      "options": [
+        "prominent",
+        "consistent",
+        "check",
+        "deliberate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-13-q1",
+      "question": "What is the primary focus of the video 'Booking Guided Excursions and Asking Details'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice booking guided excursions and asking details effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores booking guided excursions and asking details, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 43
+    },
+    {
+      "id": "video-tr-13-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Verify...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Verify whether hotel pick-up and drop-off are covered in the...",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Verify whether hotel pick-up and drop-off are covered in the standard package.', showing its practical importance.",
+      "timestampSeek": 172
+    },
+    {
+      "id": "video-tr-13-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Curiosity and thorough questioning guarantee rewarding, memorable...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Curiosity and thorough questioning guarantee rewarding, memorable travel excursions., providing a meaningful summary for learners.",
+      "timestampSeek": 387
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-03",
+  "youtubeId": "QGDhB_rBpGJ",
+  "title": "How Drinking Water Helps Your Body",
+  "channel": "English with Lucy",
+  "duration": 235,
+  "durationDisplay": "03:55",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/QGDhB_rBpGJ/hqdefault.jpg",
+  "description": "Lợi ích của việc uống đủ nước mỗi ngày đối với làn da, năng lượng và tiêu hóa.",
+  "coreVocabulary": [
+    {
+      "word": "hydrate",
+      "phonetic": "/haɪˈdreɪt/",
+      "viDefinition": "cấp nước, giữ đủ nước",
+      "contextSentence": "Drink plenty of water to hydrate your body during hot weather."
+    },
+    {
+      "word": "kidney",
+      "phonetic": "/ˈkɪdni/",
+      "viDefinition": "thận (cơ quan bài tiết)",
+      "contextSentence": "Healthy kidneys filter waste products from your bloodstream."
+    },
+    {
+      "word": "fatigue",
+      "phonetic": "/fəˈtiːɡ/",
+      "viDefinition": "sự mệt mỏi, uể oải",
+      "contextSentence": "Dehydration causes sudden afternoon fatigue and mild headaches."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-03-cue-1",
+      "start": 0,
+      "end": 23.5,
+      "en": "Hello health enthusiasts, Lucy here exploring the wonders of plain drinking water.",
+      "vi": "Xin chào những người yêu sức khỏe, Lucy ở đây khám phá những điều kỳ diệu của nước lọc."
+    },
+    {
+      "id": "video-sth-03-cue-2",
+      "start": 23.5,
+      "end": 47,
+      "en": "Our human bodies are composed of roughly sixty percent pure water.",
+      "vi": "Cơ thể con người chúng ta được cấu tạo từ khoảng sáu mươi phần trăm là nước tinh khiết."
+    },
+    {
+      "id": "video-sth-03-cue-3",
+      "start": 47,
+      "end": 70.5,
+      "en": "Every cell, tissue, and internal organ depends on water to function efficiently.",
+      "vi": "Mọi tế bào, mô và cơ quan nội tạng đều phụ thuộc vào nước để hoạt động hiệu quả."
+    },
+    {
+      "id": "video-sth-03-cue-4",
+      "start": 70.5,
+      "end": 94,
+      "en": "When you do not hydrate sufficiently, you experience afternoon fatigue and brain fog.",
+      "vi": "Khi bạn không cấp đủ nước, bạn sẽ gặp tình trạng mệt mỏi vào buổi chiều và đầu óc thiếu minh mẫn."
+    },
+    {
+      "id": "video-sth-03-cue-5",
+      "start": 94,
+      "end": 117.5,
+      "en": "Water carries vital nutrients and oxygen directly to your living cells.",
+      "vi": "Nước mang các chất dinh dưỡng thiết yếu và oxy trực tiếp đến các tế bào sống của bạn."
+    },
+    {
+      "id": "video-sth-03-cue-6",
+      "start": 117.5,
+      "end": 141,
+      "en": "Your kidneys require steady hydration to filter metabolic waste from the blood.",
+      "vi": "Thận của bạn cần được cấp nước đều đặn để lọc chất thải trao đổi chất khỏi máu."
+    },
+    {
+      "id": "video-sth-03-cue-7",
+      "start": 141,
+      "end": 164.5,
+      "en": "Carrying a reusable stainless steel water bottle encourages regular sips throughout the day.",
+      "vi": "Mang theo một bình nước bằng thép không gỉ tái sử dụng sẽ khuyến khích bạn nhấp từng ngụm đều đặn suốt cả ngày."
+    },
+    {
+      "id": "video-sth-03-cue-8",
+      "start": 164.5,
+      "end": 188,
+      "en": "Notice your thirst signals: dry lips and dark urine indicate dehydration.",
+      "vi": "Hãy chú ý các tín hiệu khát: môi khô và nước tiểu màu sẫm là dấu hiệu mất nước."
+    },
+    {
+      "id": "video-sth-03-cue-9",
+      "start": 188,
+      "end": 211.5,
+      "en": "Infusing your water with fresh lemon slices adds refreshing citrus flavor.",
+      "vi": "Thêm vài lát chanh tươi vào nước sẽ mang lại hương vị cam quýt sảng khoái."
+    },
+    {
+      "id": "video-sth-03-cue-10",
+      "start": 211.5,
+      "end": 235,
+      "en": "Prioritizing daily hydration is the simplest secret to radiant physical health.",
+      "vi": "Ưu tiên cấp nước hàng ngày là bí quyết đơn giản nhất để có sức khỏe thể chất rạng rỡ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-03-cloze-1",
+      "cueId": "video-sth-03-cue-3",
+      "sentence": "{{blank}} cell, tissue, and internal organ depends on water to function efficiently.",
+      "blankWord": "every",
+      "hintVi": "Nghĩa gợi ý: Mọi tế bào, mô và cơ quan nội tạng đều p...",
+      "timestamp": 47,
+      "options": [
+        "strategy",
+        "innovative",
+        "every",
+        "preliminary"
+      ]
+    },
+    {
+      "id": "video-sth-03-cloze-2",
+      "cueId": "video-sth-03-cue-5",
+      "sentence": "{{blank}} carries vital nutrients and oxygen directly to your living cells.",
+      "blankWord": "water",
+      "hintVi": "Nghĩa gợi ý: Nước mang các chất dinh dưỡng thiết yếu ...",
+      "timestamp": 94,
+      "options": [
+        "subsequent",
+        "simultaneous",
+        "moderate",
+        "water"
+      ]
+    },
+    {
+      "id": "video-sth-03-cloze-3",
+      "cueId": "video-sth-03-cue-8",
+      "sentence": "{{blank}} your thirst signals: dry lips and dark urine indicate dehydration.",
+      "blankWord": "notice",
+      "hintVi": "Nghĩa gợi ý: Hãy chú ý các tín hiệu khát: môi khô và ...",
+      "timestamp": 164.5,
+      "options": [
+        "alternative",
+        "routine",
+        "notice",
+        "prominent"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-03-q1",
+      "question": "What is the primary focus of the video 'How Drinking Water Helps Your Body'?",
+      "options": [
+        "To explain and practice how drinking water helps your body effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores how drinking water helps your body, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 23.5
+    },
+    {
+      "id": "video-sth-03-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Water...'?",
+      "options": [
+        "It emphasizes that: Water carries vital nutrients and oxygen directly to your li...",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'Water carries vital nutrients and oxygen directly to your living cells.', showing its practical importance.",
+      "timestampSeek": 94
+    },
+    {
+      "id": "video-sth-03-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Prioritizing daily hydration is the simplest secret to radiant ph...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Prioritizing daily hydration is the simplest secret to radiant physical health., providing a meaningful summary for learners.",
+      "timestampSeek": 211.5
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-05",
+  "youtubeId": "UlPf_8J8zIH",
+  "title": "Hotel Check-In: Room Key and Amenities",
+  "channel": "mmmEnglish",
+  "duration": 230,
+  "durationDisplay": "03:50",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/UlPf_8J8zIH/hqdefault.jpg",
+  "description": "Giao tiếp khi nhận phòng khách sạn: hỏi mật khẩu wifi, giờ ăn sáng và tiện ích.",
+  "coreVocabulary": [
+    {
+      "word": "reservation",
+      "phonetic": "/ˌrezəˈveɪʃn/",
+      "viDefinition": "sự đặt phòng trước",
+      "contextSentence": "I have a confirmed hotel reservation under the name Wilson."
+    },
+    {
+      "word": "amenity",
+      "phonetic": "/əˈmiːnəti/",
+      "viDefinition": "tiện nghi, tiện ích khách sạn",
+      "contextSentence": "The hotel amenity list includes a rooftop pool and fitness center."
+    },
+    {
+      "word": "complimentary",
+      "phonetic": "/ˌkɒmplɪˈmentri/",
+      "viDefinition": "miễn phí (do khách sạn phục vụ)",
+      "contextSentence": "Breakfast is complimentary and served every morning on the terrace."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-05-cue-1",
+      "start": 0,
+      "end": 23,
+      "en": "Hello travelers, Emma here guiding you through a smooth hotel reception check-in.",
+      "vi": "Xin chào các du khách, Emma ở đây hướng dẫn bạn làm thủ tục nhận phòng khách sạn suôn sẻ."
+    },
+    {
+      "id": "video-tr-05-cue-2",
+      "start": 23,
+      "end": 46,
+      "en": "After a long transatlantic flight, stepping into your hotel lobby is such relief.",
+      "vi": "Sau một chuyến bay dài xuyên đại dương, bước vào sảnh khách sạn thật nhẹ nhõm làm sao."
+    },
+    {
+      "id": "video-tr-05-cue-3",
+      "start": 46,
+      "end": 69,
+      "en": "Walk up to the front desk and say: 'Hello, I have a reservation for three nights.'",
+      "vi": "Bước đến quầy lễ tân và nói: 'Xin chào, tôi có đặt phòng trước cho ba đêm.'"
+    },
+    {
+      "id": "video-tr-05-cue-4",
+      "start": 69,
+      "end": 92,
+      "en": "Hand over your identification passport and a credit card for incidental charges.",
+      "vi": "Giao hộ chiếu căn cước và một thẻ tín dụng cho các chi phí phát sinh."
+    },
+    {
+      "id": "video-tr-05-cue-5",
+      "start": 92,
+      "end": 115,
+      "en": "The receptionist will prepare your electronic plastic room keycard in a sleeve.",
+      "vi": "Nhân viên lễ tân sẽ chuẩn bị thẻ từ phòng điện tử trong một bao bì nhỏ."
+    },
+    {
+      "id": "video-tr-05-cue-6",
+      "start": 115,
+      "end": 138,
+      "en": "They will inform you: 'Your room is on the fifth floor, room five-zero-four.'",
+      "vi": "Họ sẽ thông báo cho bạn: 'Phòng của bạn ở tầng năm, phòng năm-không-bốn.'"
+    },
+    {
+      "id": "video-tr-05-cue-7",
+      "start": 138,
+      "end": 161,
+      "en": "Ask about hotel amenities: 'What hours is the swimming pool and gym open?'",
+      "vi": "Hỏi về các tiện ích khách sạn: 'Hồ bơi và phòng tập thể dục mở cửa vào những giờ nào?'"
+    },
+    {
+      "id": "video-tr-05-cue-8",
+      "start": 161,
+      "end": 184,
+      "en": "Inquire about food: 'Is the morning breakfast buffet complimentary with my booking?'",
+      "vi": "Hỏi thăm về đồ ăn: 'Bữa sáng tự chọn buổi sáng có miễn phí kèm theo đặt phòng của tôi không?'"
+    },
+    {
+      "id": "video-tr-05-cue-9",
+      "start": 184,
+      "end": 207,
+      "en": "Request the wireless internet network name and login password for your devices.",
+      "vi": "Yêu cầu tên mạng internet không dây và mật khẩu đăng nhập cho các thiết bị của bạn."
+    },
+    {
+      "id": "video-tr-05-cue-10",
+      "start": 207,
+      "end": 230,
+      "en": "Take the elevator up to your room, unpack, and prepare for memorable adventures.",
+      "vi": "Đi thang máy lên phòng, mở hành lý và chuẩn bị cho những cuộc phiêu lưu đáng nhớ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-05-cloze-1",
+      "cueId": "video-tr-05-cue-3",
+      "sentence": "Walk up to the {{blank}} desk and say: 'Hello, I have a reservation for three nights.'",
+      "blankWord": "front",
+      "hintVi": "Nghĩa gợi ý: Bước đến quầy lễ tân và nói: 'Xin chào, ...",
+      "timestamp": 46,
+      "options": [
+        "resource",
+        "framework",
+        "vibrant",
+        "front"
+      ]
+    },
+    {
+      "id": "video-tr-05-cloze-2",
+      "cueId": "video-tr-05-cue-5",
+      "sentence": "The {{blank}} will prepare your electronic plastic room keycard in a sleeve.",
+      "blankWord": "receptionist",
+      "hintVi": "Nghĩa gợi ý: Nhân viên lễ tân sẽ chuẩn bị thẻ từ phòn...",
+      "timestamp": 92,
+      "options": [
+        "receptionist",
+        "protocol",
+        "priority",
+        "subsequent"
+      ]
+    },
+    {
+      "id": "video-tr-05-cloze-3",
+      "cueId": "video-tr-05-cue-8",
+      "sentence": "{{blank}} about food: 'Is the morning breakfast buffet complimentary with my booking?'",
+      "blankWord": "inquire",
+      "hintVi": "Nghĩa gợi ý: Hỏi thăm về đồ ăn: 'Bữa sáng tự chọn buổ...",
+      "timestamp": 161,
+      "options": [
+        "inquire",
+        "fundamental",
+        "perceptive",
+        "component"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-05-q1",
+      "question": "What is the primary focus of the video 'Hotel Check-In: Room Key and Amenities'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice hotel check-in: room key and amenities effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores hotel check-in: room key and amenities, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 23
+    },
+    {
+      "id": "video-tr-05-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: The receptionist will prepare your electronic plastic room k...",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'The receptionist will prepare your electronic plastic room keycard in a sleeve.', showing its practical importance.",
+      "timestampSeek": 92
+    },
+    {
+      "id": "video-tr-05-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Take the elevator up to your room, unpack, and prepare for memora...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Take the elevator up to your room, unpack, and prepare for memorable adventures., providing a meaningful summary for learners.",
+      "timestampSeek": 207
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-sc-13",
+  "youtubeId": "H4E0TRywhgV",
+  "title": "How to Politely Decline an Invitation Gracefully",
+  "channel": "English with Lucy",
+  "duration": 420,
+  "durationDisplay": "07:00",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "social_conversations",
+  "topicDisplay": "Giao tiếp & Đời sống xã hội",
+  "thumbnailUrl": "https://img.youtube.com/vi/H4E0TRywhgV/hqdefault.jpg",
+  "description": "Cách từ chối lời mời dự tiệc, đám cưới hoặc sự kiện mà không làm mất lòng người mời.",
+  "coreVocabulary": [
+    {
+      "word": "decline",
+      "phonetic": "/dɪˈklaɪn/",
+      "viDefinition": "từ chối (khéo léo)",
+      "contextSentence": "I must regretfully decline the weekend invitation due to prior commitments."
+    },
+    {
+      "word": "prior",
+      "phonetic": "/ˈpraɪə(r)/",
+      "viDefinition": "trước (ưu tiên đã có từ trước)",
+      "contextSentence": "A prior family engagement prevents me from attending your party."
+    },
+    {
+      "word": "raincheck",
+      "phonetic": "/ˈreɪntʃek/",
+      "viDefinition": "lời hẹn khất dịp sau",
+      "contextSentence": "Could I please take a raincheck on lunch and reschedule next week?"
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sc-13-cue-1",
+      "start": 0,
+      "end": 42,
+      "en": "Hello everyone, Lucy is here to teach you the fine art of polite refusal.",
+      "vi": "Chào mọi người, Lucy ở đây để dạy bạn nghệ thuật tinh tế của lời từ chối lịch sự."
+    },
+    {
+      "id": "video-sc-13-cue-2",
+      "start": 42,
+      "end": 84,
+      "en": "Saying yes to every invitation leads directly to exhaustion and burnout.",
+      "vi": "Nói đồng ý với mọi lời mời sẽ dẫn thẳng đến sự kiệt sức và quá tải."
+    },
+    {
+      "id": "video-sc-13-cue-3",
+      "start": 84,
+      "end": 126,
+      "en": "However, saying no bluntly can unintentionally hurt the host's feelings.",
+      "vi": "Tuy nhiên, từ chối một cách cộc lốc có thể vô tình làm tổn thương cảm xúc của người chủ nhà."
+    },
+    {
+      "id": "video-sc-13-cue-4",
+      "start": 126,
+      "end": 168,
+      "en": "The proper formula combines genuine gratitude, a clear reason, and warmth.",
+      "vi": "Công thức chuẩn mực kết hợp lòng biết ơn chân thành, lý do rõ ràng và sự ấm áp."
+    },
+    {
+      "id": "video-sc-13-cue-5",
+      "start": 168,
+      "end": 210,
+      "en": "Start by saying: 'Thank you so much for thinking of me; it sounds delightful.'",
+      "vi": "Bắt đầu bằng việc nói: 'Cảm ơn bạn rất nhiều vì đã nghĩ đến tôi; sự kiện nghe có vẻ tuyệt vời quá.'"
+    },
+    {
+      "id": "video-sc-13-cue-6",
+      "start": 210,
+      "end": 252,
+      "en": "Then state your conflict honestly: 'Unfortunately, I have a prior family commitment.'",
+      "vi": "Sau đó nêu mâu thuẫn lịch trình một cách thành thật: 'Rất tiếc, tôi đã có cam kết gia đình từ trước.'"
+    },
+    {
+      "id": "video-sc-13-cue-7",
+      "start": 252,
+      "end": 294,
+      "en": "You do not need to invent elaborate falsehoods; simple conflicts are fully respected.",
+      "vi": "Bạn không cần phải bịa đặt những lời nói dối hoa mỹ; những lý do bận đơn giản luôn được tôn trọng."
+    },
+    {
+      "id": "video-sc-13-cue-8",
+      "start": 294,
+      "end": 336,
+      "en": "Offer an alternative date by asking: 'Could we perhaps take a raincheck for lunch?'",
+      "vi": "Đưa ra một ngày thay thế bằng cách hỏi: 'Liệu chúng ta có thể hẹn khất bữa trưa sang dịp khác được không?'"
+    },
+    {
+      "id": "video-sc-13-cue-9",
+      "start": 336,
+      "end": 378,
+      "en": "Wish them a magnificent event full of laughter and celebration.",
+      "vi": "Chúc họ một sự kiện tuyệt vời tràn ngập tiếng cười và niềm vui."
+    },
+    {
+      "id": "video-sc-13-cue-10",
+      "start": 378,
+      "end": 420,
+      "en": "Setting boundaries with kindness preserves both your energy and friendships.",
+      "vi": "Thiết lập ranh giới bằng sự tử tế vừa bảo toàn năng lượng vừa giữ gìn tình bạn của bạn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sc-13-cloze-1",
+      "cueId": "video-sc-13-cue-3",
+      "sentence": "{{blank}}, saying no bluntly can unintentionally hurt the host's feelings.",
+      "blankWord": "however",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, từ chối một cách cộc lốc có t...",
+      "timestamp": 84,
+      "options": [
+        "however",
+        "deliberate",
+        "consistent",
+        "favorable"
+      ]
+    },
+    {
+      "id": "video-sc-13-cloze-2",
+      "cueId": "video-sc-13-cue-5",
+      "sentence": "{{blank}} by saying: 'Thank you so much for thinking of me; it sounds delightful.'",
+      "blankWord": "start",
+      "hintVi": "Nghĩa gợi ý: Bắt đầu bằng việc nói: 'Cảm ơn bạn rất n...",
+      "timestamp": 168,
+      "options": [
+        "start",
+        "gradual",
+        "alternative",
+        "framework"
+      ]
+    },
+    {
+      "id": "video-sc-13-cloze-3",
+      "cueId": "video-sc-13-cue-8",
+      "sentence": "{{blank}} an alternative date by asking: 'Could we perhaps take a raincheck for lunch?'",
+      "blankWord": "offer",
+      "hintVi": "Nghĩa gợi ý: Đưa ra một ngày thay thế bằng cách hỏi: ...",
+      "timestamp": 294,
+      "options": [
+        "accurate",
+        "remarkable",
+        "consistent",
+        "offer"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sc-13-q1",
+      "question": "What is the primary focus of the video 'How to Politely Decline an Invitation Gracefully'?",
+      "options": [
+        "To explain and practice how to politely decline an invitation gracefully effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores how to politely decline an invitation gracefully, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 42
+    },
+    {
+      "id": "video-sc-13-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Start...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Start by saying: 'Thank you so much for thinking of me; it s...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Start by saying: 'Thank you so much for thinking of me; it sounds delightful.'', showing its practical importance.",
+      "timestampSeek": 168
+    },
+    {
+      "id": "video-sc-13-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Setting boundaries with kindness preserves both your energy and f...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Setting boundaries with kindness preserves both your energy and friendships., providing a meaningful summary for learners.",
+      "timestampSeek": 378
+    }
+  ]
+}

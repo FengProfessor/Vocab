@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-04",
+  "youtubeId": "oizywZ4BGxg",
+  "title": "Sending Voice Messages and Emojis",
+  "channel": "Learn English with Gill",
+  "duration": 245,
+  "durationDisplay": "04:05",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/oizywZ4BGxg/hqdefault.jpg",
+  "description": "Cách nhắn tin thoại và sử dụng biểu tượng cảm xúc khi giao tiếp qua ứng dụng di động.",
+  "coreVocabulary": [
+    {
+      "word": "emoji",
+      "phonetic": "/ɪˈməʊdʒi/",
+      "viDefinition": "biểu tượng cảm xúc (trong tin nhắn)",
+      "contextSentence": "Adding a laughing emoji prevents your message from sounding serious."
+    },
+    {
+      "word": "voice",
+      "phonetic": "/vɔɪs/",
+      "viDefinition": "giọng nói, tin nhắn thoại (voice message)",
+      "contextSentence": "Press and hold the microphone icon to record a short voice note."
+    },
+    {
+      "word": "clarify",
+      "phonetic": "/ˈklærɪfaɪ/",
+      "viDefinition": "làm rõ, làm sáng tỏ",
+      "contextSentence": "Use expressive emojis to clarify the emotional tone of your text."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-04-cue-1",
+      "start": 0,
+      "end": 24.5,
+      "en": "Welcome back to Learn English with Gill, exploring modern mobile messaging.",
+      "vi": "Chào mừng quay lại với Learn English with Gill, khám phá nhắn tin di động hiện đại."
+    },
+    {
+      "id": "video-sth-04-cue-2",
+      "start": 24.5,
+      "end": 49,
+      "en": "Texting has largely replaced traditional phone calls for everyday informal communication.",
+      "vi": "Nhắn tin hầu như đã thay thế các cuộc gọi điện thoại truyền thống cho việc giao tiếp thông thường hàng ngày."
+    },
+    {
+      "id": "video-sth-04-cue-3",
+      "start": 49,
+      "end": 73.5,
+      "en": "However, typed words alone can sometimes sound cold, blunt, or ambiguous.",
+      "vi": "Tuy nhiên, những từ ngữ gõ phím đơn thuần đôi khi có thể nghe lạnh lùng, cộc lốc hoặc mơ hồ."
+    },
+    {
+      "id": "video-sth-04-cue-4",
+      "start": 73.5,
+      "end": 98,
+      "en": "Voice messages allow you to convey warmth and genuine vocal emotion easily.",
+      "vi": "Tin nhắn thoại cho phép bạn truyền tải sự ấm áp và cảm xúc chân thật của giọng nói một cách dễ dàng."
+    },
+    {
+      "id": "video-sth-04-cue-5",
+      "start": 98,
+      "end": 122.5,
+      "en": "Press and hold the microphone button to record a brief audio message.",
+      "vi": "Nhấn và giữ nút micro để ghi âm một tin nhắn âm thanh ngắn."
+    },
+    {
+      "id": "video-sth-04-cue-6",
+      "start": 122.5,
+      "end": 147,
+      "en": "Release the button to send your voice note across the chat window.",
+      "vi": "Thả nút để gửi ghi chú bằng giọng nói qua cửa sổ trò chuyện."
+    },
+    {
+      "id": "video-sth-04-cue-7",
+      "start": 147,
+      "end": 171.5,
+      "en": "Selecting the right emoji adds cheerful nuance and friendly humor.",
+      "vi": "Chọn đúng biểu tượng cảm xúc sẽ tăng thêm sắc thái vui vẻ và sự hài hước thân thiện."
+    },
+    {
+      "id": "video-sth-04-cue-8",
+      "start": 171.5,
+      "end": 196,
+      "en": "A thumbs-up emoji signals quick agreement without typing extra words.",
+      "vi": "Biểu tượng ngón tay cái giơ lên báo hiệu sự đồng ý nhanh chóng mà không cần gõ thêm từ."
+    },
+    {
+      "id": "video-sth-04-cue-9",
+      "start": 196,
+      "end": 220.5,
+      "en": "Be cautious in professional emails where informal emojis might appear unprofessional.",
+      "vi": "Hãy cẩn trọng trong email công việc nơi các biểu tượng cảm xúc thân mật có thể trông thiếu chuyên nghiệp."
+    },
+    {
+      "id": "video-sth-04-cue-10",
+      "start": 220.5,
+      "end": 245,
+      "en": "Balancing concise text with modern digital expressions keeps conversations engaging and clear.",
+      "vi": "Cân bằng giữa văn bản ngắn gọn với các biểu đạt kỹ thuật số hiện đại giúp cuộc trò chuyện luôn hấp dẫn và rõ ràng."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-04-cloze-1",
+      "cueId": "video-sth-04-cue-3",
+      "sentence": "{{blank}}, typed words alone can sometimes sound cold, blunt, or ambiguous.",
+      "blankWord": "however",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, những từ ngữ gõ phím đơn thuầ...",
+      "timestamp": 49,
+      "options": [
+        "flexible",
+        "vulnerable",
+        "consistent",
+        "however"
+      ]
+    },
+    {
+      "id": "video-sth-04-cloze-2",
+      "cueId": "video-sth-04-cue-5",
+      "sentence": "{{blank}} and hold the microphone button to record a brief audio message.",
+      "blankWord": "press",
+      "hintVi": "Nghĩa gợi ý: Nhấn và giữ nút micro để ghi âm một tin ...",
+      "timestamp": 98,
+      "options": [
+        "advantage",
+        "resource",
+        "criterion",
+        "press"
+      ]
+    },
+    {
+      "id": "video-sth-04-cloze-3",
+      "cueId": "video-sth-04-cue-8",
+      "sentence": "A thumbs-up {{blank}} signals quick agreement without typing extra words.",
+      "blankWord": "emoji",
+      "hintVi": "Nghĩa gợi ý: Biểu tượng ngón tay cái giơ lên báo hiệu...",
+      "timestamp": 171.5,
+      "options": [
+        "emoji",
+        "temporary",
+        "subsequent",
+        "substantial"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-04-q1",
+      "question": "What is the primary focus of the video 'Sending Voice Messages and Emojis'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice sending voice messages and emojis effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores sending voice messages and emojis, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 24.5
+    },
+    {
+      "id": "video-sth-04-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Press...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Press and hold the microphone button to record a brief audio..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Press and hold the microphone button to record a brief audio message.', showing its practical importance.",
+      "timestampSeek": 98
+    },
+    {
+      "id": "video-sth-04-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Balancing concise text with modern digital expressions keeps conv...",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Balancing concise text with modern digital expressions keeps conversations engaging and clear., providing a meaningful summary for learners.",
+      "timestampSeek": 220.5
+    }
+  ]
+}

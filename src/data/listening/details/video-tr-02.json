@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-02",
+  "youtubeId": "z1ig80HmOKn",
+  "title": "Passing Airport Security Checkpoints",
+  "channel": "mmmEnglish",
+  "duration": 240,
+  "durationDisplay": "04:00",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/z1ig80HmOKn/hqdefault.jpg",
+  "description": "Hướng dẫn quy trình an ninh sân bay: tháo thắt lưng, bỏ chất lỏng và máy tính vào khay.",
+  "coreVocabulary": [
+    {
+      "word": "security",
+      "phonetic": "/sɪˈkjʊərəti/",
+      "viDefinition": "an ninh (sân bay)",
+      "contextSentence": "Follow all airport security instructions carefully and calmly."
+    },
+    {
+      "word": "tray",
+      "phonetic": "/treɪ/",
+      "viDefinition": "khay nhựa đựng đồ",
+      "contextSentence": "Place your laptop and jacket into a separate plastic tray."
+    },
+    {
+      "word": "liquid",
+      "phonetic": "/ˈlɪkwɪd/",
+      "viDefinition": "chất lỏng",
+      "contextSentence": "All carry-on liquids must be under one hundred milliliters."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-02-cue-1",
+      "start": 0,
+      "end": 24,
+      "en": "Hello travelers, it's Emma from mmmEnglish making travel stress-free for you.",
+      "vi": "Xin chào các du khách, Emma từ mmmEnglish ở đây giúp chuyến đi của bạn không còn căng thẳng."
+    },
+    {
+      "id": "video-tr-02-cue-2",
+      "start": 24,
+      "end": 48,
+      "en": "Going through airport security can feel intimidating if you do not know the rules.",
+      "vi": "Đi qua an ninh sân bay có thể gây áp lực nếu bạn không nắm rõ các quy tắc."
+    },
+    {
+      "id": "video-tr-02-cue-3",
+      "start": 48,
+      "end": 72,
+      "en": "Before stepping in line, finish drinking any bottled water or beverages.",
+      "vi": "Trước khi bước vào hàng đợi, hãy uống hết nước đóng chai hoặc đồ uống."
+    },
+    {
+      "id": "video-tr-02-cue-4",
+      "start": 72,
+      "end": 96,
+      "en": "All liquids in your carry-on bag must be in small containers under 100 milliliters.",
+      "vi": "Tất cả chất lỏng trong hành lý xách tay phải đựng trong các chai nhỏ dưới 100 ml."
+    },
+    {
+      "id": "video-tr-02-cue-5",
+      "start": 96,
+      "end": 120,
+      "en": "Collect two plastic trays from the conveyor stack at the screening table.",
+      "vi": "Lấy hai khay nhựa từ chồng băng chuyền tại bàn quét an ninh."
+    },
+    {
+      "id": "video-tr-02-cue-6",
+      "start": 120,
+      "end": 144,
+      "en": "Remove your heavy jacket, belt, and shoes if requested by security officers.",
+      "vi": "Cởi áo khoác dày, thắt lưng và giày nếu nhân viên an ninh yêu cầu."
+    },
+    {
+      "id": "video-tr-02-cue-7",
+      "start": 144,
+      "end": 168,
+      "en": "Take your laptop and electronic tablet out of your backpack into the open tray.",
+      "vi": "Lấy máy tính xách tay và máy tính bảng ra khỏi ba lô vào khay mở."
+    },
+    {
+      "id": "video-tr-02-cue-8",
+      "start": 168,
+      "end": 192,
+      "en": "Walk slowly through the metal detector archway when signaled by the guard.",
+      "vi": "Đi chậm qua cổng dò kim loại khi có tín hiệu của nhân viên an ninh."
+    },
+    {
+      "id": "video-tr-02-cue-9",
+      "start": 192,
+      "end": 216,
+      "en": "Collect all personal items promptly at the rollers and repack your bags.",
+      "vi": "Thu gom tất cả đồ dùng cá nhân kịp thời tại các con lăn và đóng gói lại túi xách."
+    },
+    {
+      "id": "video-tr-02-cue-10",
+      "start": 216,
+      "end": 240,
+      "en": "Prepared travelers breeze through security checkpoints in less than five minutes.",
+      "vi": "Những du khách có sự chuẩn bị sẽ vượt qua các điểm kiểm tra an ninh trong chưa đầy năm phút."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-02-cloze-1",
+      "cueId": "video-tr-02-cue-3",
+      "sentence": "{{blank}} stepping in line, finish drinking any bottled water or beverages.",
+      "blankWord": "before",
+      "hintVi": "Nghĩa gợi ý: Trước khi bước vào hàng đợi, hãy uống hế...",
+      "timestamp": 48,
+      "options": [
+        "framework",
+        "adequate",
+        "before",
+        "criterion"
+      ]
+    },
+    {
+      "id": "video-tr-02-cloze-2",
+      "cueId": "video-tr-02-cue-5",
+      "sentence": "{{blank}} two plastic trays from the conveyor stack at the screening table.",
+      "blankWord": "collect",
+      "hintVi": "Nghĩa gợi ý: Lấy hai khay nhựa từ chồng băng chuyền t...",
+      "timestamp": 96,
+      "options": [
+        "vibrant",
+        "routine",
+        "collect",
+        "deliberate"
+      ]
+    },
+    {
+      "id": "video-tr-02-cloze-3",
+      "cueId": "video-tr-02-cue-8",
+      "sentence": "Walk {{blank}} through the metal detector archway when signaled by the guard.",
+      "blankWord": "slowly",
+      "hintVi": "Nghĩa gợi ý: Đi chậm qua cổng dò kim loại khi có tín ...",
+      "timestamp": 168,
+      "options": [
+        "prominent",
+        "preliminary",
+        "slowly",
+        "subsequent"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-02-q1",
+      "question": "What is the primary focus of the video 'Passing Airport Security Checkpoints'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice passing airport security checkpoints effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores passing airport security checkpoints, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 24
+    },
+    {
+      "id": "video-tr-02-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Collect...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Collect two plastic trays from the conveyor stack at the scr...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Collect two plastic trays from the conveyor stack at the screening table.', showing its practical importance.",
+      "timestampSeek": 96
+    },
+    {
+      "id": "video-tr-02-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Prepared travelers breeze through security checkpoints in less th...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Prepared travelers breeze through security checkpoints in less than five minutes., providing a meaningful summary for learners.",
+      "timestampSeek": 216
+    }
+  ]
+}

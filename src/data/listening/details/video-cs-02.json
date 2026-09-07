@@ -1,0 +1,191 @@
+{
+  "id": "video-cs-02",
+  "youtubeId": "uTaZbST4yG9",
+  "title": "Celebrating Mid-Autumn Moon Festival",
+  "channel": "Learn English with Gill",
+  "duration": 230,
+  "durationDisplay": "03:50",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "culture",
+  "topicDisplay": "Văn hóa, TED & Câu chuyện",
+  "thumbnailUrl": "https://img.youtube.com/vi/uTaZbST4yG9/hqdefault.jpg",
+  "description": "Tết Trung Thu: ý nghĩa đoàn viên, ngắm trăng tròn, rước đèn lồng và ăn bánh trung thu.",
+  "coreVocabulary": [
+    {
+      "word": "mooncake",
+      "phonetic": "/ˈmuːnkeɪk/",
+      "viDefinition": "bánh trung thu",
+      "contextSentence": "Lotus seed mooncakes with salted egg yolks symbolize family completeness."
+    },
+    {
+      "word": "lantern",
+      "phonetic": "/ˈlæntən/",
+      "viDefinition": "đèn lồng",
+      "contextSentence": "Children parade colorful animal-shaped lanterns under the bright moonlight."
+    },
+    {
+      "word": "reunion",
+      "phonetic": "/ˌriːˈjuːniən/",
+      "viDefinition": "sự đoàn tụ, sum họp gia đình",
+      "contextSentence": "Mid-Autumn Festival is fundamentally a joyful occasion of family reunion."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-cs-02-cue-1",
+      "start": 0,
+      "end": 23,
+      "en": "Welcome back to Learn English with Gill, exploring colorful cultural festivities today.",
+      "vi": "Chào mừng quay lại với Learn English with Gill, khám phá các lễ hội văn hóa rực rỡ hôm nay."
+    },
+    {
+      "id": "video-cs-02-cue-2",
+      "start": 23,
+      "end": 46,
+      "en": "Across East Asia, families celebrate the harvest under the brightest full moon of the year.",
+      "vi": "Khắp Đông Á, các gia đình ăn mừng mùa thu hoạch dưới ánh trăng tròn sáng nhất trong năm."
+    },
+    {
+      "id": "video-cs-02-cue-3",
+      "start": 46,
+      "end": 69,
+      "en": "Known as the Mid-Autumn Festival, it symbolizes harvest abundance, unity, and emotional peace.",
+      "vi": "Được gọi là Tết Trung Thu, lễ hội này tượng trưng cho sự trù phú của vụ mùa, sự gắn kết và sự bình yên trong tâm hồn."
+    },
+    {
+      "id": "video-cs-02-cue-4",
+      "start": 69,
+      "end": 92,
+      "en": "Families gather in courtyards and gardens to admire the luminous autumn moon.",
+      "vi": "Các gia đình tụ họp trong sân và vườn để ngắm nhìn vầng trăng mùa thu rạng rỡ."
+    },
+    {
+      "id": "video-cs-02-cue-5",
+      "start": 92,
+      "end": 115,
+      "en": "The centerpiece of the table is a platter of ornate sweet mooncakes.",
+      "vi": "Trung tâm của bàn tiệc là một đĩa bánh trung thu ngọt ngào được tạo hình tinh xảo."
+    },
+    {
+      "id": "video-cs-02-cue-6",
+      "start": 115,
+      "end": 138,
+      "en": "Golden crusts contain fillings of lotus seed paste, red bean, or salted duck egg yolk.",
+      "vi": "Lớp vỏ vàng óng chứa nhân hạt sen, đậu đỏ hoặc lòng đỏ trứng vịt muối."
+    },
+    {
+      "id": "video-cs-02-cue-7",
+      "start": 138,
+      "end": 161,
+      "en": "Their perfect circular shape represents eternal unity and family harmony.",
+      "vi": "Hình tròn hoàn hảo của bánh đại diện cho sự gắn kết vĩnh cửu và sự hòa hợp gia đình."
+    },
+    {
+      "id": "video-cs-02-cue-8",
+      "start": 161,
+      "end": 184,
+      "en": "Excited children carry luminous star-shaped and fish lanterns through neighborhood lanes.",
+      "vi": "Trẻ em háo hức rước những chiếc đèn lồng hình ngôi sao và hình con cá phát sáng qua các con ngõ trong xóm."
+    },
+    {
+      "id": "video-cs-02-cue-9",
+      "start": 184,
+      "end": 207,
+      "en": "Lion dancers perform acrobatic leaps to loud percussion drums and crashing cymbals.",
+      "vi": "Những người múa lân thực hiện các cú nhảy nhào lộn theo tiếng trống gõ dồn dập và tiếng chũm chọe vang dội."
+    },
+    {
+      "id": "video-cs-02-cue-10",
+      "start": 207,
+      "end": 230,
+      "en": "The Moon Festival reminds us that love bridges great distances across the globe.",
+      "vi": "Tết Trung Thu nhắc nhở chúng ta rằng tình yêu thương có thể nối liền những khoảng cách xa xôi trên toàn cầu."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-cs-02-cloze-1",
+      "cueId": "video-cs-02-cue-3",
+      "sentence": "{{blank}} as the Mid-Autumn Festival, it symbolizes harvest abundance, unity, and emotional peace.",
+      "blankWord": "known",
+      "hintVi": "Nghĩa gợi ý: Được gọi là Tết Trung Thu, lễ hội này tư...",
+      "timestamp": 46,
+      "options": [
+        "fundamental",
+        "perspective",
+        "known",
+        "vibrant"
+      ]
+    },
+    {
+      "id": "video-cs-02-cloze-2",
+      "cueId": "video-cs-02-cue-5",
+      "sentence": "The {{blank}} of the table is a platter of ornate sweet mooncakes.",
+      "blankWord": "centerpiece",
+      "hintVi": "Nghĩa gợi ý: Trung tâm của bàn tiệc là một đĩa bánh t...",
+      "timestamp": 92,
+      "options": [
+        "framework",
+        "essential",
+        "centerpiece",
+        "favorable"
+      ]
+    },
+    {
+      "id": "video-cs-02-cloze-3",
+      "cueId": "video-cs-02-cue-8",
+      "sentence": "{{blank}} children carry luminous star-shaped and fish lanterns through neighborhood lanes.",
+      "blankWord": "excited",
+      "hintVi": "Nghĩa gợi ý: Trẻ em háo hức rước những chiếc đèn lồng...",
+      "timestamp": 161,
+      "options": [
+        "resource",
+        "temporary",
+        "excited",
+        "subsequent"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-cs-02-q1",
+      "question": "What is the primary focus of the video 'Celebrating Mid-Autumn Moon Festival'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice celebrating mid-autumn moon festival effectively.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores celebrating mid-autumn moon festival, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 23
+    },
+    {
+      "id": "video-cs-02-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: The centerpiece of the table is a platter of ornate sweet mo...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'The centerpiece of the table is a platter of ornate sweet mooncakes.', showing its practical importance.",
+      "timestampSeek": 92
+    },
+    {
+      "id": "video-cs-02-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: The Moon Festival reminds us that love bridges great distances ac...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that The Moon Festival reminds us that love bridges great distances across the globe., providing a meaningful summary for learners.",
+      "timestampSeek": 207
+    }
+  ]
+}

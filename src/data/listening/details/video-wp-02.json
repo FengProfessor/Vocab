@@ -1,0 +1,191 @@
+{
+  "id": "video-wp-02",
+  "youtubeId": "aKaQ2_bOvpD",
+  "title": "Asking a Colleague for Help on a Task",
+  "channel": "Oxford Online English",
+  "duration": 240,
+  "durationDisplay": "04:00",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/aKaQ2_bOvpD/hqdefault.jpg",
+  "description": "Cách nhờ đồng nghiệp hướng dẫn công việc hoặc giải đáp thắc mắc chuyên môn.",
+  "coreVocabulary": [
+    {
+      "word": "assist",
+      "phonetic": "/əˈsɪst/",
+      "viDefinition": "hỗ trợ, giúp đỡ",
+      "contextSentence": "Could you please assist me with this software spreadsheet?"
+    },
+    {
+      "word": "clarify",
+      "phonetic": "/ˈklærəfaɪ/",
+      "viDefinition": "làm rõ, giải thích rõ",
+      "contextSentence": "I need someone to clarify the client's project instructions."
+    },
+    {
+      "word": "deadline",
+      "phonetic": "/ˈdedlaɪn/",
+      "viDefinition": "hạn chót, thời hạn hoàn thành",
+      "contextSentence": "Our team deadline is Friday afternoon at five o'clock."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-02-cue-1",
+      "start": 0,
+      "end": 24,
+      "en": "Welcome to Oxford Online English's practical workplace series.",
+      "vi": "Chào mừng đến với chuỗi bài tiếng Anh công sở thực tế của Oxford Online English."
+    },
+    {
+      "id": "video-wp-02-cue-2",
+      "start": 24,
+      "end": 48,
+      "en": "Never hesitate to ask for help when learning a new work procedure.",
+      "vi": "Đừng bao giờ ngần ngại yêu cầu giúp đỡ khi học một quy trình làm việc mới."
+    },
+    {
+      "id": "video-wp-02-cue-3",
+      "start": 48,
+      "end": 72,
+      "en": "Approaching a busy colleague requires politeness and brevity.",
+      "vi": "Tiếp cận một đồng nghiệp bận rộn đòi hỏi sự lịch sự và ngắn gọn."
+    },
+    {
+      "id": "video-wp-02-cue-4",
+      "start": 72,
+      "end": 96,
+      "en": "Say: 'Excuse me Sarah, do you have two minutes to assist me?'",
+      "vi": "Nói: 'Xin lỗi Sarah, bạn có hai phút để hỗ trợ tôi một chút không?'"
+    },
+    {
+      "id": "video-wp-02-cue-5",
+      "start": 96,
+      "end": 120,
+      "en": "Explain clearly what you have tried before asking for the solution.",
+      "vi": "Giải thích rõ ràng những gì bạn đã thử làm trước khi hỏi giải pháp."
+    },
+    {
+      "id": "video-wp-02-cue-6",
+      "start": 120,
+      "end": 144,
+      "en": "Ask them to clarify ambiguous points in the manager's memo.",
+      "vi": "Nhờ họ làm rõ những điểm mơ hồ trong bản ghi nhớ của người quản lý."
+    },
+    {
+      "id": "video-wp-02-cue-7",
+      "start": 144,
+      "end": 168,
+      "en": "Mention that you want to complete the task well before the deadline.",
+      "vi": "Đề cập rằng bạn muốn hoàn thành nhiệm vụ trước thời hạn chót."
+    },
+    {
+      "id": "video-wp-02-cue-8",
+      "start": 168,
+      "end": 192,
+      "en": "Take notes in your pad so you do not need to ask the same thing twice.",
+      "vi": "Ghi chú vào sổ tay của bạn để không cần phải hỏi lại cùng một điều hai lần."
+    },
+    {
+      "id": "video-wp-02-cue-9",
+      "start": 192,
+      "end": 216,
+      "en": "Thank them warmly for sharing their expertise and valuable time.",
+      "vi": "Cảm ơn họ nồng nhiệt vì đã chia sẻ chuyên môn và thời gian quý báu."
+    },
+    {
+      "id": "video-wp-02-cue-10",
+      "start": 216,
+      "end": 240,
+      "en": "Team collaboration turns individual challenges into shared victories.",
+      "vi": "Sự hợp tác nhóm biến những thách thức cá nhân thành những chiến thắng chung."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-02-cloze-1",
+      "cueId": "video-wp-02-cue-3",
+      "sentence": "{{blank}} a busy colleague requires politeness and brevity.",
+      "blankWord": "approaching",
+      "hintVi": "Nghĩa gợi ý: Tiếp cận một đồng nghiệp bận rộn đòi hỏi...",
+      "timestamp": 48,
+      "options": [
+        "innovative",
+        "dimension",
+        "fundamental",
+        "approaching"
+      ]
+    },
+    {
+      "id": "video-wp-02-cloze-2",
+      "cueId": "video-wp-02-cue-5",
+      "sentence": "{{blank}} clearly what you have tried before asking for the solution.",
+      "blankWord": "explain",
+      "hintVi": "Nghĩa gợi ý: Giải thích rõ ràng những gì bạn đã thử l...",
+      "timestamp": 96,
+      "options": [
+        "balance",
+        "protocol",
+        "continuous",
+        "explain"
+      ]
+    },
+    {
+      "id": "video-wp-02-cloze-3",
+      "cueId": "video-wp-02-cue-8",
+      "sentence": "Take {{blank}} in your pad so you do not need to ask the same thing twice.",
+      "blankWord": "notes",
+      "hintVi": "Nghĩa gợi ý: Ghi chú vào sổ tay của bạn để không cần ...",
+      "timestamp": 168,
+      "options": [
+        "preliminary",
+        "notes",
+        "subsequent",
+        "framework"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-02-q1",
+      "question": "What is the primary focus of the video 'Asking a Colleague for Help on a Task'?",
+      "options": [
+        "To explain and practice asking a colleague for help on a task effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores asking a colleague for help on a task, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 24
+    },
+    {
+      "id": "video-wp-02-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Explain...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Explain clearly what you have tried before asking for the so...",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Explain clearly what you have tried before asking for the solution.', showing its practical importance.",
+      "timestampSeek": 96
+    },
+    {
+      "id": "video-wp-02-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Team collaboration turns individual challenges into shared victor..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Team collaboration turns individual challenges into shared victories., providing a meaningful summary for learners.",
+      "timestampSeek": 216
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-11",
+  "youtubeId": "ucfjFAKAwH1",
+  "title": "Returning a Defective Item and Requesting Refunds",
+  "channel": "Learn English with Gill",
+  "duration": 390,
+  "durationDisplay": "06:30",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/ucfjFAKAwH1/hqdefault.jpg",
+  "description": "Cách đổi trả hàng hóa bị lỗi, đòi lại tiền và bảo vệ quyền lợi người tiêu dùng.",
+  "coreVocabulary": [
+    {
+      "word": "defective",
+      "phonetic": "/dɪˈfektɪv/",
+      "viDefinition": "bị lỗi, có khuyết tật (sản phẩm)",
+      "contextSentence": "This expensive winter coat has a defective zipper that splits open."
+    },
+    {
+      "word": "refund",
+      "phonetic": "/ˈriːfʌnd/",
+      "viDefinition": "tiền hoàn lại, sự hoàn trả tiền",
+      "contextSentence": "I would like a full refund credited back to my original card."
+    },
+    {
+      "word": "consumer",
+      "phonetic": "/kənˈsjuːmə(r)/",
+      "viDefinition": "người tiêu dùng",
+      "contextSentence": "Consumer protection laws mandate replacements for faulty electronics."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-11-cue-1",
+      "start": 0,
+      "end": 39,
+      "en": "Welcome to Learn English with Gill, empowering you with customer service rights.",
+      "vi": "Chào mừng đến với Learn English with Gill, trao quyền cho bạn với các quyền lợi dịch vụ khách hàng."
+    },
+    {
+      "id": "video-fs-11-cue-2",
+      "start": 39,
+      "end": 78,
+      "en": "Purchasing merchandise that breaks within days is frustrating and disappointing.",
+      "vi": "Mua phải hàng hóa bị hỏng chỉ trong vài ngày thật bực bội và thất vọng."
+    },
+    {
+      "id": "video-fs-11-cue-3",
+      "start": 78,
+      "end": 117,
+      "en": "Return to the customer service counter with the item in its original packaging.",
+      "vi": "Quay lại quầy dịch vụ khách hàng cùng sản phẩm trong bao bì gốc của nó."
+    },
+    {
+      "id": "video-fs-11-cue-4",
+      "start": 117,
+      "end": 156,
+      "en": "Present your printed purchase receipt and say: 'I need to return this product.'",
+      "vi": "Xuất trình hóa đơn mua hàng đã in và nói: 'Tôi cần đổi trả sản phẩm này.'"
+    },
+    {
+      "id": "video-fs-11-cue-5",
+      "start": 156,
+      "end": 195,
+      "en": "Explain the exact issue calmly: 'The internal heating element is completely defective.'",
+      "vi": "Giải thích vấn đề chính xác một cách bình tĩnh: 'Bộ phận làm nóng bên trong hoàn toàn bị lỗi.'"
+    },
+    {
+      "id": "video-fs-11-cue-6",
+      "start": 195,
+      "end": 234,
+      "en": "Know your consumer rights: retailers must repair, replace, or issue a full refund.",
+      "vi": "Nắm rõ quyền lợi người tiêu dùng của bạn: các nhà bán lẻ phải sửa chữa, thay thế hoặc hoàn tiền đầy đủ."
+    },
+    {
+      "id": "video-fs-11-cue-7",
+      "start": 234,
+      "end": 273,
+      "en": "State your preference firmly: 'I prefer a complete refund rather than store credit.'",
+      "vi": "Nêu rõ sở thích của bạn một cách kiên quyết: 'Tôi muốn được hoàn tiền đầy đủ hơn là điểm tín dụng cửa hàng.'"
+    },
+    {
+      "id": "video-fs-11-cue-8",
+      "start": 273,
+      "end": 312,
+      "en": "The representative will inspect the item to verify it was not damaged through misuse.",
+      "vi": "Đại diện cửa hàng sẽ kiểm tra sản phẩm để xác minh nó không bị hỏng do sử dụng sai cách."
+    },
+    {
+      "id": "video-fs-11-cue-9",
+      "start": 312,
+      "end": 351,
+      "en": "Keep your credit card receipt showing the negative transaction balance.",
+      "vi": "Giữ biên lai thẻ tín dụng của bạn thể hiện số dư giao dịch âm."
+    },
+    {
+      "id": "video-fs-11-cue-10",
+      "start": 351,
+      "end": 390,
+      "en": "Polite firmness backed by statutory consumer law resolves retail disputes effortlessly.",
+      "vi": "Sự kiên quyết lịch thiệp được luật người tiêu dùng theo luật định hậu thuẫn sẽ giải quyết các tranh chấp bán lẻ dễ dàng."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-11-cloze-1",
+      "cueId": "video-fs-11-cue-3",
+      "sentence": "{{blank}} to the customer service counter with the item in its original packaging.",
+      "blankWord": "return",
+      "hintVi": "Nghĩa gợi ý: Quay lại quầy dịch vụ khách hàng cùng sả...",
+      "timestamp": 78,
+      "options": [
+        "criterion",
+        "return",
+        "resource",
+        "vibrant"
+      ]
+    },
+    {
+      "id": "video-fs-11-cloze-2",
+      "cueId": "video-fs-11-cue-5",
+      "sentence": "{{blank}} the exact issue calmly: 'The internal heating element is completely defective.'",
+      "blankWord": "explain",
+      "hintVi": "Nghĩa gợi ý: Giải thích vấn đề chính xác một cách bìn...",
+      "timestamp": 156,
+      "options": [
+        "explain",
+        "simultaneous",
+        "subsequent",
+        "protocol"
+      ]
+    },
+    {
+      "id": "video-fs-11-cloze-3",
+      "cueId": "video-fs-11-cue-8",
+      "sentence": "The {{blank}} will inspect the item to verify it was not damaged through misuse.",
+      "blankWord": "representative",
+      "hintVi": "Nghĩa gợi ý: Đại diện cửa hàng sẽ kiểm tra sản phẩm đ...",
+      "timestamp": 273,
+      "options": [
+        "representative",
+        "alternative",
+        "tremendous",
+        "balance"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-11-q1",
+      "question": "What is the primary focus of the video 'Returning a Defective Item and Requesting Refunds'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice returning a defective item and requesting refunds effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores returning a defective item and requesting refunds, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 39
+    },
+    {
+      "id": "video-fs-11-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Explain...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Explain the exact issue calmly: 'The internal heating elemen...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Explain the exact issue calmly: 'The internal heating element is completely defective.'', showing its practical importance.",
+      "timestampSeek": 156
+    },
+    {
+      "id": "video-fs-11-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Polite firmness backed by statutory consumer law resolves retail ...",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Polite firmness backed by statutory consumer law resolves retail disputes effortlessly., providing a meaningful summary for learners.",
+      "timestampSeek": 351
+    }
+  ]
+}

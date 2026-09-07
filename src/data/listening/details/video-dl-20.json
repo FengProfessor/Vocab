@@ -1,0 +1,204 @@
+{
+  "id": "video-dl-20",
+  "youtubeId": "7dI_atQhWUt",
+  "title": "Smart Grocery Shopping and Food Storage",
+  "channel": "English with Lucy",
+  "duration": 720,
+  "durationDisplay": "12:00",
+  "durationCategory": "medium",
+  "cefrLevel": "B1",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/7dI_atQhWUt/hqdefault.jpg",
+  "description": "Kỹ năng mua sắm thông minh tại siêu thị và bảo quản thực phẩm chống lãng phí.",
+  "coreVocabulary": [
+    {
+      "word": "perishable",
+      "phonetic": "/ˈperɪʃəbl/",
+      "viDefinition": "dễ hỏng, ôi thiu",
+      "contextSentence": "Keep perishable dairy and meats in the coldest section of your fridge."
+    },
+    {
+      "word": "inventory",
+      "phonetic": "/ˈɪnvəntri/",
+      "viDefinition": "sự kiểm kê đồ đạc/kho hàng",
+      "contextSentence": "Take a quick inventory of your pantry before visiting the store."
+    },
+    {
+      "word": "spoilage",
+      "phonetic": "/ˈspɔɪlɪdʒ/",
+      "viDefinition": "sự hư hỏng (thức ăn)",
+      "contextSentence": "Proper food container sealing prevents premature food spoilage."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-20-cue-1",
+      "start": 0,
+      "end": 72,
+      "en": "Welcome back everyone, today Lucy shares essential food management skills.",
+      "vi": "Chào mừng quay lại mọi người, hôm nay Lucy chia sẻ các kỹ năng quản lý thực phẩm thiết yếu."
+    },
+    {
+      "id": "video-dl-20-cue-2",
+      "start": 72,
+      "end": 144,
+      "en": "Supermarket trips without planning lead to impulse purchases and food waste.",
+      "vi": "Đi siêu thị mà không có kế hoạch sẽ dẫn đến việc mua sắm bốc đồng và lãng phí thực phẩm."
+    },
+    {
+      "id": "video-dl-20-cue-3",
+      "start": 144,
+      "end": 216,
+      "en": "Always conduct a five-minute pantry inventory before leaving home.",
+      "vi": "Luôn tiến hành kiểm kê tủ đựng thức ăn trong năm phút trước khi rời nhà."
+    },
+    {
+      "id": "video-dl-20-cue-4",
+      "start": 216,
+      "end": 288,
+      "en": "Never shop on an empty stomach, as hunger skews your decision-making.",
+      "vi": "Không bao giờ đi mua sắm khi bụng đói, vì cơn đói làm sai lệch việc ra quyết định của bạn."
+    },
+    {
+      "id": "video-dl-20-cue-5",
+      "start": 288,
+      "end": 360,
+      "en": "Store delicate perishable greens wrapped in dry paper towels.",
+      "vi": "Bảo quản các loại rau xanh mỏng manh dễ hỏng được bọc trong khăn giấy khô."
+    },
+    {
+      "id": "video-dl-20-cue-6",
+      "start": 360,
+      "end": 432,
+      "en": "Learn the crucial difference between 'use by' dates and 'best before' labels.",
+      "vi": "Học sự khác biệt quan trọng giữa nhãn hạn sử dụng an toàn và nhãn chất lượng tốt nhất."
+    },
+    {
+      "id": "video-dl-20-cue-7",
+      "start": 432,
+      "end": 504,
+      "en": "Minimizing food spoilage directly saves hundreds of pounds each year.",
+      "vi": "Giảm thiểu sự hư hỏng thực phẩm trực tiếp tiết kiệm hàng trăm bảng Anh mỗi năm."
+    },
+    {
+      "id": "video-dl-20-cue-8",
+      "start": 504,
+      "end": 576,
+      "en": "Organize refrigerator shelves so older leftovers remain front and center.",
+      "vi": "Sắp xếp các ngăn tủ lạnh để đồ ăn thừa cũ hơn luôn nằm ở vị trí trung tâm phía trước."
+    },
+    {
+      "id": "video-dl-20-cue-9",
+      "start": 576,
+      "end": 648,
+      "en": "Freeze seasonal berries and ripe bananas for future smoothies.",
+      "vi": "Cấp đông quả mọng theo mùa và chuối chín cho các món sinh tố tương lai."
+    },
+    {
+      "id": "video-dl-20-cue-10",
+      "start": 648,
+      "end": 720,
+      "en": "Respecting food resources is a cornerstone of intelligent daily living.",
+      "vi": "Tôn trọng nguồn tài nguyên thực phẩm là nền tảng của một cuộc sống hàng ngày thông minh."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-20-cloze-1",
+      "cueId": "video-dl-20-cue-3",
+      "sentence": "{{blank}} conduct a five-minute pantry inventory before leaving home.",
+      "blankWord": "always",
+      "hintVi": "Nghĩa gợi ý: Luôn tiến hành kiểm kê tủ đựng thức ăn t...",
+      "timestamp": 144,
+      "options": [
+        "dimension",
+        "always",
+        "strategy",
+        "adequate"
+      ]
+    },
+    {
+      "id": "video-dl-20-cloze-2",
+      "cueId": "video-dl-20-cue-5",
+      "sentence": "{{blank}} delicate perishable greens wrapped in dry paper towels.",
+      "blankWord": "store",
+      "hintVi": "Nghĩa gợi ý: Bảo quản các loại rau xanh mỏng manh dễ ...",
+      "timestamp": 288,
+      "options": [
+        "criterion",
+        "temporary",
+        "framework",
+        "store"
+      ]
+    },
+    {
+      "id": "video-dl-20-cloze-3",
+      "cueId": "video-dl-20-cue-8",
+      "sentence": "{{blank}} refrigerator shelves so older leftovers remain front and center.",
+      "blankWord": "organize",
+      "hintVi": "Nghĩa gợi ý: Sắp xếp các ngăn tủ lạnh để đồ ăn thừa c...",
+      "timestamp": 504,
+      "options": [
+        "temporary",
+        "organize",
+        "tremendous",
+        "advantage"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-20-q1",
+      "question": "What is the primary focus of the video 'Smart Grocery Shopping and Food Storage'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice smart grocery shopping and food storage effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores smart grocery shopping and food storage, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 72
+    },
+    {
+      "id": "video-dl-20-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Store...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Store delicate perishable greens wrapped in dry paper towels..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Store delicate perishable greens wrapped in dry paper towels.', showing its practical importance.",
+      "timestampSeek": 288
+    },
+    {
+      "id": "video-dl-20-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Respecting food resources is a cornerstone of intelligent daily l...",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Respecting food resources is a cornerstone of intelligent daily living., providing a meaningful summary for learners.",
+      "timestampSeek": 648
+    },
+    {
+      "id": "video-dl-20-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Minimizing...'?",
+      "options": [
+        "It highlights that: Minimizing food spoilage directly saves hundreds of pounds e...",
+        "It states this step should always be skipped by beginners.",
+        "It claims this factor has zero impact on the final outcome.",
+        "It warns that following this method produces immediate failure."
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker specifically highlights: 'Minimizing food spoilage directly saves hundreds of pounds each year.', providing deeper technical insight.",
+      "timestampSeek": 432
+    }
+  ]
+}

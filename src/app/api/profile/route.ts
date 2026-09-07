@@ -72,6 +72,26 @@ export async function PUT(req: NextRequest): Promise<NextResponse> {
     if (typeof body.notification_hour === 'number') {
       updates.notification_hour = Math.max(0, Math.min(23, Math.round(body.notification_hour)));
     }
+    if (typeof body.province === 'string') {
+      const trimmed = body.province.trim();
+      if (trimmed.length > 0 && trimmed.length <= 100) {
+        updates.province = trimmed;
+      } else if (trimmed.length === 0) {
+        updates.province = null;
+      }
+    } else if (body.province === null) {
+      updates.province = null;
+    }
+    if (typeof body.city === 'string') {
+      const trimmed = body.city.trim();
+      if (trimmed.length > 0 && trimmed.length <= 100) {
+        updates.city = trimmed;
+      } else if (trimmed.length === 0) {
+        updates.city = null;
+      }
+    } else if (body.city === null) {
+      updates.city = null;
+    }
 
     if (Object.keys(updates).length === 0) {
       return NextResponse.json({ success: false, error: 'No valid fields to update' }, { status: 400 });

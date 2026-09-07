@@ -1,0 +1,191 @@
+{
+  "id": "video-wp-01",
+  "youtubeId": "VLERgTAkcaI",
+  "title": "First Day at a New Job: Office Tour",
+  "channel": "Learn English with Emma",
+  "duration": 220,
+  "durationDisplay": "03:40",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/VLERgTAkcaI/hqdefault.jpg",
+  "description": "Các câu giao tiếp cơ bản trong ngày đầu tiên đi làm: gặp đồng nghiệp và nhận bàn làm việc.",
+  "coreVocabulary": [
+    {
+      "word": "colleague",
+      "phonetic": "/ˈkɒliːɡ/",
+      "viDefinition": "đồng nghiệp",
+      "contextSentence": "My new colleague kindly showed me around the office."
+    },
+    {
+      "word": "cubicle",
+      "phonetic": "/ˈkjuːbɪkl/",
+      "viDefinition": "góc làm việc, ô làm việc vách ngăn",
+      "contextSentence": "Your assigned cubicle is right next to the window."
+    },
+    {
+      "word": "badge",
+      "phonetic": "/bædʒ/",
+      "viDefinition": "thẻ nhân viên, huy hiệu",
+      "contextSentence": "Wear your security badge at all times inside the building."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-01-cue-1",
+      "start": 0,
+      "end": 22,
+      "en": "Good morning and welcome to your very first day at the company.",
+      "vi": "Chào buổi sáng và chào mừng đến với ngày làm việc đầu tiên của bạn tại công ty."
+    },
+    {
+      "id": "video-wp-01-cue-2",
+      "start": 22,
+      "end": 44,
+      "en": "Everyone is excited to meet you and help you settle in smoothly.",
+      "vi": "Mọi người đều rất hào hứng được gặp bạn và giúp bạn hòa nhập thuận lợi."
+    },
+    {
+      "id": "video-wp-01-cue-3",
+      "start": 44,
+      "end": 66,
+      "en": "Let me introduce you to your team colleague in marketing.",
+      "vi": "Để tôi giới thiệu bạn với người đồng nghiệp cùng nhóm trong phòng tiếp thị."
+    },
+    {
+      "id": "video-wp-01-cue-4",
+      "start": 66,
+      "end": 88,
+      "en": "Here is your assigned cubicle equipped with a monitor and keyboard.",
+      "vi": "Đây là góc làm việc được chỉ định của bạn có trang bị màn hình và bàn phím."
+    },
+    {
+      "id": "video-wp-01-cue-5",
+      "start": 88,
+      "end": 110,
+      "en": "Don't forget to tap your security badge at the entrance turnstiles.",
+      "vi": "Đừng quên quẹt thẻ an ninh của bạn tại các cửa xoay ở lối vào."
+    },
+    {
+      "id": "video-wp-01-cue-6",
+      "start": 110,
+      "end": 132,
+      "en": "The company cafeteria serves fresh hot lunches from eleven to two.",
+      "vi": "Căng tin công ty phục vụ bữa trưa nóng hổi tươi ngon từ mười một giờ đến hai giờ."
+    },
+    {
+      "id": "video-wp-01-cue-7",
+      "start": 132,
+      "end": 154,
+      "en": "If you have technical questions, contact the helpful IT helpdesk.",
+      "vi": "Nếu bạn có câu hỏi kỹ thuật, hãy liên hệ với bàn hỗ trợ CNTT nhiệt tình."
+    },
+    {
+      "id": "video-wp-01-cue-8",
+      "start": 154,
+      "end": 176,
+      "en": "Take your time reading the employee handbook this afternoon.",
+      "vi": "Hãy dành thời gian đọc sổ tay nhân viên vào chiều nay nhé."
+    },
+    {
+      "id": "video-wp-01-cue-9",
+      "start": 176,
+      "end": 198,
+      "en": "We are confident you will make valuable contributions to our mission.",
+      "vi": "Chúng tôi tin tưởng rằng bạn sẽ có những đóng góp quý báu cho sứ mệnh của chúng tôi."
+    },
+    {
+      "id": "video-wp-01-cue-10",
+      "start": 198,
+      "end": 220,
+      "en": "A friendly attitude on day one builds a solid professional foundation.",
+      "vi": "Thái độ thân thiện trong ngày đầu tiên xây dựng nền tảng chuyên môn vững chắc."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-01-cloze-1",
+      "cueId": "video-wp-01-cue-3",
+      "sentence": "Let me {{blank}} you to your team colleague in marketing.",
+      "blankWord": "introduce",
+      "hintVi": "Nghĩa gợi ý: Để tôi giới thiệu bạn với người đồng ngh...",
+      "timestamp": 44,
+      "options": [
+        "fundamental",
+        "introduce",
+        "balance",
+        "deliberate"
+      ]
+    },
+    {
+      "id": "video-wp-01-cloze-2",
+      "cueId": "video-wp-01-cue-5",
+      "sentence": "Don't {{blank}} to tap your security badge at the entrance turnstiles.",
+      "blankWord": "forget",
+      "hintVi": "Nghĩa gợi ý: Đừng quên quẹt thẻ an ninh của bạn tại c...",
+      "timestamp": 88,
+      "options": [
+        "spontaneous",
+        "forget",
+        "balance",
+        "routine"
+      ]
+    },
+    {
+      "id": "video-wp-01-cloze-3",
+      "cueId": "video-wp-01-cue-8",
+      "sentence": "Take your time {{blank}} the employee handbook this afternoon.",
+      "blankWord": "reading",
+      "hintVi": "Nghĩa gợi ý: Hãy dành thời gian đọc sổ tay nhân viên ...",
+      "timestamp": 154,
+      "options": [
+        "reading",
+        "remarkable",
+        "extensive",
+        "convenient"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-01-q1",
+      "question": "What is the primary focus of the video 'First Day at a New Job: Office Tour'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice first day at a new job: office tour effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores first day at a new job: office tour, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 22
+    },
+    {
+      "id": "video-wp-01-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Don't...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Don't forget to tap your security badge at the entrance turn...",
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Don't forget to tap your security badge at the entrance turnstiles.', showing its practical importance.",
+      "timestampSeek": 88
+    },
+    {
+      "id": "video-wp-01-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: A friendly attitude on day one builds a solid professional founda...",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that A friendly attitude on day one builds a solid professional foundation., providing a meaningful summary for learners.",
+      "timestampSeek": 198
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "id": "video-sth-25",
+  "youtubeId": "r9XbtPLdLDe",
+  "title": "Nuclear Fusion: The Quest for Clean Infinite Energy",
+  "channel": "Veritasium",
+  "duration": 950,
+  "durationDisplay": "15:50",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/r9XbtPLdLDe/hqdefault.jpg",
+  "description": "Nhiệt hạch hạt nhân: hành trình mô phỏng mặt trời trên Trái Đất để tạo năng lượng vô tận.",
+  "coreVocabulary": [
+    {
+      "word": "fusion",
+      "phonetic": "/ˈfjuːʒn/",
+      "viDefinition": "phản ứng nhiệt hạch (hợp hạch)",
+      "contextSentence": "Nuclear fusion fuses light hydrogen isotopes into helium, releasing enormous clean energy."
+    },
+    {
+      "word": "tokamak",
+      "phonetic": "/ˈtəʊkəmæk/",
+      "viDefinition": "buồng nhiệt hạch từ trường hình xuyến",
+      "contextSentence": "Giant magnetic tokamak devices confine scorching one-hundred-million-degree plasma toroids."
+    },
+    {
+      "word": "ignition",
+      "phonetic": "/ɪɡˈnɪʃn/",
+      "viDefinition": "điểm bùng cháy nhiệt hạch (tự duy trì)",
+      "contextSentence": "Reaching fusion ignition yields net energy gain exceeding total operational input power."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-25-cue-1",
+      "start": 0,
+      "end": 95,
+      "en": "Welcome to Veritasium, journeying inside the audacious scientific quest to bottle a miniature star.",
+      "vi": "Chào mừng đến với Veritasium, hành trình bên trong nỗ lực khoa học táo bạo nhằm đóng chai một ngôi sao thu nhỏ."
+    },
+    {
+      "id": "video-sth-25-cue-2",
+      "start": 95,
+      "end": 190,
+      "en": "Current nuclear power relies on fission: splitting massive uranium nuclei, producing radioactive waste.",
+      "vi": "Năng lượng hạt nhân hiện nay dựa vào sự phân hạch: tách các hạt nhân uranium khổng lồ, tạo ra chất thải phóng xạ."
+    },
+    {
+      "id": "video-sth-25-cue-3",
+      "start": 190,
+      "end": 285,
+      "en": "In contrast, nuclear fusion replicates the celestial furnace powering our sun.",
+      "vi": "Ngược lại, phản ứng nhiệt hạch mô phỏng lò lửa thiên thể cung cấp năng lượng cho mặt trời của chúng ta."
+    },
+    {
+      "id": "video-sth-25-cue-4",
+      "start": 285,
+      "end": 380,
+      "en": "Under extreme gravity and heat, hydrogen isotopes deuterium and tritium fuse together into helium.",
+      "vi": "Dưới trọng lực và nhiệt độ cực cao, các đồng vị hydro gồm deuteri và triti hợp nhất với nhau thành heli."
+    },
+    {
+      "id": "video-sth-25-cue-5",
+      "start": 380,
+      "end": 475,
+      "en": "This reaction releases copious energy with zero long-lived radioactive isotopes or carbon emissions.",
+      "vi": "Phản ứng này giải phóng lượng năng lượng dồi dào mà không có đồng vị phóng xạ tồn tại lâu dài hay khí thải carbon."
+    },
+    {
+      "id": "video-sth-25-cue-6",
+      "start": 475,
+      "end": 570,
+      "en": "Because Earth lacks stellar gravity, physicists must heat fusion plasma to over one hundred million degrees.",
+      "vi": "Vì Trái Đất thiếu trọng lực của các vì sao, các nhà vật lý phải làm nóng plasma nhiệt hạch lên hơn một trăm triệu độ."
+    },
+    {
+      "id": "video-sth-25-cue-7",
+      "start": 570,
+      "end": 665,
+      "en": "At such temperatures, matter breaks into a swirling soup of ions and electrons.",
+      "vi": "Ở nhiệt độ như vậy, vật chất phân rã thành một hỗn hợp xoáy gồm các ion và electron."
+    },
+    {
+      "id": "video-sth-25-cue-8",
+      "start": 665,
+      "end": 760,
+      "en": "Engineers construct gargantuan donut-shaped magnetic cages called tokamaks to suspend this scorching plasma.",
+      "vi": "Các kỹ sư xây dựng những chiếc lồng từ hình bánh donut khổng lồ gọi là tokamak để treo lơ lửng khối plasma nóng bỏng này."
+    },
+    {
+      "id": "video-sth-25-cue-9",
+      "start": 760,
+      "end": 855,
+      "en": "Recent experiments at the National Ignition Facility achieved net scientific energy gain for the first time.",
+      "vi": "Các thí nghiệm gần đây tại Cơ sở Đánh lửa Quốc gia đã lần đầu tiên đạt được mức tăng năng lượng khoa học ròng."
+    },
+    {
+      "id": "video-sth-25-cue-10",
+      "start": 855,
+      "end": 950,
+      "en": "Mastering controlled fusion will liberate humanity from fossil constraints, powering our interstellar ambitions.",
+      "vi": "Làm chủ phản ứng nhiệt hạch có kiểm soát sẽ giải phóng nhân loại khỏi những ràng buộc hóa thạch, tiếp sức cho các tham vọng giữa các vì sao của chúng ta."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-25-cloze-1",
+      "cueId": "video-sth-25-cue-3",
+      "sentence": "In {{blank}}, nuclear fusion replicates the celestial furnace powering our sun.",
+      "blankWord": "contrast",
+      "hintVi": "Nghĩa gợi ý: Ngược lại, phản ứng nhiệt hạch mô phỏng ...",
+      "timestamp": 190,
+      "options": [
+        "tremendous",
+        "fundamental",
+        "balance",
+        "contrast"
+      ]
+    },
+    {
+      "id": "video-sth-25-cloze-2",
+      "cueId": "video-sth-25-cue-5",
+      "sentence": "This {{blank}} releases copious energy with zero long-lived radioactive isotopes or carbon emissions.",
+      "blankWord": "reaction",
+      "hintVi": "Nghĩa gợi ý: Phản ứng này giải phóng lượng năng lượng...",
+      "timestamp": 380,
+      "options": [
+        "reaction",
+        "favorable",
+        "strategy",
+        "spontaneous"
+      ]
+    },
+    {
+      "id": "video-sth-25-cloze-3",
+      "cueId": "video-sth-25-cue-8",
+      "sentence": "{{blank}} construct gargantuan donut-shaped magnetic cages called tokamaks to suspend this scorching plasma.",
+      "blankWord": "engineers",
+      "hintVi": "Nghĩa gợi ý: Các kỹ sư xây dựng những chiếc lồng từ h...",
+      "timestamp": 665,
+      "options": [
+        "engineers",
+        "balance",
+        "innovative",
+        "adequate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-25-q1",
+      "question": "What is the primary focus of the video 'Nuclear Fusion: The Quest for Clean Infinite Energy'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice nuclear fusion: the quest for clean infinite energy effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores nuclear fusion: the quest for clean infinite energy, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 95
+    },
+    {
+      "id": "video-sth-25-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'This...'?",
+      "options": [
+        "It emphasizes that: This reaction releases copious energy with zero long-lived r...",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'This reaction releases copious energy with zero long-lived radioactive isotopes or carbon emissions.', showing its practical importance.",
+      "timestampSeek": 380
+    },
+    {
+      "id": "video-sth-25-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Mastering controlled fusion will liberate humanity from fossil co...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Mastering controlled fusion will liberate humanity from fossil constraints, powering our interstellar ambitions., providing a meaningful summary for learners.",
+      "timestampSeek": 855
+    },
+    {
+      "id": "video-sth-25-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'At...'?",
+      "options": [
+        "It warns that following this method produces immediate failure.",
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners.",
+        "It highlights that: At such temperatures, matter breaks into a swirling soup of ..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The speaker specifically highlights: 'At such temperatures, matter breaks into a swirling soup of ions and electrons.', providing deeper technical insight.",
+      "timestampSeek": 570
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "video-dl-07",
+  "youtubeId": "aAclaHM7AmB",
+  "title": "Cooking an Easy Weeknight Dinner",
+  "channel": "Learn English with Bob the Canadian",
+  "duration": 330,
+  "durationDisplay": "05:30",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/aAclaHM7AmB/hqdefault.jpg",
+  "description": "Từ vựng nấu ăn cơ bản và các bước chuẩn bị bữa tối nhanh gọn cho người bận rộn.",
+  "coreVocabulary": [
+    {
+      "word": "chop",
+      "phonetic": "/tʃɒp/",
+      "viDefinition": "băm, thái nhỏ",
+      "contextSentence": "Carefully chop the fresh onions and garlic on a wooden board."
+    },
+    {
+      "word": "simmer",
+      "phonetic": "/ˈsɪmə(r)/",
+      "viDefinition": "ninh nhỏ lửa, đun liu riu",
+      "contextSentence": "Let the tomato sauce simmer gently on low heat."
+    },
+    {
+      "word": "season",
+      "phonetic": "/ˈsiːzn/",
+      "viDefinition": "nêm nếm gia vị",
+      "contextSentence": "Season the soup with black pepper and sea salt to taste."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-07-cue-1",
+      "start": 0,
+      "end": 33,
+      "en": "Welcome back to the kitchen, where we cook easy homemade dinners.",
+      "vi": "Chào mừng quay trở lại gian bếp, nơi chúng ta nấu những bữa tối gia đình dễ làm."
+    },
+    {
+      "id": "video-dl-07-cue-2",
+      "start": 33,
+      "end": 66,
+      "en": "After working hard all day, nobody wants a complicated two-hour recipe.",
+      "vi": "Sau khi làm việc vất vả cả ngày, không ai muốn một công thức hai tiếng phức tạp."
+    },
+    {
+      "id": "video-dl-07-cue-3",
+      "start": 66,
+      "end": 99,
+      "en": "Tonight we are making simple pasta with fresh vegetables and chicken.",
+      "vi": "Tối nay chúng ta sẽ nấu món mì Ý đơn giản với rau củ tươi và thịt gà."
+    },
+    {
+      "id": "video-dl-07-cue-4",
+      "start": 99,
+      "end": 132,
+      "en": "First, chop two cloves of garlic and a small red onion into small pieces.",
+      "vi": "Đầu tiên, hãy băm hai tép tỏi và một củ hành đỏ nhỏ thành từng miếng nhỏ."
+    },
+    {
+      "id": "video-dl-07-cue-5",
+      "start": 132,
+      "end": 165,
+      "en": "Heat a splash of olive oil in your skillet over medium heat.",
+      "vi": "Đun nóng một chút dầu ô liu trong chảo trên lửa vừa."
+    },
+    {
+      "id": "video-dl-07-cue-6",
+      "start": 165,
+      "end": 198,
+      "en": "Add diced chicken breast and cook until lightly golden brown.",
+      "vi": "Cho ức gà thái hạt lựu vào và nấu cho đến khi có màu vàng nâu nhạt."
+    },
+    {
+      "id": "video-dl-07-cue-7",
+      "start": 198,
+      "end": 231,
+      "en": "Pour in crushed tomatoes and let the mixture simmer for ten minutes.",
+      "vi": "Đổ cà chua nghiền vào và để hỗn hợp ninh nhỏ lửa trong mười phút."
+    },
+    {
+      "id": "video-dl-07-cue-8",
+      "start": 231,
+      "end": 264,
+      "en": "Don't forget to season the sauce with dried basil and sea salt.",
+      "vi": "Đừng quên nêm nếm nước sốt với húng quế khô và muối biển."
+    },
+    {
+      "id": "video-dl-07-cue-9",
+      "start": 264,
+      "end": 297,
+      "en": "Toss the boiled pasta into the sauce until everything is well coated.",
+      "vi": "Trộn mì ống đã luộc vào nước sốt cho đến khi mọi thứ ngấm đều."
+    },
+    {
+      "id": "video-dl-07-cue-10",
+      "start": 297,
+      "end": 330,
+      "en": "Home-cooked meals are healthier, cheaper, and full of honest flavor.",
+      "vi": "Bữa ăn tự nấu tốt cho sức khỏe hơn, rẻ hơn và tràn ngập hương vị chân thật."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-07-cloze-1",
+      "cueId": "video-dl-07-cue-3",
+      "sentence": "{{blank}} we are making simple pasta with fresh vegetables and chicken.",
+      "blankWord": "tonight",
+      "hintVi": "Nghĩa gợi ý: Tối nay chúng ta sẽ nấu món mì Ý đơn giả...",
+      "timestamp": 66,
+      "options": [
+        "subsequent",
+        "tonight",
+        "perspective",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-dl-07-cloze-2",
+      "cueId": "video-dl-07-cue-5",
+      "sentence": "Heat a {{blank}} of olive oil in your skillet over medium heat.",
+      "blankWord": "splash",
+      "hintVi": "Nghĩa gợi ý: Đun nóng một chút dầu ô liu trong chảo t...",
+      "timestamp": 132,
+      "options": [
+        "balance",
+        "resource",
+        "advantage",
+        "splash"
+      ]
+    },
+    {
+      "id": "video-dl-07-cloze-3",
+      "cueId": "video-dl-07-cue-8",
+      "sentence": "Don't {{blank}} to season the sauce with dried basil and sea salt.",
+      "blankWord": "forget",
+      "hintVi": "Nghĩa gợi ý: Đừng quên nêm nếm nước sốt với húng quế ...",
+      "timestamp": 231,
+      "options": [
+        "perceptive",
+        "prominent",
+        "forget",
+        "routine"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-07-q1",
+      "question": "What is the primary focus of the video 'Cooking an Easy Weeknight Dinner'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice cooking an easy weeknight dinner effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores cooking an easy weeknight dinner, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 33
+    },
+    {
+      "id": "video-dl-07-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Heat...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Heat a splash of olive oil in your skillet over medium heat...."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Heat a splash of olive oil in your skillet over medium heat.', showing its practical importance.",
+      "timestampSeek": 132
+    },
+    {
+      "id": "video-dl-07-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Home-cooked meals are healthier, cheaper, and full of honest flav..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Home-cooked meals are healthier, cheaper, and full of honest flavor., providing a meaningful summary for learners.",
+      "timestampSeek": 297
+    }
+  ]
+}

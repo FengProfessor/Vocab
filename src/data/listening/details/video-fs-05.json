@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-05",
+  "youtubeId": "s-BfqS8mReb",
+  "title": "Paying at the Supermarket Checkout",
+  "channel": "English with Lucy",
+  "duration": 220,
+  "durationDisplay": "03:40",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/s-BfqS8mReb/hqdefault.jpg",
+  "description": "Giao tiếp tại quầy thu ngân: thanh toán tiền mặt, quẹt thẻ và tích điểm thành viên.",
+  "coreVocabulary": [
+    {
+      "word": "cashier",
+      "phonetic": "/kæˈʃɪə(r)/",
+      "viDefinition": "nhân viên thu ngân",
+      "contextSentence": "The friendly cashier scanned our grocery items rapidly."
+    },
+    {
+      "word": "receipt",
+      "phonetic": "/rɪˈsiːt/",
+      "viDefinition": "hóa đơn thanh toán",
+      "contextSentence": "Keep your supermarket receipt in case you need an item exchange."
+    },
+    {
+      "word": "loyalty",
+      "phonetic": "/ˈlɔɪəlti/",
+      "viDefinition": "lòng trung thành (thẻ thành viên)",
+      "contextSentence": "Scan your store loyalty card to collect reward points."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-05-cue-1",
+      "start": 0,
+      "end": 22,
+      "en": "Hello shoppers, Lucy is here to make your checkout experience effortless.",
+      "vi": "Xin chào các tín đồ mua sắm, Lucy ở đây giúp trải nghiệm thanh toán của bạn thật nhẹ nhàng."
+    },
+    {
+      "id": "video-fs-05-cue-2",
+      "start": 22,
+      "end": 44,
+      "en": "Once your shopping basket is full, join an open checkout line.",
+      "vi": "Khi giỏ hàng của bạn đã đầy, hãy xếp hàng vào một làn thanh toán đang mở."
+    },
+    {
+      "id": "video-fs-05-cue-3",
+      "start": 44,
+      "end": 66,
+      "en": "Place your heavy grocery items onto the black rubber conveyor belt first.",
+      "vi": "Đặt các món hàng tạp hóa nặng lên băng chuyền cao su màu đen trước."
+    },
+    {
+      "id": "video-fs-05-cue-4",
+      "start": 66,
+      "end": 88,
+      "en": "The cashier will scan barcode labels one by one with a beep.",
+      "vi": "Nhân viên thu ngân sẽ quét từng nhãn mã vạch một với tiếng bíp."
+    },
+    {
+      "id": "video-fs-05-cue-5",
+      "start": 88,
+      "end": 110,
+      "en": "They will ask: 'Would you like to purchase reusable paper carrier bags?'",
+      "vi": "Họ sẽ hỏi: 'Bạn có muốn mua túi xách bằng giấy tái sử dụng không ạ?'"
+    },
+    {
+      "id": "video-fs-05-cue-6",
+      "start": 110,
+      "end": 132,
+      "en": "Hand over your customer loyalty card to accumulate valuable discount points.",
+      "vi": "Đưa thẻ thành viên khách hàng thân thiết để tích lũy điểm giảm giá có giá trị."
+    },
+    {
+      "id": "video-fs-05-cue-7",
+      "start": 132,
+      "end": 154,
+      "en": "The register displays your total bill: 'That will be forty-five pounds, please.'",
+      "vi": "Máy tính tiền hiển thị tổng hóa đơn của bạn: 'Tổng cộng là bốn mươi lăm bảng ạ.'"
+    },
+    {
+      "id": "video-fs-05-cue-8",
+      "start": 154,
+      "end": 176,
+      "en": "Tap your credit card against the payment terminal or pay with cash.",
+      "vi": "Quẹt thẻ tín dụng của bạn vào thiết bị thanh toán hoặc trả bằng tiền mặt."
+    },
+    {
+      "id": "video-fs-05-cue-9",
+      "start": 176,
+      "end": 198,
+      "en": "Take your printed receipt and pack your bags carefully into the trolley.",
+      "vi": "Lấy hóa đơn đã in và đóng gói cẩn thận các túi đồ vào xe đẩy."
+    },
+    {
+      "id": "video-fs-05-cue-10",
+      "start": 198,
+      "end": 220,
+      "en": "Polite gratitude to retail workers makes everyday errands delightful for everyone.",
+      "vi": "Sự biết ơn lịch thiệp đối với nhân viên bán lẻ khiến các công việc vặt hàng ngày trở nên dễ chịu cho mọi người."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-05-cloze-1",
+      "cueId": "video-fs-05-cue-3",
+      "sentence": "{{blank}} your heavy grocery items onto the black rubber conveyor belt first.",
+      "blankWord": "place",
+      "hintVi": "Nghĩa gợi ý: Đặt các món hàng tạp hóa nặng lên băng c...",
+      "timestamp": 44,
+      "options": [
+        "extensive",
+        "place",
+        "spontaneous",
+        "tremendous"
+      ]
+    },
+    {
+      "id": "video-fs-05-cloze-2",
+      "cueId": "video-fs-05-cue-5",
+      "sentence": "They will ask: 'Would you like to {{blank}} reusable paper carrier bags?'",
+      "blankWord": "purchase",
+      "hintVi": "Nghĩa gợi ý: Họ sẽ hỏi: 'Bạn có muốn mua túi xách bằn...",
+      "timestamp": 88,
+      "options": [
+        "consistent",
+        "subsequent",
+        "reliable",
+        "purchase"
+      ]
+    },
+    {
+      "id": "video-fs-05-cloze-3",
+      "cueId": "video-fs-05-cue-8",
+      "sentence": "Tap your {{blank}} card against the payment terminal or pay with cash.",
+      "blankWord": "credit",
+      "hintVi": "Nghĩa gợi ý: Quẹt thẻ tín dụng của bạn vào thiết bị t...",
+      "timestamp": 154,
+      "options": [
+        "deliberate",
+        "favorable",
+        "credit",
+        "fundamental"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-05-q1",
+      "question": "What is the primary focus of the video 'Paying at the Supermarket Checkout'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice paying at the supermarket checkout effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores paying at the supermarket checkout, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 22
+    },
+    {
+      "id": "video-fs-05-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'They...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: They will ask: 'Would you like to purchase reusable paper ca...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'They will ask: 'Would you like to purchase reusable paper carrier bags?'', showing its practical importance.",
+      "timestampSeek": 88
+    },
+    {
+      "id": "video-fs-05-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Polite gratitude to retail workers makes everyday errands delight..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Polite gratitude to retail workers makes everyday errands delightful for everyone., providing a meaningful summary for learners.",
+      "timestampSeek": 198
+    }
+  ]
+}

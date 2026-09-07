@@ -1,0 +1,191 @@
+{
+  "id": "video-dl-02",
+  "youtubeId": "UL1d0bGR4no",
+  "title": "Cleaning and Organizing the Living Room",
+  "channel": "EnglishClass101",
+  "duration": 230,
+  "durationDisplay": "03:50",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/UL1d0bGR4no/hqdefault.jpg",
+  "description": "Học từ vựng về dọn dẹp phòng khách, sắp xếp đồ đạc và giữ nhà cửa ngăn nắp.",
+  "coreVocabulary": [
+    {
+      "word": "tidy",
+      "phonetic": "/ˈtaɪdi/",
+      "viDefinition": "gọn gàng, ngăn nắp",
+      "contextSentence": "Keeping the living room tidy is very satisfying."
+    },
+    {
+      "word": "clutter",
+      "phonetic": "/ˈklʌtə(r)/",
+      "viDefinition": "sự bừa bộn, đồ đạc lộn xộn",
+      "contextSentence": "We must clear away all unnecessary clutter."
+    },
+    {
+      "word": "vacuum",
+      "phonetic": "/ˈvækjuːm/",
+      "viDefinition": "hút bụi, máy hút bụi",
+      "contextSentence": "I use the vacuum on the carpet twice a week."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-02-cue-1",
+      "start": 0,
+      "end": 23,
+      "en": "Hello learners, let's talk about keeping your home clean today.",
+      "vi": "Xin chào các bạn, hôm nay chúng ta hãy nói về việc giữ gìn nhà cửa sạch sẽ."
+    },
+    {
+      "id": "video-dl-02-cue-2",
+      "start": 23,
+      "end": 46,
+      "en": "A clean living room creates a welcoming environment for your family.",
+      "vi": "Một phòng khách sạch sẽ tạo ra không gian ấm cúng chào đón gia đình bạn."
+    },
+    {
+      "id": "video-dl-02-cue-3",
+      "start": 46,
+      "end": 69,
+      "en": "First, make sure every table surface is clean and tidy.",
+      "vi": "Đầu tiên, hãy đảm bảo mọi bề mặt bàn đều sạch sẽ và gọn gàng."
+    },
+    {
+      "id": "video-dl-02-cue-4",
+      "start": 69,
+      "end": 92,
+      "en": "Pick up books, toys, and cushions scattered across the floor.",
+      "vi": "Nhặt sách báo, đồ chơi và gối đệm vương vãi trên sàn nhà."
+    },
+    {
+      "id": "video-dl-02-cue-5",
+      "start": 92,
+      "end": 115,
+      "en": "Clearing away old clutter immediately makes the room look bigger.",
+      "vi": "Dọn dẹp sự bừa bộn cũ ngay lập tức làm căn phòng trông rộng rãi hơn."
+    },
+    {
+      "id": "video-dl-02-cue-6",
+      "start": 115,
+      "end": 138,
+      "en": "Wipe the television stand with a damp microfiber cloth.",
+      "vi": "Lau kệ tivi bằng một chiếc khăn sợi nhỏ ẩm."
+    },
+    {
+      "id": "video-dl-02-cue-7",
+      "start": 138,
+      "end": 161,
+      "en": "Next, use the vacuum cleaner to thoroughly clean the soft carpet.",
+      "vi": "Tiếp theo, hãy dùng máy hút bụi để làm sạch kỹ tấm thảm êm ái."
+    },
+    {
+      "id": "video-dl-02-cue-8",
+      "start": 161,
+      "end": 184,
+      "en": "Empty the small trash bin in the corner into the main garbage bag.",
+      "vi": "Đổ thùng rác nhỏ trong góc vào túi rác chính."
+    },
+    {
+      "id": "video-dl-02-cue-9",
+      "start": 184,
+      "end": 207,
+      "en": "Finally, spray a light lavender room scent to make it smell fresh.",
+      "vi": "Cuối cùng, xịt một chút hương hoa oải hương nhẹ để làm không khí thơm mát."
+    },
+    {
+      "id": "video-dl-02-cue-10",
+      "start": 207,
+      "end": 230,
+      "en": "Doing fifteen minutes of cleaning each day keeps your space calm.",
+      "vi": "Dành mười lăm phút dọn dẹp mỗi ngày giúp không gian sống của bạn luôn bình yên."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-02-cloze-1",
+      "cueId": "video-dl-02-cue-3",
+      "sentence": "{{blank}}, make sure every table surface is clean and tidy.",
+      "blankWord": "first",
+      "hintVi": "Nghĩa gợi ý: Đầu tiên, hãy đảm bảo mọi bề mặt bàn đều...",
+      "timestamp": 46,
+      "options": [
+        "moderate",
+        "dimension",
+        "framework",
+        "first"
+      ]
+    },
+    {
+      "id": "video-dl-02-cloze-2",
+      "cueId": "video-dl-02-cue-5",
+      "sentence": "{{blank}} away old clutter immediately makes the room look bigger.",
+      "blankWord": "clearing",
+      "hintVi": "Nghĩa gợi ý: Dọn dẹp sự bừa bộn cũ ngay lập tức làm c...",
+      "timestamp": 92,
+      "options": [
+        "subsequent",
+        "alternative",
+        "dimension",
+        "clearing"
+      ]
+    },
+    {
+      "id": "video-dl-02-cloze-3",
+      "cueId": "video-dl-02-cue-8",
+      "sentence": "{{blank}} the small trash bin in the corner into the main garbage bag.",
+      "blankWord": "empty",
+      "hintVi": "Nghĩa gợi ý: Đổ thùng rác nhỏ trong góc vào túi rác c...",
+      "timestamp": 161,
+      "options": [
+        "empty",
+        "perceptive",
+        "deliberate",
+        "resource"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-02-q1",
+      "question": "What is the primary focus of the video 'Cleaning and Organizing the Living Room'?",
+      "options": [
+        "To explain and practice cleaning and organizing the living room effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores cleaning and organizing the living room, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 23
+    },
+    {
+      "id": "video-dl-02-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Clearing...'?",
+      "options": [
+        "It emphasizes that: Clearing away old clutter immediately makes the room look bi...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'Clearing away old clutter immediately makes the room look bigger.', showing its practical importance.",
+      "timestampSeek": 92
+    },
+    {
+      "id": "video-dl-02-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Doing fifteen minutes of cleaning each day keeps your space calm....",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Doing fifteen minutes of cleaning each day keeps your space calm., providing a meaningful summary for learners.",
+      "timestampSeek": 207
+    }
+  ]
+}

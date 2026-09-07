@@ -1,0 +1,204 @@
+{
+  "id": "video-tr-22",
+  "youtubeId": "lhxpFof27rP",
+  "title": "Road Trip Across the American Southwest",
+  "channel": "Wolters World",
+  "duration": 840,
+  "durationDisplay": "14:00",
+  "durationCategory": "medium",
+  "cefrLevel": "B1",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/lhxpFof27rP/hqdefault.jpg",
+  "description": "Kinh nghiệm lái xe xuyên qua miền Tây Nam nước Mỹ: sa mạc, hẻm núi và an toàn xe cộ.",
+  "coreVocabulary": [
+    {
+      "word": "scenic",
+      "phonetic": "/ˈsiːnɪk/",
+      "viDefinition": "có cảnh quan đẹp, ngoạn mục",
+      "contextSentence": "The scenic desert highway winds past towering red sandstone formations."
+    },
+    {
+      "word": "hydration",
+      "phonetic": "/haɪˈdreɪʃn/",
+      "viDefinition": "sự bổ sung nước, giữ nước",
+      "contextSentence": "Carry gallons of extra water for vital hydration across desert stretches."
+    },
+    {
+      "word": "remote",
+      "phonetic": "/rɪˈməʊt/",
+      "viDefinition": "xa xôi, hẻo lánh",
+      "contextSentence": "Cellular telephone coverage is completely non-existent in remote canyon regions."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-22-cue-1",
+      "start": 0,
+      "end": 84,
+      "en": "Hey everybody, Mark from Wolters World taking you on an epic American desert road trip.",
+      "vi": "Chào mọi người, Mark từ Wolters World ở đây đưa bạn vào một chuyến đi đường bộ hoành tráng qua sa mạc nước Mỹ."
+    },
+    {
+      "id": "video-tr-22-cue-2",
+      "start": 84,
+      "end": 168,
+      "en": "The American Southwest offers some of the most breathtaking geological landscapes on earth.",
+      "vi": "Miền Tây Nam nước Mỹ mang lại một số cảnh quan địa chất ngoạn mục nhất trên trái đất."
+    },
+    {
+      "id": "video-tr-22-cue-3",
+      "start": 168,
+      "end": 252,
+      "en": "From the Grand Canyon to Monument Valley, vast open highways stretch toward horizon.",
+      "vi": "Từ Grand Canyon đến Thung lũng Monument, những con đường cao tốc rộng mở trải dài về phía chân trời."
+    },
+    {
+      "id": "video-tr-22-cue-4",
+      "start": 252,
+      "end": 336,
+      "en": "However, desert road trips demand strict logistical preparation and vehicular respect.",
+      "vi": "Tuy nhiên, những chuyến đi đường bộ qua sa mạc đòi hỏi sự chuẩn bị hậu cần nghiêm ngặt và tôn trọng phương tiện."
+    },
+    {
+      "id": "video-tr-22-cue-5",
+      "start": 336,
+      "end": 420,
+      "en": "Distances between petrol service stations can exceed one hundred miles of barren terrain.",
+      "vi": "Khoảng cách giữa các trạm xăng có thể vượt quá một trăm dặm địa hình cằn cỗi."
+    },
+    {
+      "id": "video-tr-22-cue-6",
+      "start": 420,
+      "end": 504,
+      "en": "Never pass a fuel station without topping off your tank to maximum capacity.",
+      "vi": "Đừng bao giờ đi qua một trạm nhiên liệu mà không đổ đầy bình xăng đến mức tối đa."
+    },
+    {
+      "id": "video-tr-22-cue-7",
+      "start": 504,
+      "end": 588,
+      "en": "Pack two gallons of drinking water per passenger daily for non-negotiable hydration.",
+      "vi": "Đóng gói hai gallon nước uống cho mỗi hành khách mỗi ngày để giữ nước bắt buộc."
+    },
+    {
+      "id": "video-tr-22-cue-8",
+      "start": 588,
+      "end": 672,
+      "en": "Download offline GPS maps, as cellular data coverage vanishes in remote canyons.",
+      "vi": "Tải xuống bản đồ GPS ngoại tuyến, vì sóng dữ liệu di động sẽ biến mất trong các hẻm núi xa xôi."
+    },
+    {
+      "id": "video-tr-22-cue-9",
+      "start": 672,
+      "end": 756,
+      "en": "Check your vehicle's coolant, tire pressure, and spare wheel before departing each morning.",
+      "vi": "Kiểm tra nước làm mát, áp suất lốp và bánh xe dự phòng trước khi khởi hành mỗi buổi sáng."
+    },
+    {
+      "id": "video-tr-22-cue-10",
+      "start": 756,
+      "end": 840,
+      "en": "Watching crimson sunsets ignite desert mesas is a soul-stirring American experience.",
+      "vi": "Ngắm nhìn hoàng hôn đỏ thẫm thắp sáng các ngọn núi đá sa mạc là một trải nghiệm lay động tâm hồn nước Mỹ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-22-cloze-1",
+      "cueId": "video-tr-22-cue-3",
+      "sentence": "From the {{blank}} Canyon to Monument Valley, vast open highways stretch toward horizon.",
+      "blankWord": "grand",
+      "hintVi": "Nghĩa gợi ý: Từ Grand Canyon đến Thung lũng Monument,...",
+      "timestamp": 168,
+      "options": [
+        "grand",
+        "extensive",
+        "gradual",
+        "framework"
+      ]
+    },
+    {
+      "id": "video-tr-22-cloze-2",
+      "cueId": "video-tr-22-cue-5",
+      "sentence": "{{blank}} between petrol service stations can exceed one hundred miles of barren terrain.",
+      "blankWord": "distances",
+      "hintVi": "Nghĩa gợi ý: Khoảng cách giữa các trạm xăng có thể vư...",
+      "timestamp": 336,
+      "options": [
+        "accurate",
+        "dimension",
+        "routine",
+        "distances"
+      ]
+    },
+    {
+      "id": "video-tr-22-cloze-3",
+      "cueId": "video-tr-22-cue-8",
+      "sentence": "{{blank}} offline GPS maps, as cellular data coverage vanishes in remote canyons.",
+      "blankWord": "download",
+      "hintVi": "Nghĩa gợi ý: Tải xuống bản đồ GPS ngoại tuyến, vì són...",
+      "timestamp": 588,
+      "options": [
+        "framework",
+        "subsequent",
+        "essential",
+        "download"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-22-q1",
+      "question": "What is the primary focus of the video 'Road Trip Across the American Southwest'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice road trip across the american southwest effectively.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores road trip across the american southwest, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 84
+    },
+    {
+      "id": "video-tr-22-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Distances...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Distances between petrol service stations can exceed one hun...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Distances between petrol service stations can exceed one hundred miles of barren terrain.', showing its practical importance.",
+      "timestampSeek": 336
+    },
+    {
+      "id": "video-tr-22-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Watching crimson sunsets ignite desert mesas is a soul-stirring A...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Watching crimson sunsets ignite desert mesas is a soul-stirring American experience., providing a meaningful summary for learners.",
+      "timestampSeek": 756
+    },
+    {
+      "id": "video-tr-22-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Pack...'?",
+      "options": [
+        "It highlights that: Pack two gallons of drinking water per passenger daily for n...",
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners.",
+        "It warns that following this method produces immediate failure."
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker specifically highlights: 'Pack two gallons of drinking water per passenger daily for non-negotiable hydration.', providing deeper technical insight.",
+      "timestampSeek": 504
+    }
+  ]
+}

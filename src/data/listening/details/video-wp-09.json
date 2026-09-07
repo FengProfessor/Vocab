@@ -1,0 +1,191 @@
+{
+  "id": "video-wp-09",
+  "youtubeId": "sKHOaJZ3BLU",
+  "title": "Participating in Agile Standup Meetings",
+  "channel": "CareerVidz",
+  "duration": 420,
+  "durationDisplay": "07:00",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/sKHOaJZ3BLU/hqdefault.jpg",
+  "description": "Cách báo cáo công việc 3 phút trong cuộc họp Agile: đã làm gì, sẽ làm gì và khó khăn.",
+  "coreVocabulary": [
+    {
+      "word": "standup",
+      "phonetic": "/ˈstændʌp/",
+      "viDefinition": "cuộc họp nhanh đầu ngày (đứng)",
+      "contextSentence": "The daily standup meeting keeps software teams aligned on sprints."
+    },
+    {
+      "word": "impediment",
+      "phonetic": "/ɪmˈpedɪmənt/",
+      "viDefinition": "trở ngại, vướng mắc",
+      "contextSentence": "Raise any technical impediment immediately so the team can resolve it."
+    },
+    {
+      "word": "blocker",
+      "phonetic": "/ˈblɒkə(r)/",
+      "viDefinition": "điểm nghẽn công việc",
+      "contextSentence": "Waiting for database access was my primary blocker yesterday."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-09-cue-1",
+      "start": 0,
+      "end": 42,
+      "en": "Welcome back to CareerVidz, your mentor for modern tech workplace skills.",
+      "vi": "Chào mừng quay lại với CareerVidz, người cố vấn cho các kỹ năng công sở công nghệ hiện đại của bạn."
+    },
+    {
+      "id": "video-wp-09-cue-2",
+      "start": 42,
+      "end": 84,
+      "en": "Agile frameworks rely on daily fifteen-minute standup gatherings.",
+      "vi": "Các khung làm việc Agile dựa vào các cuộc họp nhanh mười lăm phút hàng ngày."
+    },
+    {
+      "id": "video-wp-09-cue-3",
+      "start": 84,
+      "end": 126,
+      "en": "The meeting format is strictly structured around three core questions.",
+      "vi": "Định dạng cuộc họp được cấu trúc nghiêm ngặt quanh ba câu hỏi cốt lõi."
+    },
+    {
+      "id": "video-wp-09-cue-4",
+      "start": 126,
+      "end": 168,
+      "en": "First: 'What did you accomplish yesterday toward our sprint goal?'",
+      "vi": "Thứ nhất: 'Bạn đã hoàn thành được gì vào hôm qua hướng tới mục tiêu sprint của chúng ta?'"
+    },
+    {
+      "id": "video-wp-09-cue-5",
+      "start": 168,
+      "end": 210,
+      "en": "Second: 'What tasks do you plan to complete today?'",
+      "vi": "Thứ hai: 'Bạn dự định hoàn thành những nhiệm vụ nào hôm nay?'"
+    },
+    {
+      "id": "video-wp-09-cue-6",
+      "start": 210,
+      "end": 252,
+      "en": "Third: 'Are there any obstacles or blockers preventing your progress?'",
+      "vi": "Thứ ba: 'Có bất kỳ trở ngại hoặc điểm nghẽn nào ngăn cản tiến độ của bạn không?'"
+    },
+    {
+      "id": "video-wp-09-cue-7",
+      "start": 252,
+      "end": 294,
+      "en": "Keep updates concise; avoid diving into lengthy technical debates.",
+      "vi": "Giữ các báo cáo tiến độ súc tích; tránh đi sâu vào các cuộc tranh luận kỹ thuật kéo dài."
+    },
+    {
+      "id": "video-wp-09-cue-8",
+      "start": 294,
+      "end": 336,
+      "en": "Flag an external impediment so the Scrum Master can clear the path.",
+      "vi": "Gắn cờ một trở ngại từ bên ngoài để Scrum Master có thể dọn đường khai thông."
+    },
+    {
+      "id": "video-wp-09-cue-9",
+      "start": 336,
+      "end": 378,
+      "en": "Schedule side discussions after the standup concludes with relevant specialists.",
+      "vi": "Lên lịch cho các cuộc thảo luận bên lề sau khi cuộc họp nhanh kết thúc với các chuyên gia liên quan."
+    },
+    {
+      "id": "video-wp-09-cue-10",
+      "start": 378,
+      "end": 420,
+      "en": "Clear communication during standups accelerates collective team delivery velocity.",
+      "vi": "Giao tiếp rõ ràng trong các buổi họp nhanh thúc đẩy tốc độ bàn giao chung của cả nhóm."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-09-cloze-1",
+      "cueId": "video-wp-09-cue-3",
+      "sentence": "The {{blank}} format is strictly structured around three core questions.",
+      "blankWord": "meeting",
+      "hintVi": "Nghĩa gợi ý: Định dạng cuộc họp được cấu trúc nghiêm ...",
+      "timestamp": 84,
+      "options": [
+        "meeting",
+        "sufficient",
+        "simultaneous",
+        "vibrant"
+      ]
+    },
+    {
+      "id": "video-wp-09-cloze-2",
+      "cueId": "video-wp-09-cue-5",
+      "sentence": "{{blank}}: 'What tasks do you plan to complete today?'",
+      "blankWord": "second",
+      "hintVi": "Nghĩa gợi ý: Thứ hai: 'Bạn dự định hoàn thành những n...",
+      "timestamp": 168,
+      "options": [
+        "simultaneous",
+        "second",
+        "balance",
+        "adequate"
+      ]
+    },
+    {
+      "id": "video-wp-09-cloze-3",
+      "cueId": "video-wp-09-cue-8",
+      "sentence": "Flag an {{blank}} impediment so the Scrum Master can clear the path.",
+      "blankWord": "external",
+      "hintVi": "Nghĩa gợi ý: Gắn cờ một trở ngại từ bên ngoài để Scru...",
+      "timestamp": 294,
+      "options": [
+        "continuous",
+        "alternative",
+        "external",
+        "deliberate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-09-q1",
+      "question": "What is the primary focus of the video 'Participating in Agile Standup Meetings'?",
+      "options": [
+        "To explain and practice participating in agile standup meetings effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores participating in agile standup meetings, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 42
+    },
+    {
+      "id": "video-wp-09-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Second:...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Second: 'What tasks do you plan to complete today?'...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Second: 'What tasks do you plan to complete today?'', showing its practical importance.",
+      "timestampSeek": 168
+    },
+    {
+      "id": "video-wp-09-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Clear communication during standups accelerates collective team d...",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Clear communication during standups accelerates collective team delivery velocity., providing a meaningful summary for learners.",
+      "timestampSeek": 378
+    }
+  ]
+}

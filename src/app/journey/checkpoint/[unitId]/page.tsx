@@ -1,9 +1,12 @@
-'use client';
+﻿'use client';
 
 /**
- * Checkpoint chặng — quiz tổng hợp trộn loại câu (vocab 2 chiều, typing,
- * grammar, nghe-chọn, minimal pair). Pass ≥80% → unlock chặng sau.
- * Progress bar vẫn nhích khi sai (mistake-safe — nghiên cứu engagement).
+ * Checkpoint chặng (Milestone 4 Upgrade)
+ * Đánh giá đa chiều kỹ năng (Từ vựng, Ngữ pháp, Phát âm, Đọc hiểu).
+ * Đánh giá bằng evaluateDiagnostic() từ @/lib/roadmap-assessment.
+ * Lưu trữ mọi lượt làm bài (kể cả chưa đạt) vào /api/roadmap/assessment.
+ * Hiển thị báo cáo chẩn đoán DiagnosticReportCard kèm link ôn tập 1-click.
+ * Pass ≥80% → unlock chặng sau, lưu tiến độ và chúc mừng vượt chặng.
  */
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
@@ -12,20 +15,40 @@ import { authFetch } from '@/lib/auth-fetch';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { playWordAudio } from '@/lib/audio';
 import { judgeAnswer } from '@/lib/study';
-import { encouragement } from '@/lib/encouragement';
+import {
+  evaluateDiagnostic,
+  getDiagnosticStorageKey,
+  type DiagnosticQuestion,
+  type DiagnosticReport,
+  type AssessmentSkill,
+} from '@/lib/roadmap-assessment';
+import { DiagnosticReportCard } from '@/components/journey/assessment/DiagnosticReportCard';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Volume2, ArrowLeft } from 'lucide-react';
+import { Volume2, ArrowLeft, Loader2, Sparkles, Flag } from 'lucide-react';
 import Link from 'next/link';
 
 interface CheckpointQuestion {
   id: string;
-  type: 'meaning-to-word' | 'word-to-meaning' | 'typing' | 'grammar-mcq' | 'minimal-pair' | 'listening-choice';
+  type:
+    | 'meaning-to-word'
+    | 'word-to-meaning'
+    | 'typing'
+    | 'grammar-mcq'
+    | 'minimal-pair'
+    | 'listening-choice';
   prompt: string;
   audioWord?: string;
   options?: string[];
   answer: string;
   explanation?: string;
+  skill?: AssessmentSkill;
+  subSkill?: string;
+  conceptRef?: string;
+  conceptName?: string;
+  sourceStepId?: string;
+  sourceStepTitle?: string;
+  sourceUrl?: string;
 }
 
 export default function CheckpointPage() {
@@ -38,25 +61,34 @@ export default function CheckpointPage() {
   const [title, setTitle] = useState('');
   const [questions, setQuestions] = useState<CheckpointQuestion[]>([]);
   const [index, setIndex] = useState(0);
-  const [correct, setCorrect] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [typed, setTyped] = useState('');
   const [revealed, setRevealed] = useState(false);
   const [finished, setFinished] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const correctRef = useRef(0);
-  const wrongTypesRef = useRef<Set<string>>(new Set());
-  const [weakSkills, setWeakSkills] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [diagnosticReport, setDiagnosticReport] = useState<DiagnosticReport | null>(null);
+  const answersRef = useRef<Record<string, string>>({});
 
   const load = useCallback(async (): Promise<void> => {
     try {
       const res = await authFetch(`/api/roadmap/checkpoint?unit=${encodeURIComponent(unitId)}`);
-      const json = await res.json() as { success: boolean; data?: { title: string; questions: CheckpointQuestion[] }; error?: string };
+      const json = (await res.json()) as {
+        success: boolean;
+        data?: { title: string; questions: CheckpointQuestion[] };
+        error?: string;
+      };
       if (!json.success || !json.data) throw new Error(json.error || 'Không tải được checkpoint');
       setTitle(json.data.title);
       setQuestions(json.data.questions);
-      setIndex(0); setCorrect(0); correctRef.current = 0; wrongTypesRef.current = new Set();
-      setPicked(null); setTyped(''); setRevealed(false); setFinished(false);
+      setIndex(0);
+      setAnswers({});
+      answersRef.current = {};
+      setPicked(null);
+      setTyped('');
+      setRevealed(false);
+      setFinished(false);
+      setDiagnosticReport(null);
     } catch (error: unknown) {
       toast.error(error instanceof Error ? error.message : 'Có lỗi kết nối');
     } finally {
@@ -65,11 +97,13 @@ export default function CheckpointPage() {
   }, [unitId]);
 
   useEffect(() => {
-    const timer = setTimeout(() => { void load(); }, 0);
+    const timer = setTimeout(() => {
+      void load();
+    }, 0);
     return () => clearTimeout(timer);
   }, [load]);
 
-  // "Làm lại" từ event handler: bật loading rồi nạp bộ câu hỏi mới
+  // "Làm lại" từ event handler: nạp bộ câu hỏi mới
   const reload = useCallback((): void => {
     setLoading(true);
     void load();
@@ -85,152 +119,305 @@ export default function CheckpointPage() {
 
   const submitAnswer = (value: string): void => {
     if (revealed || !q) return;
-    const isCorrect = q.type === 'typing'
-      ? judgeAnswer(value, q.answer) !== 'wrong'
-      : value === q.answer;
     setPicked(value);
     setRevealed(true);
-    if (isCorrect) {
-      setCorrect((c) => c + 1);
-      correctRef.current += 1;
-    } else {
-      wrongTypesRef.current.add(q.type);
-    }
+    const updatedAnswers = { ...answersRef.current, [q.id]: value };
+    answersRef.current = updatedAnswers;
+    setAnswers(updatedAnswers);
   };
 
   const next = async (): Promise<void> => {
     if (index + 1 < questions.length) {
       setIndex(index + 1);
-      setPicked(null); setTyped(''); setRevealed(false);
+      setPicked(null);
+      setTyped('');
+      setRevealed(false);
       return;
     }
-    // Chốt phần yếu (đọc ref ở đây, không đọc trong render)
-    const SKILL_VI: Record<string, string> = {
-      'meaning-to-word': 'Từ vựng', 'word-to-meaning': 'Từ vựng', 'typing': 'Từ vựng',
-      'listening-choice': 'Nghe từ vựng', 'grammar-mcq': 'Ngữ pháp', 'minimal-pair': 'Phát âm',
-    };
-    setWeakSkills([...new Set([...wrongTypesRef.current].map((t) => SKILL_VI[t] ?? t))]);
-    setFinished(true);
-    const scorePct = Math.round((correctRef.current / questions.length) * 100);
-    if (scorePct >= 80 && stepId) {
-      setSubmitting(true);
-      const result = await completeRoadmapStep(stepId, scorePct);
-      setSubmitting(false);
-      if (result) {
-        setRoadmapCelebrateFlag(result);
-        router.push('/journey');
-        return;
+
+    // Chuyển toàn bộ câu hỏi sang định dạng DiagnosticQuestion chuẩn hóa
+    const currentAnswers = answersRef.current;
+    const diagnosticQuestions: DiagnosticQuestion[] = questions.map((item) => {
+      let derivedSkill: AssessmentSkill = 'vocab';
+      if (item.skill) {
+        derivedSkill = item.skill;
+      } else if (item.type === 'grammar-mcq') {
+        derivedSkill = 'grammar';
+      } else if (item.type === 'minimal-pair') {
+        derivedSkill = 'pronunciation';
       }
+
+      return {
+        id: item.id,
+        skill: derivedSkill,
+        subSkill: item.subSkill,
+        conceptRef: item.conceptRef || item.id,
+        conceptName: item.conceptName || item.prompt,
+        sourceStepId: item.sourceStepId || stepId,
+        sourceStepTitle: item.sourceStepTitle || title || 'Bài học liên quan',
+        sourceUrl: item.sourceUrl || `/journey?step=${encodeURIComponent(item.sourceStepId || stepId)}`,
+        prompt: item.prompt,
+        audioWord: item.audioWord,
+        options: item.options,
+        answer: item.answer,
+        explanation: item.explanation,
+      };
+    });
+
+    // Đánh giá bằng công cụ chẩn đoán đa chiều
+    const report = evaluateDiagnostic({
+      questions: diagnosticQuestions,
+      answers: currentAnswers,
+      metadata: {
+        stepId,
+        targetId: unitId,
+        type: 'checkpoint',
+        passThresholdPct: 80,
+      },
+    });
+
+    setDiagnosticReport(report);
+    setFinished(true);
+
+    // Lưu kết quả vào cơ sở dữ liệu qua /api/roadmap/assessment
+    try {
+      setSubmitting(true);
+      await authFetch('/api/roadmap/assessment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          targetId: unitId,
+          stepId,
+          tier: 'checkpoint',
+          score: report.scorePct,
+          passed: report.passed,
+          details: report,
+        }),
+      });
+
+      // Lưu cache offline vào localStorage
+      try {
+        const cacheKey = getDiagnosticStorageKey('current', unitId);
+        localStorage.setItem(cacheKey, JSON.stringify(report));
+      } catch {
+        /* ignore localStorage quota */
+      }
+
+      // Nếu đạt >= 80%, ghi nhận hoàn thành bước checkpoint và chặng
+      if (report.passed && stepId) {
+        const result = await completeRoadmapStep(stepId, report.scorePct);
+        if (result) {
+          setRoadmapCelebrateFlag(result);
+          toast.success(`Chúc mừng! Bạn đạt ${report.scorePct}% và đã vượt chặng thành công!`);
+        }
+      }
+    } catch (err) {
+      console.error('[Checkpoint] Failed to persist assessment attempt:', err);
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  if (loading) return <div className="flex min-h-screen items-center justify-center text-muted-foreground">Đang lắp câu hỏi...</div>;
-  if (questions.length === 0) {
+  if (loading) {
     return (
-      <div className="mx-auto max-w-lg p-6 text-center space-y-4">
-        <p>Chặng này chưa có đủ dữ liệu câu hỏi.</p>
-        <Link href="/journey"><Button variant="outline"><ArrowLeft className="w-4 h-4 mr-1" /> Về lộ trình</Button></Link>
+      <div className="flex flex-col min-h-screen items-center justify-center gap-3 text-muted-foreground">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        <p className="text-sm font-medium">Đang chuẩn bị bộ câu hỏi chẩn đoán chặng...</p>
       </div>
     );
   }
 
-  if (finished) {
-    const scorePct = Math.round((correct / questions.length) * 100);
-    const passed = scorePct >= 80;
+  if (questions.length === 0) {
     return (
-      <div className="mx-auto flex min-h-[70vh] max-w-lg flex-col items-center justify-center gap-4 p-6 text-center">
-        <div className="text-6xl">{passed ? '🏁' : '💪'}</div>
-        <h1 className="text-2xl font-bold">{passed ? 'Vượt chặng!' : 'Suýt nữa rồi!'}</h1>
-        <p className="text-lg">Đúng {correct}/{questions.length} — <b>{scorePct}%</b> {passed ? '(≥80% đạt)' : '(cần ≥80%)'}</p>
-        <p className="text-muted-foreground text-sm">
-          {passed ? encouragement('unit_complete') : encouragement('many_wrong')}
+      <div className="mx-auto max-w-lg p-6 text-center space-y-4 pt-16">
+        <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mx-auto text-xl">
+          ⚠️
+        </div>
+        <h2 className="text-lg font-bold">Chưa có dữ liệu câu hỏi cho chặng này</h2>
+        <p className="text-sm text-muted-foreground">
+          Nội dung đang được cập nhật. Bạn vui lòng quay lại sau nhé.
         </p>
-        {!passed && weakSkills.length > 0 && (
-          <div className="rounded-xl border border-amber-200 bg-amber-50 dark:bg-amber-950/20 p-3 text-sm">
-            <p className="font-semibold text-amber-700 dark:text-amber-400">Nên ôn lại phần: {weakSkills.join(', ')}</p>
-            <p className="text-muted-foreground mt-1">Về lộ trình mở lại các bước {weakSkills.join('/').toLowerCase()} của chặng này, rồi thử checkpoint lần nữa nhé.</p>
+        <Link href="/journey">
+          <Button variant="outline">
+            <ArrowLeft className="w-4 h-4 mr-1.5" /> Về lộ trình
+          </Button>
+        </Link>
+      </div>
+    );
+  }
+
+  // Màn hình hoàn thành: hiển thị thẻ báo cáo chẩn đoán chuyên sâu DiagnosticReportCard
+  if (finished && diagnosticReport) {
+    return (
+      <div className="min-h-screen bg-background py-8 px-4 sm:px-6">
+        <div className="max-w-2xl mx-auto space-y-4">
+          <div className="flex items-center justify-between">
+            <Link href="/journey">
+              <Button variant="ghost" size="sm" className="gap-1.5 text-xs">
+                <ArrowLeft className="w-4 h-4" /> Về lộ trình
+              </Button>
+            </Link>
+            <span className="text-xs text-muted-foreground font-semibold">
+              Checkpoint: {title}
+            </span>
           </div>
-        )}
-        <div className="grid w-full gap-2">
-          {passed
-            ? <Button variant="chunky" size="lg" disabled={submitting} onClick={() => void next()}>Nhận thưởng & mở chặng mới</Button>
-            : <>
-                <Button variant="chunky" size="lg" onClick={reload}>Làm lại (câu hỏi mới)</Button>
-                <Link href="/journey"><Button variant="outline" className="w-full">Ôn lại chặng trước khi thử lại</Button></Link>
-              </>}
-          {passed && <Link href="/journey"><Button variant="ghost" className="w-full">Về lộ trình</Button></Link>}
+
+          <DiagnosticReportCard
+            report={diagnosticReport}
+            onRetry={reload}
+            onContinue={() => router.push('/journey')}
+          />
         </div>
       </div>
     );
   }
 
-  // Progress vẫn nhích khi sai — không để user cảm giác kẹt
+  // Tiến trình làm bài (mistake-safe)
   const progressPct = Math.round(((index + (revealed ? 1 : 0)) / questions.length) * 100);
 
   return (
-    <div className="mx-auto max-w-lg p-4 space-y-6">
-      <div className="flex items-center gap-3">
-        <Link href="/journey"><Button variant="ghost" size="icon"><ArrowLeft className="w-4 h-4" /></Button></Link>
-        <div className="h-3 flex-1 overflow-hidden rounded-full bg-muted">
-          <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${progressPct}%` }} />
+    <div className="min-h-screen bg-background py-6 px-4">
+      <div className="mx-auto max-w-lg space-y-6">
+        {/* Header thanh tiến trình */}
+        <div className="flex items-center gap-3">
+          <Link href="/journey">
+            <Button variant="ghost" size="icon">
+              <ArrowLeft className="w-4 h-4" />
+            </Button>
+          </Link>
+          <div className="h-3 flex-1 overflow-hidden rounded-full bg-muted">
+            <div
+              className="h-full rounded-full bg-primary transition-all duration-300"
+              style={{ width: `${progressPct}%` }}
+            />
+          </div>
+          <span className="text-sm font-semibold text-muted-foreground">
+            {index + 1}/{questions.length}
+          </span>
         </div>
-        <span className="text-sm text-muted-foreground">{index + 1}/{questions.length}</span>
-      </div>
-      <p className="text-xs text-muted-foreground">{title}</p>
 
-      <h1 className="text-xl font-bold">
-        {q.prompt?.trim()
-          ? q.prompt
-          : q.type === 'typing'
+        {/* Tiêu đề chặng & thẻ kỹ năng */}
+        <div className="flex items-center justify-between text-xs text-muted-foreground">
+          <span className="flex items-center gap-1 font-semibold text-primary">
+            <Flag className="w-3.5 h-3.5" /> {title}
+          </span>
+          {q.skill && (
+            <span className="px-2 py-0.5 rounded-full bg-muted font-medium uppercase text-[10px]">
+              {q.skill === 'vocab'
+                ? 'Từ vựng'
+                : q.skill === 'grammar'
+                ? 'Ngữ pháp'
+                : q.skill === 'pronunciation'
+                ? 'Phát âm'
+                : 'Đọc hiểu'}
+            </span>
+          )}
+        </div>
+
+        {/* Tiêu đề câu hỏi */}
+        <h1 className="text-lg font-bold leading-relaxed">
+          {q.prompt?.trim()
+            ? q.prompt
+            : q.type === 'typing'
             ? 'Gõ từ tiếng Anh đúng'
             : isAudioQ
-              ? 'Nghe và chọn đáp án đúng'
-              : 'Chọn đáp án đúng'}
-      </h1>
-      {isAudioQ && q.audioWord && (
-        <Button variant="outline" onClick={() => void playWordAudio(q.audioWord!)}>
-          <Volume2 className="w-4 h-4 mr-2" /> Nghe lại
-        </Button>
-      )}
+            ? 'Nghe và chọn đáp án đúng'
+            : 'Chọn đáp án đúng'}
+        </h1>
 
-      {q.type === 'typing' ? (
-        <div className="space-y-3">
-          <Input value={typed} onChange={(e) => setTyped(e.target.value)} placeholder="Gõ từ tiếng Anh..."
-            disabled={revealed}
-            onKeyDown={(e) => { if (e.key === 'Enter' && typed.trim()) submitAnswer(typed); }} />
-          {!revealed && <Button variant="chunky" className="w-full" disabled={!typed.trim()} onClick={() => submitAnswer(typed)}>Kiểm tra</Button>}
-        </div>
-      ) : (
-        <div className="grid gap-3">
-          {(q.options ?? []).map((opt) => {
-            const isAnswer = opt === q.answer;
-            const isPicked = opt === picked;
-            return (
-              <Button key={opt} variant="outline" disabled={revealed && !isAnswer && !isPicked}
-                className={`justify-start h-auto py-3 text-base whitespace-normal ${
-                  revealed && isAnswer ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30'
-                  : revealed && isPicked ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20'
-                  : ''
-                }`}
-                onClick={() => submitAnswer(opt)}>
-                {opt}
-              </Button>
-            );
-          })}
-        </div>
-      )}
-
-      {revealed && (
-        <div className="space-y-3">
-          {q.type === 'typing' && (
-            <p className="text-sm">Đáp án: <b>{q.answer}</b></p>
-          )}
-          {q.explanation && <p className="rounded-lg bg-muted p-3 text-sm">{q.explanation}</p>}
-          <Button variant="chunky" className="w-full" onClick={() => void next()}>
-            {picked === q.answer || (q.type === 'typing' && judgeAnswer(typed, q.answer) !== 'wrong') ? 'Tiếp tục' : 'Hiểu rồi'}
+        {/* Nút nghe lại nếu là câu hỏi audio */}
+        {isAudioQ && q.audioWord && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => void playWordAudio(q.audioWord!)}
+            className="gap-2"
+          >
+            <Volume2 className="w-4 h-4 text-primary" /> Nghe lại phát âm
           </Button>
-        </div>
-      )}
+        )}
+
+        {/* Dạng gõ từ */}
+        {q.type === 'typing' ? (
+          <div className="space-y-3">
+            <Input
+              value={typed}
+              onChange={(e) => setTyped(e.target.value)}
+              placeholder="Gõ từ tiếng Anh..."
+              disabled={revealed}
+              className="h-12 text-base"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && typed.trim()) submitAnswer(typed);
+              }}
+            />
+            {!revealed && (
+              <Button
+                variant="chunky"
+                className="w-full"
+                disabled={!typed.trim()}
+                onClick={() => submitAnswer(typed)}
+              >
+                Kiểm tra câu trả lời
+              </Button>
+            )}
+          </div>
+        ) : (
+          /* Dạng trắc nghiệm */
+          <div className="grid gap-2.5">
+            {(q.options ?? []).map((opt) => {
+              const isAnswer = opt === q.answer;
+              const isPicked = opt === picked;
+              return (
+                <Button
+                  key={opt}
+                  variant="outline"
+                  disabled={revealed && !isAnswer && !isPicked}
+                  className={`justify-start h-auto py-3.5 px-4 text-base whitespace-normal font-normal text-left transition-all ${
+                    revealed && isAnswer
+                      ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 font-semibold'
+                      : revealed && isPicked
+                      ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20 text-rose-800 dark:text-rose-300'
+                      : 'hover:border-primary/50'
+                  }`}
+                  onClick={() => submitAnswer(opt)}
+                >
+                  {opt}
+                </Button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Khối phản hồi & giải thích sau khi trả lời */}
+        {revealed && (
+          <div className="space-y-3 pt-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
+            {q.type === 'typing' && (
+              <p className="text-sm">
+                Đáp án: <b className="text-emerald-600">{q.answer}</b>
+              </p>
+            )}
+            {q.explanation && (
+              <div className="rounded-xl bg-muted/70 border p-3.5 text-xs leading-relaxed text-muted-foreground">
+                <span className="font-semibold text-foreground">Giải thích: </span>
+                {q.explanation}
+              </div>
+            )}
+            <Button
+              variant="chunky"
+              className="w-full"
+              disabled={submitting}
+              onClick={() => void next()}
+            >
+              {index + 1 < questions.length
+                ? picked === q.answer ||
+                  (q.type === 'typing' && judgeAnswer(typed, q.answer) !== 'wrong')
+                  ? 'Tiếp tục'
+                  : 'Hiểu rồi'
+                : 'Xem Báo cáo Chẩn đoán Chặng'}
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

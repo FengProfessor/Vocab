@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-11",
+  "youtubeId": "KdF15K8HQDt",
+  "title": "Why Do Leaves Change Color in Autumn?",
+  "channel": "SciShow",
+  "duration": 470,
+  "durationDisplay": "07:50",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/KdF15K8HQDt/hqdefault.jpg",
+  "description": "Cơ chế sinh học khiến lá cây đổi từ xanh sang vàng, cam và đỏ vào mùa thu.",
+  "coreVocabulary": [
+    {
+      "word": "chlorophyll",
+      "phonetic": "/ˈklɒrəfɪl/",
+      "viDefinition": "chất diệp lục (sắc tố quang hợp xanh)",
+      "contextSentence": "Chlorophyll pigments absorb red and blue light to power plant photosynthesis."
+    },
+    {
+      "word": "carotenoid",
+      "phonetic": "/kəˈrɒtɪnɔɪd/",
+      "viDefinition": "sắc tố carotenoid (màu vàng cam)",
+      "contextSentence": "Carotenoids produce the brilliant golden hues of autumn birch leaves."
+    },
+    {
+      "word": "anthocyanin",
+      "phonetic": "/ˌænθəˈsaɪənɪn/",
+      "viDefinition": "sắc tố anthocyanin (màu đỏ tím)",
+      "contextSentence": "Bright sunny autumn days stimulate vivid red anthocyanin synthesis in maples."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-11-cue-1",
+      "start": 0,
+      "end": 47,
+      "en": "Welcome to SciShow, unraveling the spectacular biochemistry behind autumn's vibrant foliage.",
+      "vi": "Chào mừng đến với SciShow, làm sáng tỏ sinh hóa ngoạn mục đằng sau tán lá mùa thu rực rỡ."
+    },
+    {
+      "id": "video-sth-11-cue-2",
+      "start": 47,
+      "end": 94,
+      "en": "Every autumn, deciduous forests transform from verdant greens into fiery tapestries of gold and scarlet.",
+      "vi": "Mỗi mùa thu, những khu rừng rụng lá biến đổi từ màu xanh tươi tốt thành những thảm tranh rực rỡ vàng và đỏ tươi."
+    },
+    {
+      "id": "video-sth-11-cue-3",
+      "start": 94,
+      "end": 141,
+      "en": "During warm summer months, plant leaves are packed with abundant green chlorophyll pigments.",
+      "vi": "Trong những tháng mùa hè ấm áp, lá cây chứa đầy sắc tố diệp lục xanh dồi dào."
+    },
+    {
+      "id": "video-sth-11-cue-4",
+      "start": 141,
+      "end": 188,
+      "en": "Chlorophyll captures radiant sunlight to synthesize nourishing sugars through photosynthesis.",
+      "vi": "Chất diệp lục thu ánh sáng mặt trời để tổng hợp các loại đường nuôi dưỡng qua quá trình quang hợp."
+    },
+    {
+      "id": "video-sth-11-cue-5",
+      "start": 188,
+      "end": 235,
+      "en": "As autumn approaches, daylight hours shrink and frosty temperatures signal trees to prepare for winter.",
+      "vi": "Khi mùa thu đến, số giờ ban ngày thu hẹp và nhiệt độ giá lạnh báo hiệu cây cối chuẩn bị cho mùa đông."
+    },
+    {
+      "id": "video-sth-11-cue-6",
+      "start": 235,
+      "end": 282,
+      "en": "Trees break down expensive chlorophyll molecules and reabsorb precious nitrogen into their roots.",
+      "vi": "Cây phân hủy các phân tử diệp lục đắt giá và tái hấp thu nitơ quý giá vào rễ của chúng."
+    },
+    {
+      "id": "video-sth-11-cue-7",
+      "start": 282,
+      "end": 329,
+      "en": "As green fades, preexisting yellow and orange carotenoid pigments are finally revealed.",
+      "vi": "Khi màu xanh mờ dần, các sắc tố carotenoid vàng và cam có từ trước cuối cùng cũng lộ ra."
+    },
+    {
+      "id": "video-sth-11-cue-8",
+      "start": 329,
+      "end": 376,
+      "en": "Simultaneously, trapped sugars in maple leaves synthesize radiant red anthocyanin pigments.",
+      "vi": "Đồng thời, lượng đường bị giữ lại trong lá phong tổng hợp nên sắc tố anthocyanin đỏ rực rỡ."
+    },
+    {
+      "id": "video-sth-11-cue-9",
+      "start": 376,
+      "end": 423,
+      "en": "A cellular abscission layer forms at the leaf stem, sealing the branch against winter frost.",
+      "vi": "Một lớp rụng tế bào hình thành ở cuống lá, niêm phong cành cây chống lại sương giá mùa đông."
+    },
+    {
+      "id": "video-sth-11-cue-10",
+      "start": 423,
+      "end": 470,
+      "en": "Autumn's golden beauty is a tree's ingenious survival strategy facing winter's freeze.",
+      "vi": "Vẻ đẹp vàng óng của mùa thu là chiến lược sinh tồn tài tình của cây cối khi đối mặt với băng giá mùa đông."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-11-cloze-1",
+      "cueId": "video-sth-11-cue-3",
+      "sentence": "{{blank}} warm summer months, plant leaves are packed with abundant green chlorophyll pigments.",
+      "blankWord": "during",
+      "hintVi": "Nghĩa gợi ý: Trong những tháng mùa hè ấm áp, lá cây c...",
+      "timestamp": 94,
+      "options": [
+        "convenient",
+        "sufficient",
+        "balance",
+        "during"
+      ]
+    },
+    {
+      "id": "video-sth-11-cloze-2",
+      "cueId": "video-sth-11-cue-5",
+      "sentence": "As {{blank}} approaches, daylight hours shrink and frosty temperatures signal trees to prepare for winter.",
+      "blankWord": "autumn",
+      "hintVi": "Nghĩa gợi ý: Khi mùa thu đến, số giờ ban ngày thu hẹp...",
+      "timestamp": 188,
+      "options": [
+        "vulnerable",
+        "continuous",
+        "autumn",
+        "sufficient"
+      ]
+    },
+    {
+      "id": "video-sth-11-cloze-3",
+      "cueId": "video-sth-11-cue-8",
+      "sentence": "{{blank}}, trapped sugars in maple leaves synthesize radiant red anthocyanin pigments.",
+      "blankWord": "simultaneously",
+      "hintVi": "Nghĩa gợi ý: Đồng thời, lượng đường bị giữ lại trong ...",
+      "timestamp": 329,
+      "options": [
+        "perspective",
+        "continuous",
+        "simultaneously",
+        "consistent"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-11-q1",
+      "question": "What is the primary focus of the video 'Why Do Leaves Change Color in Autumn?'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice why do leaves change color in autumn? effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores why do leaves change color in autumn?, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 47
+    },
+    {
+      "id": "video-sth-11-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'As...'?",
+      "options": [
+        "It emphasizes that: As autumn approaches, daylight hours shrink and frosty tempe...",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'As autumn approaches, daylight hours shrink and frosty temperatures signal trees to prepare for winter.', showing its practical importance.",
+      "timestampSeek": 188
+    },
+    {
+      "id": "video-sth-11-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Autumn's golden beauty is a tree's ingenious survival strategy fa...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Autumn's golden beauty is a tree's ingenious survival strategy facing winter's freeze., providing a meaningful summary for learners.",
+      "timestampSeek": 423
+    }
+  ]
+}

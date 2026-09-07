@@ -1,0 +1,204 @@
+{
+  "id": "video-sth-21",
+  "youtubeId": "7V8FH0pZtyU",
+  "title": "Space Exploration: Searching for Water on Mars",
+  "channel": "SciShow",
+  "duration": 790,
+  "durationDisplay": "13:10",
+  "durationCategory": "medium",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/7V8FH0pZtyU/hqdefault.jpg",
+  "description": "Khám phá không gian: hành trình tìm kiếm dấu vết nước và tiềm năng sự sống trên Sao Hỏa.",
+  "coreVocabulary": [
+    {
+      "word": "subsurface",
+      "phonetic": "/ˌsʌbˈsɜːfɪs/",
+      "viDefinition": "dưới bề mặt, tầng ngầm",
+      "contextSentence": "Radar instruments detected vast subsurface water ice sheets beneath Martian polar caps."
+    },
+    {
+      "word": "habitable",
+      "phonetic": "/ˈhæbɪtəbl/",
+      "viDefinition": "có thể sinh sống được (vùng sống được)",
+      "contextSentence": "Finding liquid water is the primary prerequisite for discovering habitable extraterrestrial environments."
+    },
+    {
+      "word": "crater",
+      "phonetic": "/ˈkreɪtə(r)/",
+      "viDefinition": "miệng hố (núi lửa hoặc do thiên thạch va chạm)",
+      "contextSentence": "The Perseverance rover explores ancient lake sediment layers inside Jezero Crater."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-21-cue-1",
+      "start": 0,
+      "end": 79,
+      "en": "Welcome to SciShow, tracking planetary science's greatest quest: following water on the Red Planet.",
+      "vi": "Chào mừng đến với SciShow, theo dõi cuộc tìm kiếm vĩ đại nhất của khoa học hành tinh: lần theo dấu vết nước trên Hành tinh Đỏ."
+    },
+    {
+      "id": "video-sth-21-cue-2",
+      "start": 79,
+      "end": 158,
+      "en": "Today, Mars appears as a frigid, hyper-arid desert bombarded by unshielded cosmic radiation.",
+      "vi": "Ngày nay, Sao Hỏa xuất hiện như một sa mạc băng giá, siêu khô cằn bị bắn phá bởi bức xạ vũ trụ không được che chắn."
+    },
+    {
+      "id": "video-sth-21-cue-3",
+      "start": 158,
+      "end": 237,
+      "en": "Yet orbital satellites reveal undeniable geological scars of ancient river valleys and delta canyons.",
+      "vi": "Tuy nhiên, các vệ tinh quay quanh quỹ đạo tiết lộ những vết sẹo địa chất không thể phủ nhận của các thung lũng sông cổ đại và hẻm núi châu thổ."
+    },
+    {
+      "id": "video-sth-21-cue-4",
+      "start": 237,
+      "end": 316,
+      "en": "Three billion years ago, Mars harbored a thick atmosphere and shimmering oceans of liquid water.",
+      "vi": "Ba tỷ năm trước, Sao Hỏa từng có một bầu khí quyển dày và những đại dương nước lỏng lấp lánh."
+    },
+    {
+      "id": "video-sth-21-cue-5",
+      "start": 316,
+      "end": 395,
+      "en": "Where did all that life-giving liquid water disappear when the Martian magnetic shield collapsed?",
+      "vi": "Tất cả lượng nước lỏng mang lại sự sống đó đã biến mất đi đâu khi lá chắn từ trường của Sao Hỏa sụp đổ?"
+    },
+    {
+      "id": "video-sth-21-cue-6",
+      "start": 395,
+      "end": 474,
+      "en": "Ground-penetrating radar on orbiters confirmed vast reservoirs of water ice locked under polar caps.",
+      "vi": "Radar xuyên đất trên các tàu quỹ đạo đã xác nhận những hồ chứa băng nước khổng lồ bị khóa dưới các chỏm băng vùng cực."
+    },
+    {
+      "id": "video-sth-21-cue-7",
+      "start": 474,
+      "end": 553,
+      "en": "NASA's Perseverance rover is currently drilling core samples inside dried ancient river deltas.",
+      "vi": "Xe tự hành Perseverance của NASA hiện đang khoan các mẫu lõi bên trong các vùng đồng bằng châu thổ sông cổ đã khô cạn."
+    },
+    {
+      "id": "video-sth-21-cue-8",
+      "start": 553,
+      "end": 632,
+      "en": "Astrobiologists analyze these mineral clay deposits for microscopic fossilized biosignatures.",
+      "vi": "Các nhà sinh học vũ trụ phân tích các trầm tích đất sét khoáng này để tìm các dấu hiệu sinh học hóa thạch siêu nhỏ."
+    },
+    {
+      "id": "video-sth-21-cue-9",
+      "start": 632,
+      "end": 711,
+      "en": "Subsurface brine lakes could conceivably shelter living microbial extremophiles today.",
+      "vi": "Các hồ nước muối dưới bề mặt hoàn toàn có thể che chở cho các vi sinh vật cực đoan còn sống ngày nay."
+    },
+    {
+      "id": "video-sth-21-cue-10",
+      "start": 711,
+      "end": 790,
+      "en": "Uncovering water on Mars paves the stepping stones toward humanity becoming an interplanetary species.",
+      "vi": "Khai phá nước trên Sao Hỏa mở đường cho những bước đệm hướng tới việc nhân loại trở thành một loài liên hành tinh."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-21-cloze-1",
+      "cueId": "video-sth-21-cue-3",
+      "sentence": "Yet {{blank}} satellites reveal undeniable geological scars of ancient river valleys and delta canyons.",
+      "blankWord": "orbital",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, các vệ tinh quay quanh quỹ đạ...",
+      "timestamp": 158,
+      "options": [
+        "vulnerable",
+        "strategy",
+        "extensive",
+        "orbital"
+      ]
+    },
+    {
+      "id": "video-sth-21-cloze-2",
+      "cueId": "video-sth-21-cue-5",
+      "sentence": "{{blank}} did all that life-giving liquid water disappear when the Martian magnetic shield collapsed?",
+      "blankWord": "where",
+      "hintVi": "Nghĩa gợi ý: Tất cả lượng nước lỏng mang lại sự sống ...",
+      "timestamp": 316,
+      "options": [
+        "where",
+        "tremendous",
+        "adequate",
+        "strategy"
+      ]
+    },
+    {
+      "id": "video-sth-21-cloze-3",
+      "cueId": "video-sth-21-cue-8",
+      "sentence": "{{blank}} analyze these mineral clay deposits for microscopic fossilized biosignatures.",
+      "blankWord": "astrobiologists",
+      "hintVi": "Nghĩa gợi ý: Các nhà sinh học vũ trụ phân tích các tr...",
+      "timestamp": 553,
+      "options": [
+        "perceptive",
+        "gradual",
+        "astrobiologists",
+        "deliberate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-21-q1",
+      "question": "What is the primary focus of the video 'Space Exploration: Searching for Water on Mars'?",
+      "options": [
+        "To explain and practice space exploration: searching for water on mars effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores space exploration: searching for water on mars, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 79
+    },
+    {
+      "id": "video-sth-21-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Where...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Where did all that life-giving liquid water disappear when t..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Where did all that life-giving liquid water disappear when the Martian magnetic shield collapsed?', showing its practical importance.",
+      "timestampSeek": 316
+    },
+    {
+      "id": "video-sth-21-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Uncovering water on Mars paves the stepping stones toward humanit...",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Uncovering water on Mars paves the stepping stones toward humanity becoming an interplanetary species., providing a meaningful summary for learners.",
+      "timestampSeek": 711
+    },
+    {
+      "id": "video-sth-21-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'NASA's...'?",
+      "options": [
+        "It highlights that: NASA's Perseverance rover is currently drilling core samples...",
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners.",
+        "It warns that following this method produces immediate failure."
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker specifically highlights: 'NASA's Perseverance rover is currently drilling core samples inside dried ancient river deltas.', providing deeper technical insight.",
+      "timestampSeek": 474
+    }
+  ]
+}

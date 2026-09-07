@@ -8,7 +8,7 @@ const configDir = path.resolve(process.cwd());
 // (Next dev dùng eval cho HMR) — tradeoff chấp nhận được, chưa dùng nonce.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://us-assets.i.posthog.com",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://us-assets.i.posthog.com https://www.youtube.com https://s.ytimg.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
@@ -18,7 +18,7 @@ const csp = [
   "worker-src 'self'",
   // 'self' = cho phép LingoTown nhúng app trong iframe (cùng origin)
   "frame-ancestors 'self'",
-  "frame-src 'self' blob:",
+  "frame-src 'self' blob: https://www.youtube.com https://www.youtube-nocookie.com",
   "object-src 'none'",
   "base-uri 'self'",
 ].join('; ');
@@ -48,7 +48,7 @@ const nextConfig: NextConfig = {
       'supabase.co', 'supabase.in', 'pixabay.com', 'pexels.com', 'unsplash.com',
       'cloudinary.com', 'imgur.com', 'googleusercontent.com', 'ggpht.com', 'gstatic.com',
       'wikimedia.org', 'wikipedia.org', 'cdn.jsdelivr.net', 'cloudfront.net', 'r2.dev',
-      'amazonaws.com', 'google.com', 'ytimg.com', 'twimg.com', 'fbcdn.net', 'pinimg.com',
+      'amazonaws.com', 'google.com', 'youtube.com', 'ytimg.com', 'twimg.com', 'fbcdn.net', 'pinimg.com',
       'staticflickr.com', 'pollinations.ai',
     ].flatMap((h) => [
       { protocol: 'https' as const, hostname: h },

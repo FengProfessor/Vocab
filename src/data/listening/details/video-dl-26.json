@@ -1,0 +1,204 @@
+{
+  "id": "video-dl-26",
+  "youtubeId": "b7TcPqi0aNM",
+  "title": "Financial Literacy for Young Adults: Budgeting",
+  "channel": "BBC Learning English",
+  "duration": 810,
+  "durationDisplay": "13:30",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/b7TcPqi0aNM/hqdefault.jpg",
+  "description": "Kỹ năng quản lý tài chính cá nhân: quy tắc 50/30/20 và tích lũy quỹ khẩn cấp.",
+  "coreVocabulary": [
+    {
+      "word": "expenditure",
+      "phonetic": "/ɪkˈspendɪtʃə(r)/",
+      "viDefinition": "khoản chi tiêu, chi phí",
+      "contextSentence": "Tracking monthly expenditure reveals hidden subscriptions draining your income."
+    },
+    {
+      "word": "allocation",
+      "phonetic": "/ˌæləˈkeɪʃn/",
+      "viDefinition": "sự phân bổ ngân sách",
+      "contextSentence": "The 50/30/20 rule provides an intuitive framework for financial allocation."
+    },
+    {
+      "word": "emergency",
+      "phonetic": "/ɪˈmɜːdʒənsi/",
+      "viDefinition": "tình huống khẩn cấp",
+      "contextSentence": "An emergency fund protects you against sudden medical expenses or job loss."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-26-cue-1",
+      "start": 0,
+      "end": 81,
+      "en": "Welcome to BBC Learning English's financial literacy documentary.",
+      "vi": "Chào mừng đến với phim tài liệu về hiểu biết tài chính của BBC Learning English."
+    },
+    {
+      "id": "video-dl-26-cue-2",
+      "start": 81,
+      "end": 162,
+      "en": "Many capable professionals feel helpless when managing their personal finances.",
+      "vi": "Nhiều chuyên gia tài năng cảm thấy bất lực khi quản lý tài chính cá nhân."
+    },
+    {
+      "id": "video-dl-26-cue-3",
+      "start": 162,
+      "end": 243,
+      "en": "Financial peace begins not with enormous income, but with intentional allocation.",
+      "vi": "Sự an tâm tài chính bắt đầu không phải từ thu nhập khổng lồ, mà từ sự phân bổ có chủ đích."
+    },
+    {
+      "id": "video-dl-26-cue-4",
+      "start": 243,
+      "end": 324,
+      "en": "A popular methodology is the 50/30/20 budgeting principle.",
+      "vi": "Một phương pháp phổ biến là nguyên tắc lập ngân sách 50/30/20."
+    },
+    {
+      "id": "video-dl-26-cue-5",
+      "start": 324,
+      "end": 405,
+      "en": "Fifty percent of net income covers essential needs like housing and groceries.",
+      "vi": "Năm mươi phần trăm thu nhập ròng chi trả cho các nhu cầu thiết yếu như nhà ở và thực phẩm."
+    },
+    {
+      "id": "video-dl-26-cue-6",
+      "start": 405,
+      "end": 486,
+      "en": "Thirty percent addresses discretionary lifestyle wants and leisure pursuits.",
+      "vi": "Ba mươi phần trăm dành cho các mong muốn phong cách sống tùy ý và các hoạt động giải trí."
+    },
+    {
+      "id": "video-dl-26-cue-7",
+      "start": 486,
+      "end": 567,
+      "en": "Twenty percent must be aggressively channeled into savings and debt retirement.",
+      "vi": "Hai mươi phần trăm phải được chuyển một cách quyết liệt vào tiết kiệm và trả nợ."
+    },
+    {
+      "id": "video-dl-26-cue-8",
+      "start": 567,
+      "end": 648,
+      "en": "Build a three-to-six-month emergency cash reserve in an accessible account.",
+      "vi": "Xây dựng một quỹ dự phòng khẩn cấp bằng tiền mặt từ ba đến sáu tháng trong một tài khoản dễ tiếp cận."
+    },
+    {
+      "id": "video-dl-26-cue-9",
+      "start": 648,
+      "end": 729,
+      "en": "Automating monthly transfers prevents the temptation of impulsive expenditure.",
+      "vi": "Tự động hóa các khoản chuyển tiền hàng tháng giúp ngăn ngừa sự cám dỗ của việc chi tiêu bốc đồng."
+    },
+    {
+      "id": "video-dl-26-cue-10",
+      "start": 729,
+      "end": 810,
+      "en": "Mastering your money liberates your future to pursue genuine life callings.",
+      "vi": "Làm chủ tiền bạc giải phóng tương lai của bạn để theo đuổi tiếng gọi cuộc sống đích thực."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-26-cloze-1",
+      "cueId": "video-dl-26-cue-3",
+      "sentence": "{{blank}} peace begins not with enormous income, but with intentional allocation.",
+      "blankWord": "financial",
+      "hintVi": "Nghĩa gợi ý: Sự an tâm tài chính bắt đầu không phải t...",
+      "timestamp": 162,
+      "options": [
+        "tremendous",
+        "dimension",
+        "financial",
+        "routine"
+      ]
+    },
+    {
+      "id": "video-dl-26-cloze-2",
+      "cueId": "video-dl-26-cue-5",
+      "sentence": "{{blank}} percent of net income covers essential needs like housing and groceries.",
+      "blankWord": "fifty",
+      "hintVi": "Nghĩa gợi ý: Năm mươi phần trăm thu nhập ròng chi trả...",
+      "timestamp": 324,
+      "options": [
+        "fifty",
+        "sufficient",
+        "remarkable",
+        "strategy"
+      ]
+    },
+    {
+      "id": "video-dl-26-cloze-3",
+      "cueId": "video-dl-26-cue-8",
+      "sentence": "{{blank}} a three-to-six-month emergency cash reserve in an accessible account.",
+      "blankWord": "build",
+      "hintVi": "Nghĩa gợi ý: Xây dựng một quỹ dự phòng khẩn cấp bằng ...",
+      "timestamp": 567,
+      "options": [
+        "temporary",
+        "prominent",
+        "build",
+        "gradual"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-26-q1",
+      "question": "What is the primary focus of the video 'Financial Literacy for Young Adults: Budgeting'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice financial literacy for young adults: budgeting effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores financial literacy for young adults: budgeting, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 81
+    },
+    {
+      "id": "video-dl-26-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Fifty...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Fifty percent of net income covers essential needs like hous...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Fifty percent of net income covers essential needs like housing and groceries.', showing its practical importance.",
+      "timestampSeek": 324
+    },
+    {
+      "id": "video-dl-26-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Mastering your money liberates your future to pursue genuine life...",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Mastering your money liberates your future to pursue genuine life callings., providing a meaningful summary for learners.",
+      "timestampSeek": 729
+    },
+    {
+      "id": "video-dl-26-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Twenty...'?",
+      "options": [
+        "It claims this factor has zero impact on the final outcome.",
+        "It highlights that: Twenty percent must be aggressively channeled into savings a...",
+        "It states this step should always be skipped by beginners.",
+        "It warns that following this method produces immediate failure."
+      ],
+      "correctIndex": 1,
+      "explanation": "The speaker specifically highlights: 'Twenty percent must be aggressively channeled into savings and debt retirement.', providing deeper technical insight.",
+      "timestampSeek": 486
+    }
+  ]
+}

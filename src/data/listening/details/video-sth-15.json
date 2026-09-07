@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-15",
+  "youtubeId": "9cyHM2qSSR1",
+  "title": "CRISPR Gene Editing: Potential and Ethics",
+  "channel": "TED-Ed",
+  "duration": 460,
+  "durationDisplay": "07:40",
+  "durationCategory": "short",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/9cyHM2qSSR1/hqdefault.jpg",
+  "description": "Công nghệ chỉnh sửa gen CRISPR-Cas9: tiềm năng chữa bệnh di truyền và câu hỏi đạo đức.",
+  "coreVocabulary": [
+    {
+      "word": "genome",
+      "phonetic": "/ˈdʒiːnəʊm/",
+      "viDefinition": "bộ gen",
+      "contextSentence": "CRISPR technology enables precise alterations to the human genome sequence."
+    },
+    {
+      "word": "enzyme",
+      "phonetic": "/ˈenzaɪm/",
+      "viDefinition": "men, enzyme (xúc tác sinh học)",
+      "contextSentence": "The Cas9 enzyme acts as molecular scissors cutting targeted DNA strands."
+    },
+    {
+      "word": "ethical",
+      "phonetic": "/ˈeθɪkl/",
+      "viDefinition": "thuộc đạo đức, luân lý",
+      "contextSentence": "Germline gene editing raises profound ethical concerns regarding designer babies."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-15-cue-1",
+      "start": 0,
+      "end": 46,
+      "en": "Welcome to TED-Ed, standing at the dawn of the genomic revolution with CRISPR-Cas9.",
+      "vi": "Chào mừng đến với TED-Ed, đứng ở buổi bình minh của cuộc cách mạng bộ gen với CRISPR-Cas9."
+    },
+    {
+      "id": "video-sth-15-cue-2",
+      "start": 46,
+      "end": 92,
+      "en": "Discovered as a bacterial immune mechanism against viruses, CRISPR has revolutionized biotechnology.",
+      "vi": "Được phát hiện như một cơ chế miễn dịch của vi khuẩn chống lại virus, CRISPR đã cách mạng hóa công nghệ sinh học."
+    },
+    {
+      "id": "video-sth-15-cue-3",
+      "start": 92,
+      "end": 138,
+      "en": "Bacterial Cas9 enzymes act as programmable molecular scissors guided by synthetic RNA sequences.",
+      "vi": "Các enzyme Cas9 của vi khuẩn hoạt động như chiếc kéo phân tử có thể lập trình được dẫn đường bởi các chuỗi RNA tổng hợp."
+    },
+    {
+      "id": "video-sth-15-cue-4",
+      "start": 138,
+      "end": 184,
+      "en": "Scientists can locate a mutated nucleotide sequence in living cells and sever the DNA strand.",
+      "vi": "Các nhà khoa học có thể xác định vị trí chuỗi nucleotide bị đột biến trong các tế bào sống và cắt đứt chuỗi DNA."
+    },
+    {
+      "id": "video-sth-15-cue-5",
+      "start": 184,
+      "end": 230,
+      "en": "Cellular repair mechanisms can then insert a healthy corrective gene template precisely.",
+      "vi": "Các cơ chế sửa chữa tế bào sau đó có thể chèn một khuôn mẫu gen lành mạnh đã hiệu chỉnh một cách chính xác."
+    },
+    {
+      "id": "video-sth-15-cue-6",
+      "start": 230,
+      "end": 276,
+      "en": "Clinical trials are already curing sickle cell anemia and rare hereditary blindness disorders.",
+      "vi": "Các thử nghiệm lâm sàng hiện đang chữa khỏi bệnh thiếu máu hồng cầu hình liềm và các rối loạn mù lòa di truyền hiếm gặp."
+    },
+    {
+      "id": "video-sth-15-cue-7",
+      "start": 276,
+      "end": 322,
+      "en": "However, manipulating the human germline creates heritable changes passed down through generations.",
+      "vi": "Tuy nhiên, việc thao tác trên dòng mầm của con người tạo ra những thay đổi di truyền truyền qua nhiều thế hệ."
+    },
+    {
+      "id": "video-sth-15-cue-8",
+      "start": 322,
+      "end": 368,
+      "en": "This raises urgent bioethical questions concerning eugenics, societal inequality, and unforeseen mutations.",
+      "vi": "Điều này làm dấy lên những câu hỏi cấp bách về đạo đức sinh học liên quan đến thuyết ưu sinh, bất bình đẳng xã hội và các đột biến không lường trước."
+    },
+    {
+      "id": "video-sth-15-cue-9",
+      "start": 368,
+      "end": 414,
+      "en": "Global scientific consortiums advocate strict regulatory oversight and public consensus deliberation.",
+      "vi": "Các tập đoàn khoa học toàn cầu ủng hộ sự giám sát quy định nghiêm ngặt và thảo luận đồng thuận công chúng."
+    },
+    {
+      "id": "video-sth-15-cue-10",
+      "start": 414,
+      "end": 460,
+      "en": "Harnessing genetic mastery requires matching our technological power with profound moral wisdom.",
+      "vi": "Khai thác khả năng làm chủ di truyền đòi hỏi phải đối ứng sức mạnh công nghệ với trí tuệ đạo đức sâu sắc."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-15-cloze-1",
+      "cueId": "video-sth-15-cue-3",
+      "sentence": "{{blank}} Cas9 enzymes act as programmable molecular scissors guided by synthetic RNA sequences.",
+      "blankWord": "bacterial",
+      "hintVi": "Nghĩa gợi ý: Các enzyme Cas9 của vi khuẩn hoạt động n...",
+      "timestamp": 92,
+      "options": [
+        "strategy",
+        "accurate",
+        "bacterial",
+        "protocol"
+      ]
+    },
+    {
+      "id": "video-sth-15-cloze-2",
+      "cueId": "video-sth-15-cue-5",
+      "sentence": "{{blank}} repair mechanisms can then insert a healthy corrective gene template precisely.",
+      "blankWord": "cellular",
+      "hintVi": "Nghĩa gợi ý: Các cơ chế sửa chữa tế bào sau đó có thể...",
+      "timestamp": 184,
+      "options": [
+        "cellular",
+        "dimension",
+        "favorable",
+        "moderate"
+      ]
+    },
+    {
+      "id": "video-sth-15-cloze-3",
+      "cueId": "video-sth-15-cue-8",
+      "sentence": "This {{blank}} urgent bioethical questions concerning eugenics, societal inequality, and unforeseen mutations.",
+      "blankWord": "raises",
+      "hintVi": "Nghĩa gợi ý: Điều này làm dấy lên những câu hỏi cấp b...",
+      "timestamp": 322,
+      "options": [
+        "protocol",
+        "accurate",
+        "prominent",
+        "raises"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-15-q1",
+      "question": "What is the primary focus of the video 'CRISPR Gene Editing: Potential and Ethics'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice crispr gene editing: potential and ethics effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores crispr gene editing: potential and ethics, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 46
+    },
+    {
+      "id": "video-sth-15-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Cellular...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: Cellular repair mechanisms can then insert a healthy correct...",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Cellular repair mechanisms can then insert a healthy corrective gene template precisely.', showing its practical importance.",
+      "timestampSeek": 184
+    },
+    {
+      "id": "video-sth-15-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Harnessing genetic mastery requires matching our technological po...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Harnessing genetic mastery requires matching our technological power with profound moral wisdom., providing a meaningful summary for learners.",
+      "timestampSeek": 414
+    }
+  ]
+}

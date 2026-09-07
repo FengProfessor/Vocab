@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-01",
+  "youtubeId": "SGXzE0Au_Ts",
+  "title": "Ordering Morning Coffee at a Cafe",
+  "channel": "English with Lucy",
+  "duration": 210,
+  "durationDisplay": "03:30",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/SGXzE0Au_Ts/hqdefault.jpg",
+  "description": "Cách gọi các loại cà phê, chọn loại sữa và kích cỡ cốc tại quán cà phê hiện đại.",
+  "coreVocabulary": [
+    {
+      "word": "barista",
+      "phonetic": "/bəˈriːstə/",
+      "viDefinition": "người pha chế cà phê",
+      "contextSentence": "The friendly barista crafted a beautiful latte leaf design."
+    },
+    {
+      "word": "oat",
+      "phonetic": "/əʊt/",
+      "viDefinition": "yến mạch (sữa yến mạch)",
+      "contextSentence": "Could I please have my flat white with creamy oat milk?"
+    },
+    {
+      "word": "decaf",
+      "phonetic": "/ˈdiːkæf/",
+      "viDefinition": "cà phê khử caffeine",
+      "contextSentence": "I prefer decaf espresso in the late afternoon."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-01-cue-1",
+      "start": 0,
+      "end": 21,
+      "en": "Hello coffee lovers, it's Lucy here at a bustling neighborhood cafe.",
+      "vi": "Xin chào những người yêu cà phê, Lucy ở đây tại một quán cà phê khu phố nhộn nhịp."
+    },
+    {
+      "id": "video-fs-01-cue-2",
+      "start": 21,
+      "end": 42,
+      "en": "Ordering coffee in English can feel confusing with so many specialty options.",
+      "vi": "Gọi cà phê bằng tiếng Anh có thể gây bối rối với nhiều lựa chọn đặc biệt."
+    },
+    {
+      "id": "video-fs-01-cue-3",
+      "start": 42,
+      "end": 63,
+      "en": "When you approach the counter, greet the barista with a warm smile.",
+      "vi": "Khi bạn tiến lại quầy, hãy chào người pha chế bằng một nụ cười ấm áp."
+    },
+    {
+      "id": "video-fs-01-cue-4",
+      "start": 63,
+      "end": 84,
+      "en": "State your desired cup size first: small, regular, or large.",
+      "vi": "Nêu kích cỡ cốc bạn mong muốn trước: nhỏ, vừa hoặc lớn."
+    },
+    {
+      "id": "video-fs-01-cue-5",
+      "start": 84,
+      "end": 105,
+      "en": "Choose your coffee style: espresso, Americano, cappuccino, or flat white.",
+      "vi": "Chọn phong cách cà phê của bạn: espresso, Americano, cappuccino hoặc flat white."
+    },
+    {
+      "id": "video-fs-01-cue-6",
+      "start": 105,
+      "end": 126,
+      "en": "Specify your dairy preference: 'Could I please get that with oat milk?'",
+      "vi": "Nêu rõ sở thích về sữa của bạn: 'Làm ơn cho tôi dùng món đó với sữa yến mạch được không?'"
+    },
+    {
+      "id": "video-fs-01-cue-7",
+      "start": 126,
+      "end": 147,
+      "en": "If caffeine makes your heart race, ask for a smooth decaf roast.",
+      "vi": "Nếu caffeine làm tim bạn đập nhanh, hãy yêu cầu một ly cà phê khử caffeine dịu nhẹ."
+    },
+    {
+      "id": "video-fs-01-cue-8",
+      "start": 147,
+      "end": 168,
+      "en": "The barista will ask: 'For here, or to take away in a paper cup?'",
+      "vi": "Người pha chế sẽ hỏi: 'Dùng ở đây, hay mang về trong cốc giấy ạ?'"
+    },
+    {
+      "id": "video-fs-01-cue-9",
+      "start": 168,
+      "end": 189,
+      "en": "Pay with your contactless card and wait near the pick-up counter.",
+      "vi": "Thanh toán bằng thẻ không tiếp xúc của bạn và đợi gần quầy nhận đồ uống."
+    },
+    {
+      "id": "video-fs-01-cue-10",
+      "start": 189,
+      "end": 210,
+      "en": "A freshly brewed cup of coffee warms the spirit and kickstarts your day.",
+      "vi": "Một tách cà phê mới pha làm ấm tâm hồn và khởi đầu ngày mới của bạn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-01-cloze-1",
+      "cueId": "video-fs-01-cue-3",
+      "sentence": "When you {{blank}} the counter, greet the barista with a warm smile.",
+      "blankWord": "approach",
+      "hintVi": "Nghĩa gợi ý: Khi bạn tiến lại quầy, hãy chào người ph...",
+      "timestamp": 42,
+      "options": [
+        "approach",
+        "essential",
+        "consistent",
+        "tremendous"
+      ]
+    },
+    {
+      "id": "video-fs-01-cloze-2",
+      "cueId": "video-fs-01-cue-5",
+      "sentence": "{{blank}} your coffee style: espresso, Americano, cappuccino, or flat white.",
+      "blankWord": "choose",
+      "hintVi": "Nghĩa gợi ý: Chọn phong cách cà phê của bạn: espresso...",
+      "timestamp": 84,
+      "options": [
+        "choose",
+        "consistent",
+        "alternative",
+        "framework"
+      ]
+    },
+    {
+      "id": "video-fs-01-cloze-3",
+      "cueId": "video-fs-01-cue-8",
+      "sentence": "The {{blank}} will ask: 'For here, or to take away in a paper cup?'",
+      "blankWord": "barista",
+      "hintVi": "Nghĩa gợi ý: Người pha chế sẽ hỏi: 'Dùng ở đây, hay m...",
+      "timestamp": 147,
+      "options": [
+        "alternative",
+        "perceptive",
+        "vulnerable",
+        "barista"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-01-q1",
+      "question": "What is the primary focus of the video 'Ordering Morning Coffee at a Cafe'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice ordering morning coffee at a cafe effectively.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores ordering morning coffee at a cafe, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 21
+    },
+    {
+      "id": "video-fs-01-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Choose...'?",
+      "options": [
+        "It emphasizes that: Choose your coffee style: espresso, Americano, cappuccino, o...",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'Choose your coffee style: espresso, Americano, cappuccino, or flat white.', showing its practical importance.",
+      "timestampSeek": 84
+    },
+    {
+      "id": "video-fs-01-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: A freshly brewed cup of coffee warms the spirit and kickstarts yo...",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that A freshly brewed cup of coffee warms the spirit and kickstarts your day., providing a meaningful summary for learners.",
+      "timestampSeek": 189
+    }
+  ]
+}

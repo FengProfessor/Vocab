@@ -1,0 +1,204 @@
+{
+  "id": "video-tr-27",
+  "youtubeId": "IUOHDRXos6F",
+  "title": "The Evolution of Global Commercial Aviation",
+  "channel": "TED-Ed",
+  "duration": 950,
+  "durationDisplay": "15:50",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/IUOHDRXos6F/hqdefault.jpg",
+  "description": "Lịch sử hàng không dân dụng: từ thời hoàng kim phản lực đến các siêu máy bay hiện đại.",
+  "coreVocabulary": [
+    {
+      "word": "aviation",
+      "phonetic": "/ˌeɪviˈeɪʃn/",
+      "viDefinition": "ngành hàng không",
+      "contextSentence": "Commercial aviation shrank global distances and united distant continents."
+    },
+    {
+      "word": "aerodynamic",
+      "phonetic": "/ˌeərəʊdaɪˈnæmɪk/",
+      "viDefinition": "khí động học",
+      "contextSentence": "Modern carbon composite fuselages maximize aerodynamic fuel efficiency."
+    },
+    {
+      "word": "democratize",
+      "phonetic": "/dɪˈmɒkrətaɪz/",
+      "viDefinition": "bình dân hóa, phổ cập",
+      "contextSentence": "Budget airlines democratized international travel for millions of middle-class families."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-27-cue-1",
+      "start": 0,
+      "end": 95,
+      "en": "Welcome to TED-Ed, tracing how humanity conquered the skies to build a global village.",
+      "vi": "Chào mừng đến với TED-Ed, lần theo cách nhân loại đã chinh phục bầu trời để xây dựng một ngôi làng toàn cầu."
+    },
+    {
+      "id": "video-tr-27-cue-2",
+      "start": 95,
+      "end": 190,
+      "en": "A century ago, crossing oceans required weeks of treacherous maritime voyaging.",
+      "vi": "Một thế kỷ trước, vượt đại dương đòi hỏi nhiều tuần hành trình hàng hải đầy hiểm nguy."
+    },
+    {
+      "id": "video-tr-27-cue-3",
+      "start": 190,
+      "end": 285,
+      "en": "The advent of the jet age in the nineteen-fifties transformed global human mobility.",
+      "vi": "Sự xuất hiện của kỷ nguyên máy bay phản lực vào những năm 1950 đã biến đổi khả năng di chuyển của nhân loại toàn cầu."
+    },
+    {
+      "id": "video-tr-27-cue-4",
+      "start": 285,
+      "end": 380,
+      "en": "Iconic airliners like the Boeing 707 and 747 shrank geographic space forever.",
+      "vi": "Những chiếc máy bay mang tính biểu tượng như Boeing 707 và 747 đã thu nhỏ không gian địa lý mãi mãi."
+    },
+    {
+      "id": "video-tr-27-cue-5",
+      "start": 380,
+      "end": 475,
+      "en": "Advances in aerodynamic engineering and jet turbines drastically improved safety and fuel efficiency.",
+      "vi": "Những tiến bộ trong kỹ thuật khí động học và động cơ phản lực đã cải thiện đáng kể sự an toàn và hiệu quả nhiên liệu."
+    },
+    {
+      "id": "video-tr-27-cue-6",
+      "start": 475,
+      "end": 570,
+      "en": "Modern commercial air travel is statistically the safest mode of transportation in existence.",
+      "vi": "Du lịch hàng không thương mại hiện đại về mặt thống kê là phương thức vận tải an toàn nhất đang tồn tại."
+    },
+    {
+      "id": "video-tr-27-cue-7",
+      "start": 570,
+      "end": 665,
+      "en": "The rise of low-cost carriers served to democratize foreign travel for ordinary citizens.",
+      "vi": "Sự trỗi dậy của các hãng hàng không giá rẻ đã góp phần bình dân hóa việc đi nước ngoài cho những công dân bình thường."
+    },
+    {
+      "id": "video-tr-27-cue-8",
+      "start": 665,
+      "end": 760,
+      "en": "Today, thousands of aircraft crisscross the upper troposphere simultaneously day and night.",
+      "vi": "Ngày nay, hàng ngàn máy bay cùng lúc bay qua tầng đối lưu trên cao suốt ngày đêm."
+    },
+    {
+      "id": "video-tr-27-cue-9",
+      "start": 760,
+      "end": 855,
+      "en": "Aviation reminds us that borders are human constructs invisible from cruising altitude.",
+      "vi": "Ngành hàng không nhắc nhở chúng ta rằng biên giới là những cấu trúc nhân tạo vô hình từ độ cao hành trình."
+    },
+    {
+      "id": "video-tr-27-cue-10",
+      "start": 855,
+      "end": 950,
+      "en": "Looking down from thirty thousand feet, our solitary planet appears unified, fragile, and magnificent.",
+      "vi": "Nhìn xuống từ độ cao ba mươi ngàn bộ, hành tinh cô độc của chúng ta hiện ra thống nhất, mong manh và tráng lệ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-27-cloze-1",
+      "cueId": "video-tr-27-cue-3",
+      "sentence": "The {{blank}} of the jet age in the nineteen-fifties transformed global human mobility.",
+      "blankWord": "advent",
+      "hintVi": "Nghĩa gợi ý: Sự xuất hiện của kỷ nguyên máy bay phản ...",
+      "timestamp": 190,
+      "options": [
+        "framework",
+        "temporary",
+        "advent",
+        "extensive"
+      ]
+    },
+    {
+      "id": "video-tr-27-cloze-2",
+      "cueId": "video-tr-27-cue-5",
+      "sentence": "{{blank}} in aerodynamic engineering and jet turbines drastically improved safety and fuel efficiency.",
+      "blankWord": "advances",
+      "hintVi": "Nghĩa gợi ý: Những tiến bộ trong kỹ thuật khí động họ...",
+      "timestamp": 380,
+      "options": [
+        "adequate",
+        "advances",
+        "component",
+        "simultaneous"
+      ]
+    },
+    {
+      "id": "video-tr-27-cloze-3",
+      "cueId": "video-tr-27-cue-8",
+      "sentence": "{{blank}}, thousands of aircraft crisscross the upper troposphere simultaneously day and night.",
+      "blankWord": "today",
+      "hintVi": "Nghĩa gợi ý: Ngày nay, hàng ngàn máy bay cùng lúc bay...",
+      "timestamp": 665,
+      "options": [
+        "reliable",
+        "sufficient",
+        "today",
+        "protocol"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-27-q1",
+      "question": "What is the primary focus of the video 'The Evolution of Global Commercial Aviation'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice the evolution of global commercial aviation effectively.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores the evolution of global commercial aviation, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 95
+    },
+    {
+      "id": "video-tr-27-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Advances...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Advances in aerodynamic engineering and jet turbines drastic...",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Advances in aerodynamic engineering and jet turbines drastically improved safety and fuel efficiency.', showing its practical importance.",
+      "timestampSeek": 380
+    },
+    {
+      "id": "video-tr-27-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Looking down from thirty thousand feet, our solitary planet appea...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Looking down from thirty thousand feet, our solitary planet appears unified, fragile, and magnificent., providing a meaningful summary for learners.",
+      "timestampSeek": 855
+    },
+    {
+      "id": "video-tr-27-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'The...'?",
+      "options": [
+        "It claims this factor has zero impact on the final outcome.",
+        "It highlights that: The rise of low-cost carriers served to democratize foreign ...",
+        "It warns that following this method produces immediate failure.",
+        "It states this step should always be skipped by beginners."
+      ],
+      "correctIndex": 1,
+      "explanation": "The speaker specifically highlights: 'The rise of low-cost carriers served to democratize foreign travel for ordinary citizens.', providing deeper technical insight.",
+      "timestampSeek": 570
+    }
+  ]
+}

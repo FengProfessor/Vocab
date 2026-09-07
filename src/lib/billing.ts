@@ -26,7 +26,20 @@ export const TRIAL_COUPON_DAYS: Record<string, number> = {
   NEWBIE2W: 7,
   /** Live Buổi 3 — 1 tuần Pro free (quà tham gia live) */
   LIVEB3: 7,
+  /** Khai Giảng 05/09 — 3 tháng (90 ngày) Pro VIP */
+  KHAIGIANG3M: 90,
+  THAYPHONG3M: 90,
 };
+
+/**
+ * Danh sách mã chiến dịch Khai Giảng 05/09 (3 tháng = 90 ngày Pro).
+ * Mỗi tài khoản học viên chỉ được nhận tối đa 1 lần quà Khai Giảng.
+ */
+export const KHAI_GIANG_CAMPAIGN_CODES = ['KHAIGIANG3M', 'THAYPHONG3M'] as const;
+
+export function isKhaiGiangCampaignCode(code: string): boolean {
+  return (KHAI_GIANG_CAMPAIGN_CODES as readonly string[]).includes(code.trim().toUpperCase());
+}
 
 export function trialCouponExpiry(code: string, from: Date = new Date()): Date | null {
   const days = TRIAL_COUPON_DAYS[code.toUpperCase()];
@@ -316,6 +329,22 @@ export async function createOrder(
       periodMonths = 12;
     }
 
+    if (isKhaiGiangCampaignCode(couponCode)) {
+      const { data: existingKhaiGiang } = await supabase
+        .from('orders')
+        .select('id')
+        .eq('user_id', userId)
+        .in('coupon_code', [...KHAI_GIANG_CAMPAIGN_CODES])
+        .eq('status', 'paid')
+        .maybeSingle();
+
+      if (existingKhaiGiang) {
+        throw new Error('Tài khoản của bạn đã kích hoạt gói quà tặng Khai Giảng rồi.');
+      }
+
+      periodMonths = 1;
+    }
+
     const { data } = await supabase
       .from('coupons')
       .select('*')
@@ -346,6 +375,19 @@ export async function createOrder(
         valid_from: new Date(0).toISOString(),
         valid_until: null,
         applicable_plans: ['pro', 'premium'],
+        is_active: true,
+      };
+    } else if (isKhaiGiangCampaignCode(couponCode)) {
+      coupon = {
+        id: `synthetic-${couponCode.toLowerCase()}`,
+        code: couponCode,
+        discount_pct: 100,
+        discount_amount: null,
+        max_uses: null,
+        used_count: 0,
+        valid_from: new Date(0).toISOString(),
+        valid_until: '2026-12-31T23:59:59.999Z',
+        applicable_plans: ['pro'],
         is_active: true,
       };
     }
@@ -395,6 +437,22 @@ export async function createOrder(
     let order: OrderSummary | null = null;
     let rpcErrorOccurred = false;
 
+    // Lấy profile hiện tại TRƯỚC khi cập nhật để tính đúng điểm nối hạn gói (startsAt)
+    const { data: initialProfile } = await supabase
+      .from('profiles')
+      .select('plan, plan_expires_at')
+      .eq('id', userId)
+      .maybeSingle();
+
+    const now = new Date();
+    let startsAt = now;
+    if (initialProfile?.plan_expires_at) {
+      const currentExp = new Date(initialProfile.plan_expires_at);
+      if (currentExp > now) {
+        startsAt = currentExp;
+      }
+    }
+
     try {
       const { data: rpcData, error: rpcError } = await supabase.rpc('redeem_free_coupon_order', {
         p_user_id: userId,
@@ -417,25 +475,11 @@ export async function createOrder(
       rpcErrorOccurred = true;
     }
 
+    let finalExpiresAt: Date;
+
     // Fallback: Direct database updates in TypeScript
     if (rpcErrorOccurred || !order) {
-      const now = new Date();
-
-      // Get current plan for history and stacking logic
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('plan, plan_expires_at')
-        .eq('id', userId)
-        .single();
-      const oldPlan = profile?.plan ?? 'free';
-
-      let startsAt = now;
-      if (profile?.plan_expires_at) {
-        const currentExp = new Date(profile.plan_expires_at);
-        if (currentExp > now) {
-          startsAt = currentExp;
-        }
-      }
+      const oldPlan = initialProfile?.plan ?? 'free';
 
       const trialDays = trialCouponDays(coupon.code);
       let expiresAt = new Date(startsAt);
@@ -444,6 +488,7 @@ export async function createOrder(
       } else {
         expiresAt.setMonth(expiresAt.getMonth() + periodMonths);
       }
+      finalExpiresAt = expiresAt;
 
       // Create paid order
       const { data: newOrder, error: orderErr } = await supabase
@@ -472,17 +517,11 @@ export async function createOrder(
 
       order = newOrder as unknown as OrderSummary;
 
-      let planExpiresAt = expiresAt;
-      if (profile?.plan_expires_at) {
-        const currentExp = new Date(profile.plan_expires_at);
-        if (currentExp > planExpiresAt) planExpiresAt = currentExp;
-      }
-
       const { error: profileErr } = await supabase
         .from('profiles')
         .update({
           plan: plan,
-          plan_expires_at: planExpiresAt.toISOString(),
+          plan_expires_at: expiresAt.toISOString(),
         })
         .eq('id', userId);
 
@@ -503,36 +542,51 @@ export async function createOrder(
       await supabase.rpc('increment_coupon_usage', { p_code: coupon.code });
     } else {
       // RPC mặc định = period_months (1 tháng) → override trial theo NGÀY
-      const trialExp = trialCouponExpiry(coupon.code);
-      if (trialExp) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('plan_expires_at')
-          .eq('id', userId)
-          .single();
-        let planExpiresAt = trialExp;
-        if (profile?.plan_expires_at) {
-          const currentExp = new Date(profile.plan_expires_at);
-          if (currentExp > planExpiresAt) planExpiresAt = currentExp;
-        }
+      const trialDays = trialCouponDays(coupon.code);
+      if (trialDays) {
+        // Nối tiếp chính xác từ startsAt (startsAt = currentExp > now ? currentExp : now)
+        const planExpiresAt = trialCouponExpiry(coupon.code, startsAt);
+        finalExpiresAt = planExpiresAt ?? new Date(startsAt.getTime() + trialDays * 24 * 60 * 60 * 1000);
+
         await supabase
           .from('profiles')
           .update({
             plan: plan,
-            plan_expires_at: planExpiresAt.toISOString(),
+            plan_expires_at: finalExpiresAt.toISOString(),
           })
           .eq('id', userId);
-      }
 
-      if (input.note && order.id) {
-        await supabase
-          .from('orders')
-          .update({ note: input.note })
-          .eq('id', order.id);
+        if (order.id) {
+          await supabase
+            .from('orders')
+            .update({
+              starts_at: startsAt.toISOString(),
+              expires_at: finalExpiresAt.toISOString(),
+              ...(input.note ? { note: input.note } : {}),
+            })
+            .eq('id', order.id);
+        }
+      } else {
+        finalExpiresAt = new Date(startsAt);
+        finalExpiresAt.setMonth(finalExpiresAt.getMonth() + periodMonths);
+
+        if (input.note && order.id) {
+          await supabase
+            .from('orders')
+            .update({ note: input.note })
+            .eq('id', order.id);
+        }
       }
     }
 
-    return { order, discount: basePrice };
+    return {
+      order,
+      discount: basePrice,
+      amount: 0,
+      plan,
+      coupon,
+      planExpiresAt: finalExpiresAt.toISOString(),
+    };
   }
 
   if (amount === 0) {

@@ -1,0 +1,204 @@
+{
+  "id": "video-fs-19",
+  "youtubeId": "rTNhW3g_xGx",
+  "title": "The Vocabulary of Supermarket Aisles",
+  "channel": "English with Lucy",
+  "duration": 660,
+  "durationDisplay": "11:00",
+  "durationCategory": "medium",
+  "cefrLevel": "B1",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/rTNhW3g_xGx/hqdefault.jpg",
+  "description": "Toàn bộ từ vựng các quầy hàng siêu thị: từ đồ đông lạnh đến quầy bánh và sữa.",
+  "coreVocabulary": [
+    {
+      "word": "aisle",
+      "phonetic": "/aɪl/",
+      "viDefinition": "lối đi (giữa các quầy kệ)",
+      "contextSentence": "Condiments and spices are located down aisle number four."
+    },
+    {
+      "word": "confectionery",
+      "phonetic": "/kənˈfekʃənri/",
+      "viDefinition": "bánh kẹo, đồ ngọt",
+      "contextSentence": "The confectionery department tempts shoppers with artisan chocolates."
+    },
+    {
+      "word": "bulk",
+      "phonetic": "/bʌlk/",
+      "viDefinition": "số lượng lớn, hàng rời (bán theo cân)",
+      "contextSentence": "Purchasing raw grains in bulk reduces household packaging waste."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-19-cue-1",
+      "start": 0,
+      "end": 66,
+      "en": "Welcome back to English with Lucy, taking a deep dive into supermarket terminology.",
+      "vi": "Chào mừng quay lại với English with Lucy, đi sâu vào các thuật ngữ siêu thị hôm nay."
+    },
+    {
+      "id": "video-fs-19-cue-2",
+      "start": 66,
+      "end": 132,
+      "en": "Supermarkets are ingeniously designed architectural machines aimed at guiding human movement.",
+      "vi": "Các siêu thị là những cỗ máy kiến trúc được thiết kế tài tình nhằm hướng dẫn chuyển động của con người."
+    },
+    {
+      "id": "video-fs-19-cue-3",
+      "start": 132,
+      "end": 198,
+      "en": "The wide shopping corridors between shelves are universally referred to as aisles.",
+      "vi": "Những hành lang mua sắm rộng rãi giữa các kệ hàng được gọi chung là các lối đi (aisles)."
+    },
+    {
+      "id": "video-fs-19-cue-4",
+      "start": 198,
+      "end": 264,
+      "en": "The dairy case houses fresh whole milk, probiotic yogurts, and artisan cheeses.",
+      "vi": "Ngăn mát bơ sữa chứa sữa tươi nguyên kem, sữa chua lợi khuẩn và phô mai thủ công."
+    },
+    {
+      "id": "video-fs-19-cue-5",
+      "start": 264,
+      "end": 330,
+      "en": "Down the confectionery aisle, tempting displays of sweets and chocolates await.",
+      "vi": "Dọc lối đi bánh kẹo, những quầy trưng bày kẹo và sô-cô-la đầy cám dỗ đang chờ đón."
+    },
+    {
+      "id": "video-fs-19-cue-6",
+      "start": 330,
+      "end": 396,
+      "en": "Visit the bulk dry goods section to scoop rice, lentils, and nuts by weight.",
+      "vi": "Ghé thăm khu vực hàng khô bán rời để xúc gạo, đậu lăng và các loại hạt theo cân nặng."
+    },
+    {
+      "id": "video-fs-19-cue-7",
+      "start": 396,
+      "end": 462,
+      "en": "The deli counter prepares custom slices of roasted turkey and cured Italian ham.",
+      "vi": "Quầy đồ nguội chuẩn bị các lát thịt gà tây nướng và giăm bông Ý muối thái theo yêu cầu."
+    },
+    {
+      "id": "video-fs-19-cue-8",
+      "start": 462,
+      "end": 528,
+      "en": "Check the frozen foods freezer cabinets for quick stir-fry vegetables and ice cream.",
+      "vi": "Kiểm tra các tủ đông thực phẩm đông lạnh để mua rau xào nhanh và kem."
+    },
+    {
+      "id": "video-fs-19-cue-9",
+      "start": 528,
+      "end": 594,
+      "en": "End-cap displays at the tip of each aisle feature promotional discounted bargains.",
+      "vi": "Các quầy trưng bày đầu hồi ở đầu mỗi lối đi giới thiệu những món hàng giảm giá khuyến mãi."
+    },
+    {
+      "id": "video-fs-19-cue-10",
+      "start": 594,
+      "end": 660,
+      "en": "Mastering food retail terminology turns grocery shopping into an effortless language drill.",
+      "vi": "Làm chủ thuật ngữ bán lẻ thực phẩm biến việc đi chợ thành bài rèn luyện ngôn ngữ dễ dàng."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-19-cloze-1",
+      "cueId": "video-fs-19-cue-3",
+      "sentence": "The wide {{blank}} corridors between shelves are universally referred to as aisles.",
+      "blankWord": "shopping",
+      "hintVi": "Nghĩa gợi ý: Những hành lang mua sắm rộng rãi giữa cá...",
+      "timestamp": 132,
+      "options": [
+        "adequate",
+        "subsequent",
+        "balance",
+        "shopping"
+      ]
+    },
+    {
+      "id": "video-fs-19-cloze-2",
+      "cueId": "video-fs-19-cue-5",
+      "sentence": "Down the {{blank}} aisle, tempting displays of sweets and chocolates await.",
+      "blankWord": "confectionery",
+      "hintVi": "Nghĩa gợi ý: Dọc lối đi bánh kẹo, những quầy trưng bà...",
+      "timestamp": 264,
+      "options": [
+        "vulnerable",
+        "flexible",
+        "confectionery",
+        "dimension"
+      ]
+    },
+    {
+      "id": "video-fs-19-cloze-3",
+      "cueId": "video-fs-19-cue-8",
+      "sentence": "{{blank}} the frozen foods freezer cabinets for quick stir-fry vegetables and ice cream.",
+      "blankWord": "check",
+      "hintVi": "Nghĩa gợi ý: Kiểm tra các tủ đông thực phẩm đông lạnh...",
+      "timestamp": 462,
+      "options": [
+        "adequate",
+        "vulnerable",
+        "resource",
+        "check"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-19-q1",
+      "question": "What is the primary focus of the video 'The Vocabulary of Supermarket Aisles'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice the vocabulary of supermarket aisles effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores the vocabulary of supermarket aisles, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 66
+    },
+    {
+      "id": "video-fs-19-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Down...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Down the confectionery aisle, tempting displays of sweets an..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Down the confectionery aisle, tempting displays of sweets and chocolates await.', showing its practical importance.",
+      "timestampSeek": 264
+    },
+    {
+      "id": "video-fs-19-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Mastering food retail terminology turns grocery shopping into an ...",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Mastering food retail terminology turns grocery shopping into an effortless language drill., providing a meaningful summary for learners.",
+      "timestampSeek": 594
+    },
+    {
+      "id": "video-fs-19-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'The...'?",
+      "options": [
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners.",
+        "It warns that following this method produces immediate failure.",
+        "It highlights that: The deli counter prepares custom slices of roasted turkey an..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The speaker specifically highlights: 'The deli counter prepares custom slices of roasted turkey and cured Italian ham.', providing deeper technical insight.",
+      "timestampSeek": 396
+    }
+  ]
+}

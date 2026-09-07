@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-17",
+  "youtubeId": "aTxahrV-35S",
+  "title": "The Chemistry of Antibiotic Resistance",
+  "channel": "TED-Ed",
+  "duration": 530,
+  "durationDisplay": "08:50",
+  "durationCategory": "short",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/aTxahrV-35S/hqdefault.jpg",
+  "description": "Kháng kháng sinh: cách vi khuẩn tiến hóa né tránh thuốc và mối đe dọa y tế toàn cầu.",
+  "coreVocabulary": [
+    {
+      "word": "antibiotic",
+      "phonetic": "/ˌæntibaɪˈɒtɪk/",
+      "viDefinition": "thuốc kháng sinh",
+      "contextSentence": "Overusing antibiotics accelerates the selective evolution of multi-drug resistant superbugs."
+    },
+    {
+      "word": "mutation",
+      "phonetic": "/mjuːˈteɪʃn/",
+      "viDefinition": "sự đột biến di truyền",
+      "contextSentence": "A spontaneous random genetic mutation confers enzymatic resistance to penicillin."
+    },
+    {
+      "word": "plasmid",
+      "phonetic": "/ˈplæzmɪd/",
+      "viDefinition": "thể plasmid (vòng DNA vi khuẩn)",
+      "contextSentence": "Bacteria transfer antibiotic resistance genes horizontally using mobile plasmids."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-17-cue-1",
+      "start": 0,
+      "end": 53,
+      "en": "Welcome to TED-Ed, confronting one of modern medicine's most ominous looming crises.",
+      "vi": "Chào mừng đến với TED-Ed, đối mặt với một trong những cuộc khủng hoảng đáng lo ngại nhất của y học hiện đại."
+    },
+    {
+      "id": "video-sth-17-cue-2",
+      "start": 53,
+      "end": 106,
+      "en": "Before Alexander Fleming discovered penicillin in nineteen twenty-eight, minor bacterial cuts proved fatal.",
+      "vi": "Trước khi Alexander Fleming phát hiện ra penicillin vào năm 1928, những vết đứt vi khuẩn nhỏ cũng có thể gây tử vong."
+    },
+    {
+      "id": "video-sth-17-cue-3",
+      "start": 106,
+      "end": 159,
+      "en": "Antibiotics transformed global healthcare, saving hundreds of millions from infectious pneumonia and sepsis.",
+      "vi": "Thuốc kháng sinh đã biến đổi ngành y tế toàn cầu, cứu sống hàng trăm triệu người khỏi viêm phổi truyền nhiễm và nhiễm trùng huyết."
+    },
+    {
+      "id": "video-sth-17-cue-4",
+      "start": 159,
+      "end": 212,
+      "en": "However, their widespread overuse in human medicine and livestock agriculture has triggered natural selection.",
+      "vi": "Tuy nhiên, việc lạm dụng rộng rãi thuốc kháng sinh trong y học con người và nông nghiệp chăn nuôi đã kích hoạt chọn lọc tự nhiên."
+    },
+    {
+      "id": "video-sth-17-cue-5",
+      "start": 212,
+      "end": 265,
+      "en": "When a bacterial colony is bombarded with antibiotics, vulnerable cells perish swiftly.",
+      "vi": "Khi một quần thể vi khuẩn bị tấn công bằng kháng sinh, các tế bào dễ tổn thương sẽ chết nhanh chóng."
+    },
+    {
+      "id": "video-sth-17-cue-6",
+      "start": 265,
+      "end": 318,
+      "en": "Rare mutants carrying protective genetic adaptations survive and multiply exponentially.",
+      "vi": "Những thể đột biến hiếm hoi mang các thích ứng di truyền bảo vệ sẽ sống sót và nhân lên theo cấp số nhân."
+    },
+    {
+      "id": "video-sth-17-cue-7",
+      "start": 318,
+      "end": 371,
+      "en": "Some bacteria synthesize enzymes that physically dismantle antibiotic chemical rings.",
+      "vi": "Một số vi khuẩn tổng hợp các enzyme phá hủy vật lý các vòng hóa học của thuốc kháng sinh."
+    },
+    {
+      "id": "video-sth-17-cue-8",
+      "start": 371,
+      "end": 424,
+      "en": "Others evolve microscopic cellular efflux pumps to expel therapeutic drugs immediately.",
+      "vi": "Những loài khác phát triển các bơm đẩy tế bào siêu nhỏ để tống khứ thuốc điều trị ngay lập tức."
+    },
+    {
+      "id": "video-sth-17-cue-9",
+      "start": 424,
+      "end": 477,
+      "en": "Even worse, bacteria exchange resistance plasmids horizontally across completely different species.",
+      "vi": "Tệ hơn nữa, vi khuẩn trao đổi các plasmid kháng thuốc theo chiều ngang giữa các loài hoàn toàn khác nhau."
+    },
+    {
+      "id": "video-sth-17-cue-10",
+      "start": 477,
+      "end": 530,
+      "en": "Stemming the superbug tide demands global stewardship, novel drug discovery, and antimicrobial vigilance.",
+      "vi": "Ngăn chặn làn sóng siêu vi khuẩn đòi hỏi sự quản lý toàn cầu, khám phá thuốc mới và sự cảnh giác kháng khuẩn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-17-cloze-1",
+      "cueId": "video-sth-17-cue-3",
+      "sentence": "{{blank}} transformed global healthcare, saving hundreds of millions from infectious pneumonia and sepsis.",
+      "blankWord": "antibiotics",
+      "hintVi": "Nghĩa gợi ý: Thuốc kháng sinh đã biến đổi ngành y tế ...",
+      "timestamp": 106,
+      "options": [
+        "antibiotics",
+        "subsequent",
+        "adequate",
+        "efficient"
+      ]
+    },
+    {
+      "id": "video-sth-17-cloze-2",
+      "cueId": "video-sth-17-cue-5",
+      "sentence": "When a {{blank}} colony is bombarded with antibiotics, vulnerable cells perish swiftly.",
+      "blankWord": "bacterial",
+      "hintVi": "Nghĩa gợi ý: Khi một quần thể vi khuẩn bị tấn công bằ...",
+      "timestamp": 212,
+      "options": [
+        "fundamental",
+        "accurate",
+        "priority",
+        "bacterial"
+      ]
+    },
+    {
+      "id": "video-sth-17-cloze-3",
+      "cueId": "video-sth-17-cue-8",
+      "sentence": "{{blank}} evolve microscopic cellular efflux pumps to expel therapeutic drugs immediately.",
+      "blankWord": "others",
+      "hintVi": "Nghĩa gợi ý: Những loài khác phát triển các bơm đẩy t...",
+      "timestamp": 371,
+      "options": [
+        "vibrant",
+        "spontaneous",
+        "vulnerable",
+        "others"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-17-q1",
+      "question": "What is the primary focus of the video 'The Chemistry of Antibiotic Resistance'?",
+      "options": [
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice the chemistry of antibiotic resistance effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores the chemistry of antibiotic resistance, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 53
+    },
+    {
+      "id": "video-sth-17-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'When...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: When a bacterial colony is bombarded with antibiotics, vulne...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'When a bacterial colony is bombarded with antibiotics, vulnerable cells perish swiftly.', showing its practical importance.",
+      "timestampSeek": 212
+    },
+    {
+      "id": "video-sth-17-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Stemming the superbug tide demands global stewardship, novel drug...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Stemming the superbug tide demands global stewardship, novel drug discovery, and antimicrobial vigilance., providing a meaningful summary for learners.",
+      "timestampSeek": 477
+    }
+  ]
+}

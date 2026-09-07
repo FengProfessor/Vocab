@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-13",
+  "youtubeId": "kmJ16aT5GQS",
+  "title": "How Noise-Cancelling Headphones Work",
+  "channel": "SciShow",
+  "duration": 530,
+  "durationDisplay": "08:50",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/kmJ16aT5GQS/hqdefault.jpg",
+  "description": "Nguyên lý triệt tiêu tiếng ồn chủ động bằng sóng âm nghịch pha trong tai nghe hiện đại.",
+  "coreVocabulary": [
+    {
+      "word": "destructive",
+      "phonetic": "/dɪˈstrʌktɪv/",
+      "viDefinition": "tính triệt tiêu (destructive interference)",
+      "contextSentence": "Destructive sound wave interference cancels ambient jet engine drone completely."
+    },
+    {
+      "word": "frequency",
+      "phonetic": "/ˈfriːkwənsi/",
+      "viDefinition": "tần số (sóng âm thanh)",
+      "contextSentence": "Active cancellation excels at neutralizing repetitive low-frequency background rumble."
+    },
+    {
+      "word": "acoustic",
+      "phonetic": "/əˈkuːstɪk/",
+      "viDefinition": "thuộc âm học, âm thanh",
+      "contextSentence": "Miniature outward microphones sample incoming external acoustic pressure waves."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-13-cue-1",
+      "start": 0,
+      "end": 53,
+      "en": "Welcome to SciShow, tuning in to the acoustic engineering of active noise-cancellation.",
+      "vi": "Chào mừng đến với SciShow, khám phá kỹ thuật âm học của tính năng khử tiếng ồn chủ động."
+    },
+    {
+      "id": "video-sth-13-cue-2",
+      "start": 53,
+      "end": 106,
+      "en": "Slip on modern noise-cancelling headphones inside an airplane, and roaring jet engines vanish into silence.",
+      "vi": "Đeo tai nghe khử tiếng ồn hiện đại trên máy bay, tiếng gầm của động cơ phản lực sẽ biến mất vào im lặng."
+    },
+    {
+      "id": "video-sth-13-cue-3",
+      "start": 106,
+      "end": 159,
+      "en": "This magical silence is achieved through precision physics known as phase interference.",
+      "vi": "Sự im lặng kỳ diệu này đạt được nhờ vật lý chính xác được gọi là sự giao thoa pha."
+    },
+    {
+      "id": "video-sth-13-cue-4",
+      "start": 159,
+      "end": 212,
+      "en": "Sound is essentially physical waves of compressed air molecules traveling into your ear canals.",
+      "vi": "Âm thanh về cơ bản là các sóng vật lý của các phân tử không khí bị nén truyền vào ống tai bạn."
+    },
+    {
+      "id": "video-sth-13-cue-5",
+      "start": 212,
+      "end": 265,
+      "en": "Noise-cancelling headphones feature tiny external microphones that continuously sample ambient noise.",
+      "vi": "Tai nghe khử tiếng ồn có các micro siêu nhỏ bên ngoài liên tục lấy mẫu tiếng ồn xung quanh."
+    },
+    {
+      "id": "video-sth-13-cue-6",
+      "start": 265,
+      "end": 318,
+      "en": "An onboard digital signal processor analyzes the incoming frequency and amplitude in microseconds.",
+      "vi": "Một bộ xử lý tín hiệu kỹ thuật số trên bo mạch phân tích tần số và biên độ tới trong micro giây."
+    },
+    {
+      "id": "video-sth-13-cue-7",
+      "start": 318,
+      "end": 371,
+      "en": "The processor generates an inverted anti-phase sound wave: crests match troughs perfectly.",
+      "vi": "Bộ xử lý tạo ra một sóng âm thanh ngược pha: các đỉnh sóng khớp hoàn hảo với các đáy sóng."
+    },
+    {
+      "id": "video-sth-13-cue-8",
+      "start": 371,
+      "end": 424,
+      "en": "Miniature speakers inside the earcups play this inverted wave directly into your ear canal.",
+      "vi": "Các loa nhỏ bên trong chụp tai phát sóng âm ngược này trực tiếp vào ống tai của bạn."
+    },
+    {
+      "id": "video-sth-13-cue-9",
+      "start": 424,
+      "end": 477,
+      "en": "When the ambient wave and inverted wave collide, destructive interference eliminates both completely.",
+      "vi": "Khi sóng môi trường và sóng nghịch đảo va chạm, sự giao thoa triệt tiêu sẽ loại bỏ hoàn toàn cả hai."
+    },
+    {
+      "id": "video-sth-13-cue-10",
+      "start": 477,
+      "end": 530,
+      "en": "Active noise cancellation transforms chaotic urban racket into serene auditory sanctuary.",
+      "vi": "Khử tiếng ồn chủ động biến tiếng ồn hỗn loạn của đô thị thành nơi trú ẩn thính giác thanh bình."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-13-cloze-1",
+      "cueId": "video-sth-13-cue-3",
+      "sentence": "This {{blank}} silence is achieved through precision physics known as phase interference.",
+      "blankWord": "magical",
+      "hintVi": "Nghĩa gợi ý: Sự im lặng kỳ diệu này đạt được nhờ vật ...",
+      "timestamp": 106,
+      "options": [
+        "balance",
+        "gradual",
+        "magical",
+        "moderate"
+      ]
+    },
+    {
+      "id": "video-sth-13-cloze-2",
+      "cueId": "video-sth-13-cue-5",
+      "sentence": "Noise-cancelling {{blank}} feature tiny external microphones that continuously sample ambient noise.",
+      "blankWord": "headphones",
+      "hintVi": "Nghĩa gợi ý: Tai nghe khử tiếng ồn có các micro siêu ...",
+      "timestamp": 212,
+      "options": [
+        "moderate",
+        "headphones",
+        "tremendous",
+        "criterion"
+      ]
+    },
+    {
+      "id": "video-sth-13-cloze-3",
+      "cueId": "video-sth-13-cue-8",
+      "sentence": "{{blank}} speakers inside the earcups play this inverted wave directly into your ear canal.",
+      "blankWord": "miniature",
+      "hintVi": "Nghĩa gợi ý: Các loa nhỏ bên trong chụp tai phát sóng...",
+      "timestamp": 371,
+      "options": [
+        "miniature",
+        "moderate",
+        "component",
+        "priority"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-13-q1",
+      "question": "What is the primary focus of the video 'How Noise-Cancelling Headphones Work'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice how noise-cancelling headphones work effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores how noise-cancelling headphones work, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 53
+    },
+    {
+      "id": "video-sth-13-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Noise-cancelling...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Noise-cancelling headphones feature tiny external microphone...",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Noise-cancelling headphones feature tiny external microphones that continuously sample ambient noise.', showing its practical importance.",
+      "timestampSeek": 212
+    },
+    {
+      "id": "video-sth-13-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Active noise cancellation transforms chaotic urban racket into se...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Active noise cancellation transforms chaotic urban racket into serene auditory sanctuary., providing a meaningful summary for learners.",
+      "timestampSeek": 477
+    }
+  ]
+}

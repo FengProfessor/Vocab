@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-07",
+  "youtubeId": "DX8RJETfsJO",
+  "title": "How Solar Panels Turn Sunlight into Electricity",
+  "channel": "SciShow",
+  "duration": 360,
+  "durationDisplay": "06:00",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/DX8RJETfsJO/hqdefault.jpg",
+  "description": "Nguyên lý hoạt động của tấm pin mặt trời và hiệu ứng quang điện tạo ra dòng điện sạch.",
+  "coreVocabulary": [
+    {
+      "word": "silicon",
+      "phonetic": "/ˈsɪlɪkən/",
+      "viDefinition": "nguyên tố silic (bán dẫn)",
+      "contextSentence": "Solar photovoltaic cells are crafted from crystalline silicon slices."
+    },
+    {
+      "word": "electron",
+      "phonetic": "/ɪˈlektrɒn/",
+      "viDefinition": "hạt electron, điện tử",
+      "contextSentence": "Sunlight photons knock electrons free from silicon atomic bonds."
+    },
+    {
+      "word": "photovoltaic",
+      "phonetic": "/ˌfəʊtəʊvɒlˈteɪɪk/",
+      "viDefinition": "quang điện (chuyển quang năng thành điện năng)",
+      "contextSentence": "Rooftop photovoltaic arrays produce clean, emission-free residential electricity."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-07-cue-1",
+      "start": 0,
+      "end": 36,
+      "en": "Welcome to SciShow, exploring the brilliant physics behind renewable solar technology.",
+      "vi": "Chào mừng đến với SciShow, khám phá vật lý tuyệt vời đằng sau công nghệ mặt trời tái tạo."
+    },
+    {
+      "id": "video-sth-07-cue-2",
+      "start": 36,
+      "end": 72,
+      "en": "The sun showers Earth with more radiant energy in one hour than humanity consumes annually.",
+      "vi": "Mặt trời tưới xuống Trái Đất nhiều năng lượng bức xạ trong một giờ hơn mức nhân loại tiêu thụ hàng năm."
+    },
+    {
+      "id": "video-sth-07-cue-3",
+      "start": 72,
+      "end": 108,
+      "en": "To harness this clean bounty, engineers developed photovoltaic solar cells.",
+      "vi": "Để khai thác nguồn tài nguyên sạch này, các kỹ sư đã phát triển các tế bào quang điện mặt trời."
+    },
+    {
+      "id": "video-sth-07-cue-4",
+      "start": 108,
+      "end": 144,
+      "en": "Each panel consists of wafer-thin slices of ultra-pure crystalline silicon semiconductor.",
+      "vi": "Mỗi tấm pin bao gồm các lát bán dẫn silic tinh thể siêu mỏng cực kỳ tinh khiết."
+    },
+    {
+      "id": "video-sth-07-cue-5",
+      "start": 144,
+      "end": 180,
+      "en": "Silicon atoms are carefully treated with phosphorus and boron to create electric charges.",
+      "vi": "Các nguyên tử silic được xử lý cẩn thận với phốt pho và bo để tạo ra điện tích."
+    },
+    {
+      "id": "video-sth-07-cue-6",
+      "start": 180,
+      "end": 216,
+      "en": "When sunlight strikes the panel, incoming packets of light called photons collide with silicon atoms.",
+      "vi": "Khi ánh sáng mặt trời chiếu vào tấm pin, các gói ánh sáng gọi là photon va chạm với các nguyên tử silic."
+    },
+    {
+      "id": "video-sth-07-cue-7",
+      "start": 216,
+      "end": 252,
+      "en": "This collision knocks electrons free from their atomic bonds, creating mobile electric charges.",
+      "vi": "Sự va chạm này đánh bật các electron ra khỏi liên kết nguyên tử, tạo ra các điện tích di động."
+    },
+    {
+      "id": "video-sth-07-cue-8",
+      "start": 252,
+      "end": 288,
+      "en": "An internal electric field channels these loose electrons in one unified direction.",
+      "vi": "Một điện trường bên trong dẫn các electron tự do này theo một hướng thống nhất."
+    },
+    {
+      "id": "video-sth-07-cue-9",
+      "start": 288,
+      "end": 324,
+      "en": "Metal conductive plates collect this flowing stream, producing direct electrical current.",
+      "vi": "Các tấm dẫn kim loại thu dòng chảy này, tạo ra dòng điện một chiều."
+    },
+    {
+      "id": "video-sth-07-cue-10",
+      "start": 324,
+      "end": 360,
+      "en": "An inverter transforms direct current into alternating current to illuminate modern homes.",
+      "vi": "Một bộ biến tần chuyển đổi dòng điện một chiều thành dòng điện xoay chiều để thắp sáng các ngôi nhà hiện đại."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-07-cloze-1",
+      "cueId": "video-sth-07-cue-3",
+      "sentence": "To {{blank}} this clean bounty, engineers developed photovoltaic solar cells.",
+      "blankWord": "harness",
+      "hintVi": "Nghĩa gợi ý: Để khai thác nguồn tài nguyên sạch này, ...",
+      "timestamp": 72,
+      "options": [
+        "preliminary",
+        "alternative",
+        "harness",
+        "framework"
+      ]
+    },
+    {
+      "id": "video-sth-07-cloze-2",
+      "cueId": "video-sth-07-cue-5",
+      "sentence": "{{blank}} atoms are carefully treated with phosphorus and boron to create electric charges.",
+      "blankWord": "silicon",
+      "hintVi": "Nghĩa gợi ý: Các nguyên tử silic được xử lý cẩn thận ...",
+      "timestamp": 144,
+      "options": [
+        "silicon",
+        "priority",
+        "routine",
+        "temporary"
+      ]
+    },
+    {
+      "id": "video-sth-07-cloze-3",
+      "cueId": "video-sth-07-cue-8",
+      "sentence": "An {{blank}} electric field channels these loose electrons in one unified direction.",
+      "blankWord": "internal",
+      "hintVi": "Nghĩa gợi ý: Một điện trường bên trong dẫn các electr...",
+      "timestamp": 252,
+      "options": [
+        "substantial",
+        "routine",
+        "internal",
+        "dimension"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-07-q1",
+      "question": "What is the primary focus of the video 'How Solar Panels Turn Sunlight into Electricity'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice how solar panels turn sunlight into electricity effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores how solar panels turn sunlight into electricity, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 36
+    },
+    {
+      "id": "video-sth-07-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Silicon...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Silicon atoms are carefully treated with phosphorus and boro...",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Silicon atoms are carefully treated with phosphorus and boron to create electric charges.', showing its practical importance.",
+      "timestampSeek": 144
+    },
+    {
+      "id": "video-sth-07-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: An inverter transforms direct current into alternating current to...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that An inverter transforms direct current into alternating current to illuminate modern homes., providing a meaningful summary for learners.",
+      "timestampSeek": 324
+    }
+  ]
+}

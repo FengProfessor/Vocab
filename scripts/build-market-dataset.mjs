@@ -1,0 +1,1838 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+const outputFile = path.resolve(rootDir, 'research/100_vietnam_english_websites.json');
+
+const platforms = [
+  // ==========================================
+  // 1. edtech_startup (18 platforms)
+  // ==========================================
+  {
+    name: "ELSA Speak",
+    url: "https://elsaspeak.com",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Tập trung vào công nghệ nhận diện giọng nói AI và các video ngắn mô phỏng hội thoại 1-1, tuy nhiên chưa có trình phát video dài với phụ đề song ngữ tương tác và tra từ thời gian thực.",
+    pros: [
+      "Công nghệ AI nhận diện phát âm chuẩn xác đến từng âm tiết (phoneme-level)",
+      "Lộ trình học cá nhân hóa phong phú theo chủ đề công việc và đời sống hàng ngày",
+      "Giao diện di động hiện đại, tương tác mượt mà và trực quan"
+    ],
+    cons: [
+      "Thiếu thư viện video dài (3-20 phút) cho luyện nghe sâu (extensive listening)",
+      "Phiên bản web còn hạn chế tính năng so với ứng dụng di động"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Người đi làm và sinh viên muốn cải thiện phát âm và phản xạ giao tiếp"
+  },
+  {
+    name: "Prep.vn",
+    url: "https://prep.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Hệ thống bài giảng video chất lượng cao do giáo viên chuyên môn biên soạn kết hợp phòng luyện ảo Virtual Speaking/Writing Room; phần luyện nghe chủ yếu phục vụ đề thi IELTS/TOEIC.",
+    pros: [
+      "Hệ sinh thái luyện thi toàn diện kết hợp công nghệ AI chấm điểm thông minh",
+      "Bài giảng video có hình ảnh minh họa sinh động và ghi chú tóm tắt bài học",
+      "Đội ngũ giáo viên 8.0+ IELTS uy tín với phương pháp sư phạm chặt chẽ"
+    ],
+    cons: [
+      "Video chủ yếu là bài giảng tĩnh, chưa có cơ chế phụ đề song ngữ nhấp để tra từ trực tiếp",
+      "Học phí các gói khóa học trọn gói tương đối cao đối với học sinh - sinh viên"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Thí sinh ôn luyện chứng chỉ IELTS, TOEIC và THPT Quốc gia"
+  },
+  {
+    name: "Topica Native",
+    url: "https://topicanative.edu.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Mô hình lớp học trực tuyến qua video trực tiếp 16 giờ mỗi ngày với giảng viên bản xứ Âu - Mỹ - Úc; không tập trung vào kho video tự học tương tác cá nhân.",
+    pros: [
+      "Môi trường giao tiếp trực tiếp qua video đa chiều với người bản xứ liên tục trong ngày",
+      "Giúp học viên vượt qua rào cản tâm lý ngại nói tiếng Anh",
+      "Chương trình thiết kế theo các tình huống làm việc thực tế"
+    ],
+    cons: [
+      "Chi phí khóa học cao và đòi hỏi người học phải cam kết thời gian lên lớp cố định",
+      "Không có công cụ hỗ trợ luyện nghe tự học qua phụ đề tương tác thông minh"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Người đi làm bận rộn cần môi trường luyện phản xạ nói tiếng Anh hàng ngày"
+  },
+  {
+    name: "NativeX",
+    url: "https://nativex.edu.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Mô hình lớp học nén Micro-learning kết hợp video trực tuyến tương tác sĩ số nhỏ (3-6 học viên); có tài liệu video chuẩn bị trước buổi học.",
+    pros: [
+      "Thời lượng học tinh gọn 45 phút phù hợp tối đa cho lịch trình người đi làm",
+      "Sĩ số lớp nhỏ đảm bảo tương tác video 1-1 với giáo viên bản xứ",
+      "Hệ thống quản lý học tập và theo dõi tiến độ rõ ràng"
+    ],
+    cons: [
+      "Tập trung vào lớp học live, chưa có nền tảng tự luyện nghe video phụ đề song ngữ độc lập",
+      "Chi phí trên mỗi giờ học tương đối cao so với các ứng dụng tự học"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Dân văn phòng, người đi làm có nhu cầu thăng tiến công việc qua tiếng Anh"
+  },
+  {
+    name: "Vocab (LingoPro)",
+    url: "https://vocab.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Tích hợp trình phát video YouTube tương tác chuyên sâu với phụ đề song ngữ đồng bộ, tra từ 1 chạm lưu vào bộ nhớ FSRS, chế độ lặp câu A-B và bài tập Cloze/Quiz ngữ cảnh.",
+    pros: [
+      "Thuật toán lặp lại ngắt quãng FSRS tối ưu hóa khả năng ghi nhớ từ vựng dài hạn",
+      "Trình phát video tương tác đa chế độ (Song ngữ, Tiếng Anh, Ẩn phụ đề để chép chính tả)",
+      "Liên kết chặt chẽ giữa xem video, tra từ và bài tập kiểm tra trắc nghiệm/điền từ ngay lập tức"
+    ],
+    cons: [
+      "Tính năng luyện nghe video mới được tích hợp, đang tiếp tục hoàn thiện kho dữ liệu",
+      "Cần kết nối internet ổn định để stream video YouTube chất lượng cao"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Học viên Việt Nam từ mất gốc đến trung cấp muốn phát triển từ vựng và kỹ năng nghe thực tế"
+  },
+  {
+    name: "Manabie",
+    url: "https://manabie.com",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Cung cấp các video hoạt hình ngắn (animated micro-learning) giải thích ngữ pháp và từ vựng tiếng Anh theo chuẩn giáo dục Nhật Bản; không có video giao tiếp đời sống.",
+    pros: [
+      "Hình ảnh đồ họa hoạt hình sinh động, trực quan giúp dễ hiểu các khái niệm ngữ pháp khó",
+      "Nội dung bám sát khung chương trình phổ thông và luyện thi đại học",
+      "Đội ngũ cố vấn học tập cá nhân hỗ trợ giải đáp thắc mắc"
+    ],
+    cons: [
+      "Không hỗ trợ luyện nghe giao tiếp tự nhiên qua video thực tế từ người bản xứ",
+      "Video bài giảng được đóng gói sẵn, thiếu tính năng tương tác phụ đề động"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Học sinh THCS và THPT ôn thi học kỳ và tốt nghiệp THPT"
+  },
+  {
+    name: "Kyna English",
+    url: "https://kynaenglish.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Các khóa học video trực tuyến 1 kèm 1 và kho video tự học hoạt hình cho trẻ em chuẩn Cambridge Young Learners (Starters, Movers, Flyers).",
+    pros: [
+      "Mô hình học 1-1 với giáo viên nước ngoài tạo môi trường tiếp xúc tiếng Anh sớm",
+      "Giáo trình chuẩn quốc tế Cambridge với lộ trình theo dõi sự tiến bộ chi tiết",
+      "Giao diện thân thiện và hình ảnh phù hợp tâm lý lứa tuổi thiếu nhi"
+    ],
+    cons: [
+      "Chỉ phục vụ đối tượng trẻ em, không phù hợp cho người lớn tự luyện nghe",
+      "Công nghệ trình phát video đơn giản, không có tra từ vựng thông minh"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Trẻ em lứa tuổi 4 - 12 tuổi học theo khung Cambridge"
+  },
+  {
+    name: "Monkey Junior",
+    url: "https://monkey.edu.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng hàng đầu về từ vựng và ngữ âm cho trẻ em với hàng nghìn video ngắn, hình ảnh người thật phát âm và đồ họa tương tác đa giác quan.",
+    pros: [
+      "Phương pháp Glenn Doman và Phonics chuẩn mực giúp trẻ tiếp cận tiếng Anh tự nhiên",
+      "Kho video ngắn phát âm khẩu hình miệng thực tế của người bản xứ rất phong phú",
+      "Có thể học ngoại tuyến không cần mạng internet"
+    ],
+    cons: [
+      "Nội dung dành riêng cho trẻ em từ 0-10 tuổi, không có ngữ cảnh hội thoại người lớn",
+      "Video chỉ mang tính chất minh họa từ đơn lẻ, không có đoạn hội thoại dài"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Trẻ em bắt đầu làm quen với tiếng Anh từ độ tuổi mầm non"
+  },
+  {
+    name: "Edupia",
+    url: "https://edupia.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng học tiếng Anh chất lượng cao cho học sinh tiểu học với các video mô phỏng lớp học quốc tế và công nghệ luyện nói I-Speak.",
+    pros: [
+      "Mô phỏng chương trình trường quốc tế với 100% giáo viên bản xứ giảng dạy qua video",
+      "Công nghệ I-Speak hỗ trợ chấm điểm và sửa lỗi phát âm trực tiếp",
+      "Nội dung bám sát từng đơn vị bài học trong sách giáo khoa của Bộ GD&ĐT"
+    ],
+    cons: [
+      "Video dựng sẵn thiếu tính tùy biến tốc độ hoặc ngắt đoạn câu thông minh",
+      "Chỉ tập trung vào lứa tuổi học sinh tiểu học và THCS"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Học sinh tiểu học và phụ huynh muốn đồng hành cùng con tại nhà"
+  },
+  {
+    name: "Babilala",
+    url: "https://babilala.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng tiếng Anh cho trẻ em 3-8 tuổi với video hoạt hình sinh động, tính năng Live Class mô phỏng và công nghệ tương tác trực tiếp với nhân vật.",
+    pros: [
+      "Công nghệ nhận diện giọng nói AI i-Speak độc quyền giúp trẻ sửa phát âm chuẩn",
+      "Đồ họa hoạt hình chuẩn quốc tế, âm thanh vui nhộn cuốn hút sự chú ý của trẻ",
+      "Giáo trình theo tiêu chuẩn Cambridge CEFR cấp độ tiền tiểu học"
+    ],
+    cons: [
+      "Không phục vụ người học trưởng thành hay luyện thi chứng chỉ",
+      "Nội dung video ngắn mang tính giải trí nhiều hơn học thuật chuyên sâu"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Trẻ nhỏ mầm non và đầu tiểu học (3-8 tuổi)"
+  },
+  {
+    name: "Vuihoc",
+    url: "https://vuihoc.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Trường học trực tuyến với hơn 5.500 video bài giảng đa môn bao gồm Tiếng Anh bám sát chương trình phổ thông và các buổi livestream định kỳ.",
+    pros: [
+      "Hệ thống bài giảng video bám sát toàn diện chương trình của Bộ Giáo dục",
+      "Kho bài tập trắc nghiệm và đề thi thử phong phú có lời giải chi tiết",
+      "Đội ngũ thầy cô giáo trường chuyên, giảng dạy nhiệt tình và dễ hiểu"
+    ],
+    cons: [
+      "Môn tiếng Anh chủ yếu tập trung vào ngữ pháp và giải đề thi trên lớp, thiếu rèn luyện kỹ năng nghe thực tế",
+      "Video quay bài giảng truyền thống không có phụ đề song ngữ hay tra từ tương tác"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Học sinh phổ thông từ lớp 1 đến lớp 12 trên toàn quốc"
+  },
+  {
+    name: "PalFish Vietnam",
+    url: "https://palfish.com",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Kho sách tranh kỹ thuật số lồng tiếng và dịch vụ gia sư video 1-1 với giáo viên bản xứ chuẩn quốc tế cho trẻ em.",
+    pros: [
+      "Kho tranh truyện điện tử khổng lồ từ các nhà xuất bản lớn như Oxford, Scholastic",
+      "Gia sư video tương tác 1 kèm 1 tạo sự tự tin giao tiếp cho trẻ",
+      "Giao diện ứng dụng di động nhiều màu sắc và tương tác vui vẻ"
+    ],
+    cons: [
+      "Học phí học 1-1 với giáo viên bản xứ tương đối cao",
+      "Không có giải pháp cho người tự học độc lập hoặc sinh viên, người đi làm"
+    ],
+    pricing_model: "hybrid",
+    target_audience: "Trẻ em từ 3 đến 15 tuổi và phụ huynh đầu tư học tiếng Anh sớm"
+  },
+  {
+    name: "Betia English",
+    url: "https://betia.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng học tiếng Anh nhập vai 3D (RPG Game) với cốt truyện điện ảnh và video cutscene giúp người chơi giao tiếp với NPC bằng giọng nói tiếng Anh.",
+    pros: [
+      "Trải nghiệm nhập vai game 3D độc đáo giúp giảm bớt áp lực học tập",
+      "Học viên được khuyến khích phát âm liên tục để vượt qua các nhiệm vụ trong game",
+      "Cốt truyện lôi cuốn và đồ họa đẹp mắt tạo động lực học hàng ngày"
+    ],
+    cons: [
+      "Dung lượng ứng dụng nặng, yêu cầu thiết bị di động có cấu hình tốt",
+      "Chỉ giới hạn trong các câu hội thoại kịch bản game, thiếu video đời sống thực"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Trẻ em và học sinh tiểu học yêu thích thể loại game nhập vai"
+  },
+  {
+    name: "FutureLang",
+    url: "https://futurelang.edu.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng học tiếng Anh gia đình với các video bài giảng của giáo viên bản xứ, hỗ trợ công nghệ nhận diện giọng nói F-Speak từ mầm non đến người lớn.",
+    pros: [
+      "Một tài khoản có thể sử dụng cho nhiều lứa tuổi trong gia đình",
+      "Bao quát từ chương trình Bộ Giáo Dục đến các chứng chỉ Cambridge và giao tiếp",
+      "Có hệ thống mạng lưới đại lý và cộng tác viên hỗ trợ rộng khắp cả nước"
+    ],
+    cons: [
+      "Chất lượng video và bài tập chưa đồng đều giữa các cấp độ",
+      "Trình phát video chưa có tính năng điều khiển phụ đề thông minh hoặc lặp câu A-B"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Các gia đình có con nhỏ và phụ huynh cùng muốn học tiếng Anh"
+  },
+  {
+    name: "Schola",
+    url: "https://schola.tv",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng lớp học video trực tuyến nhóm nhỏ và 1 kèm 1 theo định hướng STEM và kỹ năng mềm bằng tiếng Anh cho học sinh châu Á.",
+    pros: [
+      "Chương trình giảng dạy kết hợp tiếng Anh với các chủ đề khoa học, công nghệ và nghệ thuật",
+      "Đội ngũ giáo viên bản ngữ được tuyển chọn và đào tạo kỹ càng",
+      "Báo cáo định kỳ chi tiết về sự tiến bộ của từng học sinh"
+    ],
+    cons: [
+      "Chi phí mỗi buổi học khá cao, khó tiếp cận đại chúng",
+      "Không có kho tài nguyên video tự học mở cho người dùng tự rèn luyện"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh từ 6 - 15 tuổi định hướng du học hoặc phát triển tư duy toàn cầu"
+  },
+  {
+    name: "Step Up English",
+    url: "https://stepup.edu.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Nổi tiếng với phương pháp 'Truyện chêm' và sách 'Hack Não 1500 từ', tích hợp ứng dụng App Hack Não với các audio và video giải thích từ vựng hài hước.",
+    pros: [
+      "Phương pháp liên tưởng âm thanh tương tự và truyện chêm kích thích ghi nhớ nhanh",
+      "Video và hình ảnh minh họa mang phong cách trẻ trung, bắt trend, hài hước",
+      "Cộng đồng học viên đông đảo và tương tác nhiệt tình trên mạng xã hội"
+    ],
+    cons: [
+      "Nhiều tranh cãi về việc âm thanh tương tự có thể gây ảnh hưởng đến phát âm chuẩn",
+      "Không có hệ thống luyện nghe video hội thoại dài hoặc bài tập nghe hiểu chuyên sâu"
+    ],
+    pricing_model: "hybrid",
+    target_audience: "Người mất gốc tiếng Anh và học sinh - sinh viên cần nạp từ vựng cấp tốc"
+  },
+  {
+    name: "Antoree",
+    url: "https://antoree.com",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng kết nối gia sư dạy tiếng Anh 1 kèm 1 trực tuyến qua video Skype/Zoom với giáo viên bản xứ, Philippines và giáo viên Việt Nam.",
+    pros: [
+      "Lộ trình học được may đo hoàn toàn theo đúng mục tiêu và điểm yếu của từng cá nhân",
+      "Linh hoạt sắp xếp lịch học và lựa chọn gia sư theo ngân sách phù hợp",
+      "Tăng cường tối đa thời lượng tương tác thực tế với giáo viên"
+    ],
+    cons: [
+      "Không có công cụ tự học video có phụ đề tương tác trên nền tảng web",
+      "Chất lượng buổi học phụ thuộc hoàn toàn vào kỹ năng của từng gia sư riêng lẻ"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Mọi đối tượng cần người hướng dẫn 1-1 sát sao để cải thiện kỹ năng nói và nghe"
+  },
+  {
+    name: "Yola Smart Learning",
+    url: "https://yola.vn",
+    category: "edtech_startup",
+    has_video_feature: true,
+    video_features_analysis: "Hệ thống học tập kết hợp (blended learning) của Yola với cổng học trực tuyến LMS cung cấp video bài giảng, bài tập nghe học thuật chuẩn quốc tế.",
+    pros: [
+      "Chương trình học thuật chuẩn mực hướng đến các chứng chỉ IELTS, SAT, TOEFL",
+      "Đội ngũ giảng viên có thành tích học thuật xuất sắc và kinh nghiệm sư phạm vững vàng",
+      "Môi trường học tập kết hợp offline và online chuyên nghiệp"
+    ],
+    cons: [
+      "Hệ thống trực tuyến chỉ đóng vai trò hỗ trợ bài tập về nhà cho học viên trung tâm",
+      "Không phát hành các tính năng tự luyện nghe mở cho cộng đồng học viên ngoài trung tâm"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh cấp 2, cấp 3 và sinh viên có mục tiêu du học hoặc săn học bổng"
+  },
+
+  // ==========================================
+  // 2. exam_prep_ielts_toeic (25 platforms)
+  // ==========================================
+  {
+    name: "IELTS Fighter",
+    url: "https://ielts-fighter.com",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Sở hữu thư viện video mẹo làm bài IELTS Listening khổng lồ trên website và kênh YouTube, cung cấp các bài test nghe mô phỏng; tuy nhiên video chủ yếu là nhúng YouTube tĩnh.",
+    pros: [
+      "Kho tài liệu tự học IELTS đồ sộ hoàn toàn miễn phí cho cộng đồng",
+      "Bài giảng video truyền cảm hứng, phong cách giảng dạy nhiệt huyết và gần gũi",
+      "Hệ thống cơ sở offline rộng khắp tại các tỉnh thành lớn"
+    ],
+    cons: [
+      "Trình phát video nhúng thông thường, thiếu phụ đề tương tác và tra từ trực tiếp",
+      "Nội dung website nhiều quảng cáo khóa học trả phí gây phân tâm người đọc"
+    ],
+    pricing_model: "hybrid",
+    target_audience: "Học sinh, sinh viên bắt đầu tìm hiểu và ôn luyện IELTS từ trình độ cơ bản"
+  },
+  {
+    name: "ZIM Academy",
+    url: "https://zim.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng tri thức học thuật sâu rộng với các video phân tích đề thi mẫu, bài giảng phương pháp tư duy và hệ thống thi thử mô phỏng có âm thanh audio chuẩn phòng thi.",
+    pros: [
+      "Tài liệu phân tích chuyên sâu, chuẩn xác cao về mặt học thuật và tiêu chí chấm thi",
+      "Hệ thống sách và ấn phẩm luyện thi IELTS/TOEIC/VSTEP được biên soạn công phu",
+      "Tính năng thi thử trực tuyến có giao diện tương đồng với bài thi thực tế trên máy tính"
+    ],
+    cons: [
+      "Chưa có tính năng xem video luyện nghe tương tác theo phụ đề và lặp câu cá nhân",
+      "Văn phong học thuật nặng, có thể gây nản lòng cho người học ở trình độ sơ cấp"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Sĩ tử luyện thi IELTS mục tiêu 6.5 - 8.0+ và cần tài liệu chuẩn chỉnh"
+  },
+  {
+    name: "DOL English (Đình Lực)",
+    url: "https://dolenglish.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Hệ thống học tập công nghệ với phương pháp Linearthinking độc quyền; nền tảng trực tuyến DOL Super App cung cấp audio bài tập nghe và video giải thích tư duy.",
+    pros: [
+      "Phương pháp Linearthinking giúp học viên tư duy logic, hạn chế dịch thô từng từ",
+      "Nền tảng Super App tích hợp công nghệ AI hỗ trợ học viên luyện tập bài bản",
+      "Giao diện thương hiệu hiện đại, trẻ trung và nhận diện nổi bật"
+    ],
+    cons: [
+      "Hệ sinh thái công nghệ chỉ mở đầy đủ tính năng cho học viên đăng ký khóa học",
+      "Chưa có kho video đời sống phụ đề song ngữ mở cho cộng đồng tự luyện nghe"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh, sinh viên và người đi làm muốn học tiếng Anh logic, đạt band IELTS cao"
+  },
+  {
+    name: "Anh Ngữ Ms Hoa",
+    url: "https://anhngumshoa.com",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Chuyên trang luyện thi TOEIC số 1 tại Việt Nam với hàng trăm video bài giảng kỹ năng Listening Part 1-4, mẹo tránh bẫy và bài thi thử trực tuyến.",
+    pros: [
+      "Thương hiệu hàng đầu về luyện thi chứng chỉ TOEIC 2 kỹ năng và 4 kỹ năng",
+      "Kho đề thi thử TOEIC online có chấm điểm tự động và lời giải chi tiết",
+      "Phong cách truyền cảm hứng học tiếng Anh tích cực và nhiều năng lượng"
+    ],
+    cons: [
+      "Video bài giảng chủ yếu đăng trên YouTube nhúng về web, không có tính năng tương tác",
+      "Giao diện website có nhiều banner quảng cáo khóa học offline"
+    ],
+    pricing_model: "hybrid",
+    target_audience: "Sinh viên cần chứng chỉ TOEIC để ra trường và người đi làm cần nộp hồ sơ tuyển dụng"
+  },
+  {
+    name: "The IELTS Workshop",
+    url: "https://theieltsworkshop.com",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Trung tâm do thầy Đặng Trần Tùng (9.0 IELTS) sáng lập; website chia sẻ video bài giảng YouTube và bài viết phân tích từ vựng, mẹo nghe hiểu.",
+    pros: [
+      "Uy tín lớn từ người sáng lập đạt 9.0 IELTS 4 kỹ năng nhiều lần",
+      "Nội dung bài giảng tự nhiên, hiện đại, cập nhật liên tục xu hướng đề thi thật",
+      "Cung cấp nhiều bài test kiểm tra trình độ đầu vào chuẩn xác"
+    ],
+    cons: [
+      "Website chủ yếu là kênh truyền thông và blog tin tức, không phải nền tảng web-app tự học",
+      "Người học phải xem video trên YouTube ngoài mà không có công cụ tra từ tích hợp"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Các bạn trẻ muốn học IELTS phong cách hiện đại và đạt band điểm cao"
+  },
+  {
+    name: "TiếngAnh123",
+    url: "https://tienganh123.com",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Website kỳ cựu với tính năng nghe chép chính tả (dictation), bài tập nghe qua video và audio từ cơ bản đến nâng cao; trình phát web tùy biến riêng.",
+    pros: [
+      "Hệ thống bài tập nghe chép chính tả phân cấp từ dễ đến khó rất hiệu quả",
+      "Kho tàng bài tập ngữ pháp, từ vựng và luyện thi phong phú tồn tại lâu năm",
+      "Mức phí thành viên VIP rất rẻ, dễ dàng tiếp cận mọi đối tượng học viên"
+    ],
+    cons: [
+      "Giao diện thiết kế theo phong cách web cổ điển của thập niên trước, chưa tối ưu trên mobile",
+      "Trình phát video chưa hỗ trợ tra từ điển tức thời hoặc đồng bộ phụ đề song ngữ tự động"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người tự học tiếng Anh mọi lứa tuổi từ học sinh đến người lớn cần luyện nghe cơ bản"
+  },
+  {
+    name: "Study4",
+    url: "https://study4.com",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng thi thử và luyện đề IELTS/TOEIC hàng đầu với trình phát audio/video mô phỏng phòng thi thật, tính năng ngắt câu, chỉnh tốc độ nghe và hiển thị transcript sau nộp bài.",
+    pros: [
+      "Trải nghiệm luyện đề Cambridge IELTS và ETS TOEIC trực tuyến chân thực và mượt mà nhất",
+      "Hỗ trợ tính năng nghe chép chính tả từng câu với phím tắt điều khiển thuận tiện",
+      "Phân tích kết quả chi tiết, thống kê tỷ lệ đúng theo từng dạng bài nghe"
+    ],
+    cons: [
+      "Tập trung chính vào đề thi chứng chỉ học thuật, thiếu kho video đời sống thực tế",
+      "Nhiều bộ đề thi mới và tính năng nâng cao yêu cầu trả phí gói Pro"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Thí sinh đang trong giai đoạn nước rút luyện đề thi IELTS và TOEIC"
+  },
+  {
+    name: "IELTS Vietop",
+    url: "https://ieltsvietop.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Cung cấp các video giải đề Cambridge IELTS Listening chi tiết và bài học ngắn về phát âm, ngữ điệu trên website và YouTube.",
+    pros: [
+      "Kho giải thích đáp án Cambridge Listening chi tiết bằng tiếng Việt dễ hiểu",
+      "Lộ trình học cam kết đầu ra rõ ràng tại khu vực miền Nam",
+      "Nhiều bài viết tổng hợp từ vựng và cụm từ đắt giá cho bài thi"
+    ],
+    cons: [
+      "Không có trình phát luyện nghe tương tác nội tại trên web",
+      "Tính năng video chỉ là nhúng iframe thông thường từ YouTube"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người học tại TP.HCM và các tỉnh lân cận cần học IELTS cấp tốc"
+  },
+  {
+    name: "IELTS Xuân Phi",
+    url: "https://ieltsxuanphi.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Hệ thống học IELTS online qua video bài giảng chuyên sâu với phương pháp cá nhân hóa lộ trình và bài tập luyện nghe theo chủ đề.",
+    pros: [
+      "Mô hình học trực tuyến tự chủ thời gian kèm chữa bài chi tiết",
+      "Bài giảng video ngắn gọn, tập trung trọng tâm vào bẫy đề thi",
+      "Hệ thống quản lý tiến độ học tập sát sao qua Zalo và cổng học viên"
+    ],
+    cons: [
+      "Website chỉ dành cho học viên đăng ký khóa, không có công cụ luyện nghe mở",
+      "Tính năng video là bài giảng một chiều, thiếu tương tác phụ đề song ngữ"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người bận rộn muốn tự học IELTS trực tuyến có người chấm chữa"
+  },
+  {
+    name: "IELTS Mentor",
+    url: "https://ieltsmentor.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Trang web trung tâm đào tạo IELTS với video chia sẻ chiến lược làm bài thi nghe, mẹo xử lý bẫy đa lựa chọn và bản đồ (map labeling).",
+    pros: [
+      "Mẹo làm bài thi Listening thực chiến, dễ áp dụng",
+      "Đội ngũ giảng viên nhiệt huyết và giàu kinh nghiệm",
+      "Hỗ trợ kiểm tra năng lực đầu vào miễn phí cho học viên mới"
+    ],
+    cons: [
+      "Không có module trình phát nghe tương tác trên nền tảng web",
+      "Video đào tạo chủ yếu lưu hành nội bộ hoặc kênh YouTube công khai"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh THPT và sinh viên chuẩn bị bước vào giai đoạn luyện đề"
+  },
+  {
+    name: "Aland IELTS",
+    url: "https://aland.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Mô hình Blended Learning kết hợp bài giảng video Cambridge với phòng thi thử online có audio chuẩn quốc tế.",
+    pros: [
+      "Tích hợp lộ trình học IELTS dành riêng cho học sinh cấp 2 và cấp 3",
+      "Phòng luyện thi trực tuyến có chấm điểm và hiển thị transcript",
+      "Phương pháp đào tạo chuẩn Cambridge kết hợp phát triển kỹ năng mềm"
+    ],
+    cons: [
+      "Trình phát audio cơ bản, không có phím tắt lặp lại hoặc tra cứu từ vựng",
+      "Nội dung video tự học chưa đa dạng chủ đề đời sống xã hội"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Thanh thiếu niên (Junior) và học sinh phổ thông học IELTS dài hạn"
+  },
+  {
+    name: "IELTS LangGo",
+    url: "https://langgo.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Áp dụng phương pháp Lập trình ngôn ngữ tư duy (NLP) vào giảng dạy qua video bài giảng và rèn luyện phản xạ nghe - hiểu.",
+    pros: [
+      "Phương pháp NLP giúp giải tỏa nỗi sợ tiếng Anh và gia tăng động lực",
+      "Sĩ số lớp học nhỏ giúp tăng cường tương tác trực tiếp",
+      "Bài giảng video phân tích kỹ các lỗi tâm lý thường gặp trong phòng thi"
+    ],
+    cons: [
+      "Website chủ yếu cung cấp thông tin khóa học và cẩm nang bài viết",
+      "Thiếu công cụ phần mềm chuyên sâu hỗ trợ luyện nghe ngắt câu trên web"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người học bị mất gốc hoặc gặp rào cản tâm lý e ngại học tiếng Anh"
+  },
+  {
+    name: "WISE English",
+    url: "https://wiseenglish.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Nổi bật với phương pháp Nghe Tự Nhiên (Automatic Listening) và Học Từ Vựng 6 Bước qua các video hướng dẫn kỹ thuật nghe chép.",
+    pros: [
+      "Phương pháp học nghe tự nhiên khoa học giúp rút ngắn thời gian tiếp thu",
+      "Bộ sách từ vựng và tự luyện nghe được biên soạn kỹ lưỡng",
+      "Thương hiệu luyện thi uy tín hàng đầu tại khu vực miền Trung"
+    ],
+    cons: [
+      "Học viên phải tự thực hành nghe chép thủ công trên giấy hoặc file word",
+      "Nền tảng web chưa có trình phát đồng bộ âm thanh - chữ tự động"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh - sinh viên tại Đà Nẵng và khu vực miền Trung luyện thi IELTS"
+  },
+  {
+    name: "Jaxtina English",
+    url: "https://jaxtina.com",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Trung tâm tiên phong đào tạo tiếng Anh toàn diện 4 kỹ năng; hệ thống học trực tuyến bổ trợ các video luyện nghe theo tình huống.",
+    pros: [
+      "Lộ trình đào tạo đồng đều cả 4 kỹ năng Nghe - Nói - Đọc - Viết",
+      "Cam kết chuẩn đầu ra rõ ràng bằng hợp đồng đào tạo",
+      "Môi trường học tập thân thiện và đội ngũ trợ giảng hỗ trợ nhiệt tình"
+    ],
+    cons: [
+      "Công nghệ trên website chỉ dừng lại ở mức cổng thông tin và làm bài tập về nhà",
+      "Không cung cấp tính năng học video với phụ đề tương tác tra từ tức thời"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Sinh viên và người đi làm muốn phát triển toàn diện cả 4 kỹ năng"
+  },
+  {
+    name: "Aten English",
+    url: "https://aten.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Phương pháp đào tạo độc quyền phản xạ 2 kèm 1 kết hợp chuỗi video rèn luyện phát âm và nghe chuẩn ngữ điệu người bản ngữ.",
+    pros: [
+      "Tập trung sâu vào việc chuẩn hóa phát âm để cải thiện kỹ năng nghe từ gốc",
+      "Mô hình 2 kèm 1 (1 giảng viên + 1 trợ giảng) hỗ trợ học viên sát sao",
+      "Bảo hành học phí trọn đời cho học viên đã hoàn thành khóa học"
+    ],
+    cons: [
+      "Hệ thống trực tuyến chưa có công cụ hỗ trợ người dùng tự học nghe video độc lập",
+      "Nội dung video mở trên web chủ yếu mang tính chất giới thiệu và quảng bá"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người mất gốc phát âm hoàn toàn cần xây dựng lại nền tảng từ đầu"
+  },
+  {
+    name: "IELTS Datio",
+    url: "https://ieltsdatio.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Kênh chia sẻ video hướng dẫn giải đề thi IELTS Listening và bài học từ vựng chuyên sâu của thầy Hồ Kính Đạt (8.5 IELTS).",
+    pros: [
+      "Các video bài giảng ngắn gọn, giải thích cặn kẽ tư duy làm bài nghe",
+      "Phương pháp học gần gũi, thực tế và không tạo áp lực ghi nhớ máy móc",
+      "Giáo trình cập nhật sát các chủ đề thi thật gần nhất"
+    ],
+    cons: [
+      "Website chủ yếu là trang giới thiệu khóa học, không có hệ thống phần mềm luyện tập",
+      "Phụ thuộc vào các video đăng tải trên nền tảng mạng xã hội"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh, sinh viên tại TP.HCM muốn học IELTS thực chiến và hiệu quả"
+  },
+  {
+    name: "WESET English Center",
+    url: "https://weset.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Đào tạo IELTS theo phương pháp Root-based (học từ gốc rễ ngôn ngữ); cung cấp các video podcast thảo luận các vấn đề xã hội bằng tiếng Anh.",
+    pros: [
+      "Phương pháp học từ gốc rễ giúp sử dụng tiếng Anh tự nhiên và bền vững",
+      "Podcast và video chia sẻ có hàm lượng kiến thức xã hội và văn hóa phong phú",
+      "Đội ngũ giáo viên có chuyên môn học thuật cao và phong cách hiện đại"
+    ],
+    cons: [
+      "Chưa tích hợp trình phát podcast/video chuyên biệt với phụ đề tra từ trên web",
+      "Chủ yếu phục vụ học viên theo học tại trung tâm"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người học muốn phát triển năng lực ngôn ngữ thực chất kết hợp thi chứng chỉ"
+  },
+  {
+    name: "KTDC Group",
+    url: "https://ktdcgroup.com",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Trung tâm chuyên đào tạo IELTS và tiếng Anh thương mại với 100% chuyên gia bản ngữ; có video chia sẻ chiến lược làm bài Listening từ cựu giám khảo.",
+    pros: [
+      "100% giảng viên là người bản ngữ giàu kinh nghiệm, nhiều người từng là giám khảo thi",
+      "Tài liệu và video hướng dẫn bám sát chuẩn mực quốc tế của kỳ thi IELTS",
+      "Môi trường giao tiếp tiếng Anh hoàn toàn tự nhiên ngay từ ngày đầu"
+    ],
+    cons: [
+      "Chi phí khóa học thuộc phân khúc cao cấp",
+      "Website chỉ là cổng giới thiệu thông tin, không có công cụ tự học trực tuyến"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học viên có nền tảng khá trở lên muốn bứt phá band điểm 7.0 - 8.5+"
+  },
+  {
+    name: "IELTS I-Ready",
+    url: "https://iready.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng luyện thi IELTS thông minh với các bài thi thử Listening có giao diện tương tác và giải thích đáp án bằng video bài giảng ngắn.",
+    pros: [
+      "Giao diện làm bài thi trực tuyến hiện đại và thân thiện với người dùng",
+      "Giải thích đáp án chi tiết giúp học viên hiểu rõ nguyên nhân chọn sai",
+      "Lộ trình chia theo từng band điểm từ 4.5 đến 7.5+"
+    ],
+    cons: [
+      "Nội dung video giải thích còn tương đối ít so với kho bài tập đọc",
+      "Thiếu tính năng tra cứu từ vựng một chạm và lưu vào sổ tay ôn tập"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Học sinh, sinh viên cần nền tảng luyện đề trực tuyến có phân tích kết quả"
+  },
+  {
+    name: "IPP IELTS",
+    url: "https://ippedu.com",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Chuyên sâu về phương pháp giải đề và nâng cao kỹ năng nghe - nói học thuật qua các workshop video và khóa học chuyên đề.",
+    pros: [
+      "Kỹ thuật xử lý đề thi bài bản, hệ thống hóa logic cao",
+      "Đội ngũ giảng viên 8.0 - 8.5+ IELTS trực tiếp đứng lớp và theo sát",
+      "Tài liệu tự biên soạn công phu với nhiều bài tập nghe bám sát thực tế"
+    ],
+    cons: [
+      "Không có hệ thống phần mềm web-app hỗ trợ luyện nghe tự động cho người ngoài",
+      "Thời lượng khóa học cường độ cao đòi hỏi học viên đầu tư nhiều thời gian"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học viên cần chứng chỉ IELTS cấp tốc phục vụ xét tuyển đại học hoặc du học"
+  },
+  {
+    name: "ACET Vietnam",
+    url: "https://acet.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Tổ chức giáo dục tiên phong về Anh ngữ Học thuật (Academic English) liên kết cùng UTS Insearch Australia; video bài giảng chuẩn đại học quốc tế.",
+    pros: [
+      "Chương trình chuẩn học thuật quốc tế giúp học sinh chuẩn bị tốt kỹ năng đại học",
+      "Rèn luyện kỹ năng nghe ghi chú bài giảng (Lecture note-taking) bài bản",
+      "Chứng chỉ được công nhận rộng rãi tại nhiều trường đại học trên thế giới"
+    ],
+    cons: [
+      "Mức học phí thuộc phân khúc cao cấp nhất trên thị trường hiện nay",
+      "Không cung cấp công cụ tự luyện nghe trực tuyến miễn phí cho cộng đồng"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh chuẩn bị du học đại học hoặc sau đại học tại các quốc gia nói tiếng Anh"
+  },
+  {
+    name: "British Council Vietnam",
+    url: "https://britishcouncil.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Đồng sở hữu kỳ thi IELTS toàn cầu; cung cấp cổng LearnEnglish với hàng trăm video, podcast bài học nghe hiểu chuẩn Anh - Anh có bài tập tương tác.",
+    pros: [
+      "Nguồn tài liệu chính thống, chuẩn mực cao nhất về phát âm và ngữ pháp tiếng Anh",
+      "Kho podcast và video học tập LearnEnglish hoàn toàn miễn phí, có bài tập đi kèm",
+      "Giọng đọc đa dạng các vùng miền chuẩn quốc tế (Anh, Scotland, Ireland, Wales)"
+    ],
+    cons: [
+      "Không có tính năng phụ đề song ngữ tiếng Việt hỗ trợ người học mới bắt đầu",
+      "Giao diện hệ thống quốc tế chưa được tối ưu hóa cho trải nghiệm di động của người Việt"
+    ],
+    pricing_model: "free",
+    target_audience: "Mọi đối tượng học tiếng Anh từ cơ bản đến nâng cao muốn tiếp cận nguồn chuẩn quốc tế"
+  },
+  {
+    name: "IDP Vietnam IELTS",
+    url: "https://idp.com/vietnam",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Đơn vị đồng sở hữu kỳ thi IELTS; cung cấp chuỗi video Masterclass, mẹo làm bài thi nghe và ứng dụng IDP Live hỗ trợ thí sinh thi trên máy tính.",
+    pros: [
+      "Chuỗi video Masterclass do các chuyên gia khảo thí IELTS trực tiếp hướng dẫn",
+      "Cung cấp phần mềm thi thử trên máy tính với giao diện giống 100% phòng thi thật",
+      "Hệ thống hỗ trợ tư vấn du học và đặt lịch thi IELTS chuyên nghiệp hàng đầu"
+    ],
+    cons: [
+      "Chỉ tập trung vào định dạng bài thi IELTS, không phù hợp cho người học giao tiếp",
+      "Các video chủ yếu là hội thảo trực tuyến dài, thiếu công cụ cắt câu thực hành ngắn"
+    ],
+    pricing_model: "free",
+    target_audience: "Thí sinh đăng ký dự thi IELTS và học sinh làm hồ sơ du học"
+  },
+  {
+    name: "Apollo 360",
+    url: "https://apollo.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Chương trình tiếng Anh cao cấp cho người lớn với cổng học trực tuyến kết hợp video mô phỏng các tình huống đàm phán và thuyết trình quốc tế.",
+    pros: [
+      "Phương pháp học tập hiện đại FLIP (học trước qua video, thực hành tại lớp)",
+      "Không gian học tập chuyên nghiệp, đẳng cấp và kết nối cộng đồng học viên thành đạt",
+      "Đội ngũ 100% giáo viên bản xứ có bằng cấp quốc tế (CELTA, DELTA)"
+    ],
+    cons: [
+      "Chi phí đào tạo cao, khó tiếp cận với sinh viên và người có thu nhập trung bình",
+      "Nền tảng tự học chỉ dành riêng cho học viên đang đóng học phí tại Apollo"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người đi làm, quản lý, chuyên viên muốn nâng tầm tiếng Anh công việc"
+  },
+  {
+    name: "VUS (Anh Văn Hội Việt Mỹ)",
+    url: "https://vus.edu.vn",
+    category: "exam_prep_ielts_toeic",
+    has_video_feature: true,
+    video_features_analysis: "Hệ thống trung tâm Anh ngữ quy mô lớn nhất Việt Nam; ứng dụng V-Hub tích hợp tài nguyên video độc quyền từ các đối tác Oxford, Macmillan, National Geographic.",
+    pros: [
+      "Hợp tác độc quyền với các nhà xuất bản hàng đầu thế giới về nội dung đa phương tiện",
+      "Hệ thống cơ sở vật chất và quản lý chất lượng đạt chứng nhận quốc tế NEAS",
+      "Lộ trình học liền mạch từ mẫu giáo đến chứng chỉ IELTS/TOEFL"
+    ],
+    cons: [
+      "Ứng dụng học tập trực tuyến chỉ mở quyền truy cập cho học viên chính thức",
+      "Nội dung học tập theo sát giáo trình in sẵn, thiếu tính mở đối với video đời sống YouTube"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh từ mầm non đến thanh thiếu niên và người lớn học theo lộ trình chuẩn quốc tế"
+  },
+
+  // ==========================================
+  // 3. video_listening_specialist (15 platforms)
+  // ==========================================
+  {
+    name: "eJOY English",
+    url: "https://ejoy-english.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng học tiếng Anh qua video hàng đầu tại Việt Nam: đồng bộ phụ đề song ngữ YouTube/Netflix, nhấp chuột tra từ ngay tức thì, lưu từ vào sổ từ vựng và luyện game ôn tập.",
+    pros: [
+      "Hỗ trợ tiện ích mở rộng Chrome đồng bộ phụ đề thông minh trên YouTube, Netflix, Coursera",
+      "Kho video phong phú phân cấp theo trình độ CEFR từ A1 đến C2",
+      "Tính năng tra từ bấm chuột trực tiếp trên từng từ của phụ đề rất tiện lợi"
+    ],
+    cons: [
+      "Gói tài khoản miễn phí bị giới hạn số lượt tra từ và số video mỗi ngày",
+      "Ứng dụng web đôi khi tải phụ đề chậm đối với các video độ phân giải cao"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người tự học tiếng Anh qua phim ảnh, video YouTube và muốn mở rộng từ vựng tự nhiên"
+  },
+  {
+    name: "Woodpecker Learning",
+    url: "https://woodpeckerlog.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng chuyên biệt cho phép chạm vào bất kỳ từ nào trên phụ đề video YouTube để xem định nghĩa song ngữ ngay lập tức mà không làm dừng video.",
+    pros: [
+      "Hỗ trợ hơn 400.000 video YouTube có sẵn phụ đề chuẩn",
+      "Từ điển tích hợp hỗ trợ đa ngôn ngữ bao gồm tiếng Việt giải thích rất nhanh",
+      "Tính năng tua lại 5 giây tự động bằng một lần chạm giúp nghe lại câu vừa qua"
+    ],
+    cons: [
+      "Giao diện ứng dụng đơn giản, phong cách thiết kế chưa được hiện đại hóa",
+      "Thiếu hệ thống bài tập thực hành nghe hiểu hoặc bài kiểm tra sau khi xem video"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người tự học ngoại ngữ ở trình độ trung cấp thích xem tin tức và video thực tế"
+  },
+  {
+    name: "Toomva",
+    url: "https://toomva.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Trang web học tiếng Anh qua video phụ đề song ngữ tiên phong tại Việt Nam với kho phim ảnh, ca nhạc, hoạt hình và video tin tức được dịch thủ công.",
+    pros: [
+      "Kho dữ liệu video phụ đề song ngữ Anh - Việt rất đồ sộ và gần gũi với người Việt",
+      "Phân loại video rõ ràng theo thể loại phim, ca nhạc, trẻ em và tin tức",
+      "Chi phí nâng cấp tài khoản VIP trọn năm rất rẻ"
+    ],
+    cons: [
+      "Công nghệ trình phát video web cũ, chưa hỗ trợ tra từ 1 chạm trực tiếp trên phụ đề",
+      "Giao diện có nhiều vị trí đặt banner quảng cáo gây rối mắt"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người học tiếng Anh giải trí qua phim ảnh, ca nhạc và thiếu nhi xem hoạt hình"
+  },
+  {
+    name: "Dan Hauer English",
+    url: "https://danhauer.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Kênh video nổi tiếng chuyên phân tích lỗi phát âm và nghe nhầm kinh điển của người Việt Nam khi giao tiếp với người bản xứ.",
+    pros: [
+      "Nội dung giải thích hài hước, hóm hỉnh, đánh trúng tâm lý người học Việt Nam",
+      "Phân tích sâu sắc sự khác biệt giữa âm tiếng Việt và âm tiếng Anh",
+      "Cung cấp các ví dụ thực tế về ngữ điệu và từ lóng của người Mỹ bản xứ"
+    ],
+    cons: [
+      "Số lượng video mới không còn cập nhật thường xuyên như trước",
+      "Website cá nhân chủ yếu đóng vai trò lưu trữ blog và giới thiệu khóa học liên kết"
+    ],
+    pricing_model: "free",
+    target_audience: "Người học tiếng Anh tại Việt Nam muốn sửa các lỗi sai phát âm và ngữ điệu thâm căn cố đế"
+  },
+  {
+    name: "LangKingdom",
+    url: "https://langkingdom.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Hệ thống video luyện phản xạ nghe nói tiếng Anh cấp tốc dựa trên các chuỗi câu giao tiếp lặp lại có phiên âm và dịch nghĩa tiếng Việt.",
+    pros: [
+      "Tập trung vào phản xạ phát âm chuẩn theo phương pháp kích hoạt bán cầu não",
+      "Hệ thống mẫu câu giao tiếp thông dụng trong đời sống hàng ngày",
+      "Giúp người học hình thành thói quen bật ra câu mà không cần dịch thầm"
+    ],
+    cons: [
+      "Phương pháp lặp câu đơn điệu có thể gây cảm giác nhàm chán sau thời gian dài",
+      "Thiếu các video đàm thoại tự nhiên với nhiều ngữ cảnh phong phú"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người mới bắt đầu hoặc người mất gốc muốn lấy lại phản xạ giao tiếp cơ bản"
+  },
+  {
+    name: "BBC Learning English VN",
+    url: "https://bbc.co.uk/learningenglish/vietnamese",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Trang tiếng Việt chính thức của BBC Learning English với các series video kinh điển như 6 Minute English, Lingohack, English at Work có transcript song ngữ tải về.",
+    pros: [
+      "Chất lượng phát âm giọng Anh chuẩn mực và nội dung tin tức cập nhật uy tín toàn cầu",
+      "Mỗi bài học video đều có danh sách từ vựng chọn lọc kèm tóm tắt và câu hỏi kiểm tra",
+      "Hoàn toàn miễn phí 100% cho mọi người học trên toàn thế giới"
+    ],
+    cons: [
+      "Trình phát video mặc định không có tính năng tương tác phụ đề nhấp tra từ",
+      "Tốc độ phát triển tính năng công nghệ mới trên website diễn ra chậm"
+    ],
+    pricing_model: "free",
+    target_audience: "Người tự học muốn nâng cao vốn từ vựng học thuật và nghe giọng Anh - Anh chuẩn"
+  },
+  {
+    name: "VOA Tiếng Việt - Học Tiếng Anh",
+    url: "https://voatiengviet.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Chuyên mục Special English với video tin tức đọc ở tốc độ chậm (chậm hơn 30% so với bình thường), câu văn ngắn gọn và phụ đề tiếng Anh chạy chữ lớn.",
+    pros: [
+      "Tốc độ đọc chậm rõ ràng, phát âm cực kỳ chuẩn xác giúp người mới bắt đầu dễ nghe",
+      "Chủ đề phong phú từ kinh tế, khoa học, nông nghiệp đến lối sống nước Mỹ",
+      "Hoàn toàn miễn phí, có đầy đủ văn bản đối chiếu bên dưới video"
+    ],
+    cons: [
+      "Tốc độ đọc nhân tạo không phản ánh đúng nhịp điệu giao tiếp đời thường ngoài đời thực",
+      "Giao diện web tin tức truyền thống, không có bài tập kiểm tra trắc nghiệm tương tác"
+    ],
+    pricing_model: "free",
+    target_audience: "Người mới bắt đầu luyện nghe, tai còn yếu và người lớn tuổi tự học"
+  },
+  {
+    name: "TED Translators VN",
+    url: "https://ted.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Kho diễn thuyết truyền cảm hứng toàn cầu với tính năng chuyển đổi phụ đề song ngữ Việt - Anh, điều chỉnh tốc độ xem và bấm vào từng đoạn transcript để tua video.",
+    pros: [
+      "Chủ đề bài giảng đẳng cấp thế giới, khơi gợi tư duy sâu sắc và vốn từ vựng phong phú",
+      "Transcript tương tác cho phép nhấp vào câu bất kỳ để video tự động nhảy đến mốc đó",
+      "Đội ngũ dịch giả cộng đồng Việt hóa phụ đề chuẩn xác và văn phong trau chuốt"
+    ],
+    cons: [
+      "Độ khó từ vựng và tốc độ nói nhanh, không phù hợp cho người học ở trình độ sơ cấp",
+      "Không có hệ thống lưu từ vựng vào bộ nhớ SRS để ôn tập sau khi xem"
+    ],
+    pricing_model: "free",
+    target_audience: "Người học ở trình độ trung cấp đến nâng cao (B2 - C2) yêu thích mở rộng tri thức"
+  },
+  {
+    name: "Spotlight English VN",
+    url: "https://spotlightenglish.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Chương trình luyện nghe giọng đọc 90 từ/phút với các video câu chuyện đời sống nhân văn, có văn bản transcript song ngữ song hành bên cạnh bài nghe.",
+    pros: [
+      "Tốc độ nói vừa phải và ngữ điệu biểu cảm tốt hơn VOA Special English",
+      "Nội dung các câu chuyện nhân văn, ý nghĩa đạo đức và bài học cuộc sống bổ ích",
+      "Hỗ trợ song song cả giọng đọc Anh - Mỹ và Anh - Anh"
+    ],
+    cons: [
+      "Chưa có tính năng tra từ điển trực tiếp ngay trên phụ đề video",
+      "Ít bài tập tương tác kiểm tra độ hiểu sâu sau mỗi bài nghe"
+    ],
+    pricing_model: "free",
+    target_audience: "Học sinh và người học trình độ sơ - trung cấp cần rèn luyện khả năng bắt âm"
+  },
+  {
+    name: "Luyện Nghe Tiếng Anh",
+    url: "https://luyennghetienganh.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Trang web tổng hợp các video YouTube từ các nguồn VOA, BBC, TED và tích hợp khung gõ phím luyện chép chính tả (Dictation) trực tuyến.",
+    pros: [
+      "Cơ chế nghe chép chính tả từng câu tự động ngắt và kiểm tra đúng/sai ký tự tức thời",
+      "Tổng hợp sẵn các nguồn video học tiếng Anh chất lượng nhất trên internet",
+      "Sử dụng hoàn toàn miễn phí cho cộng đồng người học"
+    ],
+    cons: [
+      "Giao diện thiết kế đơn sơ, chưa được đầu tư trau chuốt về mặt trải nghiệm UI/UX",
+      "Chưa có tính năng phân tích từ vựng và lưu vào danh sách flashcard"
+    ],
+    pricing_model: "free",
+    target_audience: "Người tự học kiên trì muốn luyện phương pháp chép chính tả để cải thiện tai nghe"
+  },
+  {
+    name: "EngVid VN Community",
+    url: "https://engvid.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Hơn 1.800 video bài giảng hoàn toàn bằng tiếng Anh của các giáo viên bản xứ nổi tiếng (Emma, Ronnie, James) kèm câu hỏi trắc nghiệm kiểm tra độ hiểu sau mỗi video.",
+    pros: [
+      "100% bài giảng bằng tiếng Anh chuẩn giúp người học đắm chìm trong môi trường bản ngữ",
+      "Mỗi video đều có quiz trắc nghiệm ngắn để củng cố ngay kiến thức vừa học",
+      "Phân loại cực kỳ rõ ràng theo trình độ (Beginner, Intermediate, Advanced) và chủ đề"
+    ],
+    cons: [
+      "Không có phụ đề tiếng Việt hỗ trợ, người học mất gốc sẽ gặp khó khăn",
+      "Trình phát nhúng YouTube truyền thống, không có tính năng tra từ trực tiếp"
+    ],
+    pricing_model: "free",
+    target_audience: "Người học từ trình độ tiền trung cấp trở lên muốn học trực tiếp bằng tiếng Anh"
+  },
+  {
+    name: "TalkEnglish Vietnam",
+    url: "https://vietnamese.talkenglish.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Cung cấp các đoạn video và audio hội thoại giao tiếp hàng ngày kèm công cụ thu âm so sánh giọng nói và văn bản tiếng Việt đối chiếu.",
+    pros: [
+      "Hệ thống bài học hội thoại theo chủ đề thực tế từ cơ bản đến nâng cao",
+      "Có thể tải về toàn bộ file âm thanh và bài học để tự học khi không có mạng",
+      "Hoàn toàn miễn phí, cấu trúc bài học ngắn gọn và dễ theo dõi"
+    ],
+    cons: [
+      "Giao diện phong cách web cũ, chưa hỗ trợ chế độ xem video hiện đại",
+      "Thiếu tính năng tương tác sâu trên dòng phụ đề"
+    ],
+    pricing_model: "free",
+    target_audience: "Người học cần tra cứu các mẫu câu hội thoại thường ngày trong giao tiếp"
+  },
+  {
+    name: "English Central VN",
+    url: "https://vi.englishcentral.com",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng video học tiếng Anh chuyên nghiệp theo quy trình 3 bước: Xem video phụ đề tương tác - Học từ vựng điền khuyết - Nói và chấm điểm phát âm qua AI.",
+    pros: [
+      "Quy trình học Xem - Học - Nói khép kín và có tính sư phạm rất cao",
+      "Công nghệ AI chấm điểm khẩu ngữ và đánh giá ngữ điệu từng câu nói",
+      "Kho video đồ sộ lên tới hơn 15.000 clip ngắn thuộc nhiều lĩnh vực đời sống"
+    ],
+    cons: [
+      "Phiên bản miễn phí bị giới hạn rất nhiều lượt học và tính năng nói",
+      "Mức phí thuê bao hàng tháng tương đối cao so với mặt bằng học sinh Việt Nam"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người học cần cải thiện đồng thời kỹ năng nghe và nói thông qua video ngắn"
+  },
+  {
+    name: "English Online VN",
+    url: "https://english-online.vn",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Trang web tổng hợp các video YouTube tuyển chọn theo các chủ đề du lịch, ẩm thực, âm nhạc với các bài tập điền từ vào chỗ trống theo lời thoại.",
+    pros: [
+      "Bài tập điền từ theo thời gian thực giúp học viên tập trung cao độ vào âm thanh",
+      "Nội dung video hấp dẫn, đa dạng văn hóa và không gây cảm giác khô khan",
+      "Miễn phí cho người dùng và thao tác làm bài đơn giản"
+    ],
+    cons: [
+      "Hệ thống dữ liệu video chưa được cập nhật liên tục hàng tuần",
+      "Không có công cụ tra cứu ngữ pháp chi tiết cho các câu khó"
+    ],
+    pricing_model: "free",
+    target_audience: "Học sinh, sinh viên muốn luyện phản xạ nghe từ vựng trong bài hát và phim"
+  },
+  {
+    name: "Elight Learning English",
+    url: "https://elight.edu.vn",
+    category: "video_listening_specialist",
+    has_video_feature: true,
+    video_features_analysis: "Sở hữu kênh YouTube triệu người theo dõi với các video bài giảng phát âm, ngữ pháp và chuỗi video luyện nghe tiếng Anh qua tình huống thực tế.",
+    pros: [
+      "Phong cách truyền đạt trẻ trung, dễ thương và gần gũi với học sinh Việt Nam",
+      "Hệ thống hóa bài giảng từ mất gốc lên tự tin giao tiếp rất mạch lạc",
+      "Có sách in bổ trợ đi kèm với video bài giảng trên ứng dụng học tập"
+    ],
+    cons: [
+      "Tính năng video trên website chỉ là các video lưu trữ, thiếu trình phát tương tác phụ đề",
+      "Nhiều nội dung video cơ bản lặp lại trên mạng xã hội"
+    ],
+    pricing_model: "hybrid",
+    target_audience: "Học sinh mất gốc tiếng Anh và người mới bắt đầu học từ con số 0"
+  },
+
+  // ==========================================
+  // 4. general_skills_community (20 platforms)
+  // ==========================================
+  {
+    name: "Langmaster",
+    url: "https://langmaster.edu.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Trung tâm tiếng Anh giao tiếp hàng đầu cho sinh viên; sản xuất hàng nghìn video ngắn trên TikTok và YouTube về mẫu câu, phát âm và phản xạ TPR.",
+    pros: [
+      "Ứng dụng phương pháp phản xạ toàn thân TPR giúp học viên nhớ nhanh và tự tin nói",
+      "Cộng đồng theo dõi trên mạng xã hội lớn nhất nhì Việt Nam với nội dung bổ ích",
+      "Giáo trình giao tiếp thực chiến chú trọng sửa ngọng và ngữ điệu bản xứ"
+    ],
+    cons: [
+      "Hệ thống website chủ yếu phục vụ truyền thông tuyển sinh khóa học offline/online",
+      "Chưa có nền tảng web-app tự học video tích hợp phụ đề tương tác"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Sinh viên và người trẻ cần tự tin giao tiếp tiếng Anh trôi chảy"
+  },
+  {
+    name: "Pasal",
+    url: "https://pasal.edu.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Độc quyền phương pháp Pronunciation Workshop của Paul Gruber và Effortless English của A.J. Hoge; cung cấp video bài giảng luyện nghe phản xạ đa chiều.",
+    pros: [
+      "Phương pháp Pronunciation Workshop chuẩn mực giúp chuẩn hóa từng khẩu hình miệng",
+      "Bộ giáo trình Effortless English giúp thấm thấu ngữ pháp qua việc nghe kể chuyện",
+      "Đội ngũ giảng viên tràn đầy năng lượng và nhiệt tình hướng dẫn"
+    ],
+    cons: [
+      "Tài nguyên video chính thống chỉ cấp cho học viên đăng ký theo học",
+      "Nền tảng trực tuyến chưa phát triển tính năng tra từ thông minh"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người học phát âm sai nhiều, ngại nói và muốn học nghe tự nhiên không gượng ép"
+  },
+  {
+    name: "Aroma Tiếng Anh Cho Người Đi Làm",
+    url: "https://aroma.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Chuyên biệt hóa đào tạo tiếng Anh cho người đi làm; website cung cấp video tình huống văn phòng (họp hành, thuyết trình, gọi điện, đàm phán).",
+    pros: [
+      "Môi trường học tập 100% là người đi làm, tạo cơ hội mở rộng quan hệ công việc",
+      "Nội dung bài học và video tình huống áp dụng trực tiếp vào công việc hàng ngày",
+      "Không dạy lan man theo sách giáo khoa học đường"
+    ],
+    cons: [
+      "Website chỉ giới thiệu thông tin và chia sẻ bài viết, không phải web-app tự học",
+      "Mức học phí các lớp học tương tác khá cao so với học sinh sinh viên"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Nhân viên văn phòng, quản lý và kỹ sư cần tiếng Anh chuyên nghiệp"
+  },
+  {
+    name: "LeeRit",
+    url: "https://leerit.com",
+    category: "general_skills_community",
+    has_video_feature: false,
+    video_features_analysis: "Trang web học từ vựng tiếng Anh thông minh với thuật toán nhắc lại và phát âm audio; không phát triển tính năng video hay luyện nghe phụ đề.",
+    pros: [
+      "Hệ thống từ điển và bộ từ vựng phân loại theo các chủ đề phong phú",
+      "Phương pháp học từ qua hình ảnh minh họa, phiên âm và ví dụ rõ ràng",
+      "Có các bài tập kiểm tra trắc nghiệm củng cố trí nhớ"
+    ],
+    cons: [
+      "Hoàn toàn không có tính năng xem video hay luyện nghe thực tế",
+      "Giao diện không còn được nâng cấp tính năng mới trong những năm gần đây"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người muốn nạp vốn từ vựng cơ bản theo các danh sách từ thông dụng"
+  },
+  {
+    name: "HelloChao",
+    url: "https://hellochao.vn",
+    category: "general_skills_community",
+    has_video_feature: false,
+    video_features_analysis: "Cổng tra cứu câu song ngữ và học phát âm câu tự nhiên tiên phong tại Việt Nam; hệ thống audio phát âm từng từ và câu hoàn chỉnh, không có module video.",
+    pros: [
+      "Kho dữ liệu hàng triệu câu đàm thoại song ngữ có kiểm duyệt chuẩn bản xứ",
+      "Tính năng tìm kiếm câu nói tự nhiên theo ngữ cảnh rất tiện ích cho người viết luận",
+      "Phương pháp tính điểm phát âm câu chi tiết từng âm tiết"
+    ],
+    cons: [
+      "Không hỗ trợ tính năng xem video luyện nghe phụ đề",
+      "Công nghệ giao diện cũ, chưa chuyển đổi sang kiến trúc web-app tương tác thời gian thực"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người học cần tra cứu câu giao tiếp và đối chiếu ngữ cảnh dịch thuật"
+  },
+  {
+    name: "Tienganh.com.vn",
+    url: "https://tienganh.com.vn",
+    category: "general_skills_community",
+    has_video_feature: false,
+    video_features_analysis: "Diễn đàn tiếng Anh cộng đồng lâu đời nhất Việt Nam; thành viên chia sẻ file audio bài nghe và bài tập thảo luận, không có trình phát video chuyên biệt.",
+    pros: [
+      "Kho tài liệu và đề thi lưu trữ phong phú do cộng đồng chia sẻ suốt nhiều năm",
+      "Nơi giải đáp thắc mắc ngữ pháp và kinh nghiệm học tiếng Anh tận tình",
+      "Hoàn toàn miễn phí và tự do tham gia thảo luận"
+    ],
+    cons: [
+      "Không có công nghệ trình phát video hay phụ đề hiện đại",
+      "Số lượng thành viên hoạt động tích cực đã giảm do xu hướng chuyển dịch sang mạng xã hội"
+    ],
+    pricing_model: "free",
+    target_audience: "Cộng đồng người tự học tiếng Anh truyền thống và tìm kiếm tài liệu ôn thi"
+  },
+  {
+    name: "Ucan.vn",
+    url: "https://ucan.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng học tiếng Anh trực tuyến kết hợp yếu tố trò chơi hóa (gamification) với các đoạn video ngắn minh họa ngữ cảnh bài tập tương tác.",
+    pros: [
+      "Cách tiếp cận học tiếng Anh qua game tạo cảm giác hào hứng, giảm căng thẳng",
+      "Bài học được phân chia thành các bước nhỏ phù hợp với thời gian tự học",
+      "Có hệ thống điểm thưởng và huy hiệu khuyến khích người học"
+    ],
+    cons: [
+      "Trình phát video ngắn, không có chức năng nghe video dài hay tra từ trên phụ đề",
+      "Hệ thống bài học chưa được bổ sung thường xuyên"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người mới bắt đầu thích hình thức học qua trò chơi và hình ảnh hoạt hình"
+  },
+  {
+    name: "ILA Vietnam",
+    url: "https://ila.edu.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Tổ chức giáo dục Anh ngữ hàng đầu với phương pháp học thế kỷ 21; cổng học tập trực tuyến tích hợp các video dự án (project-based learning) và thuyết trình.",
+    pros: [
+      "Đào tạo toàn diện cả kỹ năng tiếng Anh lẫn 6 kỹ năng mềm của thế kỷ 21",
+      "100% giáo viên bản ngữ có trình độ chuyên môn cao và cơ sở vật chất chuẩn quốc tế",
+      "Phương pháp học qua dự án kích thích khả năng tư duy sáng tạo của học viên"
+    ],
+    cons: [
+      "Học phí thuộc nhóm cao nhất thị trường Việt Nam",
+      "Không cung cấp ứng dụng tự học video công khai cho người dùng bên ngoài"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Trẻ em, học sinh và thanh thiếu niên gia đình có điều kiện kinh tế tốt"
+  },
+  {
+    name: "Wall Street English VN",
+    url: "https://wallstreetenglish.edu.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Phương pháp độc quyền xây dựng quanh loạt phim sitcom học tập chất lượng Hollywood; học viên xem video tình huống, làm bài tập và thảo luận với giáo viên.",
+    pros: [
+      "Phim sitcom dạy học được đầu tư sản xuất chuyên nghiệp, cốt truyện cuốn hút và tự nhiên",
+      "Môi trường nói 100% tiếng Anh tại trung tâm với câu lạc bộ xã hội (Social Club) phong phú",
+      "Thời gian học tập linh hoạt, học viên tự chủ lịch học trực tuyến và trực tiếp"
+    ],
+    cons: [
+      "Học phí cả khóa học rất lớn, yêu cầu ký hợp đồng đào tạo dài hạn",
+      "Chỉ dành riêng cho học viên trung tâm, không chia sẻ công nghệ video ra ngoài"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người đi làm, doanh nhân và người lớn có ngân sách đầu tư học tiếng Anh lớn"
+  },
+  {
+    name: "CEC Cambridge",
+    url: "https://cec.com.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Hệ thống Anh ngữ chuyên đào tạo tiếng Anh Cambridge cho trẻ em tại Hà Nội; cung cấp video câu lạc bộ kịch nghệ và luyện phát âm theo bài học.",
+    pros: [
+      "Chương trình đào tạo chuyên biệt chuẩn hệ thống Cambridge từ nhỏ",
+      "Kết hợp phát triển kỹ năng thuyết trình và diễn kịch bằng tiếng Anh qua video",
+      "Đội ngũ giáo viên bản ngữ thân thiện, giàu kinh nghiệm sư phạm trẻ em"
+    ],
+    cons: [
+      "Quy mô chỉ tập trung tại khu vực Hà Nội",
+      "Không có hệ thống web-app tự luyện nghe cho đối tượng người lớn"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh lứa tuổi từ 4 đến 16 tuổi tại Hà Nội"
+  },
+  {
+    name: "Effortless English VN",
+    url: "https://effortlessenglish.edu.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Cổng thông tin và phân phối khóa học Effortless English chính thức tại VN; gồm các video bài giảng 7 Quy tắc nói tiếng Anh trôi chảy và chuỗi bài nghe Mini-Story.",
+    pros: [
+      "Quy tắc học nghe tự nhiên không cần học vẹt ngữ pháp giúp người học bớt sợ hãi",
+      "Hệ thống bài hỏi đáp Mini-Story tạo phản xạ trả lời câu hỏi cực nhanh",
+      "Rất phù hợp cho người học đã có vốn từ nhưng bị 'câm - điếc' tiếng Anh"
+    ],
+    cons: [
+      "Phương pháp chủ yếu là audio nghe thụ động, ít video đàm thoại có hình ảnh trực quan",
+      "Nội dung các bài Mini-Story khá lặp lại, có thể gây nản lòng cho người thích đổi mới"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người học tiếng Anh lâu năm nhưng không thể nghe nói và phản xạ được"
+  },
+  {
+    name: "E-space",
+    url: "https://e-space.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Trung tâm dạy tiếng Anh trực tuyến 1 thầy 1 trò qua video call; học viên có thể xem lại video ghi hình buổi học để ôn tập phát âm và sửa lỗi.",
+    pros: [
+      "Tương tác 1-1 tối đa trong suốt 45-60 phút buổi học",
+      "Có thể xem lại toàn bộ video ghi hình buổi học để nhận diện lỗi sai của bản thân",
+      "Đội ngũ giáo viên đa dạng từ Philippines, Việt Nam và bản xứ Âu - Mỹ"
+    ],
+    cons: [
+      "Chi phí tính theo từng buổi học, đòi hỏi duy trì ngân sách đều đặn",
+      "Không có module tự học qua video có phụ đề tương tác độc lập"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người đi làm cần luyện nói cấp tốc cho mục đích phỏng vấn hoặc công tác"
+  },
+  {
+    name: "NativeTalk VN",
+    url: "https://nativetalk.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng gọi video và audio theo yêu cầu (on-demand) kết nối trực tiếp với người nước ngoài để luyện nói tiếng Anh mọi lúc mọi nơi.",
+    pros: [
+      "Luyện tập phản xạ nghe nói tức thời không cần đặt lịch trước",
+      "Chi phí tính theo số phút đàm thoại thực tế linh hoạt",
+      "Môi trường thực hành trò chuyện chân thật với người nước ngoài"
+    ],
+    cons: [
+      "Yêu cầu người học đã có nền tảng nghe nói cơ bản nhất định để duy trì hội thoại",
+      "Không có giáo trình video bài bản và phụ đề tra cứu"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Người học có vốn từ khá muốn duy trì phản xạ giao tiếp hàng ngày"
+  },
+  {
+    name: "Topica Edumall English",
+    url: "https://edumall.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Sàn thương mại điện tử khóa học trực tuyến với hàng trăm khóa video tiếng Anh từ nhiều giảng viên Việt Nam nổi tiếng giảng dạy ngữ pháp, phát âm và giao tiếp.",
+    pros: [
+      "Kho khóa học phong phú, mua một lần học trọn đời với mức giá ưu đãi",
+      "Đa dạng chủ đề từ tiếng Anh công sở, du lịch đến luyện thi chứng chỉ",
+      "Xem được trên cả ứng dụng di động và máy tính"
+    ],
+    cons: [
+      "Video quay bài giảng truyền thống, không có phụ đề tương tác để tra từ",
+      "Thiếu sự tương tác và hỗ trợ giải đáp trực tiếp từ giảng viên"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Người tự học muốn mua khóa học video trọn gói tự học theo tốc độ bản thân"
+  },
+  {
+    name: "Unica Tiếng Anh",
+    url: "https://unica.vn",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng e-learning cung cấp các video khóa học tiếng Anh thực hành, phát âm chuẩn Mỹ và mẹo học từ vựng siêu tốc từ các chuyên gia đào tạo.",
+    pros: [
+      "Mức giá khóa học phải chăng, thường xuyên có các chương trình khuyến mãi",
+      "Nội dung chia nhỏ thành các video 5-15 phút tiện theo dõi",
+      "Học viên sở hữu tài liệu học vĩnh viễn sau khi mua"
+    ],
+    cons: [
+      "Chất lượng sản xuất video và nội dung không đồng đều giữa các giảng viên",
+      "Trình phát video thông thường, không tích hợp tính năng học sâu (deep listening)"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Đại chúng người đi làm và sinh viên cần tài liệu học tập tham khảo với chi phí tiết kiệm"
+  },
+  {
+    name: "LaBan Dictionary",
+    url: "https://dict.laban.vn",
+    category: "general_skills_community",
+    has_video_feature: false,
+    video_features_analysis: "Ứng dụng từ điển Anh - Việt phổ biến nhất tại Việt Nam; cung cấp phát âm audio chuẩn Anh - Anh và Anh - Mỹ của từ vựng, không có tính năng xem video.",
+    pros: [
+      "Kho từ vựng đồ sộ, giải nghĩa tiếng Việt chuẩn xác và dễ hiểu",
+      "Tra cứu nhanh chóng, có phiên âm IPA và ví dụ câu minh họa",
+      "Hỗ trợ tính năng tra từ nhanh trên nhiều nền tảng (web, app, extension)"
+    ],
+    cons: [
+      "Chỉ thuần túy là công cụ tra cứu từ điển, không có tính năng luyện nghe",
+      "Không hỗ trợ luyện nghe qua video ngữ cảnh thực tế"
+    ],
+    pricing_model: "free",
+    target_audience: "Tất cả người học tiếng Anh tại Việt Nam cần công cụ tra cứu nghĩa từ vựng hàng ngày"
+  },
+  {
+    name: "Soha Tra Từ & Ngữ Pháp",
+    url: "https://tratu.soha.vn",
+    category: "general_skills_community",
+    has_video_feature: false,
+    video_features_analysis: "Hệ thống từ điển trực tuyến cộng đồng tra cứu nghĩa từ, từ đồng nghĩa, chuyên ngành kỹ thuật và ví dụ ngữ cảnh; không có chức năng phát video bài học.",
+    pros: [
+      "Cung cấp nhiều bộ từ điển chuyên ngành sâu (y tế, kỹ thuật, kinh tế)",
+      "Giải thích cấu trúc ngữ pháp và nguồn gốc từ vựng phong phú",
+      "Truy cập hoàn toàn miễn phí"
+    ],
+    cons: [
+      "Giao diện mang phong cách web 2.0 cũ kỹ, nhiều quảng cáo hiển thị",
+      "Không có audio chất lượng cao hoặc bất kỳ video hướng dẫn nào"
+    ],
+    pricing_model: "free",
+    target_audience: "Sinh viên, dịch giả và người đi làm cần tra cứu thuật ngữ chuyên ngành"
+  },
+  {
+    name: "Cốc Cốc Học Tập Tiếng Anh",
+    url: "https://hoctap.coccoc.com",
+    category: "general_skills_community",
+    has_video_feature: true,
+    video_features_analysis: "Cổng học tập tích hợp sẵn trên trình duyệt Cốc Cốc, cung cấp tính năng nhấp đúp tra từ tiếng Anh trên mọi trang web và video bài giảng giải đề thi.",
+    pros: [
+      "Tiện ích nhấp đúp tra từ tích hợp sâu vào trình duyệt cực kỳ tiện lợi khi lướt web",
+      "Cung cấp các công cụ giải bài tập tiếng Anh và toán học hữu ích cho học sinh",
+      "Tốc độ tải nhanh và tối ưu hóa riêng cho người dùng internet Việt Nam"
+    ],
+    cons: [
+      "Tính năng tra từ trên video YouTube chưa mượt mà bằng các tiện ích chuyên dụng",
+      "Kho video bài học tiếng Anh chưa có cấu trúc lộ trình hoàn chỉnh"
+    ],
+    pricing_model: "free",
+    target_audience: "Học sinh và người dùng internet tại Việt Nam sử dụng trình duyệt Cốc Cốc"
+  },
+  {
+    name: "Oxford Learners Dictionaries VN",
+    url: "https://oxfordlearnersdictionaries.com",
+    category: "general_skills_community",
+    has_video_feature: false,
+    video_features_analysis: "Từ điển chuẩn mực học thuật quốc tế; cung cấp file audio phát âm chuẩn giọng Anh và giọng Mỹ cho từng từ, cùng ví dụ minh họa; không có video bài học.",
+    pros: [
+      "Định nghĩa Anh - Anh chuẩn xác, diễn đạt bằng bộ 3000 từ định nghĩa cốt lõi",
+      "Phân cấp nhãn từ vựng rõ ràng theo khung CEFR (A1 - C2) và danh sách Oxford 3000/5000",
+      "File phát âm audio của người bản xứ có chất lượng phòng thu hoàn hảo"
+    ],
+    cons: [
+      "Giải thích hoàn toàn bằng tiếng Anh, đòi hỏi người học phải có vốn từ nền tảng",
+      "Không có trình phát video hay phụ đề luyện nghe chuyên biệt"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người học từ trình độ trung cấp đến nâng cao, giáo viên và dịch giả tiếng Anh"
+  },
+  {
+    name: "Cambridge Dictionary Vietnamese",
+    url: "https://dictionary.cambridge.org",
+    category: "general_skills_community",
+    has_video_feature: false,
+    video_features_analysis: "Từ điển Cambridge phiên bản có bản dịch tiếng Việt; cung cấp audio phát âm chuẩn UK/US và bài tập ngữ pháp Grammar in Use; không có module phát video phụ đề.",
+    pros: [
+      "Hỗ trợ song song cả giải nghĩa chuẩn Anh - Anh và bản dịch đối chiếu tiếng Việt",
+      "Cung cấp đầy đủ loại từ, cấu trúc giới từ đi kèm và idiom phong phú",
+      "Uy tín học thuật hàng đầu thế giới từ Nhà xuất bản Đại học Cambridge"
+    ],
+    cons: [
+      "Không tích hợp tính năng xem video luyện nghe tương tác",
+      "Giao diện có mật độ quảng cáo khá dày ở phiên bản miễn phí"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Mọi đối tượng người học tiếng Anh cần nguồn tra từ uy tín và chính xác cao"
+  },
+
+  // ==========================================
+  // 5. k12_academic (12 platforms)
+  // ==========================================
+  {
+    name: "IOE (Olympic Tiếng Anh trên Internet)",
+    url: "https://ioe.vn",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Cuộc thi Olympic tiếng Anh trực tuyến quốc gia của Bộ GD&ĐT; các vòng tự luyện và thi chính thức có dạng bài nghe audio/video chọn đáp án và điền từ khuyết.",
+    pros: [
+      "Sân chơi học thuật quy mô lớn nhất cả nước cho học sinh từ lớp 3 đến lớp 12",
+      "Các bài thi nghe đa dạng hình thức (chọn tranh, điền từ, trả lời câu hỏi)",
+      "Tạo động lực thi đua học tập mạnh mẽ trong nhà trường và các địa phương"
+    ],
+    cons: [
+      "Trình phát âm thanh/video mang tính chất kiểm tra thi cử, không hỗ trợ xem lại phụ đề",
+      "Hệ thống thường xuyên xảy ra tình trạng nghẽn mạng trong các đợt thi cao điểm"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Học sinh phổ thông trên toàn quốc tham gia phong trào thi đua tiếng Anh"
+  },
+  {
+    name: "Hocmai.vn",
+    url: "https://hocmai.vn",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Hệ thống giáo dục trực tuyến số 1 tại Việt Nam; kho video bài giảng môn Tiếng Anh đồ sộ theo từng lớp học và chương trình luyện thi vào 10, tốt nghiệp THPT.",
+    pros: [
+      "Quy tụ đội ngũ giáo viên luyện thi tiếng Anh nổi tiếng hàng đầu cả nước",
+      "Hệ thống bài giảng video chi tiết, bám sát từng dạng bài thi trong đề minh họa",
+      "Ngân hàng đề thi thử và bài tập tự luyện có đáp án giải thích cặn kẽ"
+    ],
+    cons: [
+      "Phương pháp học chủ yếu là thụ động nhìn giáo viên giảng bài trên bảng",
+      "Không có công nghệ tương tác phụ đề hay luyện nghe giao tiếp đời sống"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh từ lớp 1 đến lớp 12 ôn thi học kỳ, thi chuyển cấp và tốt nghiệp THPT"
+  },
+  {
+    name: "Tuyensinh247",
+    url: "https://tuyensinh247.com",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Trang luyện thi trực tuyến uy tín với hàng nghìn video giải đề thi tiếng Anh chi tiết, phân tích bẫy ngữ pháp và bài đọc hiểu của các trường chuyên.",
+    pros: [
+      "Tốc độ cập nhật và quay video giải đề thi thử mới nhất của các trường rất nhanh",
+      "Giáo viên phân tích chi tiết từng phương án đúng/sai của câu hỏi trắc nghiệm",
+      "Học phí các gói khóa học hợp lý, phù hợp với số đông phụ huynh học sinh"
+    ],
+    cons: [
+      "Không chú trọng rèn luyện kỹ năng nghe thực tế, chỉ tập trung giải đề thi viết",
+      "Trình phát video chuẩn thông thường, không có phụ đề tương tác"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Sĩ tử lớp 9 luyện thi vào lớp 10 và học sinh lớp 12 luyện thi đại học"
+  },
+  {
+    name: "Olm.vn (Online Math & Languages)",
+    url: "https://olm.vn",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng học tập tương tác của Đại học Sư phạm Hà Nội; tích hợp video bài giảng có điểm dừng kiểm tra (in-video checkpoint quiz) bắt buộc học sinh trả lời mới được xem tiếp.",
+    pros: [
+      "Tính năng video tương tác có câu hỏi ngắt giữa chừng giúp học sinh tập trung tiếp thu",
+      "Nội dung bám sát cả 3 bộ sách giáo khoa mới (Kết nối tri thức, Cánh Diều, Chân trời sáng tạo)",
+      "Công cụ giao bài và quản lý lớp học trực quan cho giáo viên các trường"
+    ],
+    cons: [
+      "Các bài nghe tiếng Anh chủ yếu phục vụ chương trình học trên lớp",
+      "Thiếu tính năng tra cứu từ vựng 1 chạm và lưu thẻ ghi nhớ flashcard"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Học sinh, giáo viên và các trường phổ thông ứng dụng chuyển đổi số giáo dục"
+  },
+  {
+    name: "VioEdu",
+    url: "https://vio.edu.vn",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Hệ sinh thái EdTech thuộc Tập đoàn FPT ứng dụng trí tuệ nhân tạo; cung cấp video hoạt hình giải thích kiến thức tiếng Anh kết hợp game đấu trường kiến thức.",
+    pros: [
+      "Thuật toán AI phân tích điểm mạnh - điểm yếu để gợi ý lộ trình học thích ứng",
+      "Video bài giảng định dạng hoạt hình 2D sinh động, thu hút sự chú ý của học sinh",
+      "Đấu trường kiến thức sôi nổi tạo động lực thi đua học tập hàng tuần"
+    ],
+    cons: [
+      "Thời lượng rèn luyện kỹ năng nghe đàm thoại còn hạn chế so với ngữ pháp",
+      "Hệ thống bài tập thiên về thi trắc nghiệm trên máy tính"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Học sinh tiểu học và THCS học tập theo định hướng giáo dục số hiện đại"
+  },
+  {
+    name: "Onluyen.vn",
+    url: "https://onluyen.vn",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng tự học và khảo thí thích ứng với các video bài giảng ngắn (micro-learning 3-5 phút) giải thích lý thuyết tiếng Anh trước khi vào làm bài tập.",
+    pros: [
+      "Bài giảng video vi mô ngắn gọn, không gây cảm giác nhàm chán khi học",
+      "Ngân hàng câu hỏi trắc nghiệm tiếng Anh khổng lồ có phân cấp độ nhận thức",
+      "Báo cáo chi tiết mức độ nắm vững từng đơn vị kiến thức"
+    ],
+    cons: [
+      "Chưa có module luyện nghe chuyên sâu với các đoạn hội thoại thực tế của người bản xứ",
+      "Không hỗ trợ tính năng phụ đề song ngữ tùy biến"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Học sinh phổ thông cần củng cố kiến thức trên lớp và ôn tập cho các kỳ thi"
+  },
+  {
+    name: "Hoc247.net",
+    url: "https://hoc247.net",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Website chia sẻ bài giảng video và tài liệu học tập theo chương trình sách giáo khoa môn Tiếng Anh từ lớp 6 đến lớp 12.",
+    pros: [
+      "Cung cấp đầy đủ giáo trình bài học và bài tập vận dụng có lời giải",
+      "Truy cập và xem video bài học hoàn toàn miễn phí",
+      "Hệ thống chuyên mục phân chia mạch lạc theo từng bài học (Unit)"
+    ],
+    cons: [
+      "Giao diện còn xuất hiện nhiều quảng cáo tự động gây cản trở trải nghiệm",
+      "Trình phát video thông thường, không có công cụ bổ trợ học tương tác"
+    ],
+    pricing_model: "free",
+    target_audience: "Học sinh cấp 2 và cấp 3 cần nguồn tài liệu tham khảo bài tập tự học ở nhà"
+  },
+  {
+    name: "Hoc24.vn",
+    url: "https://hoc24.vn",
+    category: "k12_academic",
+    has_video_feature: false,
+    video_features_analysis: "Cộng đồng hỏi đáp bài tập phổ thông môn tiếng Anh lớn nhất cả nước; học sinh trao đổi câu hỏi ngữ pháp, dịch thuật bằng văn bản, không có hệ thống video học tập.",
+    pros: [
+      "Tốc độ giải đáp thắc mắc bài tập tiếng Anh từ cộng đồng rất nhanh chóng",
+      "Học sinh có thể hỏi trực tiếp bài tập khó trong sách giáo khoa hoặc đề thi",
+      "Tham gia hoàn toàn miễn phí và có hệ thống xếp hạng thành viên tích cực"
+    ],
+    cons: [
+      "Không có bất kỳ tính năng video hay âm thanh luyện nghe nào",
+      "Chất lượng câu trả lời phụ thuộc vào kiến thức của từng thành viên cộng đồng"
+    ],
+    pricing_model: "free",
+    target_audience: "Học sinh phổ thông cần trợ giúp giải bài tập về nhà hàng ngày"
+  },
+  {
+    name: "VietJack",
+    url: "https://vietjack.com",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Trang web học tập học đường có lượng truy cập lớn nhất Việt Nam; kênh YouTube VietJack cung cấp video hướng dẫn giải từng bài học trong SGK tiếng Anh các khối lớp.",
+    pros: [
+      "Lời giải và bài dịch chi tiết 100% tất cả các bài tập trong sách giáo khoa tiếng Anh mới",
+      "Video giáo viên hướng dẫn phát âm và làm bài tập bám sát từng trang sách",
+      "Hoàn toàn miễn phí và cực kỳ dễ tìm kiếm trên Google"
+    ],
+    cons: [
+      "Nhiều học sinh sử dụng như công cụ chép bài đối phó thay vì tự giác học",
+      "Video chỉ tập trung dịch bài và đọc đáp án, thiếu tính năng luyện nghe sâu"
+    ],
+    pricing_model: "free",
+    target_audience: "Học sinh từ lớp 1 đến lớp 12 và phụ huynh tham khảo lời giải bài tập"
+  },
+  {
+    name: "Loigiaihay",
+    url: "https://loigiaihay.com",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Cổng hướng dẫn giải bài tập sách giáo khoa với file âm thanh audio bài nghe bám sát sách Tiếng Anh Global Success, Friends Plus và video tóm tắt bài học.",
+    pros: [
+      "Có đầy đủ file audio bài nghe của tất cả các bài học trong sách giáo khoa",
+      "Dịch nghĩa chi tiết từng đoạn văn và bài hội thoại sang tiếng Việt",
+      "Có ứng dụng di động gọn nhẹ, tra cứu thuận tiện mọi lúc"
+    ],
+    cons: [
+      "Chỉ là các file audio nghe tĩnh, không có chữ phụ đề chạy đồng bộ",
+      "Không có bài tập tương tác điền từ hay kiểm tra phản xạ nghe"
+    ],
+    pricing_model: "free",
+    target_audience: "Học sinh phổ thông cần nghe lại bài nghe trong sách giáo khoa ở nhà"
+  },
+  {
+    name: "Khoahoc.vietjack.com",
+    url: "https://khoahoc.vietjack.com",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Cổng khóa học trực tuyến chuyên biệt của VietJack cung cấp các khóa video bài giảng chuyên sâu luyện thi vào 10 và luyện thi tốt nghiệp THPT môn Tiếng Anh.",
+    pros: [
+      "Khóa học video được quay chuyên nghiệp trong phòng studio với bảng tương tác hiện đại",
+      "Lộ trình học bài bản theo chuyên đề ngữ pháp và từ vựng trọng tâm",
+      "Chi phí khóa học rất bình dân, phù hợp với mọi gia đình Việt Nam"
+    ],
+    cons: [
+      "Phương pháp học một chiều, chưa có tính năng luyện nghe tương tác hai chiều",
+      "Chỉ phục vụ kiến thức thi cử trong trường học, không phục vụ tiếng Anh giao tiếp"
+    ],
+    pricing_model: "paid_course",
+    target_audience: "Học sinh các khối lớp cần khóa học bài bản củng cố điểm số trên lớp"
+  },
+  {
+    name: "Colearn",
+    url: "https://colearn.vn",
+    category: "k12_academic",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng hỏi đáp gia sư và thư viện video hướng dẫn giải bài tập tiếng Anh ngắn gọn; hỗ trợ học sinh giải đáp các thắc mắc qua video call 1-1.",
+    pros: [
+      "Hỏi đáp nhanh chóng bài tập khó có gia sư hướng dẫn trực tiếp",
+      "Kho video bài giảng ngắn tóm tắt các điểm ngữ pháp trọng yếu",
+      "Giao diện ứng dụng di động hiện đại và thân thiện với học sinh"
+    ],
+    cons: [
+      "Số lượng video bài giảng tiếng Anh chưa phong phú bằng các môn tự nhiên",
+      "Không có module rèn luyện kỹ năng nghe chuyên sâu qua video phụ đề"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Học sinh phổ thông cần sự trợ giúp trực tiếp từ gia sư khi gặp bài tập khó"
+  },
+
+  // ==========================================
+  // 6. global_localized (10 platforms)
+  // ==========================================
+  {
+    name: "Duolingo Vietnam",
+    url: "https://duolingo.com",
+    category: "global_localized",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng học ngôn ngữ phổ biến nhất thế giới với giao diện tiếng Việt hoàn chỉnh; tính năng Duolingo Stories cung cấp các đoạn hội thoại có âm thanh và hoạt ảnh minh họa tương tác.",
+    pros: [
+      "Cơ chế trò chơi hóa (gamification), streak học tập và bảng xếp hạng tạo thói quen cực tốt",
+      "Giao diện thân thiện, hình ảnh nhân vật vui nhộn và âm thanh bắt tai",
+      "Hoàn toàn miễn phí với các chức năng học cơ bản hàng ngày"
+    ],
+    cons: [
+      "Câu thoại ngữ cảnh mang tính máy móc, thiếu các bài nghe video đời thực dài",
+      "Không có tính năng tra từ điển sâu hay phân tích ngữ pháp chi tiết"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người mới bắt đầu xây dựng thói quen học tiếng Anh mỗi ngày 10-15 phút"
+  },
+  {
+    name: "Cake English Vietnam",
+    url: "https://mycake.me",
+    category: "global_localized",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng luyện nói và nghe tiếng Anh qua clip ngắn YouTube/phim ảnh; tính năng lặp lại câu thoại cốt lõi 3 lần và chấm điểm phát âm bằng AI rất phổ biến tại VN.",
+    pros: [
+      "Kho video ngắn bắt trend, trích từ phim ảnh, TV show và YouTube rất lôi cuốn",
+      "Tính năng lặp lại câu chính 3 lần ở các tốc độ khác nhau giúp tai nghe bắt kịp âm thanh",
+      "Công nghệ AI chấm điểm phát âm từng câu và chỉ ra từ phát âm sai"
+    ],
+    cons: [
+      "Nội dung bị xé nhỏ thành các clip 15-30 giây, thiếu bài nghe mạch lạc kéo dài (extensive listening)",
+      "Bản cập nhật gần đây chèn nhiều quảng cáo và chuyển hướng người dùng mua gói trả phí Plus"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Thế hệ trẻ Gen-Z thích học tiếng Anh qua video ngắn sinh động trên điện thoại"
+  },
+  {
+    name: "Memrise Vietnam",
+    url: "https://memrise.com",
+    category: "global_localized",
+    has_video_feature: true,
+    video_features_analysis: "Nổi tiếng với tính năng 'Learn with Locals' chứa hàng nghìn video ngắn người bản xứ nói ngôn ngữ tự nhiên trên đường phố kèm phụ đề và phát âm thực tế.",
+    pros: [
+      "Tính năng 'Learn with Locals' giúp làm quen với ngữ điệu và phát âm đời thường của người bản xứ",
+      "Thuật toán lặp lại ngắt quãng (SRS) giúp củng cố khả năng ghi nhớ từ vựng",
+      "Kho khóa học phong phú do cộng đồng đóng góp và bản ngữ hóa tiếng Việt tốt"
+    ],
+    cons: [
+      "Video chỉ là các câu đơn lẻ ngắn 3-5 giây, không có cuộc hội thoại liền mạch",
+      "Giao diện gần đây đã loại bỏ nhiều khóa học cộng đồng miễn phí được yêu thích"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người tự học muốn ghi nhớ từ vựng và làm quen với phát âm tự nhiên của người bản xứ"
+  },
+  {
+    name: "Busuu Vietnam",
+    url: "https://busuu.com",
+    category: "global_localized",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng học ngôn ngữ chuẩn CEFR tích hợp các video hội thoại thực tế của nhà xuất bản McGraw-Hill và mạng lưới cộng đồng người bản xứ sửa bài tập nói/viết.",
+    pros: [
+      "Lộ trình bài học bài bản, chuẩn hóa từ trình độ A1 đến B2 theo chuẩn châu Âu",
+      "Tính năng gửi bài tập nói/viết để được cộng đồng người bản ngữ nhận xét và chỉnh sửa",
+      "Có các bài kiểm tra cấp chứng chỉ số hợp tác cùng McGraw-Hill Education"
+    ],
+    cons: [
+      "Nhiều tính năng hữu ích (như luyện ngữ pháp và tải ngoại tuyến) khóa sau gói Premium",
+      "Trình phát video được lập trình cố định theo bài học, không thể chọn video tự do"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người học cần lộ trình học tiếng Anh bài bản, có bằng cấp chứng nhận sau khóa"
+  },
+  {
+    name: "Quizlet Vietnam",
+    url: "https://quizlet.com",
+    category: "global_localized",
+    has_video_feature: false,
+    video_features_analysis: "Nền tảng thẻ ghi nhớ flashcard phổ biến nhất tại Việt Nam; cung cấp âm thanh đọc từ vựng bằng công nghệ Text-to-Speech; không có module phát video học tập.",
+    pros: [
+      "Công cụ tạo và chia sẻ học phần flashcard trực quan, dễ dùng nhất hiện nay",
+      "Nhiều chế độ ôn tập đa dạng (Thẻ ghi nhớ, Học, Viết, Kiểm tra, Ghép thẻ)",
+      "Kho dữ liệu từ vựng khổng lồ được chia sẻ từ hàng triệu học sinh - sinh viên Việt Nam"
+    ],
+    cons: [
+      "Không hỗ trợ phát video học tập hay phụ đề tương tác",
+      "Giọng đọc phát âm là công nghệ tổng hợp TTS máy móc, thiếu cảm xúc đời thực"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Học sinh, sinh viên cần học thuộc lòng từ vựng và thuật ngữ cho các kỳ thi"
+  },
+  {
+    name: "Cambly Vietnam",
+    url: "https://cambly.com",
+    category: "global_localized",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng kết nối trò chuyện video 1-1 theo yêu cầu với 100% giáo viên bản ngữ từ Mỹ, Anh, Canada, Úc; có tính năng tự động ghi hình lại toàn bộ buổi học để xem lại.",
+    pros: [
+      "100% gia sư là người bản xứ, cho phép tự do chọn giáo viên theo chủ đề quan tâm",
+      "Tự động lưu lại video buổi học vào tài khoản để học viên xem lại và ghi chép lỗi sai",
+      "Tạo môi trường ngâm mình hoàn toàn trong tiếng Anh (immersion) hiệu quả nhất"
+    ],
+    cons: [
+      "Chi phí thuê bao hàng tháng rất cao, chỉ phù hợp người có điều kiện kinh tế vững",
+      "Không có hệ thống bài tập tự học qua video ngoài các buổi trò chuyện trực tiếp"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Người học có vốn tiếng Anh cơ bản cần môi trường thực hành nói phản xạ hàng tuần"
+  },
+  {
+    name: "LingQ Vietnam",
+    url: "https://lingq.com",
+    category: "global_localized",
+    has_video_feature: true,
+    video_features_analysis: "Nền tảng ứng dụng phương pháp Đầu vào dễ hiểu (Comprehensible Input) của Steve Kaufmann; cho phép nhập video YouTube để sinh transcript tương tác, bấm tra từ và đánh dấu từ đã biết.",
+    pros: [
+      "Triết lý học ngôn ngữ qua việc tiếp thu khối lượng lớn bài đọc và video thực tế cực kỳ khoa học",
+      "Cho phép người dùng biến bất kỳ video YouTube yêu thích nào thành bài học ngôn ngữ cá nhân",
+      "Hệ thống theo dõi số lượng từ vựng đã học và đã nắm vững chi tiết"
+    ],
+    cons: [
+      "Giao diện phức tạp, nhiều màu sắc đánh dấu từ có thể gây rối mắt cho người mới dùng",
+      "Bản miễn phí giới hạn rất khắt khe số lượng từ vựng được phép lưu (LingQ)"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người tự học nâng cao thích đọc sách, nghe podcast và xem video tiếng Anh nguyên bản"
+  },
+  {
+    name: "LingoDeer Vietnam",
+    url: "https://lingodeer.com",
+    category: "global_localized",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng học ngoại ngữ được thiết kế chuyên biệt cho người châu Á với các video hội thoại ngắn theo ngữ cảnh thực tế và giải thích ngữ pháp tiếng Việt chi tiết.",
+    pros: [
+      "Giải thích ngữ pháp sâu sắc, dễ hiểu, phù hợp với cách tư duy của người học châu Á",
+      "Phát âm của các đoạn hội thoại do người bản xứ thu âm chất lượng cao và tự nhiên",
+      "Cấu trúc bài học theo bậc thang logic, từ từ vựng - ngữ pháp - luyện nghe - hội thoại"
+    ],
+    cons: [
+      "Nội dung miễn phí rất hạn chế, người học phải trả phí để mở toàn bộ khóa học",
+      "Không có tính năng xem video dài hay đồng bộ phụ đề YouTube"
+    ],
+    pricing_model: "subscription",
+    target_audience: "Người học cần xây dựng gốc rễ ngữ pháp và cấu trúc câu tiếng Anh bài bản"
+  },
+  {
+    name: "Drops English Vietnam",
+    url: "https://languagedrops.com",
+    category: "global_localized",
+    has_video_feature: false,
+    video_features_analysis: "Ứng dụng học từ vựng trực quan với hình minh họa đồ họa vector tối giản và âm thanh phát âm người thật; mỗi ngày học 5 phút, không có module phát video.",
+    pros: [
+      "Thiết kế đồ họa phẳng tối giản và hiệu ứng thị giác cực kỳ đẹp mắt và lôi cuốn",
+      "Giới hạn 5 phút học mỗi ngày giúp người học không bị quá tải và duy trì tính kiên trì",
+      "Phát âm âm thanh của người bản xứ rất rõ ràng và chuẩn xác"
+    ],
+    cons: [
+      "Hoàn toàn không có tính năng luyện nghe qua video hay ngữ cảnh câu đàm thoại dài",
+      "Chỉ tập trung vào các từ đơn lẻ và cụm từ ngắn"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người bận rộn muốn mở rộng vốn từ vựng bằng hình ảnh trong các khoảng thời gian rảnh rỗi"
+  },
+  {
+    name: "Mondly English Vietnam",
+    url: "https://mondly.com",
+    category: "global_localized",
+    has_video_feature: true,
+    video_features_analysis: "Ứng dụng học tiếng Anh tiên phong công nghệ thực tế ảo VR/AR và chatbot đàm thoại với các video mô phỏng tình huống giao tiếp 360 độ.",
+    pros: [
+      "Ứng dụng công nghệ thực tế ảo mang lại trải nghiệm nhập vai sinh động độc đáo",
+      "Chatbot nhận diện giọng nói giúp học viên luyện tập đối đáp các câu hỏi hàng ngày",
+      "Hỗ trợ giao diện và giải thích bằng tiếng Việt hoàn chỉnh"
+    ],
+    cons: [
+      "Công nghệ nhận diện giọng nói đôi khi chưa chính xác với các giọng địa phương",
+      "Chi phí sở hữu thiết bị VR nếu muốn trải nghiệm đầy đủ tính năng ảo"
+    ],
+    pricing_model: "freemium",
+    target_audience: "Người yêu thích công nghệ mới và muốn luyện tập giao tiếp qua mô phỏng thực tế ảo"
+  }
+];
+
+console.log(`Prepared ${platforms.length} platforms for market dataset.`);
+fs.writeFileSync(outputFile, JSON.stringify(platforms, null, 2), 'utf8');
+console.log(`✅ Successfully generated: ${outputFile}`);

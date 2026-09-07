@@ -1,0 +1,204 @@
+{
+  "id": "video-dl-22",
+  "youtubeId": "1075eXi3vU1",
+  "title": "The Psychology of Habit Formation",
+  "channel": "Oxford Online English",
+  "duration": 840,
+  "durationDisplay": "14:00",
+  "durationCategory": "medium",
+  "cefrLevel": "B1",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/1075eXi3vU1/hqdefault.jpg",
+  "description": "Cơ chế vòng lặp thói quen: Tín hiệu, Hành động và Phần thưởng trong tâm lý học.",
+  "coreVocabulary": [
+    {
+      "word": "trigger",
+      "phonetic": "/ˈtrɪɡə(r)/",
+      "viDefinition": "tín hiệu kích hoạt",
+      "contextSentence": "A visual trigger prompts your automatic habit loop without conscious thought."
+    },
+    {
+      "word": "routine",
+      "phonetic": "/ruːˈtiːn/",
+      "viDefinition": "chuỗi hành động quen thuộc",
+      "contextSentence": "The routine is the physical or mental action you perform after the cue."
+    },
+    {
+      "word": "reward",
+      "phonetic": "/rɪˈwɔːd/",
+      "viDefinition": "phần thưởng",
+      "contextSentence": "The emotional reward teaches your brain to repeat the loop in the future."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-22-cue-1",
+      "start": 0,
+      "end": 84,
+      "en": "Welcome to Oxford Online English, exploring the cognitive science of daily habits.",
+      "vi": "Chào mừng đến với Oxford Online English, khám phá khoa học nhận thức về thói quen hàng ngày."
+    },
+    {
+      "id": "video-dl-22-cue-2",
+      "start": 84,
+      "end": 168,
+      "en": "Why do we automatically brush our teeth or reach for our phones upon waking?",
+      "vi": "Tại sao chúng ta tự động đánh răng hoặc với lấy điện thoại ngay khi thức dậy?"
+    },
+    {
+      "id": "video-dl-22-cue-3",
+      "start": 168,
+      "end": 252,
+      "en": "Neuroscientists describe habits as a three-part neurological loop.",
+      "vi": "Các nhà khoa học thần kinh mô tả thói quen như một vòng lặp thần kinh gồm ba phần."
+    },
+    {
+      "id": "video-dl-22-cue-4",
+      "start": 252,
+      "end": 336,
+      "en": "First comes the cue or trigger, which tells your brain to enter automatic mode.",
+      "vi": "Đầu tiên là dấu hiệu hoặc tín hiệu kích hoạt, báo cho não của bạn chuyển sang chế độ tự động."
+    },
+    {
+      "id": "video-dl-22-cue-5",
+      "start": 336,
+      "end": 420,
+      "en": "Next is the routine, which can be a physical, mental, or emotional behavior.",
+      "vi": "Tiếp theo là chuỗi hành động quen thuộc, có thể là hành vi thể chất, tinh thần hoặc cảm xúc."
+    },
+    {
+      "id": "video-dl-22-cue-6",
+      "start": 420,
+      "end": 504,
+      "en": "Finally, the brain receives a reward that reinforces the specific behavior pattern.",
+      "vi": "Cuối cùng, não nhận được phần thưởng củng cố mô hình hành vi cụ thể đó."
+    },
+    {
+      "id": "video-dl-22-cue-7",
+      "start": 504,
+      "end": 588,
+      "en": "To eliminate an unwanted habit, identify the underlying trigger carefully.",
+      "vi": "Để loại bỏ một thói quen không mong muốn, hãy xác định tín hiệu kích hoạt cơ bản một cách cẩn thận."
+    },
+    {
+      "id": "video-dl-22-cue-8",
+      "start": 588,
+      "end": 672,
+      "en": "Keep the same trigger and reward, but insert a healthier replacement routine.",
+      "vi": "Giữ nguyên tín hiệu kích hoạt và phần thưởng, nhưng chèn vào một thói quen thay thế lành mạnh hơn."
+    },
+    {
+      "id": "video-dl-22-cue-9",
+      "start": 672,
+      "end": 756,
+      "en": "Habit stacking links a new desired habit to an established existing behavior.",
+      "vi": "Gắn kết thói quen liên kết một thói quen mới mong muốn với một hành vi đã có sẵn."
+    },
+    {
+      "id": "video-dl-22-cue-10",
+      "start": 756,
+      "end": 840,
+      "en": "You do not rise to the level of your goals; you fall to the level of your systems.",
+      "vi": "Bạn không vươn tới tầm của mục tiêu; bạn rơi xuống mức của hệ thống thói quen của bạn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-22-cloze-1",
+      "cueId": "video-dl-22-cue-3",
+      "sentence": "{{blank}} describe habits as a three-part neurological loop.",
+      "blankWord": "neuroscientists",
+      "hintVi": "Nghĩa gợi ý: Các nhà khoa học thần kinh mô tả thói qu...",
+      "timestamp": 168,
+      "options": [
+        "neuroscientists",
+        "accurate",
+        "advantage",
+        "preliminary"
+      ]
+    },
+    {
+      "id": "video-dl-22-cloze-2",
+      "cueId": "video-dl-22-cue-5",
+      "sentence": "Next is the {{blank}}, which can be a physical, mental, or emotional behavior.",
+      "blankWord": "routine",
+      "hintVi": "Nghĩa gợi ý: Tiếp theo là chuỗi hành động quen thuộc,...",
+      "timestamp": 336,
+      "options": [
+        "routine",
+        "prominent",
+        "efficient",
+        "substantial"
+      ]
+    },
+    {
+      "id": "video-dl-22-cloze-3",
+      "cueId": "video-dl-22-cue-8",
+      "sentence": "Keep the same {{blank}} and reward, but insert a healthier replacement routine.",
+      "blankWord": "trigger",
+      "hintVi": "Nghĩa gợi ý: Giữ nguyên tín hiệu kích hoạt và phần th...",
+      "timestamp": 588,
+      "options": [
+        "sufficient",
+        "trigger",
+        "remarkable",
+        "criterion"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-22-q1",
+      "question": "What is the primary focus of the video 'The Psychology of Habit Formation'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice the psychology of habit formation effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores the psychology of habit formation, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 84
+    },
+    {
+      "id": "video-dl-22-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Next...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Next is the routine, which can be a physical, mental, or emo...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Next is the routine, which can be a physical, mental, or emotional behavior.', showing its practical importance.",
+      "timestampSeek": 336
+    },
+    {
+      "id": "video-dl-22-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: You do not rise to the level of your goals; you fall to the level..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that You do not rise to the level of your goals; you fall to the level of your systems., providing a meaningful summary for learners.",
+      "timestampSeek": 756
+    },
+    {
+      "id": "video-dl-22-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'To...'?",
+      "options": [
+        "It highlights that: To eliminate an unwanted habit, identify the underlying trig...",
+        "It states this step should always be skipped by beginners.",
+        "It claims this factor has zero impact on the final outcome.",
+        "It warns that following this method produces immediate failure."
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker specifically highlights: 'To eliminate an unwanted habit, identify the underlying trigger carefully.', providing deeper technical insight.",
+      "timestampSeek": 504
+    }
+  ]
+}

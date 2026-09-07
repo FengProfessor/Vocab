@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-01",
+  "youtubeId": "F8Gnzsh00OM",
+  "title": "Morning Stretching and Healthy Posture",
+  "channel": "English with Lucy",
+  "duration": 215,
+  "durationDisplay": "03:35",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/F8Gnzsh00OM/hqdefault.jpg",
+  "description": "Các động tác giãn cơ buổi sáng đơn giản giúp cải thiện tư thế và giảm đau lưng.",
+  "coreVocabulary": [
+    {
+      "word": "stretch",
+      "phonetic": "/stretʃ/",
+      "viDefinition": "kéo giãn, động tác giãn cơ",
+      "contextSentence": "Do a gentle morning stretch before getting out of bed."
+    },
+    {
+      "word": "spine",
+      "phonetic": "/spaɪn/",
+      "viDefinition": "cột sống",
+      "contextSentence": "Keep your spine straight while sitting at your computer desk."
+    },
+    {
+      "word": "shoulder",
+      "phonetic": "/ˈʃəʊldə(r)/",
+      "viDefinition": "bờ vai",
+      "contextSentence": "Roll your shoulders backward five times to release muscle tension."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-01-cue-1",
+      "start": 0,
+      "end": 21.5,
+      "en": "Hello friends, Lucy here to share healthy morning movement habits.",
+      "vi": "Xin chào các bạn, Lucy ở đây để chia sẻ các thói quen vận động buổi sáng lành mạnh."
+    },
+    {
+      "id": "video-sth-01-cue-2",
+      "start": 21.5,
+      "end": 43,
+      "en": "Many people wake up with stiff neck muscles and sore lower backs.",
+      "vi": "Nhiều người thức dậy với cơ cổ bị cứng và lưng dưới đau nhức."
+    },
+    {
+      "id": "video-sth-01-cue-3",
+      "start": 43,
+      "end": 64.5,
+      "en": "Starting your day with gentle physical stretching stimulates blood circulation.",
+      "vi": "Bắt đầu ngày mới bằng việc giãn cơ nhẹ nhàng sẽ kích thích tuần hoàn máu."
+    },
+    {
+      "id": "video-sth-01-cue-4",
+      "start": 64.5,
+      "end": 86,
+      "en": "Sit upright on the edge of your bed and breathe in deeply.",
+      "vi": "Ngồi thẳng lưng trên mép giường và hít thở thật sâu."
+    },
+    {
+      "id": "video-sth-01-cue-5",
+      "start": 86,
+      "end": 107.5,
+      "en": "Slowly roll your shoulders backward to release overnight stiffness.",
+      "vi": "Từ từ xoay vai ra sau để giải tỏa sự cứng cơ sau một đêm."
+    },
+    {
+      "id": "video-sth-01-cue-6",
+      "start": 107.5,
+      "end": 129,
+      "en": "Gently tilt your head from left to right to stretch your neck.",
+      "vi": "Nhẹ nhàng nghiêng đầu từ trái sang phải để kéo giãn cơ cổ của bạn."
+    },
+    {
+      "id": "video-sth-01-cue-7",
+      "start": 129,
+      "end": 150.5,
+      "en": "Stand up tall and reach both hands high toward the bedroom ceiling.",
+      "vi": "Đứng thẳng người và vươn cả hai tay lên cao về phía trần phòng ngủ."
+    },
+    {
+      "id": "video-sth-01-cue-8",
+      "start": 150.5,
+      "end": 172,
+      "en": "Keep your spine long and avoid slouching over your phone screen.",
+      "vi": "Giữ cột sống thẳng dài và tránh khom lưng trên màn hình điện thoại."
+    },
+    {
+      "id": "video-sth-01-cue-9",
+      "start": 172,
+      "end": 193.5,
+      "en": "Drinking a warm glass of water hydrates your muscles immediately.",
+      "vi": "Uống một cốc nước ấm sẽ cấp nước cho cơ bắp của bạn ngay lập tức."
+    },
+    {
+      "id": "video-sth-01-cue-10",
+      "start": 193.5,
+      "end": 215,
+      "en": "Ten minutes of daily stretching keeps your joints youthful and supple.",
+      "vi": "Mười phút giãn cơ mỗi ngày giúp khớp của bạn luôn trẻ trung và dẻo dai."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-01-cloze-1",
+      "cueId": "video-sth-01-cue-3",
+      "sentence": "{{blank}} your day with gentle physical stretching stimulates blood circulation.",
+      "blankWord": "starting",
+      "hintVi": "Nghĩa gợi ý: Bắt đầu ngày mới bằng việc giãn cơ nhẹ n...",
+      "timestamp": 43,
+      "options": [
+        "temporary",
+        "starting",
+        "subsequent",
+        "extensive"
+      ]
+    },
+    {
+      "id": "video-sth-01-cloze-2",
+      "cueId": "video-sth-01-cue-5",
+      "sentence": "{{blank}} roll your shoulders backward to release overnight stiffness.",
+      "blankWord": "slowly",
+      "hintVi": "Nghĩa gợi ý: Từ từ xoay vai ra sau để giải tỏa sự cứn...",
+      "timestamp": 86,
+      "options": [
+        "dimension",
+        "slowly",
+        "routine",
+        "vibrant"
+      ]
+    },
+    {
+      "id": "video-sth-01-cloze-3",
+      "cueId": "video-sth-01-cue-8",
+      "sentence": "Keep your {{blank}} long and avoid slouching over your phone screen.",
+      "blankWord": "spine",
+      "hintVi": "Nghĩa gợi ý: Giữ cột sống thẳng dài và tránh khom lưn...",
+      "timestamp": 150.5,
+      "options": [
+        "spine",
+        "remarkable",
+        "protocol",
+        "adequate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-01-q1",
+      "question": "What is the primary focus of the video 'Morning Stretching and Healthy Posture'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice morning stretching and healthy posture effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores morning stretching and healthy posture, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 21.5
+    },
+    {
+      "id": "video-sth-01-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Slowly...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Slowly roll your shoulders backward to release overnight sti...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Slowly roll your shoulders backward to release overnight stiffness.', showing its practical importance.",
+      "timestampSeek": 86
+    },
+    {
+      "id": "video-sth-01-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Ten minutes of daily stretching keeps your joints youthful and su..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Ten minutes of daily stretching keeps your joints youthful and supple., providing a meaningful summary for learners.",
+      "timestampSeek": 193.5
+    }
+  ]
+}

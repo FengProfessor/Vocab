@@ -1,0 +1,191 @@
+{
+  "id": "video-dl-17",
+  "youtubeId": "MBKIYqts0Rr",
+  "title": "Overcoming Procrastination on Daily Chores",
+  "channel": "BBC Learning English",
+  "duration": 530,
+  "durationDisplay": "08:50",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/MBKIYqts0Rr/hqdefault.jpg",
+  "description": "Chiến lược tâm lý vượt qua sự trì hoãn việc nhà với quy tắc hai phút kinh điển.",
+  "coreVocabulary": [
+    {
+      "word": "procrastinate",
+      "phonetic": "/prəˈkræstɪneɪt/",
+      "viDefinition": "trì hoãn, chần chừ",
+      "contextSentence": "We often procrastinate on simple chores because they seem boring."
+    },
+    {
+      "word": "momentum",
+      "phonetic": "/məˈmentəm/",
+      "viDefinition": "đà tiến, quán tính hành động",
+      "contextSentence": "Completing one small task creates powerful momentum for the rest."
+    },
+    {
+      "word": "accomplishment",
+      "phonetic": "/əˈkʌmplɪʃmənt/",
+      "viDefinition": "thành tựu, cảm giác hoàn thành",
+      "contextSentence": "A clean kitchen provides an immediate sense of accomplishment."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-17-cue-1",
+      "start": 0,
+      "end": 53,
+      "en": "Welcome to 6 Minute English from BBC Learning English.",
+      "vi": "Chào mừng đến với chương trình 6 Minute English từ BBC Learning English."
+    },
+    {
+      "id": "video-dl-17-cue-2",
+      "start": 53,
+      "end": 106,
+      "en": "Why do we delay washing dishes or taking out garbage even when it takes five minutes?",
+      "vi": "Tại sao chúng ta trì hoãn rửa bát hoặc đổ rác ngay cả khi nó chỉ mất năm phút?"
+    },
+    {
+      "id": "video-dl-17-cue-3",
+      "start": 106,
+      "end": 159,
+      "en": "Psychologists explain that we procrastinate to avoid brief feelings of discomfort.",
+      "vi": "Các nhà tâm lý học giải thích rằng chúng ta trì hoãn để tránh những cảm giác khó chịu ngắn ngủi."
+    },
+    {
+      "id": "video-dl-17-cue-4",
+      "start": 159,
+      "end": 212,
+      "en": "A powerful strategy is the two-minute rule: if it takes under two minutes, do it now.",
+      "vi": "Một chiến lược hiệu quả là quy tắc hai phút: nếu nó mất dưới hai phút, hãy làm ngay bây giờ."
+    },
+    {
+      "id": "video-dl-17-cue-5",
+      "start": 212,
+      "end": 265,
+      "en": "Washing your coffee cup immediately prevents sinks from overflowing later.",
+      "vi": "Rửa tách cà phê ngay lập tức giúp bồn rửa không bị tràn ngập sau này."
+    },
+    {
+      "id": "video-dl-17-cue-6",
+      "start": 265,
+      "end": 318,
+      "en": "Starting a small chore breaks inertia and builds psychological momentum.",
+      "vi": "Bắt đầu một việc nhà nhỏ phá vỡ sức ỳ và xây dựng đà tâm lý."
+    },
+    {
+      "id": "video-dl-17-cue-7",
+      "start": 318,
+      "end": 371,
+      "en": "Pair boring chores with enjoyable activities like listening to audiobooks.",
+      "vi": "Hãy kết hợp những việc nhà nhàm chán với các hoạt động thú vị như nghe sách nói."
+    },
+    {
+      "id": "video-dl-17-cue-8",
+      "start": 371,
+      "end": 424,
+      "en": "Notice the immediate satisfaction and accomplishment of a tidy room.",
+      "vi": "Hãy để ý sự hài lòng và cảm giác hoàn thành tức thì của một căn phòng ngăn nắp."
+    },
+    {
+      "id": "video-dl-17-cue-9",
+      "start": 424,
+      "end": 477,
+      "en": "Action precedes motivation, not the other way around.",
+      "vi": "Hành động đi trước động lực, chứ không phải ngược lại."
+    },
+    {
+      "id": "video-dl-17-cue-10",
+      "start": 477,
+      "end": 530,
+      "en": "Conquering your daily environment is the first step toward self-mastery.",
+      "vi": "Chinh phục môi trường sống hàng ngày là bước đầu tiên hướng tới việc làm chủ bản thân."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-17-cloze-1",
+      "cueId": "video-dl-17-cue-3",
+      "sentence": "{{blank}} explain that we procrastinate to avoid brief feelings of discomfort.",
+      "blankWord": "psychologists",
+      "hintVi": "Nghĩa gợi ý: Các nhà tâm lý học giải thích rằng chúng...",
+      "timestamp": 106,
+      "options": [
+        "sufficient",
+        "protocol",
+        "balance",
+        "psychologists"
+      ]
+    },
+    {
+      "id": "video-dl-17-cloze-2",
+      "cueId": "video-dl-17-cue-5",
+      "sentence": "{{blank}} your coffee cup immediately prevents sinks from overflowing later.",
+      "blankWord": "washing",
+      "hintVi": "Nghĩa gợi ý: Rửa tách cà phê ngay lập tức giúp bồn rử...",
+      "timestamp": 212,
+      "options": [
+        "accurate",
+        "component",
+        "framework",
+        "washing"
+      ]
+    },
+    {
+      "id": "video-dl-17-cloze-3",
+      "cueId": "video-dl-17-cue-8",
+      "sentence": "{{blank}} the immediate satisfaction and accomplishment of a tidy room.",
+      "blankWord": "notice",
+      "hintVi": "Nghĩa gợi ý: Hãy để ý sự hài lòng và cảm giác hoàn th...",
+      "timestamp": 371,
+      "options": [
+        "accurate",
+        "framework",
+        "notice",
+        "balance"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-17-q1",
+      "question": "What is the primary focus of the video 'Overcoming Procrastination on Daily Chores'?",
+      "options": [
+        "To explain and practice overcoming procrastination on daily chores effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores overcoming procrastination on daily chores, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 53
+    },
+    {
+      "id": "video-dl-17-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Washing...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Washing your coffee cup immediately prevents sinks from over..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'Washing your coffee cup immediately prevents sinks from overflowing later.', showing its practical importance.",
+      "timestampSeek": 212
+    },
+    {
+      "id": "video-dl-17-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Conquering your daily environment is the first step toward self-m...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Conquering your daily environment is the first step toward self-mastery., providing a meaningful summary for learners.",
+      "timestampSeek": 477
+    }
+  ]
+}

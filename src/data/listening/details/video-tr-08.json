@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-08",
+  "youtubeId": "dwZJhY_owc7",
+  "title": "At the Train Station: Finding the Platform",
+  "channel": "mmmEnglish",
+  "duration": 290,
+  "durationDisplay": "04:50",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/dwZJhY_owc7/hqdefault.jpg",
+  "description": "Cách đọc bảng điện tử nhà ga xe lửa, tìm số sân ga (Platform) và toa tàu của mình.",
+  "coreVocabulary": [
+    {
+      "word": "platform",
+      "phonetic": "/ˈplætfɔːm/",
+      "viDefinition": "sân ga, ke ga (nơi tàu đỗ)",
+      "contextSentence": "The express train to Edinburgh departs from platform nine."
+    },
+    {
+      "word": "conductor",
+      "phonetic": "/kənˈdʌktə(r)/",
+      "viDefinition": "trưởng tàu, người soát vé",
+      "contextSentence": "Show your validated electronic ticket to the train conductor."
+    },
+    {
+      "word": "departure",
+      "phonetic": "/dɪˈpɑːtʃə(r)/",
+      "viDefinition": "sự khởi hành, giờ tàu chạy",
+      "contextSentence": "Watch the overhead departure board for real-time track updates."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-08-cue-1",
+      "start": 0,
+      "end": 29,
+      "en": "Hello rail travelers, Emma from mmmEnglish is inside a bustling European railway station.",
+      "vi": "Chào các hành khách đi tàu hỏa, Emma từ mmmEnglish đang ở bên trong một nhà ga xe lửa châu Âu nhộn nhịp."
+    },
+    {
+      "id": "video-tr-08-cue-2",
+      "start": 29,
+      "end": 58,
+      "en": "Grand historical train stations can feel overwhelming with dozens of tracks.",
+      "vi": "Các nhà ga xe lửa lịch sử đồ sộ có thể gây choáng ngợp với hàng chục đường ray."
+    },
+    {
+      "id": "video-tr-08-cue-3",
+      "start": 58,
+      "end": 87,
+      "en": "Look for the gigantic electronic departure board suspended in the main concourse.",
+      "vi": "Tìm chiếc bảng điện tử báo giờ khởi hành khổng lồ treo ở sảnh chính."
+    },
+    {
+      "id": "video-tr-08-cue-4",
+      "start": 87,
+      "end": 116,
+      "en": "Locate your train by its specific service number, scheduled departure time, and final stop.",
+      "vi": "Xác định chuyến tàu của bạn theo số hiệu chuyến, giờ khởi hành theo lịch và điểm dừng cuối cùng."
+    },
+    {
+      "id": "video-tr-08-cue-5",
+      "start": 116,
+      "end": 145,
+      "en": "Ten minutes before departure, the assigned platform number will flash on screen.",
+      "vi": "Mười phút trước giờ khởi hành, số sân ga được chỉ định sẽ nhấp nháy trên màn hình."
+    },
+    {
+      "id": "video-tr-08-cue-6",
+      "start": 145,
+      "end": 174,
+      "en": "Follow directional signs through the underpass toward platform number seven.",
+      "vi": "Đi theo các biển chỉ dẫn qua đường hầm dành cho người đi bộ hướng về sân ga số bảy."
+    },
+    {
+      "id": "video-tr-08-cue-7",
+      "start": 174,
+      "end": 203,
+      "en": "Check your ticket for your designated carriage number and reserved seat.",
+      "vi": "Kiểm tra vé để biết số toa tàu được chỉ định và chỗ ngồi đã đặt trước của bạn."
+    },
+    {
+      "id": "video-tr-08-cue-8",
+      "start": 203,
+      "end": 232,
+      "en": "Step aboard carefully, place your luggage on the overhead racks, and sit down.",
+      "vi": "Bước lên tàu cẩn thận, đặt hành lý lên giá để đồ trên cao và ngồi xuống."
+    },
+    {
+      "id": "video-tr-08-cue-9",
+      "start": 232,
+      "end": 261,
+      "en": "The conductor will walk through the aisle to scan your mobile QR ticket barcode.",
+      "vi": "Trưởng tàu sẽ đi dọc theo lối đi để quét mã vạch vé QR trên điện thoại của bạn."
+    },
+    {
+      "id": "video-tr-08-cue-10",
+      "start": 261,
+      "end": 290,
+      "en": "Gliding across scenic countryside by train is the most romantic way to travel.",
+      "vi": "Lướt qua vùng nông thôn tuyệt đẹp bằng tàu hỏa là cách du lịch lãng mạn nhất."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-08-cloze-1",
+      "cueId": "video-tr-08-cue-3",
+      "sentence": "Look for the {{blank}} electronic departure board suspended in the main concourse.",
+      "blankWord": "gigantic",
+      "hintVi": "Nghĩa gợi ý: Tìm chiếc bảng điện tử báo giờ khởi hành...",
+      "timestamp": 58,
+      "options": [
+        "gigantic",
+        "vulnerable",
+        "innovative",
+        "routine"
+      ]
+    },
+    {
+      "id": "video-tr-08-cloze-2",
+      "cueId": "video-tr-08-cue-5",
+      "sentence": "Ten {{blank}} before departure, the assigned platform number will flash on screen.",
+      "blankWord": "minutes",
+      "hintVi": "Nghĩa gợi ý: Mười phút trước giờ khởi hành, số sân ga...",
+      "timestamp": 116,
+      "options": [
+        "reliable",
+        "dimension",
+        "minutes",
+        "preliminary"
+      ]
+    },
+    {
+      "id": "video-tr-08-cloze-3",
+      "cueId": "video-tr-08-cue-8",
+      "sentence": "Step {{blank}} carefully, place your luggage on the overhead racks, and sit down.",
+      "blankWord": "aboard",
+      "hintVi": "Nghĩa gợi ý: Bước lên tàu cẩn thận, đặt hành lý lên g...",
+      "timestamp": 203,
+      "options": [
+        "gradual",
+        "perspective",
+        "aboard",
+        "deliberate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-08-q1",
+      "question": "What is the primary focus of the video 'At the Train Station: Finding the Platform'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice at the train station: finding the platform effectively.",
+        "To critique ancient philosophies without practical relevance.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores at the train station: finding the platform, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 29
+    },
+    {
+      "id": "video-tr-08-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Ten...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Ten minutes before departure, the assigned platform number w...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Ten minutes before departure, the assigned platform number will flash on screen.', showing its practical importance.",
+      "timestampSeek": 116
+    },
+    {
+      "id": "video-tr-08-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Gliding across scenic countryside by train is the most romantic w..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Gliding across scenic countryside by train is the most romantic way to travel., providing a meaningful summary for learners.",
+      "timestampSeek": 261
+    }
+  ]
+}

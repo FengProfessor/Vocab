@@ -1,0 +1,191 @@
+{
+  "id": "video-fs-14",
+  "youtubeId": "nEhN8wlxXvB",
+  "title": "Sending Back an Undercooked Dish Politely",
+  "channel": "Learn English with Gill",
+  "duration": 480,
+  "durationDisplay": "08:00",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "food_shopping",
+  "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
+  "thumbnailUrl": "https://img.youtube.com/vi/nEhN8wlxXvB/hqdefault.jpg",
+  "description": "Cách yêu cầu nấu lại món ăn chưa chín hoặc sai món một cách văn minh, tôn trọng.",
+  "coreVocabulary": [
+    {
+      "word": "undercooked",
+      "phonetic": "/ˌʌndəˈkʊkt/",
+      "viDefinition": "chưa nấu chín, còn sống",
+      "contextSentence": "This chicken breast is dangerously undercooked in the center."
+    },
+    {
+      "word": "remedy",
+      "phonetic": "/ˈremədi/",
+      "viDefinition": "biện pháp khắc phục, sửa chữa",
+      "contextSentence": "The restaurant manager rushed to remedy the culinary mistake."
+    },
+    {
+      "word": "courtesy",
+      "phonetic": "/ˈkɜːtəsi/",
+      "viDefinition": "sự lịch sự, nhã nhặn",
+      "contextSentence": "Polite courtesy receives far faster service than hostile table banging."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-fs-14-cue-1",
+      "start": 0,
+      "end": 48,
+      "en": "Welcome back to Learn English with Gill, mastering delicate restaurant interactions.",
+      "vi": "Chào mừng quay lại với Learn English with Gill, làm chủ các tương tác nhà hàng tế nhị."
+    },
+    {
+      "id": "video-fs-14-cue-2",
+      "start": 48,
+      "end": 96,
+      "en": "Receiving an undercooked steak or cold soup can ruin a celebratory dinner.",
+      "vi": "Nhận được một miếng bít tết chưa chín hoặc súp nguội ngắt có thể làm hỏng bữa tối kỷ niệm."
+    },
+    {
+      "id": "video-fs-14-cue-3",
+      "start": 96,
+      "end": 144,
+      "en": "Many people feel too awkward to complain and suffer through unpalatable food.",
+      "vi": "Nhiều người cảm thấy quá ngại ngùng khi phàn nàn và đành cắn răng ăn thức ăn dở tệ."
+    },
+    {
+      "id": "video-fs-14-cue-4",
+      "start": 144,
+      "end": 192,
+      "en": "Professional restaurateurs genuinely want to know when a dish fails to satisfy.",
+      "vi": "Những người làm nhà hàng chuyên nghiệp thực sự muốn biết khi nào một món ăn không làm hài lòng thực khách."
+    },
+    {
+      "id": "video-fs-14-cue-5",
+      "start": 192,
+      "end": 240,
+      "en": "Catch the server's eye discreetly rather than snapping fingers or shouting.",
+      "vi": "Giao tiếp bằng mắt kín đáo với người phục vụ thay vì búng tay hay hét lớn."
+    },
+    {
+      "id": "video-fs-14-cue-6",
+      "start": 240,
+      "end": 288,
+      "en": "State the issue calmly: 'Excuse me, I believe this chicken is still undercooked inside.'",
+      "vi": "Nêu vấn đề một cách bình tĩnh: 'Xin lỗi, tôi tin là miếng thịt gà này bên trong vẫn chưa chín.'"
+    },
+    {
+      "id": "video-fs-14-cue-7",
+      "start": 288,
+      "end": 336,
+      "en": "Request a fresh preparation: 'Could you please have the kitchen cook a new portion?'",
+      "vi": "Yêu cầu nấu lại phần mới: 'Làm ơn nhờ bếp nấu một phần mới giúp tôi được không ạ?'"
+    },
+    {
+      "id": "video-fs-14-cue-8",
+      "start": 336,
+      "end": 384,
+      "en": "A reputable establishment will apologize immediately and rush to remedy the error.",
+      "vi": "Một cơ sở uy tín sẽ xin lỗi ngay lập tức và khẩn trương khắc phục sai sót."
+    },
+    {
+      "id": "video-fs-14-cue-9",
+      "start": 384,
+      "end": 432,
+      "en": "They will often offer complimentary drinks or desserts as a gesture of goodwill.",
+      "vi": "Họ thường sẽ tặng đồ uống hoặc món tráng miệng miễn phí như một cử chỉ thiện chí."
+    },
+    {
+      "id": "video-fs-14-cue-10",
+      "start": 432,
+      "end": 480,
+      "en": "Graceful assertiveness preserves your dining pleasure while honoring staff dignity.",
+      "vi": "Sự quả quyết duyên dáng bảo tồn niềm vui ăn uống của bạn trong khi vẫn tôn trọng phẩm giá nhân viên."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-fs-14-cloze-1",
+      "cueId": "video-fs-14-cue-3",
+      "sentence": "Many {{blank}} feel too awkward to complain and suffer through unpalatable food.",
+      "blankWord": "people",
+      "hintVi": "Nghĩa gợi ý: Nhiều người cảm thấy quá ngại ngùng khi ...",
+      "timestamp": 96,
+      "options": [
+        "criterion",
+        "people",
+        "innovative",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-fs-14-cloze-2",
+      "cueId": "video-fs-14-cue-5",
+      "sentence": "{{blank}} the server's eye discreetly rather than snapping fingers or shouting.",
+      "blankWord": "catch",
+      "hintVi": "Nghĩa gợi ý: Giao tiếp bằng mắt kín đáo với người phụ...",
+      "timestamp": 192,
+      "options": [
+        "catch",
+        "priority",
+        "component",
+        "moderate"
+      ]
+    },
+    {
+      "id": "video-fs-14-cloze-3",
+      "cueId": "video-fs-14-cue-8",
+      "sentence": "A {{blank}} establishment will apologize immediately and rush to remedy the error.",
+      "blankWord": "reputable",
+      "hintVi": "Nghĩa gợi ý: Một cơ sở uy tín sẽ xin lỗi ngay lập tức...",
+      "timestamp": 336,
+      "options": [
+        "vibrant",
+        "favorable",
+        "simultaneous",
+        "reputable"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-fs-14-q1",
+      "question": "What is the primary focus of the video 'Sending Back an Undercooked Dish Politely'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice sending back an undercooked dish politely effectively.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores sending back an undercooked dish politely, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 48
+    },
+    {
+      "id": "video-fs-14-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Catch...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Catch the server's eye discreetly rather than snapping finge...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Catch the server's eye discreetly rather than snapping fingers or shouting.', showing its practical importance.",
+      "timestampSeek": 192
+    },
+    {
+      "id": "video-fs-14-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Graceful assertiveness preserves your dining pleasure while honor...",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that Graceful assertiveness preserves your dining pleasure while honoring staff dignity., providing a meaningful summary for learners.",
+      "timestampSeek": 432
+    }
+  ]
+}

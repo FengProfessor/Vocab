@@ -1,0 +1,191 @@
+{
+  "id": "video-dl-04",
+  "youtubeId": "CthXFo8ldxl",
+  "title": "Doing Laundry and Household Chores",
+  "channel": "Learn English with Bob the Canadian",
+  "duration": 270,
+  "durationDisplay": "04:30",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/CthXFo8ldxl/hqdefault.jpg",
+  "description": "Hướng dẫn từ vựng và câu giao tiếp thực tế khi giặt giũ và phơi đồ trong gia đình.",
+  "coreVocabulary": [
+    {
+      "word": "detergent",
+      "phonetic": "/dɪˈtɜːdʒənt/",
+      "viDefinition": "bột giặt, nước giặt",
+      "contextSentence": "Add two caps of liquid detergent into the washing machine."
+    },
+    {
+      "word": "wrinkle",
+      "phonetic": "/ˈrɪŋkl/",
+      "viDefinition": "nếp nhăn (trên vải)",
+      "contextSentence": "Hanging shirts immediately prevents unwanted wrinkles."
+    },
+    {
+      "word": "fold",
+      "phonetic": "/fəʊld/",
+      "viDefinition": "gấp, xếp (quần áo)",
+      "contextSentence": "I like to fold my towels neatly before putting them away."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-04-cue-1",
+      "start": 0,
+      "end": 27,
+      "en": "Hello everyone, Bob the Canadian here with another everyday English lesson.",
+      "vi": "Chào mọi người, Bob the Canadian ở đây với một bài học tiếng Anh đời sống khác."
+    },
+    {
+      "id": "video-dl-04-cue-2",
+      "start": 27,
+      "end": 54,
+      "en": "Today we are tackling a chore everybody knows: doing the laundry.",
+      "vi": "Hôm nay chúng ta giải quyết một việc nhà ai cũng biết: giặt quần áo."
+    },
+    {
+      "id": "video-dl-04-cue-3",
+      "start": 54,
+      "end": 81,
+      "en": "First, separate dark clothes from white shirts and delicate fabrics.",
+      "vi": "Đầu tiên, hãy tách quần áo tối màu khỏi áo sơ mi trắng và vải mỏng."
+    },
+    {
+      "id": "video-dl-04-cue-4",
+      "start": 81,
+      "end": 108,
+      "en": "Measure the right amount of liquid detergent before starting the wash.",
+      "vi": "Đo lường lượng nước giặt phù hợp trước khi bắt đầu giặt."
+    },
+    {
+      "id": "video-dl-04-cue-5",
+      "start": 108,
+      "end": 135,
+      "en": "Select the cold water cycle to save electricity and protect colors.",
+      "vi": "Chọn chế độ giặt nước lạnh để tiết kiệm điện và bảo vệ màu sắc."
+    },
+    {
+      "id": "video-dl-04-cue-6",
+      "start": 135,
+      "end": 162,
+      "en": "When the wash cycle finishes, take the clothes out right away.",
+      "vi": "Khi chu trình giặt kết thúc, hãy lấy quần áo ra ngay lập tức."
+    },
+    {
+      "id": "video-dl-04-cue-7",
+      "start": 162,
+      "end": 189,
+      "en": "Shaking each garment before hanging reduces stubborn wrinkles.",
+      "vi": "Giũ từng bộ quần áo trước khi phơi giúp giảm các nếp nhăn cứng đầu."
+    },
+    {
+      "id": "video-dl-04-cue-8",
+      "start": 189,
+      "end": 216,
+      "en": "Once the clothes are completely dry, it is time to fold them neatly.",
+      "vi": "Khi quần áo đã khô hoàn toàn, đã đến lúc gấp chúng lại thật gọn gàng."
+    },
+    {
+      "id": "video-dl-04-cue-9",
+      "start": 216,
+      "end": 243,
+      "en": "Put socks into pairs and arrange t-shirts nicely in the drawer.",
+      "vi": "Ghép tất thành từng đôi và xếp áo thun đẹp mắt vào ngăn kéo."
+    },
+    {
+      "id": "video-dl-04-cue-10",
+      "start": 243,
+      "end": 270,
+      "en": "Doing a small load of laundry every two days avoids huge piles.",
+      "vi": "Giặt một mẻ nhỏ mỗi hai ngày giúp tránh được những đống quần áo khổng lồ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-04-cloze-1",
+      "cueId": "video-dl-04-cue-3",
+      "sentence": "{{blank}}, separate dark clothes from white shirts and delicate fabrics.",
+      "blankWord": "first",
+      "hintVi": "Nghĩa gợi ý: Đầu tiên, hãy tách quần áo tối màu khỏi ...",
+      "timestamp": 54,
+      "options": [
+        "first",
+        "gradual",
+        "substantial",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-dl-04-cloze-2",
+      "cueId": "video-dl-04-cue-5",
+      "sentence": "{{blank}} the cold water cycle to save electricity and protect colors.",
+      "blankWord": "select",
+      "hintVi": "Nghĩa gợi ý: Chọn chế độ giặt nước lạnh để tiết kiệm ...",
+      "timestamp": 108,
+      "options": [
+        "select",
+        "tremendous",
+        "routine",
+        "perceptive"
+      ]
+    },
+    {
+      "id": "video-dl-04-cloze-3",
+      "cueId": "video-dl-04-cue-8",
+      "sentence": "Once the {{blank}} are completely dry, it is time to fold them neatly.",
+      "blankWord": "clothes",
+      "hintVi": "Nghĩa gợi ý: Khi quần áo đã khô hoàn toàn, đã đến lúc...",
+      "timestamp": 189,
+      "options": [
+        "flexible",
+        "clothes",
+        "spontaneous",
+        "tremendous"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-04-q1",
+      "question": "What is the primary focus of the video 'Doing Laundry and Household Chores'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice doing laundry and household chores effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores doing laundry and household chores, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 27
+    },
+    {
+      "id": "video-dl-04-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Select...'?",
+      "options": [
+        "It emphasizes that: Select the cold water cycle to save electricity and protect ...",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 0,
+      "explanation": "In this segment, the speaker clarifies: 'Select the cold water cycle to save electricity and protect colors.', showing its practical importance.",
+      "timestampSeek": 108
+    },
+    {
+      "id": "video-dl-04-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Doing a small load of laundry every two days avoids huge piles...."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Doing a small load of laundry every two days avoids huge piles., providing a meaningful summary for learners.",
+      "timestampSeek": 243
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "id": "video-sth-27",
+  "youtubeId": "umIw9xjcOLP",
+  "title": "Autonomous Driving Systems and Computer Vision",
+  "channel": "Veritasium",
+  "duration": 1110,
+  "durationDisplay": "18:30",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/umIw9xjcOLP/hqdefault.jpg",
+  "description": "Xe tự lái và thị giác máy tính: cách cảm biến LiDAR, radar và AI điều khiển phương tiện.",
+  "coreVocabulary": [
+    {
+      "word": "autonomous",
+      "phonetic": "/ɔːˈtɒnəməs/",
+      "viDefinition": "tự hành, tự động hoàn toàn",
+      "contextSentence": "Autonomous vehicles navigate dense urban traffic using fused sensory sensor streams."
+    },
+    {
+      "word": "lidar",
+      "phonetic": "/ˈlaɪdɑː(r)/",
+      "viDefinition": "công nghệ quét laser LiDAR",
+      "contextSentence": "LiDAR scanners fire millions of laser pulses per second to build 3D spatial point clouds."
+    },
+    {
+      "word": "segmentation",
+      "phonetic": "/ˌseɡmenˈteɪʃn/",
+      "viDefinition": "sự phân đoạn hình ảnh",
+      "contextSentence": "Computer vision neural networks perform real-time semantic segmentation on video frames."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-27-cue-1",
+      "start": 0,
+      "end": 111,
+      "en": "Welcome to Veritasium, riding along the bleeding edge of artificial intelligence and vehicular autonomy.",
+      "vi": "Chào mừng đến với Veritasium, đồng hành cùng đỉnh cao của trí tuệ nhân tạo và phương tiện tự hành."
+    },
+    {
+      "id": "video-sth-27-cue-2",
+      "start": 111,
+      "end": 222,
+      "en": "Human driving is surprisingly perilous: over one million people die annually in vehicle collisions worldwide.",
+      "vi": "Con người lái xe nguy hiểm một cách đáng ngạc nhiên: hơn một triệu người thiệt mạng mỗi năm trong các vụ va chạm xe cộ trên toàn thế giới."
+    },
+    {
+      "id": "video-sth-27-cue-3",
+      "start": 222,
+      "end": 333,
+      "en": "Human drivers get distracted by phones, suffer fatigue, and react slowly to sudden obstacles.",
+      "vi": "Các tài xế con người bị phân tâm bởi điện thoại, chịu mệt mỏi và phản ứng chậm trước các chướng ngại vật bất ngờ."
+    },
+    {
+      "id": "video-sth-27-cue-4",
+      "start": 333,
+      "end": 444,
+      "en": "Autonomous vehicles aim to replace human fallibility with tireless 360-degree algorithmic awareness.",
+      "vi": "Xe tự hành nhằm mục đích thay thế sự sai lầm của con người bằng nhận thức thuật toán 360 độ không biết mệt mỏi."
+    },
+    {
+      "id": "video-sth-27-cue-5",
+      "start": 444,
+      "end": 555,
+      "en": "A self-driving vehicle combines three complementary sensor modalities: optical cameras, radar, and LiDAR.",
+      "vi": "Một chiếc xe tự lái kết hợp ba phương thức cảm biến bổ sung: máy ảnh quang học, radar và LiDAR."
+    },
+    {
+      "id": "video-sth-27-cue-6",
+      "start": 555,
+      "end": 666,
+      "en": "LiDAR units pulse laser beams millions of times per second, building an intricate three-dimensional point cloud.",
+      "vi": "Các thiết bị LiDAR phát ra các chùm tia laser hàng triệu lần mỗi giây, xây dựng một đám mây điểm ba chiều phức tạp."
+    },
+    {
+      "id": "video-sth-27-cue-7",
+      "start": 666,
+      "end": 777,
+      "en": "Deep convolutional networks perform real-time semantic segmentation, classifying every pixel on the road.",
+      "vi": "Các mạng tích chập sâu thực hiện phân đoạn ngữ nghĩa theo thời gian thực, phân loại từng pixel trên đường đi."
+    },
+    {
+      "id": "video-sth-27-cue-8",
+      "start": 777,
+      "end": 888,
+      "en": "The system categorizes pedestrians, cyclists, lane markings, red lights, and erratic vehicles.",
+      "vi": "Hệ thống phân loại người đi bộ, người đi xe đạp, vạch kẻ đường, đèn đỏ và các phương tiện di chuyển bất thường."
+    },
+    {
+      "id": "video-sth-27-cue-9",
+      "start": 888,
+      "end": 999,
+      "en": "A trajectory planner calculates safe paths while predicting the likely movements of surrounding motorists.",
+      "vi": "Một bộ lập kế hoạch quỹ đạo tính toán các lối đi an toàn đồng thời dự đoán các chuyển động có khả năng xảy ra của các tài xế xung quanh."
+    },
+    {
+      "id": "video-sth-27-cue-10",
+      "start": 999,
+      "end": 1110,
+      "en": "Autonomous robotics will soon transform urban mobility, reclaiming city spaces and saving millions of lives.",
+      "vi": "Robot tự hành sẽ sớm biến đổi tính cơ động của đô thị, giành lại không gian thành phố và cứu sống hàng triệu sinh mạng."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-27-cloze-1",
+      "cueId": "video-sth-27-cue-3",
+      "sentence": "{{blank}} drivers get distracted by phones, suffer fatigue, and react slowly to sudden obstacles.",
+      "blankWord": "human",
+      "hintVi": "Nghĩa gợi ý: Các tài xế con người bị phân tâm bởi điệ...",
+      "timestamp": 222,
+      "options": [
+        "protocol",
+        "extensive",
+        "human",
+        "gradual"
+      ]
+    },
+    {
+      "id": "video-sth-27-cloze-2",
+      "cueId": "video-sth-27-cue-5",
+      "sentence": "A self-driving {{blank}} combines three complementary sensor modalities: optical cameras, radar, and LiDAR.",
+      "blankWord": "vehicle",
+      "hintVi": "Nghĩa gợi ý: Một chiếc xe tự lái kết hợp ba phương th...",
+      "timestamp": 444,
+      "options": [
+        "perspective",
+        "component",
+        "vehicle",
+        "protocol"
+      ]
+    },
+    {
+      "id": "video-sth-27-cloze-3",
+      "cueId": "video-sth-27-cue-8",
+      "sentence": "The {{blank}} categorizes pedestrians, cyclists, lane markings, red lights, and erratic vehicles.",
+      "blankWord": "system",
+      "hintVi": "Nghĩa gợi ý: Hệ thống phân loại người đi bộ, người đi...",
+      "timestamp": 777,
+      "options": [
+        "favorable",
+        "extensive",
+        "perspective",
+        "system"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-27-q1",
+      "question": "What is the primary focus of the video 'Autonomous Driving Systems and Computer Vision'?",
+      "options": [
+        "To explain and practice autonomous driving systems and computer vision effectively.",
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores autonomous driving systems and computer vision, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 111
+    },
+    {
+      "id": "video-sth-27-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'A...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: A self-driving vehicle combines three complementary sensor m...",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'A self-driving vehicle combines three complementary sensor modalities: optical cameras, radar, and LiDAR.', showing its practical importance.",
+      "timestampSeek": 444
+    },
+    {
+      "id": "video-sth-27-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Autonomous robotics will soon transform urban mobility, reclaimin...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Autonomous robotics will soon transform urban mobility, reclaiming city spaces and saving millions of lives., providing a meaningful summary for learners.",
+      "timestampSeek": 999
+    },
+    {
+      "id": "video-sth-27-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Deep...'?",
+      "options": [
+        "It claims this factor has zero impact on the final outcome.",
+        "It states this step should always be skipped by beginners.",
+        "It highlights that: Deep convolutional networks perform real-time semantic segme...",
+        "It warns that following this method produces immediate failure."
+      ],
+      "correctIndex": 2,
+      "explanation": "The speaker specifically highlights: 'Deep convolutional networks perform real-time semantic segmentation, classifying every pixel on the road.', providing deeper technical insight.",
+      "timestampSeek": 666
+    }
+  ]
+}

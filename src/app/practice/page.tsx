@@ -44,6 +44,17 @@ const MODES = [
     arrow: 'text-teal-400',
   },
   {
+    href: '/practice/listening',
+    emoji: '🎧',
+    title: 'Luyện nghe Video',
+    desc: 'YouTube đời sống · phụ đề song ngữ · bài tập cloze & trắc nghiệm',
+    ring: 'border-sky-200 bg-sky-50/70 hover:border-sky-400 hover:bg-sky-50',
+    badge: 'bg-sky-600',
+    text: 'text-sky-950',
+    sub: 'text-sky-800/80',
+    arrow: 'text-sky-400',
+  },
+  {
     href: '/practice/daily-reading',
     emoji: '🌅',
     title: 'Bài đọc hàng ngày',

@@ -1,0 +1,191 @@
+{
+  "id": "video-tr-11",
+  "youtubeId": "YEMQRZO3SGs",
+  "title": "Renting a Car: Insurance and Fuel Policies",
+  "channel": "Wolters World",
+  "duration": 370,
+  "durationDisplay": "06:10",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "travel",
+  "topicDisplay": "Du lịch & Khám phá",
+  "thumbnailUrl": "https://img.youtube.com/vi/YEMQRZO3SGs/hqdefault.jpg",
+  "description": "Kinh nghiệm thuê xe ô tô tự lái ở nước ngoài: bảo hiểm va chạm, xăng xe và bằng lái.",
+  "coreVocabulary": [
+    {
+      "word": "collision",
+      "phonetic": "/kəˈlɪʒn/",
+      "viDefinition": "sự va chạm, tai nạn xe cộ",
+      "contextSentence": "Collision damage waiver insurance protects you against accidental body dents."
+    },
+    {
+      "word": "deductible",
+      "phonetic": "/dɪˈdʌktəbl/",
+      "viDefinition": "mức khấu trừ (khoản tự trả trong bảo hiểm)",
+      "contextSentence": "Paying a small daily fee reduces your accident deductible to zero."
+    },
+    {
+      "word": "mileage",
+      "phonetic": "/ˈmaɪlɪdʒ/",
+      "viDefinition": "số dặm/km đã đi, hạn mức di chuyển",
+      "contextSentence": "Choose an agreement offering unlimited daily mileage for cross-country journeys."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-tr-11-cue-1",
+      "start": 0,
+      "end": 37,
+      "en": "Hey everybody, it's Mark from Wolters World giving you real travel advice that works.",
+      "vi": "Chào mọi người, Mark từ Wolters World ở đây mang đến cho bạn lời khuyên du lịch thực tế hữu ích."
+    },
+    {
+      "id": "video-tr-11-cue-2",
+      "start": 37,
+      "end": 74,
+      "en": "Renting a vehicle abroad unlocks stunning countryside that trains cannot reach.",
+      "vi": "Thuê xe ô tô ở nước ngoài mở ra vùng nông thôn tuyệt đẹp mà tàu hỏa không thể tới được."
+    },
+    {
+      "id": "video-tr-11-cue-3",
+      "start": 74,
+      "end": 111,
+      "en": "At the rental counter, present your domestic driver's license and International Driving Permit.",
+      "vi": "Tại quầy thuê xe, xuất trình bằng lái xe trong nước và Giấy phép Lái xe Quốc tế của bạn."
+    },
+    {
+      "id": "video-tr-11-cue-4",
+      "start": 111,
+      "end": 148,
+      "en": "Scrutinize the insurance options carefully; baseline coverage carries high deductibles.",
+      "vi": "Xem xét kỹ các lựa chọn bảo hiểm; gói bảo hiểm cơ bản có mức khấu trừ tự trả rất cao."
+    },
+    {
+      "id": "video-tr-11-cue-5",
+      "start": 148,
+      "end": 185,
+      "en": "Opting for collision damage waiver provides invaluable peace of mind on foreign roads.",
+      "vi": "Lựa chọn miễn trừ thiệt hại do va chạm mang lại sự an tâm vô giá trên các con đường xa lạ."
+    },
+    {
+      "id": "video-tr-11-cue-6",
+      "start": 185,
+      "end": 222,
+      "en": "Inquire about fuel policies: 'full-to-full' is always the most economical choice.",
+      "vi": "Hỏi thăm về chính sách nhiên liệu: 'nhận đầy trả đầy' luôn là lựa chọn tiết kiệm nhất."
+    },
+    {
+      "id": "video-tr-11-cue-7",
+      "start": 222,
+      "end": 259,
+      "en": "Confirm whether your rental contract permits unlimited daily mileage across borders.",
+      "vi": "Xác nhận xem hợp đồng thuê xe của bạn có cho phép số km không giới hạn qua các biên giới không."
+    },
+    {
+      "id": "video-tr-11-cue-8",
+      "start": 259,
+      "end": 296,
+      "en": "Inspect the vehicle thoroughly with the agent, photographing every pre-existing scratch.",
+      "vi": "Kiểm tra kỹ chiếc xe cùng nhân viên, chụp ảnh từng vết xước có từ trước."
+    },
+    {
+      "id": "video-tr-11-cue-9",
+      "start": 296,
+      "end": 333,
+      "en": "Test the headlights, windscreen wipers, and GPS navigation before leaving the lot.",
+      "vi": "Kiểm tra đèn pha, cần gạt nước kính chắn gió và định vị GPS trước khi rời bãi xe."
+    },
+    {
+      "id": "video-tr-11-cue-10",
+      "start": 333,
+      "end": 370,
+      "en": "Drive defensively, respect local traffic speed laws, and enjoy the open road.",
+      "vi": "Lái xe phòng thủ, tôn trọng luật tốc độ giao thông địa phương và tận hưởng con đường rộng mở."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-tr-11-cloze-1",
+      "cueId": "video-tr-11-cue-3",
+      "sentence": "At the {{blank}} counter, present your domestic driver's license and International Driving Permit.",
+      "blankWord": "rental",
+      "hintVi": "Nghĩa gợi ý: Tại quầy thuê xe, xuất trình bằng lái xe...",
+      "timestamp": 74,
+      "options": [
+        "rental",
+        "alternative",
+        "innovative",
+        "priority"
+      ]
+    },
+    {
+      "id": "video-tr-11-cloze-2",
+      "cueId": "video-tr-11-cue-5",
+      "sentence": "{{blank}} for collision damage waiver provides invaluable peace of mind on foreign roads.",
+      "blankWord": "opting",
+      "hintVi": "Nghĩa gợi ý: Lựa chọn miễn trừ thiệt hại do va chạm m...",
+      "timestamp": 148,
+      "options": [
+        "opting",
+        "advantage",
+        "substantial",
+        "alternative"
+      ]
+    },
+    {
+      "id": "video-tr-11-cloze-3",
+      "cueId": "video-tr-11-cue-8",
+      "sentence": "{{blank}} the vehicle thoroughly with the agent, photographing every pre-existing scratch.",
+      "blankWord": "inspect",
+      "hintVi": "Nghĩa gợi ý: Kiểm tra kỹ chiếc xe cùng nhân viên, chụ...",
+      "timestamp": 259,
+      "options": [
+        "adequate",
+        "resource",
+        "protocol",
+        "inspect"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-tr-11-q1",
+      "question": "What is the primary focus of the video 'Renting a Car: Insurance and Fuel Policies'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice renting a car: insurance and fuel policies effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores renting a car: insurance and fuel policies, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 37
+    },
+    {
+      "id": "video-tr-11-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Opting...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: Opting for collision damage waiver provides invaluable peace...",
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 1,
+      "explanation": "In this segment, the speaker clarifies: 'Opting for collision damage waiver provides invaluable peace of mind on foreign roads.', showing its practical importance.",
+      "timestampSeek": 148
+    },
+    {
+      "id": "video-tr-11-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Drive defensively, respect local traffic speed laws, and enjoy th...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "No further practice or mindfulness is necessary.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Drive defensively, respect local traffic speed laws, and enjoy the open road., providing a meaningful summary for learners.",
+      "timestampSeek": 333
+    }
+  ]
+}

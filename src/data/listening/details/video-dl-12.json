@@ -1,0 +1,191 @@
+{
+  "id": "video-dl-12",
+  "youtubeId": "RkCMkLHqd3H",
+  "title": "Setting Up a Minimalist Home Office",
+  "channel": "BBC Learning English",
+  "duration": 380,
+  "durationDisplay": "06:20",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "daily_life",
+  "topicDisplay": "Đời sống hàng ngày",
+  "thumbnailUrl": "https://img.youtube.com/vi/RkCMkLHqd3H/hqdefault.jpg",
+  "description": "Cách bố trí bàn làm việc tối giản, công thái học và tăng sự tập trung tại nhà.",
+  "coreVocabulary": [
+    {
+      "word": "ergonomic",
+      "phonetic": "/ˌɜːɡəˈnɒmɪk/",
+      "viDefinition": "công thái học (thiết kế tối ưu cho cơ thể)",
+      "contextSentence": "An ergonomic chair supports your lower back during long sessions."
+    },
+    {
+      "word": "minimalist",
+      "phonetic": "/ˈmɪnɪməlɪst/",
+      "viDefinition": "tối giản",
+      "contextSentence": "A minimalist desk setup eliminates visual clutter and mental stress."
+    },
+    {
+      "word": "posture",
+      "phonetic": "/ˈpɒstʃə(r)/",
+      "viDefinition": "tư thế ngồi/đứng",
+      "contextSentence": "Maintaining upright posture prevents chronic neck and shoulder tension."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-dl-12-cue-1",
+      "start": 0,
+      "end": 38,
+      "en": "Hello and welcome to BBC Learning English's lifestyle guide.",
+      "vi": "Xin chào và chào mừng đến với cẩm nang phong cách sống của BBC Learning English."
+    },
+    {
+      "id": "video-dl-12-cue-2",
+      "start": 38,
+      "end": 76,
+      "en": "Remote work has transformed how we design our personal study spaces.",
+      "vi": "Làm việc từ xa đã thay đổi cách chúng ta thiết kế không gian học tập cá nhân."
+    },
+    {
+      "id": "video-dl-12-cue-3",
+      "start": 76,
+      "end": 114,
+      "en": "The primary objective of a minimalist desk is eliminating distraction.",
+      "vi": "Mục tiêu chính của một bàn làm việc tối giản là loại bỏ sự xao nhãng."
+    },
+    {
+      "id": "video-dl-12-cue-4",
+      "start": 114,
+      "end": 152,
+      "en": "Keep only essential items within reach: your laptop, notebook, and water.",
+      "vi": "Chỉ giữ những đồ dùng thiết yếu trong tầm tay: máy tính xách tay, sổ tay và nước."
+    },
+    {
+      "id": "video-dl-12-cue-5",
+      "start": 152,
+      "end": 190,
+      "en": "Invest in an ergonomic office chair that adjusts to your spine.",
+      "vi": "Hãy đầu tư vào một chiếc ghế văn phòng công thái học có thể điều chỉnh phù hợp với cột sống."
+    },
+    {
+      "id": "video-dl-12-cue-6",
+      "start": 190,
+      "end": 228,
+      "en": "Position your monitor at eye level so you do not crane your neck.",
+      "vi": "Đặt màn hình ở tầm mắt để bạn không phải nghển cổ lên."
+    },
+    {
+      "id": "video-dl-12-cue-7",
+      "start": 228,
+      "end": 266,
+      "en": "Correct posture protects your back from fatigue over months of work.",
+      "vi": "Tư thế đúng bảo vệ lưng bạn khỏi mệt mỏi qua nhiều tháng làm việc."
+    },
+    {
+      "id": "video-dl-12-cue-8",
+      "start": 266,
+      "end": 304,
+      "en": "Cable management boxes hide tangled cords and maintain visual harmony.",
+      "vi": "Hộp quản lý dây cáp giấu các dây rối và duy trì sự hài hòa thị giác."
+    },
+    {
+      "id": "video-dl-12-cue-9",
+      "start": 304,
+      "end": 342,
+      "en": "Natural sunlight near your desk boosts mood and improves focus.",
+      "vi": "Ánh sáng mặt trời tự nhiên gần bàn làm việc giúp nâng cao tâm trạng và cải thiện sự tập trung."
+    },
+    {
+      "id": "video-dl-12-cue-10",
+      "start": 342,
+      "end": 380,
+      "en": "A clean, intentional workstation fosters sustained creative output.",
+      "vi": "Một góc làm việc sạch sẽ, có chủ ý sẽ thúc đẩy hiệu suất sáng tạo bền bỉ."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-dl-12-cloze-1",
+      "cueId": "video-dl-12-cue-3",
+      "sentence": "The {{blank}} objective of a minimalist desk is eliminating distraction.",
+      "blankWord": "primary",
+      "hintVi": "Nghĩa gợi ý: Mục tiêu chính của một bàn làm việc tối ...",
+      "timestamp": 76,
+      "options": [
+        "reliable",
+        "primary",
+        "efficient",
+        "subsequent"
+      ]
+    },
+    {
+      "id": "video-dl-12-cloze-2",
+      "cueId": "video-dl-12-cue-5",
+      "sentence": "{{blank}} in an ergonomic office chair that adjusts to your spine.",
+      "blankWord": "invest",
+      "hintVi": "Nghĩa gợi ý: Hãy đầu tư vào một chiếc ghế văn phòng c...",
+      "timestamp": 152,
+      "options": [
+        "invest",
+        "subsequent",
+        "routine",
+        "extensive"
+      ]
+    },
+    {
+      "id": "video-dl-12-cloze-3",
+      "cueId": "video-dl-12-cue-8",
+      "sentence": "{{blank}} management boxes hide tangled cords and maintain visual harmony.",
+      "blankWord": "cable",
+      "hintVi": "Nghĩa gợi ý: Hộp quản lý dây cáp giấu các dây rối và ...",
+      "timestamp": 266,
+      "options": [
+        "adequate",
+        "efficient",
+        "cable",
+        "extensive"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-dl-12-q1",
+      "question": "What is the primary focus of the video 'Setting Up a Minimalist Home Office'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice setting up a minimalist home office effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores setting up a minimalist home office, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 38
+    },
+    {
+      "id": "video-dl-12-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Invest...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Invest in an ergonomic office chair that adjusts to your spi...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Invest in an ergonomic office chair that adjusts to your spine.', showing its practical importance.",
+      "timestampSeek": 152
+    },
+    {
+      "id": "video-dl-12-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: A clean, intentional workstation fosters sustained creative outpu...",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 2,
+      "explanation": "The concluding message emphasizes that A clean, intentional workstation fosters sustained creative output., providing a meaningful summary for learners.",
+      "timestampSeek": 342
+    }
+  ]
+}

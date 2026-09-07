@@ -1,0 +1,204 @@
+{
+  "id": "video-sth-26",
+  "youtubeId": "8xsxRXi8LRv",
+  "title": "Neuroplasticity: Rewiring the Adult Brain",
+  "channel": "TED-Ed",
+  "duration": 1020,
+  "durationDisplay": "17:00",
+  "durationCategory": "medium",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/8xsxRXi8LRv/hqdefault.jpg",
+  "description": "Tính mềm dẻo của não bộ: cách não người trưởng thành tái cấu trúc và thích nghi suốt đời.",
+  "coreVocabulary": [
+    {
+      "word": "plasticity",
+      "phonetic": "/plæˈstɪsəti/",
+      "viDefinition": "tính mềm dẻo, khả năng tái cấu trúc",
+      "contextSentence": "Neuroplasticity proves the adult brain constantly remodels synaptic connections throughout life."
+    },
+    {
+      "word": "synapse",
+      "phonetic": "/ˈsaɪnæps/",
+      "viDefinition": "khớp thần kinh (kết nối giữa các nơ-ron)",
+      "contextSentence": "Active learning strengthens synaptic connections between cooperating cortical neurons."
+    },
+    {
+      "word": "myelin",
+      "phonetic": "/ˈmaɪəlɪn/",
+      "viDefinition": "bao myelin (chất bọc sợi trục thần kinh)",
+      "contextSentence": "Repeated skill practice wraps neural pathways in thick insulating myelin sheaths."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-26-cue-1",
+      "start": 0,
+      "end": 102,
+      "en": "Welcome to TED-Ed, celebrating the most extraordinary property of the human brain: neuroplasticity.",
+      "vi": "Chào mừng đến với TED-Ed, tôn vinh đặc tính phi thường nhất của bộ não con người: tính mềm dẻo thần kinh."
+    },
+    {
+      "id": "video-sth-26-cue-2",
+      "start": 102,
+      "end": 204,
+      "en": "For over a century, orthodox neuroscience maintained that the adult brain was fixed and immutable.",
+      "vi": "Trong hơn một thế kỷ, khoa học thần kinh chính thống khẳng định rằng bộ não người trưởng thành là cố định và bất biến."
+    },
+    {
+      "id": "video-sth-26-cue-3",
+      "start": 204,
+      "end": 306,
+      "en": "The dogmatic assumption was that after childhood development, lost brain cells were gone forever.",
+      "vi": "Giả định giáo điều cho rằng sau quá trình phát triển thời thơ ấu, các tế bào não bị mất sẽ biến mất mãi mãi."
+    },
+    {
+      "id": "video-sth-26-cue-4",
+      "start": 306,
+      "end": 408,
+      "en": "Modern neuroimaging has completely shattered this pessimistic dogma.",
+      "vi": "Hình ảnh thần kinh hiện đại đã đập tan hoàn toàn giáo điều bi quan này."
+    },
+    {
+      "id": "video-sth-26-cue-5",
+      "start": 408,
+      "end": 510,
+      "en": "The brain is not a rigid biological computer; it is an organic, malleable living landscape.",
+      "vi": "Bộ não không phải là một chiếc máy tính sinh học cứng nhắc; nó là một cảnh quan sống hữu cơ, dễ uốn nắn."
+    },
+    {
+      "id": "video-sth-26-cue-6",
+      "start": 510,
+      "end": 612,
+      "en": "Neurons that fire together wire together: repeated conscious practice strengthens synaptic bridges.",
+      "vi": "Các nơ-ron cùng phát tín hiệu sẽ liên kết với nhau: việc luyện tập có ý thức lặp đi lặp lại củng cố các cầu nối khớp thần kinh."
+    },
+    {
+      "id": "video-sth-26-cue-7",
+      "start": 612,
+      "end": 714,
+      "en": "Specialized glial cells wrap frequently traversed neural highways in layers of fatty myelin insulation.",
+      "vi": "Các tế bào thần kinh đệm chuyên biệt bao bọc các xa lộ thần kinh thường xuyên qua lại bằng các lớp cách điện myelin béo."
+    },
+    {
+      "id": "video-sth-26-cue-8",
+      "start": 714,
+      "end": 816,
+      "en": "Myelination accelerates electrical signal transmission up to one hundred times faster.",
+      "vi": "Quá trình myelin hóa làm tăng tốc độ truyền tín hiệu điện lên tới một trăm lần."
+    },
+    {
+      "id": "video-sth-26-cue-9",
+      "start": 816,
+      "end": 918,
+      "en": "Even following catastrophic strokes, healthy brain regions can reallocate cortical territory to recover lost speech.",
+      "vi": "Ngay cả sau những cơn đột quỵ thảm khốc, các vùng não khỏe mạnh có thể tái phân bổ lãnh thổ vỏ não để phục hồi tiếng nói đã mất."
+    },
+    {
+      "id": "video-sth-26-cue-10",
+      "start": 918,
+      "end": 1020,
+      "en": "Every deliberate thought, novel skill, and challenging habit you cultivate literally sculpts your biological mind.",
+      "vi": "Mỗi suy nghĩ có chủ đích, kỹ năng mới lạ và thói quen thử thách bạn trau dồi sẽ thực sự điêu khắc tâm trí sinh học của bạn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-26-cloze-1",
+      "cueId": "video-sth-26-cue-3",
+      "sentence": "The {{blank}} assumption was that after childhood development, lost brain cells were gone forever.",
+      "blankWord": "dogmatic",
+      "hintVi": "Nghĩa gợi ý: Giả định giáo điều cho rằng sau quá trìn...",
+      "timestamp": 204,
+      "options": [
+        "subsequent",
+        "temporary",
+        "dimension",
+        "dogmatic"
+      ]
+    },
+    {
+      "id": "video-sth-26-cloze-2",
+      "cueId": "video-sth-26-cue-5",
+      "sentence": "The {{blank}} is not a rigid biological computer; it is an organic, malleable living landscape.",
+      "blankWord": "brain",
+      "hintVi": "Nghĩa gợi ý: Bộ não không phải là một chiếc máy tính ...",
+      "timestamp": 408,
+      "options": [
+        "simultaneous",
+        "remarkable",
+        "brain",
+        "convenient"
+      ]
+    },
+    {
+      "id": "video-sth-26-cloze-3",
+      "cueId": "video-sth-26-cue-8",
+      "sentence": "{{blank}} accelerates electrical signal transmission up to one hundred times faster.",
+      "blankWord": "myelination",
+      "hintVi": "Nghĩa gợi ý: Quá trình myelin hóa làm tăng tốc độ tru...",
+      "timestamp": 714,
+      "options": [
+        "myelination",
+        "gradual",
+        "sufficient",
+        "continuous"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-26-q1",
+      "question": "What is the primary focus of the video 'Neuroplasticity: Rewiring the Adult Brain'?",
+      "options": [
+        "To explain and practice neuroplasticity: rewiring the adult brain effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 0,
+      "explanation": "The entire video systematically explores neuroplasticity: rewiring the adult brain, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 102
+    },
+    {
+      "id": "video-sth-26-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: The brain is not a rigid biological computer; it is an organ...",
+        "It claims the subject is irrelevant in everyday modern life."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'The brain is not a rigid biological computer; it is an organic, malleable living landscape.', showing its practical importance.",
+      "timestampSeek": 408
+    },
+    {
+      "id": "video-sth-26-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Every deliberate thought, novel skill, and challenging habit you ...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Every deliberate thought, novel skill, and challenging habit you cultivate literally sculpts your biological mind., providing a meaningful summary for learners.",
+      "timestampSeek": 918
+    },
+    {
+      "id": "video-sth-26-q4",
+      "question": "In the detailed discussion, what nuance does the speaker explain about 'Specialized...'?",
+      "options": [
+        "It claims this factor has zero impact on the final outcome.",
+        "It warns that following this method produces immediate failure.",
+        "It states this step should always be skipped by beginners.",
+        "It highlights that: Specialized glial cells wrap frequently traversed neural hig..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The speaker specifically highlights: 'Specialized glial cells wrap frequently traversed neural highways in layers of fatty myelin insulation.', providing deeper technical insight.",
+      "timestampSeek": 612
+    }
+  ]
+}

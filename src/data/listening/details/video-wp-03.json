@@ -1,0 +1,191 @@
+{
+  "id": "video-wp-03",
+  "youtubeId": "piDx4qpIWSG",
+  "title": "Confirming Work Deadlines and Schedules",
+  "channel": "CareerVidz",
+  "duration": 260,
+  "durationDisplay": "04:20",
+  "durationCategory": "short",
+  "cefrLevel": "A2",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/piDx4qpIWSG/hqdefault.jpg",
+  "description": "Cách xác nhận thời hạn nộp báo cáo và sắp xếp lịch họp với quản lý.",
+  "coreVocabulary": [
+    {
+      "word": "confirm",
+      "phonetic": "/kənˈfɜːm/",
+      "viDefinition": "xác nhận",
+      "contextSentence": "I am writing to confirm our project review meeting."
+    },
+    {
+      "word": "deliverable",
+      "phonetic": "/dɪˈlɪvərəbl/",
+      "viDefinition": "sản phẩm bàn giao, kết quả công việc",
+      "contextSentence": "All agreed deliverables must be submitted by month end."
+    },
+    {
+      "word": "calendar",
+      "phonetic": "/ˈkælɪndə(r)/",
+      "viDefinition": "lịch công tác, lịch biểu",
+      "contextSentence": "Please check your online calendar for the meeting invitation."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-03-cue-1",
+      "start": 0,
+      "end": 26,
+      "en": "Hello ambitious professionals, welcome back to CareerVidz.",
+      "vi": "Xin chào các chuyên gia đầy tham vọng, chào mừng quay lại với CareerVidz."
+    },
+    {
+      "id": "video-wp-03-cue-2",
+      "start": 26,
+      "end": 52,
+      "en": "Miscommunication about deadlines causes unnecessary workplace anxiety.",
+      "vi": "Sự thiếu hiểu nhau về thời hạn chót gây ra những căng thẳng công sở không cần thiết."
+    },
+    {
+      "id": "video-wp-03-cue-3",
+      "start": 52,
+      "end": 78,
+      "en": "Always send a brief confirmation note after verbal discussions.",
+      "vi": "Luôn gửi một mẩu ghi chú xác nhận ngắn sau các cuộc thảo luận bằng lời nói."
+    },
+    {
+      "id": "video-wp-03-cue-4",
+      "start": 78,
+      "end": 104,
+      "en": "Say: 'I would like to confirm our timeline for the client presentation.'",
+      "vi": "Nói: 'Tôi muốn xác nhận lại mốc thời gian của chúng ta cho bài thuyết trình với khách hàng.'"
+    },
+    {
+      "id": "video-wp-03-cue-5",
+      "start": 104,
+      "end": 130,
+      "en": "List each key deliverable alongside its responsible team member.",
+      "vi": "Liệt kê từng sản phẩm bàn giao chính cùng với thành viên nhóm phụ trách."
+    },
+    {
+      "id": "video-wp-03-cue-6",
+      "start": 130,
+      "end": 156,
+      "en": "Make sure the date and exact hour are entered onto the shared calendar.",
+      "vi": "Đảm bảo ngày và giờ chính xác được nhập vào lịch làm việc chung."
+    },
+    {
+      "id": "video-wp-03-cue-7",
+      "start": 156,
+      "end": 182,
+      "en": "If you foresee a delay, alert your supervisor early with a solution.",
+      "vi": "Nếu bạn lường trước sự chậm trễ, hãy báo cho cấp trên từ sớm kèm giải pháp."
+    },
+    {
+      "id": "video-wp-03-cue-8",
+      "start": 182,
+      "end": 208,
+      "en": "Never wait until the final hour to announce that work is incomplete.",
+      "vi": "Đừng bao giờ đợi đến giờ chót mới thông báo rằng công việc chưa hoàn thành."
+    },
+    {
+      "id": "video-wp-03-cue-9",
+      "start": 208,
+      "end": 234,
+      "en": "Reliability regarding promised commitments builds immense career credibility.",
+      "vi": "Sự đáng tin cậy đối với các cam kết đã hứa tạo dựng uy tín nghề nghiệp to lớn."
+    },
+    {
+      "id": "video-wp-03-cue-10",
+      "start": 234,
+      "end": 260,
+      "en": "Clear professional timelines protect both quality and peace of mind.",
+      "vi": "Mốc thời gian chuyên nghiệp rõ ràng bảo vệ cả chất lượng lẫn sự an tâm."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-03-cloze-1",
+      "cueId": "video-wp-03-cue-3",
+      "sentence": "{{blank}} send a brief confirmation note after verbal discussions.",
+      "blankWord": "always",
+      "hintVi": "Nghĩa gợi ý: Luôn gửi một mẩu ghi chú xác nhận ngắn s...",
+      "timestamp": 52,
+      "options": [
+        "always",
+        "reliable",
+        "framework",
+        "gradual"
+      ]
+    },
+    {
+      "id": "video-wp-03-cloze-2",
+      "cueId": "video-wp-03-cue-5",
+      "sentence": "List each key {{blank}} alongside its responsible team member.",
+      "blankWord": "deliverable",
+      "hintVi": "Nghĩa gợi ý: Liệt kê từng sản phẩm bàn giao chính cùn...",
+      "timestamp": 104,
+      "options": [
+        "preliminary",
+        "deliverable",
+        "dimension",
+        "subsequent"
+      ]
+    },
+    {
+      "id": "video-wp-03-cloze-3",
+      "cueId": "video-wp-03-cue-8",
+      "sentence": "{{blank}} wait until the final hour to announce that work is incomplete.",
+      "blankWord": "never",
+      "hintVi": "Nghĩa gợi ý: Đừng bao giờ đợi đến giờ chót mới thông ...",
+      "timestamp": 182,
+      "options": [
+        "essential",
+        "convenient",
+        "never",
+        "adequate"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-03-q1",
+      "question": "What is the primary focus of the video 'Confirming Work Deadlines and Schedules'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice confirming work deadlines and schedules effectively.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores confirming work deadlines and schedules, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 26
+    },
+    {
+      "id": "video-wp-03-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'List...'?",
+      "options": [
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: List each key deliverable alongside its responsible team mem..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'List each key deliverable alongside its responsible team member.', showing its practical importance.",
+      "timestampSeek": 104
+    },
+    {
+      "id": "video-wp-03-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: Clear professional timelines protect both quality and peace of mi...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that Clear professional timelines protect both quality and peace of mind., providing a meaningful summary for learners.",
+      "timestampSeek": 234
+    }
+  ]
+}

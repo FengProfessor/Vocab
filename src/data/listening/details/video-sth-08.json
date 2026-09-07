@@ -1,0 +1,191 @@
+{
+  "id": "video-sth-08",
+  "youtubeId": "2Id7QQMM2Fc",
+  "title": "The Science of Muscle Soreness After Exercise",
+  "channel": "TED-Ed",
+  "duration": 390,
+  "durationDisplay": "06:30",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/2Id7QQMM2Fc/hqdefault.jpg",
+  "description": "Tại sao cơ bắp bị đau nhức sau khi tập luyện và cơ chế phục hồi sinh học của cơ thể.",
+  "coreVocabulary": [
+    {
+      "word": "microscopic",
+      "phonetic": "/ˌmaɪkrəˈskɒpɪk/",
+      "viDefinition": "kính hiển vi, siêu nhỏ",
+      "contextSentence": "Weightlifting causes microscopic tears in contracting muscle fibers."
+    },
+    {
+      "word": "inflammation",
+      "phonetic": "/ˌɪnfləˈmeɪʃn/",
+      "viDefinition": "sự viêm, sưng viêm",
+      "contextSentence": "Post-workout inflammation triggers biological tissue repair and growth."
+    },
+    {
+      "word": "eccentric",
+      "phonetic": "/ɪkˈsentrɪk/",
+      "viDefinition": "co cơ lệch tâm (cơ duỗi dài dưới tải trọng)",
+      "contextSentence": "Eccentric muscle contractions during downhill running cause severe soreness."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-08-cue-1",
+      "start": 0,
+      "end": 39,
+      "en": "Welcome to TED-Ed, demystifying the aching sensations that follow intense gym workouts.",
+      "vi": "Chào mừng đến với TED-Ed, làm sáng tỏ cảm giác đau nhức sau những buổi tập gym cường độ cao."
+    },
+    {
+      "id": "video-sth-08-cue-2",
+      "start": 39,
+      "end": 78,
+      "en": "Have you ever pushed through a strenuous workout, only to feel paralyzed two days later?",
+      "vi": "Bạn đã từng cố gắng qua một buổi tập nặng, để rồi cảm thấy tê liệt hai ngày sau đó chưa?"
+    },
+    {
+      "id": "video-sth-08-cue-3",
+      "start": 78,
+      "end": 117,
+      "en": "This lingering post-exercise stiffness is known as delayed onset muscle soreness, or DOMS.",
+      "vi": "Cảm giác cứng đơ kéo dài sau khi tập thể dục này được gọi là đau nhức cơ bắp khởi phát muộn, hay DOMS."
+    },
+    {
+      "id": "video-sth-08-cue-4",
+      "start": 117,
+      "end": 156,
+      "en": "For decades, popular folklore falsely blamed lactic acid accumulation in muscle tissue.",
+      "vi": "Trong nhiều thập kỷ, truyền miệng phổ biến đã đổ lỗi sai cho sự tích tụ axit lactic trong mô cơ."
+    },
+    {
+      "id": "video-sth-08-cue-5",
+      "start": 156,
+      "end": 195,
+      "en": "In reality, eccentric contractions—lengthening muscles under heavy loads—cause microscopic microtears.",
+      "vi": "Trên thực tế, các cơn co thắt lệch tâm—kéo dài cơ dưới tải trọng nặng—gây ra các vết rách siêu nhỏ."
+    },
+    {
+      "id": "video-sth-08-cue-6",
+      "start": 195,
+      "end": 234,
+      "en": "As your muscle fibers experience micro-trauma, your immune system initiates acute inflammation.",
+      "vi": "Khi các sợi cơ của bạn bị chấn thương vi mô, hệ thống miễn dịch sẽ kích hoạt phản ứng viêm cấp tính."
+    },
+    {
+      "id": "video-sth-08-cue-7",
+      "start": 234,
+      "end": 273,
+      "en": "White blood cells rush to clear cellular debris and synthesize biological repairs.",
+      "vi": "Các tế bào bạch cầu lao đến để dọn dẹp các mảnh vụn tế bào và tổng hợp các sửa chữa sinh học."
+    },
+    {
+      "id": "video-sth-08-cue-8",
+      "start": 273,
+      "end": 312,
+      "en": "This inflammatory response stimulates sensitive pain receptors, making your muscles feel tender.",
+      "vi": "Phản ứng viêm này kích thích các thụ thể đau nhạy cảm, khiến cơ bắp của bạn cảm thấy đau nhức."
+    },
+    {
+      "id": "video-sth-08-cue-9",
+      "start": 312,
+      "end": 351,
+      "en": "Over forty-eight hours, specialized satellite cells rebuild fibers thicker and more resilient.",
+      "vi": "Sau bốn mươi tám giờ, các tế bào vệ tinh chuyên biệt sẽ tái tạo các sợi cơ dày hơn và đàn hồi hơn."
+    },
+    {
+      "id": "video-sth-08-cue-10",
+      "start": 351,
+      "end": 390,
+      "en": "Temporary soreness is the biological price of forging stronger, more durable muscular armor.",
+      "vi": "Sự đau nhức tạm thời là cái giá sinh học để rèn luyện bộ áo giáp cơ bắp mạnh mẽ hơn, bền bỉ hơn."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-08-cloze-1",
+      "cueId": "video-sth-08-cue-3",
+      "sentence": "This {{blank}} post-exercise stiffness is known as delayed onset muscle soreness, or DOMS.",
+      "blankWord": "lingering",
+      "hintVi": "Nghĩa gợi ý: Cảm giác cứng đơ kéo dài sau khi tập thể...",
+      "timestamp": 78,
+      "options": [
+        "lingering",
+        "balance",
+        "deliberate",
+        "essential"
+      ]
+    },
+    {
+      "id": "video-sth-08-cloze-2",
+      "cueId": "video-sth-08-cue-5",
+      "sentence": "In {{blank}}, eccentric contractions—lengthening muscles under heavy loads—cause microscopic microtears.",
+      "blankWord": "reality",
+      "hintVi": "Nghĩa gợi ý: Trên thực tế, các cơn co thắt lệch tâm—k...",
+      "timestamp": 156,
+      "options": [
+        "reality",
+        "innovative",
+        "moderate",
+        "balance"
+      ]
+    },
+    {
+      "id": "video-sth-08-cloze-3",
+      "cueId": "video-sth-08-cue-8",
+      "sentence": "This {{blank}} response stimulates sensitive pain receptors, making your muscles feel tender.",
+      "blankWord": "inflammatory",
+      "hintVi": "Nghĩa gợi ý: Phản ứng viêm này kích thích các thụ thể...",
+      "timestamp": 273,
+      "options": [
+        "inflammatory",
+        "subsequent",
+        "framework",
+        "component"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-08-q1",
+      "question": "What is the primary focus of the video 'The Science of Muscle Soreness After Exercise'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To entertain listeners with fictional storytelling.",
+        "To explain and practice the science of muscle soreness after exercise effectively.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores the science of muscle soreness after exercise, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 39
+    },
+    {
+      "id": "video-sth-08-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'In...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: In reality, eccentric contractions—lengthening muscles under...",
+        "It contradicts the speaker's earlier recommendations."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'In reality, eccentric contractions—lengthening muscles under heavy loads—cause microscopic microtears.', showing its practical importance.",
+      "timestampSeek": 156
+    },
+    {
+      "id": "video-sth-08-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Applying these principles leads to: Temporary soreness is the biological price of forging stronger, m..."
+      ],
+      "correctIndex": 3,
+      "explanation": "The concluding message emphasizes that Temporary soreness is the biological price of forging stronger, more durable muscular armor., providing a meaningful summary for learners.",
+      "timestampSeek": 351
+    }
+  ]
+}

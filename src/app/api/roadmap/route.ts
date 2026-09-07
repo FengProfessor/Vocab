@@ -111,6 +111,7 @@ export async function GET(req: NextRequest) {
         description: level.description,
         isStartLevel: level.id === startLevel,
         units: level.units.map((unit) => ({
+          ...unit,
           id: unit.id,
           index: unit.index,
           title: unit.title,

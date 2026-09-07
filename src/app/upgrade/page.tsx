@@ -45,9 +45,11 @@ import {
 } from '@/lib/cohort-pro-promo';
 import { CohortProPromoBanner } from '@/components/upsell/CohortProPromoBanner';
 import { WluWelcomeModal } from '@/components/billing/WluWelcomeModal';
+import { WelcomeKhaiGiangModal } from '@/components/campaign/WelcomeKhaiGiangModal';
+import { isKhaiGiangCampaignCode } from '@/lib/billing';
 
-/** Tạm ẩn khung Nhận quà (LIVE trial) — bật lại khi cần quà live */
-const SHOW_GIFT_REDEEM = false;
+/** Khung Nhận quà (Trial & Khai Giảng) — bật sẵn cho học viên */
+const SHOW_GIFT_REDEEM = true;
 
 const BANK_INFO = {
   bank: process.env.NEXT_PUBLIC_BANK_NAME || 'MB Bank',
@@ -113,7 +115,8 @@ function UpgradePageContent() {
   const [couponChecking, setCouponChecking] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showWluModal, setShowWluModal] = useState(false);
-  /** Mã quà live — mục riêng, không dính kỳ 1 tháng / 1 năm */
+  const [showKhaiGiangModal, setShowKhaiGiangModal] = useState(false);
+  /** Mã quà live / trial — mục riêng, không dính kỳ 1 tháng / 1 năm */
   const [giftCode, setGiftCode] = useState('');
   const [giftLoading, setGiftLoading] = useState(false);
   const [giftDone, setGiftDone] = useState<{ days: number; plan: string } | null>(null);
@@ -128,9 +131,24 @@ function UpgradePageContent() {
     if (searchParams.get('mode') === 'group') {
       setCheckoutTarget('group');
     }
-    // Deep link: /upgrade?gift=LIVEB3
+    // Deep link: /upgrade?gift=LIVEB3 or /upgrade?code=KHAIGIANG3M
     const g = searchParams.get('gift') || searchParams.get('code');
-    if (g) setGiftCode(g.trim().toUpperCase());
+    if (g) {
+      const clean = g.trim().toUpperCase();
+      setGiftCode(clean);
+      // Auto-scroll and focus to the gift redemption box
+      setTimeout(() => {
+        const giftSection = document.getElementById('nhan-qua');
+        if (giftSection) {
+          giftSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const inputEl = giftSection.querySelector('input');
+          if (inputEl) inputEl.focus();
+        }
+      }, 350);
+    }
+    if (searchParams.get('welcome') === '1' || searchParams.get('khaigiang') === '1') {
+      setShowKhaiGiangModal(true);
+    }
   }, [searchParams]);
 
   // Flash sale khóa — tick để tắt UI khi hết hạn
@@ -158,7 +176,8 @@ function UpgradePageContent() {
       if (cancelled) return;
 
       if (!user) {
-        router.push('/auth');
+        const returnUrl = window.location.pathname + window.location.search;
+        router.push(`/auth?redirectTo=${encodeURIComponent(returnUrl)}`);
         return;
       }
 
@@ -250,12 +269,13 @@ function UpgradePageContent() {
     return Math.round(total / seats / periodMonths);
   }, [seats, periodMonths]);
 
-  const handleRedeemGift = async () => {
-    const code = giftCode.trim().toUpperCase();
+  const handleRedeemGift = async (codeOverride?: string) => {
+    const code = (codeOverride ?? giftCode).trim().toUpperCase();
     if (!code) {
       toast.error('Nhập mã quà');
       return;
     }
+    setGiftCode(code);
     if (!isTrialCouponCode(code)) {
       toast.error('Mã quà live/trial nhập ở khung này. Mã giảm % mua gói dùng phần Thanh toán bên dưới.');
       return;
@@ -267,7 +287,8 @@ function UpgradePageContent() {
         data: { session },
       } = await supabase.auth.getSession();
       if (!session?.access_token) {
-        router.push('/auth');
+        const returnUrl = window.location.pathname + window.location.search;
+        router.push(`/auth?redirectTo=${encodeURIComponent(returnUrl)}`);
         return;
       }
 
@@ -300,6 +321,11 @@ function UpgradePageContent() {
       setExpiresAt(exp.toISOString());
       toast.success(data.message ?? `Đã nhận ${days} ngày Pro!`);
 
+      // Pop open WelcomeKhaiGiangModal for Khai Giảng campaign codes (or >= 90 days)
+      if (isKhaiGiangCampaignCode(code) || days >= 90) {
+        setShowKhaiGiangModal(true);
+      }
+
       import('canvas-confetti')
         .then((confetti) => {
           confetti.default({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
@@ -316,13 +342,13 @@ function UpgradePageContent() {
     const code = couponCode.trim().toUpperCase();
     if (!code) return;
 
-    // Trial/LIVE: hướng lên mục Nhận quà — không đi flow mua
+    // Trial/LIVE/KhaiGiang: seamlessly route to handleRedeemGift instead of dead-end scrolling
     if (isTrialCouponCode(code)) {
       setGiftCode(code);
       setCouponCode('');
       setCouponValid(null);
-      toast.message('Mã quà live — dùng khung «Nhận quà» phía trên (không phải mua gói).');
-      document.getElementById('nhan-qua')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      toast.message('Mã quà tặng học viên — đang kích hoạt trực tiếp cho bạn...');
+      void handleRedeemGift(code);
       return;
     }
 
@@ -857,10 +883,10 @@ function UpgradePageContent() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9a7b2f]">
-                      Quà live / mã tặng
+                      Quà tặng / Khai Giảng 05/09
                     </p>
                     <h2 className="mt-0.5 text-base font-semibold tracking-tight sm:text-lg">
-                      Nhận quà
+                      Kích hoạt quà tặng Pro
                     </h2>
                   </div>
                 </div>
@@ -875,7 +901,7 @@ function UpgradePageContent() {
                         void handleRedeemGift();
                       }
                     }}
-                    placeholder="Nhập mã quà"
+                    placeholder="Nhập mã quà (VD: KHAIGIANG3M)"
                     className="min-w-0 flex-1 rounded-xl border border-[#e8e6dc] bg-white px-3 py-2.5 font-mono text-sm font-bold uppercase text-[#1a1915] outline-none focus:border-[#1a1915]/30 focus:ring-2 focus:ring-[#1a1915]/8"
                   />
                   <button
@@ -1044,6 +1070,11 @@ function UpgradePageContent() {
         </p>
       </div>
       <WluWelcomeModal open={showWluModal} onClose={() => setShowWluModal(false)} />
+      <WelcomeKhaiGiangModal
+        open={showKhaiGiangModal}
+        onClose={() => setShowKhaiGiangModal(false)}
+        initialCode={giftCode || 'KHAIGIANG3M'}
+      />
     </div>
   );
 }
