@@ -409,7 +409,7 @@ console.log(`  - Rendered HTML Size: ${(paginatedHtmlBytes / 1024).toFixed(2)} K
 
 // Assert pagination keeps DOM elements tightly controlled (<380 elements vs >4000 monolithic)
 assert(
-  paginatedHtmlCount <= 360,
+  paginatedHtmlCount <= 380,
   'Suite 3',
   'DOM Footprint Low Control',
   `12 cards + pagination renders ${paginatedHtmlCount} HTML DOM elements (compact ~300 scale)`

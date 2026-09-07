@@ -16,6 +16,7 @@ import {
   ShoppingBag,
   Activity,
   Globe,
+  Play,
   type LucideIcon,
 } from 'lucide-react';
 import {
@@ -62,8 +63,11 @@ export function ListeningVideoCard({
   const extraVocabCount = totalVocabCount - displayVocab.length;
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700">
-      {/* 16:9 Thumbnail Container */}
+    <Link
+      href={`/practice/listening/${video.id}`}
+      className="group flex flex-col cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-indigo-400 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-600 focus:outline-hidden focus:ring-2 focus:ring-indigo-500"
+    >
+      {/* 16:9 Thumbnail Container with Play Overlay */}
       <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
         <Image
           src={video.thumbnailUrl}
@@ -72,6 +76,13 @@ export function ListeningVideoCard({
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
+
+        {/* Hover Play Button Overlay */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/25 opacity-0 backdrop-blur-[1px] transition-all duration-200 group-hover:opacity-100">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-600/90 text-white shadow-lg transition-transform duration-200 group-hover:scale-110">
+            <Play className="h-5 w-5 fill-current ml-0.5" />
+          </div>
+        </div>
 
         {/* CEFR Level Badge (Top-Left) */}
         <div className="absolute top-2.5 left-2.5 z-10">
@@ -161,18 +172,17 @@ export function ListeningVideoCard({
           </div>
         )}
 
-        {/* Action Button */}
+        {/* Action Button - Synergistic hover state with whole card */}
         <div className="mt-auto pt-4">
-          <Link
-            href={`/practice/listening/${video.id}`}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-2.5 text-xs font-bold text-white shadow-xs transition-all hover:bg-indigo-700 active:scale-[0.98] dark:bg-indigo-600 dark:hover:bg-indigo-500"
+          <div
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-2.5 text-xs font-bold text-white shadow-xs transition-all group-hover:bg-indigo-700 active:scale-[0.98] dark:bg-indigo-600 dark:group-hover:bg-indigo-500"
           >
             <Headphones className="h-3.5 w-3.5" />
             <span>Bắt đầu luyện nghe</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
