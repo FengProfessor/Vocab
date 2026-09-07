@@ -74,6 +74,10 @@ const jsonLd = {
 export default function ListeningLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <link rel="preconnect" href="https://img.youtube.com" />
+      <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+      <link rel="dns-prefetch" href="https://img.youtube.com" />
+      <link rel="dns-prefetch" href="https://i.ytimg.com" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
