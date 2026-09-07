@@ -8,12 +8,14 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import {
-  Search, Loader2, Volume2, X, CheckCircle2, Layers, GitFork, Link2
+  Search, Loader2, Volume2, X, CheckCircle2, Layers, GitFork, Link2, Languages
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { StudentShell } from '@/components/student/StudentShell';
 import { speak } from '@/lib/study';
 import { resolveImageSrc } from '@/lib/media-url';
+import { cn } from '@/lib/utils';
+import { SentenceTranslator } from '@/components/dictionary/SentenceTranslator';
 
 const HISTORY_KEY = 'lingo_dict_history';
 const MAX_HISTORY = 20;
@@ -259,7 +261,7 @@ export default function DictionaryPage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<LookupResult | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [history, setHistory] = useState<string[]>([]);
+  const [history, setHistory] = useState<string[]>(getHistory);
   // Track saved state per meaning index
   const [savedIndexes, setSavedIndexes] = useState<Set<number>>(new Set());
   const [savingIndexes, setSavingIndexes] = useState<Set<number>>(new Set());
@@ -272,12 +274,22 @@ export default function DictionaryPage() {
   const [selectedSuggestIdx, setSelectedSuggestIdx] = useState(-1);
   const suggestRef = useRef<HTMLDivElement>(null);
 
+  const [activeTab, setActiveTab] = useState<'word' | 'sentence'>('word');
+
   useEffect(() => {
     (async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.user) { router.push('/auth'); return; }
     })();
-    setHistory(getHistory());
+
+    // Check if opened with ?tab=sentence or ?mode=translate
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const tabParam = params.get('tab') || params.get('mode');
+      if (tabParam === 'sentence' || tabParam === 'translate') {
+        setActiveTab('sentence');
+      }
+    }
   }, []);
 
   // Reset saved state when result changes
@@ -755,7 +767,7 @@ export default function DictionaryPage() {
     .slice(0, 6);
 
   return (
-    <StudentShell title="Tra từ điển" contentClassName="p-0">
+    <StudentShell title={activeTab === 'word' ? 'Tra từ điển' : 'Dịch câu'} contentClassName="p-0">
       {/* overflow-x-hidden: mitigation layout overflow text dài */}
       <div className="w-full min-w-0 min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-background overflow-x-hidden">
       {/*
@@ -763,6 +775,43 @@ export default function DictionaryPage() {
         Sticky = đúng form search, dính dưới shell header.
       */}
       <div className="max-w-2xl mx-auto px-4 pt-3 pb-24 min-w-0">
+        {/* Tab switcher: Tra từ vs Dịch câu */}
+        <div className="flex items-center gap-1.5 p-1 bg-muted/80 rounded-2xl mb-4 w-fit border border-border/50">
+          <button
+            type="button"
+            onClick={() => setActiveTab('word')}
+            className={cn(
+              'flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all',
+              activeTab === 'word'
+                ? 'bg-background text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            )}
+          >
+            <Search className="h-4 w-4" />
+            <span>Tra từ điển</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('sentence')}
+            className={cn(
+              'flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all',
+              activeTab === 'sentence'
+                ? 'bg-background text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            )}
+          >
+            <Languages className="h-4 w-4 text-indigo-500" />
+            <span>Dịch câu</span>
+            <span className="text-[10px] bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">
+              Free
+            </span>
+          </button>
+        </div>
+
+        {activeTab === 'sentence' ? (
+          <SentenceTranslator />
+        ) : (
+          <>
         {/*
           Sticky search CHỈ khi đã có kết quả (scroll định nghĩa).
           Empty/lịch sử: flow thường — sticky sẽ đè “Đã tra gần đây”.
@@ -1358,6 +1407,8 @@ export default function DictionaryPage() {
               ))}
             </div>
           </div>
+        )}
+          </>
         )}
       </div>
       </div>
