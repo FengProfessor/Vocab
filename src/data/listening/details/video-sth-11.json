@@ -35,78 +35,568 @@
     {
       "id": "video-sth-11-cue-1",
       "start": 0,
-      "end": 47,
+      "end": 5.63,
       "en": "Welcome to SciShow, unraveling the spectacular biochemistry behind autumn's vibrant foliage.",
       "vi": "Chào mừng đến với SciShow, làm sáng tỏ sinh hóa ngoạn mục đằng sau tán lá mùa thu rực rỡ."
     },
     {
       "id": "video-sth-11-cue-2",
+      "start": 5.88,
+      "end": 11.5,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-11-cue-3",
+      "start": 11.75,
+      "end": 17.38,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-11-cue-4",
+      "start": 17.63,
+      "end": 23.25,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-11-cue-5",
+      "start": 23.5,
+      "end": 29.13,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-11-cue-6",
+      "start": 29.38,
+      "end": 35,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-11-cue-7",
+      "start": 35.25,
+      "end": 40.88,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-11-cue-8",
+      "start": 41.13,
+      "end": 46.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-11-cue-9",
       "start": 47,
-      "end": 94,
+      "end": 52.63,
       "en": "Every autumn, deciduous forests transform from verdant greens into fiery tapestries of gold and scarlet.",
       "vi": "Mỗi mùa thu, những khu rừng rụng lá biến đổi từ màu xanh tươi tốt thành những thảm tranh rực rỡ vàng và đỏ tươi."
     },
     {
-      "id": "video-sth-11-cue-3",
+      "id": "video-sth-11-cue-10",
+      "start": 52.88,
+      "end": 58.5,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-11-cue-11",
+      "start": 58.75,
+      "end": 64.38,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-11-cue-12",
+      "start": 64.63,
+      "end": 70.25,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-11-cue-13",
+      "start": 70.5,
+      "end": 76.13,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-11-cue-14",
+      "start": 76.38,
+      "end": 82,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-11-cue-15",
+      "start": 82.25,
+      "end": 87.88,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-11-cue-16",
+      "start": 88.13,
+      "end": 93.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-11-cue-17",
       "start": 94,
-      "end": 141,
+      "end": 99.63,
       "en": "During warm summer months, plant leaves are packed with abundant green chlorophyll pigments.",
       "vi": "Trong những tháng mùa hè ấm áp, lá cây chứa đầy sắc tố diệp lục xanh dồi dào."
     },
     {
-      "id": "video-sth-11-cue-4",
+      "id": "video-sth-11-cue-18",
+      "start": 99.88,
+      "end": 105.5,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-11-cue-19",
+      "start": 105.75,
+      "end": 111.38,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-11-cue-20",
+      "start": 111.63,
+      "end": 117.25,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-11-cue-21",
+      "start": 117.5,
+      "end": 123.13,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-11-cue-22",
+      "start": 123.38,
+      "end": 129,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-11-cue-23",
+      "start": 129.25,
+      "end": 134.88,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-11-cue-24",
+      "start": 135.13,
+      "end": 140.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-11-cue-25",
       "start": 141,
-      "end": 188,
+      "end": 146.63,
       "en": "Chlorophyll captures radiant sunlight to synthesize nourishing sugars through photosynthesis.",
       "vi": "Chất diệp lục thu ánh sáng mặt trời để tổng hợp các loại đường nuôi dưỡng qua quá trình quang hợp."
     },
     {
-      "id": "video-sth-11-cue-5",
+      "id": "video-sth-11-cue-26",
+      "start": 146.88,
+      "end": 152.5,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-11-cue-27",
+      "start": 152.75,
+      "end": 158.38,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-11-cue-28",
+      "start": 158.63,
+      "end": 164.25,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-11-cue-29",
+      "start": 164.5,
+      "end": 170.13,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-11-cue-30",
+      "start": 170.38,
+      "end": 176,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-11-cue-31",
+      "start": 176.25,
+      "end": 181.88,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-11-cue-32",
+      "start": 182.13,
+      "end": 187.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-11-cue-33",
       "start": 188,
-      "end": 235,
+      "end": 193.63,
       "en": "As autumn approaches, daylight hours shrink and frosty temperatures signal trees to prepare for winter.",
       "vi": "Khi mùa thu đến, số giờ ban ngày thu hẹp và nhiệt độ giá lạnh báo hiệu cây cối chuẩn bị cho mùa đông."
     },
     {
-      "id": "video-sth-11-cue-6",
+      "id": "video-sth-11-cue-34",
+      "start": 193.88,
+      "end": 199.5,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-11-cue-35",
+      "start": 199.75,
+      "end": 205.38,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-11-cue-36",
+      "start": 205.63,
+      "end": 211.25,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-11-cue-37",
+      "start": 211.5,
+      "end": 217.13,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-11-cue-38",
+      "start": 217.38,
+      "end": 223,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-11-cue-39",
+      "start": 223.25,
+      "end": 228.88,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-11-cue-40",
+      "start": 229.13,
+      "end": 234.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-11-cue-41",
       "start": 235,
-      "end": 282,
+      "end": 240.63,
       "en": "Trees break down expensive chlorophyll molecules and reabsorb precious nitrogen into their roots.",
       "vi": "Cây phân hủy các phân tử diệp lục đắt giá và tái hấp thu nitơ quý giá vào rễ của chúng."
     },
     {
-      "id": "video-sth-11-cue-7",
+      "id": "video-sth-11-cue-42",
+      "start": 240.88,
+      "end": 246.5,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-11-cue-43",
+      "start": 246.75,
+      "end": 252.38,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-11-cue-44",
+      "start": 252.63,
+      "end": 258.25,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-11-cue-45",
+      "start": 258.5,
+      "end": 264.13,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-11-cue-46",
+      "start": 264.38,
+      "end": 270,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-11-cue-47",
+      "start": 270.25,
+      "end": 275.88,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-11-cue-48",
+      "start": 276.13,
+      "end": 281.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-11-cue-49",
       "start": 282,
-      "end": 329,
+      "end": 287.63,
       "en": "As green fades, preexisting yellow and orange carotenoid pigments are finally revealed.",
       "vi": "Khi màu xanh mờ dần, các sắc tố carotenoid vàng và cam có từ trước cuối cùng cũng lộ ra."
     },
     {
-      "id": "video-sth-11-cue-8",
+      "id": "video-sth-11-cue-50",
+      "start": 287.88,
+      "end": 293.5,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-11-cue-51",
+      "start": 293.75,
+      "end": 299.38,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-11-cue-52",
+      "start": 299.63,
+      "end": 305.25,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-11-cue-53",
+      "start": 305.5,
+      "end": 311.13,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-11-cue-54",
+      "start": 311.38,
+      "end": 317,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-11-cue-55",
+      "start": 317.25,
+      "end": 322.88,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-11-cue-56",
+      "start": 323.13,
+      "end": 328.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-11-cue-57",
       "start": 329,
-      "end": 376,
+      "end": 334.63,
       "en": "Simultaneously, trapped sugars in maple leaves synthesize radiant red anthocyanin pigments.",
       "vi": "Đồng thời, lượng đường bị giữ lại trong lá phong tổng hợp nên sắc tố anthocyanin đỏ rực rỡ."
     },
     {
-      "id": "video-sth-11-cue-9",
+      "id": "video-sth-11-cue-58",
+      "start": 334.88,
+      "end": 340.5,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-11-cue-59",
+      "start": 340.75,
+      "end": 346.38,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-11-cue-60",
+      "start": 346.63,
+      "end": 352.25,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-11-cue-61",
+      "start": 352.5,
+      "end": 358.13,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-11-cue-62",
+      "start": 358.38,
+      "end": 364,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-11-cue-63",
+      "start": 364.25,
+      "end": 369.88,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-11-cue-64",
+      "start": 370.13,
+      "end": 375.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-11-cue-65",
       "start": 376,
-      "end": 423,
+      "end": 381.63,
       "en": "A cellular abscission layer forms at the leaf stem, sealing the branch against winter frost.",
       "vi": "Một lớp rụng tế bào hình thành ở cuống lá, niêm phong cành cây chống lại sương giá mùa đông."
     },
     {
-      "id": "video-sth-11-cue-10",
+      "id": "video-sth-11-cue-66",
+      "start": 381.88,
+      "end": 387.5,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-11-cue-67",
+      "start": 387.75,
+      "end": 393.38,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-11-cue-68",
+      "start": 393.63,
+      "end": 399.25,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-11-cue-69",
+      "start": 399.5,
+      "end": 405.13,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-11-cue-70",
+      "start": 405.38,
+      "end": 411,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-11-cue-71",
+      "start": 411.25,
+      "end": 416.88,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-11-cue-72",
+      "start": 417.13,
+      "end": 422.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-11-cue-73",
       "start": 423,
-      "end": 470,
+      "end": 428.63,
       "en": "Autumn's golden beauty is a tree's ingenious survival strategy facing winter's freeze.",
       "vi": "Vẻ đẹp vàng óng của mùa thu là chiến lược sinh tồn tài tình của cây cối khi đối mặt với băng giá mùa đông."
+    },
+    {
+      "id": "video-sth-11-cue-74",
+      "start": 428.88,
+      "end": 434.5,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-11-cue-75",
+      "start": 434.75,
+      "end": 440.38,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-11-cue-76",
+      "start": 440.63,
+      "end": 446.25,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-11-cue-77",
+      "start": 446.5,
+      "end": 452.13,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-11-cue-78",
+      "start": 452.38,
+      "end": 458,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-11-cue-79",
+      "start": 458.25,
+      "end": 463.88,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-11-cue-80",
+      "start": 464.13,
+      "end": 469.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sth-11-cloze-1",
-      "cueId": "video-sth-11-cue-3",
+      "cueId": "video-sth-11-cue-17",
       "sentence": "{{blank}} warm summer months, plant leaves are packed with abundant green chlorophyll pigments.",
       "blankWord": "during",
       "hintVi": "Nghĩa gợi ý: Trong những tháng mùa hè ấm áp, lá cây c...",
@@ -120,11 +610,11 @@
     },
     {
       "id": "video-sth-11-cloze-2",
-      "cueId": "video-sth-11-cue-5",
+      "cueId": "video-sth-11-cue-1",
       "sentence": "As {{blank}} approaches, daylight hours shrink and frosty temperatures signal trees to prepare for winter.",
       "blankWord": "autumn",
       "hintVi": "Nghĩa gợi ý: Khi mùa thu đến, số giờ ban ngày thu hẹp...",
-      "timestamp": 188,
+      "timestamp": 0,
       "options": [
         "vulnerable",
         "continuous",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-sth-11-cloze-3",
-      "cueId": "video-sth-11-cue-8",
+      "cueId": "video-sth-11-cue-57",
       "sentence": "{{blank}}, trapped sugars in maple leaves synthesize radiant red anthocyanin pigments.",
       "blankWord": "simultaneously",
       "hintVi": "Nghĩa gợi ý: Đồng thời, lượng đường bị giữ lại trong ...",
@@ -192,7 +682,7 @@
     "clozeItems": [
       {
         "id": "video-sth-11-cloze-1",
-        "cueId": "video-sth-11-cue-3",
+        "cueId": "video-sth-11-cue-17",
         "sentence": "{{blank}} warm summer months, plant leaves are packed with abundant green chlorophyll pigments.",
         "blankWord": "during",
         "hintVi": "Nghĩa gợi ý: Trong những tháng mùa hè ấm áp, lá cây c...",
@@ -206,11 +696,11 @@
       },
       {
         "id": "video-sth-11-cloze-2",
-        "cueId": "video-sth-11-cue-5",
+        "cueId": "video-sth-11-cue-1",
         "sentence": "As {{blank}} approaches, daylight hours shrink and frosty temperatures signal trees to prepare for winter.",
         "blankWord": "autumn",
         "hintVi": "Nghĩa gợi ý: Khi mùa thu đến, số giờ ban ngày thu hẹp...",
-        "timestamp": 188,
+        "timestamp": 0,
         "options": [
           "vulnerable",
           "continuous",
@@ -220,7 +710,7 @@
       },
       {
         "id": "video-sth-11-cloze-3",
-        "cueId": "video-sth-11-cue-8",
+        "cueId": "video-sth-11-cue-57",
         "sentence": "{{blank}}, trapped sugars in maple leaves synthesize radiant red anthocyanin pigments.",
         "blankWord": "simultaneously",
         "hintVi": "Nghĩa gợi ý: Đồng thời, lượng đường bị giữ lại trong ...",

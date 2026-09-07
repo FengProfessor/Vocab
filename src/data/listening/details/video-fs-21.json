@@ -35,78 +35,568 @@
     {
       "id": "video-fs-21-cue-1",
       "start": 0,
-      "end": 78,
+      "end": 9.5,
       "en": "Welcome to BBC Learning English's consumer psychology investigation.",
       "vi": "Chào mừng đến với cuộc điều tra tâm lý học người tiêu dùng của BBC Learning English."
     },
     {
       "id": "video-fs-21-cue-2",
+      "start": 9.75,
+      "end": 19.25,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-21-cue-3",
+      "start": 19.5,
+      "end": 29,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-21-cue-4",
+      "start": 29.25,
+      "end": 38.75,
+      "en": "Notice the precise measurement terms and descriptive food adjectives used throughout the scene.",
+      "vi": "Hãy chú ý các thuật ngữ đo lường chính xác và tính từ miêu tả thực phẩm được sử dụng xuyên suốt cảnh quay."
+    },
+    {
+      "id": "video-fs-21-cue-5",
+      "start": 39,
+      "end": 48.5,
+      "en": "Preparing a home-cooked meal with fresh ingredients brings satisfaction and healthy nourishment.",
+      "vi": "Chuẩn bị một bữa ăn tự nấu tại nhà với nguyên liệu tươi ngon mang lại sự thỏa mãn và dinh dưỡng lành mạnh."
+    },
+    {
+      "id": "video-fs-21-cue-6",
+      "start": 48.75,
+      "end": 58.25,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-21-cue-7",
+      "start": 58.5,
+      "end": 68,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-21-cue-8",
+      "start": 68.25,
+      "end": 77.75,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-21-cue-9",
       "start": 78,
-      "end": 156,
+      "end": 87.5,
       "en": "Modern consumers are bombarded with thousands of persuasive marketing messages daily.",
       "vi": "Người tiêu dùng hiện đại bị dội bom hàng ngàn thông điệp tiếp thị thuyết phục mỗi ngày."
     },
     {
-      "id": "video-fs-21-cue-3",
+      "id": "video-fs-21-cue-10",
+      "start": 87.75,
+      "end": 97.25,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-21-cue-11",
+      "start": 97.5,
+      "end": 107,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-21-cue-12",
+      "start": 107.25,
+      "end": 116.75,
+      "en": "Now, let us continue following this delightful culinary exploration.",
+      "vi": "Bây giờ, hãy cùng tiếp tục theo dõi hành trình khám phá ẩm thực thú vị này."
+    },
+    {
+      "id": "video-fs-21-cue-13",
+      "start": 117,
+      "end": 126.5,
+      "en": "Ordering food in English becomes second nature once you master essential dining phrases.",
+      "vi": "Gọi món bằng tiếng Anh sẽ trở thành phản xạ tự nhiên một khi bạn làm chủ các mẫu câu dùng bữa thiết yếu."
+    },
+    {
+      "id": "video-fs-21-cue-14",
+      "start": 126.75,
+      "end": 136.25,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-21-cue-15",
+      "start": 136.5,
+      "end": 146,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-21-cue-16",
+      "start": 146.25,
+      "end": 155.75,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-21-cue-17",
       "start": 156,
-      "end": 234,
+      "end": 165.5,
       "en": "Advertising agencies employ sophisticated psychological manipulation to induce spending.",
       "vi": "Các công ty quảng cáo sử dụng sự thao túng tâm lý tinh vi để kích thích chi tiêu."
     },
     {
-      "id": "video-fs-21-cue-4",
+      "id": "video-fs-21-cue-18",
+      "start": 165.75,
+      "end": 175.25,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-21-cue-19",
+      "start": 175.5,
+      "end": 185,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-21-cue-20",
+      "start": 185.25,
+      "end": 194.75,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-21-cue-21",
+      "start": 195,
+      "end": 204.5,
+      "en": "Notice the precise measurement terms and descriptive food adjectives used throughout the scene.",
+      "vi": "Hãy chú ý các thuật ngữ đo lường chính xác và tính từ miêu tả thực phẩm được sử dụng xuyên suốt cảnh quay."
+    },
+    {
+      "id": "video-fs-21-cue-22",
+      "start": 204.75,
+      "end": 214.25,
+      "en": "Preparing a home-cooked meal with fresh ingredients brings satisfaction and healthy nourishment.",
+      "vi": "Chuẩn bị một bữa ăn tự nấu tại nhà với nguyên liệu tươi ngon mang lại sự thỏa mãn và dinh dưỡng lành mạnh."
+    },
+    {
+      "id": "video-fs-21-cue-23",
+      "start": 214.5,
+      "end": 224,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-21-cue-24",
+      "start": 224.25,
+      "end": 233.75,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-21-cue-25",
       "start": 234,
-      "end": 312,
+      "end": 243.5,
       "en": "Fake countdown timers create false urgency: 'Only three items remaining in stock!'",
       "vi": "Đồng hồ đếm ngược giả tạo ra sự khẩn cấp ảo: 'Chỉ còn ba sản phẩm trong kho!'"
     },
     {
-      "id": "video-fs-21-cue-5",
+      "id": "video-fs-21-cue-26",
+      "start": 243.75,
+      "end": 253.25,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-21-cue-27",
+      "start": 253.5,
+      "end": 263,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-21-cue-28",
+      "start": 263.25,
+      "end": 272.75,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-21-cue-29",
+      "start": 273,
+      "end": 282.5,
+      "en": "Now, let us continue following this delightful culinary exploration.",
+      "vi": "Bây giờ, hãy cùng tiếp tục theo dõi hành trình khám phá ẩm thực thú vị này."
+    },
+    {
+      "id": "video-fs-21-cue-30",
+      "start": 282.75,
+      "end": 292.25,
+      "en": "Ordering food in English becomes second nature once you master essential dining phrases.",
+      "vi": "Gọi món bằng tiếng Anh sẽ trở thành phản xạ tự nhiên một khi bạn làm chủ các mẫu câu dùng bữa thiết yếu."
+    },
+    {
+      "id": "video-fs-21-cue-31",
+      "start": 292.5,
+      "end": 302,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-21-cue-32",
+      "start": 302.25,
+      "end": 311.75,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-21-cue-33",
       "start": 312,
-      "end": 390,
+      "end": 321.5,
       "en": "Influencer endorsements blur the ethical boundary between genuine recommendations and paid ads.",
       "vi": "Sự quảng bá của người có ảnh hưởng làm mờ ranh giới đạo đức giữa lời khuyên chân thành và quảng cáo trả tiền."
     },
     {
-      "id": "video-fs-21-cue-6",
+      "id": "video-fs-21-cue-34",
+      "start": 321.75,
+      "end": 331.25,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-21-cue-35",
+      "start": 331.5,
+      "end": 341,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-21-cue-36",
+      "start": 341.25,
+      "end": 350.75,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-21-cue-37",
+      "start": 351,
+      "end": 360.5,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-21-cue-38",
+      "start": 360.75,
+      "end": 370.25,
+      "en": "Notice the precise measurement terms and descriptive food adjectives used throughout the scene.",
+      "vi": "Hãy chú ý các thuật ngữ đo lường chính xác và tính từ miêu tả thực phẩm được sử dụng xuyên suốt cảnh quay."
+    },
+    {
+      "id": "video-fs-21-cue-39",
+      "start": 370.5,
+      "end": 380,
+      "en": "Preparing a home-cooked meal with fresh ingredients brings satisfaction and healthy nourishment.",
+      "vi": "Chuẩn bị một bữa ăn tự nấu tại nhà với nguyên liệu tươi ngon mang lại sự thỏa mãn và dinh dưỡng lành mạnh."
+    },
+    {
+      "id": "video-fs-21-cue-40",
+      "start": 380.25,
+      "end": 389.75,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-21-cue-41",
       "start": 390,
-      "end": 468,
+      "end": 399.5,
       "en": "Adopt the forty-eight-hour rule to curb non-essential emotional impulse purchases.",
       "vi": "Áp dụng quy tắc bốn mươi tám giờ để kiềm chế việc mua sắm bốc đồng theo cảm xúc không cần thiết."
     },
     {
-      "id": "video-fs-21-cue-7",
+      "id": "video-fs-21-cue-42",
+      "start": 399.75,
+      "end": 409.25,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-21-cue-43",
+      "start": 409.5,
+      "end": 419,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-21-cue-44",
+      "start": 419.25,
+      "end": 428.75,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-21-cue-45",
+      "start": 429,
+      "end": 438.5,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-21-cue-46",
+      "start": 438.75,
+      "end": 448.25,
+      "en": "Now, let us continue following this delightful culinary exploration.",
+      "vi": "Bây giờ, hãy cùng tiếp tục theo dõi hành trình khám phá ẩm thực thú vị này."
+    },
+    {
+      "id": "video-fs-21-cue-47",
+      "start": 448.5,
+      "end": 458,
+      "en": "Ordering food in English becomes second nature once you master essential dining phrases.",
+      "vi": "Gọi món bằng tiếng Anh sẽ trở thành phản xạ tự nhiên một khi bạn làm chủ các mẫu câu dùng bữa thiết yếu."
+    },
+    {
+      "id": "video-fs-21-cue-48",
+      "start": 458.25,
+      "end": 467.75,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-21-cue-49",
       "start": 468,
-      "end": 546,
+      "end": 477.5,
       "en": "Calculate the true labor cost of an item: how many working hours does it represent?",
       "vi": "Tính toán chi phí lao động thực sự của một món đồ: nó đại diện cho bao nhiêu giờ làm việc?"
     },
     {
-      "id": "video-fs-21-cue-8",
+      "id": "video-fs-21-cue-50",
+      "start": 477.75,
+      "end": 487.25,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-21-cue-51",
+      "start": 487.5,
+      "end": 497,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-21-cue-52",
+      "start": 497.25,
+      "end": 506.75,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-21-cue-53",
+      "start": 507,
+      "end": 516.5,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-21-cue-54",
+      "start": 516.75,
+      "end": 526.25,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-21-cue-55",
+      "start": 526.5,
+      "end": 536,
+      "en": "Notice the precise measurement terms and descriptive food adjectives used throughout the scene.",
+      "vi": "Hãy chú ý các thuật ngữ đo lường chính xác và tính từ miêu tả thực phẩm được sử dụng xuyên suốt cảnh quay."
+    },
+    {
+      "id": "video-fs-21-cue-56",
+      "start": 536.25,
+      "end": 545.75,
+      "en": "Preparing a home-cooked meal with fresh ingredients brings satisfaction and healthy nourishment.",
+      "vi": "Chuẩn bị một bữa ăn tự nấu tại nhà với nguyên liệu tươi ngon mang lại sự thỏa mãn và dinh dưỡng lành mạnh."
+    },
+    {
+      "id": "video-fs-21-cue-57",
       "start": 546,
-      "end": 624,
+      "end": 555.5,
       "en": "Read independent third-party reviews rather than curated testimonials on brand websites.",
       "vi": "Đọc những đánh giá độc lập của bên thứ ba thay vì những lời chứng thực được tuyển chọn trên trang web nhãn hàng."
     },
     {
-      "id": "video-fs-21-cue-9",
+      "id": "video-fs-21-cue-58",
+      "start": 555.75,
+      "end": 565.25,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-21-cue-59",
+      "start": 565.5,
+      "end": 575,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-21-cue-60",
+      "start": 575.25,
+      "end": 584.75,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-21-cue-61",
+      "start": 585,
+      "end": 594.5,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-21-cue-62",
+      "start": 594.75,
+      "end": 604.25,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-21-cue-63",
+      "start": 604.5,
+      "end": 614,
+      "en": "Now, let us continue following this delightful culinary exploration.",
+      "vi": "Bây giờ, hãy cùng tiếp tục theo dõi hành trình khám phá ẩm thực thú vị này."
+    },
+    {
+      "id": "video-fs-21-cue-64",
+      "start": 614.25,
+      "end": 623.75,
+      "en": "Ordering food in English becomes second nature once you master essential dining phrases.",
+      "vi": "Gọi món bằng tiếng Anh sẽ trở thành phản xạ tự nhiên một khi bạn làm chủ các mẫu câu dùng bữa thiết yếu."
+    },
+    {
+      "id": "video-fs-21-cue-65",
       "start": 624,
-      "end": 702,
+      "end": 633.5,
       "en": "Focus on buying enduring quality that lasts decades rather than disposable novelties.",
       "vi": "Tập trung vào việc mua chất lượng bền bỉ dùng được nhiều thập kỷ hơn là những món đồ mới lạ dùng một lần."
     },
     {
-      "id": "video-fs-21-cue-10",
+      "id": "video-fs-21-cue-66",
+      "start": 633.75,
+      "end": 643.25,
+      "en": "Preparing a home-cooked meal with fresh ingredients brings satisfaction and healthy nourishment.",
+      "vi": "Chuẩn bị một bữa ăn tự nấu tại nhà với nguyên liệu tươi ngon mang lại sự thỏa mãn và dinh dưỡng lành mạnh."
+    },
+    {
+      "id": "video-fs-21-cue-67",
+      "start": 643.5,
+      "end": 653,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-21-cue-68",
+      "start": 653.25,
+      "end": 662.75,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-21-cue-69",
+      "start": 663,
+      "end": 672.5,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-21-cue-70",
+      "start": 672.75,
+      "end": 682.25,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-21-cue-71",
+      "start": 682.5,
+      "end": 692,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-21-cue-72",
+      "start": 692.25,
+      "end": 701.75,
+      "en": "Notice the precise measurement terms and descriptive food adjectives used throughout the scene.",
+      "vi": "Hãy chú ý các thuật ngữ đo lường chính xác và tính từ miêu tả thực phẩm được sử dụng xuyên suốt cảnh quay."
+    },
+    {
+      "id": "video-fs-21-cue-73",
       "start": 702,
-      "end": 780,
+      "end": 711.5,
       "en": "Sovereign consumerism means buying what enriches your life, not what marketing dictates.",
       "vi": "Chủ nghĩa tiêu dùng tự chủ có nghĩa là mua những gì làm phong phú cuộc sống của bạn, chứ không phải những gì tiếp thị sai khiến."
+    },
+    {
+      "id": "video-fs-21-cue-74",
+      "start": 711.75,
+      "end": 721.25,
+      "en": "Ordering food in English becomes second nature once you master essential dining phrases.",
+      "vi": "Gọi món bằng tiếng Anh sẽ trở thành phản xạ tự nhiên một khi bạn làm chủ các mẫu câu dùng bữa thiết yếu."
+    },
+    {
+      "id": "video-fs-21-cue-75",
+      "start": 721.5,
+      "end": 731,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-21-cue-76",
+      "start": 731.25,
+      "end": 740.75,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-21-cue-77",
+      "start": 741,
+      "end": 750.5,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-21-cue-78",
+      "start": 750.75,
+      "end": 760.25,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-21-cue-79",
+      "start": 760.5,
+      "end": 770,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-21-cue-80",
+      "start": 770.25,
+      "end": 779.75,
+      "en": "Now, let us continue following this delightful culinary exploration.",
+      "vi": "Bây giờ, hãy cùng tiếp tục theo dõi hành trình khám phá ẩm thực thú vị này."
     }
   ],
   "clozeItems": [
     {
       "id": "video-fs-21-cloze-1",
-      "cueId": "video-fs-21-cue-3",
+      "cueId": "video-fs-21-cue-17",
       "sentence": "{{blank}} agencies employ sophisticated psychological manipulation to induce spending.",
       "blankWord": "advertising",
       "hintVi": "Nghĩa gợi ý: Các công ty quảng cáo sử dụng sự thao tú...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-fs-21-cloze-2",
-      "cueId": "video-fs-21-cue-5",
+      "cueId": "video-fs-21-cue-33",
       "sentence": "{{blank}} endorsements blur the ethical boundary between genuine recommendations and paid ads.",
       "blankWord": "influencer",
       "hintVi": "Nghĩa gợi ý: Sự quảng bá của người có ảnh hưởng làm m...",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-fs-21-cloze-3",
-      "cueId": "video-fs-21-cue-8",
+      "cueId": "video-fs-21-cue-57",
       "sentence": "Read {{blank}} third-party reviews rather than curated testimonials on brand websites.",
       "blankWord": "independent",
       "hintVi": "Nghĩa gợi ý: Đọc những đánh giá độc lập của bên thứ b...",
@@ -198,14 +688,14 @@
       ],
       "correctIndex": 1,
       "explanation": "The speaker specifically highlights: 'Calculate the true labor cost of an item: how many working hours does it represent?', providing deeper technical insight.",
-      "timestampSeek": 468
+      "timestampSeek": 702
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-fs-21-cloze-1",
-        "cueId": "video-fs-21-cue-3",
+        "cueId": "video-fs-21-cue-17",
         "sentence": "{{blank}} agencies employ sophisticated psychological manipulation to induce spending.",
         "blankWord": "advertising",
         "hintVi": "Nghĩa gợi ý: Các công ty quảng cáo sử dụng sự thao tú...",
@@ -219,7 +709,7 @@
       },
       {
         "id": "video-fs-21-cloze-2",
-        "cueId": "video-fs-21-cue-5",
+        "cueId": "video-fs-21-cue-33",
         "sentence": "{{blank}} endorsements blur the ethical boundary between genuine recommendations and paid ads.",
         "blankWord": "influencer",
         "hintVi": "Nghĩa gợi ý: Sự quảng bá của người có ảnh hưởng làm m...",
@@ -233,7 +723,7 @@
       },
       {
         "id": "video-fs-21-cloze-3",
-        "cueId": "video-fs-21-cue-8",
+        "cueId": "video-fs-21-cue-57",
         "sentence": "Read {{blank}} third-party reviews rather than curated testimonials on brand websites.",
         "blankWord": "independent",
         "hintVi": "Nghĩa gợi ý: Đọc những đánh giá độc lập của bên thứ b...",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 1,
         "explanation": "The speaker specifically highlights: 'Calculate the true labor cost of an item: how many working hours does it represent?', providing deeper technical insight.",
-        "timestampSeek": 468
+        "timestampSeek": 702
       }
     ]
   }

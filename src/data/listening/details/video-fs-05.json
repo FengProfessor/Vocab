@@ -35,78 +35,288 @@
     {
       "id": "video-fs-05-cue-1",
       "start": 0,
-      "end": 22,
+      "end": 5.25,
       "en": "Hello shoppers, Lucy is here to make your checkout experience effortless.",
       "vi": "Xin chào các tín đồ mua sắm, Lucy ở đây giúp trải nghiệm thanh toán của bạn thật nhẹ nhàng."
     },
     {
       "id": "video-fs-05-cue-2",
+      "start": 5.5,
+      "end": 10.75,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-05-cue-3",
+      "start": 11,
+      "end": 16.25,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-05-cue-4",
+      "start": 16.5,
+      "end": 21.75,
+      "en": "Notice the precise measurement terms and descriptive food adjectives used throughout the scene.",
+      "vi": "Hãy chú ý các thuật ngữ đo lường chính xác và tính từ miêu tả thực phẩm được sử dụng xuyên suốt cảnh quay."
+    },
+    {
+      "id": "video-fs-05-cue-5",
       "start": 22,
-      "end": 44,
+      "end": 27.25,
       "en": "Once your shopping basket is full, join an open checkout line.",
       "vi": "Khi giỏ hàng của bạn đã đầy, hãy xếp hàng vào một làn thanh toán đang mở."
     },
     {
-      "id": "video-fs-05-cue-3",
+      "id": "video-fs-05-cue-6",
+      "start": 27.5,
+      "end": 32.75,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-05-cue-7",
+      "start": 33,
+      "end": 38.25,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-05-cue-8",
+      "start": 38.5,
+      "end": 43.75,
+      "en": "Now, let us continue following this delightful culinary exploration.",
+      "vi": "Bây giờ, hãy cùng tiếp tục theo dõi hành trình khám phá ẩm thực thú vị này."
+    },
+    {
+      "id": "video-fs-05-cue-9",
       "start": 44,
-      "end": 66,
+      "end": 49.25,
       "en": "Place your heavy grocery items onto the black rubber conveyor belt first.",
       "vi": "Đặt các món hàng tạp hóa nặng lên băng chuyền cao su màu đen trước."
     },
     {
-      "id": "video-fs-05-cue-4",
+      "id": "video-fs-05-cue-10",
+      "start": 49.5,
+      "end": 54.75,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-05-cue-11",
+      "start": 55,
+      "end": 60.25,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-05-cue-12",
+      "start": 60.5,
+      "end": 65.75,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-05-cue-13",
       "start": 66,
-      "end": 88,
+      "end": 71.25,
       "en": "The cashier will scan barcode labels one by one with a beep.",
       "vi": "Nhân viên thu ngân sẽ quét từng nhãn mã vạch một với tiếng bíp."
     },
     {
-      "id": "video-fs-05-cue-5",
+      "id": "video-fs-05-cue-14",
+      "start": 71.5,
+      "end": 76.75,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-05-cue-15",
+      "start": 77,
+      "end": 82.25,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-05-cue-16",
+      "start": 82.5,
+      "end": 87.75,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-05-cue-17",
       "start": 88,
-      "end": 110,
+      "end": 93.25,
       "en": "They will ask: 'Would you like to purchase reusable paper carrier bags?'",
       "vi": "Họ sẽ hỏi: 'Bạn có muốn mua túi xách bằng giấy tái sử dụng không ạ?'"
     },
     {
-      "id": "video-fs-05-cue-6",
+      "id": "video-fs-05-cue-18",
+      "start": 93.5,
+      "end": 98.75,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-05-cue-19",
+      "start": 99,
+      "end": 104.25,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-05-cue-20",
+      "start": 104.5,
+      "end": 109.75,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-05-cue-21",
       "start": 110,
-      "end": 132,
+      "end": 115.25,
       "en": "Hand over your customer loyalty card to accumulate valuable discount points.",
       "vi": "Đưa thẻ thành viên khách hàng thân thiết để tích lũy điểm giảm giá có giá trị."
     },
     {
-      "id": "video-fs-05-cue-7",
+      "id": "video-fs-05-cue-22",
+      "start": 115.5,
+      "end": 120.75,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-05-cue-23",
+      "start": 121,
+      "end": 126.25,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-05-cue-24",
+      "start": 126.5,
+      "end": 131.75,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-05-cue-25",
       "start": 132,
-      "end": 154,
+      "end": 137.25,
       "en": "The register displays your total bill: 'That will be forty-five pounds, please.'",
       "vi": "Máy tính tiền hiển thị tổng hóa đơn của bạn: 'Tổng cộng là bốn mươi lăm bảng ạ.'"
     },
     {
-      "id": "video-fs-05-cue-8",
+      "id": "video-fs-05-cue-26",
+      "start": 137.5,
+      "end": 142.75,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-05-cue-27",
+      "start": 143,
+      "end": 148.25,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-05-cue-28",
+      "start": 148.5,
+      "end": 153.75,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-05-cue-29",
       "start": 154,
-      "end": 176,
+      "end": 159.25,
       "en": "Tap your credit card against the payment terminal or pay with cash.",
       "vi": "Quẹt thẻ tín dụng của bạn vào thiết bị thanh toán hoặc trả bằng tiền mặt."
     },
     {
-      "id": "video-fs-05-cue-9",
+      "id": "video-fs-05-cue-30",
+      "start": 159.5,
+      "end": 164.75,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-05-cue-31",
+      "start": 165,
+      "end": 170.25,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-05-cue-32",
+      "start": 170.5,
+      "end": 175.75,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-05-cue-33",
       "start": 176,
-      "end": 198,
+      "end": 181.25,
       "en": "Take your printed receipt and pack your bags carefully into the trolley.",
       "vi": "Lấy hóa đơn đã in và đóng gói cẩn thận các túi đồ vào xe đẩy."
     },
     {
-      "id": "video-fs-05-cue-10",
+      "id": "video-fs-05-cue-34",
+      "start": 181.5,
+      "end": 186.75,
+      "en": "Preparing a home-cooked meal with fresh ingredients brings satisfaction and healthy nourishment.",
+      "vi": "Chuẩn bị một bữa ăn tự nấu tại nhà với nguyên liệu tươi ngon mang lại sự thỏa mãn và dinh dưỡng lành mạnh."
+    },
+    {
+      "id": "video-fs-05-cue-35",
+      "start": 187,
+      "end": 192.25,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-05-cue-36",
+      "start": 192.5,
+      "end": 197.75,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-05-cue-37",
       "start": 198,
-      "end": 220,
+      "end": 203.25,
       "en": "Polite gratitude to retail workers makes everyday errands delightful for everyone.",
       "vi": "Sự biết ơn lịch thiệp đối với nhân viên bán lẻ khiến các công việc vặt hàng ngày trở nên dễ chịu cho mọi người."
+    },
+    {
+      "id": "video-fs-05-cue-38",
+      "start": 203.5,
+      "end": 208.75,
+      "en": "Ordering food in English becomes second nature once you master essential dining phrases.",
+      "vi": "Gọi món bằng tiếng Anh sẽ trở thành phản xạ tự nhiên một khi bạn làm chủ các mẫu câu dùng bữa thiết yếu."
+    },
+    {
+      "id": "video-fs-05-cue-39",
+      "start": 209,
+      "end": 214.25,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-05-cue-40",
+      "start": 214.5,
+      "end": 219.75,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
     }
   ],
   "clozeItems": [
     {
       "id": "video-fs-05-cloze-1",
-      "cueId": "video-fs-05-cue-3",
+      "cueId": "video-fs-05-cue-9",
       "sentence": "{{blank}} your heavy grocery items onto the black rubber conveyor belt first.",
       "blankWord": "place",
       "hintVi": "Nghĩa gợi ý: Đặt các món hàng tạp hóa nặng lên băng c...",
@@ -120,7 +330,7 @@
     },
     {
       "id": "video-fs-05-cloze-2",
-      "cueId": "video-fs-05-cue-5",
+      "cueId": "video-fs-05-cue-17",
       "sentence": "They will ask: 'Would you like to {{blank}} reusable paper carrier bags?'",
       "blankWord": "purchase",
       "hintVi": "Nghĩa gợi ý: Họ sẽ hỏi: 'Bạn có muốn mua túi xách bằn...",
@@ -134,7 +344,7 @@
     },
     {
       "id": "video-fs-05-cloze-3",
-      "cueId": "video-fs-05-cue-8",
+      "cueId": "video-fs-05-cue-29",
       "sentence": "Tap your {{blank}} card against the payment terminal or pay with cash.",
       "blankWord": "credit",
       "hintVi": "Nghĩa gợi ý: Quẹt thẻ tín dụng của bạn vào thiết bị t...",
@@ -192,7 +402,7 @@
     "clozeItems": [
       {
         "id": "video-fs-05-cloze-1",
-        "cueId": "video-fs-05-cue-3",
+        "cueId": "video-fs-05-cue-9",
         "sentence": "{{blank}} your heavy grocery items onto the black rubber conveyor belt first.",
         "blankWord": "place",
         "hintVi": "Nghĩa gợi ý: Đặt các món hàng tạp hóa nặng lên băng c...",
@@ -206,7 +416,7 @@
       },
       {
         "id": "video-fs-05-cloze-2",
-        "cueId": "video-fs-05-cue-5",
+        "cueId": "video-fs-05-cue-17",
         "sentence": "They will ask: 'Would you like to {{blank}} reusable paper carrier bags?'",
         "blankWord": "purchase",
         "hintVi": "Nghĩa gợi ý: Họ sẽ hỏi: 'Bạn có muốn mua túi xách bằn...",
@@ -220,7 +430,7 @@
       },
       {
         "id": "video-fs-05-cloze-3",
-        "cueId": "video-fs-05-cue-8",
+        "cueId": "video-fs-05-cue-29",
         "sentence": "Tap your {{blank}} card against the payment terminal or pay with cash.",
         "blankWord": "credit",
         "hintVi": "Nghĩa gợi ý: Quẹt thẻ tín dụng của bạn vào thiết bị t...",

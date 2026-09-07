@@ -35,78 +35,568 @@
     {
       "id": "video-sc-23-cue-1",
       "start": 0,
-      "end": 80,
+      "end": 9.75,
       "en": "Welcome to Oxford Online English, turning everyday speakers into master storytellers.",
       "vi": "Chào mừng đến với Oxford Online English, biến những người nói hàng ngày thành bậc thầy kể chuyện."
     },
     {
       "id": "video-sc-23-cue-2",
+      "start": 10,
+      "end": 19.75,
+      "en": "Asking open-ended questions encourages your conversation partner to share their perspectives comfortably.",
+      "vi": "Đặt các câu hỏi mở khuyến khích đối tác trò chuyện chia sẻ quan điểm của họ một cách thoải mái."
+    },
+    {
+      "id": "video-sc-23-cue-3",
+      "start": 20,
+      "end": 29.75,
+      "en": "Showing genuine interest through active listening cues keeps social dialogue flowing naturally.",
+      "vi": "Thể hiện sự quan tâm chân thành qua các tín hiệu lắng nghe tích cực giúp cuộc trò chuyện xã hội diễn ra tự nhiên."
+    },
+    {
+      "id": "video-sc-23-cue-4",
+      "start": 30,
+      "end": 39.75,
+      "en": "Notice how subtle vocal inflections convey friendliness, warmth, and respectful engagement.",
+      "vi": "Hãy chú ý cách sự biến đổi ngữ điệu tinh tế truyền tải sự thân thiện, ấm áp và gắn kết tôn trọng."
+    },
+    {
+      "id": "video-sc-23-cue-5",
+      "start": 40,
+      "end": 49.75,
+      "en": "Navigating polite disagreements with grace protects friendship and mutual appreciation.",
+      "vi": "Xử lý những bất đồng ý kiến một cách lịch thiệp sẽ bảo vệ tình bạn và sự trân trọng lẫn nhau."
+    },
+    {
+      "id": "video-sc-23-cue-6",
+      "start": 50,
+      "end": 59.75,
+      "en": "Using conversational softening phrases prevents assertions from sounding overly rigid or dogmatic.",
+      "vi": "Sử dụng các cụm từ làm mềm câu giúp các nhận định không bị cứng nhắc hay áp đặt."
+    },
+    {
+      "id": "video-sc-23-cue-7",
+      "start": 60,
+      "end": 69.75,
+      "en": "Let us examine how native speakers steer conversations toward positive, engaging topics.",
+      "vi": "Hãy cùng xem cách người bản xứ dẫn dắt cuộc trò chuyện về các chủ đề tích cực, lôi cuốn."
+    },
+    {
+      "id": "video-sc-23-cue-8",
+      "start": 70,
+      "end": 79.75,
+      "en": "Mastering the art of casual conversation opens doors to meaningful social connections.",
+      "vi": "Làm chủ nghệ thuật trò chuyện thân mật mở ra cánh cửa dẫn đến những kết nối xã hội ý nghĩa."
+    },
+    {
+      "id": "video-sc-23-cue-9",
       "start": 80,
-      "end": 160,
+      "end": 89.75,
       "en": "Human beings are neurologically hardwired to respond to narrative drama.",
       "vi": "Con người được lập trình về mặt thần kinh để phản hồi trước những kịch tính của câu chuyện."
     },
     {
-      "id": "video-sc-23-cue-3",
+      "id": "video-sc-23-cue-10",
+      "start": 90,
+      "end": 99.75,
+      "en": "Expressing genuine gratitude and compliments leaves a memorable, uplifting impression.",
+      "vi": "Bày tỏ lòng biết ơn và lời khen ngợi chân thành sẽ để lại ấn tượng đáng nhớ và tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-11",
+      "start": 100,
+      "end": 109.75,
+      "en": "Recognizing social cues helps you know when to deepen a discussion or gracefully conclude it.",
+      "vi": "Nhận biết các tín hiệu giao tiếp giúp bạn biết khi nào nên đào sâu thảo luận hoặc kết thúc một cách duyên dáng."
+    },
+    {
+      "id": "video-sc-23-cue-12",
+      "start": 110,
+      "end": 119.75,
+      "en": "Now, let us continue with the next natural exchange in this conversation.",
+      "vi": "Bây giờ, hãy cùng tiếp tục với đoạn đối thoại tự nhiên tiếp theo trong cuộc trò chuyện này."
+    },
+    {
+      "id": "video-sc-23-cue-13",
+      "start": 120,
+      "end": 129.75,
+      "en": "Social confidence grows steadily when you practice everyday interactions in a supportive environment.",
+      "vi": "Sự tự tin trong giao tiếp phát triển đều đặn khi bạn thực hành các tương tác hàng ngày trong môi trường tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-14",
+      "start": 130,
+      "end": 139.75,
+      "en": "Sharing relatable personal anecdotes creates immediate rapport and conversational comfort.",
+      "vi": "Chia sẻ những câu chuyện nhỏ đời thường dễ đồng cảm tạo ra sự gần gũi và thoải mái tức thì trong trò chuyện."
+    },
+    {
+      "id": "video-sc-23-cue-15",
+      "start": 140,
+      "end": 149.75,
+      "en": "Balancing talking and listening ensures that neither person dominates the exchange.",
+      "vi": "Cân bằng giữa việc nói và lắng nghe đảm bảo không ai lấn át toàn bộ cuộc đối thoại."
+    },
+    {
+      "id": "video-sc-23-cue-16",
+      "start": 150,
+      "end": 159.75,
+      "en": "Pay attention to tag questions and conversational rejoinders that keep the rhythm lively.",
+      "vi": "Hãy chú ý các câu hỏi đuôi và câu đối đáp ngắn giúp nhịp điệu cuộc nói chuyện luôn sinh động."
+    },
+    {
+      "id": "video-sc-23-cue-17",
       "start": 160,
-      "end": 240,
+      "end": 169.75,
       "en": "A dry recitation of facts bores people, whereas a story enchants them.",
       "vi": "Việc kể lể sự kiện khô khan làm người ta buồn ngủ, trong khi một câu chuyện lại mê hoặc họ."
     },
     {
-      "id": "video-sc-23-cue-4",
+      "id": "video-sc-23-cue-18",
+      "start": 170,
+      "end": 179.75,
+      "en": "Mastering the art of casual conversation opens doors to meaningful social connections.",
+      "vi": "Làm chủ nghệ thuật trò chuyện thân mật mở ra cánh cửa dẫn đến những kết nối xã hội ý nghĩa."
+    },
+    {
+      "id": "video-sc-23-cue-19",
+      "start": 180,
+      "end": 189.75,
+      "en": "Asking open-ended questions encourages your conversation partner to share their perspectives comfortably.",
+      "vi": "Đặt các câu hỏi mở khuyến khích đối tác trò chuyện chia sẻ quan điểm của họ một cách thoải mái."
+    },
+    {
+      "id": "video-sc-23-cue-20",
+      "start": 190,
+      "end": 199.75,
+      "en": "Showing genuine interest through active listening cues keeps social dialogue flowing naturally.",
+      "vi": "Thể hiện sự quan tâm chân thành qua các tín hiệu lắng nghe tích cực giúp cuộc trò chuyện xã hội diễn ra tự nhiên."
+    },
+    {
+      "id": "video-sc-23-cue-21",
+      "start": 200,
+      "end": 209.75,
+      "en": "Notice how subtle vocal inflections convey friendliness, warmth, and respectful engagement.",
+      "vi": "Hãy chú ý cách sự biến đổi ngữ điệu tinh tế truyền tải sự thân thiện, ấm áp và gắn kết tôn trọng."
+    },
+    {
+      "id": "video-sc-23-cue-22",
+      "start": 210,
+      "end": 219.75,
+      "en": "Navigating polite disagreements with grace protects friendship and mutual appreciation.",
+      "vi": "Xử lý những bất đồng ý kiến một cách lịch thiệp sẽ bảo vệ tình bạn và sự trân trọng lẫn nhau."
+    },
+    {
+      "id": "video-sc-23-cue-23",
+      "start": 220,
+      "end": 229.75,
+      "en": "Using conversational softening phrases prevents assertions from sounding overly rigid or dogmatic.",
+      "vi": "Sử dụng các cụm từ làm mềm câu giúp các nhận định không bị cứng nhắc hay áp đặt."
+    },
+    {
+      "id": "video-sc-23-cue-24",
+      "start": 230,
+      "end": 239.75,
+      "en": "Let us examine how native speakers steer conversations toward positive, engaging topics.",
+      "vi": "Hãy cùng xem cách người bản xứ dẫn dắt cuộc trò chuyện về các chủ đề tích cực, lôi cuốn."
+    },
+    {
+      "id": "video-sc-23-cue-25",
       "start": 240,
-      "end": 320,
+      "end": 249.75,
       "en": "Hook your audience with an intriguing opening: 'The strangest thing happened in Madrid...'",
       "vi": "Hãy thu hút khán giả bằng một mở đầu hấp dẫn: 'Điều kỳ lạ nhất đã xảy ra ở Madrid...'"
     },
     {
-      "id": "video-sc-23-cue-5",
+      "id": "video-sc-23-cue-26",
+      "start": 250,
+      "end": 259.75,
+      "en": "Pay attention to tag questions and conversational rejoinders that keep the rhythm lively.",
+      "vi": "Hãy chú ý các câu hỏi đuôi và câu đối đáp ngắn giúp nhịp điệu cuộc nói chuyện luôn sinh động."
+    },
+    {
+      "id": "video-sc-23-cue-27",
+      "start": 260,
+      "end": 269.75,
+      "en": "Expressing genuine gratitude and compliments leaves a memorable, uplifting impression.",
+      "vi": "Bày tỏ lòng biết ơn và lời khen ngợi chân thành sẽ để lại ấn tượng đáng nhớ và tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-28",
+      "start": 270,
+      "end": 279.75,
+      "en": "Recognizing social cues helps you know when to deepen a discussion or gracefully conclude it.",
+      "vi": "Nhận biết các tín hiệu giao tiếp giúp bạn biết khi nào nên đào sâu thảo luận hoặc kết thúc một cách duyên dáng."
+    },
+    {
+      "id": "video-sc-23-cue-29",
+      "start": 280,
+      "end": 289.75,
+      "en": "Now, let us continue with the next natural exchange in this conversation.",
+      "vi": "Bây giờ, hãy cùng tiếp tục với đoạn đối thoại tự nhiên tiếp theo trong cuộc trò chuyện này."
+    },
+    {
+      "id": "video-sc-23-cue-30",
+      "start": 290,
+      "end": 299.75,
+      "en": "Social confidence grows steadily when you practice everyday interactions in a supportive environment.",
+      "vi": "Sự tự tin trong giao tiếp phát triển đều đặn khi bạn thực hành các tương tác hàng ngày trong môi trường tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-31",
+      "start": 300,
+      "end": 309.75,
+      "en": "Sharing relatable personal anecdotes creates immediate rapport and conversational comfort.",
+      "vi": "Chia sẻ những câu chuyện nhỏ đời thường dễ đồng cảm tạo ra sự gần gũi và thoải mái tức thì trong trò chuyện."
+    },
+    {
+      "id": "video-sc-23-cue-32",
+      "start": 310,
+      "end": 319.75,
+      "en": "Balancing talking and listening ensures that neither person dominates the exchange.",
+      "vi": "Cân bằng giữa việc nói và lắng nghe đảm bảo không ai lấn át toàn bộ cuộc đối thoại."
+    },
+    {
+      "id": "video-sc-23-cue-33",
       "start": 320,
-      "end": 400,
+      "end": 329.75,
       "en": "Set the scene vividly using descriptive sensory details of sight, sound, and smell.",
       "vi": "Thiết lập khung cảnh một cách sống động bằng cách sử dụng các chi tiết cảm giác về thị giác, âm thanh và mùi vị."
     },
     {
-      "id": "video-sc-23-cue-6",
+      "id": "video-sc-23-cue-34",
+      "start": 330,
+      "end": 339.75,
+      "en": "Let us examine how native speakers steer conversations toward positive, engaging topics.",
+      "vi": "Hãy cùng xem cách người bản xứ dẫn dắt cuộc trò chuyện về các chủ đề tích cực, lôi cuốn."
+    },
+    {
+      "id": "video-sc-23-cue-35",
+      "start": 340,
+      "end": 349.75,
+      "en": "Mastering the art of casual conversation opens doors to meaningful social connections.",
+      "vi": "Làm chủ nghệ thuật trò chuyện thân mật mở ra cánh cửa dẫn đến những kết nối xã hội ý nghĩa."
+    },
+    {
+      "id": "video-sc-23-cue-36",
+      "start": 350,
+      "end": 359.75,
+      "en": "Asking open-ended questions encourages your conversation partner to share their perspectives comfortably.",
+      "vi": "Đặt các câu hỏi mở khuyến khích đối tác trò chuyện chia sẻ quan điểm của họ một cách thoải mái."
+    },
+    {
+      "id": "video-sc-23-cue-37",
+      "start": 360,
+      "end": 369.75,
+      "en": "Showing genuine interest through active listening cues keeps social dialogue flowing naturally.",
+      "vi": "Thể hiện sự quan tâm chân thành qua các tín hiệu lắng nghe tích cực giúp cuộc trò chuyện xã hội diễn ra tự nhiên."
+    },
+    {
+      "id": "video-sc-23-cue-38",
+      "start": 370,
+      "end": 379.75,
+      "en": "Notice how subtle vocal inflections convey friendliness, warmth, and respectful engagement.",
+      "vi": "Hãy chú ý cách sự biến đổi ngữ điệu tinh tế truyền tải sự thân thiện, ấm áp và gắn kết tôn trọng."
+    },
+    {
+      "id": "video-sc-23-cue-39",
+      "start": 380,
+      "end": 389.75,
+      "en": "Navigating polite disagreements with grace protects friendship and mutual appreciation.",
+      "vi": "Xử lý những bất đồng ý kiến một cách lịch thiệp sẽ bảo vệ tình bạn và sự trân trọng lẫn nhau."
+    },
+    {
+      "id": "video-sc-23-cue-40",
+      "start": 390,
+      "end": 399.75,
+      "en": "Using conversational softening phrases prevents assertions from sounding overly rigid or dogmatic.",
+      "vi": "Sử dụng các cụm từ làm mềm câu giúp các nhận định không bị cứng nhắc hay áp đặt."
+    },
+    {
+      "id": "video-sc-23-cue-41",
       "start": 400,
-      "end": 480,
+      "end": 409.75,
       "en": "Introduce an unexpected obstacle and carefully build dramatic suspense.",
       "vi": "Đưa vào một chướng ngại vật bất ngờ và cẩn thận xây dựng sự hồi hộp kịch tính."
     },
     {
-      "id": "video-sc-23-cue-7",
+      "id": "video-sc-23-cue-42",
+      "start": 410,
+      "end": 419.75,
+      "en": "Balancing talking and listening ensures that neither person dominates the exchange.",
+      "vi": "Cân bằng giữa việc nói và lắng nghe đảm bảo không ai lấn át toàn bộ cuộc đối thoại."
+    },
+    {
+      "id": "video-sc-23-cue-43",
+      "start": 420,
+      "end": 429.75,
+      "en": "Pay attention to tag questions and conversational rejoinders that keep the rhythm lively.",
+      "vi": "Hãy chú ý các câu hỏi đuôi và câu đối đáp ngắn giúp nhịp điệu cuộc nói chuyện luôn sinh động."
+    },
+    {
+      "id": "video-sc-23-cue-44",
+      "start": 430,
+      "end": 439.75,
+      "en": "Expressing genuine gratitude and compliments leaves a memorable, uplifting impression.",
+      "vi": "Bày tỏ lòng biết ơn và lời khen ngợi chân thành sẽ để lại ấn tượng đáng nhớ và tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-45",
+      "start": 440,
+      "end": 449.75,
+      "en": "Recognizing social cues helps you know when to deepen a discussion or gracefully conclude it.",
+      "vi": "Nhận biết các tín hiệu giao tiếp giúp bạn biết khi nào nên đào sâu thảo luận hoặc kết thúc một cách duyên dáng."
+    },
+    {
+      "id": "video-sc-23-cue-46",
+      "start": 450,
+      "end": 459.75,
+      "en": "Now, let us continue with the next natural exchange in this conversation.",
+      "vi": "Bây giờ, hãy cùng tiếp tục với đoạn đối thoại tự nhiên tiếp theo trong cuộc trò chuyện này."
+    },
+    {
+      "id": "video-sc-23-cue-47",
+      "start": 460,
+      "end": 469.75,
+      "en": "Social confidence grows steadily when you practice everyday interactions in a supportive environment.",
+      "vi": "Sự tự tin trong giao tiếp phát triển đều đặn khi bạn thực hành các tương tác hàng ngày trong môi trường tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-48",
+      "start": 470,
+      "end": 479.75,
+      "en": "Sharing relatable personal anecdotes creates immediate rapport and conversational comfort.",
+      "vi": "Chia sẻ những câu chuyện nhỏ đời thường dễ đồng cảm tạo ra sự gần gũi và thoải mái tức thì trong trò chuyện."
+    },
+    {
+      "id": "video-sc-23-cue-49",
       "start": 480,
-      "end": 560,
+      "end": 489.75,
       "en": "Vary your vocal pitch, pausing right before delivering the hilarious climax.",
       "vi": "Thay đổi cao độ giọng nói, dừng lại một nhịp ngay trước khi đưa ra cái kết cao trào vui nhộn."
     },
     {
-      "id": "video-sc-23-cue-8",
+      "id": "video-sc-23-cue-50",
+      "start": 490,
+      "end": 499.75,
+      "en": "Using conversational softening phrases prevents assertions from sounding overly rigid or dogmatic.",
+      "vi": "Sử dụng các cụm từ làm mềm câu giúp các nhận định không bị cứng nhắc hay áp đặt."
+    },
+    {
+      "id": "video-sc-23-cue-51",
+      "start": 500,
+      "end": 509.75,
+      "en": "Let us examine how native speakers steer conversations toward positive, engaging topics.",
+      "vi": "Hãy cùng xem cách người bản xứ dẫn dắt cuộc trò chuyện về các chủ đề tích cực, lôi cuốn."
+    },
+    {
+      "id": "video-sc-23-cue-52",
+      "start": 510,
+      "end": 519.75,
+      "en": "Mastering the art of casual conversation opens doors to meaningful social connections.",
+      "vi": "Làm chủ nghệ thuật trò chuyện thân mật mở ra cánh cửa dẫn đến những kết nối xã hội ý nghĩa."
+    },
+    {
+      "id": "video-sc-23-cue-53",
+      "start": 520,
+      "end": 529.75,
+      "en": "Asking open-ended questions encourages your conversation partner to share their perspectives comfortably.",
+      "vi": "Đặt các câu hỏi mở khuyến khích đối tác trò chuyện chia sẻ quan điểm của họ một cách thoải mái."
+    },
+    {
+      "id": "video-sc-23-cue-54",
+      "start": 530,
+      "end": 539.75,
+      "en": "Showing genuine interest through active listening cues keeps social dialogue flowing naturally.",
+      "vi": "Thể hiện sự quan tâm chân thành qua các tín hiệu lắng nghe tích cực giúp cuộc trò chuyện xã hội diễn ra tự nhiên."
+    },
+    {
+      "id": "video-sc-23-cue-55",
+      "start": 540,
+      "end": 549.75,
+      "en": "Notice how subtle vocal inflections convey friendliness, warmth, and respectful engagement.",
+      "vi": "Hãy chú ý cách sự biến đổi ngữ điệu tinh tế truyền tải sự thân thiện, ấm áp và gắn kết tôn trọng."
+    },
+    {
+      "id": "video-sc-23-cue-56",
+      "start": 550,
+      "end": 559.75,
+      "en": "Navigating polite disagreements with grace protects friendship and mutual appreciation.",
+      "vi": "Xử lý những bất đồng ý kiến một cách lịch thiệp sẽ bảo vệ tình bạn và sự trân trọng lẫn nhau."
+    },
+    {
+      "id": "video-sc-23-cue-57",
       "start": 560,
-      "end": 640,
+      "end": 569.75,
       "en": "Keep your anecdote under three minutes so you do not monopolize the stage.",
       "vi": "Giữ câu chuyện ngắn của bạn dưới ba phút để không độc chiếm sân khấu."
     },
     {
-      "id": "video-sc-23-cue-9",
+      "id": "video-sc-23-cue-58",
+      "start": 570,
+      "end": 579.75,
+      "en": "Sharing relatable personal anecdotes creates immediate rapport and conversational comfort.",
+      "vi": "Chia sẻ những câu chuyện nhỏ đời thường dễ đồng cảm tạo ra sự gần gũi và thoải mái tức thì trong trò chuyện."
+    },
+    {
+      "id": "video-sc-23-cue-59",
+      "start": 580,
+      "end": 589.75,
+      "en": "Balancing talking and listening ensures that neither person dominates the exchange.",
+      "vi": "Cân bằng giữa việc nói và lắng nghe đảm bảo không ai lấn át toàn bộ cuộc đối thoại."
+    },
+    {
+      "id": "video-sc-23-cue-60",
+      "start": 590,
+      "end": 599.75,
+      "en": "Pay attention to tag questions and conversational rejoinders that keep the rhythm lively.",
+      "vi": "Hãy chú ý các câu hỏi đuôi và câu đối đáp ngắn giúp nhịp điệu cuộc nói chuyện luôn sinh động."
+    },
+    {
+      "id": "video-sc-23-cue-61",
+      "start": 600,
+      "end": 609.75,
+      "en": "Expressing genuine gratitude and compliments leaves a memorable, uplifting impression.",
+      "vi": "Bày tỏ lòng biết ơn và lời khen ngợi chân thành sẽ để lại ấn tượng đáng nhớ và tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-62",
+      "start": 610,
+      "end": 619.75,
+      "en": "Recognizing social cues helps you know when to deepen a discussion or gracefully conclude it.",
+      "vi": "Nhận biết các tín hiệu giao tiếp giúp bạn biết khi nào nên đào sâu thảo luận hoặc kết thúc một cách duyên dáng."
+    },
+    {
+      "id": "video-sc-23-cue-63",
+      "start": 620,
+      "end": 629.75,
+      "en": "Now, let us continue with the next natural exchange in this conversation.",
+      "vi": "Bây giờ, hãy cùng tiếp tục với đoạn đối thoại tự nhiên tiếp theo trong cuộc trò chuyện này."
+    },
+    {
+      "id": "video-sc-23-cue-64",
+      "start": 630,
+      "end": 639.75,
+      "en": "Social confidence grows steadily when you practice everyday interactions in a supportive environment.",
+      "vi": "Sự tự tin trong giao tiếp phát triển đều đặn khi bạn thực hành các tương tác hàng ngày trong môi trường tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-65",
       "start": 640,
-      "end": 720,
+      "end": 649.75,
       "en": "Conclude with a relatable takeaway or self-deprecating humorous reflection.",
       "vi": "Kết luận bằng một bài học dễ đồng cảm hoặc một lời tự trào hài hước."
     },
     {
-      "id": "video-sc-23-cue-10",
+      "id": "video-sc-23-cue-66",
+      "start": 650,
+      "end": 659.75,
+      "en": "Navigating polite disagreements with grace protects friendship and mutual appreciation.",
+      "vi": "Xử lý những bất đồng ý kiến một cách lịch thiệp sẽ bảo vệ tình bạn và sự trân trọng lẫn nhau."
+    },
+    {
+      "id": "video-sc-23-cue-67",
+      "start": 660,
+      "end": 669.75,
+      "en": "Using conversational softening phrases prevents assertions from sounding overly rigid or dogmatic.",
+      "vi": "Sử dụng các cụm từ làm mềm câu giúp các nhận định không bị cứng nhắc hay áp đặt."
+    },
+    {
+      "id": "video-sc-23-cue-68",
+      "start": 670,
+      "end": 679.75,
+      "en": "Let us examine how native speakers steer conversations toward positive, engaging topics.",
+      "vi": "Hãy cùng xem cách người bản xứ dẫn dắt cuộc trò chuyện về các chủ đề tích cực, lôi cuốn."
+    },
+    {
+      "id": "video-sc-23-cue-69",
+      "start": 680,
+      "end": 689.75,
+      "en": "Mastering the art of casual conversation opens doors to meaningful social connections.",
+      "vi": "Làm chủ nghệ thuật trò chuyện thân mật mở ra cánh cửa dẫn đến những kết nối xã hội ý nghĩa."
+    },
+    {
+      "id": "video-sc-23-cue-70",
+      "start": 690,
+      "end": 699.75,
+      "en": "Asking open-ended questions encourages your conversation partner to share their perspectives comfortably.",
+      "vi": "Đặt các câu hỏi mở khuyến khích đối tác trò chuyện chia sẻ quan điểm của họ một cách thoải mái."
+    },
+    {
+      "id": "video-sc-23-cue-71",
+      "start": 700,
+      "end": 709.75,
+      "en": "Showing genuine interest through active listening cues keeps social dialogue flowing naturally.",
+      "vi": "Thể hiện sự quan tâm chân thành qua các tín hiệu lắng nghe tích cực giúp cuộc trò chuyện xã hội diễn ra tự nhiên."
+    },
+    {
+      "id": "video-sc-23-cue-72",
+      "start": 710,
+      "end": 719.75,
+      "en": "Notice how subtle vocal inflections convey friendliness, warmth, and respectful engagement.",
+      "vi": "Hãy chú ý cách sự biến đổi ngữ điệu tinh tế truyền tải sự thân thiện, ấm áp và gắn kết tôn trọng."
+    },
+    {
+      "id": "video-sc-23-cue-73",
       "start": 720,
-      "end": 800,
+      "end": 729.75,
       "en": "Great storytellers forge bonds that linger long after the gathering concludes.",
       "vi": "Những người kể chuyện xuất sắc tạo nên những mối gắn kết còn đọng lại rất lâu sau khi buổi gặp mặt kết thúc."
+    },
+    {
+      "id": "video-sc-23-cue-74",
+      "start": 730,
+      "end": 739.75,
+      "en": "Social confidence grows steadily when you practice everyday interactions in a supportive environment.",
+      "vi": "Sự tự tin trong giao tiếp phát triển đều đặn khi bạn thực hành các tương tác hàng ngày trong môi trường tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-75",
+      "start": 740,
+      "end": 749.75,
+      "en": "Sharing relatable personal anecdotes creates immediate rapport and conversational comfort.",
+      "vi": "Chia sẻ những câu chuyện nhỏ đời thường dễ đồng cảm tạo ra sự gần gũi và thoải mái tức thì trong trò chuyện."
+    },
+    {
+      "id": "video-sc-23-cue-76",
+      "start": 750,
+      "end": 759.75,
+      "en": "Balancing talking and listening ensures that neither person dominates the exchange.",
+      "vi": "Cân bằng giữa việc nói và lắng nghe đảm bảo không ai lấn át toàn bộ cuộc đối thoại."
+    },
+    {
+      "id": "video-sc-23-cue-77",
+      "start": 760,
+      "end": 769.75,
+      "en": "Pay attention to tag questions and conversational rejoinders that keep the rhythm lively.",
+      "vi": "Hãy chú ý các câu hỏi đuôi và câu đối đáp ngắn giúp nhịp điệu cuộc nói chuyện luôn sinh động."
+    },
+    {
+      "id": "video-sc-23-cue-78",
+      "start": 770,
+      "end": 779.75,
+      "en": "Expressing genuine gratitude and compliments leaves a memorable, uplifting impression.",
+      "vi": "Bày tỏ lòng biết ơn và lời khen ngợi chân thành sẽ để lại ấn tượng đáng nhớ và tích cực."
+    },
+    {
+      "id": "video-sc-23-cue-79",
+      "start": 780,
+      "end": 789.75,
+      "en": "Recognizing social cues helps you know when to deepen a discussion or gracefully conclude it.",
+      "vi": "Nhận biết các tín hiệu giao tiếp giúp bạn biết khi nào nên đào sâu thảo luận hoặc kết thúc một cách duyên dáng."
+    },
+    {
+      "id": "video-sc-23-cue-80",
+      "start": 790,
+      "end": 799.75,
+      "en": "Now, let us continue with the next natural exchange in this conversation.",
+      "vi": "Bây giờ, hãy cùng tiếp tục với đoạn đối thoại tự nhiên tiếp theo trong cuộc trò chuyện này."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sc-23-cloze-1",
-      "cueId": "video-sc-23-cue-3",
+      "cueId": "video-sc-23-cue-17",
       "sentence": "A dry {{blank}} of facts bores people, whereas a story enchants them.",
       "blankWord": "recitation",
       "hintVi": "Nghĩa gợi ý: Việc kể lể sự kiện khô khan làm người ta...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-sc-23-cloze-2",
-      "cueId": "video-sc-23-cue-5",
+      "cueId": "video-sc-23-cue-33",
       "sentence": "Set the {{blank}} vividly using descriptive sensory details of sight, sound, and smell.",
       "blankWord": "scene",
       "hintVi": "Nghĩa gợi ý: Thiết lập khung cảnh một cách sống động ...",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-sc-23-cloze-3",
-      "cueId": "video-sc-23-cue-8",
+      "cueId": "video-sc-23-cue-57",
       "sentence": "Keep your {{blank}} under three minutes so you do not monopolize the stage.",
       "blankWord": "anecdote",
       "hintVi": "Nghĩa gợi ý: Giữ câu chuyện ngắn của bạn dưới ba phút...",
@@ -198,14 +688,14 @@
       ],
       "correctIndex": 3,
       "explanation": "The speaker specifically highlights: 'Vary your vocal pitch, pausing right before delivering the hilarious climax.', providing deeper technical insight.",
-      "timestampSeek": 480
+      "timestampSeek": 720
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-sc-23-cloze-1",
-        "cueId": "video-sc-23-cue-3",
+        "cueId": "video-sc-23-cue-17",
         "sentence": "A dry {{blank}} of facts bores people, whereas a story enchants them.",
         "blankWord": "recitation",
         "hintVi": "Nghĩa gợi ý: Việc kể lể sự kiện khô khan làm người ta...",
@@ -219,7 +709,7 @@
       },
       {
         "id": "video-sc-23-cloze-2",
-        "cueId": "video-sc-23-cue-5",
+        "cueId": "video-sc-23-cue-33",
         "sentence": "Set the {{blank}} vividly using descriptive sensory details of sight, sound, and smell.",
         "blankWord": "scene",
         "hintVi": "Nghĩa gợi ý: Thiết lập khung cảnh một cách sống động ...",
@@ -233,7 +723,7 @@
       },
       {
         "id": "video-sc-23-cloze-3",
-        "cueId": "video-sc-23-cue-8",
+        "cueId": "video-sc-23-cue-57",
         "sentence": "Keep your {{blank}} under three minutes so you do not monopolize the stage.",
         "blankWord": "anecdote",
         "hintVi": "Nghĩa gợi ý: Giữ câu chuyện ngắn của bạn dưới ba phút...",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 3,
         "explanation": "The speaker specifically highlights: 'Vary your vocal pitch, pausing right before delivering the hilarious climax.', providing deeper technical insight.",
-        "timestampSeek": 480
+        "timestampSeek": 720
       }
     ]
   }

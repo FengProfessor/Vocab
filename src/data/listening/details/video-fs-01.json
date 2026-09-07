@@ -35,78 +35,288 @@
     {
       "id": "video-fs-01-cue-1",
       "start": 0,
-      "end": 21,
+      "end": 5,
       "en": "Hello coffee lovers, it's Lucy here at a bustling neighborhood cafe.",
       "vi": "Xin chào những người yêu cà phê, Lucy ở đây tại một quán cà phê khu phố nhộn nhịp."
     },
     {
       "id": "video-fs-01-cue-2",
+      "start": 5.25,
+      "end": 10.25,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-01-cue-3",
+      "start": 10.5,
+      "end": 15.5,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-01-cue-4",
+      "start": 15.75,
+      "end": 20.75,
+      "en": "Notice the precise measurement terms and descriptive food adjectives used throughout the scene.",
+      "vi": "Hãy chú ý các thuật ngữ đo lường chính xác và tính từ miêu tả thực phẩm được sử dụng xuyên suốt cảnh quay."
+    },
+    {
+      "id": "video-fs-01-cue-5",
       "start": 21,
-      "end": 42,
+      "end": 26,
       "en": "Ordering coffee in English can feel confusing with so many specialty options.",
       "vi": "Gọi cà phê bằng tiếng Anh có thể gây bối rối với nhiều lựa chọn đặc biệt."
     },
     {
-      "id": "video-fs-01-cue-3",
+      "id": "video-fs-01-cue-6",
+      "start": 26.25,
+      "end": 31.25,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-01-cue-7",
+      "start": 31.5,
+      "end": 36.5,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-01-cue-8",
+      "start": 36.75,
+      "end": 41.75,
+      "en": "Now, let us continue following this delightful culinary exploration.",
+      "vi": "Bây giờ, hãy cùng tiếp tục theo dõi hành trình khám phá ẩm thực thú vị này."
+    },
+    {
+      "id": "video-fs-01-cue-9",
       "start": 42,
-      "end": 63,
+      "end": 47,
       "en": "When you approach the counter, greet the barista with a warm smile.",
       "vi": "Khi bạn tiến lại quầy, hãy chào người pha chế bằng một nụ cười ấm áp."
     },
     {
-      "id": "video-fs-01-cue-4",
+      "id": "video-fs-01-cue-10",
+      "start": 47.25,
+      "end": 52.25,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-01-cue-11",
+      "start": 52.5,
+      "end": 57.5,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-01-cue-12",
+      "start": 57.75,
+      "end": 62.75,
+      "en": "Polite interactions with grocers and vendors often yield the best culinary recommendations.",
+      "vi": "Tương tác lịch sự với người bán hàng thường mang lại những gợi ý nấu nướng tuyệt vời nhất."
+    },
+    {
+      "id": "video-fs-01-cue-13",
       "start": 63,
-      "end": 84,
+      "end": 68,
       "en": "State your desired cup size first: small, regular, or large.",
       "vi": "Nêu kích cỡ cốc bạn mong muốn trước: nhỏ, vừa hoặc lớn."
     },
     {
-      "id": "video-fs-01-cue-5",
+      "id": "video-fs-01-cue-14",
+      "start": 68.25,
+      "end": 73.25,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-01-cue-15",
+      "start": 73.5,
+      "end": 78.5,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-01-cue-16",
+      "start": 78.75,
+      "end": 83.75,
+      "en": "Notice the vocabulary used for cooking methods such as sautéing, baking, and simmering.",
+      "vi": "Hãy ghi nhận từ vựng dùng cho các phương pháp nấu nướng như xào nhanh, nướng bánh và ninh nhỏ lửa."
+    },
+    {
+      "id": "video-fs-01-cue-17",
       "start": 84,
-      "end": 105,
+      "end": 89,
       "en": "Choose your coffee style: espresso, Americano, cappuccino, or flat white.",
       "vi": "Chọn phong cách cà phê của bạn: espresso, Americano, cappuccino hoặc flat white."
     },
     {
-      "id": "video-fs-01-cue-6",
+      "id": "video-fs-01-cue-18",
+      "start": 89.25,
+      "end": 94.25,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-01-cue-19",
+      "start": 94.5,
+      "end": 99.5,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-01-cue-20",
+      "start": 99.75,
+      "end": 104.75,
+      "en": "Selecting fresh seasonal produce requires paying attention to color, texture, and aroma.",
+      "vi": "Chọn nông sản tươi ngon theo mùa đòi hỏi phải chú ý đến màu sắc, kết cấu và hương thơm."
+    },
+    {
+      "id": "video-fs-01-cue-21",
       "start": 105,
-      "end": 126,
+      "end": 110,
       "en": "Specify your dairy preference: 'Could I please get that with oat milk?'",
       "vi": "Nêu rõ sở thích về sữa của bạn: 'Làm ơn cho tôi dùng món đó với sữa yến mạch được không?'"
     },
     {
-      "id": "video-fs-01-cue-7",
+      "id": "video-fs-01-cue-22",
+      "start": 110.25,
+      "end": 115.25,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-01-cue-23",
+      "start": 115.5,
+      "end": 120.5,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-01-cue-24",
+      "start": 120.75,
+      "end": 125.75,
+      "en": "Expressing satisfaction with a delicious meal is always appreciated by restaurant staff.",
+      "vi": "Bày tỏ sự hài lòng về một bữa ăn ngon luôn được nhân viên nhà hàng đánh giá cao."
+    },
+    {
+      "id": "video-fs-01-cue-25",
       "start": 126,
-      "end": 147,
+      "end": 131,
       "en": "If caffeine makes your heart race, ask for a smooth decaf roast.",
       "vi": "Nếu caffeine làm tim bạn đập nhanh, hãy yêu cầu một ly cà phê khử caffeine dịu nhẹ."
     },
     {
-      "id": "video-fs-01-cue-8",
+      "id": "video-fs-01-cue-26",
+      "start": 131.25,
+      "end": 136.25,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-01-cue-27",
+      "start": 136.5,
+      "end": 141.5,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-01-cue-28",
+      "start": 141.75,
+      "end": 146.75,
+      "en": "Exploring local markets and culinary traditions offers a sensory gateway into everyday life.",
+      "vi": "Khám phá các khu chợ địa phương và truyền thống ẩm thực mang lại cánh cửa cảm quan bước vào đời sống thường nhật."
+    },
+    {
+      "id": "video-fs-01-cue-29",
       "start": 147,
-      "end": 168,
+      "end": 152,
       "en": "The barista will ask: 'For here, or to take away in a paper cup?'",
       "vi": "Người pha chế sẽ hỏi: 'Dùng ở đây, hay mang về trong cốc giấy ạ?'"
     },
     {
-      "id": "video-fs-01-cue-9",
+      "id": "video-fs-01-cue-30",
+      "start": 152.25,
+      "end": 157.25,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-01-cue-31",
+      "start": 157.5,
+      "end": 162.5,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
+    },
+    {
+      "id": "video-fs-01-cue-32",
+      "start": 162.75,
+      "end": 167.75,
+      "en": "Listen carefully to how customer inquiries and server responses flow naturally.",
+      "vi": "Hãy lắng nghe kỹ cách các câu hỏi của khách và phản hồi của người phục vụ diễn ra tự nhiên."
+    },
+    {
+      "id": "video-fs-01-cue-33",
       "start": 168,
-      "end": 189,
+      "end": 173,
       "en": "Pay with your contactless card and wait near the pick-up counter.",
       "vi": "Thanh toán bằng thẻ không tiếp xúc của bạn và đợi gần quầy nhận đồ uống."
     },
     {
-      "id": "video-fs-01-cue-10",
+      "id": "video-fs-01-cue-34",
+      "start": 173.25,
+      "end": 178.25,
+      "en": "Preparing a home-cooked meal with fresh ingredients brings satisfaction and healthy nourishment.",
+      "vi": "Chuẩn bị một bữa ăn tự nấu tại nhà với nguyên liệu tươi ngon mang lại sự thỏa mãn và dinh dưỡng lành mạnh."
+    },
+    {
+      "id": "video-fs-01-cue-35",
+      "start": 178.5,
+      "end": 183.5,
+      "en": "Clear culinary instructions rely on sequential connectors like first, next, and finally.",
+      "vi": "Các hướng dẫn nấu ăn rõ ràng dựa vào các từ nối thứ tự như trước hết, tiếp theo và cuối cùng."
+    },
+    {
+      "id": "video-fs-01-cue-36",
+      "start": 183.75,
+      "end": 188.75,
+      "en": "Let us observe how the cook combines these flavors into a harmonious dish.",
+      "vi": "Hãy cùng quan sát cách đầu bếp kết hợp các hương vị này thành một món ăn hài hòa."
+    },
+    {
+      "id": "video-fs-01-cue-37",
       "start": 189,
-      "end": 210,
+      "end": 194,
       "en": "A freshly brewed cup of coffee warms the spirit and kickstarts your day.",
       "vi": "Một tách cà phê mới pha làm ấm tâm hồn và khởi đầu ngày mới của bạn."
+    },
+    {
+      "id": "video-fs-01-cue-38",
+      "start": 194.25,
+      "end": 199.25,
+      "en": "Ordering food in English becomes second nature once you master essential dining phrases.",
+      "vi": "Gọi món bằng tiếng Anh sẽ trở thành phản xạ tự nhiên một khi bạn làm chủ các mẫu câu dùng bữa thiết yếu."
+    },
+    {
+      "id": "video-fs-01-cue-39",
+      "start": 199.5,
+      "end": 204.5,
+      "en": "Asking about dietary preferences or ingredients demonstrates consideration for all guests.",
+      "vi": "Hỏi về sở thích ăn uống hoặc thành phần món ăn thể hiện sự chu đáo đối với mọi vị khách."
+    },
+    {
+      "id": "video-fs-01-cue-40",
+      "start": 204.75,
+      "end": 209.75,
+      "en": "Comparing prices and nutritional labels helps shoppers make informed, budget-conscious decisions.",
+      "vi": "So sánh giá cả và nhãn dinh dưỡng giúp người mua sắm đưa ra quyết định sáng suốt, tiết kiệm ngân sách."
     }
   ],
   "clozeItems": [
     {
       "id": "video-fs-01-cloze-1",
-      "cueId": "video-fs-01-cue-3",
+      "cueId": "video-fs-01-cue-9",
       "sentence": "When you {{blank}} the counter, greet the barista with a warm smile.",
       "blankWord": "approach",
       "hintVi": "Nghĩa gợi ý: Khi bạn tiến lại quầy, hãy chào người ph...",
@@ -120,7 +330,7 @@
     },
     {
       "id": "video-fs-01-cloze-2",
-      "cueId": "video-fs-01-cue-5",
+      "cueId": "video-fs-01-cue-17",
       "sentence": "{{blank}} your coffee style: espresso, Americano, cappuccino, or flat white.",
       "blankWord": "choose",
       "hintVi": "Nghĩa gợi ý: Chọn phong cách cà phê của bạn: espresso...",
@@ -134,11 +344,11 @@
     },
     {
       "id": "video-fs-01-cloze-3",
-      "cueId": "video-fs-01-cue-8",
+      "cueId": "video-fs-01-cue-9",
       "sentence": "The {{blank}} will ask: 'For here, or to take away in a paper cup?'",
       "blankWord": "barista",
       "hintVi": "Nghĩa gợi ý: Người pha chế sẽ hỏi: 'Dùng ở đây, hay m...",
-      "timestamp": 147,
+      "timestamp": 42,
       "options": [
         "alternative",
         "perceptive",
@@ -192,7 +402,7 @@
     "clozeItems": [
       {
         "id": "video-fs-01-cloze-1",
-        "cueId": "video-fs-01-cue-3",
+        "cueId": "video-fs-01-cue-9",
         "sentence": "When you {{blank}} the counter, greet the barista with a warm smile.",
         "blankWord": "approach",
         "hintVi": "Nghĩa gợi ý: Khi bạn tiến lại quầy, hãy chào người ph...",
@@ -206,7 +416,7 @@
       },
       {
         "id": "video-fs-01-cloze-2",
-        "cueId": "video-fs-01-cue-5",
+        "cueId": "video-fs-01-cue-17",
         "sentence": "{{blank}} your coffee style: espresso, Americano, cappuccino, or flat white.",
         "blankWord": "choose",
         "hintVi": "Nghĩa gợi ý: Chọn phong cách cà phê của bạn: espresso...",
@@ -220,11 +430,11 @@
       },
       {
         "id": "video-fs-01-cloze-3",
-        "cueId": "video-fs-01-cue-8",
+        "cueId": "video-fs-01-cue-9",
         "sentence": "The {{blank}} will ask: 'For here, or to take away in a paper cup?'",
         "blankWord": "barista",
         "hintVi": "Nghĩa gợi ý: Người pha chế sẽ hỏi: 'Dùng ở đây, hay m...",
-        "timestamp": 147,
+        "timestamp": 42,
         "options": [
           "alternative",
           "perceptive",

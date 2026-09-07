@@ -35,78 +35,568 @@
     {
       "id": "video-sth-19-cue-1",
       "start": 0,
-      "end": 67,
+      "end": 8.13,
       "en": "Welcome to TED-Ed, safeguarding your digital identity in an era of relentless cyber threats.",
       "vi": "Chào mừng đến với TED-Ed, bảo vệ danh tính kỹ thuật số của bạn trong thời đại của các mối đe dọa mạng không ngừng."
     },
     {
       "id": "video-sth-19-cue-2",
+      "start": 8.38,
+      "end": 16.5,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-19-cue-3",
+      "start": 16.75,
+      "end": 24.88,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-19-cue-4",
+      "start": 25.13,
+      "end": 33.25,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-19-cue-5",
+      "start": 33.5,
+      "end": 41.63,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-19-cue-6",
+      "start": 41.88,
+      "end": 50,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-19-cue-7",
+      "start": 50.25,
+      "end": 58.38,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-19-cue-8",
+      "start": 58.63,
+      "end": 66.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-19-cue-9",
       "start": 67,
-      "end": 134,
+      "end": 75.13,
       "en": "Every day, billions of humans input sensitive financial, personal, and medical data into web browsers.",
       "vi": "Mỗi ngày, hàng tỷ con người nhập dữ liệu nhạy cảm về tài chính, cá nhân và y tế vào các trình duyệt web."
     },
     {
-      "id": "video-sth-19-cue-3",
+      "id": "video-sth-19-cue-10",
+      "start": 75.38,
+      "end": 83.5,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-19-cue-11",
+      "start": 83.75,
+      "end": 91.88,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-19-cue-12",
+      "start": 92.13,
+      "end": 100.25,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-19-cue-13",
+      "start": 100.5,
+      "end": 108.63,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-19-cue-14",
+      "start": 108.88,
+      "end": 117,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-19-cue-15",
+      "start": 117.25,
+      "end": 125.38,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-19-cue-16",
+      "start": 125.63,
+      "end": 133.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-19-cue-17",
       "start": 134,
-      "end": 201,
+      "end": 142.13,
       "en": "Yet basic cyber hygiene habits are widely neglected, leaving doors wide open to digital predators.",
       "vi": "Tuy nhiên, các thói quen vệ sinh mạng cơ bản lại bị lơ là rộng rãi, để ngỏ cửa cho những kẻ săn mồi kỹ thuật số."
     },
     {
-      "id": "video-sth-19-cue-4",
+      "id": "video-sth-19-cue-18",
+      "start": 142.38,
+      "end": 150.5,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-19-cue-19",
+      "start": 150.75,
+      "end": 158.88,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-19-cue-20",
+      "start": 159.13,
+      "end": 167.25,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-19-cue-21",
+      "start": 167.5,
+      "end": 175.63,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-19-cue-22",
+      "start": 175.88,
+      "end": 184,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-19-cue-23",
+      "start": 184.25,
+      "end": 192.38,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-19-cue-24",
+      "start": 192.63,
+      "end": 200.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-19-cue-25",
       "start": 201,
-      "end": 268,
+      "end": 209.13,
       "en": "The most common security vulnerability remains password reuse across multiple consumer platforms.",
       "vi": "Lỗ hổng bảo mật phổ biến nhất vẫn là việc tái sử dụng mật khẩu trên nhiều nền tảng tiêu dùng."
     },
     {
-      "id": "video-sth-19-cue-5",
+      "id": "video-sth-19-cue-26",
+      "start": 209.38,
+      "end": 217.5,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-19-cue-27",
+      "start": 217.75,
+      "end": 225.88,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-19-cue-28",
+      "start": 226.13,
+      "end": 234.25,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-19-cue-29",
+      "start": 234.5,
+      "end": 242.63,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-19-cue-30",
+      "start": 242.88,
+      "end": 251,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-19-cue-31",
+      "start": 251.25,
+      "end": 259.38,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-19-cue-32",
+      "start": 259.63,
+      "end": 267.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-19-cue-33",
       "start": 268,
-      "end": 335,
+      "end": 276.13,
       "en": "When an obscure retail site suffers a database leak, automated bots test those credentials everywhere.",
       "vi": "Khi một trang web bán lẻ ít tên tuổi bị rò rỉ cơ sở dữ liệu, các bot tự động sẽ thử các thông tin đăng nhập đó ở khắp mọi nơi."
     },
     {
-      "id": "video-sth-19-cue-6",
+      "id": "video-sth-19-cue-34",
+      "start": 276.38,
+      "end": 284.5,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-19-cue-35",
+      "start": 284.75,
+      "end": 292.88,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-19-cue-36",
+      "start": 293.13,
+      "end": 301.25,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-19-cue-37",
+      "start": 301.5,
+      "end": 309.63,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-19-cue-38",
+      "start": 309.88,
+      "end": 318,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-19-cue-39",
+      "start": 318.25,
+      "end": 326.38,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-19-cue-40",
+      "start": 326.63,
+      "end": 334.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-19-cue-41",
       "start": 335,
-      "end": 402,
+      "end": 343.13,
       "en": "Adopting a dedicated password manager allows you to generate long, unpredictable cryptographic passwords.",
       "vi": "Sử dụng một trình quản lý mật khẩu chuyên dụng cho phép bạn tạo các mật khẩu mật mã dài, khó đoán."
     },
     {
-      "id": "video-sth-19-cue-7",
+      "id": "video-sth-19-cue-42",
+      "start": 343.38,
+      "end": 351.5,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-19-cue-43",
+      "start": 351.75,
+      "end": 359.88,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-19-cue-44",
+      "start": 360.13,
+      "end": 368.25,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-19-cue-45",
+      "start": 368.5,
+      "end": 376.63,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-19-cue-46",
+      "start": 376.88,
+      "end": 385,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-19-cue-47",
+      "start": 385.25,
+      "end": 393.38,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-19-cue-48",
+      "start": 393.63,
+      "end": 401.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-19-cue-49",
       "start": 402,
-      "end": 469,
+      "end": 410.13,
       "en": "Always enable two-factor authentication, preferably using an authenticator app rather than SMS text codes.",
       "vi": "Luôn bật xác thực hai yếu tố, tốt nhất là sử dụng ứng dụng xác thực thay vì mã tin nhắn SMS."
     },
     {
-      "id": "video-sth-19-cue-8",
+      "id": "video-sth-19-cue-50",
+      "start": 410.38,
+      "end": 418.5,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-19-cue-51",
+      "start": 418.75,
+      "end": 426.88,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-19-cue-52",
+      "start": 427.13,
+      "end": 435.25,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-19-cue-53",
+      "start": 435.5,
+      "end": 443.63,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-19-cue-54",
+      "start": 443.88,
+      "end": 452,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-19-cue-55",
+      "start": 452.25,
+      "end": 460.38,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-19-cue-56",
+      "start": 460.63,
+      "end": 468.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-19-cue-57",
       "start": 469,
-      "end": 536,
+      "end": 477.13,
       "en": "Stay vigilant against deceptive phishing emails masquerading as urgent notifications from banking institutions.",
       "vi": "Hãy cảnh giác trước các email lừa đảo mạo danh thông báo khẩn cấp từ các tổ chức ngân hàng."
     },
     {
-      "id": "video-sth-19-cue-9",
+      "id": "video-sth-19-cue-58",
+      "start": 477.38,
+      "end": 485.5,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-19-cue-59",
+      "start": 485.75,
+      "end": 493.88,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-19-cue-60",
+      "start": 494.13,
+      "end": 502.25,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-19-cue-61",
+      "start": 502.5,
+      "end": 510.63,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-19-cue-62",
+      "start": 510.88,
+      "end": 519,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-19-cue-63",
+      "start": 519.25,
+      "end": 527.38,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-19-cue-64",
+      "start": 527.63,
+      "end": 535.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-19-cue-65",
       "start": 536,
-      "end": 603,
+      "end": 544.13,
       "en": "Inspect web URLs carefully before entering login credentials or credit card numbers.",
       "vi": "Kiểm tra kỹ các URL trang web trước khi nhập thông tin đăng nhập hoặc số thẻ tín dụng."
     },
     {
-      "id": "video-sth-19-cue-10",
+      "id": "video-sth-19-cue-66",
+      "start": 544.38,
+      "end": 552.5,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-19-cue-67",
+      "start": 552.75,
+      "end": 560.88,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-19-cue-68",
+      "start": 561.13,
+      "end": 569.25,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-19-cue-69",
+      "start": 569.5,
+      "end": 577.63,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-19-cue-70",
+      "start": 577.88,
+      "end": 586,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-19-cue-71",
+      "start": 586.25,
+      "end": 594.38,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-19-cue-72",
+      "start": 594.63,
+      "end": 602.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-19-cue-73",
       "start": 603,
-      "end": 670,
+      "end": 611.13,
       "en": "Cultivating proactive cyber habits guarantees that technological connectivity enriches life without compromising privacy.",
       "vi": "Nuôi dưỡng các thói quen mạng chủ động đảm bảo rằng sự kết nối công nghệ làm phong phú thêm cuộc sống mà không ảnh hưởng đến quyền riêng tư."
+    },
+    {
+      "id": "video-sth-19-cue-74",
+      "start": 611.38,
+      "end": 619.5,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-19-cue-75",
+      "start": 619.75,
+      "end": 627.88,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-19-cue-76",
+      "start": 628.13,
+      "end": 636.25,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-19-cue-77",
+      "start": 636.5,
+      "end": 644.63,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-19-cue-78",
+      "start": 644.88,
+      "end": 653,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-19-cue-79",
+      "start": 653.25,
+      "end": 661.38,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-19-cue-80",
+      "start": 661.63,
+      "end": 669.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sth-19-cloze-1",
-      "cueId": "video-sth-19-cue-3",
+      "cueId": "video-sth-19-cue-17",
       "sentence": "Yet {{blank}} cyber hygiene habits are widely neglected, leaving doors wide open to digital predators.",
       "blankWord": "basic",
       "hintVi": "Nghĩa gợi ý: Tuy nhiên, các thói quen vệ sinh mạng cơ...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-sth-19-cloze-2",
-      "cueId": "video-sth-19-cue-5",
+      "cueId": "video-sth-19-cue-33",
       "sentence": "When an {{blank}} retail site suffers a database leak, automated bots test those credentials everywhere.",
       "blankWord": "obscure",
       "hintVi": "Nghĩa gợi ý: Khi một trang web bán lẻ ít tên tuổi bị ...",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-sth-19-cloze-3",
-      "cueId": "video-sth-19-cue-8",
+      "cueId": "video-sth-19-cue-57",
       "sentence": "Stay {{blank}} against deceptive phishing emails masquerading as urgent notifications from banking institutions.",
       "blankWord": "vigilant",
       "hintVi": "Nghĩa gợi ý: Hãy cảnh giác trước các email lừa đảo mạ...",
@@ -198,14 +688,14 @@
       ],
       "correctIndex": 0,
       "explanation": "The speaker specifically highlights: 'Always enable two-factor authentication, preferably using an authenticator app rather than SMS text codes.', providing deeper technical insight.",
-      "timestampSeek": 402
+      "timestampSeek": 603
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-sth-19-cloze-1",
-        "cueId": "video-sth-19-cue-3",
+        "cueId": "video-sth-19-cue-17",
         "sentence": "Yet {{blank}} cyber hygiene habits are widely neglected, leaving doors wide open to digital predators.",
         "blankWord": "basic",
         "hintVi": "Nghĩa gợi ý: Tuy nhiên, các thói quen vệ sinh mạng cơ...",
@@ -219,7 +709,7 @@
       },
       {
         "id": "video-sth-19-cloze-2",
-        "cueId": "video-sth-19-cue-5",
+        "cueId": "video-sth-19-cue-33",
         "sentence": "When an {{blank}} retail site suffers a database leak, automated bots test those credentials everywhere.",
         "blankWord": "obscure",
         "hintVi": "Nghĩa gợi ý: Khi một trang web bán lẻ ít tên tuổi bị ...",
@@ -233,7 +723,7 @@
       },
       {
         "id": "video-sth-19-cloze-3",
-        "cueId": "video-sth-19-cue-8",
+        "cueId": "video-sth-19-cue-57",
         "sentence": "Stay {{blank}} against deceptive phishing emails masquerading as urgent notifications from banking institutions.",
         "blankWord": "vigilant",
         "hintVi": "Nghĩa gợi ý: Hãy cảnh giác trước các email lừa đảo mạ...",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 0,
         "explanation": "The speaker specifically highlights: 'Always enable two-factor authentication, preferably using an authenticator app rather than SMS text codes.', providing deeper technical insight.",
-        "timestampSeek": 402
+        "timestampSeek": 603
       }
     ]
   }

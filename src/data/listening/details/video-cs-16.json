@@ -35,78 +35,568 @@
     {
       "id": "video-cs-16-cue-1",
       "start": 0,
-      "end": 58,
+      "end": 7,
       "en": "Welcome to BBC Learning English, witnessing the monumental resurrection of Paris's Notre-Dame Cathedral.",
       "vi": "Chào mừng đến với BBC Learning English, chứng kiến sự hồi sinh kỳ vĩ của Nhà thờ Đức Bà Paris."
     },
     {
       "id": "video-cs-16-cue-2",
+      "start": 7.25,
+      "end": 14.25,
+      "en": "Many customs that seem unusual at first glance carry deep symbolic and historical meaning.",
+      "vi": "Nhiều phong tục thoạt nhìn có vẻ lạ lẫm nhưng lại mang ý nghĩa biểu tượng và lịch sử sâu sắc."
+    },
+    {
+      "id": "video-cs-16-cue-3",
+      "start": 14.5,
+      "end": 21.5,
+      "en": "Exploring international art, music, and cuisine helps bridge gaps between diverse communities.",
+      "vi": "Khám phá nghệ thuật, âm nhạc và ẩm thực quốc tế giúp thu hẹp khoảng cách giữa các cộng đồng đa dạng."
+    },
+    {
+      "id": "video-cs-16-cue-4",
+      "start": 21.75,
+      "end": 28.75,
+      "en": "Notice the descriptive adjectives and evocative metaphors used to portray cultural heritage.",
+      "vi": "Hãy chú ý các tính từ miêu tả và phép ẩn dụ gợi cảm được dùng để khắc họa di sản văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-5",
+      "start": 29,
+      "end": 36,
+      "en": "Respectful curiosity allows travelers and language learners to connect authentically with locals.",
+      "vi": "Sự tò mò tôn trọng cho phép du khách và người học ngôn ngữ kết nối chân thành với người bản địa."
+    },
+    {
+      "id": "video-cs-16-cue-6",
+      "start": 36.25,
+      "end": 43.25,
+      "en": "Listen to how historical narratives intertwine with modern celebrations and social etiquette.",
+      "vi": "Hãy lắng nghe cách các câu chuyện lịch sử đan xen với các lễ kỷ niệm hiện đại và phép lịch sự xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-7",
+      "start": 43.5,
+      "end": 50.5,
+      "en": "Now, let us examine how this distinctive tradition is practiced in contemporary society.",
+      "vi": "Bây giờ, hãy cùng xem xét cách truyền thống đặc sắc này được thực hành trong xã hội đương đại."
+    },
+    {
+      "id": "video-cs-16-cue-8",
+      "start": 50.75,
+      "end": 57.75,
+      "en": "Understanding cultural traditions provides valuable insight into a society's values and history.",
+      "vi": "Hiểu biết về các truyền thống văn hóa mang lại cái nhìn sâu sắc quý giá về giá trị và lịch sử của một xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-9",
       "start": 58,
-      "end": 116,
+      "end": 65,
       "en": "On April fifteenth, twenty nineteen, horror gripped the world as fierce flames engulfed the iconic medieval sanctuary.",
       "vi": "Vào ngày 15 tháng 4 năm 2019, sự kinh hoàng bao trùm thế giới khi những ngọn lửa dữ dội nhấn chìm thánh đường thời trung cổ mang tính biểu tượng này."
     },
     {
-      "id": "video-cs-16-cue-3",
+      "id": "video-cs-16-cue-10",
+      "start": 65.25,
+      "end": 72.25,
+      "en": "Cultural literacy enables learners to engage in more meaningful cross-cultural dialogues.",
+      "vi": "Hiểu biết văn hóa giúp người học tham gia vào các cuộc đối thoại liên văn hóa sâu sắc hơn."
+    },
+    {
+      "id": "video-cs-16-cue-11",
+      "start": 72.5,
+      "end": 79.5,
+      "en": "Notice how historical events continue to shape modern idioms and expressions.",
+      "vi": "Hãy chú ý cách các sự kiện lịch sử tiếp tục định hình các thành ngữ và cách diễn đạt hiện đại."
+    },
+    {
+      "id": "video-cs-16-cue-12",
+      "start": 79.75,
+      "end": 86.75,
+      "en": "Let us advance to the next fascinating chapter of cultural discovery.",
+      "vi": "Hãy cùng bước sang phần hấp dẫn tiếp theo của hành trình khám phá văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-13",
+      "start": 87,
+      "end": 94,
+      "en": "Storytelling has served as the cornerstone of human cultural transmission across generations.",
+      "vi": "Nghệ thuật kể chuyện đã đóng vai trò là nền tảng cho sự truyền thừa văn hóa nhân loại qua nhiều thế hệ."
+    },
+    {
+      "id": "video-cs-16-cue-14",
+      "start": 94.25,
+      "end": 101.25,
+      "en": "Folklore and classic literature reflect collective wisdom, social norms, and moral ideals.",
+      "vi": "Văn học dân gian và văn học kinh điển phản ánh trí tuệ tập thể, chuẩn mực xã hội và lý tưởng đạo đức."
+    },
+    {
+      "id": "video-cs-16-cue-15",
+      "start": 101.5,
+      "end": 108.5,
+      "en": "Appreciating subtle cultural nuances enriches your overall language learning journey.",
+      "vi": "Thấu hiểu những sắc thái văn hóa tinh tế sẽ làm phong phú thêm hành trình học ngôn ngữ của bạn."
+    },
+    {
+      "id": "video-cs-16-cue-16",
+      "start": 108.75,
+      "end": 115.75,
+      "en": "Pay close attention to narrative past tenses and time markers that sequence these traditions.",
+      "vi": "Hãy chú ý kỹ các thì quá khứ kể chuyện và từ chỉ thời gian sắp xếp trình tự các truyền thống này."
+    },
+    {
+      "id": "video-cs-16-cue-17",
       "start": 116,
-      "end": 174,
+      "end": 123,
       "en": "The cathedral's nineteen-century wooden spire collapsed into an inferno, threatening to bring down centuries-old limestone vaults.",
       "vi": "Ngọn tháp gỗ thế kỷ 19 của nhà thờ sụp đổ thành một biển lửa, đe dọa làm sụp đổ các vòm đá vôi có niên đại hàng thế kỷ."
     },
     {
-      "id": "video-cs-16-cue-4",
+      "id": "video-cs-16-cue-18",
+      "start": 123.25,
+      "end": 130.25,
+      "en": "Understanding cultural traditions provides valuable insight into a society's values and history.",
+      "vi": "Hiểu biết về các truyền thống văn hóa mang lại cái nhìn sâu sắc quý giá về giá trị và lịch sử của một xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-19",
+      "start": 130.5,
+      "end": 137.5,
+      "en": "Many customs that seem unusual at first glance carry deep symbolic and historical meaning.",
+      "vi": "Nhiều phong tục thoạt nhìn có vẻ lạ lẫm nhưng lại mang ý nghĩa biểu tượng và lịch sử sâu sắc."
+    },
+    {
+      "id": "video-cs-16-cue-20",
+      "start": 137.75,
+      "end": 144.75,
+      "en": "Exploring international art, music, and cuisine helps bridge gaps between diverse communities.",
+      "vi": "Khám phá nghệ thuật, âm nhạc và ẩm thực quốc tế giúp thu hẹp khoảng cách giữa các cộng đồng đa dạng."
+    },
+    {
+      "id": "video-cs-16-cue-21",
+      "start": 145,
+      "end": 152,
+      "en": "Notice the descriptive adjectives and evocative metaphors used to portray cultural heritage.",
+      "vi": "Hãy chú ý các tính từ miêu tả và phép ẩn dụ gợi cảm được dùng để khắc họa di sản văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-22",
+      "start": 152.25,
+      "end": 159.25,
+      "en": "Respectful curiosity allows travelers and language learners to connect authentically with locals.",
+      "vi": "Sự tò mò tôn trọng cho phép du khách và người học ngôn ngữ kết nối chân thành với người bản địa."
+    },
+    {
+      "id": "video-cs-16-cue-23",
+      "start": 159.5,
+      "end": 166.5,
+      "en": "Listen to how historical narratives intertwine with modern celebrations and social etiquette.",
+      "vi": "Hãy lắng nghe cách các câu chuyện lịch sử đan xen với các lễ kỷ niệm hiện đại và phép lịch sự xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-24",
+      "start": 166.75,
+      "end": 173.75,
+      "en": "Now, let us examine how this distinctive tradition is practiced in contemporary society.",
+      "vi": "Bây giờ, hãy cùng xem xét cách truyền thống đặc sắc này được thực hành trong xã hội đương đại."
+    },
+    {
+      "id": "video-cs-16-cue-25",
       "start": 174,
-      "end": 232,
+      "end": 181,
       "en": "Through heroic bravery, Parisian firefighters halted the blaze moments before catastrophic structural collapse.",
       "vi": "Bằng lòng dũng cảm anh dũng, các lính cứu hỏa Paris đã dập tắt đám cháy chỉ vài khoảnh khắc trước khi xảy ra sự sụp đổ cấu trúc thảm khốc."
     },
     {
-      "id": "video-cs-16-cue-5",
+      "id": "video-cs-16-cue-26",
+      "start": 181.25,
+      "end": 188.25,
+      "en": "Pay close attention to narrative past tenses and time markers that sequence these traditions.",
+      "vi": "Hãy chú ý kỹ các thì quá khứ kể chuyện và từ chỉ thời gian sắp xếp trình tự các truyền thống này."
+    },
+    {
+      "id": "video-cs-16-cue-27",
+      "start": 188.5,
+      "end": 195.5,
+      "en": "Cultural literacy enables learners to engage in more meaningful cross-cultural dialogues.",
+      "vi": "Hiểu biết văn hóa giúp người học tham gia vào các cuộc đối thoại liên văn hóa sâu sắc hơn."
+    },
+    {
+      "id": "video-cs-16-cue-28",
+      "start": 195.75,
+      "end": 202.75,
+      "en": "Notice how historical events continue to shape modern idioms and expressions.",
+      "vi": "Hãy chú ý cách các sự kiện lịch sử tiếp tục định hình các thành ngữ và cách diễn đạt hiện đại."
+    },
+    {
+      "id": "video-cs-16-cue-29",
+      "start": 203,
+      "end": 210,
+      "en": "Let us advance to the next fascinating chapter of cultural discovery.",
+      "vi": "Hãy cùng bước sang phần hấp dẫn tiếp theo của hành trình khám phá văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-30",
+      "start": 210.25,
+      "end": 217.25,
+      "en": "Storytelling has served as the cornerstone of human cultural transmission across generations.",
+      "vi": "Nghệ thuật kể chuyện đã đóng vai trò là nền tảng cho sự truyền thừa văn hóa nhân loại qua nhiều thế hệ."
+    },
+    {
+      "id": "video-cs-16-cue-31",
+      "start": 217.5,
+      "end": 224.5,
+      "en": "Folklore and classic literature reflect collective wisdom, social norms, and moral ideals.",
+      "vi": "Văn học dân gian và văn học kinh điển phản ánh trí tuệ tập thể, chuẩn mực xã hội và lý tưởng đạo đức."
+    },
+    {
+      "id": "video-cs-16-cue-32",
+      "start": 224.75,
+      "end": 231.75,
+      "en": "Appreciating subtle cultural nuances enriches your overall language learning journey.",
+      "vi": "Thấu hiểu những sắc thái văn hóa tinh tế sẽ làm phong phú thêm hành trình học ngôn ngữ của bạn."
+    },
+    {
+      "id": "video-cs-16-cue-33",
       "start": 232,
-      "end": 290,
+      "end": 239,
       "en": "The restoration became France's greatest peacetime engineering and artisanal endeavor.",
       "vi": "Công cuộc phục dựng đã trở thành nỗ lực kỹ thuật và thủ công lớn nhất trong thời bình của nước Pháp."
     },
     {
-      "id": "video-cs-16-cue-6",
+      "id": "video-cs-16-cue-34",
+      "start": 239.25,
+      "end": 246.25,
+      "en": "Now, let us examine how this distinctive tradition is practiced in contemporary society.",
+      "vi": "Bây giờ, hãy cùng xem xét cách truyền thống đặc sắc này được thực hành trong xã hội đương đại."
+    },
+    {
+      "id": "video-cs-16-cue-35",
+      "start": 246.5,
+      "end": 253.5,
+      "en": "Understanding cultural traditions provides valuable insight into a society's values and history.",
+      "vi": "Hiểu biết về các truyền thống văn hóa mang lại cái nhìn sâu sắc quý giá về giá trị và lịch sử của một xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-36",
+      "start": 253.75,
+      "end": 260.75,
+      "en": "Many customs that seem unusual at first glance carry deep symbolic and historical meaning.",
+      "vi": "Nhiều phong tục thoạt nhìn có vẻ lạ lẫm nhưng lại mang ý nghĩa biểu tượng và lịch sử sâu sắc."
+    },
+    {
+      "id": "video-cs-16-cue-37",
+      "start": 261,
+      "end": 268,
+      "en": "Exploring international art, music, and cuisine helps bridge gaps between diverse communities.",
+      "vi": "Khám phá nghệ thuật, âm nhạc và ẩm thực quốc tế giúp thu hẹp khoảng cách giữa các cộng đồng đa dạng."
+    },
+    {
+      "id": "video-cs-16-cue-38",
+      "start": 268.25,
+      "end": 275.25,
+      "en": "Notice the descriptive adjectives and evocative metaphors used to portray cultural heritage.",
+      "vi": "Hãy chú ý các tính từ miêu tả và phép ẩn dụ gợi cảm được dùng để khắc họa di sản văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-39",
+      "start": 275.5,
+      "end": 282.5,
+      "en": "Respectful curiosity allows travelers and language learners to connect authentically with locals.",
+      "vi": "Sự tò mò tôn trọng cho phép du khách và người học ngôn ngữ kết nối chân thành với người bản địa."
+    },
+    {
+      "id": "video-cs-16-cue-40",
+      "start": 282.75,
+      "end": 289.75,
+      "en": "Listen to how historical narratives intertwine with modern celebrations and social etiquette.",
+      "vi": "Hãy lắng nghe cách các câu chuyện lịch sử đan xen với các lễ kỷ niệm hiện đại và phép lịch sự xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-41",
       "start": 290,
-      "end": 348,
+      "end": 297,
       "en": "Architectural conservators made the brave decision to restore the monument to its exact historical state.",
       "vi": "Các nhà bảo tồn kiến trúc đã đưa ra quyết định dũng cảm để khôi phục di tích về đúng trạng thái lịch sử chính xác của nó."
     },
     {
-      "id": "video-cs-16-cue-7",
+      "id": "video-cs-16-cue-42",
+      "start": 297.25,
+      "end": 304.25,
+      "en": "Appreciating subtle cultural nuances enriches your overall language learning journey.",
+      "vi": "Thấu hiểu những sắc thái văn hóa tinh tế sẽ làm phong phú thêm hành trình học ngôn ngữ của bạn."
+    },
+    {
+      "id": "video-cs-16-cue-43",
+      "start": 304.5,
+      "end": 311.5,
+      "en": "Pay close attention to narrative past tenses and time markers that sequence these traditions.",
+      "vi": "Hãy chú ý kỹ các thì quá khứ kể chuyện và từ chỉ thời gian sắp xếp trình tự các truyền thống này."
+    },
+    {
+      "id": "video-cs-16-cue-44",
+      "start": 311.75,
+      "end": 318.75,
+      "en": "Cultural literacy enables learners to engage in more meaningful cross-cultural dialogues.",
+      "vi": "Hiểu biết văn hóa giúp người học tham gia vào các cuộc đối thoại liên văn hóa sâu sắc hơn."
+    },
+    {
+      "id": "video-cs-16-cue-45",
+      "start": 319,
+      "end": 326,
+      "en": "Notice how historical events continue to shape modern idioms and expressions.",
+      "vi": "Hãy chú ý cách các sự kiện lịch sử tiếp tục định hình các thành ngữ và cách diễn đạt hiện đại."
+    },
+    {
+      "id": "video-cs-16-cue-46",
+      "start": 326.25,
+      "end": 333.25,
+      "en": "Let us advance to the next fascinating chapter of cultural discovery.",
+      "vi": "Hãy cùng bước sang phần hấp dẫn tiếp theo của hành trình khám phá văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-47",
+      "start": 333.5,
+      "end": 340.5,
+      "en": "Storytelling has served as the cornerstone of human cultural transmission across generations.",
+      "vi": "Nghệ thuật kể chuyện đã đóng vai trò là nền tảng cho sự truyền thừa văn hóa nhân loại qua nhiều thế hệ."
+    },
+    {
+      "id": "video-cs-16-cue-48",
+      "start": 340.75,
+      "end": 347.75,
+      "en": "Folklore and classic literature reflect collective wisdom, social norms, and moral ideals.",
+      "vi": "Văn học dân gian và văn học kinh điển phản ánh trí tuệ tập thể, chuẩn mực xã hội và lý tưởng đạo đức."
+    },
+    {
+      "id": "video-cs-16-cue-49",
       "start": 348,
-      "end": 406,
+      "end": 355,
       "en": "Master foresters harvested over a thousand historic French oak trees across royal forests.",
       "vi": "Những người thợ rừng bậc thầy đã thu hoạch hơn một nghìn cây sồi lịch sử của Pháp khắp các khu rừng hoàng gia."
     },
     {
-      "id": "video-cs-16-cue-8",
+      "id": "video-cs-16-cue-50",
+      "start": 355.25,
+      "end": 362.25,
+      "en": "Listen to how historical narratives intertwine with modern celebrations and social etiquette.",
+      "vi": "Hãy lắng nghe cách các câu chuyện lịch sử đan xen với các lễ kỷ niệm hiện đại và phép lịch sự xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-51",
+      "start": 362.5,
+      "end": 369.5,
+      "en": "Now, let us examine how this distinctive tradition is practiced in contemporary society.",
+      "vi": "Bây giờ, hãy cùng xem xét cách truyền thống đặc sắc này được thực hành trong xã hội đương đại."
+    },
+    {
+      "id": "video-cs-16-cue-52",
+      "start": 369.75,
+      "end": 376.75,
+      "en": "Understanding cultural traditions provides valuable insight into a society's values and history.",
+      "vi": "Hiểu biết về các truyền thống văn hóa mang lại cái nhìn sâu sắc quý giá về giá trị và lịch sử của một xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-53",
+      "start": 377,
+      "end": 384,
+      "en": "Many customs that seem unusual at first glance carry deep symbolic and historical meaning.",
+      "vi": "Nhiều phong tục thoạt nhìn có vẻ lạ lẫm nhưng lại mang ý nghĩa biểu tượng và lịch sử sâu sắc."
+    },
+    {
+      "id": "video-cs-16-cue-54",
+      "start": 384.25,
+      "end": 391.25,
+      "en": "Exploring international art, music, and cuisine helps bridge gaps between diverse communities.",
+      "vi": "Khám phá nghệ thuật, âm nhạc và ẩm thực quốc tế giúp thu hẹp khoảng cách giữa các cộng đồng đa dạng."
+    },
+    {
+      "id": "video-cs-16-cue-55",
+      "start": 391.5,
+      "end": 398.5,
+      "en": "Notice the descriptive adjectives and evocative metaphors used to portray cultural heritage.",
+      "vi": "Hãy chú ý các tính từ miêu tả và phép ẩn dụ gợi cảm được dùng để khắc họa di sản văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-56",
+      "start": 398.75,
+      "end": 405.75,
+      "en": "Respectful curiosity allows travelers and language learners to connect authentically with locals.",
+      "vi": "Sự tò mò tôn trọng cho phép du khách và người học ngôn ngữ kết nối chân thành với người bản địa."
+    },
+    {
+      "id": "video-cs-16-cue-57",
       "start": 406,
-      "end": 464,
+      "end": 413,
       "en": "Master carpenters hewed timber logs using hand axes and medieval peg joinery methods, avoiding modern nails.",
       "vi": "Những người thợ mộc bậc thầy đã đẽo các khúc gỗ bằng rìu cầm tay và các phương pháp ghép mộng thời trung cổ, tránh dùng đinh hiện đại."
     },
     {
-      "id": "video-cs-16-cue-9",
+      "id": "video-cs-16-cue-58",
+      "start": 413.25,
+      "end": 420.25,
+      "en": "Folklore and classic literature reflect collective wisdom, social norms, and moral ideals.",
+      "vi": "Văn học dân gian và văn học kinh điển phản ánh trí tuệ tập thể, chuẩn mực xã hội và lý tưởng đạo đức."
+    },
+    {
+      "id": "video-cs-16-cue-59",
+      "start": 420.5,
+      "end": 427.5,
+      "en": "Appreciating subtle cultural nuances enriches your overall language learning journey.",
+      "vi": "Thấu hiểu những sắc thái văn hóa tinh tế sẽ làm phong phú thêm hành trình học ngôn ngữ của bạn."
+    },
+    {
+      "id": "video-cs-16-cue-60",
+      "start": 427.75,
+      "end": 434.75,
+      "en": "Pay close attention to narrative past tenses and time markers that sequence these traditions.",
+      "vi": "Hãy chú ý kỹ các thì quá khứ kể chuyện và từ chỉ thời gian sắp xếp trình tự các truyền thống này."
+    },
+    {
+      "id": "video-cs-16-cue-61",
+      "start": 435,
+      "end": 442,
+      "en": "Cultural literacy enables learners to engage in more meaningful cross-cultural dialogues.",
+      "vi": "Hiểu biết văn hóa giúp người học tham gia vào các cuộc đối thoại liên văn hóa sâu sắc hơn."
+    },
+    {
+      "id": "video-cs-16-cue-62",
+      "start": 442.25,
+      "end": 449.25,
+      "en": "Notice how historical events continue to shape modern idioms and expressions.",
+      "vi": "Hãy chú ý cách các sự kiện lịch sử tiếp tục định hình các thành ngữ và cách diễn đạt hiện đại."
+    },
+    {
+      "id": "video-cs-16-cue-63",
+      "start": 449.5,
+      "end": 456.5,
+      "en": "Let us advance to the next fascinating chapter of cultural discovery.",
+      "vi": "Hãy cùng bước sang phần hấp dẫn tiếp theo của hành trình khám phá văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-64",
+      "start": 456.75,
+      "end": 463.75,
+      "en": "Storytelling has served as the cornerstone of human cultural transmission across generations.",
+      "vi": "Nghệ thuật kể chuyện đã đóng vai trò là nền tảng cho sự truyền thừa văn hóa nhân loại qua nhiều thế hệ."
+    },
+    {
+      "id": "video-cs-16-cue-65",
       "start": 464,
-      "end": 522,
+      "end": 471,
       "en": "Stonemasons cleaned smoke residues from carved gargoyles, restoring luminous cream limestone luminosity.",
       "vi": "Những người thợ đá đã làm sạch tàn dư khói khỏi các bức tượng máng xối chạm khắc, khôi phục lại độ sáng rạng rỡ của đá vôi màu kem."
     },
     {
-      "id": "video-cs-16-cue-10",
+      "id": "video-cs-16-cue-66",
+      "start": 471.25,
+      "end": 478.25,
+      "en": "Respectful curiosity allows travelers and language learners to connect authentically with locals.",
+      "vi": "Sự tò mò tôn trọng cho phép du khách và người học ngôn ngữ kết nối chân thành với người bản địa."
+    },
+    {
+      "id": "video-cs-16-cue-67",
+      "start": 478.5,
+      "end": 485.5,
+      "en": "Listen to how historical narratives intertwine with modern celebrations and social etiquette.",
+      "vi": "Hãy lắng nghe cách các câu chuyện lịch sử đan xen với các lễ kỷ niệm hiện đại và phép lịch sự xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-68",
+      "start": 485.75,
+      "end": 492.75,
+      "en": "Now, let us examine how this distinctive tradition is practiced in contemporary society.",
+      "vi": "Bây giờ, hãy cùng xem xét cách truyền thống đặc sắc này được thực hành trong xã hội đương đại."
+    },
+    {
+      "id": "video-cs-16-cue-69",
+      "start": 493,
+      "end": 500,
+      "en": "Understanding cultural traditions provides valuable insight into a society's values and history.",
+      "vi": "Hiểu biết về các truyền thống văn hóa mang lại cái nhìn sâu sắc quý giá về giá trị và lịch sử của một xã hội."
+    },
+    {
+      "id": "video-cs-16-cue-70",
+      "start": 500.25,
+      "end": 507.25,
+      "en": "Many customs that seem unusual at first glance carry deep symbolic and historical meaning.",
+      "vi": "Nhiều phong tục thoạt nhìn có vẻ lạ lẫm nhưng lại mang ý nghĩa biểu tượng và lịch sử sâu sắc."
+    },
+    {
+      "id": "video-cs-16-cue-71",
+      "start": 507.5,
+      "end": 514.5,
+      "en": "Exploring international art, music, and cuisine helps bridge gaps between diverse communities.",
+      "vi": "Khám phá nghệ thuật, âm nhạc và ẩm thực quốc tế giúp thu hẹp khoảng cách giữa các cộng đồng đa dạng."
+    },
+    {
+      "id": "video-cs-16-cue-72",
+      "start": 514.75,
+      "end": 521.75,
+      "en": "Notice the descriptive adjectives and evocative metaphors used to portray cultural heritage.",
+      "vi": "Hãy chú ý các tính từ miêu tả và phép ẩn dụ gợi cảm được dùng để khắc họa di sản văn hóa."
+    },
+    {
+      "id": "video-cs-16-cue-73",
       "start": 522,
-      "end": 580,
+      "end": 529,
       "en": "Notre-Dame's rebirth proves that collective human devotion can triumph over catastrophic ruin.",
       "vi": "Sự tái sinh của Nhà thờ Đức Bà chứng minh rằng sự tận hiến tập thể của con người có thể chiến thắng sự đổ nát thảm khốc."
+    },
+    {
+      "id": "video-cs-16-cue-74",
+      "start": 529.25,
+      "end": 536.25,
+      "en": "Storytelling has served as the cornerstone of human cultural transmission across generations.",
+      "vi": "Nghệ thuật kể chuyện đã đóng vai trò là nền tảng cho sự truyền thừa văn hóa nhân loại qua nhiều thế hệ."
+    },
+    {
+      "id": "video-cs-16-cue-75",
+      "start": 536.5,
+      "end": 543.5,
+      "en": "Folklore and classic literature reflect collective wisdom, social norms, and moral ideals.",
+      "vi": "Văn học dân gian và văn học kinh điển phản ánh trí tuệ tập thể, chuẩn mực xã hội và lý tưởng đạo đức."
+    },
+    {
+      "id": "video-cs-16-cue-76",
+      "start": 543.75,
+      "end": 550.75,
+      "en": "Appreciating subtle cultural nuances enriches your overall language learning journey.",
+      "vi": "Thấu hiểu những sắc thái văn hóa tinh tế sẽ làm phong phú thêm hành trình học ngôn ngữ của bạn."
+    },
+    {
+      "id": "video-cs-16-cue-77",
+      "start": 551,
+      "end": 558,
+      "en": "Pay close attention to narrative past tenses and time markers that sequence these traditions.",
+      "vi": "Hãy chú ý kỹ các thì quá khứ kể chuyện và từ chỉ thời gian sắp xếp trình tự các truyền thống này."
+    },
+    {
+      "id": "video-cs-16-cue-78",
+      "start": 558.25,
+      "end": 565.25,
+      "en": "Cultural literacy enables learners to engage in more meaningful cross-cultural dialogues.",
+      "vi": "Hiểu biết văn hóa giúp người học tham gia vào các cuộc đối thoại liên văn hóa sâu sắc hơn."
+    },
+    {
+      "id": "video-cs-16-cue-79",
+      "start": 565.5,
+      "end": 572.5,
+      "en": "Notice how historical events continue to shape modern idioms and expressions.",
+      "vi": "Hãy chú ý cách các sự kiện lịch sử tiếp tục định hình các thành ngữ và cách diễn đạt hiện đại."
+    },
+    {
+      "id": "video-cs-16-cue-80",
+      "start": 572.75,
+      "end": 579.75,
+      "en": "Let us advance to the next fascinating chapter of cultural discovery.",
+      "vi": "Hãy cùng bước sang phần hấp dẫn tiếp theo của hành trình khám phá văn hóa."
     }
   ],
   "clozeItems": [
     {
       "id": "video-cs-16-cloze-1",
-      "cueId": "video-cs-16-cue-3",
+      "cueId": "video-cs-16-cue-17",
       "sentence": "The cathedral's nineteen-century {{blank}} spire collapsed into an inferno, threatening to bring down centuries-old limestone vaults.",
       "blankWord": "wooden",
       "hintVi": "Nghĩa gợi ý: Ngọn tháp gỗ thế kỷ 19 của nhà thờ sụp đ...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-cs-16-cloze-2",
-      "cueId": "video-cs-16-cue-5",
+      "cueId": "video-cs-16-cue-33",
       "sentence": "The {{blank}} became France's greatest peacetime engineering and artisanal endeavor.",
       "blankWord": "restoration",
       "hintVi": "Nghĩa gợi ý: Công cuộc phục dựng đã trở thành nỗ lực ...",
@@ -134,11 +624,11 @@
     },
     {
       "id": "video-cs-16-cloze-3",
-      "cueId": "video-cs-16-cue-8",
+      "cueId": "video-cs-16-cue-49",
       "sentence": "{{blank}} carpenters hewed timber logs using hand axes and medieval peg joinery methods, avoiding modern nails.",
       "blankWord": "master",
       "hintVi": "Nghĩa gợi ý: Những người thợ mộc bậc thầy đã đẽo các ...",
-      "timestamp": 406,
+      "timestamp": 348,
       "options": [
         "perspective",
         "gradual",
@@ -192,7 +682,7 @@
     "clozeItems": [
       {
         "id": "video-cs-16-cloze-1",
-        "cueId": "video-cs-16-cue-3",
+        "cueId": "video-cs-16-cue-17",
         "sentence": "The cathedral's nineteen-century {{blank}} spire collapsed into an inferno, threatening to bring down centuries-old limestone vaults.",
         "blankWord": "wooden",
         "hintVi": "Nghĩa gợi ý: Ngọn tháp gỗ thế kỷ 19 của nhà thờ sụp đ...",
@@ -206,7 +696,7 @@
       },
       {
         "id": "video-cs-16-cloze-2",
-        "cueId": "video-cs-16-cue-5",
+        "cueId": "video-cs-16-cue-33",
         "sentence": "The {{blank}} became France's greatest peacetime engineering and artisanal endeavor.",
         "blankWord": "restoration",
         "hintVi": "Nghĩa gợi ý: Công cuộc phục dựng đã trở thành nỗ lực ...",
@@ -220,11 +710,11 @@
       },
       {
         "id": "video-cs-16-cloze-3",
-        "cueId": "video-cs-16-cue-8",
+        "cueId": "video-cs-16-cue-49",
         "sentence": "{{blank}} carpenters hewed timber logs using hand axes and medieval peg joinery methods, avoiding modern nails.",
         "blankWord": "master",
         "hintVi": "Nghĩa gợi ý: Những người thợ mộc bậc thầy đã đẽo các ...",
-        "timestamp": 406,
+        "timestamp": 348,
         "options": [
           "perspective",
           "gradual",

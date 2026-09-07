@@ -35,82 +35,572 @@
     {
       "id": "video-sth-27-cue-1",
       "start": 0,
-      "end": 111,
+      "end": 13.63,
       "en": "Welcome to Veritasium, riding along the bleeding edge of artificial intelligence and vehicular autonomy.",
       "vi": "Chào mừng đến với Veritasium, đồng hành cùng đỉnh cao của trí tuệ nhân tạo và phương tiện tự hành."
     },
     {
       "id": "video-sth-27-cue-2",
+      "start": 13.88,
+      "end": 27.5,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-27-cue-3",
+      "start": 27.75,
+      "end": 41.38,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-27-cue-4",
+      "start": 41.63,
+      "end": 55.25,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-27-cue-5",
+      "start": 55.5,
+      "end": 69.13,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-27-cue-6",
+      "start": 69.38,
+      "end": 83,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-27-cue-7",
+      "start": 83.25,
+      "end": 96.88,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-27-cue-8",
+      "start": 97.13,
+      "end": 110.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-27-cue-9",
       "start": 111,
-      "end": 222,
+      "end": 124.63,
       "en": "Human driving is surprisingly perilous: over one million people die annually in vehicle collisions worldwide.",
       "vi": "Con người lái xe nguy hiểm một cách đáng ngạc nhiên: hơn một triệu người thiệt mạng mỗi năm trong các vụ va chạm xe cộ trên toàn thế giới."
     },
     {
-      "id": "video-sth-27-cue-3",
+      "id": "video-sth-27-cue-10",
+      "start": 124.88,
+      "end": 138.5,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-27-cue-11",
+      "start": 138.75,
+      "end": 152.38,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-27-cue-12",
+      "start": 152.63,
+      "end": 166.25,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-27-cue-13",
+      "start": 166.5,
+      "end": 180.13,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-27-cue-14",
+      "start": 180.38,
+      "end": 194,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-27-cue-15",
+      "start": 194.25,
+      "end": 207.88,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-27-cue-16",
+      "start": 208.13,
+      "end": 221.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-27-cue-17",
       "start": 222,
-      "end": 333,
+      "end": 235.63,
       "en": "Human drivers get distracted by phones, suffer fatigue, and react slowly to sudden obstacles.",
       "vi": "Các tài xế con người bị phân tâm bởi điện thoại, chịu mệt mỏi và phản ứng chậm trước các chướng ngại vật bất ngờ."
     },
     {
-      "id": "video-sth-27-cue-4",
+      "id": "video-sth-27-cue-18",
+      "start": 235.88,
+      "end": 249.5,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-27-cue-19",
+      "start": 249.75,
+      "end": 263.38,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-27-cue-20",
+      "start": 263.63,
+      "end": 277.25,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-27-cue-21",
+      "start": 277.5,
+      "end": 291.13,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-27-cue-22",
+      "start": 291.38,
+      "end": 305,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-27-cue-23",
+      "start": 305.25,
+      "end": 318.88,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-27-cue-24",
+      "start": 319.13,
+      "end": 332.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-27-cue-25",
       "start": 333,
-      "end": 444,
+      "end": 346.63,
       "en": "Autonomous vehicles aim to replace human fallibility with tireless 360-degree algorithmic awareness.",
       "vi": "Xe tự hành nhằm mục đích thay thế sự sai lầm của con người bằng nhận thức thuật toán 360 độ không biết mệt mỏi."
     },
     {
-      "id": "video-sth-27-cue-5",
+      "id": "video-sth-27-cue-26",
+      "start": 346.88,
+      "end": 360.5,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-27-cue-27",
+      "start": 360.75,
+      "end": 374.38,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-27-cue-28",
+      "start": 374.63,
+      "end": 388.25,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-27-cue-29",
+      "start": 388.5,
+      "end": 402.13,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-27-cue-30",
+      "start": 402.38,
+      "end": 416,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-27-cue-31",
+      "start": 416.25,
+      "end": 429.88,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-27-cue-32",
+      "start": 430.13,
+      "end": 443.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-27-cue-33",
       "start": 444,
-      "end": 555,
+      "end": 457.63,
       "en": "A self-driving vehicle combines three complementary sensor modalities: optical cameras, radar, and LiDAR.",
       "vi": "Một chiếc xe tự lái kết hợp ba phương thức cảm biến bổ sung: máy ảnh quang học, radar và LiDAR."
     },
     {
-      "id": "video-sth-27-cue-6",
+      "id": "video-sth-27-cue-34",
+      "start": 457.88,
+      "end": 471.5,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-27-cue-35",
+      "start": 471.75,
+      "end": 485.38,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-27-cue-36",
+      "start": 485.63,
+      "end": 499.25,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-27-cue-37",
+      "start": 499.5,
+      "end": 513.13,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-27-cue-38",
+      "start": 513.38,
+      "end": 527,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-27-cue-39",
+      "start": 527.25,
+      "end": 540.88,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-27-cue-40",
+      "start": 541.13,
+      "end": 554.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-27-cue-41",
       "start": 555,
-      "end": 666,
+      "end": 568.63,
       "en": "LiDAR units pulse laser beams millions of times per second, building an intricate three-dimensional point cloud.",
       "vi": "Các thiết bị LiDAR phát ra các chùm tia laser hàng triệu lần mỗi giây, xây dựng một đám mây điểm ba chiều phức tạp."
     },
     {
-      "id": "video-sth-27-cue-7",
+      "id": "video-sth-27-cue-42",
+      "start": 568.88,
+      "end": 582.5,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-27-cue-43",
+      "start": 582.75,
+      "end": 596.38,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-27-cue-44",
+      "start": 596.63,
+      "end": 610.25,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-27-cue-45",
+      "start": 610.5,
+      "end": 624.13,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-27-cue-46",
+      "start": 624.38,
+      "end": 638,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-27-cue-47",
+      "start": 638.25,
+      "end": 651.88,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-27-cue-48",
+      "start": 652.13,
+      "end": 665.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-27-cue-49",
       "start": 666,
-      "end": 777,
+      "end": 679.63,
       "en": "Deep convolutional networks perform real-time semantic segmentation, classifying every pixel on the road.",
       "vi": "Các mạng tích chập sâu thực hiện phân đoạn ngữ nghĩa theo thời gian thực, phân loại từng pixel trên đường đi."
     },
     {
-      "id": "video-sth-27-cue-8",
+      "id": "video-sth-27-cue-50",
+      "start": 679.88,
+      "end": 693.5,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-27-cue-51",
+      "start": 693.75,
+      "end": 707.38,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-27-cue-52",
+      "start": 707.63,
+      "end": 721.25,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-27-cue-53",
+      "start": 721.5,
+      "end": 735.13,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-27-cue-54",
+      "start": 735.38,
+      "end": 749,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-27-cue-55",
+      "start": 749.25,
+      "end": 762.88,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-27-cue-56",
+      "start": 763.13,
+      "end": 776.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-27-cue-57",
       "start": 777,
-      "end": 888,
+      "end": 790.63,
       "en": "The system categorizes pedestrians, cyclists, lane markings, red lights, and erratic vehicles.",
       "vi": "Hệ thống phân loại người đi bộ, người đi xe đạp, vạch kẻ đường, đèn đỏ và các phương tiện di chuyển bất thường."
     },
     {
-      "id": "video-sth-27-cue-9",
+      "id": "video-sth-27-cue-58",
+      "start": 790.88,
+      "end": 804.5,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-27-cue-59",
+      "start": 804.75,
+      "end": 818.38,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-27-cue-60",
+      "start": 818.63,
+      "end": 832.25,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-27-cue-61",
+      "start": 832.5,
+      "end": 846.13,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-27-cue-62",
+      "start": 846.38,
+      "end": 860,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-27-cue-63",
+      "start": 860.25,
+      "end": 873.88,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-27-cue-64",
+      "start": 874.13,
+      "end": 887.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-27-cue-65",
       "start": 888,
-      "end": 999,
+      "end": 901.63,
       "en": "A trajectory planner calculates safe paths while predicting the likely movements of surrounding motorists.",
       "vi": "Một bộ lập kế hoạch quỹ đạo tính toán các lối đi an toàn đồng thời dự đoán các chuyển động có khả năng xảy ra của các tài xế xung quanh."
     },
     {
-      "id": "video-sth-27-cue-10",
+      "id": "video-sth-27-cue-66",
+      "start": 901.88,
+      "end": 915.5,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-27-cue-67",
+      "start": 915.75,
+      "end": 929.38,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-27-cue-68",
+      "start": 929.63,
+      "end": 943.25,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-27-cue-69",
+      "start": 943.5,
+      "end": 957.13,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-27-cue-70",
+      "start": 957.38,
+      "end": 971,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-27-cue-71",
+      "start": 971.25,
+      "end": 984.88,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-27-cue-72",
+      "start": 985.13,
+      "end": 998.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-27-cue-73",
       "start": 999,
-      "end": 1110,
+      "end": 1012.63,
       "en": "Autonomous robotics will soon transform urban mobility, reclaiming city spaces and saving millions of lives.",
       "vi": "Robot tự hành sẽ sớm biến đổi tính cơ động của đô thị, giành lại không gian thành phố và cứu sống hàng triệu sinh mạng."
+    },
+    {
+      "id": "video-sth-27-cue-74",
+      "start": 1012.88,
+      "end": 1026.5,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-27-cue-75",
+      "start": 1026.75,
+      "end": 1040.38,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-27-cue-76",
+      "start": 1040.63,
+      "end": 1054.25,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-27-cue-77",
+      "start": 1054.5,
+      "end": 1068.13,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-27-cue-78",
+      "start": 1068.38,
+      "end": 1082,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-27-cue-79",
+      "start": 1082.25,
+      "end": 1095.88,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-27-cue-80",
+      "start": 1096.13,
+      "end": 1109.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sth-27-cloze-1",
-      "cueId": "video-sth-27-cue-3",
+      "cueId": "video-sth-27-cue-9",
       "sentence": "{{blank}} drivers get distracted by phones, suffer fatigue, and react slowly to sudden obstacles.",
       "blankWord": "human",
       "hintVi": "Nghĩa gợi ý: Các tài xế con người bị phân tâm bởi điệ...",
-      "timestamp": 222,
+      "timestamp": 111,
       "options": [
         "protocol",
         "extensive",
@@ -120,11 +610,11 @@
     },
     {
       "id": "video-sth-27-cloze-2",
-      "cueId": "video-sth-27-cue-5",
+      "cueId": "video-sth-27-cue-9",
       "sentence": "A self-driving {{blank}} combines three complementary sensor modalities: optical cameras, radar, and LiDAR.",
       "blankWord": "vehicle",
       "hintVi": "Nghĩa gợi ý: Một chiếc xe tự lái kết hợp ba phương th...",
-      "timestamp": 444,
+      "timestamp": 111,
       "options": [
         "perspective",
         "component",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-sth-27-cloze-3",
-      "cueId": "video-sth-27-cue-8",
+      "cueId": "video-sth-27-cue-57",
       "sentence": "The {{blank}} categorizes pedestrians, cyclists, lane markings, red lights, and erratic vehicles.",
       "blankWord": "system",
       "hintVi": "Nghĩa gợi ý: Hệ thống phân loại người đi bộ, người đi...",
@@ -198,18 +688,18 @@
       ],
       "correctIndex": 2,
       "explanation": "The speaker specifically highlights: 'Deep convolutional networks perform real-time semantic segmentation, classifying every pixel on the road.', providing deeper technical insight.",
-      "timestampSeek": 666
+      "timestampSeek": 999
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-sth-27-cloze-1",
-        "cueId": "video-sth-27-cue-3",
+        "cueId": "video-sth-27-cue-9",
         "sentence": "{{blank}} drivers get distracted by phones, suffer fatigue, and react slowly to sudden obstacles.",
         "blankWord": "human",
         "hintVi": "Nghĩa gợi ý: Các tài xế con người bị phân tâm bởi điệ...",
-        "timestamp": 222,
+        "timestamp": 111,
         "options": [
           "protocol",
           "extensive",
@@ -219,11 +709,11 @@
       },
       {
         "id": "video-sth-27-cloze-2",
-        "cueId": "video-sth-27-cue-5",
+        "cueId": "video-sth-27-cue-9",
         "sentence": "A self-driving {{blank}} combines three complementary sensor modalities: optical cameras, radar, and LiDAR.",
         "blankWord": "vehicle",
         "hintVi": "Nghĩa gợi ý: Một chiếc xe tự lái kết hợp ba phương th...",
-        "timestamp": 444,
+        "timestamp": 111,
         "options": [
           "perspective",
           "component",
@@ -233,7 +723,7 @@
       },
       {
         "id": "video-sth-27-cloze-3",
-        "cueId": "video-sth-27-cue-8",
+        "cueId": "video-sth-27-cue-57",
         "sentence": "The {{blank}} categorizes pedestrians, cyclists, lane markings, red lights, and erratic vehicles.",
         "blankWord": "system",
         "hintVi": "Nghĩa gợi ý: Hệ thống phân loại người đi bộ, người đi...",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 2,
         "explanation": "The speaker specifically highlights: 'Deep convolutional networks perform real-time semantic segmentation, classifying every pixel on the road.', providing deeper technical insight.",
-        "timestampSeek": 666
+        "timestampSeek": 999
       }
     ]
   }

@@ -35,78 +35,358 @@
     {
       "id": "video-dl-11-cue-1",
       "start": 0,
-      "end": 30,
+      "end": 5.75,
       "en": "Good morning, let's join thousands of city residents on public transit.",
       "vi": "Chào buổi sáng, chúng ta hãy cùng hòa vào hàng ngàn cư dân thành phố trên phương tiện công cộng."
     },
     {
       "id": "video-dl-11-cue-2",
+      "start": 6,
+      "end": 11.75,
+      "en": "Simple habits like drinking a glass of water and getting fresh air make an immediate difference.",
+      "vi": "Những thói quen đơn giản như uống một cốc nước và hít thở không khí trong lành tạo ra khác biệt tức thì."
+    },
+    {
+      "id": "video-dl-11-cue-3",
+      "start": 12,
+      "end": 17.75,
+      "en": "Take a brief moment to organize your thoughts before jumping into busy daily responsibilities.",
+      "vi": "Hãy dành một chút thời gian để sắp xếp suy nghĩ trước khi bước vào những trách nhiệm bận rộn trong ngày."
+    },
+    {
+      "id": "video-dl-11-cue-4",
+      "start": 18,
+      "end": 23.75,
+      "en": "Notice how small intentional actions gradually transform into automatic, energizing habits.",
+      "vi": "Hãy chú ý cách những hành động có chủ đích dần dần biến thành thói quen tự động đầy năng lượng."
+    },
+    {
+      "id": "video-dl-11-cue-5",
+      "start": 24,
+      "end": 29.75,
+      "en": "Consistency is always far more impactful than attempting dramatic lifestyle changes all at once.",
+      "vi": "Sự kiên trì luôn mang lại hiệu quả lớn hơn nhiều so với việc cố gắng thay đổi lối sống quá đột ngột."
+    },
+    {
+      "id": "video-dl-11-cue-6",
       "start": 30,
-      "end": 60,
+      "end": 35.75,
       "en": "Taking the municipal bus is economical, eco-friendly, and stress-free.",
       "vi": "Đi xe buýt thành phố vừa tiết kiệm, thân thiện với môi trường lại không lo căng thẳng."
     },
     {
-      "id": "video-dl-11-cue-3",
+      "id": "video-dl-11-cue-7",
+      "start": 36,
+      "end": 41.75,
+      "en": "Creating clean spaces around you naturally fosters greater focus and everyday peace of mind.",
+      "vi": "Tạo ra không gian sạch sẽ xung quanh bạn sẽ tự nhiên nuôi dưỡng sự tập trung và an tâm hàng ngày."
+    },
+    {
+      "id": "video-dl-11-cue-8",
+      "start": 42,
+      "end": 47.75,
+      "en": "Notice the transition phrases used to describe moving from one chore to the next.",
+      "vi": "Hãy chú ý các cụm từ chuyển tiếp được dùng để miêu tả việc chuyển từ công việc nhà này sang công việc khác."
+    },
+    {
+      "id": "video-dl-11-cue-9",
+      "start": 48,
+      "end": 53.75,
+      "en": "Now, let us examine the next essential step in this daily routine.",
+      "vi": "Bây giờ, hãy cùng xem xét bước thiết yếu tiếp theo trong thói quen hàng ngày này."
+    },
+    {
+      "id": "video-dl-11-cue-10",
+      "start": 54,
+      "end": 59.75,
+      "en": "Maintaining a tidy living environment substantially reduces mental clutter and daily stress.",
+      "vi": "Duy trì một không gian sống ngăn nắp giúp giảm đáng kể sự xáo trộn tâm trí và căng thẳng hàng ngày."
+    },
+    {
+      "id": "video-dl-11-cue-11",
       "start": 60,
-      "end": 90,
+      "end": 65.75,
       "en": "Wait patiently at the designated bus stop behind the yellow safety line.",
       "vi": "Hãy kiên nhẫn đợi tại điểm dừng xe buýt được chỉ định phía sau vạch an toàn màu vàng."
     },
     {
-      "id": "video-dl-11-cue-4",
+      "id": "video-dl-11-cue-12",
+      "start": 66,
+      "end": 71.75,
+      "en": "Establishing a consistent morning routine sets a calm, productive tone for the rest of your day.",
+      "vi": "Thiết lập thói quen buổi sáng nhất quán sẽ tạo tâm thế điềm tĩnh, hiệu quả cho cả ngày."
+    },
+    {
+      "id": "video-dl-11-cue-13",
+      "start": 72,
+      "end": 77.75,
+      "en": "Simple habits like drinking a glass of water and getting fresh air make an immediate difference.",
+      "vi": "Những thói quen đơn giản như uống một cốc nước và hít thở không khí trong lành tạo ra khác biệt tức thì."
+    },
+    {
+      "id": "video-dl-11-cue-14",
+      "start": 78,
+      "end": 83.75,
+      "en": "Take a brief moment to organize your thoughts before jumping into busy daily responsibilities.",
+      "vi": "Hãy dành một chút thời gian để sắp xếp suy nghĩ trước khi bước vào những trách nhiệm bận rộn trong ngày."
+    },
+    {
+      "id": "video-dl-11-cue-15",
+      "start": 84,
+      "end": 89.75,
+      "en": "Notice how small intentional actions gradually transform into automatic, energizing habits.",
+      "vi": "Hãy chú ý cách những hành động có chủ đích dần dần biến thành thói quen tự động đầy năng lượng."
+    },
+    {
+      "id": "video-dl-11-cue-16",
       "start": 90,
-      "end": 120,
+      "end": 95.75,
       "en": "When the bus arrives, let exiting passengers step off first.",
       "vi": "Khi xe buýt đến, hãy để hành khách xuống xe bước ra trước."
     },
     {
-      "id": "video-dl-11-cue-5",
+      "id": "video-dl-11-cue-17",
+      "start": 96,
+      "end": 101.75,
+      "en": "Listen to how native speakers describe household objects and spatial arrangements naturally.",
+      "vi": "Hãy lắng nghe cách người bản xứ miêu tả các đồ vật trong nhà và cách sắp đặt không gian tự nhiên."
+    },
+    {
+      "id": "video-dl-11-cue-18",
+      "start": 102,
+      "end": 107.75,
+      "en": "Creating clean spaces around you naturally fosters greater focus and everyday peace of mind.",
+      "vi": "Tạo ra không gian sạch sẽ xung quanh bạn sẽ tự nhiên nuôi dưỡng sự tập trung và an tâm hàng ngày."
+    },
+    {
+      "id": "video-dl-11-cue-19",
+      "start": 108,
+      "end": 113.75,
+      "en": "Notice the transition phrases used to describe moving from one chore to the next.",
+      "vi": "Hãy chú ý các cụm từ chuyển tiếp được dùng để miêu tả việc chuyển từ công việc nhà này sang công việc khác."
+    },
+    {
+      "id": "video-dl-11-cue-20",
+      "start": 114,
+      "end": 119.75,
+      "en": "Now, let us examine the next essential step in this daily routine.",
+      "vi": "Bây giờ, hãy cùng xem xét bước thiết yếu tiếp theo trong thói quen hàng ngày này."
+    },
+    {
+      "id": "video-dl-11-cue-21",
       "start": 120,
-      "end": 150,
+      "end": 125.75,
       "en": "Board through the front door and tap your card to pay the bus fare.",
       "vi": "Lên xe qua cửa trước và quẹt thẻ của bạn để trả tiền vé xe buýt."
     },
     {
-      "id": "video-dl-11-cue-6",
+      "id": "video-dl-11-cue-22",
+      "start": 126,
+      "end": 131.75,
+      "en": "Let us continue following how these morning practices unfold step by step.",
+      "vi": "Hãy cùng tiếp tục theo dõi cách các thói quen buổi sáng này diễn ra từng bước một."
+    },
+    {
+      "id": "video-dl-11-cue-23",
+      "start": 132,
+      "end": 137.75,
+      "en": "Establishing a consistent morning routine sets a calm, productive tone for the rest of your day.",
+      "vi": "Thiết lập thói quen buổi sáng nhất quán sẽ tạo tâm thế điềm tĩnh, hiệu quả cho cả ngày."
+    },
+    {
+      "id": "video-dl-11-cue-24",
+      "start": 138,
+      "end": 143.75,
+      "en": "Simple habits like drinking a glass of water and getting fresh air make an immediate difference.",
+      "vi": "Những thói quen đơn giản như uống một cốc nước và hít thở không khí trong lành tạo ra khác biệt tức thì."
+    },
+    {
+      "id": "video-dl-11-cue-25",
+      "start": 144,
+      "end": 149.75,
+      "en": "Take a brief moment to organize your thoughts before jumping into busy daily responsibilities.",
+      "vi": "Hãy dành một chút thời gian để sắp xếp suy nghĩ trước khi bước vào những trách nhiệm bận rộn trong ngày."
+    },
+    {
+      "id": "video-dl-11-cue-26",
       "start": 150,
-      "end": 180,
+      "end": 155.75,
       "en": "Hold onto the metal overhead handrails if all seats are occupied.",
       "vi": "Bám vào thanh vịn kim loại trên cao nếu tất cả các ghế đã kín chỗ."
     },
     {
-      "id": "video-dl-11-cue-7",
+      "id": "video-dl-11-cue-27",
+      "start": 156,
+      "end": 161.75,
+      "en": "Simple organization systems make it effortless to locate everyday essentials when you need them.",
+      "vi": "Các hệ thống sắp xếp đơn giản giúp bạn dễ dàng tìm thấy các vật dụng thiết yếu hàng ngày khi cần."
+    },
+    {
+      "id": "video-dl-11-cue-28",
+      "start": 162,
+      "end": 167.75,
+      "en": "Listen to how native speakers describe household objects and spatial arrangements naturally.",
+      "vi": "Hãy lắng nghe cách người bản xứ miêu tả các đồ vật trong nhà và cách sắp đặt không gian tự nhiên."
+    },
+    {
+      "id": "video-dl-11-cue-29",
+      "start": 168,
+      "end": 173.75,
+      "en": "Creating clean spaces around you naturally fosters greater focus and everyday peace of mind.",
+      "vi": "Tạo ra không gian sạch sẽ xung quanh bạn sẽ tự nhiên nuôi dưỡng sự tập trung và an tâm hàng ngày."
+    },
+    {
+      "id": "video-dl-11-cue-30",
+      "start": 174,
+      "end": 179.75,
+      "en": "Notice the transition phrases used to describe moving from one chore to the next.",
+      "vi": "Hãy chú ý các cụm từ chuyển tiếp được dùng để miêu tả việc chuyển từ công việc nhà này sang công việc khác."
+    },
+    {
+      "id": "video-dl-11-cue-31",
       "start": 180,
-      "end": 210,
+      "end": 185.75,
       "en": "Use your commute time productively by reading or studying vocabulary.",
       "vi": "Sử dụng thời gian đi lại một cách hiệu quả bằng cách đọc sách hoặc học từ vựng."
     },
     {
-      "id": "video-dl-11-cue-8",
+      "id": "video-dl-11-cue-32",
+      "start": 186,
+      "end": 191.75,
+      "en": "As you listen, focus on the practical action verbs and daily frequency adverbs being used.",
+      "vi": "Khi nghe, hãy tập trung vào các động từ hành động thực tế và các trạng từ chỉ tần suất được sử dụng."
+    },
+    {
+      "id": "video-dl-11-cue-33",
+      "start": 192,
+      "end": 197.75,
+      "en": "Let us continue following how these morning practices unfold step by step.",
+      "vi": "Hãy cùng tiếp tục theo dõi cách các thói quen buổi sáng này diễn ra từng bước một."
+    },
+    {
+      "id": "video-dl-11-cue-34",
+      "start": 198,
+      "end": 203.75,
+      "en": "Establishing a consistent morning routine sets a calm, productive tone for the rest of your day.",
+      "vi": "Thiết lập thói quen buổi sáng nhất quán sẽ tạo tâm thế điềm tĩnh, hiệu quả cho cả ngày."
+    },
+    {
+      "id": "video-dl-11-cue-35",
+      "start": 204,
+      "end": 209.75,
+      "en": "Simple habits like drinking a glass of water and getting fresh air make an immediate difference.",
+      "vi": "Những thói quen đơn giản như uống một cốc nước và hít thở không khí trong lành tạo ra khác biệt tức thì."
+    },
+    {
+      "id": "video-dl-11-cue-36",
       "start": 210,
-      "end": 240,
+      "end": 215.75,
       "en": "Always offer your seat to elderly people or pregnant women as courtesy.",
       "vi": "Luôn nhường ghế cho người già hoặc phụ nữ mang thai như một cử chỉ lịch thiệp."
     },
     {
-      "id": "video-dl-11-cue-9",
+      "id": "video-dl-11-cue-37",
+      "start": 216,
+      "end": 221.75,
+      "en": "Allocating just ten minutes each morning to tidy up keeps your home welcoming and organized.",
+      "vi": "Dành ra chỉ mười phút mỗi sáng để dọn dẹp sẽ giữ cho ngôi nhà luôn ấm cúng và có trật tự."
+    },
+    {
+      "id": "video-dl-11-cue-38",
+      "start": 222,
+      "end": 227.75,
+      "en": "Simple organization systems make it effortless to locate everyday essentials when you need them.",
+      "vi": "Các hệ thống sắp xếp đơn giản giúp bạn dễ dàng tìm thấy các vật dụng thiết yếu hàng ngày khi cần."
+    },
+    {
+      "id": "video-dl-11-cue-39",
+      "start": 228,
+      "end": 233.75,
+      "en": "Listen to how native speakers describe household objects and spatial arrangements naturally.",
+      "vi": "Hãy lắng nghe cách người bản xứ miêu tả các đồ vật trong nhà và cách sắp đặt không gian tự nhiên."
+    },
+    {
+      "id": "video-dl-11-cue-40",
+      "start": 234,
+      "end": 239.75,
+      "en": "Creating clean spaces around you naturally fosters greater focus and everyday peace of mind.",
+      "vi": "Tạo ra không gian sạch sẽ xung quanh bạn sẽ tự nhiên nuôi dưỡng sự tập trung và an tâm hàng ngày."
+    },
+    {
+      "id": "video-dl-11-cue-41",
       "start": 240,
-      "end": 270,
+      "end": 245.75,
       "en": "Press the stop signal button one block before your destination.",
       "vi": "Nhấn nút báo dừng trước một dãy nhà trước khi đến điểm đến của bạn."
     },
     {
-      "id": "video-dl-11-cue-10",
+      "id": "video-dl-11-cue-42",
+      "start": 246,
+      "end": 251.75,
+      "en": "Consistency is always far more impactful than attempting dramatic lifestyle changes all at once.",
+      "vi": "Sự kiên trì luôn mang lại hiệu quả lớn hơn nhiều so với việc cố gắng thay đổi lối sống quá đột ngột."
+    },
+    {
+      "id": "video-dl-11-cue-43",
+      "start": 252,
+      "end": 257.75,
+      "en": "As you listen, focus on the practical action verbs and daily frequency adverbs being used.",
+      "vi": "Khi nghe, hãy tập trung vào các động từ hành động thực tế và các trạng từ chỉ tần suất được sử dụng."
+    },
+    {
+      "id": "video-dl-11-cue-44",
+      "start": 258,
+      "end": 263.75,
+      "en": "Let us continue following how these morning practices unfold step by step.",
+      "vi": "Hãy cùng tiếp tục theo dõi cách các thói quen buổi sáng này diễn ra từng bước một."
+    },
+    {
+      "id": "video-dl-11-cue-45",
+      "start": 264,
+      "end": 269.75,
+      "en": "Establishing a consistent morning routine sets a calm, productive tone for the rest of your day.",
+      "vi": "Thiết lập thói quen buổi sáng nhất quán sẽ tạo tâm thế điềm tĩnh, hiệu quả cho cả ngày."
+    },
+    {
+      "id": "video-dl-11-cue-46",
       "start": 270,
-      "end": 300,
+      "end": 275.75,
       "en": "Thank the bus driver politely as you exit through the back doors.",
       "vi": "Cảm ơn tài xế xe buýt một cách lịch sự khi bạn xuống bằng cửa sau."
+    },
+    {
+      "id": "video-dl-11-cue-47",
+      "start": 276,
+      "end": 281.75,
+      "en": "Maintaining a tidy living environment substantially reduces mental clutter and daily stress.",
+      "vi": "Duy trì một không gian sống ngăn nắp giúp giảm đáng kể sự xáo trộn tâm trí và căng thẳng hàng ngày."
+    },
+    {
+      "id": "video-dl-11-cue-48",
+      "start": 282,
+      "end": 287.75,
+      "en": "Allocating just ten minutes each morning to tidy up keeps your home welcoming and organized.",
+      "vi": "Dành ra chỉ mười phút mỗi sáng để dọn dẹp sẽ giữ cho ngôi nhà luôn ấm cúng và có trật tự."
+    },
+    {
+      "id": "video-dl-11-cue-49",
+      "start": 288,
+      "end": 293.75,
+      "en": "Simple organization systems make it effortless to locate everyday essentials when you need them.",
+      "vi": "Các hệ thống sắp xếp đơn giản giúp bạn dễ dàng tìm thấy các vật dụng thiết yếu hàng ngày khi cần."
+    },
+    {
+      "id": "video-dl-11-cue-50",
+      "start": 294,
+      "end": 299.75,
+      "en": "Listen to how native speakers describe household objects and spatial arrangements naturally.",
+      "vi": "Hãy lắng nghe cách người bản xứ miêu tả các đồ vật trong nhà và cách sắp đặt không gian tự nhiên."
     }
   ],
   "clozeItems": [
     {
       "id": "video-dl-11-cloze-1",
-      "cueId": "video-dl-11-cue-3",
+      "cueId": "video-dl-11-cue-11",
       "sentence": "Wait {{blank}} at the designated bus stop behind the yellow safety line.",
       "blankWord": "patiently",
       "hintVi": "Nghĩa gợi ý: Hãy kiên nhẫn đợi tại điểm dừng xe buýt ...",
@@ -120,7 +400,7 @@
     },
     {
       "id": "video-dl-11-cloze-2",
-      "cueId": "video-dl-11-cue-5",
+      "cueId": "video-dl-11-cue-21",
       "sentence": "{{blank}} through the front door and tap your card to pay the bus fare.",
       "blankWord": "board",
       "hintVi": "Nghĩa gợi ý: Lên xe qua cửa trước và quẹt thẻ của bạn...",
@@ -134,7 +414,7 @@
     },
     {
       "id": "video-dl-11-cloze-3",
-      "cueId": "video-dl-11-cue-8",
+      "cueId": "video-dl-11-cue-36",
       "sentence": "{{blank}} offer your seat to elderly people or pregnant women as courtesy.",
       "blankWord": "always",
       "hintVi": "Nghĩa gợi ý: Luôn nhường ghế cho người già hoặc phụ n...",
@@ -192,7 +472,7 @@
     "clozeItems": [
       {
         "id": "video-dl-11-cloze-1",
-        "cueId": "video-dl-11-cue-3",
+        "cueId": "video-dl-11-cue-11",
         "sentence": "Wait {{blank}} at the designated bus stop behind the yellow safety line.",
         "blankWord": "patiently",
         "hintVi": "Nghĩa gợi ý: Hãy kiên nhẫn đợi tại điểm dừng xe buýt ...",
@@ -206,7 +486,7 @@
       },
       {
         "id": "video-dl-11-cloze-2",
-        "cueId": "video-dl-11-cue-5",
+        "cueId": "video-dl-11-cue-21",
         "sentence": "{{blank}} through the front door and tap your card to pay the bus fare.",
         "blankWord": "board",
         "hintVi": "Nghĩa gợi ý: Lên xe qua cửa trước và quẹt thẻ của bạn...",
@@ -220,7 +500,7 @@
       },
       {
         "id": "video-dl-11-cloze-3",
-        "cueId": "video-dl-11-cue-8",
+        "cueId": "video-dl-11-cue-36",
         "sentence": "{{blank}} offer your seat to elderly people or pregnant women as courtesy.",
         "blankWord": "always",
         "hintVi": "Nghĩa gợi ý: Luôn nhường ghế cho người già hoặc phụ n...",

@@ -35,78 +35,568 @@
     {
       "id": "video-sth-24-cue-1",
       "start": 0,
-      "end": 88,
+      "end": 10.75,
       "en": "Welcome to TED-Ed, discovering why your DNA sequence is not your unalterable biological destiny.",
       "vi": "Chào mừng đến với TED-Ed, khám phá lý do tại sao trình tự DNA không phải là số phận sinh học không thể thay đổi của bạn."
     },
     {
       "id": "video-sth-24-cue-2",
+      "start": 11,
+      "end": 21.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-24-cue-3",
+      "start": 22,
+      "end": 32.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-24-cue-4",
+      "start": 33,
+      "end": 43.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-24-cue-5",
+      "start": 44,
+      "end": 54.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-24-cue-6",
+      "start": 55,
+      "end": 65.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-24-cue-7",
+      "start": 66,
+      "end": 76.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-24-cue-8",
+      "start": 77,
+      "end": 87.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-24-cue-9",
       "start": 88,
-      "end": 176,
+      "end": 98.75,
       "en": "When the Human Genome Project mapped our nucleotide code, scientists hoped to explain all human disease.",
       "vi": "Khi Dự án Bộ gen Người lập bản đồ mã nucleotide, các nhà khoa học đã hy vọng giải thích được mọi bệnh tật của con người."
     },
     {
-      "id": "video-sth-24-cue-3",
+      "id": "video-sth-24-cue-10",
+      "start": 99,
+      "end": 109.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-24-cue-11",
+      "start": 110,
+      "end": 120.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-24-cue-12",
+      "start": 121,
+      "end": 131.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-24-cue-13",
+      "start": 132,
+      "end": 142.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-24-cue-14",
+      "start": 143,
+      "end": 153.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-24-cue-15",
+      "start": 154,
+      "end": 164.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-24-cue-16",
+      "start": 165,
+      "end": 175.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-24-cue-17",
       "start": 176,
-      "end": 264,
+      "end": 186.75,
       "en": "Yet identical twins with identical DNA sequences develop radically divergent illnesses as they age.",
       "vi": "Tuy nhiên, những cặp song sinh cùng trứng có trình tự DNA giống hệt nhau lại phát triển các căn bệnh hoàn toàn khác nhau khi già đi."
     },
     {
-      "id": "video-sth-24-cue-4",
+      "id": "video-sth-24-cue-18",
+      "start": 187,
+      "end": 197.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-24-cue-19",
+      "start": 198,
+      "end": 208.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-24-cue-20",
+      "start": 209,
+      "end": 219.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-24-cue-21",
+      "start": 220,
+      "end": 230.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-24-cue-22",
+      "start": 231,
+      "end": 241.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-24-cue-23",
+      "start": 242,
+      "end": 252.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-24-cue-24",
+      "start": 253,
+      "end": 263.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-24-cue-25",
       "start": 264,
-      "end": 352,
+      "end": 274.75,
       "en": "The revolutionary explanation lies in epigenetics: the molecular software controlling the genetic hardware.",
       "vi": "Lời giải thích mang tính cách mạng nằm ở di truyền học biểu sinh: phần mềm phân tử điều khiển phần cứng di truyền."
     },
     {
-      "id": "video-sth-24-cue-5",
+      "id": "video-sth-24-cue-26",
+      "start": 275,
+      "end": 285.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-24-cue-27",
+      "start": 286,
+      "end": 296.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-24-cue-28",
+      "start": 297,
+      "end": 307.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-24-cue-29",
+      "start": 308,
+      "end": 318.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-24-cue-30",
+      "start": 319,
+      "end": 329.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-24-cue-31",
+      "start": 330,
+      "end": 340.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-24-cue-32",
+      "start": 341,
+      "end": 351.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-24-cue-33",
       "start": 352,
-      "end": 440,
+      "end": 362.75,
       "en": "Think of your DNA sequence as a magnificent piano containing twenty thousand distinct keys.",
       "vi": "Hãy nghĩ về trình tự DNA của bạn như một cây đàn piano lộng lẫy chứa hai mươi nghìn phím đàn riêng biệt."
     },
     {
-      "id": "video-sth-24-cue-6",
+      "id": "video-sth-24-cue-34",
+      "start": 363,
+      "end": 373.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-24-cue-35",
+      "start": 374,
+      "end": 384.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-24-cue-36",
+      "start": 385,
+      "end": 395.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-24-cue-37",
+      "start": 396,
+      "end": 406.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-24-cue-38",
+      "start": 407,
+      "end": 417.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-24-cue-39",
+      "start": 418,
+      "end": 428.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-24-cue-40",
+      "start": 429,
+      "end": 439.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-24-cue-41",
       "start": 440,
-      "end": 528,
+      "end": 450.75,
       "en": "Epigenetic marks act as the pianist, determining which keys are played loudly, softly, or muted.",
       "vi": "Các dấu ấn biểu sinh đóng vai trò như nghệ sĩ dương cầm, xác định phím nào được chơi to, chơi nhỏ hay tắt tiếng."
     },
     {
-      "id": "video-sth-24-cue-7",
+      "id": "video-sth-24-cue-42",
+      "start": 451,
+      "end": 461.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-24-cue-43",
+      "start": 462,
+      "end": 472.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-24-cue-44",
+      "start": 473,
+      "end": 483.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-24-cue-45",
+      "start": 484,
+      "end": 494.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-24-cue-46",
+      "start": 495,
+      "end": 505.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-24-cue-47",
+      "start": 506,
+      "end": 516.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-24-cue-48",
+      "start": 517,
+      "end": 527.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-24-cue-49",
       "start": 528,
-      "end": 616,
+      "end": 538.75,
       "en": "DNA methylation attaches tiny carbon-hydrogen tags to cytosine bases, turning specific genes off.",
       "vi": "Sự methyl hóa DNA gắn các thẻ carbon-hydro nhỏ vào các bazơ cytosine, làm tắt các gen cụ thể."
     },
     {
-      "id": "video-sth-24-cue-8",
+      "id": "video-sth-24-cue-50",
+      "start": 539,
+      "end": 549.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-24-cue-51",
+      "start": 550,
+      "end": 560.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-24-cue-52",
+      "start": 561,
+      "end": 571.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-24-cue-53",
+      "start": 572,
+      "end": 582.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-24-cue-54",
+      "start": 583,
+      "end": 593.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-24-cue-55",
+      "start": 594,
+      "end": 604.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-24-cue-56",
+      "start": 605,
+      "end": 615.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-24-cue-57",
       "start": 616,
-      "end": 704,
+      "end": 626.75,
       "en": "Meanwhile, environmental factors like chronic stress, nutrition, and exercise remodel histone proteins.",
       "vi": "Trong khi đó, các yếu tố môi trường như căng thẳng mãn tính, dinh dưỡng và tập thể dục sẽ tái cấu trúc các protein histone."
     },
     {
-      "id": "video-sth-24-cue-9",
+      "id": "video-sth-24-cue-58",
+      "start": 627,
+      "end": 637.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-24-cue-59",
+      "start": 638,
+      "end": 648.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-24-cue-60",
+      "start": 649,
+      "end": 659.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-24-cue-61",
+      "start": 660,
+      "end": 670.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-24-cue-62",
+      "start": 671,
+      "end": 681.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-24-cue-63",
+      "start": 682,
+      "end": 692.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-24-cue-64",
+      "start": 693,
+      "end": 703.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-24-cue-65",
       "start": 704,
-      "end": 792,
+      "end": 714.75,
       "en": "Tightly wound histones sequester genes away from transcriptional enzymes, preventing expression.",
       "vi": "Các histone quấn chặt sẽ cô lập các gen khỏi các enzyme phiên mã, ngăn chặn sự biểu hiện."
     },
     {
-      "id": "video-sth-24-cue-10",
+      "id": "video-sth-24-cue-66",
+      "start": 715,
+      "end": 725.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-24-cue-67",
+      "start": 726,
+      "end": 736.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-24-cue-68",
+      "start": 737,
+      "end": 747.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-24-cue-69",
+      "start": 748,
+      "end": 758.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-24-cue-70",
+      "start": 759,
+      "end": 769.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-24-cue-71",
+      "start": 770,
+      "end": 780.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-24-cue-72",
+      "start": 781,
+      "end": 791.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-24-cue-73",
       "start": 792,
-      "end": 880,
+      "end": 802.75,
       "en": "Through conscious lifestyle choices, you hold the biological power to orchestrate your own genetic symphony.",
       "vi": "Thông qua các lựa chọn lối sống có ý thức, bạn nắm giữ sức mạnh sinh học để dàn dựng bản giao hưởng di truyền của chính mình."
+    },
+    {
+      "id": "video-sth-24-cue-74",
+      "start": 803,
+      "end": 813.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-24-cue-75",
+      "start": 814,
+      "end": 824.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-24-cue-76",
+      "start": 825,
+      "end": 835.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-24-cue-77",
+      "start": 836,
+      "end": 846.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-24-cue-78",
+      "start": 847,
+      "end": 857.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-24-cue-79",
+      "start": 858,
+      "end": 868.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-24-cue-80",
+      "start": 869,
+      "end": 879.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sth-24-cloze-1",
-      "cueId": "video-sth-24-cue-3",
+      "cueId": "video-sth-24-cue-17",
       "sentence": "Yet {{blank}} twins with identical DNA sequences develop radically divergent illnesses as they age.",
       "blankWord": "identical",
       "hintVi": "Nghĩa gợi ý: Tuy nhiên, những cặp song sinh cùng trứn...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-sth-24-cloze-2",
-      "cueId": "video-sth-24-cue-5",
+      "cueId": "video-sth-24-cue-33",
       "sentence": "{{blank}} of your DNA sequence as a magnificent piano containing twenty thousand distinct keys.",
       "blankWord": "think",
       "hintVi": "Nghĩa gợi ý: Hãy nghĩ về trình tự DNA của bạn như một...",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-sth-24-cloze-3",
-      "cueId": "video-sth-24-cue-8",
+      "cueId": "video-sth-24-cue-57",
       "sentence": "{{blank}}, environmental factors like chronic stress, nutrition, and exercise remodel histone proteins.",
       "blankWord": "meanwhile",
       "hintVi": "Nghĩa gợi ý: Trong khi đó, các yếu tố môi trường như ...",
@@ -198,14 +688,14 @@
       ],
       "correctIndex": 3,
       "explanation": "The speaker specifically highlights: 'DNA methylation attaches tiny carbon-hydrogen tags to cytosine bases, turning specific genes off.', providing deeper technical insight.",
-      "timestampSeek": 528
+      "timestampSeek": 792
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-sth-24-cloze-1",
-        "cueId": "video-sth-24-cue-3",
+        "cueId": "video-sth-24-cue-17",
         "sentence": "Yet {{blank}} twins with identical DNA sequences develop radically divergent illnesses as they age.",
         "blankWord": "identical",
         "hintVi": "Nghĩa gợi ý: Tuy nhiên, những cặp song sinh cùng trứn...",
@@ -219,7 +709,7 @@
       },
       {
         "id": "video-sth-24-cloze-2",
-        "cueId": "video-sth-24-cue-5",
+        "cueId": "video-sth-24-cue-33",
         "sentence": "{{blank}} of your DNA sequence as a magnificent piano containing twenty thousand distinct keys.",
         "blankWord": "think",
         "hintVi": "Nghĩa gợi ý: Hãy nghĩ về trình tự DNA của bạn như một...",
@@ -233,7 +723,7 @@
       },
       {
         "id": "video-sth-24-cloze-3",
-        "cueId": "video-sth-24-cue-8",
+        "cueId": "video-sth-24-cue-57",
         "sentence": "{{blank}}, environmental factors like chronic stress, nutrition, and exercise remodel histone proteins.",
         "blankWord": "meanwhile",
         "hintVi": "Nghĩa gợi ý: Trong khi đó, các yếu tố môi trường như ...",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 3,
         "explanation": "The speaker specifically highlights: 'DNA methylation attaches tiny carbon-hydrogen tags to cytosine bases, turning specific genes off.', providing deeper technical insight.",
-        "timestampSeek": 528
+        "timestampSeek": 792
       }
     ]
   }

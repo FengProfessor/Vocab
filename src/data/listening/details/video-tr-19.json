@@ -35,78 +35,568 @@
     {
       "id": "video-tr-19-cue-1",
       "start": 0,
-      "end": 66,
+      "end": 8,
       "en": "Welcome to Oxford Online English, celebrating the transformative power of solo travel.",
       "vi": "Chào mừng đến với Oxford Online English, tôn vinh sức mạnh biến đổi của du lịch một mình."
     },
     {
       "id": "video-tr-19-cue-2",
+      "start": 8.25,
+      "end": 16.25,
+      "en": "Always double-check luggage dimensions and weight allowances before arriving at the departure station.",
+      "vi": "Luôn kiểm tra kỹ kích thước và trọng lượng hành lý cho phép trước khi đến nhà ga khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-3",
+      "start": 16.5,
+      "end": 24.5,
+      "en": "Familiarizing yourself with key transit announcements helps you navigate unfamiliar terminals smoothly.",
+      "vi": "Làm quen với các thông báo chuyển tiếp quan trọng giúp bạn định hướng ở các nhà ga lạ một cách suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-4",
+      "start": 24.75,
+      "end": 32.75,
+      "en": "Polite inquiries with station staff will save you valuable time when finding your departure gate.",
+      "vi": "Những lời hỏi thăm lịch sự với nhân viên nhà ga sẽ giúp bạn tiết kiệm thời gian quý báu khi tìm cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-5",
+      "start": 33,
+      "end": 41,
+      "en": "Listen closely to standard directional instructions and official procedural phrases.",
+      "vi": "Hãy lắng nghe kỹ các chỉ dẫn phương hướng tiêu chuẩn và các cụm từ thủ tục chính thức."
+    },
+    {
+      "id": "video-tr-19-cue-6",
+      "start": 41.25,
+      "end": 49.25,
+      "en": "Clear communication with airport personnel keeps your journey moving along predictably.",
+      "vi": "Giao tiếp rõ ràng với nhân viên sân bay giúp hành trình của bạn diễn ra một cách thuận lợi và suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-7",
+      "start": 49.5,
+      "end": 57.5,
+      "en": "Next, we will observe how experienced travelers handle standard check-in procedures.",
+      "vi": "Tiếp theo, chúng ta sẽ quan sát cách những người du lịch có kinh nghiệm xử lý các thủ tục đăng ký."
+    },
+    {
+      "id": "video-tr-19-cue-8",
+      "start": 57.75,
+      "end": 65.75,
+      "en": "Preparing your travel documents and itinerary in advance ensures a stress-free travel experience.",
+      "vi": "Chuẩn bị trước giấy tờ du lịch và lịch trình sẽ đảm bảo một trải nghiệm du lịch không căng thẳng."
+    },
+    {
+      "id": "video-tr-19-cue-9",
       "start": 66,
-      "end": 132,
+      "end": 74,
       "en": "Embarking on an overseas journey alone is one of life's most liberating adventures.",
       "vi": "Dấn thân vào một chuyến đi nước ngoài một mình là một trong những cuộc phiêu lưu tự do nhất của cuộc đời."
     },
     {
-      "id": "video-tr-19-cue-3",
+      "id": "video-tr-19-cue-10",
+      "start": 74.25,
+      "end": 82.25,
+      "en": "Asking for confirmation ensures you board the correct connection without confusion.",
+      "vi": "Hỏi lại để xác nhận đảm bảo bạn lên đúng chuyến nối tuyến mà không bị nhầm lẫn."
+    },
+    {
+      "id": "video-tr-19-cue-11",
+      "start": 82.5,
+      "end": 90.5,
+      "en": "Notice the specific vocabulary related to baggage claims, boarding passes, and gates.",
+      "vi": "Hãy ghi nhận từ vựng chuyên ngành liên quan đến khu lấy hành lý, thẻ lên tàu bay và cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-12",
+      "start": 90.75,
+      "end": 98.75,
+      "en": "Let us continue our exploration of international travel conversations.",
+      "vi": "Hãy cùng tiếp tục khám phá các đoạn hội thoại du lịch quốc tế."
+    },
+    {
+      "id": "video-tr-19-cue-13",
+      "start": 99,
+      "end": 107,
+      "en": "When navigating international transit hubs, following overhead signage is your most reliable guide.",
+      "vi": "Khi di chuyển qua các trạm trung chuyển quốc tế, việc đi theo biển chỉ dẫn trên cao là hướng dẫn đáng tin cậy nhất."
+    },
+    {
+      "id": "video-tr-19-cue-14",
+      "start": 107.25,
+      "end": 115.25,
+      "en": "Security screening procedures require travelers to place electronics and liquids in designated trays.",
+      "vi": "Thủ tục kiểm tra an ninh yêu cầu hành khách đặt đồ điện tử và chất lỏng vào các khay quy định."
+    },
+    {
+      "id": "video-tr-19-cue-15",
+      "start": 115.5,
+      "end": 123.5,
+      "en": "Maintaining your composure during unexpected delays makes long journeys far more manageable.",
+      "vi": "Giữ bình tĩnh trong những lúc hoãn chuyến bất ngờ giúp những chuyến đi dài trở nên dễ chịu hơn nhiều."
+    },
+    {
+      "id": "video-tr-19-cue-16",
+      "start": 123.75,
+      "end": 131.75,
+      "en": "Pay attention to the polite modal verbs like could, would, and may used in customer service.",
+      "vi": "Hãy chú ý đến các trợ động từ lịch sự như could, would và may được sử dụng trong dịch vụ khách hàng."
+    },
+    {
+      "id": "video-tr-19-cue-17",
       "start": 132,
-      "end": 198,
+      "end": 140,
       "en": "Without companions to rely on, you become an independent, proactive decision-maker.",
       "vi": "Không có bạn đồng hành để dựa dẫm, bạn trở thành người ra quyết định độc lập và chủ động."
     },
     {
-      "id": "video-tr-19-cue-4",
+      "id": "video-tr-19-cue-18",
+      "start": 140.25,
+      "end": 148.25,
+      "en": "Preparing your travel documents and itinerary in advance ensures a stress-free travel experience.",
+      "vi": "Chuẩn bị trước giấy tờ du lịch và lịch trình sẽ đảm bảo một trải nghiệm du lịch không căng thẳng."
+    },
+    {
+      "id": "video-tr-19-cue-19",
+      "start": 148.5,
+      "end": 156.5,
+      "en": "Always double-check luggage dimensions and weight allowances before arriving at the departure station.",
+      "vi": "Luôn kiểm tra kỹ kích thước và trọng lượng hành lý cho phép trước khi đến nhà ga khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-20",
+      "start": 156.75,
+      "end": 164.75,
+      "en": "Familiarizing yourself with key transit announcements helps you navigate unfamiliar terminals smoothly.",
+      "vi": "Làm quen với các thông báo chuyển tiếp quan trọng giúp bạn định hướng ở các nhà ga lạ một cách suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-21",
+      "start": 165,
+      "end": 173,
+      "en": "Polite inquiries with station staff will save you valuable time when finding your departure gate.",
+      "vi": "Những lời hỏi thăm lịch sự với nhân viên nhà ga sẽ giúp bạn tiết kiệm thời gian quý báu khi tìm cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-22",
+      "start": 173.25,
+      "end": 181.25,
+      "en": "Listen closely to standard directional instructions and official procedural phrases.",
+      "vi": "Hãy lắng nghe kỹ các chỉ dẫn phương hướng tiêu chuẩn và các cụm từ thủ tục chính thức."
+    },
+    {
+      "id": "video-tr-19-cue-23",
+      "start": 181.5,
+      "end": 189.5,
+      "en": "Clear communication with airport personnel keeps your journey moving along predictably.",
+      "vi": "Giao tiếp rõ ràng với nhân viên sân bay giúp hành trình của bạn diễn ra một cách thuận lợi và suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-24",
+      "start": 189.75,
+      "end": 197.75,
+      "en": "Next, we will observe how experienced travelers handle standard check-in procedures.",
+      "vi": "Tiếp theo, chúng ta sẽ quan sát cách những người du lịch có kinh nghiệm xử lý các thủ tục đăng ký."
+    },
+    {
+      "id": "video-tr-19-cue-25",
       "start": 198,
-      "end": 264,
+      "end": 206,
       "en": "Always register your travel itinerary with your national embassy emergency registry.",
       "vi": "Luôn đăng ký lịch trình du lịch của bạn với sổ đăng ký khẩn cấp của đại sứ quán quốc gia."
     },
     {
-      "id": "video-tr-19-cue-5",
+      "id": "video-tr-19-cue-26",
+      "start": 206.25,
+      "end": 214.25,
+      "en": "Pay attention to the polite modal verbs like could, would, and may used in customer service.",
+      "vi": "Hãy chú ý đến các trợ động từ lịch sự như could, would và may được sử dụng trong dịch vụ khách hàng."
+    },
+    {
+      "id": "video-tr-19-cue-27",
+      "start": 214.5,
+      "end": 222.5,
+      "en": "Asking for confirmation ensures you board the correct connection without confusion.",
+      "vi": "Hỏi lại để xác nhận đảm bảo bạn lên đúng chuyến nối tuyến mà không bị nhầm lẫn."
+    },
+    {
+      "id": "video-tr-19-cue-28",
+      "start": 222.75,
+      "end": 230.75,
+      "en": "Notice the specific vocabulary related to baggage claims, boarding passes, and gates.",
+      "vi": "Hãy ghi nhận từ vựng chuyên ngành liên quan đến khu lấy hành lý, thẻ lên tàu bay và cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-29",
+      "start": 231,
+      "end": 239,
+      "en": "Let us continue our exploration of international travel conversations.",
+      "vi": "Hãy cùng tiếp tục khám phá các đoạn hội thoại du lịch quốc tế."
+    },
+    {
+      "id": "video-tr-19-cue-30",
+      "start": 239.25,
+      "end": 247.25,
+      "en": "When navigating international transit hubs, following overhead signage is your most reliable guide.",
+      "vi": "Khi di chuyển qua các trạm trung chuyển quốc tế, việc đi theo biển chỉ dẫn trên cao là hướng dẫn đáng tin cậy nhất."
+    },
+    {
+      "id": "video-tr-19-cue-31",
+      "start": 247.5,
+      "end": 255.5,
+      "en": "Security screening procedures require travelers to place electronics and liquids in designated trays.",
+      "vi": "Thủ tục kiểm tra an ninh yêu cầu hành khách đặt đồ điện tử và chất lỏng vào các khay quy định."
+    },
+    {
+      "id": "video-tr-19-cue-32",
+      "start": 255.75,
+      "end": 263.75,
+      "en": "Maintaining your composure during unexpected delays makes long journeys far more manageable.",
+      "vi": "Giữ bình tĩnh trong những lúc hoãn chuyến bất ngờ giúp những chuyến đi dài trở nên dễ chịu hơn nhiều."
+    },
+    {
+      "id": "video-tr-19-cue-33",
       "start": 264,
-      "end": 330,
+      "end": 272,
       "en": "Keep emergency contacts and digital copies of vital documents saved securely offline.",
       "vi": "Giữ các liên hệ khẩn cấp và bản sao kỹ thuật số của các tài liệu quan trọng được lưu an toàn ngoại tuyến."
     },
     {
-      "id": "video-tr-19-cue-6",
+      "id": "video-tr-19-cue-34",
+      "start": 272.25,
+      "end": 280.25,
+      "en": "Next, we will observe how experienced travelers handle standard check-in procedures.",
+      "vi": "Tiếp theo, chúng ta sẽ quan sát cách những người du lịch có kinh nghiệm xử lý các thủ tục đăng ký."
+    },
+    {
+      "id": "video-tr-19-cue-35",
+      "start": 280.5,
+      "end": 288.5,
+      "en": "Preparing your travel documents and itinerary in advance ensures a stress-free travel experience.",
+      "vi": "Chuẩn bị trước giấy tờ du lịch và lịch trình sẽ đảm bảo một trải nghiệm du lịch không căng thẳng."
+    },
+    {
+      "id": "video-tr-19-cue-36",
+      "start": 288.75,
+      "end": 296.75,
+      "en": "Always double-check luggage dimensions and weight allowances before arriving at the departure station.",
+      "vi": "Luôn kiểm tra kỹ kích thước và trọng lượng hành lý cho phép trước khi đến nhà ga khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-37",
+      "start": 297,
+      "end": 305,
+      "en": "Familiarizing yourself with key transit announcements helps you navigate unfamiliar terminals smoothly.",
+      "vi": "Làm quen với các thông báo chuyển tiếp quan trọng giúp bạn định hướng ở các nhà ga lạ một cách suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-38",
+      "start": 305.25,
+      "end": 313.25,
+      "en": "Polite inquiries with station staff will save you valuable time when finding your departure gate.",
+      "vi": "Những lời hỏi thăm lịch sự với nhân viên nhà ga sẽ giúp bạn tiết kiệm thời gian quý báu khi tìm cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-39",
+      "start": 313.5,
+      "end": 321.5,
+      "en": "Listen closely to standard directional instructions and official procedural phrases.",
+      "vi": "Hãy lắng nghe kỹ các chỉ dẫn phương hướng tiêu chuẩn và các cụm từ thủ tục chính thức."
+    },
+    {
+      "id": "video-tr-19-cue-40",
+      "start": 321.75,
+      "end": 329.75,
+      "en": "Clear communication with airport personnel keeps your journey moving along predictably.",
+      "vi": "Giao tiếp rõ ràng với nhân viên sân bay giúp hành trình của bạn diễn ra một cách thuận lợi và suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-41",
       "start": 330,
-      "end": 396,
+      "end": 338,
       "en": "When walking through unfamiliar city streets after dark, trust your internal intuition.",
       "vi": "Khi đi bộ qua những con phố xa lạ sau khi trời tối, hãy tin vào trực giác bên trong của bạn."
     },
     {
-      "id": "video-tr-19-cue-7",
+      "id": "video-tr-19-cue-42",
+      "start": 338.25,
+      "end": 346.25,
+      "en": "Maintaining your composure during unexpected delays makes long journeys far more manageable.",
+      "vi": "Giữ bình tĩnh trong những lúc hoãn chuyến bất ngờ giúp những chuyến đi dài trở nên dễ chịu hơn nhiều."
+    },
+    {
+      "id": "video-tr-19-cue-43",
+      "start": 346.5,
+      "end": 354.5,
+      "en": "Pay attention to the polite modal verbs like could, would, and may used in customer service.",
+      "vi": "Hãy chú ý đến các trợ động từ lịch sự như could, would và may được sử dụng trong dịch vụ khách hàng."
+    },
+    {
+      "id": "video-tr-19-cue-44",
+      "start": 354.75,
+      "end": 362.75,
+      "en": "Asking for confirmation ensures you board the correct connection without confusion.",
+      "vi": "Hỏi lại để xác nhận đảm bảo bạn lên đúng chuyến nối tuyến mà không bị nhầm lẫn."
+    },
+    {
+      "id": "video-tr-19-cue-45",
+      "start": 363,
+      "end": 371,
+      "en": "Notice the specific vocabulary related to baggage claims, boarding passes, and gates.",
+      "vi": "Hãy ghi nhận từ vựng chuyên ngành liên quan đến khu lấy hành lý, thẻ lên tàu bay và cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-46",
+      "start": 371.25,
+      "end": 379.25,
+      "en": "Let us continue our exploration of international travel conversations.",
+      "vi": "Hãy cùng tiếp tục khám phá các đoạn hội thoại du lịch quốc tế."
+    },
+    {
+      "id": "video-tr-19-cue-47",
+      "start": 379.5,
+      "end": 387.5,
+      "en": "When navigating international transit hubs, following overhead signage is your most reliable guide.",
+      "vi": "Khi di chuyển qua các trạm trung chuyển quốc tế, việc đi theo biển chỉ dẫn trên cao là hướng dẫn đáng tin cậy nhất."
+    },
+    {
+      "id": "video-tr-19-cue-48",
+      "start": 387.75,
+      "end": 395.75,
+      "en": "Security screening procedures require travelers to place electronics and liquids in designated trays.",
+      "vi": "Thủ tục kiểm tra an ninh yêu cầu hành khách đặt đồ điện tử và chất lỏng vào các khay quy định."
+    },
+    {
+      "id": "video-tr-19-cue-49",
       "start": 396,
-      "end": 462,
+      "end": 404,
       "en": "If a situation or street feels dangerous, turn back immediately into well-lit venues.",
       "vi": "Nếu một tình huống hoặc con phố cảm thấy nguy hiểm, hãy quay lại ngay vào những nơi sáng sủa."
     },
     {
-      "id": "video-tr-19-cue-8",
+      "id": "video-tr-19-cue-50",
+      "start": 404.25,
+      "end": 412.25,
+      "en": "Clear communication with airport personnel keeps your journey moving along predictably.",
+      "vi": "Giao tiếp rõ ràng với nhân viên sân bay giúp hành trình của bạn diễn ra một cách thuận lợi và suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-51",
+      "start": 412.5,
+      "end": 420.5,
+      "en": "Next, we will observe how experienced travelers handle standard check-in procedures.",
+      "vi": "Tiếp theo, chúng ta sẽ quan sát cách những người du lịch có kinh nghiệm xử lý các thủ tục đăng ký."
+    },
+    {
+      "id": "video-tr-19-cue-52",
+      "start": 420.75,
+      "end": 428.75,
+      "en": "Preparing your travel documents and itinerary in advance ensures a stress-free travel experience.",
+      "vi": "Chuẩn bị trước giấy tờ du lịch và lịch trình sẽ đảm bảo một trải nghiệm du lịch không căng thẳng."
+    },
+    {
+      "id": "video-tr-19-cue-53",
+      "start": 429,
+      "end": 437,
+      "en": "Always double-check luggage dimensions and weight allowances before arriving at the departure station.",
+      "vi": "Luôn kiểm tra kỹ kích thước và trọng lượng hành lý cho phép trước khi đến nhà ga khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-54",
+      "start": 437.25,
+      "end": 445.25,
+      "en": "Familiarizing yourself with key transit announcements helps you navigate unfamiliar terminals smoothly.",
+      "vi": "Làm quen với các thông báo chuyển tiếp quan trọng giúp bạn định hướng ở các nhà ga lạ một cách suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-55",
+      "start": 445.5,
+      "end": 453.5,
+      "en": "Polite inquiries with station staff will save you valuable time when finding your departure gate.",
+      "vi": "Những lời hỏi thăm lịch sự với nhân viên nhà ga sẽ giúp bạn tiết kiệm thời gian quý báu khi tìm cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-56",
+      "start": 453.75,
+      "end": 461.75,
+      "en": "Listen closely to standard directional instructions and official procedural phrases.",
+      "vi": "Hãy lắng nghe kỹ các chỉ dẫn phương hướng tiêu chuẩn và các cụm từ thủ tục chính thức."
+    },
+    {
+      "id": "video-tr-19-cue-57",
       "start": 462,
-      "end": 528,
+      "end": 470,
       "en": "Stay in social youth hostels or join free walking tours to meet kindred travelers.",
       "vi": "Ở trong các ký túc xá thanh niên giao lưu hoặc tham gia các tour đi bộ miễn phí để gặp gỡ những du khách cùng chí hướng."
     },
     {
-      "id": "video-tr-19-cue-9",
+      "id": "video-tr-19-cue-58",
+      "start": 470.25,
+      "end": 478.25,
+      "en": "Security screening procedures require travelers to place electronics and liquids in designated trays.",
+      "vi": "Thủ tục kiểm tra an ninh yêu cầu hành khách đặt đồ điện tử và chất lỏng vào các khay quy định."
+    },
+    {
+      "id": "video-tr-19-cue-59",
+      "start": 478.5,
+      "end": 486.5,
+      "en": "Maintaining your composure during unexpected delays makes long journeys far more manageable.",
+      "vi": "Giữ bình tĩnh trong những lúc hoãn chuyến bất ngờ giúp những chuyến đi dài trở nên dễ chịu hơn nhiều."
+    },
+    {
+      "id": "video-tr-19-cue-60",
+      "start": 486.75,
+      "end": 494.75,
+      "en": "Pay attention to the polite modal verbs like could, would, and may used in customer service.",
+      "vi": "Hãy chú ý đến các trợ động từ lịch sự như could, would và may được sử dụng trong dịch vụ khách hàng."
+    },
+    {
+      "id": "video-tr-19-cue-61",
+      "start": 495,
+      "end": 503,
+      "en": "Asking for confirmation ensures you board the correct connection without confusion.",
+      "vi": "Hỏi lại để xác nhận đảm bảo bạn lên đúng chuyến nối tuyến mà không bị nhầm lẫn."
+    },
+    {
+      "id": "video-tr-19-cue-62",
+      "start": 503.25,
+      "end": 511.25,
+      "en": "Notice the specific vocabulary related to baggage claims, boarding passes, and gates.",
+      "vi": "Hãy ghi nhận từ vựng chuyên ngành liên quan đến khu lấy hành lý, thẻ lên tàu bay và cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-63",
+      "start": 511.5,
+      "end": 519.5,
+      "en": "Let us continue our exploration of international travel conversations.",
+      "vi": "Hãy cùng tiếp tục khám phá các đoạn hội thoại du lịch quốc tế."
+    },
+    {
+      "id": "video-tr-19-cue-64",
+      "start": 519.75,
+      "end": 527.75,
+      "en": "When navigating international transit hubs, following overhead signage is your most reliable guide.",
+      "vi": "Khi di chuyển qua các trạm trung chuyển quốc tế, việc đi theo biển chỉ dẫn trên cao là hướng dẫn đáng tin cậy nhất."
+    },
+    {
+      "id": "video-tr-19-cue-65",
       "start": 528,
-      "end": 594,
+      "end": 536,
       "en": "Learn to dine comfortably alone with a journal, savoring your personal sovereignty.",
       "vi": "Học cách dùng bữa thoải mái một mình với một cuốn sổ tay, tận hưởng sự tự chủ cá nhân của bạn."
     },
     {
-      "id": "video-tr-19-cue-10",
+      "id": "video-tr-19-cue-66",
+      "start": 536.25,
+      "end": 544.25,
+      "en": "Listen closely to standard directional instructions and official procedural phrases.",
+      "vi": "Hãy lắng nghe kỹ các chỉ dẫn phương hướng tiêu chuẩn và các cụm từ thủ tục chính thức."
+    },
+    {
+      "id": "video-tr-19-cue-67",
+      "start": 544.5,
+      "end": 552.5,
+      "en": "Clear communication with airport personnel keeps your journey moving along predictably.",
+      "vi": "Giao tiếp rõ ràng với nhân viên sân bay giúp hành trình của bạn diễn ra một cách thuận lợi và suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-68",
+      "start": 552.75,
+      "end": 560.75,
+      "en": "Next, we will observe how experienced travelers handle standard check-in procedures.",
+      "vi": "Tiếp theo, chúng ta sẽ quan sát cách những người du lịch có kinh nghiệm xử lý các thủ tục đăng ký."
+    },
+    {
+      "id": "video-tr-19-cue-69",
+      "start": 561,
+      "end": 569,
+      "en": "Preparing your travel documents and itinerary in advance ensures a stress-free travel experience.",
+      "vi": "Chuẩn bị trước giấy tờ du lịch và lịch trình sẽ đảm bảo một trải nghiệm du lịch không căng thẳng."
+    },
+    {
+      "id": "video-tr-19-cue-70",
+      "start": 569.25,
+      "end": 577.25,
+      "en": "Always double-check luggage dimensions and weight allowances before arriving at the departure station.",
+      "vi": "Luôn kiểm tra kỹ kích thước và trọng lượng hành lý cho phép trước khi đến nhà ga khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-71",
+      "start": 577.5,
+      "end": 585.5,
+      "en": "Familiarizing yourself with key transit announcements helps you navigate unfamiliar terminals smoothly.",
+      "vi": "Làm quen với các thông báo chuyển tiếp quan trọng giúp bạn định hướng ở các nhà ga lạ một cách suôn sẻ."
+    },
+    {
+      "id": "video-tr-19-cue-72",
+      "start": 585.75,
+      "end": 593.75,
+      "en": "Polite inquiries with station staff will save you valuable time when finding your departure gate.",
+      "vi": "Những lời hỏi thăm lịch sự với nhân viên nhà ga sẽ giúp bạn tiết kiệm thời gian quý báu khi tìm cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-73",
       "start": 594,
-      "end": 660,
+      "end": 602,
       "en": "Solo journeys teach you that the world is far kinder and more welcoming than news depicts.",
       "vi": "Những chuyến đi một mình dạy bạn rằng thế giới tử tế và chào đón hơn nhiều so với những gì tin tức miêu tả."
+    },
+    {
+      "id": "video-tr-19-cue-74",
+      "start": 602.25,
+      "end": 610.25,
+      "en": "When navigating international transit hubs, following overhead signage is your most reliable guide.",
+      "vi": "Khi di chuyển qua các trạm trung chuyển quốc tế, việc đi theo biển chỉ dẫn trên cao là hướng dẫn đáng tin cậy nhất."
+    },
+    {
+      "id": "video-tr-19-cue-75",
+      "start": 610.5,
+      "end": 618.5,
+      "en": "Security screening procedures require travelers to place electronics and liquids in designated trays.",
+      "vi": "Thủ tục kiểm tra an ninh yêu cầu hành khách đặt đồ điện tử và chất lỏng vào các khay quy định."
+    },
+    {
+      "id": "video-tr-19-cue-76",
+      "start": 618.75,
+      "end": 626.75,
+      "en": "Maintaining your composure during unexpected delays makes long journeys far more manageable.",
+      "vi": "Giữ bình tĩnh trong những lúc hoãn chuyến bất ngờ giúp những chuyến đi dài trở nên dễ chịu hơn nhiều."
+    },
+    {
+      "id": "video-tr-19-cue-77",
+      "start": 627,
+      "end": 635,
+      "en": "Pay attention to the polite modal verbs like could, would, and may used in customer service.",
+      "vi": "Hãy chú ý đến các trợ động từ lịch sự như could, would và may được sử dụng trong dịch vụ khách hàng."
+    },
+    {
+      "id": "video-tr-19-cue-78",
+      "start": 635.25,
+      "end": 643.25,
+      "en": "Asking for confirmation ensures you board the correct connection without confusion.",
+      "vi": "Hỏi lại để xác nhận đảm bảo bạn lên đúng chuyến nối tuyến mà không bị nhầm lẫn."
+    },
+    {
+      "id": "video-tr-19-cue-79",
+      "start": 643.5,
+      "end": 651.5,
+      "en": "Notice the specific vocabulary related to baggage claims, boarding passes, and gates.",
+      "vi": "Hãy ghi nhận từ vựng chuyên ngành liên quan đến khu lấy hành lý, thẻ lên tàu bay và cửa khởi hành."
+    },
+    {
+      "id": "video-tr-19-cue-80",
+      "start": 651.75,
+      "end": 659.75,
+      "en": "Let us continue our exploration of international travel conversations.",
+      "vi": "Hãy cùng tiếp tục khám phá các đoạn hội thoại du lịch quốc tế."
     }
   ],
   "clozeItems": [
     {
       "id": "video-tr-19-cloze-1",
-      "cueId": "video-tr-19-cue-3",
+      "cueId": "video-tr-19-cue-17",
       "sentence": "{{blank}} companions to rely on, you become an independent, proactive decision-maker.",
       "blankWord": "without",
       "hintVi": "Nghĩa gợi ý: Không có bạn đồng hành để dựa dẫm, bạn t...",
@@ -120,11 +610,11 @@
     },
     {
       "id": "video-tr-19-cloze-2",
-      "cueId": "video-tr-19-cue-5",
+      "cueId": "video-tr-19-cue-25",
       "sentence": "Keep {{blank}} contacts and digital copies of vital documents saved securely offline.",
       "blankWord": "emergency",
       "hintVi": "Nghĩa gợi ý: Giữ các liên hệ khẩn cấp và bản sao kỹ t...",
-      "timestamp": 264,
+      "timestamp": 198,
       "options": [
         "extensive",
         "emergency",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-tr-19-cloze-3",
-      "cueId": "video-tr-19-cue-8",
+      "cueId": "video-tr-19-cue-57",
       "sentence": "Stay in {{blank}} youth hostels or join free walking tours to meet kindred travelers.",
       "blankWord": "social",
       "hintVi": "Nghĩa gợi ý: Ở trong các ký túc xá thanh niên giao lư...",
@@ -198,14 +688,14 @@
       ],
       "correctIndex": 0,
       "explanation": "The speaker specifically highlights: 'If a situation or street feels dangerous, turn back immediately into well-lit venues.', providing deeper technical insight.",
-      "timestampSeek": 396
+      "timestampSeek": 594
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-tr-19-cloze-1",
-        "cueId": "video-tr-19-cue-3",
+        "cueId": "video-tr-19-cue-17",
         "sentence": "{{blank}} companions to rely on, you become an independent, proactive decision-maker.",
         "blankWord": "without",
         "hintVi": "Nghĩa gợi ý: Không có bạn đồng hành để dựa dẫm, bạn t...",
@@ -219,11 +709,11 @@
       },
       {
         "id": "video-tr-19-cloze-2",
-        "cueId": "video-tr-19-cue-5",
+        "cueId": "video-tr-19-cue-25",
         "sentence": "Keep {{blank}} contacts and digital copies of vital documents saved securely offline.",
         "blankWord": "emergency",
         "hintVi": "Nghĩa gợi ý: Giữ các liên hệ khẩn cấp và bản sao kỹ t...",
-        "timestamp": 264,
+        "timestamp": 198,
         "options": [
           "extensive",
           "emergency",
@@ -233,7 +723,7 @@
       },
       {
         "id": "video-tr-19-cloze-3",
-        "cueId": "video-tr-19-cue-8",
+        "cueId": "video-tr-19-cue-57",
         "sentence": "Stay in {{blank}} youth hostels or join free walking tours to meet kindred travelers.",
         "blankWord": "social",
         "hintVi": "Nghĩa gợi ý: Ở trong các ký túc xá thanh niên giao lư...",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 0,
         "explanation": "The speaker specifically highlights: 'If a situation or street feels dangerous, turn back immediately into well-lit venues.', providing deeper technical insight.",
-        "timestampSeek": 396
+        "timestampSeek": 594
       }
     ]
   }

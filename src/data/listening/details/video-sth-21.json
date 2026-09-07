@@ -35,78 +35,568 @@
     {
       "id": "video-sth-21-cue-1",
       "start": 0,
-      "end": 79,
+      "end": 9.63,
       "en": "Welcome to SciShow, tracking planetary science's greatest quest: following water on the Red Planet.",
       "vi": "Chào mừng đến với SciShow, theo dõi cuộc tìm kiếm vĩ đại nhất của khoa học hành tinh: lần theo dấu vết nước trên Hành tinh Đỏ."
     },
     {
       "id": "video-sth-21-cue-2",
+      "start": 9.88,
+      "end": 19.5,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-21-cue-3",
+      "start": 19.75,
+      "end": 29.38,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-21-cue-4",
+      "start": 29.63,
+      "end": 39.25,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-21-cue-5",
+      "start": 39.5,
+      "end": 49.13,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-21-cue-6",
+      "start": 49.38,
+      "end": 59,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-21-cue-7",
+      "start": 59.25,
+      "end": 68.88,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-21-cue-8",
+      "start": 69.13,
+      "end": 78.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-21-cue-9",
       "start": 79,
-      "end": 158,
+      "end": 88.63,
       "en": "Today, Mars appears as a frigid, hyper-arid desert bombarded by unshielded cosmic radiation.",
       "vi": "Ngày nay, Sao Hỏa xuất hiện như một sa mạc băng giá, siêu khô cằn bị bắn phá bởi bức xạ vũ trụ không được che chắn."
     },
     {
-      "id": "video-sth-21-cue-3",
+      "id": "video-sth-21-cue-10",
+      "start": 88.88,
+      "end": 98.5,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-21-cue-11",
+      "start": 98.75,
+      "end": 108.38,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-21-cue-12",
+      "start": 108.63,
+      "end": 118.25,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-21-cue-13",
+      "start": 118.5,
+      "end": 128.13,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-21-cue-14",
+      "start": 128.38,
+      "end": 138,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-21-cue-15",
+      "start": 138.25,
+      "end": 147.88,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-21-cue-16",
+      "start": 148.13,
+      "end": 157.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-21-cue-17",
       "start": 158,
-      "end": 237,
+      "end": 167.63,
       "en": "Yet orbital satellites reveal undeniable geological scars of ancient river valleys and delta canyons.",
       "vi": "Tuy nhiên, các vệ tinh quay quanh quỹ đạo tiết lộ những vết sẹo địa chất không thể phủ nhận của các thung lũng sông cổ đại và hẻm núi châu thổ."
     },
     {
-      "id": "video-sth-21-cue-4",
+      "id": "video-sth-21-cue-18",
+      "start": 167.88,
+      "end": 177.5,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-21-cue-19",
+      "start": 177.75,
+      "end": 187.38,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-21-cue-20",
+      "start": 187.63,
+      "end": 197.25,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-21-cue-21",
+      "start": 197.5,
+      "end": 207.13,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-21-cue-22",
+      "start": 207.38,
+      "end": 217,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-21-cue-23",
+      "start": 217.25,
+      "end": 226.88,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-21-cue-24",
+      "start": 227.13,
+      "end": 236.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-21-cue-25",
       "start": 237,
-      "end": 316,
+      "end": 246.63,
       "en": "Three billion years ago, Mars harbored a thick atmosphere and shimmering oceans of liquid water.",
       "vi": "Ba tỷ năm trước, Sao Hỏa từng có một bầu khí quyển dày và những đại dương nước lỏng lấp lánh."
     },
     {
-      "id": "video-sth-21-cue-5",
+      "id": "video-sth-21-cue-26",
+      "start": 246.88,
+      "end": 256.5,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-21-cue-27",
+      "start": 256.75,
+      "end": 266.38,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-21-cue-28",
+      "start": 266.63,
+      "end": 276.25,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-21-cue-29",
+      "start": 276.5,
+      "end": 286.13,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-21-cue-30",
+      "start": 286.38,
+      "end": 296,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-21-cue-31",
+      "start": 296.25,
+      "end": 305.88,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-21-cue-32",
+      "start": 306.13,
+      "end": 315.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-21-cue-33",
       "start": 316,
-      "end": 395,
+      "end": 325.63,
       "en": "Where did all that life-giving liquid water disappear when the Martian magnetic shield collapsed?",
       "vi": "Tất cả lượng nước lỏng mang lại sự sống đó đã biến mất đi đâu khi lá chắn từ trường của Sao Hỏa sụp đổ?"
     },
     {
-      "id": "video-sth-21-cue-6",
+      "id": "video-sth-21-cue-34",
+      "start": 325.88,
+      "end": 335.5,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-21-cue-35",
+      "start": 335.75,
+      "end": 345.38,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-21-cue-36",
+      "start": 345.63,
+      "end": 355.25,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-21-cue-37",
+      "start": 355.5,
+      "end": 365.13,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-21-cue-38",
+      "start": 365.38,
+      "end": 375,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-21-cue-39",
+      "start": 375.25,
+      "end": 384.88,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-21-cue-40",
+      "start": 385.13,
+      "end": 394.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-21-cue-41",
       "start": 395,
-      "end": 474,
+      "end": 404.63,
       "en": "Ground-penetrating radar on orbiters confirmed vast reservoirs of water ice locked under polar caps.",
       "vi": "Radar xuyên đất trên các tàu quỹ đạo đã xác nhận những hồ chứa băng nước khổng lồ bị khóa dưới các chỏm băng vùng cực."
     },
     {
-      "id": "video-sth-21-cue-7",
+      "id": "video-sth-21-cue-42",
+      "start": 404.88,
+      "end": 414.5,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-21-cue-43",
+      "start": 414.75,
+      "end": 424.38,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-21-cue-44",
+      "start": 424.63,
+      "end": 434.25,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-21-cue-45",
+      "start": 434.5,
+      "end": 444.13,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-21-cue-46",
+      "start": 444.38,
+      "end": 454,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-21-cue-47",
+      "start": 454.25,
+      "end": 463.88,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-21-cue-48",
+      "start": 464.13,
+      "end": 473.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-21-cue-49",
       "start": 474,
-      "end": 553,
+      "end": 483.63,
       "en": "NASA's Perseverance rover is currently drilling core samples inside dried ancient river deltas.",
       "vi": "Xe tự hành Perseverance của NASA hiện đang khoan các mẫu lõi bên trong các vùng đồng bằng châu thổ sông cổ đã khô cạn."
     },
     {
-      "id": "video-sth-21-cue-8",
+      "id": "video-sth-21-cue-50",
+      "start": 483.88,
+      "end": 493.5,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-21-cue-51",
+      "start": 493.75,
+      "end": 503.38,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-21-cue-52",
+      "start": 503.63,
+      "end": 513.25,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-21-cue-53",
+      "start": 513.5,
+      "end": 523.13,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-21-cue-54",
+      "start": 523.38,
+      "end": 533,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-21-cue-55",
+      "start": 533.25,
+      "end": 542.88,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-21-cue-56",
+      "start": 543.13,
+      "end": 552.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-21-cue-57",
       "start": 553,
-      "end": 632,
+      "end": 562.63,
       "en": "Astrobiologists analyze these mineral clay deposits for microscopic fossilized biosignatures.",
       "vi": "Các nhà sinh học vũ trụ phân tích các trầm tích đất sét khoáng này để tìm các dấu hiệu sinh học hóa thạch siêu nhỏ."
     },
     {
-      "id": "video-sth-21-cue-9",
+      "id": "video-sth-21-cue-58",
+      "start": 562.88,
+      "end": 572.5,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-21-cue-59",
+      "start": 572.75,
+      "end": 582.38,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-21-cue-60",
+      "start": 582.63,
+      "end": 592.25,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-21-cue-61",
+      "start": 592.5,
+      "end": 602.13,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-21-cue-62",
+      "start": 602.38,
+      "end": 612,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-21-cue-63",
+      "start": 612.25,
+      "end": 621.88,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-21-cue-64",
+      "start": 622.13,
+      "end": 631.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-21-cue-65",
       "start": 632,
-      "end": 711,
+      "end": 641.63,
       "en": "Subsurface brine lakes could conceivably shelter living microbial extremophiles today.",
       "vi": "Các hồ nước muối dưới bề mặt hoàn toàn có thể che chở cho các vi sinh vật cực đoan còn sống ngày nay."
     },
     {
-      "id": "video-sth-21-cue-10",
+      "id": "video-sth-21-cue-66",
+      "start": 641.88,
+      "end": 651.5,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-21-cue-67",
+      "start": 651.75,
+      "end": 661.38,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-21-cue-68",
+      "start": 661.63,
+      "end": 671.25,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-21-cue-69",
+      "start": 671.5,
+      "end": 681.13,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-21-cue-70",
+      "start": 681.38,
+      "end": 691,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-21-cue-71",
+      "start": 691.25,
+      "end": 700.88,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-21-cue-72",
+      "start": 701.13,
+      "end": 710.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-21-cue-73",
       "start": 711,
-      "end": 790,
+      "end": 720.63,
       "en": "Uncovering water on Mars paves the stepping stones toward humanity becoming an interplanetary species.",
       "vi": "Khai phá nước trên Sao Hỏa mở đường cho những bước đệm hướng tới việc nhân loại trở thành một loài liên hành tinh."
+    },
+    {
+      "id": "video-sth-21-cue-74",
+      "start": 720.88,
+      "end": 730.5,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-21-cue-75",
+      "start": 730.75,
+      "end": 740.38,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-21-cue-76",
+      "start": 740.63,
+      "end": 750.25,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-21-cue-77",
+      "start": 750.5,
+      "end": 760.13,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-21-cue-78",
+      "start": 760.38,
+      "end": 770,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-21-cue-79",
+      "start": 770.25,
+      "end": 779.88,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-21-cue-80",
+      "start": 780.13,
+      "end": 789.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sth-21-cloze-1",
-      "cueId": "video-sth-21-cue-3",
+      "cueId": "video-sth-21-cue-17",
       "sentence": "Yet {{blank}} satellites reveal undeniable geological scars of ancient river valleys and delta canyons.",
       "blankWord": "orbital",
       "hintVi": "Nghĩa gợi ý: Tuy nhiên, các vệ tinh quay quanh quỹ đạ...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-sth-21-cloze-2",
-      "cueId": "video-sth-21-cue-5",
+      "cueId": "video-sth-21-cue-33",
       "sentence": "{{blank}} did all that life-giving liquid water disappear when the Martian magnetic shield collapsed?",
       "blankWord": "where",
       "hintVi": "Nghĩa gợi ý: Tất cả lượng nước lỏng mang lại sự sống ...",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-sth-21-cloze-3",
-      "cueId": "video-sth-21-cue-8",
+      "cueId": "video-sth-21-cue-57",
       "sentence": "{{blank}} analyze these mineral clay deposits for microscopic fossilized biosignatures.",
       "blankWord": "astrobiologists",
       "hintVi": "Nghĩa gợi ý: Các nhà sinh học vũ trụ phân tích các tr...",
@@ -198,14 +688,14 @@
       ],
       "correctIndex": 0,
       "explanation": "The speaker specifically highlights: 'NASA's Perseverance rover is currently drilling core samples inside dried ancient river deltas.', providing deeper technical insight.",
-      "timestampSeek": 474
+      "timestampSeek": 711
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-sth-21-cloze-1",
-        "cueId": "video-sth-21-cue-3",
+        "cueId": "video-sth-21-cue-17",
         "sentence": "Yet {{blank}} satellites reveal undeniable geological scars of ancient river valleys and delta canyons.",
         "blankWord": "orbital",
         "hintVi": "Nghĩa gợi ý: Tuy nhiên, các vệ tinh quay quanh quỹ đạ...",
@@ -219,7 +709,7 @@
       },
       {
         "id": "video-sth-21-cloze-2",
-        "cueId": "video-sth-21-cue-5",
+        "cueId": "video-sth-21-cue-33",
         "sentence": "{{blank}} did all that life-giving liquid water disappear when the Martian magnetic shield collapsed?",
         "blankWord": "where",
         "hintVi": "Nghĩa gợi ý: Tất cả lượng nước lỏng mang lại sự sống ...",
@@ -233,7 +723,7 @@
       },
       {
         "id": "video-sth-21-cloze-3",
-        "cueId": "video-sth-21-cue-8",
+        "cueId": "video-sth-21-cue-57",
         "sentence": "{{blank}} analyze these mineral clay deposits for microscopic fossilized biosignatures.",
         "blankWord": "astrobiologists",
         "hintVi": "Nghĩa gợi ý: Các nhà sinh học vũ trụ phân tích các tr...",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 0,
         "explanation": "The speaker specifically highlights: 'NASA's Perseverance rover is currently drilling core samples inside dried ancient river deltas.', providing deeper technical insight.",
-        "timestampSeek": 474
+        "timestampSeek": 711
       }
     ]
   }

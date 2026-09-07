@@ -35,78 +35,568 @@
     {
       "id": "video-sth-28-cue-1",
       "start": 0,
-      "end": 120,
+      "end": 14.75,
       "en": "Welcome to TED-Ed, exploring the revolutionary biomedical breakthrough that altered pandemic history: mRNA vaccines.",
       "vi": "Chào mừng đến với TED-Ed, khám phá bước đột phá y sinh mang tính cách mạng đã thay đổi lịch sử đại dịch: vắc-xin mRNA."
     },
     {
       "id": "video-sth-28-cue-2",
+      "start": 15,
+      "end": 29.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-28-cue-3",
+      "start": 30,
+      "end": 44.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-28-cue-4",
+      "start": 45,
+      "end": 59.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-28-cue-5",
+      "start": 60,
+      "end": 74.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-28-cue-6",
+      "start": 75,
+      "end": 89.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-28-cue-7",
+      "start": 90,
+      "end": 104.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-28-cue-8",
+      "start": 105,
+      "end": 119.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-28-cue-9",
       "start": 120,
-      "end": 240,
+      "end": 134.75,
       "en": "Traditional vaccines take years to develop, requiring scientists to cultivate weakened or inactivated viral particles.",
       "vi": "Vắc-xin truyền thống mất nhiều năm để phát triển, đòi hỏi các nhà khoa học phải nuôi cấy các hạt virus bị suy yếu hoặc bất hoạt."
     },
     {
-      "id": "video-sth-28-cue-3",
+      "id": "video-sth-28-cue-10",
+      "start": 135,
+      "end": 149.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-28-cue-11",
+      "start": 150,
+      "end": 164.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-28-cue-12",
+      "start": 165,
+      "end": 179.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-28-cue-13",
+      "start": 180,
+      "end": 194.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-28-cue-14",
+      "start": 195,
+      "end": 209.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-28-cue-15",
+      "start": 210,
+      "end": 224.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-28-cue-16",
+      "start": 225,
+      "end": 239.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-28-cue-17",
       "start": 240,
-      "end": 360,
+      "end": 254.75,
       "en": "Messenger RNA technology fundamentally re-imagined the vaccine paradigm by delivering temporary genetic blueprints.",
       "vi": "Công nghệ RNA thông tin đã tái định hình căn bản mô hình vắc-xin bằng cách cung cấp các bản thiết kế di truyền tạm thời."
     },
     {
-      "id": "video-sth-28-cue-4",
+      "id": "video-sth-28-cue-18",
+      "start": 255,
+      "end": 269.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-28-cue-19",
+      "start": 270,
+      "end": 284.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-28-cue-20",
+      "start": 285,
+      "end": 299.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-28-cue-21",
+      "start": 300,
+      "end": 314.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-28-cue-22",
+      "start": 315,
+      "end": 329.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-28-cue-23",
+      "start": 330,
+      "end": 344.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-28-cue-24",
+      "start": 345,
+      "end": 359.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-28-cue-25",
       "start": 360,
-      "end": 480,
+      "end": 374.75,
       "en": "Instead of injecting the actual virus, an mRNA vaccine delivers molecular instructions directly to human cells.",
       "vi": "Thay vì tiêm virus thực sự, vắc-xin mRNA cung cấp các hướng dẫn phân tử trực tiếp đến các tế bào con người."
     },
     {
-      "id": "video-sth-28-cue-5",
+      "id": "video-sth-28-cue-26",
+      "start": 375,
+      "end": 389.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-28-cue-27",
+      "start": 390,
+      "end": 404.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-28-cue-28",
+      "start": 405,
+      "end": 419.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-28-cue-29",
+      "start": 420,
+      "end": 434.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-28-cue-30",
+      "start": 435,
+      "end": 449.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-28-cue-31",
+      "start": 450,
+      "end": 464.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-28-cue-32",
+      "start": 465,
+      "end": 479.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-28-cue-33",
       "start": 480,
-      "end": 600,
+      "end": 494.75,
       "en": "Fragile mRNA molecules are cloaked inside protective microscopic lipid nanoparticles.",
       "vi": "Các phân tử mRNA mỏng manh được che chở bên trong các hạt nano lipid siêu nhỏ bảo vệ."
     },
     {
-      "id": "video-sth-28-cue-6",
+      "id": "video-sth-28-cue-34",
+      "start": 495,
+      "end": 509.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-28-cue-35",
+      "start": 510,
+      "end": 524.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-28-cue-36",
+      "start": 525,
+      "end": 539.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-28-cue-37",
+      "start": 540,
+      "end": 554.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-28-cue-38",
+      "start": 555,
+      "end": 569.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-28-cue-39",
+      "start": 570,
+      "end": 584.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-28-cue-40",
+      "start": 585,
+      "end": 599.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-28-cue-41",
       "start": 600,
-      "end": 720,
+      "end": 614.75,
       "en": "Once inside host cells, cellular ribosomes read the mRNA sequence to assemble harmless viral spike proteins.",
       "vi": "Khi đã vào bên trong tế bào vật chủ, các ribosome tế bào sẽ đọc chuỗi mRNA để lắp ráp các protein gai virus vô hại."
     },
     {
-      "id": "video-sth-28-cue-7",
+      "id": "video-sth-28-cue-42",
+      "start": 615,
+      "end": 629.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-28-cue-43",
+      "start": 630,
+      "end": 644.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-28-cue-44",
+      "start": 645,
+      "end": 659.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-28-cue-45",
+      "start": 660,
+      "end": 674.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-28-cue-46",
+      "start": 675,
+      "end": 689.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-28-cue-47",
+      "start": 690,
+      "end": 704.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-28-cue-48",
+      "start": 705,
+      "end": 719.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-28-cue-49",
       "start": 720,
-      "end": 840,
+      "end": 734.75,
       "en": "These synthetic proteins migrate to the cell surface, triggering an alert across the immune system.",
       "vi": "Những protein tổng hợp này di chuyển đến bề mặt tế bào, kích hoạt cảnh báo trên toàn hệ thống miễn dịch."
     },
     {
-      "id": "video-sth-28-cue-8",
+      "id": "video-sth-28-cue-50",
+      "start": 735,
+      "end": 749.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-28-cue-51",
+      "start": 750,
+      "end": 764.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-28-cue-52",
+      "start": 765,
+      "end": 779.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-28-cue-53",
+      "start": 780,
+      "end": 794.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-28-cue-54",
+      "start": 795,
+      "end": 809.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-28-cue-55",
+      "start": 810,
+      "end": 824.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-28-cue-56",
+      "start": 825,
+      "end": 839.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-28-cue-57",
       "start": 840,
-      "end": 960,
+      "end": 854.75,
       "en": "Helper T cells and B cells recognize the alien antigen, manufacturing millions of high-affinity neutralizing antibodies.",
       "vi": "Các tế bào T hỗ trợ và tế bào B nhận diện kháng nguyên lạ, sản xuất hàng triệu kháng thể trung hòa có ái lực cao."
     },
     {
-      "id": "video-sth-28-cue-9",
+      "id": "video-sth-28-cue-58",
+      "start": 855,
+      "end": 869.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-28-cue-59",
+      "start": 870,
+      "end": 884.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-28-cue-60",
+      "start": 885,
+      "end": 899.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-28-cue-61",
+      "start": 900,
+      "end": 914.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-28-cue-62",
+      "start": 915,
+      "end": 929.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-28-cue-63",
+      "start": 930,
+      "end": 944.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-28-cue-64",
+      "start": 945,
+      "end": 959.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-28-cue-65",
       "start": 960,
-      "end": 1080,
+      "end": 974.75,
       "en": "Within days, the body breaks down and clears the fragile mRNA molecule completely.",
       "vi": "Trong vòng vài ngày, cơ thể sẽ phân hủy và dọn sạch phân tử mRNA mỏng manh một cách hoàn toàn."
     },
     {
-      "id": "video-sth-28-cue-10",
+      "id": "video-sth-28-cue-66",
+      "start": 975,
+      "end": 989.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-28-cue-67",
+      "start": 990,
+      "end": 1004.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-28-cue-68",
+      "start": 1005,
+      "end": 1019.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-28-cue-69",
+      "start": 1020,
+      "end": 1034.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-28-cue-70",
+      "start": 1035,
+      "end": 1049.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-28-cue-71",
+      "start": 1050,
+      "end": 1064.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-28-cue-72",
+      "start": 1065,
+      "end": 1079.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-28-cue-73",
       "start": 1080,
-      "end": 1200,
+      "end": 1094.75,
       "en": "The enduring legacy is immunological memory: a vigilant biological army primed to neutralize future infections instantly.",
       "vi": "Di sản lâu dài là trí nhớ miễn dịch: một đội quân sinh học cảnh giác sẵn sàng vô hiệu hóa các bệnh nhiễm trùng trong tương lai ngay lập tức."
+    },
+    {
+      "id": "video-sth-28-cue-74",
+      "start": 1095,
+      "end": 1109.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-28-cue-75",
+      "start": 1110,
+      "end": 1124.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-28-cue-76",
+      "start": 1125,
+      "end": 1139.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-28-cue-77",
+      "start": 1140,
+      "end": 1154.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-28-cue-78",
+      "start": 1155,
+      "end": 1169.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-28-cue-79",
+      "start": 1170,
+      "end": 1184.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-28-cue-80",
+      "start": 1185,
+      "end": 1199.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sth-28-cloze-1",
-      "cueId": "video-sth-28-cue-3",
+      "cueId": "video-sth-28-cue-17",
       "sentence": "{{blank}} RNA technology fundamentally re-imagined the vaccine paradigm by delivering temporary genetic blueprints.",
       "blankWord": "messenger",
       "hintVi": "Nghĩa gợi ý: Công nghệ RNA thông tin đã tái định hình...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-sth-28-cloze-2",
-      "cueId": "video-sth-28-cue-5",
+      "cueId": "video-sth-28-cue-33",
       "sentence": "{{blank}} mRNA molecules are cloaked inside protective microscopic lipid nanoparticles.",
       "blankWord": "fragile",
       "hintVi": "Nghĩa gợi ý: Các phân tử mRNA mỏng manh được che chở ...",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-sth-28-cloze-3",
-      "cueId": "video-sth-28-cue-8",
+      "cueId": "video-sth-28-cue-57",
       "sentence": "{{blank}} T cells and B cells recognize the alien antigen, manufacturing millions of high-affinity neutralizing antibodies.",
       "blankWord": "helper",
       "hintVi": "Nghĩa gợi ý: Các tế bào T hỗ trợ và tế bào B nhận diệ...",
@@ -198,14 +688,14 @@
       ],
       "correctIndex": 2,
       "explanation": "The speaker specifically highlights: 'These synthetic proteins migrate to the cell surface, triggering an alert across the immune system.', providing deeper technical insight.",
-      "timestampSeek": 720
+      "timestampSeek": 1080
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-sth-28-cloze-1",
-        "cueId": "video-sth-28-cue-3",
+        "cueId": "video-sth-28-cue-17",
         "sentence": "{{blank}} RNA technology fundamentally re-imagined the vaccine paradigm by delivering temporary genetic blueprints.",
         "blankWord": "messenger",
         "hintVi": "Nghĩa gợi ý: Công nghệ RNA thông tin đã tái định hình...",
@@ -219,7 +709,7 @@
       },
       {
         "id": "video-sth-28-cloze-2",
-        "cueId": "video-sth-28-cue-5",
+        "cueId": "video-sth-28-cue-33",
         "sentence": "{{blank}} mRNA molecules are cloaked inside protective microscopic lipid nanoparticles.",
         "blankWord": "fragile",
         "hintVi": "Nghĩa gợi ý: Các phân tử mRNA mỏng manh được che chở ...",
@@ -233,7 +723,7 @@
       },
       {
         "id": "video-sth-28-cloze-3",
-        "cueId": "video-sth-28-cue-8",
+        "cueId": "video-sth-28-cue-57",
         "sentence": "{{blank}} T cells and B cells recognize the alien antigen, manufacturing millions of high-affinity neutralizing antibodies.",
         "blankWord": "helper",
         "hintVi": "Nghĩa gợi ý: Các tế bào T hỗ trợ và tế bào B nhận diệ...",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 2,
         "explanation": "The speaker specifically highlights: 'These synthetic proteins migrate to the cell surface, triggering an alert across the immune system.', providing deeper technical insight.",
-        "timestampSeek": 720
+        "timestampSeek": 1080
       }
     ]
   }

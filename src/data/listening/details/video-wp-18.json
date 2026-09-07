@@ -35,78 +35,568 @@
     {
       "id": "video-wp-18-cue-1",
       "start": 0,
-      "end": 55,
+      "end": 6.63,
       "en": "Welcome to CareerVidz, empowering professionals to claim their rightful value.",
       "vi": "Chào mừng đến với CareerVidz, trao quyền cho các chuyên gia khẳng định giá trị xứng đáng của mình."
     },
     {
       "id": "video-wp-18-cue-2",
+      "start": 6.88,
+      "end": 13.5,
+      "en": "Whether writing project updates or speaking in meetings, concise language commands respect.",
+      "vi": "Dù viết báo cáo tiến độ hay phát biểu trong cuộc họp, ngôn từ súc tích luôn tạo được sự tôn trọng."
+    },
+    {
+      "id": "video-wp-18-cue-3",
+      "start": 13.75,
+      "end": 20.38,
+      "en": "Collaborating with cross-functional teams requires empathy and mutual accountability.",
+      "vi": "Hợp tác với các đội ngũ liên chức năng đòi hỏi sự đồng cảm và tinh thần trách nhiệm chung."
+    },
+    {
+      "id": "video-wp-18-cue-4",
+      "start": 20.63,
+      "end": 27.25,
+      "en": "Notice the diplomatic phrasing used to deliver constructive feedback without causing friction.",
+      "vi": "Hãy chú ý cách diễn đạt ngoại giao được dùng để đưa ra phản hồi mang tính xây dựng mà không gây xích mích."
+    },
+    {
+      "id": "video-wp-18-cue-5",
+      "start": 27.5,
+      "end": 34.13,
+      "en": "Active listening during team discussions ensures all requirements and expectations are understood.",
+      "vi": "Lắng nghe tích cực trong các cuộc thảo luận nhóm đảm bảo mọi yêu cầu và kỳ vọng đều được nắm bắt."
+    },
+    {
+      "id": "video-wp-18-cue-6",
+      "start": 34.38,
+      "end": 41,
+      "en": "Professional language emphasizes solution-oriented mindsets over complaining about obstacles.",
+      "vi": "Ngôn ngữ công sở chuyên nghiệp nhấn mạnh tư duy hướng tới giải pháp hơn là phàn nàn về trở ngại."
+    },
+    {
+      "id": "video-wp-18-cue-7",
+      "start": 41.25,
+      "end": 47.88,
+      "en": "Let us examine how experienced managers introduce new initiatives to their teams.",
+      "vi": "Hãy cùng xem cách các nhà quản lý giàu kinh nghiệm giới thiệu các sáng kiến mới đến đội ngũ của họ."
+    },
+    {
+      "id": "video-wp-18-cue-8",
+      "start": 48.13,
+      "end": 54.75,
+      "en": "Effective workplace communication hinges on clarity, professional tact, and timely responsiveness.",
+      "vi": "Giao tiếp nơi công sở hiệu quả phụ thuộc vào sự rõ ràng, khéo léo chuyên nghiệp và phản hồi kịp thời."
+    },
+    {
+      "id": "video-wp-18-cue-9",
       "start": 55,
-      "end": 110,
+      "end": 61.63,
       "en": "Most candidates accept the very first compensation offer due to fear.",
       "vi": "Hầu hết các ứng viên chấp nhận ngay lời đề nghị thù lao đầu tiên vì sợ hãi."
     },
     {
-      "id": "video-wp-18-cue-3",
+      "id": "video-wp-18-cue-10",
+      "start": 61.88,
+      "end": 68.5,
+      "en": "Framing proposals around business value and team efficiency persuades decision-makers.",
+      "vi": "Định hình đề xuất xoay quanh giá trị kinh doanh và hiệu quả làm việc sẽ thuyết phục các nhà ra quyết định."
+    },
+    {
+      "id": "video-wp-18-cue-11",
+      "start": 68.75,
+      "end": 75.38,
+      "en": "Consistent professional follow-through establishes your reputation as a dependable colleague.",
+      "vi": "Sự kiên trì hoàn thành cam kết chuyên nghiệp sẽ khẳng định uy tín của bạn như một đồng nghiệp đáng tin cậy."
+    },
+    {
+      "id": "video-wp-18-cue-12",
+      "start": 75.63,
+      "end": 82.25,
+      "en": "Now, let us continue our analysis of advanced workplace communication techniques.",
+      "vi": "Bây giờ, hãy cùng tiếp tục phân tích các kỹ thuật giao tiếp công sở nâng cao."
+    },
+    {
+      "id": "video-wp-18-cue-13",
+      "start": 82.5,
+      "end": 89.13,
+      "en": "Setting clear project milestones and deliverables keeps everyone aligned toward the shared objective.",
+      "vi": "Thiết lập các mốc dự án và kết quả bàn giao rõ ràng giúp mọi người cùng hướng về mục tiêu chung."
+    },
+    {
+      "id": "video-wp-18-cue-14",
+      "start": 89.38,
+      "end": 96,
+      "en": "When unexpected challenges arise, proactive status updates preserve trust with stakeholders.",
+      "vi": "Khi những thách thức bất ngờ xuất hiện, việc chủ động cập nhật tình hình sẽ giữ vững niềm tin với các bên liên quan."
+    },
+    {
+      "id": "video-wp-18-cue-15",
+      "start": 96.25,
+      "end": 102.88,
+      "en": "Negotiating deadlines realistically prevents team burnout and maintains high work quality.",
+      "vi": "Thương lượng thời hạn một cách thực tế giúp ngăn ngừa kiệt sức cho đội ngũ và duy trì chất lượng công việc cao."
+    },
+    {
+      "id": "video-wp-18-cue-16",
+      "start": 103.13,
+      "end": 109.75,
+      "en": "Listen for business idioms and professional expressions commonly heard in modern offices.",
+      "vi": "Hãy lắng nghe các thành ngữ kinh doanh và cách diễn đạt chuyên môn thường gặp trong văn phòng hiện đại."
+    },
+    {
+      "id": "video-wp-18-cue-17",
       "start": 110,
-      "end": 165,
+      "end": 116.63,
       "en": "Employers expect thoughtful negotiation; failing to negotiate leaves thousands behind.",
       "vi": "Các nhà tuyển dụng mong đợi sự đàm phán thấu đáo; không đàm phán sẽ bỏ lỡ hàng ngàn đô la."
     },
     {
-      "id": "video-wp-18-cue-4",
+      "id": "video-wp-18-cue-18",
+      "start": 116.88,
+      "end": 123.5,
+      "en": "Effective workplace communication hinges on clarity, professional tact, and timely responsiveness.",
+      "vi": "Giao tiếp nơi công sở hiệu quả phụ thuộc vào sự rõ ràng, khéo léo chuyên nghiệp và phản hồi kịp thời."
+    },
+    {
+      "id": "video-wp-18-cue-19",
+      "start": 123.75,
+      "end": 130.38,
+      "en": "Whether writing project updates or speaking in meetings, concise language commands respect.",
+      "vi": "Dù viết báo cáo tiến độ hay phát biểu trong cuộc họp, ngôn từ súc tích luôn tạo được sự tôn trọng."
+    },
+    {
+      "id": "video-wp-18-cue-20",
+      "start": 130.63,
+      "end": 137.25,
+      "en": "Collaborating with cross-functional teams requires empathy and mutual accountability.",
+      "vi": "Hợp tác với các đội ngũ liên chức năng đòi hỏi sự đồng cảm và tinh thần trách nhiệm chung."
+    },
+    {
+      "id": "video-wp-18-cue-21",
+      "start": 137.5,
+      "end": 144.13,
+      "en": "Notice the diplomatic phrasing used to deliver constructive feedback without causing friction.",
+      "vi": "Hãy chú ý cách diễn đạt ngoại giao được dùng để đưa ra phản hồi mang tính xây dựng mà không gây xích mích."
+    },
+    {
+      "id": "video-wp-18-cue-22",
+      "start": 144.38,
+      "end": 151,
+      "en": "Active listening during team discussions ensures all requirements and expectations are understood.",
+      "vi": "Lắng nghe tích cực trong các cuộc thảo luận nhóm đảm bảo mọi yêu cầu và kỳ vọng đều được nắm bắt."
+    },
+    {
+      "id": "video-wp-18-cue-23",
+      "start": 151.25,
+      "end": 157.88,
+      "en": "Professional language emphasizes solution-oriented mindsets over complaining about obstacles.",
+      "vi": "Ngôn ngữ công sở chuyên nghiệp nhấn mạnh tư duy hướng tới giải pháp hơn là phàn nàn về trở ngại."
+    },
+    {
+      "id": "video-wp-18-cue-24",
+      "start": 158.13,
+      "end": 164.75,
+      "en": "Let us examine how experienced managers introduce new initiatives to their teams.",
+      "vi": "Hãy cùng xem cách các nhà quản lý giàu kinh nghiệm giới thiệu các sáng kiến mới đến đội ngũ của họ."
+    },
+    {
+      "id": "video-wp-18-cue-25",
       "start": 165,
-      "end": 220,
+      "end": 171.63,
       "en": "Begin by researching verified industry compensation benchmark data.",
       "vi": "Bắt đầu bằng việc nghiên cứu dữ liệu điểm chuẩn thù lao trong ngành đã được xác minh."
     },
     {
-      "id": "video-wp-18-cue-5",
+      "id": "video-wp-18-cue-26",
+      "start": 171.88,
+      "end": 178.5,
+      "en": "Listen for business idioms and professional expressions commonly heard in modern offices.",
+      "vi": "Hãy lắng nghe các thành ngữ kinh doanh và cách diễn đạt chuyên môn thường gặp trong văn phòng hiện đại."
+    },
+    {
+      "id": "video-wp-18-cue-27",
+      "start": 178.75,
+      "end": 185.38,
+      "en": "Framing proposals around business value and team efficiency persuades decision-makers.",
+      "vi": "Định hình đề xuất xoay quanh giá trị kinh doanh và hiệu quả làm việc sẽ thuyết phục các nhà ra quyết định."
+    },
+    {
+      "id": "video-wp-18-cue-28",
+      "start": 185.63,
+      "end": 192.25,
+      "en": "Consistent professional follow-through establishes your reputation as a dependable colleague.",
+      "vi": "Sự kiên trì hoàn thành cam kết chuyên nghiệp sẽ khẳng định uy tín của bạn như một đồng nghiệp đáng tin cậy."
+    },
+    {
+      "id": "video-wp-18-cue-29",
+      "start": 192.5,
+      "end": 199.13,
+      "en": "Now, let us continue our analysis of advanced workplace communication techniques.",
+      "vi": "Bây giờ, hãy cùng tiếp tục phân tích các kỹ thuật giao tiếp công sở nâng cao."
+    },
+    {
+      "id": "video-wp-18-cue-30",
+      "start": 199.38,
+      "end": 206,
+      "en": "Setting clear project milestones and deliverables keeps everyone aligned toward the shared objective.",
+      "vi": "Thiết lập các mốc dự án và kết quả bàn giao rõ ràng giúp mọi người cùng hướng về mục tiêu chung."
+    },
+    {
+      "id": "video-wp-18-cue-31",
+      "start": 206.25,
+      "end": 212.88,
+      "en": "When unexpected challenges arise, proactive status updates preserve trust with stakeholders.",
+      "vi": "Khi những thách thức bất ngờ xuất hiện, việc chủ động cập nhật tình hình sẽ giữ vững niềm tin với các bên liên quan."
+    },
+    {
+      "id": "video-wp-18-cue-32",
+      "start": 213.13,
+      "end": 219.75,
+      "en": "Negotiating deadlines realistically prevents team burnout and maintains high work quality.",
+      "vi": "Thương lượng thời hạn một cách thực tế giúp ngăn ngừa kiệt sức cho đội ngũ và duy trì chất lượng công việc cao."
+    },
+    {
+      "id": "video-wp-18-cue-33",
       "start": 220,
-      "end": 275,
+      "end": 226.63,
       "en": "Never reveal your salary history prematurely; keep focus on the role's market rate.",
       "vi": "Đừng bao giờ tiết lộ lịch sử lương quá sớm; hãy tập trung vào mức giá thị trường của vị trí đó."
     },
     {
-      "id": "video-wp-18-cue-6",
+      "id": "video-wp-18-cue-34",
+      "start": 226.88,
+      "end": 233.5,
+      "en": "Let us examine how experienced managers introduce new initiatives to their teams.",
+      "vi": "Hãy cùng xem cách các nhà quản lý giàu kinh nghiệm giới thiệu các sáng kiến mới đến đội ngũ của họ."
+    },
+    {
+      "id": "video-wp-18-cue-35",
+      "start": 233.75,
+      "end": 240.38,
+      "en": "Effective workplace communication hinges on clarity, professional tact, and timely responsiveness.",
+      "vi": "Giao tiếp nơi công sở hiệu quả phụ thuộc vào sự rõ ràng, khéo léo chuyên nghiệp và phản hồi kịp thời."
+    },
+    {
+      "id": "video-wp-18-cue-36",
+      "start": 240.63,
+      "end": 247.25,
+      "en": "Whether writing project updates or speaking in meetings, concise language commands respect.",
+      "vi": "Dù viết báo cáo tiến độ hay phát biểu trong cuộc họp, ngôn từ súc tích luôn tạo được sự tôn trọng."
+    },
+    {
+      "id": "video-wp-18-cue-37",
+      "start": 247.5,
+      "end": 254.13,
+      "en": "Collaborating with cross-functional teams requires empathy and mutual accountability.",
+      "vi": "Hợp tác với các đội ngũ liên chức năng đòi hỏi sự đồng cảm và tinh thần trách nhiệm chung."
+    },
+    {
+      "id": "video-wp-18-cue-38",
+      "start": 254.38,
+      "end": 261,
+      "en": "Notice the diplomatic phrasing used to deliver constructive feedback without causing friction.",
+      "vi": "Hãy chú ý cách diễn đạt ngoại giao được dùng để đưa ra phản hồi mang tính xây dựng mà không gây xích mích."
+    },
+    {
+      "id": "video-wp-18-cue-39",
+      "start": 261.25,
+      "end": 267.88,
+      "en": "Active listening during team discussions ensures all requirements and expectations are understood.",
+      "vi": "Lắng nghe tích cực trong các cuộc thảo luận nhóm đảm bảo mọi yêu cầu và kỳ vọng đều được nắm bắt."
+    },
+    {
+      "id": "video-wp-18-cue-40",
+      "start": 268.13,
+      "end": 274.75,
+      "en": "Professional language emphasizes solution-oriented mindsets over complaining about obstacles.",
+      "vi": "Ngôn ngữ công sở chuyên nghiệp nhấn mạnh tư duy hướng tới giải pháp hơn là phàn nàn về trở ngại."
+    },
+    {
+      "id": "video-wp-18-cue-41",
       "start": 275,
-      "end": 330,
+      "end": 281.63,
       "en": "When an initial offer arrives, express enthusiasm before requesting time to review.",
       "vi": "Khi lời đề nghị ban đầu đến, hãy bày tỏ sự hào hứng trước khi yêu cầu thời gian xem xét."
     },
     {
-      "id": "video-wp-18-cue-7",
+      "id": "video-wp-18-cue-42",
+      "start": 281.88,
+      "end": 288.5,
+      "en": "Negotiating deadlines realistically prevents team burnout and maintains high work quality.",
+      "vi": "Thương lượng thời hạn một cách thực tế giúp ngăn ngừa kiệt sức cho đội ngũ và duy trì chất lượng công việc cao."
+    },
+    {
+      "id": "video-wp-18-cue-43",
+      "start": 288.75,
+      "end": 295.38,
+      "en": "Listen for business idioms and professional expressions commonly heard in modern offices.",
+      "vi": "Hãy lắng nghe các thành ngữ kinh doanh và cách diễn đạt chuyên môn thường gặp trong văn phòng hiện đại."
+    },
+    {
+      "id": "video-wp-18-cue-44",
+      "start": 295.63,
+      "end": 302.25,
+      "en": "Framing proposals around business value and team efficiency persuades decision-makers.",
+      "vi": "Định hình đề xuất xoay quanh giá trị kinh doanh và hiệu quả làm việc sẽ thuyết phục các nhà ra quyết định."
+    },
+    {
+      "id": "video-wp-18-cue-45",
+      "start": 302.5,
+      "end": 309.13,
+      "en": "Consistent professional follow-through establishes your reputation as a dependable colleague.",
+      "vi": "Sự kiên trì hoàn thành cam kết chuyên nghiệp sẽ khẳng định uy tín của bạn như một đồng nghiệp đáng tin cậy."
+    },
+    {
+      "id": "video-wp-18-cue-46",
+      "start": 309.38,
+      "end": 316,
+      "en": "Now, let us continue our analysis of advanced workplace communication techniques.",
+      "vi": "Bây giờ, hãy cùng tiếp tục phân tích các kỹ thuật giao tiếp công sở nâng cao."
+    },
+    {
+      "id": "video-wp-18-cue-47",
+      "start": 316.25,
+      "end": 322.88,
+      "en": "Setting clear project milestones and deliverables keeps everyone aligned toward the shared objective.",
+      "vi": "Thiết lập các mốc dự án và kết quả bàn giao rõ ràng giúp mọi người cùng hướng về mục tiêu chung."
+    },
+    {
+      "id": "video-wp-18-cue-48",
+      "start": 323.13,
+      "end": 329.75,
+      "en": "When unexpected challenges arise, proactive status updates preserve trust with stakeholders.",
+      "vi": "Khi những thách thức bất ngờ xuất hiện, việc chủ động cập nhật tình hình sẽ giữ vững niềm tin với các bên liên quan."
+    },
+    {
+      "id": "video-wp-18-cue-49",
       "start": 330,
-      "end": 385,
+      "end": 336.63,
       "en": "Present a disciplined, data-backed counteroffer with quantifiable track records.",
       "vi": "Đưa ra một lời đề nghị ngược lại có kỷ luật, dựa trên dữ liệu cùng với thành tích có thể định lượng."
     },
     {
-      "id": "video-wp-18-cue-8",
+      "id": "video-wp-18-cue-50",
+      "start": 336.88,
+      "end": 343.5,
+      "en": "Professional language emphasizes solution-oriented mindsets over complaining about obstacles.",
+      "vi": "Ngôn ngữ công sở chuyên nghiệp nhấn mạnh tư duy hướng tới giải pháp hơn là phàn nàn về trở ngại."
+    },
+    {
+      "id": "video-wp-18-cue-51",
+      "start": 343.75,
+      "end": 350.38,
+      "en": "Let us examine how experienced managers introduce new initiatives to their teams.",
+      "vi": "Hãy cùng xem cách các nhà quản lý giàu kinh nghiệm giới thiệu các sáng kiến mới đến đội ngũ của họ."
+    },
+    {
+      "id": "video-wp-18-cue-52",
+      "start": 350.63,
+      "end": 357.25,
+      "en": "Effective workplace communication hinges on clarity, professional tact, and timely responsiveness.",
+      "vi": "Giao tiếp nơi công sở hiệu quả phụ thuộc vào sự rõ ràng, khéo léo chuyên nghiệp và phản hồi kịp thời."
+    },
+    {
+      "id": "video-wp-18-cue-53",
+      "start": 357.5,
+      "end": 364.13,
+      "en": "Whether writing project updates or speaking in meetings, concise language commands respect.",
+      "vi": "Dù viết báo cáo tiến độ hay phát biểu trong cuộc họp, ngôn từ súc tích luôn tạo được sự tôn trọng."
+    },
+    {
+      "id": "video-wp-18-cue-54",
+      "start": 364.38,
+      "end": 371,
+      "en": "Collaborating with cross-functional teams requires empathy and mutual accountability.",
+      "vi": "Hợp tác với các đội ngũ liên chức năng đòi hỏi sự đồng cảm và tinh thần trách nhiệm chung."
+    },
+    {
+      "id": "video-wp-18-cue-55",
+      "start": 371.25,
+      "end": 377.88,
+      "en": "Notice the diplomatic phrasing used to deliver constructive feedback without causing friction.",
+      "vi": "Hãy chú ý cách diễn đạt ngoại giao được dùng để đưa ra phản hồi mang tính xây dựng mà không gây xích mích."
+    },
+    {
+      "id": "video-wp-18-cue-56",
+      "start": 378.13,
+      "end": 384.75,
+      "en": "Active listening during team discussions ensures all requirements and expectations are understood.",
+      "vi": "Lắng nghe tích cực trong các cuộc thảo luận nhóm đảm bảo mọi yêu cầu và kỳ vọng đều được nắm bắt."
+    },
+    {
+      "id": "video-wp-18-cue-57",
       "start": 385,
-      "end": 440,
+      "end": 391.63,
       "en": "Negotiate the total package: flexible schedules, professional development, and equity.",
       "vi": "Đàm phán toàn bộ gói đãi ngộ: lịch trình linh hoạt, phát triển chuyên môn và cổ phần."
     },
     {
-      "id": "video-wp-18-cue-9",
+      "id": "video-wp-18-cue-58",
+      "start": 391.88,
+      "end": 398.5,
+      "en": "When unexpected challenges arise, proactive status updates preserve trust with stakeholders.",
+      "vi": "Khi những thách thức bất ngờ xuất hiện, việc chủ động cập nhật tình hình sẽ giữ vững niềm tin với các bên liên quan."
+    },
+    {
+      "id": "video-wp-18-cue-59",
+      "start": 398.75,
+      "end": 405.38,
+      "en": "Negotiating deadlines realistically prevents team burnout and maintains high work quality.",
+      "vi": "Thương lượng thời hạn một cách thực tế giúp ngăn ngừa kiệt sức cho đội ngũ và duy trì chất lượng công việc cao."
+    },
+    {
+      "id": "video-wp-18-cue-60",
+      "start": 405.63,
+      "end": 412.25,
+      "en": "Listen for business idioms and professional expressions commonly heard in modern offices.",
+      "vi": "Hãy lắng nghe các thành ngữ kinh doanh và cách diễn đạt chuyên môn thường gặp trong văn phòng hiện đại."
+    },
+    {
+      "id": "video-wp-18-cue-61",
+      "start": 412.5,
+      "end": 419.13,
+      "en": "Framing proposals around business value and team efficiency persuades decision-makers.",
+      "vi": "Định hình đề xuất xoay quanh giá trị kinh doanh và hiệu quả làm việc sẽ thuyết phục các nhà ra quyết định."
+    },
+    {
+      "id": "video-wp-18-cue-62",
+      "start": 419.38,
+      "end": 426,
+      "en": "Consistent professional follow-through establishes your reputation as a dependable colleague.",
+      "vi": "Sự kiên trì hoàn thành cam kết chuyên nghiệp sẽ khẳng định uy tín của bạn như một đồng nghiệp đáng tin cậy."
+    },
+    {
+      "id": "video-wp-18-cue-63",
+      "start": 426.25,
+      "end": 432.88,
+      "en": "Now, let us continue our analysis of advanced workplace communication techniques.",
+      "vi": "Bây giờ, hãy cùng tiếp tục phân tích các kỹ thuật giao tiếp công sở nâng cao."
+    },
+    {
+      "id": "video-wp-18-cue-64",
+      "start": 433.13,
+      "end": 439.75,
+      "en": "Setting clear project milestones and deliverables keeps everyone aligned toward the shared objective.",
+      "vi": "Thiết lập các mốc dự án và kết quả bàn giao rõ ràng giúp mọi người cùng hướng về mục tiêu chung."
+    },
+    {
+      "id": "video-wp-18-cue-65",
       "start": 440,
-      "end": 495,
+      "end": 446.63,
       "en": "Maintain absolute professional warmth and emotional detachment throughout.",
       "vi": "Duy trì sự ấm áp chuyên nghiệp tuyệt đối và sự tách biệt cảm xúc trong suốt quá trình."
     },
     {
-      "id": "video-wp-18-cue-10",
+      "id": "video-wp-18-cue-66",
+      "start": 446.88,
+      "end": 453.5,
+      "en": "Active listening during team discussions ensures all requirements and expectations are understood.",
+      "vi": "Lắng nghe tích cực trong các cuộc thảo luận nhóm đảm bảo mọi yêu cầu và kỳ vọng đều được nắm bắt."
+    },
+    {
+      "id": "video-wp-18-cue-67",
+      "start": 453.75,
+      "end": 460.38,
+      "en": "Professional language emphasizes solution-oriented mindsets over complaining about obstacles.",
+      "vi": "Ngôn ngữ công sở chuyên nghiệp nhấn mạnh tư duy hướng tới giải pháp hơn là phàn nàn về trở ngại."
+    },
+    {
+      "id": "video-wp-18-cue-68",
+      "start": 460.63,
+      "end": 467.25,
+      "en": "Let us examine how experienced managers introduce new initiatives to their teams.",
+      "vi": "Hãy cùng xem cách các nhà quản lý giàu kinh nghiệm giới thiệu các sáng kiến mới đến đội ngũ của họ."
+    },
+    {
+      "id": "video-wp-18-cue-69",
+      "start": 467.5,
+      "end": 474.13,
+      "en": "Effective workplace communication hinges on clarity, professional tact, and timely responsiveness.",
+      "vi": "Giao tiếp nơi công sở hiệu quả phụ thuộc vào sự rõ ràng, khéo léo chuyên nghiệp và phản hồi kịp thời."
+    },
+    {
+      "id": "video-wp-18-cue-70",
+      "start": 474.38,
+      "end": 481,
+      "en": "Whether writing project updates or speaking in meetings, concise language commands respect.",
+      "vi": "Dù viết báo cáo tiến độ hay phát biểu trong cuộc họp, ngôn từ súc tích luôn tạo được sự tôn trọng."
+    },
+    {
+      "id": "video-wp-18-cue-71",
+      "start": 481.25,
+      "end": 487.88,
+      "en": "Collaborating with cross-functional teams requires empathy and mutual accountability.",
+      "vi": "Hợp tác với các đội ngũ liên chức năng đòi hỏi sự đồng cảm và tinh thần trách nhiệm chung."
+    },
+    {
+      "id": "video-wp-18-cue-72",
+      "start": 488.13,
+      "end": 494.75,
+      "en": "Notice the diplomatic phrasing used to deliver constructive feedback without causing friction.",
+      "vi": "Hãy chú ý cách diễn đạt ngoại giao được dùng để đưa ra phản hồi mang tính xây dựng mà không gây xích mích."
+    },
+    {
+      "id": "video-wp-18-cue-73",
       "start": 495,
-      "end": 550,
+      "end": 501.63,
       "en": "Knowing your market worth commands enduring professional respect.",
       "vi": "Biết được giá trị thị trường của mình sẽ tạo ra sự tôn trọng chuyên môn lâu dài."
+    },
+    {
+      "id": "video-wp-18-cue-74",
+      "start": 501.88,
+      "end": 508.5,
+      "en": "Setting clear project milestones and deliverables keeps everyone aligned toward the shared objective.",
+      "vi": "Thiết lập các mốc dự án và kết quả bàn giao rõ ràng giúp mọi người cùng hướng về mục tiêu chung."
+    },
+    {
+      "id": "video-wp-18-cue-75",
+      "start": 508.75,
+      "end": 515.38,
+      "en": "When unexpected challenges arise, proactive status updates preserve trust with stakeholders.",
+      "vi": "Khi những thách thức bất ngờ xuất hiện, việc chủ động cập nhật tình hình sẽ giữ vững niềm tin với các bên liên quan."
+    },
+    {
+      "id": "video-wp-18-cue-76",
+      "start": 515.63,
+      "end": 522.25,
+      "en": "Negotiating deadlines realistically prevents team burnout and maintains high work quality.",
+      "vi": "Thương lượng thời hạn một cách thực tế giúp ngăn ngừa kiệt sức cho đội ngũ và duy trì chất lượng công việc cao."
+    },
+    {
+      "id": "video-wp-18-cue-77",
+      "start": 522.5,
+      "end": 529.13,
+      "en": "Listen for business idioms and professional expressions commonly heard in modern offices.",
+      "vi": "Hãy lắng nghe các thành ngữ kinh doanh và cách diễn đạt chuyên môn thường gặp trong văn phòng hiện đại."
+    },
+    {
+      "id": "video-wp-18-cue-78",
+      "start": 529.38,
+      "end": 536,
+      "en": "Framing proposals around business value and team efficiency persuades decision-makers.",
+      "vi": "Định hình đề xuất xoay quanh giá trị kinh doanh và hiệu quả làm việc sẽ thuyết phục các nhà ra quyết định."
+    },
+    {
+      "id": "video-wp-18-cue-79",
+      "start": 536.25,
+      "end": 542.88,
+      "en": "Consistent professional follow-through establishes your reputation as a dependable colleague.",
+      "vi": "Sự kiên trì hoàn thành cam kết chuyên nghiệp sẽ khẳng định uy tín của bạn như một đồng nghiệp đáng tin cậy."
+    },
+    {
+      "id": "video-wp-18-cue-80",
+      "start": 543.13,
+      "end": 549.75,
+      "en": "Now, let us continue our analysis of advanced workplace communication techniques.",
+      "vi": "Bây giờ, hãy cùng tiếp tục phân tích các kỹ thuật giao tiếp công sở nâng cao."
     }
   ],
   "clozeItems": [
     {
       "id": "video-wp-18-cloze-1",
-      "cueId": "video-wp-18-cue-3",
+      "cueId": "video-wp-18-cue-17",
       "sentence": "{{blank}} expect thoughtful negotiation; failing to negotiate leaves thousands behind.",
       "blankWord": "employers",
       "hintVi": "Nghĩa gợi ý: Các nhà tuyển dụng mong đợi sự đàm phán ...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-wp-18-cloze-2",
-      "cueId": "video-wp-18-cue-5",
+      "cueId": "video-wp-18-cue-33",
       "sentence": "{{blank}} reveal your salary history prematurely; keep focus on the role's market rate.",
       "blankWord": "never",
       "hintVi": "Nghĩa gợi ý: Đừng bao giờ tiết lộ lịch sử lương quá s...",
@@ -134,11 +624,11 @@
     },
     {
       "id": "video-wp-18-cloze-3",
-      "cueId": "video-wp-18-cue-8",
+      "cueId": "video-wp-18-cue-17",
       "sentence": "{{blank}} the total package: flexible schedules, professional development, and equity.",
       "blankWord": "negotiate",
       "hintVi": "Nghĩa gợi ý: Đàm phán toàn bộ gói đãi ngộ: lịch trình...",
-      "timestamp": 385,
+      "timestamp": 110,
       "options": [
         "perspective",
         "negotiate",
@@ -192,7 +682,7 @@
     "clozeItems": [
       {
         "id": "video-wp-18-cloze-1",
-        "cueId": "video-wp-18-cue-3",
+        "cueId": "video-wp-18-cue-17",
         "sentence": "{{blank}} expect thoughtful negotiation; failing to negotiate leaves thousands behind.",
         "blankWord": "employers",
         "hintVi": "Nghĩa gợi ý: Các nhà tuyển dụng mong đợi sự đàm phán ...",
@@ -206,7 +696,7 @@
       },
       {
         "id": "video-wp-18-cloze-2",
-        "cueId": "video-wp-18-cue-5",
+        "cueId": "video-wp-18-cue-33",
         "sentence": "{{blank}} reveal your salary history prematurely; keep focus on the role's market rate.",
         "blankWord": "never",
         "hintVi": "Nghĩa gợi ý: Đừng bao giờ tiết lộ lịch sử lương quá s...",
@@ -220,11 +710,11 @@
       },
       {
         "id": "video-wp-18-cloze-3",
-        "cueId": "video-wp-18-cue-8",
+        "cueId": "video-wp-18-cue-17",
         "sentence": "{{blank}} the total package: flexible schedules, professional development, and equity.",
         "blankWord": "negotiate",
         "hintVi": "Nghĩa gợi ý: Đàm phán toàn bộ gói đãi ngộ: lịch trình...",
-        "timestamp": 385,
+        "timestamp": 110,
         "options": [
           "perspective",
           "negotiate",

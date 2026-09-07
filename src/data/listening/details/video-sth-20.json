@@ -35,78 +35,568 @@
     {
       "id": "video-sth-20-cue-1",
       "start": 0,
-      "end": 73,
+      "end": 8.88,
       "en": "Welcome to TED-Ed, exploring the neuroendocrine chemistry of human stress and restorative recovery.",
       "vi": "Chào mừng đến với TED-Ed, khám phá hóa học thần kinh nội tiết về sự căng thẳng và phục hồi của con người."
     },
     {
       "id": "video-sth-20-cue-2",
+      "start": 9.13,
+      "end": 18,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-20-cue-3",
+      "start": 18.25,
+      "end": 27.13,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-20-cue-4",
+      "start": 27.38,
+      "end": 36.25,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-20-cue-5",
+      "start": 36.5,
+      "end": 45.38,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-20-cue-6",
+      "start": 45.63,
+      "end": 54.5,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-20-cue-7",
+      "start": 54.75,
+      "end": 63.63,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-20-cue-8",
+      "start": 63.88,
+      "end": 72.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-20-cue-9",
       "start": 73,
-      "end": 146,
+      "end": 81.88,
       "en": "When an ancient ancestor encountered a predatory saber-toothed tiger, acute stress saved their physical life.",
       "vi": "Khi một tổ tiên thời cổ đại chạm trán với hổ răng kiếm săn mồi, sự căng thẳng cấp tính đã cứu sống thể xác họ."
     },
     {
-      "id": "video-sth-20-cue-3",
+      "id": "video-sth-20-cue-10",
+      "start": 82.13,
+      "end": 91,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-20-cue-11",
+      "start": 91.25,
+      "end": 100.13,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-20-cue-12",
+      "start": 100.38,
+      "end": 109.25,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-20-cue-13",
+      "start": 109.5,
+      "end": 118.38,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-20-cue-14",
+      "start": 118.63,
+      "end": 127.5,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-20-cue-15",
+      "start": 127.75,
+      "end": 136.63,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-20-cue-16",
+      "start": 136.88,
+      "end": 145.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-20-cue-17",
       "start": 146,
-      "end": 219,
+      "end": 154.88,
       "en": "The amygdala instantly signals the adrenal glands to flood the bloodstream with adrenaline.",
       "vi": "Hạch hạnh nhân ngay lập tức phát tín hiệu cho tuyến thượng thận tràn ngập adrenaline vào máu."
     },
     {
-      "id": "video-sth-20-cue-4",
+      "id": "video-sth-20-cue-18",
+      "start": 155.13,
+      "end": 164,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-20-cue-19",
+      "start": 164.25,
+      "end": 173.13,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-20-cue-20",
+      "start": 173.38,
+      "end": 182.25,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-20-cue-21",
+      "start": 182.5,
+      "end": 191.38,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-20-cue-22",
+      "start": 191.63,
+      "end": 200.5,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-20-cue-23",
+      "start": 200.75,
+      "end": 209.63,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-20-cue-24",
+      "start": 209.88,
+      "end": 218.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-20-cue-25",
       "start": 219,
-      "end": 292,
+      "end": 227.88,
       "en": "Heart rate accelerates, pupils dilate, and blood shunts away from digestion toward major muscles.",
       "vi": "Nhịp tim tăng tốc, đồng tử giãn ra và máu chuyển hướng từ tiêu hóa sang các cơ bắp chính."
     },
     {
-      "id": "video-sth-20-cue-5",
+      "id": "video-sth-20-cue-26",
+      "start": 228.13,
+      "end": 237,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-20-cue-27",
+      "start": 237.25,
+      "end": 246.13,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-20-cue-28",
+      "start": 246.38,
+      "end": 255.25,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-20-cue-29",
+      "start": 255.5,
+      "end": 264.38,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-20-cue-30",
+      "start": 264.63,
+      "end": 273.5,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-20-cue-31",
+      "start": 273.75,
+      "end": 282.63,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-20-cue-32",
+      "start": 282.88,
+      "end": 291.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-20-cue-33",
       "start": 292,
-      "end": 365,
+      "end": 300.88,
       "en": "Simultaneously, the adrenal cortex releases cortisol, elevating glucose levels for rapid muscular energy.",
       "vi": "Đồng thời, vỏ thượng thận tiết ra cortisol, làm tăng lượng glucose cho năng lượng cơ bắp nhanh chóng."
     },
     {
-      "id": "video-sth-20-cue-6",
+      "id": "video-sth-20-cue-34",
+      "start": 301.13,
+      "end": 310,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-20-cue-35",
+      "start": 310.25,
+      "end": 319.13,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-20-cue-36",
+      "start": 319.38,
+      "end": 328.25,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-20-cue-37",
+      "start": 328.5,
+      "end": 337.38,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-20-cue-38",
+      "start": 337.63,
+      "end": 346.5,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-20-cue-39",
+      "start": 346.75,
+      "end": 355.63,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-20-cue-40",
+      "start": 355.88,
+      "end": 364.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-20-cue-41",
       "start": 365,
-      "end": 438,
+      "end": 373.88,
       "en": "In modern life, traffic jams, unpaid bills, and work deadlines trigger this exact same survival response.",
       "vi": "Trong cuộc sống hiện đại, tắc đường, hóa đơn chưa thanh toán và hạn chót công việc kích hoạt phản ứng sinh tồn tương tự."
     },
     {
-      "id": "video-sth-20-cue-7",
+      "id": "video-sth-20-cue-42",
+      "start": 374.13,
+      "end": 383,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-20-cue-43",
+      "start": 383.25,
+      "end": 392.13,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-20-cue-44",
+      "start": 392.38,
+      "end": 401.25,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-20-cue-45",
+      "start": 401.5,
+      "end": 410.38,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-20-cue-46",
+      "start": 410.63,
+      "end": 419.5,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-20-cue-47",
+      "start": 419.75,
+      "end": 428.63,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-20-cue-48",
+      "start": 428.88,
+      "end": 437.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-20-cue-49",
       "start": 438,
-      "end": 511,
+      "end": 446.88,
       "en": "However, because we cannot run away from a mortgage, cortisol lingers in chronic circulation.",
       "vi": "Tuy nhiên, vì chúng ta không thể chạy trốn khỏi khoản thế chấp ngân hàng, cortisol vẫn lưu thông mãn tính."
     },
     {
-      "id": "video-sth-20-cue-8",
+      "id": "video-sth-20-cue-50",
+      "start": 447.13,
+      "end": 456,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-20-cue-51",
+      "start": 456.25,
+      "end": 465.13,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-20-cue-52",
+      "start": 465.38,
+      "end": 474.25,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-20-cue-53",
+      "start": 474.5,
+      "end": 483.38,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-20-cue-54",
+      "start": 483.63,
+      "end": 492.5,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-20-cue-55",
+      "start": 492.75,
+      "end": 501.63,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-20-cue-56",
+      "start": 501.88,
+      "end": 510.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-20-cue-57",
       "start": 511,
-      "end": 584,
+      "end": 519.88,
       "en": "Chronic cortisol suppresses the immune system, elevates blood pressure, and shrinks memory centers.",
       "vi": "Cortisol mãn tính ức chế hệ thống miễn dịch, làm tăng huyết áp và thu hẹp các trung tâm ghi nhớ."
     },
     {
-      "id": "video-sth-20-cue-9",
+      "id": "video-sth-20-cue-58",
+      "start": 520.13,
+      "end": 529,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-20-cue-59",
+      "start": 529.25,
+      "end": 538.13,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-20-cue-60",
+      "start": 538.38,
+      "end": 547.25,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-20-cue-61",
+      "start": 547.5,
+      "end": 556.38,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-20-cue-62",
+      "start": 556.63,
+      "end": 565.5,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-20-cue-63",
+      "start": 565.75,
+      "end": 574.63,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-20-cue-64",
+      "start": 574.88,
+      "end": 583.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-20-cue-65",
       "start": 584,
-      "end": 657,
+      "end": 592.88,
       "en": "Fortunately, active recovery practices like diaphragmatic breathing activate the calming parasympathetic nervous system.",
       "vi": "May mắn thay, các thực hành phục hồi chủ động như thở bằng cơ hoành kích hoạt hệ thần kinh phó giao cảm giúp xoa dịu."
     },
     {
-      "id": "video-sth-20-cue-10",
+      "id": "video-sth-20-cue-66",
+      "start": 593.13,
+      "end": 602,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-20-cue-67",
+      "start": 602.25,
+      "end": 611.13,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-20-cue-68",
+      "start": 611.38,
+      "end": 620.25,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-20-cue-69",
+      "start": 620.5,
+      "end": 629.38,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-20-cue-70",
+      "start": 629.63,
+      "end": 638.5,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-20-cue-71",
+      "start": 638.75,
+      "end": 647.63,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-20-cue-72",
+      "start": 647.88,
+      "end": 656.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-20-cue-73",
       "start": 657,
-      "end": 730,
+      "end": 665.88,
       "en": "Intentional relaxation resets endocrine balance, transforming toxic stress into adaptive biological resilience.",
       "vi": "Sự thư giãn có chủ đích sẽ thiết lập lại sự cân bằng nội tiết, biến căng thẳng độc hại thành khả năng phục hồi sinh học thích ứng."
+    },
+    {
+      "id": "video-sth-20-cue-74",
+      "start": 666.13,
+      "end": 675,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-20-cue-75",
+      "start": 675.25,
+      "end": 684.13,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-20-cue-76",
+      "start": 684.38,
+      "end": 693.25,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-20-cue-77",
+      "start": 693.5,
+      "end": 702.38,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-20-cue-78",
+      "start": 702.63,
+      "end": 711.5,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-20-cue-79",
+      "start": 711.75,
+      "end": 720.63,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-20-cue-80",
+      "start": 720.88,
+      "end": 729.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sth-20-cloze-1",
-      "cueId": "video-sth-20-cue-3",
+      "cueId": "video-sth-20-cue-17",
       "sentence": "The {{blank}} instantly signals the adrenal glands to flood the bloodstream with adrenaline.",
       "blankWord": "amygdala",
       "hintVi": "Nghĩa gợi ý: Hạch hạnh nhân ngay lập tức phát tín hiệ...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-sth-20-cloze-2",
-      "cueId": "video-sth-20-cue-5",
+      "cueId": "video-sth-20-cue-33",
       "sentence": "{{blank}}, the adrenal cortex releases cortisol, elevating glucose levels for rapid muscular energy.",
       "blankWord": "simultaneously",
       "hintVi": "Nghĩa gợi ý: Đồng thời, vỏ thượng thận tiết ra cortis...",
@@ -134,11 +624,11 @@
     },
     {
       "id": "video-sth-20-cloze-3",
-      "cueId": "video-sth-20-cue-8",
+      "cueId": "video-sth-20-cue-49",
       "sentence": "{{blank}} cortisol suppresses the immune system, elevates blood pressure, and shrinks memory centers.",
       "blankWord": "chronic",
       "hintVi": "Nghĩa gợi ý: Cortisol mãn tính ức chế hệ thống miễn d...",
-      "timestamp": 511,
+      "timestamp": 438,
       "options": [
         "balance",
         "gradual",
@@ -198,14 +688,14 @@
       ],
       "correctIndex": 3,
       "explanation": "The speaker specifically highlights: 'However, because we cannot run away from a mortgage, cortisol lingers in chronic circulation.', providing deeper technical insight.",
-      "timestampSeek": 438
+      "timestampSeek": 657
     }
   ],
   "exercises": {
     "clozeItems": [
       {
         "id": "video-sth-20-cloze-1",
-        "cueId": "video-sth-20-cue-3",
+        "cueId": "video-sth-20-cue-17",
         "sentence": "The {{blank}} instantly signals the adrenal glands to flood the bloodstream with adrenaline.",
         "blankWord": "amygdala",
         "hintVi": "Nghĩa gợi ý: Hạch hạnh nhân ngay lập tức phát tín hiệ...",
@@ -219,7 +709,7 @@
       },
       {
         "id": "video-sth-20-cloze-2",
-        "cueId": "video-sth-20-cue-5",
+        "cueId": "video-sth-20-cue-33",
         "sentence": "{{blank}}, the adrenal cortex releases cortisol, elevating glucose levels for rapid muscular energy.",
         "blankWord": "simultaneously",
         "hintVi": "Nghĩa gợi ý: Đồng thời, vỏ thượng thận tiết ra cortis...",
@@ -233,11 +723,11 @@
       },
       {
         "id": "video-sth-20-cloze-3",
-        "cueId": "video-sth-20-cue-8",
+        "cueId": "video-sth-20-cue-49",
         "sentence": "{{blank}} cortisol suppresses the immune system, elevates blood pressure, and shrinks memory centers.",
         "blankWord": "chronic",
         "hintVi": "Nghĩa gợi ý: Cortisol mãn tính ức chế hệ thống miễn d...",
-        "timestamp": 511,
+        "timestamp": 438,
         "options": [
           "balance",
           "gradual",
@@ -297,7 +787,7 @@
         ],
         "correctIndex": 3,
         "explanation": "The speaker specifically highlights: 'However, because we cannot run away from a mortgage, cortisol lingers in chronic circulation.', providing deeper technical insight.",
-        "timestampSeek": 438
+        "timestampSeek": 657
       }
     ]
   }

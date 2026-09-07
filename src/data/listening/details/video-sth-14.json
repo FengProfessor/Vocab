@@ -35,78 +35,568 @@
     {
       "id": "video-sth-14-cue-1",
       "start": 0,
-      "end": 56,
+      "end": 6.75,
       "en": "Welcome to TED-Ed, journeying deep inside the human gastrointestinal ecosystem.",
       "vi": "Chào mừng đến với TED-Ed, hành trình sâu vào hệ sinh thái tiêu hóa của con người."
     },
     {
       "id": "video-sth-14-cue-2",
+      "start": 7,
+      "end": 13.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-14-cue-3",
+      "start": 14,
+      "end": 20.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-14-cue-4",
+      "start": 21,
+      "end": 27.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-14-cue-5",
+      "start": 28,
+      "end": 34.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-14-cue-6",
+      "start": 35,
+      "end": 41.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-14-cue-7",
+      "start": 42,
+      "end": 48.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-14-cue-8",
+      "start": 49,
+      "end": 55.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-14-cue-9",
       "start": 56,
-      "end": 112,
+      "end": 62.75,
       "en": "Inside your colon resides a thriving universe: over thirty trillion microbial inhabitants.",
       "vi": "Bên trong đại tràng của bạn là một vũ trụ phát triển mạnh mẽ: hơn ba mươi nghìn tỷ cư dân vi sinh vật."
     },
     {
-      "id": "video-sth-14-cue-3",
+      "id": "video-sth-14-cue-10",
+      "start": 63,
+      "end": 69.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-14-cue-11",
+      "start": 70,
+      "end": 76.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-14-cue-12",
+      "start": 77,
+      "end": 83.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-14-cue-13",
+      "start": 84,
+      "end": 90.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-14-cue-14",
+      "start": 91,
+      "end": 97.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-14-cue-15",
+      "start": 98,
+      "end": 104.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-14-cue-16",
+      "start": 105,
+      "end": 111.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-14-cue-17",
       "start": 112,
-      "end": 168,
+      "end": 118.75,
       "en": "Collectively called the gut microbiome, these bacteria outnumber your own human cells.",
       "vi": "Được gọi chung là hệ vi sinh vật đường ruột, những vi khuẩn này đông hơn cả các tế bào của con người bạn."
     },
     {
-      "id": "video-sth-14-cue-4",
+      "id": "video-sth-14-cue-18",
+      "start": 119,
+      "end": 125.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-14-cue-19",
+      "start": 126,
+      "end": 132.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-14-cue-20",
+      "start": 133,
+      "end": 139.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-14-cue-21",
+      "start": 140,
+      "end": 146.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-14-cue-22",
+      "start": 147,
+      "end": 153.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-14-cue-23",
+      "start": 154,
+      "end": 160.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-14-cue-24",
+      "start": 161,
+      "end": 167.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-14-cue-25",
       "start": 168,
-      "end": 224,
+      "end": 174.75,
       "en": "Far from causing infectious illness, the vast majority are essential symbiotic partners.",
       "vi": "Khác xa với việc gây bệnh truyền nhiễm, đại đa số là những đối tác cộng sinh thiết yếu."
     },
     {
-      "id": "video-sth-14-cue-5",
+      "id": "video-sth-14-cue-26",
+      "start": 175,
+      "end": 181.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-14-cue-27",
+      "start": 182,
+      "end": 188.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-14-cue-28",
+      "start": 189,
+      "end": 195.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-14-cue-29",
+      "start": 196,
+      "end": 202.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-14-cue-30",
+      "start": 203,
+      "end": 209.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-14-cue-31",
+      "start": 210,
+      "end": 216.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-14-cue-32",
+      "start": 217,
+      "end": 223.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-14-cue-33",
       "start": 224,
-      "end": 280,
+      "end": 230.75,
       "en": "They synthesize critical vitamins like B12 and K that human cells cannot manufacture independently.",
       "vi": "Chúng tổng hợp các vitamin quan trọng như B12 và K mà tế bào con người không thể tự sản xuất."
     },
     {
-      "id": "video-sth-14-cue-6",
+      "id": "video-sth-14-cue-34",
+      "start": 231,
+      "end": 237.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-14-cue-35",
+      "start": 238,
+      "end": 244.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-14-cue-36",
+      "start": 245,
+      "end": 251.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-14-cue-37",
+      "start": 252,
+      "end": 258.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-14-cue-38",
+      "start": 259,
+      "end": 265.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-14-cue-39",
+      "start": 266,
+      "end": 272.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-14-cue-40",
+      "start": 273,
+      "end": 279.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-14-cue-41",
       "start": 280,
-      "end": 336,
+      "end": 286.75,
       "en": "Microbes ferment complex prebiotic plant fibers into short-chain fatty acids like butyrate.",
       "vi": "Vi khuẩn lên men các sợi thực vật prebiotic phức tạp thành các axit béo chuỗi ngắn như butyrate."
     },
     {
-      "id": "video-sth-14-cue-7",
+      "id": "video-sth-14-cue-42",
+      "start": 287,
+      "end": 293.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-14-cue-43",
+      "start": 294,
+      "end": 300.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-14-cue-44",
+      "start": 301,
+      "end": 307.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-14-cue-45",
+      "start": 308,
+      "end": 314.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-14-cue-46",
+      "start": 315,
+      "end": 321.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-14-cue-47",
+      "start": 322,
+      "end": 328.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-14-cue-48",
+      "start": 329,
+      "end": 335.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-14-cue-49",
       "start": 336,
-      "end": 392,
+      "end": 342.75,
       "en": "Butyrate nourishes colon lining cells, dampening systemic inflammation throughout the body.",
       "vi": "Butyrate nuôi dưỡng các tế bào niêm mạc đại tràng, làm giảm tình trạng viêm toàn thân khắp cơ thể."
     },
     {
-      "id": "video-sth-14-cue-8",
+      "id": "video-sth-14-cue-50",
+      "start": 343,
+      "end": 349.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-14-cue-51",
+      "start": 350,
+      "end": 356.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-14-cue-52",
+      "start": 357,
+      "end": 363.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-14-cue-53",
+      "start": 364,
+      "end": 370.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-14-cue-54",
+      "start": 371,
+      "end": 377.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-14-cue-55",
+      "start": 378,
+      "end": 384.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-14-cue-56",
+      "start": 385,
+      "end": 391.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-14-cue-57",
       "start": 392,
-      "end": 448,
+      "end": 398.75,
       "en": "Furthermore, your gut communicates bidirectionally with your brain via the vagus nerve.",
       "vi": "Hơn nữa, ruột của bạn giao tiếp hai chiều với não bộ thông qua dây thần kinh phế vị."
     },
     {
-      "id": "video-sth-14-cue-9",
+      "id": "video-sth-14-cue-58",
+      "start": 399,
+      "end": 405.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-14-cue-59",
+      "start": 406,
+      "end": 412.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-14-cue-60",
+      "start": 413,
+      "end": 419.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-14-cue-61",
+      "start": 420,
+      "end": 426.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-14-cue-62",
+      "start": 427,
+      "end": 433.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-14-cue-63",
+      "start": 434,
+      "end": 440.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
+    },
+    {
+      "id": "video-sth-14-cue-64",
+      "start": 441,
+      "end": 447.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-14-cue-65",
       "start": 448,
-      "end": 504,
+      "end": 454.75,
       "en": "An impoverished microbiome is correlated with chronic metabolic disorders and mood instability.",
       "vi": "Một hệ vi sinh vật nghèo nàn có tương quan với các rối loạn chuyển hóa mãn tính và sự bất ổn tâm trạng."
     },
     {
-      "id": "video-sth-14-cue-10",
+      "id": "video-sth-14-cue-66",
+      "start": 455,
+      "end": 461.75,
+      "en": "Critical thinking skills enable students to evaluate technological trends objectively.",
+      "vi": "Kỹ năng tư duy phản biện cho phép học viên đánh giá các xu hướng công nghệ một cách khách quan."
+    },
+    {
+      "id": "video-sth-14-cue-67",
+      "start": 462,
+      "end": 468.75,
+      "en": "Listen for technical terminology explained clearly through intuitive analogies.",
+      "vi": "Hãy lắng nghe các thuật ngữ chuyên môn được giải thích rõ ràng qua những phép loại suy trực quan."
+    },
+    {
+      "id": "video-sth-14-cue-68",
+      "start": 469,
+      "end": 475.75,
+      "en": "Let us examine the empirical evidence supporting this groundbreaking development.",
+      "vi": "Hãy cùng xem xét các bằng chứng thực nghiệm ủng hộ sự phát triển mang tính đột phá này."
+    },
+    {
+      "id": "video-sth-14-cue-69",
+      "start": 476,
+      "end": 482.75,
+      "en": "Scientific inquiry and technological innovations continue to reshape our understanding of the world.",
+      "vi": "Khảo sát khoa học và những đổi mới công nghệ tiếp tục định hình lại hiểu biết của chúng ta về thế giới."
+    },
+    {
+      "id": "video-sth-14-cue-70",
+      "start": 483,
+      "end": 489.75,
+      "en": "Rigorous research methodologies and empirical data form the bedrock of credible discoveries.",
+      "vi": "Phương pháp nghiên cứu nghiêm ngặt và dữ liệu thực nghiệm tạo nên nền tảng của các phát hiện đáng tin cậy."
+    },
+    {
+      "id": "video-sth-14-cue-71",
+      "start": 490,
+      "end": 496.75,
+      "en": "Breaking down complex scientific concepts into accessible explanations empowers broader learning.",
+      "vi": "Phân tách các khái niệm khoa học phức tạp thành những giải thích dễ tiếp cận giúp thúc đẩy việc học tập rộng rãi."
+    },
+    {
+      "id": "video-sth-14-cue-72",
+      "start": 497,
+      "end": 503.75,
+      "en": "Notice how cause-and-effect connectors clarify the mechanics behind technological systems.",
+      "vi": "Hãy chú ý cách các từ nối nguyên nhân - kết quả làm rõ cơ chế vận hành đằng sau các hệ thống công nghệ."
+    },
+    {
+      "id": "video-sth-14-cue-73",
       "start": 504,
-      "end": 560,
+      "end": 510.75,
       "en": "Nurturing your microbial garden with diverse whole plants cultivates profound holistic vitality.",
       "vi": "Nuôi dưỡng khu vườn vi sinh vật của bạn bằng các loại thực vật nguyên phần đa dạng sẽ nuôi dưỡng sức sống toàn diện sâu sắc."
+    },
+    {
+      "id": "video-sth-14-cue-74",
+      "start": 511,
+      "end": 517.75,
+      "en": "Prioritizing physical wellness and mental balance fundamentally enhances everyday cognitive performance.",
+      "vi": "Ưu tiên sức khỏe thể chất và cân bằng tinh thần giúp nâng cao căn bản hiệu suất nhận thức mỗi ngày."
+    },
+    {
+      "id": "video-sth-14-cue-75",
+      "start": 518,
+      "end": 524.75,
+      "en": "Scientific studies consistently highlight the importance of restorative sleep and balanced nutrition.",
+      "vi": "Các nghiên cứu khoa học liên tục nhấn mạnh tầm quan trọng của giấc ngủ phục hồi và dinh dưỡng cân bằng."
+    },
+    {
+      "id": "video-sth-14-cue-76",
+      "start": 525,
+      "end": 531.75,
+      "en": "Understanding biological mechanisms motivates people to adopt healthier, sustainable lifestyles.",
+      "vi": "Hiểu biết về các cơ chế sinh học thúc đẩy mọi người áp dụng lối sống lành mạnh và bền vững hơn."
+    },
+    {
+      "id": "video-sth-14-cue-77",
+      "start": 532,
+      "end": 538.75,
+      "en": "Pay attention to statistical phrasing and data interpretation language used by researchers.",
+      "vi": "Hãy chú ý đến cách diễn đạt thống kê và ngôn ngữ phân tích dữ liệu được các nhà nghiên cứu sử dụng."
+    },
+    {
+      "id": "video-sth-14-cue-78",
+      "start": 539,
+      "end": 545.75,
+      "en": "Implementing small, evidence-based wellness habits yields profound compound benefits over time.",
+      "vi": "Thực hiện những thói quen chăm sóc sức khỏe nhỏ dựa trên bằng chứng mang lại lợi ích cộng dồn to lớn theo thời gian."
+    },
+    {
+      "id": "video-sth-14-cue-79",
+      "start": 546,
+      "end": 552.75,
+      "en": "Clear explanatory structures help bridge the gap between lab discoveries and daily practice.",
+      "vi": "Cấu trúc giải thích rõ ràng giúp thu hẹp khoảng cách giữa các phát hiện trong phòng thí nghiệm và thực hành hàng ngày."
+    },
+    {
+      "id": "video-sth-14-cue-80",
+      "start": 553,
+      "end": 559.75,
+      "en": "Now, let us continue exploring the health science behind optimal human performance.",
+      "vi": "Bây giờ, hãy cùng tiếp tục khám phá khoa học sức khỏe đằng sau hiệu suất tối ưu của con người."
     }
   ],
   "clozeItems": [
     {
       "id": "video-sth-14-cloze-1",
-      "cueId": "video-sth-14-cue-3",
+      "cueId": "video-sth-14-cue-17",
       "sentence": "{{blank}} called the gut microbiome, these bacteria outnumber your own human cells.",
       "blankWord": "collectively",
       "hintVi": "Nghĩa gợi ý: Được gọi chung là hệ vi sinh vật đường r...",
@@ -120,7 +610,7 @@
     },
     {
       "id": "video-sth-14-cloze-2",
-      "cueId": "video-sth-14-cue-5",
+      "cueId": "video-sth-14-cue-33",
       "sentence": "They {{blank}} critical vitamins like B12 and K that human cells cannot manufacture independently.",
       "blankWord": "synthesize",
       "hintVi": "Nghĩa gợi ý: Chúng tổng hợp các vitamin quan trọng nh...",
@@ -134,7 +624,7 @@
     },
     {
       "id": "video-sth-14-cloze-3",
-      "cueId": "video-sth-14-cue-8",
+      "cueId": "video-sth-14-cue-57",
       "sentence": "{{blank}}, your gut communicates bidirectionally with your brain via the vagus nerve.",
       "blankWord": "furthermore",
       "hintVi": "Nghĩa gợi ý: Hơn nữa, ruột của bạn giao tiếp hai chiề...",
@@ -192,7 +682,7 @@
     "clozeItems": [
       {
         "id": "video-sth-14-cloze-1",
-        "cueId": "video-sth-14-cue-3",
+        "cueId": "video-sth-14-cue-17",
         "sentence": "{{blank}} called the gut microbiome, these bacteria outnumber your own human cells.",
         "blankWord": "collectively",
         "hintVi": "Nghĩa gợi ý: Được gọi chung là hệ vi sinh vật đường r...",
@@ -206,7 +696,7 @@
       },
       {
         "id": "video-sth-14-cloze-2",
-        "cueId": "video-sth-14-cue-5",
+        "cueId": "video-sth-14-cue-33",
         "sentence": "They {{blank}} critical vitamins like B12 and K that human cells cannot manufacture independently.",
         "blankWord": "synthesize",
         "hintVi": "Nghĩa gợi ý: Chúng tổng hợp các vitamin quan trọng nh...",
@@ -220,7 +710,7 @@
       },
       {
         "id": "video-sth-14-cloze-3",
-        "cueId": "video-sth-14-cue-8",
+        "cueId": "video-sth-14-cue-57",
         "sentence": "{{blank}}, your gut communicates bidirectionally with your brain via the vagus nerve.",
         "blankWord": "furthermore",
         "hintVi": "Nghĩa gợi ý: Hơn nữa, ruột của bạn giao tiếp hai chiề...",
