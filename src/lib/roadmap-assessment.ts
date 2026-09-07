@@ -1,4 +1,5 @@
 import { judgeAnswer } from '@/lib/study';
+import type { RoadmapTrack } from '@/lib/roadmap';
 
 export type AssessmentType = 'mini_quiz' | 'checkpoint' | 'exit_exam';
 export type AssessmentSkill = 'vocab' | 'grammar' | 'pronunciation' | 'reading';
@@ -67,7 +68,7 @@ export interface DiagnosticReport {
 export interface AssessmentAttempt {
   id?: string;
   userId: string;
-  track: 'cefr' | 'thpt';
+  track: RoadmapTrack;
   tier: AssessmentType;
   targetId: string;
   score: number;
@@ -84,7 +85,7 @@ export interface DiagnosticEvaluationInput {
     targetId?: string;
     type?: AssessmentType;
     passThresholdPct?: number;
-    track?: 'cefr' | 'thpt';
+    track?: RoadmapTrack;
     levelId?: string;
   };
 }
@@ -113,7 +114,7 @@ export function getReviewUrlForStep(
   stepId: string,
   type: string,
   ref: string,
-  track: 'cefr' | 'thpt' = 'cefr'
+  track: RoadmapTrack = 'cefr'
 ): string {
   if (type === 'vocab') {
     if (ref.startsWith('starter-')) {

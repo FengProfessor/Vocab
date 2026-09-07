@@ -24,6 +24,9 @@ import {
   getTopicBadgeColor,
   getCefrBadgeStyle,
   getTopicDisplayName,
+  getListeningVideosIndex,
+  getListeningAttempt,
+  saveListeningAttempt,
 } from '@/lib/listening';
 import {
   YouTubeListeningPlayer,
@@ -33,12 +36,13 @@ import { ListeningControls } from '@/components/listening/ListeningControls';
 import { SyncedTranscript } from '@/components/listening/SyncedTranscript';
 import { ClozeListeningExercise } from '@/components/listening/ClozeListeningExercise';
 import { ComprehensionQuiz } from '@/components/listening/ComprehensionQuiz';
+import { VictoryCelebrationModal } from '@/components/listening/VictoryCelebrationModal';
 import { MobileSubtitleDrawer } from '@/components/listening/MobileSubtitleDrawer';
 import { useListeningShortcuts } from '@/hooks/useListeningShortcuts';
 import { playWordAudio } from '@/lib/audio';
 import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
-import type { SubtitleDisplayMode, ListeningVideo } from '@/types/listening';
+import type { SubtitleDisplayMode, ListeningVideo, ListeningAttempt } from '@/types/listening';
 
 type ActiveTab = 'transcript' | 'cloze' | 'quiz' | 'vocab';
 
@@ -77,6 +81,15 @@ export default function InteractiveListeningPage() {
       }
       return next;
     });
+  }, []);
+
+  const handleExitFocusMode = useCallback(() => {
+    setIsFocusMode(false);
+    try {
+      localStorage.setItem('lingo_listening_focus_mode', 'false');
+    } catch {
+      // Ignore
+    }
   }, []);
 
   // Load video detail on demand
@@ -123,6 +136,193 @@ export default function InteractiveListeningPage() {
   // Throttle refs for watch progress persistence
   const lastSavedPercentRef = useRef<number>(-1);
   const lastSaveTimestampRef = useRef<number>(0);
+
+  // Exercise completion tracking
+  const [exerciseProgress, setExerciseProgress] = useState<{
+    clozeDone: boolean;
+    clozeScore: number;
+    clozeTotal: number;
+    quizDone: boolean;
+    quizScore: number;
+    quizTotal: number;
+  }>({
+    clozeDone: false,
+    clozeScore: 0,
+    clozeTotal: 0,
+    quizDone: false,
+    quizScore: 0,
+    quizTotal: 0,
+  });
+
+  const [showVictoryModal, setShowVictoryModal] = useState(false);
+  const [exerciseResetKey, setExerciseResetKey] = useState(0);
+  const hasTriggeredVictoryRef = useRef(false);
+
+  // Next video in library catalog
+  const nextVideoId = useMemo(() => {
+    if (!video) return undefined;
+    const allVideos = getListeningVideosIndex();
+    if (!allVideos || allVideos.length === 0) return undefined;
+    const currentIndex = allVideos.findIndex((v) => v.id === video.id);
+    if (currentIndex === -1) return allVideos[0]?.id;
+    const nextIndex = (currentIndex + 1) % allVideos.length;
+    return allVideos[nextIndex]?.id;
+  }, [video]);
+
+  // Reset exercise states on video change
+  useEffect(() => {
+    setExerciseProgress({
+      clozeDone: false,
+      clozeScore: 0,
+      clozeTotal: 0,
+      quizDone: false,
+      quizScore: 0,
+      quizTotal: 0,
+    });
+    setShowVictoryModal(false);
+    hasTriggeredVictoryRef.current = false;
+  }, [videoId]);
+
+  const handleTriggerCompletion = useCallback(
+    async (clozeScore: number, clozeTotal: number, quizScore: number, quizTotal: number) => {
+      if (!video || hasTriggeredVictoryRef.current) return;
+      hasTriggeredVictoryRef.current = true;
+
+      const totalScore = clozeScore + quizScore;
+      const totalCombined = clozeTotal + quizTotal;
+      const percentScore =
+        totalCombined > 0 ? Math.round((totalScore / totalCombined) * 100) : 0;
+
+      // 1. Show VictoryCelebrationModal
+      setShowVictoryModal(true);
+
+      // 2. Call POST /api/listening/complete with payload
+      try {
+        await authFetch('/api/listening/complete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            videoId: video.id,
+            clozeScore,
+            clozeTotal,
+            quizScore,
+            quizTotal,
+          }),
+        });
+      } catch (err) {
+        console.error('Failed to sync listening completion to backend:', err);
+      }
+
+      // 3. Save attempt to localStorage['lingo_listening_attempt_' + video.id] with isCompleted: true
+      const attemptData: ListeningAttempt = {
+        videoId: video.id,
+        completedAt: new Date().toISOString(),
+        clozeScore,
+        clozeTotal,
+        quizScore,
+        quizTotal,
+        percentScore,
+        isCompleted: true,
+      };
+      saveListeningAttempt(attemptData);
+
+      // 4. Dispatch custom event
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(
+          new CustomEvent('lingo_listening_attempt_completed', {
+            detail: { videoId: video.id },
+          })
+        );
+      }
+    },
+    [video]
+  );
+
+  const handleClozeComplete = useCallback(
+    (score: number, total: number) => {
+      setExerciseProgress((prev) => {
+        const next = {
+          ...prev,
+          clozeDone: true,
+          clozeScore: score,
+          clozeTotal: total,
+        };
+
+        let quizDone = next.quizDone;
+        let quizScore = next.quizScore;
+        let quizTotal = next.quizTotal;
+
+        if (!quizDone && video) {
+          const existing = getListeningAttempt(video.id);
+          if (existing && existing.quizTotal > 0) {
+            quizDone = true;
+            quizScore = existing.quizScore;
+            quizTotal = existing.quizTotal;
+            next.quizDone = true;
+            next.quizScore = quizScore;
+            next.quizTotal = quizTotal;
+          }
+        }
+
+        if (quizDone) {
+          void handleTriggerCompletion(score, total, quizScore, quizTotal);
+        }
+
+        return next;
+      });
+    },
+    [video, handleTriggerCompletion]
+  );
+
+  const handleQuizComplete = useCallback(
+    (score: number, total: number) => {
+      setExerciseProgress((prev) => {
+        const next = {
+          ...prev,
+          quizDone: true,
+          quizScore: score,
+          quizTotal: total,
+        };
+
+        let clozeDone = next.clozeDone;
+        let clozeScore = next.clozeScore;
+        let clozeTotal = next.clozeTotal;
+
+        if (!clozeDone && video) {
+          const existing = getListeningAttempt(video.id);
+          if (existing && existing.clozeTotal > 0) {
+            clozeDone = true;
+            clozeScore = existing.clozeScore;
+            clozeTotal = existing.clozeTotal;
+            next.clozeDone = true;
+            next.clozeScore = clozeScore;
+            next.clozeTotal = clozeTotal;
+          }
+        }
+
+        if (clozeDone) {
+          void handleTriggerCompletion(clozeScore, clozeTotal, score, total);
+        }
+
+        return next;
+      });
+    },
+    [video, handleTriggerCompletion]
+  );
+
+  const handleRetryExercises = useCallback(() => {
+    setShowVictoryModal(false);
+    hasTriggeredVictoryRef.current = false;
+    setExerciseProgress({
+      clozeDone: false,
+      clozeScore: 0,
+      clozeTotal: 0,
+      quizDone: false,
+      quizScore: 0,
+      quizTotal: 0,
+    });
+    setExerciseResetKey((k) => k + 1);
+  }, []);
 
   // Initialize saved words from localStorage and listen to cross-component sync
   useEffect(() => {
@@ -338,16 +538,26 @@ export default function InteractiveListeningPage() {
     onNextSentence: handleNextSentence,
     onToggleLoop: handleToggleLoop,
     onCycleSpeed: handleCycleSpeed,
-    onToggleFocusMode: () => {
-      if (isFocusMode) {
-        setIsFocusMode(false);
-        try {
-          localStorage.setItem('lingo_listening_focus_mode', 'false');
-        } catch {}
-      }
-    },
+    onToggleFocusMode: handleExitFocusMode,
     isEnabled: !isLoading && !!video,
   });
+
+  // Dedicated Esc keyboard shortcut listener to exit Focus Mode instantly
+  useEffect(() => {
+    if (!isFocusMode) return;
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        e.preventDefault();
+        handleExitFocusMode();
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isFocusMode, handleExitFocusMode]);
 
   // Save core vocab item
   const handleSaveVocabItem = async (word: string, translation: string) => {
@@ -470,12 +680,12 @@ export default function InteractiveListeningPage() {
       <div
         className={
           isFocusMode
-            ? 'w-full max-w-[1750px] mx-auto px-3 py-3 sm:px-6 sm:py-4 transition-all duration-300'
+            ? 'w-full max-w-[1850px] mx-auto px-3 py-2 sm:px-6 sm:py-3 transition-all duration-300'
             : 'mx-auto max-w-7xl px-3 py-4 sm:px-6 sm:py-6 pb-28 transition-all duration-300'
         }
       >
         {/* Navigation & Focus Mode Control Header */}
-        <div className="mb-3.5 flex items-center justify-between gap-3">
+        <div className="mb-3 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Link
               href="/practice/listening"
@@ -505,13 +715,13 @@ export default function InteractiveListeningPage() {
               {video.cefrLevel}
             </span>
 
-            {/* Focus Mode Toggle Button */}
+            {/* Focus Mode Toggle Button with Prominent Exit and Esc Badge */}
             <button
               type="button"
               onClick={handleToggleFocusMode}
-              className={`flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-bold transition-all active:scale-95 ${
+              className={`flex items-center gap-2 rounded-xl border px-3.5 py-1.5 text-xs font-bold transition-all active:scale-95 cursor-pointer ${
                 isFocusMode
-                  ? 'border-indigo-600 bg-indigo-600 text-white shadow-sm hover:bg-indigo-700'
+                  ? 'border-indigo-600 bg-indigo-600 text-white shadow-sm hover:bg-indigo-700 ring-2 ring-indigo-500/20'
                   : 'border-slate-200 bg-white text-slate-700 shadow-xs hover:border-slate-300 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200'
               }`}
               title={
@@ -522,9 +732,9 @@ export default function InteractiveListeningPage() {
             >
               {isFocusMode ? (
                 <>
-                  <Minimize2 className="h-3.5 w-3.5" />
+                  <Minimize2 className="h-4 w-4" />
                   <span>Thoát tập trung</span>
-                  <kbd className="hidden sm:inline rounded bg-indigo-700/80 px-1 py-0.5 text-[9px] font-mono text-indigo-100">
+                  <kbd className="inline-flex items-center justify-center rounded bg-indigo-700/90 px-1.5 py-0.5 text-[10px] font-mono text-indigo-100 shadow-inner">
                     Esc
                   </kbd>
                 </>
@@ -542,13 +752,13 @@ export default function InteractiveListeningPage() {
         {/* Main Grid: Left Column (Player & Controls) | Right Column (Tabs Workspace) */}
         <div
           className={`grid grid-cols-1 gap-6 lg:grid-cols-12 ${
-            isFocusMode ? 'min-h-[calc(100vh-90px)]' : ''
+            isFocusMode ? 'lg:h-[calc(100vh-80px)]' : ''
           }`}
         >
           {/* Left Column: Video Player & Listening Controls (7 cols on lg) */}
           <div
             className={`space-y-4 lg:col-span-7 ${
-              isFocusMode ? 'flex flex-col justify-start' : ''
+              isFocusMode ? 'flex flex-col lg:h-[calc(100vh-80px)] lg:overflow-y-auto pr-1' : ''
             }`}
           >
             {/* Native YouTube Listening Player */}
@@ -608,7 +818,7 @@ export default function InteractiveListeningPage() {
           <div
             className={`flex flex-col lg:col-span-5 ${
               isFocusMode
-                ? 'h-[calc(100vh-100px)] max-h-[calc(100vh-100px)]'
+                ? 'h-[calc(100vh-80px)] max-h-[calc(100vh-80px)]'
                 : 'h-[650px] lg:h-[750px]'
             }`}
           >
@@ -688,9 +898,11 @@ export default function InteractiveListeningPage() {
             {activeTab === 'cloze' && (
               <div className="flex-1 overflow-y-auto">
                 <ClozeListeningExercise
+                  key={`cloze-${exerciseResetKey}`}
                   videoId={video.id}
                   items={video.clozeItems}
                   onSeekToTimestamp={(ts) => handleSeek(ts, true)}
+                  onComplete={handleClozeComplete}
                 />
               </div>
             )}
@@ -699,9 +911,11 @@ export default function InteractiveListeningPage() {
             {activeTab === 'quiz' && (
               <div className="flex-1 overflow-y-auto">
                 <ComprehensionQuiz
+                  key={`quiz-${exerciseResetKey}`}
                   videoId={video.id}
                   questions={video.comprehensionQuestions}
                   onSeekToTimestamp={(ts) => handleSeek(ts, true)}
+                  onComplete={handleQuizComplete}
                 />
               </div>
             )}
@@ -785,21 +999,37 @@ export default function InteractiveListeningPage() {
           </div>
         </div>
 
-        {/* Mobile Swipeable Subtitle Drawer (< lg screens) */}
-        <MobileSubtitleDrawer
-          cues={video.transcript}
-          activeCueIndex={activeCueIdx}
-          currentTime={currentTime}
-          onSeek={handleSeek}
-          subtitleMode={subtitleMode}
-          onChangeSubtitleMode={setSubtitleMode}
-          coreVocabulary={video.coreVocabulary}
-          isLoopingCue={isLoopingCue}
-          onToggleLoop={handleToggleLoop}
-          loopRange={loopRange}
-          onSetLoopRange={setLoopRange}
-        />
+        {/* Mobile Swipeable Subtitle Drawer (< lg screens) — Hidden in Focus Mode */}
+        {!isFocusMode && (
+          <MobileSubtitleDrawer
+            cues={video.transcript}
+            activeCueIndex={activeCueIdx}
+            currentTime={currentTime}
+            onSeek={handleSeek}
+            subtitleMode={subtitleMode}
+            onChangeSubtitleMode={setSubtitleMode}
+            coreVocabulary={video.coreVocabulary}
+            isLoopingCue={isLoopingCue}
+            onToggleLoop={handleToggleLoop}
+            loopRange={loopRange}
+            onSetLoopRange={setLoopRange}
+            isPlaying={isPlaying}
+            onTogglePlay={handleTogglePlay}
+          />
+        )}
       </div>
+
+      {/* Victory Celebration Modal */}
+      <VictoryCelebrationModal
+        isOpen={showVictoryModal}
+        onClose={() => setShowVictoryModal(false)}
+        clozeScore={exerciseProgress.clozeScore}
+        clozeTotal={exerciseProgress.clozeTotal || (video?.clozeItems?.length || 4)}
+        quizScore={exerciseProgress.quizScore}
+        quizTotal={exerciseProgress.quizTotal || (video?.comprehensionQuestions?.length || 4)}
+        nextVideoId={nextVideoId}
+        onRetry={handleRetryExercises}
+      />
     </StudentShell>
   );
 }

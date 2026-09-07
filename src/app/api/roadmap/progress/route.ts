@@ -72,10 +72,10 @@ export async function POST(req: NextRequest) {
     }
 
     // Checkpoint/đề mini phải đủ điểm pass
-    if ((entry.step.type === 'checkpoint' || entry.step.type === 'exam') && (score === null || score < CHECKPOINT_PASS_PCT)) {
+    if ((entry.step.type === 'checkpoint' || entry.step.type === 'exam' || entry.step.type === 'toeic-mini-test') && (score === null || score < CHECKPOINT_PASS_PCT)) {
       return NextResponse.json({
         success: false,
-        error: `Checkpoint cần đạt ≥${CHECKPOINT_PASS_PCT}% (hiện tại ${score ?? 0}%). Ôn lại chặng rồi thử lại nhé!`,
+        error: `Bài kiểm tra cần đạt ≥${CHECKPOINT_PASS_PCT}% (hiện tại ${score ?? 0}%). Ôn lại chặng rồi thử lại nhé!`,
       }, { status: 422 });
     }
 

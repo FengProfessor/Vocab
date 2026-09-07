@@ -1,11 +1,13 @@
 /**
- * Roadmap loader — hỗ trợ 2 track:
+ * Roadmap loader — hỗ trợ 3 track:
  *  - 'cefr': lộ trình 5 cấp A0→B2 (roadmap-v1.json)
  *  - 'thpt': luyện thi lớp 10/11/12 (roadmap-thpt-v1.json) + nội dung đọc/đề (content-v1.json)
+ *  - 'toeic': luyện thi TOEIC Reading Part 5/6/7 (roadmap-toeic-v1.json)
  * Step ID ổn định gắn nội dung. Progress per-track (user_roadmap.track).
  */
 import roadmapArtifact from '@/data/roadmap/roadmap-v1.json';
 import roadmapThptArtifact from '@/data/roadmap/roadmap-thpt-v1.json';
+import roadmapToeicArtifact from '@/data/roadmap/roadmap-toeic-v1.json';
 import placementArtifact from '@/data/roadmap/placement-v1.json';
 import pronunciationArtifact from '@/data/pronunciation/lessons-v1.json';
 import type { PronunciationLesson, RachelVideoMeta } from '@/types/pronunciation';
@@ -13,20 +15,24 @@ import starterPacksArtifact from '@/data/roadmap/starter-packs-v1.json';
 import thptContentArtifact from '@/data/thpt/content-v1.json';
 import exitStandardsArtifact from '@/data/roadmap/exit-standards-v1.json';
 
-export type RoadmapTrack = 'cefr' | 'thpt';
-export type RoadmapLevelId = 'A0' | 'A1' | 'A2' | 'B1' | 'B2' | 'lop-10' | 'lop-11' | 'lop-12';
+export type RoadmapTrack = 'cefr' | 'thpt' | 'toeic';
+export type RoadmapLevelId = 'A0' | 'A1' | 'A2' | 'B1' | 'B2' | 'lop-10' | 'lop-11' | 'lop-12' | 'toeic-450' | 'toeic-650' | 'toeic-800';
 export const CEFR_LEVEL_ORDER: RoadmapLevelId[] = ['A0', 'A1', 'A2', 'B1', 'B2'];
 export const THPT_LEVEL_ORDER: RoadmapLevelId[] = ['lop-10', 'lop-11', 'lop-12'];
+export const TOEIC_LEVEL_ORDER: RoadmapLevelId[] = ['toeic-450', 'toeic-650', 'toeic-800'];
 /** Backward-compat: mặc định thứ tự CEFR. */
 export const ROADMAP_LEVEL_ORDER = CEFR_LEVEL_ORDER;
 
 export function levelOrder(track: RoadmapTrack): RoadmapLevelId[] {
-  return track === 'thpt' ? THPT_LEVEL_ORDER : CEFR_LEVEL_ORDER;
+  if (track === 'thpt') return THPT_LEVEL_ORDER;
+  if (track === 'toeic') return TOEIC_LEVEL_ORDER;
+  return CEFR_LEVEL_ORDER;
 }
 
 export type RoadmapStepType =
   | 'vocab' | 'grammar' | 'pronunciation' | 'checkpoint'
-  | 'reading' | 'cloze' | 'arrange' | 'announcement' | 'leaflet' | 'exam';
+  | 'reading' | 'cloze' | 'arrange' | 'announcement' | 'leaflet' | 'exam'
+  | 'toeic-part5' | 'toeic-part6' | 'toeic-part7' | 'toeic-mini-test';
 
 export interface RoadmapStep {
   id: string;
@@ -66,6 +72,7 @@ export interface PlacementQuestion {
 
 const cefr = roadmapArtifact as unknown as RoadmapArtifact;
 const thpt = roadmapThptArtifact as unknown as RoadmapArtifact;
+const toeic = roadmapToeicArtifact as unknown as RoadmapArtifact;
 const pronunciation = pronunciationArtifact as unknown as { lessons: PronunciationLesson[] };
 const placement = placementArtifact as unknown as {
   version: string; rule: { passPerLevel: number; questionsPerLevel: number }; questions: PlacementQuestion[];
@@ -74,7 +81,9 @@ const placement = placementArtifact as unknown as {
 export const ROADMAP_VERSION = cefr.roadmapVersion;
 
 function artifactOf(track: RoadmapTrack): RoadmapArtifact {
-  return track === 'thpt' ? thpt : cefr;
+  if (track === 'thpt') return thpt;
+  if (track === 'toeic') return toeic;
+  return cefr;
 }
 
 export function getRoadmapLevels(track: RoadmapTrack = 'cefr'): RoadmapLevel[] {
@@ -96,6 +105,7 @@ function buildIndex(artifact: RoadmapArtifact): Map<string, StepEntry> {
 const stepIndexByTrack: Record<RoadmapTrack, Map<string, StepEntry>> = {
   cefr: buildIndex(cefr),
   thpt: buildIndex(thpt),
+  toeic: buildIndex(toeic),
 };
 
 export function orderedStepIds(track: RoadmapTrack = 'cefr'): string[] {
@@ -106,9 +116,9 @@ export function resolveStep(stepId: string, track: RoadmapTrack = 'cefr'): StepE
   return stepIndexByTrack[track].get(stepId) ?? null;
 }
 
-/** Tra step ở cả 2 track (step_id không trùng giữa artifact). Dùng khi progress không biết track. */
+/** Tra step ở cả 3 track (step_id không trùng giữa artifact). Dùng khi progress không biết track. */
 export function resolveStepAny(stepId: string): { entry: StepEntry; track: RoadmapTrack } | null {
-  for (const track of ['cefr', 'thpt'] as const) {
+  for (const track of ['cefr', 'thpt', 'toeic'] as const) {
     const entry = stepIndexByTrack[track].get(stepId);
     if (entry) return { entry, track };
   }

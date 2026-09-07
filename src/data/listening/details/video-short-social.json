@@ -3,517 +3,271 @@
   "youtubeId": "CqgmozFr_GM",
   "title": "How to Stay Calm Under Pressure: The Science of Choking",
   "channel": "TED-Ed",
-  "duration": 268,
-  "durationDisplay": "04:28",
+  "duration": 285,
+  "durationDisplay": "04:45",
   "durationCategory": "short",
   "cefrLevel": "B2",
-  "topic": "social_conversations",
-  "topicDisplay": "Giao tiếp xã hội",
+  "topic": "social_stories",
+  "topicDisplay": "Khoa học đời sống & Xã hội",
   "thumbnailUrl": "https://img.youtube.com/vi/CqgmozFr_GM/hqdefault.jpg",
-  "description": "Bài giảng truyền cảm hứng từ TED-Ed giải mã tâm lý học về sự bình tĩnh khi chịu áp lực trong giao tiếp và thi đấu.",
+  "description": "Tìm hiểu nguyên nhân tâm lý và thần kinh khiến chúng ta bị 'nghẹn' (choke) khi đứng trước áp lực lớn và các chiến lược khoa học giúp lấy lại sự điềm tĩnh và phong độ đỉnh cao.",
   "coreVocabulary": [
-    {
-      "word": "pressure",
-      "phonetic": "/ˈpreʃə/",
-      "viDefinition": "áp lực, sức ép tâm lý",
-      "contextSentence": "Learning to stay calm under intense pressure is crucial."
-    },
-    {
-      "word": "anxiety",
-      "phonetic": "/æŋˈzaɪəti/",
-      "viDefinition": "sự lo âu, cảm giác bồn chồn",
-      "contextSentence": "High anxiety can disrupt normal motor execution."
-    },
-    {
-      "word": "subconscious",
-      "phonetic": "/ˌsʌbˈkɒnʃəs/",
-      "viDefinition": "tiềm thức, dưới ý thức",
-      "contextSentence": "Routine skills become automated in our subconscious."
-    },
-    {
-      "word": "performance",
-      "phonetic": "/pəˈfɔːməns/",
-      "viDefinition": "màn trình diễn, hiệu suất",
-      "contextSentence": "Athletes focus on their performance under pressure."
-    },
     {
       "word": "choke",
       "phonetic": "/tʃəʊk/",
-      "viDefinition": "nghẹn, thất bại vì căng thẳng quá mức",
-      "contextSentence": "Why do capable performers sometimes choke under pressure?"
+      "viDefinition": "nghẹn, thất bại bất ngờ do áp lực tâm lý đè nặng",
+      "contextSentence": "Psychologists call this sudden performance failure choking under pressure."
+    },
+    {
+      "word": "cortex",
+      "phonetic": "/ˈkɔːteks/",
+      "viDefinition": "vỏ não, đặc biệt là vùng vỏ não trước trán phụ trách tư duy",
+      "contextSentence": "High stress floods your prefrontal cortex with anxious worries."
+    },
+    {
+      "word": "autopilot",
+      "phonetic": "/ˈɔːtəʊpaɪlət/",
+      "viDefinition": "chế độ tự động, vận hành bằng phản xạ không cần suy nghĩ",
+      "contextSentence": "Tasks practiced thousands of times belong on autopilot."
+    },
+    {
+      "word": "external",
+      "phonetic": "/ɪkˈstɜːnl/",
+      "viDefinition": "bên ngoài, hướng sự chú ý ra ngoại cảnh",
+      "contextSentence": "Adopt an external focus of attention rather than analyzing mechanics."
     }
   ],
   "transcript": [
     {
       "id": "cue-1",
-      "start": 6.83,
-      "end": 10.44,
-      "en": "Your favorite athlete closes in for a victorious win.",
-      "vi": "Vận động viên yêu thích của bạn sắp giành chiến thắng."
+      "start": 0,
+      "end": 7.2,
+      "en": "It is the championship game, thousands of spectators are screaming, and you have the final shot.",
+      "vi": "Đó là trận chung kết, hàng ngàn khán giả đang la hét và bạn nắm giữ cú ném quyết định."
     },
     {
       "id": "cue-2",
-      "start": 10.49,
-      "end": 12.25,
-      "en": "The crowd holds its breath,",
-      "vi": "Đám đông nín thở,"
+      "start": 8,
+      "end": 15.5,
+      "en": "Suddenly your palms sweat, your heart hammers against your ribs, and your body feels stiff.",
+      "vi": "Đột nhiên lòng bàn tay bạn ướt đẫm mồ hôi, tim bạn đập thình thịch vào lồng ngực và cơ thể bạn cảm thấy cứng đờ."
     },
     {
       "id": "cue-3",
-      "start": 12.3,
-      "end": 15.6,
-      "en": "and, at the crucial moment, she misses the shot.",
-      "vi": "và vào thời điểm quan trọng, cô ấy đã bắn trượt."
+      "start": 16.2,
+      "end": 24.8,
+      "en": "You take the shot and miss completely. Psychologists call this sudden failure 'choking under pressure'.",
+      "vi": "Bạn thực hiện cú ném và hoàn toàn trượt. Các nhà tâm lý học gọi sự thất bại đột ngột này là 'nghẹn dưới áp lực'."
     },
     {
       "id": "cue-4",
-      "start": 15.65,
-      "end": 19.41,
-      "en": "That competitor just experienced the phenomenon known as \"choking,\"",
-      "vi": "Thí sinh đó vừa trải qua hiện tượng gọi là \"nghẹt thở\","
+      "start": 25.5,
+      "end": 34,
+      "en": "Choking is not merely performing poorly; it is performing significantly below your actual capability.",
+      "vi": "Nghẹn không đơn thuần là thể hiện kém; đó là việc thể hiện kém hơn đáng kể so với năng lực thực sự của bạn."
     },
     {
       "id": "cue-5",
-      "start": 19.46,
-      "end": 22.18,
-      "en": "where despite months, even years, of practice,",
-      "vi": "nơi mà bất chấp nhiều tháng, thậm chí nhiều năm luyện tập,"
+      "start": 34.8,
+      "end": 43.5,
+      "en": "There are two dominant scientific theories that explain why this psychological meltdown occurs.",
+      "vi": "Có hai học thuyết khoa học chủ đạo giải thích tại sao sự sụp đổ tâm lý này lại xảy ra."
     },
     {
       "id": "cue-6",
-      "start": 22.23,
-      "end": 24.91,
-      "en": "a person fails right when it matters most.",
-      "vi": "một người thất bại ngay khi điều đó quan trọng nhất."
+      "start": 44.2,
+      "end": 53,
+      "en": "The first is distraction theory: high stress floods your prefrontal cortex with worries and fear of failure.",
+      "vi": "Thuyết thứ nhất là thuyết xao nhãng: căng thẳng tột độ làm tràn ngập vỏ não trước trán với những lo lắng và nỗi sợ thất bại."
     },
     {
       "id": "cue-7",
-      "start": 24.96,
-      "end": 26.54,
-      "en": "Choking is common in sports,",
-      "vi": "Nghẹt thở là điều thường gặp trong thể thao,"
+      "start": 53.8,
+      "end": 62.5,
+      "en": "These anxious thoughts consume valuable working memory that you need to calculate distance or trajectory.",
+      "vi": "Những suy nghĩ lo âu này chiếm dụng bộ nhớ làm việc quý giá mà bạn cần để tính toán khoảng cách hoặc quỹ đạo."
     },
     {
       "id": "cue-8",
-      "start": 26.59,
-      "end": 29.66,
-      "en": "where performance often occurs under intense pressure",
-      "vi": "nơi hiệu suất thường xảy ra dưới áp lực mạnh mẽ"
+      "start": 63.2,
+      "end": 72,
+      "en": "The second theory is explicit monitoring: under stress, you attempt to consciously control automatic movements.",
+      "vi": "Học thuyết thứ hai là giám sát tường minh: dưới áp lực, bạn cố gắng kiểm soát một cách có ý thức các chuyển động tự động."
     },
     {
       "id": "cue-9",
-      "start": 29.71,
-      "end": 31.52,
-      "en": "and depends on key moments.",
-      "vi": "và phụ thuộc vào những thời điểm quan trọng."
+      "start": 72.8,
+      "end": 81.5,
+      "en": "Tasks that you have practiced thousands of times belong on autopilot, guided by your motor cortex.",
+      "vi": "Những động tác bạn đã luyện tập hàng ngàn lần nên để ở chế độ tự động, được điều khiển bởi vỏ não vận động."
     },
     {
       "id": "cue-10",
-      "start": 31.57,
-      "end": 35.49,
-      "en": "And yet, performance anxiety also haunts public speakers,",
-      "vi": "Chưa hết, nỗi lo lắng về hiệu suất cũng ám ảnh các diễn giả trước công chúng,"
+      "start": 82.2,
+      "end": 91,
+      "en": "When you overthink each joint angle or muscle contraction, you disrupt the natural fluid coordination.",
+      "vi": "Khi bạn suy nghĩ quá mức về từng góc khớp hay sự co cơ, bạn sẽ làm gián đoạn sự phối hợp nhịp nhàng tự nhiên."
     },
     {
       "id": "cue-11",
-      "start": 35.54,
-      "end": 37.41,
-      "en": "contestants in spelling bees,",
-      "vi": "thí sinh thi đánh vần ong,"
+      "start": 91.8,
+      "end": 100.5,
+      "en": "So how can you insulate yourself against choking when the stakes are highest?",
+      "vi": "Vậy làm thế nào bạn có thể bảo vệ bản thân trước hiện tượng nghẹn khi sự việc có tính chất quyết định cao nhất?"
     },
     {
       "id": "cue-12",
-      "start": 37.46,
-      "end": 39.7,
-      "en": "and even world-famous musicians.",
-      "vi": "và cả những nhạc sĩ nổi tiếng thế giới."
+      "start": 101.2,
+      "end": 110,
+      "en": "First, simulate high-pressure conditions during your regular training sessions.",
+      "vi": "Đầu tiên, hãy mô phỏng các điều kiện áp lực cao ngay trong các buổi tập luyện thường ngày."
     },
     {
       "id": "cue-13",
-      "start": 39.75,
-      "end": 42.75,
-      "en": "Most people intuitively blame it on their nerves,",
-      "vi": "Hầu hết mọi người theo trực giác đổ lỗi cho sự căng thẳng của họ,"
+      "start": 110.8,
+      "end": 119.5,
+      "en": "Have teammates watch you, introduce friendly wagers, or set strict time limits on drills.",
+      "vi": "Nhờ đồng đội quan sát bạn, đưa vào các màn cá cược vui vẻ hoặc đặt giới hạn thời gian nghiêm ngặt cho bài tập."
     },
     {
       "id": "cue-14",
-      "start": 42.8,
-      "end": 46.84,
-      "en": "but why does being nervous undermine expert performance?",
-      "vi": "nhưng tại sao sự lo lắng lại làm suy yếu hiệu quả hoạt động của chuyên gia?"
+      "start": 120.2,
+      "end": 129,
+      "en": "Second, adopt an external focus of attention rather than analyzing your own physical mechanics.",
+      "vi": "Thứ hai, hãy hướng sự tập trung ra bên ngoài thay vì phân tích cơ học chuyển động của chính cơ thể bạn."
     },
     {
       "id": "cue-15",
-      "start": 46.89,
-      "end": 48.64,
-      "en": "There are two sets of theories,",
-      "vi": "Có hai bộ lý thuyết,"
+      "start": 129.8,
+      "end": 139,
+      "en": "A golfer should focus on the target hole, and a public speaker should focus on connecting with the audience.",
+      "vi": "Một vận động viên golf nên tập trung vào lỗ mục tiêu, và một diễn giả nên tập trung vào việc kết nối với khán giả."
     },
     {
       "id": "cue-16",
-      "start": 48.69,
-      "end": 54.22,
-      "en": "which both say that primarily, choking under pressure boils down to focus.",
-      "vi": "mà cả hai đều nói rằng chủ yếu, nghẹt thở dưới áp lực là do sự tập trung."
+      "start": 139.8,
+      "end": 149,
+      "en": "Third, practice mindfulness and deep breathing to dial down the fight-or-flight sympathetic response.",
+      "vi": "Thứ ba, thực hành chánh niệm và thở sâu để hạ bớt phản ứng chiến-hay-biến của hệ thần kinh giao cảm."
     },
     {
       "id": "cue-17",
-      "start": 54.27,
-      "end": 57.1,
-      "en": "First, there are the distraction theories.",
-      "vi": "Đầu tiên, đó là những lý thuyết về sự xao lãng."
-    },
-    {
-      "id": "cue-18",
-      "start": 57.15,
-      "end": 60.69,
-      "en": "These suggest that performance suffers when the mind is preoccupied",
-      "vi": "Những điều này cho thấy hiệu suất bị ảnh hưởng khi tâm trí bận tâm"
-    },
-    {
-      "id": "cue-19",
-      "start": 60.74,
-      "end": 62.79,
-      "en": "with worries, doubts, or fears,",
-      "vi": "với những lo lắng, nghi ngờ hoặc sợ hãi,"
-    },
-    {
-      "id": "cue-20",
-      "start": 62.84,
-      "end": 67.62,
-      "en": "instead of focusing its attention on performing the task at hand.",
-      "vi": "thay vì tập trung sự chú ý vào việc thực hiện nhiệm vụ trước mắt."
-    },
-    {
-      "id": "cue-21",
-      "start": 67.67,
-      "end": 71.09,
-      "en": "When relevant and irrelevant thoughts compete for the same attention,",
-      "vi": "Khi những suy nghĩ có liên quan và không liên quan cạnh tranh nhau để giành được sự chú ý,"
-    },
-    {
-      "id": "cue-22",
-      "start": 71.14,
-      "end": 73.14,
-      "en": "something has to give.",
-      "vi": "một cái gì đó phải cho đi."
-    },
-    {
-      "id": "cue-23",
-      "start": 73.19,
-      "end": 76.64,
-      "en": "The brain can only process so much information at once.",
-      "vi": "Bộ não chỉ có thể xử lý rất nhiều thông tin cùng một lúc."
-    },
-    {
-      "id": "cue-24",
-      "start": 76.69,
-      "end": 80.63,
-      "en": "Tasks that challenge working memory, the mental \"scratch pad\" we use",
-      "vi": "Những nhiệm vụ thách thức trí nhớ ngắn hạn, \"bàn chải đầu\" tinh thần mà chúng ta sử dụng"
-    },
-    {
-      "id": "cue-25",
-      "start": 80.68,
-      "end": 83.73,
-      "en": "to temporarily store phone numbers and grocery lists,",
-      "vi": "để lưu trữ tạm thời số điện thoại và danh sách tạp hóa,"
-    },
-    {
-      "id": "cue-26",
-      "start": 83.78,
-      "end": 86.84,
-      "en": "are especially vulnerable to pressure.",
-      "vi": "đặc biệt dễ bị tổn thương trước áp lực."
-    },
-    {
-      "id": "cue-27",
-      "start": 86.89,
-      "end": 90.28,
-      "en": "In a 2004 study, a group of university students",
-      "vi": "Trong một nghiên cứu năm 2004, một nhóm sinh viên đại học"
-    },
-    {
-      "id": "cue-28",
-      "start": 90.33,
-      "end": 92.17,
-      "en": "were asked to perform math problems,",
-      "vi": "được yêu cầu thực hiện các bài toán,"
-    },
-    {
-      "id": "cue-29",
-      "start": 92.22,
-      "end": 96.14,
-      "en": "some easy, others more complex and memory-intensive.",
-      "vi": "một số dễ dàng, một số khác phức tạp hơn và tốn nhiều bộ nhớ."
-    },
-    {
-      "id": "cue-30",
-      "start": 96.19,
-      "end": 100.59,
-      "en": "Half the students completed both problem types with nothing at stake,",
-      "vi": "Một nửa số học sinh đã hoàn thành cả hai loại vấn đề mà không gặp nguy hiểm gì,"
-    },
-    {
-      "id": "cue-31",
-      "start": 100.64,
-      "end": 104.93,
-      "en": "while the others completed them when calm and under pressure.",
-      "vi": "trong khi những người khác hoàn thành chúng khi bình tĩnh và chịu áp lực."
-    },
-    {
-      "id": "cue-32",
-      "start": 104.98,
-      "end": 107.48,
-      "en": "While everyone did well on the easy problems,",
-      "vi": "Trong khi mọi người đều làm tốt những bài toán dễ,"
-    },
-    {
-      "id": "cue-33",
-      "start": 107.53,
-      "end": 109.53,
-      "en": "those who were stressed performed worse",
-      "vi": "những người bị căng thẳng làm việc tệ hơn"
-    },
-    {
-      "id": "cue-34",
-      "start": 109.58,
-      "end": 112.34,
-      "en": "on the more difficult, memory-intensive tasks.",
-      "vi": "những nhiệm vụ khó hơn, tốn nhiều trí nhớ hơn."
-    },
-    {
-      "id": "cue-35",
-      "start": 112.39,
-      "end": 116.44,
-      "en": "Explicit monitoring theories make up the second group of explanations",
-      "vi": "Các lý thuyết giám sát rõ ràng tạo nên nhóm giải thích thứ hai"
+      "start": 149.8,
+      "end": 160,
+      "en": "Remember: pressure is not an enemy, but an indicator that what you are doing truly matters.",
+      "vi": "Hãy nhớ rằng: áp lực không phải là kẻ thù, mà là dấu hiệu cho thấy điều bạn đang làm thực sự quan trọng."
     }
   ],
   "clozeItems": [
     {
-      "id": "cloze-1",
+      "id": "cloze-short-4-1",
       "cueId": "cue-3",
-      "sentence": "and, at the {{blank}} moment, she misses the shot.",
-      "blankWord": "crucial",
-      "hintVi": "và vào thời điểm quan trọng, cô ấy đã bắ",
-      "timestamp": 13.95,
+      "sentence": "Psychologists call this sudden performance failure {{blank}} under pressure.",
+      "blankWord": "choking",
+      "hintVi": "nghẹn, tê liệt phong độ",
+      "timestamp": 16.2,
       "options": [
-        "crucial",
-        "habit",
-        "practice",
-        "routine"
+        "choking",
+        "cheating",
+        "winning",
+        "escaping"
       ]
     },
     {
-      "id": "cloze-2",
+      "id": "cloze-short-4-2",
       "cueId": "cue-6",
-      "sentence": "a {{blank}} fails right when it matters most.",
-      "blankWord": "person",
-      "hintVi": "một người thất bại ngay khi điều đó quan",
-      "timestamp": 23.57,
+      "sentence": "High stress floods your prefrontal {{blank}} with anxious worries and fear of failure.",
+      "blankWord": "cortex",
+      "hintVi": "vỏ não",
+      "timestamp": 44.2,
       "options": [
-        "habit",
-        "person",
-        "practice",
-        "routine"
+        "cortex",
+        "muscle",
+        "stomach",
+        "spine"
       ]
     },
     {
-      "id": "cloze-3",
+      "id": "cloze-short-4-3",
       "cueId": "cue-9",
-      "sentence": "and {{blank}} on key moments.",
-      "blankWord": "depends",
-      "hintVi": "và phụ thuộc vào những thời điểm quan tr",
-      "timestamp": 30.62,
+      "sentence": "Tasks practiced thousands of times belong on {{blank}}, guided by motor memory.",
+      "blankWord": "autopilot",
+      "hintVi": "chế độ lái tự động",
+      "timestamp": 72.8,
       "options": [
-        "depends",
-        "habit",
-        "practice",
-        "routine"
+        "autopilot",
+        "standby",
+        "rehearsal",
+        "trial"
       ]
     },
     {
-      "id": "cloze-4",
-      "cueId": "cue-13",
-      "sentence": "{{blank}} people intuitively blame it on their nerves,",
-      "blankWord": "Most",
-      "hintVi": "Hầu hết mọi người theo trực giác đổ lỗi ",
-      "timestamp": 41.25,
+      "id": "cloze-short-4-4",
+      "cueId": "cue-14",
+      "sentence": "Adopt an {{blank}} focus of attention rather than overanalyzing your mechanics.",
+      "blankWord": "external",
+      "hintVi": "bên ngoài",
+      "timestamp": 120.2,
       "options": [
-        "Most",
-        "habit",
-        "practice",
-        "routine"
+        "external",
+        "internal",
+        "imaginary",
+        "intense"
       ]
     }
   ],
   "comprehensionQuestions": [
     {
-      "id": "quiz-1",
-      "question": "What is discussed in section 1 around 00:06?",
+      "id": "quiz-short-4-1",
+      "question": "According to distraction theory, what causes choking?",
       "options": [
-        "Your favorite athlete closes in for a victorious win.",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "Loud noise damaging physical hearing",
+        "Anxious thoughts consuming limited working memory in the prefrontal cortex",
+        "Lack of carbohydrates in the bloodstream",
+        "Muscles completely running out of oxygen"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'Your favorite athlete closes in for a victorious win.' (Mốc thời gian: 00:06).",
-      "timestampSeek": 6.83
+      "correctIndex": 1,
+      "explanation": "Ở mốc 00:44 (cue-6/7), bài học giải thích những suy nghĩ lo âu làm tràn ngập vỏ não trước trán và tiêu tốn bộ nhớ làm việc.",
+      "timestampSeek": 44.2
     },
     {
-      "id": "quiz-2",
-      "question": "What is discussed in section 2 around 00:19?",
+      "id": "quiz-short-4-2",
+      "question": "What happens during 'explicit monitoring' under stress?",
       "options": [
-        "where despite months, even years, of practice,",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "The athlete forgets the basic rules of the sport",
+        "People attempt to consciously control automatic movements, disrupting fluidity",
+        "The eyes lose focus on distant objects",
+        "Heart rate drops below healthy levels"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'where despite months, even years, of practice,' (Mốc thời gian: 00:19).",
-      "timestampSeek": 19.46
+      "correctIndex": 1,
+      "explanation": "Ở mốc 01:12 (cue-8/10), video chỉ ra rằng việc cố gắng kiểm soát từng chuyển động một cách có ý thức sẽ làm phá vỡ sự mượt mà tự nhiên.",
+      "timestampSeek": 72.8
     },
     {
-      "id": "quiz-3",
-      "question": "What is discussed in section 3 around 00:29?",
+      "id": "quiz-short-4-3",
+      "question": "What is an example of an 'external focus of attention'?",
       "options": [
-        "and depends on key moments.",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "Analyzing the exact angle of your elbow during a shot",
+        "Focusing on the target hole or audience connection",
+        "Counting your heartbeat beats per minute",
+        "Thinking about your past sports injuries"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'and depends on key moments.' (Mốc thời gian: 00:29).",
-      "timestampSeek": 29.71
+      "correctIndex": 1,
+      "explanation": "Ở mốc 02:09 (cue-15), bài học nêu ví dụ người chơi golf tập trung vào lỗ mục tiêu, diễn giả tập trung vào người nghe thay vì phân tích cơ học cơ thể.",
+      "timestampSeek": 129.8
     },
     {
-      "id": "quiz-4",
-      "question": "What is discussed in section 4 around 01:52?",
+      "id": "quiz-short-4-4",
+      "question": "How does the narrator reframe the concept of 'pressure' in the conclusion?",
       "options": [
-        "Explicit monitoring theories make up the second group of exp",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "Pressure is a disease that must be medically treated",
+        "Pressure indicates that what you are doing truly matters to you",
+        "Pressure only affects inexperienced amateurs",
+        "Pressure should be avoided at all costs"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'Explicit monitoring theories make up the second group of explanations' (Mốc thời gian: 01:52).",
-      "timestampSeek": 112.39
+      "correctIndex": 1,
+      "explanation": "Ở mốc 02:29 (cue-17), thông điệp kết luận: 'pressure is not an enemy, but an indicator that what you are doing truly matters'.",
+      "timestampSeek": 149.8
     }
-  ],
-  "exercises": {
-    "clozeItems": [
-      {
-        "id": "cloze-1",
-        "cueId": "cue-3",
-        "sentence": "and, at the {{blank}} moment, she misses the shot.",
-        "blankWord": "crucial",
-        "hintVi": "và vào thời điểm quan trọng, cô ấy đã bắ",
-        "timestamp": 13.95,
-        "options": [
-          "crucial",
-          "habit",
-          "practice",
-          "routine"
-        ]
-      },
-      {
-        "id": "cloze-2",
-        "cueId": "cue-6",
-        "sentence": "a {{blank}} fails right when it matters most.",
-        "blankWord": "person",
-        "hintVi": "một người thất bại ngay khi điều đó quan",
-        "timestamp": 23.57,
-        "options": [
-          "habit",
-          "person",
-          "practice",
-          "routine"
-        ]
-      },
-      {
-        "id": "cloze-3",
-        "cueId": "cue-9",
-        "sentence": "and {{blank}} on key moments.",
-        "blankWord": "depends",
-        "hintVi": "và phụ thuộc vào những thời điểm quan tr",
-        "timestamp": 30.62,
-        "options": [
-          "depends",
-          "habit",
-          "practice",
-          "routine"
-        ]
-      },
-      {
-        "id": "cloze-4",
-        "cueId": "cue-13",
-        "sentence": "{{blank}} people intuitively blame it on their nerves,",
-        "blankWord": "Most",
-        "hintVi": "Hầu hết mọi người theo trực giác đổ lỗi ",
-        "timestamp": 41.25,
-        "options": [
-          "Most",
-          "habit",
-          "practice",
-          "routine"
-        ]
-      }
-    ],
-    "comprehensionQuestions": [
-      {
-        "id": "quiz-1",
-        "question": "What is discussed in section 1 around 00:06?",
-        "options": [
-          "Your favorite athlete closes in for a victorious win.",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'Your favorite athlete closes in for a victorious win.' (Mốc thời gian: 00:06).",
-        "timestampSeek": 6.83
-      },
-      {
-        "id": "quiz-2",
-        "question": "What is discussed in section 2 around 00:19?",
-        "options": [
-          "where despite months, even years, of practice,",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'where despite months, even years, of practice,' (Mốc thời gian: 00:19).",
-        "timestampSeek": 19.46
-      },
-      {
-        "id": "quiz-3",
-        "question": "What is discussed in section 3 around 00:29?",
-        "options": [
-          "and depends on key moments.",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'and depends on key moments.' (Mốc thời gian: 00:29).",
-        "timestampSeek": 29.71
-      },
-      {
-        "id": "quiz-4",
-        "question": "What is discussed in section 4 around 01:52?",
-        "options": [
-          "Explicit monitoring theories make up the second group of exp",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'Explicit monitoring theories make up the second group of explanations' (Mốc thời gian: 01:52).",
-        "timestampSeek": 112.39
-      }
-    ]
-  }
+  ]
 }

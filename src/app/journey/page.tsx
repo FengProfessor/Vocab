@@ -67,11 +67,14 @@ const LEVEL_COLORS: Record<string, string> = {
   'lop-10': 'from-red-500 to-orange-600',
   'lop-11': 'from-red-600 to-rose-600',
   'lop-12': 'from-red-700 to-pink-600',
+  'toeic-450': 'from-blue-500 to-indigo-600',
+  'toeic-650': 'from-amber-500 to-yellow-600',
+  'toeic-800': 'from-purple-500 to-pink-600',
 };
 
 const TRACK_STORAGE_KEY = 'roadmap_active_track';
 
-type PlacementMode = 'pick-intro' | 'pick' | 'test' | 'thpt-grade' | null;
+type PlacementMode = 'pick-intro' | 'pick' | 'test' | 'thpt-grade' | 'toeic-level' | null;
 
 export default function JourneyPage() {
   const router = useRouter();
@@ -130,7 +133,13 @@ export default function JourneyPage() {
       if (data.needsPlacement || !data.tree) {
         setNeedsPlacement(true);
         setTree([]);
-        setMode(activeTrack === 'thpt' ? 'thpt-grade' : 'pick-intro');
+        setMode(
+          activeTrack === 'thpt'
+            ? 'thpt-grade'
+            : activeTrack === 'toeic'
+            ? 'toeic-level'
+            : 'pick-intro',
+        );
       } else {
         setNeedsPlacement(false);
         setTree(data.tree);
@@ -236,11 +245,19 @@ export default function JourneyPage() {
         error?: string;
       };
       if (!json.success || !json.data) throw new Error(json.error || 'Không xếp được cấp');
-      const placedTrack = (json.data.track === 'thpt' ? 'thpt' : 'cefr') as RoadmapTrackId;
+      const placedTrack = (
+        json.data.track === 'thpt'
+          ? 'thpt'
+          : json.data.track === 'toeic'
+          ? 'toeic'
+          : 'cefr'
+      ) as RoadmapTrackId;
       toast.success(
         placedTrack === 'thpt'
-          ? `Bắt đầu từ lớp ${json.data.levelId.replace('lop-', '')}. Có thể học thêm CEFR bất cứ lúc nào.`
-          : `Điểm bắt đầu: cấp ${json.data.levelId}. Có thể mở thêm lộ trình THPT bất cứ lúc nào.`,
+          ? `Bắt đầu từ lớp ${json.data.levelId.replace('lop-', '')}. Có thể học thêm CEFR/TOEIC bất cứ lúc nào.`
+          : placedTrack === 'toeic'
+          ? `Bắt đầu lộ trình TOEIC ${json.data.levelId.replace('toeic-', '')}+. Chúc bạn luyện thi bứt phá!`
+          : `Điểm bắt đầu: cấp ${json.data.levelId}. Có thể mở thêm lộ trình THPT/TOEIC bất cứ lúc nào.`,
       );
       setMode(null);
       setLoading(true);
@@ -273,6 +290,7 @@ export default function JourneyPage() {
     setBusyStep(step.id);
     try {
       const THPT_TYPES = ['reading', 'cloze', 'arrange', 'announcement', 'leaflet', 'exam'];
+      const TOEIC_PART_TYPES = ['toeic-part5', 'toeic-part6', 'toeic-part7'];
 
       // Close preview modal if open
       setPreviewStep(null);
@@ -285,7 +303,9 @@ export default function JourneyPage() {
         (step.type === 'vocab' || step.type === 'grammar')
       ) {
         const replay = window.confirm(
-          `「${step.title}」đã hoàn thành${step.fromLibrary ? ' (đồng bộ từ kho)' : ''}.\n\nOK = học lại · Cancel = giữ nguyên.`,
+          `「${step.title}」đã hoàn thành${step.fromLibrary ? ' (đồng bộ từ kho)' : ''}.
+
+OK = học lại · Cancel = giữ nguyên.`,
         );
         if (!replay) return;
       }
@@ -336,6 +356,11 @@ export default function JourneyPage() {
         );
       } else if (step.type === 'pronunciation') {
         router.push(`/pronunciation/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
+      } else if (TOEIC_PART_TYPES.includes(step.type)) {
+        const partSlug = step.type.replace('toeic-', '');
+        router.push(`/toeic/${partSlug}/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
+      } else if (step.type === 'toeic-mini-test') {
+        router.push(`/toeic/exam/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
       } else if (THPT_TYPES.includes(step.type)) {
         router.push(`/thpt/${step.type}/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);
       } else {
@@ -366,6 +391,7 @@ export default function JourneyPage() {
   );
   const hasCefr = enrolledTracks.has('cefr');
   const hasThpt = enrolledTracks.has('thpt');
+  const hasToeic = enrolledTracks.has('toeic');
 
   // Stats computation for TrackSwitcher
   const currentTrackStats: TrackStats = useMemo(() => {
@@ -402,6 +428,7 @@ export default function JourneyPage() {
 
   const cefrEnrollment = enrollments.find((e) => e.track === 'cefr');
   const thptEnrollment = enrollments.find((e) => e.track === 'thpt');
+  const toeicEnrollment = enrollments.find((e) => e.track === 'toeic');
 
   const cefrStats: TrackStats =
     track === 'cefr'
@@ -425,6 +452,19 @@ export default function JourneyPage() {
             ? `Lớp ${thptEnrollment.levelId.replace('lop-', '')}`
             : undefined,
           isEnrolled: hasThpt,
+        };
+
+  const toeicStats: TrackStats =
+    track === 'toeic'
+      ? currentTrackStats
+      : {
+          completedUnits: 0,
+          totalUnits: 0,
+          progressPct: 0,
+          currentLevelTitle: toeicEnrollment
+            ? `TOEIC ${toeicEnrollment.levelId.replace('toeic-', '')}+`
+            : undefined,
+          isEnrolled: hasToeic,
         };
 
   // Next Actionable Step across entire visible tree
@@ -538,6 +578,7 @@ export default function JourneyPage() {
             onTrackChange={(t) => void switchTrack(t)}
             cefrStats={cefrStats}
             thptStats={thptStats}
+            toeicStats={toeicStats}
           />
         )}
         <h1 className="text-2xl font-bold">Bạn học lớp mấy?</h1>
@@ -587,6 +628,83 @@ export default function JourneyPage() {
     );
   }
 
+  if (showPlacement && mode === 'toeic-level') {
+    const toeicLevels = [
+      {
+        id: 'toeic-450',
+        label: 'TOEIC 450+ · Nền tảng',
+        desc: 'Xây vững ngữ pháp cốt lõi, từ vựng công sở, làm quen Part 5 & 6 cơ bản.',
+      },
+      {
+        id: 'toeic-650',
+        label: 'TOEIC 650+ · Bứt phá',
+        desc: 'Tăng tốc Part 5, xử lý Part 6 & 7 đọc hiểu đoạn đơn và đoạn kép.',
+      },
+      {
+        id: 'toeic-800',
+        label: 'TOEIC 800+ · Chinh phục',
+        desc: 'Nắm chắc các bẫy ngữ pháp nâng cao, bẫy từ vựng và câu hỏi khó Part 7.',
+      },
+    ];
+    return (
+      <div className="mx-auto max-w-xl p-6 space-y-4">
+        {enrolledAny && (
+          <TrackSwitcher
+            currentTrack={track}
+            onTrackChange={(t) => void switchTrack(t)}
+            cefrStats={cefrStats}
+            thptStats={thptStats}
+            toeicStats={toeicStats}
+          />
+        )}
+        <h1 className="text-2xl font-bold">Mục tiêu TOEIC của bạn?</h1>
+        <p className="text-muted-foreground">
+          Chọn <b>mục tiêu điểm số</b> bạn hướng tới. Các chặng luyện tập sẽ được cá nhân hóa theo cấp độ.
+        </p>
+        <div className="grid gap-3">
+          {toeicLevels.map((l) => (
+            <Card
+              key={l.id}
+              className="cursor-pointer hover:border-primary transition-colors touch-manipulation"
+              onClick={() => !submitting && void submitPlacement({ track: 'toeic', selfSelect: l.id })}
+            >
+              <CardContent className="flex items-center gap-4 p-4 min-h-[56px]">
+                <span
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${LEVEL_COLORS[l.id]} text-white font-bold text-xs text-center px-1`}
+                >
+                  {l.id.replace('toeic-', '')}+
+                </span>
+                <div>
+                  <p className="font-semibold">{l.label}</p>
+                  <p className="text-sm text-muted-foreground">{l.desc}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        {enrolledAny ? (
+          <Button
+            variant="ghost"
+            size="sm"
+            className="min-h-[44px]"
+            onClick={() => void switchTrack(hasCefr ? 'cefr' : hasThpt ? 'thpt' : 'toeic')}
+          >
+            <ArrowLeft className="w-4 h-4 mr-1" /> Quay lại lộ trình
+          </Button>
+        ) : (
+          <Button
+            variant="ghost"
+            size="sm"
+            className="min-h-[44px]"
+            onClick={() => setMode(null)}
+          >
+            <ArrowLeft className="w-4 h-4 mr-1" /> Quay lại
+          </Button>
+        )}
+      </div>
+    );
+  }
+
   if (showPlacement && mode === 'pick') {
     const levels = [
       { id: 'A0', label: 'Mất gốc', desc: 'Bắt đầu từ con số 0 — chưa tự tin câu nào.' },
@@ -603,6 +721,7 @@ export default function JourneyPage() {
             onTrackChange={(t) => void switchTrack(t)}
             cefrStats={cefrStats}
             thptStats={thptStats}
+            toeicStats={toeicStats}
           />
         )}
         <h1 className="text-2xl font-bold">Bạn đang ở đâu?</h1>
@@ -651,6 +770,7 @@ export default function JourneyPage() {
             onTrackChange={(t) => void switchTrack(t)}
             cefrStats={cefrStats}
             thptStats={thptStats}
+            toeicStats={toeicStats}
           />
         )}
         <div className="text-6xl">🗺️</div>
@@ -786,12 +906,18 @@ export default function JourneyPage() {
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground flex items-center gap-2">
               <span>Lộ Trình Học Tập</span>
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                {track === 'thpt' ? 'THPT Global Success' : 'Chuẩn CEFR'}
+                {track === 'thpt'
+                  ? 'THPT Global Success'
+                  : track === 'toeic'
+                  ? 'TOEIC Reading'
+                  : 'Chuẩn CEFR'}
               </span>
             </h1>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
               {track === 'thpt' || levelId.startsWith('lop-')
                 ? `Global Success lớp ${levelId.replace('lop-', '')} · Bám sát cấu trúc đề thi tốt nghiệp 2025`
+                : track === 'toeic' || levelId.startsWith('toeic-')
+                ? `Luyện thi TOEIC Reading ${levelId.replace('toeic-', '')}+ · Part 5, 6, 7 bám sát cấu trúc đề thi thật`
                 : `Học phần chuẩn khung tham chiếu CEFR ${levelId} · Định hình thời gian & năng lực can-do`}
             </p>
           </div>
@@ -807,12 +933,13 @@ export default function JourneyPage() {
           </Link>
         </div>
 
-        {/* Dual Track Switcher */}
+        {/* Multi-Track Switcher */}
         <TrackSwitcher
           currentTrack={track}
           onTrackChange={(t) => void switchTrack(t)}
           cefrStats={cefrStats}
           thptStats={thptStats}
+          toeicStats={toeicStats}
         />
 
         {/* Level change & multi-track enrollment quick actions */}
@@ -826,6 +953,15 @@ export default function JourneyPage() {
             >
               Đổi lớp (10 / 11 / 12)
             </Button>
+          ) : track === 'toeic' ? (
+            <Button
+              variant="outline"
+              size="sm"
+              className="min-h-[44px] rounded-xl text-xs font-semibold"
+              onClick={() => setMode('toeic-level')}
+            >
+              Đổi mục tiêu TOEIC (450 / 650 / 800)
+            </Button>
           ) : (
             <Button
               variant="outline"
@@ -837,25 +973,36 @@ export default function JourneyPage() {
             </Button>
           )}
 
-          {!hasCefr && track === 'thpt' && (
+          {!hasCefr && track !== 'cefr' && (
             <Button
               variant="outline"
               size="sm"
               className="min-h-[44px] rounded-xl text-xs font-semibold text-emerald-600 dark:text-emerald-400"
               onClick={() => void switchTrack('cefr')}
             >
-              + Mở thêm lộ trình CEFR
+              + Mở thêm CEFR
             </Button>
           )}
 
-          {!hasThpt && track === 'cefr' && (
+          {!hasThpt && track !== 'thpt' && (
             <Button
               variant="outline"
               size="sm"
               className="min-h-[44px] rounded-xl text-xs font-semibold text-red-600 dark:text-red-400"
               onClick={() => void switchTrack('thpt')}
             >
-              + Mở thêm lộ trình THPT
+              + Mở thêm THPT
+            </Button>
+          )}
+
+          {!hasToeic && track !== 'toeic' && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="min-h-[44px] rounded-xl text-xs font-semibold text-blue-600 dark:text-blue-400"
+              onClick={() => void switchTrack('toeic')}
+            >
+              + Mở thêm TOEIC
             </Button>
           )}
         </div>
@@ -867,15 +1014,22 @@ export default function JourneyPage() {
             <div className="leading-relaxed">
               <strong>Lộ trình THPT Song Hành:</strong> Mỗi Unit gồm Từ vựng SGK Global Success +
               Ngữ pháp CEFR tương ứng. Lớp thấp hơn được mở tự do để ôn tập. Bạn có thể chuyển tab{' '}
-              <strong>CEFR</strong> bất cứ lúc nào mà không mất tiến độ.
+              <strong>CEFR</strong> hoặc <strong>TOEIC</strong> bất cứ lúc nào mà không mất tiến độ.
+            </div>
+          </div>
+        ) : track === 'toeic' || levelId.startsWith('toeic-') ? (
+          <div className="rounded-2xl border border-blue-200/90 bg-blue-50/80 p-3.5 text-xs text-blue-950 dark:border-blue-900/60 dark:bg-blue-950/40 dark:text-blue-100 flex items-start gap-2.5">
+            <Target className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong>Luyện thi TOEIC Reading:</strong> Rèn luyện phản xạ Part 5 (Incomplete Sentences),
+              Part 6 (Text Completion), Part 7 (Reading Comprehension) có giải thích chi tiết tiếng Việt và Mini Test bấm giờ.
             </div>
           </div>
         ) : (
           <div className="rounded-2xl border border-amber-200/90 bg-amber-50/80 p-3.5 text-xs text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-100 flex items-start gap-2.5">
             <Award className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
             <div className="leading-relaxed">
-              {getExitDisclaimer()} Tab <strong>THPT</strong> để luyện chuyên sâu theo SGK lớp 10–12
-              và các dạng đề 2025.
+              {getExitDisclaimer()} Bạn có thể mở thêm lộ trình <strong>THPT</strong> hoặc <strong>TOEIC</strong> song song.
             </div>
           </div>
         )}

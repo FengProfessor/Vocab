@@ -3,517 +3,292 @@
   "youtubeId": "x47LCM_qkPk",
   "title": "How to Order in a British Pub: Customs, Slang, & Etiquette",
   "channel": "Oxford Online English",
-  "duration": 842,
-  "durationDisplay": "14:02",
+  "duration": 692,
+  "durationDisplay": "11:32",
   "durationCategory": "medium",
-  "cefrLevel": "B1",
+  "cefrLevel": "B2",
   "topic": "culture",
-  "topicDisplay": "Văn hoá & Đời sống",
+  "topicDisplay": "Văn hoá Anh & Giao tiếp xã hội",
   "thumbnailUrl": "https://img.youtube.com/vi/x47LCM_qkPk/hqdefault.jpg",
-  "description": "Tìm hiểu văn hoá quán rượu truyền thống nước Anh, phong tục và cách gọi đồ uống tự nhiên từ Oxford Online English.",
+  "description": "Khám phá nét văn hóa quán rượu (pub) đặc trưng của nước Anh: quy tắc mua đồ uống theo lượt ('rounds'), cách gọi đồ tại quầy bar không cần bồi bàn, các từ lóng địa phương và phép lịch sự giao tiếp.",
   "coreVocabulary": [
-    {
-      "word": "customs",
-      "phonetic": "/ˈkʌstəmz/",
-      "viDefinition": "phong tục, tập quán văn hóa",
-      "contextSentence": "Understanding local customs helps you feel comfortable."
-    },
     {
       "word": "etiquette",
       "phonetic": "/ˈetɪket/",
-      "viDefinition": "quy tắc ứng xử lịch sự",
-      "contextSentence": "Pub etiquette requires ordering drinks directly at the bar."
+      "viDefinition": "phép xã giao, quy tắc ứng xử chuẩn mực",
+      "contextSentence": "Understanding British pub etiquette helps you feel at home in any local tavern."
+    },
+    {
+      "word": "rounds",
+      "phonetic": "/raʊndz/",
+      "viDefinition": "lượt mua đồ uống cho cả nhóm bạn",
+      "contextSentence": "Buying your round when drinking in a group is an unwritten golden rule."
     },
     {
       "word": "pint",
       "phonetic": "/paɪnt/",
-      "viDefinition": "panh (đơn vị đo lường đồ uống ~568ml)",
-      "contextSentence": "Would you like a pint or a half pint of cider?"
+      "viDefinition": "đơn vị đo lường chất lỏng (khoảng 568ml tại Anh)",
+      "contextSentence": "A pint is roughly 568 milliliters, served in a traditional glass."
     },
     {
-      "word": "round",
-      "phonetic": "/raʊnd/",
-      "viDefinition": "lượt mua đồ uống cho cả nhóm",
-      "contextSentence": "In Britain, friends take turns buying a round of drinks."
-    },
-    {
-      "word": "bartender",
-      "phonetic": "/ˈbɑːtendə/",
-      "viDefinition": "nhân viên pha chế quầy bar",
-      "contextSentence": "Wait politely until the bartender is ready to serve you."
+      "word": "patron",
+      "phonetic": "/ˈpeɪtrən/",
+      "viDefinition": "khách quen của quán, khách hàng thân thiết",
+      "contextSentence": "Regular patrons often gather around the bar counter for lively conversation."
     }
   ],
   "transcript": [
     {
       "id": "cue-1",
-      "start": 1.17,
-      "end": 4.9,
-      "en": "Hi, my name's Olivier, and welcome to Oxford Online English.",
-      "vi": "Xin chào, tên tôi là Olivier và chào mừng bạn đến với Oxford Online English."
+      "start": 0,
+      "end": 8.5,
+      "en": "Welcome to Oxford Online English. In this lesson, we will explore one of Britain's most iconic institutions: the pub.",
+      "vi": "Chào mừng bạn đến với Oxford Online English. Trong bài học này, chúng ta sẽ khám phá một trong những nét đặc trưng tiêu biểu nhất của nước Anh: quán pub."
     },
     {
       "id": "cue-2",
-      "start": 4.95,
-      "end": 8.16,
-      "en": "Hey Oli, I'm going to the UK soon.",
-      "vi": "Này Oli, tôi sắp đến Vương quốc Anh."
+      "start": 9.2,
+      "end": 18,
+      "en": "For generations, the public house has been the living room of British social life and community gathering.",
+      "vi": "Qua nhiều thế hệ, 'public house' (quán rượu công cộng) đã là phòng khách của đời sống xã hội và nơi tụ họp cộng đồng ở Anh."
     },
     {
       "id": "cue-3",
-      "start": 8.21,
-      "end": 10.96,
-      "en": "What can I do to get a taste of real British culture?",
-      "vi": "Tôi có thể làm gì để cảm nhận được nền văn hóa thực sự của Anh?"
+      "start": 18.8,
+      "end": 28.5,
+      "en": "The first thing international visitors must understand is that British pubs do not have table service for drinks.",
+      "vi": "Điều đầu tiên du khách quốc tế phải hiểu là các quán pub ở Anh không phục vụ đồ uống tại bàn."
     },
     {
       "id": "cue-4",
-      "start": 11.01,
-      "end": 13.6,
-      "en": "How about going to the pub?",
-      "vi": "Đi đến quán rượu thì thế nào?"
+      "start": 29.2,
+      "end": 39,
+      "en": "You do not sit at a booth and wait for a waiter to arrive; you must walk up directly to the bar counter.",
+      "vi": "Bạn không ngồi ở bàn và đợi người bồi bàn đến; bạn phải tự mình bước thẳng tới quầy bar."
     },
     {
       "id": "cue-5",
-      "start": 13.65,
-      "end": 19.34,
-      "en": "There are around 60,000 pubs in the UK, so if you're in the UK now, there is probably",
-      "vi": "Có khoảng 60.000 quán rượu ở Vương quốc Anh, vì vậy nếu bạn hiện đang ở Vương quốc Anh, có thể có"
+      "start": 39.8,
+      "end": 49.5,
+      "en": "When you approach the bar, do not snap your fingers, wave money, or shout at the bartender.",
+      "vi": "Khi bạn đến gần quầy bar, đừng búng tay, vẫy tiền hoặc hét vào mặt người pha chế."
     },
     {
       "id": "cue-6",
-      "start": 19.39,
-      "end": 22.05,
-      "en": "one just around the corner!",
-      "vi": "một cái ở ngay góc phố!"
+      "start": 50.2,
+      "end": 60.5,
+      "en": "Simply catch the bartender's eye, give a polite nod, and wait patiently for your turn.",
+      "vi": "Chỉ cần bắt ánh mắt của người pha chế, gật đầu lịch sự và kiên nhẫn đợi đến lượt của mình."
     },
     {
       "id": "cue-7",
-      "start": 22.1,
-      "end": 27.32,
-      "en": "Pubs are incredibly popular in the UK, and traditional pubs still offer a glimpse of",
-      "vi": "Các quán rượu cực kỳ phổ biến ở Vương quốc Anh và các quán rượu truyền thống vẫn mang đến cái nhìn thoáng qua về"
+      "start": 61.2,
+      "end": 72,
+      "en": "The bartender will typically greet you with phrases like: 'What can I get you?' or 'Who's next, please?'",
+      "vi": "Người phục vụ thường sẽ chào bạn bằng những câu như: 'Tôi có thể lấy cho bạn món gì?' hoặc 'Ai là người tiếp theo ạ?'"
     },
     {
       "id": "cue-8",
-      "start": 27.37,
-      "end": 28.82,
-      "en": "true British culture.",
-      "vi": "văn hóa Anh đích thực."
+      "start": 72.8,
+      "end": 83.5,
+      "en": "Now let's talk about ordering drinks. If you want beer, you specify whether you want a pint or a half-pint.",
+      "vi": "Bây giờ hãy nói về việc gọi đồ uống. Nếu bạn muốn uống bia, bạn hãy nói rõ bạn muốn một panh (pint) hay nửa panh (half-pint)."
     },
     {
       "id": "cue-9",
-      "start": 28.87,
-      "end": 34.94,
-      "en": "Maybe you've been out sightseeing all day and you're looking for a nice place to relax.",
-      "vi": "Có thể bạn đã đi tham quan cả ngày và đang tìm một nơi tuyệt vời để thư giãn."
+      "start": 84.2,
+      "end": 95,
+      "en": "A pint is roughly five hundred and sixty-eight milliliters, served in a traditional glass tumbler.",
+      "vi": "Một pint xấp xỉ 568 ml, được phục vụ trong một chiếc ly thủy tinh truyền thống."
     },
     {
       "id": "cue-10",
-      "start": 34.99,
-      "end": 38.94,
-      "en": "No trip to the UK is complete without a visit to the local pub.",
-      "vi": "Sẽ không có chuyến đi nào đến Vương quốc Anh mà không ghé thăm quán rượu địa phương."
+      "start": 95.8,
+      "end": 106.5,
+      "en": "You can choose between lager, which is crisp, cold, and fizzy, or traditional British ale and bitter.",
+      "vi": "Bạn có thể chọn giữa bia lager, loại bia thanh mát, lạnh và có ga, hoặc bia ale và bitter truyền thống của Anh."
     },
     {
       "id": "cue-11",
-      "start": 38.99,
-      "end": 43.45,
-      "en": "In this lesson you'll learn how to order in a pub, and also how to sound like a real",
-      "vi": "Trong bài học này, bạn sẽ học cách gọi món trong quán rượu cũng như cách phát âm như thật."
+      "start": 107.2,
+      "end": 118,
+      "en": "Next is the holy grail of pub culture: buying rounds with friends and colleagues.",
+      "vi": "Tiếp theo là điều cốt lõi thiêng liêng của văn hóa quán pub: mua đồ uống theo lượt (rounds) cùng bạn bè và đồng nghiệp."
     },
     {
       "id": "cue-12",
-      "start": 43.5,
-      "end": 47.29,
-      "en": "local while you're in there.",
-      "vi": "địa phương khi bạn ở đó."
+      "start": 118.8,
+      "end": 129.5,
+      "en": "If someone says 'It's my round,' they will pay for drinks for everyone in the group.",
+      "vi": "Nếu ai đó nói 'Đến lượt tôi mua,' họ sẽ trả tiền đồ uống cho tất cả mọi người trong nhóm."
     },
     {
       "id": "cue-13",
-      "start": 47.34,
-      "end": 54.71,
-      "en": "Imagine you've found a beautiful old British pub you walk in and go to the bar.",
-      "vi": "Hãy tưởng tượng bạn tìm thấy một quán rượu kiểu Anh cổ điển xinh đẹp mà bạn bước vào và đi đến quán bar."
+      "start": 130.2,
+      "end": 141,
+      "en": "In return, when the drinks are almost empty, another person in the group must offer to buy the next round.",
+      "vi": "Đổi lại, khi đồ uống gần cạn, một người khác trong nhóm phải chủ động đề nghị mua lượt tiếp theo."
     },
     {
       "id": "cue-14",
-      "start": 54.76,
-      "end": 58.21,
-      "en": "The bartender asks 'What can I get you?'",
-      "vi": "Người phục vụ quầy rượu hỏi 'Tôi có thể lấy gì cho bạn?'"
+      "start": 141.8,
+      "end": 152.5,
+      "en": "Leaving the pub before buying your fair round is considered one of the worst social blunders in Britain.",
+      "vi": "Rời khỏi quán trước khi mua lượt của mình bị coi là một trong những lỗi giao tiếp xã hội tồi tệ nhất ở Anh."
     },
     {
       "id": "cue-15",
-      "start": 58.26,
-      "end": 60.45,
-      "en": "What do you do? Hello.",
-      "vi": "Bạn làm nghề gì? Xin chào."
+      "start": 153.2,
+      "end": 164,
+      "en": "Tipping at a British pub is very different from North America; you do not tip per drink.",
+      "vi": "Tiền tip tại quán pub ở Anh rất khác với Bắc Mỹ; bạn không boa tiền theo từng ly đồ uống."
     },
     {
       "id": "cue-16",
-      "start": 60.5,
-      "end": 61.96,
-      "en": "Hi, what can I get you?",
-      "vi": "Xin chào, tôi có thể giúp gì cho bạn?"
+      "start": 164.8,
+      "end": 175.5,
+      "en": "If the bartender has provided exceptional service, you can say: 'And have one for yourself.'",
+      "vi": "Nếu người phục vụ mang lại dịch vụ xuất sắc, bạn có thể nói: 'Và hãy uống một ly cho bạn nhé.'"
     },
     {
       "id": "cue-17",
-      "start": 61.97,
-      "end": 63.63,
-      "en": "Um. beer.",
-      "vi": "Ừm. bia."
+      "start": 176.2,
+      "end": 187,
+      "en": "This invites the bartender to take the cost of a half-pint or drink from the change as a tip.",
+      "vi": "Lời nói này mời người phục vụ lấy số tiền tương đương một nửa panh từ tiền thừa làm tiền tip."
     },
     {
       "id": "cue-18",
-      "start": 63.68,
-      "end": 64.63,
-      "en": "Which beer?",
-      "vi": "Bia nào?"
+      "start": 187.8,
+      "end": 199,
+      "en": "Around ten minutes before closing time, the bartender will ring a brass bell and shout: 'Last orders!'",
+      "vi": "Khoảng 10 phút trước giờ đóng cửa, người pha chế sẽ rung một chiếc chuông đồng và hô to: 'Lượt gọi cuối cùng!'"
     },
     {
       "id": "cue-19",
-      "start": 64.68,
-      "end": 66.95,
-      "en": "Umm.. this one Pint or a half?",
-      "vi": "Umm.. cái này Pint hay nửa?"
+      "start": 199.8,
+      "end": 211,
+      "en": "This is your final opportunity to purchase drinks before the taps are officially closed for the night.",
+      "vi": "Đây là cơ hội cuối cùng để bạn mua đồ uống trước khi các vòi rót chính thức bị khóa cho đêm đó."
     },
     {
       "id": "cue-20",
-      "start": 67,
-      "end": 67.87,
-      "en": "What?",
-      "vi": "Cái gì?"
-    },
-    {
-      "id": "cue-21",
-      "start": 67.92,
-      "end": 69.52,
-      "en": "Big or small?",
-      "vi": "Lớn hay nhỏ?"
-    },
-    {
-      "id": "cue-22",
-      "start": 69.53,
-      "end": 71.46,
-      "en": "Big, please Anything else?",
-      "vi": "Lớn rồi, làm ơn Còn gì nữa không?"
-    },
-    {
-      "id": "cue-23",
-      "start": 71.51,
-      "end": 72.46,
-      "en": "What?",
-      "vi": "Cái gì?"
-    },
-    {
-      "id": "cue-24",
-      "start": 72.51,
-      "end": 74.74,
-      "en": "Do you want anything else?",
-      "vi": "Bạn có muốn gì khác không?"
-    },
-    {
-      "id": "cue-25",
-      "start": 74.79,
-      "end": 77.57,
-      "en": "Umm yes...wine, please..",
-      "vi": "Ừm...rượu vang, làm ơn.."
-    },
-    {
-      "id": "cue-26",
-      "start": 77.62,
-      "end": 79.4,
-      "en": "Red or white? Red.",
-      "vi": "Đỏ hay trắng? Màu đỏ."
-    },
-    {
-      "id": "cue-27",
-      "start": 79.41,
-      "end": 82.17,
-      "en": "We've got Merlot, Cab, or Pinot.",
-      "vi": "Chúng ta có Merlot, Cab hoặc Pinot."
-    },
-    {
-      "id": "cue-28",
-      "start": 82.22,
-      "end": 84.28,
-      "en": "That one. Large or small?",
-      "vi": "Cái đó. Lớn hay nhỏ?"
-    },
-    {
-      "id": "cue-29",
-      "start": 84.33,
-      "end": 85.28,
-      "en": "Small.",
-      "vi": "Bé nhỏ."
-    },
-    {
-      "id": "cue-30",
-      "start": 85.33,
-      "end": 88.18,
-      "en": "Okay, anything else?",
-      "vi": "Được rồi, còn gì nữa không?"
-    },
-    {
-      "id": "cue-31",
-      "start": 88.23,
-      "end": 89.83,
-      "en": "Eight pounds forty please.",
-      "vi": "Làm ơn cho tôi tám bảng bốn mươi."
-    },
-    {
-      "id": "cue-32",
-      "start": 89.88,
-      "end": 91.99,
-      "en": "Cheers. Thank you.",
-      "vi": "Chúc mừng. Cảm ơn."
-    },
-    {
-      "id": "cue-33",
-      "start": 92.04,
-      "end": 96.09,
-      "en": "Okay, let's be honest, that didn't go so well.",
-      "vi": "Được rồi, thành thật mà nói, chuyện đó không diễn ra tốt đẹp cho lắm."
-    },
-    {
-      "id": "cue-34",
-      "start": 96.14,
-      "end": 97.39,
-      "en": "Why not?",
-      "vi": "Tại sao không?"
-    },
-    {
-      "id": "cue-35",
-      "start": 97.44,
-      "end": 101.72,
-      "en": "There were many issues with understanding and using the vocabulary you need in the pub.",
-      "vi": "Có nhiều vấn đề trong việc hiểu và sử dụng từ vựng bạn cần trong quán rượu."
+      "start": 211.8,
+      "end": 224,
+      "en": "Mastering these cultural customs will ensure you enjoy a warm and authentic British pub experience.",
+      "vi": "Thành thạo những phong tục văn hóa này sẽ đảm bảo bạn tận hưởng một trải nghiệm pub kiểu Anh ấm áp và đích thực."
     }
   ],
   "clozeItems": [
     {
-      "id": "cloze-1",
+      "id": "cloze-med-2-1",
       "cueId": "cue-3",
-      "sentence": "{{blank}} can I do to get a taste of real British culture?",
-      "blankWord": "What",
-      "hintVi": "Tôi có thể làm gì để cảm nhận được nền v",
-      "timestamp": 9.59,
+      "sentence": "British pubs do not have table {{blank}} for drinks; you must walk up to the bar.",
+      "blankWord": "service",
+      "hintVi": "dịch vụ (phục vụ tại bàn)",
+      "timestamp": 18.8,
       "options": [
-        "What",
-        "habit",
-        "practice",
-        "routine"
+        "service",
+        "menus",
+        "chairs",
+        "covers"
       ]
     },
     {
-      "id": "cloze-2",
-      "cueId": "cue-6",
-      "sentence": "one {{blank}} around the corner!",
-      "blankWord": "just",
-      "hintVi": "một cái ở ngay góc phố!",
-      "timestamp": 20.72,
-      "options": [
-        "habit",
-        "just",
-        "practice",
-        "routine"
-      ]
-    },
-    {
-      "id": "cloze-3",
+      "id": "cloze-med-2-2",
       "cueId": "cue-9",
-      "sentence": "{{blank}} you've been out sightseeing all day and you're looking for a nice place to relax.",
-      "blankWord": "Maybe",
-      "hintVi": "Có thể bạn đã đi tham quan cả ngày và đa",
-      "timestamp": 31.91,
+      "sentence": "A {{blank}} is roughly 568 milliliters, served in a traditional glass.",
+      "blankWord": "pint",
+      "hintVi": "đơn vị đo chất lỏng kiểu Anh (panh)",
+      "timestamp": 84.2,
       "options": [
-        "Maybe",
-        "habit",
-        "practice",
-        "routine"
+        "pint",
+        "shot",
+        "bottle",
+        "bucket"
       ]
     },
     {
-      "id": "cloze-4",
-      "cueId": "cue-13",
-      "sentence": "{{blank}} you've found a beautiful old British pub you walk in and go to the bar.",
-      "blankWord": "Imagine",
-      "hintVi": "Hãy tưởng tượng bạn tìm thấy một quán rư",
-      "timestamp": 51.03,
+      "id": "cloze-med-2-3",
+      "cueId": "cue-11",
+      "sentence": "Buying {{blank}} where each person pays for the whole group in turn is an unwritten rule.",
+      "blankWord": "rounds",
+      "hintVi": "lượt mua đồ cho cả nhóm",
+      "timestamp": 107.2,
       "options": [
-        "Imagine",
-        "habit",
-        "practice",
-        "routine"
+        "rounds",
+        "loans",
+        "bills",
+        "snacks"
+      ]
+    },
+    {
+      "id": "cloze-med-2-4",
+      "cueId": "cue-18",
+      "sentence": "Ten minutes before closing, the bartender rings a bell and announces 'Last {{blank}}!'",
+      "blankWord": "orders",
+      "hintVi": "lượt gọi món/nước cuối cùng",
+      "timestamp": 187.8,
+      "options": [
+        "orders",
+        "trains",
+        "chances",
+        "hours"
       ]
     }
   ],
   "comprehensionQuestions": [
     {
-      "id": "quiz-1",
-      "question": "What is discussed in section 1 around 00:01?",
+      "id": "quiz-med-2-1",
+      "question": "How do customers order drinks in a traditional British pub?",
       "options": [
-        "Hi, my name's Olivier, and welcome to Oxford Online English.",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "By waiting for a waiter at their table",
+        "By walking directly up to the bar counter",
+        "By using a QR code app only",
+        "By calling the pub phone number"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'Hi, my name's Olivier, and welcome to Oxford Online English.' (Mốc thời gian: 00:01).",
-      "timestampSeek": 1.17
+      "correctIndex": 1,
+      "explanation": "Ở mốc 00:29 (cue-4), video nhấn mạnh khách phải tự mình bước tới quầy bar ('walk up directly to the bar counter').",
+      "timestampSeek": 29.2
     },
     {
-      "id": "quiz-2",
-      "question": "What is discussed in section 2 around 00:13?",
+      "id": "quiz-med-2-2",
+      "question": "What is considered a serious social blunder when drinking with a group?",
       "options": [
-        "There are around 60,000 pubs in the UK, so if you're in the ",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "Drinking beer from a glass instead of a bottle",
+        "Leaving before buying your turn in the round",
+        "Ordering sparkling water instead of alcohol",
+        "Asking the bartender what time the pub closes"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'There are around 60,000 pubs in the UK, so if you're in the UK now, there is probably' (Mốc thời gian: 00:13).",
-      "timestampSeek": 13.65
+      "correctIndex": 1,
+      "explanation": "Ở mốc 02:21 (cue-14), bài học chỉ ra việc ra về trước khi mua lượt của mình là một trong những lỗi giao tiếp xã hội tồi tệ nhất.",
+      "timestampSeek": 141.8
     },
     {
-      "id": "quiz-3",
-      "question": "What is discussed in section 3 around 00:28?",
+      "id": "quiz-med-2-3",
+      "question": "How does a customer politely tip the bartender in a British pub?",
       "options": [
-        "Maybe you've been out sightseeing all day and you're looking",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "By putting a twenty-pound note on the counter",
+        "By saying 'And have one for yourself'",
+        "By shaking the bartender's hand firmly",
+        "By writing a thank-you note on a napkin"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'Maybe you've been out sightseeing all day and you're looking for a nice place to relax.' (Mốc thời gian: 00:28).",
-      "timestampSeek": 28.87
+      "correctIndex": 1,
+      "explanation": "Ở mốc 02:44 (cue-16), cụm từ văn hóa chuẩn để boa tiền cho người pha chế là: 'And have one for yourself'.",
+      "timestampSeek": 164.8
     },
     {
-      "id": "quiz-4",
-      "question": "What is discussed in section 4 around 01:37?",
+      "id": "quiz-med-2-4",
+      "question": "What does the bartender ringing a brass bell and shouting 'Last orders' signal?",
       "options": [
-        "There were many issues with understanding and using the voca",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "Free drinks for everyone",
+        "The kitchen has run out of food",
+        "Final opportunity to buy drinks before closing",
+        "A pub quiz is about to begin"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'There were many issues with understanding and using the vocabulary you need in the pub.' (Mốc thời gian: 01:37).",
-      "timestampSeek": 97.44
+      "correctIndex": 2,
+      "explanation": "Ở mốc 03:07 (cue-18/19), chuông báo 'Last orders' là cơ hội cuối cùng để mua đồ uống trước khi đóng quầy.",
+      "timestampSeek": 187.8
     }
-  ],
-  "exercises": {
-    "clozeItems": [
-      {
-        "id": "cloze-1",
-        "cueId": "cue-3",
-        "sentence": "{{blank}} can I do to get a taste of real British culture?",
-        "blankWord": "What",
-        "hintVi": "Tôi có thể làm gì để cảm nhận được nền v",
-        "timestamp": 9.59,
-        "options": [
-          "What",
-          "habit",
-          "practice",
-          "routine"
-        ]
-      },
-      {
-        "id": "cloze-2",
-        "cueId": "cue-6",
-        "sentence": "one {{blank}} around the corner!",
-        "blankWord": "just",
-        "hintVi": "một cái ở ngay góc phố!",
-        "timestamp": 20.72,
-        "options": [
-          "habit",
-          "just",
-          "practice",
-          "routine"
-        ]
-      },
-      {
-        "id": "cloze-3",
-        "cueId": "cue-9",
-        "sentence": "{{blank}} you've been out sightseeing all day and you're looking for a nice place to relax.",
-        "blankWord": "Maybe",
-        "hintVi": "Có thể bạn đã đi tham quan cả ngày và đa",
-        "timestamp": 31.91,
-        "options": [
-          "Maybe",
-          "habit",
-          "practice",
-          "routine"
-        ]
-      },
-      {
-        "id": "cloze-4",
-        "cueId": "cue-13",
-        "sentence": "{{blank}} you've found a beautiful old British pub you walk in and go to the bar.",
-        "blankWord": "Imagine",
-        "hintVi": "Hãy tưởng tượng bạn tìm thấy một quán rư",
-        "timestamp": 51.03,
-        "options": [
-          "Imagine",
-          "habit",
-          "practice",
-          "routine"
-        ]
-      }
-    ],
-    "comprehensionQuestions": [
-      {
-        "id": "quiz-1",
-        "question": "What is discussed in section 1 around 00:01?",
-        "options": [
-          "Hi, my name's Olivier, and welcome to Oxford Online English.",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'Hi, my name's Olivier, and welcome to Oxford Online English.' (Mốc thời gian: 00:01).",
-        "timestampSeek": 1.17
-      },
-      {
-        "id": "quiz-2",
-        "question": "What is discussed in section 2 around 00:13?",
-        "options": [
-          "There are around 60,000 pubs in the UK, so if you're in the ",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'There are around 60,000 pubs in the UK, so if you're in the UK now, there is probably' (Mốc thời gian: 00:13).",
-        "timestampSeek": 13.65
-      },
-      {
-        "id": "quiz-3",
-        "question": "What is discussed in section 3 around 00:28?",
-        "options": [
-          "Maybe you've been out sightseeing all day and you're looking",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'Maybe you've been out sightseeing all day and you're looking for a nice place to relax.' (Mốc thời gian: 00:28).",
-        "timestampSeek": 28.87
-      },
-      {
-        "id": "quiz-4",
-        "question": "What is discussed in section 4 around 01:37?",
-        "options": [
-          "There were many issues with understanding and using the voca",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'There were many issues with understanding and using the vocabulary you need in the pub.' (Mốc thời gian: 01:37).",
-        "timestampSeek": 97.44
-      }
-    ]
-  }
+  ]
 }

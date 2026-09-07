@@ -1,0 +1,317 @@
+{
+  "roadmapVersion": "toeic-v1",
+  "catalogVersion": "2026-09-07",
+  "levels": [
+    {
+      "id": "toeic-450",
+      "title": "TOEIC 450+",
+      "titleVi": "Nền tảng TOEIC (450+)",
+      "description": "Xây vững ngữ pháp cơ bản và từ vựng công sở để đạt 450+ điểm TOEIC.",
+      "units": [
+        {
+          "id": "toeic-450-u1",
+          "index": 0,
+          "title": "Part 5 — Ngữ Pháp Cơ Bản",
+          "estimatedMinutes": 45,
+          "badgeIcon": "📝",
+          "badgeName": "Part 5 Beginner",
+          "topicPreview": "Thì hiện tại, giới từ, liên từ",
+          "canDo": [
+            "Nhận diện thì cơ bản trong câu TOEIC",
+            "Chọn đúng giới từ phổ biến"
+          ],
+          "steps": [
+            {
+              "id": "toeic-450-u1-grammar",
+              "type": "grammar",
+              "ref": "toeic-grammar-01",
+              "title": "Ôn tập Ngữ pháp",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "toeic-p5-set01",
+              "type": "toeic-part5",
+              "ref": "set-p5-01",
+              "title": "Part 5 Luyện tập — Set 1",
+              "estimatedMinutes": 15
+            }
+          ]
+        },
+        {
+          "id": "toeic-450-u2",
+          "index": 1,
+          "title": "Part 6 — Đọc Điền",
+          "estimatedMinutes": 45,
+          "badgeIcon": "🔍",
+          "badgeName": "Part 6 Beginner",
+          "topicPreview": "Từ vựng văn phòng, dạng câu hỏi từ vựng",
+          "canDo": [
+            "Đọc hiểu đoạn văn ngắn",
+            "Điền từ đúng ngữ cảnh"
+          ],
+          "steps": [
+            {
+              "id": "toeic-p6-set01",
+              "type": "toeic-part6",
+              "ref": "set-p6-01",
+              "title": "Part 6 Luyện tập — Set 1",
+              "estimatedMinutes": 20
+            },
+            {
+              "id": "toeic-450-u2-cp",
+              "type": "checkpoint",
+              "ref": "cp-toeic-450-u2",
+              "title": "Đánh giá Part 6",
+              "estimatedMinutes": 25
+            }
+          ]
+        },
+        {
+          "id": "toeic-450-u3",
+          "index": 2,
+          "title": "Part 7 — Đọc Hiểu Cơ Bản",
+          "estimatedMinutes": 60,
+          "badgeIcon": "📖",
+          "badgeName": "Part 7 Beginner",
+          "topicPreview": "Email, thông báo nội bộ",
+          "canDo": [
+            "Nắm bắt ý chính của văn bản",
+            "Tìm thông tin chi tiết"
+          ],
+          "steps": [
+            {
+              "id": "toeic-p7-set01",
+              "type": "toeic-part7",
+              "ref": "set-p7s-01",
+              "title": "Part 7 Luyện tập — Set 1",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "toeic-450-u3-cp",
+              "type": "checkpoint",
+              "ref": "cp-toeic-450-u3",
+              "title": "Đánh giá Part 7",
+              "estimatedMinutes": 30
+            }
+          ]
+        },
+        {
+          "id": "toeic-450-u4",
+          "index": 3,
+          "title": "Mini Test",
+          "estimatedMinutes": 45,
+          "badgeIcon": "🏆",
+          "badgeName": "TOEIC 450 Achiever",
+          "topicPreview": "Tổng hợp kỹ năng",
+          "canDo": [
+            "Áp dụng kỹ năng vào bài thi tổng hợp"
+          ],
+          "steps": [
+            {
+              "id": "toeic-mini-test-01",
+              "type": "toeic-mini-test",
+              "ref": "mini-reading-001",
+              "title": "Mini Test Reading 1",
+              "estimatedMinutes": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toeic-650",
+      "title": "TOEIC 650+",
+      "titleVi": "Bứt phá TOEIC (650+)",
+      "description": "Nâng cao từ vựng chuyên ngành và kỹ năng đọc hiểu văn bản phức tạp.",
+      "units": [
+        {
+          "id": "toeic-650-u1",
+          "index": 0,
+          "title": "Part 5 — Trung Cấp",
+          "estimatedMinutes": 50,
+          "badgeIcon": "⚡",
+          "badgeName": "Part 5 Intermediate",
+          "topicPreview": "Mệnh đề quan hệ, câu điều kiện",
+          "canDo": [
+            "Xử lý câu hỏi ngữ pháp phức tạp",
+            "Mở rộng vốn từ vựng đồng nghĩa"
+          ],
+          "steps": [
+            {
+              "id": "toeic-p5-set02",
+              "type": "toeic-part5",
+              "ref": "set-p5-02",
+              "title": "Part 5 Luyện tập — Set 2",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "toeic-650-u1-cp",
+              "type": "checkpoint",
+              "ref": "cp-toeic-650-u1",
+              "title": "Đánh giá Part 5 Trung Cấp",
+              "estimatedMinutes": 25
+            }
+          ]
+        },
+        {
+          "id": "toeic-650-u2",
+          "index": 1,
+          "title": "Part 6 — Nâng Cao",
+          "estimatedMinutes": 50,
+          "badgeIcon": "🚀",
+          "badgeName": "Part 6 Advanced",
+          "topicPreview": "Báo cáo, bài báo",
+          "canDo": [
+            "Phân tích ngữ cảnh rộng",
+            "Điền câu vào đoạn văn"
+          ],
+          "steps": [
+            {
+              "id": "toeic-p6-set02",
+              "type": "toeic-part6",
+              "ref": "set-p6-02",
+              "title": "Part 6 Luyện tập — Set 2",
+              "estimatedMinutes": 25
+            },
+            {
+              "id": "toeic-650-u2-cp",
+              "type": "checkpoint",
+              "ref": "cp-toeic-650-u2",
+              "title": "Đánh giá Part 6 Nâng Cao",
+              "estimatedMinutes": 25
+            }
+          ]
+        },
+        {
+          "id": "toeic-650-u3",
+          "index": 2,
+          "title": "Part 7 — Multi-passage",
+          "estimatedMinutes": 60,
+          "badgeIcon": "📚",
+          "badgeName": "Part 7 Intermediate",
+          "topicPreview": "Đoạn văn đôi, văn bản phức hợp",
+          "canDo": [
+            "Liên kết thông tin giữa hai đoạn văn",
+            "Tăng tốc độ đọc hiểu"
+          ],
+          "steps": [
+            {
+              "id": "toeic-p7-set02",
+              "type": "toeic-part7",
+              "ref": "set-p7s-02",
+              "title": "Part 7 Luyện tập — Set 2",
+              "estimatedMinutes": 30
+            },
+            {
+              "id": "toeic-650-u3-cp",
+              "type": "checkpoint",
+              "ref": "cp-toeic-650-u3",
+              "title": "Đánh giá Part 7 Multi-passage",
+              "estimatedMinutes": 30
+            }
+          ]
+        },
+        {
+          "id": "toeic-650-u4",
+          "index": 3,
+          "title": "Mini Test Bứt Phá",
+          "estimatedMinutes": 50,
+          "badgeIcon": "🏅",
+          "badgeName": "TOEIC 650 Achiever",
+          "topicPreview": "Thi thử cường độ cao",
+          "canDo": [
+            "Hoàn thành bài thi dưới áp lực thời gian"
+          ],
+          "steps": [
+            {
+              "id": "toeic-mini-test-02",
+              "type": "toeic-mini-test",
+              "ref": "mini-reading-002",
+              "title": "Mini Test Reading 2",
+              "estimatedMinutes": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toeic-800",
+      "title": "TOEIC 800+",
+      "titleVi": "Chinh phục TOEIC (800+)",
+      "description": "Luyện tập cường độ cao với các bẫy khó và bài đọc ba đoạn văn.",
+      "units": [
+        {
+          "id": "toeic-800-u1",
+          "index": 0,
+          "title": "Part 5 — Advanced",
+          "estimatedMinutes": 45,
+          "badgeIcon": "🔥",
+          "badgeName": "Part 5 Master",
+          "topicPreview": "Đảo ngữ, từ vựng khó",
+          "canDo": [
+            "Vượt qua các câu hỏi bẫy",
+            "Nhận diện từ vựng học thuật"
+          ],
+          "steps": [
+            {
+              "id": "toeic-p5-set03",
+              "type": "toeic-part5",
+              "ref": "set-p5-03",
+              "title": "Part 5 Luyện tập — Set 3",
+              "estimatedMinutes": 20
+            },
+            {
+              "id": "toeic-800-u1-cp",
+              "type": "checkpoint",
+              "ref": "cp-toeic-800-u1",
+              "title": "Đánh giá Part 5 Chuyên sâu",
+              "estimatedMinutes": 25
+            }
+          ]
+        },
+        {
+          "id": "toeic-800-u2",
+          "index": 1,
+          "title": "Tổng ôn Reading",
+          "estimatedMinutes": 60,
+          "badgeIcon": "🎯",
+          "badgeName": "Reading Master",
+          "topicPreview": "Ôn tập toàn diện",
+          "canDo": [
+            "Nắm vững mọi chiến thuật làm bài"
+          ],
+          "steps": [
+            {
+              "id": "toeic-800-u2-cp",
+              "type": "checkpoint",
+              "ref": "cp-toeic-reading-final",
+              "title": "Bài kiểm tra tổng hợp",
+              "estimatedMinutes": 60
+            }
+          ]
+        },
+        {
+          "id": "toeic-800-u3",
+          "index": 2,
+          "title": "Full Reading Simulation",
+          "estimatedMinutes": 75,
+          "badgeIcon": "👑",
+          "badgeName": "TOEIC 800 Achiever",
+          "topicPreview": "Mô phỏng thi thật",
+          "canDo": [
+            "Đạt 800+ điểm bài thi mô phỏng"
+          ],
+          "steps": [
+            {
+              "id": "toeic-reading-full-01",
+              "type": "toeic-mini-test",
+              "ref": "full-reading-001",
+              "title": "Full Reading Test",
+              "estimatedMinutes": 75
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

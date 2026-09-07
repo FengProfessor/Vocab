@@ -6,7 +6,8 @@ import exitStandardsArtifact from '@/data/roadmap/exit-standards-v1.json';
 
 export type RoadmapStepViewType =
   | 'vocab' | 'grammar' | 'pronunciation' | 'checkpoint'
-  | 'reading' | 'cloze' | 'arrange' | 'announcement' | 'leaflet' | 'exam';
+  | 'reading' | 'cloze' | 'arrange' | 'announcement' | 'leaflet' | 'exam'
+  | 'toeic-part5' | 'toeic-part6' | 'toeic-part7' | 'toeic-mini-test';
 
 export interface RoadmapStepView {
   id: string;
@@ -42,7 +43,7 @@ export interface RoadmapLevelView {
   id: string; title: string; titleVi: string; description: string; isStartLevel: boolean; units: RoadmapUnitView[];
 }
 
-export type RoadmapTrackId = 'cefr' | 'thpt';
+export type RoadmapTrackId = 'cefr' | 'thpt' | 'toeic';
 
 // ── Exit standards ──
 export interface ExitStandard {

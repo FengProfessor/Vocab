@@ -73,10 +73,10 @@ export async function GET(req: NextRequest) {
     const unitId = req.nextUrl.searchParams.get('unit') ?? '';
     const trackParam = req.nextUrl.searchParams.get('track') as RoadmapTrack | null;
 
-    // Tìm chặng ở cả 2 track nếu không chỉ định
+    // Tìm chặng ở cả 3 track nếu không chỉ định
     let resolved = trackParam
       ? resolveUnit(unitId, trackParam)
-      : (resolveUnit(unitId, 'cefr') || resolveUnit(unitId, 'thpt'));
+      : (resolveUnit(unitId, 'cefr') || resolveUnit(unitId, 'thpt') || resolveUnit(unitId, 'toeic'));
 
     if (!resolved) {
       return NextResponse.json({ success: false, error: 'Chặng không tồn tại' }, { status: 400 });
@@ -85,7 +85,9 @@ export async function GET(req: NextRequest) {
     const supabase = createServiceClient();
     const { unit, level } = resolved;
     const track: RoadmapTrack =
-      unit.id.startsWith('u-thpt') || level.id.startsWith('lop-') ? 'thpt' : 'cefr';
+      unit.id.startsWith('u-thpt') || level.id.startsWith('lop-') ? 'thpt'
+      : level.id.startsWith('toeic-') ? 'toeic'
+      : 'cefr';
 
     // Ánh xạ từng từ về step nguồn
     const stepOfWord = new Map<string, { stepId: string; stepTitle: string; stepRef: string }>();

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import type { AssessmentType } from '@/lib/roadmap-assessment';
+import type { RoadmapTrack } from '@/lib/roadmap';
 
 /**
  * GET /api/roadmap/assessment
@@ -86,7 +87,7 @@ export async function POST(req: NextRequest) {
       targetId?: string;
       stepId?: string;
       tier?: AssessmentType;
-      track?: 'cefr' | 'thpt';
+      track?: RoadmapTrack;
       score?: number;
       passed?: boolean;
       details?: Record<string, unknown>;
@@ -102,7 +103,7 @@ export async function POST(req: NextRequest) {
 
     const score = Math.max(0, Math.min(100, Math.round(Number(body.score) || 0)));
     const passed = typeof body.passed === 'boolean' ? body.passed : score >= 80;
-    const track = body.track === 'thpt' ? 'thpt' : 'cefr';
+    const track = body.track === 'thpt' ? 'thpt' : body.track === 'toeic' ? 'toeic' : 'cefr';
     const tier: AssessmentType =
       body.tier === 'mini_quiz' || body.tier === 'exit_exam' ? body.tier : 'checkpoint';
     const details = body.details ?? {};

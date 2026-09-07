@@ -9,6 +9,8 @@ import {
   FileText,
   RotateCcw,
   Repeat,
+  Play,
+  Pause,
 } from 'lucide-react';
 import { SyncedTranscript } from '@/components/listening/SyncedTranscript';
 import type {
@@ -31,6 +33,8 @@ export interface MobileSubtitleDrawerProps {
   onToggleLoop?: () => void;
   loopRange?: { start: number; end: number } | null;
   onSetLoopRange?: (range: { start: number; end: number } | null) => void;
+  isPlaying?: boolean;
+  onTogglePlay?: () => void;
   children?: React.ReactNode;
   defaultSnap?: DrawerSnapPoint;
   className?: string;
@@ -48,6 +52,8 @@ export function MobileSubtitleDrawer({
   onToggleLoop,
   loopRange = null,
   onSetLoopRange,
+  isPlaying,
+  onTogglePlay,
   children,
   defaultSnap = 'peek',
   className = '',
@@ -58,6 +64,49 @@ export function MobileSubtitleDrawer({
   const drawerRef = useRef<HTMLDivElement>(null);
 
   const activeCue = activeCueIndex >= 0 && cues[activeCueIndex] ? cues[activeCueIndex] : null;
+
+  // Local fallback playback state detection when isPlaying prop is not explicitly passed
+  const [internalPlaying, setInternalPlaying] = useState(false);
+  const prevTimeRef = useRef(currentTime);
+  const lastTimeChangeRef = useRef(0);
+
+  useEffect(() => {
+    if (currentTime !== prevTimeRef.current) {
+      prevTimeRef.current = currentTime;
+      lastTimeChangeRef.current = Date.now();
+      if (!internalPlaying) {
+        setInternalPlaying(true);
+      }
+    }
+  }, [currentTime, internalPlaying]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (internalPlaying && Date.now() - lastTimeChangeRef.current > 400) {
+        setInternalPlaying(false);
+      }
+    }, 200);
+    return () => clearInterval(interval);
+  }, [internalPlaying]);
+
+  const isVideoPlaying = isPlaying !== undefined ? isPlaying : internalPlaying;
+
+  const handleTogglePlayClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onTogglePlay) {
+      onTogglePlay();
+    } else if (typeof window !== 'undefined') {
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', {
+          code: 'Space',
+          key: ' ',
+          bubbles: true,
+          cancelable: true,
+        })
+      );
+      setInternalPlaying((prev) => !prev);
+    }
+  };
 
   // Touch gesture handling on the drag handle bar
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -101,9 +150,9 @@ export function MobileSubtitleDrawer({
   }, [snap]);
 
   const snapClasses = {
-    peek: 'h-[78px] max-h-[78px]',
-    half: 'h-[52vh] max-h-[52vh]',
-    full: 'h-[86vh] max-h-[86vh]',
+    peek: 'h-[calc(82px+env(safe-area-inset-bottom,0px))] max-h-[calc(82px+env(safe-area-inset-bottom,0px))]',
+    half: 'h-[calc(52vh+env(safe-area-inset-bottom,0px))] max-h-[calc(52vh+env(safe-area-inset-bottom,0px))]',
+    full: 'h-[calc(86vh+env(safe-area-inset-bottom,0px))] max-h-[calc(86vh+env(safe-area-inset-bottom,0px))]',
   };
 
   return (
@@ -125,7 +174,7 @@ export function MobileSubtitleDrawer({
       {/* Floating Bottom Drawer */}
       <div
         ref={drawerRef}
-        className={`fixed bottom-0 left-0 right-0 z-40 flex flex-col rounded-t-2xl border-t border-slate-200 bg-white/95 shadow-2xl backdrop-blur-md transition-all duration-300 ease-out dark:border-slate-800 dark:bg-slate-900/95 lg:hidden ${snapClasses[snap]} ${className}`}
+        className={`fixed bottom-0 left-0 right-0 z-40 flex flex-col rounded-t-2xl border-t border-slate-200 bg-white/95 shadow-2xl backdrop-blur-md transition-all duration-300 ease-out pb-[env(safe-area-inset-bottom,0px)] dark:border-slate-800 dark:bg-slate-900/95 lg:hidden ${snapClasses[snap]} ${className}`}
         style={{ paddingBottom: 'env(safe-area-inset-bottom, 8px)' }}
         data-snap={snap}
       >
@@ -290,20 +339,40 @@ export function MobileSubtitleDrawer({
               )}
             </div>
 
-            {/* Quick replay active sentence button */}
-            {activeCue && (
+            {/* Thumb-Zone Controls (Play/Pause & Replay) */}
+            <div className="flex items-center gap-1.5 shrink-0" onClick={(e) => e.stopPropagation()}>
+              {/* Quick Play/Pause button in thumb reach */}
               <button
                 type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onSeek(activeCue.start, true);
-                }}
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 active:scale-95 dark:bg-slate-800 dark:text-slate-300"
-                title="Nghe lại câu này"
+                onClick={handleTogglePlayClick}
+                className={`flex h-8 w-8 items-center justify-center rounded-xl transition-all active:scale-95 ${
+                  isVideoPlaying
+                    ? 'bg-indigo-600 text-white shadow-xs hover:bg-indigo-700'
+                    : 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-950/70 dark:text-indigo-300 dark:hover:bg-indigo-900/80'
+                }`}
+                title={isVideoPlaying ? 'Tạm dừng (Phím Space)' : 'Tiếp tục phát (Phím Space)'}
+                aria-label={isVideoPlaying ? 'Tạm dừng phát' : 'Tiếp tục phát'}
               >
-                <RotateCcw className="h-4 w-4" />
+                {isVideoPlaying ? (
+                  <Pause className="h-4 w-4 fill-current" />
+                ) : (
+                  <Play className="h-4 w-4 fill-current ml-0.5" />
+                )}
               </button>
-            )}
+
+              {/* Quick replay active sentence button */}
+              {activeCue && (
+                <button
+                  type="button"
+                  onClick={() => onSeek(activeCue.start, true)}
+                  className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 active:scale-95 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+                  title="Nghe lại câu này"
+                  aria-label="Nghe lại câu này"
+                >
+                  <RotateCcw className="h-4 w-4" />
+                </button>
+              )}
+            </div>
           </div>
         )}
 

@@ -1,0 +1,1127 @@
+{
+  "version": "toeic-reading-v1",
+  "source": "Biên soạn theo format TOEIC Listening & Reading — chỉ phần Reading (Part 5, 6, 7)",
+  "part5": [
+    {
+      "id": "p5-001",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "The new marketing strategy was _______ successful in attracting younger customers.",
+      "options": [
+        "(A) highly",
+        "(B) higher",
+        "(C) highest",
+        "(D) height"
+      ],
+      "answer": "A",
+      "explain": "Cần một trạng từ (adverb) để bổ nghĩa cho tính từ 'successful'. 'Highly' mang nghĩa là rất, cực kỳ.",
+      "skill": "word forms",
+      "topic": "marketing"
+    },
+    {
+      "id": "p5-002",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "All employees must submit _______ expense reports by the end of the month.",
+      "options": [
+        "(A) they",
+        "(B) their",
+        "(C) them",
+        "(D) theirs"
+      ],
+      "answer": "B",
+      "explain": "Cần một tính từ sở hữu (possessive adjective) đứng trước danh từ 'expense reports'. 'Their' là lựa chọn đúng.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-003",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "The seminar on time management will begin _______ 9:00 AM tomorrow.",
+      "options": [
+        "(A) on",
+        "(B) in",
+        "(C) at",
+        "(D) from"
+      ],
+      "answer": "C",
+      "explain": "Dùng giới từ 'at' trước một giờ cụ thể (9:00 AM).",
+      "skill": "prepositions",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-004",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "Mr. Lee is _______ for training the new staff members next week.",
+      "options": [
+        "(A) responsible",
+        "(B) responsibly",
+        "(C) responsibility",
+        "(D) response"
+      ],
+      "answer": "A",
+      "explain": "Cấu trúc 'be responsible for' (chịu trách nhiệm cho việc gì). Cần tính từ ở đây.",
+      "skill": "word forms",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-005",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "The factory will halt production _______ the machine undergoes maintenance.",
+      "options": [
+        "(A) while",
+        "(B) during",
+        "(C) because of",
+        "(D) despite"
+      ],
+      "answer": "A",
+      "explain": "'while' + mệnh đề (the machine undergoes maintenance). 'during', 'because of', 'despite' cộng với danh từ/cụm danh từ.",
+      "skill": "conjunctions",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-006",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "We apologize for any _______ this delay may cause.",
+      "options": [
+        "(A) inconvenience",
+        "(B) inconvenient",
+        "(C) inconveniently",
+        "(D) inconveniences"
+      ],
+      "answer": "A",
+      "explain": "Sau 'any' cần một danh từ không đếm được hoặc số nhiều. 'inconvenience' (sự bất tiện) phù hợp ngữ cảnh.",
+      "skill": "vocabulary",
+      "topic": "customer service"
+    },
+    {
+      "id": "p5-007",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "The restaurant is offering a 20% discount _______ regular customers.",
+      "options": [
+        "(A) with",
+        "(B) for",
+        "(C) to",
+        "(D) by"
+      ],
+      "answer": "C",
+      "explain": "'offer a discount to someone' (giảm giá cho ai).",
+      "skill": "prepositions",
+      "topic": "travel"
+    },
+    {
+      "id": "p5-008",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "Ms. Garcia _______ the financial report before she left the office.",
+      "options": [
+        "(A) finished",
+        "(B) finishes",
+        "(C) will finish",
+        "(D) finishing"
+      ],
+      "answer": "A",
+      "explain": "Hành động đã hoàn thành trong quá khứ trước khi rời đi (left the office). 'finished' là thì quá khứ đơn phù hợp.",
+      "skill": "tenses",
+      "topic": "finance"
+    },
+    {
+      "id": "p5-009",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "Please ensure that your password is kept _______ at all times.",
+      "options": [
+        "(A) secure",
+        "(B) securely",
+        "(C) security",
+        "(D) secures"
+      ],
+      "answer": "A",
+      "explain": "Cấu trúc 'keep + object + adjective' (giữ cho cái gì đó như thế nào). Cần tính từ 'secure'.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-010",
+      "setId": "set-p5-01",
+      "level": "toeic-450",
+      "question": "The board of directors approved the budget _______ the project.",
+      "options": [
+        "(A) for",
+        "(B) in",
+        "(C) about",
+        "(D) on"
+      ],
+      "answer": "A",
+      "explain": "'budget for something' (ngân sách cho việc gì).",
+      "skill": "prepositions",
+      "topic": "finance"
+    },
+    {
+      "id": "p5-011",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "_______ the bad weather, the outdoor company picnic has been postponed.",
+      "options": [
+        "(A) Due to",
+        "(B) Because",
+        "(C) Even though",
+        "(D) As a result"
+      ],
+      "answer": "A",
+      "explain": "'the bad weather' là cụm danh từ. Cần giới từ 'Due to'. 'Because' và 'Even though' cần mệnh đề.",
+      "skill": "conjunctions",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-012",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "The CEO suggested _______ a new branch in Tokyo to expand the Asian market.",
+      "options": [
+        "(A) open",
+        "(B) to open",
+        "(C) opening",
+        "(D) opened"
+      ],
+      "answer": "C",
+      "explain": "Động từ 'suggest' + V-ing. Nên 'opening' là đúng.",
+      "skill": "gerund/infinitive",
+      "topic": "business"
+    },
+    {
+      "id": "p5-013",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "Only applicants _______ meet the minimum requirements will be contacted for an interview.",
+      "options": [
+        "(A) who",
+        "(B) whom",
+        "(C) whose",
+        "(D) which"
+      ],
+      "answer": "A",
+      "explain": "Đại từ quan hệ thay thế cho 'applicants' (người) và đóng vai trò làm chủ ngữ cho động từ 'meet'. Dùng 'who'.",
+      "skill": "relative clauses",
+      "topic": "HR"
+    },
+    {
+      "id": "p5-014",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "The software update is expected to run _______ than the previous version.",
+      "options": [
+        "(A) smooth",
+        "(B) smoothly",
+        "(C) smoother",
+        "(D) more smoothly"
+      ],
+      "answer": "D",
+      "explain": "Cần một trạng từ để bổ nghĩa cho động từ 'run', và dạng so sánh hơn vì có 'than'. 'more smoothly' là đúng.",
+      "skill": "comparative/superlative",
+      "topic": "technology"
+    },
+    {
+      "id": "p5-015",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "If we had known about the delay, we _______ our flight.",
+      "options": [
+        "(A) will change",
+        "(B) would change",
+        "(C) had changed",
+        "(D) would have changed"
+      ],
+      "answer": "D",
+      "explain": "Câu điều kiện loại 3 diễn tả sự việc không có thật trong quá khứ: If + S + had + V3/ed, S + would have + V3/ed.",
+      "skill": "conditionals",
+      "topic": "travel"
+    },
+    {
+      "id": "p5-016",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "The financial documents must be reviewed _______ by the auditors before submission.",
+      "options": [
+        "(A) thorough",
+        "(B) thoroughly",
+        "(C) thoroughness",
+        "(D) more thorough"
+      ],
+      "answer": "B",
+      "explain": "Cần trạng từ bổ nghĩa cho động từ 'reviewed'. 'thoroughly' (một cách kỹ lưỡng) là đáp án đúng.",
+      "skill": "word forms",
+      "topic": "finance"
+    },
+    {
+      "id": "p5-017",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "_______ the presentation was long, the audience remained engaged throughout.",
+      "options": [
+        "(A) Although",
+        "(B) Despite",
+        "(C) In spite of",
+        "(D) Furthermore"
+      ],
+      "answer": "A",
+      "explain": "'the presentation was long' là mệnh đề. Nghĩa tương phản nên dùng 'Although'. 'Despite' đi với cụm danh từ.",
+      "skill": "conjunctions",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-018",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "By this time next year, the construction of the new headquarters _______.",
+      "options": [
+        "(A) finishes",
+        "(B) will finish",
+        "(C) has finished",
+        "(D) will have been finished"
+      ],
+      "answer": "D",
+      "explain": "Dấu hiệu 'By this time next year' chỉ tương lai hoàn thành. Việc xây dựng phải được hoàn thành (bị động).",
+      "skill": "tenses",
+      "topic": "business"
+    },
+    {
+      "id": "p5-019",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "Neither the manager _______ the employees were aware of the policy change.",
+      "options": [
+        "(A) or",
+        "(B) and",
+        "(C) nor",
+        "(D) but"
+      ],
+      "answer": "C",
+      "explain": "Cấu trúc tương quan 'Neither ... nor ...' (Không ... cũng không ...).",
+      "skill": "conjunctions",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-020",
+      "setId": "set-p5-02",
+      "level": "toeic-650",
+      "question": "The committee has reached a _______ regarding the upcoming merger.",
+      "options": [
+        "(A) consensus",
+        "(B) consent",
+        "(C) consense",
+        "(D) sensibly"
+      ],
+      "answer": "A",
+      "explain": "Cần một danh từ sau 'a'. 'consensus' (sự đồng thuận) là từ vựng chính xác trong ngữ cảnh họp hành, hội đồng.",
+      "skill": "vocabulary",
+      "topic": "business"
+    },
+    {
+      "id": "p5-021",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "Had the marketing team launched the campaign earlier, sales _______ significantly.",
+      "options": [
+        "(A) will increase",
+        "(B) increased",
+        "(C) would have increased",
+        "(D) had increased"
+      ],
+      "answer": "C",
+      "explain": "Đảo ngữ câu điều kiện loại 3: Had + S + V3/ed, S + would have + V3/ed.",
+      "skill": "conditionals",
+      "topic": "marketing"
+    },
+    {
+      "id": "p5-022",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "The newly appointed director is highly regarded for her _______ in corporate litigation.",
+      "options": [
+        "(A) expert",
+        "(B) expertly",
+        "(C) expertise",
+        "(D) expected"
+      ],
+      "answer": "C",
+      "explain": "Sau tính từ sở hữu 'her' cần danh từ. 'expertise' (sự chuyên môn, chuyên môn) là đúng.",
+      "skill": "word forms",
+      "topic": "business"
+    },
+    {
+      "id": "p5-023",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "Any staff members _______ to volunteer for the charity event should notify human resources.",
+      "options": [
+        "(A) wish",
+        "(B) wished",
+        "(C) wishing",
+        "(D) are wishing"
+      ],
+      "answer": "C",
+      "explain": "Rút gọn mệnh đề quan hệ chủ động: 'who wish' -> 'wishing'.",
+      "skill": "relative clauses",
+      "topic": "HR"
+    },
+    {
+      "id": "p5-024",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "It is imperative that the safety protocols _______ strictly followed by all personnel.",
+      "options": [
+        "(A) are",
+        "(B) be",
+        "(C) will be",
+        "(D) have been"
+      ],
+      "answer": "B",
+      "explain": "Cấu trúc giả định cách với 'imperative': It is imperative that + S + (should) + V_bare. Nên động từ to be ở dạng nguyên thể là 'be'.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-025",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "The sales figures for this quarter are considerably lower _______ those of the same period last year.",
+      "options": [
+        "(A) as",
+        "(B) then",
+        "(C) than",
+        "(D) that"
+      ],
+      "answer": "C",
+      "explain": "Có so sánh hơn 'lower', do đó cần dùng 'than' để so sánh với số liệu quý trước.",
+      "skill": "comparative/superlative",
+      "topic": "finance"
+    },
+    {
+      "id": "p5-026",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "Seldom _______ such a rapid expansion in the retail sector been witnessed.",
+      "options": [
+        "(A) has",
+        "(B) is",
+        "(C) does",
+        "(D) had"
+      ],
+      "answer": "A",
+      "explain": "Đảo ngữ với từ phủ định/bán phủ định 'Seldom'. Động từ chính là 'been witnessed' (hiện tại hoàn thành), trợ động từ phải là 'has'.",
+      "skill": "grammar",
+      "topic": "business"
+    },
+    {
+      "id": "p5-027",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "The contractor failed to meet the deadline, _______ a penalty fee.",
+      "options": [
+        "(A) incur",
+        "(B) incurring",
+        "(C) incurred",
+        "(D) to incur"
+      ],
+      "answer": "B",
+      "explain": "Mệnh đề phân từ hiện tại (present participle) chỉ kết quả của mệnh đề trước đó. Dùng V-ing 'incurring' (gánh chịu).",
+      "skill": "grammar",
+      "topic": "finance"
+    },
+    {
+      "id": "p5-028",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "_______ to popular belief, the company is not planning to lay off any employees.",
+      "options": [
+        "(A) Contrast",
+        "(B) Contrary",
+        "(C) Contrarily",
+        "(D) Contradict"
+      ],
+      "answer": "B",
+      "explain": "Cụm từ cố định 'Contrary to popular belief' (Trái với niềm tin/suy nghĩ phổ biến).",
+      "skill": "vocabulary",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-029",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "The CEO's speech was not only inspiring _______ highly informative.",
+      "options": [
+        "(A) and",
+        "(B) as well as",
+        "(C) but also",
+        "(D) along with"
+      ],
+      "answer": "C",
+      "explain": "Cấu trúc tương quan 'not only ... but also ...' (không những ... mà còn ...).",
+      "skill": "conjunctions",
+      "topic": "business"
+    },
+    {
+      "id": "p5-030",
+      "setId": "set-p5-03",
+      "level": "toeic-800",
+      "question": "Should you _______ any further assistance, please do not hesitate to contact our support team.",
+      "options": [
+        "(A) require",
+        "(B) requiring",
+        "(C) required",
+        "(D) to require"
+      ],
+      "answer": "A",
+      "explain": "Đảo ngữ câu điều kiện loại 1: Should + S + V_bare. Chọn 'require'.",
+      "skill": "conditionals",
+      "topic": "customer service"
+    },
+    {
+      "id": "p5-crawled-1788761745700-1",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: His trials and tribulations, which he claimed were his worse, would be more satisfactory if he actually took the time to organize his thoughts.",
+      "options": [
+        "(A) which he claimed were",
+        "(B) worse",
+        "(C) actually",
+        "(D) thoughts"
+      ],
+      "answer": "A",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-2",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: My friend had been advised to make prudent investments with her inheritance, so she delayed to buy those stocks offered on the exchange that morning.",
+      "options": [
+        "(A) had been advised",
+        "(B) to make",
+        "(C) with",
+        "(D) delayed to buy"
+      ],
+      "answer": "D",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-3",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: The newest ideas presented actually will might cost more, and may have to be considered carefully before going to the board for ratification.",
+      "options": [
+        "(A) presented",
+        "(B) will might",
+        "(C) may have to",
+        "(D) before going"
+      ],
+      "answer": "B",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-4",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: Not agreeing to sell his assets and eventually is phasing out his construction company, John will attempt to keep things going until the bank floats another loan.",
+      "options": [
+        "(A) Not agreeing to sell",
+        "(B) is phasing",
+        "(C) will attempt",
+        "(D) things going"
+      ],
+      "answer": "A",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-5",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: Until the end of the First World War, a little official attention was given to preventing fires, because extinguishing fires was the main concern of fire departments.",
+      "options": [
+        "(A) a little",
+        "(B) to preventing",
+        "(C) extinguishing",
+        "(D) was"
+      ],
+      "answer": "A",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-6",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: A frustrating year for the U.S. space program was experienced in 1993 because of lost satellites, delays of space shuttle launches, and a drastically size reduction of the space station.",
+      "options": [
+        "(A) frustrating",
+        "(B) was experienced",
+        "(C) because of",
+        "(D) drastically"
+      ],
+      "answer": "D",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-7",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: Marine biology also deals on organisms which directly depend upon bodies of salt water for essities of life.",
+      "options": [
+        "(A) deals on",
+        "(B) which",
+        "(C) depend upon",
+        "(D) necessities of life"
+      ],
+      "answer": "B",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-8",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: Hakka is very much like Cantonese, with six tones distinguishing meaning between words or words elements within the same vowels and consonants.",
+      "options": [
+        "(A) much like",
+        "(B) with",
+        "(C) distinguishing",
+        "(D) words"
+      ],
+      "answer": "A",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-9",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: Although Myanmar jewelry has its own characteristics, it was influenced by various Indian styles in which individual jewels blend in rather than standing out.",
+      "options": [
+        "(A) Although",
+        "(B) it",
+        "(C) in which",
+        "(D) standing out"
+      ],
+      "answer": "D",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    },
+    {
+      "id": "p5-crawled-1788761745700-10",
+      "setId": "set-p5-crawled-1",
+      "level": "toeic-650",
+      "question": "Select the underlined section that contains an error: When was the least time you updated the information in your address book?",
+      "options": [
+        "(A) was",
+        "(B) least",
+        "(C) the",
+        "(D) address"
+      ],
+      "answer": "B",
+      "explain": "Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.",
+      "skill": "grammar",
+      "topic": "workplace"
+    }
+  ],
+  "part6": [
+    {
+      "id": "p6-001",
+      "setId": "set-p6-01",
+      "level": "toeic-450",
+      "title": "Company Memo",
+      "topic": "workplace",
+      "text": "To: All Employees\nFrom: Management\nDate: October 12\nSubject: Office Relocation\n\nThis is to inform you that our main office will be relocating to a new building next month. The move will take place over the weekend of November 5-6 to minimize __(1)__ to our daily operations. \n\nAll staff are required to pack their personal belongings by Friday, November 4. We will provide boxes and labels starting next Monday. __(2)__ ensure that all fragile items are clearly marked.\n\nThe new office is located at 1500 Business Parkway, which is just three miles away from our current location. It __(3)__ a larger cafeteria, more meeting rooms, and improved parking facilities. \n\nWe appreciate your __(4)__ during this transition. If you have any questions, please contact HR.\n\nThank you,\nManagement",
+      "blanks": [
+        {
+          "index": 1,
+          "options": [
+            "(A) disrupt",
+            "(B) disruption",
+            "(C) disruptive",
+            "(D) disruptively"
+          ],
+          "answer": "B",
+          "explain": "Sau động từ 'minimize' cần một danh từ làm tân ngữ. 'disruption' (sự gián đoạn) là danh từ hợp lý."
+        },
+        {
+          "index": 2,
+          "options": [
+            "(A) Please",
+            "(B) Must",
+            "(C) Should",
+            "(D) Can"
+          ],
+          "answer": "A",
+          "explain": "Đầu câu mệnh lệnh yêu cầu ai đó làm gì, dùng 'Please' (Vui lòng)."
+        },
+        {
+          "index": 3,
+          "options": [
+            "(A) feature",
+            "(B) features",
+            "(C) is featuring",
+            "(D) featured"
+          ],
+          "answer": "B",
+          "explain": "Chủ ngữ 'It' (văn phòng mới) số ít, diễn tả sự thật hiện tại, động từ 'feature' cần thêm 's' -> 'features' (có đặc điểm/cung cấp)."
+        },
+        {
+          "index": 4,
+          "options": [
+            "(A) cooperate",
+            "(B) cooperatively",
+            "(C) cooperation",
+            "(D) cooperated"
+          ],
+          "answer": "C",
+          "explain": "Sau tính từ sở hữu 'your' cần một danh từ. 'cooperation' (sự hợp tác) là đáp án đúng."
+        }
+      ]
+    },
+    {
+      "id": "p6-002",
+      "setId": "set-p6-01",
+      "level": "toeic-450",
+      "title": "Email",
+      "topic": "customer service",
+      "text": "Subject: Your recent order #4992\nDear Ms. Henderson,\n\nThank you for shopping at TechGear Online. We are writing to update you on the status of your recent order. \n\nUnfortunately, the wireless headphones you __(1)__ are currently out of stock. We expect a new shipment to arrive early next week. We can either hold your entire order until the headphones are available, __(2)__ we can ship the rest of your items now and send the headphones later at no extra shipping cost.\n\n__(3)__, please reply to this email to let us know your preference. If we do not hear from you within 48 hours, we will proceed with the second option by default.\n\nWe apologize for this __(4)__ and thank you for your patience.\n\nSincerely,\nTechGear Customer Support",
+      "blanks": [
+        {
+          "index": 1,
+          "options": [
+            "(A) order",
+            "(B) ordered",
+            "(C) ordering",
+            "(D) will order"
+          ],
+          "answer": "B",
+          "explain": "Sự việc đặt hàng đã xảy ra trong quá khứ nên dùng thì quá khứ đơn 'ordered'."
+        },
+        {
+          "index": 2,
+          "options": [
+            "(A) and",
+            "(B) but",
+            "(C) or",
+            "(D) so"
+          ],
+          "answer": "C",
+          "explain": "Cấu trúc 'either ... or ...' (hoặc ... hoặc ...)."
+        },
+        {
+          "index": 3,
+          "options": [
+            "(A) Therefore",
+            "(B) However",
+            "(C) In addition",
+            "(D) For instance"
+          ],
+          "answer": "A",
+          "explain": "'Therefore' (Vì vậy, Do đó) dùng để đưa ra kết luận hoặc hệ quả, yêu cầu khách hàng phản hồi."
+        },
+        {
+          "index": 4,
+          "options": [
+            "(A) delay",
+            "(B) delayed",
+            "(C) delaying",
+            "(D) delays"
+          ],
+          "answer": "A",
+          "explain": "Sau 'this' cần danh từ số ít. 'delay' (sự chậm trễ) là hợp lý."
+        }
+      ]
+    },
+    {
+      "id": "p6-003",
+      "setId": "set-p6-02",
+      "level": "toeic-650",
+      "title": "Notice",
+      "topic": "workplace",
+      "text": "Attention All Residents,\n\nPlease be advised that the building's water supply will be temporarily shut off on Tuesday, March 14, between 9:00 AM and 2:00 PM. This interruption is necessary so that maintenance crews can perform __(1)__ repairs to the main water line.\n\nDuring this time, you will not have access to running water. We highly recommend that you store enough water for your basic needs prior to the shut-off. __(2)__ you have any medical conditions that require a continuous water supply, please contact the building management office immediately.\n\nWe understand that this may cause some inconvenience, but these repairs are crucial to __(3)__ the long-term reliability of our plumbing system. The water supply will be restored as soon as the work is completed.\n\nThank you for your __(4)__.\n\nRiverview Apartments Management",
+      "blanks": [
+        {
+          "index": 1,
+          "options": [
+            "(A) essential",
+            "(B) essentially",
+            "(C) essence",
+            "(D) essentials"
+          ],
+          "answer": "A",
+          "explain": "Trước danh từ 'repairs' cần một tính từ. 'essential' (cần thiết, thiết yếu) là đáp án đúng."
+        },
+        {
+          "index": 2,
+          "options": [
+            "(A) Unless",
+            "(B) If",
+            "(C) Whether",
+            "(D) Provided"
+          ],
+          "answer": "B",
+          "explain": "Câu điều kiện loại 1: 'If you have any medical conditions..., please contact...'."
+        },
+        {
+          "index": 3,
+          "options": [
+            "(A) assure",
+            "(B) insure",
+            "(C) ensure",
+            "(D) reassure"
+          ],
+          "answer": "C",
+          "explain": "'ensure' (đảm bảo) thường được dùng với nghĩa đảm bảo điều gì đó sẽ xảy ra (đảm bảo độ tin cậy lâu dài)."
+        },
+        {
+          "index": 4,
+          "options": [
+            "(A) understood",
+            "(B) understanding",
+            "(C) understand",
+            "(D) understandable"
+          ],
+          "answer": "B",
+          "explain": "Sau tính từ sở hữu 'your' cần danh từ. 'understanding' (sự thấu hiểu, thông cảm) là phù hợp nhất."
+        }
+      ]
+    },
+    {
+      "id": "p6-004",
+      "setId": "set-p6-02",
+      "level": "toeic-650",
+      "title": "Job Posting",
+      "topic": "HR",
+      "text": "Position: Marketing Coordinator\nCompany: Zenith Innovations\n\nZenith Innovations is seeking a dynamic Marketing Coordinator to join our fast-growing team. The ideal candidate will be responsible for assisting in the development and execution of promotional campaigns. \n\nKey responsibilities include managing our social media accounts, conducting market research, and coordinating with external vendors. Applicants should have a bachelor's degree in marketing or a related field, __(1)__ with at least two years of relevant experience. \n\n__(2)__ proficiency in graphic design software is not strictly required, it is considered a strong asset. We offer a competitive salary, comprehensive health benefits, and a flexible work schedule.\n\nTo apply, please submit your resume and a cover letter __(3)__ why you are a good fit for this role. Applications will be accepted until the position is filled. \n\nJoin us and help __(4)__ the future of technology!\n",
+      "blanks": [
+        {
+          "index": 1,
+          "options": [
+            "(A) along",
+            "(B) together",
+            "(C) as well",
+            "(D) accompanied"
+          ],
+          "answer": "A",
+          "explain": "Cụm từ 'along with' (cùng với) được dùng để thêm thông tin (bằng cử nhân cùng với 2 năm kinh nghiệm)."
+        },
+        {
+          "index": 2,
+          "options": [
+            "(A) Despite",
+            "(B) While",
+            "(C) Because",
+            "(D) Since"
+          ],
+          "answer": "B",
+          "explain": "Nghĩa nhượng bộ: 'Mặc dù/Trong khi sự thành thạo phần mềm thiết kế không bắt buộc, nó là một lợi thế'. Dùng 'While'."
+        },
+        {
+          "index": 3,
+          "options": [
+            "(A) detailing",
+            "(B) detailed",
+            "(C) detail",
+            "(D) details"
+          ],
+          "answer": "A",
+          "explain": "Rút gọn mệnh đề quan hệ chủ động bổ nghĩa cho 'cover letter' (which details... -> detailing...)."
+        },
+        {
+          "index": 4,
+          "options": [
+            "(A) shape",
+            "(B) to shaping",
+            "(C) shaped",
+            "(D) sharply"
+          ],
+          "answer": "A",
+          "explain": "Cấu trúc 'help (to) do something'. Dùng động từ nguyên thể 'shape' (định hình)."
+        }
+      ]
+    }
+  ],
+  "part7_single": [
+    {
+      "id": "p7s-001",
+      "setId": "set-p7s-01",
+      "level": "toeic-450",
+      "title": "Email",
+      "passageType": "email",
+      "topic": "workplace",
+      "passage": "From: Sarah Jenkins <s.jenkins@acmecorp.com>\nTo: Sales Team <sales@acmecorp.com>\nDate: August 14\nSubject: Quarterly Sales Meeting\n\nDear Team,\n\nI want to remind everyone that our quarterly sales meeting will take place next Wednesday, August 22, from 9:00 AM to 11:30 AM in Conference Room B.\n\nPlease come prepared to discuss your sales figures from the last three months. In addition, we will be reviewing the new product line that is scheduled to launch in October. Our marketing director, David Miller, will give a brief presentation on the promotional strategies for these new items.\n\nCoffee and pastries will be provided. If you cannot attend this meeting, please let me know by Friday at the latest.\n\nBest regards,\nSarah Jenkins\nSales Manager",
+      "questions": [
+        {
+          "q": "What is the main purpose of the email?",
+          "options": [
+            "(A) To announce a new product launch",
+            "(B) To remind employees about an upcoming meeting",
+            "(C) To introduce the new marketing director",
+            "(D) To request sales figures from the previous year"
+          ],
+          "answer": "B",
+          "explain": "Dòng đầu tiên ghi rõ: 'I want to remind everyone that our quarterly sales meeting will take place...'"
+        },
+        {
+          "q": "Who will be giving a presentation?",
+          "options": [
+            "(A) Sarah Jenkins",
+            "(B) The Sales Team",
+            "(C) David Miller",
+            "(D) The CEO"
+          ],
+          "answer": "C",
+          "explain": "Đoạn 2 nêu rõ: 'Our marketing director, David Miller, will give a brief presentation...'"
+        },
+        {
+          "q": "What should employees do if they are unable to attend?",
+          "options": [
+            "(A) Send someone else in their place",
+            "(B) Submit their sales figures early",
+            "(C) Read the presentation online",
+            "(D) Notify Sarah Jenkins by Friday"
+          ],
+          "answer": "D",
+          "explain": "Đoạn cuối viết: 'If you cannot attend this meeting, please let me know by Friday at the latest.'"
+        }
+      ]
+    },
+    {
+      "id": "p7s-002",
+      "setId": "set-p7s-01",
+      "level": "toeic-450",
+      "title": "Advertisement",
+      "passageType": "advertisement",
+      "topic": "marketing",
+      "passage": "Grand Opening: Fresh Bites Bakery!\n\nCome celebrate the grand opening of Fresh Bites Bakery this Saturday, May 10, from 8:00 AM to 5:00 PM!\n\nLocated at 450 Elm Street in downtown Maplewood, we offer a wide variety of freshly baked goods, including artisanal breads, pastries, cakes, and gluten-free options. All our products are made daily using locally sourced organic ingredients.\n\nOpening Day Specials:\n- The first 50 customers will receive a free signature chocolate croissant!\n- Buy any two loaves of bread and get a third one for half price.\n- Free samples of our new summer fruit tarts all day long.\n\nFollow us on social media @FreshBitesMaplewood for future updates and weekly discounts. We look forward to serving you!",
+      "questions": [
+        {
+          "q": "What is being advertised?",
+          "options": [
+            "(A) A farmers market",
+            "(B) A new bakery",
+            "(C) A cooking class",
+            "(D) A restaurant relocation"
+          ],
+          "answer": "B",
+          "explain": "Tiêu đề ghi rõ: 'Grand Opening: Fresh Bites Bakery!'"
+        },
+        {
+          "q": "What is NOT mentioned as a special offer on opening day?",
+          "options": [
+            "(A) A free chocolate croissant for early customers",
+            "(B) Discounted loaves of bread",
+            "(C) Free coffee with any purchase",
+            "(D) Free samples of fruit tarts"
+          ],
+          "answer": "C",
+          "explain": "Quảng cáo đề cập đến bánh sừng bò miễn phí (A), giảm giá bánh mì (B), và mẫu thử tart trái cây miễn phí (D). Không nhắc đến cà phê miễn phí (C)."
+        }
+      ]
+    },
+    {
+      "id": "p7s-003",
+      "setId": "set-p7s-01",
+      "level": "toeic-450",
+      "title": "Text Message Chain",
+      "passageType": "text_chain",
+      "topic": "workplace",
+      "passage": "Mike (8:15 AM): Hey Lisa, I'm stuck in heavy traffic on the highway. There was a minor accident ahead. I might be about 20 minutes late to the office.\nLisa (8:17 AM): No problem, Mike. Thanks for letting me know. Are you still presenting at the 9:00 AM client meeting?\nMike (8:20 AM): I should be there by 8:45 AM, so yes. But could you please print out 5 copies of the proposal document just in case? The file is on the shared drive under 'Project Alpha'.\nLisa (8:22 AM): Sure thing. I'll print them right now and leave them on your desk.\nMike (8:23 AM): You're a lifesaver. See you soon!",
+      "questions": [
+        {
+          "q": "Why is Mike going to be late?",
+          "options": [
+            "(A) He woke up late.",
+            "(B) He is stuck in traffic.",
+            "(C) His car broke down.",
+            "(D) He forgot a document at home."
+          ],
+          "answer": "B",
+          "explain": "Mike nhắn: 'I'm stuck in heavy traffic on the highway.'"
+        },
+        {
+          "q": "What does Mike ask Lisa to do?",
+          "options": [
+            "(A) Lead the client meeting",
+            "(B) Call the client to delay the meeting",
+            "(C) Print copies of a proposal",
+            "(D) Email him a file"
+          ],
+          "answer": "C",
+          "explain": "Mike nhắn: 'could you please print out 5 copies of the proposal document...'"
+        }
+      ]
+    },
+    {
+      "id": "p7s-004",
+      "setId": "set-p7s-02",
+      "level": "toeic-650",
+      "title": "Article",
+      "passageType": "article",
+      "topic": "business",
+      "passage": "GREENVILLE — Horizon Motors, a leading electric vehicle manufacturer, announced yesterday that it will open a new battery production facility in Greenville. The $50 million investment is expected to create over 400 new jobs in the region over the next two years.\n\nAccording to Horizon Motors CEO Elena Rostova, Greenville was selected because of its strong manufacturing history and skilled workforce. \"We are thrilled to become a part of this community. This new facility will allow us to double our battery production capacity, helping us meet the growing demand for our electric vehicles nationwide,\" she stated during a press conference.\n\nConstruction of the 100,000-square-foot plant is set to begin in March, with completion expected by late next year. The local government has offered tax incentives to support the project, hoping it will stimulate the local economy which has suffered since the closure of a major textile factory five years ago.",
+      "questions": [
+        {
+          "q": "What is the main topic of the article?",
+          "options": [
+            "(A) The closure of a textile factory",
+            "(B) The launch of a new electric car model",
+            "(C) The construction of a new manufacturing plant",
+            "(D) A change in leadership at Horizon Motors"
+          ],
+          "answer": "C",
+          "explain": "Bài báo chủ yếu nói về việc Horizon Motors sẽ mở một nhà máy sản xuất pin mới tại Greenville."
+        },
+        {
+          "q": "Why did Horizon Motors choose Greenville?",
+          "options": [
+            "(A) It offers cheap land for development.",
+            "(B) It has a skilled workforce.",
+            "(C) It is close to their headquarters.",
+            "(D) The CEO grew up there."
+          ],
+          "answer": "B",
+          "explain": "Đoạn 2 nêu: 'Greenville was selected because of its strong manufacturing history and skilled workforce.'"
+        },
+        {
+          "q": "What is indicated about the local government?",
+          "options": [
+            "(A) It opposed the construction of the plant.",
+            "(B) It is providing financial incentives for the project.",
+            "(C) It is funding a new training program for workers.",
+            "(D) It plans to buy vehicles from Horizon Motors."
+          ],
+          "answer": "B",
+          "explain": "Đoạn cuối viết: 'The local government has offered tax incentives to support the project...'"
+        }
+      ]
+    },
+    {
+      "id": "p7s-005",
+      "setId": "set-p7s-02",
+      "level": "toeic-650",
+      "title": "Notice",
+      "passageType": "notice",
+      "topic": "workplace",
+      "passage": "Policy Update: Remote Work Guidelines\n\nEffective September 1, the company will be implementing a new hybrid work policy. Under this new arrangement, full-time employees are eligible to work remotely up to two days per week. \n\nTo participate in the hybrid work program, employees must adhere to the following guidelines:\n- A formal request must be submitted to and approved by your direct supervisor.\n- Employees must establish a set schedule for their remote days (e.g., every Tuesday and Thursday).\n- High-speed internet access and a secure home workspace are required.\n- Employees must remain accessible via email and phone during standard working hours (9:00 AM - 5:00 PM).\n\nPlease note that certain roles requiring physical presence in the office (such as front desk reception and IT hardware support) are exempt from this policy. If you have any questions about your eligibility, please speak with HR.",
+      "questions": [
+        {
+          "q": "How many days per week can eligible employees work remotely?",
+          "options": [
+            "(A) One day",
+            "(B) Up to two days",
+            "(C) Three days",
+            "(D) Five days"
+          ],
+          "answer": "B",
+          "explain": "Đoạn đầu nêu: 'full-time employees are eligible to work remotely up to two days per week.'"
+        },
+        {
+          "q": "What is NOT a requirement for the hybrid work program?",
+          "options": [
+            "(A) Getting approval from a supervisor",
+            "(B) Keeping a consistent schedule",
+            "(C) Having a high-speed internet connection",
+            "(D) Completing a remote work training course"
+          ],
+          "answer": "D",
+          "explain": "Các yêu cầu bao gồm xin phép sếp (A), lịch trình cố định (B), internet tốc độ cao (C). Không có yêu cầu hoàn thành khóa đào tạo (D)."
+        },
+        {
+          "q": "Who is explicitly mentioned as NOT being eligible for this policy?",
+          "options": [
+            "(A) Human Resources staff",
+            "(B) Part-time employees",
+            "(C) IT hardware support staff",
+            "(D) Sales representatives"
+          ],
+          "answer": "C",
+          "explain": "Đoạn cuối đề cập: 'certain roles... (such as front desk reception and IT hardware support) are exempt from this policy.'"
+        }
+      ]
+    }
+  ],
+  "part7_double": [],
+  "mini_test": [
+    {
+      "id": "mini-reading-001",
+      "level": "toeic-450",
+      "title": "Mini Reading Test #1",
+      "timeMinutes": 20,
+      "sections": [
+        {
+          "part": "part5",
+          "ids": [
+            "p5-001",
+            "p5-002",
+            "p5-003",
+            "p5-004",
+            "p5-005"
+          ]
+        },
+        {
+          "part": "part6",
+          "ids": [
+            "p6-001"
+          ]
+        },
+        {
+          "part": "part7_single",
+          "ids": [
+            "p7s-001"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mini-reading-002",
+      "level": "toeic-650",
+      "title": "Mini Reading Test #2",
+      "timeMinutes": 25,
+      "sections": [
+        {
+          "part": "part5",
+          "ids": [
+            "p5-011",
+            "p5-012",
+            "p5-013",
+            "p5-014",
+            "p5-015"
+          ]
+        },
+        {
+          "part": "part6",
+          "ids": [
+            "p6-003"
+          ]
+        },
+        {
+          "part": "part7_single",
+          "ids": [
+            "p7s-004"
+          ]
+        }
+      ]
+    }
+  ]
+}

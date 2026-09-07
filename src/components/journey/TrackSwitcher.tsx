@@ -18,6 +18,7 @@ export interface TrackSwitcherProps {
   onTrackChange: (track: RoadmapTrackId) => void;
   cefrStats?: TrackStats;
   thptStats?: TrackStats;
+  toeicStats?: TrackStats;
   className?: string;
   disabled?: boolean;
 }
@@ -27,10 +28,12 @@ export function TrackSwitcher({
   onTrackChange,
   cefrStats,
   thptStats,
+  toeicStats,
   className,
   disabled = false,
 }: TrackSwitcherProps) {
-  const activeStats = currentTrack === 'cefr' ? cefrStats : thptStats;
+  const activeStats =
+    currentTrack === 'cefr' ? cefrStats : currentTrack === 'toeic' ? toeicStats : thptStats;
 
   const handleTrackClick = (targetTrack: RoadmapTrackId) => {
     if (disabled || targetTrack === currentTrack) return;
@@ -43,7 +46,7 @@ export function TrackSwitcher({
       <div
         role="tablist"
         aria-label="Chọn lộ trình học"
-        className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-1.5 bg-muted/60 dark:bg-muted/30 border border-border/80 rounded-2xl shadow-xs"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1.5 bg-muted/60 dark:bg-muted/30 border border-border/80 rounded-2xl shadow-xs"
       >
         {/* CEFR Tab */}
         <button
@@ -154,6 +157,61 @@ export function TrackSwitcher({
             </div>
           )}
         </button>
+
+        {/* TOEIC Tab */}
+        <button
+          type="button"
+          role="tab"
+          aria-selected={currentTrack === 'toeic'}
+          disabled={disabled}
+          onClick={() => handleTrackClick('toeic')}
+          className={cn(
+            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation',
+            currentTrack === 'toeic'
+              ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
+              : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
+          )}
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <span
+              className={cn(
+                'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg font-bold shadow-xs',
+                currentTrack === 'toeic'
+                  ? 'bg-gradient-to-br from-blue-500 to-indigo-600 text-white'
+                  : 'bg-muted text-muted-foreground'
+              )}
+            >
+              🏢
+            </span>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="font-bold text-sm tracking-tight truncate">TOEIC Reading</span>
+                {toeicStats?.isEnrolled ? (
+                  <span className="inline-flex items-center text-[10px] font-medium bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 px-1.5 py-0.5 rounded-full">
+                    450–800
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center text-[10px] font-medium bg-primary/10 text-primary px-1.5 py-0.5 rounded-full">
+                    + Thêm
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-muted-foreground truncate">
+                {toeicStats?.isEnrolled && toeicStats.currentLevelTitle
+                  ? `${toeicStats.currentLevelTitle} · ${toeicStats.completedUnits}/${toeicStats.totalUnits} chặng`
+                  : 'Part 5, 6, 7 có giải thích'}
+              </p>
+            </div>
+          </div>
+
+          {toeicStats?.isEnrolled && (
+            <div className="shrink-0 text-right hidden xs:block">
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
+                {toeicStats.progressPct}%
+              </span>
+            </div>
+          )}
+        </button>
       </div>
 
       {/* Active Track Progress Bar & Linear Unlocking Principle */}
@@ -178,6 +236,8 @@ export function TrackSwitcher({
                 'h-full transition-all duration-500 rounded-full',
                 currentTrack === 'cefr'
                   ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                  : currentTrack === 'toeic'
+                  ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
                   : 'bg-gradient-to-r from-red-500 to-orange-500'
               )}
               style={{ width: `${Math.min(100, Math.max(0, activeStats.progressPct))}%` }}

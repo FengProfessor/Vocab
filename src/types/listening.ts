@@ -119,4 +119,5 @@ export interface ListeningAttempt {
   quizScore: number;
   quizTotal: number;
   percentScore: number;
+  isCompleted?: boolean;
 }

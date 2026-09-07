@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { PILOT_LEAD_STATUSES, type PilotLead, type PilotLeadStatus } from '@/lib/pilot-sales';
+import { removeVietnameseTones, parseNeedConsulting } from '@/lib/pilot-leads';
 import { supabase } from '@/lib/supabase';
 
 const STATUS_LABELS: Record<PilotLeadStatus, string> = {
@@ -32,29 +33,8 @@ const STATUS_LABELS: Record<PilotLeadStatus, string> = {
   lost: 'Không chốt',
 };
 
-export type SourceFilter = 'all' | 'tiktok_khaigiang_0509' | 'teacher_landing';
-export type StatusFilter = 'all' | PilotLeadStatus;
-
-export function removeVietnameseTones(str: string): string {
-  return str
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/đ/g, 'd')
-    .replace(/Đ/g, 'D');
-}
-
-export function parseNeedConsulting(lead: PilotLead): boolean {
-  if (!lead.message) return false;
-  const lower = lead.message.toLowerCase();
-  return (
-    lower.includes('cần tư vấn') ||
-    lower.includes('can tu van') ||
-    lower.includes('needconsulting: true') ||
-    lower.includes('needconsulting:true') ||
-    lower.includes('"needconsulting": true') ||
-    lower.includes('"needconsulting":true')
-  );
-}
+type SourceFilter = 'all' | 'tiktok_khaigiang_0509' | 'teacher_landing';
+type StatusFilter = 'all' | PilotLeadStatus;
 
 export default function PilotLeadsAdminPage() {
   const router = useRouter();

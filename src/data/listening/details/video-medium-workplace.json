@@ -3,517 +3,298 @@
   "youtubeId": "nhTcuUvLGOE",
   "title": "English Job Interview Tips and Tricks: How to Pass Any Interview",
   "channel": "Oxford Online English",
-  "duration": 1256,
-  "durationDisplay": "20:56",
+  "duration": 745,
+  "durationDisplay": "12:25",
   "durationCategory": "medium",
-  "cefrLevel": "B2",
+  "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Phỏng vấn",
   "thumbnailUrl": "https://img.youtube.com/vi/nhTcuUvLGOE/hqdefault.jpg",
-  "description": "Chiến lược trả lời phỏng vấn tuyển dụng chuyên nghiệp cho công việc & phỏng vấn xin việc cùng Oxford Online English.",
+  "description": "Hướng dẫn chuyên sâu cách trả lời các câu hỏi phỏng vấn tuyển dụng khó nhất bằng tiếng Anh: phương pháp STAR, cách giới thiệu điểm mạnh, xử lý câu hỏi về điểm yếu và đàm phán kỳ vọng.",
   "coreVocabulary": [
-    {
-      "word": "framework",
-      "phonetic": "/ˈfreɪmwɜːk/",
-      "viDefinition": "khung sườn cấu trúc, hệ thống tư duy",
-      "contextSentence": "Use a structured framework to answer competency questions."
-    },
-    {
-      "word": "interview",
-      "phonetic": "/ˈɪntəvjuː/",
-      "viDefinition": "cuộc phỏng vấn, buổi tuyển dụng",
-      "contextSentence": "Prepare well before attending a job interview."
-    },
-    {
-      "word": "candidate",
-      "phonetic": "/ˈkændɪdət/",
-      "viDefinition": "ứng viên, người ứng tuyển",
-      "contextSentence": "The ideal candidate demonstrates strong communication skills."
-    },
     {
       "word": "competency",
       "phonetic": "/ˈkɒmpɪtənsi/",
-      "viDefinition": "năng lực chuyên môn",
-      "contextSentence": "Employers evaluate behavioral competency through past experiences."
+      "viDefinition": "năng lực chuyên môn, kỹ năng hành vi đáp ứng yêu cầu công việc",
+      "contextSentence": "Interviewers assess behavioral competencies through real-life scenarios."
     },
     {
-      "word": "strengths",
-      "phonetic": "/streŋθs/",
-      "viDefinition": "điểm mạnh, sở trường",
-      "contextSentence": "Highlight your core professional strengths clearly."
+      "word": "framework",
+      "phonetic": "/ˈfreɪmwɜːk/",
+      "viDefinition": "khuôn khổ, mô hình cấu trúc phương pháp",
+      "contextSentence": "Use the present-past-future framework to give a crisp professional summary."
+    },
+    {
+      "word": "quantify",
+      "phonetic": "/ˈkwɒntɪfaɪ/",
+      "viDefinition": "định lượng, đo lường bằng các con số cụ thể",
+      "contextSentence": "Always quantify your results with concrete numbers like percentages or revenue."
+    },
+    {
+      "word": "perfectionist",
+      "phonetic": "/pəˈfekʃənɪst/",
+      "viDefinition": "người theo chủ nghĩa cầu toàn (cụm từ sáo rỗng trong phỏng vấn)",
+      "contextSentence": "Never say 'I am a perfectionist'; interviewers hear this cliché every day."
+    },
+    {
+      "word": "collaborative",
+      "phonetic": "/kəˈlæbərətɪv/",
+      "viDefinition": "mang tính hợp tác, tinh thần làm việc nhóm cao",
+      "contextSentence": "I thrive in a collaborative work environment with open communication."
     }
   ],
   "transcript": [
     {
       "id": "cue-1",
-      "start": 1.62,
-      "end": 3.37,
-      "en": "Hi, I'm Gina.",
-      "vi": "Xin chào, tôi là Gina."
+      "start": 0,
+      "end": 8.5,
+      "en": "Hello and welcome back to Oxford Online English. Today we are focusing on job interview preparation.",
+      "vi": "Xin chào và chào mừng bạn quay trở lại với Oxford Online English. Hôm nay chúng ta tập trung vào việc chuẩn bị cho phỏng vấn xin việc."
     },
     {
       "id": "cue-2",
-      "start": 3.42,
-      "end": 5.53,
-      "en": "Welcome to Oxford Online English!",
-      "vi": "Chào mừng bạn đến với tiếng Anh trực tuyến Oxford!"
+      "start": 9.2,
+      "end": 18,
+      "en": "A job interview in English can be intimidating, but following a structured approach gives you immense advantage.",
+      "vi": "Một buổi phỏng vấn xin việc bằng tiếng Anh có thể gây bối rối, nhưng tuân thủ phương pháp có cấu trúc sẽ mang lại lợi thế to lớn."
     },
     {
       "id": "cue-3",
-      "start": 5.58,
-      "end": 13.82,
-      "en": "In this lesson, you can learn how to answer job interview questions in English.",
-      "vi": "Trong bài học này, bạn có thể học cách trả lời các câu hỏi phỏng vấn xin việc bằng tiếng Anh."
+      "start": 18.8,
+      "end": 28.5,
+      "en": "Let's begin with the single most common opening question: 'Tell me about yourself.'",
+      "vi": "Hãy bắt đầu với câu hỏi mở đầu phổ biến nhất: 'Hãy giới thiệu về bản thân bạn.'"
     },
     {
       "id": "cue-4",
-      "start": 13.87,
-      "end": 16.31,
-      "en": "Have you ever had a job interview in English?",
-      "vi": "Bạn đã bao giờ phỏng vấn xin việc bằng tiếng Anh chưa?"
+      "start": 29.2,
+      "end": 39,
+      "en": "Many candidates make the mistake of reciting their entire life biography or repeating their CV word-for-word.",
+      "vi": "Nhiều ứng viên mắc sai lầm là kể lại toàn bộ tiểu sử cuộc đời hoặc đọc lại nguyên văn bản CV."
     },
     {
       "id": "cue-5",
-      "start": 16.36,
-      "end": 22.4,
-      "en": "In this lesson, we will provide a comprehensive framework to answer competency questions.",
-      "vi": "Trong bài học này, chúng tôi sẽ cung cấp một khung sườn toàn diện để trả lời các câu hỏi về năng lực."
+      "start": 39.8,
+      "end": 49.5,
+      "en": "Instead, use the present-past-future framework to give a crisp two-minute professional summary.",
+      "vi": "Thay vào đó, hãy sử dụng mô hình hiện tại-quá khứ-tương lai để đưa ra bản tóm tắt nghề nghiệp súc tích trong hai phút."
     },
     {
       "id": "cue-6",
-      "start": 22.45,
-      "end": 25.7,
-      "en": "stress to the experience.",
-      "vi": "căng thẳng cho trải nghiệm."
+      "start": 50.2,
+      "end": 60,
+      "en": "Start with your current role and major achievements, explain how past experience prepared you, and why this role fits your future.",
+      "vi": "Bắt đầu với vai trò hiện tại và thành tích lớn, giải thích kinh nghiệm quá khứ đã rèn giũa bạn thế nào, và vì sao vị trí này hợp với tương lai."
     },
     {
       "id": "cue-7",
-      "start": 25.75,
-      "end": 32.42,
-      "en": "However, there are some simple, effective tips you can use to give better answers to",
-      "vi": "Tuy nhiên, có một số mẹo đơn giản, hiệu quả mà bạn có thể sử dụng để đưa ra câu trả lời tốt hơn cho"
+      "start": 60.8,
+      "end": 71.5,
+      "en": "Next, interviewers often ask competency-based questions such as: 'Describe a time you overcame a difficult challenge.'",
+      "vi": "Tiếp theo, nhà tuyển dụng thường hỏi các câu hỏi dựa trên năng lực như: 'Hãy mô tả một lần bạn vượt qua thử thách khó khăn.'"
     },
     {
       "id": "cue-8",
-      "start": 32.47,
-      "end": 37.62,
-      "en": "job interview questions in clear, natural English.",
-      "vi": "câu hỏi phỏng vấn xin việc bằng tiếng Anh rõ ràng, tự nhiên."
+      "start": 72.2,
+      "end": 82.5,
+      "en": "The most effective structure for answering competency questions is the STAR method: Situation, Task, Action, and Result.",
+      "vi": "Cấu trúc hiệu quả nhất để trả lời câu hỏi năng lực là phương pháp STAR: Tình huống, Nhiệm vụ, Hành động và Kết quả."
     },
     {
       "id": "cue-9",
-      "start": 37.67,
-      "end": 42.69,
-      "en": "You'll learn about these tips and tricks during this lesson!",
-      "vi": "Bạn sẽ tìm hiểu về những mẹo và thủ thuật này trong bài học này!"
+      "start": 83.2,
+      "end": 93,
+      "en": "Spend twenty percent of your time describing the situation and task, and eighty percent highlighting your actions and results.",
+      "vi": "Dành 20% thời gian mô tả tình huống và nhiệm vụ, và 80% làm nổi bật hành động cùng kết quả của bạn."
     },
     {
       "id": "cue-10",
-      "start": 42.74,
-      "end": 50.87,
-      "en": "You'll see eight common job interview questions and four different techniques you can use.",
-      "vi": "Bạn sẽ thấy tám câu hỏi phỏng vấn xin việc phổ biến và bốn kỹ thuật khác nhau mà bạn có thể sử dụng."
+      "start": 93.8,
+      "end": 104,
+      "en": "Always quantify your results with concrete numbers, such as increasing sales by fifteen percent or cutting delivery time by two days.",
+      "vi": "Luôn định lượng kết quả bằng các con số cụ thể, chẳng hạn tăng 15% doanh số hoặc cắt giảm hai ngày thời gian giao hàng."
     },
     {
       "id": "cue-11",
-      "start": 50.92,
-      "end": 57.99,
-      "en": "You'll see how to answer these common job interview questions, using the techniques",
-      "vi": "Bạn sẽ biết cách trả lời những câu hỏi phỏng vấn xin việc phổ biến này bằng cách sử dụng các kỹ thuật"
+      "start": 104.8,
+      "end": 115.5,
+      "en": "Now let's address the dreaded question: 'What is your greatest weakness?'",
+      "vi": "Bây giờ chúng ta hãy giải quyết câu hỏi đáng sợ: 'Điểm yếu lớn nhất của bạn là gì?'"
     },
     {
       "id": "cue-12",
-      "start": 58.04,
-      "end": 59.74,
-      "en": "we'll show you.",
-      "vi": "chúng tôi sẽ cho bạn thấy."
+      "start": 116.2,
+      "end": 126.8,
+      "en": "Never say 'I am a perfectionist' or 'I work too hard'; interviewers hear these cliches every single day.",
+      "vi": "Đừng bao giờ nói 'Tôi là người cầu toàn' hay 'Tôi làm việc quá chăm chỉ'; nhà tuyển dụng nghe những sáo ngữ này mỗi ngày."
     },
     {
       "id": "cue-13",
-      "start": 59.79,
-      "end": 66.36,
-      "en": "Let's start with our eight common job interview questions.",
-      "vi": "Hãy bắt đầu với tám câu hỏi phỏng vấn xin việc phổ biến của chúng tôi."
+      "start": 127.5,
+      "end": 138,
+      "en": "Choose a genuine professional skill you are currently improving, and explain the concrete measures you are taking.",
+      "vi": "Hãy chọn một kỹ năng nghề nghiệp thực sự mà bạn đang trau dồi, và giải thích các biện pháp cụ thể mà bạn đang áp dụng."
     },
     {
       "id": "cue-14",
-      "start": 66.41,
-      "end": 68.22,
-      "en": "Tell me a little about yourself.",
-      "vi": "Hãy kể cho tôi nghe một chút về bản thân bạn."
+      "start": 138.8,
+      "end": 149.5,
+      "en": "For example: 'In the past, I found public speaking stressful, so I joined a Toastmasters club to practice weekly.'",
+      "vi": "Ví dụ: 'Trước đây tôi thấy việc nói trước công chúng rất căng thẳng, vì vậy tôi đã tham gia câu lạc bộ Toastmasters để luyện tập hàng tuần.'"
     },
     {
       "id": "cue-15",
-      "start": 68.27,
-      "end": 73.44,
-      "en": "Where do you see yourself five years from now?",
-      "vi": "Bạn thấy mình ở đâu sau 5 năm nữa?"
+      "start": 150.2,
+      "end": 161,
+      "en": "Another vital aspect is body language: maintain warm eye contact, sit upright, and smile when greeting the panel.",
+      "vi": "Một khía cạnh quan trọng khác là ngôn ngữ cơ thể: duy trì giao tiếp bằng mắt ấm áp, ngồi thẳng lưng và mỉm cười khi chào hội đồng."
     },
     {
       "id": "cue-16",
-      "start": 73.49,
-      "end": 80.43,
-      "en": "What are your strengthsweaknesses?",
-      "vi": "Điểm mạnh, điểm yếu của bạn là gì?"
+      "start": 161.8,
+      "end": 172.5,
+      "en": "When discussing salary expectations, demonstrate that you have researched market benchmarks for the role and location.",
+      "vi": "Khi thảo luận về kỳ vọng lương, hãy chứng tỏ rằng bạn đã nghiên cứu mức chuẩn thị trường cho vai trò và địa điểm đó."
     },
     {
       "id": "cue-17",
-      "start": 80.48,
-      "end": 84.22,
-      "en": "What is your leadership style?",
-      "vi": "Phong cách lãnh đạo của bạn là gì?"
+      "start": 173.2,
+      "end": 184,
+      "en": "At the conclusion of the interview, always have two or three thoughtful questions prepared for the interviewer.",
+      "vi": "Vào cuối buổi phỏng vấn, hãy luôn chuẩn bị sẵn hai hoặc ba câu hỏi sâu sắc dành cho người phỏng vấn."
     },
     {
       "id": "cue-18",
-      "start": 84.27,
-      "end": 89.47,
-      "en": "Can you tell me about a time when you demonstrated ----?",
-      "vi": "Bạn có thể kể cho tôi nghe về lần bạn chứng minh ----?"
+      "start": 184.8,
+      "end": 196,
+      "en": "Ask about team dynamics, company culture, or upcoming strategic initiatives to show genuine long-term interest.",
+      "vi": "Hãy hỏi về sự phối hợp nhóm, văn hóa công ty hoặc các sáng kiến chiến lược sắp tới để thể hiện sự quan tâm dài hạn chân thành."
     },
     {
       "id": "cue-19",
-      "start": 89.52,
-      "end": 95.85,
-      "en": "--gt For example, can you tell me about a time when you demonstrated strong leadership?",
-      "vi": "--gt Ví dụ: bạn có thể kể cho tôi nghe về thời điểm bạn thể hiện khả năng lãnh đạo mạnh mẽ không?"
+      "start": 196.8,
+      "end": 208,
+      "en": "Within twenty-four hours after the interview, send a concise thank-you email reaffirming your enthusiasm.",
+      "vi": "Trong vòng 24 giờ sau phỏng vấn, hãy gửi một email cảm ơn ngắn gọn tái khẳng định sự nhiệt huyết của bạn."
     },
     {
       "id": "cue-20",
-      "start": 95.9,
-      "end": 103.24,
-      "en": "Or, can you tell me about a time when you demonstrated excellent customer service?",
-      "vi": "Hoặc bạn có thể kể cho tôi nghe về thời điểm bạn thể hiện dịch vụ khách hàng xuất sắc không?"
-    },
-    {
-      "id": "cue-21",
-      "start": 103.29,
-      "end": 109.43,
-      "en": "Tell me about a time you dealt with a challenging situation at work.",
-      "vi": "Hãy kể cho tôi nghe về một lần bạn phải đối mặt với một tình huống khó khăn ở nơi làm việc."
-    },
-    {
-      "id": "cue-22",
-      "start": 109.48,
-      "end": 112.08,
-      "en": "Why do you want this job?",
-      "vi": "Tại sao bạn muốn công việc này?"
-    },
-    {
-      "id": "cue-23",
-      "start": 112.13,
-      "end": 119.84,
-      "en": "Why should we hire you?",
-      "vi": "Tại sao chúng tôi nên thuê bạn?"
-    },
-    {
-      "id": "cue-24",
-      "start": 119.89,
-      "end": 123.28,
-      "en": "What does concise mean?",
-      "vi": "súc tích nghĩa là gì?"
-    },
-    {
-      "id": "cue-25",
-      "start": 123.33,
-      "end": 127.18,
-      "en": "It means that you don't waste words.",
-      "vi": "Nó có nghĩa là bạn không lãng phí lời nói."
-    },
-    {
-      "id": "cue-26",
-      "start": 127.23,
-      "end": 135,
-      "en": "If you speak concisely, you get right to the point and don't add anything unnecessary",
-      "vi": "Nếu bạn nói ngắn gọn, bạn sẽ đi thẳng vào vấn đề và không thêm bất cứ điều gì không cần thiết"
-    },
-    {
-      "id": "cue-27",
-      "start": 135.05,
-      "end": 136.71,
-      "en": "to your answer.",
-      "vi": "cho câu trả lời của bạn."
-    },
-    {
-      "id": "cue-28",
-      "start": 136.76,
-      "end": 141.67,
-      "en": "Let's look at two questions in this section",
-      "vi": "Chúng ta hãy xem xét hai câu hỏi trong phần này"
-    },
-    {
-      "id": "cue-29",
-      "start": 141.72,
-      "end": 145.95,
-      "en": "Tell me a little about yourself.",
-      "vi": "Hãy kể cho tôi nghe một chút về bản thân bạn."
-    },
-    {
-      "id": "cue-30",
-      "start": 146,
-      "end": 151.94,
-      "en": "Where do you see yourself five years from now?",
-      "vi": "Bạn thấy mình ở đâu sau 5 năm nữa?"
-    },
-    {
-      "id": "cue-31",
-      "start": 151.99,
-      "end": 162.01,
-      "en": "These are very common job interview questions, and they're also very open questions.",
-      "vi": "Đây là những câu hỏi phỏng vấn xin việc rất phổ biến và cũng là những câu hỏi rất cởi mở."
-    },
-    {
-      "id": "cue-32",
-      "start": 162.06,
-      "end": 165.1,
-      "en": "Open questions can be dangerous.",
-      "vi": "Những câu hỏi mở có thể nguy hiểm."
-    },
-    {
-      "id": "cue-33",
-      "start": 165.15,
-      "end": 167.55,
-      "en": "Do you know why?",
-      "vi": "Bạn có biết tại sao không?"
-    },
-    {
-      "id": "cue-34",
-      "start": 167.6,
-      "end": 170.21,
-      "en": "It's because you might ramble.",
-      "vi": "Đó là bởi vì bạn có thể lan man."
-    },
-    {
-      "id": "cue-35",
-      "start": 170.26,
-      "end": 175.23,
-      "en": "Ramble means to talk a lot without saying much.",
-      "vi": "Ramble có nghĩa là nói nhiều mà không nói nhiều."
+      "start": 208.8,
+      "end": 220,
+      "en": "Remember: an interview is a two-way conversation to determine whether you and the company are the right mutual fit.",
+      "vi": "Hãy nhớ rằng: phỏng vấn là cuộc trò chuyện hai chiều nhằm xác định xem bạn và công ty có thực sự phù hợp với nhau hay không."
     }
   ],
   "clozeItems": [
     {
-      "id": "cloze-1",
-      "cueId": "cue-3",
-      "sentence": "In {{blank}} lesson, you can learn how to answer job interview questions in English.",
-      "blankWord": "this",
-      "hintVi": "Trong bài học này, bạn có thể học cách t",
-      "timestamp": 9.7,
+      "id": "cloze-med-1-1",
+      "cueId": "cue-5",
+      "sentence": "Use the present-past-future {{blank}} to give a crisp professional summary.",
+      "blankWord": "framework",
+      "hintVi": "mô hình, khuôn khổ cấu trúc",
+      "timestamp": 39.8,
       "options": [
-        "habit",
-        "practice",
-        "routine",
-        "this"
+        "framework",
+        "fiction",
+        "excuse",
+        "gossip"
       ]
     },
     {
-      "id": "cloze-2",
-      "cueId": "cue-6",
-      "sentence": "{{blank}} to the experience.",
-      "blankWord": "stress",
-      "hintVi": "căng thẳng cho trải nghiệm.",
-      "timestamp": 24.07,
+      "id": "cloze-med-1-2",
+      "cueId": "cue-8",
+      "sentence": "The most effective structure for answering competency questions is the {{blank}} method.",
+      "blankWord": "STAR",
+      "hintVi": "viết tắt Situation, Task, Action, Result",
+      "timestamp": 72.2,
       "options": [
-        "habit",
-        "practice",
-        "routine",
-        "stress"
+        "STAR",
+        "SWOT",
+        "SMART",
+        "FAST"
       ]
     },
     {
-      "id": "cloze-3",
-      "cueId": "cue-9",
-      "sentence": "{{blank}} learn about these tips and tricks during this lesson!",
-      "blankWord": "You'll",
-      "hintVi": "Bạn sẽ tìm hiểu về những mẹo và thủ thuậ",
-      "timestamp": 40.18,
+      "id": "cloze-med-1-3",
+      "cueId": "cue-10",
+      "sentence": "Always {{blank}} your results with concrete numbers like percentages or days saved.",
+      "blankWord": "quantify",
+      "hintVi": "định lượng, đo lường bằng số",
+      "timestamp": 93.8,
       "options": [
-        "You'll",
-        "habit",
-        "practice",
-        "routine"
+        "quantify",
+        "hide",
+        "ignore",
+        "forget"
       ]
     },
     {
-      "id": "cloze-4",
-      "cueId": "cue-13",
-      "sentence": "{{blank}} start with our eight common job interview questions.",
-      "blankWord": "Let's",
-      "hintVi": "Hãy bắt đầu với tám câu hỏi phỏng vấn xi",
-      "timestamp": 63.08,
+      "id": "cloze-med-1-4",
+      "cueId": "cue-12",
+      "sentence": "Never say 'I am a {{blank}}'; interviewers hear this cliché every single day.",
+      "blankWord": "perfectionist",
+      "hintVi": "người cầu toàn",
+      "timestamp": 116.2,
       "options": [
-        "Let's",
-        "habit",
-        "practice",
-        "routine"
+        "perfectionist",
+        "leader",
+        "specialist",
+        "beginner"
       ]
     }
   ],
   "comprehensionQuestions": [
     {
-      "id": "quiz-1",
-      "question": "What is discussed in section 1 around 00:01?",
+      "id": "quiz-med-1-1",
+      "question": "What common mistake do candidates make when asked 'Tell me about yourself'?",
       "options": [
-        "Hi, I'm Gina.",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "Talking about their current job for 30 seconds",
+        "Reciting their entire life biography or reading their CV word-for-word",
+        "Asking questions about the company stock price",
+        "Refusing to state their previous job title"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'Hi, I'm Gina.' (Mốc thời gian: 00:01).",
-      "timestampSeek": 1.62
+      "correctIndex": 1,
+      "explanation": "Ở mốc 00:29 (cue-4), người hướng dẫn chỉ ra sai lầm là kể lể tiểu sử cả đời hoặc lặp lại từng từ trong CV.",
+      "timestampSeek": 29.2
     },
     {
-      "id": "quiz-2",
-      "question": "What is discussed in section 2 around 00:16?",
+      "id": "quiz-med-1-2",
+      "question": "In the STAR method, what percentage of time should be spent on Actions and Results?",
       "options": [
-        "In this lesson, we will provide a comprehensive framework to",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "20 percent",
+        "50 percent",
+        "80 percent",
+        "100 percent"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'In this lesson, we will provide a comprehensive framework to answer competency questions.' (Mốc thời gian: 00:16).",
-      "timestampSeek": 16.36
+      "correctIndex": 2,
+      "explanation": "Ở mốc 01:23 (cue-9), quy tắc là dành 20% cho tình huống/nhiệm vụ và 80% làm nổi bật hành động và kết quả đạt được.",
+      "timestampSeek": 83.2
     },
     {
-      "id": "quiz-3",
-      "question": "What is discussed in section 3 around 00:37?",
+      "id": "quiz-med-1-3",
+      "question": "What is the recommended strategy when asked about your greatest weakness?",
       "options": [
-        "You'll learn about these tips and tricks during this lesson!",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "Say you have zero weaknesses",
+        "Claim you work too hard or are a perfectionist",
+        "State a real skill you are actively improving and explain the steps taken",
+        "Blame your former manager for past failures"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'You'll learn about these tips and tricks during this lesson!' (Mốc thời gian: 00:37).",
-      "timestampSeek": 37.67
+      "correctIndex": 2,
+      "explanation": "Ở mốc 02:07 (cue-13/14), bài học khuyên chọn một kỹ năng thực tế đang trau dồi và nêu rõ hành động cải thiện cụ thể.",
+      "timestampSeek": 127.5
     },
     {
-      "id": "quiz-4",
-      "question": "What is discussed in section 4 around 02:50?",
+      "id": "quiz-med-1-4",
+      "question": "What should you do within 24 hours following the job interview?",
       "options": [
-        "Ramble means to talk a lot without saying much.",
-        "An unrelated administrative announcement",
-        "A general review of grammar rules",
-        "A brief musical interlude with no speech"
+        "Call the CEO on their personal mobile phone",
+        "Send a concise thank-you email reaffirming your enthusiasm",
+        "Post a review of the interview panel on social media",
+        "Assume you were rejected if you did not get an immediate offer"
       ],
-      "correctIndex": 0,
-      "explanation": "The speaker explicitly states: 'Ramble means to talk a lot without saying much.' (Mốc thời gian: 02:50).",
-      "timestampSeek": 170.26
+      "correctIndex": 1,
+      "explanation": "Ở mốc 03:16 (cue-19), bài học khuyến nghị gửi email cảm ơn ngắn gọn trong vòng 24 giờ.",
+      "timestampSeek": 196.8
     }
-  ],
-  "exercises": {
-    "clozeItems": [
-      {
-        "id": "cloze-1",
-        "cueId": "cue-3",
-        "sentence": "In {{blank}} lesson, you can learn how to answer job interview questions in English.",
-        "blankWord": "this",
-        "hintVi": "Trong bài học này, bạn có thể học cách t",
-        "timestamp": 9.7,
-        "options": [
-          "habit",
-          "practice",
-          "routine",
-          "this"
-        ]
-      },
-      {
-        "id": "cloze-2",
-        "cueId": "cue-6",
-        "sentence": "{{blank}} to the experience.",
-        "blankWord": "stress",
-        "hintVi": "căng thẳng cho trải nghiệm.",
-        "timestamp": 24.07,
-        "options": [
-          "habit",
-          "practice",
-          "routine",
-          "stress"
-        ]
-      },
-      {
-        "id": "cloze-3",
-        "cueId": "cue-9",
-        "sentence": "{{blank}} learn about these tips and tricks during this lesson!",
-        "blankWord": "You'll",
-        "hintVi": "Bạn sẽ tìm hiểu về những mẹo và thủ thuậ",
-        "timestamp": 40.18,
-        "options": [
-          "You'll",
-          "habit",
-          "practice",
-          "routine"
-        ]
-      },
-      {
-        "id": "cloze-4",
-        "cueId": "cue-13",
-        "sentence": "{{blank}} start with our eight common job interview questions.",
-        "blankWord": "Let's",
-        "hintVi": "Hãy bắt đầu với tám câu hỏi phỏng vấn xi",
-        "timestamp": 63.08,
-        "options": [
-          "Let's",
-          "habit",
-          "practice",
-          "routine"
-        ]
-      }
-    ],
-    "comprehensionQuestions": [
-      {
-        "id": "quiz-1",
-        "question": "What is discussed in section 1 around 00:01?",
-        "options": [
-          "Hi, I'm Gina.",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'Hi, I'm Gina.' (Mốc thời gian: 00:01).",
-        "timestampSeek": 1.62
-      },
-      {
-        "id": "quiz-2",
-        "question": "What is discussed in section 2 around 00:16?",
-        "options": [
-          "In this lesson, we will provide a comprehensive framework to",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'In this lesson, we will provide a comprehensive framework to answer competency questions.' (Mốc thời gian: 00:16).",
-        "timestampSeek": 16.36
-      },
-      {
-        "id": "quiz-3",
-        "question": "What is discussed in section 3 around 00:37?",
-        "options": [
-          "You'll learn about these tips and tricks during this lesson!",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'You'll learn about these tips and tricks during this lesson!' (Mốc thời gian: 00:37).",
-        "timestampSeek": 37.67
-      },
-      {
-        "id": "quiz-4",
-        "question": "What is discussed in section 4 around 02:50?",
-        "options": [
-          "Ramble means to talk a lot without saying much.",
-          "An unrelated administrative announcement",
-          "A general review of grammar rules",
-          "A brief musical interlude with no speech"
-        ],
-        "correctIndex": 0,
-        "explanation": "The speaker explicitly states: 'Ramble means to talk a lot without saying much.' (Mốc thời gian: 02:50).",
-        "timestampSeek": 170.26
-      }
-    ]
-  }
+  ]
 }

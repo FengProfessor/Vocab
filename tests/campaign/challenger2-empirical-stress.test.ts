@@ -14,7 +14,7 @@ import { NextRequest } from 'next/server';
 import { TestRunner, expect } from './test-harness';
 import { POST } from '../../src/app/api/campaign/khaigiang/route';
 import { PROVINCES, POPULAR_PROVINCES, isKnownProvince } from '../../src/lib/provinces';
-import { removeVietnameseTones, parseNeedConsulting } from '../../src/app/admin/pilot-leads/page';
+import { removeVietnameseTones, parseNeedConsulting } from '../../src/lib/pilot-leads';
 import type { PilotLead, PilotLeadStatus } from '../../src/lib/pilot-sales';
 
 const PHONE_REGEX = /^[0-9+().\s-]{8,20}$/;

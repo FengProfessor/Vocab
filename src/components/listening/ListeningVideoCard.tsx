@@ -17,6 +17,8 @@ import {
   Activity,
   Globe,
   Play,
+  CheckSquare,
+  Pencil,
   type LucideIcon,
 } from 'lucide-react';
 import {
@@ -61,6 +63,9 @@ export function ListeningVideoCard({
   const totalVocabCount = video.coreVocabularyCount || vocabList.length;
   const displayVocab = vocabList.slice(0, 4);
   const extraVocabCount = totalVocabCount - displayVocab.length;
+  const quizCount = video.quizCount || 4;
+  const clozeCount = video.clozeCount || 4;
+  const isCompleted = Boolean(attempt?.isCompleted || (attempt && attempt.percentScore >= 80));
 
   return (
     <Link
@@ -95,10 +100,17 @@ export function ListeningVideoCard({
 
         {/* Attempt / Watch Progress Badge (Top-Right) */}
         {attempt ? (
-          <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 rounded-md bg-emerald-600/90 px-2 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs">
-            <CheckCircle2 className="h-3 w-3" />
-            <span>Đã làm ({attempt.percentScore}%)</span>
-          </div>
+          isCompleted ? (
+            <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5 rounded-md bg-emerald-600/95 px-2.5 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs ring-1 ring-emerald-400/40">
+              <CheckCircle2 className="h-3.5 w-3.5" />
+              <span>Đã hoàn thành ({attempt.percentScore}%)</span>
+            </div>
+          ) : (
+            <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 rounded-md bg-amber-500/90 px-2.5 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs ring-1 ring-amber-300/40">
+              <CheckCircle2 className="h-3 w-3" />
+              <span>Đang luyện ({attempt.percentScore}%)</span>
+            </div>
+          )
         ) : clampedWatch > 0 ? (
           <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 rounded-md bg-indigo-600/90 px-2 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs">
             <span>Đã xem {Math.round(clampedWatch)}%</span>
@@ -124,47 +136,59 @@ export function ListeningVideoCard({
 
       {/* Card Body */}
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        {/* Topic Badge with Icon + Channel */}
-        <div className="mb-2 flex items-center justify-between gap-2 text-xs">
+        {/* Topic Badge with Icon + Channel Name (Full display without truncation) */}
+        <div className="mb-2.5 flex flex-wrap items-center justify-between gap-1.5 text-xs">
           <span
-            className={`inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-[11px] font-bold ${topicColor.bg} ${topicColor.text} ${topicColor.border}`}
+            className={`inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-[11px] font-bold shrink-0 ${topicColor.bg} ${topicColor.text} ${topicColor.border}`}
           >
             <TopicIcon className="h-3 w-3" />
             <span>{video.topicDisplay || getTopicDisplayName(video.topic)}</span>
           </span>
-          <span className="truncate text-slate-400 dark:text-slate-500 font-medium max-w-[150px]">
+          <span className="text-[11px] font-medium text-slate-500 transition-colors group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300">
             {video.channel}
           </span>
         </div>
 
-        {/* 2-line clamped title */}
-        <h3 className="line-clamp-2 text-sm font-bold text-slate-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400 sm:text-base leading-snug">
+        {/* 2-line clamped title with consistent height across cards */}
+        <h3 className="line-clamp-2 min-h-[2.5rem] sm:min-h-[2.75rem] text-sm font-bold text-slate-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400 sm:text-base leading-snug">
           {video.title}
         </h3>
 
         {/* 2-line clamped description */}
-        <p className="mt-1.5 line-clamp-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+        <p className="mt-1.5 line-clamp-2 min-h-[2rem] text-xs text-slate-500 leading-relaxed dark:text-slate-400">
           {video.description}
         </p>
 
+        {/* Exercise Counter Pills (Quiz & Cloze) */}
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center gap-1.5 rounded-lg border border-sky-200/70 bg-sky-50 px-2.5 py-1 text-[11px] font-semibold text-sky-700 dark:border-sky-800/60 dark:bg-sky-950/50 dark:text-sky-300">
+            <CheckSquare className="h-3 w-3 text-sky-600 dark:text-sky-400" />
+            <span>{quizCount} câu trắc nghiệm</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-lg border border-amber-200/70 bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-700 dark:border-amber-800/60 dark:bg-amber-950/50 dark:text-amber-300">
+            <Pencil className="h-3 w-3 text-amber-600 dark:text-amber-400" />
+            <span>{clozeCount} câu điền từ</span>
+          </span>
+        </div>
+
         {/* Core Vocabulary Preview */}
         {displayVocab.length > 0 && (
-          <div className="mt-4 border-t border-slate-100 pt-3 dark:border-slate-800">
+          <div className="mt-3.5 border-t border-slate-100 pt-2.5 dark:border-slate-800/80">
             <div className="flex items-center gap-1 text-[11px] font-bold text-slate-600 dark:text-slate-300">
-              <BookOpen className="h-3.5 w-3.5 text-indigo-500" />
+              <BookOpen className="h-3 w-3 text-indigo-500" />
               <span>{totalVocabCount} từ vựng trọng tâm:</span>
             </div>
             <div className="mt-1.5 flex flex-wrap gap-1">
               {displayVocab.map((vocab) => (
                 <span
                   key={vocab}
-                  className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  className="rounded-md bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300"
                 >
                   {vocab}
                 </span>
               ))}
               {extraVocabCount > 0 && (
-                <span className="rounded-md bg-slate-100 px-1.5 py-0.5 text-[11px] font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                <span className="rounded-md bg-slate-100 px-1.5 py-0.5 text-[11px] font-medium text-slate-500 dark:bg-slate-800 dark:text-slate-400">
                   +{extraVocabCount}
                 </span>
               )}
@@ -172,14 +196,18 @@ export function ListeningVideoCard({
           </div>
         )}
 
-        {/* Action Button - Synergistic hover state with whole card */}
-        <div className="mt-auto pt-4">
-          <div
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-2.5 text-xs font-bold text-white shadow-xs transition-all group-hover:bg-indigo-700 active:scale-[0.98] dark:bg-indigo-600 dark:group-hover:bg-indigo-500"
-          >
-            <Headphones className="h-3.5 w-3.5" />
-            <span>Bắt đầu luyện nghe</span>
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+        {/* Modern Refined Bottom Action Bar (Replaces monolithic purple block) */}
+        <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <Headphones className="h-3.5 w-3.5 text-indigo-500" />
+              <span>{video.transcriptCuesCount} đoạn phụ đề</span>
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-bold text-indigo-700 transition-all duration-200 group-hover:bg-indigo-600 group-hover:text-white dark:bg-indigo-950/60 dark:text-indigo-300 dark:group-hover:bg-indigo-600 dark:group-hover:text-white">
+              <span>Luyện nghe</span>
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+            </div>
           </div>
         </div>
       </div>

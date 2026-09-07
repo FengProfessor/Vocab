@@ -27,6 +27,7 @@ export async function GET(req: NextRequest) {
  * Body:
  *   CEFR: { track?: 'cefr', answers } HOẶC { track?: 'cefr', selfSelect: 'A0'..'B2' }
  *   THPT: { track: 'thpt', selfSelect: 'lop-10'|'lop-11'|'lop-12' } (chọn lớp thẳng, 10/11/12 đều được)
+ *   TOEIC: { track: 'toeic', selfSelect: 'toeic-450'|'toeic-650'|'toeic-800' }
  * Upsert theo (user_id, track) — migration 20260716_roadmap_multi_track.
  */
 export async function POST(req: NextRequest) {
@@ -35,7 +36,7 @@ export async function POST(req: NextRequest) {
     if (!auth) return unauthorized();
     const body = await req.json();
 
-    const track = (body?.track === 'thpt' ? 'thpt' : 'cefr') as RoadmapTrack;
+    const track = (body?.track === 'thpt' ? 'thpt' : body?.track === 'toeic' ? 'toeic' : 'cefr') as RoadmapTrack;
     const ORDER = levelOrder(track);
 
     let levelId: RoadmapLevelId;

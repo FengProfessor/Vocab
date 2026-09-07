@@ -34,7 +34,7 @@ export async function GET(req: NextRequest) {
       .order('updated_at', { ascending: false });
 
     const enrollments = ((rows ?? []) as EnrollmentRow[]).map((r) => ({
-      track: (r.track === 'thpt' ? 'thpt' : 'cefr') as RoadmapTrack,
+      track: (r.track === 'thpt' ? 'thpt' : r.track === 'toeic' ? 'toeic' : 'cefr') as RoadmapTrack,
       levelId: r.level_id as RoadmapLevelId,
       startedAt: r.started_at,
     }));
@@ -45,7 +45,7 @@ export async function GET(req: NextRequest) {
 
     const qTrack = req.nextUrl.searchParams.get('track');
     const preferred: RoadmapTrack | null =
-      qTrack === 'thpt' || qTrack === 'cefr' ? qTrack : null;
+      qTrack === 'thpt' || qTrack === 'cefr' || qTrack === 'toeic' ? qTrack : null;
     const activeEnrollment =
       (preferred ? enrollments.find((e) => e.track === preferred) : null) ??
       enrollments[0];
