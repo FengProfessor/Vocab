@@ -3,264 +3,517 @@
   "youtubeId": "f2O6mQkFiiw",
   "title": "How to Practice Effectively for Just About Anything",
   "channel": "TED-Ed",
-  "duration": 287,
-  "durationDisplay": "04:47",
+  "duration": 289,
+  "durationDisplay": "04:49",
   "durationCategory": "short",
-  "cefrLevel": "B1",
+  "cefrLevel": "B2",
   "topic": "culture",
-  "topicDisplay": "Văn hoá học tập & Kỹ năng",
+  "topicDisplay": "Văn hoá học tập & kỹ năng",
   "thumbnailUrl": "https://img.youtube.com/vi/f2O6mQkFiiw/hqdefault.jpg",
-  "description": "Khám phá cơ chế khoa học não bộ đằng sau việc luyện tập hiệu quả: chất myelin bao bọc tế bào thần kinh giúp biến sự vụng về ban đầu thành kỹ năng thành thạo đỉnh cao.",
+  "description": "Khám phá cơ chế não bộ khi luyện tập và cách thức đạt được sự tinh thông (mastery) trong văn hoá học tập & kỹ năng qua TED-Ed.",
   "coreVocabulary": [
-    {
-      "word": "myelin",
-      "phonetic": "/ˈmaɪəlɪn/",
-      "viDefinition": "chất béo bao bọc sợi trục thần kinh giúp tăng tốc độ truyền xung điện",
-      "contextSentence": "Myelin acts like electrical insulation, preventing energy loss along nerve fibers."
-    },
-    {
-      "word": "deliberate",
-      "phonetic": "/dɪˈlɪbərət/",
-      "viDefinition": "có chủ đích, tập trung sâu và có định hướng",
-      "contextSentence": "Effective practice must be deliberate: goal-oriented and constantly adjusting."
-    },
-    {
-      "word": "precision",
-      "phonetic": "/prɪˈsɪʒn/",
-      "viDefinition": "sự chính xác tuyệt đối, độ chuẩn xác",
-      "contextSentence": "Precision always takes precedence over pure speed in the beginning."
-    },
     {
       "word": "mastery",
       "phonetic": "/ˈmɑːstəri/",
-      "viDefinition": "sự thành thạo bậc thầy, sự tinh thông",
-      "contextSentence": "True mastery requires mindful practice rather than mindless repetition."
+      "viDefinition": "sự tinh thông, làm chủ kỹ năng",
+      "contextSentence": "Mastering any physical skill takes time and practice."
+    },
+    {
+      "word": "effective",
+      "phonetic": "/ɪˈfektɪv/",
+      "viDefinition": "có hiệu quả, hiệu lực",
+      "contextSentence": "Consistent repetition is the most effective way to learn."
+    },
+    {
+      "word": "potential",
+      "phonetic": "/pəˈtenʃl/",
+      "viDefinition": "tiềm năng, năng lực phát triển",
+      "contextSentence": "Effective practice helps in maximizing our potential."
+    },
+    {
+      "word": "repetition",
+      "phonetic": "/ˌrepəˈtɪʃn/",
+      "viDefinition": "sự lặp đi lặp lại",
+      "contextSentence": "Neural pathways strengthen with precise repetition."
+    },
+    {
+      "word": "myelin",
+      "phonetic": "/ˈmaɪəlɪn/",
+      "viDefinition": "bao myelin bảo vệ sợi thần kinh",
+      "contextSentence": "Myelin wraps around nerve fibers to speed up electrical signals."
     }
   ],
   "transcript": [
     {
       "id": "cue-1",
-      "start": 0,
-      "end": 7,
-      "en": "In the 1930s, researchers observed that master musicians and elite athletes had brains that looked structurally different.",
-      "vi": "Vào những năm 1930, các nhà nghiên cứu quan sát thấy các nhạc công bậc thầy và vận động viên ưu tú có cấu trúc não bộ khác biệt."
+      "start": 7.99,
+      "end": 10.14,
+      "en": "Mastering any physical skill,",
+      "vi": "Nắm vững bất kỳ kỹ năng thể chất nào,"
     },
     {
       "id": "cue-2",
-      "start": 7.8,
-      "end": 15.2,
-      "en": "What is it about practice that transforms a clumsy beginner into a graceful expert?",
-      "vi": "Điều gì ở việc luyện tập đã biến một người mới bắt đầu vụng về thành một chuyên gia điêu luyện?"
+      "start": 10.19,
+      "end": 13.03,
+      "en": "be it performing a pirouette, playing an instrument,",
+      "vi": "có thể là biểu diễn múa xoay, chơi một nhạc cụ,"
     },
     {
       "id": "cue-3",
-      "start": 16,
-      "end": 24.5,
-      "en": "The human brain contains billions of neurons that communicate through electrical signals sent along axons.",
-      "vi": "Bộ não con người chứa hàng tỷ tế bào thần kinh giao tiếp thông qua các tín hiệu điện truyền dọc theo sợi trục."
+      "start": 13.08,
+      "end": 16.05,
+      "en": "or throwing a baseball, takes practice.",
+      "vi": "hoặc ném bóng chày, cần phải luyện tập."
     },
     {
       "id": "cue-4",
-      "start": 25.2,
-      "end": 33.8,
-      "en": "When you first attempt a new skill, like playing a violin chord or shooting a basketball, the signal is weak and erratic.",
-      "vi": "Khi bạn lần đầu thử một kỹ năng mới, như bấm hợp âm vĩ cầm hay ném bóng rổ, tín hiệu sẽ yếu và chập chờn."
+      "start": 16.1,
+      "end": 20.32,
+      "en": "Practice is the repetition of an action with the goal of improvement,",
+      "vi": "Thực hành là sự lặp lại một hành động với mục tiêu cải thiện,"
     },
     {
       "id": "cue-5",
-      "start": 34.5,
-      "end": 43,
-      "en": "Surrounding your nerve fibers is a fatty substance called myelin, which acts like electrical insulation.",
-      "vi": "Bao quanh các sợi thần kinh của bạn là một chất béo gọi là myelin, hoạt động giống như lớp cách điện."
+      "start": 20.37,
+      "end": 24.53,
+      "en": "and it helps us perform with more ease, speed, and confidence.",
+      "vi": "và nó giúp chúng ta thực hiện dễ dàng, nhanh chóng và tự tin hơn."
     },
     {
       "id": "cue-6",
-      "start": 43.8,
-      "end": 52.5,
-      "en": "Every time you practice a skill correctly, microscopic layers of myelin wrap around that specific axon.",
-      "vi": "Mỗi lần bạn luyện tập một kỹ năng một cách chính xác, các lớp myelin vi mô sẽ bọc quanh sợi trục cụ thể đó."
+      "start": 24.58,
+      "end": 29.82,
+      "en": "So what does practice do in our brains to make us better at things?",
+      "vi": "Vậy luyện tập có tác dụng gì trong não để giúp chúng ta giỏi hơn trong mọi việc?"
     },
     {
       "id": "cue-7",
-      "start": 53.2,
-      "end": 62,
-      "en": "This insulation prevents electrical leakage, allowing nerve impulses to travel up to one hundred times faster.",
-      "vi": "Lớp cách điện này ngăn chặn rò rỉ điện năng, cho phép các xung thần kinh truyền đi nhanh hơn tới một trăm lần."
+      "start": 29.87,
+      "end": 33.39,
+      "en": "Our brains have two kinds of neural tissue grey matter",
+      "vi": "Bộ não của chúng ta có hai loại chất xám mô thần kinh"
     },
     {
       "id": "cue-8",
-      "start": 62.8,
-      "end": 71.5,
-      "en": "However, simply repeating a motion without paying attention does not produce optimal results.",
-      "vi": "Tuy nhiên, chỉ đơn thuần lặp lại một chuyển động mà không chú ý thì không đem lại kết quả tối ưu."
+      "start": 33.44,
+      "end": 35.02,
+      "en": "and white matter.",
+      "vi": "và chất trắng."
     },
     {
       "id": "cue-9",
-      "start": 72.2,
-      "end": 80.8,
-      "en": "Effective practice must be deliberate: goal-oriented, deeply focused, and constantly adjusting for mistakes.",
-      "vi": "Luyện tập hiệu quả phải có chủ đích: định hướng mục tiêu, tập trung sâu và liên tục điều chỉnh các lỗi sai."
+      "start": 35.07,
+      "end": 37.83,
+      "en": "The grey matter processes information in the brain,",
+      "vi": "Chất xám xử lý thông tin trong não,"
     },
     {
       "id": "cue-10",
-      "start": 81.5,
-      "end": 90,
-      "en": "Rule number one: focus on the task at hand and eliminate all digital distractions around you.",
-      "vi": "Quy tắc số một: tập trung vào nhiệm vụ trước mắt và loại bỏ mọi phiền nhiễu kỹ thuật số xung quanh bạn."
+      "start": 37.88,
+      "end": 41.62,
+      "en": "directing signals and sensory stimuli to nerve cells,",
+      "vi": "truyền tín hiệu và kích thích giác quan đến các tế bào thần kinh,"
     },
     {
       "id": "cue-11",
-      "start": 90.8,
-      "end": 99.5,
-      "en": "Start at a slow tempo. Precision always takes precedence over pure speed in the beginning.",
-      "vi": "Bắt đầu với tốc độ chậm. Sự chính xác luôn được ưu tiên hơn tốc độ thuần túy trong giai đoạn đầu."
+      "start": 41.67,
+      "end": 46.65,
+      "en": "while white matter is mostly made up of fatty tissue and nerve fibers.",
+      "vi": "trong khi chất trắng chủ yếu được tạo thành từ mô mỡ và sợi thần kinh."
     },
     {
       "id": "cue-12",
-      "start": 100.2,
-      "end": 109,
-      "en": "Rule number two: divide complex skills into small manageable chunks and master each section individually.",
-      "vi": "Quy tắc số hai: chia nhỏ các kỹ năng phức tạp thành từng phần có thể quản lý và thành thạo từng đoạn riêng lẻ."
+      "start": 46.7,
+      "end": 48.6,
+      "en": "In order for our bodies to move,",
+      "vi": "Để cơ thể chúng ta chuyển động,"
     },
     {
       "id": "cue-13",
-      "start": 109.8,
-      "end": 118.5,
-      "en": "If you make a mistake, stop immediately, identify the flaw, and repeat the correct movement.",
-      "vi": "Nếu bạn mắc lỗi, hãy dừng lại ngay lập tức, xác định điểm sai và lặp lại chuyển động đúng."
+      "start": 48.65,
+      "end": 51.5,
+      "en": "information needs to travel from the brain's grey matter,",
+      "vi": "thông tin cần được truyền từ chất xám của não,"
     },
     {
       "id": "cue-14",
-      "start": 119.2,
-      "end": 128,
-      "en": "Mental rehearsal is also astonishingly powerful; visualizing the physical actions activates similar brain regions.",
-      "vi": "Diễn tập trong tâm trí cũng có sức mạnh đáng kinh ngạc; hình dung các hành động thể chất kích hoạt các vùng não tương tự."
+      "start": 51.55,
+      "end": 52.9,
+      "en": "down the spinal cord,",
+      "vi": "xuống tủy sống,"
     },
     {
       "id": "cue-15",
-      "start": 128.8,
-      "end": 138,
-      "en": "Finally, quality beats quantity: twenty minutes of high-intensity deliberate practice outperforms hours of daydreaming.",
-      "vi": "Cuối cùng, chất lượng vượt trội số lượng: hai mươi phút luyện tập có chủ đích cường độ cao ăn đứt hàng giờ mơ màng."
+      "start": 52.95,
+      "end": 56.14,
+      "en": "through a chain of nerve fibers called axons",
+      "vi": "thông qua một chuỗi các sợi thần kinh gọi là sợi trục"
     },
     {
       "id": "cue-16",
-      "start": 138.8,
-      "end": 148,
-      "en": "By understanding the biology of practice, you hold the key to mastering virtually any endeavor.",
-      "vi": "Bằng việc hiểu rõ cơ chế sinh học của việc luyện tập, bạn nắm giữ chìa khóa để thành thạo hầu như bất kỳ lĩnh vực nào."
+      "start": 56.19,
+      "end": 58.14,
+      "en": "to our muscles.",
+      "vi": "đến cơ bắp của chúng ta."
+    },
+    {
+      "id": "cue-17",
+      "start": 58.19,
+      "end": 64.06,
+      "en": "So how does practice or repetition affect the inner workings of our brains?",
+      "vi": "Vậy việc luyện tập hoặc lặp đi lặp lại ảnh hưởng như thế nào đến hoạt động bên trong bộ não của chúng ta?"
+    },
+    {
+      "id": "cue-18",
+      "start": 64.11,
+      "end": 66.21,
+      "en": "The axons that exist in the white matter",
+      "vi": "Các sợi trục tồn tại trong chất trắng"
+    },
+    {
+      "id": "cue-19",
+      "start": 66.26,
+      "end": 69.21,
+      "en": "are wrapped with a fatty substance called myelin.",
+      "vi": "được bao bọc bởi một chất béo gọi là myelin."
+    },
+    {
+      "id": "cue-20",
+      "start": 69.26,
+      "end": 74.67,
+      "en": "And it's this myelin covering, or sheath, that seems to change with practice.",
+      "vi": "Và chính lớp vỏ bọc myelin này dường như thay đổi theo quá trình luyện tập."
+    },
+    {
+      "id": "cue-21",
+      "start": 74.72,
+      "end": 78.37,
+      "en": "Myelin is similar to insulation on electrical cables.",
+      "vi": "Myelin tương tự như chất cách điện trên dây cáp điện."
+    },
+    {
+      "id": "cue-22",
+      "start": 78.42,
+      "end": 82.56,
+      "en": "It prevents energy loss from electrical signals that the brain uses,",
+      "vi": "Nó ngăn ngừa sự mất năng lượng từ các tín hiệu điện mà não sử dụng,"
+    },
+    {
+      "id": "cue-23",
+      "start": 82.61,
+      "end": 86.19,
+      "en": "moving them more efficiently along neural pathways.",
+      "vi": "di chuyển chúng hiệu quả hơn dọc theo con đường thần kinh."
+    },
+    {
+      "id": "cue-24",
+      "start": 86.24,
+      "end": 90.6,
+      "en": "Some recent studies in mice suggest that the repetition of a physical motion",
+      "vi": "Một số nghiên cứu gần đây trên chuột cho thấy rằng việc lặp lại một chuyển động vật lý"
+    },
+    {
+      "id": "cue-25",
+      "start": 90.65,
+      "end": 95.96,
+      "en": "increases the layers of myelin sheath that insulates the axons.",
+      "vi": "làm tăng các lớp vỏ myelin cách điện các sợi trục."
+    },
+    {
+      "id": "cue-26",
+      "start": 96.01,
+      "end": 100.4,
+      "en": "And the more layers, the greater the insulation around the axon chains,",
+      "vi": "Và càng nhiều lớp, khả năng cách nhiệt xung quanh chuỗi sợi trục càng lớn,"
+    },
+    {
+      "id": "cue-27",
+      "start": 100.45,
+      "end": 103.26,
+      "en": "forming a sort of superhighway for information",
+      "vi": "hình thành một loại xa lộ thông tin"
+    },
+    {
+      "id": "cue-28",
+      "start": 103.31,
+      "end": 106.11,
+      "en": "connecting your brain to your muscles.",
+      "vi": "kết nối bộ não của bạn với cơ bắp của bạn."
+    },
+    {
+      "id": "cue-29",
+      "start": 106.16,
+      "end": 108.06,
+      "en": "So while many athletes and performers",
+      "vi": "Vì vậy, trong khi nhiều vận động viên và người biểu diễn"
+    },
+    {
+      "id": "cue-30",
+      "start": 108.11,
+      "end": 110.84,
+      "en": "attribute their successes to muscle memory,",
+      "vi": "gán sự thành công của họ cho trí nhớ cơ bắp,"
+    },
+    {
+      "id": "cue-31",
+      "start": 110.89,
+      "end": 113.95,
+      "en": "muscles themselves don't really have memory.",
+      "vi": "bản thân cơ bắp không thực sự có trí nhớ."
+    },
+    {
+      "id": "cue-32",
+      "start": 114,
+      "end": 117.21,
+      "en": "Rather, it may be the myelination of neural pathways",
+      "vi": "Đúng hơn, nó có thể là sự myelin hóa các con đường thần kinh"
+    },
+    {
+      "id": "cue-33",
+      "start": 117.26,
+      "end": 120.17,
+      "en": "that gives these athletes and performers their edge",
+      "vi": "mang lại lợi thế cho những vận động viên và người biểu diễn này"
+    },
+    {
+      "id": "cue-34",
+      "start": 120.22,
+      "end": 124.69,
+      "en": "with faster and more efficient neural pathways.",
+      "vi": "với các con đường thần kinh nhanh hơn và hiệu quả hơn."
+    },
+    {
+      "id": "cue-35",
+      "start": 124.74,
+      "end": 126.59,
+      "en": "There are many theories that attempt",
+      "vi": "Có rất nhiều giả thuyết cố gắng"
     }
   ],
   "clozeItems": [
     {
-      "id": "cloze-short-3-1",
-      "cueId": "cue-5",
-      "sentence": "Surrounding your nerve fibers is a fatty substance called {{blank}}, which acts like insulation.",
-      "blankWord": "myelin",
-      "hintVi": "chất bao bọc sợi trục thần kinh",
-      "timestamp": 34.5,
+      "id": "cloze-1",
+      "cueId": "cue-3",
+      "sentence": "or {{blank}} a baseball, takes practice.",
+      "blankWord": "throwing",
+      "hintVi": "hoặc ném bóng chày, cần phải luyện tập.",
+      "timestamp": 14.57,
       "options": [
-        "myelin",
-        "protein",
-        "calcium",
-        "glucose"
+        "habit",
+        "practice",
+        "routine",
+        "throwing"
       ]
     },
     {
-      "id": "cloze-short-3-2",
+      "id": "cloze-2",
+      "cueId": "cue-6",
+      "sentence": "So {{blank}} does practice do in our brains to make us better at things?",
+      "blankWord": "what",
+      "hintVi": "Vậy luyện tập có tác dụng gì trong não đ",
+      "timestamp": 27.2,
+      "options": [
+        "habit",
+        "practice",
+        "routine",
+        "what"
+      ]
+    },
+    {
+      "id": "cloze-3",
       "cueId": "cue-9",
-      "sentence": "Effective practice must be {{blank}}: goal-oriented, focused, and constantly adjusting.",
-      "blankWord": "deliberate",
-      "hintVi": "có chủ đích, có ý thức",
-      "timestamp": 72.2,
+      "sentence": "The {{blank}} matter processes information in the brain,",
+      "blankWord": "grey",
+      "hintVi": "Chất xám xử lý thông tin trong não,",
+      "timestamp": 36.45,
       "options": [
-        "deliberate",
-        "accidental",
-        "passive",
-        "unconscious"
+        "grey",
+        "habit",
+        "practice",
+        "routine"
       ]
     },
     {
-      "id": "cloze-short-3-3",
-      "cueId": "cue-11",
-      "sentence": "Start at a slow tempo; {{blank}} always takes precedence over pure speed.",
-      "blankWord": "precision",
-      "hintVi": "sự chính xác tuyệt đối",
-      "timestamp": 90.8,
+      "id": "cloze-4",
+      "cueId": "cue-13",
+      "sentence": "{{blank}} needs to travel from the brain's grey matter,",
+      "blankWord": "information",
+      "hintVi": "thông tin cần được truyền từ chất xám củ",
+      "timestamp": 50.08,
       "options": [
-        "precision",
-        "volume",
-        "loudness",
-        "haste"
-      ]
-    },
-    {
-      "id": "cloze-short-3-4",
-      "cueId": "cue-14",
-      "sentence": "{{blank}} rehearsal is also powerful; visualizing the actions activates similar brain regions.",
-      "blankWord": "mental",
-      "hintVi": "thuộc về tâm trí, hình dung",
-      "timestamp": 119.2,
-      "options": [
-        "mental",
-        "physical",
-        "social",
-        "vocal"
+        "habit",
+        "information",
+        "practice",
+        "routine"
       ]
     }
   ],
   "comprehensionQuestions": [
     {
-      "id": "quiz-short-3-1",
-      "question": "What role does myelin play in the nervous system during practice?",
+      "id": "quiz-1",
+      "question": "What is discussed in section 1 around 00:07?",
       "options": [
-        "It dissolves unwanted brain cells",
-        "It acts like electrical insulation around axons",
-        "It increases body temperature",
-        "It stops nerve impulses from traveling"
+        "Mastering any physical skill,",
+        "An unrelated administrative announcement",
+        "A general review of grammar rules",
+        "A brief musical interlude with no speech"
       ],
-      "correctIndex": 1,
-      "explanation": "Ở mốc 00:35 (cue-5), bài học giải thích myelin hoạt động giống như lớp cách điện bao quanh sợi thần kinh ('acts like electrical insulation').",
-      "timestampSeek": 34.5
+      "correctIndex": 0,
+      "explanation": "The speaker explicitly states: 'Mastering any physical skill,' (Mốc thời gian: 00:07).",
+      "timestampSeek": 7.99
     },
     {
-      "id": "quiz-short-3-2",
-      "question": "Why should a beginner start practicing at a slow tempo?",
+      "id": "quiz-2",
+      "question": "What is discussed in section 2 around 00:20?",
       "options": [
-        "Because slow practice burns more calories",
-        "Because precision takes precedence over speed initially",
-        "Because instructors prefer to take longer breaks",
-        "Because musical instruments break at high speeds"
+        "and it helps us perform with more ease, speed, and confidenc",
+        "An unrelated administrative announcement",
+        "A general review of grammar rules",
+        "A brief musical interlude with no speech"
       ],
-      "correctIndex": 1,
-      "explanation": "Ở mốc 01:31 (cue-11), video nhấn mạnh: 'Precision always takes precedence over pure speed in the beginning'.",
-      "timestampSeek": 90.8
+      "correctIndex": 0,
+      "explanation": "The speaker explicitly states: 'and it helps us perform with more ease, speed, and confidence.' (Mốc thời gian: 00:20).",
+      "timestampSeek": 20.37
     },
     {
-      "id": "quiz-short-3-3",
-      "question": "What is 'mental rehearsal' and why is it effective according to the video?",
+      "id": "quiz-3",
+      "question": "What is discussed in section 3 around 00:35?",
       "options": [
-        "Reading a book aloud while exercising",
-        "Visualizing physical actions which activates similar brain regions",
-        "Listening to classical music while sleeping",
-        "Memorizing grammar rules without speaking"
+        "The grey matter processes information in the brain,",
+        "An unrelated administrative announcement",
+        "A general review of grammar rules",
+        "A brief musical interlude with no speech"
       ],
-      "correctIndex": 1,
-      "explanation": "Ở mốc 01:59 (cue-14), bài học chỉ ra việc hình dung chuyển động kích hoạt các vùng não bộ tương tự như khi thực hiện thể chất.",
-      "timestampSeek": 119.2
+      "correctIndex": 0,
+      "explanation": "The speaker explicitly states: 'The grey matter processes information in the brain,' (Mốc thời gian: 00:35).",
+      "timestampSeek": 35.07
     },
     {
-      "id": "quiz-short-3-4",
-      "question": "Which practice strategy is most strongly recommended in the summary?",
+      "id": "quiz-4",
+      "question": "What is discussed in section 4 around 02:04?",
       "options": [
-        "Practicing 8 hours non-stop without taking water breaks",
-        "Short bursts (20 mins) of high-intensity deliberate practice",
-        "Multi-tasking while watching television",
-        "Never stopping when a mistake occurs"
+        "There are many theories that attempt",
+        "An unrelated administrative announcement",
+        "A general review of grammar rules",
+        "A brief musical interlude with no speech"
       ],
-      "correctIndex": 1,
-      "explanation": "Ở mốc 02:08 (cue-15), video kết luận: 'twenty minutes of high-intensity deliberate practice outperforms hours of daydreaming'.",
-      "timestampSeek": 128.8
+      "correctIndex": 0,
+      "explanation": "The speaker explicitly states: 'There are many theories that attempt' (Mốc thời gian: 02:04).",
+      "timestampSeek": 124.74
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "cloze-1",
+        "cueId": "cue-3",
+        "sentence": "or {{blank}} a baseball, takes practice.",
+        "blankWord": "throwing",
+        "hintVi": "hoặc ném bóng chày, cần phải luyện tập.",
+        "timestamp": 14.57,
+        "options": [
+          "habit",
+          "practice",
+          "routine",
+          "throwing"
+        ]
+      },
+      {
+        "id": "cloze-2",
+        "cueId": "cue-6",
+        "sentence": "So {{blank}} does practice do in our brains to make us better at things?",
+        "blankWord": "what",
+        "hintVi": "Vậy luyện tập có tác dụng gì trong não đ",
+        "timestamp": 27.2,
+        "options": [
+          "habit",
+          "practice",
+          "routine",
+          "what"
+        ]
+      },
+      {
+        "id": "cloze-3",
+        "cueId": "cue-9",
+        "sentence": "The {{blank}} matter processes information in the brain,",
+        "blankWord": "grey",
+        "hintVi": "Chất xám xử lý thông tin trong não,",
+        "timestamp": 36.45,
+        "options": [
+          "grey",
+          "habit",
+          "practice",
+          "routine"
+        ]
+      },
+      {
+        "id": "cloze-4",
+        "cueId": "cue-13",
+        "sentence": "{{blank}} needs to travel from the brain's grey matter,",
+        "blankWord": "information",
+        "hintVi": "thông tin cần được truyền từ chất xám củ",
+        "timestamp": 50.08,
+        "options": [
+          "habit",
+          "information",
+          "practice",
+          "routine"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "quiz-1",
+        "question": "What is discussed in section 1 around 00:07?",
+        "options": [
+          "Mastering any physical skill,",
+          "An unrelated administrative announcement",
+          "A general review of grammar rules",
+          "A brief musical interlude with no speech"
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker explicitly states: 'Mastering any physical skill,' (Mốc thời gian: 00:07).",
+        "timestampSeek": 7.99
+      },
+      {
+        "id": "quiz-2",
+        "question": "What is discussed in section 2 around 00:20?",
+        "options": [
+          "and it helps us perform with more ease, speed, and confidenc",
+          "An unrelated administrative announcement",
+          "A general review of grammar rules",
+          "A brief musical interlude with no speech"
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker explicitly states: 'and it helps us perform with more ease, speed, and confidence.' (Mốc thời gian: 00:20).",
+        "timestampSeek": 20.37
+      },
+      {
+        "id": "quiz-3",
+        "question": "What is discussed in section 3 around 00:35?",
+        "options": [
+          "The grey matter processes information in the brain,",
+          "An unrelated administrative announcement",
+          "A general review of grammar rules",
+          "A brief musical interlude with no speech"
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker explicitly states: 'The grey matter processes information in the brain,' (Mốc thời gian: 00:35).",
+        "timestampSeek": 35.07
+      },
+      {
+        "id": "quiz-4",
+        "question": "What is discussed in section 4 around 02:04?",
+        "options": [
+          "There are many theories that attempt",
+          "An unrelated administrative announcement",
+          "A general review of grammar rules",
+          "A brief musical interlude with no speech"
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker explicitly states: 'There are many theories that attempt' (Mốc thời gian: 02:04).",
+        "timestampSeek": 124.74
+      }
+    ]
+  }
 }

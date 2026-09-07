@@ -257,7 +257,7 @@ export async function runTier1Tests(runner: TestRunner): Promise<void> {
       expect(vById).toBeDefined();
       expect(vById?.title).toContain('Daily Routine');
 
-      const vByYt = getListeningVideoById('LhytOhr5ZMA');
+      const vByYt = getListeningVideoById('ecF1y2bI2T4');
       expect(vByYt).toBeDefined();
       expect(vByYt?.id).toBe('video-short-daily-life');
 

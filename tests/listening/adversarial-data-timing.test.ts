@@ -274,17 +274,17 @@ export async function runAdversarialDataTimingTests(runner: TestRunner): Promise
     });
 
     runner.it('ADV-2.5: 500 ping-pong seeks between adjacent cue boundaries execute without drift or lag', () => {
-      // Cue 1: start 5.8, end 10.5
-      // Cue 2: start 11.2, end 19.5
       const player = new MockYouTubePlayer(sampleVideo.duration);
+      const targetA = (cues[1].start + cues[1].end) / 2;
+      const targetB = (cues[2].start + cues[2].end) / 2;
 
       for (let i = 0; i < 500; i++) {
-        // Target A: middle of cue 1 (8.0s)
-        player.seekTo(8.0);
+        // Target A: middle of cue 1
+        player.seekTo(targetA);
         expect(findActiveCueIndex(cues, player.getCurrentTime())).toBe(1);
 
-        // Target B: middle of cue 2 (15.0s)
-        player.seekTo(15.0);
+        // Target B: middle of cue 2
+        player.seekTo(targetB);
         expect(findActiveCueIndex(cues, player.getCurrentTime())).toBe(2);
       }
     });

@@ -1,335 +1,519 @@
 {
   "id": "video-short-travel",
-  "youtubeId": "k-35z5Yq48Y",
+  "youtubeId": "JgB6-RWnV9M",
   "title": "At the Airport: Spoken English for Air Travel & Check-in",
-  "channel": "Oxford Online English",
-  "duration": 480,
-  "durationDisplay": "08:00",
+  "channel": "BBC Learning English",
+  "duration": 302,
+  "durationDisplay": "05:02",
   "durationCategory": "short",
   "cefrLevel": "B1",
   "topic": "travel",
-  "topicDisplay": "Du lịch & Sân bay",
-  "thumbnailUrl": "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&auto=format&fit=crop&q=80",
-  "description": "Luyện nghe tiếng Anh tình huống thực tế tại sân bay: làm thủ tục check-in tại quầy, cân hành lý ký gửi, nhận thẻ lên máy bay và đi qua cửa kiểm tra an ninh.",
+  "topicDisplay": "Du lịch & Di chuyển",
+  "thumbnailUrl": "https://img.youtube.com/vi/JgB6-RWnV9M/hqdefault.jpg",
+  "description": "Học từ vựng và cách giao tiếp khi đi lại tại airport, sân bay, du lịch bằng máy bay và phương tiện công cộng cùng BBC Learning English.",
   "coreVocabulary": [
     {
-      "word": "allowance",
-      "phonetic": "/əˈlaʊəns/",
-      "viDefinition": "hạn mức, tiêu chuẩn hành lý được phép mang theo",
-      "contextSentence": "Your bag weighs twenty-one kilograms, safely within the baggage allowance."
+      "word": "airport",
+      "phonetic": "/ˈeəpɔːt/",
+      "viDefinition": "sân bay, phi trường",
+      "contextSentence": "Arrive at the airport two hours before departure."
     },
     {
       "word": "boarding pass",
       "phonetic": "/ˈbɔːdɪŋ pɑːs/",
       "viDefinition": "thẻ lên máy bay",
-      "contextSentence": "Here is your boarding pass; boarding begins at Gate B24."
+      "contextSentence": "Please have your passport and boarding pass ready at the gate."
     },
     {
-      "word": "aisle",
-      "phonetic": "/aɪl/",
-      "viDefinition": "lối đi giữa các dãy ghế trên máy bay",
-      "contextSentence": "Would you prefer an aisle seat or a window seat?"
+      "word": "travel",
+      "phonetic": "/ˈtrævl/",
+      "viDefinition": "du lịch, di chuyển đi lại",
+      "contextSentence": "We are talking about travel and transport today."
     },
     {
-      "word": "conveyor",
-      "phonetic": "/kənˈveɪə/",
-      "viDefinition": "băng chuyền hành lý hoặc băng chuyền kiểm tra an ninh",
-      "contextSentence": "Place your laptop and liquids in separate trays on the conveyor belt."
+      "word": "transport",
+      "phonetic": "/ˈtrænspɔːt/",
+      "viDefinition": "phương tiện giao thông, sự vận chuyển",
+      "contextSentence": "Public transport is convenient for exploring cities."
     },
     {
-      "word": "itinerary",
-      "phonetic": "/aɪˈtɪnərəri/",
-      "viDefinition": "lịch trình chuyến bay, hành trình du lịch",
-      "contextSentence": "Please have your passport and flight itinerary ready for inspection."
+      "word": "journey",
+      "phonetic": "/ˈdʒɜːni/",
+      "viDefinition": "chuyến đi, cuộc hành trình",
+      "contextSentence": "The train journey through the countryside was beautiful."
     }
   ],
   "transcript": [
     {
       "id": "cue-1",
-      "start": 0,
-      "end": 6,
-      "en": "Welcome to Oxford Online English. In this lesson, you can learn how to speak English at an airport.",
-      "vi": "Chào mừng bạn đến với Oxford Online English. Trong bài học này, bạn có thể học cách nói tiếng Anh tại sân bay."
+      "start": 0.4,
+      "end": 3.87,
+      "en": "Hello. Welcome to Real Easy English.",
+      "vi": "Xin chào. Chào mừng bạn đến với Tiếng Anh Thực Sự Dễ Dàng."
     },
     {
       "id": "cue-2",
-      "start": 6.8,
-      "end": 14.5,
-      "en": "Navigating an international airport can feel stressful, but knowing the right phrases will give you confidence.",
-      "vi": "Việc di chuyển trong sân bay quốc tế có thể gây căng thẳng, nhưng nắm vững các cụm từ chuẩn sẽ mang lại cho bạn sự tự tin."
+      "start": 3.92,
+      "end": 10.35,
+      "en": "In this podcast we have real conversationsnbsp in easy English to help you learn.",
+      "vi": "Trong podcast này, chúng tôi có những cuộc trò chuyện thực tế bằng tiếng Anh dễ hiểu để giúp bạn học."
     },
     {
       "id": "cue-3",
-      "start": 15.2,
-      "end": 23,
-      "en": "When you arrive at the terminal, the first step is to locate your airline's check-in counter on the flight information display.",
-      "vi": "Khi bạn đến nhà ga, bước đầu tiên là tìm quầy làm thủ tục của hãng hàng không trên bảng hiển thị thông tin chuyến bay."
+      "start": 10.4,
+      "end": 11.15,
+      "en": "I'm Neil.",
+      "vi": "Tôi là Neil."
     },
     {
       "id": "cue-4",
-      "start": 23.8,
-      "end": 31.5,
-      "en": "Good morning! Can I see your passport and booking reference number, please?",
-      "vi": "Xin chào buổi sáng! Tôi có thể xem hộ chiếu và mã đặt chỗ của bạn được không?"
+      "start": 11.2,
+      "end": 16.51,
+      "en": "And I'm Georgie. Remember, if younbsp want read along to this podcast,nbspnbsp",
+      "vi": "Và tôi là Georgie. Hãy nhớ rằng, nếu bạn muốn đọc podcast này, hãy nbspnbsp"
     },
     {
       "id": "cue-5",
-      "start": 32.2,
-      "end": 40,
-      "en": "Here you go. I have a booking for the two-thirty flight to Vancouver, economy class.",
-      "vi": "Của bạn đây. Tôi có một chỗ đặt cho chuyến bay hai giờ ba mươi đến Vancouver, hạng phổ thông."
+      "start": 16.56,
+      "end": 22.98,
+      "en": "you can find a script on our websitenbsp – BBC Learning English dot com.",
+      "vi": "bạn có thể tìm thấy đoạn mã trên trang web của chúng tôi – BBC Learning English dot com."
     },
     {
       "id": "cue-6",
-      "start": 40.8,
-      "end": 48.5,
-      "en": "Thank you. Are you checking in any baggage today, or do you just have carry-on luggage?",
-      "vi": "Cảm ơn bạn. Bạn có gửi hành lý ký gửi nào hôm nay không, hay bạn chỉ có hành lý xách tay?"
+      "start": 28,
+      "end": 30.19,
+      "en": "Hi, Georgie. How are you doing?",
+      "vi": "Chào, Georgie. Bạn dạo này thế nào?"
     },
     {
       "id": "cue-7",
-      "start": 49.2,
-      "end": 57,
-      "en": "I have one large suitcase to check in, and this small backpack to take into the cabin with me.",
-      "vi": "Tôi có một vali lớn cần ký gửi, và chiếc ba lô nhỏ này để mang vào khoang hành khách cùng tôi."
+      "start": 30.24,
+      "end": 32.27,
+      "en": "I'm fine thanks, Neil. How are you?",
+      "vi": "Tôi ổn, cảm ơn, Neil. Bạn có khỏe không?"
     },
     {
       "id": "cue-8",
-      "start": 57.8,
-      "end": 65.5,
-      "en": "Please place your suitcase onto the scale. Let's make sure it doesn't exceed the weight limit.",
-      "vi": "Vui lòng đặt vali của bạn lên cân. Hãy đảm bảo rằng nó không vượt quá giới hạn trọng lượng."
+      "start": 32.32,
+      "end": 34.03,
+      "en": "I'm very well, thank you.",
+      "vi": "Tôi rất khỏe, cảm ơn bạn."
     },
     {
       "id": "cue-9",
-      "start": 66.2,
-      "end": 74,
-      "en": "Your bag weighs twenty-one kilograms, so it is safely within the standard baggage allowance.",
-      "vi": "Hành lý của bạn nặng hai mươi mốt kg, vì vậy nó hoàn toàn nằm trong hạn mức hành lý tiêu chuẩn."
+      "start": 34.08,
+      "end": 36.59,
+      "en": "What's today's conversation about, Neil?",
+      "vi": "Cuộc trò chuyện hôm nay về chủ đề gì thế, Neil?"
     },
     {
       "id": "cue-10",
-      "start": 74.8,
-      "end": 82.5,
-      "en": "Would you prefer an aisle seat or a window seat for your flight across the Pacific?",
-      "vi": "Bạn muốn chọn chỗ ngồi cạnh lối đi hay chỗ ngồi cạnh cửa sổ cho chuyến bay qua Thái Bình Dương?"
+      "start": 36.64,
+      "end": 39.47,
+      "en": "Today, we're going to talk about travel.",
+      "vi": "Hôm nay chúng ta sẽ nói về du lịch."
     },
     {
       "id": "cue-11",
-      "start": 83.2,
-      "end": 91,
-      "en": "An aisle seat would be wonderful, please, so that I can stretch my legs during the long flight.",
-      "vi": "Một ghế cạnh lối đi thì thật tuyệt, làm ơn, để tôi có thể duỗi chân trong suốt chuyến bay dài."
+      "start": 39.52,
+      "end": 42.83,
+      "en": "We talked about holidays in another episode,",
+      "vi": "Chúng ta đã nói về những ngày nghỉ trong một tập khác,"
     },
     {
       "id": "cue-12",
-      "start": 91.8,
-      "end": 100,
-      "en": "Here is your boarding pass. Boarding begins at one-forty-five at Gate B24.",
-      "vi": "Đây là thẻ lên máy bay của bạn. Việc lên máy bay bắt đầu lúc một giờ bốn mươi lăm tại Cửa B24."
+      "start": 42.88,
+      "end": 49.55,
+      "en": "but today we'll talk about everyday travel and compare our journeys to work.",
+      "vi": "nhưng hôm nay chúng ta sẽ nói về việc đi lại hàng ngày và so sánh hành trình đi làm của chúng ta."
     },
     {
       "id": "cue-13",
-      "start": 100.8,
-      "end": 109.5,
-      "en": "Make sure you head through security early, as queues can get quite long during peak travel hours.",
-      "vi": "Hãy chắc chắn bạn qua cửa kiểm tra an ninh sớm, vì hàng đợi có thể khá dài vào các khung giờ cao điểm."
+      "start": 49.6,
+      "end": 53.63,
+      "en": "So, Neil, what is your journey to work like?",
+      "vi": "Vậy, Neil, hành trình đi làm của bạn như thế nào?"
     },
     {
       "id": "cue-14",
-      "start": 110.2,
-      "end": 118.5,
-      "en": "Now let's look at the language you need when going through the airport security checkpoint.",
-      "vi": "Bây giờ chúng ta hãy xem ngôn ngữ bạn cần dùng khi đi qua trạm kiểm tra an ninh sân bay."
+      "start": 53.68,
+      "end": 61.07,
+      "en": "Well, because we live in London and it's a big city, it's quite long.",
+      "vi": "Chà, vì chúng tôi sống ở London và đây là một thành phố lớn nên thời gian khá dài."
     },
     {
       "id": "cue-15",
-      "start": 119.2,
-      "end": 128,
-      "en": "Security officers will ask you to empty your pockets and remove metallic objects like watches and belts.",
-      "vi": "Nhân viên an ninh sẽ yêu cầu bạn dốc sạch túi quần và tháo các vật kim loại như đồng hồ và thắt lưng."
+      "start": 61.12,
+      "end": 67.15,
+      "en": "But I get a bus to a tube stop. The tube is the underground train.",
+      "vi": "Nhưng tôi bắt xe buýt đến một trạm dừng tàu điện ngầm. Đường ống là tàu điện ngầm."
     },
     {
       "id": "cue-16",
-      "start": 128.8,
-      "end": 137.5,
-      "en": "Please place your laptop, tablet, and any liquids in separate plastic trays on the conveyor belt.",
-      "vi": "Vui lòng đặt máy tính xách tay, máy tính bảng và bất kỳ chất lỏng nào vào các khay nhựa riêng trên băng chuyền."
+      "start": 67.2,
+      "end": 73.31,
+      "en": "And then I get the tube to near the BBC and then I walk.",
+      "vi": "Sau đó tôi đưa chiếc ống đến gần đài BBC rồi đi bộ."
     },
     {
       "id": "cue-17",
-      "start": 138.2,
-      "end": 146.5,
-      "en": "Remember the rules on liquids: all containers must be one hundred milliliters or less in a clear bag.",
-      "vi": "Hãy nhớ quy tắc về chất lỏng: tất cả các hộp chứa phải từ 100 ml trở xuống và đựng trong túi trong suốt."
+      "start": 73.36,
+      "end": 75.47,
+      "en": "Nice. I walk to work.",
+      "vi": "Đẹp. Tôi đi bộ đi làm."
     },
     {
       "id": "cue-18",
-      "start": 147.2,
-      "end": 155.5,
-      "en": "Step through the body scanner when prompted, and raise both arms above your head.",
-      "vi": "Hãy bước qua máy quét toàn thân khi được yêu cầu, và giơ cả hai tay lên trên đầu."
+      "start": 75.52,
+      "end": 79.79,
+      "en": "I don't like using the tube, the underground train,",
+      "vi": "Tôi không thích dùng tàu điện ngầm, tàu điện ngầm,"
     },
     {
       "id": "cue-19",
-      "start": 156.2,
-      "end": 165,
-      "en": "If your bag gets selected for additional inspection, remain polite and follow the officer's instructions.",
-      "vi": "Nếu hành lý của bạn bị chọn để kiểm tra bổ sung, hãy giữ thái độ lịch sự và làm theo hướng dẫn của nhân viên."
+      "start": 79.84,
+      "end": 82.75,
+      "en": "because there's so many people on it.",
+      "vi": "vì có rất nhiều người trên đó."
     },
     {
       "id": "cue-20",
-      "start": 165.8,
-      "end": 174.5,
-      "en": "Once through security, you enter the duty-free departures lounge where you can find food and shops.",
-      "vi": "Khi qua cửa an ninh, bạn bước vào sảnh chờ khởi hành miễn thuế nơi bạn có thể tìm thấy đồ ăn và cửa hàng."
+      "start": 82.8,
+      "end": 86.11,
+      "en": "I prefer to get some fresh air in the morning.",
+      "vi": "Tôi thích tận hưởng không khí trong lành vào buổi sáng."
     },
     {
       "id": "cue-21",
-      "start": 175.2,
-      "end": 184,
-      "en": "Always keep an eye on the departure screens in case your gate number or boarding time changes.",
-      "vi": "Luôn để mắt đến màn hình khởi hành đề phòng trường hợp số cửa ra máy bay hoặc giờ lên tàu thay đổi."
+      "start": 86.16,
+      "end": 90.26,
+      "en": "Ah, you walk to work! That's interesting in London.",
+      "vi": "À, bạn đi bộ đi làm! Điều đó thật thú vị ở London."
     },
     {
       "id": "cue-22",
-      "start": 184.8,
-      "end": 193.5,
-      "en": "Finally, listen carefully to announcements over the public address system calling your flight.",
-      "vi": "Cuối cùng, hãy lắng nghe cẩn thận các thông báo qua hệ thống loa phát thanh gọi chuyến bay của bạn."
+      "start": 90.31,
+      "end": 93.23,
+      "en": "— Mm-hm. — Tell me about your walk to work.",
+      "vi": "– Ừm-hm. - Hãy kể cho tôi nghe về chuyến đi làm của bạn."
     },
     {
       "id": "cue-23",
-      "start": 194.2,
-      "end": 203,
-      "en": "This is the final boarding call for passenger Smith traveling on flight AC842 to Vancouver.",
-      "vi": "Đây là cuộc gọi lên máy bay cuối cùng cho hành khách Smith đi chuyến bay AC842 đến Vancouver."
+      "start": 93.28,
+      "end": 100.11,
+      "en": "Well, my walk starts with walking along some streets, towards a park,",
+      "vi": "Chà, chuyến đi bộ của tôi bắt đầu bằng việc đi bộ dọc theo một số con phố, hướng tới một công viên,"
     },
     {
       "id": "cue-24",
-      "start": 203.8,
-      "end": 213,
-      "en": "When your row number is called, present your boarding pass and passport to the gate agent.",
-      "vi": "Khi số hàng ghế của bạn được gọi, hãy xuất trình thẻ lên máy bay và hộ chiếu cho nhân viên tại cửa."
+      "start": 100.16,
+      "end": 106.51,
+      "en": "and then I walk across a park and then I walk through some more streets,",
+      "vi": "rồi tôi đi bộ qua công viên rồi đi bộ qua vài con phố nữa,"
     },
     {
       "id": "cue-25",
-      "start": 213.8,
-      "end": 224,
-      "en": "Practicing these essential airport phrases will help ensure your travel experience is smooth and enjoyable.",
-      "vi": "Luyện tập những cụm từ sân bay thiết yếu này sẽ giúp đảm bảo trải nghiệm du lịch của bạn suôn sẻ và thú vị."
+      "start": 106.56,
+      "end": 112.35,
+      "en": "because there is a little bit of time between the park and the office",
+      "vi": "bởi vì có một chút thời gian giữa công viên và văn phòng"
+    },
+    {
+      "id": "cue-26",
+      "start": 112.4,
+      "end": 114.67,
+      "en": "and then I arrive at the office.",
+      "vi": "và sau đó tôi đến văn phòng."
+    },
+    {
+      "id": "cue-27",
+      "start": 114.72,
+      "end": 119.07,
+      "en": "Very nice. So you don't like public transport?",
+      "vi": "Rất đẹp. Vậy là bạn không thích phương tiện giao thông công cộng?"
+    },
+    {
+      "id": "cue-28",
+      "start": 119.12,
+      "end": 123.79,
+      "en": "Mm, I use it sometimes when there's an emergency,",
+      "vi": "Mm, thỉnh thoảng tôi dùng nó khi có trường hợp khẩn cấp,"
+    },
+    {
+      "id": "cue-29",
+      "start": 123.84,
+      "end": 127.95,
+      "en": "like if it's raining or if I don't have time.",
+      "vi": "chẳng hạn như trời đang mưa hoặc nếu tôi không có thời gian."
+    },
+    {
+      "id": "cue-30",
+      "start": 128,
+      "end": 131.47,
+      "en": "But, if I have time, I like to walk to work.",
+      "vi": "Tuy nhiên, nếu có thời gian, tôi thích đi bộ đến nơi làm việc."
+    },
+    {
+      "id": "cue-31",
+      "start": 131.52,
+      "end": 134.51,
+      "en": "And how long does your journey take?",
+      "vi": "Và hành trình của bạn mất bao lâu?"
+    },
+    {
+      "id": "cue-32",
+      "start": 134.56,
+      "end": 138.35,
+      "en": "My journey takes me one hour if I walk",
+      "vi": "Cuộc hành trình của tôi mất một giờ nếu tôi đi bộ"
+    },
+    {
+      "id": "cue-33",
+      "start": 138.4,
+      "end": 141.51,
+      "en": "and 30 minutes if I take the tube.",
+      "vi": "và 30 phút nếu tôi dùng ống."
+    },
+    {
+      "id": "cue-34",
+      "start": 141.56,
+      "end": 144.75,
+      "en": "— That's pretty good for London. — What about you?",
+      "vi": "- Điều đó khá tốt cho London. - Còn bạn thì sao?"
+    },
+    {
+      "id": "cue-35",
+      "start": 144.8,
+      "end": 150.64,
+      "en": "My journey takes at least an hour, sometimes more.",
+      "vi": "Cuộc hành trình của tôi mất ít nhất một giờ, đôi khi nhiều hơn."
     }
   ],
   "clozeItems": [
     {
-      "id": "cloze-short-2-1",
+      "id": "cloze-1",
+      "cueId": "cue-3",
+      "sentence": "I'm {{blank}}.",
+      "blankWord": "Neil",
+      "hintVi": "Tôi là Neil.",
+      "timestamp": 10.78,
+      "options": [
+        "Neil",
+        "habit",
+        "practice",
+        "routine"
+      ]
+    },
+    {
+      "id": "cloze-2",
+      "cueId": "cue-6",
+      "sentence": "Hi, {{blank}}. How are you doing?",
+      "blankWord": "Georgie",
+      "hintVi": "Chào, Georgie. Bạn dạo này thế nào?",
+      "timestamp": 29.09,
+      "options": [
+        "Georgie",
+        "habit",
+        "practice",
+        "routine"
+      ]
+    },
+    {
+      "id": "cloze-3",
       "cueId": "cue-9",
-      "sentence": "Your bag weighs twenty-one kilograms, so it is within the standard baggage {{blank}}.",
-      "blankWord": "allowance",
-      "hintVi": "hạn mức hành lý",
-      "timestamp": 66.2,
+      "sentence": "{{blank}} today's conversation about, Neil?",
+      "blankWord": "What's",
+      "hintVi": "Cuộc trò chuyện hôm nay về chủ đề gì thế",
+      "timestamp": 35.34,
       "options": [
-        "allowance",
-        "penalty",
-        "ticket",
-        "cabin"
+        "What's",
+        "habit",
+        "practice",
+        "routine"
       ]
     },
     {
-      "id": "cloze-short-2-2",
-      "cueId": "cue-10",
-      "sentence": "Would you prefer an {{blank}} seat or a window seat for your flight?",
-      "blankWord": "aisle",
-      "hintVi": "lối đi giữa hai hàng ghế",
-      "timestamp": 74.8,
+      "id": "cloze-4",
+      "cueId": "cue-13",
+      "sentence": "So, {{blank}}, what is your journey to work like?",
+      "blankWord": "Neil",
+      "hintVi": "Vậy, Neil, hành trình đi làm của bạn như",
+      "timestamp": 51.62,
       "options": [
-        "aisle",
-        "middle",
-        "emergency",
-        "overhead"
-      ]
-    },
-    {
-      "id": "cloze-short-2-3",
-      "cueId": "cue-16",
-      "sentence": "Place your laptop and liquids in separate plastic trays on the {{blank}} belt.",
-      "blankWord": "conveyor",
-      "hintVi": "băng chuyền",
-      "timestamp": 128.8,
-      "options": [
-        "conveyor",
-        "safety",
-        "fastening",
-        "leather"
-      ]
-    },
-    {
-      "id": "cloze-short-2-4",
-      "cueId": "cue-12",
-      "sentence": "Here is your {{blank}} pass; boarding begins at one-forty-five at Gate B24.",
-      "blankWord": "boarding",
-      "hintVi": "thẻ lên tàu bay",
-      "timestamp": 91.8,
-      "options": [
-        "boarding",
-        "customs",
-        "transfer",
-        "luggage"
+        "Neil",
+        "habit",
+        "practice",
+        "routine"
       ]
     }
   ],
   "comprehensionQuestions": [
     {
-      "id": "quiz-short-2-1",
-      "question": "Where is the passenger traveling to in this dialogue?",
+      "id": "quiz-1",
+      "question": "What is discussed in section 1 around 00:00?",
       "options": [
-        "London Heathrow",
-        "Vancouver",
-        "Tokyo Narita",
-        "Sydney"
-      ],
-      "correctIndex": 1,
-      "explanation": "Ở mốc 00:32 (cue-5), hành khách nói rõ: 'I have a booking for the two-thirty flight to Vancouver'.",
-      "timestampSeek": 32.2
-    },
-    {
-      "id": "quiz-short-2-2",
-      "question": "Why does the passenger prefer an aisle seat?",
-      "options": [
-        "To take photos through the window",
-        "To be close to the pilot cabin",
-        "To stretch their legs during the long flight",
-        "To leave the aircraft first during emergency"
-      ],
-      "correctIndex": 2,
-      "explanation": "Ở mốc 01:23 (cue-11), hành khách giải thích muốn chọn ghế cạnh lối đi để có thể duỗi chân trong chuyến bay dài ('stretch my legs during the long flight').",
-      "timestampSeek": 83.2
-    },
-    {
-      "id": "quiz-short-2-3",
-      "question": "What is the maximum container size permitted for liquids in carry-on bags?",
-      "options": [
-        "50 milliliters",
-        "100 milliliters",
-        "250 milliliters",
-        "500 milliliters"
-      ],
-      "correctIndex": 1,
-      "explanation": "Ở mốc 02:18 (cue-17), bài học chỉ rõ: 'all containers must be one hundred milliliters or less in a clear bag'.",
-      "timestampSeek": 138.2
-    },
-    {
-      "id": "quiz-short-2-4",
-      "question": "What should passengers do if their gate number or boarding time changes?",
-      "options": [
-        "Keep an eye on the departure screens in the lounge",
-        "Ask every security guard they see",
-        "Leave the airport terminal immediately",
-        "Wait by the baggage carousel"
+        "Hello. Welcome to Real Easy English.",
+        "An unrelated administrative announcement",
+        "A general review of grammar rules",
+        "A brief musical interlude with no speech"
       ],
       "correctIndex": 0,
-      "explanation": "Ở mốc 02:55 (cue-21), bài học khuyên: 'Always keep an eye on the departure screens in case your gate number or boarding time changes'.",
-      "timestampSeek": 175.2
+      "explanation": "The speaker explicitly states: 'Hello. Welcome to Real Easy English.' (Mốc thời gian: 00:00).",
+      "timestampSeek": 0.4
+    },
+    {
+      "id": "quiz-2",
+      "question": "What is discussed in section 2 around 00:16?",
+      "options": [
+        "you can find a script on our websitenbsp – BBC Learning Engl",
+        "An unrelated administrative announcement",
+        "A general review of grammar rules",
+        "A brief musical interlude with no speech"
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker explicitly states: 'you can find a script on our websitenbsp – BBC Learning English dot com.' (Mốc thời gian: 00:16).",
+      "timestampSeek": 16.56
+    },
+    {
+      "id": "quiz-3",
+      "question": "What is discussed in section 3 around 00:34?",
+      "options": [
+        "What's today's conversation about, Neil?",
+        "An unrelated administrative announcement",
+        "A general review of grammar rules",
+        "A brief musical interlude with no speech"
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker explicitly states: 'What's today's conversation about, Neil?' (Mốc thời gian: 00:34).",
+      "timestampSeek": 34.08
+    },
+    {
+      "id": "quiz-4",
+      "question": "What is discussed in section 4 around 02:24?",
+      "options": [
+        "My journey takes at least an hour, sometimes more.",
+        "An unrelated administrative announcement",
+        "A general review of grammar rules",
+        "A brief musical interlude with no speech"
+      ],
+      "correctIndex": 0,
+      "explanation": "The speaker explicitly states: 'My journey takes at least an hour, sometimes more.' (Mốc thời gian: 02:24).",
+      "timestampSeek": 144.8
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "cloze-1",
+        "cueId": "cue-3",
+        "sentence": "I'm {{blank}}.",
+        "blankWord": "Neil",
+        "hintVi": "Tôi là Neil.",
+        "timestamp": 10.78,
+        "options": [
+          "Neil",
+          "habit",
+          "practice",
+          "routine"
+        ]
+      },
+      {
+        "id": "cloze-2",
+        "cueId": "cue-6",
+        "sentence": "Hi, {{blank}}. How are you doing?",
+        "blankWord": "Georgie",
+        "hintVi": "Chào, Georgie. Bạn dạo này thế nào?",
+        "timestamp": 29.09,
+        "options": [
+          "Georgie",
+          "habit",
+          "practice",
+          "routine"
+        ]
+      },
+      {
+        "id": "cloze-3",
+        "cueId": "cue-9",
+        "sentence": "{{blank}} today's conversation about, Neil?",
+        "blankWord": "What's",
+        "hintVi": "Cuộc trò chuyện hôm nay về chủ đề gì thế",
+        "timestamp": 35.34,
+        "options": [
+          "What's",
+          "habit",
+          "practice",
+          "routine"
+        ]
+      },
+      {
+        "id": "cloze-4",
+        "cueId": "cue-13",
+        "sentence": "So, {{blank}}, what is your journey to work like?",
+        "blankWord": "Neil",
+        "hintVi": "Vậy, Neil, hành trình đi làm của bạn như",
+        "timestamp": 51.62,
+        "options": [
+          "Neil",
+          "habit",
+          "practice",
+          "routine"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "quiz-1",
+        "question": "What is discussed in section 1 around 00:00?",
+        "options": [
+          "Hello. Welcome to Real Easy English.",
+          "An unrelated administrative announcement",
+          "A general review of grammar rules",
+          "A brief musical interlude with no speech"
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker explicitly states: 'Hello. Welcome to Real Easy English.' (Mốc thời gian: 00:00).",
+        "timestampSeek": 0.4
+      },
+      {
+        "id": "quiz-2",
+        "question": "What is discussed in section 2 around 00:16?",
+        "options": [
+          "you can find a script on our websitenbsp – BBC Learning Engl",
+          "An unrelated administrative announcement",
+          "A general review of grammar rules",
+          "A brief musical interlude with no speech"
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker explicitly states: 'you can find a script on our websitenbsp – BBC Learning English dot com.' (Mốc thời gian: 00:16).",
+        "timestampSeek": 16.56
+      },
+      {
+        "id": "quiz-3",
+        "question": "What is discussed in section 3 around 00:34?",
+        "options": [
+          "What's today's conversation about, Neil?",
+          "An unrelated administrative announcement",
+          "A general review of grammar rules",
+          "A brief musical interlude with no speech"
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker explicitly states: 'What's today's conversation about, Neil?' (Mốc thời gian: 00:34).",
+        "timestampSeek": 34.08
+      },
+      {
+        "id": "quiz-4",
+        "question": "What is discussed in section 4 around 02:24?",
+        "options": [
+          "My journey takes at least an hour, sometimes more.",
+          "An unrelated administrative announcement",
+          "A general review of grammar rules",
+          "A brief musical interlude with no speech"
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker explicitly states: 'My journey takes at least an hour, sometimes more.' (Mốc thời gian: 02:24).",
+        "timestampSeek": 144.8
+      }
+    ]
+  }
 }

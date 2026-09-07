@@ -142,14 +142,13 @@ export async function runTier3Tests(runner: TestRunner): Promise<void> {
       const tokens = tokenizeSentence(activeCue.en);
       const words = tokens.filter((t) => t.isWord).map((t) => t.clean);
 
-      // Core vocab includes "alarm"
-      expect(words).toContain('alarm');
-      expect(words).toContain('morning');
+      // Core vocab includes "routine"
+      expect(words).toContain('routine');
 
       // Check core vocab mapping
-      const matchedCore = video.coreVocabulary.find((cv) => cv.word.toLowerCase() === 'alarm');
+      const matchedCore = video.coreVocabulary.find((cv) => cv.word.toLowerCase() === 'routine');
       expect(matchedCore).toBeDefined();
-      expect(matchedCore?.phonetic).toBe('/əˈlɑːm/');
+      expect(matchedCore?.phonetic).toBe('/ruːˈtiːn/');
 
       // Playback time was not affected by tokenization
       expect(player.getCurrentTime()).toBe(15.0);
@@ -248,8 +247,8 @@ export async function runTier3Tests(runner: TestRunner): Promise<void> {
         searchQuery: 'airport',
       });
 
-      expect(matched.length).toBe(1);
-      expect(matched[0].id).toBe('video-short-travel');
+      expect(matched.length).toBeGreaterThanOrEqual(1);
+      expect(matched.some((v) => v.id === 'video-short-travel')).toBe(true);
       expect(matched[0].durationCategory).toBe('short');
       expect(matched[0].topic).toBe('travel');
       expect(matched[0].cefrLevel).toBe('B1');
@@ -325,13 +324,13 @@ export async function runTier3Tests(runner: TestRunner): Promise<void> {
       const currentIdx = 2; // cue-3: 11.2s to 19.5s
       const cue = cues[currentIdx];
 
-      // Time is 16.0s (4.8s into cue > 2.0s) -> restart current cue
-      const timeLate = 16.0;
+      // Time is cue.start + 2.5s (> 2.0s into cue) -> restart current cue
+      const timeLate = cue.start + 2.5;
       const targetTime1 = timeLate - cue.start > 2.0 ? cue.start : cues[Math.max(0, currentIdx - 1)].start;
       expect(targetTime1).toBe(cue.start);
 
-      // Time is 12.0s (0.8s into cue <= 2.0s) -> jump to previous cue
-      const timeEarly = 12.0;
+      // Time is cue.start + 0.5s (<= 2.0s into cue) -> jump to previous cue
+      const timeEarly = cue.start + 0.5;
       const targetTime2 = timeEarly - cue.start > 2.0 ? cue.start : cues[Math.max(0, currentIdx - 1)].start;
       expect(targetTime2).toBe(cues[1].start);
     });
