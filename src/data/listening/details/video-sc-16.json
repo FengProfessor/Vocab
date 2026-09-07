@@ -1,6 +1,6 @@
 {
   "id": "video-sc-16",
-  "youtubeId": "uR90kpFZVkX",
+  "youtubeId": "flthk8SNiiE",
   "title": "Active Listening: Body Language and Cues",
   "channel": "BBC Learning English",
   "duration": 510,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/uR90kpFZVkX/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/flthk8SNiiE/hqdefault.jpg",
   "description": "Kỹ năng lắng nghe tích cực: gật đầu, eye contact và các câu đệm xác nhận thông tin.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that To listen deeply is to offer another person the greatest gift of all., providing a meaningful summary for learners.",
       "timestampSeek": 459
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-16-cloze-1",
+        "cueId": "video-sc-16-cue-3",
+        "sentence": "{{blank}} listening is a rare, magnetic social superpower that transforms relationships.",
+        "blankWord": "active",
+        "hintVi": "Nghĩa gợi ý: Lắng nghe tích cực là một siêu năng lực ...",
+        "timestamp": 102,
+        "options": [
+          "strategy",
+          "active",
+          "advantage",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-sc-16-cloze-2",
+        "cueId": "video-sc-16-cue-5",
+        "sentence": "{{blank}} small non-verbal confirmations: a thoughtful nod or an encouraging smile.",
+        "blankWord": "offer",
+        "hintVi": "Nghĩa gợi ý: Đưa ra những tín hiệu xác nhận phi ngôn ...",
+        "timestamp": 204,
+        "options": [
+          "convenient",
+          "subsequent",
+          "gradual",
+          "offer"
+        ]
+      },
+      {
+        "id": "video-sc-16-cloze-3",
+        "cueId": "video-sc-16-cue-8",
+        "sentence": "{{blank}} the urge to interrupt with your own story until they finish speaking.",
+        "blankWord": "resist",
+        "hintVi": "Nghĩa gợi ý: Cưỡng lại ý muốn ngắt lời bằng câu chuyệ...",
+        "timestamp": 357,
+        "options": [
+          "spontaneous",
+          "advantage",
+          "resist",
+          "flexible"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-16-q1",
+        "question": "What is the primary focus of the video 'Active Listening: Body Language and Cues'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice active listening: body language and cues effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores active listening: body language and cues, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 51
+      },
+      {
+        "id": "video-sc-16-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Offer...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Offer small non-verbal confirmations: a thoughtful nod or an...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Offer small non-verbal confirmations: a thoughtful nod or an encouraging smile.', showing its practical importance.",
+        "timestampSeek": 204
+      },
+      {
+        "id": "video-sc-16-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: To listen deeply is to offer another person the greatest gift of ...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that To listen deeply is to offer another person the greatest gift of all., providing a meaningful summary for learners.",
+        "timestampSeek": 459
+      }
+    ]
+  }
 }

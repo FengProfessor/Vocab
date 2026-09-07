@@ -1,6 +1,6 @@
 {
   "id": "video-tr-09",
-  "youtubeId": "a2xEmpJPdns",
+  "youtubeId": "-IRIJpA7FzY",
   "title": "In-Flight Services and Ordering Meals",
   "channel": "Learn English with Bob the Canadian",
   "duration": 310,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/a2xEmpJPdns/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/-IRIJpA7FzY/hqdefault.jpg",
   "description": "Giao tiếp với tiếp viên hàng không: gọi đồ uống, chọn món ăn và xin chăn ấm.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Polite passengers make demanding flights pleasant for the entire cabin community., providing a meaningful summary for learners.",
       "timestampSeek": 279
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-09-cloze-1",
+        "cueId": "video-tr-09-cue-3",
+        "sentence": "When the meal cart {{blank}} down the aisle, the flight attendant will offer choices.",
+        "blankWord": "rolls",
+        "hintVi": "Nghĩa gợi ý: Khi xe đẩy đồ ăn lăn dọc lối đi, tiếp vi...",
+        "timestamp": 62,
+        "options": [
+          "rolls",
+          "tremendous",
+          "convenient",
+          "prominent"
+        ]
+      },
+      {
+        "id": "video-tr-09-cloze-2",
+        "cueId": "video-tr-09-cue-5",
+        "sentence": "{{blank}} with a clear, polite choice: 'I will have the chicken, please.'",
+        "blankWord": "reply",
+        "hintVi": "Nghĩa gợi ý: Trả lời với một lựa chọn rõ ràng, lịch s...",
+        "timestamp": 124,
+        "options": [
+          "preliminary",
+          "advantage",
+          "prominent",
+          "reply"
+        ]
+      },
+      {
+        "id": "video-tr-09-cloze-3",
+        "cueId": "video-tr-09-cue-8",
+        "sentence": "Say {{blank}}: 'Could I trouble you for an extra warm blanket and pillow?'",
+        "blankWord": "politely",
+        "hintVi": "Nghĩa gợi ý: Nói một cách lịch sự: 'Tôi có thể phiền ...",
+        "timestamp": 217,
+        "options": [
+          "prominent",
+          "subsequent",
+          "politely",
+          "perceptive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-09-q1",
+        "question": "What is the primary focus of the video 'In-Flight Services and Ordering Meals'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice in-flight services and ordering meals effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores in-flight services and ordering meals, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 31
+      },
+      {
+        "id": "video-tr-09-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Reply...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Reply with a clear, polite choice: 'I will have the chicken,..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Reply with a clear, polite choice: 'I will have the chicken, please.'', showing its practical importance.",
+        "timestampSeek": 124
+      },
+      {
+        "id": "video-tr-09-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Polite passengers make demanding flights pleasant for the entire ...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Polite passengers make demanding flights pleasant for the entire cabin community., providing a meaningful summary for learners.",
+        "timestampSeek": 279
+      }
+    ]
+  }
 }

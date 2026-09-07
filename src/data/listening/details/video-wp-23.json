@@ -1,6 +1,6 @@
 {
   "id": "video-wp-23",
-  "youtubeId": "5WJBXY9kW9t",
+  "youtubeId": "qucMyL4poN0",
   "title": "Effective Stakeholder Management for Project Leads",
   "channel": "Harvard Business Review",
   "duration": 840,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/5WJBXY9kW9t/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/qucMyL4poN0/hqdefault.jpg",
   "description": "Kỹ năng quản trị kỳ vọng của các bên liên quan trong các dự án quy mô lớn.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Ruthlessly manage expectation inflation by documenting project scope boundaries.', providing deeper technical insight.",
       "timestampSeek": 504
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-23-cloze-1",
+        "cueId": "video-wp-23-cue-3",
+        "sentence": "{{blank}} enterprise initiative involves diverse stakeholders with competing agendas.",
+        "blankWord": "every",
+        "hintVi": "Nghĩa gợi ý: Mọi sáng kiến doanh nghiệp đều liên quan...",
+        "timestamp": 168,
+        "options": [
+          "favorable",
+          "temporary",
+          "resource",
+          "every"
+        ]
+      },
+      {
+        "id": "video-wp-23-cloze-2",
+        "cueId": "video-wp-23-cue-5",
+        "sentence": "High-influence {{blank}} require tailored, high-touch consultation before public forums.",
+        "blankWord": "leaders",
+        "hintVi": "Nghĩa gợi ý: Các nhà lãnh đạo có tầm ảnh hưởng lớn đò...",
+        "timestamp": 336,
+        "options": [
+          "extensive",
+          "perceptive",
+          "reliable",
+          "leaders"
+        ]
+      },
+      {
+        "id": "video-wp-23-cloze-3",
+        "cueId": "video-wp-23-cue-8",
+        "sentence": "{{blank}} bi-weekly strategic alignment briefings to surface friction points early.",
+        "blankWord": "conduct",
+        "hintVi": "Nghĩa gợi ý: Tiến hành các cuộc họp định hướng chiến ...",
+        "timestamp": 588,
+        "options": [
+          "prominent",
+          "conduct",
+          "framework",
+          "favorable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-23-q1",
+        "question": "What is the primary focus of the video 'Effective Stakeholder Management for Project Leads'?",
+        "options": [
+          "To explain and practice effective stakeholder management for project leads effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores effective stakeholder management for project leads, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 84
+      },
+      {
+        "id": "video-wp-23-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'High-influence...'?",
+        "options": [
+          "It emphasizes that: High-influence leaders require tailored, high-touch consulta...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'High-influence leaders require tailored, high-touch consultation before public forums.', showing its practical importance.",
+        "timestampSeek": 336
+      },
+      {
+        "id": "video-wp-23-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Mastering stakeholder diplomacy turns institutional inertia into ...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Mastering stakeholder diplomacy turns institutional inertia into tailwinds for innovation., providing a meaningful summary for learners.",
+        "timestampSeek": 756
+      },
+      {
+        "id": "video-wp-23-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Ruthlessly...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Ruthlessly manage expectation inflation by documenting proje...",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'Ruthlessly manage expectation inflation by documenting project scope boundaries.', providing deeper technical insight.",
+        "timestampSeek": 504
+      }
+    ]
+  }
 }

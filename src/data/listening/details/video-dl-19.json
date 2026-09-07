@@ -1,6 +1,6 @@
 {
   "id": "video-dl-19",
-  "youtubeId": "xG-syiSCHiv",
+  "youtubeId": "QBi0U99zo3Q",
   "title": "Designing a Resilient Daily Schedule",
   "channel": "Oxford Online English",
   "duration": 660,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/xG-syiSCHiv/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/QBi0U99zo3Q/hqdefault.jpg",
   "description": "Phương pháp thiết kế lịch trình sinh hoạt linh hoạt, chống chịu áp lực cuộc sống.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Protect your core morning hours for deep, uninterrupted creative focus.', providing deeper technical insight.",
       "timestampSeek": 396
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-19-cloze-1",
+        "cueId": "video-dl-19-cue-3",
+        "sentence": "A {{blank}} resilient routine accounts for natural human energy fluctuations.",
+        "blankWord": "truly",
+        "hintVi": "Nghĩa gợi ý: Một thói quen thực sự có khả năng phục h...",
+        "timestamp": 132,
+        "options": [
+          "priority",
+          "truly",
+          "adequate",
+          "simultaneous"
+        ]
+      },
+      {
+        "id": "video-dl-19-cloze-2",
+        "cueId": "video-dl-19-cue-5",
+        "sentence": "{{blank}} insert a realistic buffer zone between back-to-back commitments.",
+        "blankWord": "always",
+        "hintVi": "Nghĩa gợi ý: Luôn chèn một vùng đệm thực tế giữa các ...",
+        "timestamp": 264,
+        "options": [
+          "sufficient",
+          "gradual",
+          "fundamental",
+          "always"
+        ]
+      },
+      {
+        "id": "video-dl-19-cloze-3",
+        "cueId": "video-dl-19-cue-8",
+        "sentence": "Re-evaluate your {{blank}} quarterly and prune away redundant obligations.",
+        "blankWord": "commitments",
+        "hintVi": "Nghĩa gợi ý: Đánh giá lại các cam kết của bạn hàng qu...",
+        "timestamp": 462,
+        "options": [
+          "commitments",
+          "strategy",
+          "continuous",
+          "flexible"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-19-q1",
+        "question": "What is the primary focus of the video 'Designing a Resilient Daily Schedule'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice designing a resilient daily schedule effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores designing a resilient daily schedule, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 66
+      },
+      {
+        "id": "video-dl-19-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Always...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Always insert a realistic buffer zone between back-to-back c...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Always insert a realistic buffer zone between back-to-back commitments.', showing its practical importance.",
+        "timestampSeek": 264
+      },
+      {
+        "id": "video-dl-19-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Build a schedule that serves your human flourishing, not a rigid ...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Build a schedule that serves your human flourishing, not a rigid prison., providing a meaningful summary for learners.",
+        "timestampSeek": 594
+      },
+      {
+        "id": "video-dl-19-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Protect...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: Protect your core morning hours for deep, uninterrupted crea...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'Protect your core morning hours for deep, uninterrupted creative focus.', providing deeper technical insight.",
+        "timestampSeek": 396
+      }
+    ]
+  }
 }

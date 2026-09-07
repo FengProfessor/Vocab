@@ -1,6 +1,6 @@
 {
   "id": "video-dl-01",
-  "youtubeId": "VxRmMw7RTpb",
+  "youtubeId": "sMkzwmMs0jM",
   "title": "Morning Habits for Natural Energy",
   "channel": "Learn English with Bob the Canadian",
   "duration": 210,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/VxRmMw7RTpb/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/sMkzwmMs0jM/hqdefault.jpg",
   "description": "Khám phá các thói quen lành mạnh vào buổi sáng giúp duy trì năng lượng suốt ngày dài.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Consistent small routines create enormous long-term improvements., providing a meaningful summary for learners.",
       "timestampSeek": 189
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-01-cloze-1",
+        "cueId": "video-dl-01-cue-3",
+        "sentence": "{{blank}} a good morning habit sets a positive tone for everything.",
+        "blankWord": "building",
+        "hintVi": "Nghĩa gợi ý: Xây dựng một thói quen tốt vào buổi sáng...",
+        "timestamp": 42,
+        "options": [
+          "favorable",
+          "building",
+          "consistent",
+          "dimension"
+        ]
+      },
+      {
+        "id": "video-dl-01-cloze-2",
+        "cueId": "video-dl-01-cue-5",
+        "sentence": "{{blank}} provides instant energy and kickstarts your metabolism.",
+        "blankWord": "hydration",
+        "hintVi": "Nghĩa gợi ý: Bổ sung nước cung cấp năng lượng tức thì...",
+        "timestamp": 84,
+        "options": [
+          "favorable",
+          "hydration",
+          "framework",
+          "innovative"
+        ]
+      },
+      {
+        "id": "video-dl-01-cloze-3",
+        "cueId": "video-dl-01-cue-8",
+        "sentence": "{{blank}} checking stressful emails or social media during the first hour.",
+        "blankWord": "avoid",
+        "hintVi": "Nghĩa gợi ý: Tránh kiểm tra email căng thẳng hoặc mạn...",
+        "timestamp": 147,
+        "options": [
+          "reliable",
+          "avoid",
+          "advantage",
+          "temporary"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-01-q1",
+        "question": "What is the primary focus of the video 'Morning Habits for Natural Energy'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice morning habits for natural energy effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores morning habits for natural energy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 21
+      },
+      {
+        "id": "video-dl-01-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Hydration...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Hydration provides instant energy and kickstarts your metabo...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Hydration provides instant energy and kickstarts your metabolism.', showing its practical importance.",
+        "timestampSeek": 84
+      },
+      {
+        "id": "video-dl-01-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Consistent small routines create enormous long-term improvements....",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Consistent small routines create enormous long-term improvements., providing a meaningful summary for learners.",
+        "timestampSeek": 189
+      }
+    ]
+  }
 }

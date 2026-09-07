@@ -1,6 +1,6 @@
 {
   "id": "video-cs-20",
-  "youtubeId": "5PjUvSlDeJ3",
+  "youtubeId": "qfITRYcnP84",
   "title": "Classical Music: Mozart's Creative Genius and Legacy",
   "channel": "BBC Learning English",
   "duration": 910,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/5PjUvSlDeJ3/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/qfITRYcnP84/hqdefault.jpg",
   "description": "Âm nhạc cổ điển: thiên tài sáng tạo của Mozart và di sản giao hưởng vượt thời gian.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Unlike contemporaries who relied on rigid formulas, Mozart's phrases conceal intricate counterpoint beneath effortless melody.', providing deeper technical insight.",
       "timestampSeek": 546
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-20-cloze-1",
+        "cueId": "video-cs-20-cue-3",
+        "sentence": "By age six, he {{blank}} complex harpsichord concertos blindfolded and composed intricate symphonies by eight.",
+        "blankWord": "performed",
+        "hintVi": "Nghĩa gợi ý: Lên sáu tuổi, cậu đã biểu diễn các bản h...",
+        "timestamp": 182,
+        "options": [
+          "performed",
+          "subsequent",
+          "tremendous",
+          "perspective"
+        ]
+      },
+      {
+        "id": "video-cs-20-cloze-2",
+        "cueId": "video-cs-20-cue-5",
+        "sentence": "{{blank}} wrote over six hundred masterpieces across every contemporary genre: concertos, sonatas, masses, and operas.",
+        "blankWord": "mozart",
+        "hintVi": "Nghĩa gợi ý: Mozart đã viết hơn sáu trăm kiệt tác trê...",
+        "timestamp": 364,
+        "options": [
+          "favorable",
+          "mozart",
+          "convenient",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-cs-20-cloze-3",
+        "cueId": "video-cs-20-cue-8",
+        "sentence": "His {{blank}} seem not constructed by human toil, but channeled directly from celestial geometry.",
+        "blankWord": "compositions",
+        "hintVi": "Nghĩa gợi ý: Các tác phẩm của ông dường như không phả...",
+        "timestamp": 637,
+        "options": [
+          "dimension",
+          "compositions",
+          "flexible",
+          "prominent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-20-q1",
+        "question": "What is the primary focus of the video 'Classical Music: Mozart's Creative Genius and Legacy'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice classical music: mozart's creative genius and legacy effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores classical music: mozart's creative genius and legacy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 91
+      },
+      {
+        "id": "video-cs-20-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Mozart...'?",
+        "options": [
+          "It emphasizes that: Mozart wrote over six hundred masterpieces across every cont...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Mozart wrote over six hundred masterpieces across every contemporary genre: concertos, sonatas, masses, and operas.', showing its practical importance.",
+        "timestampSeek": 364
+      },
+      {
+        "id": "video-cs-20-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Listening to Mozart elevates the human spirit into communion with..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Listening to Mozart elevates the human spirit into communion with sublime, effortless beauty., providing a meaningful summary for learners.",
+        "timestampSeek": 819
+      },
+      {
+        "id": "video-cs-20-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Unlike...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Unlike contemporaries who relied on rigid formulas, Mozart's...",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Unlike contemporaries who relied on rigid formulas, Mozart's phrases conceal intricate counterpoint beneath effortless melody.', providing deeper technical insight.",
+        "timestampSeek": 546
+      }
+    ]
+  }
 }

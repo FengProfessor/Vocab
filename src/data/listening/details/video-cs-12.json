@@ -1,6 +1,6 @@
 {
   "id": "video-cs-12",
-  "youtubeId": "TDUPKTQnvkS",
+  "youtubeId": "YEaSxhcns7Y",
   "title": "Music as Cultural Identity: The Story of the Blues",
   "channel": "BBC Learning English",
   "duration": 520,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/TDUPKTQnvkS/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/YEaSxhcns7Y/hqdefault.jpg",
   "description": "Nguồn gốc âm nhạc Blues: tiếng lòng từ cánh đồng bông vùng châu thổ Mississippi đến nhạc rock hiện đại.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that The Blues proves that human suffering can be converted into transcendent art that moves the world., providing a meaningful summary for learners.",
       "timestampSeek": 468
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-12-cloze-1",
+        "cueId": "video-cs-12-cue-3",
+        "sentence": "{{blank}} from sunrise to sunset in grueling cotton fields, workers sang rhythmic field hollers.",
+        "blankWord": "laboring",
+        "hintVi": "Nghĩa gợi ý: Lao động từ sáng sớm đến hoàng hôn trên ...",
+        "timestamp": 104,
+        "options": [
+          "perspective",
+          "perceptive",
+          "favorable",
+          "laboring"
+        ]
+      },
+      {
+        "id": "video-cs-12-cloze-2",
+        "cueId": "video-cs-12-cue-5",
+        "sentence": "{{blank}} with cheap acoustic guitars, wandering musicians sang of heartbreak, poverty, and relentless resilience.",
+        "blankWord": "armed",
+        "hintVi": "Nghĩa gợi ý: Chỉ với những cây đàn guitar mộc rẻ tiền...",
+        "timestamp": 208,
+        "options": [
+          "alternative",
+          "armed",
+          "continuous",
+          "perceptive"
+        ]
+      },
+      {
+        "id": "video-cs-12-cloze-3",
+        "cueId": "video-cs-12-cue-8",
+        "sentence": "When {{blank}} acoustic blues migrated north to Chicago, electric amplifiers transformed the raw acoustic sound.",
+        "blankWord": "rural",
+        "hintVi": "Nghĩa gợi ý: Khi nhạc blues mộc từ nông thôn di cư lê...",
+        "timestamp": 364,
+        "options": [
+          "rural",
+          "moderate",
+          "perceptive",
+          "vulnerable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-12-q1",
+        "question": "What is the primary focus of the video 'Music as Cultural Identity: The Story of the Blues'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice music as cultural identity: the story of the blues effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores music as cultural identity: the story of the blues, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 52
+      },
+      {
+        "id": "video-cs-12-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Armed...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Armed with cheap acoustic guitars, wandering musicians sang ...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Armed with cheap acoustic guitars, wandering musicians sang of heartbreak, poverty, and relentless resilience.', showing its practical importance.",
+        "timestampSeek": 208
+      },
+      {
+        "id": "video-cs-12-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: The Blues proves that human suffering can be converted into trans..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that The Blues proves that human suffering can be converted into transcendent art that moves the world., providing a meaningful summary for learners.",
+        "timestampSeek": 468
+      }
+    ]
+  }
 }

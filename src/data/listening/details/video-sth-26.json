@@ -1,6 +1,6 @@
 {
   "id": "video-sth-26",
-  "youtubeId": "8xsxRXi8LRv",
+  "youtubeId": "vP3VOKBcloo",
   "title": "Neuroplasticity: Rewiring the Adult Brain",
   "channel": "TED-Ed",
   "duration": 1020,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/8xsxRXi8LRv/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/vP3VOKBcloo/hqdefault.jpg",
   "description": "Tính mềm dẻo của não bộ: cách não người trưởng thành tái cấu trúc và thích nghi suốt đời.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Specialized glial cells wrap frequently traversed neural highways in layers of fatty myelin insulation.', providing deeper technical insight.",
       "timestampSeek": 612
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-26-cloze-1",
+        "cueId": "video-sth-26-cue-3",
+        "sentence": "The {{blank}} assumption was that after childhood development, lost brain cells were gone forever.",
+        "blankWord": "dogmatic",
+        "hintVi": "Nghĩa gợi ý: Giả định giáo điều cho rằng sau quá trìn...",
+        "timestamp": 204,
+        "options": [
+          "subsequent",
+          "temporary",
+          "dimension",
+          "dogmatic"
+        ]
+      },
+      {
+        "id": "video-sth-26-cloze-2",
+        "cueId": "video-sth-26-cue-5",
+        "sentence": "The {{blank}} is not a rigid biological computer; it is an organic, malleable living landscape.",
+        "blankWord": "brain",
+        "hintVi": "Nghĩa gợi ý: Bộ não không phải là một chiếc máy tính ...",
+        "timestamp": 408,
+        "options": [
+          "simultaneous",
+          "remarkable",
+          "brain",
+          "convenient"
+        ]
+      },
+      {
+        "id": "video-sth-26-cloze-3",
+        "cueId": "video-sth-26-cue-8",
+        "sentence": "{{blank}} accelerates electrical signal transmission up to one hundred times faster.",
+        "blankWord": "myelination",
+        "hintVi": "Nghĩa gợi ý: Quá trình myelin hóa làm tăng tốc độ tru...",
+        "timestamp": 714,
+        "options": [
+          "myelination",
+          "gradual",
+          "sufficient",
+          "continuous"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-26-q1",
+        "question": "What is the primary focus of the video 'Neuroplasticity: Rewiring the Adult Brain'?",
+        "options": [
+          "To explain and practice neuroplasticity: rewiring the adult brain effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores neuroplasticity: rewiring the adult brain, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 102
+      },
+      {
+        "id": "video-sth-26-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: The brain is not a rigid biological computer; it is an organ...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'The brain is not a rigid biological computer; it is an organic, malleable living landscape.', showing its practical importance.",
+        "timestampSeek": 408
+      },
+      {
+        "id": "video-sth-26-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Every deliberate thought, novel skill, and challenging habit you ...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Every deliberate thought, novel skill, and challenging habit you cultivate literally sculpts your biological mind., providing a meaningful summary for learners.",
+        "timestampSeek": 918
+      },
+      {
+        "id": "video-sth-26-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Specialized...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: Specialized glial cells wrap frequently traversed neural hig..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'Specialized glial cells wrap frequently traversed neural highways in layers of fatty myelin insulation.', providing deeper technical insight.",
+        "timestampSeek": 612
+      }
+    ]
+  }
 }

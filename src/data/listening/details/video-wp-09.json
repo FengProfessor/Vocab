@@ -1,6 +1,6 @@
 {
   "id": "video-wp-09",
-  "youtubeId": "sKHOaJZ3BLU",
+  "youtubeId": "KN2jyw6D1ak",
   "title": "Participating in Agile Standup Meetings",
   "channel": "CareerVidz",
   "duration": 420,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/sKHOaJZ3BLU/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/KN2jyw6D1ak/hqdefault.jpg",
   "description": "Cách báo cáo công việc 3 phút trong cuộc họp Agile: đã làm gì, sẽ làm gì và khó khăn.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Clear communication during standups accelerates collective team delivery velocity., providing a meaningful summary for learners.",
       "timestampSeek": 378
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-09-cloze-1",
+        "cueId": "video-wp-09-cue-3",
+        "sentence": "The {{blank}} format is strictly structured around three core questions.",
+        "blankWord": "meeting",
+        "hintVi": "Nghĩa gợi ý: Định dạng cuộc họp được cấu trúc nghiêm ...",
+        "timestamp": 84,
+        "options": [
+          "meeting",
+          "sufficient",
+          "simultaneous",
+          "vibrant"
+        ]
+      },
+      {
+        "id": "video-wp-09-cloze-2",
+        "cueId": "video-wp-09-cue-5",
+        "sentence": "{{blank}}: 'What tasks do you plan to complete today?'",
+        "blankWord": "second",
+        "hintVi": "Nghĩa gợi ý: Thứ hai: 'Bạn dự định hoàn thành những n...",
+        "timestamp": 168,
+        "options": [
+          "simultaneous",
+          "second",
+          "balance",
+          "adequate"
+        ]
+      },
+      {
+        "id": "video-wp-09-cloze-3",
+        "cueId": "video-wp-09-cue-8",
+        "sentence": "Flag an {{blank}} impediment so the Scrum Master can clear the path.",
+        "blankWord": "external",
+        "hintVi": "Nghĩa gợi ý: Gắn cờ một trở ngại từ bên ngoài để Scru...",
+        "timestamp": 294,
+        "options": [
+          "continuous",
+          "alternative",
+          "external",
+          "deliberate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-09-q1",
+        "question": "What is the primary focus of the video 'Participating in Agile Standup Meetings'?",
+        "options": [
+          "To explain and practice participating in agile standup meetings effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores participating in agile standup meetings, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 42
+      },
+      {
+        "id": "video-wp-09-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Second:...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Second: 'What tasks do you plan to complete today?'...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Second: 'What tasks do you plan to complete today?'', showing its practical importance.",
+        "timestampSeek": 168
+      },
+      {
+        "id": "video-wp-09-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Clear communication during standups accelerates collective team d...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Clear communication during standups accelerates collective team delivery velocity., providing a meaningful summary for learners.",
+        "timestampSeek": 378
+      }
+    ]
+  }
 }

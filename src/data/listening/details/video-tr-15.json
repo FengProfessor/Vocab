@@ -1,6 +1,6 @@
 {
   "id": "video-tr-15",
-  "youtubeId": "deWTv0fHeaX",
+  "youtubeId": "Fxi4uYmCrPo",
   "title": "Exchanging Foreign Currency and Avoiding Fees",
   "channel": "Wolters World",
   "duration": 490,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/deWTv0fHeaX/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/Fxi4uYmCrPo/hqdefault.jpg",
   "description": "Mẹo đổi ngoại tệ thông minh: tránh bẫy phí ở sân bay và dùng thẻ ATM địa phương.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Smart financial travel habits keep your hard-earned funds where they belong: in your pocket., providing a meaningful summary for learners.",
       "timestampSeek": 441
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-15-cloze-1",
+        "cueId": "video-tr-15-cue-3",
+        "sentence": "{{blank}} airport currency exchange booths advertising 'Zero Percent Commission'.",
+        "blankWord": "avoid",
+        "hintVi": "Nghĩa gợi ý: Tránh các quầy đổi tiền ở sân bay quảng ...",
+        "timestamp": 98,
+        "options": [
+          "deliberate",
+          "tremendous",
+          "avoid",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-tr-15-cloze-2",
+        "cueId": "video-tr-15-cue-5",
+        "sentence": "The gold {{blank}} rule: use an official bank-affiliated ATM inside a bank branch.",
+        "blankWord": "standard",
+        "hintVi": "Nghĩa gợi ý: Quy tắc tiêu chuẩn vàng: dùng máy ATM tr...",
+        "timestamp": 196,
+        "options": [
+          "dimension",
+          "standard",
+          "subsequent",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-tr-15-cloze-3",
+        "cueId": "video-tr-15-cue-8",
+        "sentence": "{{blank}} two different credit cards with verified zero foreign transaction fees.",
+        "blankWord": "carry",
+        "hintVi": "Nghĩa gợi ý: Mang theo hai thẻ tín dụng khác nhau đã ...",
+        "timestamp": 343,
+        "options": [
+          "carry",
+          "gradual",
+          "flexible",
+          "vulnerable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-15-q1",
+        "question": "What is the primary focus of the video 'Exchanging Foreign Currency and Avoiding Fees'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice exchanging foreign currency and avoiding fees effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores exchanging foreign currency and avoiding fees, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 49
+      },
+      {
+        "id": "video-tr-15-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: The gold standard rule: use an official bank-affiliated ATM ...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'The gold standard rule: use an official bank-affiliated ATM inside a bank branch.', showing its practical importance.",
+        "timestampSeek": 196
+      },
+      {
+        "id": "video-tr-15-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Smart financial travel habits keep your hard-earned funds where t..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Smart financial travel habits keep your hard-earned funds where they belong: in your pocket., providing a meaningful summary for learners.",
+        "timestampSeek": 441
+      }
+    ]
+  }
 }

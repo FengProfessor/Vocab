@@ -1,6 +1,6 @@
 {
   "id": "video-sth-01",
-  "youtubeId": "F8Gnzsh00OM",
+  "youtubeId": "esPRsT-lmw8",
   "title": "Morning Stretching and Healthy Posture",
   "channel": "English with Lucy",
   "duration": 215,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/F8Gnzsh00OM/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/esPRsT-lmw8/hqdefault.jpg",
   "description": "Các động tác giãn cơ buổi sáng đơn giản giúp cải thiện tư thế và giảm đau lưng.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Ten minutes of daily stretching keeps your joints youthful and supple., providing a meaningful summary for learners.",
       "timestampSeek": 193.5
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-01-cloze-1",
+        "cueId": "video-sth-01-cue-3",
+        "sentence": "{{blank}} your day with gentle physical stretching stimulates blood circulation.",
+        "blankWord": "starting",
+        "hintVi": "Nghĩa gợi ý: Bắt đầu ngày mới bằng việc giãn cơ nhẹ n...",
+        "timestamp": 43,
+        "options": [
+          "temporary",
+          "starting",
+          "subsequent",
+          "extensive"
+        ]
+      },
+      {
+        "id": "video-sth-01-cloze-2",
+        "cueId": "video-sth-01-cue-5",
+        "sentence": "{{blank}} roll your shoulders backward to release overnight stiffness.",
+        "blankWord": "slowly",
+        "hintVi": "Nghĩa gợi ý: Từ từ xoay vai ra sau để giải tỏa sự cứn...",
+        "timestamp": 86,
+        "options": [
+          "dimension",
+          "slowly",
+          "routine",
+          "vibrant"
+        ]
+      },
+      {
+        "id": "video-sth-01-cloze-3",
+        "cueId": "video-sth-01-cue-8",
+        "sentence": "Keep your {{blank}} long and avoid slouching over your phone screen.",
+        "blankWord": "spine",
+        "hintVi": "Nghĩa gợi ý: Giữ cột sống thẳng dài và tránh khom lưn...",
+        "timestamp": 150.5,
+        "options": [
+          "spine",
+          "remarkable",
+          "protocol",
+          "adequate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-01-q1",
+        "question": "What is the primary focus of the video 'Morning Stretching and Healthy Posture'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice morning stretching and healthy posture effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores morning stretching and healthy posture, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 21.5
+      },
+      {
+        "id": "video-sth-01-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Slowly...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Slowly roll your shoulders backward to release overnight sti...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Slowly roll your shoulders backward to release overnight stiffness.', showing its practical importance.",
+        "timestampSeek": 86
+      },
+      {
+        "id": "video-sth-01-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Ten minutes of daily stretching keeps your joints youthful and su..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Ten minutes of daily stretching keeps your joints youthful and supple., providing a meaningful summary for learners.",
+        "timestampSeek": 193.5
+      }
+    ]
+  }
 }

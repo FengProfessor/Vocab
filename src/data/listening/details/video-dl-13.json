@@ -1,6 +1,6 @@
 {
   "id": "video-dl-13",
-  "youtubeId": "pxEVkecLaEx",
+  "youtubeId": "j2PdEQpu5js",
   "title": "Time Blocking Tips for Busy Students",
   "channel": "Oxford Online English",
   "duration": 410,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/pxEVkecLaEx/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/j2PdEQpu5js/hqdefault.jpg",
   "description": "Phương pháp phân chia khối thời gian (Time Blocking) để quản lý lịch học hiệu quả.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Mastering your calendar is the ultimate foundation for lifelong achievement., providing a meaningful summary for learners.",
       "timestampSeek": 369
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-13-cloze-1",
+        "cueId": "video-dl-13-cue-3",
+        "sentence": "Time {{blank}} is a method where you assign specific tasks to designated hours.",
+        "blankWord": "blocking",
+        "hintVi": "Nghĩa gợi ý: Phân chia khối thời gian là phương pháp ...",
+        "timestamp": 82,
+        "options": [
+          "balance",
+          "blocking",
+          "adequate",
+          "continuous"
+        ]
+      },
+      {
+        "id": "video-dl-13-cloze-2",
+        "cueId": "video-dl-13-cue-5",
+        "sentence": "{{blank}} each morning by identifying your top three non-negotiable goals.",
+        "blankWord": "begin",
+        "hintVi": "Nghĩa gợi ý: Bắt đầu mỗi buổi sáng bằng cách xác định...",
+        "timestamp": 164,
+        "options": [
+          "gradual",
+          "sufficient",
+          "fundamental",
+          "begin"
+        ]
+      },
+      {
+        "id": "video-dl-13-cloze-3",
+        "cueId": "video-dl-13-cue-8",
+        "sentence": "{{blank}} generous buffer periods between blocks to handle unexpected interruptions.",
+        "blankWord": "include",
+        "hintVi": "Nghĩa gợi ý: Hãy bao gồm các khoảng đệm rộng rãi giữa...",
+        "timestamp": 287,
+        "options": [
+          "essential",
+          "convenient",
+          "include",
+          "substantial"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-13-q1",
+        "question": "What is the primary focus of the video 'Time Blocking Tips for Busy Students'?",
+        "options": [
+          "To explain and practice time blocking tips for busy students effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores time blocking tips for busy students, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 41
+      },
+      {
+        "id": "video-dl-13-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Begin...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Begin each morning by identifying your top three non-negotia...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Begin each morning by identifying your top three non-negotiable goals.', showing its practical importance.",
+        "timestampSeek": 164
+      },
+      {
+        "id": "video-dl-13-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Mastering your calendar is the ultimate foundation for lifelong a...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Mastering your calendar is the ultimate foundation for lifelong achievement., providing a meaningful summary for learners.",
+        "timestampSeek": 369
+      }
+    ]
+  }
 }

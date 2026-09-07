@@ -1,6 +1,6 @@
 {
   "id": "video-sth-18",
-  "youtubeId": "r1AKF50kn7e",
+  "youtubeId": "tZ-Pbwdqlt0",
   "title": "Renewable Energy Grids and Battery Storage",
   "channel": "SciShow",
   "duration": 570,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/r1AKF50kn7e/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/tZ-Pbwdqlt0/hqdefault.jpg",
   "description": "Lưới điện tái tạo: thách thức gián đoạn nguồn điện và công nghệ lưu trữ pin quy mô lớn.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Building intelligent, resilient storage infrastructure turns intermittent green breezes into reliable 24/7 power., providing a meaningful summary for learners.",
       "timestampSeek": 513
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-18-cloze-1",
+        "cueId": "video-sth-18-cue-3",
+        "sentence": "{{blank}}, electrical grids are exquisitely sensitive machines requiring perfect balance every millisecond.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, các lưới điện là những cỗ máy...",
+        "timestamp": 114,
+        "options": [
+          "spontaneous",
+          "essential",
+          "however",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-sth-18-cloze-2",
+        "cueId": "video-sth-18-cue-5",
+        "sentence": "In {{blank}}, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.",
+        "blankWord": "contrast",
+        "hintVi": "Nghĩa gợi ý: Ngược lại, năng lượng mặt trời và gió vố...",
+        "timestamp": 228,
+        "options": [
+          "priority",
+          "extensive",
+          "contrast",
+          "flexible"
+        ]
+      },
+      {
+        "id": "video-sth-18-cloze-3",
+        "cueId": "video-sth-18-cue-8",
+        "sentence": "Lithium-iron-phosphate {{blank}} absorb surplus noon electricity and discharge it during peak dinnertime hours.",
+        "blankWord": "batteries",
+        "hintVi": "Nghĩa gợi ý: Pin lithium-sắt-phốt-phát hấp thụ lượng ...",
+        "timestamp": 399,
+        "options": [
+          "favorable",
+          "consistent",
+          "batteries",
+          "priority"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-18-q1",
+        "question": "What is the primary focus of the video 'Renewable Energy Grids and Battery Storage'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice renewable energy grids and battery storage effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores renewable energy grids and battery storage, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 57
+      },
+      {
+        "id": "video-sth-18-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'In...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: In contrast, solar and wind power are inherently intermitten..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'In contrast, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.', showing its practical importance.",
+        "timestampSeek": 228
+      },
+      {
+        "id": "video-sth-18-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Building intelligent, resilient storage infrastructure turns inte...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Building intelligent, resilient storage infrastructure turns intermittent green breezes into reliable 24/7 power., providing a meaningful summary for learners.",
+        "timestampSeek": 513
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-wp-16",
-  "youtubeId": "QqTjWEk1-bl",
+  "youtubeId": "LI_WmATfgFg",
   "title": "Constructive Feedback: Critique without Drama",
   "channel": "Oxford Online English",
   "duration": 470,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/QqTjWEk1-bl/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/LI_WmATfgFg/hqdefault.jpg",
   "description": "Kỹ năng phản hồi mang tính xây dựng: tách biệt hành vi khỏi tính cách cá nhân.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Great leadership turns uncomfortable evaluations into transformative career springboards., providing a meaningful summary for learners.",
       "timestampSeek": 423
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-16-cloze-1",
+        "cueId": "video-wp-16-cue-3",
+        "sentence": "Done {{blank}}, critique triggers resentment, alienation, and employee turnover.",
+        "blankWord": "poorly",
+        "hintVi": "Nghĩa gợi ý: Làm không tốt, lời phê bình sẽ kích hoạt...",
+        "timestamp": 94,
+        "options": [
+          "fundamental",
+          "poorly",
+          "gradual",
+          "component"
+        ]
+      },
+      {
+        "id": "video-wp-16-cloze-2",
+        "cueId": "video-wp-16-cue-5",
+        "sentence": "{{blank}} vague insults; anchor your feedback in observable, recorded facts.",
+        "blankWord": "avoid",
+        "hintVi": "Nghĩa gợi ý: Tránh những lời lăng mạ mơ hồ; hãy neo p...",
+        "timestamp": 188,
+        "options": [
+          "avoid",
+          "preliminary",
+          "simultaneous",
+          "sufficient"
+        ]
+      },
+      {
+        "id": "video-wp-16-cloze-3",
+        "cueId": "video-wp-16-cue-8",
+        "sentence": "{{blank}} specific, actionable adjustments for upcoming performance cycles.",
+        "blankWord": "formulate",
+        "hintVi": "Nghĩa gợi ý: Đưa ra những điều chỉnh cụ thể, có thể h...",
+        "timestamp": 329,
+        "options": [
+          "tremendous",
+          "extensive",
+          "essential",
+          "formulate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-16-q1",
+        "question": "What is the primary focus of the video 'Constructive Feedback: Critique without Drama'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice constructive feedback: critique without drama effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores constructive feedback: critique without drama, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 47
+      },
+      {
+        "id": "video-wp-16-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Avoid...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Avoid vague insults; anchor your feedback in observable, rec...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Avoid vague insults; anchor your feedback in observable, recorded facts.', showing its practical importance.",
+        "timestampSeek": 188
+      },
+      {
+        "id": "video-wp-16-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Great leadership turns uncomfortable evaluations into transformat..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Great leadership turns uncomfortable evaluations into transformative career springboards., providing a meaningful summary for learners.",
+        "timestampSeek": 423
+      }
+    ]
+  }
 }

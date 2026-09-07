@@ -1,6 +1,6 @@
 {
   "id": "video-wp-22",
-  "youtubeId": "IdKTgGBhe5f",
+  "youtubeId": "qHWtJtRSYjc",
   "title": "Conflict Resolution in the Hybrid Workplace",
   "channel": "Learn English with Emma",
   "duration": 780,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/IdKTgGBhe5f/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/qHWtJtRSYjc/hqdefault.jpg",
   "description": "Giải quyết mâu thuẫn trong môi trường làm việc kết hợp (Hybrid) giữa văn phòng và từ xa.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Never allow passive-aggressive messages to linger in public chat channels.', providing deeper technical insight.",
       "timestampSeek": 468
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-22-cloze-1",
+        "cueId": "video-wp-22-cue-3",
+        "sentence": "In-office {{blank}} can unintentionally exclude remote colleagues from spontaneous decisions.",
+        "blankWord": "cliques",
+        "hintVi": "Nghĩa gợi ý: Các nhóm nhỏ tại văn phòng có thể vô tìn...",
+        "timestamp": 156,
+        "options": [
+          "protocol",
+          "perceptive",
+          "cliques",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-wp-22-cloze-2",
+        "cueId": "video-wp-22-cue-5",
+        "sentence": "{{blank}} must proactively mediate emerging grievances through structured one-on-one sessions.",
+        "blankWord": "managers",
+        "hintVi": "Nghĩa gợi ý: Các nhà quản lý phải chủ động hòa giải n...",
+        "timestamp": 312,
+        "options": [
+          "protocol",
+          "managers",
+          "convenient",
+          "consistent"
+        ]
+      },
+      {
+        "id": "video-wp-22-cloze-3",
+        "cueId": "video-wp-22-cue-8",
+        "sentence": "{{blank}} conflicting parties together on video to hear each other's tone of voice.",
+        "blankWord": "bring",
+        "hintVi": "Nghĩa gợi ý: Đưa các bên mâu thuẫn lại với nhau qua v...",
+        "timestamp": 546,
+        "options": [
+          "temporary",
+          "framework",
+          "bring",
+          "remarkable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-22-q1",
+        "question": "What is the primary focus of the video 'Conflict Resolution in the Hybrid Workplace'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice conflict resolution in the hybrid workplace effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores conflict resolution in the hybrid workplace, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 78
+      },
+      {
+        "id": "video-wp-22-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Managers...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Managers must proactively mediate emerging grievances throug...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Managers must proactively mediate emerging grievances through structured one-on-one sessions.', showing its practical importance.",
+        "timestampSeek": 312
+      },
+      {
+        "id": "video-wp-22-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Inclusive culture is not accidental; it requires deliberate, vigi...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Inclusive culture is not accidental; it requires deliberate, vigilant daily stewardship., providing a meaningful summary for learners.",
+        "timestampSeek": 702
+      },
+      {
+        "id": "video-wp-22-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Never...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Never allow passive-aggressive messages to linger in public ...",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Never allow passive-aggressive messages to linger in public chat channels.', providing deeper technical insight.",
+        "timestampSeek": 468
+      }
+    ]
+  }
 }

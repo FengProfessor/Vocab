@@ -1,6 +1,6 @@
 {
   "id": "video-fs-14",
-  "youtubeId": "nEhN8wlxXvB",
+  "youtubeId": "yezpvLy6eRM",
   "title": "Sending Back an Undercooked Dish Politely",
   "channel": "Learn English with Gill",
   "duration": 480,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/nEhN8wlxXvB/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/yezpvLy6eRM/hqdefault.jpg",
   "description": "Cách yêu cầu nấu lại món ăn chưa chín hoặc sai món một cách văn minh, tôn trọng.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Graceful assertiveness preserves your dining pleasure while honoring staff dignity., providing a meaningful summary for learners.",
       "timestampSeek": 432
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-14-cloze-1",
+        "cueId": "video-fs-14-cue-3",
+        "sentence": "Many {{blank}} feel too awkward to complain and suffer through unpalatable food.",
+        "blankWord": "people",
+        "hintVi": "Nghĩa gợi ý: Nhiều người cảm thấy quá ngại ngùng khi ...",
+        "timestamp": 96,
+        "options": [
+          "criterion",
+          "people",
+          "innovative",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-fs-14-cloze-2",
+        "cueId": "video-fs-14-cue-5",
+        "sentence": "{{blank}} the server's eye discreetly rather than snapping fingers or shouting.",
+        "blankWord": "catch",
+        "hintVi": "Nghĩa gợi ý: Giao tiếp bằng mắt kín đáo với người phụ...",
+        "timestamp": 192,
+        "options": [
+          "catch",
+          "priority",
+          "component",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-fs-14-cloze-3",
+        "cueId": "video-fs-14-cue-8",
+        "sentence": "A {{blank}} establishment will apologize immediately and rush to remedy the error.",
+        "blankWord": "reputable",
+        "hintVi": "Nghĩa gợi ý: Một cơ sở uy tín sẽ xin lỗi ngay lập tức...",
+        "timestamp": 336,
+        "options": [
+          "vibrant",
+          "favorable",
+          "simultaneous",
+          "reputable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-14-q1",
+        "question": "What is the primary focus of the video 'Sending Back an Undercooked Dish Politely'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice sending back an undercooked dish politely effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores sending back an undercooked dish politely, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 48
+      },
+      {
+        "id": "video-fs-14-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Catch...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Catch the server's eye discreetly rather than snapping finge...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Catch the server's eye discreetly rather than snapping fingers or shouting.', showing its practical importance.",
+        "timestampSeek": 192
+      },
+      {
+        "id": "video-fs-14-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Graceful assertiveness preserves your dining pleasure while honor...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Graceful assertiveness preserves your dining pleasure while honoring staff dignity., providing a meaningful summary for learners.",
+        "timestampSeek": 432
+      }
+    ]
+  }
 }

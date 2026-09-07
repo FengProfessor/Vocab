@@ -1,6 +1,6 @@
 {
   "id": "video-cs-01",
-  "youtubeId": "X8Orl_pNFGs",
+  "youtubeId": "g4fF4RygScQ",
   "title": "Afternoon Tea Tradition in Britain",
   "channel": "English with Lucy",
   "duration": 220,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/X8Orl_pNFGs/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/g4fF4RygScQ/hqdefault.jpg",
   "description": "Phong tục uống trà chiều của người Anh: các loại trà, bánh ngọt và quy tắc lịch sự.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Slow down and savor this quintessential celebration of British hospitality., providing a meaningful summary for learners.",
       "timestampSeek": 198
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-01-cloze-1",
+        "cueId": "video-cs-01-cue-3",
+        "sentence": "{{blank}}, it is enjoyed in luxury hotels and cozy country tearooms alike.",
+        "blankWord": "today",
+        "hintVi": "Nghĩa gợi ý: Ngày nay, nó được thưởng thức trong các ...",
+        "timestamp": 44,
+        "options": [
+          "preliminary",
+          "favorable",
+          "remarkable",
+          "today"
+        ]
+      },
+      {
+        "id": "video-cs-01-cloze-2",
+        "cueId": "video-cs-01-cue-5",
+        "sentence": "{{blank}} baked scones are served warm, accompanied by sweet clotted cream and jam.",
+        "blankWord": "freshly",
+        "hintVi": "Nghĩa gợi ý: Bánh nướng mới ra lò được phục vụ khi cò...",
+        "timestamp": 88,
+        "options": [
+          "essential",
+          "sufficient",
+          "freshly",
+          "reliable"
+        ]
+      },
+      {
+        "id": "video-cs-01-cloze-3",
+        "cueId": "video-cs-01-cue-8",
+        "sentence": "Top {{blank}} feature miniature fruit tarts, chocolate eclairs, and lemon macarons.",
+        "blankWord": "tiers",
+        "hintVi": "Nghĩa gợi ý: Tầng trên cùng là những chiếc bánh tart ...",
+        "timestamp": 154,
+        "options": [
+          "tiers",
+          "preliminary",
+          "adequate",
+          "reliable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-01-q1",
+        "question": "What is the primary focus of the video 'Afternoon Tea Tradition in Britain'?",
+        "options": [
+          "To explain and practice afternoon tea tradition in britain effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores afternoon tea tradition in britain, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 22
+      },
+      {
+        "id": "video-cs-01-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Freshly...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Freshly baked scones are served warm, accompanied by sweet c..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Freshly baked scones are served warm, accompanied by sweet clotted cream and jam.', showing its practical importance.",
+        "timestampSeek": 88
+      },
+      {
+        "id": "video-cs-01-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Slow down and savor this quintessential celebration of British ho..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Slow down and savor this quintessential celebration of British hospitality., providing a meaningful summary for learners.",
+        "timestampSeek": 198
+      }
+    ]
+  }
 }

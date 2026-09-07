@@ -1,6 +1,6 @@
 {
   "id": "video-wp-13",
-  "youtubeId": "zT1_Xi1lhaI",
+  "youtubeId": "CQDJKdmpxOI",
   "title": "Negotiating Flexible Working Hours",
   "channel": "Oxford Online English",
   "duration": 540,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/zT1_Xi1lhaI/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/CQDJKdmpxOI/hqdefault.jpg",
   "description": "Cách đề xuất làm việc từ xa hoặc giờ giấc linh hoạt dựa trên hiệu quả công việc.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Professional self-advocacy balances personal harmony with commercial excellence., providing a meaningful summary for learners.",
       "timestampSeek": 486
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-13-cloze-1",
+        "cueId": "video-wp-13-cue-3",
+        "sentence": "{{blank}} flexible hours requires preparing a structured business case.",
+        "blankWord": "requesting",
+        "hintVi": "Nghĩa gợi ý: Yêu cầu giờ làm việc linh hoạt đòi hỏi p...",
+        "timestamp": 108,
+        "options": [
+          "perspective",
+          "requesting",
+          "preliminary",
+          "fundamental"
+        ]
+      },
+      {
+        "id": "video-wp-13-cloze-2",
+        "cueId": "video-wp-13-cue-5",
+        "sentence": "{{blank}} a comprehensive proposal specifying which days you plan to work remotely.",
+        "blankWord": "draft",
+        "hintVi": "Nghĩa gợi ý: Soạn thảo một bản đề xuất toàn diện nêu ...",
+        "timestamp": 216,
+        "options": [
+          "component",
+          "advantage",
+          "reliable",
+          "draft"
+        ]
+      },
+      {
+        "id": "video-wp-13-cloze-3",
+        "cueId": "video-wp-13-cue-8",
+        "sentence": "{{blank}} a three-month trial period to evaluate the arrangement objectively.",
+        "blankWord": "suggest",
+        "hintVi": "Nghĩa gợi ý: Đề xuất một giai đoạn thử nghiệm ba thán...",
+        "timestamp": 378,
+        "options": [
+          "framework",
+          "suggest",
+          "accurate",
+          "favorable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-13-q1",
+        "question": "What is the primary focus of the video 'Negotiating Flexible Working Hours'?",
+        "options": [
+          "To explain and practice negotiating flexible working hours effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores negotiating flexible working hours, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 54
+      },
+      {
+        "id": "video-wp-13-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Draft...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Draft a comprehensive proposal specifying which days you pla...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Draft a comprehensive proposal specifying which days you plan to work remotely.', showing its practical importance.",
+        "timestampSeek": 216
+      },
+      {
+        "id": "video-wp-13-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Professional self-advocacy balances personal harmony with commerc..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Professional self-advocacy balances personal harmony with commercial excellence., providing a meaningful summary for learners.",
+        "timestampSeek": 486
+      }
+    ]
+  }
 }

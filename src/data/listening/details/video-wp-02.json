@@ -1,6 +1,6 @@
 {
   "id": "video-wp-02",
-  "youtubeId": "aKaQ2_bOvpD",
+  "youtubeId": "ZU9x1vFx5lI",
   "title": "Asking a Colleague for Help on a Task",
   "channel": "Oxford Online English",
   "duration": 240,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/aKaQ2_bOvpD/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/ZU9x1vFx5lI/hqdefault.jpg",
   "description": "Cách nhờ đồng nghiệp hướng dẫn công việc hoặc giải đáp thắc mắc chuyên môn.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Team collaboration turns individual challenges into shared victories., providing a meaningful summary for learners.",
       "timestampSeek": 216
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-02-cloze-1",
+        "cueId": "video-wp-02-cue-3",
+        "sentence": "{{blank}} a busy colleague requires politeness and brevity.",
+        "blankWord": "approaching",
+        "hintVi": "Nghĩa gợi ý: Tiếp cận một đồng nghiệp bận rộn đòi hỏi...",
+        "timestamp": 48,
+        "options": [
+          "innovative",
+          "dimension",
+          "fundamental",
+          "approaching"
+        ]
+      },
+      {
+        "id": "video-wp-02-cloze-2",
+        "cueId": "video-wp-02-cue-5",
+        "sentence": "{{blank}} clearly what you have tried before asking for the solution.",
+        "blankWord": "explain",
+        "hintVi": "Nghĩa gợi ý: Giải thích rõ ràng những gì bạn đã thử l...",
+        "timestamp": 96,
+        "options": [
+          "balance",
+          "protocol",
+          "continuous",
+          "explain"
+        ]
+      },
+      {
+        "id": "video-wp-02-cloze-3",
+        "cueId": "video-wp-02-cue-8",
+        "sentence": "Take {{blank}} in your pad so you do not need to ask the same thing twice.",
+        "blankWord": "notes",
+        "hintVi": "Nghĩa gợi ý: Ghi chú vào sổ tay của bạn để không cần ...",
+        "timestamp": 168,
+        "options": [
+          "preliminary",
+          "notes",
+          "subsequent",
+          "framework"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-02-q1",
+        "question": "What is the primary focus of the video 'Asking a Colleague for Help on a Task'?",
+        "options": [
+          "To explain and practice asking a colleague for help on a task effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores asking a colleague for help on a task, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 24
+      },
+      {
+        "id": "video-wp-02-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Explain...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Explain clearly what you have tried before asking for the so...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Explain clearly what you have tried before asking for the solution.', showing its practical importance.",
+        "timestampSeek": 96
+      },
+      {
+        "id": "video-wp-02-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Team collaboration turns individual challenges into shared victor..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Team collaboration turns individual challenges into shared victories., providing a meaningful summary for learners.",
+        "timestampSeek": 216
+      }
+    ]
+  }
 }

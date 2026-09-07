@@ -1,6 +1,6 @@
 {
   "id": "video-dl-06",
-  "youtubeId": "FXo_mppHxP0",
+  "youtubeId": "sJ7sRSK2in4",
   "title": "Evening Wind Down and Sleep Preparation",
   "channel": "Speak English With Vanessa",
   "duration": 310,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/FXo_mppHxP0/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/sJ7sRSK2in4/hqdefault.jpg",
   "description": "Cách chuẩn bị phòng ngủ và thư giãn tinh thần trước khi đi ngủ để có giấc ngủ ngon.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that A peaceful night guarantees a productive and happy tomorrow., providing a meaningful summary for learners.",
       "timestampSeek": 279
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-06-cloze-1",
+        "cueId": "video-dl-06-cue-3",
+        "sentence": "{{blank}} nine in the evening, I turn off bright overhead lights and dim the lamps.",
+        "blankWord": "around",
+        "hintVi": "Nghĩa gợi ý: Khoảng chín giờ tối, tôi tắt đèn trần sá...",
+        "timestamp": 62,
+        "options": [
+          "protocol",
+          "around",
+          "simultaneous",
+          "balance"
+        ]
+      },
+      {
+        "id": "video-dl-06-cloze-2",
+        "cueId": "video-dl-06-cue-5",
+        "sentence": "I put my {{blank}} across the room so blue light does not distract me.",
+        "blankWord": "smartphone",
+        "hintVi": "Nghĩa gợi ý: Tôi đặt điện thoại thông minh ở góc phòn...",
+        "timestamp": 124,
+        "options": [
+          "priority",
+          "balance",
+          "smartphone",
+          "vibrant"
+        ]
+      },
+      {
+        "id": "video-dl-06-cloze-3",
+        "cueId": "video-dl-06-cue-8",
+        "sentence": "Keep your {{blank}} temperature cool and ensure the air is serene.",
+        "blankWord": "bedroom",
+        "hintVi": "Nghĩa gợi ý: Giữ nhiệt độ phòng ngủ mát mẻ và đảm bảo...",
+        "timestamp": 217,
+        "options": [
+          "vibrant",
+          "bedroom",
+          "perspective",
+          "perceptive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-06-q1",
+        "question": "What is the primary focus of the video 'Evening Wind Down and Sleep Preparation'?",
+        "options": [
+          "To explain and practice evening wind down and sleep preparation effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores evening wind down and sleep preparation, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 31
+      },
+      {
+        "id": "video-dl-06-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'I...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: I put my smartphone across the room so blue light does not d...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'I put my smartphone across the room so blue light does not distract me.', showing its practical importance.",
+        "timestampSeek": 124
+      },
+      {
+        "id": "video-dl-06-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: A peaceful night guarantees a productive and happy tomorrow....",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that A peaceful night guarantees a productive and happy tomorrow., providing a meaningful summary for learners.",
+        "timestampSeek": 279
+      }
+    ]
+  }
 }

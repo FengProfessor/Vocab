@@ -1,6 +1,6 @@
 {
   "id": "video-sth-14",
-  "youtubeId": "12NAHeRFUJt",
+  "youtubeId": "t0kACis_dJE",
   "title": "The Gut Microbiome and Digestive Health",
   "channel": "TED-Ed",
   "duration": 560,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/12NAHeRFUJt/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/t0kACis_dJE/hqdefault.jpg",
   "description": "Hệ vi sinh vật đường ruột: vai trò của hàng nghìn tỷ vi khuẩn đối với tiêu hóa và miễn dịch.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Nurturing your microbial garden with diverse whole plants cultivates profound holistic vitality., providing a meaningful summary for learners.",
       "timestampSeek": 504
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-14-cloze-1",
+        "cueId": "video-sth-14-cue-3",
+        "sentence": "{{blank}} called the gut microbiome, these bacteria outnumber your own human cells.",
+        "blankWord": "collectively",
+        "hintVi": "Nghĩa gợi ý: Được gọi chung là hệ vi sinh vật đường r...",
+        "timestamp": 112,
+        "options": [
+          "collectively",
+          "tremendous",
+          "vibrant",
+          "accurate"
+        ]
+      },
+      {
+        "id": "video-sth-14-cloze-2",
+        "cueId": "video-sth-14-cue-5",
+        "sentence": "They {{blank}} critical vitamins like B12 and K that human cells cannot manufacture independently.",
+        "blankWord": "synthesize",
+        "hintVi": "Nghĩa gợi ý: Chúng tổng hợp các vitamin quan trọng nh...",
+        "timestamp": 224,
+        "options": [
+          "extensive",
+          "synthesize",
+          "alternative",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-sth-14-cloze-3",
+        "cueId": "video-sth-14-cue-8",
+        "sentence": "{{blank}}, your gut communicates bidirectionally with your brain via the vagus nerve.",
+        "blankWord": "furthermore",
+        "hintVi": "Nghĩa gợi ý: Hơn nữa, ruột của bạn giao tiếp hai chiề...",
+        "timestamp": 392,
+        "options": [
+          "perspective",
+          "routine",
+          "furthermore",
+          "extensive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-14-q1",
+        "question": "What is the primary focus of the video 'The Gut Microbiome and Digestive Health'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice the gut microbiome and digestive health effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores the gut microbiome and digestive health, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 56
+      },
+      {
+        "id": "video-sth-14-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'They...'?",
+        "options": [
+          "It emphasizes that: They synthesize critical vitamins like B12 and K that human ...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'They synthesize critical vitamins like B12 and K that human cells cannot manufacture independently.', showing its practical importance.",
+        "timestampSeek": 224
+      },
+      {
+        "id": "video-sth-14-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Nurturing your microbial garden with diverse whole plants cultiva...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Nurturing your microbial garden with diverse whole plants cultivates profound holistic vitality., providing a meaningful summary for learners.",
+        "timestampSeek": 504
+      }
+    ]
+  }
 }

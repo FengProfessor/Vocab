@@ -1,6 +1,6 @@
 {
   "id": "video-fs-17",
-  "youtubeId": "9D_n-5_9N-V",
+  "youtubeId": "bvS5i21X7bg",
   "title": "At the Barber Shop: Describing Haircuts",
   "channel": "Learn English with Gill",
   "duration": 570,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/9D_n-5_9N-V/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/bvS5i21X7bg/hqdefault.jpg",
   "description": "Cách mô tả kiểu tóc mong muốn cho thợ cắt tóc: tỉa đuôi, fade, cạo râu và tạo kiểu.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that A sharp haircut elevates your personal presentation and instills fresh confidence., providing a meaningful summary for learners.",
       "timestampSeek": 513
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-17-cloze-1",
+        "cueId": "video-fs-17-cue-3",
+        "sentence": "{{blank}} two reference photographs on your smartphone to provide clear visual targets.",
+        "blankWord": "bring",
+        "hintVi": "Nghĩa gợi ý: Mang theo hai bức ảnh tham khảo trên điệ...",
+        "timestamp": 114,
+        "options": [
+          "favorable",
+          "bring",
+          "continuous",
+          "prominent"
+        ]
+      },
+      {
+        "id": "video-fs-17-cloze-2",
+        "cueId": "video-fs-17-cue-5",
+        "sentence": "{{blank}} clipper guard numbers: 'Use a number two guard to taper the sides.'",
+        "blankWord": "specify",
+        "hintVi": "Nghĩa gợi ý: Nêu cụ thể số cữ của tông đơ: 'Dùng cữ s...",
+        "timestamp": 228,
+        "options": [
+          "prominent",
+          "strategy",
+          "specify",
+          "deliberate"
+        ]
+      },
+      {
+        "id": "video-fs-17-cloze-3",
+        "cueId": "video-fs-17-cue-8",
+        "sentence": "{{blank}} with the hot towel treatment across your face after a straight-razor neck shave.",
+        "blankWord": "relax",
+        "hintVi": "Nghĩa gợi ý: Thư giãn với liệu pháp đắp khăn nóng lên...",
+        "timestamp": 399,
+        "options": [
+          "gradual",
+          "reliable",
+          "relax",
+          "flexible"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-17-q1",
+        "question": "What is the primary focus of the video 'At the Barber Shop: Describing Haircuts'?",
+        "options": [
+          "To explain and practice at the barber shop: describing haircuts effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores at the barber shop: describing haircuts, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 57
+      },
+      {
+        "id": "video-fs-17-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Specify...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Specify clipper guard numbers: 'Use a number two guard to ta...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Specify clipper guard numbers: 'Use a number two guard to taper the sides.'', showing its practical importance.",
+        "timestampSeek": 228
+      },
+      {
+        "id": "video-fs-17-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: A sharp haircut elevates your personal presentation and instills ...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that A sharp haircut elevates your personal presentation and instills fresh confidence., providing a meaningful summary for learners.",
+        "timestampSeek": 513
+      }
+    ]
+  }
 }

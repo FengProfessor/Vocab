@@ -1,6 +1,6 @@
 {
   "id": "video-sc-11",
-  "youtubeId": "3jXLZpTYXk1",
+  "youtubeId": "btWlBHE0pe4",
   "title": "How to Break the Ice at a Social Gathering",
   "channel": "Oxford Online English",
   "duration": 360,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/3jXLZpTYXk1/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/btWlBHE0pe4/hqdefault.jpg",
   "description": "Kỹ thuật phá băng tâm lý khi bước vào một bữa tiệc hoặc sự kiện đông người lạ.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Social bravery is a muscle that strengthens each time you step forward., providing a meaningful summary for learners.",
       "timestampSeek": 324
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-11-cloze-1",
+        "cueId": "video-sc-11-cue-3",
+        "sentence": "The {{blank}} to breaking the ice is realizing that others feel equally nervous.",
+        "blankWord": "secret",
+        "hintVi": "Nghĩa gợi ý: Bí quyết để phá băng là nhận ra rằng nhữ...",
+        "timestamp": 72,
+        "options": [
+          "framework",
+          "gradual",
+          "preliminary",
+          "secret"
+        ]
+      },
+      {
+        "id": "video-sc-11-cloze-2",
+        "cueId": "video-sc-11-cue-5",
+        "sentence": "Scan the room and {{blank}} someone standing alone near the refreshment table.",
+        "blankWord": "identify",
+        "hintVi": "Nghĩa gợi ý: Quan sát căn phòng và tìm ai đó đang đứn...",
+        "timestamp": 144,
+        "options": [
+          "continuous",
+          "routine",
+          "extensive",
+          "identify"
+        ]
+      },
+      {
+        "id": "video-sc-11-cloze-3",
+        "cueId": "video-sc-11-cue-8",
+        "sentence": "{{blank}} closed yes-or-no questions that strangle conversation flow into awkward pauses.",
+        "blankWord": "avoid",
+        "hintVi": "Nghĩa gợi ý: Tránh các câu hỏi đóng chỉ trả lời có ho...",
+        "timestamp": 252,
+        "options": [
+          "favorable",
+          "fundamental",
+          "component",
+          "avoid"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-11-q1",
+        "question": "What is the primary focus of the video 'How to Break the Ice at a Social Gathering'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice how to break the ice at a social gathering effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores how to break the ice at a social gathering, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 36
+      },
+      {
+        "id": "video-sc-11-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Scan...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Scan the room and identify someone standing alone near the r...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Scan the room and identify someone standing alone near the refreshment table.', showing its practical importance.",
+        "timestampSeek": 144
+      },
+      {
+        "id": "video-sc-11-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Social bravery is a muscle that strengthens each time you step fo..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Social bravery is a muscle that strengthens each time you step forward., providing a meaningful summary for learners.",
+        "timestampSeek": 324
+      }
+    ]
+  }
 }

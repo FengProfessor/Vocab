@@ -1,6 +1,6 @@
 {
   "id": "video-wp-27",
-  "youtubeId": "sokdlN-i6s4",
+  "youtubeId": "MBr0hqm0cDY",
   "title": "The Future of AI and Automation in Careers",
   "channel": "Harvard Business Review",
   "duration": 1070,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/sokdlN-i6s4/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/MBr0hqm0cDY/hqdefault.jpg",
   "description": "Sự chuyển dịch của thị trường lao động trong kỷ nguyên AI: thích ứng và nâng cao giá trị.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'View advanced AI platforms as cognitive augmentation partners rather than adversaries.', providing deeper technical insight.",
       "timestampSeek": 642
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-27-cloze-1",
+        "cueId": "video-wp-27-cue-3",
+        "sentence": "{{blank}} drafting, coding, and basic financial analysis are rapidly undergoing automation.",
+        "blankWord": "repetitive",
+        "hintVi": "Nghĩa gợi ý: Việc soạn thảo lặp đi lặp lại, lập trình...",
+        "timestamp": 214,
+        "options": [
+          "repetitive",
+          "advantage",
+          "moderate",
+          "criterion"
+        ]
+      },
+      {
+        "id": "video-wp-27-cloze-2",
+        "cueId": "video-wp-27-cue-5",
+        "sentence": "{{blank}}, technology creates an immense premium on uniquely human capabilities.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, công nghệ tạo ra giá trị gia ...",
+        "timestamp": 428,
+        "options": [
+          "however",
+          "priority",
+          "flexible",
+          "convenient"
+        ]
+      },
+      {
+        "id": "video-wp-27-cloze-3",
+        "cueId": "video-wp-27-cue-8",
+        "sentence": "{{blank}} prompt engineering and critical evaluation of algorithmic outputs rigorously.",
+        "blankWord": "learn",
+        "hintVi": "Nghĩa gợi ý: Học kỹ thuật tạo câu lệnh gợi ý và đánh ...",
+        "timestamp": 749,
+        "options": [
+          "convenient",
+          "learn",
+          "perspective",
+          "advantage"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-27-q1",
+        "question": "What is the primary focus of the video 'The Future of AI and Automation in Careers'?",
+        "options": [
+          "To explain and practice the future of ai and automation in careers effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores the future of ai and automation in careers, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 107
+      },
+      {
+        "id": "video-wp-27-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'However,...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: However, technology creates an immense premium on uniquely h...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'However, technology creates an immense premium on uniquely human capabilities.', showing its practical importance.",
+        "timestampSeek": 428
+      },
+      {
+        "id": "video-wp-27-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: The future belongs not to machines, but to humans who master coll...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that The future belongs not to machines, but to humans who master collaborative intelligence., providing a meaningful summary for learners.",
+        "timestampSeek": 963
+      },
+      {
+        "id": "video-wp-27-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'View...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: View advanced AI platforms as cognitive augmentation partner..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'View advanced AI platforms as cognitive augmentation partners rather than adversaries.', providing deeper technical insight.",
+        "timestampSeek": 642
+      }
+    ]
+  }
 }

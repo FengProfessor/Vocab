@@ -1,6 +1,6 @@
 {
   "id": "video-fs-25",
-  "youtubeId": "kahjlw4_Edi",
+  "youtubeId": "nQf-lystVn4",
   "title": "The Michelin Guide: History, Stars, & Criteria",
   "channel": "BBC Learning English",
   "duration": 810,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/kahjlw4_Edi/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/nQf-lystVn4/hqdefault.jpg",
   "description": "Lịch sử cuốn cẩm nang Michelin: tiêu chí chấm sao bí mật và áp lực đỉnh cao ẩm thực.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'One star signifies high quality; two stars denote excellent cooking worth a detour.', providing deeper technical insight.",
       "timestampSeek": 486
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-25-cloze-1",
+        "cueId": "video-fs-25-cue-3",
+        "sentence": "Their {{blank}} goal was encouraging motorists to drive cars, wear down tires, and buy replacements.",
+        "blankWord": "clever",
+        "hintVi": "Nghĩa gợi ý: Mục tiêu thông minh của họ là khuyến khí...",
+        "timestamp": 162,
+        "options": [
+          "substantial",
+          "criterion",
+          "clever",
+          "alternative"
+        ]
+      },
+      {
+        "id": "video-fs-25-cloze-2",
+        "cueId": "video-fs-25-cue-5",
+        "sentence": "{{blank}} Michelin inspectors visit restaurants incognito, paying their own bills strictly.",
+        "blankWord": "anonymous",
+        "hintVi": "Nghĩa gợi ý: Các thanh tra viên Michelin ẩn danh ghé ...",
+        "timestamp": 324,
+        "options": [
+          "anonymous",
+          "simultaneous",
+          "fundamental",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-fs-25-cloze-3",
+        "cueId": "video-fs-25-cue-8",
+        "sentence": "{{blank}} stars represent exceptional culinary genius worth a dedicated international voyage.",
+        "blankWord": "three",
+        "hintVi": "Nghĩa gợi ý: Ba sao đại diện cho tài năng ẩm thực phi...",
+        "timestamp": 567,
+        "options": [
+          "moderate",
+          "three",
+          "simultaneous",
+          "vulnerable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-25-q1",
+        "question": "What is the primary focus of the video 'The Michelin Guide: History, Stars, & Criteria'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice the michelin guide: history, stars, & criteria effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores the michelin guide: history, stars, & criteria, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 81
+      },
+      {
+        "id": "video-fs-25-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Anonymous...'?",
+        "options": [
+          "It emphasizes that: Anonymous Michelin inspectors visit restaurants incognito, p...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Anonymous Michelin inspectors visit restaurants incognito, paying their own bills strictly.', showing its practical importance.",
+        "timestampSeek": 324
+      },
+      {
+        "id": "video-fs-25-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: The Michelin star remains the ultimate symbol of human devotion t...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that The Michelin star remains the ultimate symbol of human devotion to sensory perfection., providing a meaningful summary for learners.",
+        "timestampSeek": 729
+      },
+      {
+        "id": "video-fs-25-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'One...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: One star signifies high quality; two stars denote excellent ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'One star signifies high quality; two stars denote excellent cooking worth a detour.', providing deeper technical insight.",
+        "timestampSeek": 486
+      }
+    ]
+  }
 }

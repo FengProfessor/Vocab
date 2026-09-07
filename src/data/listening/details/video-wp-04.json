@@ -1,6 +1,6 @@
 {
   "id": "video-wp-04",
-  "youtubeId": "Di5FL__iUno",
+  "youtubeId": "x_T5PDE3M4E",
   "title": "Calling in Sick: Professional Messages",
   "channel": "Learn English with Emma",
   "duration": 280,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/Di5FL__iUno/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/x_T5PDE3M4E/hqdefault.jpg",
   "description": "Cách thông báo nghỉ ốm qua điện thoại hoặc email chuyên nghiệp đúng quy định.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Taking care of your health enables sustained high-level career endurance., providing a meaningful summary for learners.",
       "timestampSeek": 252
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-04-cloze-1",
+        "cueId": "video-wp-04-cue-3",
+        "sentence": "{{blank}} your manager as early as possible before your shift starts.",
+        "blankWord": "contact",
+        "hintVi": "Nghĩa gợi ý: Hãy liên hệ với người quản lý của bạn cà...",
+        "timestamp": 56,
+        "options": [
+          "advantage",
+          "contact",
+          "continuous",
+          "fundamental"
+        ]
+      },
+      {
+        "id": "video-wp-04-cloze-2",
+        "cueId": "video-wp-04-cue-5",
+        "sentence": "{{blank}} briefly that you need medical rest to recover your health.",
+        "blankWord": "explain",
+        "hintVi": "Nghĩa gợi ý: Giải thích ngắn gọn rằng bạn cần nghỉ ng...",
+        "timestamp": 112,
+        "options": [
+          "advantage",
+          "criterion",
+          "accurate",
+          "explain"
+        ]
+      },
+      {
+        "id": "video-wp-04-cloze-3",
+        "cueId": "video-wp-04-cue-8",
+        "sentence": "Keep work {{blank}} muted so you can sleep and recover properly.",
+        "blankWord": "notifications",
+        "hintVi": "Nghĩa gợi ý: Để thông báo công việc ở chế độ im lặng ...",
+        "timestamp": 196,
+        "options": [
+          "extensive",
+          "routine",
+          "vulnerable",
+          "notifications"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-04-q1",
+        "question": "What is the primary focus of the video 'Calling in Sick: Professional Messages'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice calling in sick: professional messages effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores calling in sick: professional messages, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 28
+      },
+      {
+        "id": "video-wp-04-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Explain...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Explain briefly that you need medical rest to recover your h..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Explain briefly that you need medical rest to recover your health.', showing its practical importance.",
+        "timestampSeek": 112
+      },
+      {
+        "id": "video-wp-04-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Taking care of your health enables sustained high-level career en...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Taking care of your health enables sustained high-level career endurance., providing a meaningful summary for learners.",
+        "timestampSeek": 252
+      }
+    ]
+  }
 }

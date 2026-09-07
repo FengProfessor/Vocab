@@ -1,6 +1,6 @@
 {
   "id": "video-dl-11",
-  "youtubeId": "qPViuXXiJ0D",
+  "youtubeId": "Y681hXWwhQY",
   "title": "Morning Commute on the City Bus",
   "channel": "EnglishClass101",
   "duration": 300,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/qPViuXXiJ0D/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/Y681hXWwhQY/hqdefault.jpg",
   "description": "Giao tiếp khi đi xe buýt công cộng, quẹt thẻ vé và nhường ghế cho người già.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Thank the bus driver politely as you exit through the back doors., providing a meaningful summary for learners.",
       "timestampSeek": 270
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-11-cloze-1",
+        "cueId": "video-dl-11-cue-3",
+        "sentence": "Wait {{blank}} at the designated bus stop behind the yellow safety line.",
+        "blankWord": "patiently",
+        "hintVi": "Nghĩa gợi ý: Hãy kiên nhẫn đợi tại điểm dừng xe buýt ...",
+        "timestamp": 60,
+        "options": [
+          "accurate",
+          "preliminary",
+          "patiently",
+          "protocol"
+        ]
+      },
+      {
+        "id": "video-dl-11-cloze-2",
+        "cueId": "video-dl-11-cue-5",
+        "sentence": "{{blank}} through the front door and tap your card to pay the bus fare.",
+        "blankWord": "board",
+        "hintVi": "Nghĩa gợi ý: Lên xe qua cửa trước và quẹt thẻ của bạn...",
+        "timestamp": 120,
+        "options": [
+          "board",
+          "resource",
+          "efficient",
+          "protocol"
+        ]
+      },
+      {
+        "id": "video-dl-11-cloze-3",
+        "cueId": "video-dl-11-cue-8",
+        "sentence": "{{blank}} offer your seat to elderly people or pregnant women as courtesy.",
+        "blankWord": "always",
+        "hintVi": "Nghĩa gợi ý: Luôn nhường ghế cho người già hoặc phụ n...",
+        "timestamp": 210,
+        "options": [
+          "substantial",
+          "always",
+          "innovative",
+          "convenient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-11-q1",
+        "question": "What is the primary focus of the video 'Morning Commute on the City Bus'?",
+        "options": [
+          "To explain and practice morning commute on the city bus effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores morning commute on the city bus, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 30
+      },
+      {
+        "id": "video-dl-11-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Board...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Board through the front door and tap your card to pay the bu...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Board through the front door and tap your card to pay the bus fare.', showing its practical importance.",
+        "timestampSeek": 120
+      },
+      {
+        "id": "video-dl-11-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Thank the bus driver politely as you exit through the back doors....",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Thank the bus driver politely as you exit through the back doors., providing a meaningful summary for learners.",
+        "timestampSeek": 270
+      }
+    ]
+  }
 }

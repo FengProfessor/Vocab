@@ -1,6 +1,6 @@
 {
   "id": "video-wp-06",
-  "youtubeId": "oOLVPTpWyrN",
+  "youtubeId": "xay5TeJVSC0",
   "title": "Ordering Office Supplies and Equipment",
   "channel": "Learn English with Emma",
   "duration": 320,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/oOLVPTpWyrN/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/xay5TeJVSC0/hqdefault.jpg",
   "description": "Từ vựng và cách lập danh sách đặt mua văn phòng phẩm, giấy in và thiết bị văn phòng.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Efficient logistical management keeps corporate teams productive every single day., providing a meaningful summary for learners.",
       "timestampSeek": 288
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-06-cloze-1",
+        "cueId": "video-wp-06-cue-3",
+        "sentence": "{{blank}} supply cupboards weekly to see what stationery is running low.",
+        "blankWord": "check",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra tủ đồ dùng hàng tuần để xem văn...",
+        "timestamp": 64,
+        "options": [
+          "advantage",
+          "check",
+          "essential",
+          "efficient"
+        ]
+      },
+      {
+        "id": "video-wp-06-cloze-2",
+        "cueId": "video-wp-06-cue-5",
+        "sentence": "Fill out an {{blank}} purchase requisition with item catalog numbers.",
+        "blankWord": "electronic",
+        "hintVi": "Nghĩa gợi ý: Điền vào phiếu yêu cầu mua hàng điện tử ...",
+        "timestamp": 128,
+        "options": [
+          "reliable",
+          "electronic",
+          "temporary",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-wp-06-cloze-3",
+        "cueId": "video-wp-06-cue-8",
+        "sentence": "{{blank}} delivered packages against the packing slip when the courier arrives.",
+        "blankWord": "check",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra các gói hàng được giao so với p...",
+        "timestamp": 224,
+        "options": [
+          "tremendous",
+          "prominent",
+          "advantage",
+          "check"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-06-q1",
+        "question": "What is the primary focus of the video 'Ordering Office Supplies and Equipment'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice ordering office supplies and equipment effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores ordering office supplies and equipment, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 32
+      },
+      {
+        "id": "video-wp-06-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Fill...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Fill out an electronic purchase requisition with item catalo...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Fill out an electronic purchase requisition with item catalog numbers.', showing its practical importance.",
+        "timestampSeek": 128
+      },
+      {
+        "id": "video-wp-06-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Efficient logistical management keeps corporate teams productive ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Efficient logistical management keeps corporate teams productive every single day., providing a meaningful summary for learners.",
+        "timestampSeek": 288
+      }
+    ]
+  }
 }

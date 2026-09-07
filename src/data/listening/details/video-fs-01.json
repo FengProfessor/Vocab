@@ -1,6 +1,6 @@
 {
   "id": "video-fs-01",
-  "youtubeId": "SGXzE0Au_Ts",
+  "youtubeId": "ijQDxwUGIOg",
   "title": "Ordering Morning Coffee at a Cafe",
   "channel": "English with Lucy",
   "duration": 210,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/SGXzE0Au_Ts/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/ijQDxwUGIOg/hqdefault.jpg",
   "description": "Cách gọi các loại cà phê, chọn loại sữa và kích cỡ cốc tại quán cà phê hiện đại.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that A freshly brewed cup of coffee warms the spirit and kickstarts your day., providing a meaningful summary for learners.",
       "timestampSeek": 189
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-01-cloze-1",
+        "cueId": "video-fs-01-cue-3",
+        "sentence": "When you {{blank}} the counter, greet the barista with a warm smile.",
+        "blankWord": "approach",
+        "hintVi": "Nghĩa gợi ý: Khi bạn tiến lại quầy, hãy chào người ph...",
+        "timestamp": 42,
+        "options": [
+          "approach",
+          "essential",
+          "consistent",
+          "tremendous"
+        ]
+      },
+      {
+        "id": "video-fs-01-cloze-2",
+        "cueId": "video-fs-01-cue-5",
+        "sentence": "{{blank}} your coffee style: espresso, Americano, cappuccino, or flat white.",
+        "blankWord": "choose",
+        "hintVi": "Nghĩa gợi ý: Chọn phong cách cà phê của bạn: espresso...",
+        "timestamp": 84,
+        "options": [
+          "choose",
+          "consistent",
+          "alternative",
+          "framework"
+        ]
+      },
+      {
+        "id": "video-fs-01-cloze-3",
+        "cueId": "video-fs-01-cue-8",
+        "sentence": "The {{blank}} will ask: 'For here, or to take away in a paper cup?'",
+        "blankWord": "barista",
+        "hintVi": "Nghĩa gợi ý: Người pha chế sẽ hỏi: 'Dùng ở đây, hay m...",
+        "timestamp": 147,
+        "options": [
+          "alternative",
+          "perceptive",
+          "vulnerable",
+          "barista"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-01-q1",
+        "question": "What is the primary focus of the video 'Ordering Morning Coffee at a Cafe'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice ordering morning coffee at a cafe effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores ordering morning coffee at a cafe, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 21
+      },
+      {
+        "id": "video-fs-01-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Choose...'?",
+        "options": [
+          "It emphasizes that: Choose your coffee style: espresso, Americano, cappuccino, o...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Choose your coffee style: espresso, Americano, cappuccino, or flat white.', showing its practical importance.",
+        "timestampSeek": 84
+      },
+      {
+        "id": "video-fs-01-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: A freshly brewed cup of coffee warms the spirit and kickstarts yo...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that A freshly brewed cup of coffee warms the spirit and kickstarts your day., providing a meaningful summary for learners.",
+        "timestampSeek": 189
+      }
+    ]
+  }
 }

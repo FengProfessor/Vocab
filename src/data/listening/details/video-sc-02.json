@@ -1,6 +1,6 @@
 {
   "id": "video-sc-02",
-  "youtubeId": "pCr5_NN8nuv",
+  "youtubeId": "lg48Bi9DA54",
   "title": "Starting a Friendly Chat with Neighbors",
   "channel": "Oxford Online English",
   "duration": 230,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/pCr5_NN8nuv/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/lg48Bi9DA54/hqdefault.jpg",
   "description": "Các câu chào hỏi tự nhiên với hàng xóm ở sảnh chung cư hoặc trên vỉa hè.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Kind neighborly words transform cold apartment blocks into caring communities., providing a meaningful summary for learners.",
       "timestampSeek": 207
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-02-cloze-1",
+        "cueId": "video-sc-02-cue-3",
+        "sentence": "When you see {{blank}} in the hallway, offer a friendly greeting.",
+        "blankWord": "someone",
+        "hintVi": "Nghĩa gợi ý: Khi bạn nhìn thấy ai đó ở hành lang, hãy...",
+        "timestamp": 46,
+        "options": [
+          "strategy",
+          "vibrant",
+          "someone",
+          "simultaneous"
+        ]
+      },
+      {
+        "id": "video-sc-02-cloze-2",
+        "cueId": "video-sc-02-cue-5",
+        "sentence": "Talk about {{blank}} neighborhood happenings like building renovations or gardens.",
+        "blankWord": "shared",
+        "hintVi": "Nghĩa gợi ý: Nói về những sự việc chung trong khu xóm...",
+        "timestamp": 92,
+        "options": [
+          "vibrant",
+          "prominent",
+          "component",
+          "shared"
+        ]
+      },
+      {
+        "id": "video-sc-02-cloze-3",
+        "cueId": "video-sc-02-cue-8",
+        "sentence": "{{blank}} prying into personal matters; keep opening topics light and polite.",
+        "blankWord": "avoid",
+        "hintVi": "Nghĩa gợi ý: Tránh tọc mạch vào chuyện riêng tư; hãy ...",
+        "timestamp": 161,
+        "options": [
+          "continuous",
+          "avoid",
+          "flexible",
+          "vibrant"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-02-q1",
+        "question": "What is the primary focus of the video 'Starting a Friendly Chat with Neighbors'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice starting a friendly chat with neighbors effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores starting a friendly chat with neighbors, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 23
+      },
+      {
+        "id": "video-sc-02-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Talk...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Talk about shared neighborhood happenings like building reno..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Talk about shared neighborhood happenings like building renovations or gardens.', showing its practical importance.",
+        "timestampSeek": 92
+      },
+      {
+        "id": "video-sc-02-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Kind neighborly words transform cold apartment blocks into caring...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Kind neighborly words transform cold apartment blocks into caring communities., providing a meaningful summary for learners.",
+        "timestampSeek": 207
+      }
+    ]
+  }
 }

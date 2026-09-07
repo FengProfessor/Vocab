@@ -1,6 +1,6 @@
 {
   "id": "video-sth-07",
-  "youtubeId": "DX8RJETfsJO",
+  "youtubeId": "dqONk48l5vY",
   "title": "How Solar Panels Turn Sunlight into Electricity",
   "channel": "SciShow",
   "duration": 360,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/DX8RJETfsJO/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/dqONk48l5vY/hqdefault.jpg",
   "description": "Nguyên lý hoạt động của tấm pin mặt trời và hiệu ứng quang điện tạo ra dòng điện sạch.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that An inverter transforms direct current into alternating current to illuminate modern homes., providing a meaningful summary for learners.",
       "timestampSeek": 324
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-07-cloze-1",
+        "cueId": "video-sth-07-cue-3",
+        "sentence": "To {{blank}} this clean bounty, engineers developed photovoltaic solar cells.",
+        "blankWord": "harness",
+        "hintVi": "Nghĩa gợi ý: Để khai thác nguồn tài nguyên sạch này, ...",
+        "timestamp": 72,
+        "options": [
+          "preliminary",
+          "alternative",
+          "harness",
+          "framework"
+        ]
+      },
+      {
+        "id": "video-sth-07-cloze-2",
+        "cueId": "video-sth-07-cue-5",
+        "sentence": "{{blank}} atoms are carefully treated with phosphorus and boron to create electric charges.",
+        "blankWord": "silicon",
+        "hintVi": "Nghĩa gợi ý: Các nguyên tử silic được xử lý cẩn thận ...",
+        "timestamp": 144,
+        "options": [
+          "silicon",
+          "priority",
+          "routine",
+          "temporary"
+        ]
+      },
+      {
+        "id": "video-sth-07-cloze-3",
+        "cueId": "video-sth-07-cue-8",
+        "sentence": "An {{blank}} electric field channels these loose electrons in one unified direction.",
+        "blankWord": "internal",
+        "hintVi": "Nghĩa gợi ý: Một điện trường bên trong dẫn các electr...",
+        "timestamp": 252,
+        "options": [
+          "substantial",
+          "routine",
+          "internal",
+          "dimension"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-07-q1",
+        "question": "What is the primary focus of the video 'How Solar Panels Turn Sunlight into Electricity'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice how solar panels turn sunlight into electricity effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores how solar panels turn sunlight into electricity, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 36
+      },
+      {
+        "id": "video-sth-07-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Silicon...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Silicon atoms are carefully treated with phosphorus and boro...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Silicon atoms are carefully treated with phosphorus and boron to create electric charges.', showing its practical importance.",
+        "timestampSeek": 144
+      },
+      {
+        "id": "video-sth-07-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: An inverter transforms direct current into alternating current to...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that An inverter transforms direct current into alternating current to illuminate modern homes., providing a meaningful summary for learners.",
+        "timestampSeek": 324
+      }
+    ]
+  }
 }

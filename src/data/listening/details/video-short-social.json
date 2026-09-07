@@ -269,5 +269,119 @@
       "explanation": "Ở mốc 02:29 (cue-17), thông điệp kết luận: 'pressure is not an enemy, but an indicator that what you are doing truly matters'.",
       "timestampSeek": 149.8
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "cloze-short-4-1",
+        "cueId": "cue-3",
+        "sentence": "Psychologists call this sudden performance failure {{blank}} under pressure.",
+        "blankWord": "choking",
+        "hintVi": "nghẹn, tê liệt phong độ",
+        "timestamp": 16.2,
+        "options": [
+          "choking",
+          "cheating",
+          "winning",
+          "escaping"
+        ]
+      },
+      {
+        "id": "cloze-short-4-2",
+        "cueId": "cue-6",
+        "sentence": "High stress floods your prefrontal {{blank}} with anxious worries and fear of failure.",
+        "blankWord": "cortex",
+        "hintVi": "vỏ não",
+        "timestamp": 44.2,
+        "options": [
+          "cortex",
+          "muscle",
+          "stomach",
+          "spine"
+        ]
+      },
+      {
+        "id": "cloze-short-4-3",
+        "cueId": "cue-9",
+        "sentence": "Tasks practiced thousands of times belong on {{blank}}, guided by motor memory.",
+        "blankWord": "autopilot",
+        "hintVi": "chế độ lái tự động",
+        "timestamp": 72.8,
+        "options": [
+          "autopilot",
+          "standby",
+          "rehearsal",
+          "trial"
+        ]
+      },
+      {
+        "id": "cloze-short-4-4",
+        "cueId": "cue-14",
+        "sentence": "Adopt an {{blank}} focus of attention rather than overanalyzing your mechanics.",
+        "blankWord": "external",
+        "hintVi": "bên ngoài",
+        "timestamp": 120.2,
+        "options": [
+          "external",
+          "internal",
+          "imaginary",
+          "intense"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "quiz-short-4-1",
+        "question": "According to distraction theory, what causes choking?",
+        "options": [
+          "Loud noise damaging physical hearing",
+          "Anxious thoughts consuming limited working memory in the prefrontal cortex",
+          "Lack of carbohydrates in the bloodstream",
+          "Muscles completely running out of oxygen"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 00:44 (cue-6/7), bài học giải thích những suy nghĩ lo âu làm tràn ngập vỏ não trước trán và tiêu tốn bộ nhớ làm việc.",
+        "timestampSeek": 44.2
+      },
+      {
+        "id": "quiz-short-4-2",
+        "question": "What happens during 'explicit monitoring' under stress?",
+        "options": [
+          "The athlete forgets the basic rules of the sport",
+          "People attempt to consciously control automatic movements, disrupting fluidity",
+          "The eyes lose focus on distant objects",
+          "Heart rate drops below healthy levels"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 01:12 (cue-8/10), video chỉ ra rằng việc cố gắng kiểm soát từng chuyển động một cách có ý thức sẽ làm phá vỡ sự mượt mà tự nhiên.",
+        "timestampSeek": 72.8
+      },
+      {
+        "id": "quiz-short-4-3",
+        "question": "What is an example of an 'external focus of attention'?",
+        "options": [
+          "Analyzing the exact angle of your elbow during a shot",
+          "Focusing on the target hole or audience connection",
+          "Counting your heartbeat beats per minute",
+          "Thinking about your past sports injuries"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 02:09 (cue-15), bài học nêu ví dụ người chơi golf tập trung vào lỗ mục tiêu, diễn giả tập trung vào người nghe thay vì phân tích cơ học cơ thể.",
+        "timestampSeek": 129.8
+      },
+      {
+        "id": "quiz-short-4-4",
+        "question": "How does the narrator reframe the concept of 'pressure' in the conclusion?",
+        "options": [
+          "Pressure is a disease that must be medically treated",
+          "Pressure indicates that what you are doing truly matters to you",
+          "Pressure only affects inexperienced amateurs",
+          "Pressure should be avoided at all costs"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 02:29 (cue-17), thông điệp kết luận: 'pressure is not an enemy, but an indicator that what you are doing truly matters'.",
+        "timestampSeek": 149.8
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-tr-02",
-  "youtubeId": "z1ig80HmOKn",
+  "youtubeId": "43xsHPFMMOU",
   "title": "Passing Airport Security Checkpoints",
   "channel": "mmmEnglish",
   "duration": 240,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/z1ig80HmOKn/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/43xsHPFMMOU/hqdefault.jpg",
   "description": "Hướng dẫn quy trình an ninh sân bay: tháo thắt lưng, bỏ chất lỏng và máy tính vào khay.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Prepared travelers breeze through security checkpoints in less than five minutes., providing a meaningful summary for learners.",
       "timestampSeek": 216
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-02-cloze-1",
+        "cueId": "video-tr-02-cue-3",
+        "sentence": "{{blank}} stepping in line, finish drinking any bottled water or beverages.",
+        "blankWord": "before",
+        "hintVi": "Nghĩa gợi ý: Trước khi bước vào hàng đợi, hãy uống hế...",
+        "timestamp": 48,
+        "options": [
+          "framework",
+          "adequate",
+          "before",
+          "criterion"
+        ]
+      },
+      {
+        "id": "video-tr-02-cloze-2",
+        "cueId": "video-tr-02-cue-5",
+        "sentence": "{{blank}} two plastic trays from the conveyor stack at the screening table.",
+        "blankWord": "collect",
+        "hintVi": "Nghĩa gợi ý: Lấy hai khay nhựa từ chồng băng chuyền t...",
+        "timestamp": 96,
+        "options": [
+          "vibrant",
+          "routine",
+          "collect",
+          "deliberate"
+        ]
+      },
+      {
+        "id": "video-tr-02-cloze-3",
+        "cueId": "video-tr-02-cue-8",
+        "sentence": "Walk {{blank}} through the metal detector archway when signaled by the guard.",
+        "blankWord": "slowly",
+        "hintVi": "Nghĩa gợi ý: Đi chậm qua cổng dò kim loại khi có tín ...",
+        "timestamp": 168,
+        "options": [
+          "prominent",
+          "preliminary",
+          "slowly",
+          "subsequent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-02-q1",
+        "question": "What is the primary focus of the video 'Passing Airport Security Checkpoints'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice passing airport security checkpoints effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores passing airport security checkpoints, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 24
+      },
+      {
+        "id": "video-tr-02-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Collect...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Collect two plastic trays from the conveyor stack at the scr...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Collect two plastic trays from the conveyor stack at the screening table.', showing its practical importance.",
+        "timestampSeek": 96
+      },
+      {
+        "id": "video-tr-02-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Prepared travelers breeze through security checkpoints in less th...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Prepared travelers breeze through security checkpoints in less than five minutes., providing a meaningful summary for learners.",
+        "timestampSeek": 216
+      }
+    ]
+  }
 }

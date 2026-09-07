@@ -1,6 +1,6 @@
 {
   "id": "video-sc-12",
-  "youtubeId": "AhE69QY_6XU",
+  "youtubeId": "iNyUmbmQQZg",
   "title": "Polite Ways to Change the Subject Tactfully",
   "channel": "BBC Learning English",
   "duration": 390,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/AhE69QY_6XU/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/iNyUmbmQQZg/hqdefault.jpg",
   "description": "Nghệ thuật khéo léo bẻ hướng câu chuyện khi chủ đề trở nên khó xử hoặc tế nhị.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Social grace lies in making every guest feel respected, comfortable, and heard., providing a meaningful summary for learners.",
       "timestampSeek": 351
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-12-cloze-1",
+        "cueId": "video-sc-12-cue-3",
+        "sentence": "{{blank}} shouting a new topic sounds rude and disruptive to group harmony.",
+        "blankWord": "abruptly",
+        "hintVi": "Nghĩa gợi ý: Việc đột ngột hét lên một chủ đề mới ngh...",
+        "timestamp": 78,
+        "options": [
+          "efficient",
+          "temporary",
+          "extensive",
+          "abruptly"
+        ]
+      },
+      {
+        "id": "video-sc-12-cloze-2",
+        "cueId": "video-sc-12-cue-5",
+        "sentence": "{{blank}} what was just said before pivoting: 'That is quite fascinating, but...'",
+        "blankWord": "acknowledge",
+        "hintVi": "Nghĩa gợi ý: Hãy thừa nhận những gì vừa được nói trướ...",
+        "timestamp": 156,
+        "options": [
+          "protocol",
+          "acknowledge",
+          "perceptive",
+          "adequate"
+        ]
+      },
+      {
+        "id": "video-sc-12-cloze-3",
+        "cueId": "video-sc-12-cue-8",
+        "sentence": "{{blank}} conversations away from sensitive political disputes toward shared passions.",
+        "blankWord": "steer",
+        "hintVi": "Nghĩa gợi ý: Hãy lèo lái các cuộc trò chuyện rời xa n...",
+        "timestamp": 273,
+        "options": [
+          "tremendous",
+          "temporary",
+          "simultaneous",
+          "steer"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-12-q1",
+        "question": "What is the primary focus of the video 'Polite Ways to Change the Subject Tactfully'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice polite ways to change the subject tactfully effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores polite ways to change the subject tactfully, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 39
+      },
+      {
+        "id": "video-sc-12-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Acknowledge...'?",
+        "options": [
+          "It emphasizes that: Acknowledge what was just said before pivoting: 'That is qui...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Acknowledge what was just said before pivoting: 'That is quite fascinating, but...'', showing its practical importance.",
+        "timestampSeek": 156
+      },
+      {
+        "id": "video-sc-12-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Social grace lies in making every guest feel respected, comfortab...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Social grace lies in making every guest feel respected, comfortable, and heard., providing a meaningful summary for learners.",
+        "timestampSeek": 351
+      }
+    ]
+  }
 }

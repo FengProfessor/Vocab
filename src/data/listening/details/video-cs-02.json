@@ -1,6 +1,6 @@
 {
   "id": "video-cs-02",
-  "youtubeId": "uTaZbST4yG9",
+  "youtubeId": "lTNHsthbO6Q",
   "title": "Celebrating Mid-Autumn Moon Festival",
   "channel": "Learn English with Gill",
   "duration": 230,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/uTaZbST4yG9/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/lTNHsthbO6Q/hqdefault.jpg",
   "description": "Tết Trung Thu: ý nghĩa đoàn viên, ngắm trăng tròn, rước đèn lồng và ăn bánh trung thu.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that The Moon Festival reminds us that love bridges great distances across the globe., providing a meaningful summary for learners.",
       "timestampSeek": 207
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-02-cloze-1",
+        "cueId": "video-cs-02-cue-3",
+        "sentence": "{{blank}} as the Mid-Autumn Festival, it symbolizes harvest abundance, unity, and emotional peace.",
+        "blankWord": "known",
+        "hintVi": "Nghĩa gợi ý: Được gọi là Tết Trung Thu, lễ hội này tư...",
+        "timestamp": 46,
+        "options": [
+          "fundamental",
+          "perspective",
+          "known",
+          "vibrant"
+        ]
+      },
+      {
+        "id": "video-cs-02-cloze-2",
+        "cueId": "video-cs-02-cue-5",
+        "sentence": "The {{blank}} of the table is a platter of ornate sweet mooncakes.",
+        "blankWord": "centerpiece",
+        "hintVi": "Nghĩa gợi ý: Trung tâm của bàn tiệc là một đĩa bánh t...",
+        "timestamp": 92,
+        "options": [
+          "framework",
+          "essential",
+          "centerpiece",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-cs-02-cloze-3",
+        "cueId": "video-cs-02-cue-8",
+        "sentence": "{{blank}} children carry luminous star-shaped and fish lanterns through neighborhood lanes.",
+        "blankWord": "excited",
+        "hintVi": "Nghĩa gợi ý: Trẻ em háo hức rước những chiếc đèn lồng...",
+        "timestamp": 161,
+        "options": [
+          "resource",
+          "temporary",
+          "excited",
+          "subsequent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-02-q1",
+        "question": "What is the primary focus of the video 'Celebrating Mid-Autumn Moon Festival'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice celebrating mid-autumn moon festival effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores celebrating mid-autumn moon festival, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 23
+      },
+      {
+        "id": "video-cs-02-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: The centerpiece of the table is a platter of ornate sweet mo...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'The centerpiece of the table is a platter of ornate sweet mooncakes.', showing its practical importance.",
+        "timestampSeek": 92
+      },
+      {
+        "id": "video-cs-02-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: The Moon Festival reminds us that love bridges great distances ac...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that The Moon Festival reminds us that love bridges great distances across the globe., providing a meaningful summary for learners.",
+        "timestampSeek": 207
+      }
+    ]
+  }
 }

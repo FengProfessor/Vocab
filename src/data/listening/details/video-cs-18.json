@@ -1,6 +1,6 @@
 {
   "id": "video-cs-18",
-  "youtubeId": "ayPAoFiQzKf",
+  "youtubeId": "MYn15yDBvxM",
   "title": "The Silk Road: Connecting East and West Through Trade and Art",
   "channel": "TED-Ed",
   "duration": 740,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/ayPAoFiQzKf/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/MYn15yDBvxM/hqdefault.jpg",
   "description": "Con đường Tơ lụa: mạng lưới thương mại nối liền Á - Âu và sự giao thoa văn hóa, tôn giáo.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Yet the most transformative cargo along the Silk Road was intangible: ideas, philosophies, and religions.', providing deeper technical insight.",
       "timestampSeek": 444
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-18-cloze-1",
+        "cueId": "video-cs-18-cue-3",
+        "sentence": "{{blank}} in China's ancient capital of Chang'an, it traversed brutal dunes, mountain passes, and Mediterranean ports.",
+        "blankWord": "starting",
+        "hintVi": "Nghĩa gợi ý: Bắt đầu từ cố đô Trường An của Trung Quố...",
+        "timestamp": 148,
+        "options": [
+          "starting",
+          "remarkable",
+          "tremendous",
+          "component"
+        ]
+      },
+      {
+        "id": "video-cs-18-cloze-2",
+        "cueId": "video-cs-18-cue-5",
+        "sentence": "{{blank}} caravans carried precious Chinese silk bolts, exquisite glazed ceramics, and paper.",
+        "blankWord": "camel",
+        "hintVi": "Nghĩa gợi ý: Những đoàn lạc đà chở những cuộn lụa Tru...",
+        "timestamp": 296,
+        "options": [
+          "routine",
+          "camel",
+          "substantial",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-cs-18-cloze-3",
+        "cueId": "video-cs-18-cue-8",
+        "sentence": "{{blank}} journeyed from India into Central Asia and China, while Islamic mathematics and astronomy enriched Europe.",
+        "blankWord": "buddhism",
+        "hintVi": "Nghĩa gợi ý: Phật giáo đã hành trình từ Ấn Độ vào Tru...",
+        "timestamp": 518,
+        "options": [
+          "perspective",
+          "preliminary",
+          "buddhism",
+          "convenient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-18-q1",
+        "question": "What is the primary focus of the video 'The Silk Road: Connecting East and West Through Trade and Art'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice the silk road: connecting east and west through trade and art effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores the silk road: connecting east and west through trade and art, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 74
+      },
+      {
+        "id": "video-cs-18-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Camel...'?",
+        "options": [
+          "It emphasizes that: Camel caravans carried precious Chinese silk bolts, exquisit...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Camel caravans carried precious Chinese silk bolts, exquisite glazed ceramics, and paper.', showing its practical importance.",
+        "timestampSeek": 296
+      },
+      {
+        "id": "video-cs-18-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: The Silk Road proved that human prosperity accelerates when dista..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that The Silk Road proved that human prosperity accelerates when distant civilizations exchange goods, art, and knowledge., providing a meaningful summary for learners.",
+        "timestampSeek": 666
+      },
+      {
+        "id": "video-cs-18-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Yet...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: Yet the most transformative cargo along the Silk Road was in...",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Yet the most transformative cargo along the Silk Road was intangible: ideas, philosophies, and religions.', providing deeper technical insight.",
+        "timestampSeek": 444
+      }
+    ]
+  }
 }

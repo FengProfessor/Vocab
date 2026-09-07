@@ -1,6 +1,6 @@
 {
   "id": "video-dl-18",
-  "youtubeId": "oNhOZzkj63_",
+  "youtubeId": "c1KFqXL0I0Q",
   "title": "The Art of Slow Living in a Fast-Paced City",
   "channel": "BBC Learning English",
   "duration": 560,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/oNhOZzkj63_/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/c1KFqXL0I0Q/hqdefault.jpg",
   "description": "Triết lý sống chậm giữa lòng đô thị hiện đại: tìm kiếm sự cân bằng và chánh niệm.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that True wealth is having sovereignty over your attention and daily hours., providing a meaningful summary for learners.",
       "timestampSeek": 504
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-18-cloze-1",
+        "cueId": "video-dl-18-cue-3",
+        "sentence": "{{blank}}, many urban dwellers find themselves exhausted and overwhelmed.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, nhiều cư dân thành thị cảm th...",
+        "timestamp": 112,
+        "options": [
+          "dimension",
+          "criterion",
+          "however",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-dl-18-cloze-2",
+        "cueId": "video-dl-18-cue-5",
+        "sentence": "It does not mean {{blank}} everything slowly, but rather doing things with intention.",
+        "blankWord": "doing",
+        "hintVi": "Nghĩa gợi ý: Nó không có nghĩa là làm mọi thứ chậm ch...",
+        "timestamp": 224,
+        "options": [
+          "advantage",
+          "temporary",
+          "doing",
+          "alternative"
+        ]
+      },
+      {
+        "id": "video-dl-18-cloze-3",
+        "cueId": "video-dl-18-cue-8",
+        "sentence": "{{blank}} your weekends from unnecessary commitments and excessive consumerism.",
+        "blankWord": "protect",
+        "hintVi": "Nghĩa gợi ý: Bảo vệ những ngày cuối tuần của bạn khỏi...",
+        "timestamp": 392,
+        "options": [
+          "routine",
+          "protect",
+          "resource",
+          "fundamental"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-18-q1",
+        "question": "What is the primary focus of the video 'The Art of Slow Living in a Fast-Paced City'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice the art of slow living in a fast-paced city effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores the art of slow living in a fast-paced city, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 56
+      },
+      {
+        "id": "video-dl-18-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'It...'?",
+        "options": [
+          "It emphasizes that: It does not mean doing everything slowly, but rather doing t...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'It does not mean doing everything slowly, but rather doing things with intention.', showing its practical importance.",
+        "timestampSeek": 224
+      },
+      {
+        "id": "video-dl-18-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: True wealth is having sovereignty over your attention and daily h...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that True wealth is having sovereignty over your attention and daily hours., providing a meaningful summary for learners.",
+        "timestampSeek": 504
+      }
+    ]
+  }
 }

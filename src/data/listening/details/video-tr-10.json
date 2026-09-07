@@ -1,6 +1,6 @@
 {
   "id": "video-tr-10",
-  "youtubeId": "dGwLIMwykBL",
+  "youtubeId": "GgWNytdjzP8",
   "title": "Reporting Lost Luggage at Baggage Claim",
   "channel": "Oxford Online English",
   "duration": 330,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/dGwLIMwykBL/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/GgWNytdjzP8/hqdefault.jpg",
   "description": "Cách xử lý khi thất lạc hành lý tại sân bay: điền tờ khai và cung cấp địa chỉ nhận lại.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Knowing your rights keeps you calm and empowered during international travel., providing a meaningful summary for learners.",
       "timestampSeek": 297
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-10-cloze-1",
+        "cueId": "video-tr-10-cue-3",
+        "sentence": "Do not {{blank}}; airlines track every bag electronically and most are delivered soon.",
+        "blankWord": "panic",
+        "hintVi": "Nghĩa gợi ý: Đừng hoảng loạn; các hãng hàng không the...",
+        "timestamp": 66,
+        "options": [
+          "framework",
+          "subsequent",
+          "vulnerable",
+          "panic"
+        ]
+      },
+      {
+        "id": "video-tr-10-cloze-2",
+        "cueId": "video-tr-10-cue-5",
+        "sentence": "Say: 'My {{blank}} landed from London, but my checked suitcase did not appear.'",
+        "blankWord": "flight",
+        "hintVi": "Nghĩa gợi ý: Nói: 'Chuyến bay của tôi hạ cánh từ Lond...",
+        "timestamp": 132,
+        "options": [
+          "perceptive",
+          "routine",
+          "preliminary",
+          "flight"
+        ]
+      },
+      {
+        "id": "video-tr-10-cloze-3",
+        "cueId": "video-tr-10-cue-8",
+        "sentence": "Fill out the {{blank}} Irregularity Report and provide your local hotel address.",
+        "blankWord": "property",
+        "hintVi": "Nghĩa gợi ý: Điền vào Báo cáo Bất thường về Tài sản v...",
+        "timestamp": 231,
+        "options": [
+          "vulnerable",
+          "protocol",
+          "property",
+          "alternative"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-10-q1",
+        "question": "What is the primary focus of the video 'Reporting Lost Luggage at Baggage Claim'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice reporting lost luggage at baggage claim effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores reporting lost luggage at baggage claim, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 33
+      },
+      {
+        "id": "video-tr-10-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Say:...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Say: 'My flight landed from London, but my checked suitcase ...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Say: 'My flight landed from London, but my checked suitcase did not appear.'', showing its practical importance.",
+        "timestampSeek": 132
+      },
+      {
+        "id": "video-tr-10-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Knowing your rights keeps you calm and empowered during internati..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Knowing your rights keeps you calm and empowered during international travel., providing a meaningful summary for learners.",
+        "timestampSeek": 297
+      }
+    ]
+  }
 }

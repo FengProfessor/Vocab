@@ -1,6 +1,6 @@
 {
   "id": "video-dl-05",
-  "youtubeId": "khWKigej9nb",
+  "youtubeId": "HQUW4T0w2zY",
   "title": "Walking the Dog in the Neighborhood Park",
   "channel": "EnglishClass101",
   "duration": 290,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/khWKigej9nb/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/HQUW4T0w2zY/hqdefault.jpg",
   "description": "Các câu giao tiếp tự nhiên khi dắt thú cưng đi dạo và gặp gỡ hàng xóm trong công viên.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Daily exercise keeps both you and your faithful companion healthy., providing a meaningful summary for learners.",
       "timestampSeek": 261
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-05-cloze-1",
+        "cueId": "video-dl-05-cue-3",
+        "sentence": "Make sure you clip the {{blank}} securely onto the dog's collar.",
+        "blankWord": "leash",
+        "hintVi": "Nghĩa gợi ý: Đảm bảo bạn đã gắn dây dắt chắc chắn vào...",
+        "timestamp": 58,
+        "options": [
+          "substantial",
+          "deliberate",
+          "perspective",
+          "leash"
+        ]
+      },
+      {
+        "id": "video-dl-05-cloze-2",
+        "cueId": "video-dl-05-cue-5",
+        "sentence": "We walk down the {{blank}} sidewalk through our peaceful neighborhood.",
+        "blankWord": "quiet",
+        "hintVi": "Nghĩa gợi ý: Chúng tôi đi bộ dọc theo vỉa hè yên tĩnh...",
+        "timestamp": 116,
+        "options": [
+          "perspective",
+          "flexible",
+          "protocol",
+          "quiet"
+        ]
+      },
+      {
+        "id": "video-dl-05-cloze-3",
+        "cueId": "video-dl-05-cue-8",
+        "sentence": "{{blank}} your pet explore the grass provides healthy mental stimulation.",
+        "blankWord": "letting",
+        "hintVi": "Nghĩa gợi ý: Để thú cưng khám phá bãi cỏ mang lại sự ...",
+        "timestamp": 203,
+        "options": [
+          "prominent",
+          "tremendous",
+          "criterion",
+          "letting"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-05-q1",
+        "question": "What is the primary focus of the video 'Walking the Dog in the Neighborhood Park'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice walking the dog in the neighborhood park effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores walking the dog in the neighborhood park, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 29
+      },
+      {
+        "id": "video-dl-05-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'We...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: We walk down the quiet sidewalk through our peaceful neighbo...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'We walk down the quiet sidewalk through our peaceful neighborhood.', showing its practical importance.",
+        "timestampSeek": 116
+      },
+      {
+        "id": "video-dl-05-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Daily exercise keeps both you and your faithful companion healthy...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Daily exercise keeps both you and your faithful companion healthy., providing a meaningful summary for learners.",
+        "timestampSeek": 261
+      }
+    ]
+  }
 }

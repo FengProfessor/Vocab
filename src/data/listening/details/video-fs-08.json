@@ -1,6 +1,6 @@
 {
   "id": "video-fs-08",
-  "youtubeId": "AZ9uHxGp1eB",
+  "youtubeId": "M7BWHPtV1qM",
   "title": "At the Artisan Bakery: Fresh Breads",
   "channel": "Learn English with Gill",
   "duration": 280,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/AZ9uHxGp1eB/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/M7BWHPtV1qM/hqdefault.jpg",
   "description": "Từ vựng các loại bánh mì: sourdough, baguette, bánh sừng bò và bánh ngọt.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Supporting local bakeries keeps authentic culinary heritage alive in communities., providing a meaningful summary for learners.",
       "timestampSeek": 252
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-08-cloze-1",
+        "cueId": "video-fs-08-cue-3",
+        "sentence": "{{blank}} display cases are piled high with glistening pastries and rustic loaves.",
+        "blankWord": "glass",
+        "hintVi": "Nghĩa gợi ý: Những chiếc tủ kính trưng bày chất đầy b...",
+        "timestamp": 56,
+        "options": [
+          "alternative",
+          "glass",
+          "tremendous",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-fs-08-cloze-2",
+        "cueId": "video-fs-08-cue-5",
+        "sentence": "{{blank}} about freshness: 'Were these chocolate croissants baked this morning?'",
+        "blankWord": "inquire",
+        "hintVi": "Nghĩa gợi ý: Hỏi về độ tươi mới: 'Những chiếc bánh sừ...",
+        "timestamp": 112,
+        "options": [
+          "component",
+          "temporary",
+          "inquire",
+          "gradual"
+        ]
+      },
+      {
+        "id": "video-fs-08-cloze-3",
+        "cueId": "video-fs-08-cue-8",
+        "sentence": "Pick up a few {{blank}} pastries and fruit tarts wrapped in brown bakery paper.",
+        "blankWord": "almond",
+        "hintVi": "Nghĩa gợi ý: Chọn một vài chiếc bánh ngọt hạnh nhân v...",
+        "timestamp": 196,
+        "options": [
+          "extensive",
+          "tremendous",
+          "almond",
+          "dimension"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-08-q1",
+        "question": "What is the primary focus of the video 'At the Artisan Bakery: Fresh Breads'?",
+        "options": [
+          "To explain and practice at the artisan bakery: fresh breads effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores at the artisan bakery: fresh breads, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 28
+      },
+      {
+        "id": "video-fs-08-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Inquire...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Inquire about freshness: 'Were these chocolate croissants ba...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Inquire about freshness: 'Were these chocolate croissants baked this morning?'', showing its practical importance.",
+        "timestampSeek": 112
+      },
+      {
+        "id": "video-fs-08-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Supporting local bakeries keeps authentic culinary heritage alive...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Supporting local bakeries keeps authentic culinary heritage alive in communities., providing a meaningful summary for learners.",
+        "timestampSeek": 252
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-tr-13",
-  "youtubeId": "veh4WLIIDta",
+  "youtubeId": "DUqdQjkvElo",
   "title": "Booking Guided Excursions and Asking Details",
   "channel": "mmmEnglish",
   "duration": 430,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/veh4WLIIDta/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/DUqdQjkvElo/hqdefault.jpg",
   "description": "Cách đặt tour tham quan có hướng dẫn viên: hỏi về phương tiện, đồ ăn và trang phục.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Curiosity and thorough questioning guarantee rewarding, memorable travel excursions., providing a meaningful summary for learners.",
       "timestampSeek": 387
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-13-cloze-1",
+        "cueId": "video-tr-13-cue-3",
+        "sentence": "{{blank}} booking a tour online, inquire thoroughly about specific itinerary details.",
+        "blankWord": "before",
+        "hintVi": "Nghĩa gợi ý: Trước khi đặt tour trực tuyến, hãy hỏi k...",
+        "timestamp": 86,
+        "options": [
+          "before",
+          "remarkable",
+          "accurate",
+          "strategy"
+        ]
+      },
+      {
+        "id": "video-tr-13-cloze-2",
+        "cueId": "video-tr-13-cue-5",
+        "sentence": "{{blank}} whether hotel pick-up and drop-off are covered in the standard package.",
+        "blankWord": "verify",
+        "hintVi": "Nghĩa gợi ý: Xác minh xem việc đón và trả tại khách s...",
+        "timestamp": 172,
+        "options": [
+          "balance",
+          "moderate",
+          "advantage",
+          "verify"
+        ]
+      },
+      {
+        "id": "video-tr-13-cloze-3",
+        "cueId": "video-tr-13-cue-8",
+        "sentence": "{{blank}} if vegetarian or gluten-free lunch options are accommodated upon request.",
+        "blankWord": "check",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra xem các lựa chọn ăn trưa chay h...",
+        "timestamp": 301,
+        "options": [
+          "prominent",
+          "consistent",
+          "check",
+          "deliberate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-13-q1",
+        "question": "What is the primary focus of the video 'Booking Guided Excursions and Asking Details'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice booking guided excursions and asking details effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores booking guided excursions and asking details, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 43
+      },
+      {
+        "id": "video-tr-13-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Verify...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Verify whether hotel pick-up and drop-off are covered in the...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Verify whether hotel pick-up and drop-off are covered in the standard package.', showing its practical importance.",
+        "timestampSeek": 172
+      },
+      {
+        "id": "video-tr-13-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Curiosity and thorough questioning guarantee rewarding, memorable...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Curiosity and thorough questioning guarantee rewarding, memorable travel excursions., providing a meaningful summary for learners.",
+        "timestampSeek": 387
+      }
+    ]
+  }
 }

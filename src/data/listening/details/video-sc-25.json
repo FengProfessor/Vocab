@@ -1,6 +1,6 @@
 {
   "id": "video-sc-25",
-  "youtubeId": "kqD7hj4RHPA",
+  "youtubeId": "x72gP4HrU58",
   "title": "Humor and Sarcasm in English Conversations",
   "channel": "English with Lucy",
   "duration": 920,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/kqD7hj4RHPA/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/x72gP4HrU58/hqdefault.jpg",
   "description": "Hiểu và sử dụng hài hước, tự trào và mỉa mai nhẹ nhàng trong văn hóa phương Tây.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'A witty retort should always bring shared laughter, never cruel humiliation.', providing deeper technical insight.",
       "timestampSeek": 552
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-25-cloze-1",
+        "cueId": "video-sc-25-cue-3",
+        "sentence": "In {{blank}} cultures, self-deprecating humor is widely practiced and cherished.",
+        "blankWord": "anglophone",
+        "hintVi": "Nghĩa gợi ý: Trong các nền văn hóa nói tiếng Anh, sự ...",
+        "timestamp": 184,
+        "options": [
+          "anglophone",
+          "advantage",
+          "prominent",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-sc-25-cloze-2",
+        "cueId": "video-sc-25-cue-5",
+        "sentence": "{{blank}} sarcasm often states the opposite of reality with a poker face.",
+        "blankWord": "british",
+        "hintVi": "Nghĩa gợi ý: Sự mỉa mai của người Anh thường nói ngượ...",
+        "timestamp": 368,
+        "options": [
+          "balance",
+          "british",
+          "remarkable",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-sc-25-cloze-3",
+        "cueId": "video-sc-25-cue-8",
+        "sentence": "Pay {{blank}} attention to intonation and subtle facial twitches to catch irony.",
+        "blankWord": "close",
+        "hintVi": "Nghĩa gợi ý: Hãy chú ý kỹ đến ngữ điệu và những cái n...",
+        "timestamp": 644,
+        "options": [
+          "adequate",
+          "close",
+          "deliberate",
+          "remarkable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-25-q1",
+        "question": "What is the primary focus of the video 'Humor and Sarcasm in English Conversations'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice humor and sarcasm in english conversations effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores humor and sarcasm in english conversations, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 92
+      },
+      {
+        "id": "video-sc-25-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'British...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: British sarcasm often states the opposite of reality with a ...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'British sarcasm often states the opposite of reality with a poker face.', showing its practical importance.",
+        "timestampSeek": 368
+      },
+      {
+        "id": "video-sc-25-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Learn to laugh at life's absurdity, and conversation becomes an e...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Learn to laugh at life's absurdity, and conversation becomes an endless playground., providing a meaningful summary for learners.",
+        "timestampSeek": 828
+      },
+      {
+        "id": "video-sc-25-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'A...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: A witty retort should always bring shared laughter, never cr..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'A witty retort should always bring shared laughter, never cruel humiliation.', providing deeper technical insight.",
+        "timestampSeek": 552
+      }
+    ]
+  }
 }

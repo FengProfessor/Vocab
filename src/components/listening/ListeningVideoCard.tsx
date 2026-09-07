@@ -70,7 +70,11 @@ export function ListeningVideoCard({
   return (
     <Link
       href={`/practice/listening/${video.id}`}
-      className="group flex flex-col cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-indigo-400 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-600 focus:outline-hidden focus:ring-2 focus:ring-indigo-500"
+      className={`group flex flex-col cursor-pointer overflow-hidden rounded-2xl border bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+        isCompleted
+          ? 'border-emerald-500/60 ring-2 ring-emerald-400/50 dark:border-emerald-500/50'
+          : 'border-slate-200 hover:border-indigo-400 dark:border-slate-800 dark:hover:border-indigo-600'
+      }`}
     >
       {/* 16:9 Thumbnail Container with Play Overlay */}
       <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
@@ -108,7 +112,7 @@ export function ListeningVideoCard({
           ) : (
             <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 rounded-md bg-amber-500/90 px-2.5 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs ring-1 ring-amber-300/40">
               <CheckCircle2 className="h-3 w-3" />
-              <span>Đang luyện ({attempt.percentScore}%)</span>
+              <span>Đã làm ({attempt.percentScore}%)</span>
             </div>
           )
         ) : clampedWatch > 0 ? (

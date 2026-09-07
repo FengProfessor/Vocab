@@ -1,6 +1,6 @@
 {
   "id": "video-sth-22",
-  "youtubeId": "oX4_Huej-le",
+  "youtubeId": "LXrh2AJa8nU",
   "title": "Wearable Health Trackers: Metrics and Accuracy",
   "channel": "TED-Ed",
   "duration": 830,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/oX4_Huej-le/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/LXrh2AJa8nU/hqdefault.jpg",
   "description": "Vòng đeo tay theo dõi sức khỏe: độ chính xác của nhịp tim, giấc ngủ và cách dùng dữ liệu.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'However, metrics like Heart Rate Variability provide profound insight into autonomic nervous tone.', providing deeper technical insight.",
       "timestampSeek": 498
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-22-cloze-1",
+        "cueId": "video-sth-22-cue-3",
+        "sentence": "To {{blank}} your pulse, green flashing LEDs shine into cutaneous capillaries on your wrist.",
+        "blankWord": "track",
+        "hintVi": "Nghĩa gợi ý: Để theo dõi mạch đập của bạn, các đèn LE...",
+        "timestamp": 166,
+        "options": [
+          "track",
+          "fundamental",
+          "accurate",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-sth-22-cloze-2",
+        "cueId": "video-sth-22-cue-5",
+        "sentence": "{{blank}} heart rate tracking during stationary rest is remarkably precise, vigorous movement introduces motion artifacts.",
+        "blankWord": "while",
+        "hintVi": "Nghĩa gợi ý: Mặc dù việc theo dõi nhịp tim khi nghỉ n...",
+        "timestamp": 332,
+        "options": [
+          "while",
+          "protocol",
+          "prominent",
+          "simultaneous"
+        ]
+      },
+      {
+        "id": "video-sth-22-cloze-3",
+        "cueId": "video-sth-22-cue-8",
+        "sentence": "{{blank}} variability indicates robust parasympathetic recovery and readiness for athletic strain.",
+        "blankWord": "higher",
+        "hintVi": "Nghĩa gợi ý: Độ biến thiên cao hơn cho thấy sự phục h...",
+        "timestamp": 581,
+        "options": [
+          "reliable",
+          "higher",
+          "spontaneous",
+          "preliminary"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-22-q1",
+        "question": "What is the primary focus of the video 'Wearable Health Trackers: Metrics and Accuracy'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice wearable health trackers: metrics and accuracy effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores wearable health trackers: metrics and accuracy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 83
+      },
+      {
+        "id": "video-sth-22-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'While...'?",
+        "options": [
+          "It emphasizes that: While heart rate tracking during stationary rest is remarkab...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'While heart rate tracking during stationary rest is remarkably precise, vigorous movement introduces motion artifacts.', showing its practical importance.",
+        "timestampSeek": 332
+      },
+      {
+        "id": "video-sth-22-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Wearable biometrics empower individuals to become conscious, data..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Wearable biometrics empower individuals to become conscious, data-driven stewards of personal vitality., providing a meaningful summary for learners.",
+        "timestampSeek": 747
+      },
+      {
+        "id": "video-sth-22-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'However,...'?",
+        "options": [
+          "It highlights that: However, metrics like Heart Rate Variability provide profoun...",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'However, metrics like Heart Rate Variability provide profound insight into autonomic nervous tone.', providing deeper technical insight.",
+        "timestampSeek": 498
+      }
+    ]
+  }
 }

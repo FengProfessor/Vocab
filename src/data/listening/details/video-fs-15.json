@@ -1,6 +1,6 @@
 {
   "id": "video-fs-15",
-  "youtubeId": "qNbHwF2WwxL",
+  "youtubeId": "0YpwaYUGF94",
   "title": "Opening a Local Bank Account Abroad",
   "channel": "English with Lucy",
   "duration": 510,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/qNbHwF2WwxL/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/0YpwaYUGF94/hqdefault.jpg",
   "description": "Thủ tục mở tài khoản ngân hàng: giấy tờ cư trú, phí duy trì và thẻ ghi nợ.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Financial integration into your new host country provides stability and independence., providing a meaningful summary for learners.",
       "timestampSeek": 459
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-15-cloze-1",
+        "cueId": "video-fs-15-cue-3",
+        "sentence": "{{blank}} an in-person appointment with a personal accounts representative.",
+        "blankWord": "schedule",
+        "hintVi": "Nghĩa gợi ý: Lên lịch một cuộc hẹn trực tiếp với đại ...",
+        "timestamp": 102,
+        "options": [
+          "dimension",
+          "schedule",
+          "spontaneous",
+          "balance"
+        ]
+      },
+      {
+        "id": "video-fs-15-cloze-2",
+        "cueId": "video-fs-15-cue-5",
+        "sentence": "{{blank}} bills or a registered rental tenancy agreement serve as residency proof.",
+        "blankWord": "utility",
+        "hintVi": "Nghĩa gợi ý: Hóa đơn điện nước hoặc hợp đồng thuê nhà...",
+        "timestamp": 204,
+        "options": [
+          "moderate",
+          "reliable",
+          "protocol",
+          "utility"
+        ]
+      },
+      {
+        "id": "video-fs-15-cloze-3",
+        "cueId": "video-fs-15-cue-8",
+        "sentence": "{{blank}} and activate the bank's secure mobile smartphone application on-site.",
+        "blankWord": "download",
+        "hintVi": "Nghĩa gợi ý: Tải xuống và kích hoạt ứng dụng điện tho...",
+        "timestamp": 357,
+        "options": [
+          "download",
+          "extensive",
+          "advantage",
+          "spontaneous"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-15-q1",
+        "question": "What is the primary focus of the video 'Opening a Local Bank Account Abroad'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice opening a local bank account abroad effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores opening a local bank account abroad, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 51
+      },
+      {
+        "id": "video-fs-15-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Utility...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Utility bills or a registered rental tenancy agreement serve...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Utility bills or a registered rental tenancy agreement serve as residency proof.', showing its practical importance.",
+        "timestampSeek": 204
+      },
+      {
+        "id": "video-fs-15-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Financial integration into your new host country provides stabili...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Financial integration into your new host country provides stability and independence., providing a meaningful summary for learners.",
+        "timestampSeek": 459
+      }
+    ]
+  }
 }

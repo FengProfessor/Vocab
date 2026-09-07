@@ -1,6 +1,6 @@
 {
   "id": "video-fs-22",
-  "youtubeId": "XgPOtgJOdxI",
+  "youtubeId": "EKgEj5asL3o",
   "title": "Street Food Culture: Global Etiquette",
   "channel": "Mark Wiens",
   "duration": 840,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/XgPOtgJOdxI/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/EKgEj5asL3o/hqdefault.jpg",
   "description": "Văn hóa ẩm thực đường phố: cách xếp hàng, chọn quán đông khách và vệ sinh an toàn.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Carry small local cash banknotes, as roadside vendors rarely process electronic cards.', providing deeper technical insight.",
       "timestampSeek": 504
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-22-cloze-1",
+        "cueId": "video-fs-22-cue-3",
+        "sentence": "From {{blank}} noodle carts to Mexican taco stands, culinary magic happens on curbsides.",
+        "blankWord": "bangkok",
+        "hintVi": "Nghĩa gợi ý: Từ các xe hủ tiếu Bangkok đến các quầy b...",
+        "timestamp": 168,
+        "options": [
+          "bangkok",
+          "continuous",
+          "spontaneous",
+          "sufficient"
+        ]
+      },
+      {
+        "id": "video-fs-22-cloze-2",
+        "cueId": "video-fs-22-cue-5",
+        "sentence": "{{blank}} the vendor cooks meals over blazing high heat right before your eyes.",
+        "blankWord": "ensure",
+        "hintVi": "Nghĩa gợi ý: Đảm bảo người bán nấu các bữa ăn trên ng...",
+        "timestamp": 336,
+        "options": [
+          "fundamental",
+          "ensure",
+          "reliable",
+          "prominent"
+        ]
+      },
+      {
+        "id": "video-fs-22-cloze-3",
+        "cueId": "video-fs-22-cue-8",
+        "sentence": "Eat {{blank}} local patrons on tiny plastic stools, embracing authentic atmosphere.",
+        "blankWord": "alongside",
+        "hintVi": "Nghĩa gợi ý: Ngồi ăn bên cạnh những thực khách địa ph...",
+        "timestamp": 588,
+        "options": [
+          "alongside",
+          "resource",
+          "perceptive",
+          "remarkable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-22-q1",
+        "question": "What is the primary focus of the video 'Street Food Culture: Global Etiquette'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice street food culture: global etiquette effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores street food culture: global etiquette, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 84
+      },
+      {
+        "id": "video-fs-22-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Ensure...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Ensure the vendor cooks meals over blazing high heat right b...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Ensure the vendor cooks meals over blazing high heat right before your eyes.', showing its practical importance.",
+        "timestampSeek": 336
+      },
+      {
+        "id": "video-fs-22-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Street food is an edible cultural ambassador that unites humanity...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Street food is an edible cultural ambassador that unites humanity around universal flavor., providing a meaningful summary for learners.",
+        "timestampSeek": 756
+      },
+      {
+        "id": "video-fs-22-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Carry...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: Carry small local cash banknotes, as roadside vendors rarely...",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Carry small local cash banknotes, as roadside vendors rarely process electronic cards.', providing deeper technical insight.",
+        "timestampSeek": 504
+      }
+    ]
+  }
 }

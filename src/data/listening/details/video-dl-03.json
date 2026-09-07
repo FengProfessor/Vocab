@@ -1,6 +1,6 @@
 {
   "id": "video-dl-03",
-  "youtubeId": "Xzv10YXKa4a",
+  "youtubeId": "WHYMGNbPv2U",
   "title": "My Relaxing Weekend Routine",
   "channel": "Speak English With Vanessa",
   "duration": 250,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/Xzv10YXKa4a/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/WHYMGNbPv2U/hqdefault.jpg",
   "description": "Cùng trò chuyện về các hoạt động thư giãn cuối tuần và sở thích cá nhân.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that A balanced weekend gives you energy for the coming week ahead., providing a meaningful summary for learners.",
       "timestampSeek": 225
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-03-cloze-1",
+        "cueId": "video-dl-03-cue-3",
+        "sentence": "On {{blank}} morning, I wake up naturally without any loud alarm clock.",
+        "blankWord": "saturday",
+        "hintVi": "Nghĩa gợi ý: Vào sáng thứ Bảy, tôi thức dậy tự nhiên ...",
+        "timestamp": 50,
+        "options": [
+          "perceptive",
+          "routine",
+          "innovative",
+          "saturday"
+        ]
+      },
+      {
+        "id": "video-dl-03-cloze-2",
+        "cueId": "video-dl-03-cue-5",
+        "sentence": "{{blank}} unhurried leisure hours allows my mind to recharge deeply.",
+        "blankWord": "having",
+        "hintVi": "Nghĩa gợi ý: Có những giờ phút giải trí thong thả giú...",
+        "timestamp": 100,
+        "options": [
+          "preliminary",
+          "having",
+          "essential",
+          "perspective"
+        ]
+      },
+      {
+        "id": "video-dl-03-cloze-3",
+        "cueId": "video-dl-03-cue-8",
+        "sentence": "{{blank}} I meet friends at a cozy local cafe for dessert.",
+        "blankWord": "sometimes",
+        "hintVi": "Nghĩa gợi ý: Thỉnh thoảng tôi gặp gỡ bạn bè tại một q...",
+        "timestamp": 175,
+        "options": [
+          "flexible",
+          "prominent",
+          "favorable",
+          "sometimes"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-03-q1",
+        "question": "What is the primary focus of the video 'My Relaxing Weekend Routine'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice my relaxing weekend routine effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores my relaxing weekend routine, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 25
+      },
+      {
+        "id": "video-dl-03-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Having...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Having unhurried leisure hours allows my mind to recharge de...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Having unhurried leisure hours allows my mind to recharge deeply.', showing its practical importance.",
+        "timestampSeek": 100
+      },
+      {
+        "id": "video-dl-03-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: A balanced weekend gives you energy for the coming week ahead....",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that A balanced weekend gives you energy for the coming week ahead., providing a meaningful summary for learners.",
+        "timestampSeek": 225
+      }
+    ]
+  }
 }

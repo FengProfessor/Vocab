@@ -1,6 +1,6 @@
 {
   "id": "video-sth-12",
-  "youtubeId": "xaAUDxAK9PW",
+  "youtubeId": "WuyPuH9ojCE",
   "title": "Ergonomics: Setting Up a Pain-Free Home Desk",
   "channel": "Learn English with Gill",
   "duration": 500,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/xaAUDxAK9PW/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/WuyPuH9ojCE/hqdefault.jpg",
   "description": "Cách thiết lập bàn làm việc tại nhà đúng công thái học để tránh đau mỏi cổ vai gáy.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Invest in an ergonomic setup today to safeguard your spinal longevity for decades to come., providing a meaningful summary for learners.",
       "timestampSeek": 450
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-12-cloze-1",
+        "cueId": "video-sth-12-cue-3",
+        "sentence": "{{blank}} is the practical science of designing workstations to suit the human anatomy.",
+        "blankWord": "ergonomics",
+        "hintVi": "Nghĩa gợi ý: Công thái học là khoa học thực hành về t...",
+        "timestamp": 100,
+        "options": [
+          "essential",
+          "ergonomics",
+          "extensive",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-sth-12-cloze-2",
+        "cueId": "video-sth-12-cue-5",
+        "sentence": "Your feet should rest flat on the {{blank}} or on an angled ergonomic footrest.",
+        "blankWord": "floor",
+        "hintVi": "Nghĩa gợi ý: Bàn chân của bạn nên đặt phẳng trên sàn ...",
+        "timestamp": 200,
+        "options": [
+          "floor",
+          "sufficient",
+          "subsequent",
+          "essential"
+        ]
+      },
+      {
+        "id": "video-sth-12-cloze-3",
+        "cueId": "video-sth-12-cue-8",
+        "sentence": "The top {{blank}} of your screen should align horizontally with your resting eye level.",
+        "blankWord": "border",
+        "hintVi": "Nghĩa gợi ý: Viền trên của màn hình nên thẳng hàng th...",
+        "timestamp": 350,
+        "options": [
+          "convenient",
+          "border",
+          "perceptive",
+          "extensive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-12-q1",
+        "question": "What is the primary focus of the video 'Ergonomics: Setting Up a Pain-Free Home Desk'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice ergonomics: setting up a pain-free home desk effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores ergonomics: setting up a pain-free home desk, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 50
+      },
+      {
+        "id": "video-sth-12-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Your...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Your feet should rest flat on the floor or on an angled ergo...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Your feet should rest flat on the floor or on an angled ergonomic footrest.', showing its practical importance.",
+        "timestampSeek": 200
+      },
+      {
+        "id": "video-sth-12-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Invest in an ergonomic setup today to safeguard your spinal longe...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Invest in an ergonomic setup today to safeguard your spinal longevity for decades to come., providing a meaningful summary for learners.",
+        "timestampSeek": 450
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sc-29",
-  "youtubeId": "DFliH7VTg_x",
+  "youtubeId": "6Y8qOFs4HUA",
   "title": "Building Lasting Friendships as an Adult",
   "channel": "The School of Life",
   "duration": 1020,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/DFliH7VTg_x/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/6Y8qOFs4HUA/hqdefault.jpg",
   "description": "Những khó khăn và giải pháp để tìm kiếm bạn tri kỷ khi đã bước vào tuổi trưởng thành.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Share genuine anxieties, creative frustrations, and quiet longings openly.', providing deeper technical insight.",
       "timestampSeek": 612
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-29-cloze-1",
+        "cueId": "video-sc-29-cue-3",
+        "sentence": "{{blank}}, however, erects towering barriers of career obligations and domestic fatigue.",
+        "blankWord": "adulthood",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, tuổi trưởng thành dựng lên nh...",
+        "timestamp": 204,
+        "options": [
+          "simultaneous",
+          "adulthood",
+          "prominent",
+          "alternative"
+        ]
+      },
+      {
+        "id": "video-sc-29-cloze-2",
+        "cueId": "video-sc-29-cue-5",
+        "sentence": "To {{blank}} lasting connections, one must risk emotional vulnerability.",
+        "blankWord": "forge",
+        "hintVi": "Nghĩa gợi ý: Để xây dựng những kết nối lâu bền, người...",
+        "timestamp": 408,
+        "options": [
+          "forge",
+          "fundamental",
+          "advantage",
+          "convenient"
+        ]
+      },
+      {
+        "id": "video-sc-29-cloze-3",
+        "cueId": "video-sc-29-cue-8",
+        "sentence": "True {{blank}} is born when one person says to another: 'What! You too? I thought I was alone.'",
+        "blankWord": "friendship",
+        "hintVi": "Nghĩa gợi ý: Tình bạn thực sự sinh ra khi một người n...",
+        "timestamp": 714,
+        "options": [
+          "dimension",
+          "sufficient",
+          "subsequent",
+          "friendship"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-29-q1",
+        "question": "What is the primary focus of the video 'Building Lasting Friendships as an Adult'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice building lasting friendships as an adult effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores building lasting friendships as an adult, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 102
+      },
+      {
+        "id": "video-sc-29-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'To...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: To forge lasting connections, one must risk emotional vulner..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'To forge lasting connections, one must risk emotional vulnerability.', showing its practical importance.",
+        "timestampSeek": 408
+      },
+      {
+        "id": "video-sc-29-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Invest time intentionally into kindred souls; deep friendship is ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Invest time intentionally into kindred souls; deep friendship is love without possession., providing a meaningful summary for learners.",
+        "timestampSeek": 918
+      },
+      {
+        "id": "video-sc-29-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Share...'?",
+        "options": [
+          "It highlights that: Share genuine anxieties, creative frustrations, and quiet lo...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'Share genuine anxieties, creative frustrations, and quiet longings openly.', providing deeper technical insight.",
+        "timestampSeek": 612
+      }
+    ]
+  }
 }

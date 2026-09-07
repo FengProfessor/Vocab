@@ -1,6 +1,6 @@
 {
   "id": "video-cs-08",
-  "youtubeId": "3FUkMwnPsbF",
+  "youtubeId": "we2dStHjbcA",
   "title": "The Legend of the Trojan Horse and Ancient Greece",
   "channel": "TED-Ed",
   "duration": 370,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/3FUkMwnPsbF/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/we2dStHjbcA/hqdefault.jpg",
   "description": "Huyền thoại con ngựa thành Troy: mưu mẹo của Odysseus kết thúc cuộc chiến mười năm.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that The legend of the Trojan Horse endures as history's ultimate warning against deceptive gifts., providing a meaningful summary for learners.",
       "timestampSeek": 333
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-08-cloze-1",
+        "cueId": "video-cs-08-cue-3",
+        "sentence": "Troy's {{blank}} limestone walls had withstood countless bloody charges and heroic spear duels.",
+        "blankWord": "towering",
+        "hintVi": "Nghĩa gợi ý: Những bức tường đá vôi cao chót vót của ...",
+        "timestamp": 74,
+        "options": [
+          "component",
+          "perceptive",
+          "convenient",
+          "towering"
+        ]
+      },
+      {
+        "id": "video-cs-08-cloze-2",
+        "cueId": "video-cs-08-cue-5",
+        "sentence": "{{blank}} carpenters felled pine trees to construct a colossal hollow wooden horse.",
+        "blankWord": "greek",
+        "hintVi": "Nghĩa gợi ý: Những người thợ mộc Hy Lạp đốn hạ những ...",
+        "timestamp": 148,
+        "options": [
+          "sufficient",
+          "spontaneous",
+          "greek",
+          "perspective"
+        ]
+      },
+      {
+        "id": "video-cs-08-cloze-3",
+        "cueId": "video-cs-08-cue-8",
+        "sentence": "{{blank}} the horse was a sacred peace offering to Athena, jubilant Trojans dragged it within their gates.",
+        "blankWord": "believing",
+        "hintVi": "Nghĩa gợi ý: Tin rằng con ngựa là vật cúng tế hòa bìn...",
+        "timestamp": 259,
+        "options": [
+          "believing",
+          "balance",
+          "simultaneous",
+          "protocol"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-08-q1",
+        "question": "What is the primary focus of the video 'The Legend of the Trojan Horse and Ancient Greece'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice the legend of the trojan horse and ancient greece effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores the legend of the trojan horse and ancient greece, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 37
+      },
+      {
+        "id": "video-cs-08-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Greek...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Greek carpenters felled pine trees to construct a colossal h...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Greek carpenters felled pine trees to construct a colossal hollow wooden horse.', showing its practical importance.",
+        "timestampSeek": 148
+      },
+      {
+        "id": "video-cs-08-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: The legend of the Trojan Horse endures as history's ultimate warn...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that The legend of the Trojan Horse endures as history's ultimate warning against deceptive gifts., providing a meaningful summary for learners.",
+        "timestampSeek": 333
+      }
+    ]
+  }
 }

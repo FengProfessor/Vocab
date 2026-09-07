@@ -1,6 +1,6 @@
 {
   "id": "video-wp-20",
-  "youtubeId": "zAuBqv0QBHZ",
+  "youtubeId": "V2eW5jGQe8I",
   "title": "Complete Guide to Acing Behavioral Interviews",
   "channel": "CareerVidz",
   "duration": 660,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/zAuBqv0QBHZ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/V2eW5jGQe8I/hqdefault.jpg",
   "description": "Khóa cẩm nang toàn diện trả lời mọi câu hỏi phỏng vấn tình huống hóc búa.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Show how you navigated severe market adversity and steered your team to safety.', providing deeper technical insight.",
       "timestampSeek": 396
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-20-cloze-1",
+        "cueId": "video-wp-20-cue-3",
+        "sentence": "{{blank}} behavioral question is designed to measure specific leadership competencies.",
+        "blankWord": "every",
+        "hintVi": "Nghĩa gợi ý: Mỗi câu hỏi hành vi được thiết kế để đo ...",
+        "timestamp": 132,
+        "options": [
+          "every",
+          "moderate",
+          "perceptive",
+          "routine"
+        ]
+      },
+      {
+        "id": "video-wp-20-cloze-2",
+        "cueId": "video-wp-20-cue-5",
+        "sentence": "When {{blank}} about project failures, take ownership honestly and outline lessons learned.",
+        "blankWord": "asked",
+        "hintVi": "Nghĩa gợi ý: Khi được hỏi về thất bại dự án, hãy thàn...",
+        "timestamp": 264,
+        "options": [
+          "continuous",
+          "perceptive",
+          "asked",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-wp-20-cloze-3",
+        "cueId": "video-wp-20-cue-8",
+        "sentence": "{{blank}} six versatile narrative stories that map across multiple question categories.",
+        "blankWord": "prepare",
+        "hintVi": "Nghĩa gợi ý: Chuẩn bị sáu câu chuyện tường thuật linh...",
+        "timestamp": 462,
+        "options": [
+          "spontaneous",
+          "continuous",
+          "prepare",
+          "consistent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-20-q1",
+        "question": "What is the primary focus of the video 'Complete Guide to Acing Behavioral Interviews'?",
+        "options": [
+          "To explain and practice complete guide to acing behavioral interviews effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores complete guide to acing behavioral interviews, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 66
+      },
+      {
+        "id": "video-wp-20-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'When...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: When asked about project failures, take ownership honestly a..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'When asked about project failures, take ownership honestly and outline lessons learned.', showing its practical importance.",
+        "timestampSeek": 264
+      },
+      {
+        "id": "video-wp-20-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: An interview is not a test of perfection, but an audition for cul...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that An interview is not a test of perfection, but an audition for cultural collaboration., providing a meaningful summary for learners.",
+        "timestampSeek": 594
+      },
+      {
+        "id": "video-wp-20-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Show...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: Show how you navigated severe market adversity and steered y..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'Show how you navigated severe market adversity and steered your team to safety.', providing deeper technical insight.",
+        "timestampSeek": 396
+      }
+    ]
+  }
 }

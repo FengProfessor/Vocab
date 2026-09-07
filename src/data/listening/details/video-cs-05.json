@@ -1,6 +1,6 @@
 {
   "id": "video-cs-05",
-  "youtubeId": "MSxECf0-guY",
+  "youtubeId": "nllGMx2KgQ0",
   "title": "The History of Birthday Cakes and Candles",
   "channel": "English with Lucy",
   "duration": 265,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/MSxECf0-guY/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/nllGMx2KgQ0/hqdefault.jpg",
   "description": "Lịch sử chiếc bánh sinh nhật và ngọn nến: từ Hy Lạp cổ đại đến phong tục thổi nến ước nguyện.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Sharing sweet cake with loved ones remains our timeless emblem of celebrating another year of life., providing a meaningful summary for learners.",
       "timestampSeek": 238.5
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-05-cloze-1",
+        "cueId": "video-cs-05-cue-3",
+        "sentence": "{{blank}} did this delightful culinary tradition originate in human history?",
+        "blankWord": "where",
+        "hintVi": "Nghĩa gợi ý: Truyền thống ẩm thực thú vị này bắt nguồ...",
+        "timestamp": 53,
+        "options": [
+          "perspective",
+          "where",
+          "moderate",
+          "spontaneous"
+        ]
+      },
+      {
+        "id": "video-cs-05-cloze-2",
+        "cueId": "video-cs-05-cue-5",
+        "sentence": "The {{blank}} candles were meant to make the cake shine like the luminous full moon.",
+        "blankWord": "glowing",
+        "hintVi": "Nghĩa gợi ý: Những ngọn nến phát sáng nhằm mục đích l...",
+        "timestamp": 106,
+        "options": [
+          "perceptive",
+          "reliable",
+          "perspective",
+          "glowing"
+        ]
+      },
+      {
+        "id": "video-cs-05-cloze-3",
+        "cueId": "video-cs-05-cue-8",
+        "sentence": "An {{blank}} 'light of life' candle was added to represent hopes for a healthy upcoming year.",
+        "blankWord": "extra",
+        "hintVi": "Nghĩa gợi ý: Một ngọn nến 'ánh sáng cuộc sống' được t...",
+        "timestamp": 185.5,
+        "options": [
+          "resource",
+          "extra",
+          "innovative",
+          "reliable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-05-q1",
+        "question": "What is the primary focus of the video 'The History of Birthday Cakes and Candles'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice the history of birthday cakes and candles effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores the history of birthday cakes and candles, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 26.5
+      },
+      {
+        "id": "video-cs-05-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: The glowing candles were meant to make the cake shine like t...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'The glowing candles were meant to make the cake shine like the luminous full moon.', showing its practical importance.",
+        "timestampSeek": 106
+      },
+      {
+        "id": "video-cs-05-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Sharing sweet cake with loved ones remains our timeless emblem of..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Sharing sweet cake with loved ones remains our timeless emblem of celebrating another year of life., providing a meaningful summary for learners.",
+        "timestampSeek": 238.5
+      }
+    ]
+  }
 }

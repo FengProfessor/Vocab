@@ -1,6 +1,6 @@
 {
   "id": "video-fs-18",
-  "youtubeId": "4cHjNnfx1B6",
+  "youtubeId": "jDg8DQl7ZeQ",
   "title": "The Art of Wine Tasting and Flavor Descriptors",
   "channel": "English with Lucy",
   "duration": 580,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/4cHjNnfx1B6/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/jDg8DQl7ZeQ/hqdefault.jpg",
   "description": "Nghệ thuật thẩm định rượu vang: hương thơm, tannin, độ chua và hậu vị kéo dài.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Appreciating wine is paying homage to earth, sun, oak, and centuries of human craft., providing a meaningful summary for learners.",
       "timestampSeek": 522
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-18-cloze-1",
+        "cueId": "video-fs-18-cue-3",
+        "sentence": "Hold the {{blank}} wine glass by the stem to avoid warming the liquid with your fingers.",
+        "blankWord": "crystal",
+        "hintVi": "Nghĩa gợi ý: Cầm ly rượu vang pha lê bằng phần cuống ...",
+        "timestamp": 116,
+        "options": [
+          "gradual",
+          "simultaneous",
+          "crystal",
+          "spontaneous"
+        ]
+      },
+      {
+        "id": "video-fs-18-cloze-2",
+        "cueId": "video-fs-18-cue-5",
+        "sentence": "{{blank}} the vintage gently to aerate the wine and release its volatile aromatic compounds.",
+        "blankWord": "swirl",
+        "hintVi": "Nghĩa gợi ý: Lắc nhẹ ly rượu niên vụ để sục khí cho r...",
+        "timestamp": 232,
+        "options": [
+          "remarkable",
+          "swirl",
+          "fundamental",
+          "convenient"
+        ]
+      },
+      {
+        "id": "video-fs-18-cloze-3",
+        "cueId": "video-fs-18-cue-8",
+        "sentence": "{{blank}} the structural balance between crisp acidity and velvety grape tannins.",
+        "blankWord": "evaluate",
+        "hintVi": "Nghĩa gợi ý: Đánh giá sự cân bằng cấu trúc giữa độ ch...",
+        "timestamp": 406,
+        "options": [
+          "substantial",
+          "evaluate",
+          "framework",
+          "vibrant"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-18-q1",
+        "question": "What is the primary focus of the video 'The Art of Wine Tasting and Flavor Descriptors'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice the art of wine tasting and flavor descriptors effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores the art of wine tasting and flavor descriptors, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 58
+      },
+      {
+        "id": "video-fs-18-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Swirl...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Swirl the vintage gently to aerate the wine and release its ...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Swirl the vintage gently to aerate the wine and release its volatile aromatic compounds.', showing its practical importance.",
+        "timestampSeek": 232
+      },
+      {
+        "id": "video-fs-18-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Appreciating wine is paying homage to earth, sun, oak, and centur...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Appreciating wine is paying homage to earth, sun, oak, and centuries of human craft., providing a meaningful summary for learners.",
+        "timestampSeek": 522
+      }
+    ]
+  }
 }

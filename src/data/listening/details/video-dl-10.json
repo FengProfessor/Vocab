@@ -1,6 +1,6 @@
 {
   "id": "video-dl-10",
-  "youtubeId": "OXZwtNZmXqk",
+  "youtubeId": "vq2x7k_nofw",
   "title": "A Quick Trip to the Local Hardware Store",
   "channel": "Learn English with Bob the Canadian",
   "duration": 280,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/OXZwtNZmXqk/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/vq2x7k_nofw/hqdefault.jpg",
   "description": "Cách hỏi mua ốc vít, dụng cụ sửa chữa nhà cửa và nhờ nhân viên cửa hàng tư vấn.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Learning basic DIY maintenance makes you self-reliant and proud., providing a meaningful summary for learners.",
       "timestampSeek": 252
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-10-cloze-1",
+        "cueId": "video-dl-10-cue-3",
+        "sentence": "Let's {{blank}} over to the local hardware store down the street.",
+        "blankWord": "drive",
+        "hintVi": "Nghĩa gợi ý: Chúng ta hãy lái xe đến cửa hàng kim khí...",
+        "timestamp": 56,
+        "options": [
+          "vibrant",
+          "drive",
+          "simultaneous",
+          "strategy"
+        ]
+      },
+      {
+        "id": "video-dl-10-cloze-2",
+        "cueId": "video-dl-10-cue-5",
+        "sentence": "Ask the {{blank}} clerk for help if you cannot find the right screw size.",
+        "blankWord": "friendly",
+        "hintVi": "Nghĩa gợi ý: Hãy nhờ nhân viên thân thiện giúp đỡ nếu...",
+        "timestamp": 112,
+        "options": [
+          "perspective",
+          "continuous",
+          "vulnerable",
+          "friendly"
+        ]
+      },
+      {
+        "id": "video-dl-10-cloze-3",
+        "cueId": "video-dl-10-cue-8",
+        "sentence": "{{blank}} the classic carpenter advice: measure twice and cut once.",
+        "blankWord": "remember",
+        "hintVi": "Nghĩa gợi ý: Hãy nhớ lời khuyên kinh điển của thợ mộc...",
+        "timestamp": 196,
+        "options": [
+          "remember",
+          "moderate",
+          "reliable",
+          "substantial"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-10-q1",
+        "question": "What is the primary focus of the video 'A Quick Trip to the Local Hardware Store'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice a quick trip to the local hardware store effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores a quick trip to the local hardware store, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 28
+      },
+      {
+        "id": "video-dl-10-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Ask...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Ask the friendly clerk for help if you cannot find the right..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Ask the friendly clerk for help if you cannot find the right screw size.', showing its practical importance.",
+        "timestampSeek": 112
+      },
+      {
+        "id": "video-dl-10-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Learning basic DIY maintenance makes you self-reliant and proud....",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Learning basic DIY maintenance makes you self-reliant and proud., providing a meaningful summary for learners.",
+        "timestampSeek": 252
+      }
+    ]
+  }
 }

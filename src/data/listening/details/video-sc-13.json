@@ -1,6 +1,6 @@
 {
   "id": "video-sc-13",
-  "youtubeId": "H4E0TRywhgV",
+  "youtubeId": "USW8yf4L-R4",
   "title": "How to Politely Decline an Invitation Gracefully",
   "channel": "English with Lucy",
   "duration": 420,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/H4E0TRywhgV/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/USW8yf4L-R4/hqdefault.jpg",
   "description": "Cách từ chối lời mời dự tiệc, đám cưới hoặc sự kiện mà không làm mất lòng người mời.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Setting boundaries with kindness preserves both your energy and friendships., providing a meaningful summary for learners.",
       "timestampSeek": 378
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-13-cloze-1",
+        "cueId": "video-sc-13-cue-3",
+        "sentence": "{{blank}}, saying no bluntly can unintentionally hurt the host's feelings.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, từ chối một cách cộc lốc có t...",
+        "timestamp": 84,
+        "options": [
+          "however",
+          "deliberate",
+          "consistent",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-sc-13-cloze-2",
+        "cueId": "video-sc-13-cue-5",
+        "sentence": "{{blank}} by saying: 'Thank you so much for thinking of me; it sounds delightful.'",
+        "blankWord": "start",
+        "hintVi": "Nghĩa gợi ý: Bắt đầu bằng việc nói: 'Cảm ơn bạn rất n...",
+        "timestamp": 168,
+        "options": [
+          "start",
+          "gradual",
+          "alternative",
+          "framework"
+        ]
+      },
+      {
+        "id": "video-sc-13-cloze-3",
+        "cueId": "video-sc-13-cue-8",
+        "sentence": "{{blank}} an alternative date by asking: 'Could we perhaps take a raincheck for lunch?'",
+        "blankWord": "offer",
+        "hintVi": "Nghĩa gợi ý: Đưa ra một ngày thay thế bằng cách hỏi: ...",
+        "timestamp": 294,
+        "options": [
+          "accurate",
+          "remarkable",
+          "consistent",
+          "offer"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-13-q1",
+        "question": "What is the primary focus of the video 'How to Politely Decline an Invitation Gracefully'?",
+        "options": [
+          "To explain and practice how to politely decline an invitation gracefully effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores how to politely decline an invitation gracefully, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 42
+      },
+      {
+        "id": "video-sc-13-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Start...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Start by saying: 'Thank you so much for thinking of me; it s...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Start by saying: 'Thank you so much for thinking of me; it sounds delightful.'', showing its practical importance.",
+        "timestampSeek": 168
+      },
+      {
+        "id": "video-sc-13-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Setting boundaries with kindness preserves both your energy and f...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Setting boundaries with kindness preserves both your energy and friendships., providing a meaningful summary for learners.",
+        "timestampSeek": 378
+      }
+    ]
+  }
 }

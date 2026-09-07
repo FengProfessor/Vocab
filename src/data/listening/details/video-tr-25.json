@@ -1,6 +1,6 @@
 {
   "id": "video-tr-25",
-  "youtubeId": "QnzLISpg5dF",
+  "youtubeId": "juPlEnOKl48",
   "title": "The Trans-Siberian Railway Historical Journey",
   "channel": "TED-Ed",
   "duration": 710,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/QnzLISpg5dF/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/juPlEnOKl48/hqdefault.jpg",
   "description": "Hành trình lịch sử trên tuyến đường sắt xuyên Siberia dài nhất thế giới.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Passengers share black tea from steaming brass samovars and exchange personal histories.', providing deeper technical insight.",
       "timestampSeek": 426
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-25-cloze-1",
+        "cueId": "video-tr-25-cue-3",
+        "sentence": "{{blank}} in late nineteenth-century imperial Russia, it connected Moscow to Vladivostok.",
+        "blankWord": "conceived",
+        "hintVi": "Nghĩa gợi ý: Được thai nghén vào cuối thế kỷ mười chí...",
+        "timestamp": 142,
+        "options": [
+          "routine",
+          "conceived",
+          "perceptive",
+          "continuous"
+        ]
+      },
+      {
+        "id": "video-tr-25-cloze-2",
+        "cueId": "video-tr-25-cue-5",
+        "sentence": "This epic feat of {{blank}} engineering united disparate cultures across two continents.",
+        "blankWord": "civil",
+        "hintVi": "Nghĩa gợi ý: Kỳ tích kỹ thuật dân dụng mang tính sử t...",
+        "timestamp": 284,
+        "options": [
+          "sufficient",
+          "vibrant",
+          "temporary",
+          "civil"
+        ]
+      },
+      {
+        "id": "video-tr-25-cloze-3",
+        "cueId": "video-tr-25-cue-8",
+        "sentence": "{{blank}} through the carriage window into boundless taiga forests inspires profound solitude.",
+        "blankWord": "gazing",
+        "hintVi": "Nghĩa gợi ý: Nhìn qua cửa sổ toa tàu vào những cánh r...",
+        "timestamp": 497,
+        "options": [
+          "gazing",
+          "extensive",
+          "substantial",
+          "adequate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-25-q1",
+        "question": "What is the primary focus of the video 'The Trans-Siberian Railway Historical Journey'?",
+        "options": [
+          "To explain and practice the trans-siberian railway historical journey effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores the trans-siberian railway historical journey, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 71
+      },
+      {
+        "id": "video-tr-25-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'This...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: This epic feat of civil engineering united disparate culture...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'This epic feat of civil engineering united disparate cultures across two continents.', showing its practical importance.",
+        "timestampSeek": 284
+      },
+      {
+        "id": "video-tr-25-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Slow continental travel reconnects modern humans to the magnifice..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Slow continental travel reconnects modern humans to the magnificent scale of our planet., providing a meaningful summary for learners.",
+        "timestampSeek": 639
+      },
+      {
+        "id": "video-tr-25-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Passengers...'?",
+        "options": [
+          "It highlights that: Passengers share black tea from steaming brass samovars and ...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'Passengers share black tea from steaming brass samovars and exchange personal histories.', providing deeper technical insight.",
+        "timestampSeek": 426
+      }
+    ]
+  }
 }

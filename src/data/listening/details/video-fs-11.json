@@ -1,6 +1,6 @@
 {
   "id": "video-fs-11",
-  "youtubeId": "ucfjFAKAwH1",
+  "youtubeId": "FKwmUNffu7M",
   "title": "Returning a Defective Item and Requesting Refunds",
   "channel": "Learn English with Gill",
   "duration": 390,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/ucfjFAKAwH1/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/FKwmUNffu7M/hqdefault.jpg",
   "description": "Cách đổi trả hàng hóa bị lỗi, đòi lại tiền và bảo vệ quyền lợi người tiêu dùng.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Polite firmness backed by statutory consumer law resolves retail disputes effortlessly., providing a meaningful summary for learners.",
       "timestampSeek": 351
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-11-cloze-1",
+        "cueId": "video-fs-11-cue-3",
+        "sentence": "{{blank}} to the customer service counter with the item in its original packaging.",
+        "blankWord": "return",
+        "hintVi": "Nghĩa gợi ý: Quay lại quầy dịch vụ khách hàng cùng sả...",
+        "timestamp": 78,
+        "options": [
+          "criterion",
+          "return",
+          "resource",
+          "vibrant"
+        ]
+      },
+      {
+        "id": "video-fs-11-cloze-2",
+        "cueId": "video-fs-11-cue-5",
+        "sentence": "{{blank}} the exact issue calmly: 'The internal heating element is completely defective.'",
+        "blankWord": "explain",
+        "hintVi": "Nghĩa gợi ý: Giải thích vấn đề chính xác một cách bìn...",
+        "timestamp": 156,
+        "options": [
+          "explain",
+          "simultaneous",
+          "subsequent",
+          "protocol"
+        ]
+      },
+      {
+        "id": "video-fs-11-cloze-3",
+        "cueId": "video-fs-11-cue-8",
+        "sentence": "The {{blank}} will inspect the item to verify it was not damaged through misuse.",
+        "blankWord": "representative",
+        "hintVi": "Nghĩa gợi ý: Đại diện cửa hàng sẽ kiểm tra sản phẩm đ...",
+        "timestamp": 273,
+        "options": [
+          "representative",
+          "alternative",
+          "tremendous",
+          "balance"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-11-q1",
+        "question": "What is the primary focus of the video 'Returning a Defective Item and Requesting Refunds'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice returning a defective item and requesting refunds effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores returning a defective item and requesting refunds, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 39
+      },
+      {
+        "id": "video-fs-11-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Explain...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Explain the exact issue calmly: 'The internal heating elemen...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Explain the exact issue calmly: 'The internal heating element is completely defective.'', showing its practical importance.",
+        "timestampSeek": 156
+      },
+      {
+        "id": "video-fs-11-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Polite firmness backed by statutory consumer law resolves retail ...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Polite firmness backed by statutory consumer law resolves retail disputes effortlessly., providing a meaningful summary for learners.",
+        "timestampSeek": 351
+      }
+    ]
+  }
 }

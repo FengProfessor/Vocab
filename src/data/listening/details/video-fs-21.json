@@ -1,6 +1,6 @@
 {
   "id": "video-fs-21",
-  "youtubeId": "kmWE5iKhNL7",
+  "youtubeId": "xyQY8a-ng6g",
   "title": "Smart Consumerism: Spotting Deceptive Ads",
   "channel": "BBC Learning English",
   "duration": 780,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/kmWE5iKhNL7/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/xyQY8a-ng6g/hqdefault.jpg",
   "description": "Tỉnh táo trước quảng cáo: bẫy giảm giá ảo, tiếp thị người ảnh hưởng và mua sắm có ý thức.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Calculate the true labor cost of an item: how many working hours does it represent?', providing deeper technical insight.",
       "timestampSeek": 468
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-21-cloze-1",
+        "cueId": "video-fs-21-cue-3",
+        "sentence": "{{blank}} agencies employ sophisticated psychological manipulation to induce spending.",
+        "blankWord": "advertising",
+        "hintVi": "Nghĩa gợi ý: Các công ty quảng cáo sử dụng sự thao tú...",
+        "timestamp": 156,
+        "options": [
+          "priority",
+          "vulnerable",
+          "advertising",
+          "flexible"
+        ]
+      },
+      {
+        "id": "video-fs-21-cloze-2",
+        "cueId": "video-fs-21-cue-5",
+        "sentence": "{{blank}} endorsements blur the ethical boundary between genuine recommendations and paid ads.",
+        "blankWord": "influencer",
+        "hintVi": "Nghĩa gợi ý: Sự quảng bá của người có ảnh hưởng làm m...",
+        "timestamp": 312,
+        "options": [
+          "continuous",
+          "influencer",
+          "subsequent",
+          "flexible"
+        ]
+      },
+      {
+        "id": "video-fs-21-cloze-3",
+        "cueId": "video-fs-21-cue-8",
+        "sentence": "Read {{blank}} third-party reviews rather than curated testimonials on brand websites.",
+        "blankWord": "independent",
+        "hintVi": "Nghĩa gợi ý: Đọc những đánh giá độc lập của bên thứ b...",
+        "timestamp": 546,
+        "options": [
+          "perspective",
+          "independent",
+          "vulnerable",
+          "deliberate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-21-q1",
+        "question": "What is the primary focus of the video 'Smart Consumerism: Spotting Deceptive Ads'?",
+        "options": [
+          "To explain and practice smart consumerism: spotting deceptive ads effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores smart consumerism: spotting deceptive ads, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 78
+      },
+      {
+        "id": "video-fs-21-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Influencer...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Influencer endorsements blur the ethical boundary between ge...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Influencer endorsements blur the ethical boundary between genuine recommendations and paid ads.', showing its practical importance.",
+        "timestampSeek": 312
+      },
+      {
+        "id": "video-fs-21-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Sovereign consumerism means buying what enriches your life, not w...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Sovereign consumerism means buying what enriches your life, not what marketing dictates., providing a meaningful summary for learners.",
+        "timestampSeek": 702
+      },
+      {
+        "id": "video-fs-21-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Calculate...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: Calculate the true labor cost of an item: how many working h...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'Calculate the true labor cost of an item: how many working hours does it represent?', providing deeper technical insight.",
+        "timestampSeek": 468
+      }
+    ]
+  }
 }

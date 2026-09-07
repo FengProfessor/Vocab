@@ -1,6 +1,6 @@
 {
   "id": "video-sth-10",
-  "youtubeId": "CF9qT1-HdjO",
+  "youtubeId": "idrbwnWLJ7w",
   "title": "Understanding Nutrition Labels and Calories",
   "channel": "TED-Ed",
   "duration": 440,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/CF9qT1-HdjO/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/idrbwnWLJ7w/hqdefault.jpg",
   "description": "Cách đọc nhãn dinh dưỡng thực phẩm, phân biệt chất béo tốt và nhận diện đường ẩn.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Becoming a literate label reader empowers you to nourish your body with mindful intention., providing a meaningful summary for learners.",
       "timestampSeek": 396
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-10-cloze-1",
+        "cueId": "video-sth-10-cue-3",
+        "sentence": "{{blank}}, the standardized black-and-white nutrition facts label contains objective reality.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, nhãn thông tin dinh dưỡng tiê...",
+        "timestamp": 88,
+        "options": [
+          "moderate",
+          "however",
+          "efficient",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-sth-10-cloze-2",
+        "cueId": "video-sth-10-cue-5",
+        "sentence": "{{blank}} measure the thermal energy your body extracts from metabolizing food items.",
+        "blankWord": "calories",
+        "hintVi": "Nghĩa gợi ý: Calo đo năng lượng nhiệt mà cơ thể bạn c...",
+        "timestamp": 176,
+        "options": [
+          "calories",
+          "perspective",
+          "spontaneous",
+          "sufficient"
+        ]
+      },
+      {
+        "id": "video-sth-10-cloze-3",
+        "cueId": "video-sth-10-cue-8",
+        "sentence": "{{blank}} the 'added sugars' line; manufacturers hide sweeteners under dozens of chemical pseudonyms.",
+        "blankWord": "scrutinize",
+        "hintVi": "Nghĩa gợi ý: Xem xét kỹ dòng 'đường bổ sung'; các nhà...",
+        "timestamp": 308,
+        "options": [
+          "remarkable",
+          "extensive",
+          "simultaneous",
+          "scrutinize"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-10-q1",
+        "question": "What is the primary focus of the video 'Understanding Nutrition Labels and Calories'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice understanding nutrition labels and calories effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores understanding nutrition labels and calories, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 44
+      },
+      {
+        "id": "video-sth-10-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Calories...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Calories measure the thermal energy your body extracts from ...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Calories measure the thermal energy your body extracts from metabolizing food items.', showing its practical importance.",
+        "timestampSeek": 176
+      },
+      {
+        "id": "video-sth-10-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Becoming a literate label reader empowers you to nourish your bod...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Becoming a literate label reader empowers you to nourish your body with mindful intention., providing a meaningful summary for learners.",
+        "timestampSeek": 396
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-dl-21",
-  "youtubeId": "tVYaOpkyn9T",
+  "youtubeId": "yW-YeEc_ULg",
   "title": "Zero-Waste Living: Habits for Beginners",
   "channel": "BBC Learning English",
   "duration": 780,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/tVYaOpkyn9T/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/yW-YeEc_ULg/hqdefault.jpg",
   "description": "Lối sống giảm thiểu rác thải: từ bình nước cá nhân đến túi mua sắm tái sử dụng.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Purchase pantry staples in bulk using your own clean glass jars.', providing deeper technical insight.",
       "timestampSeek": 468
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-21-cloze-1",
+        "cueId": "video-dl-21-cue-3",
+        "sentence": "{{blank}}, zero-waste is not about absolute perfection, but about progress.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, không rác thải không phải là ...",
+        "timestamp": 156,
+        "options": [
+          "prominent",
+          "spontaneous",
+          "however",
+          "efficient"
+        ]
+      },
+      {
+        "id": "video-dl-21-cloze-2",
+        "cueId": "video-dl-21-cue-5",
+        "sentence": "{{blank}} a reusable stainless steel water bottle wherever you travel.",
+        "blankWord": "carry",
+        "hintVi": "Nghĩa gợi ý: Mang theo một bình nước bằng thép không ...",
+        "timestamp": 312,
+        "options": [
+          "carry",
+          "advantage",
+          "favorable",
+          "tremendous"
+        ]
+      },
+      {
+        "id": "video-dl-21-cloze-3",
+        "cueId": "video-dl-21-cue-8",
+        "sentence": "{{blank}} torn garments rather than immediately buying fast-fashion replacements.",
+        "blankWord": "repair",
+        "hintVi": "Nghĩa gợi ý: Sửa chữa quần áo rách thay vì ngay lập t...",
+        "timestamp": 546,
+        "options": [
+          "reliable",
+          "routine",
+          "protocol",
+          "repair"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-21-q1",
+        "question": "What is the primary focus of the video 'Zero-Waste Living: Habits for Beginners'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice zero-waste living: habits for beginners effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores zero-waste living: habits for beginners, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 78
+      },
+      {
+        "id": "video-dl-21-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Carry...'?",
+        "options": [
+          "It emphasizes that: Carry a reusable stainless steel water bottle wherever you t...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Carry a reusable stainless steel water bottle wherever you travel.', showing its practical importance.",
+        "timestampSeek": 312
+      },
+      {
+        "id": "video-dl-21-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Every single piece of plastic you refuse makes a tangible collect...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Every single piece of plastic you refuse makes a tangible collective difference., providing a meaningful summary for learners.",
+        "timestampSeek": 702
+      },
+      {
+        "id": "video-dl-21-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Purchase...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Purchase pantry staples in bulk using your own clean glass j..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'Purchase pantry staples in bulk using your own clean glass jars.', providing deeper technical insight.",
+        "timestampSeek": 468
+      }
+    ]
+  }
 }

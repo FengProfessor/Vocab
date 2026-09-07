@@ -1,6 +1,6 @@
 {
   "id": "video-tr-16",
-  "youtubeId": "6_7GkOuI5Qm",
+  "youtubeId": "SHXPpsIJTb0",
   "title": "Emergency at the Pharmacy While Traveling",
   "channel": "mmmEnglish",
   "duration": 520,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/6_7GkOuI5Qm/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/SHXPpsIJTb0/hqdefault.jpg",
   "description": "Cách mô tả triệu chứng bệnh đột xuất và mua thuốc tại hiệu thuốc nước ngoài.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that A well-stocked personal medical travel kit brings peace of mind across every border., providing a meaningful summary for learners.",
       "timestampSeek": 468
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-16-cloze-1",
+        "cueId": "video-tr-16-cue-3",
+        "sentence": "In {{blank}}, pharmacies are easily identified by a glowing green cross illuminated outside.",
+        "blankWord": "europe",
+        "hintVi": "Nghĩa gợi ý: Ở Châu Âu, các hiệu thuốc rất dễ nhận bi...",
+        "timestamp": 104,
+        "options": [
+          "convenient",
+          "europe",
+          "criterion",
+          "routine"
+        ]
+      },
+      {
+        "id": "video-tr-16-cloze-2",
+        "cueId": "video-tr-16-cue-5",
+        "sentence": "{{blank}} your symptoms clearly: 'I have severe motion sickness, nausea, and a headache.'",
+        "blankWord": "explain",
+        "hintVi": "Nghĩa gợi ý: Giải thích các triệu chứng của bạn rõ rà...",
+        "timestamp": 208,
+        "options": [
+          "explain",
+          "component",
+          "essential",
+          "sufficient"
+        ]
+      },
+      {
+        "id": "video-tr-16-cloze-3",
+        "cueId": "video-tr-16-cue-8",
+        "sentence": "{{blank}} about proper dosage: 'How many tablets should I swallow after meals?'",
+        "blankWord": "inquire",
+        "hintVi": "Nghĩa gợi ý: Hỏi thăm về liều lượng phù hợp: 'Tôi nên...",
+        "timestamp": 364,
+        "options": [
+          "tremendous",
+          "framework",
+          "inquire",
+          "consistent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-16-q1",
+        "question": "What is the primary focus of the video 'Emergency at the Pharmacy While Traveling'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice emergency at the pharmacy while traveling effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores emergency at the pharmacy while traveling, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 52
+      },
+      {
+        "id": "video-tr-16-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Explain...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Explain your symptoms clearly: 'I have severe motion sicknes...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Explain your symptoms clearly: 'I have severe motion sickness, nausea, and a headache.'', showing its practical importance.",
+        "timestampSeek": 208
+      },
+      {
+        "id": "video-tr-16-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: A well-stocked personal medical travel kit brings peace of mind a...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that A well-stocked personal medical travel kit brings peace of mind across every border., providing a meaningful summary for learners.",
+        "timestampSeek": 468
+      }
+    ]
+  }
 }

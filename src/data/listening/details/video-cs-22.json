@@ -1,6 +1,6 @@
 {
   "id": "video-cs-22",
-  "youtubeId": "QwC8i2bM5KQ",
+  "youtubeId": "A0edKgL9EgM",
   "title": "The French Enlightenment and the Birth of Modern Democracy",
   "channel": "The School of Life",
   "duration": 1070,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/QwC8i2bM5KQ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/A0edKgL9EgM/hqdefault.jpg",
   "description": "Kỷ nguyên Khai sáng Pháp: tư tưởng Voltaire, Rousseau, Montesquieu và sự ra đời của nền dân chủ hiện đại.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Jean-Jacques Rousseau argued in The Social Contract that legitimate government derives solely from the consent of the governed.', providing deeper technical insight.",
       "timestampSeek": 642
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-22-cloze-1",
+        "cueId": "video-cs-22-cue-3",
+        "sentence": "{{blank}} citizens possessed few legal rights, enduring censorship, arbitrary arrest, and crushing feudal taxation.",
+        "blankWord": "common",
+        "hintVi": "Nghĩa gợi ý: Những công dân bình thường sở hữu rất ít...",
+        "timestamp": 214,
+        "options": [
+          "alternative",
+          "moderate",
+          "common",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-cs-22-cloze-2",
+        "cueId": "video-cs-22-cue-5",
+        "sentence": "{{blank}} deployed razor-sharp satire to attack religious fanaticism, declaring: 'I detest what you write, but I would give my life to defend your right to write it.'",
+        "blankWord": "voltaire",
+        "hintVi": "Nghĩa gợi ý: Voltaire đã triển khai lối châm biếm sắc...",
+        "timestamp": 428,
+        "options": [
+          "voltaire",
+          "balance",
+          "remarkable",
+          "reliable"
+        ]
+      },
+      {
+        "id": "video-cs-22-cloze-3",
+        "cueId": "video-cs-22-cue-8",
+        "sentence": "Their {{blank}} ideas fueled the French Revolution, the American Constitution, and universal declarations of human rights.",
+        "blankWord": "revolutionary",
+        "hintVi": "Nghĩa gợi ý: Những tư tưởng mang tính cách mạng của h...",
+        "timestamp": 749,
+        "options": [
+          "consistent",
+          "balance",
+          "vulnerable",
+          "revolutionary"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-22-q1",
+        "question": "What is the primary focus of the video 'The French Enlightenment and the Birth of Modern Democracy'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice the french enlightenment and the birth of modern democracy effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores the french enlightenment and the birth of modern democracy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 107
+      },
+      {
+        "id": "video-cs-22-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Voltaire...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Voltaire deployed razor-sharp satire to attack religious fan..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Voltaire deployed razor-sharp satire to attack religious fanaticism, declaring: 'I detest what you write, but I would give my life to defend your right to write it.'', showing its practical importance.",
+        "timestampSeek": 428
+      },
+      {
+        "id": "video-cs-22-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: The Enlightenment reminds us that freedom, reason, and human dign..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that The Enlightenment reminds us that freedom, reason, and human dignity must be perpetually defended against totalitarian impulses., providing a meaningful summary for learners.",
+        "timestampSeek": 963
+      },
+      {
+        "id": "video-cs-22-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Jean-Jacques...'?",
+        "options": [
+          "It highlights that: Jean-Jacques Rousseau argued in The Social Contract that leg...",
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'Jean-Jacques Rousseau argued in The Social Contract that legitimate government derives solely from the consent of the governed.', providing deeper technical insight.",
+        "timestampSeek": 642
+      }
+    ]
+  }
 }

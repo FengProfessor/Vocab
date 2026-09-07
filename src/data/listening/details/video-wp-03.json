@@ -1,6 +1,6 @@
 {
   "id": "video-wp-03",
-  "youtubeId": "piDx4qpIWSG",
+  "youtubeId": "-AOQl94ZYn8",
   "title": "Confirming Work Deadlines and Schedules",
   "channel": "CareerVidz",
   "duration": 260,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/piDx4qpIWSG/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/-AOQl94ZYn8/hqdefault.jpg",
   "description": "Cách xác nhận thời hạn nộp báo cáo và sắp xếp lịch họp với quản lý.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Clear professional timelines protect both quality and peace of mind., providing a meaningful summary for learners.",
       "timestampSeek": 234
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-03-cloze-1",
+        "cueId": "video-wp-03-cue-3",
+        "sentence": "{{blank}} send a brief confirmation note after verbal discussions.",
+        "blankWord": "always",
+        "hintVi": "Nghĩa gợi ý: Luôn gửi một mẩu ghi chú xác nhận ngắn s...",
+        "timestamp": 52,
+        "options": [
+          "always",
+          "reliable",
+          "framework",
+          "gradual"
+        ]
+      },
+      {
+        "id": "video-wp-03-cloze-2",
+        "cueId": "video-wp-03-cue-5",
+        "sentence": "List each key {{blank}} alongside its responsible team member.",
+        "blankWord": "deliverable",
+        "hintVi": "Nghĩa gợi ý: Liệt kê từng sản phẩm bàn giao chính cùn...",
+        "timestamp": 104,
+        "options": [
+          "preliminary",
+          "deliverable",
+          "dimension",
+          "subsequent"
+        ]
+      },
+      {
+        "id": "video-wp-03-cloze-3",
+        "cueId": "video-wp-03-cue-8",
+        "sentence": "{{blank}} wait until the final hour to announce that work is incomplete.",
+        "blankWord": "never",
+        "hintVi": "Nghĩa gợi ý: Đừng bao giờ đợi đến giờ chót mới thông ...",
+        "timestamp": 182,
+        "options": [
+          "essential",
+          "convenient",
+          "never",
+          "adequate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-03-q1",
+        "question": "What is the primary focus of the video 'Confirming Work Deadlines and Schedules'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice confirming work deadlines and schedules effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores confirming work deadlines and schedules, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 26
+      },
+      {
+        "id": "video-wp-03-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'List...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: List each key deliverable alongside its responsible team mem..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'List each key deliverable alongside its responsible team member.', showing its practical importance.",
+        "timestampSeek": 104
+      },
+      {
+        "id": "video-wp-03-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Clear professional timelines protect both quality and peace of mi...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Clear professional timelines protect both quality and peace of mind., providing a meaningful summary for learners.",
+        "timestampSeek": 234
+      }
+    ]
+  }
 }

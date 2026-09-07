@@ -1,6 +1,6 @@
 {
   "id": "video-tr-18",
-  "youtubeId": "-_iS1qA1le2",
+  "youtubeId": "dRgwAU7Y4yY",
   "title": "Cultural Do's and Don'ts for Backpackers",
   "channel": "Wolters World",
   "duration": 560,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/-_iS1qA1le2/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/dRgwAU7Y4yY/hqdefault.jpg",
   "description": "Nghi thức văn hóa quốc tế: tip tiền, trang phục đền chùa và tôn trọng phong tục địa phương.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Culturally conscious travelers build bridges of understanding across our shared world., providing a meaningful summary for learners.",
       "timestampSeek": 504
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-18-cloze-1",
+        "cueId": "video-tr-18-cue-3",
+        "sentence": "Do not {{blank}} the entire world to mirror your hometown customs and behaviors.",
+        "blankWord": "expect",
+        "hintVi": "Nghĩa gợi ý: Đừng mong đợi toàn bộ thế giới sẽ phản c...",
+        "timestamp": 112,
+        "options": [
+          "innovative",
+          "gradual",
+          "expect",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-tr-18-cloze-2",
+        "cueId": "video-tr-18-cue-5",
+        "sentence": "Be {{blank}} of regional religious taboos: dress modestly when touring sacred shrines.",
+        "blankWord": "mindful",
+        "hintVi": "Nghĩa gợi ý: Hãy lưu tâm đến những điều cấm kỵ tôn gi...",
+        "timestamp": 224,
+        "options": [
+          "vibrant",
+          "mindful",
+          "subsequent",
+          "dimension"
+        ]
+      },
+      {
+        "id": "video-tr-18-cloze-3",
+        "cueId": "video-tr-18-cue-8",
+        "sentence": "In {{blank}} Europe, rushing dinner is an insult to the chef's hospitable pride.",
+        "blankWord": "southern",
+        "hintVi": "Nghĩa gợi ý: Ở Nam Âu, ăn tối vội vã là một sự xúc ph...",
+        "timestamp": 392,
+        "options": [
+          "continuous",
+          "balance",
+          "fundamental",
+          "southern"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-18-q1",
+        "question": "What is the primary focus of the video 'Cultural Do's and Don'ts for Backpackers'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice cultural do's and don'ts for backpackers effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores cultural do's and don'ts for backpackers, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 56
+      },
+      {
+        "id": "video-tr-18-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Be...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Be mindful of regional religious taboos: dress modestly when..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Be mindful of regional religious taboos: dress modestly when touring sacred shrines.', showing its practical importance.",
+        "timestampSeek": 224
+      },
+      {
+        "id": "video-tr-18-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Culturally conscious travelers build bridges of understanding acr...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Culturally conscious travelers build bridges of understanding across our shared world., providing a meaningful summary for learners.",
+        "timestampSeek": 504
+      }
+    ]
+  }
 }

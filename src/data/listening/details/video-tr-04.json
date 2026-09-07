@@ -1,6 +1,6 @@
 {
   "id": "video-tr-04",
-  "youtubeId": "IoZFNTEtDi5",
+  "youtubeId": "QnxESeRB2j4",
   "title": "Buying a Metro Ticket at the Automated Kiosk",
   "channel": "Oxford Online English",
   "duration": 280,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/IoZFNTEtDi5/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/QnxESeRB2j4/hqdefault.jpg",
   "description": "Cách sử dụng máy bán vé tàu điện ngầm tự động, chọn tuyến và thanh toán thẻ.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Independent public transit navigation gives you the freedom of a true local., providing a meaningful summary for learners.",
       "timestampSeek": 252
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-04-cloze-1",
+        "cueId": "video-tr-04-cue-3",
+        "sentence": "{{blank}} the automated ticket kiosk and select English from the language flags.",
+        "blankWord": "approach",
+        "hintVi": "Nghĩa gợi ý: Tiến lại gần quầy vé tự động và chọn tiế...",
+        "timestamp": 56,
+        "options": [
+          "approach",
+          "protocol",
+          "priority",
+          "adequate"
+        ]
+      },
+      {
+        "id": "video-tr-04-cloze-2",
+        "cueId": "video-tr-04-cue-5",
+        "sentence": "If you plan to {{blank}} all day, a day pass provides unlimited travel savings.",
+        "blankWord": "sightsee",
+        "hintVi": "Nghĩa gợi ý: Nếu bạn dự định đi ngắm cảnh cả ngày, vé...",
+        "timestamp": 112,
+        "options": [
+          "sightsee",
+          "routine",
+          "protocol",
+          "flexible"
+        ]
+      },
+      {
+        "id": "video-tr-04-cloze-3",
+        "cueId": "video-tr-04-cue-8",
+        "sentence": "{{blank}} your printed ticket receipt and change from the bottom dispensing tray.",
+        "blankWord": "collect",
+        "hintVi": "Nghĩa gợi ý: Lấy biên lai vé đã in và tiền thừa từ kh...",
+        "timestamp": 196,
+        "options": [
+          "balance",
+          "continuous",
+          "collect",
+          "fundamental"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-04-q1",
+        "question": "What is the primary focus of the video 'Buying a Metro Ticket at the Automated Kiosk'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice buying a metro ticket at the automated kiosk effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores buying a metro ticket at the automated kiosk, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 28
+      },
+      {
+        "id": "video-tr-04-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'If...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: If you plan to sightsee all day, a day pass provides unlimit...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'If you plan to sightsee all day, a day pass provides unlimited travel savings.', showing its practical importance.",
+        "timestampSeek": 112
+      },
+      {
+        "id": "video-tr-04-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Independent public transit navigation gives you the freedom of a ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Independent public transit navigation gives you the freedom of a true local., providing a meaningful summary for learners.",
+        "timestampSeek": 252
+      }
+    ]
+  }
 }

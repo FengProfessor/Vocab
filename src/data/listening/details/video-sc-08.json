@@ -1,6 +1,6 @@
 {
   "id": "video-sc-08",
-  "youtubeId": "9o6ghHSPic1",
+  "youtubeId": "amxeGGNwwzE",
   "title": "Asking for Favors and Help Politely",
   "channel": "English with Lucy",
   "duration": 260,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/9o6ghHSPic1/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/amxeGGNwwzE/hqdefault.jpg",
   "description": "Cách nhờ vả lịch sự, dùng các cấu trúc 'Would you mind' và 'Could you possibly'.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Politeness is a superpower that opens doors and wins friends everywhere., providing a meaningful summary for learners.",
       "timestampSeek": 234
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-08-cloze-1",
+        "cueId": "video-sc-08-cue-3",
+        "sentence": "{{blank}} demand assistance abruptly; soften your request with polite conditionals.",
+        "blankWord": "never",
+        "hintVi": "Nghĩa gợi ý: Đừng bao giờ đòi hỏi sự trợ giúp một các...",
+        "timestamp": 52,
+        "options": [
+          "preliminary",
+          "never",
+          "innovative",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-sc-08-cloze-2",
+        "cueId": "video-sc-08-cue-5",
+        "sentence": "The {{blank}} 'Would you mind helping me?' requires answering 'No, not at all' to agree.",
+        "blankWord": "phrase",
+        "hintVi": "Nghĩa gợi ý: Cụm từ 'Would you mind helping me?' đòi ...",
+        "timestamp": 104,
+        "options": [
+          "perspective",
+          "criterion",
+          "balance",
+          "phrase"
+        ]
+      },
+      {
+        "id": "video-sc-08-cloze-3",
+        "cueId": "video-sc-08-cue-8",
+        "sentence": "{{blank}} briefly why you need the favor so they understand your situation.",
+        "blankWord": "explain",
+        "hintVi": "Nghĩa gợi ý: Giải thích ngắn gọn lý do tại sao bạn cầ...",
+        "timestamp": 182,
+        "options": [
+          "explain",
+          "framework",
+          "favorable",
+          "deliberate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-08-q1",
+        "question": "What is the primary focus of the video 'Asking for Favors and Help Politely'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice asking for favors and help politely effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores asking for favors and help politely, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 26
+      },
+      {
+        "id": "video-sc-08-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: The phrase 'Would you mind helping me?' requires answering '..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'The phrase 'Would you mind helping me?' requires answering 'No, not at all' to agree.', showing its practical importance.",
+        "timestampSeek": 104
+      },
+      {
+        "id": "video-sc-08-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Politeness is a superpower that opens doors and wins friends ever...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Politeness is a superpower that opens doors and wins friends everywhere., providing a meaningful summary for learners.",
+        "timestampSeek": 234
+      }
+    ]
+  }
 }

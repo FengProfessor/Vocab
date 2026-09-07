@@ -1,6 +1,6 @@
 {
   "id": "video-fs-27",
-  "youtubeId": "dqC9hmRdW_R",
+  "youtubeId": "VEQaH4LruUo",
   "title": "Psychology of Supermarket Layouts and Spending",
   "channel": "The School of Life",
   "duration": 1040,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/dqC9hmRdW_R/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/VEQaH4LruUo/hqdefault.jpg",
   "description": "Tâm lý học kiến trúc siêu thị: cách bố trí kích thích mua sắm và bẫy chi tiêu vô thức.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Slow, calming background music unconsciously reduces walking speed and lengthens shopping duration.', providing deeper technical insight.",
       "timestampSeek": 624
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-27-cloze-1",
+        "cueId": "video-fs-27-cue-3",
+        "sentence": "{{blank}} lighting angle, floor texture, and product shelf height is calculated with scientific precision.",
+        "blankWord": "every",
+        "hintVi": "Nghĩa gợi ý: Mọi góc chiếu sáng, kết cấu sàn và chiều...",
+        "timestamp": 208,
+        "options": [
+          "vulnerable",
+          "accurate",
+          "extensive",
+          "every"
+        ]
+      },
+      {
+        "id": "video-fs-27-cloze-2",
+        "cueId": "video-fs-27-cue-5",
+        "sentence": "This {{blank}} shoppers to navigate through hundreds of high-margin processed impulse items.",
+        "blankWord": "forces",
+        "hintVi": "Nghĩa gợi ý: Điều này buộc người mua sắm phải đi qua ...",
+        "timestamp": 416,
+        "options": [
+          "forces",
+          "resource",
+          "moderate",
+          "extensive"
+        ]
+      },
+      {
+        "id": "video-fs-27-cloze-3",
+        "cueId": "video-fs-27-cue-8",
+        "sentence": "Eye-level {{blank}} is reserved for premium multinational brands that pay slotting fees.",
+        "blankWord": "shelving",
+        "hintVi": "Nghĩa gợi ý: Các kệ hàng ngang tầm mắt được dành riên...",
+        "timestamp": 728,
+        "options": [
+          "tremendous",
+          "shelving",
+          "favorable",
+          "flexible"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-27-q1",
+        "question": "What is the primary focus of the video 'Psychology of Supermarket Layouts and Spending'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice psychology of supermarket layouts and spending effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores psychology of supermarket layouts and spending, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 104
+      },
+      {
+        "id": "video-fs-27-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'This...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: This forces shoppers to navigate through hundreds of high-ma...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'This forces shoppers to navigate through hundreds of high-margin processed impulse items.', showing its practical importance.",
+        "timestampSeek": 416
+      },
+      {
+        "id": "video-fs-27-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Awakening to retail architecture restores your sovereignty as an ...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Awakening to retail architecture restores your sovereignty as an intentional human being., providing a meaningful summary for learners.",
+        "timestampSeek": 936
+      },
+      {
+        "id": "video-fs-27-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Slow,...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: Slow, calming background music unconsciously reduces walking...",
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'Slow, calming background music unconsciously reduces walking speed and lengthens shopping duration.', providing deeper technical insight.",
+        "timestampSeek": 624
+      }
+    ]
+  }
 }

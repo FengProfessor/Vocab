@@ -1,6 +1,6 @@
 {
   "id": "video-dl-24",
-  "youtubeId": "pk-xwIetIE7",
+  "youtubeId": "x_W_nlgYGtE",
   "title": "Transforming Your Space for Mental Clarity",
   "channel": "BBC Learning English",
   "duration": 680,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/pk-xwIetIE7/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/x_W_nlgYGtE/hqdefault.jpg",
   "description": "Mối liên hệ giữa không gian sống ngăn nắp và sự minh mẫn của tâm trí con người.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Introduce living indoor plants to soften harsh geometric edges and cleanse air.', providing deeper technical insight.",
       "timestampSeek": 408
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-24-cloze-1",
+        "cueId": "video-dl-24-cue-3",
+        "sentence": "{{blank}} rooms constantly trigger low-grade cortisol release in the brain.",
+        "blankWord": "cluttered",
+        "hintVi": "Nghĩa gợi ý: Những căn phòng bừa bộn liên tục kích ho...",
+        "timestamp": 136,
+        "options": [
+          "cluttered",
+          "moderate",
+          "spontaneous",
+          "extensive"
+        ]
+      },
+      {
+        "id": "video-dl-24-cloze-2",
+        "cueId": "video-dl-24-cue-5",
+        "sentence": "{{blank}} by purging broken items, unworn garments, and accumulated paper debris.",
+        "blankWord": "begin",
+        "hintVi": "Nghĩa gợi ý: Hãy bắt đầu bằng việc thanh lọc các đồ v...",
+        "timestamp": 272,
+        "options": [
+          "criterion",
+          "begin",
+          "sufficient",
+          "reliable"
+        ]
+      },
+      {
+        "id": "video-dl-24-cloze-3",
+        "cueId": "video-dl-24-cue-8",
+        "sentence": "Keep {{blank}} pathways wide and unobstructed throughout your living quarters.",
+        "blankWord": "circulation",
+        "hintVi": "Nghĩa gợi ý: Giữ cho các lối đi lại rộng rãi và không...",
+        "timestamp": 476,
+        "options": [
+          "circulation",
+          "perspective",
+          "resource",
+          "tremendous"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-24-q1",
+        "question": "What is the primary focus of the video 'Transforming Your Space for Mental Clarity'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice transforming your space for mental clarity effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores transforming your space for mental clarity, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 68
+      },
+      {
+        "id": "video-dl-24-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Begin...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Begin by purging broken items, unworn garments, and accumula...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Begin by purging broken items, unworn garments, and accumulated paper debris.', showing its practical importance.",
+        "timestampSeek": 272
+      },
+      {
+        "id": "video-dl-24-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Outer order inevitably fosters deep inner serenity and purposeful...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Outer order inevitably fosters deep inner serenity and purposeful focus., providing a meaningful summary for learners.",
+        "timestampSeek": 612
+      },
+      {
+        "id": "video-dl-24-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Introduce...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: Introduce living indoor plants to soften harsh geometric edg...",
+          "It claims this factor has zero impact on the final outcome."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Introduce living indoor plants to soften harsh geometric edges and cleanse air.', providing deeper technical insight.",
+        "timestampSeek": 408
+      }
+    ]
+  }
 }

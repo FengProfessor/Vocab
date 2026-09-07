@@ -1,6 +1,6 @@
 {
   "id": "video-tr-21",
-  "youtubeId": "5pUinDnMsio",
+  "youtubeId": "ly2adYonOVA",
   "title": "Handling Medical Emergencies Abroad",
   "channel": "Oxford Online English",
   "duration": 780,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/5pUinDnMsio/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/ly2adYonOVA/hqdefault.jpg",
   "description": "Quy trình xử lý cấp cứu y tế ở nước ngoài: bảo hiểm, liên hệ lãnh sự và bệnh viện.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'If admitted, notify your insurance provider immediately before undergoing major procedures.', providing deeper technical insight.",
       "timestampSeek": 468
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-21-cloze-1",
+        "cueId": "video-tr-21-cue-3",
+        "sentence": "{{blank}} hospital treatment can cost tens of thousands of dollars without proper cover.",
+        "blankWord": "foreign",
+        "hintVi": "Nghĩa gợi ý: Việc điều trị tại bệnh viện nước ngoài c...",
+        "timestamp": 156,
+        "options": [
+          "gradual",
+          "foreign",
+          "prominent",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-tr-21-cloze-2",
+        "cueId": "video-tr-21-cue-5",
+        "sentence": "{{blank}} your policy includes emergency air evacuation to a world-class regional hospital.",
+        "blankWord": "ensure",
+        "hintVi": "Nghĩa gợi ý: Đảm bảo hợp đồng bảo hiểm của bạn bao gồ...",
+        "timestamp": 312,
+        "options": [
+          "ensure",
+          "efficient",
+          "framework",
+          "alternative"
+        ]
+      },
+      {
+        "id": "video-tr-21-cloze-3",
+        "cueId": "video-tr-21-cue-8",
+        "sentence": "Ask the {{blank}} physician for itemized English medical discharge summaries.",
+        "blankWord": "attending",
+        "hintVi": "Nghĩa gợi ý: Yêu cầu bác sĩ điều trị cung cấp bản tóm...",
+        "timestamp": 546,
+        "options": [
+          "vulnerable",
+          "temporary",
+          "innovative",
+          "attending"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-21-q1",
+        "question": "What is the primary focus of the video 'Handling Medical Emergencies Abroad'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice handling medical emergencies abroad effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores handling medical emergencies abroad, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 78
+      },
+      {
+        "id": "video-tr-21-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Ensure...'?",
+        "options": [
+          "It emphasizes that: Ensure your policy includes emergency air evacuation to a wo...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Ensure your policy includes emergency air evacuation to a world-class regional hospital.', showing its practical importance.",
+        "timestampSeek": 312
+      },
+      {
+        "id": "video-tr-21-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Preparation transforms terrifying medical crises into manageable ...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Preparation transforms terrifying medical crises into manageable operational hurdles., providing a meaningful summary for learners.",
+        "timestampSeek": 702
+      },
+      {
+        "id": "video-tr-21-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'If...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: If admitted, notify your insurance provider immediately befo...",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'If admitted, notify your insurance provider immediately before undergoing major procedures.', providing deeper technical insight.",
+        "timestampSeek": 468
+      }
+    ]
+  }
 }

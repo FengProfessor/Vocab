@@ -1,6 +1,6 @@
 {
   "id": "video-fs-02",
-  "youtubeId": "t5dlZ72pfBO",
+  "youtubeId": "txcyuBCSTq4",
   "title": "Supermarket Produce: Fruits and Weighing",
   "channel": "Learn English with Gill",
   "duration": 230,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/t5dlZ72pfBO/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/txcyuBCSTq4/hqdefault.jpg",
   "description": "Từ vựng mua rau củ quả tươi tại siêu thị, cân ký và kiểm tra độ chín.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Filling your basket with wholesome fresh food is an investment in vitality., providing a meaningful summary for learners.",
       "timestampSeek": 207
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-02-cloze-1",
+        "cueId": "video-fs-02-cue-3",
+        "sentence": "Pick up a {{blank}} plastic or mesh bag from the dispenser roll.",
+        "blankWord": "lightweight",
+        "hintVi": "Nghĩa gợi ý: Lấy một chiếc túi nhựa nhẹ hoặc túi lưới...",
+        "timestamp": 46,
+        "options": [
+          "flexible",
+          "tremendous",
+          "vulnerable",
+          "lightweight"
+        ]
+      },
+      {
+        "id": "video-fs-02-cloze-2",
+        "cueId": "video-fs-02-cue-5",
+        "sentence": "{{blank}} your bag of fresh green apples onto the digital electronic scale.",
+        "blankWord": "place",
+        "hintVi": "Nghĩa gợi ý: Đặt túi táo xanh tươi của bạn lên chiếc ...",
+        "timestamp": 92,
+        "options": [
+          "place",
+          "accurate",
+          "vulnerable",
+          "routine"
+        ]
+      },
+      {
+        "id": "video-fs-02-cloze-3",
+        "cueId": "video-fs-02-cue-8",
+        "sentence": "{{blank}} leafy vegetables like spinach and lettuce to ensure they are crisp.",
+        "blankWord": "inspect",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra các loại rau ăn lá như rau chân...",
+        "timestamp": 161,
+        "options": [
+          "criterion",
+          "spontaneous",
+          "inspect",
+          "sufficient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-02-q1",
+        "question": "What is the primary focus of the video 'Supermarket Produce: Fruits and Weighing'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice supermarket produce: fruits and weighing effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores supermarket produce: fruits and weighing, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 23
+      },
+      {
+        "id": "video-fs-02-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Place...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Place your bag of fresh green apples onto the digital electr..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Place your bag of fresh green apples onto the digital electronic scale.', showing its practical importance.",
+        "timestampSeek": 92
+      },
+      {
+        "id": "video-fs-02-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Filling your basket with wholesome fresh food is an investment in...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Filling your basket with wholesome fresh food is an investment in vitality., providing a meaningful summary for learners.",
+        "timestampSeek": 207
+      }
+    ]
+  }
 }

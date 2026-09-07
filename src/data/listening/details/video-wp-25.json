@@ -1,6 +1,6 @@
 {
   "id": "video-wp-25",
-  "youtubeId": "MMZubgGn8hW",
+  "youtubeId": "PACKOoUK4gE",
   "title": "Executive Presence: Authority with Warmth",
   "channel": "Oxford Online English",
   "duration": 830,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/MMZubgGn8hW/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/PACKOoUK4gE/hqdefault.jpg",
   "description": "Xây dựng phong thái lãnh đạo (Executive Presence): đĩnh đạc, trầm ấm và quyết đoán.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Balance authority with warmth; cold competence inspires compliance, not devoted loyalty.', providing deeper technical insight.",
       "timestampSeek": 498
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-25-cloze-1",
+        "cueId": "video-wp-25-cue-3",
+        "sentence": "{{blank}} demonstrates that presence rests on three pillars: gravitas, communication, and appearance.",
+        "blankWord": "research",
+        "hintVi": "Nghĩa gợi ý: Nghiên cứu chứng minh rằng phong thái dự...",
+        "timestamp": 166,
+        "options": [
+          "convenient",
+          "innovative",
+          "balance",
+          "research"
+        ]
+      },
+      {
+        "id": "video-wp-25-cloze-2",
+        "cueId": "video-wp-25-cue-5",
+        "sentence": "{{blank}} is how you speak: eliminating filler words and speaking with measured cadence.",
+        "blankWord": "communication",
+        "hintVi": "Nghĩa gợi ý: Giao tiếp là cách bạn nói: loại bỏ các t...",
+        "timestamp": 332,
+        "options": [
+          "communication",
+          "alternative",
+          "framework",
+          "spontaneous"
+        ]
+      },
+      {
+        "id": "video-wp-25-cloze-3",
+        "cueId": "video-wp-25-cue-8",
+        "sentence": "{{blank}} expansive, grounded body language that claims appropriate physical space.",
+        "blankWord": "maintain",
+        "hintVi": "Nghĩa gợi ý: Duy trì ngôn ngữ cơ thể mở rộng, vững ch...",
+        "timestamp": 581,
+        "options": [
+          "sufficient",
+          "prominent",
+          "convenient",
+          "maintain"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-25-q1",
+        "question": "What is the primary focus of the video 'Executive Presence: Authority with Warmth'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice executive presence: authority with warmth effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores executive presence: authority with warmth, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 83
+      },
+      {
+        "id": "video-wp-25-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Communication...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Communication is how you speak: eliminating filler words and...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Communication is how you speak: eliminating filler words and speaking with measured cadence.', showing its practical importance.",
+        "timestampSeek": 332
+      },
+      {
+        "id": "video-wp-25-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Executive presence is cultivated through relentless internal disc...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Executive presence is cultivated through relentless internal discipline and emotional mastery., providing a meaningful summary for learners.",
+        "timestampSeek": 747
+      },
+      {
+        "id": "video-wp-25-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Balance...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Balance authority with warmth; cold competence inspires comp...",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Balance authority with warmth; cold competence inspires compliance, not devoted loyalty.', providing deeper technical insight.",
+        "timestampSeek": 498
+      }
+    ]
+  }
 }

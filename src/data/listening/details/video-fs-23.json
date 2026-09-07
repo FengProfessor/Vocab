@@ -1,6 +1,6 @@
 {
   "id": "video-fs-23",
-  "youtubeId": "X9uFY6T6mtd",
+  "youtubeId": "1sISguPDlhY",
   "title": "Specialty Coffee: Origins and Pour-Over Brewing",
   "channel": "BBC Learning English",
   "duration": 900,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/X9uFY6T6mtd/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/1sISguPDlhY/hqdefault.jpg",
   "description": "Thế giới cà phê đặc sản: nguồn gốc hạt Arabica, phương pháp pour-over và nếm thử.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Control water temperature around ninety-three degrees Celsius for optimal extraction.', providing deeper technical insight.",
       "timestampSeek": 540
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-23-cloze-1",
+        "cueId": "video-fs-23-cue-3",
+        "sentence": "Single-origin {{blank}} originate from specific geographic micro-regions and high-altitude farms.",
+        "blankWord": "beans",
+        "hintVi": "Nghĩa gợi ý: Những hạt cà phê đơn nguồn gốc xuất phát...",
+        "timestamp": 180,
+        "options": [
+          "subsequent",
+          "protocol",
+          "beans",
+          "alternative"
+        ]
+      },
+      {
+        "id": "video-fs-23-cloze-2",
+        "cueId": "video-fs-23-cue-5",
+        "sentence": "Pour-over {{blank}} methods like the V60 or Chemex emphasize clarity and acidity.",
+        "blankWord": "brewing",
+        "hintVi": "Nghĩa gợi ý: Các phương pháp pha pour-over nhỏ giọt n...",
+        "timestamp": 360,
+        "options": [
+          "brewing",
+          "dimension",
+          "criterion",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-fs-23-cloze-3",
+        "cueId": "video-fs-23-cue-8",
+        "sentence": "Pour {{blank}} in slow, concentric circles, allowing the coffee bed to bloom evenly.",
+        "blankWord": "water",
+        "hintVi": "Nghĩa gợi ý: Rót nước thành những vòng tròn đồng tâm ...",
+        "timestamp": 630,
+        "options": [
+          "fundamental",
+          "moderate",
+          "water",
+          "subsequent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-23-q1",
+        "question": "What is the primary focus of the video 'Specialty Coffee: Origins and Pour-Over Brewing'?",
+        "options": [
+          "To explain and practice specialty coffee: origins and pour-over brewing effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores specialty coffee: origins and pour-over brewing, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 90
+      },
+      {
+        "id": "video-fs-23-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Pour-over...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Pour-over brewing methods like the V60 or Chemex emphasize c...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Pour-over brewing methods like the V60 or Chemex emphasize clarity and acidity.', showing its practical importance.",
+        "timestampSeek": 360
+      },
+      {
+        "id": "video-fs-23-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Specialty coffee honors the tireless agricultural dedication of s...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Specialty coffee honors the tireless agricultural dedication of smallholder farmers worldwide., providing a meaningful summary for learners.",
+        "timestampSeek": 810
+      },
+      {
+        "id": "video-fs-23-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Control...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Control water temperature around ninety-three degrees Celsiu...",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Control water temperature around ninety-three degrees Celsius for optimal extraction.', providing deeper technical insight.",
+        "timestampSeek": 540
+      }
+    ]
+  }
 }

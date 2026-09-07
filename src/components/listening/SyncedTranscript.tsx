@@ -49,10 +49,17 @@ export const SyncedTranscript: React.FC<SyncedTranscriptProps> = ({
     const activeElement = container.querySelector(`[data-cue-index="${activeIndex}"]`) as HTMLElement | null;
     if (activeElement) {
       isProgrammaticScrollRef.current = true;
-      activeElement.scrollIntoView({
+      // Scroll ONLY within the transcript container div — NEVER scroll the main browser window!
+      const containerRect = container.getBoundingClientRect();
+      const elementRect = activeElement.getBoundingClientRect();
+      const relativeTop = elementRect.top - containerRect.top + container.scrollTop;
+      const targetScrollTop = relativeTop - (container.clientHeight / 2) + (elementRect.height / 2);
+
+      container.scrollTo({
+        top: Math.max(0, targetScrollTop),
         behavior: 'smooth',
-        block: 'center',
       });
+
       // Reset programmatic flag after smooth scroll finishes
       const timer = setTimeout(() => {
         isProgrammaticScrollRef.current = false;
@@ -76,10 +83,16 @@ export const SyncedTranscript: React.FC<SyncedTranscriptProps> = ({
     if (activeIndex !== -1) {
       const container = containerRef.current;
       const activeElement = container?.querySelector(`[data-cue-index="${activeIndex}"]`) as HTMLElement | null;
-      activeElement?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
+      if (container && activeElement) {
+        const containerRect = container.getBoundingClientRect();
+        const elementRect = activeElement.getBoundingClientRect();
+        const relativeTop = elementRect.top - containerRect.top + container.scrollTop;
+        const targetScrollTop = relativeTop - (container.clientHeight / 2) + (elementRect.height / 2);
+        container.scrollTo({
+          top: Math.max(0, targetScrollTop),
+          behavior: 'smooth',
+        });
+      }
     }
   };
 

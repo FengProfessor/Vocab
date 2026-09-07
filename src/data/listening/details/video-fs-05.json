@@ -1,6 +1,6 @@
 {
   "id": "video-fs-05",
-  "youtubeId": "s-BfqS8mReb",
+  "youtubeId": "IINRthI72-A",
   "title": "Paying at the Supermarket Checkout",
   "channel": "English with Lucy",
   "duration": 220,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/s-BfqS8mReb/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/IINRthI72-A/hqdefault.jpg",
   "description": "Giao tiếp tại quầy thu ngân: thanh toán tiền mặt, quẹt thẻ và tích điểm thành viên.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Polite gratitude to retail workers makes everyday errands delightful for everyone., providing a meaningful summary for learners.",
       "timestampSeek": 198
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-05-cloze-1",
+        "cueId": "video-fs-05-cue-3",
+        "sentence": "{{blank}} your heavy grocery items onto the black rubber conveyor belt first.",
+        "blankWord": "place",
+        "hintVi": "Nghĩa gợi ý: Đặt các món hàng tạp hóa nặng lên băng c...",
+        "timestamp": 44,
+        "options": [
+          "extensive",
+          "place",
+          "spontaneous",
+          "tremendous"
+        ]
+      },
+      {
+        "id": "video-fs-05-cloze-2",
+        "cueId": "video-fs-05-cue-5",
+        "sentence": "They will ask: 'Would you like to {{blank}} reusable paper carrier bags?'",
+        "blankWord": "purchase",
+        "hintVi": "Nghĩa gợi ý: Họ sẽ hỏi: 'Bạn có muốn mua túi xách bằn...",
+        "timestamp": 88,
+        "options": [
+          "consistent",
+          "subsequent",
+          "reliable",
+          "purchase"
+        ]
+      },
+      {
+        "id": "video-fs-05-cloze-3",
+        "cueId": "video-fs-05-cue-8",
+        "sentence": "Tap your {{blank}} card against the payment terminal or pay with cash.",
+        "blankWord": "credit",
+        "hintVi": "Nghĩa gợi ý: Quẹt thẻ tín dụng của bạn vào thiết bị t...",
+        "timestamp": 154,
+        "options": [
+          "deliberate",
+          "favorable",
+          "credit",
+          "fundamental"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-05-q1",
+        "question": "What is the primary focus of the video 'Paying at the Supermarket Checkout'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice paying at the supermarket checkout effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores paying at the supermarket checkout, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 22
+      },
+      {
+        "id": "video-fs-05-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'They...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: They will ask: 'Would you like to purchase reusable paper ca...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'They will ask: 'Would you like to purchase reusable paper carrier bags?'', showing its practical importance.",
+        "timestampSeek": 88
+      },
+      {
+        "id": "video-fs-05-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Polite gratitude to retail workers makes everyday errands delight..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Polite gratitude to retail workers makes everyday errands delightful for everyone., providing a meaningful summary for learners.",
+        "timestampSeek": 198
+      }
+    ]
+  }
 }

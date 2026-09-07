@@ -124,6 +124,7 @@ export const YouTubeListeningPlayer = forwardRef<YouTubePlayerHandle, YouTubeLis
     const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const [isApiLoaded, setIsApiLoaded] = useState(false);
     const [hasError, setHasError] = useState(false);
+    const [useIframeFallback, setUseIframeFallback] = useState(false);
 
     // High frequency mutable refs to avoid stale closure trap in 100ms interval
     const isLoopingRef = useRef(isLoopingCue);
@@ -339,30 +340,65 @@ export const YouTubeListeningPlayer = forwardRef<YouTubePlayerHandle, YouTubeLis
     return (
       <div className={`relative w-full overflow-hidden rounded-2xl bg-black shadow-lg ${className}`}>
         <div className="relative aspect-video w-full">
-          {/* Target container for YouTube IFrame injection */}
-          <div id={containerId} className="h-full w-full" />
+          {useIframeFallback ? (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`}
+              title="YouTube Video Player"
+              className="h-full w-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : (
+            <>
+              {/* Target container for YouTube IFrame injection */}
+              <div id={containerId} className="h-full w-full" />
 
-          {/* Loading placeholder before YouTube IFrame loads */}
-          {!isApiLoaded && !hasError && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 text-white">
-              <div className="h-10 w-10 animate-spin rounded-full border-4 border-indigo-500 border-t-transparent" />
-              <p className="mt-3 text-xs font-medium text-slate-400">Đang tải video bài giảng...</p>
-            </div>
-          )}
+              {/* Loading placeholder before YouTube IFrame loads */}
+              {!isApiLoaded && !hasError && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 text-white">
+                  <div className="h-10 w-10 animate-spin rounded-full border-4 border-indigo-500 border-t-transparent" />
+                  <p className="mt-3 text-xs font-medium text-slate-400">Đang tải video bài giảng...</p>
+                </div>
+              )}
 
-          {/* Error fallback */}
-          {hasError && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 p-4 text-center text-white">
-              <p className="text-sm font-semibold text-rose-400">Không thể tải video YouTube</p>
-              <p className="mt-1 text-xs text-slate-400">Vui lòng kiểm tra kết nối mạng hoặc thử lại sau.</p>
-              <button
-                type="button"
-                onClick={() => window.location.reload()}
-                className="mt-3 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigo-700"
-              >
-                Tải lại trang
-              </button>
-            </div>
+              {/* Error fallback */}
+              {hasError && (
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-900/95 p-6 text-center text-white backdrop-blur-xs">
+                  <p className="text-sm font-semibold text-rose-400">Không thể kết nối video YouTube trực tiếp</p>
+                  <p className="mt-1.5 max-w-sm text-xs text-slate-300">
+                    Video có thể giới hạn phát nhúng qua API hoặc kết nối mạng bị gián đoạn.
+                  </p>
+                  <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setUseIframeFallback(true);
+                        setHasError(false);
+                      }}
+                      className="rounded-lg bg-indigo-600 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs hover:bg-indigo-700 active:scale-95"
+                    >
+                      Dùng trình phát nhúng dự phòng
+                    </button>
+                    <a
+                      href={`https://www.youtube.com/watch?v=${videoId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-lg border border-slate-700 bg-slate-800 px-3 py-1.5 text-xs font-semibold text-slate-200 hover:bg-slate-700"
+                    >
+                      <span>Mở xem trên YouTube</span>
+                      <span>↗</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => setHasError(false)}
+                      className="rounded-lg border border-slate-700 px-3 py-1.5 text-xs font-semibold text-slate-300 hover:bg-slate-800"
+                    >
+                      Thử lại
+                    </button>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

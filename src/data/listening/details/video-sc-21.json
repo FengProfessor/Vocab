@@ -1,6 +1,6 @@
 {
   "id": "video-sc-21",
-  "youtubeId": "3NjaMdSpbwt",
+  "youtubeId": "z-IR48Mb3W0",
   "title": "Expressing Empathy and Emotional Support",
   "channel": "BBC Learning English",
   "duration": 700,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/3NjaMdSpbwt/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/z-IR48Mb3W0/hqdefault.jpg",
   "description": "Cách lắng nghe và an ủi người khác trong lúc khó khăn bằng những lời chân thành.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Offering gentle comfort often means sitting silently beside them without speaking.', providing deeper technical insight.",
       "timestampSeek": 420
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-21-cloze-1",
+        "cueId": "video-sc-21-cue-3",
+        "sentence": "{{blank}} often make the mistake of offering hasty, unsolicited advice or toxic positivity.",
+        "blankWord": "people",
+        "hintVi": "Nghĩa gợi ý: Mọi người thường mắc sai lầm là đưa ra n...",
+        "timestamp": 140,
+        "options": [
+          "essential",
+          "people",
+          "preliminary",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-sc-21-cloze-2",
+        "cueId": "video-sc-21-cue-5",
+        "sentence": "{{blank}}, express sincere sympathy: 'I am so sorry for what you are going through.'",
+        "blankWord": "instead",
+        "hintVi": "Nghĩa gợi ý: Thay vào đó, hãy bày tỏ sự thương cảm ch...",
+        "timestamp": 280,
+        "options": [
+          "prominent",
+          "spontaneous",
+          "protocol",
+          "instead"
+        ]
+      },
+      {
+        "id": "video-sc-21-cloze-3",
+        "cueId": "video-sc-21-cue-8",
+        "sentence": "{{blank}} their difficult feelings: 'It is completely understandable that you feel shattered.'",
+        "blankWord": "validate",
+        "hintVi": "Nghĩa gợi ý: Công nhận những cảm xúc khó khăn của họ:...",
+        "timestamp": 490,
+        "options": [
+          "subsequent",
+          "consistent",
+          "fundamental",
+          "validate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-21-q1",
+        "question": "What is the primary focus of the video 'Expressing Empathy and Emotional Support'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice expressing empathy and emotional support effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores expressing empathy and emotional support, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 70
+      },
+      {
+        "id": "video-sc-21-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Instead,...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Instead, express sincere sympathy: 'I am so sorry for what y...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Instead, express sincere sympathy: 'I am so sorry for what you are going through.'', showing its practical importance.",
+        "timestampSeek": 280
+      },
+      {
+        "id": "video-sc-21-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Empathy is the sacred bridge connecting two lonely human souls to...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Empathy is the sacred bridge connecting two lonely human souls together., providing a meaningful summary for learners.",
+        "timestampSeek": 630
+      },
+      {
+        "id": "video-sc-21-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Offering...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Offering gentle comfort often means sitting silently beside ...",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'Offering gentle comfort often means sitting silently beside them without speaking.', providing deeper technical insight.",
+        "timestampSeek": 420
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sc-06",
-  "youtubeId": "XIZrvL-DRKN",
+  "youtubeId": "H6n3iNh4XLI",
   "title": "Apologizing for Small Mistakes Politely",
   "channel": "Oxford Online English",
   "duration": 220,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/XIZrvL-DRKN/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/H6n3iNh4XLI/hqdefault.jpg",
   "description": "Cách nói lời xin lỗi văn minh khi lỡ hẹn, va chạm nhẹ hoặc quên đồ.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Good manners grease the wheels of everyday human coexistence., providing a meaningful summary for learners.",
       "timestampSeek": 198
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-06-cloze-1",
+        "cueId": "video-sc-06-cue-3",
+        "sentence": "The mark of {{blank}} maturity is knowing how to apologize sincerely.",
+        "blankWord": "emotional",
+        "hintVi": "Nghĩa gợi ý: Dấu hiệu của sự trưởng thành cảm xúc là ...",
+        "timestamp": 44,
+        "options": [
+          "emotional",
+          "subsequent",
+          "essential",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-sc-06-cloze-2",
+        "cueId": "video-sc-06-cue-5",
+        "sentence": "{{blank}} the other person that the mishap was entirely unintentional.",
+        "blankWord": "reassure",
+        "hintVi": "Nghĩa gợi ý: Hãy trấn an người kia rằng sự cố hoàn to...",
+        "timestamp": 88,
+        "options": [
+          "resource",
+          "substantial",
+          "innovative",
+          "reassure"
+        ]
+      },
+      {
+        "id": "video-sc-06-cloze-3",
+        "cueId": "video-sc-06-cue-8",
+        "sentence": "Ask {{blank}}: 'Please forgive my delay; shall we order appetizers now?'",
+        "blankWord": "politely",
+        "hintVi": "Nghĩa gợi ý: Hỏi một cách lịch sự: 'Xin hãy tha thứ c...",
+        "timestamp": 154,
+        "options": [
+          "accurate",
+          "politely",
+          "consistent",
+          "moderate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-06-q1",
+        "question": "What is the primary focus of the video 'Apologizing for Small Mistakes Politely'?",
+        "options": [
+          "To explain and practice apologizing for small mistakes politely effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores apologizing for small mistakes politely, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 22
+      },
+      {
+        "id": "video-sc-06-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Reassure...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Reassure the other person that the mishap was entirely unint...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Reassure the other person that the mishap was entirely unintentional.', showing its practical importance.",
+        "timestampSeek": 88
+      },
+      {
+        "id": "video-sc-06-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Good manners grease the wheels of everyday human coexistence....",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Good manners grease the wheels of everyday human coexistence., providing a meaningful summary for learners.",
+        "timestampSeek": 198
+      }
+    ]
+  }
 }

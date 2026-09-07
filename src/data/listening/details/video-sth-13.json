@@ -1,6 +1,6 @@
 {
   "id": "video-sth-13",
-  "youtubeId": "kmJ16aT5GQS",
+  "youtubeId": "6F8wFkScnME",
   "title": "How Noise-Cancelling Headphones Work",
   "channel": "SciShow",
   "duration": 530,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/kmJ16aT5GQS/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/6F8wFkScnME/hqdefault.jpg",
   "description": "Nguyên lý triệt tiêu tiếng ồn chủ động bằng sóng âm nghịch pha trong tai nghe hiện đại.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Active noise cancellation transforms chaotic urban racket into serene auditory sanctuary., providing a meaningful summary for learners.",
       "timestampSeek": 477
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-13-cloze-1",
+        "cueId": "video-sth-13-cue-3",
+        "sentence": "This {{blank}} silence is achieved through precision physics known as phase interference.",
+        "blankWord": "magical",
+        "hintVi": "Nghĩa gợi ý: Sự im lặng kỳ diệu này đạt được nhờ vật ...",
+        "timestamp": 106,
+        "options": [
+          "balance",
+          "gradual",
+          "magical",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-sth-13-cloze-2",
+        "cueId": "video-sth-13-cue-5",
+        "sentence": "Noise-cancelling {{blank}} feature tiny external microphones that continuously sample ambient noise.",
+        "blankWord": "headphones",
+        "hintVi": "Nghĩa gợi ý: Tai nghe khử tiếng ồn có các micro siêu ...",
+        "timestamp": 212,
+        "options": [
+          "moderate",
+          "headphones",
+          "tremendous",
+          "criterion"
+        ]
+      },
+      {
+        "id": "video-sth-13-cloze-3",
+        "cueId": "video-sth-13-cue-8",
+        "sentence": "{{blank}} speakers inside the earcups play this inverted wave directly into your ear canal.",
+        "blankWord": "miniature",
+        "hintVi": "Nghĩa gợi ý: Các loa nhỏ bên trong chụp tai phát sóng...",
+        "timestamp": 371,
+        "options": [
+          "miniature",
+          "moderate",
+          "component",
+          "priority"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-13-q1",
+        "question": "What is the primary focus of the video 'How Noise-Cancelling Headphones Work'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice how noise-cancelling headphones work effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores how noise-cancelling headphones work, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 53
+      },
+      {
+        "id": "video-sth-13-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Noise-cancelling...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Noise-cancelling headphones feature tiny external microphone...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Noise-cancelling headphones feature tiny external microphones that continuously sample ambient noise.', showing its practical importance.",
+        "timestampSeek": 212
+      },
+      {
+        "id": "video-sth-13-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Active noise cancellation transforms chaotic urban racket into se...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Active noise cancellation transforms chaotic urban racket into serene auditory sanctuary., providing a meaningful summary for learners.",
+        "timestampSeek": 477
+      }
+    ]
+  }
 }

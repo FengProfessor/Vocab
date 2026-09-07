@@ -1,6 +1,6 @@
 {
   "id": "video-tr-05",
-  "youtubeId": "UlPf_8J8zIH",
+  "youtubeId": "MYX7RVOf3Yc",
   "title": "Hotel Check-In: Room Key and Amenities",
   "channel": "mmmEnglish",
   "duration": 230,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/UlPf_8J8zIH/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/MYX7RVOf3Yc/hqdefault.jpg",
   "description": "Giao tiếp khi nhận phòng khách sạn: hỏi mật khẩu wifi, giờ ăn sáng và tiện ích.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Take the elevator up to your room, unpack, and prepare for memorable adventures., providing a meaningful summary for learners.",
       "timestampSeek": 207
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-05-cloze-1",
+        "cueId": "video-tr-05-cue-3",
+        "sentence": "Walk up to the {{blank}} desk and say: 'Hello, I have a reservation for three nights.'",
+        "blankWord": "front",
+        "hintVi": "Nghĩa gợi ý: Bước đến quầy lễ tân và nói: 'Xin chào, ...",
+        "timestamp": 46,
+        "options": [
+          "resource",
+          "framework",
+          "vibrant",
+          "front"
+        ]
+      },
+      {
+        "id": "video-tr-05-cloze-2",
+        "cueId": "video-tr-05-cue-5",
+        "sentence": "The {{blank}} will prepare your electronic plastic room keycard in a sleeve.",
+        "blankWord": "receptionist",
+        "hintVi": "Nghĩa gợi ý: Nhân viên lễ tân sẽ chuẩn bị thẻ từ phòn...",
+        "timestamp": 92,
+        "options": [
+          "receptionist",
+          "protocol",
+          "priority",
+          "subsequent"
+        ]
+      },
+      {
+        "id": "video-tr-05-cloze-3",
+        "cueId": "video-tr-05-cue-8",
+        "sentence": "{{blank}} about food: 'Is the morning breakfast buffet complimentary with my booking?'",
+        "blankWord": "inquire",
+        "hintVi": "Nghĩa gợi ý: Hỏi thăm về đồ ăn: 'Bữa sáng tự chọn buổ...",
+        "timestamp": 161,
+        "options": [
+          "inquire",
+          "fundamental",
+          "perceptive",
+          "component"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-05-q1",
+        "question": "What is the primary focus of the video 'Hotel Check-In: Room Key and Amenities'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice hotel check-in: room key and amenities effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores hotel check-in: room key and amenities, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 23
+      },
+      {
+        "id": "video-tr-05-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: The receptionist will prepare your electronic plastic room k...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'The receptionist will prepare your electronic plastic room keycard in a sleeve.', showing its practical importance.",
+        "timestampSeek": 92
+      },
+      {
+        "id": "video-tr-05-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Take the elevator up to your room, unpack, and prepare for memora...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Take the elevator up to your room, unpack, and prepare for memorable adventures., providing a meaningful summary for learners.",
+        "timestampSeek": 207
+      }
+    ]
+  }
 }

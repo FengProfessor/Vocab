@@ -1,6 +1,6 @@
 {
   "id": "video-fs-10",
-  "youtubeId": "biElcyxUj3A",
+  "youtubeId": "4C4wlOAscvY",
   "title": "Fine Dining Etiquette: Courses, Cutlery, and Wine",
   "channel": "English with Lucy",
   "duration": 360,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/biElcyxUj3A/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/4C4wlOAscvY/hqdefault.jpg",
   "description": "Quy tắc dùng bữa tại nhà hàng sang trọng: thứ tự dao nĩa, nếm rượu và gọi món.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Culinary refinement is an art of celebrating craftsmanship, conversation, and joy., providing a meaningful summary for learners.",
       "timestampSeek": 324
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-10-cloze-1",
+        "cueId": "video-fs-10-cue-3",
+        "sentence": "{{blank}} the golden rule of multi-course cutlery: work from the outside inward.",
+        "blankWord": "remember",
+        "hintVi": "Nghĩa gợi ý: Hãy nhớ quy tắc vàng của bộ dao nĩa nhiề...",
+        "timestamp": 72,
+        "options": [
+          "remember",
+          "remarkable",
+          "perceptive",
+          "consistent"
+        ]
+      },
+      {
+        "id": "video-fs-10-cloze-2",
+        "cueId": "video-fs-10-cue-5",
+        "sentence": "{{blank}} the resident sommelier to select a harmonious vintage wine pairing.",
+        "blankWord": "consult",
+        "hintVi": "Nghĩa gợi ý: Tham khảo ý kiến chuyên gia rượu vang tạ...",
+        "timestamp": 144,
+        "options": [
+          "moderate",
+          "routine",
+          "gradual",
+          "consult"
+        ]
+      },
+      {
+        "id": "video-fs-10-cloze-3",
+        "cueId": "video-fs-10-cue-8",
+        "sentence": "A {{blank}} citrus sorbet arrives mid-meal to cleanse the diner's palate.",
+        "blankWord": "refreshing",
+        "hintVi": "Nghĩa gợi ý: Một ly kem sorbet cam quýt giải nhiệt đế...",
+        "timestamp": 252,
+        "options": [
+          "alternative",
+          "refreshing",
+          "vulnerable",
+          "priority"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-10-q1",
+        "question": "What is the primary focus of the video 'Fine Dining Etiquette: Courses, Cutlery, and Wine'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice fine dining etiquette: courses, cutlery, and wine effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores fine dining etiquette: courses, cutlery, and wine, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 36
+      },
+      {
+        "id": "video-fs-10-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Consult...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Consult the resident sommelier to select a harmonious vintag...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Consult the resident sommelier to select a harmonious vintage wine pairing.', showing its practical importance.",
+        "timestampSeek": 144
+      },
+      {
+        "id": "video-fs-10-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Culinary refinement is an art of celebrating craftsmanship, conve...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Culinary refinement is an art of celebrating craftsmanship, conversation, and joy., providing a meaningful summary for learners.",
+        "timestampSeek": 324
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sth-19",
-  "youtubeId": "eAWojlkeKpQ",
+  "youtubeId": "DsQMLrPdLf8",
   "title": "Everyday Tech Habits for Cyber Hygiene and Privacy",
   "channel": "TED-Ed",
   "duration": 670,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/eAWojlkeKpQ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/DsQMLrPdLf8/hqdefault.jpg",
   "description": "Thói quen an toàn mạng hàng ngày: mật khẩu mạnh, xác thực hai lớp và bảo vệ dữ liệu cá nhân.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Always enable two-factor authentication, preferably using an authenticator app rather than SMS text codes.', providing deeper technical insight.",
       "timestampSeek": 402
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-19-cloze-1",
+        "cueId": "video-sth-19-cue-3",
+        "sentence": "Yet {{blank}} cyber hygiene habits are widely neglected, leaving doors wide open to digital predators.",
+        "blankWord": "basic",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, các thói quen vệ sinh mạng cơ...",
+        "timestamp": 134,
+        "options": [
+          "deliberate",
+          "basic",
+          "framework",
+          "innovative"
+        ]
+      },
+      {
+        "id": "video-sth-19-cloze-2",
+        "cueId": "video-sth-19-cue-5",
+        "sentence": "When an {{blank}} retail site suffers a database leak, automated bots test those credentials everywhere.",
+        "blankWord": "obscure",
+        "hintVi": "Nghĩa gợi ý: Khi một trang web bán lẻ ít tên tuổi bị ...",
+        "timestamp": 268,
+        "options": [
+          "extensive",
+          "obscure",
+          "perspective",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-sth-19-cloze-3",
+        "cueId": "video-sth-19-cue-8",
+        "sentence": "Stay {{blank}} against deceptive phishing emails masquerading as urgent notifications from banking institutions.",
+        "blankWord": "vigilant",
+        "hintVi": "Nghĩa gợi ý: Hãy cảnh giác trước các email lừa đảo mạ...",
+        "timestamp": 469,
+        "options": [
+          "advantage",
+          "protocol",
+          "vigilant",
+          "gradual"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-19-q1",
+        "question": "What is the primary focus of the video 'Everyday Tech Habits for Cyber Hygiene and Privacy'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice everyday tech habits for cyber hygiene and privacy effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores everyday tech habits for cyber hygiene and privacy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 67
+      },
+      {
+        "id": "video-sth-19-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'When...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: When an obscure retail site suffers a database leak, automat...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'When an obscure retail site suffers a database leak, automated bots test those credentials everywhere.', showing its practical importance.",
+        "timestampSeek": 268
+      },
+      {
+        "id": "video-sth-19-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Cultivating proactive cyber habits guarantees that technological ...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Cultivating proactive cyber habits guarantees that technological connectivity enriches life without compromising privacy., providing a meaningful summary for learners.",
+        "timestampSeek": 603
+      },
+      {
+        "id": "video-sth-19-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Always...'?",
+        "options": [
+          "It highlights that: Always enable two-factor authentication, preferably using an...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'Always enable two-factor authentication, preferably using an authenticator app rather than SMS text codes.', providing deeper technical insight.",
+        "timestampSeek": 402
+      }
+    ]
+  }
 }

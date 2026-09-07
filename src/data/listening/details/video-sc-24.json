@@ -1,6 +1,6 @@
 {
   "id": "video-sc-24",
-  "youtubeId": "7zqg6cFSoNK",
+  "youtubeId": "wAV-vbHLn3Q",
   "title": "Dealing with Gossip and Maintaining Privacy",
   "channel": "BBC Learning English",
   "duration": 860,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/7zqg6cFSoNK/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/wAV-vbHLn3Q/hqdefault.jpg",
   "description": "Cách từ chối tham gia buôn chuyện tiêu cực và bảo vệ sự riêng tư lịch sự.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'If someone prys into your own personal life, guard your boundary calmly.', providing deeper technical insight.",
       "timestampSeek": 516
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-24-cloze-1",
+        "cueId": "video-sc-24-cue-3",
+        "sentence": "{{blank}} in on rumors may feel bonding, but it destroys mutual integrity.",
+        "blankWord": "joining",
+        "hintVi": "Nghĩa gợi ý: Tham gia vào các tin đồn có thể tạo cảm ...",
+        "timestamp": 172,
+        "options": [
+          "adequate",
+          "efficient",
+          "joining",
+          "alternative"
+        ]
+      },
+      {
+        "id": "video-sc-24-cloze-2",
+        "cueId": "video-sc-24-cue-5",
+        "sentence": "{{blank}} the gossip gently: 'I prefer not to speak about colleagues in their absence.'",
+        "blankWord": "neutralize",
+        "hintVi": "Nghĩa gợi ý: Vô hiệu hóa lời buôn chuyện một cách hòa...",
+        "timestamp": 344,
+        "options": [
+          "framework",
+          "extensive",
+          "spontaneous",
+          "neutralize"
+        ]
+      },
+      {
+        "id": "video-sc-24-cloze-3",
+        "cueId": "video-sc-24-cue-8",
+        "sentence": "Say: 'I {{blank}} to keep that private, but thank you for your friendly concern.'",
+        "blankWord": "prefer",
+        "hintVi": "Nghĩa gợi ý: Nói: 'Tôi muốn giữ điều đó riêng tư, như...",
+        "timestamp": 602,
+        "options": [
+          "protocol",
+          "prefer",
+          "efficient",
+          "alternative"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-24-q1",
+        "question": "What is the primary focus of the video 'Dealing with Gossip and Maintaining Privacy'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice dealing with gossip and maintaining privacy effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores dealing with gossip and maintaining privacy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 86
+      },
+      {
+        "id": "video-sc-24-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Neutralize...'?",
+        "options": [
+          "It emphasizes that: Neutralize the gossip gently: 'I prefer not to speak about c...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Neutralize the gossip gently: 'I prefer not to speak about colleagues in their absence.'', showing its practical importance.",
+        "timestampSeek": 344
+      },
+      {
+        "id": "video-sc-24-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Protect your words, and your reputation will shine with untarnish..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Protect your words, and your reputation will shine with untarnished honor., providing a meaningful summary for learners.",
+        "timestampSeek": 774
+      },
+      {
+        "id": "video-sc-24-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'If...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: If someone prys into your own personal life, guard your boun...",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'If someone prys into your own personal life, guard your boundary calmly.', providing deeper technical insight.",
+        "timestampSeek": 516
+      }
+    ]
+  }
 }

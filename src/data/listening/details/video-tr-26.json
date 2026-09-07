@@ -1,6 +1,6 @@
 {
   "id": "video-tr-26",
-  "youtubeId": "b3GEU1juqDg",
+  "youtubeId": "gOMypAhVaXE",
   "title": "Navigating Remote Border Crossings and Visas",
   "channel": "Wolters World",
   "duration": 830,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/b3GEU1juqDg/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/gOMypAhVaXE/hqdefault.jpg",
   "description": "Thủ tục visa phức tạp và kinh nghiệm vượt qua các cửa khẩu biên giới đất liền hẻo lánh.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Maintain absolute composure and respect when questioned by armed border guards.', providing deeper technical insight.",
       "timestampSeek": 498
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-26-cloze-1",
+        "cueId": "video-tr-26-cue-3",
+        "sentence": "{{blank}} border posts between developing nations involve labyrinthine bureaucratic procedures.",
+        "blankWord": "overland",
+        "hintVi": "Nghĩa gợi ý: Các trạm biên giới đất liền giữa các quố...",
+        "timestamp": 166,
+        "options": [
+          "tremendous",
+          "protocol",
+          "overland",
+          "prominent"
+        ]
+      },
+      {
+        "id": "video-tr-26-cloze-2",
+        "cueId": "video-tr-26-cue-5",
+        "sentence": "{{blank}} required transit visas weeks in advance; land borders rarely issue visas-on-arrival.",
+        "blankWord": "secure",
+        "hintVi": "Nghĩa gợi ý: Xin các thị thực quá cảnh cần thiết từ n...",
+        "timestamp": 332,
+        "options": [
+          "accurate",
+          "secure",
+          "favorable",
+          "tremendous"
+        ]
+      },
+      {
+        "id": "video-tr-26-cloze-3",
+        "cueId": "video-tr-26-cue-8",
+        "sentence": "{{blank}} photograph military checkpoints, watchtowers, or immigration installations.",
+        "blankWord": "never",
+        "hintVi": "Nghĩa gợi ý: Đừng bao giờ chụp ảnh các trạm kiểm soát...",
+        "timestamp": 581,
+        "options": [
+          "routine",
+          "continuous",
+          "never",
+          "favorable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-26-q1",
+        "question": "What is the primary focus of the video 'Navigating Remote Border Crossings and Visas'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice navigating remote border crossings and visas effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores navigating remote border crossings and visas, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 83
+      },
+      {
+        "id": "video-tr-26-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Secure...'?",
+        "options": [
+          "It emphasizes that: Secure required transit visas weeks in advance; land borders...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Secure required transit visas weeks in advance; land borders rarely issue visas-on-arrival.', showing its practical importance.",
+        "timestampSeek": 332
+      },
+      {
+        "id": "video-tr-26-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Patience, humility, and thorough preparation unlock access to the...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Patience, humility, and thorough preparation unlock access to the world's wildest frontiers., providing a meaningful summary for learners.",
+        "timestampSeek": 747
+      },
+      {
+        "id": "video-tr-26-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Maintain...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Maintain absolute composure and respect when questioned by a..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'Maintain absolute composure and respect when questioned by armed border guards.', providing deeper technical insight.",
+        "timestampSeek": 498
+      }
+    ]
+  }
 }

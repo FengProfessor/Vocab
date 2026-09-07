@@ -1,6 +1,6 @@
 {
   "id": "video-dl-26",
-  "youtubeId": "b7TcPqi0aNM",
+  "youtubeId": "Nb0t2XSqsko",
   "title": "Financial Literacy for Young Adults: Budgeting",
   "channel": "BBC Learning English",
   "duration": 810,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/b7TcPqi0aNM/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/Nb0t2XSqsko/hqdefault.jpg",
   "description": "Kỹ năng quản lý tài chính cá nhân: quy tắc 50/30/20 và tích lũy quỹ khẩn cấp.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Twenty percent must be aggressively channeled into savings and debt retirement.', providing deeper technical insight.",
       "timestampSeek": 486
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-26-cloze-1",
+        "cueId": "video-dl-26-cue-3",
+        "sentence": "{{blank}} peace begins not with enormous income, but with intentional allocation.",
+        "blankWord": "financial",
+        "hintVi": "Nghĩa gợi ý: Sự an tâm tài chính bắt đầu không phải t...",
+        "timestamp": 162,
+        "options": [
+          "tremendous",
+          "dimension",
+          "financial",
+          "routine"
+        ]
+      },
+      {
+        "id": "video-dl-26-cloze-2",
+        "cueId": "video-dl-26-cue-5",
+        "sentence": "{{blank}} percent of net income covers essential needs like housing and groceries.",
+        "blankWord": "fifty",
+        "hintVi": "Nghĩa gợi ý: Năm mươi phần trăm thu nhập ròng chi trả...",
+        "timestamp": 324,
+        "options": [
+          "fifty",
+          "sufficient",
+          "remarkable",
+          "strategy"
+        ]
+      },
+      {
+        "id": "video-dl-26-cloze-3",
+        "cueId": "video-dl-26-cue-8",
+        "sentence": "{{blank}} a three-to-six-month emergency cash reserve in an accessible account.",
+        "blankWord": "build",
+        "hintVi": "Nghĩa gợi ý: Xây dựng một quỹ dự phòng khẩn cấp bằng ...",
+        "timestamp": 567,
+        "options": [
+          "temporary",
+          "prominent",
+          "build",
+          "gradual"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-26-q1",
+        "question": "What is the primary focus of the video 'Financial Literacy for Young Adults: Budgeting'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice financial literacy for young adults: budgeting effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores financial literacy for young adults: budgeting, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 81
+      },
+      {
+        "id": "video-dl-26-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Fifty...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Fifty percent of net income covers essential needs like hous...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Fifty percent of net income covers essential needs like housing and groceries.', showing its practical importance.",
+        "timestampSeek": 324
+      },
+      {
+        "id": "video-dl-26-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Mastering your money liberates your future to pursue genuine life...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Mastering your money liberates your future to pursue genuine life callings., providing a meaningful summary for learners.",
+        "timestampSeek": 729
+      },
+      {
+        "id": "video-dl-26-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Twenty...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Twenty percent must be aggressively channeled into savings a...",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'Twenty percent must be aggressively channeled into savings and debt retirement.', providing deeper technical insight.",
+        "timestampSeek": 486
+      }
+    ]
+  }
 }

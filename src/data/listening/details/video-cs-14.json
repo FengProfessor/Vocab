@@ -1,6 +1,6 @@
 {
   "id": "video-cs-14",
-  "youtubeId": "-HWOqJSyDQQ",
+  "youtubeId": "EFcftfqpxK4",
   "title": "The Evolution of Written Language: From Cuneiform to Alphabets",
   "channel": "TED-Ed",
   "duration": 510,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/-HWOqJSyDQQ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/EFcftfqpxK4/hqdefault.jpg",
   "description": "Sự tiến hóa của chữ viết: từ chữ hình nêm Lưỡng Hà, chữ tượng hình đến hệ chữ cái âm vị.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Written script liberated human thought from biological mortality, enabling minds to converse across millennia., providing a meaningful summary for learners.",
       "timestampSeek": 459
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-14-cloze-1",
+        "cueId": "video-cs-14-cue-3",
+        "sentence": "{{blank}} vanished the instant it was uttered, bounding human memory to oral storytelling lineages.",
+        "blankWord": "speech",
+        "hintVi": "Nghĩa gợi ý: Lời nói biến mất ngay khoảnh khắc nó đượ...",
+        "timestamp": 102,
+        "options": [
+          "component",
+          "preliminary",
+          "accurate",
+          "speech"
+        ]
+      },
+      {
+        "id": "video-cs-14-cloze-2",
+        "cueId": "video-cs-14-cue-5",
+        "sentence": "They {{blank}} wedge-tipped reeds into moist clay tablets, inventing cuneiform: history's earliest written script.",
+        "blankWord": "pressed",
+        "hintVi": "Nghĩa gợi ý: Họ ấn những chiếc bút sậy hình nêm vào c...",
+        "timestamp": 204,
+        "options": [
+          "substantial",
+          "simultaneous",
+          "pressed",
+          "flexible"
+        ]
+      },
+      {
+        "id": "video-cs-14-cloze-3",
+        "cueId": "video-cs-14-cue-8",
+        "sentence": "{{blank}} eighteen hundred BCE, Semitic turquoise miners in the Sinai peninsula simplified Egyptian hieroglyphs into roughly thirty phonetic letters.",
+        "blankWord": "around",
+        "hintVi": "Nghĩa gợi ý: Khoảng năm 1800 trước Công nguyên, những...",
+        "timestamp": 357,
+        "options": [
+          "around",
+          "framework",
+          "advantage",
+          "temporary"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-14-q1",
+        "question": "What is the primary focus of the video 'The Evolution of Written Language: From Cuneiform to Alphabets'?",
+        "options": [
+          "To explain and practice the evolution of written language: from cuneiform to alphabets effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores the evolution of written language: from cuneiform to alphabets, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 51
+      },
+      {
+        "id": "video-cs-14-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'They...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: They pressed wedge-tipped reeds into moist clay tablets, inv...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'They pressed wedge-tipped reeds into moist clay tablets, inventing cuneiform: history's earliest written script.', showing its practical importance.",
+        "timestampSeek": 204
+      },
+      {
+        "id": "video-cs-14-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Written script liberated human thought from biological mortality,...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Written script liberated human thought from biological mortality, enabling minds to converse across millennia., providing a meaningful summary for learners.",
+        "timestampSeek": 459
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sth-15",
-  "youtubeId": "9cyHM2qSSR1",
+  "youtubeId": "wUEl8KrMz14",
   "title": "CRISPR Gene Editing: Potential and Ethics",
   "channel": "TED-Ed",
   "duration": 460,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/9cyHM2qSSR1/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/wUEl8KrMz14/hqdefault.jpg",
   "description": "Công nghệ chỉnh sửa gen CRISPR-Cas9: tiềm năng chữa bệnh di truyền và câu hỏi đạo đức.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Harnessing genetic mastery requires matching our technological power with profound moral wisdom., providing a meaningful summary for learners.",
       "timestampSeek": 414
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-15-cloze-1",
+        "cueId": "video-sth-15-cue-3",
+        "sentence": "{{blank}} Cas9 enzymes act as programmable molecular scissors guided by synthetic RNA sequences.",
+        "blankWord": "bacterial",
+        "hintVi": "Nghĩa gợi ý: Các enzyme Cas9 của vi khuẩn hoạt động n...",
+        "timestamp": 92,
+        "options": [
+          "strategy",
+          "accurate",
+          "bacterial",
+          "protocol"
+        ]
+      },
+      {
+        "id": "video-sth-15-cloze-2",
+        "cueId": "video-sth-15-cue-5",
+        "sentence": "{{blank}} repair mechanisms can then insert a healthy corrective gene template precisely.",
+        "blankWord": "cellular",
+        "hintVi": "Nghĩa gợi ý: Các cơ chế sửa chữa tế bào sau đó có thể...",
+        "timestamp": 184,
+        "options": [
+          "cellular",
+          "dimension",
+          "favorable",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-sth-15-cloze-3",
+        "cueId": "video-sth-15-cue-8",
+        "sentence": "This {{blank}} urgent bioethical questions concerning eugenics, societal inequality, and unforeseen mutations.",
+        "blankWord": "raises",
+        "hintVi": "Nghĩa gợi ý: Điều này làm dấy lên những câu hỏi cấp b...",
+        "timestamp": 322,
+        "options": [
+          "protocol",
+          "accurate",
+          "prominent",
+          "raises"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-15-q1",
+        "question": "What is the primary focus of the video 'CRISPR Gene Editing: Potential and Ethics'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice crispr gene editing: potential and ethics effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores crispr gene editing: potential and ethics, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 46
+      },
+      {
+        "id": "video-sth-15-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Cellular...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Cellular repair mechanisms can then insert a healthy correct...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Cellular repair mechanisms can then insert a healthy corrective gene template precisely.', showing its practical importance.",
+        "timestampSeek": 184
+      },
+      {
+        "id": "video-sth-15-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Harnessing genetic mastery requires matching our technological po...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Harnessing genetic mastery requires matching our technological power with profound moral wisdom., providing a meaningful summary for learners.",
+        "timestampSeek": 414
+      }
+    ]
+  }
 }

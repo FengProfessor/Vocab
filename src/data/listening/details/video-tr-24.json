@@ -1,6 +1,6 @@
 {
   "id": "video-tr-24",
-  "youtubeId": "PIfHqpL3xi0",
+  "youtubeId": "v4qGmZUd4gk",
   "title": "Sustainable and Responsible Ecotourism",
   "channel": "BBC Learning English",
   "duration": 960,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/PIfHqpL3xi0/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/v4qGmZUd4gk/hqdefault.jpg",
   "description": "Du lịch có trách nhiệm: giảm rác thải nhựa, bảo vệ động vật hoang dã và hỗ trợ cộng đồng.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Engage with indigenous cultures with deep humility, not extractive photography.', providing deeper technical insight.",
       "timestampSeek": 576
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-24-cloze-1",
+        "cueId": "video-tr-24-cue-3",
+        "sentence": "The {{blank}} of ecotourism urges travelers to tread lightly upon our shared earth.",
+        "blankWord": "philosophy",
+        "hintVi": "Nghĩa gợi ý: Triết lý du lịch sinh thái thôi thúc các...",
+        "timestamp": 192,
+        "options": [
+          "flexible",
+          "philosophy",
+          "advantage",
+          "convenient"
+        ]
+      },
+      {
+        "id": "video-tr-24-cloze-2",
+        "cueId": "video-tr-24-cue-5",
+        "sentence": "{{blank}} tourist attractions that exploit captive wild animals like elephant riding.",
+        "blankWord": "refuse",
+        "hintVi": "Nghĩa gợi ý: Từ chối các điểm tham quan du lịch bóc l...",
+        "timestamp": 384,
+        "options": [
+          "refuse",
+          "dimension",
+          "vulnerable",
+          "strategy"
+        ]
+      },
+      {
+        "id": "video-tr-24-cloze-3",
+        "cueId": "video-tr-24-cue-8",
+        "sentence": "Pack out all non-biodegradable {{blank}} when hiking through remote national parklands.",
+        "blankWord": "trash",
+        "hintVi": "Nghĩa gợi ý: Mang tất cả rác không thể tự phân hủy ra...",
+        "timestamp": 672,
+        "options": [
+          "deliberate",
+          "trash",
+          "gradual",
+          "favorable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-24-q1",
+        "question": "What is the primary focus of the video 'Sustainable and Responsible Ecotourism'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice sustainable and responsible ecotourism effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores sustainable and responsible ecotourism, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 96
+      },
+      {
+        "id": "video-tr-24-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Refuse...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Refuse tourist attractions that exploit captive wild animals...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Refuse tourist attractions that exploit captive wild animals like elephant riding.', showing its practical importance.",
+        "timestampSeek": 384
+      },
+      {
+        "id": "video-tr-24-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Responsible travel preserves the splendor of our planet for futur...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Responsible travel preserves the splendor of our planet for future generations., providing a meaningful summary for learners.",
+        "timestampSeek": 864
+      },
+      {
+        "id": "video-tr-24-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Engage...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: Engage with indigenous cultures with deep humility, not extr...",
+          "It claims this factor has zero impact on the final outcome."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Engage with indigenous cultures with deep humility, not extractive photography.', providing deeper technical insight.",
+        "timestampSeek": 576
+      }
+    ]
+  }
 }

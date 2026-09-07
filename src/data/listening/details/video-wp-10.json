@@ -1,6 +1,6 @@
 {
   "id": "video-wp-10",
-  "youtubeId": "OVK5iUs79JR",
+  "youtubeId": "GWkzCr3i0o0",
   "title": "Giving Updates on Project Milestones",
   "channel": "Oxford Online English",
   "duration": 450,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/OVK5iUs79JR/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/GWkzCr3i0o0/hqdefault.jpg",
   "description": "Báo cáo tiến độ dự án cho quản lý cấp cao: số liệu, rủi ro và các bước tiếp theo.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Transparent project reporting inspires executive confidence and organizational trust., providing a meaningful summary for learners.",
       "timestampSeek": 405
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-10-cloze-1",
+        "cueId": "video-wp-10-cue-3",
+        "sentence": "{{blank}} your milestone update using the traffic light convention: green, amber, red.",
+        "blankWord": "structure",
+        "hintVi": "Nghĩa gợi ý: Cấu trúc báo cáo cột mốc của bạn bằng qu...",
+        "timestamp": 90,
+        "options": [
+          "flexible",
+          "routine",
+          "resource",
+          "structure"
+        ]
+      },
+      {
+        "id": "video-wp-10-cloze-2",
+        "cueId": "video-wp-10-cue-5",
+        "sentence": "{{blank}} the major milestone accomplished during the preceding month.",
+        "blankWord": "highlight",
+        "hintVi": "Nghĩa gợi ý: Làm nổi bật cột mốc quan trọng đã đạt đư...",
+        "timestamp": 180,
+        "options": [
+          "priority",
+          "highlight",
+          "flexible",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-wp-10-cloze-3",
+        "cueId": "video-wp-10-cue-8",
+        "sentence": "{{blank}} the upcoming three key priorities slated for the next operational cycle.",
+        "blankWord": "outline",
+        "hintVi": "Nghĩa gợi ý: Phác thảo ba ưu tiên then chốt sắp tới đ...",
+        "timestamp": 315,
+        "options": [
+          "outline",
+          "gradual",
+          "perspective",
+          "vulnerable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-10-q1",
+        "question": "What is the primary focus of the video 'Giving Updates on Project Milestones'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice giving updates on project milestones effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores giving updates on project milestones, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 45
+      },
+      {
+        "id": "video-wp-10-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Highlight...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Highlight the major milestone accomplished during the preced...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Highlight the major milestone accomplished during the preceding month.', showing its practical importance.",
+        "timestampSeek": 180
+      },
+      {
+        "id": "video-wp-10-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Transparent project reporting inspires executive confidence and o...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Transparent project reporting inspires executive confidence and organizational trust., providing a meaningful summary for learners.",
+        "timestampSeek": 405
+      }
+    ]
+  }
 }

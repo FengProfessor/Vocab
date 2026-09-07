@@ -1,6 +1,6 @@
 {
   "id": "video-sc-18",
-  "youtubeId": "y7-hJsPAzWB",
+  "youtubeId": "YmVpwXH4jhA",
   "title": "Navigating Difficult Conversations with Tact",
   "channel": "Oxford Online English",
   "duration": 550,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/y7-hJsPAzWB/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/YmVpwXH4jhA/hqdefault.jpg",
   "description": "Chiến lược xử lý những cuộc hội thoại căng thẳng, hạ nhiệt xung đột bằng trí tuệ cảm xúc.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Mastering delicate conversations builds relationships that withstand any storm., providing a meaningful summary for learners.",
       "timestampSeek": 495
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-18-cloze-1",
+        "cueId": "video-sc-18-cue-3",
+        "sentence": "When {{blank}} rise, human instinct defaults to fight, flight, or defensiveness.",
+        "blankWord": "tensions",
+        "hintVi": "Nghĩa gợi ý: Khi căng thẳng dâng cao, bản năng con ng...",
+        "timestamp": 110,
+        "options": [
+          "resource",
+          "continuous",
+          "tensions",
+          "gradual"
+        ]
+      },
+      {
+        "id": "video-sc-18-cloze-2",
+        "cueId": "video-sc-18-cue-5",
+        "sentence": "{{blank}} the volume and tempo of your voice to systematically de-escalate anxiety.",
+        "blankWord": "lower",
+        "hintVi": "Nghĩa gợi ý: Hãy hạ thấp âm lượng và nhịp điệu giọng ...",
+        "timestamp": 220,
+        "options": [
+          "vulnerable",
+          "advantage",
+          "consistent",
+          "lower"
+        ]
+      },
+      {
+        "id": "video-sc-18-cloze-3",
+        "cueId": "video-sc-18-cue-8",
+        "sentence": "{{blank}} subjective emotional interpretations from documented concrete facts.",
+        "blankWord": "separate",
+        "hintVi": "Nghĩa gợi ý: Tách biệt những diễn giải cảm xúc chủ qu...",
+        "timestamp": 385,
+        "options": [
+          "continuous",
+          "consistent",
+          "prominent",
+          "separate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-18-q1",
+        "question": "What is the primary focus of the video 'Navigating Difficult Conversations with Tact'?",
+        "options": [
+          "To explain and practice navigating difficult conversations with tact effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores navigating difficult conversations with tact, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 55
+      },
+      {
+        "id": "video-sc-18-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Lower...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Lower the volume and tempo of your voice to systematically d...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Lower the volume and tempo of your voice to systematically de-escalate anxiety.', showing its practical importance.",
+        "timestampSeek": 220
+      },
+      {
+        "id": "video-sc-18-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Mastering delicate conversations builds relationships that withst...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Mastering delicate conversations builds relationships that withstand any storm., providing a meaningful summary for learners.",
+        "timestampSeek": 495
+      }
+    ]
+  }
 }

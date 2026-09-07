@@ -1,6 +1,6 @@
 {
   "id": "video-fs-16",
-  "youtubeId": "dUM1LTEXUju",
+  "youtubeId": "SnmSUQRYjbw",
   "title": "At the Pharmacy: Prescriptions and OTC Drugs",
   "channel": "BBC Learning English",
   "duration": 540,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/dUM1LTEXUju/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/SnmSUQRYjbw/hqdefault.jpg",
   "description": "Phân biệt thuốc kê đơn (Prescription) và thuốc không kê đơn (OTC), hướng dẫn sử dụng.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Consulting qualified medical professionals ensures safe and effective healing., providing a meaningful summary for learners.",
       "timestampSeek": 486
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-16-cloze-1",
+        "cueId": "video-fs-16-cue-3",
+        "sentence": "Over-the-counter or OTC {{blank}} for colds and aches can be purchased freely.",
+        "blankWord": "medicines",
+        "hintVi": "Nghĩa gợi ý: Thuốc không kê đơn hay thuốc OTC trị cảm...",
+        "timestamp": 108,
+        "options": [
+          "prominent",
+          "medicines",
+          "balance",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-fs-16-cloze-2",
+        "cueId": "video-fs-16-cue-5",
+        "sentence": "Ask the {{blank}} chemist if an affordable generic alternative is available.",
+        "blankWord": "dispensing",
+        "hintVi": "Nghĩa gợi ý: Hỏi dược sĩ cấp phát thuốc xem có loại t...",
+        "timestamp": 216,
+        "options": [
+          "dispensing",
+          "gradual",
+          "substantial",
+          "component"
+        ]
+      },
+      {
+        "id": "video-fs-16-cloze-3",
+        "cueId": "video-fs-16-cue-8",
+        "sentence": "{{blank}} whether the pills should be swallowed before, during, or after meals.",
+        "blankWord": "inquire",
+        "hintVi": "Nghĩa gợi ý: Hỏi xem các viên thuốc nên được uống trư...",
+        "timestamp": 378,
+        "options": [
+          "framework",
+          "substantial",
+          "inquire",
+          "efficient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-16-q1",
+        "question": "What is the primary focus of the video 'At the Pharmacy: Prescriptions and OTC Drugs'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice at the pharmacy: prescriptions and otc drugs effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores at the pharmacy: prescriptions and otc drugs, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 54
+      },
+      {
+        "id": "video-fs-16-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Ask...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Ask the dispensing chemist if an affordable generic alternat..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Ask the dispensing chemist if an affordable generic alternative is available.', showing its practical importance.",
+        "timestampSeek": 216
+      },
+      {
+        "id": "video-fs-16-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Consulting qualified medical professionals ensures safe and effec..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Consulting qualified medical professionals ensures safe and effective healing., providing a meaningful summary for learners.",
+        "timestampSeek": 486
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sth-24",
-  "youtubeId": "vARERrBhaEe",
+  "youtubeId": "LC_3i_EPd6s",
   "title": "Epigenetics: How Environment Shapes Gene Expression",
   "channel": "TED-Ed",
   "duration": 880,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/vARERrBhaEe/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/LC_3i_EPd6s/hqdefault.jpg",
   "description": "Di truyền học biểu sinh: môi trường sống và thói quen bật tắt các công tắc gen như thế nào.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'DNA methylation attaches tiny carbon-hydrogen tags to cytosine bases, turning specific genes off.', providing deeper technical insight.",
       "timestampSeek": 528
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-24-cloze-1",
+        "cueId": "video-sth-24-cue-3",
+        "sentence": "Yet {{blank}} twins with identical DNA sequences develop radically divergent illnesses as they age.",
+        "blankWord": "identical",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, những cặp song sinh cùng trứn...",
+        "timestamp": 176,
+        "options": [
+          "component",
+          "dimension",
+          "identical",
+          "subsequent"
+        ]
+      },
+      {
+        "id": "video-sth-24-cloze-2",
+        "cueId": "video-sth-24-cue-5",
+        "sentence": "{{blank}} of your DNA sequence as a magnificent piano containing twenty thousand distinct keys.",
+        "blankWord": "think",
+        "hintVi": "Nghĩa gợi ý: Hãy nghĩ về trình tự DNA của bạn như một...",
+        "timestamp": 352,
+        "options": [
+          "vibrant",
+          "think",
+          "preliminary",
+          "criterion"
+        ]
+      },
+      {
+        "id": "video-sth-24-cloze-3",
+        "cueId": "video-sth-24-cue-8",
+        "sentence": "{{blank}}, environmental factors like chronic stress, nutrition, and exercise remodel histone proteins.",
+        "blankWord": "meanwhile",
+        "hintVi": "Nghĩa gợi ý: Trong khi đó, các yếu tố môi trường như ...",
+        "timestamp": 616,
+        "options": [
+          "meanwhile",
+          "flexible",
+          "advantage",
+          "vulnerable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-24-q1",
+        "question": "What is the primary focus of the video 'Epigenetics: How Environment Shapes Gene Expression'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice epigenetics: how environment shapes gene expression effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores epigenetics: how environment shapes gene expression, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 88
+      },
+      {
+        "id": "video-sth-24-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Think...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Think of your DNA sequence as a magnificent piano containing...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Think of your DNA sequence as a magnificent piano containing twenty thousand distinct keys.', showing its practical importance.",
+        "timestampSeek": 352
+      },
+      {
+        "id": "video-sth-24-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Through conscious lifestyle choices, you hold the biological powe...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Through conscious lifestyle choices, you hold the biological power to orchestrate your own genetic symphony., providing a meaningful summary for learners.",
+        "timestampSeek": 792
+      },
+      {
+        "id": "video-sth-24-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'DNA...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: DNA methylation attaches tiny carbon-hydrogen tags to cytosi..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'DNA methylation attaches tiny carbon-hydrogen tags to cytosine bases, turning specific genes off.', providing deeper technical insight.",
+        "timestampSeek": 528
+      }
+    ]
+  }
 }

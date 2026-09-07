@@ -1,6 +1,6 @@
 {
   "id": "video-sc-15",
-  "youtubeId": "3fsxpBytbJi",
+  "youtubeId": "kOVdiDUlNsg",
   "title": "Expressing Disagreement Without Being Rude",
   "channel": "Oxford Online English",
   "duration": 480,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/3fsxpBytbJi/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/kOVdiDUlNsg/hqdefault.jpg",
   "description": "Cách tranh luận văn minh, dùng các câu 'I see your point, however' để giữ hòa khí.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Respectful disagreement often produces the wisest collective solutions., providing a meaningful summary for learners.",
       "timestampSeek": 432
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-15-cloze-1",
+        "cueId": "video-sc-15-cue-3",
+        "sentence": "{{blank}} declaring 'You are wrong' immediately triggers defensive emotional barriers.",
+        "blankWord": "bluntly",
+        "hintVi": "Nghĩa gợi ý: Việc tuyên bố cộc lốc 'Bạn sai rồi' ngay...",
+        "timestamp": 96,
+        "options": [
+          "efficient",
+          "bluntly",
+          "priority",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-sc-15-cloze-2",
+        "cueId": "video-sc-15-cue-5",
+        "sentence": "Then {{blank}} your alternate perspective with tactful diplomatic language.",
+        "blankWord": "introduce",
+        "hintVi": "Nghĩa gợi ý: Sau đó đưa ra góc nhìn thay thế của bạn ...",
+        "timestamp": 192,
+        "options": [
+          "protocol",
+          "routine",
+          "priority",
+          "introduce"
+        ]
+      },
+      {
+        "id": "video-sc-15-cloze-3",
+        "cueId": "video-sc-15-cue-8",
+        "sentence": "{{blank}} linguistic diplomacy prevents social relationships from fracturing over debates.",
+        "blankWord": "mastering",
+        "hintVi": "Nghĩa gợi ý: Làm chủ sự khéo léo trong ngôn ngữ giúp ...",
+        "timestamp": 336,
+        "options": [
+          "dimension",
+          "efficient",
+          "mastering",
+          "continuous"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-15-q1",
+        "question": "What is the primary focus of the video 'Expressing Disagreement Without Being Rude'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice expressing disagreement without being rude effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores expressing disagreement without being rude, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 48
+      },
+      {
+        "id": "video-sc-15-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Then...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Then introduce your alternate perspective with tactful diplo...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Then introduce your alternate perspective with tactful diplomatic language.', showing its practical importance.",
+        "timestampSeek": 192
+      },
+      {
+        "id": "video-sc-15-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Respectful disagreement often produces the wisest collective solu..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Respectful disagreement often produces the wisest collective solutions., providing a meaningful summary for learners.",
+        "timestampSeek": 432
+      }
+    ]
+  }
 }

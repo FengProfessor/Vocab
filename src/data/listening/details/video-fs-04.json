@@ -1,6 +1,6 @@
 {
   "id": "video-fs-04",
-  "youtubeId": "eO9tSsdBDnb",
+  "youtubeId": "EebIaiwNh9k",
   "title": "Shopping for Clothes: Sizes and Fitting Rooms",
   "channel": "Learn English with Gill",
   "duration": 270,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/eO9tSsdBDnb/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/EebIaiwNh9k/hqdefault.jpg",
   "description": "Cách hỏi nhân viên cửa hàng quần áo về size, màu sắc và phòng thử đồ.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Wearing clothes that fit your body comfortably radiates effortless confidence., providing a meaningful summary for learners.",
       "timestampSeek": 243
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-04-cloze-1",
+        "cueId": "video-fs-04-cue-3",
+        "sentence": "{{blank}} the clothing racks organized by department, color, and style.",
+        "blankWord": "browse",
+        "hintVi": "Nghĩa gợi ý: Duyệt qua các giá treo quần áo được sắp ...",
+        "timestamp": 54,
+        "options": [
+          "accurate",
+          "routine",
+          "browse",
+          "extensive"
+        ]
+      },
+      {
+        "id": "video-fs-04-cloze-2",
+        "cueId": "video-fs-04-cue-5",
+        "sentence": "Say: '{{blank}} me, do you happen to have this woolen sweater in a medium?'",
+        "blankWord": "excuse",
+        "hintVi": "Nghĩa gợi ý: Nói: 'Xin lỗi, cửa hàng có chiếc áo len ...",
+        "timestamp": 108,
+        "options": [
+          "excuse",
+          "priority",
+          "framework",
+          "deliberate"
+        ]
+      },
+      {
+        "id": "video-fs-04-cloze-3",
+        "cueId": "video-fs-04-cue-8",
+        "sentence": "{{blank}} how the garment fits around your shoulders, waist, and length.",
+        "blankWord": "check",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra xem trang phục vừa vặn quanh va...",
+        "timestamp": 189,
+        "options": [
+          "check",
+          "deliberate",
+          "strategy",
+          "routine"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-04-q1",
+        "question": "What is the primary focus of the video 'Shopping for Clothes: Sizes and Fitting Rooms'?",
+        "options": [
+          "To explain and practice shopping for clothes: sizes and fitting rooms effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores shopping for clothes: sizes and fitting rooms, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 27
+      },
+      {
+        "id": "video-fs-04-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Say:...'?",
+        "options": [
+          "It emphasizes that: Say: 'Excuse me, do you happen to have this woolen sweater i...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Say: 'Excuse me, do you happen to have this woolen sweater in a medium?'', showing its practical importance.",
+        "timestampSeek": 108
+      },
+      {
+        "id": "video-fs-04-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Wearing clothes that fit your body comfortably radiates effortles...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Wearing clothes that fit your body comfortably radiates effortless confidence., providing a meaningful summary for learners.",
+        "timestampSeek": 243
+      }
+    ]
+  }
 }

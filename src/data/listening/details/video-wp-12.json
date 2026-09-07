@@ -1,6 +1,6 @@
 {
   "id": "video-wp-12",
-  "youtubeId": "vmSQJeWT_2u",
+  "youtubeId": "DHDrj0_bMQ0",
   "title": "Explaining Technical Ideas to Non-Tech Teams",
   "channel": "CareerVidz",
   "duration": 510,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/vmSQJeWT_2u/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/DHDrj0_bMQ0/hqdefault.jpg",
   "description": "Kỹ năng dịch thuật ngữ kỹ thuật sang ngôn ngữ kinh doanh dễ hiểu cho phòng ban khác.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Engineers who master business translation become invaluable organizational leaders., providing a meaningful summary for learners.",
       "timestampSeek": 459
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-12-cloze-1",
+        "cueId": "video-wp-12-cue-3",
+        "sentence": "The root {{blank}} is speaking in dense technical acronyms and obscure jargon.",
+        "blankWord": "cause",
+        "hintVi": "Nghĩa gợi ý: Nguyên nhân gốc rễ là nói bằng những từ ...",
+        "timestamp": 102,
+        "options": [
+          "strategy",
+          "dimension",
+          "cause",
+          "continuous"
+        ]
+      },
+      {
+        "id": "video-wp-12-cloze-2",
+        "cueId": "video-wp-12-cue-5",
+        "sentence": "{{blank}} a vivid analogy: compare cloud storage to renting an expandable warehouse.",
+        "blankWord": "employ",
+        "hintVi": "Nghĩa gợi ý: Sử dụng một phép so sánh sinh động: ví l...",
+        "timestamp": 204,
+        "options": [
+          "favorable",
+          "essential",
+          "employ",
+          "prominent"
+        ]
+      },
+      {
+        "id": "video-wp-12-cloze-3",
+        "cueId": "video-wp-12-cue-8",
+        "sentence": "{{blank}} for comprehension frequently: 'Does this workflow make practical sense?'",
+        "blankWord": "check",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra mức độ hiểu thường xuyên: 'Quy ...",
+        "timestamp": 357,
+        "options": [
+          "gradual",
+          "remarkable",
+          "spontaneous",
+          "check"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-12-q1",
+        "question": "What is the primary focus of the video 'Explaining Technical Ideas to Non-Tech Teams'?",
+        "options": [
+          "To explain and practice explaining technical ideas to non-tech teams effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores explaining technical ideas to non-tech teams, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 51
+      },
+      {
+        "id": "video-wp-12-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Employ...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Employ a vivid analogy: compare cloud storage to renting an ...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Employ a vivid analogy: compare cloud storage to renting an expandable warehouse.', showing its practical importance.",
+        "timestampSeek": 204
+      },
+      {
+        "id": "video-wp-12-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Engineers who master business translation become invaluable organ...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Engineers who master business translation become invaluable organizational leaders., providing a meaningful summary for learners.",
+        "timestampSeek": 459
+      }
+    ]
+  }
 }

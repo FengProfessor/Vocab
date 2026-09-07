@@ -1,6 +1,6 @@
 {
   "id": "video-fs-13",
-  "youtubeId": "vdcv6oaPaA2",
+  "youtubeId": "bgfdqVmVjfk",
   "title": "Reading Food Nutrition Labels Accurately",
   "channel": "BBC Learning English",
   "duration": 450,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/vdcv6oaPaA2/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/bgfdqVmVjfk/hqdefault.jpg",
   "description": "Cách đọc bảng thành phần dinh dưỡng: chất béo, đường bổ sung, natri và calo.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Nutritional literacy empowers you to take absolute ownership of your vitality., providing a meaningful summary for learners.",
       "timestampSeek": 405
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-13-cloze-1",
+        "cueId": "video-fs-13-cue-3",
+        "sentence": "To {{blank}} what you are truly putting into your body, flip the box around.",
+        "blankWord": "understand",
+        "hintVi": "Nghĩa gợi ý: Để hiểu những gì bạn thực sự đang đưa và...",
+        "timestamp": 90,
+        "options": [
+          "subsequent",
+          "sufficient",
+          "innovative",
+          "understand"
+        ]
+      },
+      {
+        "id": "video-fs-13-cloze-2",
+        "cueId": "video-fs-13-cue-5",
+        "sentence": "{{blank}} the serving size first; a single small bottle may contain three servings.",
+        "blankWord": "check",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra khẩu phần ăn trước; một chai nh...",
+        "timestamp": 180,
+        "options": [
+          "efficient",
+          "perspective",
+          "simultaneous",
+          "check"
+        ]
+      },
+      {
+        "id": "video-fs-13-cloze-3",
+        "cueId": "video-fs-13-cue-8",
+        "sentence": "{{blank}} products containing elevated amounts of artery-clogging saturated fats.",
+        "blankWord": "avoid",
+        "hintVi": "Nghĩa gợi ý: Tránh các sản phẩm chứa lượng lớn chất b...",
+        "timestamp": 315,
+        "options": [
+          "convenient",
+          "framework",
+          "avoid",
+          "consistent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-13-q1",
+        "question": "What is the primary focus of the video 'Reading Food Nutrition Labels Accurately'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice reading food nutrition labels accurately effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores reading food nutrition labels accurately, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 45
+      },
+      {
+        "id": "video-fs-13-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Check...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Check the serving size first; a single small bottle may cont...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Check the serving size first; a single small bottle may contain three servings.', showing its practical importance.",
+        "timestampSeek": 180
+      },
+      {
+        "id": "video-fs-13-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Nutritional literacy empowers you to take absolute ownership of y...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Nutritional literacy empowers you to take absolute ownership of your vitality., providing a meaningful summary for learners.",
+        "timestampSeek": 405
+      }
+    ]
+  }
 }

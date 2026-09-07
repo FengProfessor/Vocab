@@ -1,6 +1,6 @@
 {
   "id": "video-wp-07",
-  "youtubeId": "V9odSut_zqd",
+  "youtubeId": "vA-E7ryacmI",
   "title": "Writing Clear and Concise Business Emails",
   "channel": "Oxford Online English",
   "duration": 360,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/V9odSut_zqd/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/vA-E7ryacmI/hqdefault.jpg",
   "description": "Quy tắc viết email thương mại chuyên nghiệp: cấu trúc dòng tiêu đề và lời kết thúc.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Masterful corporate writing commands immediate respect across global organizations., providing a meaningful summary for learners.",
       "timestampSeek": 324
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-07-cloze-1",
+        "cueId": "video-wp-07-cue-3",
+        "sentence": "{{blank}} long, rambling paragraphs guarantees your email will be ignored.",
+        "blankWord": "writing",
+        "hintVi": "Nghĩa gợi ý: Viết những đoạn văn dài dòng, lan man đả...",
+        "timestamp": 72,
+        "options": [
+          "writing",
+          "flexible",
+          "remarkable",
+          "temporary"
+        ]
+      },
+      {
+        "id": "video-wp-07-cloze-2",
+        "cueId": "video-wp-07-cue-5",
+        "sentence": "Open with a {{blank}} greeting directed to the specific recipient.",
+        "blankWord": "professional",
+        "hintVi": "Nghĩa gợi ý: Mở đầu bằng lời chào chuyên nghiệp gửi t...",
+        "timestamp": 144,
+        "options": [
+          "priority",
+          "protocol",
+          "professional",
+          "subsequent"
+        ]
+      },
+      {
+        "id": "video-wp-07-cloze-3",
+        "cueId": "video-wp-07-cue-8",
+        "sentence": "{{blank}} exact deadlines for any requested feedback or approval.",
+        "blankWord": "specify",
+        "hintVi": "Nghĩa gợi ý: Nêu rõ các hạn chót chính xác cho bất kỳ...",
+        "timestamp": 252,
+        "options": [
+          "substantial",
+          "vibrant",
+          "specify",
+          "perspective"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-07-q1",
+        "question": "What is the primary focus of the video 'Writing Clear and Concise Business Emails'?",
+        "options": [
+          "To explain and practice writing clear and concise business emails effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores writing clear and concise business emails, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 36
+      },
+      {
+        "id": "video-wp-07-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Open...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Open with a professional greeting directed to the specific r...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Open with a professional greeting directed to the specific recipient.', showing its practical importance.",
+        "timestampSeek": 144
+      },
+      {
+        "id": "video-wp-07-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Masterful corporate writing commands immediate respect across glo..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Masterful corporate writing commands immediate respect across global organizations., providing a meaningful summary for learners.",
+        "timestampSeek": 324
+      }
+    ]
+  }
 }

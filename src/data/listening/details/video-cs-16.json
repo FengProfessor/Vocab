@@ -1,6 +1,6 @@
 {
   "id": "video-cs-16",
-  "youtubeId": "PR68hXD8o-Z",
+  "youtubeId": "vn3e37VWc0k",
   "title": "Architectural Heritage: Restoring the Notre-Dame Cathedral",
   "channel": "BBC Learning English",
   "duration": 580,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/PR68hXD8o-Z/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/vn3e37VWc0k/hqdefault.jpg",
   "description": "Di sản kiến trúc: đại tu phục dựng Nhà thờ Đức Bà Paris sau vụ hỏa hoạn lịch sử năm 2019.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Notre-Dame's rebirth proves that collective human devotion can triumph over catastrophic ruin., providing a meaningful summary for learners.",
       "timestampSeek": 522
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-16-cloze-1",
+        "cueId": "video-cs-16-cue-3",
+        "sentence": "The cathedral's nineteen-century {{blank}} spire collapsed into an inferno, threatening to bring down centuries-old limestone vaults.",
+        "blankWord": "wooden",
+        "hintVi": "Nghĩa gợi ý: Ngọn tháp gỗ thế kỷ 19 của nhà thờ sụp đ...",
+        "timestamp": 116,
+        "options": [
+          "resource",
+          "wooden",
+          "moderate",
+          "continuous"
+        ]
+      },
+      {
+        "id": "video-cs-16-cloze-2",
+        "cueId": "video-cs-16-cue-5",
+        "sentence": "The {{blank}} became France's greatest peacetime engineering and artisanal endeavor.",
+        "blankWord": "restoration",
+        "hintVi": "Nghĩa gợi ý: Công cuộc phục dựng đã trở thành nỗ lực ...",
+        "timestamp": 232,
+        "options": [
+          "tremendous",
+          "restoration",
+          "accurate",
+          "strategy"
+        ]
+      },
+      {
+        "id": "video-cs-16-cloze-3",
+        "cueId": "video-cs-16-cue-8",
+        "sentence": "{{blank}} carpenters hewed timber logs using hand axes and medieval peg joinery methods, avoiding modern nails.",
+        "blankWord": "master",
+        "hintVi": "Nghĩa gợi ý: Những người thợ mộc bậc thầy đã đẽo các ...",
+        "timestamp": 406,
+        "options": [
+          "perspective",
+          "gradual",
+          "essential",
+          "master"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-16-q1",
+        "question": "What is the primary focus of the video 'Architectural Heritage: Restoring the Notre-Dame Cathedral'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice architectural heritage: restoring the notre-dame cathedral effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores architectural heritage: restoring the notre-dame cathedral, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 58
+      },
+      {
+        "id": "video-cs-16-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It emphasizes that: The restoration became France's greatest peacetime engineeri...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'The restoration became France's greatest peacetime engineering and artisanal endeavor.', showing its practical importance.",
+        "timestampSeek": 232
+      },
+      {
+        "id": "video-cs-16-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Notre-Dame's rebirth proves that collective human devotion can tr..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Notre-Dame's rebirth proves that collective human devotion can triumph over catastrophic ruin., providing a meaningful summary for learners.",
+        "timestampSeek": 522
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sc-09",
-  "youtubeId": "jG1AW1TUSx5",
+  "youtubeId": "vev36kcTMyI",
   "title": "Talking About Movies and Favorite Shows",
   "channel": "BBC Learning English",
   "duration": 280,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/jG1AW1TUSx5/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/vev36kcTMyI/hqdefault.jpg",
   "description": "Từ vựng bình luận phim ảnh, cốt truyện và gợi ý các series truyền hình yêu thích.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Sharing movie opinions sparks vibrant debates and deepens friendships., providing a meaningful summary for learners.",
       "timestampSeek": 252
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-09-cloze-1",
+        "cueId": "video-sc-09-cue-3",
+        "sentence": "Ask your {{blank}}: 'Have you watched anything exciting on streaming lately?'",
+        "blankWord": "friends",
+        "hintVi": "Nghĩa gợi ý: Hỏi bạn bè của bạn: 'Gần đây bạn có xem ...",
+        "timestamp": 56,
+        "options": [
+          "extensive",
+          "friends",
+          "dimension",
+          "tremendous"
+        ]
+      },
+      {
+        "id": "video-sc-09-cloze-2",
+        "cueId": "video-sc-09-cue-5",
+        "sentence": "I {{blank}} recommend historical documentaries because they expand my worldview.",
+        "blankWord": "usually",
+        "hintVi": "Nghĩa gợi ý: Tôi thường giới thiệu các bộ phim tài li...",
+        "timestamp": 112,
+        "options": [
+          "perceptive",
+          "prominent",
+          "usually",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-sc-09-cloze-3",
+        "cueId": "video-sc-09-cue-8",
+        "sentence": "{{blank}} the lead actor's charismatic performance and convincing emotional depth.",
+        "blankWord": "praise",
+        "hintVi": "Nghĩa gợi ý: Khen ngợi màn thể hiện đầy cuốn hút và c...",
+        "timestamp": 196,
+        "options": [
+          "component",
+          "remarkable",
+          "praise",
+          "innovative"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-09-q1",
+        "question": "What is the primary focus of the video 'Talking About Movies and Favorite Shows'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice talking about movies and favorite shows effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores talking about movies and favorite shows, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 28
+      },
+      {
+        "id": "video-sc-09-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'I...'?",
+        "options": [
+          "It emphasizes that: I usually recommend historical documentaries because they ex...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'I usually recommend historical documentaries because they expand my worldview.', showing its practical importance.",
+        "timestampSeek": 112
+      },
+      {
+        "id": "video-sc-09-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Sharing movie opinions sparks vibrant debates and deepens friends...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Sharing movie opinions sparks vibrant debates and deepens friendships., providing a meaningful summary for learners.",
+        "timestampSeek": 252
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-tr-23",
-  "youtubeId": "sBa-4O0GayV",
+  "youtubeId": "0D53hS9KYy0",
   "title": "Common Scams in Global Tourist Hotspots",
   "channel": "Wolters World",
   "duration": 900,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/sBa-4O0GayV/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/0D53hS9KYy0/hqdefault.jpg",
   "description": "Cách nhận diện và phòng tránh các chiêu trò lừa đảo khách du lịch phổ biến nhất.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Always keep your passport and primary credit cards inside an internal money belt.', providing deeper technical insight.",
       "timestampSeek": 540
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-23-cloze-1",
+        "cueId": "video-tr-23-cue-3",
+        "sentence": "The most {{blank}} tactic is the distraction technique near crowded monuments.",
+        "blankWord": "common",
+        "hintVi": "Nghĩa gợi ý: Chiến thuật phổ biến nhất là kỹ thuật đá...",
+        "timestamp": 180,
+        "options": [
+          "dimension",
+          "extensive",
+          "common",
+          "resource"
+        ]
+      },
+      {
+        "id": "video-tr-23-cloze-2",
+        "cueId": "video-tr-23-cue-5",
+        "sentence": "{{blank}} you are bewildered, an accomplice reaches into your unzipped backpack pocket.",
+        "blankWord": "while",
+        "hintVi": "Nghĩa gợi ý: Trong khi bạn đang hoang mang, một đồng ...",
+        "timestamp": 360,
+        "options": [
+          "deliberate",
+          "while",
+          "extensive",
+          "vibrant"
+        ]
+      },
+      {
+        "id": "video-tr-23-cloze-3",
+        "cueId": "video-tr-23-cue-8",
+        "sentence": "Be wary of {{blank}} without meters offering flat rates double the standard price.",
+        "blankWord": "taxis",
+        "hintVi": "Nghĩa gợi ý: Hãy cảnh giác với những chiếc taxi không...",
+        "timestamp": 630,
+        "options": [
+          "taxis",
+          "temporary",
+          "simultaneous",
+          "innovative"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-23-q1",
+        "question": "What is the primary focus of the video 'Common Scams in Global Tourist Hotspots'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice common scams in global tourist hotspots effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores common scams in global tourist hotspots, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 90
+      },
+      {
+        "id": "video-tr-23-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'While...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: While you are bewildered, an accomplice reaches into your un...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'While you are bewildered, an accomplice reaches into your unzipped backpack pocket.', showing its practical importance.",
+        "timestampSeek": 360
+      },
+      {
+        "id": "video-tr-23-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Vigilance without paranoia allows you to explore the world with j...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Vigilance without paranoia allows you to explore the world with joyous confidence., providing a meaningful summary for learners.",
+        "timestampSeek": 810
+      },
+      {
+        "id": "video-tr-23-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Always...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: Always keep your passport and primary credit cards inside an...",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Always keep your passport and primary credit cards inside an internal money belt.', providing deeper technical insight.",
+        "timestampSeek": 540
+      }
+    ]
+  }
 }

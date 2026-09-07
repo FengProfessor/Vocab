@@ -761,16 +761,18 @@ export default function InteractiveListeningPage() {
               isFocusMode ? 'flex flex-col lg:h-[calc(100vh-80px)] lg:overflow-y-auto pr-1' : ''
             }`}
           >
-            {/* Native YouTube Listening Player */}
-            <YouTubeListeningPlayer
-              ref={playerHandleRef}
-              videoId={video.youtubeId}
-              playbackRate={playbackRate}
-              isLoopingCue={isLoopingCue}
-              loopRange={loopRange}
-              onTimeUpdate={handleTimeUpdate}
-              onStateChange={handleStateChange}
-            />
+            {/* Native YouTube Listening Player Container - Sticky on mobile viewports so user never loses sight of video */}
+            <div className="sticky top-0 z-20 -mx-3 px-3 py-1.5 bg-slate-900/90 backdrop-blur-md sm:static sm:mx-0 sm:px-0 sm:py-0 sm:bg-transparent rounded-2xl">
+              <YouTubeListeningPlayer
+                ref={playerHandleRef}
+                videoId={video.youtubeId}
+                playbackRate={playbackRate}
+                isLoopingCue={isLoopingCue}
+                loopRange={loopRange}
+                onTimeUpdate={handleTimeUpdate}
+                onStateChange={handleStateChange}
+              />
+            </div>
 
             {/* Listening Playback Controls with Shortcut Badges */}
             <ListeningControls

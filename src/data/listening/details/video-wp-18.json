@@ -1,6 +1,6 @@
 {
   "id": "video-wp-18",
-  "youtubeId": "nkyN06vNv8N",
+  "youtubeId": "s1HxJVusR2w",
   "title": "Salary Negotiation: How to Value Your Worth",
   "channel": "CareerVidz",
   "duration": 550,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/nkyN06vNv8N/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/s1HxJVusR2w/hqdefault.jpg",
   "description": "Nghệ thuật đàm phán lương bổng: dựa trên dữ liệu thị trường, thành tích và phong thái.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Knowing your market worth commands enduring professional respect., providing a meaningful summary for learners.",
       "timestampSeek": 495
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-18-cloze-1",
+        "cueId": "video-wp-18-cue-3",
+        "sentence": "{{blank}} expect thoughtful negotiation; failing to negotiate leaves thousands behind.",
+        "blankWord": "employers",
+        "hintVi": "Nghĩa gợi ý: Các nhà tuyển dụng mong đợi sự đàm phán ...",
+        "timestamp": 110,
+        "options": [
+          "temporary",
+          "preliminary",
+          "innovative",
+          "employers"
+        ]
+      },
+      {
+        "id": "video-wp-18-cloze-2",
+        "cueId": "video-wp-18-cue-5",
+        "sentence": "{{blank}} reveal your salary history prematurely; keep focus on the role's market rate.",
+        "blankWord": "never",
+        "hintVi": "Nghĩa gợi ý: Đừng bao giờ tiết lộ lịch sử lương quá s...",
+        "timestamp": 220,
+        "options": [
+          "advantage",
+          "vulnerable",
+          "adequate",
+          "never"
+        ]
+      },
+      {
+        "id": "video-wp-18-cloze-3",
+        "cueId": "video-wp-18-cue-8",
+        "sentence": "{{blank}} the total package: flexible schedules, professional development, and equity.",
+        "blankWord": "negotiate",
+        "hintVi": "Nghĩa gợi ý: Đàm phán toàn bộ gói đãi ngộ: lịch trình...",
+        "timestamp": 385,
+        "options": [
+          "perspective",
+          "negotiate",
+          "temporary",
+          "vibrant"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-18-q1",
+        "question": "What is the primary focus of the video 'Salary Negotiation: How to Value Your Worth'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice salary negotiation: how to value your worth effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores salary negotiation: how to value your worth, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 55
+      },
+      {
+        "id": "video-wp-18-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Never...'?",
+        "options": [
+          "It emphasizes that: Never reveal your salary history prematurely; keep focus on ...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Never reveal your salary history prematurely; keep focus on the role's market rate.', showing its practical importance.",
+        "timestampSeek": 220
+      },
+      {
+        "id": "video-wp-18-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Knowing your market worth commands enduring professional respect....",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Knowing your market worth commands enduring professional respect., providing a meaningful summary for learners.",
+        "timestampSeek": 495
+      }
+    ]
+  }
 }

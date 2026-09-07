@@ -1,6 +1,6 @@
 {
   "id": "video-fs-09",
-  "youtubeId": "-VHRreZPQHW",
+  "youtubeId": "Z51Q29u4CWc",
   "title": "Shopping for Electronics: Comparing Warranties",
   "channel": "English with Lucy",
   "duration": 300,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/-VHRreZPQHW/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/Z51Q29u4CWc/hqdefault.jpg",
   "description": "Cách hỏi thông số kỹ thuật điện thoại/máy tính, so sánh giá và bảo hành.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Informed consumer research guarantees you receive peak value for your hard-earned money., providing a meaningful summary for learners.",
       "timestampSeek": 270
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-09-cloze-1",
+        "cueId": "video-fs-09-cue-3",
+        "sentence": "Ask the {{blank}} specialist to explain the detailed hardware specification differences.",
+        "blankWord": "sales",
+        "hintVi": "Nghĩa gợi ý: Nhờ chuyên viên bán hàng giải thích các ...",
+        "timestamp": 60,
+        "options": [
+          "sales",
+          "strategy",
+          "fundamental",
+          "vibrant"
+        ]
+      },
+      {
+        "id": "video-fs-09-cloze-2",
+        "cueId": "video-fs-09-cue-5",
+        "sentence": "{{blank}} the battery duration: 'How many hours will it last on a single charge?'",
+        "blankWord": "check",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra thời lượng pin: 'Nó sẽ dùng đượ...",
+        "timestamp": 120,
+        "options": [
+          "component",
+          "adequate",
+          "simultaneous",
+          "check"
+        ]
+      },
+      {
+        "id": "video-fs-09-cloze-3",
+        "cueId": "video-fs-09-cue-8",
+        "sentence": "{{blank}} whether accidental drops and liquid spills are covered by the policy.",
+        "blankWord": "understand",
+        "hintVi": "Nghĩa gợi ý: Hiểu rõ xem các sự cố rơi vỡ ngẫu nhiên ...",
+        "timestamp": 210,
+        "options": [
+          "perspective",
+          "subsequent",
+          "priority",
+          "understand"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-09-q1",
+        "question": "What is the primary focus of the video 'Shopping for Electronics: Comparing Warranties'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice shopping for electronics: comparing warranties effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores shopping for electronics: comparing warranties, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 30
+      },
+      {
+        "id": "video-fs-09-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Check...'?",
+        "options": [
+          "It emphasizes that: Check the battery duration: 'How many hours will it last on ...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Check the battery duration: 'How many hours will it last on a single charge?'', showing its practical importance.",
+        "timestampSeek": 120
+      },
+      {
+        "id": "video-fs-09-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Informed consumer research guarantees you receive peak value for ...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Informed consumer research guarantees you receive peak value for your hard-earned money., providing a meaningful summary for learners.",
+        "timestampSeek": 270
+      }
+    ]
+  }
 }

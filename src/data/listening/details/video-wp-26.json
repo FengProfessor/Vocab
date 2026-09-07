@@ -1,6 +1,6 @@
 {
   "id": "video-wp-26",
-  "youtubeId": "EIhXc9gf2tY",
+  "youtubeId": "ZC-lq_RlOFI",
   "title": "Managing Difficult Bosses and Toxic Dynamics",
   "channel": "Learn English with Emma",
   "duration": 950,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/EIhXc9gf2tY/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/ZC-lq_RlOFI/hqdefault.jpg",
   "description": "Chiến lược sinh tồn và phát triển sự nghiệp khi làm việc dưới quyền sếp độc hại.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Establish firm, courteous psychological boundaries; refuse to internalize abusive outbursts.', providing deeper technical insight.",
       "timestampSeek": 570
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-26-cloze-1",
+        "cueId": "video-wp-26-cue-3",
+        "sentence": "The {{blank}} rule of survival is recognizing that their behavior reflects their insecurity, not your worth.",
+        "blankWord": "first",
+        "hintVi": "Nghĩa gợi ý: Quy tắc sinh tồn đầu tiên là nhận ra rằn...",
+        "timestamp": 190,
+        "options": [
+          "innovative",
+          "first",
+          "priority",
+          "reliable"
+        ]
+      },
+      {
+        "id": "video-wp-26-cloze-2",
+        "cueId": "video-wp-26-cue-5",
+        "sentence": "Send {{blank}} structured bullet updates summarizing completed deliverables and next steps.",
+        "blankWord": "daily",
+        "hintVi": "Nghĩa gợi ý: Gửi các bản cập nhật gạch đầu dòng có cấ...",
+        "timestamp": 380,
+        "options": [
+          "consistent",
+          "daily",
+          "advantage",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-wp-26-cloze-3",
+        "cueId": "video-wp-26-cue-8",
+        "sentence": "{{blank}} strong horizontal alliances with peers and mentors across adjacent departments.",
+        "blankWord": "build",
+        "hintVi": "Nghĩa gợi ý: Xây dựng các liên minh ngang vững chắc v...",
+        "timestamp": 665,
+        "options": [
+          "build",
+          "remarkable",
+          "criterion",
+          "component"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-26-q1",
+        "question": "What is the primary focus of the video 'Managing Difficult Bosses and Toxic Dynamics'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice managing difficult bosses and toxic dynamics effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores managing difficult bosses and toxic dynamics, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 95
+      },
+      {
+        "id": "video-wp-26-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Send...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Send daily structured bullet updates summarizing completed d...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Send daily structured bullet updates summarizing completed deliverables and next steps.', showing its practical importance.",
+        "timestampSeek": 380
+      },
+      {
+        "id": "video-wp-26-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Your mental health and professional dignity are non-negotiable ca..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Your mental health and professional dignity are non-negotiable career treasures., providing a meaningful summary for learners.",
+        "timestampSeek": 855
+      },
+      {
+        "id": "video-wp-26-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Establish...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Establish firm, courteous psychological boundaries; refuse t...",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Establish firm, courteous psychological boundaries; refuse to internalize abusive outbursts.', providing deeper technical insight.",
+        "timestampSeek": 570
+      }
+    ]
+  }
 }

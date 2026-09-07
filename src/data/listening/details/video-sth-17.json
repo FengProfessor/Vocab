@@ -1,6 +1,6 @@
 {
   "id": "video-sth-17",
-  "youtubeId": "aTxahrV-35S",
+  "youtubeId": "qoNRZKgLDhg",
   "title": "The Chemistry of Antibiotic Resistance",
   "channel": "TED-Ed",
   "duration": 530,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/aTxahrV-35S/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/qoNRZKgLDhg/hqdefault.jpg",
   "description": "Kháng kháng sinh: cách vi khuẩn tiến hóa né tránh thuốc và mối đe dọa y tế toàn cầu.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Stemming the superbug tide demands global stewardship, novel drug discovery, and antimicrobial vigilance., providing a meaningful summary for learners.",
       "timestampSeek": 477
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-17-cloze-1",
+        "cueId": "video-sth-17-cue-3",
+        "sentence": "{{blank}} transformed global healthcare, saving hundreds of millions from infectious pneumonia and sepsis.",
+        "blankWord": "antibiotics",
+        "hintVi": "Nghĩa gợi ý: Thuốc kháng sinh đã biến đổi ngành y tế ...",
+        "timestamp": 106,
+        "options": [
+          "antibiotics",
+          "subsequent",
+          "adequate",
+          "efficient"
+        ]
+      },
+      {
+        "id": "video-sth-17-cloze-2",
+        "cueId": "video-sth-17-cue-5",
+        "sentence": "When a {{blank}} colony is bombarded with antibiotics, vulnerable cells perish swiftly.",
+        "blankWord": "bacterial",
+        "hintVi": "Nghĩa gợi ý: Khi một quần thể vi khuẩn bị tấn công bằ...",
+        "timestamp": 212,
+        "options": [
+          "fundamental",
+          "accurate",
+          "priority",
+          "bacterial"
+        ]
+      },
+      {
+        "id": "video-sth-17-cloze-3",
+        "cueId": "video-sth-17-cue-8",
+        "sentence": "{{blank}} evolve microscopic cellular efflux pumps to expel therapeutic drugs immediately.",
+        "blankWord": "others",
+        "hintVi": "Nghĩa gợi ý: Những loài khác phát triển các bơm đẩy t...",
+        "timestamp": 371,
+        "options": [
+          "vibrant",
+          "spontaneous",
+          "vulnerable",
+          "others"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-17-q1",
+        "question": "What is the primary focus of the video 'The Chemistry of Antibiotic Resistance'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice the chemistry of antibiotic resistance effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores the chemistry of antibiotic resistance, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 53
+      },
+      {
+        "id": "video-sth-17-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'When...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: When a bacterial colony is bombarded with antibiotics, vulne...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'When a bacterial colony is bombarded with antibiotics, vulnerable cells perish swiftly.', showing its practical importance.",
+        "timestampSeek": 212
+      },
+      {
+        "id": "video-sth-17-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Stemming the superbug tide demands global stewardship, novel drug...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Stemming the superbug tide demands global stewardship, novel drug discovery, and antimicrobial vigilance., providing a meaningful summary for learners.",
+        "timestampSeek": 477
+      }
+    ]
+  }
 }

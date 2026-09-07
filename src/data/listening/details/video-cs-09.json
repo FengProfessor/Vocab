@@ -1,6 +1,6 @@
 {
   "id": "video-cs-09",
-  "youtubeId": "QaH63mFUriQ",
+  "youtubeId": "HoXyw909Qu0",
   "title": "Japanese Tea Ceremony: Mindfulness and Harmony",
   "channel": "BBC Learning English",
   "duration": 410,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/QaH63mFUriQ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/HoXyw909Qu0/hqdefault.jpg",
   "description": "Nghệ thuật Trà đạo Nhật Bản: bốn nguyên tắc Hòa, Kính, Thanh, Tịch và sự chú tâm vào thực tại.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Chado teaches that every single meeting is a once-in-a-lifetime encounter to be deeply revered., providing a meaningful summary for learners.",
       "timestampSeek": 369
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-09-cloze-1",
+        "cueId": "video-cs-09-cue-3",
+        "sentence": "It is a {{blank}} spiritual discipline synthesizing Zen aesthetics, architectural minimalism, and mindful hospitality.",
+        "blankWord": "profound",
+        "hintVi": "Nghĩa gợi ý: Đó là một kỷ luật tâm linh sâu sắc kết h...",
+        "timestamp": 82,
+        "options": [
+          "convenient",
+          "profound",
+          "dimension",
+          "efficient"
+        ]
+      },
+      {
+        "id": "video-cs-09-cloze-2",
+        "cueId": "video-cs-09-cue-5",
+        "sentence": "{{blank}}, samurai warriors were required to leave their long swords outside, establishing equality.",
+        "blankWord": "inside",
+        "hintVi": "Nghĩa gợi ý: Bên trong, các chiến binh samurai buộc p...",
+        "timestamp": 164,
+        "options": [
+          "perspective",
+          "simultaneous",
+          "remarkable",
+          "inside"
+        ]
+      },
+      {
+        "id": "video-cs-09-cloze-3",
+        "cueId": "video-cs-09-cue-8",
+        "sentence": "With a {{blank}} bamboo whisk, they whip the hot water into a silky emerald foam.",
+        "blankWord": "carved",
+        "hintVi": "Nghĩa gợi ý: Bằng một chiếc chổi tre chạm khắc, họ đá...",
+        "timestamp": 287,
+        "options": [
+          "consistent",
+          "accurate",
+          "carved",
+          "extensive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-09-q1",
+        "question": "What is the primary focus of the video 'Japanese Tea Ceremony: Mindfulness and Harmony'?",
+        "options": [
+          "To explain and practice japanese tea ceremony: mindfulness and harmony effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores japanese tea ceremony: mindfulness and harmony, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 41
+      },
+      {
+        "id": "video-cs-09-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Inside,...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Inside, samurai warriors were required to leave their long s...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Inside, samurai warriors were required to leave their long swords outside, establishing equality.', showing its practical importance.",
+        "timestampSeek": 164
+      },
+      {
+        "id": "video-cs-09-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Chado teaches that every single meeting is a once-in-a-lifetime e..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Chado teaches that every single meeting is a once-in-a-lifetime encounter to be deeply revered., providing a meaningful summary for learners.",
+        "timestampSeek": 369
+      }
+    ]
+  }
 }

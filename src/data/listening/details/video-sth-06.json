@@ -1,6 +1,6 @@
 {
   "id": "video-sth-06",
-  "youtubeId": "IbtUe6x9FWY",
+  "youtubeId": "j5Sl8LyI7k8",
   "title": "Organizing Files and Folders on a Computer",
   "channel": "Learn English with Gill",
   "duration": 265,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/IbtUe6x9FWY/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/j5Sl8LyI7k8/hqdefault.jpg",
   "description": "Cách phân loại thư mục, đặt tên tệp và sao lưu dữ liệu máy tính một cách ngăn nắp.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Digital tidiness brings peace of mind and empowers professional efficiency., providing a meaningful summary for learners.",
       "timestampSeek": 238.5
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-06-cloze-1",
+        "cueId": "video-sth-06-cue-3",
+        "sentence": "A {{blank}} computer wastes valuable work time and elevates daily anxiety.",
+        "blankWord": "disorganized",
+        "hintVi": "Nghĩa gợi ý: Một chiếc máy tính bừa bộn làm lãng phí ...",
+        "timestamp": 53,
+        "options": [
+          "innovative",
+          "disorganized",
+          "deliberate",
+          "perceptive"
+        ]
+      },
+      {
+        "id": "video-sth-06-cloze-2",
+        "cueId": "video-sth-06-cue-5",
+        "sentence": "{{blank}} each main folder, build logical subfolders categorized by year and project name.",
+        "blankWord": "inside",
+        "hintVi": "Nghĩa gợi ý: Bên trong mỗi thư mục chính, hãy xây dựn...",
+        "timestamp": 106,
+        "options": [
+          "inside",
+          "strategy",
+          "convenient",
+          "balance"
+        ]
+      },
+      {
+        "id": "video-sth-06-cloze-3",
+        "cueId": "video-sth-06-cue-8",
+        "sentence": "{{blank}} your recycling bin regularly to reclaim valuable solid-state storage space.",
+        "blankWord": "empty",
+        "hintVi": "Nghĩa gợi ý: Dọn sạch thùng rác thường xuyên để giải ...",
+        "timestamp": 185.5,
+        "options": [
+          "component",
+          "framework",
+          "empty",
+          "sufficient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-06-q1",
+        "question": "What is the primary focus of the video 'Organizing Files and Folders on a Computer'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice organizing files and folders on a computer effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores organizing files and folders on a computer, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 26.5
+      },
+      {
+        "id": "video-sth-06-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Inside...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Inside each main folder, build logical subfolders categorize...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Inside each main folder, build logical subfolders categorized by year and project name.', showing its practical importance.",
+        "timestampSeek": 106
+      },
+      {
+        "id": "video-sth-06-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Digital tidiness brings peace of mind and empowers professional e...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Digital tidiness brings peace of mind and empowers professional efficiency., providing a meaningful summary for learners.",
+        "timestampSeek": 238.5
+      }
+    ]
+  }
 }

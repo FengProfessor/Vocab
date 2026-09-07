@@ -1,6 +1,6 @@
 {
   "id": "video-cs-11",
-  "youtubeId": "Z2pxkmk4uiQ",
+  "youtubeId": "iWDKsHm6gTA",
   "title": "The Art of Ceramic Pottery Through the Ages",
   "channel": "TED-Ed",
   "duration": 490,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/Z2pxkmk4uiQ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/iWDKsHm6gTA/hqdefault.jpg",
   "description": "Nghệ thuật gốm sứ qua các thời kỳ: từ đất sét thô sơ đến men sứ cung đình tinh xảo.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Shaping humble clay connects human hands to the elemental alchemy of earth, water, and fire., providing a meaningful summary for learners.",
       "timestampSeek": 441
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-11-cloze-1",
+        "cueId": "video-cs-11-cue-3",
+        "sentence": "By {{blank}} malleable clay and firing it with heat, humans created civilization's first waterproof storage vessels.",
+        "blankWord": "kneading",
+        "hintVi": "Nghĩa gợi ý: Bằng cách nhào nặn đất sét dẻo và nung b...",
+        "timestamp": 98,
+        "options": [
+          "kneading",
+          "fundamental",
+          "continuous",
+          "dimension"
+        ]
+      },
+      {
+        "id": "video-cs-11-cloze-2",
+        "cueId": "video-cs-11-cue-5",
+        "sentence": "The {{blank}} of the rotating potter's wheel in Mesopotamia revolutionized ceramic shaping speed and symmetry.",
+        "blankWord": "invention",
+        "hintVi": "Nghĩa gợi ý: Việc phát minh ra bàn xoay gốm ở Lưỡng H...",
+        "timestamp": 196,
+        "options": [
+          "subsequent",
+          "continuous",
+          "flexible",
+          "invention"
+        ]
+      },
+      {
+        "id": "video-cs-11-cloze-3",
+        "cueId": "video-cs-11-cue-8",
+        "sentence": "{{blank}} kaolin clay at over twelve hundred degrees Celsius transformed fragile earth into glass-like strength.",
+        "blankWord": "firing",
+        "hintVi": "Nghĩa gợi ý: Nung đất sét cao lanh ở nhiệt độ trên mộ...",
+        "timestamp": 343,
+        "options": [
+          "preliminary",
+          "essential",
+          "consistent",
+          "firing"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-11-q1",
+        "question": "What is the primary focus of the video 'The Art of Ceramic Pottery Through the Ages'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice the art of ceramic pottery through the ages effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores the art of ceramic pottery through the ages, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 49
+      },
+      {
+        "id": "video-cs-11-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: The invention of the rotating potter's wheel in Mesopotamia ...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'The invention of the rotating potter's wheel in Mesopotamia revolutionized ceramic shaping speed and symmetry.', showing its practical importance.",
+        "timestampSeek": 196
+      },
+      {
+        "id": "video-cs-11-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Shaping humble clay connects human hands to the elemental alchemy..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Shaping humble clay connects human hands to the elemental alchemy of earth, water, and fire., providing a meaningful summary for learners.",
+        "timestampSeek": 441
+      }
+    ]
+  }
 }

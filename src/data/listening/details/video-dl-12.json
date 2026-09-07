@@ -1,6 +1,6 @@
 {
   "id": "video-dl-12",
-  "youtubeId": "RkCMkLHqd3H",
+  "youtubeId": "FZDImEiPgMk",
   "title": "Setting Up a Minimalist Home Office",
   "channel": "BBC Learning English",
   "duration": 380,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/RkCMkLHqd3H/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/FZDImEiPgMk/hqdefault.jpg",
   "description": "Cách bố trí bàn làm việc tối giản, công thái học và tăng sự tập trung tại nhà.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that A clean, intentional workstation fosters sustained creative output., providing a meaningful summary for learners.",
       "timestampSeek": 342
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-12-cloze-1",
+        "cueId": "video-dl-12-cue-3",
+        "sentence": "The {{blank}} objective of a minimalist desk is eliminating distraction.",
+        "blankWord": "primary",
+        "hintVi": "Nghĩa gợi ý: Mục tiêu chính của một bàn làm việc tối ...",
+        "timestamp": 76,
+        "options": [
+          "reliable",
+          "primary",
+          "efficient",
+          "subsequent"
+        ]
+      },
+      {
+        "id": "video-dl-12-cloze-2",
+        "cueId": "video-dl-12-cue-5",
+        "sentence": "{{blank}} in an ergonomic office chair that adjusts to your spine.",
+        "blankWord": "invest",
+        "hintVi": "Nghĩa gợi ý: Hãy đầu tư vào một chiếc ghế văn phòng c...",
+        "timestamp": 152,
+        "options": [
+          "invest",
+          "subsequent",
+          "routine",
+          "extensive"
+        ]
+      },
+      {
+        "id": "video-dl-12-cloze-3",
+        "cueId": "video-dl-12-cue-8",
+        "sentence": "{{blank}} management boxes hide tangled cords and maintain visual harmony.",
+        "blankWord": "cable",
+        "hintVi": "Nghĩa gợi ý: Hộp quản lý dây cáp giấu các dây rối và ...",
+        "timestamp": 266,
+        "options": [
+          "adequate",
+          "efficient",
+          "cable",
+          "extensive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-12-q1",
+        "question": "What is the primary focus of the video 'Setting Up a Minimalist Home Office'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice setting up a minimalist home office effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores setting up a minimalist home office, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 38
+      },
+      {
+        "id": "video-dl-12-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Invest...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Invest in an ergonomic office chair that adjusts to your spi...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Invest in an ergonomic office chair that adjusts to your spine.', showing its practical importance.",
+        "timestampSeek": 152
+      },
+      {
+        "id": "video-dl-12-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: A clean, intentional workstation fosters sustained creative outpu...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that A clean, intentional workstation fosters sustained creative output., providing a meaningful summary for learners.",
+        "timestampSeek": 342
+      }
+    ]
+  }
 }

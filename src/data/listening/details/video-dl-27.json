@@ -1,6 +1,6 @@
 {
   "id": "video-dl-27",
-  "youtubeId": "e59vxDsqM0s",
+  "youtubeId": "4zXys7i8Zrc",
   "title": "Mindful Daily Routines: Lessons from Philosophy",
   "channel": "The School of Life",
   "duration": 880,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/e59vxDsqM0s/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/4zXys7i8Zrc/hqdefault.jpg",
   "description": "Ứng dụng triết học khắc kỷ vào các thói quen hàng ngày để kiểm soát cảm xúc.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Treat modest daily chores as opportunities to practice patience and mindfulness.', providing deeper technical insight.",
       "timestampSeek": 528
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-27-cloze-1",
+        "cueId": "video-dl-27-cue-3",
+        "sentence": "The {{blank}} Stoic Epictetus taught that distress arises from our judgments, not occurrences.",
+        "blankWord": "roman",
+        "hintVi": "Nghĩa gợi ý: Nhà Khắc Kỷ La Mã Epictetus dạy rằng nỗi...",
+        "timestamp": 176,
+        "options": [
+          "priority",
+          "perceptive",
+          "roman",
+          "criterion"
+        ]
+      },
+      {
+        "id": "video-dl-27-cloze-2",
+        "cueId": "video-dl-27-cue-5",
+        "sentence": "{{blank}} clearly what lies within your control and release what lies beyond it.",
+        "blankWord": "recognize",
+        "hintVi": "Nghĩa gợi ý: Nhận biết rõ ràng điều gì nằm trong tầm ...",
+        "timestamp": 352,
+        "options": [
+          "recognize",
+          "remarkable",
+          "balance",
+          "fundamental"
+        ]
+      },
+      {
+        "id": "video-dl-27-cloze-3",
+        "cueId": "video-dl-27-cue-8",
+        "sentence": "In the {{blank}}, contemplate where you faltered and where you acted with honor.",
+        "blankWord": "evening",
+        "hintVi": "Nghĩa gợi ý: Vào buổi tối, hãy chiêm nghiệm xem bạn đ...",
+        "timestamp": 616,
+        "options": [
+          "component",
+          "temporary",
+          "evening",
+          "flexible"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-27-q1",
+        "question": "What is the primary focus of the video 'Mindful Daily Routines: Lessons from Philosophy'?",
+        "options": [
+          "To explain and practice mindful daily routines: lessons from philosophy effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores mindful daily routines: lessons from philosophy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 88
+      },
+      {
+        "id": "video-dl-27-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Recognize...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Recognize clearly what lies within your control and release ...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Recognize clearly what lies within your control and release what lies beyond it.', showing its practical importance.",
+        "timestampSeek": 352
+      },
+      {
+        "id": "video-dl-27-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Live each ordinary hour with deliberate intention, dignity, and q...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Live each ordinary hour with deliberate intention, dignity, and quiet grace., providing a meaningful summary for learners.",
+        "timestampSeek": 792
+      },
+      {
+        "id": "video-dl-27-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Treat...'?",
+        "options": [
+          "It highlights that: Treat modest daily chores as opportunities to practice patie...",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'Treat modest daily chores as opportunities to practice patience and mindfulness.', providing deeper technical insight.",
+        "timestampSeek": 528
+      }
+    ]
+  }
 }

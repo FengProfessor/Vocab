@@ -1,6 +1,6 @@
 {
   "id": "video-wp-24",
-  "youtubeId": "IBp9EDLIBcM",
+  "youtubeId": "DaW-Kha9qAM",
   "title": "The Art of Strategic Negotiation in Business",
   "channel": "Harvard Business Review",
   "duration": 710,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/IBp9EDLIBcM/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/DaW-Kha9qAM/hqdefault.jpg",
   "description": "Chiến lược đàm phán hợp đồng kinh doanh: BATNA, ZOPA và tạo giá trị đôi bên.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Never grant a unilateral concession; trade concessions across differing priorities.', providing deeper technical insight.",
       "timestampSeek": 426
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-24-cloze-1",
+        "cueId": "video-wp-24-cue-3",
+        "sentence": "{{blank}} negotiators, taught at Harvard, practice principled, interest-based bargaining.",
+        "blankWord": "master",
+        "hintVi": "Nghĩa gợi ý: Những nhà đàm phán bậc thầy, được đào tạ...",
+        "timestamp": 142,
+        "options": [
+          "perspective",
+          "simultaneous",
+          "accurate",
+          "master"
+        ]
+      },
+      {
+        "id": "video-wp-24-cloze-2",
+        "cueId": "video-wp-24-cue-5",
+        "sentence": "A {{blank}} BATNA prevents you from accepting disadvantageous agreements out of desperation.",
+        "blankWord": "robust",
+        "hintVi": "Nghĩa gợi ý: Một BATNA vững chắc giúp bạn không chấp ...",
+        "timestamp": 284,
+        "options": [
+          "robust",
+          "tremendous",
+          "adequate",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-wp-24-cloze-3",
+        "cueId": "video-wp-24-cue-8",
+        "sentence": "If they care {{blank}} about payment terms and you care about delivery dates, trade them.",
+        "blankWord": "deeply",
+        "hintVi": "Nghĩa gợi ý: Nếu họ quan tâm sâu sắc đến điều khoản t...",
+        "timestamp": 497,
+        "options": [
+          "component",
+          "consistent",
+          "deeply",
+          "subsequent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-24-q1",
+        "question": "What is the primary focus of the video 'The Art of Strategic Negotiation in Business'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice the art of strategic negotiation in business effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores the art of strategic negotiation in business, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 71
+      },
+      {
+        "id": "video-wp-24-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'A...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: A robust BATNA prevents you from accepting disadvantageous a..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'A robust BATNA prevents you from accepting disadvantageous agreements out of desperation.', showing its practical importance.",
+        "timestampSeek": 284
+      },
+      {
+        "id": "video-wp-24-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Enduring business partnerships are sealed not by coercion, but by...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Enduring business partnerships are sealed not by coercion, but by shared mutual prosperity., providing a meaningful summary for learners.",
+        "timestampSeek": 639
+      },
+      {
+        "id": "video-wp-24-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Never...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: Never grant a unilateral concession; trade concessions acros...",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Never grant a unilateral concession; trade concessions across differing priorities.', providing deeper technical insight.",
+        "timestampSeek": 426
+      }
+    ]
+  }
 }

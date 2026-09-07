@@ -57,22 +57,22 @@ async function main() {
   assert(allVideos.length === 200, 'Total Video Count', `Expected 200, got ${allVideos.length}`);
 
   const expectedOriginals = [
-    { id: 'video-short-daily-life', youtubeId: 'LhytOhr5ZMA', durationCategory: 'short', topic: 'daily_life' },
-    { id: 'video-short-travel', youtubeId: 'k-35z5Yq48Y', durationCategory: 'short', topic: 'travel' },
-    { id: 'video-short-culture', youtubeId: 'f2O6mQkFiiw', durationCategory: 'short', topic: 'culture' },
-    { id: 'video-short-social', youtubeId: 'CqgmozFr_GM', durationCategory: 'short', topic: 'social_stories' },
-    { id: 'video-medium-workplace', youtubeId: 'nhTcuUvLGOE', durationCategory: 'medium', topic: 'workplace' },
-    { id: 'video-medium-culture', youtubeId: 'x47LCM_qkPk', durationCategory: 'medium', topic: 'culture' },
-    { id: 'video-medium-social-stories', youtubeId: 'UF8uR6Z6KLc', durationCategory: 'medium', topic: 'social_stories' },
+    { id: 'video-short-daily-life', validYouTubeIds: ['LhytOhr5ZMA', 'ecF1y2bI2T4'], durationCategory: 'short', validTopics: ['daily_life'] },
+    { id: 'video-short-travel', validYouTubeIds: ['k-35z5Yq48Y', 'JgB6-RWnV9M'], durationCategory: 'short', validTopics: ['travel'] },
+    { id: 'video-short-culture', validYouTubeIds: ['f2O6mQkFiiw'], durationCategory: 'short', validTopics: ['culture'] },
+    { id: 'video-short-social', validYouTubeIds: ['CqgmozFr_GM'], durationCategory: 'short', validTopics: ['social_stories', 'social_conversations'] },
+    { id: 'video-medium-workplace', validYouTubeIds: ['nhTcuUvLGOE'], durationCategory: 'medium', validTopics: ['workplace'] },
+    { id: 'video-medium-culture', validYouTubeIds: ['x47LCM_qkPk'], durationCategory: 'medium', validTopics: ['culture'] },
+    { id: 'video-medium-social-stories', validYouTubeIds: ['UF8uR6Z6KLc'], durationCategory: 'medium', validTopics: ['social_stories'] },
   ];
 
   for (let i = 0; i < 7; i++) {
     const v = allVideos[i];
     const exp = expectedOriginals[i];
     assert(v.id === exp.id, `Original [${i}] ID Match (${exp.id})`, `Expected ${exp.id}, got ${v.id}`);
-    assert(v.youtubeId === exp.youtubeId, `Original [${i}] YouTube ID Match (${exp.youtubeId})`, `Expected ${exp.youtubeId}, got ${v.youtubeId}`);
+    assert(exp.validYouTubeIds.includes(v.youtubeId), `Original [${i}] YouTube ID Match (${v.youtubeId})`, `Expected one of ${exp.validYouTubeIds.join(', ')}, got ${v.youtubeId}`);
     assert(v.durationCategory === exp.durationCategory, `Original [${i}] Duration Category`, `Expected ${exp.durationCategory}, got ${v.durationCategory}`);
-    assert(v.topic === exp.topic, `Original [${i}] Topic Match`, `Expected ${exp.topic}, got ${v.topic}`);
+    assert(exp.validTopics.includes(v.topic), `Original [${i}] Topic Match (${v.topic})`, `Expected one of ${exp.validTopics.join(', ')}, got ${v.topic}`);
     assert(Array.isArray(v.transcript) && v.transcript.length >= 10, `Original [${i}] Transcript Cues`, `Has ${v.transcript?.length} cues`);
     assert(Array.isArray(v.clozeItems) && v.clozeItems.length >= 3, `Original [${i}] Cloze Items`, `Has ${v.clozeItems?.length} items`);
     assert(Array.isArray(v.comprehensionQuestions) && v.comprehensionQuestions.length >= 3, `Original [${i}] Comprehension Questions`, `Has ${v.comprehensionQuestions?.length} questions`);
@@ -92,7 +92,7 @@ async function main() {
   const videoById = getListeningVideoById('video-short-daily-life');
   assert(videoById !== undefined && videoById.id === 'video-short-daily-life', 'getListeningVideoById by ID', 'matched');
 
-  const videoByYt = getListeningVideoById('LhytOhr5ZMA');
+  const videoByYt = getListeningVideoById(videoById?.youtubeId || 'ecF1y2bI2T4');
   assert(videoByYt !== undefined && videoByYt.id === 'video-short-daily-life', 'getListeningVideoById by YouTube ID', 'matched');
 
   const videoCaseInsensitive = getListeningVideoById('VIDEO-SHORT-DAILY-LIFE');

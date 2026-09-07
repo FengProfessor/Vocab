@@ -1,6 +1,6 @@
 {
   "id": "video-cs-19",
-  "youtubeId": "cRmn39XbxF5",
+  "youtubeId": "LaLvVc1sS20",
   "title": "The Philosophy of Stoicism in Ancient Rome and Today",
   "channel": "The School of Life",
   "duration": 820,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/cRmn39XbxF5/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/LaLvVc1sS20/hqdefault.jpg",
   "description": "Triết học Khắc kỷ: từ Marcus Aurelius, Seneca đến nghệ thuật giữ tâm an trước biến cố.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'What remains under our absolute jurisdiction is our internal judgment, moral choices, and emotional responses.', providing deeper technical insight.",
       "timestampSeek": 492
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-19-cloze-1",
+        "cueId": "video-cs-19-cue-3",
+        "sentence": "{{blank}} in ancient Athens by Zeno and popularized in Rome by Epictetus and Marcus Aurelius, Stoicism offers an answer.",
+        "blankWord": "founded",
+        "hintVi": "Nghĩa gợi ý: Được thành lập ở Athens cổ đại bởi Zeno ...",
+        "timestamp": 164,
+        "options": [
+          "founded",
+          "perceptive",
+          "balance",
+          "advantage"
+        ]
+      },
+      {
+        "id": "video-cs-19-cloze-2",
+        "cueId": "video-cs-19-cue-5",
+        "sentence": "We must {{blank}} all phenomena into things within our direct power, and things entirely outside of it.",
+        "blankWord": "divide",
+        "hintVi": "Nghĩa gợi ý: Chúng ta phải chia tất cả các hiện tượng...",
+        "timestamp": 328,
+        "options": [
+          "divide",
+          "framework",
+          "efficient",
+          "reliable"
+        ]
+      },
+      {
+        "id": "video-cs-19-cloze-3",
+        "cueId": "video-cs-19-cue-8",
+        "sentence": "{{blank}} Emperor Marcus Aurelius governed a plague-ridden empire, reminding himself daily that external events cannot touch the soul.",
+        "blankWord": "roman",
+        "hintVi": "Nghĩa gợi ý: Hoàng đế La Mã Marcus Aurelius đã cai tr...",
+        "timestamp": 574,
+        "options": [
+          "accurate",
+          "adequate",
+          "roman",
+          "dimension"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-19-q1",
+        "question": "What is the primary focus of the video 'The Philosophy of Stoicism in Ancient Rome and Today'?",
+        "options": [
+          "To explain and practice the philosophy of stoicism in ancient rome and today effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores the philosophy of stoicism in ancient rome and today, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 82
+      },
+      {
+        "id": "video-cs-19-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'We...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: We must divide all phenomena into things within our direct p...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'We must divide all phenomena into things within our direct power, and things entirely outside of it.', showing its practical importance.",
+        "timestampSeek": 328
+      },
+      {
+        "id": "video-cs-19-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Stoicism is not cold emotional repression, but the heroic art of ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Stoicism is not cold emotional repression, but the heroic art of maintaining dignity across life's storms., providing a meaningful summary for learners.",
+        "timestampSeek": 738
+      },
+      {
+        "id": "video-cs-19-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'What...'?",
+        "options": [
+          "It highlights that: What remains under our absolute jurisdiction is our internal...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'What remains under our absolute jurisdiction is our internal judgment, moral choices, and emotional responses.', providing deeper technical insight.",
+        "timestampSeek": 492
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-tr-11",
-  "youtubeId": "YEMQRZO3SGs",
+  "youtubeId": "BJsOHCUPnWY",
   "title": "Renting a Car: Insurance and Fuel Policies",
   "channel": "Wolters World",
   "duration": 370,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/YEMQRZO3SGs/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/BJsOHCUPnWY/hqdefault.jpg",
   "description": "Kinh nghiệm thuê xe ô tô tự lái ở nước ngoài: bảo hiểm va chạm, xăng xe và bằng lái.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Drive defensively, respect local traffic speed laws, and enjoy the open road., providing a meaningful summary for learners.",
       "timestampSeek": 333
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-11-cloze-1",
+        "cueId": "video-tr-11-cue-3",
+        "sentence": "At the {{blank}} counter, present your domestic driver's license and International Driving Permit.",
+        "blankWord": "rental",
+        "hintVi": "Nghĩa gợi ý: Tại quầy thuê xe, xuất trình bằng lái xe...",
+        "timestamp": 74,
+        "options": [
+          "rental",
+          "alternative",
+          "innovative",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-tr-11-cloze-2",
+        "cueId": "video-tr-11-cue-5",
+        "sentence": "{{blank}} for collision damage waiver provides invaluable peace of mind on foreign roads.",
+        "blankWord": "opting",
+        "hintVi": "Nghĩa gợi ý: Lựa chọn miễn trừ thiệt hại do va chạm m...",
+        "timestamp": 148,
+        "options": [
+          "opting",
+          "advantage",
+          "substantial",
+          "alternative"
+        ]
+      },
+      {
+        "id": "video-tr-11-cloze-3",
+        "cueId": "video-tr-11-cue-8",
+        "sentence": "{{blank}} the vehicle thoroughly with the agent, photographing every pre-existing scratch.",
+        "blankWord": "inspect",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra kỹ chiếc xe cùng nhân viên, chụ...",
+        "timestamp": 259,
+        "options": [
+          "adequate",
+          "resource",
+          "protocol",
+          "inspect"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-11-q1",
+        "question": "What is the primary focus of the video 'Renting a Car: Insurance and Fuel Policies'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice renting a car: insurance and fuel policies effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores renting a car: insurance and fuel policies, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 37
+      },
+      {
+        "id": "video-tr-11-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Opting...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Opting for collision damage waiver provides invaluable peace...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Opting for collision damage waiver provides invaluable peace of mind on foreign roads.', showing its practical importance.",
+        "timestampSeek": 148
+      },
+      {
+        "id": "video-tr-11-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Drive defensively, respect local traffic speed laws, and enjoy th...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Drive defensively, respect local traffic speed laws, and enjoy the open road., providing a meaningful summary for learners.",
+        "timestampSeek": 333
+      }
+    ]
+  }
 }

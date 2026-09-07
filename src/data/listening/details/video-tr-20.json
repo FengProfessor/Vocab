@@ -1,6 +1,6 @@
 {
   "id": "video-tr-20",
-  "youtubeId": "oY3zJscZJ4b",
+  "youtubeId": "IMZoaNejsok",
   "title": "Pack Light: The One-Bag Travel Philosophy",
   "channel": "mmmEnglish",
   "duration": 720,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/oY3zJscZJ4b/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/IMZoaNejsok/hqdefault.jpg",
   "description": "Nghệ thuật du lịch với một ba lô duy nhất: chọn đồ đa năng và giặt đồ nhanh gọn.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Embrace travel minimalism: pack for one week, regardless of trip duration.', providing deeper technical insight.",
       "timestampSeek": 432
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-20-cloze-1",
+        "cueId": "video-tr-20-cue-3",
+        "sentence": "The one-bag {{blank}} movement proves that you need far less gear than you imagine.",
+        "blankWord": "travel",
+        "hintVi": "Nghĩa gợi ý: Phong trào du lịch một ba lô chứng minh ...",
+        "timestamp": 144,
+        "options": [
+          "balance",
+          "travel",
+          "dimension",
+          "efficient"
+        ]
+      },
+      {
+        "id": "video-tr-20-cloze-2",
+        "cueId": "video-tr-20-cue-5",
+        "sentence": "Pack {{blank}} merino wool garments that resist odors and dry within hours.",
+        "blankWord": "versatile",
+        "hintVi": "Nghĩa gợi ý: Đóng gói quần áo len merino đa năng có k...",
+        "timestamp": 288,
+        "options": [
+          "accurate",
+          "vibrant",
+          "versatile",
+          "framework"
+        ]
+      },
+      {
+        "id": "video-tr-20-cloze-3",
+        "cueId": "video-tr-20-cue-8",
+        "sentence": "Wash {{blank}} socks and shirts in your bathroom sink using travel soap sheets.",
+        "blankWord": "lightweight",
+        "hintVi": "Nghĩa gợi ý: Giặt tất và áo sơ mi nhẹ trong bồn rửa m...",
+        "timestamp": 504,
+        "options": [
+          "convenient",
+          "adequate",
+          "lightweight",
+          "flexible"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-20-q1",
+        "question": "What is the primary focus of the video 'Pack Light: The One-Bag Travel Philosophy'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice pack light: the one-bag travel philosophy effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores pack light: the one-bag travel philosophy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 72
+      },
+      {
+        "id": "video-tr-20-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Pack...'?",
+        "options": [
+          "It emphasizes that: Pack versatile merino wool garments that resist odors and dr...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Pack versatile merino wool garments that resist odors and dry within hours.', showing its practical importance.",
+        "timestampSeek": 288
+      },
+      {
+        "id": "video-tr-20-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Light luggage translates directly into physical agility, mental f...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Light luggage translates directly into physical agility, mental freedom, and pure bliss., providing a meaningful summary for learners.",
+        "timestampSeek": 648
+      },
+      {
+        "id": "video-tr-20-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Embrace...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: Embrace travel minimalism: pack for one week, regardless of ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'Embrace travel minimalism: pack for one week, regardless of trip duration.', providing deeper technical insight.",
+        "timestampSeek": 432
+      }
+    ]
+  }
 }

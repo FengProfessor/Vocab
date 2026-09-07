@@ -1,6 +1,6 @@
 {
   "id": "video-fs-24",
-  "youtubeId": "q2ifuPjFDSf",
+  "youtubeId": "ZJU34yTJL4M",
   "title": "Sustainable Fashion vs Fast Fashion Industry",
   "channel": "English with Lucy",
   "duration": 690,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/q2ifuPjFDSf/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/ZJU34yTJL4M/hqdefault.jpg",
   "description": "Mặt trái của thời trang nhanh: ô nhiễm dệt may, nhân quyền và thời trang bền vững.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Invest in durable natural fibers: organic linen, pure wool, and hemp fabrics.', providing deeper technical insight.",
       "timestampSeek": 414
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-24-cloze-1",
+        "cueId": "video-fs-24-cue-3",
+        "sentence": "Ultra-cheap {{blank}} clothing relies on fossil fuel polymers and exploited factory labor.",
+        "blankWord": "synthetic",
+        "hintVi": "Nghĩa gợi ý: Quần áo tổng hợp siêu rẻ dựa vào polyme ...",
+        "timestamp": 138,
+        "options": [
+          "synthetic",
+          "tremendous",
+          "component",
+          "temporary"
+        ]
+      },
+      {
+        "id": "video-fs-24-cloze-2",
+        "cueId": "video-fs-24-cue-5",
+        "sentence": "{{blank}} garments are designed to fall apart after five washes, accelerating landfill waste.",
+        "blankWord": "cheap",
+        "hintVi": "Nghĩa gợi ý: Những bộ quần áo rẻ tiền được thiết kế đ...",
+        "timestamp": 276,
+        "options": [
+          "strategy",
+          "cheap",
+          "prominent",
+          "remarkable"
+        ]
+      },
+      {
+        "id": "video-fs-24-cloze-3",
+        "cueId": "video-fs-24-cue-8",
+        "sentence": "{{blank}} vintage thrift shopping and clothing repair workshops to extend fabric life.",
+        "blankWord": "embrace",
+        "hintVi": "Nghĩa gợi ý: Đón nhận việc mua đồ cũ tại các cửa hàng...",
+        "timestamp": 483,
+        "options": [
+          "remarkable",
+          "prominent",
+          "embrace",
+          "advantage"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-24-q1",
+        "question": "What is the primary focus of the video 'Sustainable Fashion vs Fast Fashion Industry'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice sustainable fashion vs fast fashion industry effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores sustainable fashion vs fast fashion industry, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 69
+      },
+      {
+        "id": "video-fs-24-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Cheap...'?",
+        "options": [
+          "It emphasizes that: Cheap garments are designed to fall apart after five washes,...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Cheap garments are designed to fall apart after five washes, accelerating landfill waste.', showing its practical importance.",
+        "timestampSeek": 276
+      },
+      {
+        "id": "video-fs-24-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: True elegance is wearing your values proudly upon your shoulders ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that True elegance is wearing your values proudly upon your shoulders every day., providing a meaningful summary for learners.",
+        "timestampSeek": 621
+      },
+      {
+        "id": "video-fs-24-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Invest...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Invest in durable natural fibers: organic linen, pure wool, ...",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'Invest in durable natural fibers: organic linen, pure wool, and hemp fabrics.', providing deeper technical insight.",
+        "timestampSeek": 414
+      }
+    ]
+  }
 }

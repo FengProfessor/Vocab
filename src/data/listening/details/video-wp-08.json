@@ -1,6 +1,6 @@
 {
   "id": "video-wp-08",
-  "youtubeId": "i8hsXSqdM72",
+  "youtubeId": "NEKZFA7L7Lg",
   "title": "Preparing for a Remote Video Interview",
   "channel": "Learn English with Emma",
   "duration": 390,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/i8hsXSqdM72/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/NEKZFA7L7Lg/hqdefault.jpg",
   "description": "Bí quyết phỏng vấn trực tuyến qua Zoom/Teams: ánh sáng, âm thanh và sự tự tin.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Preparation conquers anxiety and allows your authentic brilliance to shine., providing a meaningful summary for learners.",
       "timestampSeek": 351
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-08-cloze-1",
+        "cueId": "video-wp-08-cue-3",
+        "sentence": "Test your {{blank}}, microphone, and internet connection thirty minutes prior.",
+        "blankWord": "webcam",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra webcam, micrô và kết nối intern...",
+        "timestamp": 78,
+        "options": [
+          "reliable",
+          "fundamental",
+          "webcam",
+          "remarkable"
+        ]
+      },
+      {
+        "id": "video-wp-08-cloze-2",
+        "cueId": "video-wp-08-cue-5",
+        "sentence": "{{blank}} bright, soft lighting illuminates your face from behind the screen.",
+        "blankWord": "ensure",
+        "hintVi": "Nghĩa gợi ý: Đảm bảo ánh sáng mềm mại, sáng sủa chiếu...",
+        "timestamp": 156,
+        "options": [
+          "remarkable",
+          "dimension",
+          "fundamental",
+          "ensure"
+        ]
+      },
+      {
+        "id": "video-wp-08-cloze-3",
+        "cueId": "video-wp-08-cue-8",
+        "sentence": "Look {{blank}} into the camera lens to simulate genuine eye contact.",
+        "blankWord": "directly",
+        "hintVi": "Nghĩa gợi ý: Nhìn thẳng vào ống kính máy ảnh để mô ph...",
+        "timestamp": 273,
+        "options": [
+          "directly",
+          "priority",
+          "framework",
+          "protocol"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-08-q1",
+        "question": "What is the primary focus of the video 'Preparing for a Remote Video Interview'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice preparing for a remote video interview effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores preparing for a remote video interview, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 39
+      },
+      {
+        "id": "video-wp-08-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Ensure...'?",
+        "options": [
+          "It emphasizes that: Ensure bright, soft lighting illuminates your face from behi...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Ensure bright, soft lighting illuminates your face from behind the screen.', showing its practical importance.",
+        "timestampSeek": 156
+      },
+      {
+        "id": "video-wp-08-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Preparation conquers anxiety and allows your authentic brilliance...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Preparation conquers anxiety and allows your authentic brilliance to shine., providing a meaningful summary for learners.",
+        "timestampSeek": 351
+      }
+    ]
+  }
 }

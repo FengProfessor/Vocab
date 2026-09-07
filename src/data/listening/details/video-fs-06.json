@@ -1,6 +1,6 @@
 {
   "id": "video-fs-06",
-  "youtubeId": "F7W417ExGQO",
+  "youtubeId": "WGHf3Fs3qpQ",
   "title": "Ordering Fast Food at a Drive-Thru",
   "channel": "Learn English with Gill",
   "duration": 240,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/F7W417ExGQO/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/WGHf3Fs3qpQ/hqdefault.jpg",
   "description": "Giao tiếp qua loa đàm thoại tại cửa hàng drive-thru thức ăn nhanh.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Quick and convenient meals keep busy road travelers fueled and moving forward., providing a meaningful summary for learners.",
       "timestampSeek": 216
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-06-cloze-1",
+        "cueId": "video-fs-06-cue-3",
+        "sentence": "{{blank}} your car slowly up to the brightly lit outdoor menu display board.",
+        "blankWord": "drive",
+        "hintVi": "Nghĩa gợi ý: Lái xe từ từ đến bảng hiển thị thực đơn ...",
+        "timestamp": 48,
+        "options": [
+          "moderate",
+          "substantial",
+          "drive",
+          "fundamental"
+        ]
+      },
+      {
+        "id": "video-fs-06-cloze-2",
+        "cueId": "video-fs-06-cue-5",
+        "sentence": "{{blank}} by combo number: 'Could I please get a number two cheeseburger combo?'",
+        "blankWord": "order",
+        "hintVi": "Nghĩa gợi ý: Gọi món theo số combo: 'Làm ơn cho tôi m...",
+        "timestamp": 96,
+        "options": [
+          "efficient",
+          "order",
+          "moderate",
+          "convenient"
+        ]
+      },
+      {
+        "id": "video-fs-06-cloze-3",
+        "cueId": "video-fs-06-cue-8",
+        "sentence": "{{blank}} around to the first window to pay and collect your paper receipt.",
+        "blankWord": "drive",
+        "hintVi": "Nghĩa gợi ý: Lái xe vòng sang cửa sổ đầu tiên để than...",
+        "timestamp": 168,
+        "options": [
+          "essential",
+          "drive",
+          "dimension",
+          "perspective"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-06-q1",
+        "question": "What is the primary focus of the video 'Ordering Fast Food at a Drive-Thru'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice ordering fast food at a drive-thru effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores ordering fast food at a drive-thru, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 24
+      },
+      {
+        "id": "video-fs-06-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Order...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Order by combo number: 'Could I please get a number two chee...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Order by combo number: 'Could I please get a number two cheeseburger combo?'', showing its practical importance.",
+        "timestampSeek": 96
+      },
+      {
+        "id": "video-fs-06-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Quick and convenient meals keep busy road travelers fueled and mo..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Quick and convenient meals keep busy road travelers fueled and moving forward., providing a meaningful summary for learners.",
+        "timestampSeek": 216
+      }
+    ]
+  }
 }

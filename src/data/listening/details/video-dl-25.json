@@ -1,6 +1,6 @@
 {
   "id": "video-dl-25",
-  "youtubeId": "Ud_V9-TC5SS",
+  "youtubeId": "cZcwcRgKK-o",
   "title": "Circadian Rhythms and Peak Daily Performance",
   "channel": "Oxford Online English",
   "duration": 740,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/Ud_V9-TC5SS/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/cZcwcRgKK-o/hqdefault.jpg",
   "description": "Ứng dụng nhịp sinh học cơ thể để tối ưu hóa hiệu suất làm việc và giấc ngủ.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Avoid intense overhead fluorescent lighting and digital screens after sunset.', providing deeper technical insight.",
       "timestampSeek": 444
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-25-cloze-1",
+        "cueId": "video-dl-25-cue-3",
+        "sentence": "{{blank}} your daily schedule with your circadian rhythm yields effortless vigor.",
+        "blankWord": "aligning",
+        "hintVi": "Nghĩa gợi ý: Điều chỉnh lịch trình hàng ngày phù hợp ...",
+        "timestamp": 148,
+        "options": [
+          "aligning",
+          "perspective",
+          "protocol",
+          "flexible"
+        ]
+      },
+      {
+        "id": "video-dl-25-cloze-2",
+        "cueId": "video-dl-25-cue-5",
+        "sentence": "This {{blank}} photon exposure optimizes daytime alertness and focus.",
+        "blankWord": "morning",
+        "hintVi": "Nghĩa gợi ý: Sự tiếp xúc với photon ánh sáng buổi sán...",
+        "timestamp": 296,
+        "options": [
+          "priority",
+          "vibrant",
+          "morning",
+          "subsequent"
+        ]
+      },
+      {
+        "id": "video-dl-25-cloze-3",
+        "cueId": "video-dl-25-cue-8",
+        "sentence": "Dim {{blank}} signal the brain to produce natural, restorative melatonin.",
+        "blankWord": "conditions",
+        "hintVi": "Nghĩa gợi ý: Điều kiện ánh sáng mờ báo hiệu cho não s...",
+        "timestamp": 518,
+        "options": [
+          "preliminary",
+          "favorable",
+          "conditions",
+          "balance"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-25-q1",
+        "question": "What is the primary focus of the video 'Circadian Rhythms and Peak Daily Performance'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice circadian rhythms and peak daily performance effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores circadian rhythms and peak daily performance, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 74
+      },
+      {
+        "id": "video-dl-25-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'This...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: This morning photon exposure optimizes daytime alertness and...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'This morning photon exposure optimizes daytime alertness and focus.', showing its practical importance.",
+        "timestampSeek": 296
+      },
+      {
+        "id": "video-dl-25-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Honor your biological rhythm, and your body will reward you with ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Honor your biological rhythm, and your body will reward you with sustained vitality., providing a meaningful summary for learners.",
+        "timestampSeek": 666
+      },
+      {
+        "id": "video-dl-25-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Avoid...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Avoid intense overhead fluorescent lighting and digital scre...",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'Avoid intense overhead fluorescent lighting and digital screens after sunset.', providing deeper technical insight.",
+        "timestampSeek": 444
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-tr-07",
-  "youtubeId": "klHu85uPRTS",
+  "youtubeId": "caozENjtch8",
   "title": "Asking About Bus Schedules and Transfers",
   "channel": "Oxford Online English",
   "duration": 270,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/klHu85uPRTS/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/caozENjtch8/hqdefault.jpg",
   "description": "Cách tra cứu tuyến xe buýt liên tỉnh, hỏi điểm chuyển tuyến và thời gian khởi hành.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Public transit takes you off the beaten path into authentic cultural heartlands., providing a meaningful summary for learners.",
       "timestampSeek": 243
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-07-cloze-1",
+        "cueId": "video-tr-07-cue-3",
+        "sentence": "{{blank}} the information kiosk and ask: 'Which bus route goes to the coastal village?'",
+        "blankWord": "approach",
+        "hintVi": "Nghĩa gợi ý: Tiến lại quầy thông tin và hỏi: 'Tuyến x...",
+        "timestamp": 54,
+        "options": [
+          "fundamental",
+          "subsequent",
+          "adequate",
+          "approach"
+        ]
+      },
+      {
+        "id": "video-tr-07-cloze-2",
+        "cueId": "video-tr-07-cue-5",
+        "sentence": "Ask the {{blank}} clerk: 'Do I need to transfer buses, or is this a direct route?'",
+        "blankWord": "station",
+        "hintVi": "Nghĩa gợi ý: Hỏi nhân viên nhà ga: 'Tôi có cần phải c...",
+        "timestamp": 108,
+        "options": [
+          "perceptive",
+          "priority",
+          "station",
+          "deliberate"
+        ]
+      },
+      {
+        "id": "video-tr-07-cloze-3",
+        "cueId": "video-tr-07-cue-8",
+        "sentence": "{{blank}} at the numbered departure platform fifteen minutes before boarding begins.",
+        "blankWord": "arrive",
+        "hintVi": "Nghĩa gợi ý: Đến bến khởi hành có đánh số mười lăm ph...",
+        "timestamp": 189,
+        "options": [
+          "favorable",
+          "innovative",
+          "arrive",
+          "extensive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-07-q1",
+        "question": "What is the primary focus of the video 'Asking About Bus Schedules and Transfers'?",
+        "options": [
+          "To explain and practice asking about bus schedules and transfers effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores asking about bus schedules and transfers, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 27
+      },
+      {
+        "id": "video-tr-07-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Ask...'?",
+        "options": [
+          "It emphasizes that: Ask the station clerk: 'Do I need to transfer buses, or is t...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Ask the station clerk: 'Do I need to transfer buses, or is this a direct route?'', showing its practical importance.",
+        "timestampSeek": 108
+      },
+      {
+        "id": "video-tr-07-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Public transit takes you off the beaten path into authentic cultu..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Public transit takes you off the beaten path into authentic cultural heartlands., providing a meaningful summary for learners.",
+        "timestampSeek": 243
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-tr-03",
-  "youtubeId": "Pj8UGMSkq5J",
+  "youtubeId": "A9N7OMk5nXg",
   "title": "Asking for Directions in a New City",
   "channel": "Learn English with Bob the Canadian",
   "duration": 260,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/Pj8UGMSkq5J/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/A9N7OMk5nXg/hqdefault.jpg",
   "description": "Cách hỏi đường người dân địa phương khi bị lạc, hỏi khoảng cách và mốc chỉ đường.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Thank them with a warm wave and enjoy exploring the vibrant neighborhood., providing a meaningful summary for learners.",
       "timestampSeek": 234
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-03-cloze-1",
+        "cueId": "video-tr-03-cue-3",
+        "sentence": "Look for a {{blank}} pedestrian who is walking at an unhurried pace.",
+        "blankWord": "friendly",
+        "hintVi": "Nghĩa gợi ý: Tìm một người đi bộ thân thiện đang đi d...",
+        "timestamp": 52,
+        "options": [
+          "efficient",
+          "reliable",
+          "friendly",
+          "advantage"
+        ]
+      },
+      {
+        "id": "video-tr-03-cloze-2",
+        "cueId": "video-tr-03-cue-5",
+        "sentence": "Tell them your {{blank}} destination: 'I am looking for the central museum.'",
+        "blankWord": "target",
+        "hintVi": "Nghĩa gợi ý: Nói cho họ điểm đến mục tiêu của bạn: 'T...",
+        "timestamp": 104,
+        "options": [
+          "continuous",
+          "priority",
+          "simultaneous",
+          "target"
+        ]
+      },
+      {
+        "id": "video-tr-03-cloze-3",
+        "cueId": "video-tr-03-cue-8",
+        "sentence": "Look out for a {{blank}} visual landmark like a church steeple or fountain.",
+        "blankWord": "prominent",
+        "hintVi": "Nghĩa gợi ý: Để mắt tìm kiếm một mốc định vị trực qua...",
+        "timestamp": 182,
+        "options": [
+          "innovative",
+          "balance",
+          "simultaneous",
+          "prominent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-03-q1",
+        "question": "What is the primary focus of the video 'Asking for Directions in a New City'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice asking for directions in a new city effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores asking for directions in a new city, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 26
+      },
+      {
+        "id": "video-tr-03-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Tell...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Tell them your target destination: 'I am looking for the cen...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Tell them your target destination: 'I am looking for the central museum.'', showing its practical importance.",
+        "timestampSeek": 104
+      },
+      {
+        "id": "video-tr-03-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Thank them with a warm wave and enjoy exploring the vibrant neigh...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Thank them with a warm wave and enjoy exploring the vibrant neighborhood., providing a meaningful summary for learners.",
+        "timestampSeek": 234
+      }
+    ]
+  }
 }

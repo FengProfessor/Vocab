@@ -1,6 +1,6 @@
 {
   "id": "video-sth-23",
-  "youtubeId": "Nu1xek71AQS",
+  "youtubeId": "_zmMl7T8164",
   "title": "Quantum Computing: Qubits and Superposition",
   "channel": "Veritasium",
   "duration": 740,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/Nu1xek71AQS/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/_zmMl7T8164/hqdefault.jpg",
   "description": "Máy tính lượng tử: trạng thái chồng chập, hạt rối qubit và cuộc cách mạng tính toán.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'A machine with just three hundred entangled qubits can represent more states than atoms in the universe.', providing deeper technical insight.",
       "timestampSeek": 444
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-23-cloze-1",
+        "cueId": "video-sth-23-cue-3",
+        "sentence": "A {{blank}} bit is strictly deterministic: it represents either a binary zero or a one.",
+        "blankWord": "classical",
+        "hintVi": "Nghĩa gợi ý: Một bit cổ điển hoàn toàn mang tính tất ...",
+        "timestamp": 148,
+        "options": [
+          "classical",
+          "accurate",
+          "fundamental",
+          "component"
+        ]
+      },
+      {
+        "id": "video-sth-23-cloze-2",
+        "cueId": "video-sth-23-cue-5",
+        "sentence": "A {{blank}} bit, or qubit, can exist in a superposition of both zero and one simultaneously.",
+        "blankWord": "quantum",
+        "hintVi": "Nghĩa gợi ý: Một bit lượng tử, hay qubit, có thể tồn ...",
+        "timestamp": 296,
+        "options": [
+          "flexible",
+          "deliberate",
+          "quantum",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-sth-23-cloze-3",
+        "cueId": "video-sth-23-cue-8",
+        "sentence": "{{blank}} algorithms leverage constructive interference to amplify correct answers while canceling wrong paths.",
+        "blankWord": "quantum",
+        "hintVi": "Nghĩa gợi ý: Các thuật toán lượng tử tận dụng sự giao...",
+        "timestamp": 518,
+        "options": [
+          "favorable",
+          "quantum",
+          "priority",
+          "remarkable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-23-q1",
+        "question": "What is the primary focus of the video 'Quantum Computing: Qubits and Superposition'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice quantum computing: qubits and superposition effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores quantum computing: qubits and superposition, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 74
+      },
+      {
+        "id": "video-sth-23-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'A...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: A quantum bit, or qubit, can exist in a superposition of bot...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'A quantum bit, or qubit, can exist in a superposition of both zero and one simultaneously.', showing its practical importance.",
+        "timestampSeek": 296
+      },
+      {
+        "id": "video-sth-23-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: We stand on the precipice of a computational leap that will redef..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that We stand on the precipice of a computational leap that will redefine human technological capability., providing a meaningful summary for learners.",
+        "timestampSeek": 666
+      },
+      {
+        "id": "video-sth-23-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'A...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: A machine with just three hundred entangled qubits can repre..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'A machine with just three hundred entangled qubits can represent more states than atoms in the universe.', providing deeper technical insight.",
+        "timestampSeek": 444
+      }
+    ]
+  }
 }

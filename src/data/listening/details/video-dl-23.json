@@ -1,6 +1,6 @@
 {
   "id": "video-dl-23",
-  "youtubeId": "SrDRvXMoPmn",
+  "youtubeId": "H7RB2HTYQ6s",
   "title": "Balancing Full-Time Work with Family Life",
   "channel": "BBC Learning English",
   "duration": 900,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/SrDRvXMoPmn/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/H7RB2HTYQ6s/hqdefault.jpg",
   "description": "Nghệ thuật phân định ranh giới giữa công việc và đời sống gia đình ấm cúng.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Openly negotiate domestic responsibilities so burdens do not fall on one person.', providing deeper technical insight.",
       "timestampSeek": 540
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-23-cloze-1",
+        "cueId": "video-dl-23-cue-3",
+        "sentence": "{{blank}} clear boundaries, professional pressures bleed into family evenings.",
+        "blankWord": "without",
+        "hintVi": "Nghĩa gợi ý: Nếu không có ranh giới rõ ràng, áp lực c...",
+        "timestamp": 180,
+        "options": [
+          "extensive",
+          "without",
+          "perceptive",
+          "innovative"
+        ]
+      },
+      {
+        "id": "video-dl-23-cloze-2",
+        "cueId": "video-dl-23-cue-5",
+        "sentence": "{{blank}} authentic emotional presence with your partner and children.",
+        "blankWord": "cultivate",
+        "hintVi": "Nghĩa gợi ý: Trau dồi sự hiện diện cảm xúc chân thực ...",
+        "timestamp": 360,
+        "options": [
+          "vulnerable",
+          "simultaneous",
+          "temporary",
+          "cultivate"
+        ]
+      },
+      {
+        "id": "video-dl-23-cloze-3",
+        "cueId": "video-dl-23-cue-8",
+        "sentence": "{{blank}} dedicated weekly family outings that everyone looks forward to.",
+        "blankWord": "schedule",
+        "hintVi": "Nghĩa gợi ý: Lên lịch cho các chuyến đi chơi gia đình...",
+        "timestamp": 630,
+        "options": [
+          "schedule",
+          "preliminary",
+          "reliable",
+          "fundamental"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-23-q1",
+        "question": "What is the primary focus of the video 'Balancing Full-Time Work with Family Life'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice balancing full-time work with family life effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores balancing full-time work with family life, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 90
+      },
+      {
+        "id": "video-dl-23-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Cultivate...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Cultivate authentic emotional presence with your partner and...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Cultivate authentic emotional presence with your partner and children.', showing its practical importance.",
+        "timestampSeek": 360
+      },
+      {
+        "id": "video-dl-23-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: A flourishing home is the deepest foundation of enduring professi...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that A flourishing home is the deepest foundation of enduring professional success., providing a meaningful summary for learners.",
+        "timestampSeek": 810
+      },
+      {
+        "id": "video-dl-23-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Openly...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Openly negotiate domestic responsibilities so burdens do not..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'Openly negotiate domestic responsibilities so burdens do not fall on one person.', providing deeper technical insight.",
+        "timestampSeek": 540
+      }
+    ]
+  }
 }

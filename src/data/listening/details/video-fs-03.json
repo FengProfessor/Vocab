@@ -1,6 +1,6 @@
 {
   "id": "video-fs-03",
-  "youtubeId": "PKWCRcs-PvS",
+  "youtubeId": "TRNqg52R1Mc",
   "title": "Booking a Table at a Casual Restaurant",
   "channel": "English with Lucy",
   "duration": 250,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/PKWCRcs-PvS/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/TRNqg52R1Mc/hqdefault.jpg",
   "description": "Cách gọi điện đặt bàn ăn tối, chọn chỗ ngồi ngoài trời hoặc trong nhà.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Enjoying delightful cuisine with people you love is life's sweetest pleasure., providing a meaningful summary for learners.",
       "timestampSeek": 225
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-03-cloze-1",
+        "cueId": "video-fs-03-cue-3",
+        "sentence": "Call the {{blank}} directly to secure a reservation in advance.",
+        "blankWord": "restaurant",
+        "hintVi": "Nghĩa gợi ý: Hãy gọi điện trực tiếp cho nhà hàng để đ...",
+        "timestamp": 50,
+        "options": [
+          "gradual",
+          "efficient",
+          "preliminary",
+          "restaurant"
+        ]
+      },
+      {
+        "id": "video-fs-03-cloze-2",
+        "cueId": "video-fs-03-cue-5",
+        "sentence": "{{blank}} your preferred time: 'Would you have availability around seven-thirty?'",
+        "blankWord": "specify",
+        "hintVi": "Nghĩa gợi ý: Nêu rõ thời gian ưa thích của bạn: 'Nhà ...",
+        "timestamp": 100,
+        "options": [
+          "specify",
+          "remarkable",
+          "innovative",
+          "simultaneous"
+        ]
+      },
+      {
+        "id": "video-fs-03-cloze-3",
+        "cueId": "video-fs-03-cue-8",
+        "sentence": "Give your name and {{blank}} phone number so they can confirm the booking.",
+        "blankWord": "contact",
+        "hintVi": "Nghĩa gợi ý: Cung cấp tên và số điện thoại liên lạc c...",
+        "timestamp": 175,
+        "options": [
+          "preliminary",
+          "contact",
+          "remarkable",
+          "innovative"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-03-q1",
+        "question": "What is the primary focus of the video 'Booking a Table at a Casual Restaurant'?",
+        "options": [
+          "To explain and practice booking a table at a casual restaurant effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores booking a table at a casual restaurant, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 25
+      },
+      {
+        "id": "video-fs-03-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Specify...'?",
+        "options": [
+          "It emphasizes that: Specify your preferred time: 'Would you have availability ar...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Specify your preferred time: 'Would you have availability around seven-thirty?'', showing its practical importance.",
+        "timestampSeek": 100
+      },
+      {
+        "id": "video-fs-03-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Enjoying delightful cuisine with people you love is life's sweete..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Enjoying delightful cuisine with people you love is life's sweetest pleasure., providing a meaningful summary for learners.",
+        "timestampSeek": 225
+      }
+    ]
+  }
 }

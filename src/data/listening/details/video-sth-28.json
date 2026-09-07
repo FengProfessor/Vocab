@@ -1,6 +1,6 @@
 {
   "id": "video-sth-28",
-  "youtubeId": "gVzXGQf7R7B",
+  "youtubeId": "8DJJlkNcPF8",
   "title": "The Immunology of mRNA Vaccines",
   "channel": "TED-Ed",
   "duration": 1200,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/gVzXGQf7R7B/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/8DJJlkNcPF8/hqdefault.jpg",
   "description": "Miễn dịch học vắc-xin mRNA: cách gửi bản thiết kế phân tử dạy cơ thể chống lại mầm bệnh.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'These synthetic proteins migrate to the cell surface, triggering an alert across the immune system.', providing deeper technical insight.",
       "timestampSeek": 720
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-28-cloze-1",
+        "cueId": "video-sth-28-cue-3",
+        "sentence": "{{blank}} RNA technology fundamentally re-imagined the vaccine paradigm by delivering temporary genetic blueprints.",
+        "blankWord": "messenger",
+        "hintVi": "Nghĩa gợi ý: Công nghệ RNA thông tin đã tái định hình...",
+        "timestamp": 240,
+        "options": [
+          "innovative",
+          "reliable",
+          "messenger",
+          "accurate"
+        ]
+      },
+      {
+        "id": "video-sth-28-cloze-2",
+        "cueId": "video-sth-28-cue-5",
+        "sentence": "{{blank}} mRNA molecules are cloaked inside protective microscopic lipid nanoparticles.",
+        "blankWord": "fragile",
+        "hintVi": "Nghĩa gợi ý: Các phân tử mRNA mỏng manh được che chở ...",
+        "timestamp": 480,
+        "options": [
+          "fragile",
+          "essential",
+          "vulnerable",
+          "strategy"
+        ]
+      },
+      {
+        "id": "video-sth-28-cloze-3",
+        "cueId": "video-sth-28-cue-8",
+        "sentence": "{{blank}} T cells and B cells recognize the alien antigen, manufacturing millions of high-affinity neutralizing antibodies.",
+        "blankWord": "helper",
+        "hintVi": "Nghĩa gợi ý: Các tế bào T hỗ trợ và tế bào B nhận diệ...",
+        "timestamp": 840,
+        "options": [
+          "convenient",
+          "helper",
+          "protocol",
+          "sufficient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-28-q1",
+        "question": "What is the primary focus of the video 'The Immunology of mRNA Vaccines'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice the immunology of mrna vaccines effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores the immunology of mrna vaccines, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 120
+      },
+      {
+        "id": "video-sth-28-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Fragile...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Fragile mRNA molecules are cloaked inside protective microsc..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Fragile mRNA molecules are cloaked inside protective microscopic lipid nanoparticles.', showing its practical importance.",
+        "timestampSeek": 480
+      },
+      {
+        "id": "video-sth-28-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: The enduring legacy is immunological memory: a vigilant biologica...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that The enduring legacy is immunological memory: a vigilant biological army primed to neutralize future infections instantly., providing a meaningful summary for learners.",
+        "timestampSeek": 1080
+      },
+      {
+        "id": "video-sth-28-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'These...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: These synthetic proteins migrate to the cell surface, trigge...",
+          "It claims this factor has zero impact on the final outcome."
+        ],
+        "correctIndex": 2,
+        "explanation": "The speaker specifically highlights: 'These synthetic proteins migrate to the cell surface, triggering an alert across the immune system.', providing deeper technical insight.",
+        "timestampSeek": 720
+      }
+    ]
+  }
 }

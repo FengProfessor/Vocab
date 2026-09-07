@@ -1,6 +1,6 @@
 {
   "id": "video-wp-11",
-  "youtubeId": "PUAVIjxSH2U",
+  "youtubeId": "5FXCFkNkntM",
   "title": "Handling Client Inquiries with Professionalism",
   "channel": "Learn English with Emma",
   "duration": 480,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/PUAVIjxSH2U/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/5FXCFkNkntM/hqdefault.jpg",
   "description": "Cách xử lý phàn nàn của khách hàng, lắng nghe đồng cảm và đưa ra giải pháp thỏa đáng.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Exceptional service recovery transforms angry critics into vocal brand champions., providing a meaningful summary for learners.",
       "timestampSeek": 432
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-11-cloze-1",
+        "cueId": "video-wp-11-cue-3",
+        "sentence": "{{blank}} argue or interrupt while they vent their frustration and dissatisfaction.",
+        "blankWord": "never",
+        "hintVi": "Nghĩa gợi ý: Đừng bao giờ tranh cãi hay ngắt lời tron...",
+        "timestamp": 96,
+        "options": [
+          "adequate",
+          "moderate",
+          "simultaneous",
+          "never"
+        ]
+      },
+      {
+        "id": "video-wp-11-cloze-2",
+        "cueId": "video-wp-11-cue-5",
+        "sentence": "{{blank}} on behalf of the organization for the inconvenience experienced.",
+        "blankWord": "apologize",
+        "hintVi": "Nghĩa gợi ý: Thay mặt tổ chức xin lỗi vì sự bất tiện ...",
+        "timestamp": 192,
+        "options": [
+          "vulnerable",
+          "convenient",
+          "adequate",
+          "apologize"
+        ]
+      },
+      {
+        "id": "video-wp-11-cloze-3",
+        "cueId": "video-wp-11-cue-8",
+        "sentence": "{{blank}} slightly more than promised to restore customer faith and loyalty.",
+        "blankWord": "deliver",
+        "hintVi": "Nghĩa gợi ý: Bàn giao kết quả tốt hơn một chút so với...",
+        "timestamp": 336,
+        "options": [
+          "deliberate",
+          "perspective",
+          "spontaneous",
+          "deliver"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-11-q1",
+        "question": "What is the primary focus of the video 'Handling Client Inquiries with Professionalism'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice handling client inquiries with professionalism effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores handling client inquiries with professionalism, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 48
+      },
+      {
+        "id": "video-wp-11-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Apologize...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Apologize on behalf of the organization for the inconvenienc...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Apologize on behalf of the organization for the inconvenience experienced.', showing its practical importance.",
+        "timestampSeek": 192
+      },
+      {
+        "id": "video-wp-11-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Exceptional service recovery transforms angry critics into vocal ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Exceptional service recovery transforms angry critics into vocal brand champions., providing a meaningful summary for learners.",
+        "timestampSeek": 432
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sc-07",
-  "youtubeId": "hDICZGPw0g7",
+  "youtubeId": "wgWIlZV1OII",
   "title": "Saying Thank You and Expressing Gratitude",
   "channel": "RealLife English",
   "duration": 240,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/hDICZGPw0g7/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/wgWIlZV1OII/hqdefault.jpg",
   "description": "Nhiều cách nói lời cảm ơn phong phú hơn câu 'Thank you' thông thường trong tiếng Anh.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Cultivate a thankful heart, and the world will respond with warmth., providing a meaningful summary for learners.",
       "timestampSeek": 216
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-07-cloze-1",
+        "cueId": "video-sc-07-cue-3",
+        "sentence": "When a {{blank}} helps you with a difficult task, say: 'I truly appreciate it.'",
+        "blankWord": "colleague",
+        "hintVi": "Nghĩa gợi ý: Khi một đồng nghiệp giúp bạn một việc kh...",
+        "timestamp": 48,
+        "options": [
+          "vulnerable",
+          "subsequent",
+          "priority",
+          "colleague"
+        ]
+      },
+      {
+        "id": "video-sc-07-cloze-2",
+        "cueId": "video-sc-07-cue-5",
+        "sentence": "If {{blank}} buys you lunch or gives a gift, praise their kindness and generosity.",
+        "blankWord": "someone",
+        "hintVi": "Nghĩa gợi ý: Nếu ai đó đãi bạn ăn trưa hoặc tặng quà,...",
+        "timestamp": 96,
+        "options": [
+          "framework",
+          "balance",
+          "tremendous",
+          "someone"
+        ]
+      },
+      {
+        "id": "video-sc-07-cloze-3",
+        "cueId": "video-sc-07-cue-8",
+        "sentence": "Pair your {{blank}} thanks with genuine eye contact and a warm smile.",
+        "blankWord": "verbal",
+        "hintVi": "Nghĩa gợi ý: Hãy kết hợp lời cảm ơn bằng lời nói với ...",
+        "timestamp": 168,
+        "options": [
+          "temporary",
+          "perspective",
+          "advantage",
+          "verbal"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-07-q1",
+        "question": "What is the primary focus of the video 'Saying Thank You and Expressing Gratitude'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice saying thank you and expressing gratitude effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores saying thank you and expressing gratitude, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 24
+      },
+      {
+        "id": "video-sc-07-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'If...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: If someone buys you lunch or gives a gift, praise their kind...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'If someone buys you lunch or gives a gift, praise their kindness and generosity.', showing its practical importance.",
+        "timestampSeek": 96
+      },
+      {
+        "id": "video-sc-07-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Cultivate a thankful heart, and the world will respond with warmt...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Cultivate a thankful heart, and the world will respond with warmth., providing a meaningful summary for learners.",
+        "timestampSeek": 216
+      }
+    ]
+  }
 }

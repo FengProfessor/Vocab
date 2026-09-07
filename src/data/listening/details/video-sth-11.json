@@ -1,6 +1,6 @@
 {
   "id": "video-sth-11",
-  "youtubeId": "KdF15K8HQDt",
+  "youtubeId": "v-t1Z5-oPtU",
   "title": "Why Do Leaves Change Color in Autumn?",
   "channel": "SciShow",
   "duration": 470,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/KdF15K8HQDt/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/v-t1Z5-oPtU/hqdefault.jpg",
   "description": "Cơ chế sinh học khiến lá cây đổi từ xanh sang vàng, cam và đỏ vào mùa thu.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Autumn's golden beauty is a tree's ingenious survival strategy facing winter's freeze., providing a meaningful summary for learners.",
       "timestampSeek": 423
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-11-cloze-1",
+        "cueId": "video-sth-11-cue-3",
+        "sentence": "{{blank}} warm summer months, plant leaves are packed with abundant green chlorophyll pigments.",
+        "blankWord": "during",
+        "hintVi": "Nghĩa gợi ý: Trong những tháng mùa hè ấm áp, lá cây c...",
+        "timestamp": 94,
+        "options": [
+          "convenient",
+          "sufficient",
+          "balance",
+          "during"
+        ]
+      },
+      {
+        "id": "video-sth-11-cloze-2",
+        "cueId": "video-sth-11-cue-5",
+        "sentence": "As {{blank}} approaches, daylight hours shrink and frosty temperatures signal trees to prepare for winter.",
+        "blankWord": "autumn",
+        "hintVi": "Nghĩa gợi ý: Khi mùa thu đến, số giờ ban ngày thu hẹp...",
+        "timestamp": 188,
+        "options": [
+          "vulnerable",
+          "continuous",
+          "autumn",
+          "sufficient"
+        ]
+      },
+      {
+        "id": "video-sth-11-cloze-3",
+        "cueId": "video-sth-11-cue-8",
+        "sentence": "{{blank}}, trapped sugars in maple leaves synthesize radiant red anthocyanin pigments.",
+        "blankWord": "simultaneously",
+        "hintVi": "Nghĩa gợi ý: Đồng thời, lượng đường bị giữ lại trong ...",
+        "timestamp": 329,
+        "options": [
+          "perspective",
+          "continuous",
+          "simultaneously",
+          "consistent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-11-q1",
+        "question": "What is the primary focus of the video 'Why Do Leaves Change Color in Autumn?'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice why do leaves change color in autumn? effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores why do leaves change color in autumn?, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 47
+      },
+      {
+        "id": "video-sth-11-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'As...'?",
+        "options": [
+          "It emphasizes that: As autumn approaches, daylight hours shrink and frosty tempe...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'As autumn approaches, daylight hours shrink and frosty temperatures signal trees to prepare for winter.', showing its practical importance.",
+        "timestampSeek": 188
+      },
+      {
+        "id": "video-sth-11-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Autumn's golden beauty is a tree's ingenious survival strategy fa...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Autumn's golden beauty is a tree's ingenious survival strategy facing winter's freeze., providing a meaningful summary for learners.",
+        "timestampSeek": 423
+      }
+    ]
+  }
 }

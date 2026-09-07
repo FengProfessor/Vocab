@@ -380,5 +380,119 @@
       "explanation": "Ở mốc 06:12 (cue-31), thông điệp kết luận mang tính biểu tượng là: 'Stay Hungry. Stay Foolish'.",
       "timestampSeek": 372.8
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "cloze-med-3-1",
+        "cueId": "cue-10",
+        "sentence": "You can't connect the dots looking forward; you can only connect them looking {{blank}}.",
+        "blankWord": "backwards",
+        "hintVi": "nhìn lại phía sau/quá khứ",
+        "timestamp": 101.8,
+        "options": [
+          "backwards",
+          "upwards",
+          "sideways",
+          "inwards"
+        ]
+      },
+      {
+        "id": "cloze-med-3-2",
+        "cueId": "cue-22",
+        "sentence": "The only way to be truly satisfied is to do what you believe is {{blank}} work.",
+        "blankWord": "great",
+        "hintVi": "tuyệt vời, to lớn",
+        "timestamp": 254.8,
+        "options": [
+          "great",
+          "easy",
+          "quick",
+          "boring"
+        ]
+      },
+      {
+        "id": "cloze-med-3-3",
+        "cueId": "cue-27",
+        "sentence": "Your time is limited, so don't waste it living someone else's {{blank}}.",
+        "blankWord": "life",
+        "hintVi": "cuộc đời",
+        "timestamp": 319.8,
+        "options": [
+          "life",
+          "dream",
+          "salary",
+          "house"
+        ]
+      },
+      {
+        "id": "cloze-med-3-4",
+        "cueId": "cue-31",
+        "sentence": "Stay {{blank}}. Stay Foolish. It was their farewell message as they signed off.",
+        "blankWord": "Hungry",
+        "hintVi": "khao khát (vươn lên)",
+        "timestamp": 372.8,
+        "options": [
+          "Hungry",
+          "Angry",
+          "Lonely",
+          "Safe"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "quiz-med-3-1",
+        "question": "What unplanned class at Reed College later influenced the typography of the Macintosh computer?",
+        "options": [
+          "Introduction to Electronics",
+          "A calligraphy class",
+          "Shakespearean literature",
+          "Macroeconomics"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 01:04 (cue-7/8), Steve Jobs kể về việc dự thính lớp thư pháp (calligraphy) và 10 năm sau ứng dụng toàn bộ vào thiết kế phông chữ của máy Mac.",
+        "timestampSeek": 64.8
+      },
+      {
+        "id": "quiz-med-3-2",
+        "question": "How did Steve Jobs view being fired from Apple looking back?",
+        "options": [
+          "As an unfair tragedy that ruined his career",
+          "As the best thing that could have ever happened to him",
+          "As a reason to leave the technology industry forever",
+          "As a complete financial disaster"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 03:09 (cue-17), Jobs khẳng định: 'Getting fired from Apple was the best thing that could have ever happened to me'.",
+        "timestampSeek": 189.8
+      },
+      {
+        "id": "quiz-med-3-3",
+        "question": "What advice does Jobs give to people who haven't yet found work they love?",
+        "options": [
+          "Accept any stable corporate job and never quit",
+          "Keep looking and don't settle",
+          "Pursue whatever pays the highest starting salary",
+          "Follow family expectations without questioning"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 04:27 (cue-23), lời khuyên nổi tiếng của ông là: 'If you haven't found it yet, keep looking. Don't settle'.",
+        "timestampSeek": 267.8
+      },
+      {
+        "id": "quiz-med-3-4",
+        "question": "What famous farewell message from The Whole Earth Catalog did Steve Jobs share with the graduates?",
+        "options": [
+          "Think Outside the Box",
+          "Stay Hungry. Stay Foolish.",
+          "Work Hard, Play Hard",
+          "Never Look Back"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 06:12 (cue-31), thông điệp kết luận mang tính biểu tượng là: 'Stay Hungry. Stay Foolish'.",
+        "timestampSeek": 372.8
+      }
+    ]
+  }
 }

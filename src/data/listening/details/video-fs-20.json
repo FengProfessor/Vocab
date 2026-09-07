@@ -1,6 +1,6 @@
 {
   "id": "video-fs-20",
-  "youtubeId": "Sh85SjZM5SQ",
+  "youtubeId": "2ib3_TBZGkU",
   "title": "Mastering Restaurant English: Booking to Tipping",
   "channel": "Learn English with Gill",
   "duration": 720,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/Sh85SjZM5SQ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/2ib3_TBZGkU/hqdefault.jpg",
   "description": "Khóa cẩm nang giao tiếp nhà hàng: từ đặt chỗ, gọi món, yêu cầu hóa đơn đến tiền tip.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'When the meal concludes, signal your server and ask: 'May we please have the bill?'', providing deeper technical insight.",
       "timestampSeek": 432
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-20-cloze-1",
+        "cueId": "video-fs-20-cue-3",
+        "sentence": "Upon {{blank}}, wait at the reception podium to be escorted to your dining table.",
+        "blankWord": "entering",
+        "hintVi": "Nghĩa gợi ý: Khi bước vào, hãy đợi tại bục lễ tân để ...",
+        "timestamp": 144,
+        "options": [
+          "entering",
+          "flexible",
+          "component",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-fs-20-cloze-2",
+        "cueId": "video-fs-20-cue-5",
+        "sentence": "{{blank}} with delicious shared appetizers like crispy calamari or warm focaccia bread.",
+        "blankWord": "begin",
+        "hintVi": "Nghĩa gợi ý: Bắt đầu với các món khai vị chia sẻ thơm...",
+        "timestamp": 288,
+        "options": [
+          "begin",
+          "perceptive",
+          "alternative",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-fs-20-cloze-3",
+        "cueId": "video-fs-20-cue-8",
+        "sentence": "In the {{blank}} States, leaving a fifteen-to-twenty percent gratuity tip is customary.",
+        "blankWord": "united",
+        "hintVi": "Nghĩa gợi ý: Tại Hoa Kỳ, việc để lại tiền boa từ mười...",
+        "timestamp": 504,
+        "options": [
+          "simultaneous",
+          "united",
+          "tremendous",
+          "routine"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-20-q1",
+        "question": "What is the primary focus of the video 'Mastering Restaurant English: Booking to Tipping'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice mastering restaurant english: booking to tipping effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores mastering restaurant english: booking to tipping, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 72
+      },
+      {
+        "id": "video-fs-20-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Begin...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Begin with delicious shared appetizers like crispy calamari ...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Begin with delicious shared appetizers like crispy calamari or warm focaccia bread.', showing its practical importance.",
+        "timestampSeek": 288
+      },
+      {
+        "id": "video-fs-20-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Gracious restaurant communication honors culinary artisans and gu..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Gracious restaurant communication honors culinary artisans and guarantees magnificent service., providing a meaningful summary for learners.",
+        "timestampSeek": 648
+      },
+      {
+        "id": "video-fs-20-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'When...'?",
+        "options": [
+          "It highlights that: When the meal concludes, signal your server and ask: 'May we...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'When the meal concludes, signal your server and ask: 'May we please have the bill?'', providing deeper technical insight.",
+        "timestampSeek": 432
+      }
+    ]
+  }
 }

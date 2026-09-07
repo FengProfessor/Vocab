@@ -1,6 +1,6 @@
 {
   "id": "video-sth-21",
-  "youtubeId": "7V8FH0pZtyU",
+  "youtubeId": "U10yerJA_ds",
   "title": "Space Exploration: Searching for Water on Mars",
   "channel": "SciShow",
   "duration": 790,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/7V8FH0pZtyU/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/U10yerJA_ds/hqdefault.jpg",
   "description": "Khám phá không gian: hành trình tìm kiếm dấu vết nước và tiềm năng sự sống trên Sao Hỏa.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'NASA's Perseverance rover is currently drilling core samples inside dried ancient river deltas.', providing deeper technical insight.",
       "timestampSeek": 474
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-21-cloze-1",
+        "cueId": "video-sth-21-cue-3",
+        "sentence": "Yet {{blank}} satellites reveal undeniable geological scars of ancient river valleys and delta canyons.",
+        "blankWord": "orbital",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, các vệ tinh quay quanh quỹ đạ...",
+        "timestamp": 158,
+        "options": [
+          "vulnerable",
+          "strategy",
+          "extensive",
+          "orbital"
+        ]
+      },
+      {
+        "id": "video-sth-21-cloze-2",
+        "cueId": "video-sth-21-cue-5",
+        "sentence": "{{blank}} did all that life-giving liquid water disappear when the Martian magnetic shield collapsed?",
+        "blankWord": "where",
+        "hintVi": "Nghĩa gợi ý: Tất cả lượng nước lỏng mang lại sự sống ...",
+        "timestamp": 316,
+        "options": [
+          "where",
+          "tremendous",
+          "adequate",
+          "strategy"
+        ]
+      },
+      {
+        "id": "video-sth-21-cloze-3",
+        "cueId": "video-sth-21-cue-8",
+        "sentence": "{{blank}} analyze these mineral clay deposits for microscopic fossilized biosignatures.",
+        "blankWord": "astrobiologists",
+        "hintVi": "Nghĩa gợi ý: Các nhà sinh học vũ trụ phân tích các tr...",
+        "timestamp": 553,
+        "options": [
+          "perceptive",
+          "gradual",
+          "astrobiologists",
+          "deliberate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-21-q1",
+        "question": "What is the primary focus of the video 'Space Exploration: Searching for Water on Mars'?",
+        "options": [
+          "To explain and practice space exploration: searching for water on mars effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores space exploration: searching for water on mars, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 79
+      },
+      {
+        "id": "video-sth-21-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Where...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Where did all that life-giving liquid water disappear when t..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Where did all that life-giving liquid water disappear when the Martian magnetic shield collapsed?', showing its practical importance.",
+        "timestampSeek": 316
+      },
+      {
+        "id": "video-sth-21-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Uncovering water on Mars paves the stepping stones toward humanit...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Uncovering water on Mars paves the stepping stones toward humanity becoming an interplanetary species., providing a meaningful summary for learners.",
+        "timestampSeek": 711
+      },
+      {
+        "id": "video-sth-21-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'NASA's...'?",
+        "options": [
+          "It highlights that: NASA's Perseverance rover is currently drilling core samples...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'NASA's Perseverance rover is currently drilling core samples inside dried ancient river deltas.', providing deeper technical insight.",
+        "timestampSeek": 474
+      }
+    ]
+  }
 }

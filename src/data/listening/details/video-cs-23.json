@@ -1,6 +1,6 @@
 {
   "id": "video-cs-23",
-  "youtubeId": "tPx-mfAqSYv",
+  "youtubeId": "iePEw_cHp8s",
   "title": "The History of Libraries: From Alexandria to the Digital Era",
   "channel": "TED-Ed",
   "duration": 1150,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/tPx-mfAqSYv/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/iePEw_cHp8s/hqdefault.jpg",
   "description": "Lịch sử các thư viện: từ Thư viện Alexandria đến thời đại số hóa tri thức nhân loại.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'In the nineteenth century, industrial philanthropy spearheaded public lending libraries open free to all citizens.', providing deeper technical insight.",
       "timestampSeek": 690
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-23-cloze-1",
+        "cueId": "video-cs-23-cue-3",
+        "sentence": "Their {{blank}} mission was gathering every written scroll on Earth, from Greek philosophy to Babylonian astronomy.",
+        "blankWord": "utopian",
+        "hintVi": "Nghĩa gợi ý: Sứ mệnh không tưởng của họ là thu thập m...",
+        "timestamp": 230,
+        "options": [
+          "adequate",
+          "alternative",
+          "utopian",
+          "protocol"
+        ]
+      },
+      {
+        "id": "video-cs-23-cloze-2",
+        "cueId": "video-cs-23-cue-5",
+        "sentence": "When the {{blank}} tragically perished through centuries of fire and neglect, untold civilizational treasures were lost forever.",
+        "blankWord": "library",
+        "hintVi": "Nghĩa gợi ý: Khi thư viện bị thiêu rụi một cách bi th...",
+        "timestamp": 460,
+        "options": [
+          "library",
+          "accurate",
+          "perspective",
+          "component"
+        ]
+      },
+      {
+        "id": "video-cs-23-cloze-3",
+        "cueId": "video-cs-23-cue-8",
+        "sentence": "{{blank}} preserve fragile parchment codices inside climate-controlled underground vaults.",
+        "blankWord": "archivists",
+        "hintVi": "Nghĩa gợi ý: Các nhà lưu trữ bảo quản các tập bản thả...",
+        "timestamp": 805,
+        "options": [
+          "accurate",
+          "essential",
+          "archivists",
+          "deliberate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-23-q1",
+        "question": "What is the primary focus of the video 'The History of Libraries: From Alexandria to the Digital Era'?",
+        "options": [
+          "To explain and practice the history of libraries: from alexandria to the digital era effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores the history of libraries: from alexandria to the digital era, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 115
+      },
+      {
+        "id": "video-cs-23-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'When...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: When the library tragically perished through centuries of fi..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'When the library tragically perished through centuries of fire and neglect, untold civilizational treasures were lost forever.', showing its practical importance.",
+        "timestampSeek": 460
+      },
+      {
+        "id": "video-cs-23-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Libraries remain sacred sanctuaries of democracy, protecting inte...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Libraries remain sacred sanctuaries of democracy, protecting intellectual freedom from the tyranny of forgetting., providing a meaningful summary for learners.",
+        "timestampSeek": 1035
+      },
+      {
+        "id": "video-cs-23-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'In...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: In the nineteenth century, industrial philanthropy spearhead...",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'In the nineteenth century, industrial philanthropy spearheaded public lending libraries open free to all citizens.', providing deeper technical insight.",
+        "timestampSeek": 690
+      }
+    ]
+  }
 }

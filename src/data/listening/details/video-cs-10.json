@@ -1,6 +1,6 @@
 {
   "id": "video-cs-10",
-  "youtubeId": "gF3oXiWqcIU",
+  "youtubeId": "ar8S6virCwM",
   "title": "Shakespeare's Globe: Theater in Elizabethan London",
   "channel": "BBC Learning English",
   "duration": 450,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/gF3oXiWqcIU/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/ar8S6virCwM/hqdefault.jpg",
   "description": "Nhà hát Quả cầu của Shakespeare: không gian kịch nghệ sống động thời Nữ hoàng Elizabeth I.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that The Globe reminds us that great theater is a dynamic communal dialogue between actors and spectators., providing a meaningful summary for learners.",
       "timestampSeek": 405
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-10-cloze-1",
+        "cueId": "video-cs-10-cue-3",
+        "sentence": "{{blank}} quiet modern theaters, the Globe was a raucous, visceral, open-air circular amphitheater.",
+        "blankWord": "unlike",
+        "hintVi": "Nghĩa gợi ý: Không giống như những nhà hát hiện đại y...",
+        "timestamp": 90,
+        "options": [
+          "tremendous",
+          "perceptive",
+          "framework",
+          "unlike"
+        ]
+      },
+      {
+        "id": "video-cs-10-cloze-2",
+        "cueId": "video-cs-10-cue-5",
+        "sentence": "{{blank}}, over a thousand working-class 'groundlings' stood in the muddy central yard.",
+        "blankWord": "meanwhile",
+        "hintVi": "Nghĩa gợi ý: Trong khi đó, hơn một nghìn 'khán giả đứ...",
+        "timestamp": 180,
+        "options": [
+          "substantial",
+          "meanwhile",
+          "extensive",
+          "essential"
+        ]
+      },
+      {
+        "id": "video-cs-10-cloze-3",
+        "cueId": "video-cs-10-cue-8",
+        "sentence": "{{blank}} hissed villains, cheered heroes, and threw orange peels when displeased.",
+        "blankWord": "audiences",
+        "hintVi": "Nghĩa gợi ý: Khán giả la ó những kẻ phản diện, reo hò...",
+        "timestamp": 315,
+        "options": [
+          "audiences",
+          "favorable",
+          "priority",
+          "perceptive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-10-q1",
+        "question": "What is the primary focus of the video 'Shakespeare's Globe: Theater in Elizabethan London'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice shakespeare's globe: theater in elizabethan london effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores shakespeare's globe: theater in elizabethan london, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 45
+      },
+      {
+        "id": "video-cs-10-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Meanwhile,...'?",
+        "options": [
+          "It emphasizes that: Meanwhile, over a thousand working-class 'groundlings' stood...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Meanwhile, over a thousand working-class 'groundlings' stood in the muddy central yard.', showing its practical importance.",
+        "timestampSeek": 180
+      },
+      {
+        "id": "video-cs-10-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: The Globe reminds us that great theater is a dynamic communal dia...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that The Globe reminds us that great theater is a dynamic communal dialogue between actors and spectators., providing a meaningful summary for learners.",
+        "timestampSeek": 405
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sth-02",
-  "youtubeId": "ivKB3Zo6WLQ",
+  "youtubeId": "5MuIMqhT8DM",
   "title": "Smartphone Settings and Battery Health",
   "channel": "Learn English with Gill",
   "duration": 225,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/ivKB3Zo6WLQ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/5MuIMqhT8DM/hqdefault.jpg",
   "description": "Cách điều chỉnh cài đặt điện thoại để tiết kiệm pin và bảo vệ tuổi thọ thiết bị.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Smart device management ensures your phone stays charged through busy days., providing a meaningful summary for learners.",
       "timestampSeek": 202.5
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-02-cloze-1",
+        "cueId": "video-sth-02-cue-3",
+        "sentence": "{{blank}} your settings menu reveals simple ways to save energy.",
+        "blankWord": "opening",
+        "hintVi": "Nghĩa gợi ý: Mở menu cài đặt sẽ cho thấy những cách đ...",
+        "timestamp": 45,
+        "options": [
+          "essential",
+          "remarkable",
+          "opening",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-sth-02-cloze-2",
+        "cueId": "video-sth-02-cue-5",
+        "sentence": "{{blank}} screens consume more lithium battery power than any other phone component.",
+        "blankWord": "bright",
+        "hintVi": "Nghĩa gợi ý: Màn hình sáng tiêu thụ nhiều năng lượng ...",
+        "timestamp": 90,
+        "options": [
+          "simultaneous",
+          "bright",
+          "deliberate",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-sth-02-cloze-3",
+        "cueId": "video-sth-02-cue-8",
+        "sentence": "{{blank}} leaving your mobile phone in direct sunlight or hot car interiors.",
+        "blankWord": "avoid",
+        "hintVi": "Nghĩa gợi ý: Tránh để điện thoại di động của bạn dưới...",
+        "timestamp": 157.5,
+        "options": [
+          "dimension",
+          "fundamental",
+          "avoid",
+          "moderate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-02-q1",
+        "question": "What is the primary focus of the video 'Smartphone Settings and Battery Health'?",
+        "options": [
+          "To explain and practice smartphone settings and battery health effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores smartphone settings and battery health, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 22.5
+      },
+      {
+        "id": "video-sth-02-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Bright...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Bright screens consume more lithium battery power than any o...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Bright screens consume more lithium battery power than any other phone component.', showing its practical importance.",
+        "timestampSeek": 90
+      },
+      {
+        "id": "video-sth-02-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Smart device management ensures your phone stays charged through ...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Smart device management ensures your phone stays charged through busy days., providing a meaningful summary for learners.",
+        "timestampSeek": 202.5
+      }
+    ]
+  }
 }

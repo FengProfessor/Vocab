@@ -1,6 +1,6 @@
 {
   "id": "video-sc-01",
-  "youtubeId": "NIgq2eIGA5P",
+  "youtubeId": "K_RSZC0s8a4",
   "title": "How to Introduce Yourself Confidently",
   "channel": "BBC Learning English",
   "duration": 210,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/NIgq2eIGA5P/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/K_RSZC0s8a4/hqdefault.jpg",
   "description": "Cách giới thiệu bản thân một cách tự tin, thân thiện trong các cuộc gặp gỡ đầu tiên.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Genuine curiosity is the absolute key to making instant social connections., providing a meaningful summary for learners.",
       "timestampSeek": 189
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-01-cloze-1",
+        "cueId": "video-sc-01-cue-3",
+        "sentence": "{{blank}} with a warm smile, clear eye contact, and a firm handshake.",
+        "blankWord": "start",
+        "hintVi": "Nghĩa gợi ý: Bắt đầu với nụ cười ấm áp, ánh mắt nhìn ...",
+        "timestamp": 42,
+        "options": [
+          "start",
+          "substantial",
+          "vibrant",
+          "extensive"
+        ]
+      },
+      {
+        "id": "video-sc-01-cloze-2",
+        "cueId": "video-sc-01-cue-5",
+        "sentence": "{{blank}} one or two interesting details about your personal background.",
+        "blankWord": "share",
+        "hintVi": "Nghĩa gợi ý: Chia sẻ một hoặc hai chi tiết thú vị về ...",
+        "timestamp": 84,
+        "options": [
+          "consistent",
+          "gradual",
+          "share",
+          "routine"
+        ]
+      },
+      {
+        "id": "video-sc-01-cloze-3",
+        "cueId": "video-sc-01-cue-8",
+        "sentence": "For {{blank}}, ask: 'Have you been living in this city for very long?'",
+        "blankWord": "instance",
+        "hintVi": "Nghĩa gợi ý: Ví dụ, hãy hỏi: 'Bạn đã sống ở thành phố...",
+        "timestamp": 147,
+        "options": [
+          "instance",
+          "dimension",
+          "perspective",
+          "perceptive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-01-q1",
+        "question": "What is the primary focus of the video 'How to Introduce Yourself Confidently'?",
+        "options": [
+          "To explain and practice how to introduce yourself confidently effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores how to introduce yourself confidently, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 21
+      },
+      {
+        "id": "video-sc-01-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Share...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Share one or two interesting details about your personal bac...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Share one or two interesting details about your personal background.', showing its practical importance.",
+        "timestampSeek": 84
+      },
+      {
+        "id": "video-sc-01-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Genuine curiosity is the absolute key to making instant social co...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Genuine curiosity is the absolute key to making instant social connections., providing a meaningful summary for learners.",
+        "timestampSeek": 189
+      }
+    ]
+  }
 }

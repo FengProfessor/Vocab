@@ -1,6 +1,6 @@
 {
   "id": "video-cs-07",
-  "youtubeId": "6zuSel2ZIAi",
+  "youtubeId": "gka7SZ5d0ao",
   "title": "Traditional Costumes: Hanbok, Kimono, and Ao Dai",
   "channel": "English with Lucy",
   "duration": 290,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/6zuSel2ZIAi/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/gka7SZ5d0ao/hqdefault.jpg",
   "description": "Trang phục truyền thống châu Á: nét thanh lịch của Hanbok Hàn Quốc, Kimono Nhật và Áo Dài Việt Nam.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Traditional garments remind us that true elegance never goes out of fashion., providing a meaningful summary for learners.",
       "timestampSeek": 261
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-07-cloze-1",
+        "cueId": "video-cs-07-cue-3",
+        "sentence": "In {{blank}}, the vibrant Hanbok features an empire-waist skirt called chima and a short jacket called jeogori.",
+        "blankWord": "korea",
+        "hintVi": "Nghĩa gợi ý: Ở Hàn Quốc, bộ Hanbok rực rỡ có phần váy...",
+        "timestamp": 58,
+        "options": [
+          "subsequent",
+          "korea",
+          "dimension",
+          "temporary"
+        ]
+      },
+      {
+        "id": "video-cs-07-cloze-2",
+        "cueId": "video-cs-07-cue-5",
+        "sentence": "In {{blank}}, the exquisite Kimono is wrapped meticulously around the body and secured with an ornate obi sash.",
+        "blankWord": "japan",
+        "hintVi": "Nghĩa gợi ý: Ở Nhật Bản, bộ Kimono tinh xảo được quấn...",
+        "timestamp": 116,
+        "options": [
+          "japan",
+          "perspective",
+          "substantial",
+          "fundamental"
+        ]
+      },
+      {
+        "id": "video-cs-07-cloze-3",
+        "cueId": "video-cs-07-cue-8",
+        "sentence": "It {{blank}} feminine curves while remaining modest, dignified, and exceptionally comfortable.",
+        "blankWord": "flatters",
+        "hintVi": "Nghĩa gợi ý: Nó tôn lên những đường cong nữ tính tron...",
+        "timestamp": 203,
+        "options": [
+          "innovative",
+          "flatters",
+          "subsequent",
+          "temporary"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-07-q1",
+        "question": "What is the primary focus of the video 'Traditional Costumes: Hanbok, Kimono, and Ao Dai'?",
+        "options": [
+          "To explain and practice traditional costumes: hanbok, kimono, and ao dai effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores traditional costumes: hanbok, kimono, and ao dai, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 29
+      },
+      {
+        "id": "video-cs-07-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'In...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: In Japan, the exquisite Kimono is wrapped meticulously aroun...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'In Japan, the exquisite Kimono is wrapped meticulously around the body and secured with an ornate obi sash.', showing its practical importance.",
+        "timestampSeek": 116
+      },
+      {
+        "id": "video-cs-07-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Traditional garments remind us that true elegance never goes out ...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Traditional garments remind us that true elegance never goes out of fashion., providing a meaningful summary for learners.",
+        "timestampSeek": 261
+      }
+    ]
+  }
 }

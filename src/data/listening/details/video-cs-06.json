@@ -1,6 +1,6 @@
 {
   "id": "video-cs-06",
-  "youtubeId": "igLeJ1PfDd-",
+  "youtubeId": "zl7kY7hEE_Q",
   "title": "Storytelling by the Campfire: An Ancient Art",
   "channel": "Learn English with Gill",
   "duration": 275,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/igLeJ1PfDd-/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/zl7kY7hEE_Q/hqdefault.jpg",
   "description": "Nghệ thuật kể chuyện bên lửa trại: nguồn gốc truyền miệng của văn hóa và trí tưởng tượng.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Stories are the invisible threads that weave fragile individual lives into enduring cultures., providing a meaningful summary for learners.",
       "timestampSeek": 247.5
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-06-cloze-1",
+        "cueId": "video-cs-06-cue-3",
+        "sentence": "When the {{blank}} sun sank below the horizon, fire provided warmth, safety, and community bonding.",
+        "blankWord": "blazing",
+        "hintVi": "Nghĩa gợi ý: Khi mặt trời chói chang lặn xuống dưới đ...",
+        "timestamp": 55,
+        "options": [
+          "adequate",
+          "deliberate",
+          "continuous",
+          "blazing"
+        ]
+      },
+      {
+        "id": "video-cs-06-cloze-2",
+        "cueId": "video-cs-06-cue-5",
+        "sentence": "{{blank}} recounted dramatic encounters with ferocious wild beasts, mighty rivers, and storm gods.",
+        "blankWord": "elders",
+        "hintVi": "Nghĩa gợi ý: Các bậc cao niên kể lại những cuộc chạm ...",
+        "timestamp": 110,
+        "options": [
+          "simultaneous",
+          "innovative",
+          "prominent",
+          "elders"
+        ]
+      },
+      {
+        "id": "video-cs-06-cloze-3",
+        "cueId": "video-cs-06-cue-8",
+        "sentence": "{{blank}} helped ancient nomadic tribes remember geography, star patterns, and moral obligations.",
+        "blankWord": "stories",
+        "hintVi": "Nghĩa gợi ý: Những câu chuyện đã giúp các bộ lạc du m...",
+        "timestamp": 192.5,
+        "options": [
+          "extensive",
+          "moderate",
+          "reliable",
+          "stories"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-06-q1",
+        "question": "What is the primary focus of the video 'Storytelling by the Campfire: An Ancient Art'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice storytelling by the campfire: an ancient art effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores storytelling by the campfire: an ancient art, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 27.5
+      },
+      {
+        "id": "video-cs-06-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Elders...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Elders recounted dramatic encounters with ferocious wild bea..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Elders recounted dramatic encounters with ferocious wild beasts, mighty rivers, and storm gods.', showing its practical importance.",
+        "timestampSeek": 110
+      },
+      {
+        "id": "video-cs-06-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Stories are the invisible threads that weave fragile individual l..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Stories are the invisible threads that weave fragile individual lives into enduring cultures., providing a meaningful summary for learners.",
+        "timestampSeek": 247.5
+      }
+    ]
+  }
 }

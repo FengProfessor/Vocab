@@ -1,6 +1,6 @@
 {
   "id": "video-cs-13",
-  "youtubeId": "PxR2Kt8-UxB",
+  "youtubeId": "7pa54hWROpQ",
   "title": "The Renaissance: Rebirth of Humanism and Art",
   "channel": "TED-Ed",
   "duration": 460,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/PxR2Kt8-UxB/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/7pa54hWROpQ/hqdefault.jpg",
   "description": "Thời kỳ Phục Hưng: sự trỗi dậy của chủ nghĩa nhân văn, nghệ thuật Florence và khoa học hiện đại.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that It affirmed humanity's enduring capacity to reinvent culture, science, and the boundaries of human achievement., providing a meaningful summary for learners.",
       "timestampSeek": 414
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-13-cloze-1",
+        "cueId": "video-cs-13-cue-3",
+        "sentence": "{{blank}} rediscovered forgotten classical Greek and Roman manuscripts preserved in monastic and Byzantine libraries.",
+        "blankWord": "scholars",
+        "hintVi": "Nghĩa gợi ý: Các học giả đã tái khám phá các bản thảo...",
+        "timestamp": 92,
+        "options": [
+          "vulnerable",
+          "routine",
+          "scholars",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-cs-13-cloze-2",
+        "cueId": "video-cs-13-cue-5",
+        "sentence": "{{blank}} banking dynasties like the Medici family poured fortunes into artistic and architectural patronage.",
+        "blankWord": "wealthy",
+        "hintVi": "Nghĩa gợi ý: Các triều đại ngân hàng giàu có như gia ...",
+        "timestamp": 184,
+        "options": [
+          "accurate",
+          "wealthy",
+          "simultaneous",
+          "innovative"
+        ]
+      },
+      {
+        "id": "video-cs-13-cloze-3",
+        "cueId": "video-cs-13-cue-8",
+        "sentence": "{{blank}} carved marble with such anatomical precision that cold stone appeared to breathe with living vitality.",
+        "blankWord": "michelangelo",
+        "hintVi": "Nghĩa gợi ý: Michelangelo đã chạm khắc đá cẩm thạch v...",
+        "timestamp": 322,
+        "options": [
+          "routine",
+          "michelangelo",
+          "perspective",
+          "continuous"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-13-q1",
+        "question": "What is the primary focus of the video 'The Renaissance: Rebirth of Humanism and Art'?",
+        "options": [
+          "To explain and practice the renaissance: rebirth of humanism and art effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores the renaissance: rebirth of humanism and art, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 46
+      },
+      {
+        "id": "video-cs-13-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Wealthy...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Wealthy banking dynasties like the Medici family poured fort...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Wealthy banking dynasties like the Medici family poured fortunes into artistic and architectural patronage.', showing its practical importance.",
+        "timestampSeek": 184
+      },
+      {
+        "id": "video-cs-13-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: It affirmed humanity's enduring capacity to reinvent culture, sci..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that It affirmed humanity's enduring capacity to reinvent culture, science, and the boundaries of human achievement., providing a meaningful summary for learners.",
+        "timestampSeek": 414
+      }
+    ]
+  }
 }

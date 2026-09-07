@@ -1,6 +1,6 @@
 {
   "id": "video-sth-25",
-  "youtubeId": "r9XbtPLdLDe",
+  "youtubeId": "we4KiShNjlA",
   "title": "Nuclear Fusion: The Quest for Clean Infinite Energy",
   "channel": "Veritasium",
   "duration": 950,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/r9XbtPLdLDe/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/we4KiShNjlA/hqdefault.jpg",
   "description": "Nhiệt hạch hạt nhân: hành trình mô phỏng mặt trời trên Trái Đất để tạo năng lượng vô tận.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'At such temperatures, matter breaks into a swirling soup of ions and electrons.', providing deeper technical insight.",
       "timestampSeek": 570
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-25-cloze-1",
+        "cueId": "video-sth-25-cue-3",
+        "sentence": "In {{blank}}, nuclear fusion replicates the celestial furnace powering our sun.",
+        "blankWord": "contrast",
+        "hintVi": "Nghĩa gợi ý: Ngược lại, phản ứng nhiệt hạch mô phỏng ...",
+        "timestamp": 190,
+        "options": [
+          "tremendous",
+          "fundamental",
+          "balance",
+          "contrast"
+        ]
+      },
+      {
+        "id": "video-sth-25-cloze-2",
+        "cueId": "video-sth-25-cue-5",
+        "sentence": "This {{blank}} releases copious energy with zero long-lived radioactive isotopes or carbon emissions.",
+        "blankWord": "reaction",
+        "hintVi": "Nghĩa gợi ý: Phản ứng này giải phóng lượng năng lượng...",
+        "timestamp": 380,
+        "options": [
+          "reaction",
+          "favorable",
+          "strategy",
+          "spontaneous"
+        ]
+      },
+      {
+        "id": "video-sth-25-cloze-3",
+        "cueId": "video-sth-25-cue-8",
+        "sentence": "{{blank}} construct gargantuan donut-shaped magnetic cages called tokamaks to suspend this scorching plasma.",
+        "blankWord": "engineers",
+        "hintVi": "Nghĩa gợi ý: Các kỹ sư xây dựng những chiếc lồng từ h...",
+        "timestamp": 665,
+        "options": [
+          "engineers",
+          "balance",
+          "innovative",
+          "adequate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-25-q1",
+        "question": "What is the primary focus of the video 'Nuclear Fusion: The Quest for Clean Infinite Energy'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice nuclear fusion: the quest for clean infinite energy effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores nuclear fusion: the quest for clean infinite energy, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 95
+      },
+      {
+        "id": "video-sth-25-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'This...'?",
+        "options": [
+          "It emphasizes that: This reaction releases copious energy with zero long-lived r...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'This reaction releases copious energy with zero long-lived radioactive isotopes or carbon emissions.', showing its practical importance.",
+        "timestampSeek": 380
+      },
+      {
+        "id": "video-sth-25-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Mastering controlled fusion will liberate humanity from fossil co...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Mastering controlled fusion will liberate humanity from fossil constraints, powering our interstellar ambitions., providing a meaningful summary for learners.",
+        "timestampSeek": 855
+      },
+      {
+        "id": "video-sth-25-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'At...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It highlights that: At such temperatures, matter breaks into a swirling soup of ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'At such temperatures, matter breaks into a swirling soup of ions and electrons.', providing deeper technical insight.",
+        "timestampSeek": 570
+      }
+    ]
+  }
 }

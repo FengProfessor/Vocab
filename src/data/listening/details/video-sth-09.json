@@ -1,6 +1,6 @@
 {
   "id": "video-sth-09",
-  "youtubeId": "ueHC6DNMhMg",
+  "youtubeId": "hmFQqjMF_f0",
   "title": "Cloud Storage and File Syncing Explained",
   "channel": "SciShow",
   "duration": 420,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/ueHC6DNMhMg/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/hmFQqjMF_f0/hqdefault.jpg",
   "description": "Công nghệ lưu trữ đám mây: dữ liệu được lưu trên các trung tâm máy chủ khổng lồ như thế nào.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that The cloud represents humanity's collective brain, anchoring ethereal data into tangible hardware., providing a meaningful summary for learners.",
       "timestampSeek": 378
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-09-cloze-1",
+        "cueId": "video-sth-09-cue-3",
+        "sentence": "The {{blank}} is a physical network of massive industrial data centers spread across continents.",
+        "blankWord": "cloud",
+        "hintVi": "Nghĩa gợi ý: Đám mây là một mạng lưới vật lý gồm các ...",
+        "timestamp": 84,
+        "options": [
+          "accurate",
+          "criterion",
+          "cloud",
+          "innovative"
+        ]
+      },
+      {
+        "id": "video-sth-09-cloze-2",
+        "cueId": "video-sth-09-cue-5",
+        "sentence": "When you {{blank}} a vacation video, it is sliced into encrypted packets over the internet.",
+        "blankWord": "upload",
+        "hintVi": "Nghĩa gợi ý: Khi bạn tải lên một video kỳ nghỉ, nó đư...",
+        "timestamp": 168,
+        "options": [
+          "essential",
+          "alternative",
+          "vibrant",
+          "upload"
+        ]
+      },
+      {
+        "id": "video-sth-09-cloze-3",
+        "cueId": "video-sth-09-cue-8",
+        "sentence": "{{blank}} industrial air-conditioning systems and liquid cooling prevent sensitive silicon chips from overheating.",
+        "blankWord": "massive",
+        "hintVi": "Nghĩa gợi ý: Các hệ thống điều hòa công nghiệp khổng ...",
+        "timestamp": 294,
+        "options": [
+          "flexible",
+          "resource",
+          "massive",
+          "favorable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-09-q1",
+        "question": "What is the primary focus of the video 'Cloud Storage and File Syncing Explained'?",
+        "options": [
+          "To explain and practice cloud storage and file syncing explained effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores cloud storage and file syncing explained, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 42
+      },
+      {
+        "id": "video-sth-09-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'When...'?",
+        "options": [
+          "It emphasizes that: When you upload a vacation video, it is sliced into encrypte...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'When you upload a vacation video, it is sliced into encrypted packets over the internet.', showing its practical importance.",
+        "timestampSeek": 168
+      },
+      {
+        "id": "video-sth-09-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: The cloud represents humanity's collective brain, anchoring ether...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that The cloud represents humanity's collective brain, anchoring ethereal data into tangible hardware., providing a meaningful summary for learners.",
+        "timestampSeek": 378
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-dl-16",
-  "youtubeId": "l7YtmFH1-F_",
+  "youtubeId": "z0qA_5vDl0g",
   "title": "Digital Declutter: Organizing Your Phone and Files",
   "channel": "Oxford Online English",
   "duration": 500,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/l7YtmFH1-F_/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/z0qA_5vDl0g/hqdefault.jpg",
   "description": "Cách dọn dẹp bộ nhớ điện thoại, sắp xếp thư mục máy tính và giảm tải kỹ thuật số.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that A disciplined digital environment grants you priceless peace of mind., providing a meaningful summary for learners.",
       "timestampSeek": 450
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-16-cloze-1",
+        "cueId": "video-dl-16-cue-3",
+        "sentence": "{{blank}} of unread emails and chaotic desktop icons cause unconscious stress.",
+        "blankWord": "thousands",
+        "hintVi": "Nghĩa gợi ý: Hàng ngàn email chưa đọc và biểu tượng l...",
+        "timestamp": 100,
+        "options": [
+          "convenient",
+          "thousands",
+          "routine",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-dl-16-cloze-2",
+        "cueId": "video-dl-16-cue-5",
+        "sentence": "Back up {{blank}} family photos onto external hard drives or secure cloud storage.",
+        "blankWord": "cherished",
+        "hintVi": "Nghĩa gợi ý: Sao lưu những bức ảnh gia đình yêu quý v...",
+        "timestamp": 200,
+        "options": [
+          "priority",
+          "cherished",
+          "alternative",
+          "continuous"
+        ]
+      },
+      {
+        "id": "video-dl-16-cloze-3",
+        "cueId": "video-dl-16-cue-8",
+        "sentence": "{{blank}} from promotional marketing newsletters that crowd your inbox.",
+        "blankWord": "unsubscribe",
+        "hintVi": "Nghĩa gợi ý: Hủy đăng ký các bản tin tiếp thị quảng c...",
+        "timestamp": 350,
+        "options": [
+          "priority",
+          "essential",
+          "unsubscribe",
+          "perspective"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-16-q1",
+        "question": "What is the primary focus of the video 'Digital Declutter: Organizing Your Phone and Files'?",
+        "options": [
+          "To explain and practice digital declutter: organizing your phone and files effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores digital declutter: organizing your phone and files, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 50
+      },
+      {
+        "id": "video-dl-16-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Back...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Back up cherished family photos onto external hard drives or...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Back up cherished family photos onto external hard drives or secure cloud storage.', showing its practical importance.",
+        "timestampSeek": 200
+      },
+      {
+        "id": "video-dl-16-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: A disciplined digital environment grants you priceless peace of m..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that A disciplined digital environment grants you priceless peace of mind., providing a meaningful summary for learners.",
+        "timestampSeek": 450
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-sth-03",
-  "youtubeId": "QGDhB_rBpGJ",
+  "youtubeId": "CtvIX4s1bTU",
   "title": "How Drinking Water Helps Your Body",
   "channel": "English with Lucy",
   "duration": 235,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/QGDhB_rBpGJ/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/CtvIX4s1bTU/hqdefault.jpg",
   "description": "Lợi ích của việc uống đủ nước mỗi ngày đối với làn da, năng lượng và tiêu hóa.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Prioritizing daily hydration is the simplest secret to radiant physical health., providing a meaningful summary for learners.",
       "timestampSeek": 211.5
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-03-cloze-1",
+        "cueId": "video-sth-03-cue-3",
+        "sentence": "{{blank}} cell, tissue, and internal organ depends on water to function efficiently.",
+        "blankWord": "every",
+        "hintVi": "Nghĩa gợi ý: Mọi tế bào, mô và cơ quan nội tạng đều p...",
+        "timestamp": 47,
+        "options": [
+          "strategy",
+          "innovative",
+          "every",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-sth-03-cloze-2",
+        "cueId": "video-sth-03-cue-5",
+        "sentence": "{{blank}} carries vital nutrients and oxygen directly to your living cells.",
+        "blankWord": "water",
+        "hintVi": "Nghĩa gợi ý: Nước mang các chất dinh dưỡng thiết yếu ...",
+        "timestamp": 94,
+        "options": [
+          "subsequent",
+          "simultaneous",
+          "moderate",
+          "water"
+        ]
+      },
+      {
+        "id": "video-sth-03-cloze-3",
+        "cueId": "video-sth-03-cue-8",
+        "sentence": "{{blank}} your thirst signals: dry lips and dark urine indicate dehydration.",
+        "blankWord": "notice",
+        "hintVi": "Nghĩa gợi ý: Hãy chú ý các tín hiệu khát: môi khô và ...",
+        "timestamp": 164.5,
+        "options": [
+          "alternative",
+          "routine",
+          "notice",
+          "prominent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-03-q1",
+        "question": "What is the primary focus of the video 'How Drinking Water Helps Your Body'?",
+        "options": [
+          "To explain and practice how drinking water helps your body effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores how drinking water helps your body, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 23.5
+      },
+      {
+        "id": "video-sth-03-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Water...'?",
+        "options": [
+          "It emphasizes that: Water carries vital nutrients and oxygen directly to your li...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Water carries vital nutrients and oxygen directly to your living cells.', showing its practical importance.",
+        "timestampSeek": 94
+      },
+      {
+        "id": "video-sth-03-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Prioritizing daily hydration is the simplest secret to radiant ph...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Prioritizing daily hydration is the simplest secret to radiant physical health., providing a meaningful summary for learners.",
+        "timestampSeek": 211.5
+      }
+    ]
+  }
 }

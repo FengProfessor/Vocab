@@ -1,6 +1,6 @@
 {
   "id": "video-tr-06",
-  "youtubeId": "7SAXIRAutrs",
+  "youtubeId": "9MkngoRI2Lk",
   "title": "Taking a City Taxi and Giving Directions",
   "channel": "Learn English with Bob the Canadian",
   "duration": 250,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/7SAXIRAutrs/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/9MkngoRI2Lk/hqdefault.jpg",
   "description": "Cách bắt taxi, nói địa chỉ cần đến và hỏi về cước phí đồng hồ đo.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Safe and courteous taxi rides make urban exploring effortless and secure., providing a meaningful summary for learners.",
       "timestampSeek": 225
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-06-cloze-1",
+        "cueId": "video-tr-06-cue-3",
+        "sentence": "Hail a {{blank}} taxi from an official taxi stand outside the railway station.",
+        "blankWord": "licensed",
+        "hintVi": "Nghĩa gợi ý: Vẫy một chiếc taxi có giấy phép từ điểm ...",
+        "timestamp": 50,
+        "options": [
+          "licensed",
+          "flexible",
+          "preliminary",
+          "innovative"
+        ]
+      },
+      {
+        "id": "video-tr-06-cloze-2",
+        "cueId": "video-tr-06-cue-5",
+        "sentence": "Make sure the {{blank}} activates the official dashboard meter when departing.",
+        "blankWord": "driver",
+        "hintVi": "Nghĩa gợi ý: Đảm bảo tài xế bật đồng hồ đo chính thức...",
+        "timestamp": 100,
+        "options": [
+          "tremendous",
+          "consistent",
+          "strategy",
+          "driver"
+        ]
+      },
+      {
+        "id": "video-tr-06-cloze-3",
+        "cueId": "video-tr-06-cue-8",
+        "sentence": "When you {{blank}}, look at the meter display to see the final taxi fare.",
+        "blankWord": "arrive",
+        "hintVi": "Nghĩa gợi ý: Khi bạn đến nơi, hãy nhìn vào màn hình đ...",
+        "timestamp": 175,
+        "options": [
+          "arrive",
+          "convenient",
+          "flexible",
+          "advantage"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-06-q1",
+        "question": "What is the primary focus of the video 'Taking a City Taxi and Giving Directions'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice taking a city taxi and giving directions effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores taking a city taxi and giving directions, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 25
+      },
+      {
+        "id": "video-tr-06-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Make...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Make sure the driver activates the official dashboard meter ...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Make sure the driver activates the official dashboard meter when departing.', showing its practical importance.",
+        "timestampSeek": 100
+      },
+      {
+        "id": "video-tr-06-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Safe and courteous taxi rides make urban exploring effortless and...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Safe and courteous taxi rides make urban exploring effortless and secure., providing a meaningful summary for learners.",
+        "timestampSeek": 225
+      }
+    ]
+  }
 }

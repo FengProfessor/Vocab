@@ -1,6 +1,6 @@
 {
   "id": "video-tr-08",
-  "youtubeId": "dwZJhY_owc7",
+  "youtubeId": "W5mLt9jVYcs",
   "title": "At the Train Station: Finding the Platform",
   "channel": "mmmEnglish",
   "duration": 290,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/dwZJhY_owc7/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/W5mLt9jVYcs/hqdefault.jpg",
   "description": "Cách đọc bảng điện tử nhà ga xe lửa, tìm số sân ga (Platform) và toa tàu của mình.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Gliding across scenic countryside by train is the most romantic way to travel., providing a meaningful summary for learners.",
       "timestampSeek": 261
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-08-cloze-1",
+        "cueId": "video-tr-08-cue-3",
+        "sentence": "Look for the {{blank}} electronic departure board suspended in the main concourse.",
+        "blankWord": "gigantic",
+        "hintVi": "Nghĩa gợi ý: Tìm chiếc bảng điện tử báo giờ khởi hành...",
+        "timestamp": 58,
+        "options": [
+          "gigantic",
+          "vulnerable",
+          "innovative",
+          "routine"
+        ]
+      },
+      {
+        "id": "video-tr-08-cloze-2",
+        "cueId": "video-tr-08-cue-5",
+        "sentence": "Ten {{blank}} before departure, the assigned platform number will flash on screen.",
+        "blankWord": "minutes",
+        "hintVi": "Nghĩa gợi ý: Mười phút trước giờ khởi hành, số sân ga...",
+        "timestamp": 116,
+        "options": [
+          "reliable",
+          "dimension",
+          "minutes",
+          "preliminary"
+        ]
+      },
+      {
+        "id": "video-tr-08-cloze-3",
+        "cueId": "video-tr-08-cue-8",
+        "sentence": "Step {{blank}} carefully, place your luggage on the overhead racks, and sit down.",
+        "blankWord": "aboard",
+        "hintVi": "Nghĩa gợi ý: Bước lên tàu cẩn thận, đặt hành lý lên g...",
+        "timestamp": 203,
+        "options": [
+          "gradual",
+          "perspective",
+          "aboard",
+          "deliberate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-08-q1",
+        "question": "What is the primary focus of the video 'At the Train Station: Finding the Platform'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice at the train station: finding the platform effectively.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores at the train station: finding the platform, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 29
+      },
+      {
+        "id": "video-tr-08-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Ten...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Ten minutes before departure, the assigned platform number w...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Ten minutes before departure, the assigned platform number will flash on screen.', showing its practical importance.",
+        "timestampSeek": 116
+      },
+      {
+        "id": "video-tr-08-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Gliding across scenic countryside by train is the most romantic w..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Gliding across scenic countryside by train is the most romantic way to travel., providing a meaningful summary for learners.",
+        "timestampSeek": 261
+      }
+    ]
+  }
 }

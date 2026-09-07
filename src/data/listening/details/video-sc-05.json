@@ -1,6 +1,6 @@
 {
   "id": "video-sc-05",
-  "youtubeId": "hBBxovhtQsp",
+  "youtubeId": "t7Xr3AsBEK4",
   "title": "Inviting Friends Over for the Weekend",
   "channel": "BBC Learning English",
   "duration": 290,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/hBBxovhtQsp/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/t7Xr3AsBEK4/hqdefault.jpg",
   "description": "Cách mời bạn bè đến nhà chơi, ăn tối hoặc tổ chức tiệc nhẹ cuối tuần.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Sharing food around a home table cements deep and lasting human bonds., providing a meaningful summary for learners.",
       "timestampSeek": 261
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-05-cloze-1",
+        "cueId": "video-sc-05-cue-3",
+        "sentence": "{{blank}} invitations clearly with plenty of advance notice so guests can plan.",
+        "blankWord": "extend",
+        "hintVi": "Nghĩa gợi ý: Hãy đưa ra lời mời rõ ràng trước nhiều n...",
+        "timestamp": 58,
+        "options": [
+          "routine",
+          "sufficient",
+          "extend",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-sc-05-cloze-2",
+        "cueId": "video-sc-05-cue-5",
+        "sentence": "{{blank}} a fun potluck dinner takes pressure off the busy host.",
+        "blankWord": "suggesting",
+        "hintVi": "Nghĩa gợi ý: Gợi ý một bữa tiệc góp món vui vẻ giúp g...",
+        "timestamp": 116,
+        "options": [
+          "alternative",
+          "suggesting",
+          "prominent",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-sc-05-cloze-3",
+        "cueId": "video-sc-05-cue-8",
+        "sentence": "{{blank}} easy driving directions or public transit tips to your home.",
+        "blankWord": "provide",
+        "hintVi": "Nghĩa gợi ý: Cung cấp chỉ dẫn đường lái xe dễ đi hoặc...",
+        "timestamp": 203,
+        "options": [
+          "prominent",
+          "provide",
+          "routine",
+          "perceptive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-05-q1",
+        "question": "What is the primary focus of the video 'Inviting Friends Over for the Weekend'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice inviting friends over for the weekend effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores inviting friends over for the weekend, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 29
+      },
+      {
+        "id": "video-sc-05-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Suggesting...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Suggesting a fun potluck dinner takes pressure off the busy ...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Suggesting a fun potluck dinner takes pressure off the busy host.', showing its practical importance.",
+        "timestampSeek": 116
+      },
+      {
+        "id": "video-sc-05-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Sharing food around a home table cements deep and lasting human b..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Sharing food around a home table cements deep and lasting human bonds., providing a meaningful summary for learners.",
+        "timestampSeek": 261
+      }
+    ]
+  }
 }

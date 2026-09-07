@@ -296,5 +296,119 @@
       "explanation": "Ở mốc 03:16 (cue-19), bài học khuyến nghị gửi email cảm ơn ngắn gọn trong vòng 24 giờ.",
       "timestampSeek": 196.8
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "cloze-med-1-1",
+        "cueId": "cue-5",
+        "sentence": "Use the present-past-future {{blank}} to give a crisp professional summary.",
+        "blankWord": "framework",
+        "hintVi": "mô hình, khuôn khổ cấu trúc",
+        "timestamp": 39.8,
+        "options": [
+          "framework",
+          "fiction",
+          "excuse",
+          "gossip"
+        ]
+      },
+      {
+        "id": "cloze-med-1-2",
+        "cueId": "cue-8",
+        "sentence": "The most effective structure for answering competency questions is the {{blank}} method.",
+        "blankWord": "STAR",
+        "hintVi": "viết tắt Situation, Task, Action, Result",
+        "timestamp": 72.2,
+        "options": [
+          "STAR",
+          "SWOT",
+          "SMART",
+          "FAST"
+        ]
+      },
+      {
+        "id": "cloze-med-1-3",
+        "cueId": "cue-10",
+        "sentence": "Always {{blank}} your results with concrete numbers like percentages or days saved.",
+        "blankWord": "quantify",
+        "hintVi": "định lượng, đo lường bằng số",
+        "timestamp": 93.8,
+        "options": [
+          "quantify",
+          "hide",
+          "ignore",
+          "forget"
+        ]
+      },
+      {
+        "id": "cloze-med-1-4",
+        "cueId": "cue-12",
+        "sentence": "Never say 'I am a {{blank}}'; interviewers hear this cliché every single day.",
+        "blankWord": "perfectionist",
+        "hintVi": "người cầu toàn",
+        "timestamp": 116.2,
+        "options": [
+          "perfectionist",
+          "leader",
+          "specialist",
+          "beginner"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "quiz-med-1-1",
+        "question": "What common mistake do candidates make when asked 'Tell me about yourself'?",
+        "options": [
+          "Talking about their current job for 30 seconds",
+          "Reciting their entire life biography or reading their CV word-for-word",
+          "Asking questions about the company stock price",
+          "Refusing to state their previous job title"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 00:29 (cue-4), người hướng dẫn chỉ ra sai lầm là kể lể tiểu sử cả đời hoặc lặp lại từng từ trong CV.",
+        "timestampSeek": 29.2
+      },
+      {
+        "id": "quiz-med-1-2",
+        "question": "In the STAR method, what percentage of time should be spent on Actions and Results?",
+        "options": [
+          "20 percent",
+          "50 percent",
+          "80 percent",
+          "100 percent"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ở mốc 01:23 (cue-9), quy tắc là dành 20% cho tình huống/nhiệm vụ và 80% làm nổi bật hành động và kết quả đạt được.",
+        "timestampSeek": 83.2
+      },
+      {
+        "id": "quiz-med-1-3",
+        "question": "What is the recommended strategy when asked about your greatest weakness?",
+        "options": [
+          "Say you have zero weaknesses",
+          "Claim you work too hard or are a perfectionist",
+          "State a real skill you are actively improving and explain the steps taken",
+          "Blame your former manager for past failures"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ở mốc 02:07 (cue-13/14), bài học khuyên chọn một kỹ năng thực tế đang trau dồi và nêu rõ hành động cải thiện cụ thể.",
+        "timestampSeek": 127.5
+      },
+      {
+        "id": "quiz-med-1-4",
+        "question": "What should you do within 24 hours following the job interview?",
+        "options": [
+          "Call the CEO on their personal mobile phone",
+          "Send a concise thank-you email reaffirming your enthusiasm",
+          "Post a review of the interview panel on social media",
+          "Assume you were rejected if you did not get an immediate offer"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 03:16 (cue-19), bài học khuyến nghị gửi email cảm ơn ngắn gọn trong vòng 24 giờ.",
+        "timestampSeek": 196.8
+      }
+    ]
+  }
 }

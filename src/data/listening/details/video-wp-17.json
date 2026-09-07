@@ -1,6 +1,6 @@
 {
   "id": "video-wp-17",
-  "youtubeId": "aHHGH60Rtw9",
+  "youtubeId": "16hzMhzgaM0",
   "title": "Crisis Communication and Managing Team Burnout",
   "channel": "Harvard Business Review",
   "duration": 510,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/aHHGH60Rtw9/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/16hzMhzgaM0/hqdefault.jpg",
   "description": "Giao tiếp trong khủng hoảng: minh bạch thông tin, trấn an tinh thần và chống kiệt sức.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Courageous, compassionate leadership in crisis cements loyalty for decades., providing a meaningful summary for learners.",
       "timestampSeek": 459
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-17-cloze-1",
+        "cueId": "video-wp-17-cue-3",
+        "sentence": "The {{blank}} failure in corporate emergencies is communication silence.",
+        "blankWord": "primary",
+        "hintVi": "Nghĩa gợi ý: Thất bại hàng đầu trong các tình huống k...",
+        "timestamp": 102,
+        "options": [
+          "vulnerable",
+          "primary",
+          "advantage",
+          "gradual"
+        ]
+      },
+      {
+        "id": "video-wp-17-cloze-2",
+        "cueId": "video-wp-17-cue-5",
+        "sentence": "{{blank}} must communicate with unwavering transparency and emotional steadying.",
+        "blankWord": "leaders",
+        "hintVi": "Nghĩa gợi ý: Các nhà lãnh đạo phải giao tiếp với sự m...",
+        "timestamp": 204,
+        "options": [
+          "criterion",
+          "leaders",
+          "resource",
+          "vibrant"
+        ]
+      },
+      {
+        "id": "video-wp-17-cloze-3",
+        "cueId": "video-wp-17-cue-8",
+        "sentence": "{{blank}} mandatory rest cycles to rebuild psychological and physiological resilience.",
+        "blankWord": "enforce",
+        "hintVi": "Nghĩa gợi ý: Thực thi các chu kỳ nghỉ ngơi bắt buộc đ...",
+        "timestamp": 357,
+        "options": [
+          "consistent",
+          "enforce",
+          "simultaneous",
+          "efficient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-17-q1",
+        "question": "What is the primary focus of the video 'Crisis Communication and Managing Team Burnout'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice crisis communication and managing team burnout effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores crisis communication and managing team burnout, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 51
+      },
+      {
+        "id": "video-wp-17-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Leaders...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Leaders must communicate with unwavering transparency and em...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Leaders must communicate with unwavering transparency and emotional steadying.', showing its practical importance.",
+        "timestampSeek": 204
+      },
+      {
+        "id": "video-wp-17-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Courageous, compassionate leadership in crisis cements loyalty fo...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Courageous, compassionate leadership in crisis cements loyalty for decades., providing a meaningful summary for learners.",
+        "timestampSeek": 459
+      }
+    ]
+  }
 }

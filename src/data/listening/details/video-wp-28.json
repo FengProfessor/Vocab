@@ -1,6 +1,6 @@
 {
   "id": "video-wp-28",
-  "youtubeId": "ST_xo4h0ioz",
+  "youtubeId": "z6E7t29sg0Y",
   "title": "Transitioning from Specialist to People Manager",
   "channel": "Harvard Business Review",
   "duration": 1190,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/ST_xo4h0ioz/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/z6E7t29sg0Y/hqdefault.jpg",
   "description": "Hành trình chuyển đổi từ chuyên viên giỏi sang người quản lý dẫn dắt đội ngũ.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Give your team autonomy, clear guardrails, and permission to make non-fatal mistakes.', providing deeper technical insight.",
       "timestampSeek": 714
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-28-cloze-1",
+        "cueId": "video-wp-28-cue-3",
+        "sentence": "As an {{blank}} specialist, your value derived from your personal technical output.",
+        "blankWord": "expert",
+        "hintVi": "Nghĩa gợi ý: Là một chuyên viên kỳ cựu, giá trị của b...",
+        "timestamp": 238,
+        "options": [
+          "framework",
+          "resource",
+          "expert",
+          "accurate"
+        ]
+      },
+      {
+        "id": "video-wp-28-cloze-2",
+        "cueId": "video-wp-28-cue-5",
+        "sentence": "The most {{blank}} trap is refusing to master the difficult art of delegation.",
+        "blankWord": "common",
+        "hintVi": "Nghĩa gợi ý: Cái bẫy phổ biến nhất là từ chối làm chủ...",
+        "timestamp": 476,
+        "options": [
+          "substantial",
+          "common",
+          "extensive",
+          "alternative"
+        ]
+      },
+      {
+        "id": "video-wp-28-cloze-3",
+        "cueId": "video-wp-28-cue-8",
+        "sentence": "Lead with deep {{blank}} and empathetic coaching rather than authoritarian micromanagement.",
+        "blankWord": "listening",
+        "hintVi": "Nghĩa gợi ý: Dẫn dắt bằng sự lắng nghe sâu sắc và huấ...",
+        "timestamp": 833,
+        "options": [
+          "gradual",
+          "listening",
+          "strategy",
+          "component"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-28-q1",
+        "question": "What is the primary focus of the video 'Transitioning from Specialist to People Manager'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice transitioning from specialist to people manager effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores transitioning from specialist to people manager, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 119
+      },
+      {
+        "id": "video-wp-28-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: The most common trap is refusing to master the difficult art...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'The most common trap is refusing to master the difficult art of delegation.', showing its practical importance.",
+        "timestampSeek": 476
+      },
+      {
+        "id": "video-wp-28-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Your highest legacy is not the code you wrote, but the leaders yo...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Your highest legacy is not the code you wrote, but the leaders you inspired., providing a meaningful summary for learners.",
+        "timestampSeek": 1071
+      },
+      {
+        "id": "video-wp-28-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Give...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: Give your team autonomy, clear guardrails, and permission to...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'Give your team autonomy, clear guardrails, and permission to make non-fatal mistakes.', providing deeper technical insight.",
+        "timestampSeek": 714
+      }
+    ]
+  }
 }

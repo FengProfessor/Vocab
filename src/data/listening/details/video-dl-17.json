@@ -1,6 +1,6 @@
 {
   "id": "video-dl-17",
-  "youtubeId": "MBKIYqts0Rr",
+  "youtubeId": "2lxvNnGkdTo",
   "title": "Overcoming Procrastination on Daily Chores",
   "channel": "BBC Learning English",
   "duration": 530,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/MBKIYqts0Rr/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/2lxvNnGkdTo/hqdefault.jpg",
   "description": "Chiến lược tâm lý vượt qua sự trì hoãn việc nhà với quy tắc hai phút kinh điển.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Conquering your daily environment is the first step toward self-mastery., providing a meaningful summary for learners.",
       "timestampSeek": 477
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-17-cloze-1",
+        "cueId": "video-dl-17-cue-3",
+        "sentence": "{{blank}} explain that we procrastinate to avoid brief feelings of discomfort.",
+        "blankWord": "psychologists",
+        "hintVi": "Nghĩa gợi ý: Các nhà tâm lý học giải thích rằng chúng...",
+        "timestamp": 106,
+        "options": [
+          "sufficient",
+          "protocol",
+          "balance",
+          "psychologists"
+        ]
+      },
+      {
+        "id": "video-dl-17-cloze-2",
+        "cueId": "video-dl-17-cue-5",
+        "sentence": "{{blank}} your coffee cup immediately prevents sinks from overflowing later.",
+        "blankWord": "washing",
+        "hintVi": "Nghĩa gợi ý: Rửa tách cà phê ngay lập tức giúp bồn rử...",
+        "timestamp": 212,
+        "options": [
+          "accurate",
+          "component",
+          "framework",
+          "washing"
+        ]
+      },
+      {
+        "id": "video-dl-17-cloze-3",
+        "cueId": "video-dl-17-cue-8",
+        "sentence": "{{blank}} the immediate satisfaction and accomplishment of a tidy room.",
+        "blankWord": "notice",
+        "hintVi": "Nghĩa gợi ý: Hãy để ý sự hài lòng và cảm giác hoàn th...",
+        "timestamp": 371,
+        "options": [
+          "accurate",
+          "framework",
+          "notice",
+          "balance"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-17-q1",
+        "question": "What is the primary focus of the video 'Overcoming Procrastination on Daily Chores'?",
+        "options": [
+          "To explain and practice overcoming procrastination on daily chores effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores overcoming procrastination on daily chores, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 53
+      },
+      {
+        "id": "video-dl-17-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Washing...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Washing your coffee cup immediately prevents sinks from over..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Washing your coffee cup immediately prevents sinks from overflowing later.', showing its practical importance.",
+        "timestampSeek": 212
+      },
+      {
+        "id": "video-dl-17-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Conquering your daily environment is the first step toward self-m...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Conquering your daily environment is the first step toward self-mastery., providing a meaningful summary for learners.",
+        "timestampSeek": 477
+      }
+    ]
+  }
 }

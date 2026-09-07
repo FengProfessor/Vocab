@@ -1,6 +1,6 @@
 {
   "id": "video-tr-12",
-  "youtubeId": "U-BNnwl3bGu",
+  "youtubeId": "FJrRiVjeOMc",
   "title": "Handling a Flight Delay and Claiming Vouchers",
   "channel": "Oxford Online English",
   "duration": 400,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/U-BNnwl3bGu/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/FJrRiVjeOMc/hqdefault.jpg",
   "description": "Quyền lợi hành khách khi chuyến bay bị hoãn: phiếu ăn uống, khách sạn và bồi thường.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Composed assertiveness backed by consumer law resolves airport crises rapidly., providing a meaningful summary for learners.",
       "timestampSeek": 360
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-12-cloze-1",
+        "cueId": "video-tr-12-cue-3",
+        "sentence": "When your {{blank}} is delayed beyond three hours, specific passenger rights activate.",
+        "blankWord": "flight",
+        "hintVi": "Nghĩa gợi ý: Khi chuyến bay của bạn bị hoãn trên ba t...",
+        "timestamp": 80,
+        "options": [
+          "flight",
+          "reliable",
+          "criterion",
+          "efficient"
+        ]
+      },
+      {
+        "id": "video-tr-12-cloze-2",
+        "cueId": "video-tr-12-cue-5",
+        "sentence": "{{blank}} the service desk calmly: 'Could you please issue meal vouchers for our wait?'",
+        "blankWord": "approach",
+        "hintVi": "Nghĩa gợi ý: Tiến lại bàn dịch vụ một cách bình tĩnh:...",
+        "timestamp": 160,
+        "options": [
+          "approach",
+          "fundamental",
+          "sufficient",
+          "adequate"
+        ]
+      },
+      {
+        "id": "video-tr-12-cloze-3",
+        "cueId": "video-tr-12-cue-8",
+        "sentence": "Keep all {{blank}} for out-of-pocket food purchases if vouchers are unavailable.",
+        "blankWord": "receipts",
+        "hintVi": "Nghĩa gợi ý: Giữ lại tất cả các hóa đơn mua đồ ăn tự ...",
+        "timestamp": 280,
+        "options": [
+          "receipts",
+          "subsequent",
+          "strategy",
+          "resource"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-12-q1",
+        "question": "What is the primary focus of the video 'Handling a Flight Delay and Claiming Vouchers'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice handling a flight delay and claiming vouchers effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores handling a flight delay and claiming vouchers, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 40
+      },
+      {
+        "id": "video-tr-12-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Approach...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Approach the service desk calmly: 'Could you please issue me...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Approach the service desk calmly: 'Could you please issue meal vouchers for our wait?'', showing its practical importance.",
+        "timestampSeek": 160
+      },
+      {
+        "id": "video-tr-12-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Composed assertiveness backed by consumer law resolves airport cr...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Composed assertiveness backed by consumer law resolves airport crises rapidly., providing a meaningful summary for learners.",
+        "timestampSeek": 360
+      }
+    ]
+  }
 }

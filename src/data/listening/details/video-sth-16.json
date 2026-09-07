@@ -1,6 +1,6 @@
 {
   "id": "video-sth-16",
-  "youtubeId": "xxfbJhB4PA5",
+  "youtubeId": "9iMGFqMmUFs",
   "title": "Machine Learning and Neural Networks Demystified",
   "channel": "SciShow",
   "duration": 490,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/xxfbJhB4PA5/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/9iMGFqMmUFs/hqdefault.jpg",
   "description": "Bản chất của học máy và mạng nơ-ron: cách máy tính học từ dữ liệu lớn để nhận dạng mẫu.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Understanding neural networks demystifies the algorithmic engines shaping our twenty-first-century future., providing a meaningful summary for learners.",
       "timestampSeek": 441
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-16-cloze-1",
+        "cueId": "video-sth-16-cue-3",
+        "sentence": "{{blank}} software runs on rigid, human-authored rules: if this condition occurs, execute that command.",
+        "blankWord": "traditional",
+        "hintVi": "Nghĩa gợi ý: Phần mềm truyền thống chạy trên các quy ...",
+        "timestamp": 98,
+        "options": [
+          "gradual",
+          "efficient",
+          "remarkable",
+          "traditional"
+        ]
+      },
+      {
+        "id": "video-sth-16-cloze-2",
+        "cueId": "video-sth-16-cue-5",
+        "sentence": "{{blank}} by biological brains, artificial neural networks arrange computational nodes into stacked layers.",
+        "blankWord": "inspired",
+        "hintVi": "Nghĩa gợi ý: Lấy cảm hứng từ bộ não sinh học, các mạn...",
+        "timestamp": 196,
+        "options": [
+          "continuous",
+          "inspired",
+          "component",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-sth-16-cloze-3",
+        "cueId": "video-sth-16-cue-8",
+        "sentence": "Over {{blank}} of iterative cycles, the network learns to detect subtle, abstract hierarchical patterns.",
+        "blankWord": "billions",
+        "hintVi": "Nghĩa gợi ý: Qua hàng tỷ chu kỳ lặp lại, mạng lưới họ...",
+        "timestamp": 343,
+        "options": [
+          "resource",
+          "deliberate",
+          "billions",
+          "innovative"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-16-q1",
+        "question": "What is the primary focus of the video 'Machine Learning and Neural Networks Demystified'?",
+        "options": [
+          "To explain and practice machine learning and neural networks demystified effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores machine learning and neural networks demystified, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 49
+      },
+      {
+        "id": "video-sth-16-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Inspired...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Inspired by biological brains, artificial neural networks ar...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Inspired by biological brains, artificial neural networks arrange computational nodes into stacked layers.', showing its practical importance.",
+        "timestampSeek": 196
+      },
+      {
+        "id": "video-sth-16-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Understanding neural networks demystifies the algorithmic engines...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Understanding neural networks demystifies the algorithmic engines shaping our twenty-first-century future., providing a meaningful summary for learners.",
+        "timestampSeek": 441
+      }
+    ]
+  }
 }

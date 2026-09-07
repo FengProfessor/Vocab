@@ -1,6 +1,6 @@
 {
   "id": "video-dl-14",
-  "youtubeId": "V8ObLj65yCI",
+  "youtubeId": "C830bmzNjDc",
   "title": "Meal Prepping for Five Busy Weekdays",
   "channel": "English with Lucy",
   "duration": 440,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/V8ObLj65yCI/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/C830bmzNjDc/hqdefault.jpg",
   "description": "Kinh nghiệm sơ chế và nấu sẵn thức ăn cho cả tuần giúp tiết kiệm thời gian và tiền bạc.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Planning ahead removes daily anxiety and nourishes your body consistently., providing a meaningful summary for learners.",
       "timestampSeek": 396
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-14-cloze-1",
+        "cueId": "video-dl-14-cue-3",
+        "sentence": "Meal {{blank}} on Sunday afternoon transforms your entire workweek routine.",
+        "blankWord": "prepping",
+        "hintVi": "Nghĩa gợi ý: Chuẩn bị bữa ăn vào chiều Chủ Nhật sẽ th...",
+        "timestamp": 88,
+        "options": [
+          "deliberate",
+          "fundamental",
+          "prepping",
+          "strategy"
+        ]
+      },
+      {
+        "id": "video-dl-14-cloze-2",
+        "cueId": "video-dl-14-cue-5",
+        "sentence": "{{blank}} two large sheet pans of seasoned vegetables and chicken breasts.",
+        "blankWord": "roast",
+        "hintVi": "Nghĩa gợi ý: Nướng hai khay lớn rau củ tẩm ướp gia vị...",
+        "timestamp": 176,
+        "options": [
+          "sufficient",
+          "fundamental",
+          "roast",
+          "consistent"
+        ]
+      },
+      {
+        "id": "video-dl-14-cloze-3",
+        "cueId": "video-dl-14-cue-8",
+        "sentence": "{{blank}} three portions in the refrigerator and freeze the remaining two.",
+        "blankWord": "store",
+        "hintVi": "Nghĩa gợi ý: Bảo quản ba phần trong tủ lạnh và cấp đô...",
+        "timestamp": 308,
+        "options": [
+          "priority",
+          "perspective",
+          "advantage",
+          "store"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-14-q1",
+        "question": "What is the primary focus of the video 'Meal Prepping for Five Busy Weekdays'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice meal prepping for five busy weekdays effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores meal prepping for five busy weekdays, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 44
+      },
+      {
+        "id": "video-dl-14-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Roast...'?",
+        "options": [
+          "It emphasizes that: Roast two large sheet pans of seasoned vegetables and chicke...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Roast two large sheet pans of seasoned vegetables and chicken breasts.', showing its practical importance.",
+        "timestampSeek": 176
+      },
+      {
+        "id": "video-dl-14-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Planning ahead removes daily anxiety and nourishes your body cons...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Planning ahead removes daily anxiety and nourishes your body consistently., providing a meaningful summary for learners.",
+        "timestampSeek": 396
+      }
+    ]
+  }
 }

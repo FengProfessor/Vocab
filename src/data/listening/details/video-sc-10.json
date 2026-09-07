@@ -1,6 +1,6 @@
 {
   "id": "video-sc-10",
-  "youtubeId": "_e4n2rzeAfX",
+  "youtubeId": "gCfzeONu3Mo",
   "title": "Sharing Weekend Plans with Classmates",
   "channel": "RealLife English",
   "duration": 300,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/_e4n2rzeAfX/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/gCfzeONu3Mo/hqdefault.jpg",
   "description": "Các mẫu câu hào hứng nói về kế hoạch đi chơi, xem hòa nhạc hoặc dã ngoại.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Monday mornings become much easier when you have shared weekend stories., providing a meaningful summary for learners.",
       "timestampSeek": 270
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-10-cloze-1",
+        "cueId": "video-sc-10-cue-3",
+        "sentence": "A {{blank}} conversational question is: 'Got any exciting plans for the upcoming weekend?'",
+        "blankWord": "classic",
+        "hintVi": "Nghĩa gợi ý: Một câu hỏi giao tiếp kinh điển là: 'Có ...",
+        "timestamp": 60,
+        "options": [
+          "deliberate",
+          "perspective",
+          "classic",
+          "subsequent"
+        ]
+      },
+      {
+        "id": "video-sc-10-cloze-2",
+        "cueId": "video-sc-10-cue-5",
+        "sentence": "Or {{blank}} you simply look forward to staying home and cooking good food.",
+        "blankWord": "perhaps",
+        "hintVi": "Nghĩa gợi ý: Hoặc có lẽ bạn chỉ đơn giản mong chờ đượ...",
+        "timestamp": 120,
+        "options": [
+          "preliminary",
+          "perhaps",
+          "temporary",
+          "adequate"
+        ]
+      },
+      {
+        "id": "video-sc-10-cloze-3",
+        "cueId": "video-sc-10-cue-8",
+        "sentence": "Wish {{blank}} a refreshing break with: 'Have a restful and fun weekend, everyone.'",
+        "blankWord": "everyone",
+        "hintVi": "Nghĩa gợi ý: Chúc mọi người một kỳ nghỉ sảng khoái vớ...",
+        "timestamp": 210,
+        "options": [
+          "temporary",
+          "everyone",
+          "criterion",
+          "sufficient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-10-q1",
+        "question": "What is the primary focus of the video 'Sharing Weekend Plans with Classmates'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice sharing weekend plans with classmates effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores sharing weekend plans with classmates, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 30
+      },
+      {
+        "id": "video-sc-10-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Or...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Or perhaps you simply look forward to staying home and cooki...",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Or perhaps you simply look forward to staying home and cooking good food.', showing its practical importance.",
+        "timestampSeek": 120
+      },
+      {
+        "id": "video-sc-10-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Monday mornings become much easier when you have shared weekend s...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Monday mornings become much easier when you have shared weekend stories., providing a meaningful summary for learners.",
+        "timestampSeek": 270
+      }
+    ]
+  }
 }

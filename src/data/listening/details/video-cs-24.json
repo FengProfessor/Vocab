@@ -1,6 +1,6 @@
 {
   "id": "video-cs-24",
-  "youtubeId": "zWGw6LkbCCP",
+  "youtubeId": "STOJftffOqs",
   "title": "Cinema as Modern Mythology: The Power of Visual Storytelling",
   "channel": "The School of Life",
   "duration": 1240,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/zWGw6LkbCCP/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/STOJftffOqs/hqdefault.jpg",
   "description": "Điện ảnh như thần thoại hiện đại: sức mạnh của kể chuyện bằng hình ảnh và sự đồng cảm nhân loại.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'We feel the terror of a refugee fleeing war, or the dizzying euphoria of first romantic love.', providing deeper technical insight.",
       "timestampSeek": 744
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-24-cloze-1",
+        "cueId": "video-cs-24-cue-3",
+        "sentence": "{{blank}}, cinema has evolved into humanity's most powerful, immersive storytelling medium.",
+        "blankWord": "today",
+        "hintVi": "Nghĩa gợi ý: Ngày nay, điện ảnh đã phát triển thành p...",
+        "timestamp": 248,
+        "options": [
+          "today",
+          "resource",
+          "subsequent",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-cs-24-cloze-2",
+        "cueId": "video-cs-24-cue-5",
+        "sentence": "{{blank}} film critic Roger Ebert famously described cinema as an 'empathy machine.'",
+        "blankWord": "legendary",
+        "hintVi": "Nghĩa gợi ý: Nhà phê bình phim huyền thoại Roger Eber...",
+        "timestamp": 496,
+        "options": [
+          "extensive",
+          "legendary",
+          "convenient",
+          "advantage"
+        ]
+      },
+      {
+        "id": "video-cs-24-cloze-3",
+        "cueId": "video-cs-24-cue-8",
+        "sentence": "By {{blank}} fictional protagonists endure betrayal, grief, and moral doubt, we experience profound emotional catharsis.",
+        "blankWord": "witnessing",
+        "hintVi": "Nghĩa gợi ý: Bằng cách chứng kiến các nhân vật chính ...",
+        "timestamp": 868,
+        "options": [
+          "spontaneous",
+          "substantial",
+          "witnessing",
+          "alternative"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-24-q1",
+        "question": "What is the primary focus of the video 'Cinema as Modern Mythology: The Power of Visual Storytelling'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice cinema as modern mythology: the power of visual storytelling effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores cinema as modern mythology: the power of visual storytelling, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 124
+      },
+      {
+        "id": "video-cs-24-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Legendary...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Legendary film critic Roger Ebert famously described cinema ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Legendary film critic Roger Ebert famously described cinema as an 'empathy machine.'', showing its practical importance.",
+        "timestampSeek": 496
+      },
+      {
+        "id": "video-cs-24-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: In great films, we do not merely escape our lives; we discover th...",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that In great films, we do not merely escape our lives; we discover the universal courage to live them truthfully., providing a meaningful summary for learners.",
+        "timestampSeek": 1116
+      },
+      {
+        "id": "video-cs-24-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'We...'?",
+        "options": [
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: We feel the terror of a refugee fleeing war, or the dizzying...",
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners."
+        ],
+        "correctIndex": 1,
+        "explanation": "The speaker specifically highlights: 'We feel the terror of a refugee fleeing war, or the dizzying euphoria of first romantic love.', providing deeper technical insight.",
+        "timestampSeek": 744
+      }
+    ]
+  }
 }

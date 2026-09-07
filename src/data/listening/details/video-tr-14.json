@@ -1,6 +1,6 @@
 {
   "id": "video-tr-14",
-  "youtubeId": "3Dkw9z4-yZw",
+  "youtubeId": "N2StxicQois",
   "title": "Changing Hotel Rooms Due to Noise or Issues",
   "channel": "Oxford Online English",
   "duration": 460,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/3Dkw9z4-yZw/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/N2StxicQois/hqdefault.jpg",
   "description": "Cách yêu cầu đổi phòng khách sạn lịch sự khi phòng ồn ào hoặc thiết bị hỏng hóc.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Asserting your customer rights politely ensures your holiday remains tranquil and pleasant., providing a meaningful summary for learners.",
       "timestampSeek": 414
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-14-cloze-1",
+        "cueId": "video-tr-14-cue-3",
+        "sentence": "If you {{blank}} persistent plumbing leaks or noisy elevator shafts, take action promptly.",
+        "blankWord": "discover",
+        "hintVi": "Nghĩa gợi ý: Nếu bạn phát hiện rò rỉ ống nước liên tụ...",
+        "timestamp": 92,
+        "options": [
+          "discover",
+          "essential",
+          "tremendous",
+          "extensive"
+        ]
+      },
+      {
+        "id": "video-tr-14-cloze-2",
+        "cueId": "video-tr-14-cue-5",
+        "sentence": "{{blank}} the dilemma calmly: 'Excuse me, our air conditioner is experiencing a severe malfunction.'",
+        "blankWord": "explain",
+        "hintVi": "Nghĩa gợi ý: Giải thích tình thế khó xử một cách bình...",
+        "timestamp": 184,
+        "options": [
+          "innovative",
+          "explain",
+          "extensive",
+          "adequate"
+        ]
+      },
+      {
+        "id": "video-tr-14-cloze-3",
+        "cueId": "video-tr-14-cue-8",
+        "sentence": "{{blank}} firm courtesy without aggressive anger; receptionists respond to calm respect.",
+        "blankWord": "maintain",
+        "hintVi": "Nghĩa gợi ý: Duy trì sự lịch thiệp kiên quyết mà khôn...",
+        "timestamp": 322,
+        "options": [
+          "moderate",
+          "vibrant",
+          "convenient",
+          "maintain"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-14-q1",
+        "question": "What is the primary focus of the video 'Changing Hotel Rooms Due to Noise or Issues'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice changing hotel rooms due to noise or issues effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores changing hotel rooms due to noise or issues, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 46
+      },
+      {
+        "id": "video-tr-14-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Explain...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Explain the dilemma calmly: 'Excuse me, our air conditioner ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Explain the dilemma calmly: 'Excuse me, our air conditioner is experiencing a severe malfunction.'', showing its practical importance.",
+        "timestampSeek": 184
+      },
+      {
+        "id": "video-tr-14-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Asserting your customer rights politely ensures your holiday rema...",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that Asserting your customer rights politely ensures your holiday remains tranquil and pleasant., providing a meaningful summary for learners.",
+        "timestampSeek": 414
+      }
+    ]
+  }
 }

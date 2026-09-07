@@ -1,6 +1,6 @@
 {
   "id": "video-dl-15",
-  "youtubeId": "9GTF8mW9S7V",
+  "youtubeId": "yLu_M4yiCho",
   "title": "Building a Sustainable Morning Exercise Habit",
   "channel": "BBC Learning English",
   "duration": 470,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/9GTF8mW9S7V/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/yLu_M4yiCho/hqdefault.jpg",
   "description": "Bí quyết xây dựng thói quen tập thể dục buổi sáng nhẹ nhàng và duy trì đều đặn.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Movement is the greatest medicine for physical longevity and mental clarity., providing a meaningful summary for learners.",
       "timestampSeek": 423
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-15-cloze-1",
+        "cueId": "video-dl-15-cue-3",
+        "sentence": "{{blank}} with an intense two-hour workout usually leads to early burnout.",
+        "blankWord": "starting",
+        "hintVi": "Nghĩa gợi ý: Bắt đầu với buổi tập cường độ cao kéo dà...",
+        "timestamp": 94,
+        "options": [
+          "starting",
+          "component",
+          "priority",
+          "framework"
+        ]
+      },
+      {
+        "id": "video-dl-15-cloze-2",
+        "cueId": "video-dl-15-cue-5",
+        "sentence": "{{blank}} with just fifteen minutes of brisk walking or gentle bodyweight exercises.",
+        "blankWord": "begin",
+        "hintVi": "Nghĩa gợi ý: Hãy bắt đầu chỉ với mười lăm phút đi bộ ...",
+        "timestamp": 188,
+        "options": [
+          "adequate",
+          "component",
+          "remarkable",
+          "begin"
+        ]
+      },
+      {
+        "id": "video-dl-15-cloze-3",
+        "cueId": "video-dl-15-cue-8",
+        "sentence": "Do not wait for {{blank}} motivation; cultivate reliable daily discipline.",
+        "blankWord": "fleeting",
+        "hintVi": "Nghĩa gợi ý: Đừng chờ đợi động lực thoáng qua; hãy tr...",
+        "timestamp": 329,
+        "options": [
+          "adequate",
+          "efficient",
+          "fleeting",
+          "tremendous"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-15-q1",
+        "question": "What is the primary focus of the video 'Building a Sustainable Morning Exercise Habit'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice building a sustainable morning exercise habit effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores building a sustainable morning exercise habit, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 47
+      },
+      {
+        "id": "video-dl-15-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Begin...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Begin with just fifteen minutes of brisk walking or gentle b...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Begin with just fifteen minutes of brisk walking or gentle bodyweight exercises.', showing its practical importance.",
+        "timestampSeek": 188
+      },
+      {
+        "id": "video-dl-15-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Movement is the greatest medicine for physical longevity and ment...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Movement is the greatest medicine for physical longevity and mental clarity., providing a meaningful summary for learners.",
+        "timestampSeek": 423
+      }
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "video-fs-26",
-  "youtubeId": "urkaXvRWWj-",
+  "youtubeId": "ISZLTJH5lYg",
   "title": "The Global Supply Chain of Cocoa and Chocolate",
   "channel": "TED-Ed",
   "duration": 920,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/urkaXvRWWj-/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/ISZLTJH5lYg/hqdefault.jpg",
   "description": "Chuỗi cung ứng sô-cô-la toàn cầu: từ hạt ca cao Tây Phi đến các xưởng kẹo Châu Âu.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'However, fluctuating global commodity exchange prices leave farmers in chronic poverty.', providing deeper technical insight.",
       "timestampSeek": 552
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-26-cloze-1",
+        "cueId": "video-fs-26-cue-3",
+        "sentence": "Over {{blank}} percent of global cocoa beans are harvested in West Africa, primarily Côte d'Ivoire and Ghana.",
+        "blankWord": "seventy",
+        "hintVi": "Nghĩa gợi ý: Hơn bảy mươi phần trăm hạt ca cao toàn c...",
+        "timestamp": 184,
+        "options": [
+          "seventy",
+          "sufficient",
+          "deliberate",
+          "protocol"
+        ]
+      },
+      {
+        "id": "video-fs-26-cloze-2",
+        "cueId": "video-fs-26-cue-5",
+        "sentence": "Pods are {{blank}} open and sweet white pulp undergoes critical five-day fermentation.",
+        "blankWord": "split",
+        "hintVi": "Nghĩa gợi ý: Những quả ca cao được bổ đôi và lớp cơm ...",
+        "timestamp": 368,
+        "options": [
+          "innovative",
+          "split",
+          "flexible",
+          "prominent"
+        ]
+      },
+      {
+        "id": "video-fs-26-cloze-3",
+        "cueId": "video-fs-26-cue-8",
+        "sentence": "{{blank}} consumer demand has sparked certified fair-trade and direct-trade cocoa movements.",
+        "blankWord": "ethical",
+        "hintVi": "Nghĩa gợi ý: Nhu cầu của người tiêu dùng có đạo đức đ...",
+        "timestamp": 644,
+        "options": [
+          "continuous",
+          "accurate",
+          "ethical",
+          "remarkable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-26-q1",
+        "question": "What is the primary focus of the video 'The Global Supply Chain of Cocoa and Chocolate'?",
+        "options": [
+          "To explain and practice the global supply chain of cocoa and chocolate effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 0,
+        "explanation": "The entire video systematically explores the global supply chain of cocoa and chocolate, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 92
+      },
+      {
+        "id": "video-fs-26-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Pods...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Pods are split open and sweet white pulp undergoes critical ...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Pods are split open and sweet white pulp undergoes critical five-day fermentation.', showing its practical importance.",
+        "timestampSeek": 368
+      },
+      {
+        "id": "video-fs-26-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Every bite of dark chocolate connects our palate to the labor of ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Every bite of dark chocolate connects our palate to the labor of African forest farmers., providing a meaningful summary for learners.",
+        "timestampSeek": 828
+      },
+      {
+        "id": "video-fs-26-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'However,...'?",
+        "options": [
+          "It highlights that: However, fluctuating global commodity exchange prices leave ...",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'However, fluctuating global commodity exchange prices leave farmers in chronic poverty.', providing deeper technical insight.",
+        "timestampSeek": 552
+      }
+    ]
+  }
 }

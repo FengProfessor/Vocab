@@ -1,6 +1,6 @@
 {
   "id": "video-fs-19",
-  "youtubeId": "rTNhW3g_xGx",
+  "youtubeId": "A_AJrtGtC3Y",
   "title": "The Vocabulary of Supermarket Aisles",
   "channel": "English with Lucy",
   "duration": 660,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/rTNhW3g_xGx/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/A_AJrtGtC3Y/hqdefault.jpg",
   "description": "Toàn bộ từ vựng các quầy hàng siêu thị: từ đồ đông lạnh đến quầy bánh và sữa.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'The deli counter prepares custom slices of roasted turkey and cured Italian ham.', providing deeper technical insight.",
       "timestampSeek": 396
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-19-cloze-1",
+        "cueId": "video-fs-19-cue-3",
+        "sentence": "The wide {{blank}} corridors between shelves are universally referred to as aisles.",
+        "blankWord": "shopping",
+        "hintVi": "Nghĩa gợi ý: Những hành lang mua sắm rộng rãi giữa cá...",
+        "timestamp": 132,
+        "options": [
+          "adequate",
+          "subsequent",
+          "balance",
+          "shopping"
+        ]
+      },
+      {
+        "id": "video-fs-19-cloze-2",
+        "cueId": "video-fs-19-cue-5",
+        "sentence": "Down the {{blank}} aisle, tempting displays of sweets and chocolates await.",
+        "blankWord": "confectionery",
+        "hintVi": "Nghĩa gợi ý: Dọc lối đi bánh kẹo, những quầy trưng bà...",
+        "timestamp": 264,
+        "options": [
+          "vulnerable",
+          "flexible",
+          "confectionery",
+          "dimension"
+        ]
+      },
+      {
+        "id": "video-fs-19-cloze-3",
+        "cueId": "video-fs-19-cue-8",
+        "sentence": "{{blank}} the frozen foods freezer cabinets for quick stir-fry vegetables and ice cream.",
+        "blankWord": "check",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra các tủ đông thực phẩm đông lạnh...",
+        "timestamp": 462,
+        "options": [
+          "adequate",
+          "vulnerable",
+          "resource",
+          "check"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-19-q1",
+        "question": "What is the primary focus of the video 'The Vocabulary of Supermarket Aisles'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice the vocabulary of supermarket aisles effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores the vocabulary of supermarket aisles, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 66
+      },
+      {
+        "id": "video-fs-19-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Down...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Down the confectionery aisle, tempting displays of sweets an..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Down the confectionery aisle, tempting displays of sweets and chocolates await.', showing its practical importance.",
+        "timestampSeek": 264
+      },
+      {
+        "id": "video-fs-19-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Mastering food retail terminology turns grocery shopping into an ...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Mastering food retail terminology turns grocery shopping into an effortless language drill., providing a meaningful summary for learners.",
+        "timestampSeek": 594
+      },
+      {
+        "id": "video-fs-19-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'The...'?",
+        "options": [
+          "It claims this factor has zero impact on the final outcome.",
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It highlights that: The deli counter prepares custom slices of roasted turkey an..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'The deli counter prepares custom slices of roasted turkey and cured Italian ham.', providing deeper technical insight.",
+        "timestampSeek": 396
+      }
+    ]
+  }
 }

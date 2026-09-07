@@ -1,6 +1,6 @@
 {
   "id": "video-sth-04",
-  "youtubeId": "oizywZ4BGxg",
+  "youtubeId": "gedoSfZvBgE",
   "title": "Sending Voice Messages and Emojis",
   "channel": "Learn English with Gill",
   "duration": 245,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "science_tech_health",
   "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
-  "thumbnailUrl": "https://img.youtube.com/vi/oizywZ4BGxg/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/gedoSfZvBgE/hqdefault.jpg",
   "description": "Cách nhắn tin thoại và sử dụng biểu tượng cảm xúc khi giao tiếp qua ứng dụng di động.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Balancing concise text with modern digital expressions keeps conversations engaging and clear., providing a meaningful summary for learners.",
       "timestampSeek": 220.5
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-04-cloze-1",
+        "cueId": "video-sth-04-cue-3",
+        "sentence": "{{blank}}, typed words alone can sometimes sound cold, blunt, or ambiguous.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, những từ ngữ gõ phím đơn thuầ...",
+        "timestamp": 49,
+        "options": [
+          "flexible",
+          "vulnerable",
+          "consistent",
+          "however"
+        ]
+      },
+      {
+        "id": "video-sth-04-cloze-2",
+        "cueId": "video-sth-04-cue-5",
+        "sentence": "{{blank}} and hold the microphone button to record a brief audio message.",
+        "blankWord": "press",
+        "hintVi": "Nghĩa gợi ý: Nhấn và giữ nút micro để ghi âm một tin ...",
+        "timestamp": 98,
+        "options": [
+          "advantage",
+          "resource",
+          "criterion",
+          "press"
+        ]
+      },
+      {
+        "id": "video-sth-04-cloze-3",
+        "cueId": "video-sth-04-cue-8",
+        "sentence": "A thumbs-up {{blank}} signals quick agreement without typing extra words.",
+        "blankWord": "emoji",
+        "hintVi": "Nghĩa gợi ý: Biểu tượng ngón tay cái giơ lên báo hiệu...",
+        "timestamp": 171.5,
+        "options": [
+          "emoji",
+          "temporary",
+          "subsequent",
+          "substantial"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-04-q1",
+        "question": "What is the primary focus of the video 'Sending Voice Messages and Emojis'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice sending voice messages and emojis effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores sending voice messages and emojis, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 24.5
+      },
+      {
+        "id": "video-sth-04-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Press...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Press and hold the microphone button to record a brief audio..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Press and hold the microphone button to record a brief audio message.', showing its practical importance.",
+        "timestampSeek": 98
+      },
+      {
+        "id": "video-sth-04-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Balancing concise text with modern digital expressions keeps conv...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Balancing concise text with modern digital expressions keeps conversations engaging and clear., providing a meaningful summary for learners.",
+        "timestampSeek": 220.5
+      }
+    ]
+  }
 }

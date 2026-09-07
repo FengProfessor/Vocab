@@ -1,6 +1,6 @@
 {
   "id": "video-cs-03",
-  "youtubeId": "5rJeDrxDFBA",
+  "youtubeId": "cT-HDNt6Srg",
   "title": "Traditional Folk Dances Around the World",
   "channel": "English with Lucy",
   "duration": 240,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "culture",
   "topicDisplay": "Văn hóa, TED & Câu chuyện",
-  "thumbnailUrl": "https://img.youtube.com/vi/5rJeDrxDFBA/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/cT-HDNt6Srg/hqdefault.jpg",
   "description": "Các điệu múa dân gian đặc trưng khắp thế giới: Flamenco, Hula và múa dân gian Ireland.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Dancing together unites human hearts across language and geographic borders., providing a meaningful summary for learners.",
       "timestampSeek": 216
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-cs-03-cloze-1",
+        "cueId": "video-cs-03-cue-3",
+        "sentence": "In {{blank}}, the fiery passion of Flamenco expresses deep sorrow and exuberant pride.",
+        "blankWord": "spain",
+        "hintVi": "Nghĩa gợi ý: Ở Tây Ban Nha, niềm đam mê rực lửa của F...",
+        "timestamp": 48,
+        "options": [
+          "spain",
+          "perceptive",
+          "remarkable",
+          "extensive"
+        ]
+      },
+      {
+        "id": "video-cs-03-cloze-2",
+        "cueId": "video-cs-03-cue-5",
+        "sentence": "In {{blank}}, the gentle flowing movements of Hula honor natural ocean waves and ancestral spirits.",
+        "blankWord": "hawaii",
+        "hintVi": "Nghĩa gợi ý: Ở Hawaii, những chuyển động uyển chuyển ...",
+        "timestamp": 96,
+        "options": [
+          "perceptive",
+          "reliable",
+          "accurate",
+          "hawaii"
+        ]
+      },
+      {
+        "id": "video-cs-03-cloze-3",
+        "cueId": "video-cs-03-cue-8",
+        "sentence": "Folk {{blank}} celebrate community milestones like weddings, spring planting, and autumn harvests.",
+        "blankWord": "dances",
+        "hintVi": "Nghĩa gợi ý: Các điệu múa dân gian kỷ niệm các cột mố...",
+        "timestamp": 168,
+        "options": [
+          "advantage",
+          "dances",
+          "temporary",
+          "adequate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-cs-03-q1",
+        "question": "What is the primary focus of the video 'Traditional Folk Dances Around the World'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice traditional folk dances around the world effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores traditional folk dances around the world, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 24
+      },
+      {
+        "id": "video-cs-03-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'In...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: In Hawaii, the gentle flowing movements of Hula honor natura...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'In Hawaii, the gentle flowing movements of Hula honor natural ocean waves and ancestral spirits.', showing its practical importance.",
+        "timestampSeek": 96
+      },
+      {
+        "id": "video-cs-03-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Dancing together unites human hearts across language and geograph...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Dancing together unites human hearts across language and geographic borders., providing a meaningful summary for learners.",
+        "timestampSeek": 216
+      }
+    ]
+  }
 }

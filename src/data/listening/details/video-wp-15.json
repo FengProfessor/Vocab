@@ -1,6 +1,6 @@
 {
   "id": "video-wp-15",
-  "youtubeId": "-IkzYI76mQF",
+  "youtubeId": "1AmS9h8g3E4",
   "title": "Pitching a New Strategy to Senior Leadership",
   "channel": "Harvard Business Review",
   "duration": 430,
@@ -9,7 +9,7 @@
   "cefrLevel": "B2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/-IkzYI76mQF/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/1AmS9h8g3E4/hqdefault.jpg",
   "description": "Nghệ thuật thuyết phục ban giám đốc duyệt chiến lược mới: ROI, rủi ro và tầm nhìn.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Strategic courage backed by rigorous numbers wins transformative boardroom approval., providing a meaningful summary for learners.",
       "timestampSeek": 387
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-15-cloze-1",
+        "cueId": "video-wp-15-cue-3",
+        "sentence": "{{blank}} do not want a product tour; they want to know the bottom-line ROI.",
+        "blankWord": "executives",
+        "hintVi": "Nghĩa gợi ý: Các giám đốc không muốn xem chuyến tham ...",
+        "timestamp": 86,
+        "options": [
+          "executives",
+          "subsequent",
+          "flexible",
+          "substantial"
+        ]
+      },
+      {
+        "id": "video-wp-15-cloze-2",
+        "cueId": "video-wp-15-cue-5",
+        "sentence": "{{blank}} the urgent market problem, the opportunity cost, and your proposed solution.",
+        "blankWord": "articulate",
+        "hintVi": "Nghĩa gợi ý: Nêu rõ vấn đề cấp bách của thị trường, c...",
+        "timestamp": 172,
+        "options": [
+          "framework",
+          "articulate",
+          "spontaneous",
+          "resource"
+        ]
+      },
+      {
+        "id": "video-wp-15-cloze-3",
+        "cueId": "video-wp-15-cue-8",
+        "sentence": "{{blank}} prior backing from critical department stakeholders across the enterprise.",
+        "blankWord": "secure",
+        "hintVi": "Nghĩa gợi ý: Đảm bảo sự ủng hộ từ trước từ các bên li...",
+        "timestamp": 301,
+        "options": [
+          "perceptive",
+          "gradual",
+          "secure",
+          "moderate"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-15-q1",
+        "question": "What is the primary focus of the video 'Pitching a New Strategy to Senior Leadership'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice pitching a new strategy to senior leadership effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores pitching a new strategy to senior leadership, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 43
+      },
+      {
+        "id": "video-wp-15-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Articulate...'?",
+        "options": [
+          "It emphasizes that: Articulate the urgent market problem, the opportunity cost, ...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Articulate the urgent market problem, the opportunity cost, and your proposed solution.', showing its practical importance.",
+        "timestampSeek": 172
+      },
+      {
+        "id": "video-wp-15-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Strategic courage backed by rigorous numbers wins transformative ..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Strategic courage backed by rigorous numbers wins transformative boardroom approval., providing a meaningful summary for learners.",
+        "timestampSeek": 387
+      }
+    ]
+  }
 }

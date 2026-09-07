@@ -1,6 +1,6 @@
 {
   "id": "video-wp-01",
-  "youtubeId": "VLERgTAkcaI",
+  "youtubeId": "235MNImhIko",
   "title": "First Day at a New Job: Office Tour",
   "channel": "Learn English with Emma",
   "duration": 220,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/VLERgTAkcaI/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/235MNImhIko/hqdefault.jpg",
   "description": "Các câu giao tiếp cơ bản trong ngày đầu tiên đi làm: gặp đồng nghiệp và nhận bàn làm việc.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that A friendly attitude on day one builds a solid professional foundation., providing a meaningful summary for learners.",
       "timestampSeek": 198
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-01-cloze-1",
+        "cueId": "video-wp-01-cue-3",
+        "sentence": "Let me {{blank}} you to your team colleague in marketing.",
+        "blankWord": "introduce",
+        "hintVi": "Nghĩa gợi ý: Để tôi giới thiệu bạn với người đồng ngh...",
+        "timestamp": 44,
+        "options": [
+          "fundamental",
+          "introduce",
+          "balance",
+          "deliberate"
+        ]
+      },
+      {
+        "id": "video-wp-01-cloze-2",
+        "cueId": "video-wp-01-cue-5",
+        "sentence": "Don't {{blank}} to tap your security badge at the entrance turnstiles.",
+        "blankWord": "forget",
+        "hintVi": "Nghĩa gợi ý: Đừng quên quẹt thẻ an ninh của bạn tại c...",
+        "timestamp": 88,
+        "options": [
+          "spontaneous",
+          "forget",
+          "balance",
+          "routine"
+        ]
+      },
+      {
+        "id": "video-wp-01-cloze-3",
+        "cueId": "video-wp-01-cue-8",
+        "sentence": "Take your time {{blank}} the employee handbook this afternoon.",
+        "blankWord": "reading",
+        "hintVi": "Nghĩa gợi ý: Hãy dành thời gian đọc sổ tay nhân viên ...",
+        "timestamp": 154,
+        "options": [
+          "reading",
+          "remarkable",
+          "extensive",
+          "convenient"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-01-q1",
+        "question": "What is the primary focus of the video 'First Day at a New Job: Office Tour'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice first day at a new job: office tour effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores first day at a new job: office tour, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 22
+      },
+      {
+        "id": "video-wp-01-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Don't...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Don't forget to tap your security badge at the entrance turn...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Don't forget to tap your security badge at the entrance turnstiles.', showing its practical importance.",
+        "timestampSeek": 88
+      },
+      {
+        "id": "video-wp-01-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: A friendly attitude on day one builds a solid professional founda...",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 2,
+        "explanation": "The concluding message emphasizes that A friendly attitude on day one builds a solid professional foundation., providing a meaningful summary for learners.",
+        "timestampSeek": 198
+      }
+    ]
+  }
 }

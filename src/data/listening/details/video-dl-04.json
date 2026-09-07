@@ -1,6 +1,6 @@
 {
   "id": "video-dl-04",
-  "youtubeId": "CthXFo8ldxl",
+  "youtubeId": "gxMIeHmm3Rg",
   "title": "Doing Laundry and Household Chores",
   "channel": "Learn English with Bob the Canadian",
   "duration": 270,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/CthXFo8ldxl/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/gxMIeHmm3Rg/hqdefault.jpg",
   "description": "Hướng dẫn từ vựng và câu giao tiếp thực tế khi giặt giũ và phơi đồ trong gia đình.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Doing a small load of laundry every two days avoids huge piles., providing a meaningful summary for learners.",
       "timestampSeek": 243
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-04-cloze-1",
+        "cueId": "video-dl-04-cue-3",
+        "sentence": "{{blank}}, separate dark clothes from white shirts and delicate fabrics.",
+        "blankWord": "first",
+        "hintVi": "Nghĩa gợi ý: Đầu tiên, hãy tách quần áo tối màu khỏi ...",
+        "timestamp": 54,
+        "options": [
+          "first",
+          "gradual",
+          "substantial",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-dl-04-cloze-2",
+        "cueId": "video-dl-04-cue-5",
+        "sentence": "{{blank}} the cold water cycle to save electricity and protect colors.",
+        "blankWord": "select",
+        "hintVi": "Nghĩa gợi ý: Chọn chế độ giặt nước lạnh để tiết kiệm ...",
+        "timestamp": 108,
+        "options": [
+          "select",
+          "tremendous",
+          "routine",
+          "perceptive"
+        ]
+      },
+      {
+        "id": "video-dl-04-cloze-3",
+        "cueId": "video-dl-04-cue-8",
+        "sentence": "Once the {{blank}} are completely dry, it is time to fold them neatly.",
+        "blankWord": "clothes",
+        "hintVi": "Nghĩa gợi ý: Khi quần áo đã khô hoàn toàn, đã đến lúc...",
+        "timestamp": 189,
+        "options": [
+          "flexible",
+          "clothes",
+          "spontaneous",
+          "tremendous"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-04-q1",
+        "question": "What is the primary focus of the video 'Doing Laundry and Household Chores'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice doing laundry and household chores effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores doing laundry and household chores, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 27
+      },
+      {
+        "id": "video-dl-04-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Select...'?",
+        "options": [
+          "It emphasizes that: Select the cold water cycle to save electricity and protect ...",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Select the cold water cycle to save electricity and protect colors.', showing its practical importance.",
+        "timestampSeek": 108
+      },
+      {
+        "id": "video-dl-04-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Doing a small load of laundry every two days avoids huge piles...."
+        ],
+        "correctIndex": 3,
+        "explanation": "The concluding message emphasizes that Doing a small load of laundry every two days avoids huge piles., providing a meaningful summary for learners.",
+        "timestampSeek": 243
+      }
+    ]
+  }
 }

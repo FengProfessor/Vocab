@@ -1,6 +1,6 @@
 {
   "id": "video-dl-08",
-  "youtubeId": "rMd8zkQhAeU",
+  "youtubeId": "gCs4knrlnD4",
   "title": "Managing Household Trash and Recycling",
   "channel": "EnglishClass101",
   "duration": 350,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/rMd8zkQhAeU/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/gCs4knrlnD4/hqdefault.jpg",
   "description": "Cách phân loại rác thải gia đình, tái chế chai nhựa và bảo vệ môi trường khu dân cư.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Small conscious choices at home contribute to a greener planet., providing a meaningful summary for learners.",
       "timestampSeek": 315
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-08-cloze-1",
+        "cueId": "video-dl-08-cue-3",
+        "sentence": "{{blank}} three separate bins in your kitchen for different waste categories.",
+        "blankWord": "place",
+        "hintVi": "Nghĩa gợi ý: Đặt ba thùng rác riêng biệt trong bếp củ...",
+        "timestamp": 70,
+        "options": [
+          "innovative",
+          "temporary",
+          "place",
+          "criterion"
+        ]
+      },
+      {
+        "id": "video-dl-08-cloze-2",
+        "cueId": "video-dl-08-cue-5",
+        "sentence": "{{blank}} food residues out of glass jars before tossing them into bins.",
+        "blankWord": "rinse",
+        "hintVi": "Nghĩa gợi ý: Tráng sạch cặn thức ăn khỏi lọ thủy tinh...",
+        "timestamp": 140,
+        "options": [
+          "vibrant",
+          "strategy",
+          "rinse",
+          "perceptive"
+        ]
+      },
+      {
+        "id": "video-dl-08-cloze-3",
+        "cueId": "video-dl-08-cue-8",
+        "sentence": "{{blank}} how to dispose of electronics safely at the city recycling center.",
+        "blankWord": "learn",
+        "hintVi": "Nghĩa gợi ý: Học cách vứt bỏ đồ điện tử an toàn tại t...",
+        "timestamp": 245,
+        "options": [
+          "tremendous",
+          "learn",
+          "alternative",
+          "perceptive"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-08-q1",
+        "question": "What is the primary focus of the video 'Managing Household Trash and Recycling'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice managing household trash and recycling effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores managing household trash and recycling, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 35
+      },
+      {
+        "id": "video-dl-08-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Rinse...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Rinse food residues out of glass jars before tossing them in...",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Rinse food residues out of glass jars before tossing them into bins.', showing its practical importance.",
+        "timestampSeek": 140
+      },
+      {
+        "id": "video-dl-08-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Small conscious choices at home contribute to a greener planet....",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Small conscious choices at home contribute to a greener planet., providing a meaningful summary for learners.",
+        "timestampSeek": 315
+      }
+    ]
+  }
 }

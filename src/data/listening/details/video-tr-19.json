@@ -1,6 +1,6 @@
 {
   "id": "video-tr-19",
-  "youtubeId": "IkZqUJ3fVQr",
+  "youtubeId": "jy88ejZrPWw",
   "title": "Survival English for Solo International Travelers",
   "channel": "Oxford Online English",
   "duration": 660,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "travel",
   "topicDisplay": "Du lịch & Khám phá",
-  "thumbnailUrl": "https://img.youtube.com/vi/IkZqUJ3fVQr/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/jy88ejZrPWw/hqdefault.jpg",
   "description": "Cẩm nang du lịch một mình: đặt vé, an toàn cá nhân và kết bạn trên đường đi.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'If a situation or street feels dangerous, turn back immediately into well-lit venues.', providing deeper technical insight.",
       "timestampSeek": 396
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-tr-19-cloze-1",
+        "cueId": "video-tr-19-cue-3",
+        "sentence": "{{blank}} companions to rely on, you become an independent, proactive decision-maker.",
+        "blankWord": "without",
+        "hintVi": "Nghĩa gợi ý: Không có bạn đồng hành để dựa dẫm, bạn t...",
+        "timestamp": 132,
+        "options": [
+          "consistent",
+          "substantial",
+          "without",
+          "framework"
+        ]
+      },
+      {
+        "id": "video-tr-19-cloze-2",
+        "cueId": "video-tr-19-cue-5",
+        "sentence": "Keep {{blank}} contacts and digital copies of vital documents saved securely offline.",
+        "blankWord": "emergency",
+        "hintVi": "Nghĩa gợi ý: Giữ các liên hệ khẩn cấp và bản sao kỹ t...",
+        "timestamp": 264,
+        "options": [
+          "extensive",
+          "emergency",
+          "convenient",
+          "temporary"
+        ]
+      },
+      {
+        "id": "video-tr-19-cloze-3",
+        "cueId": "video-tr-19-cue-8",
+        "sentence": "Stay in {{blank}} youth hostels or join free walking tours to meet kindred travelers.",
+        "blankWord": "social",
+        "hintVi": "Nghĩa gợi ý: Ở trong các ký túc xá thanh niên giao lư...",
+        "timestamp": 462,
+        "options": [
+          "perceptive",
+          "routine",
+          "social",
+          "remarkable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-tr-19-q1",
+        "question": "What is the primary focus of the video 'Survival English for Solo International Travelers'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice survival english for solo international travelers effectively.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores survival english for solo international travelers, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 66
+      },
+      {
+        "id": "video-tr-19-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Keep...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Keep emergency contacts and digital copies of vital document...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Keep emergency contacts and digital copies of vital documents saved securely offline.', showing its practical importance.",
+        "timestampSeek": 264
+      },
+      {
+        "id": "video-tr-19-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Solo journeys teach you that the world is far kinder and more wel...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Solo journeys teach you that the world is far kinder and more welcoming than news depicts., providing a meaningful summary for learners.",
+        "timestampSeek": 594
+      },
+      {
+        "id": "video-tr-19-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'If...'?",
+        "options": [
+          "It highlights that: If a situation or street feels dangerous, turn back immediat...",
+          "It warns that following this method produces immediate failure.",
+          "It states this step should always be skipped by beginners.",
+          "It claims this factor has zero impact on the final outcome."
+        ],
+        "correctIndex": 0,
+        "explanation": "The speaker specifically highlights: 'If a situation or street feels dangerous, turn back immediately into well-lit venues.', providing deeper technical insight.",
+        "timestampSeek": 396
+      }
+    ]
+  }
 }

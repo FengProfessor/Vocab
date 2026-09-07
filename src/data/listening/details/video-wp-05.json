@@ -1,6 +1,6 @@
 {
   "id": "video-wp-05",
-  "youtubeId": "e-WKtud2Yr9",
+  "youtubeId": "PyL2HDKwR9E",
   "title": "Taking Phone Messages at the Reception",
   "channel": "Oxford Online English",
   "duration": 300,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "workplace",
   "topicDisplay": "Công việc & Sự nghiệp",
-  "thumbnailUrl": "https://img.youtube.com/vi/e-WKtud2Yr9/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/PyL2HDKwR9E/hqdefault.jpg",
   "description": "Kỹ năng nghe điện thoại công ty, ghi chép lời nhắn và chuyển máy cho đồng nghiệp.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Polite telephone etiquette establishes immediate client confidence and trust., providing a meaningful summary for learners.",
       "timestampSeek": 270
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-05-cloze-1",
+        "cueId": "video-wp-05-cue-3",
+        "sentence": "{{blank}} within three rings with: 'Good morning, Acme Corp, how may I help you?'",
+        "blankWord": "answer",
+        "hintVi": "Nghĩa gợi ý: Nhấc máy trong vòng ba hồi chuông với câ...",
+        "timestamp": 60,
+        "options": [
+          "criterion",
+          "tremendous",
+          "efficient",
+          "answer"
+        ]
+      },
+      {
+        "id": "video-wp-05-cloze-2",
+        "cueId": "video-wp-05-cue-5",
+        "sentence": "Say: 'One {{blank}} please, I will transfer your call to that extension.'",
+        "blankWord": "moment",
+        "hintVi": "Nghĩa gợi ý: Nói: 'Xin chờ một lát, tôi sẽ chuyển cuộ...",
+        "timestamp": 120,
+        "options": [
+          "alternative",
+          "moment",
+          "criterion",
+          "perspective"
+        ]
+      },
+      {
+        "id": "video-wp-05-cloze-3",
+        "cueId": "video-wp-05-cue-8",
+        "sentence": "{{blank}} the numbers back to verify that your record is completely accurate.",
+        "blankWord": "repeat",
+        "hintVi": "Nghĩa gợi ý: Lặp lại các con số để xác minh rằng bản ...",
+        "timestamp": 210,
+        "options": [
+          "framework",
+          "repeat",
+          "gradual",
+          "criterion"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-05-q1",
+        "question": "What is the primary focus of the video 'Taking Phone Messages at the Reception'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To explain and practice taking phone messages at the reception effectively.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores taking phone messages at the reception, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 30
+      },
+      {
+        "id": "video-wp-05-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Say:...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Say: 'One moment please, I will transfer your call to that e...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Say: 'One moment please, I will transfer your call to that extension.'', showing its practical importance.",
+        "timestampSeek": 120
+      },
+      {
+        "id": "video-wp-05-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Polite telephone etiquette establishes immediate client confidenc...",
+          "No further practice or mindfulness is necessary.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Polite telephone etiquette establishes immediate client confidence and trust., providing a meaningful summary for learners.",
+        "timestampSeek": 270
+      }
+    ]
+  }
 }

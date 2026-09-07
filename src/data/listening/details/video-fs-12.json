@@ -1,6 +1,6 @@
 {
   "id": "video-fs-12",
-  "youtubeId": "9eanM6FkwbM",
+  "youtubeId": "RV1WOCzTknc",
   "title": "Bargaining and Haggling at a Flea Market",
   "channel": "English with Lucy",
   "duration": 420,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "food_shopping",
   "topicDisplay": "Ẩm thực, Mua sắm & Dịch vụ",
-  "thumbnailUrl": "https://img.youtube.com/vi/9eanM6FkwbM/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/RV1WOCzTknc/hqdefault.jpg",
   "description": "Nghệ thuật mặc cả văn minh tại các chợ đồ cũ, chợ trời và hội chợ đồ cổ.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Often the vendor will call you back and agree to your proposed compromise bargain., providing a meaningful summary for learners.",
       "timestampSeek": 378
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-fs-12-cloze-1",
+        "cueId": "video-fs-12-cue-3",
+        "sentence": "{{blank}}, aggressive bargaining insults vendors who cherish their curated goods.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, việc trả giá hung hăng xúc ph...",
+        "timestamp": 84,
+        "options": [
+          "essential",
+          "preliminary",
+          "however",
+          "resource"
+        ]
+      },
+      {
+        "id": "video-fs-12-cloze-2",
+        "cueId": "video-fs-12-cue-5",
+        "sentence": "{{blank}} the item thoroughly for hallmarks, genuine patina, and slight defects.",
+        "blankWord": "examine",
+        "hintVi": "Nghĩa gợi ý: Kiểm tra kỹ món đồ xem có dấu mộc, lớp g...",
+        "timestamp": 168,
+        "options": [
+          "preliminary",
+          "examine",
+          "efficient",
+          "favorable"
+        ]
+      },
+      {
+        "id": "video-fs-12-cloze-3",
+        "cueId": "video-fs-12-cue-8",
+        "sentence": "If {{blank}} multiple items together, bundle them for a substantial volume discount.",
+        "blankWord": "buying",
+        "hintVi": "Nghĩa gợi ý: Nếu mua nhiều món cùng nhau, hãy gom chú...",
+        "timestamp": 294,
+        "options": [
+          "spontaneous",
+          "balance",
+          "vibrant",
+          "buying"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-fs-12-q1",
+        "question": "What is the primary focus of the video 'Bargaining and Haggling at a Flea Market'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice bargaining and haggling at a flea market effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores bargaining and haggling at a flea market, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 42
+      },
+      {
+        "id": "video-fs-12-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Examine...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Examine the item thoroughly for hallmarks, genuine patina, a...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Examine the item thoroughly for hallmarks, genuine patina, and slight defects.', showing its practical importance.",
+        "timestampSeek": 168
+      },
+      {
+        "id": "video-fs-12-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Often the vendor will call you back and agree to your proposed co...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Often the vendor will call you back and agree to your proposed compromise bargain., providing a meaningful summary for learners.",
+        "timestampSeek": 378
+      }
+    ]
+  }
 }

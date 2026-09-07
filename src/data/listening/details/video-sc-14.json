@@ -1,6 +1,6 @@
 {
   "id": "video-sc-14",
-  "youtubeId": "YN9U3N2QoH1",
+  "youtubeId": "LpSDuDIaBGk",
   "title": "Keeping Conversations Going Without Silences",
   "channel": "RealLife English",
   "duration": 450,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/YN9U3N2QoH1/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/LpSDuDIaBGk/hqdefault.jpg",
   "description": "Bí quyết duy trì mạch trò chuyện trôi chảy, không bị rơi vào khoảng lặng ngượng ngùng.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Relax your shoulders and enjoy discovering the unique universe inside another person., providing a meaningful summary for learners.",
       "timestampSeek": 405
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-14-cloze-1",
+        "cueId": "video-sc-14-cue-3",
+        "sentence": "The {{blank}} to fluid dialogue is avoiding interrogation-style questioning.",
+        "blankWord": "secret",
+        "hintVi": "Nghĩa gợi ý: Bí quyết để đối thoại trôi chảy là tránh...",
+        "timestamp": 90,
+        "options": [
+          "deliberate",
+          "alternative",
+          "secret",
+          "priority"
+        ]
+      },
+      {
+        "id": "video-sc-14-cloze-2",
+        "cueId": "video-sc-14-cue-5",
+        "sentence": "{{blank}}, use the 'echo technique': expand on their answer with your own insight.",
+        "blankWord": "instead",
+        "hintVi": "Nghĩa gợi ý: Thay vào đó, hãy dùng 'kỹ thuật tiếng vọ...",
+        "timestamp": 180,
+        "options": [
+          "instead",
+          "deliberate",
+          "consistent",
+          "protocol"
+        ]
+      },
+      {
+        "id": "video-sc-14-cloze-3",
+        "cueId": "video-sc-14-cue-8",
+        "sentence": "{{blank}} spontaneous topic shifts as natural tangents of human connection.",
+        "blankWord": "embrace",
+        "hintVi": "Nghĩa gợi ý: Hãy đón nhận những bước chuyển chủ đề tự...",
+        "timestamp": 315,
+        "options": [
+          "preliminary",
+          "extensive",
+          "embrace",
+          "prominent"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-14-q1",
+        "question": "What is the primary focus of the video 'Keeping Conversations Going Without Silences'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice keeping conversations going without silences effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores keeping conversations going without silences, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 45
+      },
+      {
+        "id": "video-sc-14-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Instead,...'?",
+        "options": [
+          "It emphasizes that: Instead, use the 'echo technique': expand on their answer wi...",
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 0,
+        "explanation": "In this segment, the speaker clarifies: 'Instead, use the 'echo technique': expand on their answer with your own insight.', showing its practical importance.",
+        "timestampSeek": 180
+      },
+      {
+        "id": "video-sc-14-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Relax your shoulders and enjoy discovering the unique universe in...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Relax your shoulders and enjoy discovering the unique universe inside another person., providing a meaningful summary for learners.",
+        "timestampSeek": 405
+      }
+    ]
+  }
 }

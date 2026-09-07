@@ -1,6 +1,6 @@
 {
   "id": "video-sc-23",
-  "youtubeId": "FF-LGvba8HN",
+  "youtubeId": "0b1sPJq1BaA",
   "title": "Storytelling in English: Hooking Your Listeners",
   "channel": "Oxford Online English",
   "duration": 800,
@@ -9,7 +9,7 @@
   "cefrLevel": "B1",
   "topic": "social_conversations",
   "topicDisplay": "Giao tiếp & Đời sống xã hội",
-  "thumbnailUrl": "https://img.youtube.com/vi/FF-LGvba8HN/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/0b1sPJq1BaA/hqdefault.jpg",
   "description": "Bí quyết kể chuyện cuốn hút trong giao tiếp: từ câu mở màn đến cao trào cảm xúc.",
   "coreVocabulary": [
     {
@@ -200,5 +200,105 @@
       "explanation": "The speaker specifically highlights: 'Vary your vocal pitch, pausing right before delivering the hilarious climax.', providing deeper technical insight.",
       "timestampSeek": 480
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sc-23-cloze-1",
+        "cueId": "video-sc-23-cue-3",
+        "sentence": "A dry {{blank}} of facts bores people, whereas a story enchants them.",
+        "blankWord": "recitation",
+        "hintVi": "Nghĩa gợi ý: Việc kể lể sự kiện khô khan làm người ta...",
+        "timestamp": 160,
+        "options": [
+          "recitation",
+          "extensive",
+          "strategy",
+          "subsequent"
+        ]
+      },
+      {
+        "id": "video-sc-23-cloze-2",
+        "cueId": "video-sc-23-cue-5",
+        "sentence": "Set the {{blank}} vividly using descriptive sensory details of sight, sound, and smell.",
+        "blankWord": "scene",
+        "hintVi": "Nghĩa gợi ý: Thiết lập khung cảnh một cách sống động ...",
+        "timestamp": 320,
+        "options": [
+          "scene",
+          "balance",
+          "resource",
+          "spontaneous"
+        ]
+      },
+      {
+        "id": "video-sc-23-cloze-3",
+        "cueId": "video-sc-23-cue-8",
+        "sentence": "Keep your {{blank}} under three minutes so you do not monopolize the stage.",
+        "blankWord": "anecdote",
+        "hintVi": "Nghĩa gợi ý: Giữ câu chuyện ngắn của bạn dưới ba phút...",
+        "timestamp": 560,
+        "options": [
+          "routine",
+          "reliable",
+          "balance",
+          "anecdote"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sc-23-q1",
+        "question": "What is the primary focus of the video 'Storytelling in English: Hooking Your Listeners'?",
+        "options": [
+          "To critique ancient philosophies without practical relevance.",
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice storytelling in english: hooking your listeners effectively.",
+          "To entertain listeners with fictional storytelling."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores storytelling in english: hooking your listeners, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 80
+      },
+      {
+        "id": "video-sc-23-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Set...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: Set the scene vividly using descriptive sensory details of s...",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations."
+        ],
+        "correctIndex": 1,
+        "explanation": "In this segment, the speaker clarifies: 'Set the scene vividly using descriptive sensory details of sight, sound, and smell.', showing its practical importance.",
+        "timestampSeek": 320
+      },
+      {
+        "id": "video-sc-23-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: Great storytellers forge bonds that linger long after the gatheri...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that Great storytellers forge bonds that linger long after the gathering concludes., providing a meaningful summary for learners.",
+        "timestampSeek": 720
+      },
+      {
+        "id": "video-sc-23-q4",
+        "question": "In the detailed discussion, what nuance does the speaker explain about 'Vary...'?",
+        "options": [
+          "It states this step should always be skipped by beginners.",
+          "It warns that following this method produces immediate failure.",
+          "It claims this factor has zero impact on the final outcome.",
+          "It highlights that: Vary your vocal pitch, pausing right before delivering the h..."
+        ],
+        "correctIndex": 3,
+        "explanation": "The speaker specifically highlights: 'Vary your vocal pitch, pausing right before delivering the hilarious climax.', providing deeper technical insight.",
+        "timestampSeek": 480
+      }
+    ]
+  }
 }

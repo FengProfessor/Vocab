@@ -1,6 +1,6 @@
 {
   "id": "video-dl-09",
-  "youtubeId": "Dr-DFcE8P0n",
+  "youtubeId": "P2jvBE6DiHo",
   "title": "Watering Plants and Balcony Gardening",
   "channel": "Speak English With Vanessa",
   "duration": 260,
@@ -9,7 +9,7 @@
   "cefrLevel": "A2",
   "topic": "daily_life",
   "topicDisplay": "Đời sống hàng ngày",
-  "thumbnailUrl": "https://img.youtube.com/vi/Dr-DFcE8P0n/hqdefault.jpg",
+  "thumbnailUrl": "https://img.youtube.com/vi/P2jvBE6DiHo/hqdefault.jpg",
   "description": "Từ vựng chăm sóc cây cảnh trong nhà, tưới cây và tạo không gian xanh mát ban công.",
   "coreVocabulary": [
     {
@@ -187,5 +187,92 @@
       "explanation": "The concluding message emphasizes that Caring for living greenery teaches patience and brings inner peace., providing a meaningful summary for learners.",
       "timestampSeek": 234
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-dl-09-cloze-1",
+        "cueId": "video-dl-09-cue-3",
+        "sentence": "{{blank}} check the top inch of soil with your finger before watering.",
+        "blankWord": "always",
+        "hintVi": "Nghĩa gợi ý: Luôn kiểm tra lớp đất trên cùng bằng ngó...",
+        "timestamp": 52,
+        "options": [
+          "balance",
+          "gradual",
+          "always",
+          "protocol"
+        ]
+      },
+      {
+        "id": "video-dl-09-cloze-2",
+        "cueId": "video-dl-09-cue-5",
+        "sentence": "Use a {{blank}} watering can to distribute moisture evenly.",
+        "blankWord": "gentle",
+        "hintVi": "Nghĩa gợi ý: Dùng bình tưới nước nhẹ nhàng để phân bổ...",
+        "timestamp": 104,
+        "options": [
+          "fundamental",
+          "gentle",
+          "component",
+          "routine"
+        ]
+      },
+      {
+        "id": "video-dl-09-cloze-3",
+        "cueId": "video-dl-09-cue-8",
+        "sentence": "Wipe {{blank}} green leaves with a damp cloth to remove household dust.",
+        "blankWord": "broad",
+        "hintVi": "Nghĩa gợi ý: Lau những chiếc lá xanh rộng bằng khăn ẩ...",
+        "timestamp": 182,
+        "options": [
+          "dimension",
+          "adequate",
+          "gradual",
+          "broad"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-dl-09-q1",
+        "question": "What is the primary focus of the video 'Watering Plants and Balcony Gardening'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice watering plants and balcony gardening effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores watering plants and balcony gardening, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 26
+      },
+      {
+        "id": "video-dl-09-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Use...'?",
+        "options": [
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: Use a gentle watering can to distribute moisture evenly...."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'Use a gentle watering can to distribute moisture evenly.', showing its practical importance.",
+        "timestampSeek": 104
+      },
+      {
+        "id": "video-dl-09-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Applying these principles leads to: Caring for living greenery teaches patience and brings inner peac...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Caring for living greenery teaches patience and brings inner peace., providing a meaningful summary for learners.",
+        "timestampSeek": 234
+      }
+    ]
+  }
 }

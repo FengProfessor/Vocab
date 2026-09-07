@@ -262,5 +262,119 @@
       "explanation": "Ở mốc 02:08 (cue-15), video kết luận: 'twenty minutes of high-intensity deliberate practice outperforms hours of daydreaming'.",
       "timestampSeek": 128.8
     }
-  ]
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "cloze-short-3-1",
+        "cueId": "cue-5",
+        "sentence": "Surrounding your nerve fibers is a fatty substance called {{blank}}, which acts like insulation.",
+        "blankWord": "myelin",
+        "hintVi": "chất bao bọc sợi trục thần kinh",
+        "timestamp": 34.5,
+        "options": [
+          "myelin",
+          "protein",
+          "calcium",
+          "glucose"
+        ]
+      },
+      {
+        "id": "cloze-short-3-2",
+        "cueId": "cue-9",
+        "sentence": "Effective practice must be {{blank}}: goal-oriented, focused, and constantly adjusting.",
+        "blankWord": "deliberate",
+        "hintVi": "có chủ đích, có ý thức",
+        "timestamp": 72.2,
+        "options": [
+          "deliberate",
+          "accidental",
+          "passive",
+          "unconscious"
+        ]
+      },
+      {
+        "id": "cloze-short-3-3",
+        "cueId": "cue-11",
+        "sentence": "Start at a slow tempo; {{blank}} always takes precedence over pure speed.",
+        "blankWord": "precision",
+        "hintVi": "sự chính xác tuyệt đối",
+        "timestamp": 90.8,
+        "options": [
+          "precision",
+          "volume",
+          "loudness",
+          "haste"
+        ]
+      },
+      {
+        "id": "cloze-short-3-4",
+        "cueId": "cue-14",
+        "sentence": "{{blank}} rehearsal is also powerful; visualizing the actions activates similar brain regions.",
+        "blankWord": "mental",
+        "hintVi": "thuộc về tâm trí, hình dung",
+        "timestamp": 119.2,
+        "options": [
+          "mental",
+          "physical",
+          "social",
+          "vocal"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "quiz-short-3-1",
+        "question": "What role does myelin play in the nervous system during practice?",
+        "options": [
+          "It dissolves unwanted brain cells",
+          "It acts like electrical insulation around axons",
+          "It increases body temperature",
+          "It stops nerve impulses from traveling"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 00:35 (cue-5), bài học giải thích myelin hoạt động giống như lớp cách điện bao quanh sợi thần kinh ('acts like electrical insulation').",
+        "timestampSeek": 34.5
+      },
+      {
+        "id": "quiz-short-3-2",
+        "question": "Why should a beginner start practicing at a slow tempo?",
+        "options": [
+          "Because slow practice burns more calories",
+          "Because precision takes precedence over speed initially",
+          "Because instructors prefer to take longer breaks",
+          "Because musical instruments break at high speeds"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 01:31 (cue-11), video nhấn mạnh: 'Precision always takes precedence over pure speed in the beginning'.",
+        "timestampSeek": 90.8
+      },
+      {
+        "id": "quiz-short-3-3",
+        "question": "What is 'mental rehearsal' and why is it effective according to the video?",
+        "options": [
+          "Reading a book aloud while exercising",
+          "Visualizing physical actions which activates similar brain regions",
+          "Listening to classical music while sleeping",
+          "Memorizing grammar rules without speaking"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 01:59 (cue-14), bài học chỉ ra việc hình dung chuyển động kích hoạt các vùng não bộ tương tự như khi thực hiện thể chất.",
+        "timestampSeek": 119.2
+      },
+      {
+        "id": "quiz-short-3-4",
+        "question": "Which practice strategy is most strongly recommended in the summary?",
+        "options": [
+          "Practicing 8 hours non-stop without taking water breaks",
+          "Short bursts (20 mins) of high-intensity deliberate practice",
+          "Multi-tasking while watching television",
+          "Never stopping when a mistake occurs"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ở mốc 02:08 (cue-15), video kết luận: 'twenty minutes of high-intensity deliberate practice outperforms hours of daydreaming'.",
+        "timestampSeek": 128.8
+      }
+    ]
+  }
 }
