@@ -242,6 +242,10 @@ export const SyncedTranscript: React.FC<SyncedTranscriptProps> = ({
                     <WordLookupPopover
                       sentence={cue.en}
                       coreVocabulary={coreVocabulary}
+                      onWordClickSeek={() => {
+                        onSeek(cue.start, true);
+                        setIsAutoScrollLocked(true);
+                      }}
                       className={
                         isActive
                           ? 'text-slate-950 font-bold dark:text-white'

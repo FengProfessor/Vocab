@@ -4,7 +4,7 @@ import React from 'react';
 export const metadata: Metadata = {
   title: 'Luyện Nghe Tiếng Anh Qua Video Đời Sống (200+ Bài Học) | LingoPro',
   description:
-    'Kho 200 video luyện nghe tiếng Anh YouTube bản ngữ có phụ đề song ngữ tương tác chính xác từng giây. Hỗ trợ lặp đoạn A-B, tra từ 1-chạm vào FSRS và bài tập trắc nghiệm nghe hiểu.',
+    'Kho 200 video luyện nghe tiếng Anh YouTube bản ngữ có phụ đề song ngữ tương tác chính xác từng giây. Hỗ trợ lặp đoạn A-B, tra từ 1-chạm vào FSRS.',
   keywords: [
     'luyện nghe tiếng anh',
     'học tiếng anh qua video',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Luyện Nghe Tiếng Anh Qua Video Đời Sống — Phụ Đề Song Ngữ Tương Tác',
     description:
-      'Kho 200 video bản ngữ chọn lọc qua 7 chuyên đề thực tế: phụ đề song ngữ từng giây, lặp câu A-B, tra từ tức thì và bài tập kiểm tra độ hiểu.',
+      'Kho 200 video bản ngữ chọn lọc qua 7 chuyên đề thực tế: phụ đề song ngữ từng giây, lặp câu A-B và tra từ tức thì.',
     url: 'https://lingopro.online/practice/listening',
     type: 'website',
     siteName: 'LingoPro',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Luyện Nghe Tiếng Anh Qua Video Đời Sống | LingoPro',
     description:
-      'Kho 200 video bản ngữ: phụ đề song ngữ, lặp câu A-B, tra từ 1-chạm và trắc nghiệm nghe hiểu.',
+      'Kho 200 video bản ngữ: phụ đề song ngữ, lặp câu A-B và tra từ 1-chạm.',
     images: ['https://img.youtube.com/vi/LhytOhr5ZMA/maxresdefault.jpg'],
   },
 };
@@ -51,7 +51,7 @@ const jsonLd = {
   '@type': 'CollectionPage',
   name: 'Luyện Nghe Video Tiếng Anh Đời Sống',
   description:
-    'Kho 200 video tiếng Anh YouTube bản ngữ có phụ đề song ngữ tương tác, lặp câu A-B và bài tập nghe hiểu.',
+    'Kho 200 video tiếng Anh YouTube bản ngữ có phụ đề song ngữ tương tác, lặp câu A-B và tra cứu từ vựng.',
   url: 'https://lingopro.online/practice/listening',
   provider: {
     '@type': 'Organization',

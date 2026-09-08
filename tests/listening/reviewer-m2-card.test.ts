@@ -89,32 +89,21 @@ assert(shortTitleHtml.includes('min-h-[2.5rem]'), '2.4 Short Title Reservation',
 assert(multiLineTitleHtml.includes('line-clamp-2'), '2.5 Long Title Clamped', 'Long title card enforces line-clamp-2');
 
 // ----------------------------------------------------------------------------
-// 3. Exercise counters (quiz count and cloze count) rendered cleanly
+// 3. Minimalist card verification: distracting quiz/cloze pills removed
 // ----------------------------------------------------------------------------
-console.log('\n--- Test Group 3: Exercise Counters (Quiz & Cloze Pills) ---');
+console.log('\n--- Test Group 3: Distraction-Free Card (Quiz & Cloze Pills Removed) ---');
 
-assert(sampleHtml.includes('câu trắc nghiệm'), '3.1 Quiz Count Text', 'Card renders Vietnamese "câu trắc nghiệm" counter label');
-assert(sampleHtml.includes('câu điền từ'), '3.2 Cloze Count Text', 'Card renders Vietnamese "câu điền từ" counter label');
+assert(!sampleHtml.includes('câu trắc nghiệm'), '3.1 Quiz Count Text Removed', 'Card does NOT render "câu trắc nghiệm" counter label');
+assert(!sampleHtml.includes('câu điền từ'), '3.2 Cloze Count Text Removed', 'Card does NOT render "câu điền từ" counter label');
 
-// Custom counters test
 const customCountVideo: ListeningVideoIndexItem = {
   ...videos[0],
   quizCount: 8,
   clozeCount: 6,
 };
 const customCountHtml = ReactDOMServer.renderToStaticMarkup(React.createElement(ListeningVideoCard, { video: customCountVideo }));
-assert(customCountHtml.includes('8 câu trắc nghiệm'), '3.3 Dynamic Quiz Count', 'Renders custom quizCount 8 cleanly');
-assert(customCountHtml.includes('6 câu điền từ'), '3.4 Dynamic Cloze Count', 'Renders custom clozeCount 6 cleanly');
-
-// Default fallback when undefined/0
-const fallbackCountVideo: ListeningVideoIndexItem = {
-  ...videos[0],
-  quizCount: undefined as any,
-  clozeCount: undefined as any,
-};
-const fallbackCountHtml = ReactDOMServer.renderToStaticMarkup(React.createElement(ListeningVideoCard, { video: fallbackCountVideo }));
-assert(fallbackCountHtml.includes('4 câu trắc nghiệm'), '3.5 Default Quiz Fallback', 'Defaults to 4 when quizCount is undefined');
-assert(fallbackCountHtml.includes('4 câu điền từ'), '3.6 Default Cloze Fallback', 'Defaults to 4 when clozeCount is undefined');
+assert(!customCountHtml.includes('câu trắc nghiệm'), '3.3 No Quiz Pill with Custom Count', 'Still omits quiz pill on minimalist card');
+assert(!customCountHtml.includes('câu điền từ'), '3.4 No Cloze Pill with Custom Count', 'Still omits cloze pill on minimalist card');
 
 // ----------------------------------------------------------------------------
 // 4. Redesigned CTA button & Modern Card Interaction
@@ -171,7 +160,7 @@ const inProgressHtml = ReactDOMServer.renderToStaticMarkup(
 );
 
 assert(completedHtml.includes('Đã hoàn thành (100%)'), '5.1 Completion Badge (>=80%)', 'Shows "Đã hoàn thành (100%)" for high score');
-assert(completedHtml.includes('ring-emerald-400/50'), '5.2 Emerald Ring Accent', 'Completed card has emerald ring accent');
+assert(completedHtml.includes('ring-emerald-400'), '5.2 Emerald Ring Accent', 'Completed card has emerald ring accent');
 assert(inProgressHtml.includes('Đã làm (50%)'), '5.3 Attempted Badge (<80%)', 'Shows "Đã làm (50%)" for in-progress score');
 
 // ----------------------------------------------------------------------------

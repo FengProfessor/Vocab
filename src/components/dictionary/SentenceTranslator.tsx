@@ -34,29 +34,14 @@ interface TranslationHistoryItem {
   fromCache?: boolean;
 }
 
-interface SentenceKernel {
-  s: string;
-  v: string;
-  o?: string;
-  translation_vi: string;
+import type { SentenceAnalysisData } from '@/types/sentence-analysis';
+import { SentenceStructureView } from '@/components/dictionary/SentenceStructureView';
+
+export interface SentenceTranslatorProps {
+  onLookupWord?: (word: string) => void;
 }
 
-interface SentenceChunk {
-  text: string;
-  base: string;
-  meaning_vi: string;
-  pos?: string;
-}
-
-interface SentenceAnalysis {
-  sentence: string;
-  translation_vi: string;
-  structure?: string;
-  kernel?: SentenceKernel;
-  chunks?: SentenceChunk[];
-}
-
-export function SentenceTranslator() {
+export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {}) {
   const [sourceLang, setSourceLang] = useState<'en' | 'vi'>('en');
   const [targetLang, setTargetLang] = useState<'en' | 'vi'>('vi');
   const [inputText, setInputText] = useState('');
@@ -68,7 +53,7 @@ export function SentenceTranslator() {
 
   // SVO breakdown state (Groq LPU)
   const [svoLoading, setSvoLoading] = useState(false);
-  const [svoData, setSvoData] = useState<SentenceAnalysis | null>(null);
+  const [svoData, setSvoData] = useState<SentenceAnalysisData | null>(null);
   const [showSvo, setShowSvo] = useState(false);
   const [history, setHistory] = useState<TranslationHistoryItem[]>(() => {
     if (typeof window === 'undefined') return [];
@@ -387,6 +372,25 @@ export function SentenceTranslator() {
               {inputText.length} / {MAX_CHARS}
             </span>
 
+            {sourceLang === 'en' && inputText.trim() && (
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                disabled={svoLoading}
+                onClick={() => void handleAnalyzeSvo()}
+                className="h-8 px-3 rounded-xl text-xs gap-1.5 border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 shadow-xs"
+                title="Bóc tách cấu trúc câu đa tầng S-V-O trực tiếp"
+              >
+                {svoLoading ? (
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                ) : (
+                  <Brain className="h-3.5 w-3.5 text-indigo-500" />
+                )}
+                <span className="hidden sm:inline">Bóc tách SVO</span>
+              </Button>
+            )}
+
             <Button
               type="button"
               variant="chunky"
@@ -413,6 +417,13 @@ export function SentenceTranslator() {
           </div>
         </div>
       </div>
+
+      {/* Khung hiển thị SVO trực tiếp khi phân tích từ ô nhập (chưa dịch) */}
+      {!resultText && !isLoading && showSvo && svoData && (
+        <div className="p-4 rounded-2xl border border-indigo-200/70 dark:border-indigo-900/60 bg-card/80 backdrop-blur-xs shadow-xs animate-in fade-in-50 duration-200">
+          <SentenceStructureView data={svoData} onLookupWord={onLookupWord} />
+        </div>
+      )}
 
       {/* Khung kết quả dịch (Translation Result) */}
       {(resultText || isLoading) && (
@@ -501,74 +512,10 @@ export function SentenceTranslator() {
                     </button>
                   </div>
 
-                  {/* Khung hiển thị bóc tách SVO */}
+                  {/* Khung hiển thị bóc tách cấu trúc câu đa tầng & visual highlight */}
                   {showSvo && svoData && (
-                    <div className="mt-3 p-3.5 rounded-xl border border-indigo-100 dark:border-indigo-900/50 bg-indigo-50/40 dark:bg-indigo-950/20 space-y-3 animate-in fade-in-50 duration-200">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-indigo-900 dark:text-indigo-200 flex items-center gap-1.5">
-                          <span>Khung xương câu cốt lõi</span>
-                          {svoData.structure && (
-                            <span className="text-[10px] font-semibold bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 px-2 py-0.5 rounded-full">
-                              {svoData.structure}
-                            </span>
-                          )}
-                        </span>
-                      </div>
-
-                      {svoData.kernel && (
-                        <div className="flex flex-wrap gap-2">
-                          {svoData.kernel.s && (
-                            <div className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-300/80 bg-emerald-50 dark:bg-emerald-950/50 px-3 py-1.5 text-sm">
-                              <span className="text-[10px] font-black bg-emerald-600 text-white px-1.5 py-0.5 rounded-md">S</span>
-                              <strong className="text-emerald-900 dark:text-emerald-200">{svoData.kernel.s}</strong>
-                            </div>
-                          )}
-                          {svoData.kernel.v && (
-                            <div className="inline-flex items-center gap-1.5 rounded-xl border border-sky-300/80 bg-sky-50 dark:bg-sky-950/50 px-3 py-1.5 text-sm">
-                              <span className="text-[10px] font-black bg-sky-600 text-white px-1.5 py-0.5 rounded-md">V</span>
-                              <strong className="text-sky-900 dark:text-sky-200">{svoData.kernel.v}</strong>
-                            </div>
-                          )}
-                          {svoData.kernel.o && (
-                            <div className="inline-flex items-center gap-1.5 rounded-xl border border-amber-300/80 bg-amber-50 dark:bg-amber-950/50 px-3 py-1.5 text-sm">
-                              <span className="text-[10px] font-black bg-amber-600 text-white px-1.5 py-0.5 rounded-md">O</span>
-                              <strong className="text-amber-900 dark:text-amber-200">{svoData.kernel.o}</strong>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      {svoData.chunks && svoData.chunks.length > 0 && (
-                        <div className="pt-2 border-t border-indigo-100/60 dark:border-indigo-900/30">
-                          <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider mb-2">
-                            Từ vựng & Cụm từ trong câu:
-                          </p>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            {svoData.chunks.slice(0, 6).map((chunk, idx) => (
-                              <div
-                                key={idx}
-                                className="flex items-start justify-between p-2 rounded-lg bg-background/80 border border-border/60 text-xs"
-                              >
-                                <div>
-                                  <span className="font-semibold text-foreground">{chunk.text || chunk.base}</span>
-                                  {chunk.pos && (
-                                    <span className="ml-1 text-[10px] text-muted-foreground italic">({chunk.pos})</span>
-                                  )}
-                                  <p className="text-muted-foreground text-[11px] mt-0.5">{chunk.meaning_vi}</p>
-                                </div>
-                                <button
-                                  type="button"
-                                  onClick={() => handleSpeak(chunk.text || chunk.base, 'en')}
-                                  className="p-1 text-muted-foreground hover:text-foreground"
-                                  title="Phát âm"
-                                >
-                                  <Volume2 className="h-3.5 w-3.5" />
-                                </button>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                    <div className="mt-4 p-4 rounded-2xl border border-indigo-200/70 dark:border-indigo-900/60 bg-card/80 backdrop-blur-xs shadow-xs animate-in fade-in-50 duration-200">
+                      <SentenceStructureView data={svoData} onLookupWord={onLookupWord} />
                     </div>
                   )}
                 </div>

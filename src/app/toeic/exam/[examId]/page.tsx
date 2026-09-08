@@ -1,338 +1,639 @@
 'use client';
 
 /**
- * TOEIC Mini Test / Full Test player — gom nhiều Part thành 1 đề thi.
- * Có đồng hồ đếm ngược (optional). Chấm ≥80% mới pass (giống THPT exam).
+ * Authentic ETS/IIG Computer-Based TOEIC Exam & Practice Environment.
+ * Zero-chrome immersive simulation supporting Full 200Q Real Exams (120:00)
+ * and Part Practice (Part 1 to Part 7) with instant explanations.
+ *
+ * Features:
+ * - Hybrid Access Model ("Try before login" / Freemium UX)
+ * - In-progress session autosave in localStorage
+ * - Anti-scraping sensitive data stripping on test load
+ * - Secure server-side scoring & honeypot trap detection
+ * - Guest score preservation with 3-second Google OAuth sign-in
  */
-import { useMemo, useState, useEffect, Suspense } from 'react';
+
+import React, { useMemo, useState, Suspense, useEffect, useCallback } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, CheckCircle2, Clock, Lightbulb, Trophy } from 'lucide-react';
 import Link from 'next/link';
-import contentData from '@/data/toeic/content-toeic-reading-v1.json';
+import { ArrowLeft, Loader2, AlertCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+
+import { StudentShell } from '@/components/student/StudentShell';
+import { ToeicExamHeader } from '@/components/toeic/ToeicExamHeader';
+import { ToeicSplitPane } from '@/components/toeic/ToeicSplitPane';
+import { ToeicQuestionPalette } from '@/components/toeic/ToeicQuestionPalette';
+import { ExamPauseModal } from '@/components/toeic/ExamPauseModal';
+import { SubmitConfirmModal } from '@/components/toeic/SubmitConfirmModal';
+import { ToeicScoreReportView } from '@/components/toeic/ToeicScoreReportView';
+import { GuestSaveExamModal } from '@/components/toeic/GuestSaveExamModal';
+import { useToeicExamSession } from '@/hooks/useToeicExamSession';
+
+import {
+  loadFullToeicTest,
+  loadToeicPartPractice,
+  loadAnyToeicTest,
+  getToeicCatalogIndex,
+  getAvailableToeicTests,
+  stripSensitiveToeicData,
+  convertLegacyMiniTest,
+} from '@/lib/toeic-test-loader';
+import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
+import { supabase } from '@/lib/supabase';
+import { authFetch } from '@/lib/auth-fetch';
 import type {
-  ToeicReadingContent,
-  ToeicFlatQ,
-  ToeicMiniTest,
+  ToeicUnifiedQuestion,
+  ToeicClientQuestion,
+  ToeicPart,
+  ToeicExamMode,
+  ToeicOptionKey,
+  ToeicScoreResult,
+  ToeicTestApiResponse,
 } from '@/types/toeic';
 
-const content = contentData as unknown as ToeicReadingContent;
-
-function flattenMiniTest(exam: ToeicMiniTest): ToeicFlatQ[] {
-  const qs: ToeicFlatQ[] = [];
-  for (const section of exam.sections) {
-    for (const id of section.ids) {
-      if (section.part === 'part5') {
-        const item = content.part5.find((x) => x.id === id);
-        if (item) {
-          qs.push({
-            id: item.id,
-            part: 'part5',
-            prompt: item.question,
-            options: item.options,
-            answer: item.answer,
-            explain: item.explain,
-          });
-        }
-      } else if (section.part === 'part6') {
-        const item = content.part6.find((x) => x.id === id);
-        if (item) {
-          item.blanks.forEach((b, i) => {
-            qs.push({
-              id: `${item.id}-b${i}`,
-              part: 'part6',
-              context: item.text,
-              prompt: `${item.title} — Chỗ trống (${b.index})`,
-              options: b.options,
-              answer: b.answer,
-              explain: b.explain,
-            });
-          });
-        }
-      } else if (section.part === 'part7_single' || section.part === 'part7_double') {
-        const pool = section.part === 'part7_single' ? content.part7_single : (content.part7_double ?? []);
-        const item = pool.find((x) => x.id === id);
-        if (item) {
-          const passage = item.passages ? item.passages.join('\n\n---\n\n') : item.passage;
-          item.questions.forEach((q, i) => {
-            qs.push({
-              id: `${item.id}-q${i}`,
-              part: 'part7',
-              context: passage,
-              prompt: q.q,
-              options: q.options,
-              answer: q.answer,
-              explain: q.explain,
-            });
-          });
-        }
-      }
-    }
-  }
-  return qs;
-}
-
-const PART_LABEL: Record<string, string> = {
-  part5: 'Part 5',
-  part6: 'Part 6',
-  part7: 'Part 7',
+const PART_RECOMMENDED_MINUTES: Record<ToeicPart, number> = {
+  1: 4,   // 6 photos
+  2: 10,  // 25 Q&R
+  3: 17,  // 39 dialogue questions
+  4: 15,  // 30 talks questions
+  5: 12,  // 30 incomplete sentences
+  6: 10,  // 16 text completion
+  7: 55,  // 54 reading comprehension
 };
 
-function ToeicExamInner() {
+function ToeicExamRoomInner() {
   const { examId } = useParams<{ examId: string }>();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const stepId = searchParams.get('roadmapStep') ?? '';
 
-  const exam = useMemo(
-    () => content.mini_test.find((t) => t.id === decodeURIComponent(examId)),
-    [examId],
-  );
+  const decodedExamId = decodeURIComponent(examId || '6852');
+  const modeParam = searchParams.get('mode');
+  const partParam = searchParams.get('part');
+  const timeParam = searchParams.get('time');
+  const roadmapStep = searchParams.get('roadmapStep') ?? '';
 
-  const questions = useMemo(() => (exam ? flattenMiniTest(exam) : []), [exam]);
+  // ── 1. Determine Target Part and Testing Mode ──
+  const partNum = useMemo(() => {
+    if (!partParam) return null;
+    const p = parseInt(partParam, 10);
+    return p >= 1 && p <= 7 ? (p as ToeicPart) : null;
+  }, [partParam]);
 
-  // ── Timer ──
-  const [timeLeft, setTimeLeft] = useState(exam ? exam.timeMinutes * 60 : 0);
-  const [timerActive, setTimerActive] = useState(true);
+  const isPartPractice = Boolean(partNum);
+  const examMode: ToeicExamMode =
+    modeParam === 'practice' || isPartPractice ? 'practice' : 'real';
 
-  useEffect(() => {
-    if (!timerActive || timeLeft <= 0) return;
-    const interval = setInterval(() => {
-      setTimeLeft((t) => {
-        if (t <= 1) {
-          setTimerActive(false);
-          setFinished(true);
-          return 0;
-        }
-        return t - 1;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [timerActive, timeLeft]);
-
-  const formatTime = (s: number): string => {
-    const m = Math.floor(s / 60);
-    const sec = s % 60;
-    return `${m}:${sec.toString().padStart(2, '0')}`;
-  };
-
-  // ── Player state ──
-  const [index, setIndex] = useState(0);
-  const [picked, setPicked] = useState<string | null>(null);
-  const [revealed, setRevealed] = useState(false);
-  const [correct, setCorrect] = useState(0);
-  const [finished, setFinished] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
-  const q = questions[index];
-
-  const checkAnswer = (): void => {
-    if (revealed || !q || picked === null) return;
-    setRevealed(true);
-    const pickedLetter = picked.match(/^\(([A-D])\)/)?.[1] ?? picked;
-    const correctLetter = q.answer.match(/^\(([A-D])\)/)?.[1] ?? q.answer;
-    if (pickedLetter === correctLetter) setCorrect((c) => c + 1);
-  };
-
-  const nextQuestion = async (): Promise<void> => {
-    if (index + 1 < questions.length) {
-      setIndex(index + 1);
-      setPicked(null);
-      setRevealed(false);
-      return;
+  // ── 2. Local Fallback Dataset (Used offline or before API loads) ──
+  const { fallbackQuestions, testTitle, durationSeconds } = useMemo(() => {
+    // Check if it's a legacy mini-test ID first
+    const legacyQuestions = convertLegacyMiniTest(decodedExamId);
+    if (legacyQuestions.length > 0) {
+      const minutes = timeParam ? parseInt(timeParam, 10) : 20;
+      return {
+        fallbackQuestions: stripSensitiveToeicData(legacyQuestions),
+        testTitle: `TOEIC Mini Test (${decodedExamId})`,
+        durationSeconds: minutes * 60,
+      };
     }
-    setFinished(true);
-    setTimerActive(false);
-    const pct = Math.round((correct / Math.max(questions.length, 1)) * 100);
-    if (stepId && pct >= 80) {
-      setSubmitting(true);
-      const result = await completeRoadmapStep(stepId, pct);
-      setSubmitting(false);
-      if (result) {
-        setRoadmapCelebrateFlag(result);
-        router.push('/journey');
+
+    // Part practice mode
+    if (isPartPractice && partNum) {
+      const pQuestions = loadToeicPartPractice(partNum, decodedExamId);
+      const minutes = timeParam
+        ? parseInt(timeParam, 10)
+        : PART_RECOMMENDED_MINUTES[partNum] || 15;
+      return {
+        fallbackQuestions: stripSensitiveToeicData(pQuestions),
+        testTitle: `Luyện tập TOEIC Part ${partNum} (${decodedExamId})`,
+        durationSeconds: minutes * 60,
+      };
+    }
+
+    // Universal Dynamic Test Resolution (Estudyme, Study4, authentic ETS)
+    const catalog = getToeicCatalogIndex();
+    const fullCatalogItem = catalog.fullTests.find(
+      (t) => t.id === decodedExamId || t.displayId === decodedExamId
+    );
+
+    let practiceCatalogItem = undefined;
+    for (const pKey of Object.keys(catalog.practiceParts)) {
+      const found = catalog.practiceParts[pKey]?.find((item) => item.id === decodedExamId);
+      if (found) {
+        practiceCatalogItem = found;
+        break;
+      }
+    }
+
+    const fullQuestions = loadAnyToeicTest(decodedExamId);
+    const availableTests = getAvailableToeicTests();
+    const meta = availableTests.find((t) => t.testId === decodedExamId);
+
+    const resolvedTitle =
+      fullCatalogItem?.title ||
+      practiceCatalogItem?.title ||
+      meta?.title ||
+      `Đề thi TOEIC LR (${decodedExamId})`;
+
+    const defaultMinutes =
+      fullCatalogItem?.durationMinutes ||
+      practiceCatalogItem?.durationMinutes ||
+      (fullQuestions.length <= 30 ? 20 : 120);
+
+    const minutes = timeParam ? parseInt(timeParam, 10) : defaultMinutes;
+
+    return {
+      fallbackQuestions: stripSensitiveToeicData(fullQuestions),
+      testTitle: resolvedTitle,
+      durationSeconds: minutes * 60,
+    };
+  }, [decodedExamId, isPartPractice, partNum, timeParam]);
+
+  // Questions state: initially loaded via sanitized endpoint or fallback
+  const [questions, setQuestions] = useState<ToeicClientQuestion[]>(fallbackQuestions);
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState<boolean>(true);
+
+  // Honeypot anti-bot trap state
+  const [honeypotValue, setHoneypotValue] = useState<string>('');
+
+  // Guest freemium save modal & Google auth loading
+  const [isGuestModalOpen, setIsGuestModalOpen] = useState<boolean>(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
+
+  // ── 3. Public Test Loader API: Fetch sanitized questions from server ──
+  useEffect(() => {
+    let isCancelled = false;
+
+    async function fetchSanitizedTest() {
+      try {
+        const query = new URLSearchParams({
+          testId: decodedExamId,
+          ...(partNum ? { part: String(partNum) } : {}),
+          ...(timeParam ? { time: timeParam } : {}),
+          mode: examMode,
+        });
+
+        const res = await fetch(`/api/toeic/test?${query.toString()}`);
+        if (res.ok) {
+          const data: ToeicTestApiResponse = await res.json();
+          if (data.success && data.questions && data.questions.length > 0 && !isCancelled) {
+            setQuestions(data.questions);
+            setIsLoadingQuestions(false);
+            return;
+          }
+        }
+      } catch (err) {
+        console.warn('[ToeicExam] Failed to load sanitized questions via API, using fallback:', err);
+      }
+
+      if (!isCancelled) {
+        setQuestions(fallbackQuestions);
+        setIsLoadingQuestions(false);
+      }
+    }
+
+    void fetchSanitizedTest();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [decodedExamId, examMode, fallbackQuestions, partNum, timeParam]);
+
+  // ── 4. Session State Hook & Submitted Exam Persistence ──
+  const sessionKey = useMemo(() => {
+    return `${decodedExamId}${partNum ? '_part' + partNum : ''}_${examMode}`;
+  }, [decodedExamId, examMode, partNum]);
+
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState<boolean>(false);
+  const [isPaletteOpen, setIsPaletteOpen] = useState<boolean>(false);
+  const [showPracticeExplanation, setShowPracticeExplanation] = useState<boolean>(false);
+
+  // Submitted score state (persists across reloads & post-auth redirects)
+  const [submittedScoreResult, setSubmittedScoreResult] = useState<ToeicScoreResult | null>(null);
+  const [submittedAnswers, setSubmittedAnswers] = useState<Record<number, ToeicOptionKey>>({});
+  const [isExamSubmittedState, setIsExamSubmittedState] = useState<boolean>(false);
+  const [isSavedToHistoryState, setIsSavedToHistoryState] = useState<boolean>(false);
+  const [isGuestState, setIsGuestState] = useState<boolean>(false);
+
+  // Handle submit roadmap integration & score modal
+  const handleSubmit = (
+    result: ToeicScoreResult,
+    answers: Record<number, ToeicOptionKey>,
+    reviewQuestions?: (ToeicUnifiedQuestion | ToeicClientQuestion)[]
+  ) => {
+    // Enrich questions with master review questions (reveals explanations & transcripts)
+    if (reviewQuestions && reviewQuestions.length > 0) {
+      setQuestions(reviewQuestions);
+    }
+    setSubmittedScoreResult(result);
+    setSubmittedAnswers(answers);
+    setIsExamSubmittedState(true);
+    setIsSavedToHistoryState(Boolean(session.savedToHistory));
+    setIsGuestState(Boolean(session.isGuest));
+
+    // If user is guest or exam not yet saved to DB, cache in localStorage immediately
+    if (session.isGuest || !session.savedToHistory) {
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.setItem(
+            'lingo_pending_toeic_save',
+            JSON.stringify({
+              testId: decodedExamId,
+              examMode,
+              part: partNum || undefined,
+              answers,
+              timeSpentSeconds: durationSeconds - session.timeRemainingSeconds,
+              scoreResult: result,
+              savedAt: Date.now(),
+            })
+          );
+        } catch (e) {
+          console.warn('[ToeicExam] Failed to cache pending save:', e);
+        }
+      }
+      setIsGuestModalOpen(true);
+    } else {
+      toast.success('Kết quả bài thi đã được lưu vào tài khoản của bạn!');
+    }
+
+    if (roadmapStep && questions.length > 0) {
+      const percent = Math.round((result.rawTotal / questions.length) * 100);
+      if (percent >= 80) {
+        completeRoadmapStep(roadmapStep, percent)
+          .then((res) => {
+            if (res) {
+              setRoadmapCelebrateFlag(res);
+            }
+          })
+          .catch((err) => {
+            console.warn('[ToeicExam] Roadmap complete failed:', err);
+          });
       }
     }
   };
 
-  const resetExam = (): void => {
-    setIndex(0);
-    setCorrect(0);
-    setPicked(null);
-    setRevealed(false);
-    setFinished(false);
-    setTimeLeft(exam ? exam.timeMinutes * 60 : 0);
-    setTimerActive(true);
-  };
+  const session = useToeicExamSession({
+    testId: sessionKey,
+    questions,
+    initialTimeSeconds: durationSeconds,
+    mode: examMode,
+    autoRestore: true,
+    onSubmit: handleSubmit,
+  });
 
-  // ── Empty ──
-  if (!exam || questions.length === 0) {
+  // ── 5. Auto-sync Pending Guest Exam Submission after Login or Page Reload ──
+  useEffect(() => {
+    const syncPendingGuestSubmission = async () => {
+      if (typeof window === 'undefined') return;
+      try {
+        const pendingRaw = localStorage.getItem('lingo_pending_toeic_save');
+        if (!pendingRaw) return;
+
+        const pending = JSON.parse(pendingRaw);
+        if (!pending || !pending.testId) return;
+
+        // If the pending test matches this test room, immediately restore score report!
+        if (pending.testId === decodedExamId && pending.scoreResult) {
+          setSubmittedScoreResult(pending.scoreResult);
+          setSubmittedAnswers(pending.answers || {});
+          setIsExamSubmittedState(true);
+        }
+
+        const { data: { session: authSession } } = await supabase.auth.getSession();
+        if (!authSession?.user) {
+          // Still a guest
+          setIsGuestState(true);
+          setIsSavedToHistoryState(false);
+          return;
+        }
+
+        // User is authenticated! Sync pending exam to database
+        const res = await authFetch('/api/toeic/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            testId: pending.testId,
+            examMode: pending.examMode || 'real',
+            part: pending.part,
+            answers: pending.answers,
+            timeSpentSeconds: pending.timeSpentSeconds || 0,
+            honeypot: '',
+          }),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            if (data.scoreResult) setSubmittedScoreResult(data.scoreResult);
+            if (data.reviewQuestions && data.reviewQuestions.length > 0) {
+              setQuestions(data.reviewQuestions);
+            }
+            setIsExamSubmittedState(true);
+            setIsSavedToHistoryState(true);
+            setIsGuestState(false);
+            localStorage.removeItem('lingo_pending_toeic_save');
+            toast.success('Đã lưu kết quả thi TOEIC vào tài khoản của bạn!');
+          }
+        }
+      } catch (e) {
+        console.warn('[SyncPendingExam] Failed to sync:', e);
+      }
+    };
+
+    void syncPendingGuestSubmission();
+  }, [decodedExamId]);
+
+  // ── 6. Google Sign-In for Guests (Preserves in-progress/completed session) ──
+  const handleGoogleSignInForGuest = useCallback(async () => {
+    setIsGoogleLoading(true);
+    try {
+      const activeResult = submittedScoreResult || session.scoreResult;
+      const activeAnswers =
+        Object.keys(submittedAnswers).length > 0 ? submittedAnswers : session.answers;
+
+      if (activeResult) {
+        localStorage.setItem(
+          'lingo_pending_toeic_save',
+          JSON.stringify({
+            testId: decodedExamId,
+            examMode,
+            part: partNum || undefined,
+            answers: activeAnswers,
+            timeSpentSeconds: durationSeconds - session.timeRemainingSeconds,
+            scoreResult: activeResult,
+            savedAt: Date.now(),
+          })
+        );
+      }
+
+      sessionStorage.setItem(
+        'lingopro_oauth_redirect_to',
+        window.location.pathname + window.location.search
+      );
+
+      const redirectTo = `${window.location.origin}/auth/callback`;
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo,
+          skipBrowserRedirect: false,
+          queryParams: {
+            prompt: 'select_account',
+          },
+        },
+      });
+      if (error) throw error;
+    } catch (err) {
+      console.error('Google Sign In Error:', err);
+      toast.error('Không thể kết nối với Google. Vui lòng thử lại.');
+      setIsGoogleLoading(false);
+    }
+  }, [
+    decodedExamId,
+    durationSeconds,
+    examMode,
+    partNum,
+    session.answers,
+    session.scoreResult,
+    session.timeRemainingSeconds,
+    submittedAnswers,
+    submittedScoreResult,
+  ]);
+
+  // ── 7. Empty & Loading State Guards ──
+  if (isLoadingQuestions && questions.length === 0) {
     return (
-      <div className="mx-auto max-w-lg p-6 text-center space-y-4">
-        <p className="text-muted-foreground">Đề thi không tìm thấy.</p>
-        <Link href="/toeic">
-          <Button variant="outline">
-            <ArrowLeft className="w-4 h-4 mr-1" /> Về TOEIC
-          </Button>
-        </Link>
-      </div>
+      <StudentShell title={testTitle} immersive={true} requireAuth={false}>
+        <div className="flex h-[80vh] w-full items-center justify-center">
+          <div className="flex flex-col items-center gap-3">
+            <Loader2 className="h-6 w-6 animate-spin text-slate-600 dark:text-slate-400" />
+            <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
+              Đang tải đề thi TOEIC...
+            </span>
+          </div>
+        </div>
+      </StudentShell>
     );
   }
 
-  // ── Finished ──
-  if (finished) {
-    const pct = Math.round((correct / questions.length) * 100);
-    const passed = pct >= 80;
+  if (questions.length === 0) {
     return (
-      <div className="mx-auto flex min-h-[70vh] max-w-lg flex-col items-center justify-center gap-4 p-6 text-center">
-        <div className="text-6xl">{passed ? '🏆' : '💪'}</div>
-        <h1 className="text-2xl font-bold">{passed ? 'Vượt đề TOEIC!' : 'Chưa đạt — cần ≥80%'}</h1>
-        <p className="text-lg">
-          Đúng <b>{correct}/{questions.length}</b> — <b>{pct}%</b>
-        </p>
-        {/* Score by part */}
-        <div className="w-full rounded-lg bg-muted/50 p-4 text-left text-sm space-y-2">
-          <p className="font-semibold">📊 Phân tích theo Part:</p>
-          {(['part5', 'part6', 'part7'] as const).map((p) => {
-            const partQs = questions.filter((q2) => q2.part === p);
-            if (partQs.length === 0) return null;
-            return (
-              <p key={p} className="text-muted-foreground">
-                {PART_LABEL[p]}: {partQs.length} câu
-              </p>
-            );
-          })}
-        </div>
-        <div className="grid w-full gap-2">
-          <Button variant="chunky" size="lg" className="w-full" onClick={resetExam}>
-            {passed ? 'Làm lại lần nữa' : 'Thử lại'}
-          </Button>
-          {passed && stepId && (
-            <Link href="/journey">
-              <Button variant="outline" className="w-full" disabled={submitting}>
-                Về lộ trình
-              </Button>
-            </Link>
-          )}
+      <StudentShell title="Không tìm thấy đề thi" immersive={true} requireAuth={false}>
+        <div className="mx-auto flex min-h-[70vh] max-w-lg flex-col items-center justify-center p-6 text-center space-y-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-sm border border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-900 dark:bg-rose-950/60 dark:text-rose-300">
+            <AlertCircle className="h-6 w-6" />
+          </div>
+          <h1 className="text-lg font-bold text-slate-900 dark:text-white">
+            Không tìm thấy dữ liệu đề thi
+          </h1>
+          <p className="text-xs text-slate-600 dark:text-slate-400">
+            Mã đề &ldquo;{decodedExamId}&rdquo; không tồn tại hoặc chưa sẵn sàng. Vui lòng chọn một trong các bộ đề chính thức.
+          </p>
           <Link href="/toeic">
-            <Button variant="ghost" className="w-full">
-              Về TOEIC
+            <Button variant="outline" className="gap-1.5 text-xs rounded-sm">
+              <ArrowLeft className="h-3.5 w-3.5" /> Về trang chủ TOEIC
             </Button>
           </Link>
         </div>
-      </div>
+      </StudentShell>
     );
   }
 
-  // ── Active ──
-  const progressPct = Math.round(((index + (revealed ? 1 : 0)) / questions.length) * 100);
-  const isCorrectAnswer = (() => {
-    if (!revealed || !q) return false;
-    const pickedLetter = picked?.match(/^\(([A-D])\)/)?.[1] ?? picked;
-    const correctLetter = q.answer.match(/^\(([A-D])\)/)?.[1] ?? q.answer;
-    return pickedLetter === correctLetter;
-  })();
+  // ── 8. Post-Submission: Render Score Report & Review Mode ──
+  const activeScoreResult = submittedScoreResult || session.scoreResult;
+  const activeAnswers =
+    Object.keys(submittedAnswers).length > 0 ? submittedAnswers : session.answers;
+  const isCompleted = isExamSubmittedState || session.isSubmitted;
+  const isHistorySaved = isSavedToHistoryState || session.savedToHistory;
+  const isCurrentGuest = isGuestState || session.isGuest;
+
+  if (isCompleted && activeScoreResult) {
+    return (
+      <StudentShell title={`${testTitle} — Báo cáo điểm số`} immersive={true} requireAuth={false}>
+        <div className="min-h-screen bg-slate-100 dark:bg-slate-950 pb-16">
+          <ToeicScoreReportView
+            scoreResult={activeScoreResult}
+            questions={questions}
+            answers={activeAnswers}
+            flagged={session.flagged}
+            testTitle={testTitle}
+            isGuest={isCurrentGuest && !isHistorySaved}
+            savedToHistory={isHistorySaved}
+            onOpenGuestSaveModal={() => setIsGuestModalOpen(true)}
+            onRetake={() => {
+              if (typeof window !== 'undefined') {
+                try {
+                  localStorage.removeItem('lingo_pending_toeic_save');
+                  localStorage.removeItem(sessionKey);
+                } catch (e) {
+                  console.warn('[ToeicExam] Reset storage error:', e);
+                }
+              }
+              setSubmittedScoreResult(null);
+              setSubmittedAnswers({});
+              setIsExamSubmittedState(false);
+              setIsSavedToHistoryState(false);
+              session.resetExam();
+              setShowPracticeExplanation(false);
+            }}
+            onBackToHub={() => router.push('/toeic')}
+          />
+
+          {/* Encouraging Guest Save Prompt Modal */}
+          <GuestSaveExamModal
+            isOpen={isGuestModalOpen}
+            onClose={() => setIsGuestModalOpen(false)}
+            scoreResult={activeScoreResult}
+            testTitle={testTitle}
+            onGoogleSignIn={handleGoogleSignInForGuest}
+            isGoogleLoading={isGoogleLoading}
+          />
+        </div>
+      </StudentShell>
+    );
+  }
+
+  // ── 9. Active Test Room: Split-Pane & Question Palette ──
+  const currentQ = session.currentQuestion;
+  const currentPart = currentQ ? currentQ.part : partNum || 1;
+  const currentSection = currentQ ? currentQ.section : 'listening';
+  const currentIndex = questions.findIndex(
+    (q) => q.questionNumber === session.currentQNum
+  );
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex < questions.length - 1;
 
   return (
-    <div className="mx-auto max-w-2xl p-4 space-y-5">
-      {/* Header */}
-      <div className="flex items-center gap-3">
-        <Link href="/toeic">
-          <Button variant="ghost" size="icon">
-            <ArrowLeft className="w-4 h-4" />
-          </Button>
-        </Link>
-        <div className="h-3 flex-1 overflow-hidden rounded-full bg-muted">
-          <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${progressPct}%` }} />
-        </div>
-        <span className="text-sm text-muted-foreground">{index + 1}/{questions.length}</span>
-      </div>
-
-      {/* Timer + Title */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Trophy className="w-4 h-4 text-amber-500" />
-          <span className="text-sm font-semibold">{exam.title}</span>
-        </div>
-        <div className={`flex items-center gap-1.5 text-sm font-mono ${timeLeft < 60 ? 'text-rose-500 animate-pulse' : 'text-muted-foreground'}`}>
-          <Clock className="w-4 h-4" />
-          {formatTime(timeLeft)}
-        </div>
-      </div>
-
-      {/* Part badge */}
-      <span className="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/30 px-2.5 py-0.5 text-xs font-semibold text-blue-700 dark:text-blue-300">
-        TOEIC {PART_LABEL[q.part]}
-      </span>
-
-      {/* Context */}
-      {q.context && (
-        <Card className="border-blue-200/50 dark:border-blue-800/30">
-          <CardContent className="p-4 whitespace-pre-line text-sm leading-relaxed max-h-72 overflow-y-auto">
-            {q.context}
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Question */}
-      <h1 className="text-base font-bold leading-relaxed">{q.prompt}</h1>
-
-      {/* Options */}
-      <div className="space-y-3">
-        <div className="grid gap-2">
-          {q.options.map((opt) => {
-            const optLetter = opt.match(/^\(([A-D])\)/)?.[1] ?? opt;
-            const ansLetter = q.answer.match(/^\(([A-D])\)/)?.[1] ?? q.answer;
-            const isAnswer = optLetter === ansLetter;
-            const isPicked = opt === picked;
-            return (
-              <Button
-                key={opt}
-                variant="outline"
-                disabled={revealed && !isAnswer && !isPicked}
-                className={`justify-start h-auto py-3 px-4 text-sm whitespace-normal text-left ${
-                  !revealed && isPicked ? 'border-primary bg-primary/5 ring-1 ring-primary/30' : ''
-                } ${
-                  revealed && isAnswer
-                    ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300'
-                    : ''
-                } ${
-                  revealed && isPicked && !isAnswer
-                    ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20 text-rose-600 line-through'
-                    : ''
-                }`}
-                onClick={() => { if (!revealed) setPicked(opt); }}
-              >
-                {opt}
-              </Button>
-            );
-          })}
-        </div>
-
-        {revealed && (
-          <div className={`rounded-lg p-3 text-sm flex gap-2 items-start ${
-            isCorrectAnswer
-              ? 'bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/30'
-              : 'bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/30'
-          }`}>
-            <Lightbulb className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
-            <span>{q.explain}</span>
+    <StudentShell title={testTitle} immersive={true} requireAuth={false}>
+      <div className="flex h-screen w-full flex-col overflow-hidden bg-slate-100 dark:bg-slate-950 select-none">
+        {/* Anti-Scraping Honeypot Trap (Invisible to real users) */}
+        <div
+          style={{
+            display: 'none',
+            opacity: 0,
+            position: 'absolute',
+            top: 0,
+            left: '-9999px',
+            height: 0,
+            width: 0,
+            zIndex: -1,
+            overflow: 'hidden',
+            pointerEvents: 'none',
+          }}
+          aria-hidden="true"
+        >
+          <label htmlFor="_hp_author_code">Anti-Scraping Verification Code</label>
+          <input
+            id="_hp_author_code"
+            type="text"
+            name="_hp_author_code"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypotValue}
+            onChange={(e) => setHoneypotValue(e.target.value)}
+          />
+          {/* Dummy question trap for scrapers attempting to answer hidden questions */}
+          <div className="toeic-dummy-question">
+            <span>Question 999: What is the main purpose of this document?</span>
+            <input
+              type="radio"
+              name="dummy_question_999"
+              value="A"
+              tabIndex={-1}
+              autoComplete="off"
+              onChange={() => setHoneypotValue('trap_dummy_q999')}
+            />
           </div>
-        )}
+        </div>
 
-        {!revealed ? (
-          <Button variant="chunky" className="w-full" disabled={picked === null} onClick={checkAnswer}>
-            <CheckCircle2 className="w-4 h-4 mr-2" /> Kiểm tra
-          </Button>
-        ) : (
-          <Button variant="chunky" className="w-full" onClick={() => void nextQuestion()}>
-            {index + 1 < questions.length ? 'Câu tiếp theo →' : 'Xem kết quả'}
-          </Button>
-        )}
+        {/* Top Header */}
+        <ToeicExamHeader
+          title={testTitle}
+          section={currentSection}
+          currentPart={currentPart}
+          formattedTime={session.formattedTime}
+          isTimeWarning={session.isTimeWarning}
+          timeRemainingSeconds={session.timeRemainingSeconds}
+          answeredCount={session.answeredCount}
+          totalQuestions={session.totalQuestions}
+          flaggedCount={session.flaggedCount}
+          onPause={session.pauseExam}
+          onSubmit={() => setIsSubmitModalOpen(true)}
+          isPaused={session.isPaused}
+          allowPause={true}
+        />
+
+        {/* Main Content Area */}
+        <main className="relative flex-1 overflow-hidden">
+          {currentQ && (
+            <ToeicSplitPane
+              question={currentQ}
+              mode={examMode}
+              selectedOption={session.answers[session.currentQNum]}
+              isFlagged={session.flagged.has(session.currentQNum)}
+              onSelectOption={(opt) => session.selectAnswer(session.currentQNum, opt)}
+              onToggleFlag={() => session.toggleFlag(session.currentQNum)}
+              onNext={session.nextQuestion}
+              onPrev={session.prevQuestion}
+              hasPrev={hasPrev}
+              hasNext={hasNext}
+              totalQuestions={session.totalQuestions}
+              showExplanation={showPracticeExplanation}
+              onToggleExplanation={() =>
+                setShowPracticeExplanation((prev) => !prev)
+              }
+              className="h-[calc(100vh-48px)]"
+            />
+          )}
+
+          {/* Question Palette Matrix */}
+          <ToeicQuestionPalette
+            questions={questions}
+            answers={session.answers}
+            flagged={session.flagged}
+            currentQNum={session.currentQNum}
+            onSelectQuestion={(qNum) => {
+              session.goToQuestion(qNum);
+              // Auto-close palette on small mobile screens
+              if (typeof window !== 'undefined' && window.innerWidth < 640) {
+                setIsPaletteOpen(false);
+              }
+            }}
+            isOpen={isPaletteOpen}
+            onToggleOpen={() => setIsPaletteOpen((prev) => !prev)}
+          />
+        </main>
+
+        {/* Pause Modal */}
+        <ExamPauseModal
+          isOpen={session.isPaused}
+          formattedTime={session.formattedTime}
+          onResume={session.resumeExam}
+          onSaveAndExit={() => router.push('/toeic')}
+        />
+
+        {/* Submit Confirmation Dialog */}
+        <SubmitConfirmModal
+          isOpen={isSubmitModalOpen}
+          totalQuestions={session.totalQuestions}
+          answeredCount={session.answeredCount}
+          unansweredCount={session.unansweredCount}
+          flaggedCount={session.flaggedCount}
+          onCancel={() => setIsSubmitModalOpen(false)}
+          onConfirm={async () => {
+            setIsSubmitModalOpen(false);
+            const res = await session.submitExam({
+              honeypot: honeypotValue,
+              part: partNum || undefined,
+            });
+            if (res && !res.success && res.error) {
+              toast.error(res.error);
+            }
+          }}
+          isSubmitting={session.isSubmitting}
+        />
       </div>
-    </div>
+    </StudentShell>
   );
 }
 
@@ -340,12 +641,15 @@ export default function ToeicExamPage() {
   return (
     <Suspense
       fallback={
-        <div className="flex items-center justify-center min-h-[50vh]">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+        <div className="flex h-screen w-full items-center justify-center bg-slate-900 text-white">
+          <div className="flex flex-col items-center gap-3">
+            <Loader2 className="h-8 w-8 animate-spin text-indigo-400" />
+            <span className="text-sm font-medium">Đang tải phòng thi TOEIC...</span>
+          </div>
         </div>
       }
     >
-      <ToeicExamInner />
+      <ToeicExamRoomInner />
     </Suspense>
   );
 }

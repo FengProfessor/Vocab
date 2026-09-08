@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Search,
   Clock,
@@ -15,17 +15,29 @@ import {
   getListeningVideosIndex,
   getListeningAttempt,
 } from '@/lib/listening';
+import { getAllVideoWatchProgress } from '@/lib/listening-recommendation';
 import { TopicFilterChips } from '@/components/listening/TopicFilterChips';
-import { LibraryPagination } from '@/components/listening/LibraryPagination';
-import { ListeningVideoCard } from '@/components/listening/ListeningVideoCard';
+import { DailyRecommendedShelf } from '@/components/listening/DailyRecommendedShelf';
+import { TopicVideoShelf } from '@/components/listening/TopicVideoShelf';
 import type {
   DurationFilter,
   TopicFilter,
   LevelFilter,
+  ListeningTopic,
   ListeningAttempt,
+  VideoWatchProgress,
+  ListeningVideoIndexItem,
 } from '@/types/listening';
 
-const PAGE_SIZE = 12;
+const CANONICAL_TOPICS: ListeningTopic[] = [
+  'daily_life',
+  'social_conversations',
+  'workplace',
+  'travel',
+  'food_shopping',
+  'science_tech_health',
+  'culture',
+];
 
 const DURATION_OPTIONS: { id: DurationFilter; label: string; desc: string }[] = [
   { id: 'all', label: 'Tất cả', desc: 'Mọi thời lượng' },
@@ -40,45 +52,6 @@ const CEFR_OPTIONS: { id: LevelFilter; label: string; desc: string }[] = [
   { id: 'B2', label: 'B2', desc: 'Trung cao' },
 ];
 
-function getWatchProgressPercent(videoId: string): number {
-  if (typeof window === 'undefined') return 0;
-  try {
-    const rawWatch =
-      localStorage.getItem(`lingo_listening_watch_${videoId}`) ||
-      localStorage.getItem(`lingo_listening_progress_${videoId}`);
-    if (!rawWatch) return 0;
-
-    const num = Number(rawWatch);
-    if (!isNaN(num)) {
-      return Math.min(100, Math.max(0, num));
-    }
-    const parsed = JSON.parse(rawWatch);
-    if (typeof parsed === 'number') {
-      return Math.min(100, Math.max(0, parsed));
-    }
-    if (parsed && typeof parsed.percent === 'number') {
-      return Math.min(100, Math.max(0, parsed.percent));
-    }
-    if (parsed && typeof parsed.percentWatched === 'number') {
-      return Math.min(100, Math.max(0, parsed.percentWatched));
-    }
-    if (parsed && typeof parsed.progress === 'number') {
-      return Math.min(100, Math.max(0, parsed.progress));
-    }
-    if (
-      parsed &&
-      typeof parsed.currentTime === 'number' &&
-      typeof parsed.duration === 'number' &&
-      parsed.duration > 0
-    ) {
-      return Math.min(100, Math.max(0, Math.round((parsed.currentTime / parsed.duration) * 100)));
-    }
-  } catch {
-    // Ignore parse errors
-  }
-  return 0;
-}
-
 export default function ListeningLibraryPage() {
   // 1. High-Performance Lightweight Index Loading (148 KB for 200 videos, <80ms)
   const allVideos = useMemo(() => getListeningVideosIndex(), []);
@@ -89,27 +62,44 @@ export default function ListeningLibraryPage() {
   const [levelFilter, setLevelFilter] = useState<LevelFilter>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Pagination State
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const gridTopRef = useRef<HTMLDivElement>(null);
-
-  // LocalStorage tracking
+  // Watch Progress & Completion State (SSR-safe hydration)
+  const [watchProgressMap, setWatchProgressMap] = useState<Record<string, VideoWatchProgress>>({});
   const [attemptsMap, setAttemptsMap] = useState<Record<string, ListeningAttempt | null>>({});
-  const [watchProgressMap, setWatchProgressMap] = useState<Record<string, number>>({});
 
-  // Asynchronously load user attempts & watch progress from localStorage
+  // Asynchronously load user attempts & watch progress from localStorage on mount (zero hydration mismatch)
   useEffect(() => {
+    const progress = getAllVideoWatchProgress();
     const attempts: Record<string, ListeningAttempt | null> = {};
-    const progress: Record<string, number> = {};
     for (const v of allVideos) {
       attempts[v.id] = getListeningAttempt(v.id);
-      progress[v.id] = getWatchProgressPercent(v.id);
     }
     const timer = setTimeout(() => {
-      setAttemptsMap(attempts);
       setWatchProgressMap(progress);
+      setAttemptsMap(attempts);
     }, 0);
-    return () => clearTimeout(timer);
+
+    // Live update listeners for cross-tab or player completion events
+    const handleWatchUpdate = () => {
+      setWatchProgressMap(getAllVideoWatchProgress());
+    };
+    const handleAttemptUpdate = () => {
+      const updatedAttempts: Record<string, ListeningAttempt | null> = {};
+      for (const v of allVideos) {
+        updatedAttempts[v.id] = getListeningAttempt(v.id);
+      }
+      setAttemptsMap(updatedAttempts);
+    };
+
+    window.addEventListener('lingo_listening_watch_updated', handleWatchUpdate);
+    window.addEventListener('lingo_listening_attempt_completed', handleAttemptUpdate);
+    window.addEventListener('storage', handleWatchUpdate);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('lingo_listening_watch_updated', handleWatchUpdate);
+      window.removeEventListener('lingo_listening_attempt_completed', handleAttemptUpdate);
+      window.removeEventListener('storage', handleWatchUpdate);
+    };
   }, [allVideos]);
 
   // Compute topic counts for all 7 categories (+ all)
@@ -164,44 +154,26 @@ export default function ListeningLibraryPage() {
     });
   }, [allVideos, durationFilter, topicFilter, levelFilter, searchQuery]);
 
-  // Auto-reset page to 1 whenever any filter changes (idiomatic React render-time state adjustment)
-  const [filterSnapshot, setFilterSnapshot] = useState({
-    duration: durationFilter,
-    topic: topicFilter,
-    level: levelFilter,
-    query: searchQuery,
-  });
-
-  if (
-    filterSnapshot.duration !== durationFilter ||
-    filterSnapshot.topic !== topicFilter ||
-    filterSnapshot.level !== levelFilter ||
-    filterSnapshot.query !== searchQuery
-  ) {
-    setFilterSnapshot({
-      duration: durationFilter,
-      topic: topicFilter,
-      level: levelFilter,
-      query: searchQuery,
-    });
-    setCurrentPage(1);
-  }
-
-  // Paginated videos computation (12 items per page)
-  const totalPages = Math.ceil(filteredVideos.length / PAGE_SIZE);
-  const startIndex = (currentPage - 1) * PAGE_SIZE;
-  const endIndex = Math.min(startIndex + PAGE_SIZE, filteredVideos.length);
-  const paginatedVideos = useMemo(() => {
-    return filteredVideos.slice(startIndex, endIndex);
-  }, [filteredVideos, startIndex, endIndex]);
-
-  // Page change with smooth scroll to top of catalog
-  const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage);
-    if (gridTopRef.current) {
-      gridTopRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Group filtered videos by the 7 canonical life topics
+  const videosByTopic = useMemo(() => {
+    const map: Record<ListeningTopic, ListeningVideoIndexItem[]> = {
+      daily_life: [],
+      social_conversations: [],
+      workplace: [],
+      travel: [],
+      food_shopping: [],
+      science_tech_health: [],
+      culture: [],
+      social_stories: [],
+    };
+    for (const video of filteredVideos) {
+      const topicKey = video.topic === 'social_stories' ? 'culture' : video.topic;
+      if (map[topicKey]) {
+        map[topicKey].push(video);
+      }
     }
-  };
+    return map;
+  }, [filteredVideos]);
 
   // Reset all filters
   const handleResetFilters = () => {
@@ -249,8 +221,15 @@ export default function ListeningLibraryPage() {
           </div>
         </div>
 
+        {/* Top Priority Featured Shelf: "3 Video Đề Xuất Hôm Nay" */}
+        <DailyRecommendedShelf
+          allVideos={allVideos}
+          watchMap={watchProgressMap}
+          attemptsMap={attemptsMap}
+        />
+
         {/* Filter Controls Toolbar */}
-        <div className="mb-6 space-y-4 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-5">
+        <div className="mb-8 space-y-4 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-5">
           {/* Top Row: Search Input */}
           <div className="relative">
             <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -360,35 +339,28 @@ export default function ListeningLibraryPage() {
           )}
         </div>
 
-        {/* Video Grid Top Anchor for Smooth Scroll */}
-        <div ref={gridTopRef} className="scroll-mt-6" />
-
-        {/* Video Catalog Grid */}
-        {paginatedVideos.length > 0 ? (
-          <div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {paginatedVideos.map((video) => (
-                <ListeningVideoCard
-                  key={video.id}
-                  video={video}
-                  attempt={attemptsMap[video.id]}
-                  watchPercent={watchProgressMap[video.id] || 0}
+        {/* Horizontal Topic Shelves Rows */}
+        {filteredVideos.length > 0 ? (
+          <div className="space-y-2">
+            {CANONICAL_TOPICS.map((topic) => {
+              const topicVideos = videosByTopic[topic] || [];
+              if (topicVideos.length === 0) {
+                return null;
+              }
+              return (
+                <TopicVideoShelf
+                  key={topic}
+                  id={`shelf-${topic}`}
+                  topic={topic}
+                  videos={topicVideos}
+                  watchMap={watchProgressMap}
+                  attemptsMap={attemptsMap}
                 />
-              ))}
-            </div>
-
-            {/* Pagination Controls */}
-            <LibraryPagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              totalItems={filteredVideos.length}
-              startIndex={startIndex}
-              endIndex={endIndex}
-              onPageChange={handlePageChange}
-            />
+              );
+            })}
           </div>
         ) : (
-          /* Empty State when no videos match */
+          /* Empty State when no videos match active filters */
           <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-200 bg-white p-12 text-center shadow-xs dark:border-slate-800 dark:bg-slate-900">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 dark:bg-indigo-950/60 dark:text-indigo-400">
               <Headphones className="h-6 w-6" />

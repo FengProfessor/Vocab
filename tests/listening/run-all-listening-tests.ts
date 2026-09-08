@@ -1,7 +1,7 @@
 /**
  * Master E2E Test Runner for Listening Immersion Hub.
- * Executes Tiers 1 through 4, aggregates results, prints formatted reports,
- * and exits with code 0 on 100% pass or 1 on failure.
+ * Executes Tiers 1 through 4 (Baseline Regression) plus the Redesign E2E Suite (R1, R2, R3),
+ * aggregates results, prints formatted reports, and exits with code 0 on 100% pass or 1 on failure.
  *
  * Usage:
  *   npx tsx tests/listening/run-all-listening-tests.ts
@@ -12,11 +12,12 @@ import { runTier1Tests } from './tier1-feature-coverage.test';
 import { runTier2Tests } from './tier2-boundary-corner.test';
 import { runTier3Tests } from './tier3-cross-feature.test';
 import { runTier4Tests } from './tier4-real-world-scenarios.test';
+import { runVideoRedesignE2ETests } from './e2e-video-redesign.test';
 
 async function main() {
   console.log('================================================================================');
   console.log('  LISTENING IMMERSION HUB — MASTER AUTOMATED TEST SUITE');
-  console.log('  Mode: Opaque-box E2E, Boundary, Cross-Feature & Workflow Verification (Tiers 1 - 4)');
+  console.log('  Mode: Opaque-box E2E, Boundary, Cross-Feature & Workflow Verification');
   console.log('================================================================================\n');
 
   const startTime = Date.now();
@@ -54,10 +55,19 @@ async function main() {
   tierStats.push({ tierName: 'Tier 4: Real-World Scenarios', stats: stats4, minRequired: 8 });
   console.log(`✓ Tier 4 Finished: ${stats4.passed}/${stats4.total} passed (${stats4.durationMs}ms)\n`);
 
+  // Redesign E2E: Video Learning & Vocabulary Redesign (R1, R2, R3 - 4 Tiers)
+  console.log('▶ Running Redesign E2E: Shelves, Daily Recommendation, Queue Reordering & Minimal Player...');
+  const runnerRedesign = new TestRunner();
+  await runVideoRedesignE2ETests(runnerRedesign);
+  const statsRedesign = runnerRedesign.getStats();
+  tierStats.push({ tierName: 'Redesign E2E (R1, R2, R3)', stats: statsRedesign, minRequired: 50 });
+  console.log(`✓ Redesign E2E Finished: ${statsRedesign.passed}/${statsRedesign.total} passed (${statsRedesign.durationMs}ms)\n`);
+
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);
   const grandPassed = tierStats.reduce((acc, t) => acc + t.stats.passed, 0);
   const grandFailed = tierStats.reduce((acc, t) => acc + t.stats.failed, 0);
+  const grandMinRequired = tierStats.reduce((acc, t) => acc + t.minRequired, 0);
 
   // Print Summary Table
   console.log('================================================================================');
@@ -77,8 +87,8 @@ async function main() {
     console.log(`| ${padName} | ${padReq} | ${padTotal} | ${padPassed} | ${padFailed} | ${padDuration} | ${padStatus} |`);
   }
   console.log('|-------------------------------------|:-------:|:-----:|:------:|:------:|:--------:|:------:|');
-  const grandName = 'TOTAL ACROSS ALL TIERS'.padEnd(35, ' ');
-  const gReq = '58'.padStart(7, ' ');
+  const grandName = 'TOTAL ACROSS ALL SUITES'.padEnd(35, ' ');
+  const gReq = String(grandMinRequired).padStart(7, ' ');
   const gTotal = String(grandTotal).padStart(5, ' ');
   const gPassed = String(grandPassed).padStart(6, ' ');
   const gFailed = String(grandFailed).padStart(6, ' ');
@@ -97,6 +107,7 @@ async function main() {
     console.log(`  Tier 2 Requirement (>=20 cases): ${stats2.total >= 20 ? 'PASSED (' + stats2.total + ')' : 'FAILED'}`);
     console.log(`  Tier 3 Requirement (>=10 cases): ${stats3.total >= 10 ? 'PASSED (' + stats3.total + ')' : 'FAILED'}`);
     console.log(`  Tier 4 Requirement (>=8 cases):  ${stats4.total >= 8 ? 'PASSED (' + stats4.total + ')' : 'FAILED'}`);
+    console.log(`  Redesign Requirement (>=50 cases): ${statsRedesign.total >= 50 ? 'PASSED (' + statsRedesign.total + ')' : 'FAILED'}`);
     process.exit(0);
   }
 }

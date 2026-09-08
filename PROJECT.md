@@ -1,28 +1,32 @@
-# Project: Rachel's English IPA Video Articulation Integration
+# Project: TOEIC Technical Minimalist UI/UX & Full Dataset Unlocking (>15,000 Questions)
 
 ## Architecture
-This project integrates authentic, high-quality video demonstrations from Rachel's English (General American accent) into all 26 pronunciation lessons in `lessons-v1.json` and the roadmap `PhoneticArticulationWidget`. An interactive, lightweight YouTube IFrame player provides slow-motion playback, segment looping, and collapsible UI without disrupting practice drills.
+The TOEIC subsystem is transformed from a marketing-heavy prototype into an authoritative, distraction-free computer-based examination and practice platform (ETS/IIG standard). It unlocks the repository's full dataset of over 15,175 authentic questions across 28+ Full Tests (200Q) and 231 Part Practice Sets (Parts 1-7).
 
 ```
-[Pronunciation Data Layer: lessons-v1.json]
-   │ 26 Lessons (A0–B2) with RachelVideoMeta:
-   │ (youtubeVideoId, startSeconds, endSeconds, channelName, videoTip)
-   ▼
-[Security / CSP Layer: next.config.ts]
-   │ Enables frame-src (youtube.com, youtube-nocookie.com)
-   │ Enables script-src (youtube.com, s.ytimg.com)
-   ▼
-[Interactive IPA Video Player: InteractiveIpaVideoPlayer.tsx]
-   │ Controls: 0.5x, 0.75x, 1.0x speeds, A-B segment loop, replay clip, collapse toggle
-   │ Audio Coordination: silences app audio on play; pauses on drill audio/mic
-   ├───► [/pronunciation/[id]] (Hero video in Learn phase, sticky collapsible in Drill phase)
-   └───► [PhoneticArticulationWidget.tsx] (Tab switcher: Video vs 2D Sagittal diagram)
-              │
-              ▼
-   [Seamless Transition to Minimal Pair Drills]
-              │
-              ▼
-   [Roadmap Progress Sync: completeRoadmapStep(stepId)]
+[Dataset Sources: crawlers/toeic/]
+   ├── estudyme_data/full_tests/ (21 full tests × 200Q = 4,200 Qs)
+   ├── estudyme_data/practice_parts/ (231 sets across 7 Parts = 7,549 Qs)
+   └── toeic_data/ (20 Study4 tests = 3,426 Qs)
+               │
+               ▼
+[Pre-built Lightweight Manifest: src/data/toeic/toeic-catalog-index.json (~78 KB)]
+   │ Total Questions (>15,000), 28+ Full Tests list, 231 Part Practice Sets metadata
+   │
+   ├──► [/toeic] (Content-First 2-Tab Catalog: instant switch <20ms, zero lag)
+   │       ├── Tab 1: Đề thi Full Test (200 câu - 120 phút)
+   │       └── Tab 2: Luyện tập theo 7 Part (Part 1 to 7 set picker)
+   │
+   └──► Dynamic On-Demand Server Loader: src/lib/toeic-test-loader.ts & /api/toeic/test
+           │ Adapts Estudyme & Study4 cards to ToeicUnifiedQuestion
+           │ Strips sensitive keys on GET /api/toeic/test
+           ▼
+        [/toeic/exam/[examId]] (Distraction-Free Exam Room)
+           ├── ToeicExamHeader (Compact 48px, monospace timer, clean submit)
+           ├── ToeicSplitPane (2-column 1px border, flat option cards A/B/C/D, keyboard shortcuts)
+           ├── ToeicQuestionPalette (Flat 5-column grid, monospace tabular-nums, 4-state encoding)
+           ├── Dialog Modals (SubmitConfirmModal, ExamPauseModal, GuestSaveExamModal)
+           └── ToeicScoreReportView (ETS-style score certificate, part diagnostics, review mode)
 ```
 
 ---
@@ -30,120 +34,87 @@ This project integrates authentic, high-quality video demonstrations from Rachel
 ## Feature Inventory
 | # | Feature | Description | Milestone | Status | Source |
 |---|---------|-------------|-----------|--------|--------|
-| 1 | CSP YouTube Domain Enablement | Update `next.config.ts` to allow YouTube in `frame-src` and `script-src` | M1 | **DONE** | Survey Obs 1 |
-| 2 | Pronunciation Video Types Schema | Create `src/types/pronunciation.ts` and update `src/lib/roadmap.ts` with `RachelVideoMeta` | M1 | **DONE** | ORIGINAL_REQUEST §R1 |
-| 3 | 100% Rachel's English Catalog Mapping | Enrich all 26 lessons in `lessons-v1.json` with verified YouTube IDs, timestamps, and tips | M1 | **DONE** | ORIGINAL_REQUEST §R1 |
-| 4 | Automated Data Integrity Validator | Script `scripts/validate-pronunciation-videos.ts` asserting format, IDs, timestamps, channel | M1 | **DONE** | Acceptance Criteria |
-| 5 | Interactive IPA Video Player | Component `InteractiveIpaVideoPlayer.tsx` with YouTube IFrame API | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
-| 6 | Variable Speed Controls | Dedicated buttons for 0.5x, 0.75x, and 1.0x playback rates | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
-| 7 | A-B Segment Looping | Continuous loop between `startSeconds` and `endSeconds` | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
-| 8 | Instant Replay Clip | One-click button to jump back to start of articulation demonstration | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
-| 9 | Collapsible Toggle | Hide/show video smoothly to conserve screen space during drills | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
-| 10 | Mobile & Desktop Responsive Design | Adaptive 16:9 aspect ratio, touch targets >= 44px, graceful fallback | M2 | **DONE** | Acceptance Criteria |
-| 11 | Audio Coordination | Silence word audio when video plays; pause video when drill audio or mic activates | M2, M3 | **DONE** | Survey UI Obs 4 |
-| 12 | Pronunciation Page Integration | Embed player in `/pronunciation/[id]` (Hero in Learn phase, collapsible in Drill phase) | M3 | **DONE** | ORIGINAL_REQUEST §R2, §R3 |
-| 13 | Roadmap Articulation Widget Integration | Tab switcher (Video vs 2D Sagittal diagram) in `PhoneticArticulationWidget.tsx` | M3 | **DONE** | ORIGINAL_REQUEST §R2, §R3 |
-| 14 | Multimodal Pedagogical Synthesis | Harmonize video with `whyHard`, `mouthTip`, and `minimalPairs` drill flow | M3 | **DONE** | ORIGINAL_REQUEST §R3 |
-| 15 | Roadmap Progress Synchronization | Guarantee `completeRoadmapStep(stepId)` synchronizes step completion and awards XP | M3 | **DONE** | Acceptance Criteria |
-| 16 | Comprehensive E2E Test Suite (Tiers 1-4) | Opaque-box tests for data schema, player controls, integration, and roadmap sync | E2E, M4 | **DONE** | Acceptance Criteria |
-| 17 | Adversarial Hardening (Tier 5) | White-box edge cases: invalid timestamps, rapid speed switches, network errors | M4 | IN_PROGRESS | Acceptance Criteria |
-| 18 | Forensic Integrity Audit | Static analysis and runtime validation ensuring authentic video IDs and genuine logic | M4 | IN_PROGRESS | Hard Constraint |
+| 1 | Pre-compiled Catalog Index | Generate `src/data/toeic/toeic-catalog-index.json` (~78 KB) indexing >15,175 questions, 28+ full tests, 231 practice sets | M1 | **DONE** | Survey Data §1.1-1.3 |
+| 2 | Dynamic Universal Test Loader | Implement `loadAnyToeicTest(testId)` in `src/lib/toeic-test-loader.ts` with Estudyme card adapter and Study4 adapter | M1 | **DONE** | ORIGINAL_REQUEST §R3 |
+| 3 | API Route Dynamic Resolution | Update `src/app/api/toeic/test/route.ts` & `submit/route.ts` to dynamically resolve tests on demand with zero client JS bloat | M1 | **DONE** | Survey Data §4.3 |
+| 4 | Loader Defect Fixes & Slug Support | Fix `normalizeTestId` regex and string coercion, support `estudyme-test-*`, `estudyme-p*-set*`, `study4-*` slugs | M1 | **DONE** | Survey Tests §1.2 |
+| 5 | Anti-AI Template Design Tokens | Standardize on 1px flat borders (`border-slate-200 dark:border-slate-800`), `rounded-sm`/`rounded-md` max, eliminate gradients, blur shadows, `rounded-2xl/3xl/full` | M2, M3 | **DONE** | ORIGINAL_REQUEST §R1 |
+| 6 | Content-First Homepage Catalog | Overhaul `src/app/toeic/page.tsx`: header with >15,000 questions, eliminate all marketing hero/features/level fluff | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
+| 7 | Tab 1: Đề Full Test (200 câu) | Instant catalog grid of 28+ full tests with specifications and direct "Vào thi" actions | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
+| 8 | Tab 2: Luyện theo 7 Part | Instant Part 1-7 filter bar, displaying all 231 practice sets with question counts and time estimates | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
+| 9 | Distraction-Free Exam Header | Compact 48px header in `ToeicExamHeader.tsx`, flat 1px border, monospace tabular countdown timer, no bounce/pulse | M3 | **DONE** | ORIGINAL_REQUEST §R4 |
+| 10 | Flat Split-Pane Layout | 2-column layout in `ToeicSplitPane.tsx`, 1px borders, slim scrollbars, clean stimulus viewing | M3 | **DONE** | ORIGINAL_REQUEST §R4 |
+| 11 | Flat Option Cards & Shortcuts | Option cards A/B/C/D with monospace badges, full click targets, keyboard shortcuts `A`, `B`, `C`, `D`, `ArrowLeft`, `ArrowRight`, `F` | M3 | **DONE** | ORIGINAL_REQUEST §R4 |
+| 12 | Monospace 4-State Question Palette | 5-column flat matrix in `ToeicQuestionPalette.tsx`, `font-mono tabular-nums`, no `scale-105` jitter, crisp 4-state styling | M3 | **DONE** | ORIGINAL_REQUEST §R4 |
+| 13 | Minimalist Dialog Modals | Technical minimalist overhaul of `SubmitConfirmModal.tsx`, `ExamPauseModal.tsx`, `GuestSaveExamModal.tsx` | M3 | **DONE** | Survey UI §4.3 |
+| 14 | Technical Minimalist Score Report | Overhaul `ToeicScoreReportView.tsx` to an official ETS-style certificate, part breakdown, flat review mode | M3 | **DONE** | Survey UI §4.3 |
+| 15 | E2E Test Suite Expansion | Create `catalog-integrity.test.ts`, `estudyme-loader.test.ts`, `ui-minimalist.test.ts`, update `run-all-toeic-tests.ts` | E2E | **DONE** | Survey Tests §4.2 |
+| 16 | Final Verification & Hardening | 100% E2E test pass (Tiers 1-4), Tier 5 adversarial hardening, Forensic Integrity Audit, TypeScript & Next.js build | M4 | **DONE** | Project Pattern |
 
 ---
 
 ## Milestones
 | # | Name | Scope | Dependencies | Status | Key Outputs |
 |---|------|-------|-------------|--------|-------------|
-| E2E | E2E Testing Track | Design test architecture, test runner, and test cases (Tiers 1-4); publish TEST_READY.md | none | **DONE** | `TEST_INFRA.md`, `tests/pronunciation/` (130/130 tests passing), `TEST_READY.md` |
-| M1 | CSP Security & Video Catalog Standardization | Update `next.config.ts`, `src/types/pronunciation.ts`, enrich `lessons-v1.json` with 26 Rachel's English videos, update `src/lib/roadmap.ts`, validation script | none | **DONE** | `next.config.ts`, `src/types/pronunciation.ts`, `lessons-v1.json`, `src/lib/roadmap.ts`, `scripts/validate-pronunciation-videos.ts` (All 26/26 valid, 0 type errors, 198/198 journey tests pass) |
-| M2 | Interactive IPA Video Player Component | Implement `InteractiveIpaVideoPlayer.tsx` with speed control, segment loop, replay, collapse toggle, responsive layout, audio coordination | M1 | **DONE** | `src/components/pronunciation/InteractiveIpaVideoPlayer.tsx` (130/130 pronunciation tests pass, 198/198 journey tests pass, 0 lint errors) |
-| M3 | Page & Roadmap Widget Integration | Integrate player into `/pronunciation/[id]/page.tsx` and `PhoneticArticulationWidget.tsx`; coordinate audio with `stopWordAudio()` and drill transitions | M1, M2 | **DONE** | `src/app/pronunciation/[id]/page.tsx`, `src/components/journey/widgets/PhoneticArticulationWidget.tsx` (130/130 pronunciation tests pass, 198/198 journey tests pass, build succeeds) |
-| M4 | Final Milestone: E2E Pass, Hardening & Audit | Pass 100% of E2E test suite (Tiers 1-4), adversarial test hardening (Tier 5), forensic integrity audit, build & typecheck | M1, M2, M3, E2E | IN_PROGRESS | 130/130 tests pass, build succeeds; 2 Reviewers, 2 Challengers, Forensic Auditor executing |
+| E2E | E2E Testing Track | Design & implement test suites for catalog integrity (>15,000 Qs), Estudyme adapter, UI minimalist rules, update runner, publish TEST_READY.md | none | **DONE** | `TEST_INFRA.md`, `tests/toeic/catalog-integrity.test.ts`, `tests/toeic/estudyme-loader.test.ts`, `tests/toeic/ui-minimalist.test.ts`, `TEST_READY.md` (219/219 PASS) |
+| M1 | Data Loader & Catalog Index | Generate `toeic-catalog-index.json`, implement universal dynamic loader & adapters in `toeic-test-loader.ts`, update API routes | none | **DONE** | `src/data/toeic/toeic-catalog-index.json` (78KB, 15,175 Qs), `src/lib/toeic-test-loader.ts`, `src/app/api/toeic/test/route.ts`, `src/app/api/toeic/submit/route.ts` (16,554 stress assertions pass) |
+| M2 | Content-First Homepage Catalog | Overhaul `/toeic` to Technical Minimalist: header with >15,000 Qs, 2-Tab layout (Full Test 200Q & 7-Part sets), zero marketing fluff | M1 | **DONE** | `src/app/toeic/page.tsx` (2-Tab layout, 28 full tests, 231 practice sets, 0 minimalist rule violations) |
+| M3 | Distraction-Free Exam Room & Palette | Overhaul exam room components (`ToeicExamHeader`, `ToeicSplitPane`, `ToeicQuestionPalette`, modals, `ToeicScoreReportView`), keyboard shortcuts | M1, M2 | **DONE** | `src/app/toeic/exam/[examId]/page.tsx`, `src/components/toeic/*` (100% clean files, 0 style violations, full shortcuts) |
+| M4 | Final Milestone: Full Pass, Hardening & Audit | 100% E2E test pass (Tiers 1-4), Tier 5 adversarial hardening, Forensic Auditor check, `npx tsc --noEmit`, `npm run build` | M1, M2, M3, E2E | **DONE** | 219/219 master tests pass, 44/44 adversarial checks pass, npm run build (135/135 pages) 0 errors, Forensic Auditor CLEAN verdict |
 
 ---
 
 ## Interface Contracts
 
-### 1. `RachelVideoMeta` (`src/types/pronunciation.ts`)
+### 1. `ToeicCatalogIndex` (`src/data/toeic/toeic-catalog-index.json`)
 ```typescript
-export interface RachelVideoMeta {
-  youtubeVideoId: string;
-  startSeconds: number;
-  endSeconds: number;
-  channelName: "Rachel's English";
-  videoTip: string;
-  clipTitle?: string;
-  mouthTipSummary?: string;
+export interface ToeicCatalogIndex {
+  version: string;
+  totalQuestions: number; // 15,175
+  totalFullTests: number; // 41 (28 200Q tests)
+  totalPracticeSets: number; // 231
+  fullTests: ToeicCatalogTestItem[];
+  practiceParts: Record<string, ToeicCatalogPracticeItem[]>; // "1" .. "7"
 }
 ```
 
-### 2. `PronunciationLesson` (`src/types/pronunciation.ts` & `src/lib/roadmap.ts`)
+### 2. Universal Loader Interface (`src/lib/toeic-test-loader.ts`)
 ```typescript
-export interface PronunciationLesson {
-  id: string;
-  level: string;
-  title: string;
-  ipa: string;
-  whyHard: string;
-  mouthTip: string;
-  exampleWords: string[];
-  drillType: 'minimal-pair' | 'stress' | 'intonation' | 'listening';
-  minimalPairs: { a: string; b: string; note: string }[];
-  video?: RachelVideoMeta;
-  youtubeVideoId?: string;
-  startSeconds?: number;
-  endSeconds?: number;
-  channelName?: "Rachel's English" | string;
-  videoTip?: string;
-}
+export function loadAnyToeicTest(testId: string): ToeicUnifiedQuestion[];
+export function getToeicCatalogIndex(): ToeicCatalogIndex;
+export function stripSensitiveToeicData(questions: ToeicUnifiedQuestion[]): Partial<ToeicUnifiedQuestion>[];
 ```
 
-### 3. `PhoneticArticulationProps` (`PhoneticArticulationWidget.tsx`)
+### 3. Exam State & Palette Contract
 ```typescript
-export interface PhoneticArticulationProps {
-  ipa: string;
-  mouthTip: string;
-  whyHard: string;
-  audioUrl?: string;
-  minimalPairs: MinimalPairItem[];
-  onComplete: (stats: { score: number; passed: boolean }) => void;
-  video?: RachelVideoMeta;
-  youtubeVideoId?: string;
-  startSeconds?: number;
-  endSeconds?: number;
-  channelName?: string;
-  videoTip?: string;
-}
-```
-
-### 4. `InteractiveIpaVideoPlayerProps` (`InteractiveIpaVideoPlayer.tsx`)
-```typescript
-export interface InteractiveIpaVideoPlayerProps {
-  video: RachelVideoMeta;
-  ipa?: string;
-  title?: string;
-  compact?: boolean;
-  autoPlay?: boolean;
-  initialSpeed?: number;
-  collapsible?: boolean;
-  defaultCollapsed?: boolean;
-  onPlay?: () => void;
-  onPause?: () => void;
-  onPlayStateChange?: (isPlaying: boolean) => void;
-  className?: string;
+export interface ToeicQuestionPaletteProps {
+  questions: ToeicClientQuestion[];
+  currentIndex: number;
+  userAnswers: Record<number, string>;
+  flaggedQuestions: Record<number, boolean>;
+  onSelectQuestion: (index: number) => void;
+  isOpen: boolean;
+  onToggleOpen: () => void;
 }
 ```
 
 ---
 
 ## Code Layout
-- Security Policy: `next.config.ts`
-- Type Definitions: `src/types/pronunciation.ts`
-- Pronunciation Data: `src/data/pronunciation/lessons-v1.json`
-- Roadmap Client Lib: `src/lib/roadmap.ts`
-- Validation Script: `scripts/validate-pronunciation-videos.ts`
-- Player Component: `src/components/pronunciation/InteractiveIpaVideoPlayer.tsx`
-- Lesson Page: `src/app/pronunciation/[id]/page.tsx`
-- Articulation Widget: `src/components/journey/widgets/PhoneticArticulationWidget.tsx`
-- Audio Library: `src/lib/audio.ts`
-- E2E Test Suite: `tests/pronunciation/` (`run-all-pronunciation-tests.ts`, `tier1-feature-coverage.test.ts`, `tier2-boundary-corner.test.ts`, `tier3-cross-feature.test.ts`, `tier4-real-world-scenarios.test.ts`)
+- Catalog Index & Metadata: `src/data/toeic/toeic-catalog-index.json`
+- Test Loader & Adapters: `src/lib/toeic-test-loader.ts`
+- API Routes: `src/app/api/toeic/test/route.ts`, `src/app/api/toeic/submit/route.ts`
+- Homepage & Catalog: `src/app/toeic/page.tsx`
+- Exam Room Page: `src/app/toeic/exam/[examId]/page.tsx`
+- Exam Components:
+  - Header: `src/components/toeic/ToeicExamHeader.tsx`
+  - Split-Pane: `src/components/toeic/ToeicSplitPane.tsx`
+  - Question Palette: `src/components/toeic/ToeicQuestionPalette.tsx`
+  - Audio Player: `src/components/toeic/ToeicAudioPlayer.tsx`
+  - Modals: `src/components/toeic/SubmitConfirmModal.tsx`, `ExamPauseModal.tsx`, `GuestSaveExamModal.tsx`
+  - Score Report & Review: `src/components/toeic/ToeicScoreReportView.tsx`
+- Test Suite: `tests/toeic/`
+  - Master Runner: `tests/toeic/run-all-toeic-tests.ts`
+  - Test Harness: `tests/toeic/test-harness.ts`
+  - Tiers 1-5: `tier1-features.test.ts`, `tier2-boundary.test.ts`, `tier3-combinations.test.ts`, `tier4-scenarios.test.ts`, `tier5-adversarial.test.ts`
+  - Dedicated Suites: `catalog-integrity.test.ts`, `estudyme-loader.test.ts`, `ui-minimalist.test.ts`, `challenger-1-adversarial.test.ts`, `challenger-1-r2-verification.test.ts`, `stress-loader.test.ts`, `stress-scoring.test.ts`

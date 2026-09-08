@@ -29,19 +29,23 @@ jobs:
           script_stop: true
           script: |
             set -x
-            echo "🚀 [CI/CD] Starting Auto-Deployment on Ubuntu Server..."
+            echo "🚀 [CI/CD] Starting Zero-Downtime Auto-Deployment on Ubuntu Server..."
             
-            TARGET_DIR="$HOME/Vocab"
-            mkdir -p "$TARGET_DIR"
-            cd "$TARGET_DIR"
-            echo "📍 Working directory: $(pwd)"
+            LIVE_DIR="$HOME/Vocab"
+            BUILD_DIR="$HOME/Vocab-build"
+            mkdir -p "$LIVE_DIR"
+            mkdir -p "$BUILD_DIR"
+            
+            # --- PHASE 1: STAGING BUILD (Live server remains 100% untouched) ---
+            cd "$BUILD_DIR"
+            echo "📍 Staging directory: $(pwd)"
             
             if [ ! -d ".git" ]; then
-              echo "Cloning repository..."
+              echo "Cloning repository to staging directory..."
               git clone https://github.com/FengProfessor/Vocab.git .
             fi
             
-            echo "Fetching latest code..."
+            echo "Fetching latest code into staging..."
             git remote set-url origin https://github.com/FengProfessor/Vocab.git 2>/dev/null || true
             git fetch origin main || echo "git fetch warning"
             git reset --hard origin/main || echo "git reset warning"
@@ -49,31 +53,69 @@ jobs:
             if [ -d "web-app" ]; then
               cd web-app
             fi
-            echo "📍 App directory: $(pwd)"
+            STAGING_APP_DIR="$(pwd)"
+            echo "📍 Staging App directory: $STAGING_APP_DIR"
             
-            echo "🔐 Updating CRON_SECRET in .env..."
+            # Sync existing env configs from live if present
+            if [ -f "$LIVE_DIR/.env" ]; then
+              cp "$LIVE_DIR/.env" .env
+            fi
+            if [ -f "$LIVE_DIR/.env.local" ]; then
+              cp "$LIVE_DIR/.env.local" .env.local
+            fi
+            
+            echo "🔐 Updating CRON_SECRET in staging..."
             touch .env .env.local
             sed -i '/^CRON_SECRET=/d' .env || true
             echo "CRON_SECRET=\"${{ secrets.CRON_SECRET }}\"" >> .env
             sed -i '/^CRON_SECRET=/d' .env.local || true
             echo "CRON_SECRET=\"${{ secrets.CRON_SECRET }}\"" >> .env.local
             
-            echo "📦 Installing dependencies..."
+            echo "📦 Installing dependencies in staging..."
             npm install --production=false
             
-            echo "🏗️ Building Next.js application..."
+            echo "🏗️ Building Next.js application in staging..."
             export NODE_OPTIONS="--max-old-space-size=4096"
             npm run build
             
-            if [ -d ".next/standalone" ]; then
-              echo "Copying static assets to standalone bundle..."
-              cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
-              cp -r public .next/standalone/ 2>/dev/null || true
-              mkdir -p .next/standalone/src 2>/dev/null || true
-              cp -r src/data .next/standalone/src/ 2>/dev/null || true
+            if [ ! -d ".next/standalone" ]; then
+              echo "❌ Build failed: .next/standalone was not generated!"
+              exit 1
+            fi
+            
+            echo "Copying static assets to standalone bundle in staging..."
+            cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
+            cp -r public .next/standalone/ 2>/dev/null || true
+            mkdir -p .next/standalone/src 2>/dev/null || true
+            cp -r src/data .next/standalone/src/ 2>/dev/null || true
+            
+            # --- PHASE 2: ATOMIC SWAP TO LIVE (Downtime < 1 second) ---
+            echo "🔄 Staging build verified! Performing atomic swap to LIVE..."
+            cd "$LIVE_DIR"
+            if [ -d "web-app" ]; then
+              cd web-app
+            fi
+            LIVE_APP_DIR="$(pwd)"
+            echo "📍 Live App directory: $LIVE_APP_DIR"
+            
+            # Sync repo tracking and env in live
+            git remote set-url origin https://github.com/FengProfessor/Vocab.git 2>/dev/null || true
+            git fetch origin main || true
+            git reset --hard origin/main || true
+            cp "$STAGING_APP_DIR/.env" .env 2>/dev/null || true
+            cp "$STAGING_APP_DIR/.env.local" .env.local 2>/dev/null || true
+            
+            # Atomic directory swap: copy to .next.new then atomic rename
+            rm -rf .next.new
+            cp -r "$STAGING_APP_DIR/.next" .next.new
+            if [ -d ".next" ]; then
+              mv .next .next.old && mv .next.new .next
+              rm -rf .next.old
+            else
+              mv .next.new .next
             fi
             
             echo "🔄 Restarting lingopro.service..."
             sudo systemctl restart lingopro.service 2>/dev/null || sudo -n systemctl restart lingopro.service 2>/dev/null || systemctl restart lingopro.service 2>/dev/null || pm2 restart all 2>/dev/null || echo "Service restart fallback attempted"
             
-            echo "✅ [CI/CD] Deployment Completed Successfully!"
+            echo "✅ [CI/CD] Zero-Downtime Deployment Completed Successfully!"

@@ -121,3 +121,38 @@ export interface ListeningAttempt {
   percentScore: number;
   isCompleted?: boolean;
 }
+
+export interface VideoWatchProgress {
+  videoId: string;
+  percent: number;       // 0 - 100
+  currentTime: number;   // seconds
+  duration: number;      // seconds
+  completed: boolean;    // true once >=90% or ENDED
+  completedAt?: string;  // ISO timestamp
+  updatedAt: string;     // ISO timestamp
+}
+
+export type VideoWatchStatus = 'unwatched' | 'in_progress' | 'completed';
+export type WatchStatus = VideoWatchStatus;
+
+export interface SaveWatchProgressInput {
+  videoId: string;
+  currentTime: number;
+  duration: number;
+  percent?: number;
+  completed?: boolean;
+  playerState?: number; // 0 is ENDED in YouTube Iframe API
+}
+
+export interface RecommendationOptions {
+  dateStr?: string;
+  seedDate?: string;
+  completedIds?: Set<string> | string[];
+  inProgressIds?: Set<string> | string[];
+  watchMap?: Record<string, Partial<VideoWatchProgress>>;
+}
+
+export interface ReorderShelfOptions {
+  inProgressFirst?: boolean;
+}
+

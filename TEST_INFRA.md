@@ -1,142 +1,144 @@
-# Test Infrastructure Documentation: Rachel's English Video Integration for IPA Pronunciation
+# Test Infrastructure Specification: Video Learning & Vocabulary Redesign
 
-## 1. Test Philosophy & Architecture
-
-The Rachel's English IPA Video Integration test infrastructure is built on strict **opaque-box, requirement-driven, zero-facade verification**. Every test validates observable runtime behavior, data schemas, security configurations, and interface contracts against specifications defined in `ORIGINAL_REQUEST.md` (2026-09-06T04:30:59Z), `PROJECT.md`, and authoritative survey findings.
-
-### Core Principles
-1. **Opaque-Box & Requirement-Driven**: Tests assert against observable interface contracts, DOM/URL specifications, mathematical timestamp constraints, and audio coordination behavior rather than private implementation details.
-2. **Authoritative Expected Output**: Expected outputs are derived directly from the canonical 26-lesson Rachel's English video catalog, the YouTube IFrame API specification, and Next.js Content Security Policy requirements.
-3. **No Facade Tests**: Tests do not use placeholder assertions (`expect(true).toBe(true)`). Each assertion inspects concrete state properties, boundary limits, and mathematical contracts.
-4. **Self-Contained & Isolated**: Tests set up their own state, mock browser and player environments cleanly, clean up after execution, and run deterministically without execution order dependencies.
-5. **Zero External Framework Overhead**: Built using a lightweight, native TypeScript test harness executable via `npx tsx tests/pronunciation/run-all-pronunciation-tests.ts`.
+**Module**: Video Immersion Hub Redesign (`/practice/listening` & `/practice/listening/[videoId]`)  
+**Track**: E2E Testing Track Orchestration  
+**Status**: Authoritative Test Infrastructure & Quality Gate Document  
+**Workspace Root**: `d:\Vibe\Vocab\web-app`  
+**Date**: 2026-09-08  
 
 ---
 
-## 2. Feature Inventory Coverage
+## 1. Executive Summary & Architecture
 
-The test suite provides exhaustive coverage across all 3 key requirements (R1–R3), security policies, and all 18 inventoried features from `PROJECT.md`:
-
-| # | Feature Ref | Feature Description | Module / File Under Test | Test Tier Coverage |
-|---|:-----------:|:--------------------|:-------------------------|:-------------------|
-| 1 | **CSP** | CSP YouTube Domain Enablement | `next.config.ts` | Tier 1 (T1.1.1–T1.1.5), Tier 2 (B8.2) |
-| 2 | **SCHEMA** | Pronunciation Video Types Schema (`RachelVideoMeta`) | `src/types/pronunciation.ts`, `src/lib/roadmap.ts` | Tier 1 (T1.2.1–T1.2.5), Tier 2 (B1, B5, B6) |
-| 3 | **CATALOG** | 100% Rachel's English Catalog Mapping (26 Lessons) | `src/data/pronunciation/lessons-v1.json` | Tier 1 (T1.3.1–T1.3.6), Tier 2 (B1–B3), Tier 4 (S1–S5) |
-| 4 | **VALIDATOR** | Automated Data Integrity Validator | `scripts/validate-pronunciation-videos.ts` | Tier 1 (T1.3.1–T1.3.5), Tier 2 (B1–B6) |
-| 5 | **PLAYER** | Interactive IPA Video Player Embed & URL Construction | `src/components/pronunciation/InteractiveIpaVideoPlayer.tsx` | Tier 1 (T1.4.1–T1.4.5), Tier 2 (B1, B8), Tier 3 (X7) |
-| 6 | **SPEED** | Variable Playback Speed Controls (0.5x, 0.75x, 1.0x) | `InteractiveIpaVideoPlayer.tsx` | Tier 1 (T1.5.1–T1.5.5), Tier 2 (B4), Tier 3 (X2), Tier 4 (S2) |
-| 7 | **LOOP** | A-B Segment Looping Mechanism | `InteractiveIpaVideoPlayer.tsx` | Tier 1 (T1.6.1–T1.6.5), Tier 2 (B2, B3, B7), Tier 3 (X2) |
-| 8 | **REPLAY** | Instant Replay Articulation Clip Button | `InteractiveIpaVideoPlayer.tsx` | Tier 1 (T1.7.1–T1.7.5), Tier 2 (B7), Tier 3 (X2) |
-| 9 | **COLLAPSE** | Collapsible Toggle & Layout Preservation | `InteractiveIpaVideoPlayer.tsx` | Tier 1 (T1.8.1–T1.8.5), Tier 2 (B7), Tier 3 (X3, X4) |
-| 10 | **RESPONSIVE**| Mobile & Desktop Responsive Design (16:9, >=44px) | `InteractiveIpaVideoPlayer.tsx` | Tier 1 (T1.4.3, T1.8.4), Tier 2 (B7.1) |
-| 11 | **AUDIO** | Audio Coordination (`stopWordAudio()` & pause) | `src/lib/audio.ts`, `InteractiveIpaVideoPlayer.tsx` | Tier 1 (T1.9.1–T1.9.5), Tier 3 (X1, X6) |
-| 12 | **PAGE** | Pronunciation Page Integration (`/pronunciation/[id]`) | `src/app/pronunciation/[id]/page.tsx` | Tier 1 (T1.8, T1.9), Tier 3 (X4, X5), Tier 4 (S1–S5) |
-| 13 | **WIDGET** | Roadmap Articulation Widget (Video vs 2D Diagram Tab) | `src/components/journey/widgets/PhoneticArticulationWidget.tsx` | Tier 1 (T1.2.5), Tier 3 (X6) |
-| 14 | **PEDAGOGY**| Multimodal Pedagogical Synthesis (`whyHard`, `mouthTip`) | `lessons-v1.json`, `InteractiveIpaVideoPlayer.tsx` | Tier 1 (T1.3.5), Tier 4 (S1–S4) |
-| 15 | **ROADMAP** | Roadmap Progress Synchronization (`completeRoadmapStep`)| `src/lib/roadmap-client.ts`, `/pronunciation/[id]/page.tsx` | Tier 1 (T1.10.1–T1.10.5), Tier 3 (X5), Tier 4 (S5) |
-| 16 | **E2E** | Comprehensive E2E Test Suite (Tiers 1-4) | `tests/pronunciation/run-all-pronunciation-tests.ts` | All Tiers |
-| 17 | **HARDENING**| Adversarial Boundary Hardening | `tests/pronunciation/tier2-boundary-corner.test.ts` | Tier 2 (B1–B8) |
-| 18 | **AUDIT** | Forensic Integrity Audit & Catalog Validation | `tests/pronunciation/tier1-feature-coverage.test.ts` | Tier 1 (T1.3), Tier 2 (B6) |
+This document formalizes the automated test infrastructure for the **Video Learning & Vocabulary Redesign** project on LingoPro (`/practice/listening`). The platform transitions from a dense paginated grid into a modern, distraction-free horizontal shelf immersion experience featuring:
+1. **Horizontal Shelf Rows**: Catalog organized into 7 distinct life topics (`daily_life`, `social_conversations`, `workplace`, `travel`, `food_shopping`, `science_tech_health`, `culture`).
+2. **"3 Video Đề Xuất Hôm Nay" Shelf**: Top-priority daily recommendation engine delivering exactly 3 curated videos every day using deterministic calendar-date PRNG seeding (Mulberry32) and multi-pass topic/level diversity.
+3. **Smart Queue Reordering**: Dynamically migrates completed videos (`percent >= 90%` or YouTube `ENDED`) to the tail of each topic shelf, promoting unwatched and in-progress content to the front while maintaining stable ordering.
+4. **Minimalist Player Immersion**: Streamlined 2-column layout (Left: Video Player, Right: Real-time Synchronized Transcript) that completely removes cluttered exercise tabs, cloze dictation, comprehension quizzes, and distracting gamification modals during viewing.
+5. **Precision Subtitle Sync & Seek-on-Click**: Sub-second synchronization via $O(\log N)$ binary search, 1.2s hysteresis buffer across natural pauses, and authentic YouTube captions with zero synthetic template strings.
 
 ---
 
-## 3. Four-Tier Test Methodology
+## 2. Test Philosophy & Design Standards
 
-The test suite is organized into 4 progressive tiers:
+### 2.1 Opaque-Box & Requirement-Driven Testing
+All tests interact exclusively through public interface contracts and observable state transitions:
+- Data loaders and catalog query methods (`getListeningVideosIndex`, `getListeningVideoById`).
+- Recommendation and queue algorithms (`getDailyRecommendedVideos`, `reorderShelfVideos`).
+- Watch state persistence methods (`getVideoWatchProgress`, `saveVideoWatchProgress`, `getAllVideoWatchProgress`, `isVideoCompleted`, `getVideoWatchStatus`).
+- Browser event dispatching (`lingo_listening_watch_updated`).
+- DOM layout contracts and localStorage state keys.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│ Tier 1: Feature Coverage (≥5 test cases per inventoried feature)       │
-├────────────────────────────────────────────────────────────────────────┤
-│ Tier 2: Boundary & Corner Cases (Mathematical, Temporal, Adversarial)  │
-├────────────────────────────────────────────────────────────────────────┤
-│ Tier 3: Cross-Feature Combinations (Pairwise, State, Audio Collision)  │
-├────────────────────────────────────────────────────────────────────────┤
-│ Tier 4: Real-World Scenarios (End-to-End Multimodal Learner Flows)     │
-└────────────────────────────────────────────────────────────────────────┘
-```
+### 2.2 Authoritative Expected Output Derivations (Zero Facade)
+Expected outputs are derived strictly from formal mathematical properties, deterministic pseudo-random seeds, and documented specifications:
+- **Date Seed Derivation**:
+  $$\text{Seed} = \left| \sum_{i=0}^{L-1} ((\text{hash} \ll 5) - \text{hash} + \text{charCodeAt}(i)) \mid 0 \right|$$
+  Seed for `2026-09-08` produces reproducible pseudo-random streams via the Mulberry32 algorithm.
+- **Completion Invariant**:
+  $$\text{Completed} = \text{wasCompleted} \lor (\text{percent} \ge 90) \lor (\text{playerState} == 0)$$
+  Once a video achieves completion, subsequent backward seeks or rewinds will **never** unmark completion (Sticky Completion Invariant).
+- **Queue Partitioning Tiering**:
+  $$\text{Tier}(v) = \begin{cases} 
+  0 & \text{if in-progress (when inProgressFirst is true) or unwatched} \\ 
+  1 & \text{if unwatched (when inProgressFirst is true) or in-progress} \\ 
+  2 & \text{if completed} 
+  \end{cases}$$
+  Ties within identical tiers are broken by original catalog index: $\text{OrigIndex}(a) - \text{OrigIndex}(b)$.
 
-### Tier 1: Feature Coverage (`tests/pronunciation/tier1-feature-coverage.test.ts`)
-- **CSP Enablement**: Verifies `frame-src` allows `youtube.com` and `youtube-nocookie.com`, and `script-src` allows `youtube.com` and `s.ytimg.com`.
-- **Type Definitions & Schema**: Verifies `RachelVideoMeta` interface contracts, invariant channel branding, and dual-compatibility flat properties in `PronunciationLesson`.
-- **26-Lesson Catalog**: Verifies 100% completeness, 11-char video IDs, valid timestamps, non-empty tips, and 1:1 correspondence with CEFR roadmap nodes (`sp-*`).
-- **Player Embed Construction**: Verifies privacy-enhanced embed URL parameters (`enablejsapi=1`, `playsinline=1`, `rel=0`, `controls=1`, `modestbranding=1`, `origin`).
-- **Speed Controls**: Dedicated buttons for 0.5x, 0.75x, and 1.0x with pitch preservation.
-- **A-B Looping**: 150ms interval polling, seek to start on boundary reach, state change `ENDED` fallback.
-- **Instant Replay**: Seeks back to `startSeconds` and plays without resetting user settings.
-- **Collapsible Toggle**: Smooth hide/show, compact bar in drill phase, layout preservation.
-- **Audio Coordination**: Invokes `stopWordAudio()` on video play, pauses video when drill audio or mic activates.
-- **Roadmap Sync**: Validates `completeRoadmapStep` call with `stepId`, passing score verification, and XP award.
-
-### Tier 2: Boundary & Corner Cases (`tests/pronunciation/tier2-boundary-corner.test.ts`)
-- **Video ID Anomalies**: Rejects 10-char, 12-char, special character, and whitespace IDs.
-- **Timestamp Boundaries**: Handles `start === 0`, rejects `start < 0`, rejects `start >= end`.
-- **Duration Boundaries**: Enforces minimum 15s and maximum 180s clip duration.
-- **Speed Rate Edge Cases**: Clamps out-of-range rates, disallows 0 or negative rates.
-- **Tip Text Integrity**: Rejects empty strings, whitespace, and sub-20 character tips; handles Unicode Vietnamese tones.
-- **Channel Invariance**: Rejects alternative channels or typos.
-- **Rapid User Interaction**: Rapid expand/collapse toggling, rapid play/pause, rapid replay spamming.
-- **Error Fallbacks**: Handles missing video metadata or iframe network blocking with graceful fallback.
-
-### Tier 3: Cross-Feature Combinations (`tests/pronunciation/tier3-cross-feature.test.ts`)
-- **Audio Collision Prevention**: Video play interrupts TTS/mp3; drill audio/mic pauses video; video resumes from preserved timestamp.
-- **Speed Changes During Loop**: Switching speeds (0.5x, 0.75x) while loop is active does not breach segment boundaries.
-- **Collapse Persistence**: Collapsing video maintains playback state, timestamp, and speed settings.
-- **Phase Transitions**: Learn phase hero video collapses into compact sticky bar in Drill phase without hiding drill choices A and B.
-- **Deep-Link Roadmap Integration**: `/pronunciation/[id]?roadmapStep=...` loads correct lesson, renders video, and syncs progress on completion.
-- **Widget Tab Switching**: Switching between Video tab and 2D Sagittal diagram tab in `PhoneticArticulationWidget` without audio bleed.
-- **Dual Representation**: Backward compatibility supporting both structured `video` object and flat fields.
-
-### Tier 4: Real-World Scenarios (`tests/pronunciation/tier4-real-world-scenarios.test.ts`)
-- **Scenario 1 (A0 Beginner)**: Word stress basics & final stop consonants (`word-stress-basics`, `final-stops-ptk`).
-- **Scenario 2 (A1 Elementary)**: Vowel contrast `/iː/` vs `/ɪ/` with 0.5x slow-mo shadowing (`vowel-i-long-short`).
-- **Scenario 3 (B1 Intermediate)**: Schwa neutral posture & connected speech linking (`schwa`, `linking`).
-- **Scenario 4 (B2 Advanced)**: Diphthong glides & affricate voicing contrasts (`diphthongs`, `ch-j`).
-- **Scenario 5 (Capstone Journey)**: End-to-end flow from roadmap click through learn phase, slow-mo review, collapsible drill, and roadmap progression (+15 XP).
+### 2.3 Independence & Isolation
+Every test is fully isolated. Tests operating with web storage utilize `setupMockBrowserEnvironment()` and `teardownMockBrowserEnvironment()`, preventing state pollution across test boundaries.
 
 ---
 
-## 4. Test Directory Layout
+## 3. Four-Tier Requirement-Driven Test Suite
+
+The test suite is organized into 4 distinct verification tiers totaling **53 automated tests** in `tests/listening/e2e-video-redesign.test.ts`, plus 97 baseline regression tests in `tests/listening/run-all-listening-tests.ts` (150 total tests).
 
 ```
-tests/pronunciation/
-├── test-harness.ts                     # TestRunner, assertions, player simulator, catalog oracle, validators
-├── tier1-feature-coverage.test.ts      # Tier 1: ≥5 tests per feature (51 tests total)
-├── tier2-boundary-corner.test.ts       # Tier 2: Boundary & corner cases (35 tests total)
-├── tier3-cross-feature.test.ts         # Tier 3: Cross-feature interactions & audio coordination (16 tests)
-├── tier4-real-world-scenarios.test.ts  # Tier 4: Real-world learner user flows (15 tests)
-└── run-all-pronunciation-tests.ts      # Master test runner executing Tiers 1-4 with metrics
+tests/listening/
+├── test-harness.ts                   # Zero-dependency test runner, matchers & browser mocks
+├── e2e-video-redesign.test.ts        # Redesign E2E Suite (53 tests across 4 tiers)
+├── tier1-feature-coverage.test.ts    # Baseline Feature tests (23 tests)
+├── tier2-boundary-corner.test.ts     # Baseline Boundary tests (36 tests)
+├── tier3-cross-feature.test.ts       # Baseline Cross-feature tests (26 tests)
+├── tier4-real-world-scenarios.test.ts# Baseline Scenarios (12 tests)
+└── run-all-listening-tests.ts        # Master runner aggregating all 150 tests
 ```
+
+### Tier 1: Feature Coverage (33 Tests)
+Verifies each feature independently with $\ge 5$ test cases per feature:
+
+| Feature | Scope | Test IDs | Requirements Covered |
+|---|---|---|---|
+| **Shelf Grouping** | Partitioning 200 videos across 7 topics (`daily_life`, `social_conversations`, `workplace`, `travel`, `food_shopping`, `science_tech_health`, `culture`), catalog depth ($\ge 15$/topic), localized badges, card metadata, and mutual exclusivity. | `F1.1` – `F1.5` (5 tests) | R1 |
+| **Daily Recommendation** | Exactly 3 recommendations, deterministic Mulberry32 PRNG reproducibility, 3 distinct topics, multi-level diversity (A2/B1/B2), unwatched priority, and exhausted candidate fallback. | `F2.1` – `F2.6` (6 tests) | R1, R3 |
+| **Queue Reordering** | Completed video moves to tail, unwatched videos remain front, stable relative ordering (zero UI jitter), multi-completion batching, `inProgressFirst` option, and 0-completed identity preservation. | `F3.1` – `F3.6` (6 tests) | R1 |
+| **Watch Status & Persistence** | $\ge 90\%$ completion threshold, $<90\%$ non-completion, sticky completion invariant, YouTube ENDED event completion, status classification (`unwatched`, `in_progress`, `completed`), and localStorage roundtrip. | `F4.1` – `F4.6` (6 tests) | R3 |
+| **Minimalist Player Focus** | 2-column layout (player + synced transcript), elimination of 4-tab bar, absence of distracting gamification modals during playback, focus mode persistence, and playback controls (speed, seek). | `F5.1` – `F5.5` (5 tests) | R2 |
+| **Subtitle Sync & Seeking** | Sub-second sync ($O(\log N)$ binary search), 1.2s hysteresis buffer across silences, authentic caption verification (0% template strings), click-to-seek contract, and non-blocking word tokenization. | `F6.1` – `F6.5` (5 tests) | R2 |
+
+### Tier 2: Boundary & Corner Cases (8 Tests)
+Exercises extreme values, temporal boundaries, and corrupted environments:
+- `B1`: Empty watch map (`{}`) maintains 100% original catalog order and marks all videos unwatched.
+- `B2`: 100% completed catalog gracefully falls back to recommend 3 diverse videos deterministically without throwing.
+- `B3`: Exact 90% threshold precision ($89.4\%$ is uncompleted, $90.0\%$ is completed, $90.5\%$ is completed).
+- `B4`: Midnight date transition (`2026-09-08` $\to$ `2026-09-09`) alters hash seed and produces distinct recommendations.
+- `B5`: Backward seek across cues (cue 8 $\to$ cue 1) updates active index immediately without hysteresis lag.
+- `B6`: Rapid scrub and extreme timestamps ($-100s, 0s, 999999s, \text{NaN}, \infty$) handle safely without throwing.
+- `B7`: Empty shelf (`[]`) and single-item shelf (`[v]`) reordering handle smoothly.
+- `B8`: Corrupted localStorage JSON payloads recover gracefully with safe `null` fallbacks.
+
+### Tier 3: Cross-Feature Combinations (8 Tests)
+Validates pairwise interactions and concurrent state transitions:
+- `C1`: Daily Recommendation + Shelf Queue Reordering (completing a daily recommendation moves it to the tail of its shelf while other recommendations remain near the front).
+- `C2`: Subtitle click-to-seek to tail segment triggers auto-completion save.
+- `C3`: Sticky completion invariant + subtitle rewinding (seeking to 0.0s preserves completion).
+- `C4`: Midnight date rollover + in-progress state retention (new recommendations generated while in-progress progress remains intact).
+- `C5`: Multi-topic shelf isolation (completing videos in Topic A does not alter order in Topic B).
+- `C6`: Queue reordering with mixed statuses (`[in-progress, unwatched, completed]`).
+- `C7`: Minimalist player + Subtitle hysteresis during video pause (active cue remains highlighted during pause).
+- `C8`: Multi-video progress storage isolation (multiple simultaneous video watch states remain strictly independent).
+
+### Tier 4: Real-World Scenarios (4 Tests)
+Simulates complete learner workflows from start to finish:
+- `S1: Complete Learner Full-Day Session`: Learner opens daily 3 recommendations $\to$ watches Video 1 to $95\%$ $\to$ rewinds to 15s to repeat sentence $\to$ returns to library to see 1/3 daily goal achieved and Video 1 moved to shelf tail $\to$ reloads page and confirms state persistence.
+- `S2: Multi-Topic Exploration and Shelf Navigation`: Learner explores shelves, starts Workplace video ($45\%$), starts Travel video ($92\%$), and verifies correct queue positions across both shelves.
+- `S3: Deep Immersion Listening Session`: Learner navigates through 5 consecutive cues via click-to-seek, verifying sub-second timing and active cue alignment without audio pause desync.
+- `S4: Catalog Mastery & Recommendation Fallback`: Power user with 100% completed catalog browses shelves safely with completed cards grouped at tail, receiving 3 fallback recommendations with full topic diversity.
 
 ---
 
-## 5. Test Runner Invocation
+## 4. Test Execution & Verification
 
-### Run All Pronunciation Tests
+### 4.1 Running the Video Redesign E2E Suite Standalone
 ```bash
-npx tsx tests/pronunciation/run-all-pronunciation-tests.ts
+npx tsx tests/listening/e2e-video-redesign.test.ts
 ```
+*Expected Result*: 53 tests passed in <500ms with exit code 0.
 
-### Supporting Verification Commands
+### 4.2 Running the Master Listening Test Suite
 ```bash
-# Validate 26 pronunciation video catalog entries
-npx tsx scripts/validate-pronunciation-videos.ts
+npx tsx tests/listening/run-all-listening-tests.ts
+```
+*Expected Result*: 150 tests passed across all suites (Tier 1: 23, Tier 2: 36, Tier 3: 26, Tier 4: 12, Redesign E2E: 53) with exit code 0.
 
-# TypeScript compilation check
+### 4.3 Typecheck Compilation Integrity
+```bash
 npm run typecheck
 ```
+*Expected Result*: 0 type errors across all test and source files.
 
 ---
 
-## 6. Coverage & Pass Thresholds
+## 5. Traceability Matrix
 
-| Metric | Threshold Required | Design Target |
-|:-------|:------------------:|:-------------:|
-| **Total Test Count** | ≥ 80 tests | ≥ 110 tests |
-| **Tier 1 (Feature Coverage)** | ≥ 30 tests | ≥ 50 tests |
-| **Tier 2 (Boundary & Corner)** | ≥ 25 tests | ≥ 30 tests |
-| **Tier 3 (Cross-Feature)** | ≥ 10 tests | ≥ 15 tests |
-| **Tier 4 (Real-World Scenarios)** | ≥ 8 tests | ≥ 12 tests |
-| **Pass Rate** | 100% (0 failures) | 100% |
-| **Lesson Catalog Coverage** | 26 / 26 (100%) | 26 / 26 (100%) |
-| **Execution Duration** | < 5000ms | < 1000ms |
+| Requirement Code | Description | Automated Verification Suite |
+|:---:|---|---|
+| **R1.1** | Horizontal shelf rows grouped by 7 life topics | `F1.1` – `F1.5`, `C5`, `S2` |
+| **R1.2** | Top priority "3 Video Đề Xuất Hôm Nay" shelf | `F2.1` – `F2.6`, `B2`, `B4`, `C1`, `S1`, `S4` |
+| **R1.3** | Smart queue reordering (completed moved to tail) | `F3.1` – `F3.6`, `B1`, `B7`, `C1`, `C6`, `S1`, `S2` |
+| **R2.1** | Minimalist player layout (2-column, no exercise tabs) | `F5.1` – `F5.5`, `S1` |
+| **R2.2** | Authentic YouTube captions without template strings | `F6.3` |
+| **R2.3** | Subtitle sync ($O(\log N)$), 1.2s hysteresis & click-to-seek | `F6.1`, `F6.2`, `F6.4`, `F6.5`, `B5`, `B6`, `C2`, `C7`, `S3` |
+| **R3.1** | Watch progress schema, $\ge 90\%$ rule & sticky completion | `F4.1` – `F4.6`, `B3`, `C3`, `C8`, `S1` |
+| **R3.2** | LocalStorage persistence & session reload recovery | `F4.6`, `B8`, `C4`, `S1` |

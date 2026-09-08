@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ videoId: 
   }
 
   const title = `${video.title} — Luyện Nghe Tiếng Anh ${video.cefrLevel} | LingoPro`;
-  const description = `Luyện nghe tiếng Anh: "${video.title}" (${video.durationDisplay}, cấp độ ${video.cefrLevel}, ${video.topicDisplay}). Phụ đề song ngữ đồng bộ chính xác từng giây, tra từ vựng 1-chạm vào FSRS và trắc nghiệm nghe hiểu có dẫn chứng.`;
+  const description = `Luyện nghe tiếng Anh: "${video.title}" (${video.durationDisplay}, cấp độ ${video.cefrLevel}, ${video.topicDisplay}). Phụ đề song ngữ đồng bộ chính xác từng giây, tra từ vựng 1-chạm vào FSRS.`;
   const canonicalUrl = `https://lingopro.online/practice/listening/${video.id}`;
   const ogImage = video.thumbnailUrl || `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
 

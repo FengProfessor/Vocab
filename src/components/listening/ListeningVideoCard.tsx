@@ -17,8 +17,8 @@ import {
   Activity,
   Globe,
   Play,
-  CheckSquare,
-  Pencil,
+  RotateCcw,
+  Sparkles,
   type LucideIcon,
 } from 'lucide-react';
 import {
@@ -30,6 +30,7 @@ import type {
   ListeningVideoIndexItem,
   ListeningAttempt,
   ListeningTopic,
+  VideoWatchProgress,
 } from '@/types/listening';
 
 const TOPIC_ICON_MAP: Record<ListeningTopic, LucideIcon> = {
@@ -43,38 +44,62 @@ const TOPIC_ICON_MAP: Record<ListeningTopic, LucideIcon> = {
   social_stories: Globe,
 };
 
-interface ListeningVideoCardProps {
+export interface ListeningVideoCardProps {
   video: ListeningVideoIndexItem;
   attempt?: ListeningAttempt | null;
   watchPercent?: number;
+  watchProgress?: Partial<VideoWatchProgress> | null;
+  featuredRank?: number;
+  className?: string;
 }
 
 export function ListeningVideoCard({
   video,
   attempt,
   watchPercent = 0,
+  watchProgress,
+  featuredRank,
+  className = '',
 }: ListeningVideoCardProps) {
   const topicColor = getTopicBadgeColor(video.topic);
   const cefrStyle = getCefrBadgeStyle(video.cefrLevel);
   const TopicIcon = TOPIC_ICON_MAP[video.topic] || Headphones;
-  const clampedWatch = Math.min(100, Math.max(0, watchPercent));
+
+  // Resolve watch percentage and status
+  const rawPercent =
+    typeof watchProgress?.percent === 'number'
+      ? watchProgress.percent
+      : watchPercent;
+  const clampedWatch = Math.min(100, Math.max(0, rawPercent));
+
+  // Completion invariant: marked complete, or >=90% watch, or attempt completed / >=80%
+  const isAttemptCompleted = Boolean(
+    attempt?.isCompleted || (attempt && typeof attempt.percentScore === 'number' && attempt.percentScore >= 80)
+  );
+  const isCompleted = Boolean(
+    watchProgress?.completed === true ||
+    clampedWatch >= 90 ||
+    isAttemptCompleted
+  );
+
+  // In-progress: not completed, and >=5% watched
+  const isInProgress = !isCompleted && clampedWatch >= 5;
 
   const vocabList = video.coreVocabularyPreview || [];
   const totalVocabCount = video.coreVocabularyCount || vocabList.length;
   const displayVocab = vocabList.slice(0, 4);
   const extraVocabCount = totalVocabCount - displayVocab.length;
-  const quizCount = video.quizCount || 4;
-  const clozeCount = video.clozeCount || 4;
-  const isCompleted = Boolean(attempt?.isCompleted || (attempt && attempt.percentScore >= 80));
 
   return (
     <Link
       href={`/practice/listening/${video.id}`}
       className={`group flex flex-col cursor-pointer overflow-hidden rounded-2xl border bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
         isCompleted
-          ? 'border-emerald-500/60 ring-2 ring-emerald-400/50 dark:border-emerald-500/50'
+          ? 'border-emerald-500/60 ring-1 ring-emerald-400/40 opacity-80 hover:opacity-100 transition-opacity dark:border-emerald-500/50'
+          : isInProgress
+          ? 'border-indigo-300 hover:border-indigo-500 dark:border-indigo-900/70 dark:hover:border-indigo-500'
           : 'border-slate-200 hover:border-indigo-400 dark:border-slate-800 dark:hover:border-indigo-600'
-      }`}
+      } ${className}`}
     >
       {/* 16:9 Thumbnail Container with Play Overlay */}
       <div className="relative aspect-video w-full overflow-hidden bg-slate-950">
@@ -93,8 +118,14 @@ export function ListeningVideoCard({
           </div>
         </div>
 
-        {/* CEFR Level Badge (Top-Left) */}
-        <div className="absolute top-2.5 left-2.5 z-10">
+        {/* Featured Rank & CEFR Level Badge (Top-Left) */}
+        <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5">
+          {featuredRank !== undefined && (
+            <span className="flex items-center gap-1 rounded-md bg-amber-500 px-2 py-0.5 text-xs font-black text-white shadow-md ring-1 ring-amber-400/50">
+              <Sparkles className="h-3 w-3" />
+              <span>#{featuredRank}</span>
+            </span>
+          )}
           <span
             className={`rounded-md border px-2 py-0.5 text-xs font-black shadow-xs ${cefrStyle.bg} ${cefrStyle.text} ${cefrStyle.border}`}
           >
@@ -102,22 +133,24 @@ export function ListeningVideoCard({
           </span>
         </div>
 
-        {/* Attempt / Watch Progress Badge (Top-Right) */}
-        {attempt ? (
-          isCompleted ? (
-            <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5 rounded-md bg-emerald-600/95 px-2.5 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs ring-1 ring-emerald-400/40">
-              <CheckCircle2 className="h-3.5 w-3.5" />
-              <span>Đã hoàn thành ({attempt.percentScore}%)</span>
-            </div>
-          ) : (
-            <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 rounded-md bg-amber-500/90 px-2.5 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs ring-1 ring-amber-300/40">
-              <CheckCircle2 className="h-3 w-3" />
-              <span>Đã làm ({attempt.percentScore}%)</span>
-            </div>
-          )
-        ) : clampedWatch > 0 ? (
-          <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 rounded-md bg-indigo-600/90 px-2 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs">
-            <span>Đã xem {Math.round(clampedWatch)}%</span>
+        {/* Watch Status & Attempt Badge (Top-Right) */}
+        {isCompleted ? (
+          <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5 rounded-md bg-emerald-600/95 px-2.5 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs ring-1 ring-emerald-400/40">
+            <CheckCircle2 className="h-3.5 w-3.5" />
+            <span>
+              {attempt && typeof attempt.percentScore === 'number'
+                ? `Đã hoàn thành (${attempt.percentScore}%)`
+                : 'Đã hoàn thành'}
+            </span>
+          </div>
+        ) : isInProgress ? (
+          <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 rounded-md bg-indigo-600/95 px-2.5 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs ring-1 ring-indigo-400/40">
+            <span>Đang xem {Math.round(clampedWatch)}%</span>
+          </div>
+        ) : attempt && typeof attempt.percentScore === 'number' ? (
+          <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 rounded-md bg-amber-500/90 px-2.5 py-0.5 text-[10px] font-bold text-white shadow-xs backdrop-blur-xs ring-1 ring-amber-300/40">
+            <CheckCircle2 className="h-3 w-3" />
+            <span>Đã làm ({attempt.percentScore}%)</span>
           </div>
         ) : null}
 
@@ -127,8 +160,8 @@ export function ListeningVideoCard({
           <span>{video.durationDisplay}</span>
         </div>
 
-        {/* Watch Progress Bar (Bottom Track) */}
-        {clampedWatch > 0 && (
+        {/* Thumbnail Progress Bar (Bottom Track for In-Progress videos) */}
+        {isInProgress && (
           <div className="absolute bottom-0 left-0 right-0 z-10 h-1 bg-black/50">
             <div
               className="h-full bg-indigo-500 transition-all duration-300"
@@ -140,7 +173,7 @@ export function ListeningVideoCard({
 
       {/* Card Body */}
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        {/* Topic Badge with Icon + Channel Name (Full display without truncation) */}
+        {/* Topic Badge with Icon + Channel Name */}
         <div className="mb-2.5 flex flex-wrap items-center justify-between gap-1.5 text-xs">
           <span
             className={`inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-[11px] font-bold shrink-0 ${topicColor.bg} ${topicColor.text} ${topicColor.border}`}
@@ -162,19 +195,6 @@ export function ListeningVideoCard({
         <p className="mt-1.5 line-clamp-2 min-h-[2rem] text-xs text-slate-500 leading-relaxed dark:text-slate-400">
           {video.description}
         </p>
-
-        {/* Exercise Counter Pills (Quiz & Cloze) */}
-        <div className="mt-3 flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-lg border border-sky-200/70 bg-sky-50 px-2.5 py-1 text-[11px] font-semibold text-sky-700 dark:border-sky-800/60 dark:bg-sky-950/50 dark:text-sky-300">
-            <CheckSquare className="h-3 w-3 text-sky-600 dark:text-sky-400" />
-            <span>{quizCount} câu trắc nghiệm</span>
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-lg border border-amber-200/70 bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-700 dark:border-amber-800/60 dark:bg-amber-950/50 dark:text-amber-300">
-            <Pencil className="h-3 w-3 text-amber-600 dark:text-amber-400" />
-            <span>{clozeCount} câu điền từ</span>
-          </span>
-        </div>
-
         {/* Core Vocabulary Preview */}
         {displayVocab.length > 0 && (
           <div className="mt-3.5 border-t border-slate-100 pt-2.5 dark:border-slate-800/80">
@@ -200,7 +220,7 @@ export function ListeningVideoCard({
           </div>
         )}
 
-        {/* Modern Refined Bottom Action Bar (Replaces monolithic purple block) */}
+        {/* Dynamic Action Button based on Watch State (Unwatched, In-Progress, Completed) */}
         <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/80">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -208,10 +228,22 @@ export function ListeningVideoCard({
               <span>{video.transcriptCuesCount} đoạn phụ đề</span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-bold text-indigo-700 transition-all duration-200 group-hover:bg-indigo-600 group-hover:text-white dark:bg-indigo-950/60 dark:text-indigo-300 dark:group-hover:bg-indigo-600 dark:group-hover:text-white">
-              <span>Luyện nghe</span>
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-            </div>
+            {isCompleted ? (
+              <div className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700 transition-all duration-200 group-hover:bg-emerald-600 group-hover:text-white dark:bg-emerald-950/60 dark:text-emerald-300 dark:group-hover:bg-emerald-600 dark:group-hover:text-white">
+                <span>Xem lại</span>
+                <RotateCcw className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-rotate-45" />
+              </div>
+            ) : isInProgress ? (
+              <div className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-bold text-indigo-700 transition-all duration-200 group-hover:bg-indigo-600 group-hover:text-white dark:bg-indigo-950/60 dark:text-indigo-300 dark:group-hover:bg-indigo-600 dark:group-hover:text-white">
+                <span>Xem tiếp</span>
+                <Play className="h-3.5 w-3.5 fill-current transition-transform duration-200 group-hover:scale-110" />
+              </div>
+            ) : (
+              <div className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-bold text-indigo-700 transition-all duration-200 group-hover:bg-indigo-600 group-hover:text-white dark:bg-indigo-950/60 dark:text-indigo-300 dark:group-hover:bg-indigo-600 dark:group-hover:text-white">
+                <span>Luyện nghe</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+              </div>
+            )}
           </div>
         </div>
       </div>

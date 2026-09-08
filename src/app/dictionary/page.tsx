@@ -16,6 +16,8 @@ import { speak } from '@/lib/study';
 import { resolveImageSrc } from '@/lib/media-url';
 import { cn } from '@/lib/utils';
 import { SentenceTranslator } from '@/components/dictionary/SentenceTranslator';
+import { SentenceStructureView } from '@/components/dictionary/SentenceStructureView';
+import type { SentenceAnalysisData } from '@/types/sentence-analysis';
 
 const HISTORY_KEY = 'lingo_dict_history';
 const MAX_HISTORY = 20;
@@ -37,44 +39,7 @@ type SourceBadge =
 type LookupKind = 'word' | 'phrase' | 'sentence';
 type LookupForce = LookupKind | 'auto';
 
-interface SentenceKernel {
-  text: string;
-  s: string;
-  v: string;
-  o?: string;
-  translation_vi: string;
-}
-
-interface SentenceChunk {
-  text: string;
-  base: string;
-  meaning_vi: string;
-  pos?: string;
-}
-
-interface SentenceBuildLevel {
-  level: number;
-  text: string;
-  slot_vi: string;
-}
-
-interface SentenceLogic {
-  pattern: string;
-  a: string;
-  b: string;
-  formula_vi: string;
-}
-
-interface SentenceAnalysis {
-  sentence: string;
-  translation_vi: string;
-  structure?: string;
-  kernel?: SentenceKernel;
-  logic?: SentenceLogic;
-  build_levels?: SentenceBuildLevel[];
-  chunks: SentenceChunk[];
-  notes?: string[];
-}
+type SentenceAnalysis = SentenceAnalysisData;
 
 interface LookupResult {
   data: DictionaryData;
@@ -755,16 +720,6 @@ export default function DictionaryPage() {
   const singlePron = (!ukPron && !usPron) ? (result?.data.pronunciations?.[0] ?? null) : null;
   // Luôn dùng từ user gõ làm heading — tránh headword sai từ external API
   const displayWord = result?.queriedWord ?? query;
-  const sentence = result?.sentence;
-  const kernel = sentence?.kernel;
-  const showSvo =
-    Boolean(kernel?.s && kernel?.v && isEnglishBone(kernel.s) && isEnglishBone(kernel.v));
-  const buildLevels = [...(sentence?.build_levels || [])]
-    .filter((l) => l.text?.trim() && !(looksVietnameseText(l.text) && !/[A-Za-z]{3,}/.test(l.text)))
-    .sort((a, b) => a.level - b.level);
-  const sentenceChunks = (sentence?.chunks || [])
-    .filter((c) => isEnglishBone(c.base || c.text || ''))
-    .slice(0, 6);
 
   return (
     <StudentShell title={activeTab === 'word' ? 'Tra từ điển' : 'Dịch câu'} contentClassName="p-0">
@@ -809,7 +764,13 @@ export default function DictionaryPage() {
         </div>
 
         {activeTab === 'sentence' ? (
-          <SentenceTranslator />
+          <SentenceTranslator
+            onLookupWord={(word) => {
+              setActiveTab('word');
+              setQuery(word);
+              void lookup(word);
+            }}
+          />
         ) : (
           <>
         {/*
@@ -914,7 +875,7 @@ export default function DictionaryPage() {
           </div>
         )}
 
-        {/* Result — CÂU (SVO) */}
+        {/* Result — CÂU (SVO & Multi-Clause Decomposition) */}
         {!loading && result?.sentence && (
           <div className="space-y-4">
             <div className="flex items-center gap-2 flex-wrap">
@@ -929,125 +890,18 @@ export default function DictionaryPage() {
               >
                 {result.source}
               </span>
-              {sentence?.structure && (
-                <span className="text-xs text-muted-foreground font-medium">{sentence.structure}</span>
-              )}
             </div>
 
-            <div className="rounded-2xl border border-border bg-muted/30 p-4 space-y-3">
-              <div>
-                <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">EN</p>
-                <p className="text-base font-semibold leading-snug break-words [overflow-wrap:anywhere]">{sentence?.sentence || displayWord}</p>
-                {showSvo && kernel && (
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    <button
-                      type="button"
-                      onClick={() => { setQuery(kernel.s); void lookup(kernel.s); }}
-                      className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-300/60 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1.5 text-sm"
-                    >
-                      <span className="text-[10px] font-black text-emerald-700 dark:text-emerald-300">S</span>
-                      <strong>{kernel.s}</strong>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => { setQuery(kernel.v); void lookup(kernel.v); }}
-                      className="inline-flex items-center gap-1.5 rounded-xl border border-sky-300/60 bg-sky-50 dark:bg-sky-950/40 px-3 py-1.5 text-sm"
-                    >
-                      <span className="text-[10px] font-black text-sky-700 dark:text-sky-300">V</span>
-                      <strong>{kernel.v}</strong>
-                    </button>
-                    {kernel.o && isEnglishBone(kernel.o) && (
-                      <button
-                        type="button"
-                        onClick={() => { setQuery(kernel.o!); void lookup(kernel.o!); }}
-                        className="inline-flex items-center gap-1.5 rounded-xl border border-amber-300/60 bg-amber-50 dark:bg-amber-950/40 px-3 py-1.5 text-sm"
-                      >
-                        <span className="text-[10px] font-black text-amber-700 dark:text-amber-300">O</span>
-                        <strong>{kernel.o}</strong>
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-              <div className="border-t border-border/60 pt-3">
-                <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mb-1">VI · gist</p>
-                <p className="text-sm leading-relaxed text-foreground/90 break-words [overflow-wrap:anywhere]">
-                  {sentence?.translation_vi
-                    || kernel?.translation_vi
-                    || sentence?.logic?.formula_vi
-                    || '—'}
-                </p>
-              </div>
-            </div>
-
-            {sentence?.logic && (
-              <div className="rounded-xl border border-violet-200 dark:border-violet-800 bg-violet-50/50 dark:bg-violet-950/20 p-3 space-y-1">
-                <p className="text-xs font-bold text-violet-700 dark:text-violet-300">{sentence.logic.pattern}</p>
-                <p className="text-sm">
-                  <span className="font-semibold">A</span> {sentence.logic.a}
-                  <span className="mx-2 text-muted-foreground">→</span>
-                  <span className="font-semibold">B</span> {sentence.logic.b}
-                </p>
-                <p className="text-sm text-muted-foreground">{sentence.logic.formula_vi}</p>
-              </div>
-            )}
-
-            {buildLevels.length > 0 && (
-              <div>
-                <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
-                  Xây lại từng lớp
-                </h2>
-                <div className="space-y-2">
-                  {buildLevels.map((lvl) => (
-                    <div
-                      key={`L${lvl.level}-${lvl.text.slice(0, 24)}`}
-                      className="rounded-xl border border-border/50 bg-background px-3 py-2"
-                    >
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-muted">L{lvl.level}</span>
-                        <span className="text-[11px] text-muted-foreground">{lvl.slot_vi}</span>
-                      </div>
-                      <p className="text-sm font-medium leading-snug break-words [overflow-wrap:anywhere]">{lvl.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {sentenceChunks.length > 0 && (
-              <div>
-                <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
-                  Chunk học được
-                </h2>
-                <div className="flex flex-wrap gap-2">
-                  {sentenceChunks.map((c, i) => (
-                    <button
-                      key={`${c.base}-${i}`}
-                      type="button"
-                      onClick={() => { setQuery(c.base); void lookup(c.base); }}
-                      className="rounded-xl border border-border bg-muted/40 px-3 py-2 text-left hover:bg-muted transition-colors max-w-full"
-                      title={c.meaning_vi}
-                    >
-                      <span className="font-semibold text-sm block">{c.base}</span>
-                      {c.meaning_vi && c.meaning_vi !== '—' && (
-                        <span className="text-xs text-muted-foreground">{c.meaning_vi}</span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {sentence?.notes && sentence.notes.length > 0 && (
-              <ul className="text-xs text-muted-foreground space-y-1 list-disc pl-4">
-                {sentence.notes.map((n, i) => (
-                  <li key={i}>{n}</li>
-                ))}
-              </ul>
-            )}
+            <SentenceStructureView
+              data={result.sentence}
+              onLookupWord={(word) => {
+                setQuery(word);
+                void lookup(word);
+              }}
+            />
 
             <p className="text-[11px] text-muted-foreground">
-              Tip: bấm chip S/V/O hoặc chunk để tra từ đơn. Copy nhanh ngoài trình duyệt → dùng Desktop.
+              Tip: bấm vào từ vựng hoặc chip S/V/O để tra từ đơn. Copy nhanh ngoài trình duyệt → dùng Desktop.
             </p>
             {/* Override ẩn: chỉ khi cụm ngắn bị nhận nhầm thành câu */}
             {wordCount(displayWord) <= 5 && !/[.?!;:]/.test(displayWord) && (

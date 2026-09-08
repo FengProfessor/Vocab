@@ -11,75 +11,44 @@ import {
 import { checkAccess } from '@/lib/entitlement';
 import { resolvePlanByUserId } from '@/lib/entitlement-server';
 import { matchGoldenSentence } from '@/lib/ai-sentence-golden';
+import {
+  SentenceChunk,
+  SentenceKernel,
+  SentenceSegment,
+  SentenceBuildLevel,
+  SentenceLogic,
+  SentenceSpan,
+  MainClauseAnalysis,
+  SecondaryClause,
+  SentenceAnalysisData,
+  SpanRole,
+} from '@/types/sentence-analysis';
+import {
+  GdData,
+  looksVietnamese,
+  looksEnglishHead,
+  extractNounPhraseHead,
+  alignSpansWithSentence,
+  buildSpansFromClauses,
+  enrichChunksWithDbMeanings,
+  advancedHeuristicAnalysis,
+  detectVerbTense,
+  getVerbBase,
+} from '@/lib/sentence-parser-utils';
+import { geminiGenerate, hasGeminiKeys } from '@/lib/gemini-multi';
 
 export const maxDuration = 30;
 
-export interface SentenceChunk {
-  text: string;
-  base: string;
-  meaning_vi: string;
-  pos?: string;
-  /** Nghĩa ưu tiên từ global_dictionary nếu có */
-  from_db?: boolean;
-  ipa?: string;
-}
-
-/** Kernel S–V–O (xương câu) — method Buổi 2 LingoPro */
-export interface SentenceKernel {
-  text: string;
-  s: string;
-  v: string;
-  o?: string;
-  translation_vi: string;
-}
-
-/**
- * Mảnh câu theo lượt đọc:
- * keep=true = Lượt 1 giữ (xương); keep=false = gạch tạm (đồ trang trí)
- */
-export interface SentenceSegment {
-  text: string;
-  role: 'S' | 'V' | 'O' | 'C' | 'modifier' | 'frame' | 'adverb' | 'pp' | 'clause' | 'other';
-  label_vi: string;
-  keep: boolean;
-}
-
-/** Thang xây ngược kernel → full (wow build) */
-export interface SentenceBuildLevel {
-  level: number;
-  text: string;
-  slot_vi: string;
-}
-
-/** So sánh / paraphrase logic — bổ sung khi SVO chưa đủ ý */
-export interface SentenceLogic {
-  pattern: string;
-  a: string;
-  b: string;
-  formula_vi: string;
-}
-
-export interface SentenceAnalysisData {
-  sentence: string;
-  translation_vi: string;
-  /** Pattern ngắn, vd. S + V + O · less A than B */
-  structure?: string;
-  /** Xương 3–8 từ */
-  kernel?: SentenceKernel;
-  /** Xương logic (less A than B, not A but B…) */
-  logic?: SentenceLogic;
-  /** Tách lớp: giữ / gạch */
-  segments?: SentenceSegment[];
-  /** Level 0 = kernel → full */
-  build_levels?: SentenceBuildLevel[];
-  chunks: SentenceChunk[];
-  notes?: string[];
-}
-
-type GdMeaning = { pos?: string; definition?: string; example?: string };
-type GdData = {
-  pronunciations?: { ipa?: string }[];
-  results?: { meanings?: GdMeaning[] }[];
+export type {
+  SentenceChunk,
+  SentenceKernel,
+  SentenceSegment,
+  SentenceBuildLevel,
+  SentenceLogic,
+  SentenceSpan,
+  MainClauseAnalysis,
+  SecondaryClause,
+  SentenceAnalysisData,
 };
 
 function wordCount(s: string): number {
@@ -134,17 +103,7 @@ function normalizeSegment(raw: unknown): SentenceSegment | null {
   return { text, role, label_vi, keep };
 }
 
-/** Có dấu tiếng Việt / chữ Việt → không được dùng làm S/V/O (xương phải EN) */
-function looksVietnamese(s: string): boolean {
-  return /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(s);
-}
-
-function looksEnglishHead(s: string): boolean {
-  const t = s.trim();
-  if (!t || looksVietnamese(t)) return false;
-  // Latin + ' - space; cho phép NP dài vừa (trước đây 40 ký tự → reject "the old teacher who…")
-  return /^[A-Za-z][A-Za-z'’\-\s]{0,100}$/.test(t);
-}
+// looksVietnamese & looksEnglishHead imported from @/lib/sentence-parser-utils
 
 /** Rút head EN: bỏ mệnh đề quan hệ + lấy 1–2 từ lõi (NP/VP head) */
 function compressEnglishHead(phrase: string, kind: 's' | 'v' | 'o'): string {
@@ -280,10 +239,111 @@ function shortClip(t: string, n = 36): string {
   return `${x.slice(0, n - 1)}…`;
 }
 
+function normalizeMainClause(raw: unknown, sentence: string): MainClauseAnalysis | undefined {
+  if (!raw || typeof raw !== 'object') return undefined;
+  const o = raw as Record<string, unknown>;
+  const sObj = typeof o.subject === 'object' && o.subject !== null ? (o.subject as Record<string, unknown>) : null;
+  const vObj = typeof o.verb === 'object' && o.verb !== null ? (o.verb as Record<string, unknown>) : null;
+  const oObj = typeof o.object === 'object' && o.object !== null ? (o.object as Record<string, unknown>) : null;
+
+  const sText = sObj && typeof sObj.text === 'string' ? sObj.text.trim() : (typeof o.subject === 'string' ? o.subject.trim() : '');
+  const sHead = sObj && typeof sObj.head === 'string' ? sObj.head.trim() : sText;
+
+  const vText = vObj && typeof vObj.text === 'string' ? vObj.text.trim() : (typeof o.verb === 'string' ? o.verb.trim() : '');
+  const vHead = vObj && typeof vObj.head === 'string' ? vObj.head.trim() : vText;
+  const vTense = vObj && typeof vObj.tense === 'string' ? vObj.tense.trim() : undefined;
+
+  const oText = oObj && typeof oObj.text === 'string' ? oObj.text.trim() : (typeof o.object === 'string' ? o.object.trim() : '');
+  const oHead = oObj && typeof oObj.head === 'string' ? oObj.head.trim() : (oText ? extractNounPhraseHead(oText) : '');
+
+  const translation_vi = typeof o.translation_vi === 'string' ? o.translation_vi.trim() : '';
+
+  if (!sText || !vText) return undefined;
+
+  return {
+    subject: { text: sText, head: sHead || sText },
+    verb: { text: vText, head: vHead || vText, tense: vTense },
+    object: oText ? { text: oText, head: oHead || oText } : undefined,
+    translation_vi,
+  };
+}
+
+function normalizeSecondaryClauses(raw: unknown): SecondaryClause[] {
+  if (!Array.isArray(raw)) return [];
+  const validTypes = new Set([
+    'participle_result',
+    'relative_clause',
+    'adverbial_clause',
+    'prepositional_phrase',
+    'coordinate_clause',
+    'other',
+  ]);
+
+  const list: SecondaryClause[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== 'object') continue;
+    const o = item as Record<string, unknown>;
+    const text = typeof o.text === 'string' ? o.text.trim() : '';
+    if (!text) continue;
+    const rawType = typeof o.type === 'string' ? o.type.trim() : 'other';
+    const type = (validTypes.has(rawType) ? rawType : 'other') as SecondaryClause['type'];
+    const type_label_vi =
+      typeof o.type_label_vi === 'string' && o.type_label_vi.trim()
+        ? o.type_label_vi.trim()
+        : type === 'participle_result'
+          ? 'Mệnh đề phân từ chỉ kết quả'
+          : type === 'relative_clause'
+            ? 'Mệnh đề quan hệ'
+            : type === 'adverbial_clause'
+              ? 'Mệnh đề trạng ngữ'
+              : 'Mệnh đề phụ / Bổ ngữ';
+
+    list.push({
+      type,
+      type_label_vi,
+      text,
+      linker: typeof o.linker === 'string' ? o.linker.trim() : undefined,
+      action: typeof o.action === 'string' ? o.action.trim() : undefined,
+      target: typeof o.target === 'string' ? o.target.trim() : undefined,
+      translation_vi: typeof o.translation_vi === 'string' ? o.translation_vi.trim() : '',
+    });
+  }
+  return list;
+}
+
+function normalizeSpans(
+  raw: unknown,
+  sentence: string,
+  mainClause?: MainClauseAnalysis,
+  secondaryClauses?: SecondaryClause[],
+): SentenceSpan[] {
+  const validRoles = new Set(['S', 'V', 'O', 'clause', 'adverb', 'pp', 'linker', 'other']);
+  const spans: SentenceSpan[] = [];
+
+  if (Array.isArray(raw) && raw.length > 0) {
+    for (const item of raw) {
+      if (!item || typeof item !== 'object') continue;
+      const o = item as Record<string, unknown>;
+      const text = typeof o.text === 'string' ? o.text.trim() : '';
+      if (!text) continue;
+      const roleRaw = typeof o.role === 'string' ? o.role.trim() : 'other';
+      const role = (validRoles.has(roleRaw) ? roleRaw : 'other') as SpanRole;
+      const label_vi = typeof o.label_vi === 'string' ? o.label_vi.trim() : role;
+      spans.push({ text, role, label_vi });
+    }
+  }
+
+  if (spans.length === 0 && mainClause) {
+    return buildSpansFromClauses(sentence, mainClause, secondaryClauses || []);
+  }
+
+  return alignSpansWithSentence(spans, sentence);
+}
+
 async function enrichChunksFromDb(chunks: SentenceChunk[]): Promise<SentenceChunk[]> {
   if (chunks.length === 0) return chunks;
   const supabase = createServiceClient();
-  const bases = [...new Set(chunks.map((c) => c.base.toLowerCase()).filter(Boolean))].slice(0, 12);
+  const bases = [...new Set(chunks.map((c) => c.base.toLowerCase()).filter(Boolean))].slice(0, 15);
 
   const { data: rows } = await supabase
     .from('global_dictionary')
@@ -295,18 +355,7 @@ async function enrichChunksFromDb(chunks: SentenceChunk[]): Promise<SentenceChun
     if (row?.word) map.set(String(row.word).toLowerCase(), (row.data ?? null) as GdData);
   }
 
-  return chunks.map((chunk) => {
-    const gd = map.get(chunk.base.toLowerCase());
-    const meaning = gd?.results?.[0]?.meanings?.[0];
-    if (!meaning?.definition) return chunk;
-    return {
-      ...chunk,
-      meaning_vi: meaning.definition,
-      pos: meaning.pos || chunk.pos,
-      ipa: gd?.pronunciations?.[0]?.ipa || chunk.ipa,
-      from_db: true,
-    };
-  });
+  return enrichChunksWithDbMeanings(chunks, map);
 }
 
 /**
@@ -375,11 +424,44 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     // P0: golden Buổi 2 — không tin AI cho 4 câu panic live
     const golden = matchGoldenSentence(sentence);
     if (golden) {
+      const sSeg = golden.segments?.find((s) => s.role === 'S');
+      const vSeg = golden.segments?.find((s) => s.role === 'V');
+      const oSeg = golden.segments?.find((s) => s.role === 'O');
+
+      const vText = vSeg?.text || golden.kernel.v;
+      const vHead = golden.kernel.v;
+
+      const main_clause: MainClauseAnalysis = {
+        subject: { text: sSeg?.text || golden.kernel.s, head: golden.kernel.s },
+        verb: { text: vText, head: getVerbBase(vHead) || vHead, tense: detectVerbTense(vText) },
+        object: golden.kernel.o ? { text: oSeg?.text || golden.kernel.o, head: golden.kernel.o } : undefined,
+        translation_vi: golden.kernel.translation_vi || golden.translation_vi,
+      };
+
+      const secondary_clauses: SecondaryClause[] = (golden.segments || [])
+        .filter((s) => s.role === 'clause')
+        .map((s) => ({
+          type: 'relative_clause',
+          type_label_vi: s.label_vi,
+          text: s.text,
+          translation_vi: s.label_vi,
+        }));
+
+      const rawSpans: SentenceSpan[] = (golden.segments || []).map((s) => ({
+        text: s.text,
+        role: (s.role === 'modifier' ? 'pp' : s.role) as SpanRole,
+        label_vi: s.label_vi,
+      }));
+      const spans = alignSpansWithSentence(rawSpans, golden.sentence);
+
       const data: SentenceAnalysisData = {
         sentence: golden.sentence,
         translation_vi: golden.translation_vi,
         structure: golden.structure,
         kernel: golden.kernel,
+        main_clause,
+        secondary_clauses,
+        spans,
         logic: golden.logic,
         segments: golden.segments,
         build_levels: golden.build_levels,
@@ -419,21 +501,56 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       });
     }
 
-    // Prompt NGẮN — XƯƠNG (s/v/o/text/build_levels/chunks.base) = ENGLISH only; VI chỉ ở *translation* fields
-    const prompt = `English sentence skeleton for Vietnamese learners. SENTENCE: "${sentence}"
+    // Prompt phân tầng câu (Main Clause vs Secondary Clause/Participle) & Span Segmentation
+    const prompt = `English sentence syntactic decomposition and semantic parsing for Vietnamese learners.
+SENTENCE: "${sentence}"
 ${context ? `CONTEXT: "${context}"` : ''}
-Return ONLY JSON:
-{"translation_vi":"full natural Vietnamese of the sentence","structure":"S+V+O","kernel":{"text":"English kernel 3-8 words.","s":"English subject HEAD from sentence","v":"English main verb from sentence","o":"English object HEAD or \\"\\"","translation_vi":"short Vietnamese gist"},"logic":null,"segments":[{"text":"English span from sentence","role":"S|V|O|modifier|frame|adverb|pp|clause|other","label_vi":"Vietnamese label","keep":true}],"build_levels":[{"level":0,"text":"English kernel words only","slot_vi":"Xương"},{"level":1,"text":"English longer","slot_vi":"+ layer"},{"level":2,"text":"full English sentence","slot_vi":"Full"}],"chunks":[{"text":"English surface","base":"english lemma","meaning_vi":"Vietnamese gloss"}],"notes":["optional tip in Vietnamese"]}
-CRITICAL:
-- kernel.s, kernel.v, kernel.o, kernel.text, build_levels[].text, chunks[].base, chunks[].text, segments[].text MUST be ENGLISH words taken from the sentence (or English lemma). NEVER Vietnamese.
-- ONLY these may be Vietnamese: translation_vi, kernel.translation_vi, label_vi, slot_vi, meaning_vi, notes.
-- Example: "My younger sister likes spicy food." → s="sister", v="likes", o="food", NOT "em gái"/"thích".
-- Relative clause is NOT main V: "The old teacher who lives in Ha Noi teaches English every morning." → s="teacher", v="teaches", o="English" (who lives… = clause decoration).
-- Heads short (1–2 words). Drop frame openers. Adverb is not object. JSON only.`;
+
+You must return ONLY a single valid JSON object with:
+1. "translation_vi": natural full Vietnamese translation of the entire sentence.
+2. "structure": high-level sentence pattern (e.g. "S + V + O · Mệnh đề phân từ chỉ kết quả").
+3. "main_clause":
+   - "subject": { "text": "full English subject phrase", "head": "core English head noun (1-3 words)" }
+   - "verb": { "text": "English main verb or predicate phrase", "head": "base verb", "tense": "e.g. Past simple, Present simple" }
+   - "object": { "text": "full English object phrase (e.g. the flow of water from the Atlantic into the Strait of Gibraltar)", "head": "core English noun phrase (e.g. the flow of water)" }
+   - "translation_vi": "Vietnamese translation of the main clause"
+4. "secondary_clauses": list of subordinate/participial clauses, modifiers, or PP:
+   - "type": "participle_result" | "relative_clause" | "adverbial_clause" | "prepositional_phrase" | "coordinate_clause"
+   - "type_label_vi": Vietnamese label (e.g. "Mệnh đề phân từ chỉ kết quả", "Mệnh đề quan hệ", "Mệnh đề trạng ngữ")
+   - "text": exact clause text in the sentence
+   - "linker": connective/conjunction if any (e.g. "thereby", "who", "which", "although")
+   - "action": verb-ing or verb in this clause (e.g. "significantly reducing")
+   - "target": object/complement of this clause (e.g. "the amount of water received by the Mediterranean")
+   - "translation_vi": Vietnamese translation of this clause
+5. "spans": list of non-overlapping spans covering 100% of the sentence sequentially:
+   - "text": exact text slice from the sentence
+   - "role": "S" | "V" | "O" | "clause" | "adverb" | "pp" | "linker" | "other"
+   - "label_vi": Vietnamese label (e.g. "Chủ ngữ [S]", "Vị ngữ [V]", "Tân ngữ [O]", "Mệnh đề phân từ")
+6. "kernel": { "text": "English kernel 3-8 words.", "s": "English subject head", "v": "English main verb", "o": "English object head or empty", "translation_vi": "Vietnamese gist" }
+7. "chunks": 4-8 collocations/vocabulary chunks:
+   - "text": phrase as seen in sentence (e.g. "stemmed")
+   - "base": dictionary lemma (e.g. "stem")
+   - "pos": accurate part of speech in THIS sentence context (e.g. "Động từ (Verb)", "Cụm danh từ")
+   - "meaning_vi": contextual Vietnamese meaning (e.g. for "stemmed": "ngăn chặn, kìm hãm dòng chảy", NEVER "thân cây")
+8. "build_levels": [
+   { "level": 0, "text": "English kernel words only", "slot_vi": "Xương S–V–O" },
+   { "level": 1, "text": "English expanded with modifiers", "slot_vi": "+ bổ ngữ" },
+   { "level": 2, "text": "Full sentence", "slot_vi": "Câu đầy đủ" }
+]
+9. "notes": ["optional grammar tips in Vietnamese"]
+
+CRITICAL RESTRICTIONS:
+- English fields: main_clause.subject.text, main_clause.verb.text, main_clause.object.text, kernel.* (except translation_vi), spans[].text, chunks[].text, chunks[].base MUST BE IN ENGLISH taken from the sentence.
+- Vietnamese fields: translation_vi, main_clause.translation_vi, secondary_clauses[].type_label_vi, secondary_clauses[].translation_vi, spans[].label_vi, chunks[].meaning_vi, notes MUST BE IN VIETNAMESE.
+- Never confuse a participle clause (e.g. ", thereby reducing...") as main verb. The main verb is the finite verb of the main clause.
+- Return JSON only. No markdown fences.`;
 
     type AiSentenceJson = {
       translation_vi?: string;
       structure?: string;
+      main_clause?: unknown;
+      secondary_clauses?: unknown[];
+      spans?: unknown[];
       kernel?: unknown;
       logic?: unknown;
       segments?: unknown[];
@@ -452,7 +569,16 @@ CRITICAL:
         text = (await router.generate(prompt, 'fast', true)).trim();
       } catch (firstErr) {
         console.warn('[ai-sentence] fast failed, retry normal:', firstErr);
-        text = (await router.generate(prompt, 'normal', true)).trim();
+        try {
+          text = (await router.generate(prompt, 'normal', true)).trim();
+        } catch (secondErr) {
+          if (hasGeminiKeys()) {
+            console.warn('[ai-sentence] Groq/Zhipu normal failed, trying Gemini fallback:', secondErr);
+            text = (await geminiGenerate(prompt, { json: true })).trim();
+          } else {
+            throw secondErr;
+          }
+        }
       }
       if (text.startsWith('```json')) text = text.replace(/```json/g, '');
       if (text.startsWith('```')) text = text.replace(/```/g, '');
@@ -466,7 +592,7 @@ CRITICAL:
       }
     } catch (aiErr) {
       // KHÔNG 500 — fallback heuristic để desktop/live luôn có kết quả
-      console.warn('[ai-sentence] AI failed, heuristic fallback:', aiErr);
+      console.warn('[ai-sentence] AI failed, advanced heuristic fallback:', aiErr);
       parsed = null;
       aiSource = 'heuristic';
     }
@@ -478,7 +604,7 @@ CRITICAL:
       let chunks = rawChunks
         .map(normalizeChunk)
         .filter((c): c is SentenceChunk => c !== null)
-        .slice(0, 8);
+        .slice(0, 10);
 
       try {
         chunks = await enrichChunksFromDb(chunks);
@@ -490,6 +616,8 @@ CRITICAL:
         ? aiJson.notes.filter((n): n is string => typeof n === 'string').slice(0, 3)
         : [];
 
+      let main_clause = normalizeMainClause(aiJson.main_clause, sentence);
+      const secondary_clauses = normalizeSecondaryClauses(aiJson.secondary_clauses);
       let kernel = normalizeKernel(aiJson.kernel, sentence);
       let logic = normalizeLogic(aiJson.logic);
       if (!logic) logic = detectComparativeLogic(sentence);
@@ -500,6 +628,7 @@ CRITICAL:
             .filter((s): s is SentenceSegment => s !== null)
             .slice(0, 14)
         : [];
+
       let build_levels = Array.isArray(aiJson.build_levels)
         ? aiJson.build_levels
             .map(normalizeBuildLevel)
@@ -508,11 +637,34 @@ CRITICAL:
             .slice(0, 8)
         : [];
 
-      // Kernel EN bắt buộc; nếu AI nhét VI / NP quá bẩn → heuristic xương + giữ VI/chunk AI nếu còn
+      // If AI didn't return main_clause, build from kernel if valid
+      if (!main_clause && kernel) {
+        main_clause = {
+          subject: { text: kernel.s, head: kernel.s },
+          verb: { text: kernel.v, head: kernel.v },
+          object: kernel.o ? { text: kernel.o, head: kernel.o } : undefined,
+          translation_vi: kernel.translation_vi,
+        };
+      }
+
+      // If kernel missing, build from main_clause
+      if (!kernel && main_clause) {
+        const kText = `${main_clause.subject.head} ${main_clause.verb.head || main_clause.verb.text} ${main_clause.object?.head || ''}.`.trim();
+        kernel = {
+          text: kText,
+          s: main_clause.subject.head,
+          v: main_clause.verb.head || main_clause.verb.text,
+          o: main_clause.object?.head,
+          translation_vi: main_clause.translation_vi || (aiJson.translation_vi || ''),
+        };
+      }
+
+      // If both kernel & main_clause missing or corrupted -> heuristic fallback
       let usedHeuristicBones = false;
-      if (!kernel) {
-        const fallback = heuristicAnalysis(sentence);
+      if (!kernel || !main_clause) {
+        const fallback = advancedHeuristicAnalysis(sentence);
         kernel = fallback.kernel;
+        main_clause = fallback.main_clause;
         usedHeuristicBones = true;
         aiSource = 'heuristic';
         if (!build_levels.length) build_levels = fallback.build_levels || [];
@@ -521,9 +673,12 @@ CRITICAL:
         if (!notes.length && fallback.notes) notes.push(...fallback.notes);
       }
 
-      if (logic && build_levels.length < 3) {
+      // Spans normalization covering 100% of sentence
+      const spans = normalizeSpans(aiJson.spans, sentence, main_clause, secondary_clauses);
+
+      if (logic && build_levels.length < 3 && kernel) {
         build_levels = [
-          { level: 0, text: kernel!.text.replace(/\.$/, ''), slot_vi: 'Xương S–V–O' },
+          { level: 0, text: kernel.text.replace(/\.$/, ''), slot_vi: 'Xương S–V–O' },
           { level: 1, text: `less in ${logic.a} than in ${logic.b}`, slot_vi: 'less A than B' },
           { level: 2, text: sentence, slot_vi: 'Câu đầy đủ' },
         ];
@@ -535,6 +690,9 @@ CRITICAL:
       let structure =
         typeof aiJson.structure === 'string' ? aiJson.structure.trim() : undefined;
       if (!structure && logic) structure = logic.pattern;
+      if (!structure && secondary_clauses.length > 0) {
+        structure = `S + V + O · ${secondary_clauses[0].type_label_vi}`;
+      }
       if (!structure) structure = kernel?.o ? 'S + V + O' : 'S + V';
 
       if (kernel && logic && (kernel.translation_vi === '—' || kernel.translation_vi.length < 12)) {
@@ -544,13 +702,13 @@ CRITICAL:
       let translation_vi = (aiJson.translation_vi || '').trim();
       if (!translation_vi || translation_vi === '—' || /^xương\s*:/i.test(translation_vi)) {
         translation_vi =
-          (kernel?.translation_vi && kernel.translation_vi !== '—' && !/^xương\s*:/i.test(kernel.translation_vi)
+          main_clause?.translation_vi
+          || (kernel?.translation_vi && kernel.translation_vi !== '—' && !/^xương\s*:/i.test(kernel.translation_vi)
             ? kernel.translation_vi
             : null)
           || logic?.formula_vi
           || '';
       }
-      // Không bao giờ để "Xương: The old…" làm bản dịch
       if (!translation_vi) {
         translation_vi = kernel
           ? `(Ước lượng) ${[kernel.s, kernel.v, kernel.o].filter(Boolean).join(' ')}`
@@ -569,6 +727,9 @@ CRITICAL:
         translation_vi,
         structure,
         kernel,
+        main_clause,
+        secondary_clauses,
+        spans,
         logic,
         segments: segments.length ? segments : undefined,
         build_levels,
@@ -576,7 +737,7 @@ CRITICAL:
         notes: notes.length ? notes : undefined,
       };
     } else {
-      data = heuristicAnalysis(sentence);
+      data = advancedHeuristicAnalysis(sentence);
     }
 
     // Shape tương thích Desktop / extension (cũ đọc translation + chunks)
@@ -670,241 +831,7 @@ const DET_STOP = new Set([
   'more', 'most', 'such', 'both', 'each', 'every', 'ha', 'noi', // place fragments
 ]);
 
-const AUX_FINITE =
-  /^(is|are|was|were|has|have|had|do|does|did|can|could|will|would|should|must|may|might|am)$/i;
-
-const KNOWN_FINITE =
-  /^(likes?|liked|loves?|loved|lives?|lived|teaches?|taught|reads?|writes?|wrote|makes?|made|takes?|took|gives?|gave|gets?|got|seems?|becomes?|became|remains?|turns?|lies?|lay|goes?|went|comes?|came|works?|worked|plays?|played|helps?|helped|needs?|needed|wants?|wanted|shows?|showed|says?|said|tells?|told|asks?|asked|feels?|felt|keeps?|kept|leaves?|left|begins?|began|starts?|started|ends?|ended|opens?|opened|closes?|closed|moves?|moved|runs?|ran|walks?|walked|sits?|sat|stands?|stood|thinks?|thought|knows?|knew|sees?|saw|hears?|heard|calls?|called|uses?|used|finds?|found|builds?|built|buys?|bought|sells?|sold|pays?|paid|costs?|means?|meant|outperforms?|outperformed|supplants?|supplanted|shifts?|shifted|involves?|involved|demands?|demanded|requires?|required|equals?|highlights?|underlines?|describes?|argues?|claims?|proves?|functions?|produces?|produced|puts?|put|sets?|leads?|led|holds?|held|brings?|brought|meets?|met|grows?|grew|falls?|fell|rises?|rose)$/i;
-
-const ADV_RE = /ly$/i;
-const VING_RE = /ing$/i;
-const REL_MARK = /^(who|which|that|whom|whose)$/i;
-
-function isFiniteVerbToken(t: string): boolean {
-  if (AUX_FINITE.test(t) || KNOWN_FINITE.test(t)) return true;
-  // past regular
-  if (/ed$/i.test(t) && t.length > 3 && !ADV_RE.test(t)) return true;
-  // 3sg: teaches, lives, goes, watches (không nhận mọi *s — tránh students/books làm V)
-  if (/(?:ches|shes|sses|zzes|xes|oes|[bcdfghjklmnpqrstvwxyz]ies|[aeiou]ys|[^s]s)$/i.test(t) && t.length > 3) {
-    // loại plural danh từ phổ biến
-    if (/^(students|teachers|books|things|years|days|people|children|women|men|ways|parts|words|ideas|problems|results|systems|methods|reasons|levels|areas|times|places|cases|points|groups|members|numbers|values|types|kinds|forms|names|sides|lines|pages|rooms|schools|cities|countries|laptops|mornings|evenings)$/i.test(t)) {
-      return false;
-    }
-    return true;
-  }
-  return false;
-}
-
-/**
- * Bóc who/which/whom (+ that RC) khỏi chuỗi token trước khi tìm V chính.
- * "teacher who lives in Ha Noi teaches" → "teacher teaches"
- * "Students who use laptops outperformed those who write" → "Students outperformed those"
- */
-function stripRelativeClauses(tokens: string[]): { core: string[]; stripped: string[] } {
-  const core: string[] = [];
-  const stripped: string[] = [];
-  let i = 0;
-  while (i < tokens.length) {
-    const t = tokens[i];
-    const isRel =
-      /^(who|which|whom)$/i.test(t)
-      || (/^that$/i.test(t) && i > 0 && !DET_STOP.has(tokens[i - 1]?.toLowerCase() || ''));
-    if (!isRel) {
-      core.push(t);
-      i += 1;
-      continue;
-    }
-    // Bắt RC: marker + (tối đa 1 finite) + bổ ngữ đến trước finite kế (V chính)
-    const rcStart = i;
-    i += 1; // skip who/which/that
-    let rcVerbs = 0;
-    while (i < tokens.length) {
-      if (/^(who|which|whom)$/i.test(tokens[i])) break;
-      if (isFiniteVerbToken(tokens[i])) {
-        rcVerbs += 1;
-        if (rcVerbs >= 2) break; // finite thứ 2 = động từ mệnh đề chính
-        i += 1;
-        continue;
-      }
-      // sau verb RC: lấy object/pp ngắn, dừng nếu quá dài
-      if (rcVerbs >= 1 && i - rcStart > 8) break;
-      i += 1;
-      if (rcVerbs >= 1 && i - rcStart > 6) break;
-    }
-    stripped.push(tokens.slice(rcStart, i).join(' '));
-  }
-  return { core, stripped };
-}
-
-/**
- * Fallback khi AI chết / kernel VI bị reject.
- * Nguyên tắc Buổi 2: bóc finite mệnh đề chính, bỏ RC/frame, head S–V–O EN.
- */
 function heuristicAnalysis(sentence: string): SentenceAnalysisData {
-  const logic = detectComparativeLogic(sentence);
-  const frameOpeners =
-    /^(in a series of|according to|for decades|for years|in reality|by the same token|from this perspective)\b/i;
-
-  let work = sentence.trim();
-  const frameM = work.match(
-    /^(In a series of [^,]+,\s*|According to [^,]+,\s*|For decades,\s*|For years,\s*|In reality,\s*however,\s*|By the same token,\s*|From this perspective,\s*)/i,
-  );
-  if (frameM) work = work.slice(frameM[0].length).trim();
-
-  const rawTokens = work
-    .replace(/[^\p{L}\p{N}'\s-]/gu, ' ')
-    .split(/\s+/)
-    .filter(Boolean);
-
-  const { core: tokens, stripped: rcStripped } = stripRelativeClauses(rawTokens);
-
-  // Finite trên core (đã bỏ RC)
-  const finiteIdxs: number[] = [];
-  for (let i = 0; i < tokens.length; i += 1) {
-    if (i === 0 && VING_RE.test(tokens[i]) && !AUX_FINITE.test(tokens[i])) continue;
-    if (isFiniteVerbToken(tokens[i])) finiteIdxs.push(i);
-  }
-
-  let vIdx = finiteIdxs[0];
-  if (vIdx === undefined) {
-    vIdx = tokens.findIndex((t) => isFiniteVerbToken(t));
-    if (vIdx < 0) vIdx = Math.min(Math.max(1, Math.floor(tokens.length / 3)), Math.max(0, tokens.length - 1));
-  }
-
-  const beforeV = tokens.slice(0, vIdx);
-  const sTokens = beforeV.filter((t) => !DET_STOP.has(t.toLowerCase()) && !ADV_RE.test(t));
-  let s =
-    sTokens.slice(-1)[0]
-    || beforeV.filter((t) => !DET_STOP.has(t.toLowerCase())).slice(-1)[0]
-    || tokens[0]
-    || 'it';
-
-  let v = tokens[vIdx] || 'is';
-  if (AUX_FINITE.test(v) && vIdx + 1 < tokens.length) {
-    const next = tokens[vIdx + 1];
-    if (ADV_RE.test(next) && vIdx + 2 < tokens.length) {
-      const n2 = tokens[vIdx + 2];
-      if (n2 && !DET_STOP.has(n2.toLowerCase())) v = `${tokens[vIdx]} ${n2}`;
-    } else if (!DET_STOP.has(next.toLowerCase()) && !REL_MARK.test(next)) {
-      if (VING_RE.test(next) || /ed$/i.test(next) || KNOWN_FINITE.test(next)) {
-        v = `${v} ${next}`;
-      }
-    }
-  }
-
-  // O: chỉ skip article/prep/adv — GIỮ this/these/those (hay làm tân ngữ)
-  const oSkip = new Set([
-    'the', 'a', 'an', 'of', 'to', 'in', 'on', 'for', 'and', 'with', 'by', 'from', 'as', 'at',
-    'or', 'but', 'not', 'very', 'also', 'only', 'just', 'even', 'still',
-  ]);
-  let oStart = vIdx + (v.includes(' ') ? 2 : 1);
-  while (
-    oStart < tokens.length
-    && (ADV_RE.test(tokens[oStart]) || oSkip.has(tokens[oStart].toLowerCase()) || REL_MARK.test(tokens[oStart]))
-  ) {
-    oStart += 1;
-  }
-  let o = '';
-  if (oStart < tokens.length) {
-    o = tokens[oStart];
-    // spicy food → food (head NP); those/this giữ nguyên; English every → English
-    if (
-      oStart + 1 < tokens.length
-      && !/^(this|that|these|those|it|him|her|them|us)$/i.test(o)
-      && !oSkip.has(tokens[oStart + 1].toLowerCase())
-      && !isFiniteVerbToken(tokens[oStart + 1])
-      && !ADV_RE.test(tokens[oStart + 1])
-      && !/^(in|on|at|for|from|with|by|every|each|all|some|many|much)$/i.test(tokens[oStart + 1])
-    ) {
-      o = tokens[oStart + 1];
-    }
-  }
-
-  s = s.replace(/[^A-Za-z'\-\s]/g, '').trim() || 'it';
-  v = v.replace(/[^A-Za-z'\-\s]/g, '').trim() || 'is';
-  o = o.replace(/[^A-Za-z'\-\s]/g, '').trim();
-  const cap = (w: string) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : w);
-  const sHead = s.toLowerCase();
-  const vHead = v.toLowerCase();
-  const oHead = o.toLowerCase();
-
-  const kernel: SentenceKernel = {
-    text: [cap(sHead), vHead, oHead].filter(Boolean).join(' ') + '.',
-    s: sHead,
-    v: vHead,
-    o: oHead || undefined,
-    translation_vi: logic?.formula_vi || '—',
-  };
-
-  const segments: SentenceSegment[] = [];
-  const sSpan = beforeV.join(' ') || sHead;
-  if (sSpan) segments.push({ text: sSpan, role: 'S', label_vi: 'Chủ ngữ', keep: true });
-  for (const rc of rcStripped) {
-    if (rc) segments.push({ text: rc, role: 'clause', label_vi: 'Mệnh đề quan hệ (who/which)', keep: false });
-  }
-  segments.push({ text: vHead, role: 'V', label_vi: 'Động từ chính', keep: true });
-  if (oHead) segments.push({ text: oHead, role: 'O', label_vi: 'Tân ngữ', keep: true });
-
-  let tailStart = oStart + 1;
-  if (o && tokens[oStart]?.toLowerCase() !== oHead && tokens[oStart + 1]?.toLowerCase() === oHead) {
-    tailStart = oStart + 2;
-  }
-  const tail = tokens.slice(tailStart).join(' ');
-  if (tail) {
-    const isPp = /^(in|on|at|for|from|with|by|every|each)\b/i.test(tail);
-    segments.push({
-      text: tail,
-      role: isPp ? 'pp' : 'adverb',
-      label_vi: isPp ? 'PP / trạng ngữ' : 'Trạng ngữ',
-      keep: false,
-    });
-  }
-
-  const build_levels = logic
-    ? [
-        { level: 0, text: [sHead, vHead].filter(Boolean).join(' '), slot_vi: 'Xương (S + V)' },
-        { level: 1, text: `less in ${logic.a} than in ${logic.b}`, slot_vi: logic.pattern },
-        { level: 2, text: sentence, slot_vi: 'Câu đầy đủ' },
-      ]
-    : buildBuildLevelsFromKernel(kernel, sentence, segments);
-
-  const chunkSeeds: Array<{ text: string; base: string; meaning_vi: string }> = [];
-  const sWords = sSpan.split(/\s+/).filter((w) => w && !DET_STOP.has(w.toLowerCase()));
-  if (sWords.length >= 2) {
-    chunkSeeds.push({
-      text: sWords.slice(-2).join(' '),
-      base: sWords.slice(-2).join(' ').toLowerCase(),
-      meaning_vi: '—',
-    });
-  }
-  if (sHead) chunkSeeds.push({ text: sHead, base: sHead, meaning_vi: '—' });
-  if (vHead) chunkSeeds.push({ text: vHead, base: vHead.split(/\s+/).slice(-1)[0], meaning_vi: '—' });
-  if (oHead) chunkSeeds.push({ text: oHead, base: oHead, meaning_vi: '—' });
-
-  const seen = new Set<string>();
-  const chunks: SentenceChunk[] = [];
-  for (const c of chunkSeeds) {
-    const key = c.base.toLowerCase();
-    if (seen.has(key) || key.length < 2) continue;
-    seen.add(key);
-    chunks.push(c);
-    if (chunks.length >= 5) break;
-  }
-
-  return {
-    sentence,
-    translation_vi: logic?.formula_vi || `(Ước lượng xương) ${[sHead, vHead, oHead].filter(Boolean).join(' ')}`,
-    structure: logic?.pattern || (oHead ? 'S + V + O' : 'S + V'),
-    kernel,
-    logic,
-    segments,
-    build_levels,
-    chunks,
-    notes: [
-      frameOpeners.test(sentence)
-        ? 'Đã bỏ frame mở câu khi ước lượng xương.'
-        : 'Phân tích dự phòng — finite mệnh đề chính, bỏ who/which RC.',
-      'Badge Ước lượng: nên kiểm tra lại S–V–O trước khi demo live.',
-    ],
-  };
+  return advancedHeuristicAnalysis(sentence);
 }
+

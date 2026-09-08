@@ -7,6 +7,7 @@ import { Loader2 } from 'lucide-react';
 const OAUTH_ROLE_KEY = 'lingopro_oauth_role';
 const OAUTH_PILOT_KEY = 'lingopro_oauth_pilot';
 const OAUTH_SOURCE_KEY = 'lingopro_oauth_source';
+const OAUTH_REDIRECT_TO_KEY = 'lingopro_oauth_redirect_to';
 
 /**
  * OAuth callback — PKCE exchange.
@@ -45,11 +46,17 @@ export default function AuthCallbackPage() {
         sessionStorage.getItem(OAUTH_SOURCE_KEY) ||
         url.searchParams.get('source') ||
         '';
+      const customRedirect =
+        sessionStorage.getItem(OAUTH_REDIRECT_TO_KEY) ||
+        url.searchParams.get('redirectTo') ||
+        url.searchParams.get('next') ||
+        '';
 
       const go = (path: string) => {
         sessionStorage.removeItem(OAUTH_ROLE_KEY);
         sessionStorage.removeItem(OAUTH_PILOT_KEY);
         sessionStorage.removeItem(OAUTH_SOURCE_KEY);
+        sessionStorage.removeItem(OAUTH_REDIRECT_TO_KEY);
 
         const dest = new URL(path, window.location.origin);
         if (requestedRole === 'teacher') dest.searchParams.set('pilot_signup', '1');
@@ -93,7 +100,12 @@ export default function AuthCallbackPage() {
 
         const metaRole = session.user.user_metadata?.role;
         const isTeacher = requestedRole === 'teacher' || metaRole === 'teacher';
-        go(isTeacher ? '/teacher' : '/student');
+        const fallbackTarget = isTeacher ? '/teacher' : '/student';
+        const finalTarget =
+          customRedirect && customRedirect.startsWith('/') && !customRedirect.startsWith('//')
+            ? customRedirect
+            : fallbackTarget;
+        go(finalTarget);
       } catch (err) {
         console.error('[AuthCallback]', err);
         window.location.replace('/auth?error=oauth');

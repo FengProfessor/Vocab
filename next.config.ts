@@ -13,8 +13,8 @@ const csp = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
   "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com https://www.googleapis.com https://dict.minhqnd.com https://api.dictionaryapi.dev https://us.i.posthog.com https://us-assets.i.posthog.com",
-  // Audio phát âm giọng thật: Free Dictionary (Wikimedia), Google gstatic, Youdao fallback
-  "media-src 'self' https://api.dictionaryapi.dev https://ssl.gstatic.com https://dict.youdao.com",
+  // Audio phát âm giọng thật & TOEIC Listening CDN
+  "media-src 'self' https://api.dictionaryapi.dev https://ssl.gstatic.com https://dict.youdao.com https://s4-media1.study4.com https://*.study4.com https://storage.googleapis.com",
   "worker-src 'self'",
   // 'self' = cho phép LingoTown nhúng app trong iframe (cùng origin)
   "frame-ancestors 'self'",
@@ -46,10 +46,9 @@ const nextConfig: NextConfig = {
     // nên allowlist này chỉ là defense-in-depth; mirror DIRECT_IMAGE_HOST_SUFFIXES trong media-url.ts.
     remotePatterns: [
       'supabase.co', 'supabase.in', 'pixabay.com', 'pexels.com', 'unsplash.com',
-      'cloudinary.com', 'imgur.com', 'googleusercontent.com', 'ggpht.com', 'gstatic.com',
-      'wikimedia.org', 'wikipedia.org', 'cdn.jsdelivr.net', 'cloudfront.net', 'r2.dev',
-      'amazonaws.com', 'google.com', 'youtube.com', 'ytimg.com', 'twimg.com', 'fbcdn.net', 'pinimg.com',
-      'staticflickr.com', 'pollinations.ai',
+      'cloudinary.com', 'imgur.com', 'googleusercontent.com', 'gstatic.com',
+      'wikimedia.org', 'cdn.jsdelivr.net', 'cloudfront.net', 'r2.dev',
+      'amazonaws.com', 'google.com', 'study4.com', 'googleapis.com',
     ].flatMap((h) => [
       { protocol: 'https' as const, hostname: h },
       { protocol: 'https' as const, hostname: `**.${h}` },

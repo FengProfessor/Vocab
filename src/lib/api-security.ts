@@ -370,11 +370,16 @@ export async function checkRateLimitAsync(
   }
 }
 
-/** Standard 429 response. */
-export function tooManyRequests(): NextResponse {
+/** Standard 429 response with Retry-After header. */
+export function tooManyRequests(retryAfterSeconds = 60): NextResponse {
   return NextResponse.json(
     { success: false, error: 'Too many requests. Please try again later.' },
-    { status: 429 }
+    {
+      status: 429,
+      headers: {
+        'Retry-After': String(retryAfterSeconds),
+      },
+    }
   );
 }
 

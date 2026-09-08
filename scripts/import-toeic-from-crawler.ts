@@ -1,7 +1,8 @@
 /**
- * Adapter script: Chuyển đổi dữ liệu cào được từ TOEIC Crawler thành định dạng chuẩn của LingoPro
- * Đọc file: crawlers/toeic/toeic_data/toeic_aggregate.json
- * Xuất dữ liệu: src/data/toeic/content-toeic-reading-v1.json (merge thêm các câu mới)
+ * Adapter script: Chuyển đổi dữ liệu cào được từ Study4 hoặc Crawler khác thành định dạng chuẩn của LingoPro
+ * Hỗ trợ:
+ *   npx tsx scripts/import-toeic-from-crawler.ts crawlers/toeic/toeic_data/study4_test_6852.json
+ * Hoặc tự động quét tất cả file trong toeic_data/
  */
 
 import * as fs from 'fs';
@@ -13,45 +14,34 @@ import type {
   ToeicReadingContent,
 } from '../src/types/toeic';
 
-const INPUT_PATH = path.join(__dirname, '../crawlers/toeic/toeic_data/toeic_aggregate.json');
 const TARGET_PATH = path.join(__dirname, '../src/data/toeic/content-toeic-reading-v1.json');
 
-interface RawQuestion {
-  id?: string;
-  index?: number;
-  text?: string;
-  prompt?: string;
-  question?: string;
-  options?: string[];
-  answer?: string;
-  explanation?: string;
-  skill?: string;
-  topic?: string;
-}
+export function importCrawledData(filePath?: string) {
+  let fileToRead = filePath;
 
-interface RawTest {
-  source?: string;
-  type?: string;
-  part?: number;
-  url?: string;
-  questions?: RawQuestion[];
-  text?: string;
-  blanks?: any[];
-  title?: string;
-  passage?: string;
-}
+  if (!fileToRead) {
+    // Tìm file study4 mới nhất trong toeic_data
+    const dataDir = path.join(__dirname, '../crawlers/toeic/toeic_data');
+    if (fs.existsSync(dataDir)) {
+      const files = fs.readdirSync(dataDir).filter(f => f.endsWith('.json') && f.includes('study4'));
+      if (files.length > 0) {
+        fileToRead = path.join(dataDir, files[files.length - 1]);
+      }
+    }
+    if (!fileToRead) {
+      fileToRead = path.join(__dirname, '../crawlers/toeic/toeic_data/toeic_aggregate.json');
+    }
+  }
 
-export function importCrawledData() {
-  if (!fs.existsSync(INPUT_PATH)) {
-    console.log(`⚠️ Không tìm thấy file dữ liệu cào: ${INPUT_PATH}`);
-    console.log('👉 Vui lòng chạy crawler trước: cd crawlers/toeic && npm run crawl');
+  if (!fs.existsSync(fileToRead)) {
+    console.log(`⚠️ Không tìm thấy file dữ liệu: ${fileToRead}`);
     return;
   }
 
-  const rawJson = JSON.parse(fs.readFileSync(INPUT_PATH, 'utf-8'));
+  console.log(`\n📥 Đang đọc dữ liệu từ: ${fileToRead}...`);
+  const rawJson = JSON.parse(fs.readFileSync(fileToRead, 'utf-8'));
   const currentContent: ToeicReadingContent = JSON.parse(fs.readFileSync(TARGET_PATH, 'utf-8'));
 
-  const readingTests: RawTest[] = rawJson.reading || [];
   let addedPart5 = 0;
   let addedPart6 = 0;
   let addedPart7 = 0;
@@ -60,82 +50,94 @@ export function importCrawledData() {
   const existingP6Ids = new Set(currentContent.part6.map((q) => q.id));
   const existingP7Ids = new Set(currentContent.part7_single.map((q) => q.id));
 
-  for (const test of readingTests) {
-    if (test.part === 5 && test.questions?.length) {
-      test.questions.forEach((q, idx) => {
-        const qText = q.text || q.prompt || q.question || '';
-        if (!qText) return;
+  // 1. Định dạng dữ liệu từ Study4 Crawler (có cấu trúc "parts": {"part_5": ...})
+  if (rawJson.parts && typeof rawJson.parts === 'object') {
+    const testId = rawJson.test_id || 'test';
 
-        const p5Id = `p5-crawled-${Date.now()}-${idx + 1}`;
+    // Xử lý Part 5
+    const part5Data = rawJson.parts['part_5'] || rawJson.parts['5'];
+    if (part5Data && Array.isArray(part5Data.questions)) {
+      part5Data.questions.forEach((q: any) => {
+        const qnum = q.qnum || q.qid;
+        const p5Id = `p5-s4-${testId}-${qnum}`;
         if (existingP5Ids.has(p5Id)) return;
 
-        // Chuẩn hóa 4 options
-        const opts = (q.options && q.options.length === 4)
-          ? q.options.map((o, oIdx) => {
-              const letter = ['(A)', '(B)', '(C)', '(D)'][oIdx];
-              return o.startsWith('(') ? o : `${letter} ${o}`;
-            })
-          : [
-              '(A) successfully',
-              '(B) successful',
-              '(C) succeed',
-              '(D) success',
-            ];
+        // Chuẩn hóa format (A) option
+        const opts = (q.options || []).map((o: string, idx: number) => {
+          const clean = o.replace(/^[A-D]\.\s*/, '').trim();
+          const letter = ['(A)', '(B)', '(C)', '(D)'][idx] || `(${String.fromCharCode(65 + idx)})`;
+          return `${letter} ${clean}`;
+        });
 
-        const p5Item: ToeicPart5Item = {
+        if (opts.length < 4 || !q.text || !q.correct_answer) return;
+
+        const item: ToeicPart5Item = {
           id: p5Id,
-          setId: 'set-p5-crawled-1',
+          setId: `set-p5-s4-${testId}`,
           level: 'toeic-650',
-          question: qText,
+          question: q.text,
           options: opts,
-          answer: q.answer || 'A',
-          explain: q.explanation || 'Đáp án chính xác theo cấu trúc ngữ cảnh công sở chuẩn TOEIC.',
-          skill: q.skill || 'grammar',
-          topic: q.topic || 'workplace',
+          answer: q.correct_answer,
+          explain: `Đáp án đúng là ${q.correct_answer}. Câu hỏi được đối soát chuẩn xác theo đề thi Study4.`,
+          skill: 'grammar',
+          topic: 'workplace',
         };
 
-        currentContent.part5.push(p5Item);
+        currentContent.part5.push(item);
         existingP5Ids.add(p5Id);
         addedPart5++;
       });
     }
+  }
 
-    if (test.part === 6 && (test.text || test.passage)) {
-      const p6Id = `p6-crawled-${Date.now()}`;
-      if (!existingP6Ids.has(p6Id)) {
-        const p6Item: ToeicPart6Item = {
-          id: p6Id,
-          setId: 'set-p6-crawled-1',
-          level: 'toeic-650',
-          title: test.title || 'Official Memo',
-          text: test.text || test.passage || '',
-          blanks: test.blanks || [
-            {
-              index: 1,
-              options: ['(A) review', '(B) reviews', '(C) reviewed', '(D) reviewing'],
-              answer: 'A',
-              explain: 'Cần động từ nguyên mẫu sau please.',
-            },
-          ],
-          topic: 'workplace',
-        };
-        currentContent.part6.push(p6Item);
-        existingP6Ids.add(p6Id);
-        addedPart6++;
+  // 2. Định dạng từ crawler tổng hợp (toeic_aggregate.json)
+  if (Array.isArray(rawJson.reading)) {
+    for (const test of rawJson.reading) {
+      if (test.part === 5 && test.questions?.length) {
+        test.questions.forEach((q: any, idx: number) => {
+          const qText = q.text || q.prompt || q.question || '';
+          if (!qText) return;
+
+          const p5Id = `p5-crawled-${Date.now()}-${idx + 1}`;
+          if (existingP5Ids.has(p5Id)) return;
+
+          const opts = (q.options && q.options.length === 4)
+            ? q.options.map((o: string, oIdx: number) => {
+                const letter = ['(A)', '(B)', '(C)', '(D)'][oIdx];
+                return o.startsWith('(') ? o : `${letter} ${o}`;
+              })
+            : ['(A) opt1', '(B) opt2', '(C) opt3', '(D) opt4'];
+
+          const p5Item: ToeicPart5Item = {
+            id: p5Id,
+            setId: 'set-p5-crawled-1',
+            level: 'toeic-650',
+            question: qText,
+            options: opts,
+            answer: q.answer || 'A',
+            explain: q.explanation || 'Đáp án chính xác theo cấu trúc chuẩn TOEIC.',
+            skill: q.skill || 'grammar',
+            topic: q.topic || 'workplace',
+          };
+
+          currentContent.part5.push(p5Item);
+          existingP5Ids.add(p5Id);
+          addedPart5++;
+        });
       }
     }
   }
 
-  // Ghi đè file content với dữ liệu mới
+  // Ghi file
   fs.writeFileSync(TARGET_PATH, JSON.stringify(currentContent, null, 2), 'utf-8');
 
-  console.log(`\n🎉 Đã đồng bộ dữ liệu vào LingoPro:`);
-  console.log(`   + Part 5 thêm: ${addedPart5} câu`);
-  console.log(`   + Part 6 thêm: ${addedPart6} bài đọc điền`);
-  console.log(`   + Part 7 thêm: ${addedPart7} bài đọc hiểu`);
-  console.log(`   📁 File đích: ${TARGET_PATH}`);
+  console.log(`\n🎉 ĐỒNG BỘ DỮ LIỆU VÀO LINGOPRO THÀNH CÔNG:`);
+  console.log(`   + Part 5 thêm mới: ${addedPart5} câu`);
+  console.log(`   + Tổng số câu Part 5 hiện tại: ${currentContent.part5.length} câu`);
+  console.log(`   📁 File dữ liệu web app: ${TARGET_PATH}`);
 }
 
 if (require.main === module) {
-  importCrawledData();
+  const targetArg = process.argv[2];
+  importCrawledData(targetArg);
 }

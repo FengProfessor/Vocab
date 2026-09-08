@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Hub Sử dụng từ — 2 dạng: Đặt câu (codemix) · Luyện đọc (pack-reading)
+ * Hub Sử dụng từ & Luyện tập — Đặt câu, Luyện đọc, Luyện nghe, Bài đọc hàng ngày & Thi thử TOEIC
  * URL: /practice
  */
 
@@ -10,6 +10,17 @@ import { ArrowRight } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 
 const MODES = [
+  {
+    href: '/toeic',
+    emoji: '🎯',
+    title: 'Thi thử TOEIC chuẩn ETS',
+    desc: '200 câu thi thật 120p · Split-Pane · luyện Part 1-7 · Barem 990',
+    ring: 'border-blue-200 bg-blue-50/70 hover:border-blue-400 hover:bg-blue-50',
+    badge: 'bg-blue-600',
+    text: 'text-blue-950',
+    sub: 'text-blue-800/80',
+    arrow: 'text-blue-400',
+  },
   {
     href: '/practice/verb-drill',
     emoji: '⚡',
@@ -47,7 +58,7 @@ const MODES = [
     href: '/practice/listening',
     emoji: '🎧',
     title: 'Luyện nghe Video',
-    desc: 'YouTube đời sống · phụ đề song ngữ · bài tập cloze & trắc nghiệm',
+    desc: 'YouTube đời sống · phụ đề song ngữ đồng bộ theo video · lướt xem theo chủ đề',
     ring: 'border-sky-200 bg-sky-50/70 hover:border-sky-400 hover:bg-sky-50',
     badge: 'bg-sky-600',
     text: 'text-sky-950',
@@ -72,9 +83,9 @@ export default function PracticeHubPage() {
     <StudentShell title="Sử dụng từ">
       <div className="mx-auto max-w-lg space-y-3 px-3 py-4 pb-24 sm:px-4" data-onboarding="practice-use-words">
         <div>
-          <h1 className="text-lg font-black tracking-tight text-slate-900">Sử dụng từ</h1>
-          <p className="mt-0.5 text-xs font-medium text-slate-500">
-            Quiz nhanh · đặt câu · đọc — ôn sâu FSRS ở «Ôn tập»
+          <h1 className="text-lg font-black tracking-tight text-slate-900 dark:text-white">Sử dụng từ & Luyện tập</h1>
+          <p className="mt-0.5 text-xs font-medium text-slate-500 dark:text-slate-400">
+            Quiz nhanh · đặt câu · đọc · nghe video · thi thử TOEIC chuẩn ETS
           </p>
         </div>
 
@@ -83,10 +94,10 @@ export default function PracticeHubPage() {
             <Link
               key={m.href}
               href={m.href}
-              className={`flex items-center gap-3 rounded-xl border px-4 py-5 shadow-sm transition-all hover:shadow active:scale-[0.99] ${m.ring}`}
+              className={`flex items-center gap-3 rounded-xl border px-4 py-5 shadow-xs transition-all hover:shadow-md active:scale-[0.99] ${m.ring}`}
             >
               <span
-                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl text-white shadow-sm ${m.badge}`}
+                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl text-white shadow-xs ${m.badge}`}
               >
                 {m.emoji}
               </span>

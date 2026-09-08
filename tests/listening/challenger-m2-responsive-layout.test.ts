@@ -371,11 +371,11 @@ async function runResponsiveLayoutStressTests() {
     'Ensures action bar aligns at bottom across varying content heights'
   );
 
-  // Verify exercise counter pills
+  // Verify exercise counter pills removed for minimalist focus
   assert(
-    cardCode.includes('câu trắc nghiệm') && cardCode.includes('câu điền từ'),
-    'Exercise counter pills present',
-    'Both quiz and cloze pills are rendered'
+    !cardCode.includes('câu trắc nghiệm') && !cardCode.includes('câu điền từ'),
+    'Exercise counter pills removed',
+    'Distracting quiz and cloze pills are cleanly removed for immersion'
   );
 
   // ========================================================================

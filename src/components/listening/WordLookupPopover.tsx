@@ -12,6 +12,7 @@ export interface WordLookupPopoverProps {
   sentence: string;
   coreVocabulary?: CoreVocabulary[];
   onWordSelect?: (word: string) => void;
+  onWordClickSeek?: () => void;
   className?: string;
   activeTokenStyle?: string;
 }
@@ -29,6 +30,7 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
   sentence,
   coreVocabulary = [],
   onWordSelect,
+  onWordClickSeek,
   className = '',
 }) => {
   const [selectedWord, setSelectedWord] = useState<LookupDetail | null>(null);
@@ -109,7 +111,8 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
 
   // Handle word click
   const handleWordClick = async (e: React.MouseEvent, token: WordToken) => {
-    e.stopPropagation(); // Prevent parent cue container from seeking video
+    // Immediate seek without event blocking so video jumps to cue.start seamlessly
+    onWordClickSeek?.();
     const cleanWord = token.clean;
     if (!cleanWord) return;
 
@@ -324,14 +327,10 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
             }}
             className={`relative inline-block cursor-pointer rounded px-0.5 transition-colors ${
               isSelected
-                ? 'bg-amber-300 font-semibold text-amber-950 dark:bg-amber-500/80 dark:text-amber-950'
-                : isCore
-                ? 'border-b-2 border-amber-400 bg-amber-50/80 font-semibold text-amber-900 hover:bg-amber-100 dark:border-amber-500 dark:bg-amber-950/40 dark:text-amber-200 dark:hover:bg-amber-900/60'
-                : isSaved
-                ? 'bg-emerald-50 text-emerald-900 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-200'
-                : 'hover:bg-slate-200/80 hover:text-indigo-950 dark:hover:bg-slate-700/60 dark:hover:text-indigo-200'
+                ? 'bg-indigo-100 font-medium text-indigo-900 dark:bg-indigo-900/60 dark:text-indigo-200'
+                : 'hover:bg-slate-200/60 hover:text-indigo-600 dark:hover:bg-slate-800 dark:hover:text-indigo-300'
             }`}
-            title={isCore ? 'Từ vựng trọng tâm - Chạm để xem nghĩa' : 'Chạm để tra từ'}
+            title="Chạm để tra từ"
           >
             {token.raw}
 
