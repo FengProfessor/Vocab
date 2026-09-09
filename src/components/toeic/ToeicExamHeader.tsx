@@ -10,8 +10,9 @@ import {
   BookOpen,
   Flag,
   Grid,
+  Lightbulb,
 } from 'lucide-react';
-import type { ToeicSection, ToeicPart } from '@/types/toeic';
+import type { ToeicSection, ToeicPart, ToeicExamMode } from '@/types/toeic';
 
 export interface ToeicExamHeaderProps {
   title: string;
@@ -23,6 +24,8 @@ export interface ToeicExamHeaderProps {
   answeredCount: number;
   totalQuestions: number;
   flaggedCount?: number;
+  mode?: ToeicExamMode;
+  onToggleMode?: () => void;
   onPause: () => void;
   onSubmit: () => void;
   onOpenPalette?: () => void;
@@ -40,6 +43,8 @@ export function ToeicExamHeader({
   answeredCount,
   totalQuestions,
   flaggedCount = 0,
+  mode = 'real',
+  onToggleMode,
   onPause,
   onSubmit,
   onOpenPalette,
@@ -119,8 +124,36 @@ export function ToeicExamHeader({
         </div>
       </div>
 
-      {/* Right: Pause & Submit Actions */}
+      {/* Right: Mode Toggle, Palette, Pause & Submit Actions */}
       <div className="flex items-center gap-2 shrink-0">
+        {onToggleMode && (
+          <button
+            type="button"
+            onClick={onToggleMode}
+            className={`flex items-center gap-1.5 rounded-sm px-2.5 py-1 text-xs font-mono font-bold transition-colors cursor-pointer border ${
+              mode === 'practice'
+                ? 'border-emerald-500 bg-emerald-50 text-emerald-700 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-300'
+                : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200'
+            }`}
+            title={
+              mode === 'practice'
+                ? 'Đang bật giải thích ngay sau khi chọn đáp án. Bấm để chuyển sang Thi thử.'
+                : 'Đang ở chế độ Thi thử (ẩn đáp án). Bấm để BẬT giải thích chi tiết ngay.'
+            }
+          >
+            <Lightbulb
+              className={`h-3.5 w-3.5 ${
+                mode === 'practice'
+                  ? 'fill-emerald-500 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-300'
+                  : 'text-slate-400'
+              }`}
+            />
+            <span className="hidden sm:inline">
+              {mode === 'practice' ? 'Giải thích: BẬT' : 'Giải thích: TẮT'}
+            </span>
+          </button>
+        )}
+
         {onOpenPalette && (
           <button
             type="button"

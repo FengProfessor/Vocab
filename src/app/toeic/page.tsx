@@ -13,6 +13,7 @@ import {
   Layers,
   ListFilter,
   SlidersHorizontal,
+  Lightbulb,
 } from 'lucide-react';
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
 import type {
@@ -470,19 +471,21 @@ function ToeicCatalogContent() {
                   {/* Action Buttons */}
                   <div className="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2">
                     <Link
-                      href={`/toeic/exam/${test.id}`}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-2 px-2.5 text-xs font-bold transition-colors text-center"
+                      href={`/toeic/exam/${test.id}?mode=practice`}
+                      className="inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-2 px-2 text-xs font-bold transition-colors text-center"
+                      title="Luyện tập từng câu, có ngay đáp án đúng/sai và lời giải thích chi tiết sau khi chọn"
                     >
-                      <Play className="h-3.5 w-3.5 fill-current" />
-                      <span>Vào thi ngay</span>
+                      <Lightbulb className="h-3.5 w-3.5" />
+                      <span>Luyện đề (Giải thích ngay)</span>
                     </Link>
 
                     <Link
-                      href={`/toeic/exam/${test.id}?mode=practice`}
+                      href={`/toeic/exam/${test.id}?mode=real`}
                       className="inline-flex items-center justify-center gap-1 rounded-sm border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 py-2 px-2 text-xs font-medium transition-colors text-center"
+                      title="Mô phỏng thi thật 120 phút, tính giờ, ẩn đáp án đến khi nộp bài"
                     >
-                      <RotateCcw className="h-3 w-3" />
-                      <span>Luyện tự do</span>
+                      <Clock className="h-3 w-3" />
+                      <span>Thi thử ETS (120p)</span>
                     </Link>
                   </div>
                 </div>

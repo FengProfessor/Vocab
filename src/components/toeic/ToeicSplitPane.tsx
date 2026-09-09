@@ -49,6 +49,10 @@ export function stripHtmlTags(str?: string): string {
     '&Ograve;': 'Ò', '&Oacute;': 'Ó', '&Ocirc;': 'Ô', '&Otilde;': 'Õ',
     '&Ugrave;': 'Ù', '&Uacute;': 'Ú',
     '&Yacute;': 'Ý',
+    '&rsquo;': "'", '&lsquo;': "'",
+    '&ldquo;': '"', '&rdquo;': '"',
+    '&mdash;': '—', '&ndash;': '–',
+    '&hellip;': '...',
   };
 
   for (const [entity, char] of Object.entries(entityMap)) {
@@ -72,6 +76,7 @@ interface ToeicSplitPaneProps {
   totalQuestions: number;
   showExplanation?: boolean;
   onToggleExplanation?: () => void;
+  onEnablePracticeMode?: () => void;
   onOpenPalette?: () => void;
   paletteStats?: { answered: number; total: number };
   className?: string;
@@ -91,6 +96,7 @@ export function ToeicSplitPane({
   totalQuestions,
   showExplanation = false,
   onToggleExplanation,
+  onEnablePracticeMode,
   onOpenPalette,
   paletteStats,
   className = '',
@@ -414,6 +420,26 @@ export function ToeicSplitPane({
             <kbd className="px-1 py-0.5 rounded-xs border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">F</kbd> gắn cờ |{' '}
             <kbd className="px-1 py-0.5 rounded-xs border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">←</kbd> <kbd className="px-1 py-0.5 rounded-xs border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">→</kbd> chuyển câu
           </p>
+
+          {/* Quick toggle banner if in exam mode */}
+          {isExamMode && selectedOption && onEnablePracticeMode && (
+            <div className="pt-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 p-2.5 text-xs animate-in fade-in duration-100">
+                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                  <HelpCircle className="h-4 w-4 text-slate-400 shrink-0" />
+                  <span>Đang ở chế độ Thi thử (đáp án & giải thích ẩn đến khi nộp bài).</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={onEnablePracticeMode}
+                  className="inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 px-2.5 py-1.5 text-xs font-bold text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 cursor-pointer shrink-0 transition-colors shadow-2xs"
+                >
+                  <span>Bật xem giải thích ngay</span>
+                  <span>💡</span>
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Explanation Box in Practice Mode */}
           {!isExamMode && onToggleExplanation && (

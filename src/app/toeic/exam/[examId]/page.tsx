@@ -67,7 +67,7 @@ function ToeicExamRoomInner() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const decodedExamId = decodeURIComponent(examId || '6852');
+  const decodedExamId = decodeURIComponent(examId || 'estudyme-test-1');
   const modeParam = searchParams.get('mode');
   const partParam = searchParams.get('part');
   const testIdParam = searchParams.get('testId');
@@ -85,8 +85,9 @@ function ToeicExamRoomInner() {
   }, [partParam]);
 
   const isPartPractice = Boolean(partNum);
-  const examMode: ToeicExamMode =
+  const initialMode: ToeicExamMode =
     modeParam === 'practice' || isPartPractice ? 'practice' : 'real';
+  const [currentMode, setCurrentMode] = useState<ToeicExamMode>(initialMode);
 
   const targetTestId = useMemo(() => {
     if (isPartPractice && testIdParam) return testIdParam;
@@ -101,7 +102,7 @@ function ToeicExamRoomInner() {
       const minutes = timeParam ? parseInt(timeParam, 10) : 20;
       return {
         fallbackQuestions:
-          examMode === 'practice'
+          currentMode === 'practice'
             ? legacyQuestions
             : stripSensitiveToeicData(legacyQuestions),
         testTitle: `TOEIC Mini Test (${decodedExamId})`,
@@ -131,7 +132,7 @@ function ToeicExamRoomInner() {
         : Math.max(5, Math.ceil(pQuestions.length * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25)));
       return {
         fallbackQuestions:
-          examMode === 'practice' ? pQuestions : stripSensitiveToeicData(pQuestions),
+          currentMode === 'practice' ? pQuestions : stripSensitiveToeicData(pQuestions),
         testTitle: `Luyện tập Part ${partNum} (${pQuestions.length} câu — ${sourceLabel})`,
         durationSeconds: minutes * 60,
       };
@@ -175,11 +176,11 @@ function ToeicExamRoomInner() {
 
     return {
       fallbackQuestions:
-        examMode === 'practice' ? fullQuestions : stripSensitiveToeicData(fullQuestions),
+        currentMode === 'practice' ? fullQuestions : stripSensitiveToeicData(fullQuestions),
       testTitle: resolvedTitle,
       durationSeconds: minutes * 60,
     };
-  }, [targetTestId, decodedExamId, isPartPractice, partNum, timeParam, limitNum, examMode]);
+  }, [targetTestId, decodedExamId, isPartPractice, partNum, timeParam, limitNum, currentMode]);
 
   // Questions state: initially loaded via sanitized endpoint or fallback
   const [questions, setQuestions] = useState<ToeicClientQuestion[]>(fallbackQuestions);
@@ -203,7 +204,7 @@ function ToeicExamRoomInner() {
           ...(partNum ? { part: String(partNum) } : {}),
           ...(limitNum ? { limit: String(limitNum) } : {}),
           ...(timeParam ? { time: timeParam } : {}),
-          mode: examMode,
+          mode: currentMode,
         });
 
         const res = await fetch(`/api/toeic/test?${query.toString()}`);
@@ -230,12 +231,12 @@ function ToeicExamRoomInner() {
     return () => {
       isCancelled = true;
     };
-  }, [targetTestId, examMode, fallbackQuestions, partNum, timeParam, limitNum]);
+  }, [targetTestId, currentMode, fallbackQuestions, partNum, timeParam, limitNum]);
 
   // ── 4. Session State Hook & Submitted Exam Persistence ──
   const sessionKey = useMemo(() => {
-    return `${targetTestId}${partNum ? '_part' + partNum : ''}${limitNum ? '_lim' + limitNum : ''}_${examMode}`;
-  }, [targetTestId, examMode, partNum, limitNum]);
+    return `${targetTestId}${partNum ? '_part' + partNum : ''}${limitNum ? '_lim' + limitNum : ''}_${currentMode}`;
+  }, [targetTestId, currentMode, partNum, limitNum]);
 
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState<boolean>(false);
   const [isPaletteOpen, setIsPaletteOpen] = useState<boolean>(false);
@@ -272,7 +273,7 @@ function ToeicExamRoomInner() {
             'lingo_pending_toeic_save',
             JSON.stringify({
               testId: targetTestId,
-              examMode,
+              examMode: currentMode,
               part: partNum || undefined,
               sessionKey,
               answers,
@@ -310,18 +311,53 @@ function ToeicExamRoomInner() {
     testId: sessionKey,
     questions,
     initialTimeSeconds: durationSeconds,
-    mode: examMode,
+    mode: currentMode,
     autoRestore: true,
     onSubmit: handleSubmit,
   });
 
   // In practice mode: auto-reveal explanation if this question has an answer
   useEffect(() => {
-    if (examMode === 'practice') {
+    if (currentMode === 'practice') {
       const hasAnswer = Boolean(session.answers[session.currentQNum]);
       setShowPracticeExplanation(hasAnswer);
     }
-  }, [examMode, session.currentQNum, session.answers]);
+  }, [currentMode, session.currentQNum, session.answers]);
+
+  // Toggle instant explanation mode directly during the exam
+  const toggleExamMode = useCallback(async () => {
+    if (currentMode === 'practice') {
+      setCurrentMode('real');
+      setShowPracticeExplanation(false);
+      toast('Đã chuyển sang chế độ Thi thử (ẩn đáp án và giải thích cho đến khi nộp bài)');
+    } else {
+      setCurrentMode('practice');
+      // If questions don't have explanations yet (loaded via real mode api), fetch practice questions
+      const missingExplanations = questions.some((q) => !q.correctAnswer);
+      if (missingExplanations) {
+        try {
+          const query = new URLSearchParams({
+            testId: targetTestId,
+            ...(partNum ? { part: String(partNum) } : {}),
+            ...(limitNum ? { limit: String(limitNum) } : {}),
+            ...(timeParam ? { time: timeParam } : {}),
+            mode: 'practice',
+          });
+          const res = await fetch(`/api/toeic/test?${query.toString()}`);
+          if (res.ok) {
+            const data: ToeicTestApiResponse = await res.json();
+            if (data.success && data.questions && data.questions.length > 0) {
+              setQuestions(data.questions);
+            }
+          }
+        } catch (e) {
+          console.warn('[ToggleMode] Failed to fetch practice questions:', e);
+        }
+      }
+      setShowPracticeExplanation(true);
+      toast.success('Đã BẬT giải thích chi tiết: Lời giải & transcript sẽ hiển thị ngay khi bạn chọn đáp án!');
+    }
+  }, [currentMode, limitNum, partNum, questions, targetTestId, timeParam]);
 
   // ── 5. Auto-sync Pending Guest Exam Submission after Login or Page Reload ──
   useEffect(() => {
@@ -339,7 +375,7 @@ function ToeicExamRoomInner() {
           ? pending.sessionKey === sessionKey
           : pending.testId === targetTestId &&
             Number(pending.part || 0) === Number(partNum || 0) &&
-            pending.examMode === examMode;
+            pending.examMode === currentMode;
 
         if (matchesSession && pending.scoreResult) {
           setSubmittedScoreResult(pending.scoreResult);
@@ -389,7 +425,7 @@ function ToeicExamRoomInner() {
     };
 
     void syncPendingGuestSubmission();
-  }, [sessionKey, targetTestId, examMode, partNum]);
+  }, [sessionKey, targetTestId, currentMode, partNum]);
 
   // ── 6. Google Sign-In for Guests (Preserves in-progress/completed session) ──
   const handleGoogleSignInForGuest = useCallback(async () => {
@@ -404,7 +440,7 @@ function ToeicExamRoomInner() {
           'lingo_pending_toeic_save',
           JSON.stringify({
             testId: targetTestId,
-            examMode,
+            examMode: currentMode,
             part: partNum || undefined,
             answers: activeAnswers,
             timeSpentSeconds: durationSeconds - session.timeRemainingSeconds,
@@ -439,7 +475,7 @@ function ToeicExamRoomInner() {
   }, [
     targetTestId,
     durationSeconds,
-    examMode,
+    currentMode,
     partNum,
     session.answers,
     session.scoreResult,
@@ -619,6 +655,8 @@ function ToeicExamRoomInner() {
           answeredCount={session.answeredCount}
           totalQuestions={session.totalQuestions}
           flaggedCount={session.flaggedCount}
+          mode={currentMode}
+          onToggleMode={toggleExamMode}
           onPause={session.pauseExam}
           onSubmit={() => setIsSubmitModalOpen(true)}
           onOpenPalette={() => setIsPaletteOpen((prev) => !prev)}
@@ -631,12 +669,12 @@ function ToeicExamRoomInner() {
           {currentQ && (
             <ToeicSplitPane
               question={currentQ}
-              mode={examMode}
+              mode={currentMode}
               selectedOption={session.answers[session.currentQNum]}
               isFlagged={session.flagged.has(session.currentQNum)}
               onSelectOption={(opt) => {
                 session.selectAnswer(session.currentQNum, opt);
-                if (examMode === 'practice') {
+                if (currentMode === 'practice') {
                   setShowPracticeExplanation(true);
                 }
               }}
@@ -650,6 +688,7 @@ function ToeicExamRoomInner() {
               onToggleExplanation={() =>
                 setShowPracticeExplanation((prev) => !prev)
               }
+              onEnablePracticeMode={toggleExamMode}
               onOpenPalette={() => setIsPaletteOpen((prev) => !prev)}
               paletteStats={{
                 answered: session.answeredCount,
