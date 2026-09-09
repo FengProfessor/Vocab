@@ -19,6 +19,7 @@ interface SubmitRequestBody {
   testId?: string;
   examMode?: ToeicExamMode;
   part?: ToeicPart | number;
+  limit?: number;
   answers?: Record<number, ToeicOptionKey>;
   timeSpentSeconds?: number;
   honeypot?: string;
@@ -75,7 +76,8 @@ export async function POST(req: NextRequest) {
     // Clean testId if mode suffix was attached (e.g. '6852_real' -> '6852')
     const testId = rawTestId
       .replace(/_(real|practice|full_simulation|practice_part)$/, '')
-      .replace(/_part[1-7]/, '');
+      .replace(/_part[1-7]/, '')
+      .replace(/_lim\d+/, '');
     const examMode: ToeicExamMode = body.examMode || 'real';
     const answers = body.answers || {};
     const timeSpentSeconds = Math.max(0, Number(body.timeSpentSeconds) || 0);
@@ -88,18 +90,31 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    const limitNum = body.limit ? Number(body.limit) : undefined;
+
     // 3. Load Master Questions on Server (with correctAnswer, explanationVi, transcript)
     let masterQuestions: ToeicUnifiedQuestion[] = [];
     const legacyQuestions = convertLegacyMiniTest(testId);
 
     if (legacyQuestions.length > 0) {
       masterQuestions = legacyQuestions;
-    } else if (partNum && !testId.includes('part_') && !testId.includes('-set')) {
-      masterQuestions = loadToeicPartPractice(partNum, testId);
+    } else if (
+      partNum &&
+      (testId === 'all' ||
+        testId === 'bank' ||
+        testId === 'all-tests' ||
+        testId === 'practice' ||
+        testId === 'part-practice' ||
+        (!testId.includes('part_') && !testId.includes('-set')))
+    ) {
+      masterQuestions = loadToeicPartPractice(partNum, testId, limitNum, true);
     } else {
       masterQuestions = loadAnyToeicTest(testId);
       if (partNum && masterQuestions.some((q) => q.part !== partNum)) {
         masterQuestions = masterQuestions.filter((q) => q.part === partNum);
+      }
+      if (limitNum && limitNum > 0 && masterQuestions.length > limitNum) {
+        masterQuestions = masterQuestions.slice(0, limitNum);
       }
     }
 

@@ -156,7 +156,7 @@ export function useToeicExamSession({
 
   // ── 3. Submit Exam Method (Server-Side Scoring with Local Fallback) ──
   const submitExam = useCallback(
-    async (options?: { honeypot?: string; part?: number }) => {
+    async (options?: { honeypot?: string; part?: number; limit?: number }) => {
       if (isSubmittedRef.current || isSubmitting) return;
       setIsSubmitting(true);
 
@@ -165,7 +165,8 @@ export function useToeicExamSession({
       // Extract clean testId without mode suffixes (e.g. '6852_real' -> '6852')
       const cleanTestId = testId
         .replace(/_(real|practice|full_simulation|practice_part)$/, '')
-        .replace(/_part[1-7]/, '');
+        .replace(/_part[1-7]/, '')
+        .replace(/_lim\d+/, '');
 
       try {
         // Attempt secure server-side scoring & submission
@@ -176,6 +177,7 @@ export function useToeicExamSession({
             testId: cleanTestId,
             examMode: mode,
             part: options?.part,
+            limit: options?.limit,
             answers,
             timeSpentSeconds: Math.max(0, elapsed),
             honeypot: options?.honeypot || '',

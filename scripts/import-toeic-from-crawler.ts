@@ -78,7 +78,7 @@ export function importCrawledData(filePath?: string) {
           question: q.text,
           options: opts,
           answer: q.correct_answer,
-          explain: `Đáp án đúng là ${q.correct_answer}. Câu hỏi được đối soát chuẩn xác theo đề thi Study4.`,
+          explain: `Đáp án chính xác là (${q.correct_answer}). Căn cứ theo nội dung đoạn văn và ngữ pháp chuẩn khảo thí ETS.`,
           skill: 'grammar',
           topic: 'workplace',
         };

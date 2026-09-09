@@ -13,6 +13,7 @@ import {
   Headphones,
   CheckCircle2,
   XCircle,
+  Grid,
 } from 'lucide-react';
 import type {
   ToeicUnifiedQuestion,
@@ -24,7 +25,37 @@ import { ToeicAudioPlayer } from './ToeicAudioPlayer';
 
 export function stripHtmlTags(str?: string): string {
   if (!str) return '';
-  return str.replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]*>/g, '').trim();
+  let text = str
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+
+  const entityMap: Record<string, string> = {
+    '&agrave;': 'à', '&aacute;': 'á', '&acirc;': 'â', '&atilde;': 'ã',
+    '&egrave;': 'è', '&eacute;': 'é', '&ecirc;': 'ê',
+    '&igrave;': 'ì', '&iacute;': 'í',
+    '&ograve;': 'ò', '&oacute;': 'ó', '&ocirc;': 'ô', '&otilde;': 'õ',
+    '&ugrave;': 'ù', '&uacute;': 'ú',
+    '&yacute;': 'ý',
+    '&Agrave;': 'À', '&Aacute;': 'Á', '&Acirc;': 'Â', '&Atilde;': 'Ã',
+    '&Egrave;': 'È', '&Eacute;': 'É', '&Ecirc;': 'Ê',
+    '&Igrave;': 'Ì', '&Iacute;': 'Í',
+    '&Ograve;': 'Ò', '&Oacute;': 'Ó', '&Ocirc;': 'Ô', '&Otilde;': 'Õ',
+    '&Ugrave;': 'Ù', '&Uacute;': 'Ú',
+    '&Yacute;': 'Ý',
+  };
+
+  for (const [entity, char] of Object.entries(entityMap)) {
+    text = text.replaceAll(entity, char);
+  }
+
+  return text.replace(/\n{3,}/g, '\n\n').trim();
 }
 
 interface ToeicSplitPaneProps {
@@ -41,6 +72,8 @@ interface ToeicSplitPaneProps {
   totalQuestions: number;
   showExplanation?: boolean;
   onToggleExplanation?: () => void;
+  onOpenPalette?: () => void;
+  paletteStats?: { answered: number; total: number };
   className?: string;
 }
 
@@ -58,6 +91,8 @@ export function ToeicSplitPane({
   totalQuestions,
   showExplanation = false,
   onToggleExplanation,
+  onOpenPalette,
+  paletteStats,
   className = '',
 }: ToeicSplitPaneProps) {
   const isExamMode = mode === 'real' || mode === 'full_simulation';
@@ -246,14 +281,14 @@ export function ToeicSplitPane({
             </div>
           )}
 
-          {/* Transcript in Practice Mode (if available and toggled) */}
-          {!isExamMode && showExplanation && question.transcript && (
+          {/* Transcript in Practice Mode (Listening only) */}
+          {!isExamMode && showExplanation && question.transcript && question.section === 'listening' && (
             <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 text-xs dark:border-slate-700 dark:bg-slate-800/40">
               <p className="font-mono text-xs font-bold text-slate-900 dark:text-slate-100 mb-1">
-                Audio Transcript:
+                Lời thoại bài nghe (Transcript):
               </p>
-              <div className="text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap font-mono text-[11px]">
-                {question.transcript}
+              <div className="text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap font-sans text-xs">
+                {stripHtmlTags(question.transcript)}
               </div>
             </div>
           )}
@@ -311,9 +346,11 @@ export function ToeicSplitPane({
           <div className="space-y-2.5" role="radiogroup" aria-label="Các phương án lựa chọn">
             {question.options.map((opt) => {
               const isSelected = selectedOption === opt.key;
-              const isCorrectAnswer = !isExamMode && showExplanation && opt.key === question.correctAnswer;
+              const isAnswered = Boolean(selectedOption);
+              const shouldReveal = !isExamMode && (showExplanation || isAnswered);
+              const isCorrectAnswer = shouldReveal && opt.key === question.correctAnswer;
               const isWrongSelection =
-                !isExamMode && showExplanation && isSelected && opt.key !== question.correctAnswer;
+                shouldReveal && isSelected && opt.key !== question.correctAnswer;
 
               return (
                 <button
@@ -351,11 +388,17 @@ export function ToeicSplitPane({
                   </span>
 
                   {/* Explanation visual marker */}
-                  {!isExamMode && showExplanation && isCorrectAnswer && (
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  {isCorrectAnswer && (
+                    <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400 shrink-0">
+                      <CheckCircle2 className="h-4 w-4" />
+                      <span>Đáp án đúng</span>
+                    </span>
                   )}
-                  {!isExamMode && showExplanation && isWrongSelection && (
-                    <XCircle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0" />
+                  {isWrongSelection && (
+                    <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-rose-700 dark:text-rose-400 shrink-0">
+                      <XCircle className="h-4 w-4" />
+                      <span>Sai</span>
+                    </span>
                   )}
                 </button>
               );
@@ -378,18 +421,63 @@ export function ToeicSplitPane({
               <button
                 type="button"
                 onClick={onToggleExplanation}
-                className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white cursor-pointer"
+                className="inline-flex items-center gap-1.5 rounded-sm border border-slate-200 bg-white px-2.5 py-1.5 font-mono text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 cursor-pointer shadow-2xs"
               >
-                <HelpCircle className="h-3.5 w-3.5" />
-                <span>{showExplanation ? 'Ẩn giải thích' : 'Xem giải thích chi tiết'}</span>
+                <HelpCircle className="h-3.5 w-3.5 text-slate-500" />
+                <span>{showExplanation ? '▲ Ẩn giải thích' : '💡 Xem giải thích chi tiết ▼'}</span>
               </button>
 
-              {showExplanation && question.explanationVi && (
-                <div className="mt-2.5 rounded-sm border border-slate-200 bg-slate-50 p-3.5 text-xs leading-relaxed text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                  <p className="font-mono font-bold text-slate-900 dark:text-slate-100 mb-1">
-                    Giải thích đáp án:
-                  </p>
-                  <p>{stripHtmlTags(question.explanationVi)}</p>
+              {showExplanation && (
+                <div className="mt-2.5 rounded-sm border border-slate-200 bg-slate-50 p-3.5 text-xs leading-relaxed text-slate-800 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 space-y-2.5 animate-in fade-in duration-100">
+                  {/* Status Banner */}
+                  {selectedOption && question.correctAnswer && (
+                    <div className="flex items-center gap-2 font-mono text-xs font-bold">
+                      {selectedOption === question.correctAnswer ? (
+                        <span className="inline-flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+                          <CheckCircle2 className="h-4 w-4 shrink-0" />
+                          <span>Chính xác! Đáp án đúng là ({question.correctAnswer})</span>
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1.5 text-rose-700 dark:text-rose-400">
+                          <XCircle className="h-4 w-4 shrink-0" />
+                          <span>Chưa chính xác. Bạn chọn ({selectedOption}) — Đáp án đúng: ({question.correctAnswer})</span>
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  {!selectedOption && question.correctAnswer && (
+                    <div className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-mono text-xs font-bold">
+                      <HelpCircle className="h-3.5 w-3.5 shrink-0 text-slate-400" />
+                      <span>Đáp án đúng của câu này: ({question.correctAnswer})</span>
+                    </div>
+                  )}
+
+                  {question.explanationVi ? (
+                    <div>
+                      <p className="font-mono font-bold text-slate-900 dark:text-slate-100 mb-1">
+                        Giải thích chi tiết:
+                      </p>
+                      <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300">
+                        {stripHtmlTags(question.explanationVi)}
+                      </div>
+                    </div>
+                  ) : question.correctAnswer ? (
+                    <p className="text-slate-500 text-xs">
+                      Đáp án chuẩn ETS: <strong>({question.correctAnswer})</strong>.
+                    </p>
+                  ) : null}
+
+                  {question.transcript && question.section === 'listening' && (
+                    <div className="border-t border-slate-200 dark:border-slate-800 pt-2">
+                      <p className="font-mono font-bold text-slate-900 dark:text-slate-100 mb-1">
+                        Lời thoại bài nghe (Transcript):
+                      </p>
+                      <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans">
+                        {stripHtmlTags(question.transcript)}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -397,28 +485,46 @@ export function ToeicSplitPane({
         </div>
 
         {/* Fixed Navigation Footer (Prev / Next) */}
-        <div className="shrink-0 border-t border-slate-200 bg-slate-50 p-2.5 sm:p-3 flex items-center justify-between dark:border-slate-800 dark:bg-slate-900">
+        <div className="shrink-0 border-t border-slate-200 bg-slate-50 p-2 sm:p-2.5 flex items-center justify-between dark:border-slate-800 dark:bg-slate-900 gap-2">
           <button
             type="button"
             onClick={onPrev}
             disabled={!hasPrev}
-            className={`inline-flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer ${
+            className={`inline-flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2.5 sm:px-3 py-1.5 text-xs font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer ${
               !hasPrev ? 'opacity-40 cursor-not-allowed' : ''
             }`}
           >
             <ChevronLeft className="h-3.5 w-3.5" />
-            <span>Câu trước</span>
+            <span className="hidden sm:inline">Câu trước</span>
           </button>
 
-          <span className="font-mono tabular-nums text-xs font-medium text-slate-600 dark:text-slate-400">
-            {selectedOption ? `Đã chọn: (${selectedOption})` : 'Chưa chọn'}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="font-mono tabular-nums text-xs font-medium text-slate-600 dark:text-slate-400">
+              {selectedOption ? `Đã chọn: (${selectedOption})` : 'Chưa chọn'}
+            </span>
+            {onOpenPalette && (
+              <button
+                type="button"
+                onClick={onOpenPalette}
+                className="inline-flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2 py-1 font-mono text-xs font-semibold text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer"
+                title="Mở bảng điều hướng câu hỏi"
+              >
+                <Grid className="h-3 w-3" />
+                <span className="hidden sm:inline">Bảng câu hỏi</span>
+                {paletteStats && (
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400">
+                    ({paletteStats.answered}/{paletteStats.total})
+                  </span>
+                )}
+              </button>
+            )}
+          </div>
 
           <button
             type="button"
             onClick={onNext}
             disabled={!hasNext}
-            className={`inline-flex items-center gap-1 rounded-sm bg-slate-900 px-3.5 py-1.5 text-xs font-bold text-white shadow-none transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer ${
+            className={`inline-flex items-center gap-1 rounded-sm bg-slate-900 px-3 sm:px-3.5 py-1.5 text-xs font-bold text-white shadow-none transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer ${
               !hasNext ? 'opacity-40 cursor-not-allowed' : ''
             }`}
           >

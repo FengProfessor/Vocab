@@ -20,6 +20,8 @@ import { runTier5Tests } from './tier5-adversarial.test';
 import { runCatalogIntegrityTests } from './catalog-integrity.test';
 import { runEstudymeLoaderTests } from './estudyme-loader.test';
 import { runUiMinimalistTests } from './ui-minimalist.test';
+import { runUserFeedbackV4Tests } from './user-feedback-v4.test';
+import { runCopyrightWhitelabelTests } from './copyright-whitelabel.test';
 
 async function main() {
   console.log('================================================================================');
@@ -93,6 +95,22 @@ async function main() {
   const statsUi = runnerUi.getStats();
   tierStats.push({ tierName: 'Technical Minimalist UI', stats: statsUi, minRequired: 8 });
   console.log(`✓ UI Minimalist Finished: ${statsUi.passed}/${statsUi.total} passed (${statsUi.durationMs}ms)\n`);
+
+  // Suite: User Feedback V4 (Bank Practice, Palette UI, Part Score Report)
+  console.log('▶ Running Suite: User Feedback V4 (Bank Practice, Palette UI, Part Score Report)...');
+  const runnerV4 = new TestRunner();
+  await runUserFeedbackV4Tests(runnerV4);
+  const statsV4 = runnerV4.getStats();
+  tierStats.push({ tierName: 'User Feedback V4 Enhancements', stats: statsV4, minRequired: 10 });
+  console.log(`✓ User Feedback V4 Finished: ${statsV4.passed}/${statsV4.total} passed (${statsV4.durationMs}ms)\n`);
+
+  // Suite: Copyright & White-Labeling Compliance
+  console.log('▶ Running Suite: Copyright & White-Labeling Compliance (Zero Third-Party Traces)...');
+  const runnerCW = new TestRunner();
+  await runCopyrightWhitelabelTests(runnerCW);
+  const statsCW = runnerCW.getStats();
+  tierStats.push({ tierName: 'Copyright & White-Labeling', stats: statsCW, minRequired: 8 });
+  console.log(`✓ Copyright & White-Labeling Finished: ${statsCW.passed}/${statsCW.total} passed (${statsCW.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

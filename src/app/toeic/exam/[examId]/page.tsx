@@ -70,8 +70,12 @@ function ToeicExamRoomInner() {
   const decodedExamId = decodeURIComponent(examId || '6852');
   const modeParam = searchParams.get('mode');
   const partParam = searchParams.get('part');
+  const testIdParam = searchParams.get('testId');
+  const limitParam = searchParams.get('limit');
   const timeParam = searchParams.get('time');
   const roadmapStep = searchParams.get('roadmapStep') ?? '';
+
+  const limitNum = limitParam ? parseInt(limitParam, 10) : undefined;
 
   // ── 1. Determine Target Part and Testing Mode ──
   const partNum = useMemo(() => {
@@ -84,6 +88,11 @@ function ToeicExamRoomInner() {
   const examMode: ToeicExamMode =
     modeParam === 'practice' || isPartPractice ? 'practice' : 'real';
 
+  const targetTestId = useMemo(() => {
+    if (isPartPractice && testIdParam) return testIdParam;
+    return decodedExamId;
+  }, [isPartPractice, testIdParam, decodedExamId]);
+
   // ── 2. Local Fallback Dataset (Used offline or before API loads) ──
   const { fallbackQuestions, testTitle, durationSeconds } = useMemo(() => {
     // Check if it's a legacy mini-test ID first
@@ -91,7 +100,10 @@ function ToeicExamRoomInner() {
     if (legacyQuestions.length > 0) {
       const minutes = timeParam ? parseInt(timeParam, 10) : 20;
       return {
-        fallbackQuestions: stripSensitiveToeicData(legacyQuestions),
+        fallbackQuestions:
+          examMode === 'practice'
+            ? legacyQuestions
+            : stripSensitiveToeicData(legacyQuestions),
         testTitle: `TOEIC Mini Test (${decodedExamId})`,
         durationSeconds: minutes * 60,
       };
@@ -99,18 +111,33 @@ function ToeicExamRoomInner() {
 
     // Part practice mode
     if (isPartPractice && partNum) {
-      const pQuestions = loadToeicPartPractice(partNum, decodedExamId);
+      const isBank =
+        !targetTestId ||
+        targetTestId === 'all' ||
+        targetTestId === 'bank' ||
+        targetTestId === 'practice' ||
+        targetTestId === 'part-practice';
+      const catalog = getToeicCatalogIndex();
+      const foundItem = catalog.fullTests.find(
+        (t) => t.id === targetTestId || t.displayId === targetTestId
+      );
+      const cleanLabel = targetTestId
+        .replace(/^estudyme-test-(\d+)/i, 'Đề ETS Simulation $1')
+        .replace(/^study4_test_(\d+)/i, 'Đề ETS $1');
+      const sourceLabel = isBank ? 'Ngân hàng đề' : (foundItem?.title || cleanLabel);
+      const pQuestions = loadToeicPartPractice(partNum, targetTestId, limitNum, true);
       const minutes = timeParam
         ? parseInt(timeParam, 10)
-        : PART_RECOMMENDED_MINUTES[partNum] || 15;
+        : Math.max(5, Math.ceil(pQuestions.length * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25)));
       return {
-        fallbackQuestions: stripSensitiveToeicData(pQuestions),
-        testTitle: `Luyện tập TOEIC Part ${partNum} (${decodedExamId})`,
+        fallbackQuestions:
+          examMode === 'practice' ? pQuestions : stripSensitiveToeicData(pQuestions),
+        testTitle: `Luyện tập Part ${partNum} (${pQuestions.length} câu — ${sourceLabel})`,
         durationSeconds: minutes * 60,
       };
     }
 
-    // Universal Dynamic Test Resolution (Estudyme, Study4, authentic ETS)
+    // Universal Dynamic Test Resolution (ETS Authentic Simulation)
     const catalog = getToeicCatalogIndex();
     const fullCatalogItem = catalog.fullTests.find(
       (t) => t.id === decodedExamId || t.displayId === decodedExamId
@@ -129,11 +156,15 @@ function ToeicExamRoomInner() {
     const availableTests = getAvailableToeicTests();
     const meta = availableTests.find((t) => t.testId === decodedExamId);
 
+    const cleanFallback = decodedExamId
+      .replace(/^estudyme-test-(\d+)/i, 'ETS Simulation $1')
+      .replace(/^study4_test_(\d+)/i, 'ETS $1');
+
     const resolvedTitle =
       fullCatalogItem?.title ||
       practiceCatalogItem?.title ||
       meta?.title ||
-      `Đề thi TOEIC LR (${decodedExamId})`;
+      `Đề thi TOEIC LR (${cleanFallback})`;
 
     const defaultMinutes =
       fullCatalogItem?.durationMinutes ||
@@ -143,11 +174,12 @@ function ToeicExamRoomInner() {
     const minutes = timeParam ? parseInt(timeParam, 10) : defaultMinutes;
 
     return {
-      fallbackQuestions: stripSensitiveToeicData(fullQuestions),
+      fallbackQuestions:
+        examMode === 'practice' ? fullQuestions : stripSensitiveToeicData(fullQuestions),
       testTitle: resolvedTitle,
       durationSeconds: minutes * 60,
     };
-  }, [decodedExamId, isPartPractice, partNum, timeParam]);
+  }, [targetTestId, decodedExamId, isPartPractice, partNum, timeParam, limitNum, examMode]);
 
   // Questions state: initially loaded via sanitized endpoint or fallback
   const [questions, setQuestions] = useState<ToeicClientQuestion[]>(fallbackQuestions);
@@ -167,8 +199,9 @@ function ToeicExamRoomInner() {
     async function fetchSanitizedTest() {
       try {
         const query = new URLSearchParams({
-          testId: decodedExamId,
+          testId: targetTestId,
           ...(partNum ? { part: String(partNum) } : {}),
+          ...(limitNum ? { limit: String(limitNum) } : {}),
           ...(timeParam ? { time: timeParam } : {}),
           mode: examMode,
         });
@@ -197,12 +230,12 @@ function ToeicExamRoomInner() {
     return () => {
       isCancelled = true;
     };
-  }, [decodedExamId, examMode, fallbackQuestions, partNum, timeParam]);
+  }, [targetTestId, examMode, fallbackQuestions, partNum, timeParam, limitNum]);
 
   // ── 4. Session State Hook & Submitted Exam Persistence ──
   const sessionKey = useMemo(() => {
-    return `${decodedExamId}${partNum ? '_part' + partNum : ''}_${examMode}`;
-  }, [decodedExamId, examMode, partNum]);
+    return `${targetTestId}${partNum ? '_part' + partNum : ''}${limitNum ? '_lim' + limitNum : ''}_${examMode}`;
+  }, [targetTestId, examMode, partNum, limitNum]);
 
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState<boolean>(false);
   const [isPaletteOpen, setIsPaletteOpen] = useState<boolean>(false);
@@ -238,9 +271,10 @@ function ToeicExamRoomInner() {
           localStorage.setItem(
             'lingo_pending_toeic_save',
             JSON.stringify({
-              testId: decodedExamId,
+              testId: targetTestId,
               examMode,
               part: partNum || undefined,
+              sessionKey,
               answers,
               timeSpentSeconds: durationSeconds - session.timeRemainingSeconds,
               scoreResult: result,
@@ -281,6 +315,14 @@ function ToeicExamRoomInner() {
     onSubmit: handleSubmit,
   });
 
+  // In practice mode: auto-reveal explanation if this question has an answer
+  useEffect(() => {
+    if (examMode === 'practice') {
+      const hasAnswer = Boolean(session.answers[session.currentQNum]);
+      setShowPracticeExplanation(hasAnswer);
+    }
+  }, [examMode, session.currentQNum, session.answers]);
+
   // ── 5. Auto-sync Pending Guest Exam Submission after Login or Page Reload ──
   useEffect(() => {
     const syncPendingGuestSubmission = async () => {
@@ -292,8 +334,14 @@ function ToeicExamRoomInner() {
         const pending = JSON.parse(pendingRaw);
         if (!pending || !pending.testId) return;
 
-        // If the pending test matches this test room, immediately restore score report!
-        if (pending.testId === decodedExamId && pending.scoreResult) {
+        // Strictly match this specific exam session (testId, part, limit, mode) before restoring
+        const matchesSession = pending.sessionKey
+          ? pending.sessionKey === sessionKey
+          : pending.testId === targetTestId &&
+            Number(pending.part || 0) === Number(partNum || 0) &&
+            pending.examMode === examMode;
+
+        if (matchesSession && pending.scoreResult) {
           setSubmittedScoreResult(pending.scoreResult);
           setSubmittedAnswers(pending.answers || {});
           setIsExamSubmittedState(true);
@@ -341,7 +389,7 @@ function ToeicExamRoomInner() {
     };
 
     void syncPendingGuestSubmission();
-  }, [decodedExamId]);
+  }, [sessionKey, targetTestId, examMode, partNum]);
 
   // ── 6. Google Sign-In for Guests (Preserves in-progress/completed session) ──
   const handleGoogleSignInForGuest = useCallback(async () => {
@@ -355,7 +403,7 @@ function ToeicExamRoomInner() {
         localStorage.setItem(
           'lingo_pending_toeic_save',
           JSON.stringify({
-            testId: decodedExamId,
+            testId: targetTestId,
             examMode,
             part: partNum || undefined,
             answers: activeAnswers,
@@ -389,7 +437,7 @@ function ToeicExamRoomInner() {
       setIsGoogleLoading(false);
     }
   }, [
-    decodedExamId,
+    targetTestId,
     durationSeconds,
     examMode,
     partNum,
@@ -446,6 +494,17 @@ function ToeicExamRoomInner() {
   const isCompleted = isExamSubmittedState || session.isSubmitted;
   const isHistorySaved = isSavedToHistoryState || session.savedToHistory;
   const isCurrentGuest = isGuestState || session.isGuest;
+  const isFullTestExam = useMemo(() => {
+    if (isPartPractice) return false;
+    if (questions.length < 100) return false;
+    const hasListening = questions.some(
+      (q) => q.section === 'listening' || (q.part && q.part <= 4)
+    );
+    const hasReading = questions.some(
+      (q) => q.section === 'reading' || (q.part && q.part >= 5)
+    );
+    return hasListening && hasReading;
+  }, [isPartPractice, questions]);
 
   if (isCompleted && activeScoreResult) {
     return (
@@ -487,6 +546,9 @@ function ToeicExamRoomInner() {
             testTitle={testTitle}
             onGoogleSignIn={handleGoogleSignInForGuest}
             isGoogleLoading={isGoogleLoading}
+            isFullTest={isFullTestExam}
+            totalQuestions={questions.length}
+            partNum={partNum}
           />
         </div>
       </StudentShell>
@@ -559,6 +621,7 @@ function ToeicExamRoomInner() {
           flaggedCount={session.flaggedCount}
           onPause={session.pauseExam}
           onSubmit={() => setIsSubmitModalOpen(true)}
+          onOpenPalette={() => setIsPaletteOpen((prev) => !prev)}
           isPaused={session.isPaused}
           allowPause={true}
         />
@@ -571,7 +634,12 @@ function ToeicExamRoomInner() {
               mode={examMode}
               selectedOption={session.answers[session.currentQNum]}
               isFlagged={session.flagged.has(session.currentQNum)}
-              onSelectOption={(opt) => session.selectAnswer(session.currentQNum, opt)}
+              onSelectOption={(opt) => {
+                session.selectAnswer(session.currentQNum, opt);
+                if (examMode === 'practice') {
+                  setShowPracticeExplanation(true);
+                }
+              }}
               onToggleFlag={() => session.toggleFlag(session.currentQNum)}
               onNext={session.nextQuestion}
               onPrev={session.prevQuestion}
@@ -582,6 +650,11 @@ function ToeicExamRoomInner() {
               onToggleExplanation={() =>
                 setShowPracticeExplanation((prev) => !prev)
               }
+              onOpenPalette={() => setIsPaletteOpen((prev) => !prev)}
+              paletteStats={{
+                answered: session.answeredCount,
+                total: session.totalQuestions,
+              }}
               className="h-[calc(100vh-48px)]"
             />
           )}
@@ -625,6 +698,7 @@ function ToeicExamRoomInner() {
             const res = await session.submitExam({
               honeypot: honeypotValue,
               part: partNum || undefined,
+              limit: limitNum || undefined,
             });
             if (res && !res.success && res.error) {
               toast.error(res.error);

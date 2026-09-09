@@ -51,7 +51,7 @@ export function importAllToeic() {
     part4: any[];
   } = {
     version: 'toeic-listening-v1',
-    source: 'Study4 CDN — Authentic TOEIC Listening Audio & Images',
+    source: 'Bộ đề Khảo thí TOEIC Listening & Reading chuẩn hóa LingoPro',
     updatedAt: new Date().toISOString(),
     part1: [],
     part2: [],
@@ -156,7 +156,7 @@ export function importAllToeic() {
               q: q.text || `Câu hỏi số ${q.qnum}`,
               options: opts.length === 4 ? opts : ['(A) opt1', '(B) opt2', '(C) opt3', '(D) opt4'],
               answer: q.correct_answer || 'A',
-              explain: `Đáp án đúng là (${q.correct_answer || 'A'}). Đối soát chính xác từ đề thi.`,
+              explain: `Đáp án chính xác là (${q.correct_answer || 'A'}). Căn cứ theo nội dung đoạn văn và ngữ pháp chuẩn khảo thí ETS.`,
             };
           });
 

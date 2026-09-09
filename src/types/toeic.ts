@@ -169,6 +169,7 @@ export interface ToeicSubmitApiRequest {
   testId: string;
   examMode: ToeicExamMode;
   part?: ToeicPart;
+  limit?: number;
   answers: Record<number, ToeicOptionKey>;
   timeSpentSeconds: number;
   honeypot?: string;

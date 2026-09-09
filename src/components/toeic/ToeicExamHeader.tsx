@@ -9,6 +9,7 @@ import {
   Headphones,
   BookOpen,
   Flag,
+  Grid,
 } from 'lucide-react';
 import type { ToeicSection, ToeicPart } from '@/types/toeic';
 
@@ -24,6 +25,7 @@ export interface ToeicExamHeaderProps {
   flaggedCount?: number;
   onPause: () => void;
   onSubmit: () => void;
+  onOpenPalette?: () => void;
   isPaused?: boolean;
   allowPause?: boolean;
   className?: string;
@@ -40,6 +42,7 @@ export function ToeicExamHeader({
   flaggedCount = 0,
   onPause,
   onSubmit,
+  onOpenPalette,
   isPaused = false,
   allowPause = true,
   className = '',
@@ -118,6 +121,18 @@ export function ToeicExamHeader({
 
       {/* Right: Pause & Submit Actions */}
       <div className="flex items-center gap-2 shrink-0">
+        {onOpenPalette && (
+          <button
+            type="button"
+            onClick={onOpenPalette}
+            className="flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2.5 py-1 text-xs font-mono font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer"
+            title="Mở bảng điều hướng câu hỏi"
+          >
+            <Grid className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Bảng câu hỏi</span>
+          </button>
+        )}
+
         {allowPause && (
           <button
             type="button"

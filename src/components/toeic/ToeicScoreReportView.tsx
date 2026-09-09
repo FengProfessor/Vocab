@@ -38,6 +38,7 @@ import type {
 } from '@/types/toeic';
 import { getCefrDescriptor, getPartAccuracyRating } from '@/lib/toeic-scoring';
 import { ToeicAudioPlayer } from './ToeicAudioPlayer';
+import { stripHtmlTags } from './ToeicSplitPane';
 
 export interface ToeicScoreReportViewProps {
   scoreResult: ToeicScoreResult;
@@ -64,6 +65,54 @@ const PART_METADATA: Record<
   5: { name: 'Part 5: Incomplete Sentences', section: 'reading', desc: 'Hoàn thành câu' },
   6: { name: 'Part 6: Text Completion', section: 'reading', desc: 'Hoàn thành đoạn văn' },
   7: { name: 'Part 7: Reading Comprehension', section: 'reading', desc: 'Đọc hiểu văn bản' },
+};
+
+const PART_FEEDBACK: Record<
+  ToeicPart,
+  { title: string; high: string; mid: string; low: string }
+> = {
+  1: {
+    title: 'Part 1: Photographs (Mô tả hình ảnh)',
+    high: 'Phản xạ nghe tranh rất nhạy bén! Bạn nhận diện tốt chủ thể hành động và trạng thái tĩnh/động trong tranh.',
+    mid: 'Khả năng quan sát tranh tương đối ổn, cần chú ý thêm bẫy về thì bị động (is being + V3) và giới từ vị trí.',
+    low: 'Cần củng cố từ vựng mô tả hành động con người, đồ vật công sở và vị trí không gian để tránh bẫy Part 1.',
+  },
+  2: {
+    title: 'Part 2: Question - Response (Hỏi & Đáp)',
+    high: 'Bắt từ khóa câu hỏi Wh- và Yes/No rất tốt. Phản xạ câu trả lời gián tiếp đạt độ chính xác cao.',
+    mid: 'Cần chú ý bẫy lặp từ (same-sounding words) và các câu trả lời gián tiếp bất ngờ (không theo khuôn mẫu).',
+    low: 'Ưu tiên bắt từ để hỏi đầu tiên (Who, Where, When, Why, How) và tránh các phương án phát âm gần giống câu hỏi.',
+  },
+  3: {
+    title: 'Part 3: Short Conversations (Hội thoại ngắn)',
+    high: 'Kỹ năng đọc trước câu hỏi và bắt ý hội thoại xuất sắc, định vị người nói và ngữ cảnh rất nhanh.',
+    mid: 'Cần cải thiện tốc độ đọc quét 3 câu hỏi trước khi băng phát để không bị động khi nghe chi tiết.',
+    low: 'Luyện tập thói quen đọc lướt câu hỏi trước khi đoạn audio bắt đầu và ghi nhớ từ đồng nghĩa (paraphrase).',
+  },
+  4: {
+    title: 'Part 4: Short Talks (Bài nói độc thoại)',
+    high: 'Khả năng theo dõi mạch bài nói độc thoại tuyệt vời, hiểu sâu thông báo công cộng và tin nhắn thoại.',
+    mid: 'Chú ý các câu hỏi suy luận ý định người nói và bảng biểu đi kèm để đạt điểm tối đa.',
+    low: 'Tập trung bắt câu mở đầu để nắm mục đích bài nói (purpose) và ai là người phát ngôn.',
+  },
+  5: {
+    title: 'Part 5: Incomplete Sentences (Hoàn thành câu)',
+    high: 'Kiến thức ngữ pháp và từ vựng rất vững vàng, tốc độ xử lý câu đơn đạt chuẩn thời gian thi thật.',
+    mid: 'Cần củng cố thêm các collocations công sở, giới từ đi kèm động từ và các dạng đảo ngữ / thể giả định.',
+    low: 'Tập trung ôn tập từ loại (noun/verb/adj/adv), thì động từ cơ bản và liên từ chỉ nguyên nhân / nhượng bộ.',
+  },
+  6: {
+    title: 'Part 6: Text Completion (Hoàn thành đoạn văn)',
+    high: 'Tư duy liên kết câu và mạch văn rất mạch lạc, chọn đúng câu văn nối mạch một cách tự nhiên.',
+    mid: 'Chú ý thì động từ của toàn đoạn văn và các từ nối (transition words: however, therefore, furthermore).',
+    low: 'Đọc kỹ câu đứng trước và đứng sau chỗ trống để xác định mối quan hệ ngữ nghĩa trước khi chọn phương án.',
+  },
+  7: {
+    title: 'Part 7: Reading Comprehension (Đọc hiểu văn bản)',
+    high: 'Kỹ năng đọc quét (scanning & skimming) xuất sắc, đối chiếu thông tin đa đoạn chính xác.',
+    mid: 'Cần tối ưu tốc độ đọc và luyện thêm các câu hỏi suy luận (inference) trong đoạn đôi / đoạn ba.',
+    low: 'Luyện kỹ năng tìm từ khóa trong câu hỏi trước khi quét bài đọc để tiết kiệm thời gian.',
+  },
 };
 
 function formatTimeSpent(seconds: number): string {
@@ -117,6 +166,28 @@ export function ToeicScoreReportView({
   const totalQuestions = questions.length;
   const overallAccuracy =
     totalQuestions > 0 ? Math.round((scoreResult.rawTotal / totalQuestions) * 100) : 0;
+
+  // Active parts in this test session
+  const activeParts = useMemo(() => {
+    const parts = new Set<ToeicPart>();
+    for (const q of questions) {
+      if (q.part) parts.add(q.part as ToeicPart);
+    }
+    return Array.from(parts).sort((a, b) => a - b);
+  }, [questions]);
+
+  // A test is considered a full official exam only if it has >= 100 questions AND both Listening and Reading
+  const isFullTest = useMemo(() => {
+    if (questions.length < 100) return false;
+    const hasListening = questions.some((q) => q.section === 'listening' || (q.part && q.part <= 4));
+    const hasReading = questions.some((q) => q.section === 'reading' || (q.part && q.part >= 5));
+    return hasListening && hasReading;
+  }, [questions]);
+
+  // Average time spent per question in seconds
+  const avgSecondsPerQ = useMemo(() => {
+    return totalQuestions > 0 ? Math.round(scoreResult.timeSpentSeconds / totalQuestions) : 0;
+  }, [scoreResult.timeSpentSeconds, totalQuestions]);
 
   // Count metrics for review tabs
   const { correctCount, incorrectCount, flaggedCount } = useMemo(() => {
@@ -246,7 +317,11 @@ export function ToeicScoreReportView({
             <div>
               <div className="inline-flex items-center gap-1.5 rounded-xs border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-300 mb-1.5">
                 <Sparkles className="h-3 w-3 text-slate-500" />
-                <span>Báo cáo kết quả bài thi TOEIC</span>
+                <span>
+                  {isFullTest
+                    ? 'Báo cáo kết quả bài thi TOEIC (Full Test)'
+                    : `Báo cáo kết quả luyện tập TOEIC — Part ${activeParts.join(', ')}`}
+                </span>
               </div>
               <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                 {testTitle}
@@ -289,149 +364,296 @@ export function ToeicScoreReportView({
             </div>
           </div>
 
-          {/* 3-Column Scoreboard: Total Scaled (990), Listening (495), Reading (495) */}
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-            {/* Total Scaled Score */}
-            <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                  Tổng điểm quy đổi
-                </span>
-                <Trophy className="h-4 w-4 text-slate-500" />
-              </div>
-
-              <div className="my-3">
-                <div className="flex items-baseline gap-1">
-                  <div className="font-mono text-5xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
-                    {scoreResult.scaledTotal}
+          {/* ── CONDITIONAL SCOREBOARD: FULL TEST vs PART PRACTICE ── */}
+          {isFullTest ? (
+            <>
+              {/* 3-Column Scoreboard for Full Test: Total Scaled (990), Listening (495), Reading (495) */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {/* Total Scaled Score */}
+                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                      Tổng điểm quy đổi
+                    </span>
+                    <Trophy className="h-4 w-4 text-slate-500" />
                   </div>
-                  <span className="font-mono text-base font-medium text-slate-400">/ 990</span>
+
+                  <div className="my-3">
+                    <div className="flex items-baseline gap-1">
+                      <div className="font-mono text-5xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
+                        {scoreResult.scaledTotal}
+                      </div>
+                      <span className="font-mono text-base font-medium text-slate-400">/ 990</span>
+                    </div>
+                    <div className="mt-1.5 inline-flex items-center gap-1 rounded-xs border border-slate-200 bg-white px-2 py-0.5 text-xs font-bold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+                      <Award className="h-3 w-3 text-slate-500" />
+                      <span>CEFR Level {scoreResult.cefrLevel}</span>
+                    </div>
+                  </div>
+
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium border-t border-slate-200 dark:border-slate-800 pt-2 flex justify-between items-center font-mono tabular-nums">
+                    <span>Độ chính xác: {overallAccuracy}%</span>
+                    <span>{scoreResult.rawTotal}/{totalQuestions} câu đúng</span>
+                  </div>
                 </div>
-                <div className="mt-1.5 inline-flex items-center gap-1 rounded-xs border border-slate-200 bg-white px-2 py-0.5 text-xs font-bold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
-                  <Award className="h-3 w-3 text-slate-500" />
-                  <span>CEFR Level {scoreResult.cefrLevel}</span>
+
+                {/* Listening Scaled Score */}
+                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                      Điểm Listening
+                    </span>
+                    <div className="flex h-7 w-7 items-center justify-center rounded-xs border border-slate-200 bg-white text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+                      <Headphones className="h-3.5 w-3.5" />
+                    </div>
+                  </div>
+
+                  <div className="my-3">
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-mono text-4xl font-black text-slate-900 dark:text-white tracking-tight tabular-nums">
+                        {scoreResult.scaledListening}
+                      </span>
+                      <span className="font-mono text-base font-medium text-slate-400">
+                        / 495
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono tabular-nums">
+                      Đúng {scoreResult.rawListening} / 100 câu nghe (Part 1 - 4)
+                    </p>
+                  </div>
+
+                  {/* Progress bar */}
+                  <div className="space-y-1 border-t border-slate-200 dark:border-slate-800 pt-2">
+                    <div className="h-1.5 w-full overflow-hidden rounded-xs bg-slate-200 dark:bg-slate-800">
+                      <div
+                        className="h-full bg-slate-900 dark:bg-slate-100 rounded-xs transition-all duration-300"
+                        style={{
+                          width: `${Math.min(100, Math.round((scoreResult.scaledListening / 495) * 100))}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reading Scaled Score */}
+                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                      Điểm Reading
+                    </span>
+                    <div className="flex h-7 w-7 items-center justify-center rounded-xs border border-slate-200 bg-white text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+                      <BookOpen className="h-3.5 w-3.5" />
+                    </div>
+                  </div>
+
+                  <div className="my-3">
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-mono text-4xl font-black text-slate-900 dark:text-white tracking-tight tabular-nums">
+                        {scoreResult.scaledReading}
+                      </span>
+                      <span className="font-mono text-base font-medium text-slate-400">
+                        / 495
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono tabular-nums">
+                      Đúng {scoreResult.rawReading} / 100 câu đọc (Part 5 - 7)
+                    </p>
+                  </div>
+
+                  {/* Progress bar */}
+                  <div className="space-y-1 border-t border-slate-200 dark:border-slate-800 pt-2">
+                    <div className="h-1.5 w-full overflow-hidden rounded-xs bg-slate-200 dark:bg-slate-800">
+                      <div
+                        className="h-full bg-slate-900 dark:bg-slate-100 rounded-xs transition-all duration-300"
+                        style={{
+                          width: `${Math.min(100, Math.round((scoreResult.scaledReading / 495) * 100))}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="text-xs text-slate-500 dark:text-slate-400 font-medium border-t border-slate-200 dark:border-slate-800 pt-2 flex justify-between items-center font-mono tabular-nums">
-                <span>Độ chính xác: {overallAccuracy}%</span>
-                <span>{scoreResult.rawTotal}/{totalQuestions} câu đúng</span>
-              </div>
-            </div>
+              {/* CEFR Diagnostic Assessment & Recommendations Card */}
+              <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center rounded-xs bg-slate-900 px-2 py-0.5 text-xs font-bold text-white dark:bg-slate-100 dark:text-slate-900">
+                      CEFR {scoreResult.cefrLevel}
+                    </span>
+                    <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                      {cefrInfo.title}
+                    </h2>
+                  </div>
 
-            {/* Listening Scaled Score */}
-            <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                  Điểm Listening
-                </span>
-                <div className="flex h-7 w-7 items-center justify-center rounded-xs border border-slate-200 bg-white text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
-                  <Headphones className="h-3.5 w-3.5" />
+                  <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+                    <span className="inline-flex items-center gap-1 font-mono tabular-nums">
+                      <Clock className="h-3 w-3 text-slate-400" />
+                      Thời gian: <strong>{formatTimeSpent(scoreResult.timeSpentSeconds)}</strong>
+                    </span>
+                    <span className="inline-flex items-center gap-1 font-mono tabular-nums">
+                      <Target className="h-3 w-3 text-slate-400" />
+                      Đúng: <strong>{scoreResult.rawTotal} / {totalQuestions}</strong>
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="my-3">
-                <div className="flex items-baseline gap-1">
-                  <span className="font-mono text-4xl font-black text-slate-900 dark:text-white tracking-tight tabular-nums">
-                    {scoreResult.scaledListening}
-                  </span>
-                  <span className="font-mono text-base font-medium text-slate-400">
-                    / 495
-                  </span>
-                </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono tabular-nums">
-                  Đúng {scoreResult.rawListening} / 100 câu nghe (Part 1 - 4)
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  {cefrInfo.descriptionVi}
                 </p>
-              </div>
 
-              {/* Progress bar */}
-              <div className="space-y-1 border-t border-slate-200 dark:border-slate-800 pt-2">
-                <div className="h-1.5 w-full overflow-hidden rounded-xs bg-slate-200 dark:bg-slate-800">
-                  <div
-                    className="h-full bg-slate-900 dark:bg-slate-100 rounded-xs transition-all duration-300"
-                    style={{
-                      width: `${Math.min(100, Math.round((scoreResult.scaledListening / 495) * 100))}%`,
-                    }}
-                  />
+                <div className="rounded-sm bg-white p-3 border border-slate-200 dark:bg-slate-900 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 flex items-start gap-2">
+                  <Lightbulb className="h-3.5 w-3.5 text-slate-500 shrink-0 mt-0.5" />
+                  <div className="space-y-0.5">
+                    <span className="font-bold">Định hướng bứt phá: </span>
+                    <span className="text-slate-600 dark:text-slate-400">{cefrInfo.targetFeedbackVi}</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </>
+          ) : (
+            <>
+              {/* 3-Column Scoreboard for Part Practice (Context-Aware) */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {/* 1. Raw Accuracy Score Card */}
+                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                      Kết quả làm bài
+                    </span>
+                    <Target className="h-4 w-4 text-slate-500" />
+                  </div>
 
-            {/* Reading Scaled Score */}
-            <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                  Điểm Reading
-                </span>
-                <div className="flex h-7 w-7 items-center justify-center rounded-xs border border-slate-200 bg-white text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
-                  <BookOpen className="h-3.5 w-3.5" />
+                  <div className="my-3">
+                    <div className="flex items-baseline gap-1.5">
+                      <div className="font-mono text-5xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
+                        {scoreResult.rawTotal}
+                      </div>
+                      <span className="font-mono text-base font-medium text-slate-400">/ {totalQuestions} câu</span>
+                    </div>
+                    <div className="mt-2 inline-flex items-center gap-1.5 rounded-xs border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800 px-2 py-0.5 text-xs font-bold font-mono">
+                      <span>Độ chính xác: {overallAccuracy}%</span>
+                      <span>•</span>
+                      <span className={overallAccuracy >= 80 ? 'text-emerald-600 dark:text-emerald-400' : overallAccuracy >= 60 ? 'text-sky-600 dark:text-sky-400' : 'text-amber-600 dark:text-amber-400'}>
+                        {overallAccuracy >= 80 ? 'Xuất sắc' : overallAccuracy >= 60 ? 'Khá tốt' : 'Cần luyện thêm'}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium border-t border-slate-200 dark:border-slate-800 pt-2 flex justify-between items-center font-mono tabular-nums">
+                    <span>Tỷ lệ chính xác: {overallAccuracy}%</span>
+                    <span>{scoreResult.rawTotal}/{totalQuestions} câu đúng</span>
+                  </div>
+                </div>
+
+                {/* 2. Time Spent & Speed */}
+                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                      Thời gian & Tốc độ
+                    </span>
+                    <Clock className="h-4 w-4 text-slate-500" />
+                  </div>
+
+                  <div className="my-3">
+                    <div className="font-mono text-4xl font-black text-slate-900 dark:text-white tracking-tight tabular-nums">
+                      {formatTimeSpent(scoreResult.timeSpentSeconds)}
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 font-mono tabular-nums">
+                      Tốc độ trung bình: <strong>~{avgSecondsPerQ}s</strong> / câu
+                    </p>
+                  </div>
+
+                  <div className="border-t border-slate-200 dark:border-slate-800 pt-2 text-xs text-slate-500 font-mono">
+                    <span>Khuyến nghị Part {activeParts.join(', ')}: ~{activeParts[0] === 5 ? '30s' : activeParts[0] === 6 ? '45s' : activeParts[0] === 7 ? '60s' : '15-20s'}/câu</span>
+                  </div>
+                </div>
+
+                {/* 3. Part Info */}
+                <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 flex flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                      Phần thi đã luyện
+                    </span>
+                    <div className="flex h-7 w-7 items-center justify-center rounded-xs border border-slate-200 bg-white text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+                      {activeParts.every((p) => p <= 4) ? (
+                        <Headphones className="h-3.5 w-3.5" />
+                      ) : (
+                        <BookOpen className="h-3.5 w-3.5" />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="my-3">
+                    <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                      {activeParts.length === 1
+                        ? PART_METADATA[activeParts[0]]?.name
+                        : `Part ${activeParts.join(', ')}`}
+                    </div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">
+                      {activeParts.length === 1
+                        ? PART_METADATA[activeParts[0]]?.desc
+                        : 'Luyện tập kỹ năng tổng hợp'}
+                    </p>
+                  </div>
+
+                  <div className="border-t border-slate-200 dark:border-slate-800 pt-2 text-xs text-slate-500 dark:text-slate-400 font-mono flex justify-between">
+                    <span>Tổng số câu: {totalQuestions}</span>
+                    <span>Luyện tập phản xạ</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="my-3">
-                <div className="flex items-baseline gap-1">
-                  <span className="font-mono text-4xl font-black text-slate-900 dark:text-white tracking-tight tabular-nums">
-                    {scoreResult.scaledReading}
-                  </span>
-                  <span className="font-mono text-base font-medium text-slate-400">
-                    / 495
-                  </span>
+              {/* Part Diagnostic Feedback Card for Single Part Practice */}
+              <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center rounded-xs bg-slate-900 px-2 py-0.5 font-mono text-xs font-bold text-white dark:bg-slate-100 dark:text-slate-900">
+                      Part {activeParts.join(', ')}
+                    </span>
+                    <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                      {activeParts.length === 1 && PART_FEEDBACK[activeParts[0]]
+                        ? PART_FEEDBACK[activeParts[0]].title
+                        : 'Đánh giá kỹ năng luyện tập'}
+                    </h2>
+                  </div>
+
+                  <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+                    <span className="inline-flex items-center gap-1 font-mono tabular-nums">
+                      <Clock className="h-3 w-3 text-slate-400" />
+                      Thời gian: <strong>{formatTimeSpent(scoreResult.timeSpentSeconds)}</strong>
+                    </span>
+                    <span className="inline-flex items-center gap-1 font-mono tabular-nums">
+                      <Target className="h-3 w-3 text-slate-400" />
+                      Đúng: <strong>{scoreResult.rawTotal} / {totalQuestions}</strong>
+                    </span>
+                  </div>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono tabular-nums">
-                  Đúng {scoreResult.rawReading} / 100 câu đọc (Part 5 - 7)
+
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                  {activeParts.length === 1 && PART_FEEDBACK[activeParts[0]]
+                    ? overallAccuracy >= 80
+                      ? PART_FEEDBACK[activeParts[0]].high
+                      : overallAccuracy >= 60
+                      ? PART_FEEDBACK[activeParts[0]].mid
+                      : PART_FEEDBACK[activeParts[0]].low
+                    : `Bạn đã hoàn thành ${totalQuestions} câu hỏi với độ chính xác ${overallAccuracy}%. Hãy xem lại lời giải chi tiết bên dưới để củng cố các câu chưa chuẩn.`}
                 </p>
-              </div>
 
-              {/* Progress bar */}
-              <div className="space-y-1 border-t border-slate-200 dark:border-slate-800 pt-2">
-                <div className="h-1.5 w-full overflow-hidden rounded-xs bg-slate-200 dark:bg-slate-800">
-                  <div
-                    className="h-full bg-slate-900 dark:bg-slate-100 rounded-xs transition-all duration-300"
-                    style={{
-                      width: `${Math.min(100, Math.round((scoreResult.scaledReading / 495) * 100))}%`,
-                    }}
-                  />
+                <div className="rounded-sm bg-white p-3 border border-slate-200 dark:bg-slate-900 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 flex items-start gap-2">
+                  <Lightbulb className="h-3.5 w-3.5 text-slate-500 shrink-0 mt-0.5" />
+                  <div className="space-y-0.5">
+                    <span className="font-bold">Lời khuyên phòng thi: </span>
+                    <span className="text-slate-600 dark:text-slate-400">
+                      {overallAccuracy >= 80
+                        ? 'Bạn đang có phong độ rất tốt ở phần thi này. Tiếp tục duy trì phản xạ bằng cách thử sức với các đề Full Test 200 câu.'
+                        : 'Nên dành 5-10 phút xem kỹ lại phần giải thích chi tiết tiếng Việt và transcript của các câu làm sai để nắm vững bẫy đề thi.'}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* CEFR Diagnostic Assessment & Recommendations Card */}
-          <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/60 space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center justify-center rounded-xs bg-slate-900 px-2 py-0.5 text-xs font-bold text-white dark:bg-slate-100 dark:text-slate-900">
-                  CEFR {scoreResult.cefrLevel}
-                </span>
-                <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
-                  {cefrInfo.title}
-                </h2>
-              </div>
-
-              <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
-                <span className="inline-flex items-center gap-1 font-mono tabular-nums">
-                  <Clock className="h-3 w-3 text-slate-400" />
-                  Thời gian: <strong>{formatTimeSpent(scoreResult.timeSpentSeconds)}</strong>
-                </span>
-                <span className="inline-flex items-center gap-1 font-mono tabular-nums">
-                  <Target className="h-3 w-3 text-slate-400" />
-                  Đúng: <strong>{scoreResult.rawTotal} / {totalQuestions}</strong>
-                </span>
-              </div>
-            </div>
-
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-              {cefrInfo.descriptionVi}
-            </p>
-
-            <div className="rounded-sm bg-white p-3 border border-slate-200 dark:bg-slate-900 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 flex items-start gap-2">
-              <Lightbulb className="h-3.5 w-3.5 text-slate-500 shrink-0 mt-0.5" />
-              <div className="space-y-0.5">
-                <span className="font-bold">Định hướng bứt phá: </span>
-                <span className="text-slate-600 dark:text-slate-400">{cefrInfo.targetFeedbackVi}</span>
-              </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -441,10 +663,16 @@ export function ToeicScoreReportView({
           <div>
             <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
               <Target className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
-              <span>Phân tích độ chính xác từng Part (Part 1 - Part 7)</span>
+              <span>
+                {isFullTest
+                  ? 'Phân tích độ chính xác từng Part (Part 1 - Part 7)'
+                  : `Phân tích độ chính xác — Part ${activeParts.join(', ')}`}
+              </span>
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Đánh giá chi tiết năng lực từng kỹ năng để phát hiện phần mạnh và phần cần bồi dưỡng
+              {isFullTest
+                ? 'Đánh giá chi tiết năng lực từng kỹ năng để phát hiện phần mạnh và phần cần bồi dưỡng'
+                : 'Thống kê kết quả chi tiết của phần thi vừa hoàn thành'}
             </p>
           </div>
 
@@ -872,7 +1100,7 @@ export function ToeicScoreReportView({
                                 Lời thoại gốc:
                               </span>
                               <p className="whitespace-pre-line leading-relaxed font-sans">
-                                {q.transcript}
+                                {stripHtmlTags(q.transcript)}
                               </p>
                             </div>
                           )}
@@ -982,7 +1210,7 @@ export function ToeicScoreReportView({
                         <span>Giải thích chi tiết:</span>
                       </div>
                       <p className="leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line pl-5">
-                        {q.explanationVi}
+                        {stripHtmlTags(q.explanationVi)}
                       </p>
                     </div>
                   )}

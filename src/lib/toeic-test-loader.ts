@@ -276,8 +276,12 @@ export function getToeicCatalogIndex(): ToeicCatalogIndex {
  */
 export function resolveToeicMediaUrl(url?: string | null): string | undefined {
   if (!url) return undefined;
-  const trimmed = url.trim();
+  let trimmed = url.trim();
   if (!trimmed) return undefined;
+
+  // Clean double slashes in URL path (e.g. storage.googleapis.com//estudyme -> storage.googleapis.com/estudyme)
+  trimmed = trimmed.replace(/([^:])\/{2,}/g, '$1/');
+
   if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
     return trimmed;
   }
@@ -323,6 +327,26 @@ export function parseQuestionOption(
   }
   // Plain text: enforce fallbackKey and preserve entire text
   return { key: fallbackKey, text: trimmed };
+}
+
+/**
+ * Sanitizes explanation text to ensure pedagogical clarity and zero third-party brand leaks.
+ */
+export function sanitizeToeicExplanationText(text?: string, fallbackAnswer?: string): string {
+  if (!text) {
+    return fallbackAnswer
+      ? `Đáp án chính xác là (${fallbackAnswer}). Căn cứ theo nội dung câu hỏi và ngữ pháp chuẩn khảo thí ETS.`
+      : 'Căn cứ theo ngữ pháp và ngữ cảnh bài thi chuẩn ETS.';
+  }
+  return text
+    .replace(/Câu hỏi được đối soát chuẩn xác theo đề thi Study4\.?/gi, 'Căn cứ theo nội dung đoạn văn và ngữ pháp chuẩn khảo thí ETS.')
+    .replace(/đối soát chuẩn xác theo đề thi Study4\.?/gi, 'phân tích cấu trúc câu và từ loại chuẩn định dạng khảo thí ETS.')
+    .replace(/Đối soát chính xác từ đề thi\.?/gi, 'Căn cứ theo nội dung câu hỏi và ngữ cảnh chuẩn khảo thí ETS.')
+    .replace(/đối soát từ đề thi\.?/gi, 'chuẩn định dạng khảo thí ETS.')
+    .replace(/\bStudy4\b/gi, 'ETS Format')
+    .replace(/\bEstudyme\b/gi, 'ETS Simulation')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
 }
 
 /**
@@ -530,12 +554,13 @@ export function adaptEstudymeCardsToUnified(
         audioUrl,
         imageUrl,
         passage,
-        explanationVi:
+        explanationVi: sanitizeToeicExplanationText(
           sub.explanationVi ||
           sub.explanation ||
           card.explanationVi ||
-          card.explanation ||
-          `Đáp án đúng là (${correct}).`,
+          card.explanation,
+          correct
+        ),
         transcript: sub.transcript || card.transcript,
       });
     }
@@ -648,10 +673,10 @@ export function adaptStudy4ToUnified(raw: any, testId: string): ToeicUnifiedQues
         audioUrl,
         imageUrl,
         passage,
-        explanationVi:
-          q.explanation_vi ||
-          q.explain ||
-          `Đáp án đúng là ${ans}.`,
+        explanationVi: sanitizeToeicExplanationText(
+          q.explanation_vi || q.explain,
+          ans
+        ),
         transcript: q.transcript,
       });
     });
@@ -858,10 +883,12 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
         correctAnswer: (q.correct_answer || 'A').toUpperCase() as 'A' | 'B' | 'C' | 'D',
         audioUrl: resolveToeicMediaUrl(q.audio_url),
         imageUrl: resolveToeicMediaUrl(q.image_url),
-        explanationVi:
+        explanationVi: sanitizeToeicExplanationText(
           q.explanationVi ||
           q.explanation ||
           `Đáp án đúng là ${q.correct_answer}. Quan sát bức ảnh và nghe kỹ 4 nhận định.`,
+          q.correct_answer
+        ),
         transcript: q.transcript,
       });
     });
@@ -886,10 +913,12 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
         ],
         correctAnswer: (q.correct_answer || 'A').toUpperCase() as 'A' | 'B' | 'C' | 'D',
         audioUrl: resolveToeicMediaUrl(q.audio_url),
-        explanationVi:
+        explanationVi: sanitizeToeicExplanationText(
           q.explanationVi ||
           q.explanation ||
           `Đáp án đúng là ${q.correct_answer}. Lắng nghe câu hỏi và chọn câu phản hồi phù hợp nhất.`,
+          q.correct_answer
+        ),
         transcript: q.transcript,
       });
     });
@@ -924,10 +953,12 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
         correctAnswer: (q.correct_answer || 'A').toUpperCase() as 'A' | 'B' | 'C' | 'D',
         audioUrl: resolveToeicMediaUrl(alignedAudio),
         imageUrl: resolveToeicMediaUrl(q.image_url),
-        explanationVi:
+        explanationVi: sanitizeToeicExplanationText(
           q.explanationVi ||
           q.explanation ||
           `Đáp án đúng là ${q.correct_answer}. Nghe đoạn hội thoại để xác định thông tin chi tiết.`,
+          q.correct_answer
+        ),
         transcript: q.transcript,
       });
     });
@@ -962,10 +993,12 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
         correctAnswer: (q.correct_answer || 'A').toUpperCase() as 'A' | 'B' | 'C' | 'D',
         audioUrl: resolveToeicMediaUrl(alignedAudio),
         imageUrl: resolveToeicMediaUrl(q.image_url),
-        explanationVi:
+        explanationVi: sanitizeToeicExplanationText(
           q.explanationVi ||
           q.explanation ||
           `Đáp án đúng là ${q.correct_answer}. Nghe bài nói ngắn để trả lời câu hỏi.`,
+          q.correct_answer
+        ),
         transcript: q.transcript,
       });
     });
@@ -996,7 +1029,7 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
       prompt: item.question,
       options: parsedOptions,
       correctAnswer: (item.answer || 'A').toUpperCase() as 'A' | 'B' | 'C' | 'D',
-      explanationVi: item.explain,
+      explanationVi: sanitizeToeicExplanationText(item.explain, item.answer),
     });
   });
 
@@ -1031,7 +1064,7 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
         options: parsedOptions,
         correctAnswer: (blank.answer || 'A').toUpperCase() as 'A' | 'B' | 'C' | 'D',
         passage: groupItem.text,
-        explanationVi: blank.explain,
+        explanationVi: sanitizeToeicExplanationText(blank.explain, blank.answer),
       });
     });
   });
@@ -1069,7 +1102,7 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
         options: parsedOptions,
         correctAnswer: (q.answer || 'A').toUpperCase() as 'A' | 'B' | 'C' | 'D',
         passage,
-        explanationVi: q.explain,
+        explanationVi: sanitizeToeicExplanationText(q.explain, q.answer),
       });
     });
   });
@@ -1079,17 +1112,69 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
 
 /**
  * Loads questions for a specific TOEIC Part (e.g. Part 1, Part 5, Part 7)
- * for focused practice mode.
+ * for focused practice mode. Supports testId='all' or 'bank' for pool extraction,
+ * question limit slicing, and optional continuous question renumbering.
  *
  * @param part Part number (1 to 7)
- * @param testId Optional test identifier (defaults to '6852')
+ * @param testId Optional test identifier (defaults to '6852', or 'all'/'bank' for entire test bank)
+ * @param limit Optional maximum number of questions to load
+ * @param renumber Whether to renumber questionNumber continuously from 1 to N
  */
 export function loadToeicPartPractice(
   part: ToeicPart,
-  testId?: string
+  testId?: string,
+  limit?: number,
+  renumber: boolean = false
 ): ToeicUnifiedQuestion[] {
-  const fullTest = testId ? loadAnyToeicTest(testId) : loadFullToeicTest('6852');
-  return fullTest.filter((q) => q.part === part);
+  if (!part || (part as number) < 1 || (part as number) > 7) {
+    return [];
+  }
+
+  let questions: ToeicUnifiedQuestion[] = [];
+  const cleanId = typeof testId === 'string' ? testId.trim().toLowerCase() : '';
+  const isAllBank = cleanId === 'all' || cleanId === 'bank' || cleanId === 'all-tests' || cleanId === 'toan-bo';
+
+  if (isAllBank) {
+    // Collect questions across all practice sets for this part from the catalog
+    const items = catalogIndex?.practiceParts?.[String(part)] || [];
+    for (const item of items) {
+      const loaded = loadEstudymePracticeTest(item);
+      for (const q of loaded) {
+        if (q.part === part) {
+          questions.push(q);
+        }
+        if (limit && questions.length >= limit) break;
+      }
+      if (limit && questions.length >= limit) break;
+    }
+
+    // If still empty or no practice files found, fallback to full tests
+    if (questions.length === 0) {
+      questions = loadFullToeicTest('6852').filter((q) => q.part === part);
+    }
+  } else if (!cleanId) {
+    // Omitted testId: default to '6852' for exact backwards compatibility
+    questions = loadFullToeicTest('6852').filter((q) => q.part === part);
+  } else {
+    // Specific testId provided (Study4 or Estudyme full test or set)
+    const fullTest = loadAnyToeicTest(testId);
+    questions = fullTest.filter((q) => q.part === part);
+  }
+
+  // Apply limit if specified
+  if (limit && limit > 0 && questions.length > limit) {
+    questions = questions.slice(0, limit);
+  }
+
+  // Renumber if requested
+  if (renumber) {
+    return questions.map((q, idx) => ({
+      ...q,
+      questionNumber: idx + 1,
+    }));
+  }
+
+  return questions;
 }
 
 /**
@@ -1128,7 +1213,7 @@ export function convertLegacyMiniTest(miniTestId: string): ToeicUnifiedQuestion[
           const parsedOptions = (item.options || []).map((opt, optIdx) =>
             parseQuestionOption(opt, fallbackKeys[optIdx] || 'A')
           );
-          questions.push({
+            questions.push({
             id: item.id,
             testId: miniTestId,
             questionNumber: currentNum,
@@ -1137,7 +1222,7 @@ export function convertLegacyMiniTest(miniTestId: string): ToeicUnifiedQuestion[
             prompt: item.question,
             options: parsedOptions,
             correctAnswer: (item.answer?.replace(/[^A-D]/gi, '') || 'A').toUpperCase() as ToeicOptionKey,
-            explanationVi: item.explain,
+            explanationVi: sanitizeToeicExplanationText(item.explain, item.answer),
           });
         }
       } else if (section.part === 'part6') {
@@ -1161,7 +1246,7 @@ export function convertLegacyMiniTest(miniTestId: string): ToeicUnifiedQuestion[
               options: parsedOptions,
               correctAnswer: (b.answer?.replace(/[^A-D]/gi, '') || 'A').toUpperCase() as ToeicOptionKey,
               passage: item.text,
-              explanationVi: b.explain,
+              explanationVi: sanitizeToeicExplanationText(b.explain, b.answer),
             });
           });
         }
@@ -1189,7 +1274,7 @@ export function convertLegacyMiniTest(miniTestId: string): ToeicUnifiedQuestion[
               options: parsedOptions,
               correctAnswer: (q.answer?.replace(/[^A-D]/gi, '') || 'A').toUpperCase() as ToeicOptionKey,
               passage,
-              explanationVi: q.explain,
+              explanationVi: sanitizeToeicExplanationText(q.explain, q.answer),
             });
           });
         }

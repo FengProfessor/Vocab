@@ -54,6 +54,9 @@ export async function GET(req: NextRequest) {
       }
     }
 
+    const limitParam = searchParams.get('limit');
+    const limitNum = limitParam ? parseInt(limitParam, 10) : undefined;
+
     let questions: ToeicUnifiedQuestion[] = [];
     let title = '';
     let durationSeconds = 120 * 60;
@@ -65,20 +68,45 @@ export async function GET(req: NextRequest) {
       title = `TOEIC Mini Test (${cleanTestId})`;
       const minutes = timeParam ? parseInt(timeParam, 10) : 20;
       durationSeconds = minutes * 60;
-    } else if (partNum && !cleanTestId.includes('part_') && !cleanTestId.includes('-set')) {
-      // 2. Part practice mode on full test (e.g. ?testId=6852&part=1 or ?testId=estudyme-test-1&part=2)
-      questions = loadToeicPartPractice(partNum, cleanTestId);
-      title = `Luyện tập TOEIC Part ${partNum} (${cleanTestId})`;
+    } else if (
+      partNum &&
+      (cleanTestId === 'all' ||
+        cleanTestId === 'bank' ||
+        cleanTestId === 'all-tests' ||
+        cleanTestId === 'practice' ||
+        cleanTestId === 'part-practice' ||
+        (!cleanTestId.includes('part_') && !cleanTestId.includes('-set')))
+    ) {
+      // 2. Part practice mode on test bank or specific test
+      questions = loadToeicPartPractice(partNum, cleanTestId, limitNum, true);
+      const isBank =
+        cleanTestId === 'all' ||
+        cleanTestId === 'bank' ||
+        cleanTestId === 'all-tests' ||
+        cleanTestId === 'practice' ||
+        cleanTestId === 'part-practice';
+      const catalog = getToeicCatalogIndex();
+      const fullMetaLookup = catalog.fullTests?.find(
+        (t) => t.id === cleanTestId || t.displayId.toLowerCase() === cleanTestId.toLowerCase()
+      );
+      const cleanFallbackLabel = cleanTestId
+        .replace(/^estudyme-test-(\d+)/i, 'Đề ETS Simulation $1')
+        .replace(/^study4_test_(\d+)/i, 'Đề ETS $1');
+      const sourceLabel = isBank ? 'Ngân hàng đề' : (fullMetaLookup?.title || cleanFallbackLabel);
+      title = `Luyện tập Part ${partNum} (${questions.length} câu — ${sourceLabel})`;
       const minutes = timeParam
         ? parseInt(timeParam, 10)
-        : PART_RECOMMENDED_MINUTES[partNum] || 15;
+        : Math.max(5, Math.ceil(questions.length * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25)));
       durationSeconds = minutes * 60;
     } else {
-      // 3. Dynamic universal test load (supports Estudyme full tests, practice sets, Study4 tests)
+      // 3. Dynamic universal test load (supports authentic ETS simulation tests)
       questions = loadAnyToeicTest(cleanTestId);
 
       if (partNum && questions.some((q) => q.part !== partNum)) {
         questions = questions.filter((q) => q.part === partNum);
+      }
+      if (limitNum && limitNum > 0 && questions.length > limitNum) {
+        questions = questions.slice(0, limitNum);
       }
 
       // Catalog metadata lookup for title and time estimate
@@ -112,7 +140,10 @@ export async function GET(req: NextRequest) {
         durationSeconds = minutes * 60;
       } else {
         const meta = AUTHENTIC_TEST_METADATA.find((t) => t.testId === cleanTestId);
-        title = meta?.title || `Đề thi TOEIC LR (${cleanTestId})`;
+        const cleanDisplay = cleanTestId
+          .replace(/^estudyme-test-(\d+)/i, 'ETS Simulation $1')
+          .replace(/^study4_test_(\d+)/i, 'ETS $1');
+        title = meta?.title || `Đề thi TOEIC LR (${cleanDisplay})`;
         const minutes = timeParam ? parseInt(timeParam, 10) : 120;
         durationSeconds = minutes * 60;
       }
@@ -125,8 +156,12 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Anti-scraping: strip sensitive data (correctAnswer, explanationVi, transcript)
-    const sanitizedQuestions = stripSensitiveToeicData(questions);
+    // Anti-scraping: In 'real' exam simulation mode, strip answers and explanations
+    // so no client can inspect or scrape full exam solutions before finishing.
+    // In 'practice' mode, keep explanations & answers so learners receive instant feedback.
+    const modeParam = searchParams.get('mode');
+    const isPracticeMode = modeParam === 'practice';
+    const deliveredQuestions = isPracticeMode ? questions : stripSensitiveToeicData(questions);
 
     return NextResponse.json(
       {
@@ -134,12 +169,14 @@ export async function GET(req: NextRequest) {
         testId: cleanTestId,
         title,
         durationSeconds,
-        totalQuestions: sanitizedQuestions.length,
-        questions: sanitizedQuestions,
+        totalQuestions: deliveredQuestions.length,
+        questions: deliveredQuestions,
       },
       {
         headers: {
-          'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+          'Cache-Control': isPracticeMode
+            ? 'private, no-cache'
+            : 'public, s-maxage=300, stale-while-revalidate=600',
         },
       }
     );

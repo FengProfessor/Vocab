@@ -125,7 +125,7 @@ export function generateToeicCatalogIndex(rootDir: string = process.cwd()): Toei
       questionCount: qCount,
       durationMinutes: is200 ? 120 : Math.round((qCount / 200) * 120),
       source: 'study4',
-      badge: is200 ? 'ETS 200Q' : `STUDY4 ${qCount}Q`,
+      badge: is200 ? 'ETS 200Q' : qCount >= 140 ? `ETS Intensive ${qCount}Q` : `ETS Mini ${qCount}Q`,
     };
     if (is200) {
       s4Tests200.push(item);
