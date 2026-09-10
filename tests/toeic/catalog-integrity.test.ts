@@ -23,9 +23,15 @@ import path from 'node:path';
 import { TestRunner, expect } from './test-harness';
 
 const ROOT_DIR = path.resolve(__dirname, '../..');
-const PRACTICE_PARTS_DIR = path.resolve(ROOT_DIR, 'crawlers/toeic/estudyme_data/practice_parts');
-const ESTUDYME_FULL_DIR = path.resolve(ROOT_DIR, 'crawlers/toeic/estudyme_data/full_tests');
-const STUDY4_DIR = path.resolve(ROOT_DIR, 'crawlers/toeic/toeic_data');
+const PRACTICE_PARTS_DIR = fs.existsSync(path.resolve(ROOT_DIR, 'src/data/toeic/datasets/estudyme_data/practice_parts'))
+  ? path.resolve(ROOT_DIR, 'src/data/toeic/datasets/estudyme_data/practice_parts')
+  : path.resolve(ROOT_DIR, 'crawlers/toeic/estudyme_data/practice_parts');
+const ESTUDYME_FULL_DIR = fs.existsSync(path.resolve(ROOT_DIR, 'src/data/toeic/datasets/estudyme_data/full_tests'))
+  ? path.resolve(ROOT_DIR, 'src/data/toeic/datasets/estudyme_data/full_tests')
+  : path.resolve(ROOT_DIR, 'crawlers/toeic/estudyme_data/full_tests');
+const STUDY4_DIR = fs.existsSync(path.resolve(ROOT_DIR, 'src/data/toeic/datasets/toeic_data'))
+  ? path.resolve(ROOT_DIR, 'src/data/toeic/datasets/toeic_data')
+  : path.resolve(ROOT_DIR, 'crawlers/toeic/toeic_data');
 const CATALOG_INDEX_PATH = path.resolve(ROOT_DIR, 'src/data/toeic/toeic-catalog-index.json');
 
 export interface PracticePartInventory {

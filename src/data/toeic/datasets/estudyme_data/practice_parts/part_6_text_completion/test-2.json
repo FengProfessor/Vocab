@@ -1,0 +1,330 @@
+{
+  "topicId": "6140001b65d71f3a51f62a93",
+  "name": "Test 2",
+  "slug": "test-2",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6140036e65d71f3a51f62aba",
+      "questionText": "<p><strong>Employee Spring Training</strong></p>\n\n<p>Lawrence Paper is dedicated to helping all of its employees fulfill their potential. That is why we have once again organized 2 days of spring training. Human Resources has put together a wide range of topics for this year’s workshops, <b> (1) </b> _____ sales techniques, computer skills, communication strategies, and goal setting. We still have two workshop time slots available, so if there is something you’ve been dying to learn about, please let us know. It’s quite possible we <b> (2) </b> _____ it into this year’s spring training.<b> (3) </b> _____ Feel free to <b> (4) </b> _____ any ideas you might have to Nancy Kensington in the human resources department.<br>\nNLKensington@lawrencepaper.com</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p><strong>Đ&agrave;o tạo M&ugrave;a Xu&acirc;n cho Nh&acirc;n Vi&ecirc;n</strong></p>\n\n<p>C&ocirc;ng ty Lawrence Paper cam kết gi&uacute;p tất cả nh&acirc;n vi&ecirc;n của m&igrave;nh ph&aacute;t huy hết tiềm năng. Đ&oacute; l&agrave; l&yacute; do tại sao ch&uacute;ng t&ocirc;i lại tổ chức 2 ng&agrave;y đ&agrave;o tạo m&ugrave;a xu&acirc;n một lần nữa. Bộ phận Nh&acirc;n sự đ&atilde; chuẩn bị một loạt c&aacute;c chủ đề cho c&aacute;c buổi hội thảo năm nay, bao gồm kỹ thuật b&aacute;n h&agrave;ng, kỹ năng m&aacute;y t&iacute;nh, chiến lược giao tiếp v&agrave; thiết lập mục ti&ecirc;u. Ch&uacute;ng t&ocirc;i vẫn c&ograve;n hai khoảng thời gian hội thảo c&oacute; sẵn, v&igrave; vậy nếu bạn c&oacute; điều g&igrave; đ&oacute; bạn rất muốn học, xin h&atilde;y cho ch&uacute;ng t&ocirc;i biết. Rất c&oacute; thể ch&uacute;ng t&ocirc;i c&oacute; thể t&iacute;ch hợp n&oacute; v&agrave;o đ&agrave;o tạo m&ugrave;a xu&acirc;n năm nay. Ch&uacute;ng t&ocirc;i sẽ ho&agrave;n tất việc lựa chọn v&agrave;o cuối tuần n&agrave;y. Bạn c&oacute; thể gửi bất kỳ &yacute; tưởng n&agrave;o bạn c&oacute; cho Nancy Kensington tại bộ phận nh&acirc;n sự qua địa chỉ email <a rel=\"noreferrer\">NLKensington@lawrencepaper.com</a>.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140036e65d71f3a51f62abe",
+          "questionText": "Human Resources has put together a wide range of topics for this year’s workshops, <b>(1)</b> _____ sales techniques, computer skills, communication strategies, and goal setting.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) distributing",
+            "(B) locating",
+            "(C) including",
+            "(D) advancing"
+          ],
+          "correctOptions": [
+            "(C) including"
+          ],
+          "transcript": "<p>Based on the meaning of words.</p>\n\n<p>(A) distributing:&nbsp;to share something between a number of people or groups<br>\n(B) locating:&nbsp;to find the exact position of somebody/something<br>\n(C) including:&nbsp;having something as part of a group or set<br>\n(D) advancing:&nbsp;progress or a development</p>\n\n<p>The hint is \"a wide range of topics for this year’s workshops\" =&gt; use \"including\" to list those topics</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) distributing - ph&acirc;n ph&aacute;t<br />\n(B) locating - định vị, t&igrave;m kiếm<br />\n(C) including - bao gồm<br />\n(D) advancing - tiến bộ, th&uacute;c đẩy</p>\n\n<p>Dựa tr&ecirc;n ngữ cảnh của c&acirc;u th&ocirc;ng b&aacute;o, từ ph&ugrave; hợp nhất l&agrave; <strong>(C) including</strong>, v&igrave; n&oacute; thể hiện c&aacute;c chủ đề được bao gồm trong chương tr&igrave;nh đ&agrave;o tạo.</p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62abf",
+          "questionText": "It’s quite possible we <b> (2) </b> _____ it into this year’s spring training.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) were incorporating",
+            "(B) should incorporate",
+            "(C) are incorporating",
+            "(D) could incorporate"
+          ],
+          "correctOptions": [
+            "(D) could incorporate"
+          ],
+          "transcript": "<p>The hint is \"It’s quite possible\" =&gt; use modal verb</p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li>\n\t<p><strong>(A) were incorporating</strong>: &quot;were incorporating&quot; l&agrave; dạng qu&aacute; khứ tiếp diễn, kh&ocirc;ng ph&ugrave; hợp v&igrave; c&acirc;u đang n&oacute;i về một khả năng trong hiện tại hoặc tương lai.</p>\n\t</li>\n\t<li>\n\t<p><strong>(B) should incorporate</strong>: &quot;should incorporate&quot; biểu thị sự khuyến nghị hoặc nghĩa vụ, kh&ocirc;ng ho&agrave;n to&agrave;n ph&ugrave; hợp v&igrave; c&acirc;u n&agrave;y đang n&oacute;i về khả năng chứ kh&ocirc;ng phải y&ecirc;u cầu.</p>\n\t</li>\n\t<li>\n\t<p><strong>(C) are incorporating</strong>: &quot;are incorporating&quot; l&agrave; dạng hiện tại tiếp diễn, kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; thể hiện h&agrave;nh động đang xảy ra ngay lập tức, trong khi c&acirc;u n&agrave;y đang n&oacute;i về khả năng c&oacute; thể xảy ra trong tương lai.</p>\n\t</li>\n\t<li>\n\t<p><strong>(D) could incorporate</strong>: &quot;could incorporate&quot; l&agrave; dạng hiện tại điều kiện, ph&ugrave; hợp v&igrave; n&oacute; thể hiện khả năng hoặc sự c&oacute; thể xảy ra trong tương lai.</p>\n\t</li>\n</ul>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (D) could incorporate.</strong></p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62ac0",
+          "questionText": "<b> (3) </b> _____ Feel free to  _____ any ideas you might have to Nancy Kensington in the human resources department.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) If we get many suggestions, we could also hold a workshop on the following weekend, December 4th.",
+            "(B) We’ll be finalizing our choices by the end of the week.",
+            "(C) A large amount of time and energy has gone into organizing this conference.",
+            "(D) Inviting friends and family to these events is always encouraged."
+          ],
+          "correctOptions": [
+            "(B) We’ll be finalizing our choices by the end of the week."
+          ],
+          "transcript": "<p>Based on the following sentence.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: (3)____</strong>Bạn c&oacute; thể (4)___ bất kỳ &yacute; tưởng n&agrave;o bạn c&oacute; cho Nancy Kensington tại bộ phận nh&acirc;n sự&nbsp;</p>\n\n<p>(A) Nếu ch&uacute;ng t&ocirc;i nhận được nhiều gợi &yacute;, ch&uacute;ng t&ocirc;i cũng c&oacute; thể tổ chức một buổi hội thảo v&agrave;o cuối tuần tiếp theo, ng&agrave;y 4 th&aacute;ng 12.<br />\n(B) Ch&uacute;ng t&ocirc;i sẽ ho&agrave;n tất việc lựa chọn v&agrave;o cuối tuần n&agrave;y.<br />\n(C) Một lượng thời gian v&agrave; năng lượng lớn đ&atilde; được bỏ ra để tổ chức hội thảo n&agrave;y.<br />\n(D) Lu&ocirc;n khuyến kh&iacute;ch mời bạn b&egrave; v&agrave; gia đ&igrave;nh tham dự c&aacute;c sự kiện n&agrave;y.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62ac1",
+          "questionText": "_____ Feel free to  <b> (4) </b> _____ any ideas you might have to Nancy Kensington in the human resources department.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) create",
+            "(B) request",
+            "(C) submit",
+            "(D) transfer"
+          ],
+          "correctOptions": [
+            "(C) submit"
+          ],
+          "transcript": "<p>(A) create:&nbsp;to make something happen or exist<br>\n(B) request:&nbsp;to ask for something or ask somebody to do something in a polite or formal way<br>\n(C) submit:&nbsp;to give a document, proposal, etc. to somebody in authority so that they can study or consider it<br>\n(D) transfer:&nbsp;to move from one place to another; to move something/somebody from one place to another</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:</strong></p>\n\n<p>(A) create - tạo ra<br />\n(B) request - y&ecirc;u cầu<br />\n(C) submit - gửi, nộp<br />\n(D) transfer - chuyển giao</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Bạn c&oacute; thể gửi bất kỳ &yacute; tưởng n&agrave;o bạn c&oacute; cho Nancy Kensington tại bộ phận nh&acirc;n sự&nbsp;</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140036e65d71f3a51f62abb",
+      "questionText": "<p><strong>Vander Properties</strong></p>\n\n<p>Vander Properties has been serving Houston for over 29 years. It is through our commitment to providing the highest degree of expertise market knowledge and <strong>(1) _______</strong> service that we are recognized as an industry leader. We specialize in <b> (2) </b> _____ and corporate real estate here in the Denver area.<b> (3) </b> _____ you are looking to buy a new home or start a new business, we are the people you should be talking with. With our office centrally located downtown, we have our eyes on the whole city. Browse our site for listing, or give us a call today <b> (4) </b> _____.<br>\nwww.vanderproperties.com<br>\nPhone: (313) 782-9919<br>\nAddress: 834 Walton St.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p><strong>Vander Properties</strong></p>\n\n<p>Vander Properties đ&atilde; phục vụ Houston trong hơn 29 năm. Ch&iacute;nh nhờ cam kết cung cấp mức độ chuy&ecirc;n m&ocirc;n cao nhất, hiểu biết thị trường s&acirc;u rộng v&agrave; dịch vụ c&aacute; nh&acirc;n h&oacute;a m&agrave; ch&uacute;ng t&ocirc;i được c&ocirc;ng nhận l&agrave; một trong những c&ocirc;ng ty h&agrave;ng đầu trong ng&agrave;nh. Ch&uacute;ng t&ocirc;i chuy&ecirc;n về bất động sản d&acirc;n cư v&agrave; doanh nghiệp tại khu vực Denver. D&ugrave; bạn đang t&igrave;m mua một ng&ocirc;i nh&agrave; mới hay bắt đầu một doanh nghiệp mới, ch&uacute;ng t&ocirc;i l&agrave; những người bạn n&ecirc;n li&ecirc;n hệ. Với văn ph&ograve;ng của ch&uacute;ng t&ocirc;i nằm ở vị tr&iacute; trung t&acirc;m th&agrave;nh phố, ch&uacute;ng t&ocirc;i c&oacute; c&aacute;i nh&igrave;n tổng quan về to&agrave;n th&agrave;nh phố. H&atilde;y duyệt qua trang web của ch&uacute;ng t&ocirc;i để xem danh s&aacute;ch hoặc gọi cho ch&uacute;ng t&ocirc;i ngay h&ocirc;m nay. Tất nhi&ecirc;n, việc gh&eacute; qua trực tiếp lu&ocirc;n được hoan ngh&ecirc;nh.</p>\n\n<p>www.vanderproperties.com<br />\nĐiện thoại: (313) 782-9919<br />\nĐịa chỉ: 834 Walton St.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140036e65d71f3a51f62ac2",
+          "questionText": "<p>It is through our commitment to providing the highest degree of expertise market knowledge and <strong>(1) _______</strong> service that we are recognized as an industry leader.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) personalize",
+            "(B) personalizes",
+            "(C) personalizing",
+            "(D) personalized"
+          ],
+          "correctOptions": [
+            "(D) personalized"
+          ],
+          "transcript": "<p>We need a word that can modify the noun \"service\". \"Personalizing\" and \"personalized\" can both be adjectives to modify the noun, but in terms of meaning, \"personalized service\" is more reasonable than \"personalizing service\"</p>\n",
+          "explanationVi": "<p>Ch&uacute;ng ta cần một từ c&oacute; thể bổ nghĩa cho danh từ &quot;service&quot; (dịch vụ). &quot;Personalizing&quot; v&agrave; &quot;personalized&quot; đều c&oacute; thể l&agrave; t&iacute;nh từ để bổ nghĩa cho danh từ, nhưng về mặt &yacute; nghĩa, &quot;personalized service&quot; (dịch vụ c&aacute; nh&acirc;n h&oacute;a) hợp l&yacute; hơn so với &quot;personalizing service&quot; (dịch vụ đang được c&aacute; nh&acirc;n h&oacute;a).</p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62ac3",
+          "questionText": "We specialize in <b> (2) </b> _____ and corporate real estate here in the Denver area.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) productive",
+            "(B) promoted",
+            "(C) residential",
+            "(D) relevant"
+          ],
+          "correctOptions": [
+            "(C) residential"
+          ],
+          "transcript": "<p>(A) productive:&nbsp;resulting in or providing a large amount or supply of something<br>\n(B) promoted:&nbsp;to help sell a product, service, etc. or make it more popular by advertising it or offering it at a special price<br>\n(C) residential:&nbsp;suitable for living in; consisting of houses rather than factories or offices<br>\n(D) relevant:&nbsp;closely connected with the subject you are discussing or the situation you are in</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:</strong></p>\n\n<p>(A) productive - năng suất<br />\n(B) promoted - được thăng tiến<br />\n(C) residential - thuộc về d&acirc;n cư<br />\n(D) relevant - c&oacute; li&ecirc;n quan</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ch&uacute;ng t&ocirc;i chuy&ecirc;n về bất động sản d&acirc;n cư v&agrave; doanh nghiệp tại khu vực Denver.</p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62ac4",
+          "questionText": "<b> (3) </b> _____ you are looking to buy a new home or start a new business, we are the people you should be talking with.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Whether",
+            "(B) Even if",
+            "(C) Even though",
+            "(D) Whenever"
+          ],
+          "correctOptions": [
+            "(A) Whether"
+          ],
+          "transcript": "<p>(A) Whether:&nbsp;used to express a doubt or choice between two possibilities<br>\n(B) If:&nbsp;used to say that one thing can, will or might happen or be true, depending on another thing happening or being true<br>\n(C) When:&nbsp;at what time; on what occasion<br>\n(D) Since:&nbsp;from a time in the past until a later past time, or until now</p>\n\n<p>Based on the meaning of conjunctions.</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>(3) _____ bạn đang t&igrave;m mua một ng&ocirc;i nh&agrave; mới hay bắt đầu một doanh nghiệp mới, ch&uacute;ng t&ocirc;i l&agrave; những người bạn n&ecirc;n li&ecirc;n hệ.</p>\n\n<p>(A) Whether - D&ugrave;<br />\n(B) If - Nếu<br />\n(C) When - Khi<br />\n(D) Since - V&igrave;</p>\n\n<p>Dựa v&agrave;o nghĩa của c&acirc;u chọn <strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (A) </strong>Whether.</p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62ac5",
+          "questionText": "Browse our site for listing, or give US a call today <b> (4) </b> _____.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Take a drive out of town and come see us today.",
+            "(B) We appreciate your assistance.",
+            "(C) Of course, drop-ins are always welcome.",
+            "(D) Our kitchen is open from eight to five daily."
+          ],
+          "correctOptions": [
+            "(C) Of course, drop-ins are always welcome."
+          ],
+          "transcript": "<p>Based on the previous sentence: \"Browse our site for listing, or give us a call today (4) _____.\"</p>\n",
+          "explanationVi": "<p>Duyệt qua trang web của ch&uacute;ng t&ocirc;i để xem danh s&aacute;ch, hoặc gọi cho ch&uacute;ng t&ocirc;i ngay h&ocirc;m nay (4) _____.</p>\n\n<p>(A) H&atilde;y l&aacute;i xe ra khỏi th&agrave;nh phố v&agrave; đến gặp ch&uacute;ng t&ocirc;i ngay h&ocirc;m nay.<br />\n(B) Ch&uacute;ng t&ocirc;i cảm ơn sự gi&uacute;p đỡ của bạn.<br />\n(C) Tất nhi&ecirc;n, việc gh&eacute; qua trực tiếp lu&ocirc;n được hoan ngh&ecirc;nh.<br />\n(D) Nh&agrave; bếp của ch&uacute;ng t&ocirc;i mở cửa từ t&aacute;m giờ s&aacute;ng đến năm giờ chiều h&agrave;ng ng&agrave;y.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140036e65d71f3a51f62abc",
+      "questionText": "Pizza Chef Wanted<br>Papa Gino’s is hiring, and all <b> (1) </b> _____ applicants will be considered. <b> (2) </b> _____ Even if you have no experience, training will be provided if you meet our requirements. To meet our requirements, you must have a <b> (3) </b> _____ health card, reliable transportation, and be able to work evenings and weekends. Please apply in person at Papa Gino’s on state and Pine, <b> (4) </b> _____ look forward to meeting you.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p><strong>Cần Tuyển Đầu Bếp Pizza</strong></p>\n\n<p>Papa Gino&rsquo;s đang tuyển dụng v&agrave; tất cả c&aacute;c ứng vi&ecirc;n đủ điều kiện sẽ được xem x&eacute;t. Ch&uacute;ng t&ocirc;i đang t&igrave;m kiếm c&aacute;c ứng vi&ecirc;n c&oacute; một ch&uacute;t kinh nghiệm trong lĩnh vực ẩm thực &Yacute;. Ngay cả khi bạn kh&ocirc;ng c&oacute; kinh nghiệm, đ&agrave;o tạo sẽ được cung cấp nếu bạn đ&aacute;p ứng c&aacute;c y&ecirc;u cầu của ch&uacute;ng t&ocirc;i. Để đ&aacute;p ứng y&ecirc;u cầu của ch&uacute;ng t&ocirc;i, bạn phải c&oacute; thẻ sức khỏe hợp lệ, phương tiện đi lại đ&aacute;ng tin cậy, v&agrave; c&oacute; thể l&agrave;m việc v&agrave;o buổi tối v&agrave; cuối tuần. Vui l&ograve;ng nộp đơn trực tiếp tại Papa Gino&rsquo;s ở đường State v&agrave; Pine. Ch&uacute;ng t&ocirc;i mong được gặp bạn.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140036e65d71f3a51f62ac6",
+          "questionText": "Papa Gino’s is hiring, and all <b> (1) </b> _____ applicants will be considered.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) qualify",
+            "(B) qualifying",
+            "(C) qualified",
+            "(D) to qualify"
+          ],
+          "correctOptions": [
+            "(C) qualified"
+          ],
+          "transcript": "<p>In the clause \"all _____ applicants will be considered\" the subject is the noun phrase \"all _____ applicants\". In this noun phrase, the main noun of the phrase is \"applicants\", so a modifier should be filled in the blank for this main noun =&gt; choose the adjective \"qualified\"</p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li>\n\t<p><strong>(A) qualify</strong>: &quot;qualify&quot; l&agrave; động từ ở dạng nguy&ecirc;n mẫu, kh&ocirc;ng ph&ugrave; hợp v&igrave; c&acirc;u cần một t&iacute;nh từ để bổ nghĩa cho &quot;applicants.&quot;</p>\n\t</li>\n\t<li>\n\t<p><strong>(B) qualifying</strong>: &quot;qualifying&quot; l&agrave; hiện tại ph&acirc;n từ (hiện tại tiếp diễn), c&oacute; thể d&ugrave;ng để m&ocirc; tả người đang trong qu&aacute; tr&igrave;nh đạt đủ điều kiện. Tuy nhi&ecirc;n, trong ngữ cảnh n&agrave;y, n&oacute; kh&ocirc;ng ph&ugrave; hợp bằng t&iacute;nh từ qu&aacute; khứ ph&acirc;n từ.</p>\n\t</li>\n\t<li>\n\t<p><strong>(C) qualified</strong>: &quot;qualified&quot; l&agrave; qu&aacute; khứ ph&acirc;n từ, được d&ugrave;ng như một t&iacute;nh từ để m&ocirc; tả c&aacute;c ứng vi&ecirc;n đ&atilde; đạt đủ điều kiện. Đ&acirc;y l&agrave; lựa chọn ph&ugrave; hợp nhất.</p>\n\t</li>\n\t<li>\n\t<p><strong>(D) to qualify</strong>: &quot;to qualify&quot; l&agrave; dạng động từ nguy&ecirc;n mẫu c&oacute; &quot;to,&quot; kh&ocirc;ng ph&ugrave; hợp v&igrave; c&acirc;u cần một t&iacute;nh từ.</p>\n\t</li>\n</ul>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (C) qualified.</strong></p>\n\n<p>C&acirc;u ho&agrave;n chỉnh sẽ l&agrave;: &quot;Papa Gin</p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62ac7",
+          "questionText": "<b> (2) </b> _____ Even if you have no experience, training will be provided if you meet our requirements.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We are looking for candidates that have some experience in Italian food.",
+            "(B) We are looking for candidates that have experience fishing.",
+            "(C) We are looking for people who can fish.",
+            "(D) We are looking for people who want to practice."
+          ],
+          "correctOptions": [
+            "(A) We are looking for candidates that have some experience in Italian food."
+          ],
+          "transcript": "<p>The option A fits well because it acknowledges that experience in Italian food is preferred but emphasizes that even if the applicant doesn't have such experience, training will still be provided. Therefore, it aligns with the idea that all applicants will be considered, regardless of their previous experience.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong>&nbsp;(2) _____ Ngay cả khi bạn kh&ocirc;ng c&oacute; kinh nghiệm, ch&uacute;ng t&ocirc;i sẽ cung cấp đ&agrave;o tạo nếu bạn đ&aacute;p ứng c&aacute;c y&ecirc;u cầu của ch&uacute;ng t&ocirc;i.</p>\n\n<p>(A) Ch&uacute;ng t&ocirc;i đang t&igrave;m kiếm c&aacute;c ứng vi&ecirc;n c&oacute; một ch&uacute;t kinh nghiệm trong lĩnh vực ẩm thực &Yacute;.<br />\n(B) Ch&uacute;ng t&ocirc;i đang t&igrave;m kiếm c&aacute;c ứng vi&ecirc;n c&oacute; kinh nghiệm c&acirc;u c&aacute;.<br />\n(C) Ch&uacute;ng t&ocirc;i đang t&igrave;m kiếm những người c&oacute; thể c&acirc;u c&aacute;.<br />\n(D) Ch&uacute;ng t&ocirc;i đang t&igrave;m kiếm những người muốn thực h&agrave;nh.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62ac8",
+          "questionText": "To meet our requirements, you must have a<b> (3) </b> _____ health card, reliable transportation, and be able to work evenings and weekends.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) valid",
+            "(B) working",
+            "(C) effective",
+            "(D) strong"
+          ],
+          "correctOptions": [
+            "(A) valid"
+          ],
+          "transcript": "<p>(A) valid:&nbsp;that is legally or officially acceptable<br>\n(B) working:&nbsp;having a job for which you are paid<br>\n(C) effective:&nbsp;producing a successful result<br>\n(D) strong:&nbsp;having great power</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n\n<p>&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) valid - hợp lệ<br />\n(B) working - đang l&agrave;m việc<br />\n(C) effective - hiệu quả<br />\n(D) strong - mạnh mẽ</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n A</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Để đ&aacute;p ứng c&aacute;c y&ecirc;u cầu của ch&uacute;ng t&ocirc;i, bạn phải c&oacute; thẻ sức khỏe hợp lệ, phương tiện đi lại đ&aacute;ng tin cậy v&agrave; c&oacute; khả năng l&agrave;m việc v&agrave;o buổi tối v&agrave; cuối tuần.</p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62ac9",
+          "questionText": "<p>Please apply in person at Papa Gino’s on state and Pine, <b> (4) </b> _____ look forward to meeting you.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She",
+            "(B) They",
+            "(C) We",
+            "(D) He"
+          ],
+          "correctOptions": [
+            "(C) We"
+          ],
+          "transcript": "<p>Based on the meaning of pronouns.</p>\n\n<p>We need a plural subject =&gt; We&nbsp;look forward to Ving</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, <strong>chọn đ&aacute;p &aacute;n C:</strong> We</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Vui l&ograve;ng nộp đơn trực tiếp tại Papa Gino&rsquo;s ở g&oacute;c đường State v&agrave; Pine. Ch&uacute;ng t&ocirc;i mong được gặp bạn.</p>\n\n<p>&nbsp;</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140036e65d71f3a51f62abd",
+      "questionText": "November 11 <br> John Adams <br>Tri-State, Apt 408 <br>New York, NY <br>10873<br><br>Dear Mr. Adams, <br>I am pleased to inform you that you <b> (1) </b> _____ as one of the finalists for the position of sales director at Goldie Saks. Over 100 applicants applied for the <b> (2) </b> _____  but we have narrowed down our list to 8 candidates. You will be called in for an interview on November 15 from 1:00 P.M. to 6:00 P.M.<b> (3) </b> _____  The location will be the company headquarters. Our assistant, Miss Lane, will meet you at the main lobby and take you to the interview room. <br><br>For the candidates that do well in these interviews, there will be a second interview. We will let you know as soon as possible whether you <b> (4) </b> _____.<br><br>Please call US at 555-1234 if you have any further questions. <br>We hope to see you soon. <br>Sincerely, <br>Jennifer Law Executive Manager",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p>Ng&agrave;y 11 th&aacute;ng 11<br />\nJohn Adams<br />\nTri-State, Apt 408<br />\nNew York, NY<br />\n10873</p>\n\n<p>K&iacute;nh gửi &ocirc;ng Adams,</p>\n\n<p>T&ocirc;i rất vui được th&ocirc;ng b&aacute;o rằng &ocirc;ng đ&atilde; được chọn l&agrave; một trong những ứng vi&ecirc;n cuối c&ugrave;ng cho vị tr&iacute; gi&aacute;m đốc b&aacute;n h&agrave;ng tại Goldie Saks. Hơn 100 ứng vi&ecirc;n đ&atilde; nộp đơn cho vị tr&iacute; n&agrave;y, nhưng ch&uacute;ng t&ocirc;i đ&atilde; r&uacute;t gọn danh s&aacute;ch xuống c&ograve;n 8 ứng vi&ecirc;n. &Ocirc;ng sẽ được mời đến phỏng vấn v&agrave;o ng&agrave;y 15 th&aacute;ng 11 từ 1:00 chiều đến 6:00 chiều. Ch&uacute;ng t&ocirc;i muốn &ocirc;ng đến l&uacute;c 1:00 chiều. Địa điểm sẽ l&agrave; trụ sở ch&iacute;nh của c&ocirc;ng ty. Trợ l&yacute; của ch&uacute;ng t&ocirc;i, c&ocirc; Lane, sẽ gặp &ocirc;ng tại sảnh ch&iacute;nh v&agrave; dẫn &ocirc;ng đến ph&ograve;ng phỏng vấn.</p>\n\n<p>Đối với c&aacute;c ứng vi&ecirc;n thể hiện tốt trong c&aacute;c cuộc phỏng vấn n&agrave;y, sẽ c&oacute; một cuộc phỏng vấn thứ hai. Ch&uacute;ng t&ocirc;i sẽ th&ocirc;ng b&aacute;o cho &ocirc;ng c&agrave;ng sớm c&agrave;ng tốt về việc &ocirc;ng c&oacute; đủ điều kiện hay kh&ocirc;ng.</p>\n\n<p>Vui l&ograve;ng gọi cho ch&uacute;ng t&ocirc;i theo số 555-1234 nếu &ocirc;ng c&oacute; bất kỳ c&acirc;u hỏi n&agrave;o kh&aacute;c. Ch&uacute;ng t&ocirc;i hy vọng sớm gặp &ocirc;ng.</p>\n\n<p>Tr&acirc;n trọng,<br />\nJennifer Law<br />\nQuản l&yacute; điều h&agrave;nh</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140036e65d71f3a51f62aca",
+          "questionText": "I am pleased to inform you that you <b> (1) </b> _____ as one of the finalists for the position of sales director at Goldie Saks.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) were choosing",
+            "(B) had chosen",
+            "(C) have been chosen",
+            "(D) chose"
+          ],
+          "correctOptions": [
+            "(C) have been chosen"
+          ],
+          "transcript": "<p>In terms of meaning, use passive voice because Mr.Adams is the chosen one \"as one of the finalists for the position of sales director at Goldie Saks.\"</p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li>\n\t<p><strong>(A) were choosing</strong>: &quot;were choosing&quot; l&agrave; dạng qu&aacute; khứ tiếp diễn, kh&ocirc;ng ph&ugrave; hợp v&igrave; c&acirc;u đang n&oacute;i về một t&igrave;nh trạng đ&atilde; xảy ra v&agrave; kết quả hiện tại.</p>\n\t</li>\n\t<li>\n\t<p><strong>(B) had chosen</strong>: &quot;had chosen&quot; l&agrave; dạng qu&aacute; khứ ho&agrave;n th&agrave;nh, kh&ocirc;ng ph&ugrave; hợp v&igrave; c&acirc;u cần một th&igrave; hiện tại để m&ocirc; tả t&igrave;nh trạng hiện tại của ứng vi&ecirc;n.</p>\n\t</li>\n\t<li>\n\t<p><strong>(C) have been chosen</strong>: &quot;have been chosen&quot; l&agrave; dạng hiện tại ho&agrave;n th&agrave;nh bị động, ph&ugrave; hợp v&igrave; n&oacute; diễn tả h&agrave;nh động đ&atilde; xảy ra trong qu&aacute; khứ v&agrave; ảnh hưởng đến hiện tại.</p>\n\t</li>\n\t<li>\n\t<p><strong>(D) chose</strong>: &quot;chose&quot; l&agrave; dạng qu&aacute; khứ đơn, kh&ocirc;ng ph&ugrave; hợp v&igrave; c&acirc;u cần một th&igrave; hiện tại ho&agrave;n th&agrave;nh để nhấn mạnh kết quả hiện tại.</p>\n\t</li>\n</ul>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (C) have been chosen.</strong></p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62acb",
+          "questionText": "Over 100 applicants applied for the <b> (2) </b> _____  but we have narrowed down our list to 8 candidates.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) position",
+            "(B) location",
+            "(C) career",
+            "(D) appointment"
+          ],
+          "correctOptions": [
+            "(A) position"
+          ],
+          "transcript": "<p>(A) position:&nbsp;the place where somebody/something is located<br>\n(B) location:&nbsp;a place where something happens or exists; the position of something<br>\n(C) career:&nbsp;the series of jobs that a person has in a particular area of work<br>\n(D) appointment:&nbsp;a formal arrangement to meet or visit somebody at a particular time, especially for a reason connected with their work</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:</strong></p>\n\n<p>(A) position - vị tr&iacute;<br />\n(B) location - địa điểm<br />\n(C) career - sự nghiệp<br />\n(D) appointment - cuộc hẹn, sự bổ nhiệm</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n A</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Hơn 100 ứng vi&ecirc;n đ&atilde; nộp đơn cho vị tr&iacute; n&agrave;y, nhưng ch&uacute;ng t&ocirc;i đ&atilde; r&uacute;t gọn danh s&aacute;ch xuống c&ograve;n 8 ứng vi&ecirc;n.</p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62acc",
+          "questionText": "<b> (3) </b> _____  The location will be the company headquarters.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The building is easy to locate.",
+            "(B) We would like you to come in at 1:00 P.M.",
+            "(C) Our interviewers will ask you several questions.",
+            "(D) You will be given a specific schedule."
+          ],
+          "correctOptions": [
+            "(B) We would like you to come in at 1:00 P.M."
+          ],
+          "transcript": "<p>Based on the previous sentence: \"You will be called in for an interview on November 15 from 1:00 P.M. to 6:00 P.M.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong>(3) _____ Địa điểm sẽ l&agrave; trụ sở ch&iacute;nh của c&ocirc;ng ty</p>\n\n<p>(A) T&ograve;a nh&agrave; dễ t&igrave;m.<br />\n(B) Ch&uacute;ng t&ocirc;i muốn bạn đến v&agrave;o l&uacute;c 1:00 chiều.<br />\n(C) C&aacute;c nh&agrave; phỏng vấn của ch&uacute;ng t&ocirc;i sẽ hỏi bạn một số c&acirc;u hỏi.<br />\n(D) Bạn sẽ được cung cấp một lịch tr&igrave;nh cụ thể.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140036e65d71f3a51f62acd",
+          "questionText": "We will let you know as soon as possible whether you <b> (4) </b> _____.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) enable",
+            "(B) approve",
+            "(C) refuse",
+            "(D) qualify"
+          ],
+          "correctOptions": [
+            "(D) qualify"
+          ],
+          "transcript": "<p>(A) enable:&nbsp;&nbsp;to make it possible for somebody/something to do something<br>\n(B) approve:&nbsp;to think that somebody/something is good, acceptable or suitable<br>\n(C) refuse:&nbsp;to say or show that you will not do something that somebody has asked you to do<br>\n(D) qualify:&nbsp;to reach the standard of ability or knowledge needed to do a particular job</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) enable - cho ph&eacute;p, l&agrave;m cho c&oacute; khả năng<br />\n(B) approve - ph&ecirc; duyệt<br />\n(C) refuse - từ chối<br />\n(D) qualify - đủ điều kiện, đạt y&ecirc;u cầu</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ch&uacute;ng t&ocirc;i sẽ th&ocirc;ng b&aacute;o cho bạn c&agrave;ng sớm c&agrave;ng tốt về việc bạn c&oacute; đủ điều kiện hay kh&ocirc;ng.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

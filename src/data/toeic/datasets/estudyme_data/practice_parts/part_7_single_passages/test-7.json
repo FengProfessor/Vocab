@@ -1,0 +1,623 @@
+{
+  "topicId": "614012f265d71f3a51f62c49",
+  "name": "Test 7",
+  "slug": "test-7",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6140137e65d71f3a51f62d41",
+      "questionText": "April 3 <br> Larry Martin <br> Kansas Neat &amp; Tidy <br> 5448 Lakeside Drive <br> Arlington, Kansas 67514<br><br>Dear Mr. Martin, <br><br>We are interested in using your company’s cleaning services for this year’s Halley Valley Rock Festival. The festival will begin on Friday, June 14, and last the entire weekend, ending on the night of Sunday, June 16. However, unlike previous years, this year we would like your company to clean the festival grounds intermittently throughout the festival. Therefore, we will be providing your company with a temporary office trailer where your workers can take breaks from the heat. <br><br>We look forward to working with your company again this year. <br>Sincerely, <br>Karen Johnson<br>Festival Coordinator, Halley Valley Foundation",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d4b",
+          "questionText": "Who most likely is Mr. Martin?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A musical performer",
+            "(B) A truck driver",
+            "(C) A cleaning company’s representative",
+            "(D) A festival coordinator"
+          ],
+          "correctOptions": [
+            "(C) A cleaning company’s representative"
+          ],
+          "transcript": "The letter is sent to Mr. Martin and ít can be inferred from <i>\"We are interested in using your company’s cleaning services for this year’s Halley Valley Rock Festival\"</i> that \"your company’s cleaning services\" is Mr. Martin's",
+          "explanationVi": "<b>Tạm dịch:</b><br>Ai có nhiều khả năng là ông Martin? <br>(A) Một nghệ sĩ biểu diễn âm nhạc<br> (B) Một tài xế xe tải<br> (C) Đại diện của công ty vệ sinh<br> (D) Điều phối viên lễ hội<br><b>Thông tin:</b> “We are interested in using your company’s cleaning services for this year’s Halley Valley Rock Festival.”<br> Chúng tôi quan tâm đến việc sử dụng dịch vụ vệ sinh của công ty bạn cho Lễ hội nhạc rock Thung lũng Halley năm nay.<br> Thư gửi ông Martin từ một điều phối viên lễ hội để thuê dịch vụ dọn dẹp của công ty ông cho lễ hội, nên ông Martin có khả năng là đại diện của một công ty vệ sinh."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d4c",
+          "questionText": "<p>According to the letter, what will be provided?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Food and water",
+            "(B) A sheltered area",
+            "(C) Musical equipment",
+            "(D) Cleaning supplies"
+          ],
+          "correctOptions": [
+            "(B) A sheltered area"
+          ],
+          "transcript": "The information is in: <i>\"Therefore, we will be providing your company with a temporary office trailer where your workers can take breaks from the heat.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Theo thư thì sẽ được cung cấp những gì? <br> (A) Thức ăn và nước uống<br> (B) Khu vực được che chắn<br> (C) Thiết bị âm nhạc<br> (D) Dụng cụ vệ sinh<br><b>Thông tin:</b> “Therefore, we will be providing your company with a temporary office trailer where your workers can take breaks from the heat.”<br> Vì vậy, chúng tôi sẽ cung cấp cho công ty của bạn một văn phòng tạm thời để công nhân của bạn có thể nghỉ ngơi sau cái nóng.<br> Thư đề cập rằng sẽ cung cấp một văn phòng tạm thời để nhân viên của công ty ông Martin có thể nghỉ ngơi khỏi cái nóng, tức là một khu vực có mái che."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d42",
+      "questionText": "<p><strong>LAURA BURKE&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;5:09</strong></p>\n\n<p>Are you back in the city Monday?</p>\n\n<p><strong>ADVIK SHAN&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;5:15</strong></p>\n\n<p>I might be.</p>\n\n<p><strong>LAURA BURK&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5:16</strong></p>\n\n<p>So, you're undecided?</p>\n\n<p><strong>ADVIK SHAN&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5:17</strong></p>\n\n<p>Yeah. This factory is running into all kinds of problems. Fix one thing and then something else comes up.</p>\n\n<p><strong>LAURA BURKE&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5:17</strong></p>\n\n<p>I heard. Well, at least it's nice not to be stuck in the office.</p>\n\n<p><strong>ADVIK SHAN&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5:18</strong></p>\n\n<p>That's true.</p>\n\n<p><strong>ADVIK SHAN&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;5:19</strong></p>\n\n<p>What's going on Monday?</p>\n\n<p><strong>LAURA BURKE&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5:20</strong></p>\n\n<p>Ms. Harris wants to have a meeting with you when you get back. Nothing urgent.</p>\n\n<p><strong>ADVIK SHAN&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5:22</strong></p>\n\n<p>Okay. I'll let you know when I get my schedule set.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d4d",
+          "questionText": "What is suggested about Mr. Shan?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He has missed a meeting.",
+            "(B) He is considering a transfer.",
+            "(C) He has recently taken over the operations of a manufacturing facility.",
+            "(D) He doesn’t know when he will be returning to his office."
+          ],
+          "correctOptions": [
+            "(D) He doesn’t know when he will be returning to his office."
+          ],
+          "transcript": "Based on the first two message that Mr. Shan said he might be when being asked if he was back in the city Monday.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Gợi ý điều gì về anh Shan? <br> (A) Anh ấy đã bỏ lỡ một cuộc họp. <br> (B) Anh ấy đang cân nhắc việc chuyển trường. <br> (C) Gần đây anh ấy đã tiếp quản hoạt động của một cơ sở sản xuất. <br> (D) Anh ấy không biết khi nào anh ấy sẽ trở lại văn phòng của mình. <br>Dựa trên hai tin nhắn đầu tiên khi được hỏi liệu ông có quay lại thành phố vào thứ Hai không, ông Shan đã trả lời là có thể, điều này thể hiện sự không chắc chắn, nên <b>đáp án đúng là D</b>."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d4e",
+          "questionText": "<p>At 5:18, what does Mr. Shan mean when he writes, “That’s true”?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is worried about the conditions of the factory.",
+            "(B) He agrees that being out of the office is enjoyable.",
+            "(C) He has discovered an error.",
+            "(D) He is positive he will be back on Monday."
+          ],
+          "correctOptions": [
+            "(B) He agrees that being out of the office is enjoyable."
+          ],
+          "transcript": "Laura Burke said it's nice not to be stuck in the office, that means she prefers being outside.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Lúc 5:18 anh Shan có ý gì khi viết “Đúng vậy”? <br> (A) Anh ấy lo lắng về điều kiện của nhà máy. <br> (B) Anh ấy đồng ý rằng việc ra khỏi văn phòng rất thú vị. <br> (C) Anh ấy đã phát hiện ra một lỗi. <br> (D) Anh ấy chắc chắn rằng anh ấy sẽ trở lại vào thứ Hai. <br>Laura Burke nói rằng thật tốt khi không bị mắc kẹt trong văn phòng, điều đó có nghĩa là cô ấy thích ở bên ngoài hơn, nên <b>đáp án đúng là B</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d43",
+      "questionText": "<p>To:Pat Blackburn <pblackburn@fastweb.com><br>\nFrom: Go Natural Health Products <cs@gonatural.com><br>\nDate: February 4, 3:34 P.M.<br>\nSubject: Product Order<br>\n<br>\nWe appreciate that you have chosen Go Natural Health Products for your vitamin and mineral supplements. All of our products are carefully inspected for quality and meet all government regulations. Additionally, during the month of February, customers making purchases over $100.00 do not have to pay any shipping fees.<br>\n<br>\nOrder number: 4330XM21<br>\nOrder date: February 4, 3:31 P.M.<br>\nShipping address: Pat Blackburn, 2709 Michigan Ave., Clinton WI<br>\nDetails: 6 bottles of Green Source multivitamin pills.<br>\nTotal: 180.00, paid with credit card (XXXX xxxx xxxx 8766)<br>\n<br>\nAll our products come with a 100% customer satisfaction guarantee. If you are dissatisfied, please call our customer service center at 987-555-3427 for a full refund within a week of the order.<br>\n<br>\nGo Natural Health Products</cs@gonatural.com></pblackburn@fastweb.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d4f",
+          "questionText": "What is indicated about Ms. Blackburn’s order?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It has been insured against loss.",
+            "(B) It is out of stock.",
+            "(C) It has been placed by her husband.",
+            "(D) It will be delivered free of charge."
+          ],
+          "correctOptions": [
+            "(D) It will be delivered free of charge."
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\" Additionally, during the month of February, customers making purchases over </i>$<i>100.00 do not have to pay any shipping fees.\"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Yêu cầu của bà Blackburn cho biết điều gì? <br> (A) Nó đã được bảo hiểm chống lại tổn thất. <br> (B) Nó đã hết hàng. <br> (C) Nó được chồng cô ấy đặt. <br> (D) Nó sẽ được giao miễn phí. <br><b>Thông tin:</b> “Additionally, during the month of February, customers making purchases over $100.00 do not have to pay any shipping fees.”<br> <i>Ngoài ra, trong tháng 2, khách hàng mua hàng trên 100 USD không phải trả bất kỳ khoản phí vận chuyển nào.</i><br> Thư nêu rõ rằng trong tháng Hai, khách hàng mua hàng trên $100 sẽ không phải trả phí vận chuyển. Đơn hàng của bà Blackburn là $180, nên đơn hàng của bà sẽ được giao miễn phí."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d50",
+          "questionText": "<p>Why might Ms. Blackburn call the customer service center by February 11?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To revise her order",
+            "(B) To change payment options",
+            "(C) To get a payment back",
+            "(D) To apply for a membership"
+          ],
+          "correctOptions": [
+            "(C) To get a payment back"
+          ],
+          "transcript": "<p>Based on the information given in: <i>\"If you are dissatisfied, please call our customer service center at 987-555-3427 for a full refund within a week of the order. \"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Tại sao cô Blackburn có thể gọi đến trung tâm dịch vụ khách hàng trước ngày 11 tháng 2? <br> (A) Để sửa lại mệnh lệnh của cô ấy<br> (B) Để thay đổi tùy chọn thanh toán<br> (C) Để nhận lại khoản thanh toán<br> (D) Để đăng ký làm thành viên<br><b>Thông tin:</b> “If you are dissatisfied, please call our customer service center at 987-555-3427 for a full refund within a week of the order.”<br> <i>Nếu bạn không hài lòng, vui lòng gọi đến trung tâm dịch vụ khách hàng của chúng tôi theo số 987-555-3427 để được hoàn lại toàn bộ số tiền trong vòng một tuần kể từ khi đặt hàng.</i><br> Vì đơn hàng được đặt vào ngày 4 tháng 2, bà Blackburn có thể gọi để được hoàn tiền cho đến ngày 11 tháng 2."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d44",
+      "questionText": "<b> Midnight Moon</b>, the new jazz album by guitarist Nick Stanton, will start being sold in stores this Thursday. Midnight Moon is Mr. Stanton’s first album in five years and has received praise from numerous music critics. Mr. Stanton will be signing copies of his new album at Emerson Department Store, located at 4532 Main Street, this Saturday, March 12. An autograph is free with the purchase of the new album.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d51",
+          "questionText": "Who is Nick Stanton?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A department store employee",
+            "(B) A recording artist",
+            "(C) A music critic",
+            "(D) A real estate agent"
+          ],
+          "correctOptions": [
+            "(B) A recording artist"
+          ],
+          "transcript": "Based on the information given in: <i>\"Midnight Moon, the new jazz album by guitarist Nick Stanton, will start being sold in stores this Thursday.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Nick Stanton là ai? <br> (A) Một nhân viên cửa hàng bách hóa<br> (B) Một nghệ sĩ thu âm<br> (C) Một nhà phê bình âm nhạc<br> (D) Một đại lý bất động sản<br><b>Thông tin:</b> “Midnight Moon, the new jazz album by guitarist Nick Stanton, will start being sold in stores this Thursday.”<br> <i>Midnight Moon, album nhạc jazz mới của tay guitar Nick Stanton, sẽ bắt đầu được bán tại các cửa hàng vào thứ Năm tuần này.</i><br> Nick Stanton là một nghệ sĩ thu âm, được xác định thông qua việc phát hành album jazz mới của anh ta và việc anh ta sẽ ký tặng album, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d52",
+          "questionText": "<p>According to the article, what will happen on March 12?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A concert will be held.",
+            "(B) A book will be released.",
+            "(C) An autograph session will take place.",
+            "(D) Some tickets will go on sale."
+          ],
+          "correctOptions": [
+            "(C) An autograph session will take place."
+          ],
+          "transcript": "The information can be inferred from: <i>\"An autograph is free with the purchase of the new album.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Theo bài viết, điều gì sẽ xảy ra vào ngày 12/3? <br> (A) Một buổi hòa nhạc sẽ được tổ chức. <br> (B) Một cuốn sách sẽ được phát hành. <br> (C) Một buổi ký tặng sẽ diễn ra. <br> (D) Một số vé sẽ được bán. <br><b>Thông tin:</b> “An autograph is free with the purchase of the new album”<br> <i>Chữ ký miễn phí khi mua album mới.</i><br> Bài viết cho biết rằng vào ngày 12 tháng 3, Nick Stanton sẽ ký tặng bản sao của album mới của anh ta tại cửa hàng Emerson Department, nên <b>đáp án đúng là C</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d45",
+      "questionText": "<h4 align=\"center\"> MEMO </h4> To:All Employees <br>From:Betty Franklin, General Manager<br>Date:August 19<br>Subject:Receptionist<br><br>To all employees: <br>- [1] - Greta Jones, the receptionist at our studio will be taking some time off to deal with a personal matter. She will be gone from August 21st to September 5th. - [2] - Ms. Blanche will take care of the regular responsibilities that Ms. Jones usually handles including taking phone calls, handling appointments, organizing schedules, and dealing with clients. Please welcome Ms. Blanche to the studio and be available for her to ask questions if she has any. <br>Furthermore, if you have any long time clients that you give special prices and discounts to, please let Ms. Blanche know ahead of time. - [3] - She will charge the fees that are programmed into the computer system. <br>If you have any urgent concerns you need to discuss with Ms. Jones, or if you need to purchase any special hair dyes, treatment shampoos, or other requests that customers have, please do so today and tomorrow before she leaves. –[4]- You can contact me at any time if you have any further questions.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d53",
+          "questionText": "Where do the recipients of the memo most likely work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a department store",
+            "(B) At a hair salon",
+            "(C) At a movie studio",
+            "(D) At a photography studio"
+          ],
+          "correctOptions": [
+            "(B) At a hair salon"
+          ],
+          "transcript": "Based on the information given in: <i>\"If you have any urgent concerns you need to discuss with Ms. Jones, or if you need to purchase any special hair dyes, treatment shampoos, or other requests that customers have, please do so today and tomorrow before she leaves. –[4]- You can contact me at any time if you have any further questions.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Người nhận bản ghi nhớ có nhiều khả năng làm việc ở đâu nhất? <br> (A) Tại một cửa hàng bách hóa<br> (B) Tại tiệm làm tóc<br> (C) Tại một xưởng phim<br> (D) Tại một studio chụp ảnh<br><b>Thông tin:</b> If you have any urgent concerns you need to discuss with Ms. Jones, or if you need to purchase any special hair dyes, treatment shampoos, or other requests that customers have, please do so today and tomorrow before she leaves. <br><i>Nếu bạn có bất kỳ mối quan tâm khẩn cấp nào cần thảo luận với cô Jones hoặc nếu bạn cần mua bất kỳ loại thuốc nhuộm tóc, dầu gội trị liệu đặc biệt nào hoặc các yêu cầu khác mà khách hàng có, hãy làm ngay hôm nay và ngày mai trước khi cô ấy rời đi.</i><br>Nhân viên được yêu cầu thông báo trước cho Ms. Blanche về bất kỳ loại thuốc nhuộm tóc đặc biệt nào, dầu gội trị liệu hoặc các yêu cầu khác từ khách hàng, cho thấy rằng nơi làm việc có khả năng là một tiệm làm tóc."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d54",
+          "questionText": "What is indicated about Greta Jones?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is retiring.",
+            "(B) She is going on vacation.",
+            "(C) She will take some time off work.",
+            "(D) She will work only temporarily."
+          ],
+          "correctOptions": [
+            "(C) She will take some time off work."
+          ],
+          "transcript": "Information is in: <i>\"Greta Jones, the receptionist at our studio will be taking some time off to deal with a personal matter.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Điều gì được chỉ ra về Greta Jones? <br> (A) Cô ấy sắp nghỉ hưu. <br> (B) Cô ấy đang đi nghỉ. <br> (C) Cô ấy sẽ nghỉ làm một thời gian. <br> (D) Cô ấy sẽ chỉ làm việc tạm thời. <br><b>Thông tin:</b> Greta Jones, the receptionist at our studio will be taking some time off to deal with a personal matter. <br><i>Greta Jones, nhân viên lễ tân tại studio của chúng tôi sẽ nghỉ một thời gian để giải quyết một số vấn đề cá nhân.</i>"
+        },
+        {
+          "id": "6140137e65d71f3a51f62d55",
+          "questionText": "By when should employees contact Ms. Jones with urgent business?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Before she leaves",
+            "(B) After she leaves",
+            "(C) Anytime",
+            "(D) When she gets back"
+          ],
+          "correctOptions": [
+            "(A) Before she leaves"
+          ],
+          "transcript": "The information can be inferred from: <i>\"If you have any urgent concerns you need to discuss with Ms. Jones, or if you need to purchase any special hair dyes, treatment shampoos, or other requests that customers have, please do so today and tomorrow before she leaves.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Khi nào nhân viên nên liên hệ với cô Jones khi có việc gấp? <br> (A) Trước khi cô ấy rời đi<br> (B) Sau khi cô ấy rời đi<br> (C) Bất cứ lúc nào<br> (D) Khi cô ấy quay lại<br>Trong bài có nhắc đến thông tin nhân viên cần liên hệ với Ms. Jones trước khi cô ấy rời đi nếu có bất kỳ công việc khẩn cấp nào."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d56",
+          "questionText": "<p>In which of the positions marked [1], [2], [3] and [4] does the following sentence belong? <br>“During this time, we have hired a temporary replacement, Judith Blanche.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(B) [2]"
+          ],
+          "transcript": "During this time means the time Greta Jones will take some time off.",
+          "explanationVi": "<b>Tạm dịch:</b> Câu sau đây thuộc vị trí nào trong các vị trí được đánh dấu [1], [2], [3] và [4]? <br>“Trong thời gian này, chúng tôi đã thuê người thay thế tạm thời, Judith Blanche.”<br>Câu này phù hợp nhất ở vị trí [2], nơi thông báo rằng Ms. Blanche sẽ đảm nhận các trách nhiệm thông thường của Ms. Jones."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d46",
+      "questionText": "<h4 align=\"center\"><strong><span style=\"font-size:16px;\">Shoe Shine</span></strong></h4>\n\n<p><b>Your number one source for sneakers</b></p>\n\n<p>We see that you are currently registered as a basic member at our website.<br>\n<u>Click here to upgrade to our premium membership.</u></p>\n\n<p>Once you become a premium member, you will enjoy the following benefits:<br>\n- Expedited shipping for $3 ($5 for a basic member)<br>\n- Exchanges on all items within 60 days of purchase at no extra charge (30 days for a basic member)<br>\n- Returns on all items within 30 days of purchase at no extra charge (7 days for a basic member)</p>\n\n<p>Upgrading your service from basic to premium takes just one click. To welcome customers to our new online store, this month we are offering the upgrade to annual premium membership at a discounted rate of just $50.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d57",
+          "questionText": "What is the purpose of the web page?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To advertise a new line of shoes",
+            "(B) To confirm an order",
+            "(C) To recommend a service upgrade",
+            "(D) To solicit donations"
+          ],
+          "correctOptions": [
+            "(C) To recommend a service upgrade"
+          ],
+          "transcript": "<p>Information can be inferred from:<br>\n<i>\"We see that you are currently registered as a basic member at our website.<br>\nClick here to upgrade to our premium membership.\"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Mục đích của trang web là gì? <br> (A) Để quảng cáo một dòng giày mới<br> (B) Để xác nhận đơn hàng<br> (C) Để đề xuất nâng cấp dịch vụ<br> (D) Để kêu gọi quyên góp<br><b>Thông tin:</b> We see that you are currently registered as a basic member at our website.<br>Click here to upgrade to our premium membership.<br><i> Chúng tôi thấy rằng bạn hiện đã đăng ký làm thành viên cơ bản tại trang web của chúng tôi.<br>Nhấn vào đây để nâng cấp lên thành viên cao cấp của chúng tôi.</i><br> Trang web này đang khuyến khích người dùng nâng cấp từ thành viên cơ bản lên thành viên cao cấp, đồng thời liệt kê các lợi ích của việc nâng cấp, nên <b>đáp án đúng là C</b>."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d58",
+          "questionText": "What is NOT mentioned as a benefit of premium membership?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Discounts on new items",
+            "(B) Faster shipping at a reduced price",
+            "(C) A longer period of free returns",
+            "(D) A  longer period of free exchanges"
+          ],
+          "correctOptions": [
+            "(A) Discounts on new items"
+          ],
+          "transcript": "<p>(B) - Expedited shipping for $3 ($5 for a basic member)<br>\n(C) - Returns on all items within 30 days of purchase at no extra charge (7 days for a basic member)<br>\n(D) - Exchanges on all items within 60 days of purchase at no extra charge (30 days for a basic member)</p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì KHÔNG được đề cập như một lợi ích của tư cách thành viên cao cấp? <br> (A) Giảm giá cho các mặt hàng mới<br> (B) Vận chuyển nhanh hơn với mức giá giảm<br> (C) Thời gian hoàn trả miễn phí dài hơn<br> (D) Thời gian trao đổi miễn phí dài hơn<br>Các lợi ích được liệt kê bao gồm vận chuyển nhanh với giá $3 ($5 cho thành viên cơ bản), trả lại tất cả các mặt hàng trong vòng 30 ngày kể từ ngày mua mà không tính thêm phí (7 ngày đối với thành viên cơ bản) và đổi tất cả mặt hàng trong vòng 60 ngày kể từ ngày mua mà không tính thêm phí (30 ngày đối với thành viên cơ bản). Trong bài không đề cập đến việc giảm giá cho các sản phẩm mới."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d59",
+          "questionText": "<p>What is indicated about Shoe Shine?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It has been in business for decades.",
+            "(B) It was founded by a local entrepreneur,",
+            "(C) Its merchandise is available through the Internet.",
+            "(D) It has three membership types."
+          ],
+          "correctOptions": [
+            "(C) Its merchandise is available through the Internet."
+          ],
+          "transcript": "<p>The information is in: <i>\"To welcome customers to our new online store, this month we are offering the upgrade to annual premium membership at a discounted rate of just </i>$<i>50.\"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Shoe Shine thể hiện điều gì? <br>(A) Nó đã hoạt động được nhiều thập kỷ. <br> (B) Nó được thành lập bởi một doanh nhân địa phương.<br> (C) Hàng hóa của nó có sẵn trên Internet. <br> (D) Nó có ba loại thành viên. <br><b>Thông tin:</b> To welcome customers to our new online store, this month we are offering the upgrade to annual premium membership at a discounted rate of just $50. <br><i>Để chào đón khách hàng đến với cửa hàng trực tuyến mới của chúng tôi, trong tháng này, chúng tôi sẽ cung cấp bản nâng cấp lên tư cách thành viên cao cấp hàng năm với mức chiết khấu chỉ $50.</i><br>Nội dung đề cập đến trang web của công ty và cửa hàng trực tuyến mới, điều này chỉ ra rằng hàng hóa của họ có sẵn trên mạng."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d47",
+      "questionText": "<b>Lisa Hancock</b>   9:39<br>I'm stopping by a coffee shop on my way to work. What does everyone want? It's on me. <br><br><b>Nick Morton</b>   9:39<br>Wow thanks! I'll have just black coffee. <br><br><b>Lilly Smith</b>   9:40<br>Thanks. I'd like a latte. Can you also bring some sugar? <br><br><b>Lisa Hancock</b>   9:41<br>Sure, I'll bring a couple of the sugar packets. <br><br><b>Richard Park</b>   9:42<br>I can never turn down coffee. I'll also have a latte with some sugar. <br><br><b>Emily Jordan</b>   9:42<br>I'd like a herbal tea if they have any. I don't drink anything caffeinated so any tea without caffeine would be great. Thanks. <br><br><b>Lisa Hancock</b>   9:43<br>Alright then. I'll be there in about 20 minutes with your drinks. See you soon. Oh and before I forget, please make sure that our orders from Cindy's Boutique get set up in our showroom for our clients. <br><br><b>Richard Park</b>   9:44<br>The boxes arrived this morning and our interns are working on unpacking them now. However, the order from Chantelle seems to have gone missing. <br><br><b>Lisa Hancock</b>   9:45<br>What do you mean? <br><br><b>Nick Morton</b>   9:45<br>We're trying to locate the package. We contacted Chantelle and they sent it to the wrong address. <br><br><b>Lisa Hancock</b>   9:46<br>That's a disaster. Please try to find out where those dresses went. <br><br><b>Richard Park</b>   9:47<br>Good news. I just got a message from the shipping company and they found the Chantelle order. They're redirecting the shipment to US. <br><br><b>Lisa Hancock</b>   9:48<br>I almost had a panic attack. When will it get here? <br><br><b>Richard Park</b>   9:48 <br>This afternoon.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d5a",
+          "questionText": "What type of business do the participants probably work at?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A fashion company",
+            "(B) A clothing shop",
+            "(C) A costume company",
+            "(D) A coffee shop"
+          ],
+          "correctOptions": [
+            "(A) A fashion company"
+          ],
+          "transcript": "Based on the conversation about work: <i>\"..please make sure that our orders from Cindy's Boutique get set up in our showroom for our clients.\", \"The boxes arrived this morning and our interns are working on unpacking them now. However, the order from Chantelle seems to have gone missing.\", \"The boxes arrived this morning and our interns are working on unpacking them now. However, the order from Chantelle seems to have gone missing.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Những người tham gia có thể làm việc ở loại hình kinh doanh nào? <br> (A) Một công ty thời trang<br> (B) Một cửa hàng quần áo<br> (C) Một công ty trang phục<br> (D) Một quán cà phê<br>Đoạn hội thoại cho thấy họ đang xử lý các đơn hàng từ các cửa hàng thời trang như Cindy's Boutique và Chantelle, và các đơn hàng bao gồm những chiếc váy, cho thấy họ làm việc tại một công ty thời trang."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d5b",
+          "questionText": "At 9:39, what does Lisa Hancock mean when she says, “It’s on me”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She’ll bring the coffee.",
+            "(B) She’ll buy the drinks.",
+            "(C) She’ll remember everyone’s orders.",
+            "(D) It’s her turn to get drinks."
+          ],
+          "correctOptions": [
+            "(B) She’ll buy the drinks."
+          ],
+          "transcript": "<b>be on sb</b>: used when saying who is responsible for something.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Lúc 9:39, Lisa Hancock có ý gì khi nói “It’s on me”? <br> (A) Cô ấy sẽ mang cà phê tới. <br> (B) Cô ấy sẽ mua đồ uống. <br> (C) Cô ấy sẽ nhớ mệnh lệnh của mọi người. <br> (D) Đến lượt cô ấy đi lấy đồ uống. <br><b>be on sb</b>: dùng khi nói ai chịu trách nhiệm về việc gì đó. Do vậy, \"It’s on me\" có nghĩa là Lisa Hancock sẽ trả tiền cho các loại đồ uống."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d5c",
+          "questionText": "What is indicated about one of their shipments?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It was overcharged.",
+            "(B) It was returned to the boutique.",
+            "(C) It will arrive later in the day.",
+            "(D) It hasn’t been located yet."
+          ],
+          "correctOptions": [
+            "(C) It will arrive later in the day."
+          ],
+          "transcript": "The information can be inferred from: <i>\"The boxes arrived this morning and our interns are working on unpacking them now. However, the order from Chantelle seems to have gone missing.\"; \"We're trying to locate the package. We contacted Chantelle and they sent it to the wrong address.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Điều gì được chỉ ra về một trong những lô hàng của họ? <br> (A) Nó đã bị tính phí quá mức. <br> (B) Nó đã được trả lại cửa hàng. <br> (C) Nó sẽ đến muộn hơn trong ngày. <br> (D) Nó vẫn chưa được định vị. <br>Richard Park thông báo rằng công ty vận chuyển đã tìm thấy đơn hàng từ Chantelle và sẽ chuyển đơn hàng đến họ, và nó sẽ đến vào buổi chiều, nên <b>đáp án đúng là C</b>."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d5d",
+          "questionText": "<p>What kind of business is Chantelle?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A fabric company",
+            "(B) A magazine company",
+            "(C) A shipping company",
+            "(D) A boutique"
+          ],
+          "correctOptions": [
+            "(D) A boutique"
+          ],
+          "transcript": "The information is in: <i>\"Oh and before I forget, please make sure that our orders from Cindy's Boutique get set up in our showroom for our clients.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Chantelle kinh doanh loại hình gì? <br> (A) Một công ty vải<br> (B) Một công ty tạp chí<br> (C) Một công ty vận chuyển<br> (D) Một cửa hàng<br>Trong đoạn hội thoại, họ đề cập đến đơn hàng từ Chantelle bao gồm những chiếc váy, cho thấy Chantelle là một cửa hàng thời trang (boutique)."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d48",
+      "questionText": "<p style=\"text-align: justify;\">To: All <csall@cherishedgoods.com><br>\nFrom: Eric Nixon <enix@cherishedgoods.com><br>\nDate: January 5, 10:00 A.M<br>\nSubject: Shipping Error<br>\n<br>\nHello everyone,<br>\nLilia Kent, the head of the shipping department, has informed me that yesterday our customer database experienced a system error and, as a result, many orders were sent to the wrong addresses. This morning, our department has already received multiple calls from customers complaining that they received the wrong package. Ms. Kent’s department has been working hard to locate the cause of the mistake. Therefore, any customer that calls with a wrong delivery should be asked to return the package. Additionally, please inform the customers that they will be given a 10 percent discount on their next purchase.<br>\nEric Nixon</enix@cherishedgoods.com></csall@cherishedgoods.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d5e",
+          "questionText": "Who most likely received the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Employees in the shipping department",
+            "(B) Dissatisfied customers",
+            "(C) Customer service representatives",
+            "(D) Internet technology specialists"
+          ],
+          "correctOptions": [
+            "(C) Customer service representatives"
+          ],
+          "transcript": "It can be inferred from: <i>\" Additionally, please inform the customers that they will be given a 10 percent discount on their next purchase\"</i> that those who need to inform customers is customer service representatives.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Ai có nhiều khả năng nhận được e-mail nhất? <br> (A) Nhân viên ở bộ phận vận chuyển<br> (B) Khách hàng không hài lòng<br> (C) Đại diện dịch vụ khách hàng<br> (D) Chuyên gia công nghệ Internet<br>Email này được gửi đến toàn bộ nhân viên của công ty và yêu cầu họ giải quyết các cuộc gọi từ khách hàng về việc giao hàng sai, điều này thường là trách nhiệm của đại diện dịch vụ khách hàng."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d5f",
+          "questionText": "According to the e-mail, what is Ms. Kent’s staff trying to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Create a customer database",
+            "(B) Fix a system malfunction",
+            "(C) Locate a lost package",
+            "(D) Take calls from customers"
+          ],
+          "correctOptions": [
+            "(B) Fix a system malfunction"
+          ],
+          "transcript": "The information is in: <i>\"Ms. Kent’s department has been working hard to locate the cause of the mistake.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Theo email, nhân viên của cô Kent đang cố gắng làm gì? <br> (A) Tạo cơ sở dữ liệu khách hàng<br> (B) Khắc phục sự cố hệ thống<br> (C) Xác định vị trí gói hàng bị thất lạc<br> (D) Nhận cuộc gọi từ khách hàng<br><b>Thông tin:</b> Ms. Kent’s department has been working hard to locate the cause of the mistake.<br><i>Bộ phận của bà Kent đã nỗ lực tìm ra nguyên nhân sai sót.</i><br>Ms. Kent và bộ phận của cô đang cố gắng tìm ra nguyên nhân của lỗi hệ thống đã dẫn đến việc gửi các đơn hàng đến địa chỉ sai."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d60",
+          "questionText": "<p>What are recipients of the e-mail advised to do?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Update their personal information",
+            "(B) Deliver a package in person",
+            "(C) Enter data into a customer database",
+            "(D) Offer a price reduction to some customers"
+          ],
+          "correctOptions": [
+            "(D) Offer a price reduction to some customers"
+          ],
+          "transcript": "The information can be inferred from: <i>\"Therefore, any customer that calls with a wrong delivery should be asked to return the package. \"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Người nhận e-mail nên làm gì? <br> (A) Cập nhật thông tin cá nhân của họ<br> (B) Giao tận tay một gói hàng<br> (C) Nhập dữ liệu vào cơ sở dữ liệu khách hàng<br> (D) Đề nghị giảm giá cho một số khách hàng<br><b>Thông tin:</b> Therefore, any customer that calls with a wrong delivery should be asked to return the package.<br><i>Do đó, bất kỳ khách hàng nào gọi đến và giao hàng sai sẽ được yêu cầu trả lại gói hàng.</i><br>Email hướng dẫn người nhận thông báo cho khách hàng rằng họ sẽ được giảm giá 10% cho lần mua tiếp theo nếu họ nhận được đơn hàng sai."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d49",
+      "questionText": "<p>To: carlhurst@nicknet.com<br>\nFrom: m_winters@tatecc.com<br>\nDate: June 1, 1:34 P.M.<br>\nSubject: Community Events<br>\n<br>\nDear Mr. Hurst,<br>\nAs a loyal customer with a family membership at the Tate Community Center, you have sponsored US with your continued donations. We really appreciate your support.<br>\nThe following table provides information on upcoming family events this month. We welcome your participation.</p>\n\n<table align=\"center\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse\" width=\"90%\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td align=\"center\"><b>Craft Day, June 7 </b></td>\n\t\t\t<td align=\"center\"><b>Paul Simpson, June 15</b></td>\n\t\t\t<td align=\"center\"><b>Summer Picnic, June 22 </b></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>A variety of craft supplies will be available for kids to make their own unique creations.</td>\n\t\t\t<td>Come and listen to the beautiful music of local singer and songwriter Paul Simpson.</td>\n\t\t\t<td>Everyone needs to bring a tasty dish to share with others. Free beverages will be provided.</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>For members, no purchase of tickets is necessary for participation in these events. We encourage you to attend these events and spend quality time with your family.<br>\nWe look forward to seeing you.<br>\n<br>\nMinnie Winters<br>\nProgram Coordinator<br>\nTate Community Center</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d61",
+          "questionText": "What is suggested about Mr. Hurst?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is a local musician.",
+            "(B) He donates to an orphanage.",
+            "(C) He supports a public organization",
+            "(D) He works at a community center."
+          ],
+          "correctOptions": [
+            "(C) He supports a public organization"
+          ],
+          "transcript": "The information can be inferred from: <i>\"As a loyal customer with a family membership at the Tate Community Center, you have sponsored US with your continued donations. \"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được gợi ý về ông Hurst? <br> (A) Ông ấy là một nhạc sĩ địa phương. <br> (B) Ông ấy quyên góp cho trại trẻ mồ côi. <br> (C) Ông ấy ủng hộ một tổ chức công cộng. <br> (D) Ông ấy làm việc tại một trung tâm cộng đồng. <br><b>Thông tin:</b> As a loyal customer with a family membership at the Tate Community Center, you have sponsored US with your continued donations.<br><i> Là một khách hàng trung thành với tư cách thành viên gia đình tại Trung tâm Cộng đồng Tate, bạn đã tài trợ cho chúng tôi bằng các khoản quyên góp liên tục của mình.</i><br> Email này cảm ơn Mr. Hurst vì đã là khách hàng trung thành và đã đóng góp cho Tate Community Center, cho thấy ông ấy ủng hộ một tổ chức công cộng."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d62",
+          "questionText": "Why was the e-mail sent?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To announce a community board meeting",
+            "(B) To apply for a family membership",
+            "(C) To publicize upcoming events",
+            "(D) To give information about a local"
+          ],
+          "correctOptions": [
+            "(C) To publicize upcoming events"
+          ],
+          "transcript": "The information can be inferred form: <i>\"The following table provides information on upcoming family events this month. We welcome your participation.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Tại sao email được gửi? <br> (A) Để thông báo về cuộc họp hội đồng cộng đồng<br> (B) Để đăng ký làm thành viên gia đình<br> (C) Để công khai các sự kiện sắp tới<br> (D) Để cung cấp thông tin về một địa phương<br><b>Thông tin:</b> The following table provides information on upcoming family events this month. We welcome your participation.<br><i> Bảng sau cung cấp thông tin về các sự kiện gia đình sắp diễn ra trong tháng này. Chúng tôi hoan nghênh sự tham gia của bạn.</i><br> Email cung cấp thông tin về các sự kiện gia đình sắp tới trong tháng và mời Mr. Hurst tham gia, mục đích là để thông báo về các sự kiện này."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d63",
+          "questionText": "<p>What is indicated about Tate Community Center?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Its members gain free admission to the events.",
+            "(B) It offers regular music classes.",
+            "(C) It takes reservations by phone.",
+            "(D) It will serve beverages at all events."
+          ],
+          "correctOptions": [
+            "(A) Its members gain free admission to the events."
+          ],
+          "transcript": "The information is in: <i>\"For members, no purchase of tickets is necessary for participation in these events. \"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được chỉ ra về Trung tâm Cộng đồng Tate? <br> (A) Các thành viên của nó được tham gia miễn phí các sự kiện. <br> (B) Nó cung cấp các lớp học âm nhạc thường xuyên. <br> (C) Cần đặt chỗ qua điện thoại. <br> (D) Nó sẽ phục vụ đồ uống ở tất cả các sự kiện. <br><b>Thông tin:</b> For members, no purchase of tickets is necessary for participation in these events.<br><i> Đối với thành viên, không cần mua vé để tham gia vào các sự kiện này.</i><br> Email chỉ ra rằng các thành viên không cần mua vé để tham gia các sự kiện này, cho thấy các thành viên được vào cửa miễn phí."
+        }
+      ]
+    },
+    {
+      "id": "6140137e65d71f3a51f62d4a",
+      "questionText": "<h4 align=\"center\">J&amp;P Industries</h4>\n\n<p align=\"center\">1462 Swinton street</p>\n\n<p align=\"center\">Cameron, GL 10288</p>\n\n<p>March 29<br>\nMr. Grant Lee<br>\n287 Silver Plains Road<br>\nCameron, GL 18729<br>\n<br>\nDear Mr. Lee,<br>\nWe thank you for your continued work and your dedication to your job at J&amp;P Industries. -[1] - We are sending all employees information about the new changes that have been made to your health insurance benefits at our company. You will continue to be covered by the same insurance company, but because of the new state regulations that have been put forth, all employees must now undergo a basic medical check-up at a local clinic or hospital. This check-up will be covered by your health insurance, so you do not need to pay any extra fees and this by no means will affect the monthly insurance deductions. -[2] - Included in the envelope is the detailed information about the new medical program for employees.<br>\nThe medical check-ups will include a blood test, urine test, eye test, height and weight measurements, hearing test, and chest X-rays. - [3] - Please make an appointment with a local clinic. You should have your results given to Karen Leigh at Human Resources by December 30th at the latest. If you fail to get a medical exam, then you may be <b>subject to</b> a fine up to $2000. - [4] - We thank you for your cooperation and hope you abide by the new changes.<br>\nIf you have any further questions or concerns, please contact Karen at leighk@jpindustries.com.<br>\n<br>\nSincerely,<br>\nJohn Black<br>\nExecutive Manager<br>\nJ&amp;P Industries</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137e65d71f3a51f62d64",
+          "questionText": "What is the purpose of the letter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To inform an employee about a mandatory exam",
+            "(B) To encourage employees to donate blood to the hospital",
+            "(C) To discuss the changes made to the health insurance coverage",
+            "(D) To advertise the services of a new clinic"
+          ],
+          "correctOptions": [
+            "(A) To inform an employee about a mandatory exam"
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"We are sending all employees information about the new changes that have been made to your health insurance benefits at our company. You will continue to be covered by the same insurance company, but because of the new state regulations that have been put forth, all employees must now undergo a basic medical check-up at a local clinic or hospital.\"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Mục đích của bức thư là gì? <br> (A) Để thông báo cho nhân viên về kỳ thi bắt buộc<br> (B) Để khuyến khích nhân viên hiến máu cho bệnh viện<br> (C) Để thảo luận về những thay đổi đối với phạm vi bảo hiểm y tế<br> (D) Để quảng cáo các dịch vụ của một phòng khám mới<br><b>Thông tin:</b> We are sending all employees information about the new changes that have been made to your health insurance benefits at our company….all employees must now undergo a basic medical check-up at a local clinic or hospital.<br><i>Chúng tôi đang gửi cho tất cả nhân viên thông tin về những thay đổi mới đã được thực hiện đối với quyền lợi bảo hiểm y tế của bạn tại công ty chúng tôi…tất cả nhân viên hiện phải trải qua cuộc kiểm tra sức khỏe cơ bản tại phòng khám hoặc bệnh viện địa phương.<br>Thư này thông báo cho Mr. Lee về việc kiểm tra y tế bắt buộc mới mà tất cả nhân viên phải thực hiện do các quy định mới của bang."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d65",
+          "questionText": "What did Mr. Black send with the letter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An application form",
+            "(B) An insurance document",
+            "(C) A contract",
+            "(D) Extra information about the changes"
+          ],
+          "correctOptions": [
+            "(D) Extra information about the changes"
+          ],
+          "transcript": "<p>The information is in: <i>\" Included in the envelope is the detailed information about the new medical program for employees.\"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Ông Black đã gửi gì cùng với bức thư? <br> (A) Một mẫu đơn đăng ký<br> (B) Một tài liệu bảo hiểm<br> (C) Một hợp đồng<br> (D) Thông tin bổ sung về những thay đổi<br><b>Thông tin:</b> Included in the envelope is the detailed information about the new medical program for employees.<br><i>Bên trong phong bì có thông tin chi tiết về chương trình y tế mới dành cho nhân viên.</i><br>Điều này cho thấy rằng Mr. Black đã gửi kèm thông tin chi tiết về các thay đổi trong chương trình y tế."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d66",
+          "questionText": "The term “subject to” at the end of the second paragraph is closest in meaning to:",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Dependent on",
+            "(B) Responsible for",
+            "(C) Withdrawn from",
+            "(D) Added to"
+          ],
+          "correctOptions": [
+            "(B) Responsible for"
+          ],
+          "transcript": "<p><em>be subject to&nbsp;something:&nbsp;to have or experience a particular thing</em></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Thuật ngữ “subject to” ở cuối đoạn thứ hai có nghĩa gần nhất với: <br> (A) Phụ thuộc vào<br> (B) Chịu trách nhiệm về<br> (C) Rút khỏi<br> (D) Đã thêm vào<br>Cụm từ \"subject to a fine up to $2000\" có nghĩa là \"có thể bị phạt lên tới $2000\", do đó \"subject to\" ở đây có nghĩa là \"responsible for\" hoặc \"chịu trách nhiệm về\"."
+        },
+        {
+          "id": "6140137e65d71f3a51f62d67",
+          "questionText": "<p>In which of the positions marked [1], [2], [3] and [4] does the following sentence best belong? <br>“The appointments should take no longer than 30 minutes.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "Because it is related to <i>\"The medical check-ups will include a blood test, urine test, eye test, height and weight measurements, hearing test, and chest X-rays.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Câu sau đây thuộc về vị trí nào trong số các vị trí được đánh dấu [1], [2], [3] và [4]? <br>“Cuộc hẹn sẽ kéo dài không quá 30 phút.<br> Câu này phù hợp nhất khi đặt sau khi liệt kê các kiểm tra y tế sẽ được thực hiện, vì nó cung cấp thông tin thêm về thời gian dự kiến cho cuộc hẹn."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "topicId": "614012ed65d71f3a51f62c48",
+  "name": "Test 6",
+  "slug": "test-6",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6140137865d71f3a51f62d1a",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>Henderson Inc.</strong></span></p>\n\n<p style=\"text-align: center;\">1576 Stevens Road, Pleasantville, NY 10571</p>\n\n<p style=\"text-align: center;\">(231) 555-0786, www.hendersoninc.com</p>\n\n<p>Order Number: 6694</p>\n\n<p>Date:&nbsp; April 2</p>\n\n<p>Customer:&nbsp; Susan Ward</p>\n\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;709 Praise Street Pleasantville, NY 10571</p>\n\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(203) 555-0167</p>\n\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width: 526px;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 158px; text-align: center;\"><strong>Item&nbsp;</strong></td>\n\t\t\t<td style=\"width: 98px; text-align: center;\"><strong>Model&nbsp;</strong></td>\n\t\t\t<td style=\"width: 78px; text-align: center;\"><strong>Quantity&nbsp;</strong></td>\n\t\t\t<td style=\"width: 167px; text-align: center;\"><strong>Price&nbsp;</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 158px; text-align: center;\">Extra-large microwave</td>\n\t\t\t<td style=\"width: 98px; text-align: center;\">MW132&nbsp;</td>\n\t\t\t<td style=\"width: 78px; text-align: center;\">1</td>\n\t\t\t<td style=\"width: 167px; text-align: center;\">$150.00&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 158px; text-align: center;\">Four-door refrigerator</td>\n\t\t\t<td style=\"width: 98px; text-align: center;\">RF4D&nbsp;</td>\n\t\t\t<td style=\"width: 78px; text-align: center;\">1</td>\n\t\t\t<td style=\"width: 167px; text-align: center;\">$2,399.99&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 158px; text-align: center;\">Smart toaster</td>\n\t\t\t<td style=\"width: 98px; text-align: center;\">TR512&nbsp;</td>\n\t\t\t<td style=\"width: 78px; text-align: center;\">1</td>\n\t\t\t<td style=\"width: 167px; text-align: center;\">$45.50&nbsp;</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Subtotal:&nbsp; &nbsp; &nbsp; &nbsp;$2,595.49</p>\n\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tax:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$230.18</p>\n\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Total due:&nbsp; &nbsp; &nbsp; &nbsp; $2,825.67</p>\n\n<p>Local customers are eligible for free shipping on purchases over $1,000.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d24",
+          "questionText": "What does Henderson Inc. sell?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Home appliances",
+            "(B) Office furniture",
+            "(C) Computer equipment",
+            "(D) Construction materials"
+          ],
+          "correctOptions": [
+            "(A) Home appliances"
+          ],
+          "transcript": "Based on the items in the chart.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Henderson Inc. bán gì?<br>(A) Đồ gia dụng<br>(B) Nội thất văn phòng<br>(C) Thiết bị máy tính<br>(D) Vật liệu xây dựng<br>Dựa vào các mặt hàng được liệt kê trong bài: Lò vi sóng cực lớn, Tủ lạnh bốn cánh, Máy nướng bánh mì thông minh, có thể suy ra Henderson bán thiết bị gia dụng."
+        },
+        {
+          "id": "6140137865d71f3a51f62d25",
+          "questionText": "<p>What is indicated about Ms. Ward?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She must pick up her items in person.",
+            "(B) She is eligible for a special discount.",
+            "(C) She will receive her deliveries at no charge.",
+            "(D) She paid with a check."
+          ],
+          "correctOptions": [
+            "(C) She will receive her deliveries at no charge."
+          ],
+          "transcript": "Because local customers are eligible for free shipping on purchases over 1000 dollars and her purchase is 2825.67 dollars.",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Điều gì được chỉ ra về cô Ward? <br> (A) Cô ấy phải đích thân đến lấy đồ. <br> (B) Cô ấy đủ điều kiện được giảm giá đặc biệt. <br> (C) Cô ấy sẽ nhận hàng miễn phí. <br> (D) Cô ấy thanh toán bằng séc. <br><b>Thông tin:</b> “Local customers are eligible for free shipping on purchases over 1000 dollars” <br>(Khách hàng địa phương đủ điều kiện được giao hàng miễn phí khi mua hàng trên 1000 đô la) và theo thông tin trong bài giao dịch của cô Ward là 2825,67 đô la nên cô ấy sẽ không mất phí vận chuyển."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d1b",
+      "questionText": "<p><strong>DAN COOPER&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10:10</strong></p>\n\n<p>Did you finish your meeting?</p>\n\n<p><strong>HEATHER BERRY&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10:10</strong></p>\n\n<p>Not yet.</p>\n\n<p><strong>DAN COOPER&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;10:11</strong></p>\n\n<p>Okay, message me when you're done.</p>\n\n<p><strong>HEATHER BERRY&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10:11</strong></p>\n\n<p>I'm free now. They took a break for snacks and the bathroom.</p>\n\n<p><strong>DAN COOPER&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10:13</strong></p>\n\n<p>Great. I was wondering if you'd take the interns to lunch today.</p>\n\n<p><strong>HEATHER BERRY&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;10:13</strong></p>\n\n<p>Are you bailing on it?</p>\n\n<p><strong>DAN COOPER&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10:14</strong></p>\n\n<p>I have to. I need to be in North Point by 2.</p>\n\n<p><strong>HEATHER BERRY&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;10:14</strong></p>\n\n<p>No worries. I'll take them.</p>\n\n<p><strong>DAN COOPER&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;10:16</strong></p>\n\n<p>Thanks. I'd hate to cancel on them.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d26",
+          "questionText": "What is suggested about Ms. Berry?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is eating a snack.",
+            "(B) She will be promoted.",
+            "(C) She is in the middle of meeting.",
+            "(D) She plans on cancelling a lunch appointment."
+          ],
+          "correctOptions": [
+            "(C) She is in the middle of meeting."
+          ],
+          "transcript": "When Dan Cooper asked her if she had finished the meeting and she said not yet, that means she was still in the meeting.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được gợi ý về cô Berry? <br> (A) Cô ấy đang ăn đồ ăn nhẹ. <br> (B) Cô ấy sẽ được thăng chức. <br> (C) Cô ấy đang họp. <br> (D) Cô ấy dự định hủy cuộc hẹn ăn trưa. <br>Khi Dan Cooper hỏi cô ấy đã họp xong chưa và cô ấy nói chưa, điều đó có nghĩa là cô ấy vẫn còn tham gia cuộc họp."
+        },
+        {
+          "id": "6140137865d71f3a51f62d27",
+          "questionText": "<p>At 10:13, what does Ms. Berry mean when she writes, “Are you bailing on it?”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She’s asking if Mr. Cooper has finished his meeting.",
+            "(B) She’s inquiring if Mr. Cooper will be missing the appointment.",
+            "(C) She wants to know if Mr. Cooper will go to North Point.",
+            "(D) She would like Mr. Cooper to notify her when he leaves."
+          ],
+          "correctOptions": [
+            "(B) She’s inquiring if Mr. Cooper will be missing the appointment."
+          ],
+          "transcript": "Because Mr. Cooper mentioned if Ms. Berry would take the interns to lunch today.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Lúc 10:13, cô Berry có ý gì khi viết, “Bạn không đi ăn trưa đúng không?” <br> (A) Cô ấy đang hỏi liệu ông Cooper đã kết thúc cuộc họp chưa. <br> (B) Cô ấy đang hỏi liệu ông Cooper có lỡ cuộc hẹn không. <br> (C) Cô ấy muốn biết liệu ông Cooper có đi North Point không. <br> (D) Cô ấy muốn ông Cooper thông báo cho cô ấy khi ông ấy rời đi. <br><b>Cụm từ:</b> bail on someone: bất ngờ hủy cuộc hẹn<br> Ông Cooper đề cập đến việc hôm nay cô Berry có đưa các thực tập sinh đi ăn trưa không, nên <b>đáp án đúng là B</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d1c",
+      "questionText": "<h4 align=\"center\"><span style=\"font-size:16px;\">Superbox Theaters</span></h4>\n\n<p><span style=\"font-size:14px;\">Superbox Theaters is now offering reduced prices on matinee tickets this December. Use this early-bird special and pay half the price for the first matinee show. This offer applies to all movies, seven days a week, even including our new releases!<br>\nGroup visits from schools and companies are encouraged. If you have a large group, you might want to reserve your tickets in advance.<br>\nTickets can be purchased in person from theater staff or online at WWW. superboxtheaters.com and www.abcticketworld.com. Additionally, when buying tickets online, we offer the convenience of choosing your seat number. Information and reviews of current and upcoming films are also available on the website. Come on down to Superbox Theaters and take advantage of this great offer.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d28",
+          "questionText": "What is indicated about Superbox Theaters?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It will screen fewer films this December.",
+            "(B) It is hiring part-timers.",
+            "(C) It will be adding a new theater location.",
+            "(D) It is providing lower prices on certain screenings."
+          ],
+          "correctOptions": [
+            "(D) It is providing lower prices on certain screenings."
+          ],
+          "transcript": "The information is in: <i>\"Superbox Theaters is now offering reduced prices on matinee tickets this December.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được chỉ ra về Superbox Theaters? <br> (A) Tháng 12 này sẽ chiếu ít phim hơn. <br> (B) Nó đang tuyển dụng người làm việc bán thời gian. <br> (C) Nó sẽ bổ sung thêm một địa điểm rạp hát mới. <br> (D) Nó đang cung cấp mức giá thấp hơn cho một số buổi chiếu nhất định. <br><b>Thông tin:</b> “Superbox Theaters is now offering reduced prices on matinee tickets this December” <br>Superbox Theaters hiện đang giảm giá vé xem phim vào tháng 12 này, nên <b>đáp án đúng là D</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d29",
+          "questionText": "<p>What are customers able to do on the website?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Demand a refund",
+            "(B) Select a seat location",
+            "(C) Sign up for a newsletter",
+            "(D) Renew their membership"
+          ],
+          "correctOptions": [
+            "(B) Select a seat location"
+          ],
+          "transcript": "<p>The information is in: <i>\"when buying tickets online, we offer the convenience of choosing your seat number\"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Khách hàng có thể làm gì trên trang web? <br> (A) Yêu cầu hoàn lại tiền<br> (B) Chọn vị trí chỗ ngồi<br> (C) Đăng ký nhận bản tin<br> (D) Gia hạn tư cách thành viên của họ<br><b>Thông tin:</b> “when buying tickets online, we offer the convenience of choosing your seat number.”<br>khi mua vé trực tuyến, chúng tôi mang đến sự thuận tiện cho bạn trong việc chọn số ghế, nên <b>đáp án đúng là B</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d1d",
+      "questionText": "<p style=\"text-align: justify;\"><span style=\"font-size:14px;\">To: Aaron Sandler asandler@milleradvertising.com<br>\nFrom: Sam Miller </span><smiller@milleradvertising.com><br>\n<span style=\"font-size:14px;\">Subject: Tuesday’s Meeting<br>\nDate: November 12<br>\n<br>\nDear Mr. Sandler,<br>\nThis month’s business review meeting is scheduled for Thursday, November 15. As you know, this meeting is a great opportunity for US to assess our operating plan and to make any adjustments that might help US keep up with constant changes in the marketplace. As an advertising agency, it’s crucial we stay informed about the newest market trends. Therefore, I was excited when I heard that Tsuyoshi Ito, manager of our Japanese branch, would be visiting this Friday. In order to take advantage of his expertise and knowledge, I would like to change the meeting date so that Mr. Ito can attend.<br>\nThis will be Mr. Ito’s first time in the country, so I would like you to pick him up from the airport. A company car will be provided to you for this purpose. I will e-mail again once I have more details concerning Mr. Ito’s arrival time.<br>\n<br>\nSincerely,<br>\nSam Miller<br>\nPresident<br>\nMiller Advertising</span></smiller@milleradvertising.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d2a",
+          "questionText": "What is the purpose of the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To reschedule a meeting",
+            "(B) To request a monthly operating report",
+            "(C) To introduce a new employee",
+            "(D) To propose a new marketing strategy"
+          ],
+          "correctOptions": [
+            "(A) To reschedule a meeting"
+          ],
+          "transcript": "The information is in: <i>\"This month’s business review meeting is scheduled for Thursday, November 15.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Mục đích của e-mail là gì? <br> (A) Để lên lịch lại cuộc họp<br> (B) Để yêu cầu báo cáo hoạt động hàng tháng<br> (C) Để giới thiệu một nhân viên mới<br> (D) Để đề xuất một chiến lược tiếp thị mới<br><b>Thông tin:</b> “This month’s business review meeting is scheduled for Thursday, November 15.” <Br> Cuộc họp đánh giá hoạt động kinh doanh của tháng này được lên lịch vào Thứ Năm, ngày 15 tháng 11. <br> Do vậy, <b>đáp án đúng là A</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d2b",
+          "questionText": "<p>What does the e-mail indicate about Mr. Ito?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is changing positions.",
+            "(B) He often travels for business.",
+            "(C) He works in advertising.",
+            "(D) He is a client of Mr. Miller’s."
+          ],
+          "correctOptions": [
+            "(C) He works in advertising."
+          ],
+          "transcript": "The information can be inferred from: <i>\"As an advertising agency, it’s crucial we stay informed about the newest market trends. Therefore, I was excited when I heard that Tsuyoshi Ito, manager of our Japanese branch, would be visiting this Friday. \"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>E-mail nói gì về ông Ito? <br> (A) Anh ấy đang thay đổi vị trí. <br> (B) Anh ấy thường đi công tác. <br>(C) Anh ấy làm việc trong lĩnh vực quảng cáo. <br> (D) Anh ấy là khách hàng của ông Miller. <br><b>Thông tin:</b> “As an advertising agency, it’s crucial we stay informed about the newest market trends. Therefore, I was excited when I heard that Tsuyoshi Ito, manager of our Japanese branch, would be visiting this Friday.”<br> Là một công ty quảng cáo, điều quan trọng là chúng tôi luôn cập nhật về các xu hướng thị trường mới nhất. Vì vậy, tôi rất vui khi nghe tin Tsuyoshi Ito, giám đốc chi nhánh Nhật Bản của chúng tôi, sẽ ghé thăm vào thứ sáu này.<br>Do vậy, <b>đáp án đúng là C</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d1e",
+      "questionText": "<p style=\"text-align: justify;\"><span style=\"font-size:14px;\">To: Bridget Lee<br>\nFrom: Victor Thomas<br>\nSubject: Shipment<br>\nDate: June 25<br>\n<br>\nHello Bridget,</span></p>\n\n<p style=\"text-align: justify;\"><span style=\"font-size:14px;\">- [1] - Our shipment of beverages will arrive tomorrow morning around 10:00 A.M. Please keep inventory and make sure that all the shipments are accurate as they are unloaded. Also, some of the beverages will need to be refrigerated right away so please make sure that that issue is taken care of in a timely fashion. - [2] - The temperatures are expected to be high tomorrow so we’ll need to get all the shipments to storage as soon as possible. - [3] - We have 2 refrigerated trucks we’ll send with you and we’ll have a crew waiting for your arrival at the warehouse. - [4] -</span></p>\n\n<p style=\"text-align: justify;\"><span style=\"font-size:14px;\">If there are any problems or you need any help with issues that arise, please contact me by phone. I’ll be in the office early tomorrow.<br>\n<br>\nThanks,<br>\nVictor</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d2c",
+          "questionText": "What is the purpose of the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To inform the suppliers of a mistake",
+            "(B) To keep give an employee instructions",
+            "(C) To order a shipment of beverages",
+            "(D) To inventory of products"
+          ],
+          "correctOptions": [
+            "(B) To keep give an employee instructions"
+          ],
+          "transcript": "Based on the content of the passage, you can see the instructions that the writer gives the reader.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Mục đích của e-mail là gì? <br> (A) Để thông báo cho nhà cung cấp về sai sót<br> (B) Để tiếp tục đưa ra hướng dẫn cho nhân viên<br> (C) Để đặt hàng một chuyến hàng đồ uống<br> (D) Để kiểm kê sản phẩm<br>Mục đích của email là cung cấp hướng dẫn cho Bridget Lee về việc kiểm tra và lưu trữ lô hàng đồ uống sẽ đến vào sáng hôm sau, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d2d",
+          "questionText": "Why is Victor concerned about the shipment?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The products are fragile.",
+            "(B) They may arrive late.",
+            "(C) They are temperature sensitive.",
+            "(D) They are for an important client."
+          ],
+          "correctOptions": [
+            "(C) They are temperature sensitive."
+          ],
+          "transcript": "The information can be inferred from: <i>\"Also, some of the beverages will need to be refrigerated right away so please make sure that that issue is taken care of in a timely fashion.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Tại sao Victor lại quan tâm đến lô hàng? <br> (A) Sản phẩm rất dễ vỡ. <br> (B) Họ có thể đến muộn. <br> (C) Chúng nhạy cảm với nhiệt độ. <br> (D) Chúng dành cho một khách hàng quan trọng. <br><b>Thông tin:</b> “Also, some of the beverages will need to be refrigerated right away so please make sure that that issue is taken care of in a timely fashion.”<br>Ngoài ra, một số đồ uống sẽ cần được làm lạnh ngay lập tức, vì vậy hãy đảm bảo rằng vấn đề đó được xử lý kịp thời.<br> Victor lo lắng về nhiệt độ cao ngày mai và yêu cầu Bridget phải đảm bảo rằng một số đồ uống cần được làm lạnh ngay lập tức. Điều này cho thấy rằng lô hàng nhạy cảm với nhiệt độ."
+        },
+        {
+          "id": "6140137865d71f3a51f62d2e",
+          "questionText": "<p>In which of the positions marked [1], [2], [3] and [4] does the following sentence belong?<br>“I’m worried about the weather.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(B) [2]"
+          ],
+          "transcript": "Because the sentence before position [2] mentions about the temparature sensitive of the beverages.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Câu sau đây thuộc về vị trí nào trong số các vị trí được đánh dấu [1], [2], [3] và [4]?<br>“Tôi lo lắng về thời tiết.”<br> Câu \"I’m worried about the weather\" hợp lý nhất khi đặt ở vị trí [2], ngay trước câu \"The temperatures are expected to be high tomorrow,\" vì nó giải thích lý do tại sao Victor lo lắng về thời tiết."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d1f",
+      "questionText": "<h4 align=\"center\"><span style=\"font-size:16px;\">Marigold Bakery</span></h4>\n\n<p align=\"center\"><span style=\"font-size:14px;\">451 Clark Street, Ellis Town</span></p>\n\n<p align=\"center\"><span style=\"font-size:14px;\">253-555-1298</span></p>\n\n<p><span style=\"font-size:14px;\">Marigold Bakery is a family-run business that has been making delicious and irresistible sweet treats for over 30 years. Our store is located in historic downtown Ellis Town and offers a warm decor and inviting atmosphere.<br>\nWe offer:<br>\n• Made-to-order pastries for parties, weddings, and corporate events<br>\n• Gluten- or sugar-free refreshments and vegetarian sandwiches<br>\n• Custom cake designs<br>\nHours:<br>\nMonday to Saturday, 9:00 A.M. to 5:00 P.M.<br>\nWe will be closing this September in order to expand the size of our store.<br>\nSunday cooking class:<br>\nMarigold Bakery values positive interactions with the community.<br>\nTherefore, we are currently holding a cooking class for teenagers in the community. Baking teaches the values of patience and hard work!</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d2f",
+          "questionText": "What is mentioned about Marigold Bakery?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is internationally known.",
+            "(B) It employs local students.",
+            "(C) It offers options for those with dietary restrictions.",
+            "(D) Its store space can be rented for various events."
+          ],
+          "correctOptions": [
+            "(C) It offers options for those with dietary restrictions."
+          ],
+          "transcript": "The information is in: <i>\"We offer:\n• Made-to-order pastries for parties, weddings, and corporate events\n• Gluten- or sugar-free refreshments and vegetarian sandwiches\n• Custom cake designs\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được nhắc đến ở Marigold Bakery? <br> (A) Nó được quốc tế biết đến. <br> (B) Nó tuyển dụng sinh viên địa phương. <br> (C) Nó cung cấp các lựa chọn cho những người có chế độ ăn kiêng hạn chế. <br> (D) Không gian cửa hàng có thể được thuê cho nhiều sự kiện khác nhau. <br><b>Thông tin:</b> “We offer: <br>• Made-to-order pastries for parties, weddings, and corporate events <br>• Gluten- or sugar-free refreshments and vegetarian sandwiches <br>• Custom cake designs”<Br>Chúng tôi cung cấp: <br>• Bánh ngọt làm theo yêu cầu cho các bữa tiệc, đám cưới và sự kiện của công ty <Br>• Đồ uống giải khát không chứa gluten hoặc đường và bánh mì chay <Br>• Thiết kế bánh theo yêu cầu<br>Quảng cáo đề cập rằng Marigold Bakery cung cấp các món không chứa gluten hoặc đường và bánh mì chay, cho thấy họ có các lựa chọn cho những người có hạn chế về chế độ ăn uống."
+        },
+        {
+          "id": "6140137865d71f3a51f62d30",
+          "questionText": "According to the advertisement, what will happen in September?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The store will shut down for renovations.",
+            "(B) A classroom will be constructed.",
+            "(C) The menu will be expanded.",
+            "(D) The shop will cater a community event."
+          ],
+          "correctOptions": [
+            "(A) The store will shut down for renovations."
+          ],
+          "transcript": "The information is in: <i>\"We will be closing this September in order to expand the size of our store.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Theo quảng cáo, điều gì sẽ xảy ra vào tháng 9? <br> (A) Cửa hàng sẽ đóng cửa để sửa chữa. <br> (B) Một lớp học sẽ được xây dựng. <br> (C) Menu sẽ được mở rộng. <br> (D) Cửa hàng sẽ phục vụ một sự kiện cộng đồng. <br><b>Thông tin:</b> “We will be closing this September in order to expand the size of our store.”<br>Chúng tôi sẽ đóng cửa vào tháng 9 này để mở rộng quy mô cửa hàng của mình. <br>Do vậy, <b>đáp án đúng là A</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d31",
+          "questionText": "<p>What is indicated about the cooking class?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It will be held at a community center this year.",
+            "(B) It has been going on for over 30 years.",
+            "(C) It is taught by an experienced baker.",
+            "(D) It is designed for local teenagers."
+          ],
+          "correctOptions": [
+            "(D) It is designed for local teenagers."
+          ],
+          "transcript": "The information is in: <i>\"Therefore, we are currently holding a cooking class for teenagers in the community.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Lớp học nấu ăn nói lên điều gì? <br> (A) Năm nay nó sẽ được tổ chức tại một trung tâm cộng đồng. <br> (B) Nó đã diễn ra được hơn 30 năm. <br> (C) Nó được dạy bởi một thợ làm bánh có kinh nghiệm. <br> (D) Nó được thiết kế dành cho thanh thiếu niên địa phương. <br><b>Thông tin:</b> “Therefore, we are currently holding a cooking class for teenagers in the community.”<br> Vì vậy, chúng tôi hiện đang tổ chức một lớp học nấu ăn cho thanh thiếu niên trong cộng đồng.<br> Do vậy, <b>đáp án đúng là D</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d20",
+      "questionText": "<p style=\"text-align: center;\"><strong><span style=\"font-size:16px;\">Peter Jones Lunch</span></strong></p>\n\n<p>Peter Jones&nbsp; [12:10]&nbsp; &nbsp; &nbsp;I'm heading to the new pizza parlor across the street for lunch. Does anyone want to join me?</p>\n\n<p>Martin Lee&nbsp; [12:10]&nbsp; &nbsp; &nbsp; Count me in!</p>\n\n<p>Laura Vans&nbsp; [12:11]&nbsp; &nbsp; &nbsp;Theo and I are working on our presentation for tomorrow so we can't.</p>\n\n<p>Theo Gibbs&nbsp; [12:12]&nbsp; &nbsp; &nbsp; Can you bring back some pizza for us?</p>\n\n<p>Peter Jones&nbsp;&nbsp;[12:13]&nbsp; &nbsp; &nbsp;Sure. What kind of pizza do you want?</p>\n\n<p>Laura Vans&nbsp; [12:14]&nbsp; &nbsp; &nbsp; I'll take whatever their best selling pizza is. One large slice will be enough for me.</p>\n\n<p>Theo Gibbs&nbsp; [12:15]&nbsp; &nbsp; &nbsp;Pepperoni for me. One slice.</p>\n\n<p>Peter Jones&nbsp; [12:15]&nbsp; &nbsp; No problem. I'll be back in one hour. Is your presentation about the new product line?</p>\n\n<p>Laura Vans&nbsp; [12:16]&nbsp; &nbsp; &nbsp;Yes, we're almost finished but we're working on making the visuals more impressive.</p>\n\n<p>Martin Lee&nbsp; [12:17]&nbsp; &nbsp; &nbsp; If you'd like, I can help you with the visuals. I have a bit of a background in computer graphics.</p>\n\n<p>Theo Gibbs&nbsp; [12:17]&nbsp; &nbsp; &nbsp; That would be great. Laura and I are good with basic computer programs, but neither of us is very good at making visuals.</p>\n\n<p>Peter Jones&nbsp; [12:18]&nbsp; &nbsp; &nbsp; When Martin and I come back, we can help you finish your presentation.</p>\n\n<p>Laura Vans&nbsp; [12:18]&nbsp; &nbsp; &nbsp; Thanks so much!</p>\n\n<p>Theo Gibbs&nbsp; [12:19]&nbsp; &nbsp; &nbsp;Awesome!</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d32",
+          "questionText": "Where most likely are the participants?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a restaurant",
+            "(B) At a pizza shop",
+            "(C) At a company",
+            "(D) In an electronics shop"
+          ],
+          "correctOptions": [
+            "(C) At a company"
+          ],
+          "transcript": "<p>Because they mentioned about the presentation, new product line, computer graphics,..</p>\n",
+          "explanationVi": "<p><b>Tạm dịch:</b><br />\nNhững người tham gia c&oacute; nhiều khả năng nhất ở đ&acirc;u?<br />\n(A) Tại một nh&agrave; h&agrave;ng<br />\n(B) Tại một cửa h&agrave;ng pizza<br />\n(C) Tại một c&ocirc;ng ty<br />\n(D) Trong một cửa h&agrave;ng điện tử<br />\nĐoạn hội thoại đề cập đến c&aacute;ch tr&igrave;nh b&agrave;y, d&ograve;ng sản phẩm mới, đồ họa m&aacute;y t&iacute;nh, n&ecirc;n <b>đ&aacute;p &aacute;n đ&uacute;ng l&agrave; C</b></p>\n"
+        },
+        {
+          "id": "6140137865d71f3a51f62d33",
+          "questionText": "At 12:10, what does Martin Lee mean when he says, “Count me in”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He’s doing a presentation.",
+            "(B) He’s in his office.",
+            "(C) He would like to go out for lunch.",
+            "(D) He’s currently in a meeting."
+          ],
+          "correctOptions": [
+            "(C) He would like to go out for lunch."
+          ],
+          "transcript": "Because Peter Jones asked if anyone want to join him for lunch.",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Lúc 12:10, Martin Lee có ý gì khi nói “Tính tôi vào”? <br> (A) Anh ấy đang thuyết trình. <br> (B) Anh ấy đang ở trong văn phòng của mình. <br> (C) Anh ấy muốn ra ngoài ăn trưa. <br> (D) Anh ấy hiện đang họp. <br>Bởi vì Peter Jones hỏi có ai muốn cùng anh ấy ăn trưa không, nên <b>đáp án đúng là C</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d34",
+          "questionText": "What is indicated about the presentation?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It will be presented after lunch.",
+            "(B) It is about new products.",
+            "(C) It is very long.",
+            "(D) It needs more information."
+          ],
+          "correctOptions": [
+            "(B) It is about new products."
+          ],
+          "transcript": "The information is in: <i>\"Is your presentation about the new product line?\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Bài thuyết trình thể hiện điều gì? <br> (A) Nó sẽ được trình bày sau bữa trưa. <br> (B) Đó là về sản phẩm mới. <br> (C) Nó rất dài. <br> (D) Nó cần thêm thông tin. <br><b>Thông tin:</b> “Is your presentation about the new product line?”<br> Bài thuyết trình của bạn có về dòng sản phẩm mới không?<br>Sau đó, Laura Vans đã khẳng định là có, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d35",
+          "questionText": "<p>What will Martin Lee most likely help the presenters with?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Their graphics",
+            "(B) Their information",
+            "(C) Their computer use",
+            "(D) Their presentation format"
+          ],
+          "correctOptions": [
+            "(A) Their graphics"
+          ],
+          "transcript": "Because he said he had a bit of background in computer graphics.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Martin Lee rất có thể sẽ giúp đỡ những người thuyết trình điều gì? <br> (A) Đồ họa của họ<br> (B) Thông tin của họ<br> (C) Việc sử dụng máy tính của họ<br> (D) Hình thức trình bày của họ<br><b>Thông tin:</b> “If you’d like, I can help you with the visuals. I have a bit of a background in computer graphics.”<br> Nếu bạn muốn, tôi có thể giúp bạn về phần hình ảnh. Tôi có chút kiến thức nền tảng về đồ họa máy tính.<br>Dựa vào thông tin trong bài, <b>chọn đáp án A</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d21",
+      "questionText": "<p><span style=\"font-size:14px;\">To: All Employees </span><staff@jointsystems.com><br>\n<span style=\"font-size:14px;\">From: Fred Hanes </span><fhanes@jointsystems.com><br>\n<span style=\"font-size:14px;\">Subject: Community Park Cleanup<br>\nDate: February 12<br>\n<br>\nJoint Systems is a company that tries to take every opportunity to give back to our community. Therefore, I am urging all of our employees to take part in the upcoming community park cleanup sponsored by the city of Harrisburg. Without the dedication of volunteers, our parks and public spaces would not be free of litter. Donate some of your free time to keeping Harrisburg a beautiful and inviting city.<br>\nThe community park cleanup will be held next Friday, February 18, from 1:00 to 5:00 P.M. Employees who wish to participate will leave work at lunchtime, yet will still be paid as if they had worked a full day. Volunteers are asked to bring supplies such as protective outerwear, tools, insect repellent, trash bags, and snacks.<br>\nA shuttle bus will depart from the company parking lot at 1:20 P.M. on Friday to take volunteers to the volunteer location. If you have a specific preference concerning the type of work you would like to do, please contact Event Organizer Don Lewis at 435- 555-6768.<br>\nWe appreciate everyone’s enthusiasm and support.<br>\nFred Hanes<br>\nHuman Resources, Joint Systems</span></fhanes@jointsystems.com></staff@jointsystems.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d36",
+          "questionText": "What is the purpose of the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To organize a business trip",
+            "(B) To request updated information",
+            "(C) To offer additional skills training",
+            "(D) To promote a community event"
+          ],
+          "correctOptions": [
+            "(D) To promote a community event"
+          ],
+          "transcript": "The information is in: <i>\"Joint Systems is a company that tries to take every opportunity to give back to our community.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Mục đích của e-mail là gì? <br> (A) Để tổ chức một chuyến công tác<br> (B) Để yêu cầu thông tin cập nhật<br> (C) Để cung cấp đào tạo kỹ năng bổ sung<br> (D) Để quảng bá một sự kiện cộng đồng<br><b>Thông tin:</b> “Joint Systems is a company that tries to take every opportunity to give back to our community.” <br>Joint Systems là một công ty cố gắng tận dụng mọi cơ hội để cống hiến cho cộng đồng của chúng ta.<br>Mục đích của email là khuyến khích nhân viên tham gia vào sự kiện dọn dẹp công viên cộng đồng được tài trợ bởi thành phố Harrisburg, nên <b>đáp án đúng là D</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d37",
+          "questionText": "What would probably NOT be necessary for participants?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A company uniform",
+            "(B) A mosquito spray can",
+            "(C) A rake",
+            "(D) A sandwich"
+          ],
+          "correctOptions": [
+            "(A) A company uniform"
+          ],
+          "transcript": "The information can be inferred from: <i>\"Volunteers are asked to bring supplies such as protective outerwear, tools, insect repellent, trash bags, and snacks.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì có thể KHÔNG cần thiết đối với người tham gia? <br> (A) Đồng phục công ty<br> (B) Bình xịt muỗi<br> (C) Một cái cào<br> (D) Một chiếc bánh sandwich<br><b>Thông tin:</b> “Volunteers are asked to bring supplies such as protective outerwear, tools, insect repellent, trash bags, and snacks.” <br>Tình nguyện viên được yêu cầu mang theo các vật dụng như áo khoác bảo hộ, dụng cụ, thuốc chống côn trùng, túi đựng rác và đồ ăn nhẹ.<br>Dựa vào thông tin trong email, chọn <b>đáp án A</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d38",
+          "questionText": "<p>According to the e-mail, what is Mr. Lewis responsible for?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Raising awareness about food waste",
+            "(B) Analyzing customer feedback",
+            "(C) Assigning individuals tasks",
+            "(D) Cleaning a community center"
+          ],
+          "correctOptions": [
+            "(C) Assigning individuals tasks"
+          ],
+          "transcript": "The information is in: <i>\"If you have a specific preference concerning the type of work you would like to do, please contact Event Organizer Don Lewis at 435- 555-6768.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Theo email, ông Lewis chịu trách nhiệm về việc gì? <br> (A) Nâng cao nhận thức về lãng phí thực phẩm<br> (B) Phân tích phản hồi của khách hàng<br> (C) Phân công nhiệm vụ cá nhân<br> (D) Dọn dẹp trung tâm cộng đồng<br><b>Thông tin:</b> “If you have a specific preference concerning the type of work you would like to do, please contact Event Organizer Don Lewis at 435- 555-6768.”<br>Nếu bạn có sở thích cụ thể về loại công việc bạn muốn làm, vui lòng liên hệ với Người tổ chức sự kiện Don Lewis theo số 435-555-6768.<br>Điều này cho thấy ông Don Lewis chịu trách nhiệm phân công nhiệm vụ cho từng cá nhân."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d22",
+      "questionText": "<table align=\"center\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse\" width=\"90%\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td colspan=\"4\">\n\t\t\t<h4 align=\"center\"><span style=\"font-size:14px;\">Sanchez Motors</span></h4>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td align=\"center\"><span style=\"font-size:14px;\"><b>ABOUT </b></span></td>\n\t\t\t<td align=\"center\"><span style=\"font-size:14px;\">NEWS</span></td>\n\t\t\t<td align=\"center\"><span style=\"font-size:14px;\">MODELS</span></td>\n\t\t\t<td align=\"center\"><span style=\"font-size:14px;\">SERVICES COMMUNITY</span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"4\">\n\t\t\t<h4 align=\"center\"><span style=\"font-size:14px;\">About Sanchez Motors</span></h4>\n\t\t\t<span style=\"font-size:14px;\">Carlos Sanchez always had the dream of owning his own car dealership ever since he started working as an assistant in an auto repair shop. After saving his money for ten years, he finally opened Sanchez Motors and has been serving the community with integrity and pride ever since. Sanchez Motors <b>carries</b> all kinds of vehicles, from sports cars and vans to SUVs and trucks. Not sure what car fits your needs? Then come on down and try driving a variety of vehicles to see what’s right for you.<br>\n\t\t\tUntil the end of the year, Sanchez Motors is giving you an amazing offer on our popular line of Spitfire pickup trucks and stark SUVs. If you make a down payment of just $3,000, you will be eligible for an extremely low interest rate on your monthly installments.<br>\n\t\t\tSanchez Motors is located off Highway 5, just outside of the town of Stockton. We are open 7 days a week, from 9:00 A.M. to 9:00 P.M. Don’t hesitate, and come pay us a visit!</span></td>\n\t\t</tr>\n\t</tbody>\n</table>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137865d71f3a51f62d39",
+          "questionText": "What is indicated about Mr. Sanchez?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He works at an auto repair shop.",
+            "(B) He started his own business.",
+            "(C) He is a race car driver.",
+            "(D) He designs a variety of vehicles."
+          ],
+          "correctOptions": [
+            "(B) He started his own business."
+          ],
+          "transcript": "The information is in: <i>\"After saving his money for ten years, he finally opened Sanchez Motors and has been serving the community with integrity and pride ever since.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được chỉ ra về ông Sanchez? <br> (A) Ông ấy làm việc tại một cửa hàng sửa chữa ô tô. <br> (B) Ông ấy bắt đầu công việc kinh doanh của riêng mình. <br> (C) Ông ấy là một tay đua xe. <br> (D) Ông ấy thiết kế nhiều loại xe khác nhau. <br><b>Thông tin:</b> “After saving his money for ten years, he finally opened Sanchez Motors and has been serving the community with integrity and pride ever since.”<br> Sau khi tiết kiệm tiền trong mười năm, cuối cùng anh ấy đã mở Sanchez Motors và đã phục vụ cộng đồng một cách chính trực và đầy tự hào kể từ đó.<br>Thông tin trong bài cho thấy ông đã bắt đầu công việc kinh doanh của riêng mình, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d3a",
+          "questionText": "The word “carries” in paragraph 1 is closest in meaning to",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) moves",
+            "(B) manufactures",
+            "(C) sells",
+            "(D) develops"
+          ],
+          "correctOptions": [
+            "(C) sells"
+          ],
+          "transcript": "<p>(A) moves:&nbsp;to (cause to) change position</p>\n\n<p>(B) manufactures:&nbsp;to produce goods in large numbers, usually in a factory using machines</p>\n\n<p>(C) sells:&nbsp;to give something to someone else in return for money</p>\n\n<p>(D) develops:&nbsp;to (cause something to) grow or change into a more advanced, larger, or stronger form</p>\n\n<p>Based on the meaning of the word</p>\n\n<p><strong>=&gt; Choose C&nbsp;</strong></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b> Từ “carries” ở đoạn 1 có nghĩa gần nhất với<br> (A) di chuyển<br> (B) sản xuất<br> (C) bán<br> (D) phát triển<br>Từ \"carries\" trong ngữ cảnh này có nghĩa là bán các loại xe, nên <b>đáp án đúng là C</b>."
+        },
+        {
+          "id": "6140137865d71f3a51f62d3b",
+          "questionText": "What is suggested about Sanchez Motors?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It allows customers to test products.",
+            "(B) It operates a store in downtown Stockton.",
+            "(C) It offers vehicle customization.",
+            "(D) It closes on weekends."
+          ],
+          "correctOptions": [
+            "(A) It allows customers to test products."
+          ],
+          "transcript": "Based on the information given in: <i>\"Not sure what car fits your needs? Then come on down and try driving a variety of vehicles to see what’s right for you.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được gợi ý về Sanchez Motors? <br> (A) Nó cho phép khách hàng thử nghiệm sản phẩm. <br> (B) Nó điều hành một cửa hàng ở trung tâm thành phố Stockton. <br> (C) Nó cung cấp khả năng tùy chỉnh phương tiện. <br> (D) Nó đóng cửa vào cuối tuần. <br><b>Thông tin:</b> “Not sure what car fits your needs? Then come on down and try driving a variety of vehicles to see what’s right for you”<br> Không chắc chắn loại xe nào phù hợp với nhu cầu của bạn? Vậy hãy đến và thử lái nhiều loại xe khác nhau để xem loại nào phù hợp với bạn.<br> Điều này cho thấy Sanchez Motors cho phép khách hàng thử sản phẩm, nên <b>đáp án đúng là A</b>."
+        },
+        {
+          "id": "6140137965d71f3a51f62d3c",
+          "questionText": "<p>What is available to customers until the end of the year?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Discounts on sports cars and vans",
+            "(B) An extended warranty at no extra cost",
+            "(C) A special payment option",
+            "(D) A free oil change with any purchase"
+          ],
+          "correctOptions": [
+            "(C) A special payment option"
+          ],
+          "transcript": "<p>The information can be inferred from:&nbsp;“Until the end of the year, Sanchez Motors is giving you an amazing offer on our popular line of Spitfire pickup trucks and stark SUVs. If you make a down payment of just $3,000, you will be eligible for an extremely low interest rate on your monthly installments.”<i.\"until end=\"\" of=\"\" the=\"\" year=\"\"></i.\"until></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Cuối năm có gì cho khách hàng? <br> (A) Giảm giá cho xe thể thao và xe tải<br> (B) Bảo hành mà không mất thêm chi phí<br> (C) Tùy chọn thanh toán đặc biệt<br> (D) Thay dầu miễn phí khi mua hàng<br><b>Thông tin:</b> “Until the end of the year, Sanchez Motors is giving you an amazing offer on our popular line of Spitfire pickup trucks and stark SUVs. If you make a down payment of just $3,000, you will be eligible for an extremely low interest rate on your monthly installments.”<br> Thông tin cho biết rằng Sanchez Motors đang đưa ra một đề nghị đặc biệt cho dòng xe tải Spitfire và SUV cho đến hết năm, với lãi suất cực thấp cho các khoản trả góp hàng tháng khi khách hàng đặt cọc 3.000 đô la, nên <b>đáp án đúng là C</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137865d71f3a51f62d23",
+      "questionText": "<h4><span style=\"font-size:14px;\">Clean and Green</span></h4>\n\n<p><span style=\"font-size:14px;\">The town of Korden has much to celebrate as the new hydrogen fuel car company, Newmark, plans to open a massive manufacturing plant in the next few months. - [1] - Newmark already supplies some of the greenest cities around the world including Vancouver, Singapore, Honolulu, and Amsterdam with hydrogen-fueled public buses and taxis. - [2] - The company is forecast to grow by 120% in the next 5 years. Furthermore, the opening of the plant in Korden is expected to bring in 300 new jobs. - [3] - The old Handai facilities will be the site of the new Newmark facilities. The mayor of Korden is also working to provide government subsidies to those who purchase a hydrogen-fueled car in hopes that the gas guzzling conventional cars eventually become a thing of the past. - [4] -</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137965d71f3a51f62d3d",
+          "questionText": "What is the main topic of the article?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Alternative energy sources",
+            "(B) Environmentally friendly cities",
+            "(C) The opening of a new factory",
+            "(D) The future of car companies"
+          ],
+          "correctOptions": [
+            "(C) The opening of a new factory"
+          ],
+          "transcript": "The information can be inferred from: <i>\"The town of Korden has much to celebrate as the new hydrogen fuel car company, Newmark, plans to open a massive manufacturing plant in the next few months.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Chủ đề chính của bài viết là gì? <br> (A) Các nguồn năng lượng thay thế<br> (B) Các thành phố thân thiện với môi trường<br> (C) Khai trương nhà máy mới<br> (D) Tương lai của các công ty ô tô<br><b>Thông tin:</b> “The town of Korden has much to celebrate as the new hydrogen fuel car company, Newmark, plans to open a massive manufacturing plant in the next few months.”<br>Thị trấn Korden có nhiều điều đáng ăn mừng khi công ty ô tô chạy bằng nhiên liệu hydro mới, Newmark, có kế hoạch mở một nhà máy sản xuất lớn trong vài tháng tới.<br>Bài viết chủ yếu nói về việc mở một nhà máy mới của công ty xe hơi sử dụng nhiên liệu hydro, Newmark, tại thị trấn Korden, nên <b>đáp án đúng là C</b>."
+        },
+        {
+          "id": "6140137965d71f3a51f62d3e",
+          "questionText": "What will happen to the old car factories?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They will be destroyed and rebuilt.",
+            "(B) They will be the new site of the hydrogen fuel car company.",
+            "(C) They will be turned into office buildings.",
+            "(D) They will house all the old conventional cars."
+          ],
+          "correctOptions": [
+            "(B) They will be the new site of the hydrogen fuel car company."
+          ],
+          "transcript": "The information is in: <i>\"The old Handai facilities will be the site of the new Newmark facilities.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì sẽ xảy ra với những nhà máy sản xuất ô tô cũ? <br> (A) Chúng sẽ bị phá hủy và được xây dựng lại. <br> (B) Họ sẽ là địa điểm mới của công ty ô tô chạy bằng nhiên liệu hydro. <br> (C) Chúng sẽ được biến thành tòa nhà văn phòng. <br> (D) Họ sẽ chứa tất cả những chiếc ô tô thông thường cũ. <br><b>Thông tin:</b> “The old Handai facilities will be the site of the new Newmark facilities.”<br>Các cơ sở Handai cũ sẽ là địa điểm của các cơ sở Newmark mới.<br>Thông tin cho biết các cơ sở cũ của Handai sẽ là nơi đặt các cơ sở mới của Newmark, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137965d71f3a51f62d3f",
+          "questionText": "What is suggested about Korden?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It will become one of the greenest cities.",
+            "(B) Its economy will stay stagnant.",
+            "(C) It will attract new car companies.",
+            "(D) It will grow economically."
+          ],
+          "correctOptions": [
+            "(D) It will grow economically."
+          ],
+          "transcript": "Information can be inferred from: <i>\"The company is forecast to grow by 120% in the next 5 years.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được gợi ý về Korden? <br> (A) Nó sẽ trở thành một trong những thành phố xanh nhất. <br> (B) Nền kinh tế của nó sẽ trì trệ. <br> (C) Nó sẽ thu hút các công ty xe hơi mới. <br> (D) Nó sẽ phát triển về mặt kinh tế. <br><b>Thông tin:</b> “The company is forecast to grow by 120% in the next 5 years.”<br> Công ty được dự đoán sẽ tăng trưởng 120% trong 5 năm tới.<br> Bài viết đề cập rằng việc mở nhà máy mới của Newmark sẽ mang lại 300 việc làm mới cho Korden, gợi ý rằng nền kinh tế của Korden sẽ phát triển, nên <b>đáp án đúng là D</b>."
+        },
+        {
+          "id": "6140137965d71f3a51f62d40",
+          "questionText": "<p>In which of the positions marked [1], [2], [3] and [4] does the following sentence belong?<br>“This is welcome news for a town that has suffered economically after the closure of its car manufacturing plants in the 1990’s and after its stagnant growth since then.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1 ]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "Based on the infoemation given in: <i>\"he company is forecast to grow by 120% in the next 5 years. Furthermore, the opening of the plant in Korden is expected to bring in 300 new jobs.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Câu sau đây thuộc về vị trí nào trong số các vị trí được đánh dấu [1], [2], [3] và [4]?<br> “Đây là tin đáng mừng đối với một thị trấn đã phải chịu thiệt hại về kinh tế sau khi đóng cửa các nhà máy sản xuất ô tô vào những năm 1990 và sau khi tăng trưởng trì trệ kể từ đó.”<Br>Câu này phù hợp nhất với vị trí [3], sau khi đề cập về việc mở nhà máy mới của Newmark và việc sử dụng cơ sở cũ của Handai, giúp giải thích lý do tại sao tin tức này lại được chào đón ở Korden."
+        }
+      ]
+    }
+  ]
+}

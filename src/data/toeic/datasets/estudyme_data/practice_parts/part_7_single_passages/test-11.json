@@ -1,0 +1,623 @@
+{
+  "topicId": "6316cede5948b5402da84a1a",
+  "name": "Test 11",
+  "slug": "test-11",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6316f4365948b5402da84a22",
+      "questionText": "<p style=\"text-align: center;\"><strong>Aloha from Hawaii!</strong></p>\n\n<p>Ono, the best Hawaiian restaurant in the city, is having a celebration. Our new head chef, Mr. Hanale Akoni, has revised our entire menu and will soon be preparing some of the finest delicacies in the entire Pacific Ocean. To share our brand-new menu with you, we're offering a remarkable deal. Start your meal with a delicious appetizer of taro chips and Hawaiian salsa made with tomatoes, onions, peppers, coconuts, and sea salt. Then enjoy an entree of barbecued blue marlin or Kalua pig with a side of long rice. Finish off your meal with a dessert of malasada, a Hawaiian donut coated with sugar. This meal is being offered at the low price of only $22. But hurry as this sale only lasts until the end of the month.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a2c",
+          "questionText": "Why is the restaurant having a special offer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is having its grand opening.",
+            "(B) The restaurant has a brand-new owner.",
+            "(C) It is celebrating its tenth anniversary.",
+            "(D) The food being offered has just changed."
+          ],
+          "correctOptions": [
+            "(D) The food being offered has just changed."
+          ],
+          "transcript": "<p>Information is in <em>\"Our new head chef, Mr. Hanale Akoni, has <strong>revised our entire menu</strong>\"</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao nh&agrave; h&agrave;ng lại c&oacute; ưu đ&atilde;i đặc biệt?<br />\n(A) N&oacute; sắp khai trương.<br />\n(B) Nh&agrave; h&agrave;ng c&oacute; một người chủ ho&agrave;n to&agrave;n mới.<br />\n(C) N&oacute; đang kỷ niệm 10 năm th&agrave;nh lập.<br />\n(D) Thức ăn được cung cấp vừa thay đổi</p>\n\n<p><strong>Th&ocirc;ng tin:&nbsp;</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong &quot;Bếp trưởng mới của ch&uacute;ng t&ocirc;i, &ocirc;ng Hanale Akoni, đ&atilde; sửa đổi to&agrave;n bộ thực đơn của ch&uacute;ng t&ocirc;i&quot;<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a2d",
+          "questionText": "<p>What is NOT mentioned as a part of the meal being offered?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An entree",
+            "(B) A salad",
+            "(C) An appetizer",
+            "(D) A dessert"
+          ],
+          "correctOptions": [
+            "(B) A salad"
+          ],
+          "transcript": "<p><em>\"Then enjoy an <strong>entree </strong>of barbecued blue marlin\"</em>&nbsp;=&gt; Eliminate A</p>\n\n<p><em>\"Start your meal with a delicious <strong>appetizer </strong>of taro chips\"&nbsp;</em>=&gt; Eliminate C</p>\n\n<p><em>\"Finish off your meal with a <strong>dessert </strong>of malasada\"&nbsp;</em>=&gt; Eliminate D&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; KH&Ocirc;NG được đề cập như một phần của bữa ăn được cung cấp?</p>\n\n<p>(A) M&oacute;n khai vị<br />\n(B) Một m&oacute;n salad<br />\n(C) M&oacute;n khai vị<br />\n(D) Một m&oacute;n tr&aacute;ng miệng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Đ&aacute;p &aacute;n A, C, D đều được đề cập trong b&agrave;i<br />\n&quot;Vậy th&igrave; h&atilde;y thưởng thức m&oacute;n khai vị c&aacute; marlin xanh nướng&quot; =&gt; Loại bỏ đ&aacute;p &aacute;n A<br />\n&quot;Bắt đầu bữa ăn với m&oacute;n khai vị thơm ngon khoai m&ocirc;n chi&ecirc;n&quot; =&gt; Loại bỏ đ&aacute;p &aacute;n C<br />\n&quot;Kết th&uacute;c bữa ăn của bạn với m&oacute;n tr&aacute;ng miệng malasada&quot; =&gt; Loại bỏ đ&aacute;p &aacute;n D<br />\n<br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a23",
+      "questionText": "<p><strong>Cooper, Bruce&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4:15 P.M.</p>\n\n<p>The bidding process is complete. They're going to make a decision in the next couple of minutes.</p>\n\n<p><strong>Irwin, Catherine</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;4:17 P.M.</p>\n\n<p>I hope we land the job.</p>\n\n<p><strong>Cooper, Bruce&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4:25 P.M.</p>\n\n<p>I can't believe it. They chose our bid for the Tyler project over everyone else's.</p>\n\n<p><strong>Irwin, Catherine&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;4:26 P.M.</p>\n\n<p>Congratulations. I knew you could do it.</p>\n\n<p><strong>Cooper, Bruce&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4:28 P.M.</p>\n\n<p>This is the kind of contract we've been trying to get for the past three years.</p>\n\n<p><strong>Irwin, Catherine&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; 4:30 P.M.</p>\n\n<p>It looks like we're going to be really busy soon. What time will you be back in the office? Should I assemble the team so that we can go over what to do next?</p>\n\n<p><strong>Cooper, Bruce&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4:34 P.M.</p>\n\n<p>Good thinking. I'll be back by 5:30. We can go over the specifics of the contract and talk in brief about what needs to be done.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a2e",
+          "questionText": "At 4:28 P.M., why does Mr. Cooper write, “This is the kind of contract we’ve been trying to get for the past three years”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To congratulate Ms. Irwin for her work on the project",
+            "(B) To express his happiness at being awarded the deal",
+            "(C) To state that the company will turn a profit soon",
+            "(D) To mention how hard the last three years have been"
+          ],
+          "correctOptions": [
+            "(B) To express his happiness at being awarded the deal"
+          ],
+          "transcript": "<p>Based on the sentence <em>\"They chose our bid for the Tyler project over everyone else's\"&nbsp;</em>=&gt; Choose B&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>L&uacute;c 4:28 chiều, tại sao &ocirc;ng Cooper lại viết: &ldquo;Đ&acirc;y l&agrave; loại hợp đồng m&agrave; ch&uacute;ng t&ocirc;i đ&atilde; cố gắng đạt được trong ba năm qua&rdquo;?</p>\n\n<p><br />\n(A) Để ch&uacute;c mừng c&ocirc; Irwin v&igrave; c&ocirc;ng việc của c&ocirc; trong dự &aacute;n<br />\n(B) Để b&agrave;y tỏ sự vui mừng của m&igrave;nh khi được tr&uacute;ng thầu<br />\n(C) Để tuy&ecirc;n bố rằng c&ocirc;ng ty sẽ sớm c&oacute; l&atilde;i<br />\n(D) Để đề cập đến việc ba năm qua đ&atilde; kh&oacute; khăn như thế n&agrave;o</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o c&acirc;u <em>&quot;Họ đ&atilde; chọn gi&aacute; thầu của ch&uacute;ng t&ocirc;i cho dự &aacute;n Tyler hơn của những người kh&aacute;c&quot;</em><br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a2f",
+          "questionText": "<p>What is going to happen around 5:30?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A contract will be signed.",
+            "(B) A bid will be made.",
+            "(C) Assignments will be given.",
+            "(D) A meeting will be held."
+          ],
+          "correctOptions": [
+            "(D) A meeting will be held."
+          ],
+          "transcript": "<p>Based on information <em>\"What time will you be back in the office? Should I <strong>assemble the team so that we can go over what to do next</strong>?\"</em> and<em> \"I'll be back by <strong>5:30</strong>.\"</em>&nbsp;=&gt; Choose D&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; sẽ xảy ra v&agrave;o khoảng 5:30?<br />\n(A) Một hợp đồng sẽ được k&yacute; kết.<br />\n(B) Một gi&aacute; thầu sẽ được thực hiện.<br />\n(C) B&agrave;i tập sẽ được giao.<br />\n(D) Một cuộc họp sẽ được tổ chức.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa tr&ecirc;n th&ocirc;ng tin <em>&quot;Mấy giờ bạn sẽ quay lại văn ph&ograve;ng? T&ocirc;i c&oacute; n&ecirc;n <strong>tập hợp nh&oacute;m để b&agrave;n bạc những việc cần l&agrave;m tiếp theo kh&ocirc;ng</strong>?&quot; v&agrave; &quot;T&ocirc;i sẽ quay lại l&uacute;c 5:30.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a24",
+      "questionText": "<p style=\"text-align: center;\"><strong>MEMO</strong></p>\n\n<p>To: All Employees<br>\nFrom: Melissa Jenkins Date: April 10 Re: Restructuring<br>\nPlease be aware that the company is going to undergo a major restructuring involving the Sales, Marketing, and Accounting Departments. —[1]— The Sales and Marketing Departments will be combined into a single department to be called the Commerce Department. George Jenkins, who is currently the manager of the Sales Department, will take over as the head of this department. —[2]— In addition, the Accounting Department will be downsized by 25%. Employees in all three of these departments will be notified of their future status here this Friday morning. —[3]— All changes will go into effect on May 1. We are implementing these changes to streamline company operations and to ensure future profitability. We hope that everyone will pull together during this difficult time so that we can emerge from the current recession as a leaner, but more profitable, firm. — [4] —</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a30",
+          "questionText": "According to the memo, what is going to happen?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A new department is going to be formed.",
+            "(B) George Jenkins will become the CEO.",
+            "(C) All employees in a department will be fired.",
+            "(D) The company will lay off 25% of its workforce."
+          ],
+          "correctOptions": [
+            "(A) A new department is going to be formed."
+          ],
+          "transcript": "<p>Information is in <em>\"The Sales and Marketing Departments will be combined into a single department to be called the Commerce Department.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo bản ghi nhớ, điều g&igrave; sẽ xảy ra?<br />\n(A) Một bộ phận mới sẽ được th&agrave;nh lập.<br />\n(B) George Jenkins sẽ trở th&agrave;nh Gi&aacute;m đốc điều h&agrave;nh.<br />\n(C) Tất cả nh&acirc;n vi&ecirc;n trong một bộ phận sẽ bị sa thải.<br />\n(D) C&ocirc;ng ty sẽ sa thải 25% lực lượng lao động của m&igrave;nh.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: <em>&quot;Ph&ograve;ng Kinh doanh v&agrave; Tiếp thị sẽ được gộp lại th&agrave;nh một ph&ograve;ng duy nhất gọi l&agrave; Ph&ograve;ng Thương mại.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a31",
+          "questionText": "<p>In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?<br>“Some of you will be laid off while others will receive promotions or transfers.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "<p>C is correct because it can connect with the sentence <em>\"In addition, the Accounting Department will be <strong>downsized </strong>by 25%. Employees in all three of these departments will be notified of<strong> their future status </strong>here this Friday morning.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&acirc;u sau đ&acirc;y thuộc về vị tr&iacute; n&agrave;o được đ&aacute;nh dấu [1], [2], [3] v&agrave; [4]?<br />\n&ldquo;Một số bạn sẽ bị sa thải trong khi những người kh&aacute;c sẽ được thăng chức hoặc thuy&ecirc;n chuyển.&rdquo;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C đ&uacute;ng v&igrave; c&oacute; thể kết nối với c&acirc;u &quot;Ngo&agrave;i ra, Bộ phận Kế to&aacute;n sẽ bị cắt giảm 25%. Nh&acirc;n vi&ecirc;n ở cả ba bộ phận n&agrave;y sẽ được th&ocirc;ng b&aacute;o về t&igrave;nh trạng tương lai của họ tại đ&acirc;y v&agrave;o s&aacute;ng thứ S&aacute;u n&agrave;y.&quot;</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a25",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><b>Falcon Air</b></span></span></p>\n\n<p style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><b>Itinerary</b></span></span></p>\n\n<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\">Passenger Name: Ms.Naomi Strauss&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></span></p>\n\n<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\">Reservation Code: ERE6095</span></span></p>\n\n<table align=\"center\" class=\"MsoTableGrid\" style=\"border-collapse:collapse; border:none\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:1px solid black; border-right:1px solid black; border-left:1px solid black\" valign=\"top\">\n\t\t\t<p style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\"><b>From </b></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:1px solid black; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\"><b>Flight Number </b></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:1px solid black; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\"><b>Cabin </b></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:1px solid black; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\"><b>Departure Time </b></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:1px solid black; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\"><b>To </b></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:1px solid black; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\"><b>Arrival Time </b></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:1px solid black\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Zurich</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">FA394</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Economy </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">2:15 P.M. </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Barcelona </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">4:05 P.M. </span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:1px solid black\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Barcelona </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">FA211</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Economy </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">10:30 A.M. </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Paris </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">12:25 P.M. </span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:1px solid black\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Paris </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">FA95</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Business </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">4:20 P.M. </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Copenhagen </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">6:10 P.M. </span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:1px solid black\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Copenhagen </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">FA575</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Economy </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">7:10 P.M. </span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">Zurich</span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid black; width:104px; padding:0in 7px 0in 7px; border-top:none; border-right:1px solid black; border-left:none\" valign=\"top\">\n\t\t\t<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:normal\">8:50 P.M. </span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\">Please print this document and present it at the check-in counter. You may check in 2 bags weighing up to a total of 20 kilograms. For each additional bag you check in, you will be charged 50 euros. If you exceed the weight allowance, you must pay an additional 7 euros per kilogram.</span></span></p>\n\n<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\">This ticket may only be used by the passenger whose name is on it. It may not be transferred.</span></span></p>\n\n<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\">This is a nonrefundable ticket, but it may be changed 1 time with no financial penalty.</span></span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a32",
+          "questionText": "Which flight departs in the morning?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) FA95",
+            "(B) FA211",
+            "(C) FA394",
+            "(D) FA575"
+          ],
+          "correctOptions": [
+            "(B) FA211"
+          ],
+          "transcript": "<p>Look at the itinerary, we can see that the flight which departs in the morning is&nbsp;FA211 (10:30 A.M.)&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Chuyến bay n&agrave;o khởi h&agrave;nh v&agrave;o buổi s&aacute;ng?</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Nh&igrave;n v&agrave;o h&agrave;nh tr&igrave;nh, ta thấy chuyến bay khởi h&agrave;nh v&agrave;o buổi s&aacute;ng l&agrave; FA211 (10h30 s&aacute;ng).<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a33",
+          "questionText": "How many kilograms of luggage may a passenger check in for free?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 7 kilograms",
+            "(B) 20 kilograms",
+            "(C) 40 kilograms",
+            "(D) 50 kilograms"
+          ],
+          "correctOptions": [
+            "(B) 20 kilograms"
+          ],
+          "transcript": "<p>Information is in <em>\"You may check in 2 bags weighing <strong>up to a total of 20 kilograms</strong>.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Một h&agrave;nh kh&aacute;ch được ph&eacute;p k&yacute; gửi miễn ph&iacute; bao nhi&ecirc;u kg h&agrave;nh l&yacute;?</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong c&acirc;u &quot;<em>Bạn c&oacute; thể k&yacute; gửi 2 t&uacute;i c&oacute; <strong>tổng trọng lượng l&ecirc;n tới 20 kg</strong>.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a34",
+          "questionText": "<p>According to the ticket, which statement is correct?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The passenger will sit in the same cabin on every flight.",
+            "(B) The passenger is traveling with another person.",
+            "(C) The passenger may change a flight on the ticket.",
+            "(D) The passenger can get a full refund on the ticket."
+          ],
+          "correctOptions": [
+            "(C) The passenger may change a flight on the ticket."
+          ],
+          "transcript": "<p>Information is in<em> \"it may be changed 1 time with no financial penalty.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo tờ v&eacute; th&igrave; c&acirc;u n&agrave;o đ&uacute;ng?<br />\n(A) H&agrave;nh kh&aacute;ch sẽ ngồi trong c&ugrave;ng một cabin tr&ecirc;n mỗi chuyến bay.<br />\n(B) H&agrave;nh kh&aacute;ch đang đi c&ugrave;ng một người kh&aacute;c.<br />\n(C) H&agrave;nh kh&aacute;ch c&oacute; thể thay đổi chuyến bay tr&ecirc;n v&eacute;.<br />\n(D) H&agrave;nh kh&aacute;ch c&oacute; thể được ho&agrave;n lại to&agrave;n bộ số tiền tr&ecirc;n v&eacute;.</p>\n\n<p><strong>Th&ocirc;ng tin:&nbsp;</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở: &quot;c&oacute; thể thay đổi 1 lần m&agrave; kh&ocirc;ng bị phạt t&agrave;i ch&iacute;nh.&quot;<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a26",
+      "questionText": "<p>Thank you for purchasing a Safety Pro Car Seat from the Whitman Corporation. Car seats can only protect your children when they are installed properly, so please carefully read and then follow the instructions below.<br>\n- Do not install this car seat in the front seat of your vehicle. It is meant only to be installed in the back seat.<br>\n- If your child weighs fewer than 10 kilograms or is 18 months of age or younger, the car seat should be positioned facing the rear. Children who are both 18 months of age or older and who weigh 10 kilograms or more may sit in seats facing forward.<br>\n- Pull the seatbelt through the belt path while ensuring that there are no twists. Then, lock the seatbelt in place.<br>\n- Pull the seatbelt tightly so that the car seat fits securely. Side-to-side movement decreases the effectiveness of the car seat.<br>\n- Place your child in the car seat and then adjust the straps to guarantee that the child fits snugly within the seat. Your child should not wear a jacket while riding in the car seat.<br>\nFor more information, including a video with step-by-step instructions, please visit our website at www.safetyprocarseat.com. You may also call us toll-free at 1-888-555-4938 if you I have any questions regarding the Safety Pro Car Seat.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a35",
+          "questionText": "Where most likely would these instructions be found?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) On a website",
+            "(B) In an instruction manual",
+            "(C) In a newspaper",
+            "(D) In a letter"
+          ],
+          "correctOptions": [
+            "(B) In an instruction manual"
+          ],
+          "transcript": "<p>Information can be inferred from <em>\"please carefully read and then follow the instructions below.\", \"For more information, including a video with step-by-step instructions, please visit our website at www.safetyprocarseat.com.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những hướng dẫn n&agrave;y c&oacute; thể được t&igrave;m thấy ở đ&acirc;u?<br />\n(A) Tr&ecirc;n một trang web<br />\n(B) Trong s&aacute;ch hướng dẫn<br />\n(C) Trong một tờ b&aacute;o<br />\n(D) Trong một l&aacute; thư</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; thể được suy luận từ: &quot;<em>vui l&ograve;ng đọc kỹ v&agrave; sau đ&oacute; l&agrave;m theo hướng dẫn b&ecirc;n dưới.&quot;, &quot;Để biết th&ecirc;m th&ocirc;ng tin, bao gồm video hướng dẫn từng bước, vui l&ograve;ng truy cập trang web của ch&uacute;ng t&ocirc;i tại www.safetyprocarseat.com.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a36",
+          "questionText": "What is NOT true according to the instructions?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A child should be able to move from side to side in the seat.",
+            "(B) It is unacceptable for a child in the seat to have a jacket on.",
+            "(C) A child weighing 7 kilograms should sit facing the rear.",
+            "(D) There should not be any twists in the seatbelt when it is fastened."
+          ],
+          "correctOptions": [
+            "(A) A child should be able to move from side to side in the seat."
+          ],
+          "transcript": "<p><em>\"Your child should not wear a jacket while riding in the car seat.\"&nbsp;</em>=&gt; Eliminate B</p>\n\n<p><em>\"If your child weighs fewer than 10 kilograms or is 18 months of age or younger, the car seat should be positioned facing the rear\"&nbsp;</em>=&gt; Eliminate C</p>\n\n<p><em>\"Pull the seatbelt through the belt path while ensuring that there are no twists.\"&nbsp;</em>=&gt; Eliminate D&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; KH&Ocirc;NG đ&uacute;ng theo hướng dẫn?</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>(A) Một đứa trẻ c&oacute; thể di chuyển từ b&ecirc;n n&agrave;y sang b&ecirc;n kia tr&ecirc;n ghế.<br />\n(B) Việc một đứa trẻ ngồi tr&ecirc;n ghế mặc &aacute;o kho&aacute;c l&agrave; kh&ocirc;ng thể chấp nhận được.<br />\n(C) Một đứa trẻ nặng 7 kg n&ecirc;n ngồi quay mặt về ph&iacute;a sau.<br />\n(D) D&acirc;y đai an to&agrave;n kh&ocirc;ng được bị xoắn khi thắt chặt.</p>\n\n<p>Đ&aacute;p &aacute;n B, C, D đều được đề cập đ&uacute;ng như trong b&agrave;i<br />\n&quot;Con bạn kh&ocirc;ng n&ecirc;n mặc &aacute;o kho&aacute;c khi ngồi tr&ecirc;n ghế &ocirc; t&ocirc;.&quot; =&gt; Loại B<br />\n&quot;Nếu con bạn nặng dưới 10kg hoặc từ 18 th&aacute;ng tuổi trở xuống, n&ecirc;n đặt ghế ngồi &ocirc; t&ocirc; hướng về ph&iacute;a sau&quot; =&gt; Loại bỏ C<br />\n&quot;K&eacute;o d&acirc;y an to&agrave;n qua đường đi của d&acirc;y đai đồng thời đảm bảo kh&ocirc;ng bị xoắn.&quot; =&gt; Loại D<br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a37",
+          "questionText": "<p>What should a person do to get access to a video of the car seat being installed?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Call a telephone number",
+            "(B) Watch a videotape",
+            "(C) Visit a website",
+            "(D) Send a text message"
+          ],
+          "correctOptions": [
+            "(C) Visit a website"
+          ],
+          "transcript": "<p>Information is in <em>\"For more information, including a video with step-by-step instructions, please visit our website at www.safetyprocarseat.com.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Một người n&ecirc;n l&agrave;m g&igrave; để c&oacute; quyền truy cập v&agrave;o video quay cảnh ghế &ocirc; t&ocirc; đang được lắp đặt?<br />\n(A) Gọi đến số điện thoại<br />\n(B) Xem băng video<br />\n(C) Truy cập một trang web<br />\n(D) Gửi tin nhắn văn bản</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: <em>&quot;Để biết th&ecirc;m th&ocirc;ng tin, bao gồm video c&oacute; hướng dẫn từng bước, vui l&ograve;ng truy cập trang web của ch&uacute;ng t&ocirc;i tại www.safetyprocarseat.com.&quot;</em></p>\n\n<p><strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a27",
+      "questionText": "<p>TO: James Walker&nbsp;&lt;jwalker@ssuncorp.com&gt;<br>\nFROM: Helen Trent&nbsp;&lt;htrent@westing.com&gt;<br>\nSUBJECT: Repair Work<br>\nDATE: July 16<br>\nDear Mr. Walker,<br>\nI am writing to you with regard to the repair work that a team from your firm did on the main office’s air conditioning system last week. Since the work was completed on Thursday, I have received several complaints from employees with regard to the excessive noise that the air conditioning system is making. The problem only arose after your repairmen departed, so I assume that the noise has something to do with the work that they did on the system. As I am sure that you can understand, the high level of noise is making it hard for everyone to concentrate on their work, so we have had to turn the system off. Naturally, we are all very hot due to the ongoing heatwave, so we are in need of a functioning air conditioning system. As per our contract, your company guarantees all the work it does, so I request that your repairmen return to my firm as soon as possible. Would you please be kind enough to inform me when this will be possible? I look forward to hearing from you soon.<br>\nSincerely,<br>\nHelen Trent<br>\nWesting Corporation</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a38",
+          "questionText": "Why did Ms. Trent write to Mr. Walker?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To praise him for some work done",
+            "(B) To ask him to send a bill to her",
+            "(C) To inform him about a problem",
+            "(D) To complain about the weather"
+          ],
+          "correctOptions": [
+            "(C) To inform him about a problem"
+          ],
+          "transcript": "<p>Based on information<em> \"I am writing to you with regard to the repair work that a team from your firm did on the main office’s air conditioning system last week. Since the work was completed on Thursday, I have received several complaints from employees with regard to the excessive noise that the air conditioning system is making.\"&nbsp;</em>=&gt; Choose C&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao c&ocirc; Trent lại viết thư cho &ocirc;ng Walker?<br />\n(A) Để khen ngợi anh ấy v&igrave; một số việc đ&atilde; l&agrave;m<br />\n(B) Để y&ecirc;u cầu anh ấy gửi h&oacute;a đơn cho c&ocirc; ấy<br />\n(C) Để th&ocirc;ng b&aacute;o cho anh ấy về một vấn đề<br />\n(D) Để ph&agrave;n n&agrave;n về thời tiết</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin: &quot;<em>T&ocirc;i viết thư n&agrave;y cho bạn về c&ocirc;ng việc sửa chữa m&agrave; một nh&oacute;m từ c&ocirc;ng ty của bạn đ&atilde; thực hiện tr&ecirc;n hệ thống điều h&ograve;a kh&ocirc;ng kh&iacute; của văn ph&ograve;ng ch&iacute;nh v&agrave;o tuần trước. Kể từ khi c&ocirc;ng việc ho&agrave;n th&agrave;nh v&agrave;o thứ Năm, t&ocirc;i đ&atilde; nhận được một số khiếu nại từ c&aacute;c nh&acirc;n vi&ecirc;n li&ecirc;n quan đến tiếng ồn qu&aacute; mức m&agrave; hệ thống điều h&ograve;a kh&ocirc;ng kh&iacute; tạo ra.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a39",
+          "questionText": "The word “concentrate” in line 7 is closest in meaning to:",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) decide",
+            "(B) focus",
+            "(C) practice",
+            "(D) stress"
+          ],
+          "correctOptions": [
+            "(B) focus"
+          ],
+          "transcript": "<p>(A) decide:&nbsp;to think carefully about the different possibilities that are available and choose one of them</p>\n\n<p>(B) focus:&nbsp;to give attention, effort, etc. to one particular subject, situation or person rather than another</p>\n\n<p>(C) practice:&nbsp;to do an activity or train regularly so that you can improve your skill</p>\n\n<p>(D) stress:&nbsp;to give extra force to a word or syllable when saying it</p>\n\n<p>Based on the meaning</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong></p>\n\n<p>Từ &ldquo;concentrate&rdquo; ở d&ograve;ng 7 gần nghĩa nhất với:<br />\n(A) quyết định<br />\n(B) tập trung<br />\n(C) thực h&agrave;nh<br />\n(D) căng thẳng</p>\n\n<p>Dựa v&agrave;o nghĩa của từ<br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a3a",
+          "questionText": "<p>What does Ms. Trent request Mr. Walker to do?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Replace an air conditioning unit",
+            "(B) Send a team to deal with the noise",
+            "(C) Tell her how to solve a problem",
+            "(D) Call her to set up an appointment"
+          ],
+          "correctOptions": [
+            "(B) Send a team to deal with the noise"
+          ],
+          "transcript": "<p>Information is in <em>\"so I request that your repairmen return to my firm as soon as possible.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&ocirc; Trent y&ecirc;u cầu &ocirc;ng Walker l&agrave;m g&igrave;?<br />\n(A) Thay thế một bộ điều h&ograve;a kh&ocirc;ng kh&iacute;<br />\n(B) Gửi một đội để giải quyết tiếng ồn<br />\n(C) N&oacute;i cho c&ocirc; ấy biết c&aacute;ch giải quyết vấn đề<br />\n(D) Gọi cho c&ocirc; ấy để đặt lịch hẹn</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>v&igrave; vậy t&ocirc;i y&ecirc;u cầu thợ sửa chữa của bạn quay lại c&ocirc;ng ty t&ocirc;i c&agrave;ng sớm c&agrave;ng tốt.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a28",
+      "questionText": "<p style=\"text-align: center;\"><strong>Escape to the Bendburg Ski Resort</strong></p>\n\n<p>The snow has started falling, which means that it's time to go skiing. The Bendburg Ski Resort has just opened for the winter and is taking reservations. Don't miss out on the excellent new facilities at the finest ski resort in the state. During the summer, a slope called the Green Mountain Run was added. The Green Mountain Run is our longest and most challenging slope. You can also take advantage of our newly renovated ski lifts to maximize your time on the mountains. And don't forget to stop by Ricardo's, our new café, for some hot chocolate, an espresso, or a snack and for the best view of the surrounding area once you're done skiing. New to skiing? Bendburg has four instructors able to help novices and veteran skiers alike. Get the lowest prices for lessons when you book in advance. Located 30 minutes south of Milton on Highway 152, the Bendburg Ski Resort offers a daily shuttle service to downtown Milton. Call 953-8201 for more information or to make a booking.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a3b",
+          "questionText": "What is the purpose of the announcement?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To describe some renovations in detail",
+            "(B) To discuss how to get to a resort",
+            "(C) To advertise a place of business",
+            "(D) To compare a resort with other places"
+          ],
+          "correctOptions": [
+            "(C) To advertise a place of business"
+          ],
+          "transcript": "<p>Based on information <em>\"The Bendburg Ski Resort has just opened for the winter and is taking reservations. Don't miss out on the excellent new facilities at the finest ski resort in the state.\"&nbsp;&nbsp;</em>=&gt; Choose C&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Mục đ&iacute;ch của th&ocirc;ng b&aacute;o l&agrave; g&igrave;?<br />\n(A) Để m&ocirc; tả chi tiết một số cải tạo<br />\n(B) Để thảo luận về c&aacute;ch đến khu nghỉ dưỡng<br />\n(C) Để quảng c&aacute;o một địa điểm kinh doanh<br />\n(D) Để so s&aacute;nh khu nghỉ dưỡng với những nơi kh&aacute;c</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin: &quot;<em>Khu nghỉ dưỡng trượt tuyết Bendburg vừa mở cửa v&agrave;o m&ugrave;a đ&ocirc;ng v&agrave; đang nhận đặt chỗ trước. Đừng bỏ lỡ cơ sở vật chất mới tuyệt vời tại khu nghỉ dưỡng trượt tuyết tốt nhất bang.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a3c",
+          "questionText": "What is mentioned about the Green Mountain Run?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Beginners should ski on it.",
+            "(B) Ricardo’s is at the bottom of it.",
+            "(C) The new ski lift leads to it.",
+            "(D) It was built recently."
+          ],
+          "correctOptions": [
+            "(D) It was built recently."
+          ],
+          "transcript": "<p>Information is in <em>\"During the summer, a slope called the Green Mountain Run was added.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; được đề cập về Green Mountain Run?<br />\n(A) Người mới bắt đầu n&ecirc;n trượt tuyết tr&ecirc;n đ&oacute;.<br />\n(B) Ricardo&#39;s ở cuối n&oacute;.<br />\n(C) Thang m&aacute;y trượt tuyết mới dẫn tới đ&oacute;.<br />\n(D) N&oacute; được x&acirc;y dựng gần đ&acirc;y.</p>\n\n<p><strong>Th&ocirc;ng tin:&nbsp;</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>Trong m&ugrave;a h&egrave;, một con dốc t&ecirc;n l&agrave; Green Mountain Run đ&atilde; được th&ecirc;m v&agrave;o.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a3d",
+          "questionText": "<p>What can visitors do at the Bendburg Ski Resort?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Rent rooms with a mountain view",
+            "(B) Go on hiking tours of the region",
+            "(C) Take lessons to improve their skiing abilities",
+            "(D) Reserve rooms on the resort’s website"
+          ],
+          "correctOptions": [
+            "(C) Take lessons to improve their skiing abilities"
+          ],
+          "transcript": "<p>Information is in <em>\"Bendburg has four instructors able to help novices and veteran skiers alike. Get the lowest prices for<strong> lessons</strong> when you book in advance.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Du kh&aacute;ch c&oacute; thể l&agrave;m g&igrave; ở Khu nghỉ dưỡng Trượt tuyết Bendburg?<br />\n(A) Thu&ecirc; ph&ograve;ng nh&igrave;n ra n&uacute;i<br />\n(B) Tham gia c&aacute;c chuyến đi bộ đường d&agrave;i trong v&ugrave;ng<br />\n(C) Học c&aacute;c b&agrave;i học để cải thiện khả năng trượt tuyết của họ<br />\n(D) Đặt ph&ograve;ng tr&ecirc;n trang web của khu nghỉ dưỡng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>Bendburg c&oacute; bốn người hướng dẫn c&oacute; thể gi&uacute;p đỡ cả những người mới tập trượt tuyết cũng như những người trượt tuyết kỳ cựu. Bạn sẽ nhận được mức gi&aacute; <strong>học trượt tuyết</strong> thấp nhất khi đặt trước.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a29",
+      "questionText": "Dear Kristin,<br>I opened my most recent copy of <em>Business Today</em> this morning, and imagine my surprise when I saw a picture of you. Congratulations on being featured in an article in the magazine. And well done on being promoted to vice president at Pinewood, Inc. I remember back when we were colleagues at Ceti Heavy Industries, everyone there knew that you were destined for great things. And it appears as though you are reaching your potential.<br>According to the article, you’re going to be transferred to Omaha soon. As luck would have it, that is where I happen to work now. It would be great to have a chance to get together with you and to get caught up with each other. Why don’t you e-mail me at daveb@tristan.com whenever you get a chance, and we can set up a mutually convenient time to meet? In addition, if you need to know anything about the city or need help finding a place to live, feel free to use me as a reference. I’ve been here for the past 6 years, so I’m quite familiar with the area.<br>Talk to you soon.<br>Yours,<br>Dave Babson",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a3e",
+          "questionText": "What does Mr. Babson mention about Business Today?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It has an article written by Kristin.",
+            "(B) He reads the magazine every week.",
+            "(C) He has an annual subscription to it.",
+            "(D) There is an article about Kristin in it."
+          ],
+          "correctOptions": [
+            "(D) There is an article about Kristin in it."
+          ],
+          "transcript": "<p>Information is in <em>\"Dear Kristin,<br>\nI opened my most recent copy of&nbsp;Business Today&nbsp;this morning, and imagine <strong>my surprise when I saw a picture of you</strong>. Congratulations on <strong>being featured in an article in the magazine</strong>.\"&nbsp;</em><br>\n&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>&Ocirc;ng Babson đề cập g&igrave; về Business Today?<br />\n(A) N&oacute; c&oacute; một b&agrave;i b&aacute;o được viết bởi Kristin.<br />\n(B) Anh ấy đọc tạp ch&iacute; mỗi tuần.<br />\n(C) Anh ấy c&oacute; đăng k&yacute; h&agrave;ng năm với n&oacute;.<br />\n(D) C&oacute; một b&agrave;i viết về Kristin trong đ&oacute;.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: <em>&quot;Kristin th&acirc;n mến, s&aacute;ng nay t&ocirc;i đ&atilde; mở tờ Business Today mới nhất của m&igrave;nh v&agrave; tưởng tượng <strong>sự ngạc nhi&ecirc;n của m&igrave;nh khi nh&igrave;n thấy ảnh của bạn</strong>. Ch&uacute;c mừng bạn đ&atilde; <strong>được xuất hiện tr&ecirc;n một b&agrave;i b&aacute;o tr&ecirc;n tạp ch&iacute;</strong>.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a3f",
+          "questionText": "Where does Kristin currently work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At Ceti Heavy Industries",
+            "(B) At Pinewood, Inc.",
+            "(C) At Business Today",
+            "(D) At the Tristan Corporation"
+          ],
+          "correctOptions": [
+            "(B) At Pinewood, Inc."
+          ],
+          "transcript": "<p>Information is in<em> \"And well done on being promoted to vice president at <strong>Pinewood, Inc</strong>.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Kristin hiện đang l&agrave;m việc ở đ&acirc;u?</p>\n\n<p>(A) Tại Ceti Heavy Industries<br />\n(B) Tại Pinewood, Inc.<br />\n(C) Tại doanh nghiệp ng&agrave;y nay<br />\n(D) Tại Tập đo&agrave;n Tristan</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;V&agrave; đ&atilde; ho&agrave;n th&agrave;nh tốt việc được thăng chức l&agrave;m ph&oacute; chủ tịch tại Pinewood, Inc.&quot;<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a40",
+          "questionText": "<p>What is indicated about Mr. Babson?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He currently resides in Omaha.",
+            "(B) He used to work at Pinewood, Inc",
+            "(C) He works at a real estate agency.",
+            "(D) He recently met Kristin."
+          ],
+          "correctOptions": [
+            "(A) He currently resides in Omaha."
+          ],
+          "transcript": "<p>Information is in <em>\"According to the article, you’re going to be transferred to <strong>Omaha </strong>soon.\", \"if you need to know anything about the city or need help finding a place to live, feel free to use me as a reference. I’ve <strong>been here for the past 6 years</strong>, so I’m quite familiar with the area.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong></p>\n\n<p>Điều g&igrave; được chỉ ra về &ocirc;ng Babson?<br />\n(A) Anh ấy hiện đang sống ở Omaha.<br />\n(B) Anh ấy từng l&agrave;m việc tại Pinewood, Inc<br />\n(C) Anh ấy l&agrave;m việc tại một c&ocirc;ng ty bất động sản.<br />\n(D) Gần đ&acirc;y anh ấy đ&atilde; gặp Kristin.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>Theo b&agrave;i b&aacute;o, bạn sẽ sớm được chuyển đến <strong>Omaha</strong>.&quot;, &quot;nếu bạn cần biết g&igrave; về th&agrave;nh phố hoặc cần trợ gi&uacute;p t&igrave;m nơi ở, vui l&ograve;ng li&ecirc;n hệ với t&ocirc;i T&ocirc;i <strong>đ&atilde; ở đ&acirc;y được 6 năm rồi</strong> n&ecirc;n kh&aacute; quen thuộc với khu vực n&agrave;y.&rdquo;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a2a",
+      "questionText": "<p><strong>Cash, Leona</strong> [1:30 P.M.]</p>\n\n<p>The group from Toronto is landing at the airport in a couple of hours. Is everything ready for the inspection of the facility they're going on tomorrow?</p>\n\n<p><strong>Bergeron, Neil</strong> [1:33 P.M.]</p>\n\n<p>I've done everything you asked of me.</p>\n\n<p><strong>Alderson, John</strong> [1:35 P.M.]</p>\n\n<p>Same here. I'll also be ready to show them around the factory tomorrow morning.</p>\n\n<p><strong>Cash, Leona</strong> [1:38 P.M.]</p>\n\n<p>That's good news. Which one of you two is planning to pick them up at the airport and take them to their hotel?</p>\n\n<p><strong>Alderson, John</strong> [1:39 P.M.]</p>\n\n<p>I wasn't aware you wanted us to do that.</p>\n\n<p><strong>Bergeron, Neil</strong> [1:40 P.M.]</p>\n\n<p>Me neither. I thought you told us last week that you and Harold were going to do that.</p>\n\n<p><strong>Cash, Leona</strong> [1:42 P.M.]</p>\n\n<p>Oh... I guess I forgot to tell you about the change in plans. I've got to meet with the VP of sales this afternoon, and Harold left for Costa Rica this morning. Are either of you available?</p>\n\n<p><strong>Bergeron, Neil</strong> [1:45 P.M.]</p>\n\n<p>I'm scheduled to meet Irene Chang at 4:00. But I suppose I could ask her to come here another day.</p>\n\n<p><strong>Alderson, John</strong> [1:48 P.M.]</p>\n\n<p>Don't do that, Neil. I can go there and meet them. I've spoken with Claude Messier several times, so it will be nice to get a chance to see him in person. Can you send me their flight info, Leona?</p>\n\n<p><strong>Cash, Leona</strong> [1:50 P.M.]</p>\n\n<p>Check your e-mail in two minutes. Thanks, John. I owe you one.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a41",
+          "questionText": "What is the online message chain mainly about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A plane trip that will be taken soon",
+            "(B) The schedule for the next day’s events",
+            "(C) Preparations for the arrival of some visitors",
+            "(D) The meetings each person will attend"
+          ],
+          "correctOptions": [
+            "(C) Preparations for the arrival of some visitors"
+          ],
+          "transcript": "<p>Based on information <em>\"The group from Toronto is landing at the airport in a couple of hours. Is everything ready for the inspection of the facility they're going on tomorrow?\", \"I've done everything you asked of me.\", \"I'll also be ready to show them around the factory tomorrow morning.\", \"Which one of you two is planning to pick them up at the airport and take them to their hotel?\"&nbsp;&nbsp;</em>=&gt;&nbsp;Choose C&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Chuỗi tin nhắn trực tuyến chủ yếu n&oacute;i về điều g&igrave;?<br />\n(A) Một chuyến đi bằng m&aacute;y bay sẽ sớm được thực hiện<br />\n(B) Lịch tr&igrave;nh cho c&aacute;c sự kiện ng&agrave;y h&ocirc;m sau<br />\n(C) Chuẩn bị cho sự xuất hiện của một số du kh&aacute;ch<br />\n(D) C&aacute;c cuộc họp m&agrave; mỗi người sẽ tham dự</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin: &quot;<em>Nh&oacute;m từ Toronto sẽ hạ c&aacute;nh xuống s&acirc;n bay trong v&agrave;i giờ nữa. Mọi thứ đ&atilde; sẵn s&agrave;ng cho cuộc kiểm tra cơ sở m&agrave; họ sẽ tiến h&agrave;nh v&agrave;o ng&agrave;y mai chưa?&quot;, &quot;T&ocirc;i đ&atilde; l&agrave;m mọi thứ bạn y&ecirc;u cầu. &quot;, &quot;S&aacute;ng mai t&ocirc;i cũng sẵn s&agrave;ng dẫn họ đi tham quan nh&agrave; m&aacute;y.&quot;, &quot;Ai trong hai người định đ&oacute;n họ ở s&acirc;n bay v&agrave; đưa họ về kh&aacute;ch sạn?&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a42",
+          "questionText": "At 1:35 P.M., what does Mr. Alderson mean when he writes, “Same here”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He agrees with Mr. Bergeron’s opinion.",
+            "(B) He is looking forward to meeting the clients.",
+            "(C) He did everything he was supposed to.",
+            "(D) He is presently with Mr. Bergeron."
+          ],
+          "correctOptions": [
+            "(C) He did everything he was supposed to."
+          ],
+          "transcript": "<p>Based on the sentence \"<em>I've done everything you asked of me.\"&nbsp;</em>=&gt; Choose C&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>V&agrave;o l&uacute;c 1:35 chiều, &ocirc;ng Alderson c&oacute; &yacute; g&igrave; khi viết &ldquo;Ở đ&acirc;y cũng vậy&rdquo;?<br />\n(A) Anh ấy đồng &yacute; với &yacute; kiến ​​của &ocirc;ng Bergeron.<br />\n(B) Anh ấy rất mong được gặp kh&aacute;ch h&agrave;ng.<br />\n(C) Anh ấy đ&atilde; l&agrave;m mọi thứ anh ấy phải l&agrave;m.<br />\n(D) Anh ấy hiện đang ở c&ugrave;ng với &ocirc;ng Bergeron</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin ở c&acirc;u: <em>&quot;T&ocirc;i đ&atilde; l&agrave;m mọi thứ bạn y&ecirc;u cầu.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a43",
+          "questionText": "What is suggested about Mr. Messier?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is coming in from Toronto.",
+            "(B) He is good friends with Mr. Alderson.",
+            "(C) He is going to Costa Rica soon.",
+            "(D) He is meeting Ms. Cash tomorrow morning."
+          ],
+          "correctOptions": [
+            "(A) He is coming in from Toronto."
+          ],
+          "transcript": "<p>Based on information \"<em>The group from <strong>Toronto </strong>is landing at the airport in a couple of hours\" </em>and <em>\"I've spoken with <strong>Claude Messier </strong>several times, so it will be nice to get a chance to see him in person\"&nbsp;</em>=&gt; Choose A&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; được gợi &yacute; về &ocirc;ng Messier?<br />\n(A) Anh ấy đang đến từ Toronto.<br />\n(B) Anh ấy l&agrave; bạn tốt với &ocirc;ng Alderson.<br />\n(C) Anh ấy sẽ sớm đến Costa Rica.<br />\n(D) Anh ấy sẽ gặp c&ocirc; Cash v&agrave;o s&aacute;ng mai.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin: &quot;<em>Nh&oacute;m từ <strong>Toronto</strong> sẽ hạ c&aacute;nh tại s&acirc;n bay trong v&agrave;i giờ nữa&quot; v&agrave; &quot;T&ocirc;i đ&atilde; n&oacute;i chuyện với <strong>Claude Messier</strong> v&agrave;i lần, v&igrave; vậy sẽ rất vui nếu c&oacute; cơ hội gặp trực tiếp anh ấy&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a44",
+          "questionText": "<p>What will Mr. Alderson probably do next?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Inspect a factory",
+            "(B) Go to the airport",
+            "(C) Check his e-mail",
+            "(D) Talk to Mr. Bergeron"
+          ],
+          "correctOptions": [
+            "(C) Check his e-mail"
+          ],
+          "transcript": "<p>Information is in <em>\"Can you send me their flight info, Leona?</em></p>\n\n<p><em><strong>Check your e-mail </strong>in two minutes. Thanks, John.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong></p>\n\n<p>&Ocirc;ng Alderson c&oacute; thể sẽ l&agrave;m g&igrave; tiếp theo?<br />\n(A) Kiểm tra một nh&agrave; m&aacute;y<br />\n(B) Đi đến s&acirc;n bay<br />\n(C) Kiểm tra e-mail của anh ấy<br />\n(D) N&oacute;i chuyện với &ocirc;ng Bergeron</p>\n\n<p><strong>Th&ocirc;ng tin:&nbsp;</strong></p>\n\n<p>Th&ocirc;ng tin ở c&acirc;u: &quot;<em>Bạn c&oacute; thể gửi cho t&ocirc;i th&ocirc;ng tin chuyến bay của họ kh&ocirc;ng, Leona?</em><br />\n<em><strong>H&atilde;y kiểm tra e-mail </strong>của bạn sau hai ph&uacute;t nữa. Cảm ơn, John.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6316f4375948b5402da84a2b",
+      "questionText": "<p style=\"text-align: center;\"><strong>Literacy Awareness Month to Conclude Soon</strong></p>\n\n<p>Literacy Awareness Month is about to come to a close. Before it reaches its end, we would like to salute all of the members of the community who are making a difference to our children. We at the Reading Club of Kent (RCK) have been battling illiteracy among impoverished children by hosting daily events that encourage both children and their parents to read every day. This year’s program has been a big success thanks to the hard work of our volunteers.—[1]—<br>\nKnowing that reading is the key to education and that education is fundamental to staying out of poverty, the RCK has been hosting reading sessions at the Kent Public Library.—[2]— Elementary schoolchildren throughout the city have been coming to read and to listen to local athletes, singers, actors, and other celebrities read their favorite stories aloud. A combined total of more than 2,500 children have attended these events.—[3]—<br>\nThe RCK was established by Joseph Stack and his family. The Stack family resettled in Kent in 1892 and was disturbed by the number of children who were unable to read. They therefore vowed to fight illiteracy in Kent and the surrounding area.—[4]— Since then, the RCK has donated more than 20,000 books to children living in poverty and has held special events such as this one on an annual basis.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316f4375948b5402da84a45",
+          "questionText": "Where does the article most likely appear?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In a weekly newsletter",
+            "(B) In a history book",
+            "(C) In a national newspaper",
+            "(D) In a recruiting pamphlet"
+          ],
+          "correctOptions": [
+            "(A) In a weekly newsletter"
+          ],
+          "transcript": "<p>The passage reports the activity of literacy awareness. A newsletter is a printed or electronic document containing information about the recent activities of an organization, sent regularly to the organization's members.&nbsp;=&gt; Choose A&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>B&agrave;i viết c&oacute; nhiều khả năng xuất hiện ở đ&acirc;u?<br />\n(A) Trong bản tin h&agrave;ng tuần<br />\n(B) Trong một cuốn s&aacute;ch lịch sử<br />\n(C) Tr&ecirc;n một tờ b&aacute;o quốc gia<br />\n(D) Trong một cuốn s&aacute;ch nhỏ tuyển dụng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Đoạn văn tường thuật hoạt động nhận thức về đọc viết. Bản tin l&agrave; một t&agrave;i liệu in hoặc t&agrave;i liệu điện tử chứa th&ocirc;ng tin về c&aacute;c hoạt động gần đ&acirc;y của một tổ chức, được gửi thường xuy&ecirc;n đến c&aacute;c th&agrave;nh vi&ecirc;n của tổ chức đ&oacute;.<br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a46",
+          "questionText": "What has been happening during Literacy Awareness Month?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Free books have been given to poor individuals.",
+            "(B) Famous people have read books to children.",
+            "(C) Reading classes for adults have been held.",
+            "(D) Fundraisers have been held to help buy books."
+          ],
+          "correctOptions": [
+            "(B) Famous people have read books to children."
+          ],
+          "transcript": "<p>Information is in <em>\"Elementary schoolchildren throughout the city have been coming to read and to listen to <strong>local athletes, singers, actors, and other celebrities </strong>read their favorite stories aloud.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong></p>\n\n<p>Điều g&igrave; đ&atilde; xảy ra trong Th&aacute;ng Nhận thức về tr&igrave;nh độ học vấn?<br />\n(A) S&aacute;ch miễn ph&iacute; đ&atilde; được trao cho những người ngh&egrave;o.<br />\n(B) Những người nổi tiếng đ&atilde; đọc s&aacute;ch cho trẻ em.<br />\n(C) Lớp đọc d&agrave;nh cho người lớn đ&atilde; được tổ chức.<br />\n(D) Những cuộc g&acirc;y quỹ được tổ chức để gi&uacute;p mua s&aacute;ch.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: <em>&quot;Học sinh tiểu học khắp th&agrave;nh phố đ&atilde; đến đọc v&agrave; nghe <strong>c&aacute;c vận động vi&ecirc;n, ca sĩ, diễn vi&ecirc;n v&agrave; những người nổi tiếng kh&aacute;c</strong> ở địa phương đọc to những c&acirc;u chuyện y&ecirc;u th&iacute;ch của họ.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a47",
+          "questionText": "Who is Joseph stack?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The founder of the city of Kent",
+            "(B) A Literacy Awareness Month volunteer",
+            "(C) An original member of the RCK",
+            "(D) A worker at Kent Public Library"
+          ],
+          "correctOptions": [
+            "(C) An original member of the RCK"
+          ],
+          "transcript": "<p>Information is in <em>\"The RCK was established by Joseph Stack\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Joseph Stack l&agrave; ai?<br />\n(A) Người s&aacute;ng lập th&agrave;nh phố Kent<br />\n(B) T&igrave;nh nguyện vi&ecirc;n trong Th&aacute;ng n&acirc;ng cao nhận thức về x&oacute;a m&ugrave; chữ<br />\n(C) Một th&agrave;nh vi&ecirc;n ban đầu của RCK<br />\n(D) Một nh&acirc;n vi&ecirc;n tại Thư viện C&ocirc;ng cộng Kent</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin ở c&acirc;u: &quot;<em>RCK được th&agrave;nh lập bởi Joseph Stack&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6316f4375948b5402da84a48",
+          "questionText": "<p>In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? <br>\"More than 220 people have donated their time and effort to helping others learn to read this month.\"</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(A) [1]"
+          ],
+          "transcript": "<p>A is correct because it can connect with the sentence<em> \"This year’s program has been a big success thanks to the hard work of our volunteers.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&acirc;u sau đ&acirc;y thuộc về vị tr&iacute; n&agrave;o được đ&aacute;nh dấu [1], [2], [3] v&agrave; [4]?<br />\n&quot;Hơn 220 người đ&atilde; quy&ecirc;n g&oacute;p thời gian v&agrave; c&ocirc;ng sức của m&igrave;nh để gi&uacute;p đỡ người kh&aacute;c học đọc trong th&aacute;ng n&agrave;y.&quot;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&acirc;u trả lời A l&agrave; c&acirc;u trả lời đ&uacute;ng v&igrave; n&oacute; c&oacute; thể li&ecirc;n kết với c&acirc;u: &quot;Chương tr&igrave;nh năm nay th&agrave;nh c&ocirc;ng tốt đẹp nhờ sự l&agrave;m việc chăm chỉ của c&aacute;c t&igrave;nh nguyện vi&ecirc;n.&quot;<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

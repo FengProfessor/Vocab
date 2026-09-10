@@ -1,0 +1,330 @@
+{
+  "topicId": "6140003e65d71f3a51f62a97",
+  "name": "Test 6",
+  "slug": "test-6",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6140038965d71f3a51f62b05",
+      "questionText": "To: Olivia Paulson <br>From: Jonathan Hicks<br>Date: July 19<br>Subject:Procedural Review<br><br>An issue was brought up at the executives meeting last Thursday. Complaints of damaged goods after being shipped <b> (1) </b> ______ dramatically in the last month. This may be a result of more fragile items being added to the products we now ship. <b> (2) </b> ______. We are reviewing the packaging procedures for our products and are looking to add more steps to <b> (3) </b> ______ that the products are packaged securely and delivered without damage. <br> Please inform the managers on the manufacturing team to attend an  <b> (4) </b> ______ meeting tonight at 7:00 P.M. We hope to address this problem and come up with a sound solution as quickly as possible so that normal business can resume.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Đến: Olivia Paulson<br>Từ: Jonathan Hicks<br>Ngày: 19 tháng 7<br>Chủ đề:Rà soát thủ tục<br><br>Một vấn đề đã được đưa ra tại cuộc họp của các nhà điều hành vào thứ Năm tuần trước. Những lời phàn nàn về hàng hóa bị hư hỏng sau khi vận chuyển đã tăng lên đáng kể trong tháng vừa qua. Điều này có thể là do có nhiều mặt hàng dễ vỡ hơn được thêm vào các sản phẩm mà chúng tôi hiện đang vận chuyển. Vì lý do này, chúng tôi đã tạm thời ngừng việc vận chuyển các phụ kiện và các mặt hàng dễ vỡ khác. Chúng tôi đang xem xét các quy trình đóng gói cho sản phẩm của mình và đang tìm cách bổ sung thêm các bước để đảm bảo rằng sản phẩm được đóng gói an toàn và giao hàng mà không bị hư hỏng. <br><br>Vui lòng thông báo cho các quản lý trong nhóm sản xuất để tham dự cuộc họp khẩn cấp vào lúc 7 giờ tối nay. Chúng tôi hy vọng sẽ giải quyết được vấn đề này và đưa ra giải pháp hợp lý nhanh nhất có thể để hoạt động kinh doanh bình thường có thể tiếp tục trở lại.",
+      "childQuestions": [
+        {
+          "id": "6140038965d71f3a51f62b09",
+          "questionText": "Complaints of damaged goods after being shipped <b> (1) </b> ______ dramatically in the last month.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) increasing",
+            "(B) have increased",
+            "(C) were increased",
+            "(D) increases"
+          ],
+          "correctOptions": [
+            "(B) have increased"
+          ],
+          "transcript": "<p>The subject is a plural noun \"Complaints\" and \"increase\" (verb) cannot be used in passvice form</p>\n\n<p><strong>=&gt; B is incorrect.</strong></p>\n",
+          "explanationVi": "<p>Trong c&acirc;u n&agrave;y đang n&oacute;i về một sự thay đổi trong qu&aacute; khứ (tức l&agrave; tăng cường) li&ecirc;n quan đến việc h&agrave;ng h&oacute;a bị hỏng sau khi vận chuyển trong th&aacute;ng qua. Do đ&oacute;, cần sử dụng dạng hiện tại ho&agrave;n th&agrave;nh &quot;have increased&quot; để diễn đạt &yacute; n&agrave;y.<br />\n<b>Tạm dịch:</b> Những lời ph&agrave;n n&agrave;n về h&agrave;ng h&oacute;a bị hư hỏng sau khi vận chuyển đ&atilde; tăng l&ecirc;n đ&aacute;ng kể trong th&aacute;ng vừa qua.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n"
+        },
+        {
+          "id": "6140038965d71f3a51f62b0a",
+          "questionText": "This may be a result of more fragile items being added to the products we now ship. <b> (2) </b> ______.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We are thinking of dropping such items from our product list.",
+            "(B) We may need to increase the shipping and handling cost.",
+            "(C) An added insurance cost for such items has been suggested.",
+            "(D) Because of this, we have temporarily suspended the shipping of accessories and other fragile items."
+          ],
+          "correctOptions": [
+            "(D) Because of this, we have temporarily suspended the shipping of accessories and other fragile items."
+          ],
+          "transcript": "<p>Based on the previous sentence.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b> Điều này có thể là do có nhiều mặt hàng dễ vỡ hơn được thêm vào các sản phẩm mà chúng tôi hiện đang vận chuyển. <br> (A) Chúng tôi đang nghĩ đến việc loại bỏ những mặt hàng đó khỏi danh sách sản phẩm của mình. <br> (B) Chúng tôi có thể cần tăng chi phí vận chuyển và xử lý. <br> (C) Việc tăng chi phí bảo hiểm cho những mặt hàng đó đã được đề xuất. <br> (D) Vì lý do này, chúng tôi đã tạm thời ngừng việc vận chuyển các phụ kiện và các mặt hàng dễ vỡ khác. <br>Câu này đưa ra một lý do cho tăng cao về hàng hóa bị hỏng sau khi vận chuyển - việc thêm vào các mặt hàng dễ vỡ vào danh mục sản phẩm. Do đó, <b>đáp án D</b> phản ánh chính xác ý này, đề xuất một biện pháp cụ thể là tạm ngừng việc vận chuyển các mặt hàng dễ vỡ để giải quyết vấn đề."
+        },
+        {
+          "id": "6140038965d71f3a51f62b0b",
+          "questionText": "We are reviewing the packaging procedures for our products and are looking to add more steps to <b> (3) </b> ______ that the products are packaged securely and delivered without damage.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) secure",
+            "(B) affect",
+            "(C) ensure",
+            "(D) warrant"
+          ],
+          "correctOptions": [
+            "(C) ensure"
+          ],
+          "transcript": "<p>secure:&nbsp;to protect something so that it is safe and difficult to attack or damage</p>\n\n<p>affect:&nbsp;to produce a change in somebody/something</p>\n\n<p>ensure:&nbsp;to make sure that something happens or is definite</p>\n\n<p>warrant:&nbsp;to make something necessary or appropriate in a particular situation</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<b>Kiến thức từ vựng:</b><br>- secure: siết chặt, bảo vệ<br>- affect: ảnh hưởng<br>- ensure: bảo đảm<br>- warrant: chứng nhận, đảm bảo cái gì là thật<br>Dựa vào ngữ cảnh câu, chọn <b>đáp án C</b>.<br><b>Tạm dịch:</b> Chúng tôi đang xem xét các quy trình đóng gói cho sản phẩm của mình và đang tìm cách bổ sung thêm các bước để đảm bảo rằng sản phẩm được đóng gói an toàn và giao hàng mà không bị hư hỏng."
+        },
+        {
+          "id": "6140038965d71f3a51f62b0c",
+          "questionText": "<p>Please inform the managers on the manufacturing team to attend an <strong> (4) </strong> ______ meeting tonight at 7:00 P.M.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) emergency",
+            "(B) necessity",
+            "(C) decisive",
+            "(D) extensive"
+          ],
+          "correctOptions": [
+            "(A) emergency"
+          ],
+          "transcript": "<p>The meeting is held at \"7:00 P.M. tonight\"=&gt; emergency is correct.</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<b>Kiến thức từ vựng:</b><br>- emergency: khẩn cấp<br>- necessity: cần thiết<br>- decisive: quyết định<br>- extensive: rộng rãi<br>Trong ngữ cảnh này, việc giải quyết vấn đề hàng hóa bị hỏng sau khi vận chuyển là một ưu tiên cấp bách, nên <b>đáp án đúng là A</b>. <br><b>Tạm dịch:</b> Vui lòng thông báo cho các quản lý trong nhóm sản xuất để tham dự cuộc họp khẩn cấp vào lúc 7 giờ tối nay."
+        }
+      ]
+    },
+    {
+      "id": "6140038965d71f3a51f62b06",
+      "questionText": "<p align=\"center\"> <b> Green Clean Services</b></p> <p align=\"center\"> Call us: 347-281-7834</p> <b> (1) </b> _____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities. <b> (2) </b> _____.  We understand the contributions a good employee makes toward our <b> (3) </b> _____ , and we commit to selecting the best available people to work for you. <br> Green Clean’s mission is to satisfy our customers needs on a daily basis while providing the best combination of quality, price, and delivery. We accomplish this by continually improving our systems of <b> (4) </b> _____ . Our goal is to make your facility extremely clean in the greenest way  possible. Visit our website today at www.greenclean.com",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Green Clean Services<br>Gọi cho chúng tôi: 347-281-7834<br><br>Từ năm 2005, Green Clean đã cung cấp dịch vụ làm sạch chuyên nghiệp và thân thiện với môi trường, đạt chất lượng cao và đồng đều cho tất cả các loại cơ sở thương mại và công nghiệp. Là một công ty dịch vụ, chúng tôi coi nhân viên của mình là tài sản quan trọng nhất. Chúng tôi hiểu những đóng góp của một nhân viên giỏi đối với thành công của chúng tôi và chúng tôi cam kết chọn lựa những người tốt nhất để làm việc cho bạn. <br><br>Sứ mệnh của Green Clean là đáp ứng nhu cầu hàng ngày của khách hàng đồng thời cung cấp sự kết hợp tốt nhất giữa chất lượng, giá cả và giao hàng. Chúng tôi đạt được điều này bằng cách liên tục cải thiện hệ thống hoạt động của mình. Mục tiêu của chúng tôi là làm cho cơ sở của bạn sạch sẽ nhất có thể bằng cách thân thiện với môi trường. Truy cập trang web của chúng tôi ngay hôm nay tại www.greenclean.com.",
+      "childQuestions": [
+        {
+          "id": "6140038965d71f3a51f62b0d",
+          "questionText": "<b> (1) </b> _____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Until",
+            "(B) Around",
+            "(C) Since",
+            "(D) Through"
+          ],
+          "correctOptions": [
+            "(C) Since"
+          ],
+          "transcript": "<p>The sentence uses present perfect continuous tense (has been providing) =&gt; since 2005</p>\n",
+          "explanationVi": "until: cho đến khi<br>around: xấp xỉ, khoảng<br>since + mốc thời gian: kể từ…<br>through: qua<br>Trong câu sử dụng thì hiện tại hoàn thành tiếp diễn “has been providing” và since + mốc thời gian là dấu hiệu nhận biết thì hiện tại hoàn thành tiếp diễn, nên chọn <b>đáp án C</b>.<br><b>Tạm dịch:</b> Từ năm 2005, Green Clean đã cung cấp dịch vụ làm sạch chuyên nghiệp và thân thiện với môi trường, đạt chất lượng cao và đồng đều cho tất cả các loại cơ sở thương mại và công nghiệp."
+        },
+        {
+          "id": "6140038965d71f3a51f62b0e",
+          "questionText": "_____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities. <b> (2) </b> _____.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Drop in today to schedule a tour of one of our twenty facilities.",
+            "(B) We are the biggest manufacture of environmentally cleaning supplies in the Northwest.",
+            "(C) As a service company, we consider our employees to be our most important asset.",
+            "(D) Allow us to work for you by calling us today to take care of all of your accounting needs."
+          ],
+          "correctOptions": [
+            "(C) As a service company, we consider our employees to be our most important asset."
+          ],
+          "transcript": "Based on the following sentence: \"We understand the contributions a good employee makes toward our .....\"",
+          "explanationVi": "<b>Tạm dịch:</b><br> (A) Hãy đến ngay hôm nay để lên lịch tham quan một trong 20 cơ sở của chúng tôi.<br> (B) Chúng tôi là nhà sản xuất vật tư làm sạch môi trường lớn nhất ở Tây Bắc. <br>(C) Là một công ty dịch vụ, chúng tôi coi nhân viên là tài sản quan trọng nhất của mình. <br> (D) Cho phép chúng tôi làm việc cho bạn bằng cách gọi cho chúng tôi ngay hôm nay để đáp ứng mọi nhu cầu kế toán của bạn. <br>Câu sau nói về những đóng góp của nhân viên và cam kết của công ty đối với việc chọn lựa nhân viên và cung cấp dịch vụ chất lượng nên chọn <b>đáp án C</b> vì nó phản ảnh tầm quan trọng của nhân viên."
+        },
+        {
+          "id": "6140038965d71f3a51f62b0f",
+          "questionText": "We understand the contributions a good employee makes toward our <b> (3) </b> _____ , and we commit to selecting the best available people to work for you.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) success",
+            "(B) drive",
+            "(C) support",
+            "(D) determination"
+          ],
+          "correctOptions": [
+            "(A) success"
+          ],
+          "transcript": "<p>- success:&nbsp;the fact that you have achieved something that you want and have been trying to do or get<br>\n- drive:&nbsp;a journey in a car or other vehicle<br>\n- support:&nbsp;approval that you give to somebody/something because you want them to be successful<br>\n- determination:&nbsp;the quality that makes you continue trying to do something even when this is difficult</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<b>Kiến thức từ vựng:</b><br>- success: thành công<br>- drive: sự cố gắng, cuộc đi chơi<br>- support: hỗ trợ<br>- determination: quyết tâm<br>Dựa vào ngữ cảnh câu, chọn <b>đáp án A</b>.<br><b>Tạm dịch:</b> Chúng tôi hiểu những đóng góp của một nhân viên giỏi đối với thành công của chúng tôi và chúng tôi cam kết chọn lựa những người tốt nhất để làm việc cho bạn."
+        },
+        {
+          "id": "6140038965d71f3a51f62b10",
+          "questionText": "<p>We accomplish this by continually improving our systems of <strong> (4) </strong> _____ .</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) to operate",
+            "(B) operates",
+            "(C) operated",
+            "(D) operation"
+          ],
+          "correctOptions": [
+            "(D) operation"
+          ],
+          "transcript": "The blank comes after the preposition \"of\" =&gt; use a noun.",
+          "explanationVi": "Vị trí cần điền là một danh từ do đứng sau giới từ “of”, nên chọn <b>đáp án D</b>.<br><b>Tạm dịch:</b> Chúng tôi đạt được điều này bằng cách liên tục cải thiện hệ thống hoạt động của mình."
+        }
+      ]
+    },
+    {
+      "id": "6140038965d71f3a51f62b07",
+      "questionText": "<b>Florist Wanted</b> <br>  Do you love making people smile? Does the idea of <b> (1) </b> _____  your day being creative and  working with nature appeal to you? If so, we would like to encourage you to apply to join <br> our team at Wild Flowers Florists. <b> (2) </b> _____. We are looking for someone who is customer- <b> (3) </b> _____  first. Creativity is important, but it is secondary to the vision of the client. If you think <b> (4) </b> _____  have what it takes to make people smile, please fill out our online application form on our website, www.WildFlowersFlorists.com.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<b>Tuyển dụng thợ hoa</b><br>Bạn có thích làm cho mọi người mỉm cười? Ý tưởng dành cả ngày để sáng tạo và làm việc với thiên nhiên có hấp dẫn bạn không? Nếu có, chúng tôi khuyến khích bạn đăng ký tham gia đội ngũ của chúng tôi tại Cửa hàng hoa Wild Flowers. Công ty chúng tôi cam kết cung cấp những mẫu hoa tốt nhất cho khách hàng, bất kể nhu cầu của họ là gì. Chúng tôi đang tìm kiếm một người luôn hướng tới khách hàng. Sự sáng tạo rất quan trọng nhưng nó chỉ là thứ yếu so với tầm nhìn của khách hàng. Nếu bạn cho rằng mình có đủ khả năng để khiến mọi người mỉm cười, vui lòng điền vào mẫu đơn đăng ký trực tuyến trên trang web của chúng tôi, www.WildFlowersFlorists.com.",
+      "childQuestions": [
+        {
+          "id": "6140038965d71f3a51f62b11",
+          "questionText": "Does the idea of <b> (1) </b> _____  your day being creative and working with nature appeal to you?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) spend",
+            "(B) to spend",
+            "(C) spending",
+            "(D) spent"
+          ],
+          "correctOptions": [
+            "(C) spending"
+          ],
+          "transcript": "<p>The blank comes after \"of\" =&gt; use noun or Ving</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "Vị trí cần điền là N/Ving do đứng sau giới từ “of”, nên chọn <b>đáp án C</b>.<br><b>Tạm dịch:</b> Ý tưởng dành cả ngày để sáng tạo và làm việc với thiên nhiên có hấp dẫn bạn không?"
+        },
+        {
+          "id": "6140038965d71f3a51f62b12",
+          "questionText": "If so, we would like to encourage you to apply to join our team at Wild Flowers Florists. <b> (2) </b> _____.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) You must be good with animals.",
+            "(B) Our company is committed to providing the best floral arrangements for our clients, no matter what their needs.",
+            "(C) We use the best fabrics in our designs.",
+            "(D) All people love our commitment to safety."
+          ],
+          "correctOptions": [
+            "(B) Our company is committed to providing the best floral arrangements for our clients, no matter what their needs."
+          ],
+          "transcript": "<p>The \"Florist\"'s business is about flowers</p>\n\n<p><strong>=&gt; B is the most suitable.</strong></p>\n",
+          "explanationVi": "<p><b>Tạm dịch:</b><br />\n(A) Bạn phải đối xử tốt với động vật.<br />\n(B) C&ocirc;ng ty ch&uacute;ng t&ocirc;i cam kết cung cấp dịch vụ cắm hoa tốt nhất cho kh&aacute;ch h&agrave;ng, bất kể nhu cầu của họ l&agrave; g&igrave;.<br />\n(C) Ch&uacute;ng t&ocirc;i sử dụng những loại vải tốt nhất trong thiết kế của m&igrave;nh.<br />\n(D) Tất cả mọi người đều y&ecirc;u th&iacute;ch cam kết của ch&uacute;ng t&ocirc;i về an to&agrave;n.<br />\n<strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; B</strong> do c&acirc;u n&agrave;y giải th&iacute;ch l&yacute; do tại sao bạn n&ecirc;n ứng tuyển v&agrave;o đội ngũ của Wild Flowers Florists, nhấn mạnh cam kết của c&ocirc;ng ty trong việc cung cấp c&aacute;c thiết kế hoa tốt nhất cho kh&aacute;ch h&agrave;ng, ph&ugrave; hợp với ngữ cảnh của b&agrave;i.</p>\n"
+        },
+        {
+          "id": "6140038965d71f3a51f62b13",
+          "questionText": "We are looking for someone who is customer- <b> (3) </b> _____  first.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) oriented",
+            "(B) prime",
+            "(C) located",
+            "(D) sourced"
+          ],
+          "correctOptions": [
+            "(A) oriented"
+          ],
+          "transcript": "<p>(A) oriented (object-oriented):&nbsp;directed towards something or made or adapted for a particular purpose</p>\n\n<p>(B) prime:&nbsp;main; most important; basic</p>\n\n<p>(C) located:&nbsp;to be in a particular place</p>\n\n<p>(D) sourced:&nbsp;to get something from a particular place</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>(A) oriented: hướng tới</p>\n\n<p>(B) prime: ch&iacute;nh, chủ yếu</p>\n\n<p>(C) located: được đặt ở</p>\n\n<p>(D) sourced: lấy từ, c&oacute; nguồn gốc</p>\n\n<p>Cụm từ &ldquo;customer-oriented&rdquo;: hướng tới kh&aacute;ch h&agrave;ng<br />\n<b>Tạm dịch:</b> Ch&uacute;ng t&ocirc;i đang t&igrave;m kiếm một người lu&ocirc;n hướng tới kh&aacute;ch h&agrave;ng.</p>\n\n<p><strong>=&gt; Chọn A</strong></p>\n"
+        },
+        {
+          "id": "6140038965d71f3a51f62b14",
+          "questionText": "<p>If you think <strong> (4) </strong> _____ have what it takes to make people smile, please fill out our online application form on our website, www.WildFlowersFlorists.com.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) you",
+            "(B) I",
+            "(C) they",
+            "(D) we"
+          ],
+          "correctOptions": [
+            "(A) you"
+          ],
+          "transcript": "<p>Based on the meaning of sentence</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "Trong ngữ cảnh của câu đang nói về \"you\" - những người đọc, có nghĩa là những người quan tâm đến việc ứng tuyển vào đội ngũ của Wild Flowers Florists, nên chọn <b>đáp án A</b>.<br><b>Tạm dịch:</b> Nếu bạn cho rằng mình có đủ khả năng để khiến mọi người mỉm cười, vui lòng điền vào mẫu đơn đăng ký trực tuyến trên trang web của chúng tôi, www.WildFlowersFlorists.com."
+        }
+      ]
+    },
+    {
+      "id": "6140038965d71f3a51f62b08",
+      "questionText": "October 21 <br>Larry Mills <br>226 Highland Rivers <br>Fairbank, WA 20037<br><br>Dear Mr. Mills, <br>I am writing in reply to your complaint about the noise levels coming from the surrounding businesses around the apartment complex. <b> (1) </b>_____ , a few people living on the west wing of the building <b> (2) </b>_____  concern over the noise levels. The building committee has conducted meetings over this issue and we have talked to the businesses.<b> (3) </b>_____ . Because of this, we are also looking to fortify the windows with noise-proof glass for residences living on the west wing. Once we have agreed upon the proposals, we will post the announcement on our ulletin board and you may receive a call. Until then, we ask for your <b> (4) </b>_____ patience.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Ngày 21 tháng 10<br>Larry Mills<br>226 Highland Rivers<br>Fairbank, WA 20037<br><br>Thưa ông Mills, <br>Tôi viết thư này để trả lời khiếu nại của ông về mức độ tiếng ồn từ các doanh nghiệp xung quanh khu căn hộ. <br><br>Thật không may, một số người sống ở phía cánh tây của tòa nhà đã bày tỏ quan ngại về mức độ tiếng ồn. Ban quản trị tòa nhà đã tổ chức cuộc họp để giải quyết vấn đề này và chúng tôi đã nói chuyện với các doanh nghiệp. Tuy nhiên, một số tiếng ồn là không thể tránh khỏi do tính chất của các doanh nghiệp. Vì vậy, chúng tôi cũng đang tìm cách gia cố cửa sổ bằng kính chống ồn cho các hộ dân sống ở cánh phía Tây. Khi chúng tôi đồng ý về các đề xuất, chúng tôi sẽ đăng thông báo trên bảng tin và bạn có thể nhận được cuộc gọi. Cho đến lúc đó, chúng tôi mong nhận được sự kiên nhẫn của bạn.",
+      "childQuestions": [
+        {
+          "id": "6140038965d71f3a51f62b15",
+          "questionText": "<b> (1) </b>_____ , a few people living on the west wing of the building _____  concern over the noise levels.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) As a result",
+            "(B) Moreover",
+            "(C) On the other hand",
+            "(D) Unfortunately"
+          ],
+          "correctOptions": [
+            "(D) Unfortunately"
+          ],
+          "transcript": "<p>Based on the previous sentence.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<b>Liên từ:</b><br>- As a result: kết quả là<br>- Moreover: hơn nữa<br>- On the other hand: mặt khác<br>- Unfortunately: thật không may<br>Dựa theo ngữ cảnh câu, chọn <b>đáp án D</b>.<br><b>Tạm dịch:</b> Thật không may, một số người sống ở phía cánh tây của tòa nhà đã bày tỏ quan ngại về mức độ tiếng ồn."
+        },
+        {
+          "id": "6140038965d71f3a51f62b16",
+          "questionText": "_____ , a few people living on the west wing of the building <b> (2) </b>_____  concern over the noise levels.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) is expressing",
+            "(B) have expressed",
+            "(C) expression",
+            "(D) be expressive"
+          ],
+          "correctOptions": [
+            "(B) have expressed"
+          ],
+          "transcript": "<p>The subject is \"a few people\" <strong>=&gt; B is the correct form of verb</strong></p>\n",
+          "explanationVi": "Vị trí cần điền là một động từ chia dạng số nhiều do chủ ngữ là “a few people”, nên chọn <b>đáp án là B</b>. <br><b>Tạm dịch:</b> Thật không may, một số người sống ở phía cánh tây của tòa nhà đã bày tỏ quan ngại về mức độ tiếng ồn."
+        },
+        {
+          "id": "6140038965d71f3a51f62b17",
+          "questionText": "The building committee has conducted meetings over this issue and we have talked to the businesses. <b> (3) </b>_____ .",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) However, some of the noises are inevitable due to the nature of the businesses.",
+            "(B) They will fully cooperate with our committee.",
+            "(C) They have responded to our concerns and will work to keep noise levels low.",
+            "(D) However, they are losing money over this matter."
+          ],
+          "correctOptions": [
+            "(A) However, some of the noises are inevitable due to the nature of the businesses."
+          ],
+          "transcript": "<p>Based on the previous sentence: \"The building committee has conducted meetings over this issue and we have talked to the businesses.\" but \"some of the noises are inevitable due to the nature of the businesses.\"</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>(A) Tuy nhiên, một số tiếng ồn là không thể tránh khỏi do tính chất của hoạt động kinh doanh. <br> (B) Họ sẽ hợp tác đầy đủ với ủy ban của chúng tôi. <br> (C) Họ đã đáp lại những lo ngại của chúng tôi và sẽ nỗ lực để giữ mức độ tiếng ồn ở mức thấp. <br> (D) Tuy nhiên, họ đang mất tiền vì vấn đề này. <br>Dựa vào ngữ cảnh câu, chọn <b>đáp án A</b>."
+        },
+        {
+          "id": "6140038965d71f3a51f62b18",
+          "questionText": "<p>Until then, we ask for your <strong> (4) </strong>_____ patience.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) continue",
+            "(B) continues",
+            "(C) continued",
+            "(D) be continuing"
+          ],
+          "correctOptions": [
+            "(C) continued"
+          ],
+          "transcript": "<p>We need an adjective to modify the noun \"patience\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "Vị trí cần điền là một tính từ do đứng trước danh từ “patience”, nên chọn <b>đáp án C</b>.<br><b>Tạm dịch:</b> Cho đến lúc đó, chúng tôi mong nhận được sự kiên nhẫn của bạn."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "topicId": "64d05dcd0472355e425c22be",
+  "name": "Test 22",
+  "slug": "test-22",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "64d06aed0472355e425c6944",
+      "questionText": "<p><strong>Read the following business card.</strong><br>\n<strong>Elaine’s Alterations</strong><br>\n529 Cambridge Avenue ♦ 555-3223<br>\nElaine Smith, Owner<br>\nCustom alterations for suits, dresses, and more.<br>\nQuick Hemming Service: Trousers shortened while you wait!<br>\nMon. - Fri.: 9 A.M. - 6 P.M. / Sat.: 10 A.M. - 4 P.M.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c694f",
+          "questionText": "<p>What service can be performed within a short time?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Repairing tom suit jackets",
+            "(B) Replacing missing buttons on clothing",
+            "(C) Adjusting the length of trousers",
+            "(D) Taking measurements for custom dresses"
+          ],
+          "correctOptions": [
+            "(C) Adjusting the length of trousers"
+          ],
+          "transcript": "<p>Information is in <em>\"<strong>Quick Hemming Service: Trousers shortened</strong> while you wait!\"</em></p>",
+          "explanationVi": "<p>Dịch vụ nào có thể được thực hiện trong thời gian ngắn?</p>\n<p>(A) Sửa áo khoác tom suit</p>\n<p>(B) Thay thế các nút bị thiếu trên quần áo</p>\n<p>(C) Điều chỉnh độ dài của quần</p>\n<p>(D) Lấy số đo cho những chiếc váy theo yêu cầu</p>\n<p>Thông tin:&nbsp;<em>\"<strong>Quick Hemming Service: Trousers shortened</strong> while you wait!\"</em></p>\n<p><em>(</em><em>Dịch vụ viền nhanh: Quần được cắt ngắn trong khi chờ đợi!)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6950",
+          "questionText": "<p>What is suggested about Elaine’s Alterations?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It offers a money-back guarantee.",
+            "(B) It only has one employee.",
+            "(C) It sells a variety of fabric.",
+            "(D) It is closed on Sundays."
+          ],
+          "correctOptions": [
+            "(D) It is closed on Sundays."
+          ],
+          "transcript": "<p>Information is in <em>\"Mon. - Fri.: 9 A.M. - 6 P.M. / Sat.: 10 A.M. - 4 P.M.\"</em></p>\n<p>There is no working hour on Sunday.</p>",
+          "explanationVi": "<p>Điều gì được gợi ý về Sự thay đổi của Elaine?</p>\n<p>(A) Nó cung cấp cam kết hoàn lại tiền.</p>\n<p>(B) Nó chỉ có một nhân viên.</p>\n<p>(C) Nó bán nhiều loại vải.</p>\n<p>(D) Nó đóng cửa vào Chủ Nhật.</p>\n<p><strong>Thông tin:</strong> <em>\"Mon. - Fri.: 9 A.M. - 6 P.M. / Sat.: 10 A.M. - 4 P.M.\"</em></p>\n<p><em>-&gt; Không có giờ làm việc vào ngày chủ nhật.</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c6945",
+      "questionText": "<p><strong>Read the following e-mail.</strong><br>\nTo: Larry Morgan &lt;morgan.l@crescentinc.com&gt;<br>\nFrom: Celeste Ross &lt;ross.c@crescentinc.com&gt;<br>\nDate: December 2<br>\nSubject: Monthly Meeting<br>\nDear Mr. Morgan,<br>\nI am writing to inform you that the monthly managers meeting scheduled for December 3 has been pushed back by half an hour, so it will begin at 3:30. This is due to a scheduling conflict with the conference room. We still expect the meeting to last approximately one hour. If there is anything you think should be covered at the meeting, please e-mail me by the end of the day. That way, I can formally add it to the agenda.<br>\nSee you tomorrow!<br>\nCeleste&lt;/ross.c@crescentinc.com&gt;&lt;/morgan.l@crescentinc.com&gt;</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c6951",
+          "questionText": "What has changed about a meeting?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The date",
+            "(B) The location",
+            "(C) The start time",
+            "(D) The duration"
+          ],
+          "correctOptions": [
+            "(C) The start time"
+          ],
+          "transcript": "<p>Information is in <em>\"I am writing to inform you that the monthly managers meeting scheduled for December 3 has been <strong>pushed back by half an hour, so it will begin at 3:30</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Điều gì đã thay đổi về một cuộc họp?</p>\n<p>(A) Ngày</p>\n<p>(B) Vị trí</p>\n<p>(C) Thời gian bắt đầu</p>\n<p>(D) Thời lượng</p>\n<p>Thông tin:&nbsp;<em>\"I am writing to inform you that the monthly managers meeting scheduled for December 3 has been&nbsp;<strong>pushed back by half an hour, so it will begin at 3:30</strong>.\"</em></p>\n<p><em>(</em><em>Tôi viết thư này để thông báo với các bạn rằng cuộc họp hàng tháng của các nhà quản lý dự kiến vào ngày 3 tháng 12 đã bị lùi lại nửa giờ nên sẽ bắt đầu lúc 3:30.)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6952",
+          "questionText": "<p>Why should Mr. Morgan write to Ms. Ross?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To suggest a topic for discussion",
+            "(B) To confirm his attendance at a meeting",
+            "(C) To provide a copy of the agenda",
+            "(D) To warn her about a scheduling problem"
+          ],
+          "correctOptions": [
+            "(A) To suggest a topic for discussion"
+          ],
+          "transcript": "<p>Information is in <em>\"If <strong>there is anything you think should be covered</strong> at the meeting, please e-mail me by the end of the day.\"</em></p>\n",
+          "explanationVi": "<p>Tại sao ông Morgan nên viết thư cho cô Ross?</p>\n<p>(A) Để gợi ý một chủ đề thảo luận</p>\n<p>(B) Để xác nhận sự tham dự của anh ấy tại một cuộc họp</p>\n<p>(C) Để cung cấp một bản sao của chương trình nghị sự</p>\n<p>(D) Để cảnh báo cô ấy về vấn đề sắp xếp lịch</p>\n<p>Thông tin:&nbsp;<em>\"If&nbsp;<strong>there is anything you think should be covered</strong> at the meeting, please e-mail me by the end of the day.\"</em></p>\n<p><em>(</em><em>Nếu bạn nghĩ có điều gì cần được đề cập trong cuộc họp, vui lòng gửi email cho tôi vào cuối ngày.)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c6946",
+      "questionText": "<p><strong>Read the following text-message chain.</strong><br>\n<strong>Ivan Mathiasen [9:20 A.M.]</strong><br>\nI sent you an e-mail with the business proposal for Seneca Hospitality. I'm wondering if you've had a chance to check it out.<br>\n<strong>Amina Behane [9:23 A.M]</strong><br>\nI have a major customer visiting my office soon, but I can take a quick look now.<br>\n<strong>Ivan Mathiasen [9:24 A.M]</strong><br>\nThanks. I just want to make sure that I've covered everything.<br>\n<strong>Amina Behane [9:25 A.M]</strong><br>\nThere are a few adjustments to be made, but that's normal. I've had to coach your other team members on the same issues. Let's meet after lunch to discuss it.<br>\n<strong>Ivan Mathiasen [9:26 A.M.] </strong><br>\nOkay, I'm free anytime.<br>\n<strong>Amina Behane [9:27 A.M]</strong><br>\nThat's her now. I'll call you when I'm done.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c6953",
+          "questionText": "<p>What is implied about Ms. Behane?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She requested some updated figures.",
+            "(B) She had some trouble receiving an e-mail.",
+            "(C) She is Mr. Mathiasen’s supervisor.",
+            "(D) She used to work for Seneca Hospitality."
+          ],
+          "correctOptions": [
+            "(C) She is Mr. Mathiasen’s supervisor."
+          ],
+          "transcript": "<p>Based on information <em>\"I'm wondering if you've had a chance to check it out.\", \"I just want to make sure that I've covered everything.\", \"I've had to coach your other team members on the same issues.\"</em></p>\n<p>=&gt; It can be inferred that&nbsp;Ms. Behane&nbsp;is Mr. Mathiasen’s supervisor.</p>",
+          "explanationVi": "<p>Điều gì được ngụ ý về bà Behane?</p>\n<p>(A) Bà ấy yêu cầu một số số liệu cập nhật.</p>\n<p>(B) Bà ấy gặp chút khó khăn khi nhận e-mail.</p>\n<p>(C) Bà ấy là người giám sát của ông Mathiasen.</p>\n<p>(D) Bà ấy từng làm việc cho Seneca Hospitality.</p>\n<p>Thông tin:&nbsp;&nbsp;<em>\"I'm wondering if you've had a chance to check it out.\" (</em><em>Tôi tự hỏi liệu bạn có cơ hội kiểm tra nó không.)</em></p>\n<p><em>\"I just want to make sure that I've covered everything.\" (</em><em>Tôi chỉ muốn đảm bảo rằng tôi đã trình bày mọi thứ)</em></p>\n<p><em>\"I've had to coach your other team members on the same issues.\" (</em><em>Tôi đã phải huấn luyện các thành viên khác trong nhóm của bạn về những vấn đề tương tự)</em></p>\n<p><em>--&gt;&nbsp;Có thể suy ra rằng bà Behane là người giám sát của ông Mathiasen.</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6954",
+          "questionText": "<p>At 9:27 A.M., what does Ms. Behane mean when she writes, “That’s her now”?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An important client has arrived.",
+            "(B) A career coach is highly recommended.",
+            "(C) A colleague can answer questions.",
+            "(D) A coworker will cover Ms. Behane’s duties."
+          ],
+          "correctOptions": [
+            "(A) An important client has arrived."
+          ],
+          "transcript": "<p>Based on information <em>\"I have a major customer visiting my office soon\"</em></p>\n\n<p>=&gt; Choose A</p>\n",
+          "explanationVi": "<p>Lúc 9:27 sáng, bà Behane có ý gì khi viết “That’s her now”?</p>\n<p>(A) Một khách hàng quan trọng đã đến.</p>\n<p>(B) Một huấn luyện viên nghề nghiệp rất được khuyến khích.</p>\n<p>(C) Một đồng nghiệp có thể trả lời các câu hỏi.</p>\n<p>(D) Một đồng nghiệp sẽ đảm nhận nhiệm vụ của cô Behane.</p>\n<p>Thông tin:&nbsp;<em>\"I have a major customer visiting my office soon\" (</em><em>Sắp có một khách hàng lớn đến thăm văn phòng của tôi)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c6947",
+      "questionText": "<p><strong>Read the following instructions.</strong><br>\nDon’t ever miss another episode of your favorite television show again with the Vision-HD smartphone app. The Vision-ITD smartphone app allows you to remotely program your smart TV to record a program, and it can be used up to seven days in advance.<br>\n1. Visit www.myappstore.com/visionhd and download the app. This app is free to all users, but there are some optional in-app purchases available.<br>\n2. Input your customer number from your cable service provider. You can find the number on the top of your billing statement.<br>\n3. That’s all! Begin using tire app and enjoy television on your own schedule!</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c6955",
+          "questionText": "<p>What has the Vision-HD smartphone application been designed to do?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Set a device to record television shows",
+            "(B) Show reviews for popular TV programs",
+            "(C) Stream videos from the Internet",
+            "(D) Improve the image quality of videos"
+          ],
+          "correctOptions": [
+            "(A) Set a device to record television shows"
+          ],
+          "transcript": "<p>Information is in <em>\"The Vision-ITD smartphone app allows you to remotely program your smart TV to record a program\"</em></p>\n",
+          "explanationVi": "<p>Ứng dụng điện thoại thông minh Vision-HD được thiết kế để làm gì?</p>\n<p>(A) Đặt thiết bị để ghi lại các chương trình truyền hình</p>\n<p>(B) Hiển thị đánh giá về các chương trình truyền hình phổ biến</p>\n<p>(C) Truyền phát video từ Internet</p>\n<p>(D) Cải thiện chất lượng hình ảnh của video</p>\n<p>Thông tin:&nbsp;<em>\"The Vision-ITD smartphone app allows you to remotely program your smart TV to record a program\"</em></p>\n<p><em>(</em><em>Ứng dụng điện thoại thông minh Vision-ITD cho phép bạn lập trình từ xa cho TV thông minh của mình để ghi lại một chương trình)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6956",
+          "questionText": "<p>What do customers need to provide when signing up for the service?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An ID card",
+            "(B) A customer number",
+            "(C) An e-mail address",
+            "(D) A down payment"
+          ],
+          "correctOptions": [
+            "(B) A customer number"
+          ],
+          "transcript": "<p>Information is in <em>\"Input your <strong>customer number</strong> from your cable service provider.\"</em></p>\n",
+          "explanationVi": "<p>Khách hàng cần cung cấp những gì khi đăng ký dịch vụ?</p>\n<p>(A) Một thẻ căn cước</p>\n<p>(B) Mã số khách hàng</p>\n<p>(C) Một địa chỉ email</p>\n<p>(D) Một khoản trả trước</p>\n<p>Thông tin:&nbsp;<em>\"Input your&nbsp;<strong>customer number</strong> from your cable service provider.\"</em></p>\n<p><em>(</em><em>Nhập số khách hàng của bạn từ nhà cung cấp dịch vụ cáp của bạn.)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c6948",
+      "questionText": "<p><strong>Read the following review.</strong><br>\nBusiness: Cerritos Flooring<br>\nReviewer: Ruben Ives<br>\nRating: 5/5<br>\nI would highly recommend Cerritos Flooring to anyone who is considering having hardwood floors installed. When choosing a company, I just went for the cheapest one, so I wasn’t sure whether the quality of the work would be good enough. However, I was pleasantly surprised. I only had to wait a few days to get an appointment, and the crew arrived in the morning on time and with all of the tools they needed. They performed the work efficiently. What I really thought was amazing was that they vacuumed and cleaned up everything before they left. No one would even be able to guess that they had been there! I’ve had the new floor for two weeks, and it looks fantastic. I’m sure it will look as good as new for many years to come.<br>\nThe one thing I would suggest is to make sure your corridor is empty prior to your appointment. I forgot to do this, which made bringing in the supplies somewhat difficult for the workers, as they were being very careful not to break anything along the way.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c6957",
+          "questionText": "<p>Why did Mr. Ives select Cerritos Flooring?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It had the lowest prices.",
+            "(B) It was recommended by a friend.",
+            "(C) It had a good reputation.",
+            "(D) It was nearest to his home."
+          ],
+          "correctOptions": [
+            "(A) It had the lowest prices."
+          ],
+          "transcript": "<p>Information is in <em>\"I would highly recommend <strong>Cerritos Flooring</strong> to anyone who is considering having hardwood floors installed. When choosing a company, I <strong>just went for the cheapest one</strong>\"</em></p>\n",
+          "explanationVi": "<p>Tại sao ông Ives chọn Sàn Cerritos?</p>\n<p>(A) Nó có giá thấp nhất.</p>\n<p>(B) Nó được một người bạn giới thiệu.</p>\n<p>(C) Nó có danh tiếng tốt.</p>\n<p>(D) Nó gần nhà anh ấy nhất.</p>\n<p>Thông tin:&nbsp;<em>\"I would highly recommend&nbsp;<strong>Cerritos Flooring</strong>&nbsp;to anyone who is considering having hardwood floors installed. When choosing a company, I&nbsp;<strong>just went for the cheapest one</strong>\"</em></p>\n<p><em>(</em><em>Tôi thực sự muốn giới thiệu Sàn Cerritos cho bất kỳ ai đang cân nhắc việc lắp đặt sàn gỗ cứng. Khi chọn một công ty, tôi chỉ chọn công ty rẻ nhất)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6958",
+          "questionText": "<p>What impressed Mr. Ives most about the service?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It was available on the same day as ordering.",
+            "(B) The work comes With a warranty.",
+            "(C) It was completed ahead of schedule.",
+            "(D) The crew did not leave behind a mess."
+          ],
+          "correctOptions": [
+            "(D) The crew did not leave behind a mess."
+          ],
+          "transcript": "<p>Information is in <em>\"What I really thought was amazing was that they vacuumed and <strong>cleaned up everything before they left</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Điều gì khiến ông Ives ấn tượng nhất về dịch vụ?</p>\n<p>(A) Nó có sẵn vào cùng ngày đặt hàng.</p>\n<p>(B) Công việc đi kèm với bảo hành.</p>\n<p>(C) Nó đã được hoàn thành trước thời hạn.</p>\n<p>(D) Phi hành đoàn đã không để lại một mớ hỗn độn nào.</p>\n<p>Thông tin:&nbsp;<em>\"What I really thought was amazing was that they vacuumed and&nbsp;<strong>cleaned up everything before they left</strong>.\"</em></p>\n<p><em>(</em><em>Điều tôi thực sự nghĩ là tuyệt vời là họ đã hút bụi và dọn dẹp mọi thứ trước khi rời đi)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6959",
+          "questionText": "<p>What does Mr. Ives suggest doing?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Booking a morning appointment",
+            "(B) Checking the floor after two weeks",
+            "(C) Removing items from a hallway",
+            "(D) Reporting broken items to the company"
+          ],
+          "correctOptions": [
+            "(C) Removing items from a hallway"
+          ],
+          "transcript": "<p>Information is in <em>\"The one thing I would suggest is to make sure <strong>your corridor is empty</strong> prior to your appointment.\"</em></p>\n",
+          "explanationVi": "<p>Ông Ives đề nghị làm gì?</p>\n<p>(A) Đặt cuộc hẹn buổi sáng</p>\n<p>(B) Kiểm tra sàn sau hai tuần</p>\n<p>(C) Loại bỏ các vật dụng khỏi hành lang</p>\n<p>(D) Báo cáo các mặt hàng bị hỏng cho công ty</p>\n<p>Thông tin:&nbsp;<em>\"The one thing I would suggest is to make sure&nbsp;<strong>your corridor is empty</strong>&nbsp;prior to your appointment.\"</em></p>\n<p><em>(</em><em>Một điều tôi muốn đề xuất là đảm bảo hành lang của bạn gọn gàng trước cuộc hẹn.)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c6949",
+      "questionText": "<p><strong>Read the following article.</strong><br>\n<strong>Web Site Upgrade Expected to Boost Visits</strong><br>\n(February 22)—The Maywood city government has launched an upgraded version of its Web site to appeal to more residents. Tills is the first major change to the site in more than fifteen years.<br>\nAs before, visitors to the site can search for activities by date, as well as access a database of community-related documents. The most noticeable new feature is an online gallery where registered users can upload images of community activities. —[1]—.<br>\nSome residents expressed concern about the cost of upgrading the Web site, as the city spent over $20,000 for the project. “With a population as small as ours, it’s difficult to justify investing in something that was already working perfectly,” said Joshua Quentin, a business owner in Maywood. —[2]—.<br>\nCity officials hope that the new Web site will create a renewed interest in Maywood’s local activities. —[3]—. For example, the annual Summer Singing Contest and the Riverside Litter<br>\nCollection Day are opportunities this month for residents to get together. The Web site also has the technology to broadcast live video streams, a system that will debut during next week’s debate I among candidates for state senator. —[4]—. It will also be used to broadcast the regional festivals throughout this year.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c695a",
+          "questionText": "<p>What has been added to the city’s Web site?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A collection of photographs",
+            "(B) An interactive calendar",
+            "(C) A search engine",
+            "(D) A video-recording feature"
+          ],
+          "correctOptions": [
+            "(A) A collection of photographs"
+          ],
+          "transcript": "<p>Information is in <em>\"The <strong>most noticeable new feature is an online gallery </strong>where registered users can upload images of community activities.\"</em></p>",
+          "explanationVi": "<p>Những gì đã được thêm vào trang web của thành phố?</p>\n<p>(A) Một bộ sưu tập các bức ảnh</p>\n<p>(B) Lịch tương tác</p>\n<p>(C) Một công cụ tìm kiếm</p>\n<p>(D) Tính năng quay video</p>\n<p>Thông tin:&nbsp;<em>\"The&nbsp;<strong>most noticeable new feature is an online gallery&nbsp;</strong>where registered users can upload images of community activities.\"</em></p>\n<p><em>(</em><em>Tính năng mới đáng chú ý nhất là thư viện trực tuyến nơi người dùng đã đăng ký có thể tải lên hình ảnh về các hoạt động cộng đồng.)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c695b",
+          "questionText": "<p>What is NOT indicated as an upcoming event in Maywood?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A music competition",
+            "(B) A sports race",
+            "(C) A political debate",
+            "(D) A cleanup project"
+          ],
+          "correctOptions": [
+            "(B) A sports race"
+          ],
+          "transcript": "<p><em>\"the annual Summer <strong>Singing Contest </strong>and the Riverside <strong>Litter Collection Day</strong> are opportunities this month for residents to get together.\"</em> =&gt; Eliminate A&amp;D</p>\n<p><em>\"The Web site also has the technology to broadcast live video streams, a system that will debut during next week’s <strong>debate among candidates for state senator</strong>.\"&nbsp; =&gt; </em>Eliminate C</p>",
+          "explanationVi": "<p>Điều gì KHÔNG được chỉ định là sự kiện sắp diễn ra ở Maywood?</p>\n<p>(A) Một cuộc thi âm nhạc</p>\n<p>(B) Một cuộc đua thể thao</p>\n<p>(C) Một cuộc tranh luận chính trị</p>\n<p>(D) Một dự án dọn dẹp</p>\n<p>Thông tin:</p>\n<p><em>\"the annual Summer&nbsp;<strong>Singing Contest&nbsp;</strong>and the Riverside&nbsp;<strong>Litter Collection Day</strong>&nbsp;are opportunities this month for residents to get together.\"</em>&nbsp;</p>\n<p><em>(Cuộc thi Hát Mùa hè hàng năm và Ngày thu gom rác ven sông là cơ hội để người dân tụ tập trong tháng này) </em>=&gt; Loại A&amp;D</p>\n<p><em>\"The Web site also has the technology to broadcast live video streams, a system that will debut during next week’s&nbsp;<strong>debate among candidates for state senator</strong>.\"&nbsp; </em></p>\n<p><em>(</em><em>Trang web này cũng có công nghệ phát sóng video trực tiếp, một hệ thống sẽ ra mắt trong cuộc tranh luận giữa các ứng cử viên cho chức thượng nghị sĩ bang vào tuần tới) </em><em>=&gt; </em>Loại C</p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c695c",
+          "questionText": "<p>In which of the positions marked [1], [2], [3] and [4] does the following sentence best belong?<br>“Nonetheless, most people thought the site was outdated and that the change was necessary.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(B) [2]"
+          ],
+          "transcript": "<p>B is correct because it can connect with the sentences <em>\"Some residents expressed concern about the cost of upgrading the Web site, as the city spent over $20,000 for the project.\", \"City officials hope that the new Web site will create a renewed interest in Maywood’s local activities.\"</em></p>",
+          "explanationVi": "<p>Câu sau đây thuộc về vị trí nào được đánh dấu [1], [2], [3] và [4]?</p>\n<p>“Tuy nhiên, hầu hết mọi người đều cho rằng trang web đã lỗi thời và việc thay đổi là cần thiết.”</p>\n<p>B đúng vì nó có thể liên kết với các câu <em>\"Some residents expressed concern about the cost of upgrading the Web site, as the city spent over $20,000 for the project.\", \"City officials hope that the new Web site will create a renewed interest in Maywood’s local activities.\"</em></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c694a",
+      "questionText": "<p><strong>Read the following e-mail.</strong><br>\nTo: Madison Seneca&lt;mseneca@professionaltrammg.net&gt;<br>\nFrom: Davi Gomez &lt;gomez_davi@blaine-inc.com&gt;<br>\nDate: January 29<br>\nSubject: Professional Training: February Event<br>\nDear Ms. Seneca,<br>\nAs you know, Professional Training will hold its next training event on Friday, February 12. We had scheduled you for two one-hour talks. Unfortunately, one of them has been removed from the schedule due to low enrollment figures. Therefore, you will only be giving the following talk: “Using the Power of the Web to Advertise Your Business.” According to the contract, you are entitled to 50% of the speaking fee for the talk that is not going forward, due to the late notice. You are welcome to attend one of the other talks or workshops on that day at no charge, and I highly encourage you to do so. Please e-mail me back by February 6 to let me know your top choice so that I may issue you a pass.<br>\nSincerely,<br>\nDavi Gomez&lt;/gomez_davi@blaine-inc.com&gt;&lt;/mseneca@professionaltrammg.net&gt;</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c695d",
+          "questionText": "Why did Mr. Gomez send the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To check enrollment figures",
+            "(B) To approve a presentation suggestion",
+            "(C) To report a cancellation",
+            "(D) To register for a training event"
+          ],
+          "correctOptions": [
+            "(C) To report a cancellation"
+          ],
+          "transcript": "<p>Information is in <em>\"Unfortunately, <strong>one of them has been removed from the schedule </strong>due to low enrollment figures.\"</em></p>\n",
+          "explanationVi": "<p>Tại sao ông Gomez lại gửi e-mail?</p>\n<p>(A) Để kiểm tra số liệu tuyển sinh</p>\n<p>(B) Để phê duyệt một đề xuất trình bày</p>\n<p>(C) Để báo cáo việc hủy bỏ</p>\n<p>(D) Để đăng ký một sự kiện đào tạo</p>\n<p>Thông tin:&nbsp;<em>\"Unfortunately,&nbsp;<strong>one of them has been removed from the schedule&nbsp;</strong>due to low enrollment figures.\"</em></p>\n<p><em>(</em><em>Thật không may, một trong số họ đã bị loại khỏi lịch trình do số lượng tuyển sinh thấp)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c695e",
+          "questionText": "<p>What does Ms. Seneca most likely specialize in?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Contract negotiation",
+            "(B) Energy production",
+            "(C) Business loans",
+            "(D) Online marketing"
+          ],
+          "correctOptions": [
+            "(D) Online marketing"
+          ],
+          "transcript": "<p>Based on information <em>\"<strong>Using the Power of the Web to Advertise Your Business</strong>.”</em></p>\n\n<p>=&gt; Choose D</p>\n",
+          "explanationVi": "<p>Tại sao ông Gomez lại gửi e-mail?</p>\n<p>(A) Để kiểm tra số liệu tuyển sinh</p>\n<p>(B) Để phê duyệt một đề xuất trình bày</p>\n<p>(C) Để báo cáo việc hủy bỏ</p>\n<p>(D) Để đăng ký một sự kiện đào tạo</p>\n<p>Thông tin:&nbsp;<em>\"<strong>Using the Power of the Web to Advertise Your Business</strong>.”</em></p>\n<p><em>(</em><em>Thật không may, một trong số họ đã bị loại khỏi lịch trình do số lượng tuyển sinh thấp.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c695f",
+          "questionText": "<p>What is Ms. Seneca encouraged to do by February 6?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Upload a presentation file",
+            "(B) Plan a travel schedule",
+            "(C) Select an activity to attend",
+            "(D) Provide a list of participants"
+          ],
+          "correctOptions": [
+            "(C) Select an activity to attend"
+          ],
+          "transcript": "<p>Information is in <em>\"<strong>You are welcome to attend one of the other talks or workshops </strong>on that day at no charge, and I highly encourage you to do so. Please <strong>e-mail me back by February 6 to let me know your top choice </strong>so that I may issue you a pass.\"</em></p>\n",
+          "explanationVi": "<p>Cô Seneca được khuyến khích làm gì trước ngày 6 tháng 2?</p>\n<p>(A) Tải lên tệp trình bày</p>\n<p>(B) Lập kế hoạch du lịch</p>\n<p>(C) Chọn một hoạt động để tham dự</p>\n<p>(D) Cung cấp danh sách những người tham gia</p>\n<p>Thông tin:&nbsp;<em>\"<strong>You are welcome to attend one of the other talks or workshops&nbsp;</strong>on that day at no charge, and I highly encourage you to do so. Please&nbsp;<strong>e-mail me back by February 6 to let me know your top choice&nbsp;</strong>so that I may issue you a pass.\"</em></p>\n<p><em>(</em><em>Bạn có thể tham dự miễn phí một trong những buổi nói chuyện hoặc hội thảo khác vào ngày hôm đó và tôi thực sự khuyến khích bạn làm như vậy. Vui lòng gửi email lại cho tôi trước ngày 6 tháng 2 để cho tôi biết lựa chọn hàng đầu của bạn để Tôi có thể cấp cho bạn một tấm vé.)</em></p>\n<p><strong>=&gt; Chọn C</strong><em><br></em></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c694b",
+      "questionText": "<p><strong>Read the following article.</strong><br>\nPENNSWOOD, January 19—An independent firm has reviewed the state’s economic figures and estimated that the number of visitors to the state has dropped by 7.3 percent compared to last year, with revenues from this sector reaching approximately $3.2 billion. —[1]—.<br>\nA variety of businesses, such as hotels and restaurants, are directly affected by these figures, as they heavily depend on spending from tourists to keep them in business. — [2]—. “If my rooms are vacant,” says hotel owner Mathew Ledford, “I can’t keep my staff working full-time.”<br>\nTourism Director Kathleen Renfrow said that the recently released figures should be put in context. “Last year was the 100th celebration of the erection of the Human Freedom Monument,” she said. “That event brought in many more tourists than usual, so it’s not a fair comparison. To get a better picture of how we are performing, it would better to compare the figures to those of two years ago. —[3]—. Our office is continually looking for ways to generate interest in our state, and we have a variety of activities—such as boating festivals and sports tournaments—to raise our profile.”<br>\nIn order to make these types of events a success, adequate funding is needed. Fortunately, it seems likely that the tourism industry will be a top priority in budgetary considerations. All three people running for governor this fall—Melvin Ramey, Ann Alvarez, and Luke Zimmer—have publicly shown support for investing in the state’s tourism industry as a way of generating tax income and enriching communities across the state. —[4]—.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c6960",
+          "questionText": "What is the article mainly about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A proposed tax on tourism businesses",
+            "(B) A reduction in tourism",
+            "(C) An ad campaign for tourists",
+            "(D) A new tourist attraction"
+          ],
+          "correctOptions": [
+            "(B) A reduction in tourism"
+          ],
+          "transcript": "<p>Based on information <em>\"estimated that the number of visitors to the state has dropped by 7.3 percent compared to last year, with revenues from this sector reaching approximately $3.2 billion.\", \"A variety of businesses, such as hotels and restaurants, are directly affected by these figures, as they heavily depend on spending from tourists to keep them in business.\"</em></p>\n\n<p>=&gt; Choose B</p>\n",
+          "explanationVi": "<p>Bài viết chủ yếu nói về điều gì?</p>\n<p>(A) Thuế đề xuất đối với các doanh nghiệp du lịch</p>\n<p>(B) Giảm du lịch</p>\n<p>(C) Một chiến dịch quảng cáo dành cho khách du lịch</p>\n<p>(D) Một địa điểm du lịch mới</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"estimated that the number of visitors to the state has dropped by 7.3 percent compared to last year, with revenues from this sector reaching approximately $3.2 billion.\", \"A variety of businesses, such as hotels and restaurants, are directly affected by these figures, as they heavily depend on spending from tourists to keep them in business.\"</em></p>\n<p><em>(</em><em>ước tính số lượng du khách đến tiểu bang đã giảm 7,3% so với năm ngoái, với doanh thu từ lĩnh vực này đạt khoảng 3,2 tỷ USD.\", \"Một loạt hoạt động kinh doanh như khách sạn và nhà hàng, bị ảnh hưởng trực tiếp bởi những con số này, vì họ phụ thuộc rất nhiều vào chi tiêu từ khách du lịch để duy trì hoạt động kinh doanh)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6961",
+          "questionText": "According to Ms. Renfrow, what special event was held last year?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An anniversary of a monument",
+            "(B) A music awards show",
+            "(C) An outdoor boating festival",
+            "(D) A sports tournament"
+          ],
+          "correctOptions": [
+            "(A) An anniversary of a monument"
+          ],
+          "transcript": "<p>Information is in <em>\"Last year was the <strong>100th celebration of the erection of the Human Freedom Monument</strong>\"</em></p>\n",
+          "explanationVi": "<p>Theo bà Renfrow, năm ngoái đã tổ chức sự kiện đặc biệt nào?</p>\n<p>(A) Lễ kỷ niệm một tượng đài</p>\n<p>(B) Một buổi lễ trao giải âm nhạc</p>\n<p>(C) Lễ hội chèo thuyền ngoài trời</p>\n<p>(D) Một giải đấu thể thao</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"Last year was the&nbsp;<strong>100th celebration of the erection of the Human Freedom Monument</strong>\"</em></p>\n<p><em>(</em><em>Năm ngoái là lễ kỷ niệm 100 năm xây dựng Tượng đài Tự do Con người)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6962",
+          "questionText": "Who most likely is Ms. Alvarez?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A political candidate",
+            "(B) A hotel owner",
+            "(C) A financial advisor",
+            "(D) A tourism director"
+          ],
+          "correctOptions": [
+            "(A) A political candidate"
+          ],
+          "transcript": "<p>Based on information <em>\"All three <strong>people running for governor</strong> this fall—Melvin Ramey, <strong>Ann Alvarez</strong>, and Luke Zimmer\"&nbsp;</em></p>\n",
+          "explanationVi": "<p>Ai có nhiều khả năng là cô Alvarez nhất?</p>\n<p>(A) Một ứng cử viên chính trị</p>\n<p>(B) Một chủ khách sạn</p>\n<p>(C) Một cố vấn tài chính</p>\n<p>(D) Một giám đốc du lịch</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"All three&nbsp;<strong>people running for governor</strong>&nbsp;this fall—Melvin Ramey,&nbsp;<strong>Ann Alvarez</strong>, and Luke Zimmer\"&nbsp;</em></p>\n<p><em>(</em><em>Cả ba người tranh cử thống đốc vào mùa thu này—Melvin Ramey, Ann Alvarez và Luke Zimmer)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6963",
+          "questionText": "<p>In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?<br>“When doing so, you see that they are almost equal.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "<p>C is correct because it can connect with the sentence<em> \"To get a better picture of how we are performing, it would better to compare the figures to those of two years ago.\"</em></p>\n\n<p><em>=&gt; \"When doing so\"</em> refers to \"<em>compare the figures to those of two years ago\"</em></p>\n",
+          "explanationVi": "<p>Câu sau đây thuộc về vị trí nào trong số các vị trí được đánh dấu [1], [2], [3] và [4]?</p>\n<p>“Khi làm như vậy, bạn sẽ thấy chúng gần như bằng nhau.”</p>\n<p>C đúng vì nó có thể kết nối với câu&nbsp;<em>\"To get a better picture of how we are performing, it would better to compare the figures to those of two years ago.\"</em></p>\n<p><em>\"When doing <strong>so</strong>\" = \"<strong>compare the figures to those of two years ago</strong>\"</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c694c",
+      "questionText": "<p><strong>Read the following online chat discussion.</strong><br>\n<strong>Heather Teodros</strong> [4:25 P.M.]<br>\nThanks for covering the first day of the arts festival at Wyatt Park for me, everyone. How did things go?<br>\n<strong>Arnaldo Guevara </strong>[4:26 P.M.]<br>\nWe got a lot of photos of the booths and activities, and we had interviews with the event coordinator as well as a number of artists and visitors. We’ve already got a summary of what we’re going to print in the paper.<br>\n<strong>Heather Teodros </strong>[4:27 P.M.]<br>\nI’d like a copy of that once it’s ready.<br>\n<strong>Arnaldo Guevara </strong>[4:29 P.M.]<br>\nOf course. Everyone we spoke with really enjoyed the event. As an added bonus, it brought in a lot of people from out of town. That’s always good for the local economy.<br>\n<strong>Ganesh Bhagat </strong>[4:31 P.M.]<br>\nExactly. I know that city representatives were trying to grab more attention for our community.<br>\n<strong>Sharon Moyer </strong>[4:32 P.M.]<br>\nI hope the rest of the event goes smoothly.<br>\n<strong>Ganesh Bhagat </strong>[4:33 P.M.]<br>\nWell, it’s supposed to be rainy for the next few days, so that may negatively affect the turnout.<br>\n<strong>Heather Teodros </strong>[4:34 P.M.]<br>\nFortunately, they’re using all of the picnic shelters at the event site, so most of the booths are protected.<br>\n<strong>Arnaldo Guevara </strong>[4:35 P.M.]<br>\nThe daily weather report said that there will be scattered showers, so that’s not too bad.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c6964",
+          "questionText": "<p>Who most likely is Ms.Teodros?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An event planner",
+            "(B) A professional artist",
+            "(C) A journalist",
+            "(D) A city official"
+          ],
+          "correctOptions": [
+            "(C) A journalist"
+          ],
+          "transcript": "<p>Based on information <em>\"We got a lot of photos of the booths and activities, and we had interviews with the event coordinator as well as a number of artists and visitors. We’ve already got a summary of what we’re going to print in the paper.\"</em></p>\n\n<p>=&gt; Choose C</p>\n",
+          "explanationVi": "<p>Ai có nhiều khả năng là cô Teodros nhất?</p>\n<p>(A) Người tổ chức sự kiện</p>\n<p>(B) Một nghệ sĩ chuyên nghiệp</p>\n<p>(C) Một nhà báo</p>\n<p>(D) Một quan chức thành phố</p>\n<p>Thông tin:&nbsp;<em>\"We got a lot of photos of the booths and activities, and we had interviews with the event coordinator as well as a number of artists and visitors. We’ve already got a summary of what we’re going to print in the paper.\"</em></p>\n<p><em>(</em><em>Chúng tôi đã có rất nhiều hình ảnh về các gian hàng và hoạt động, đồng thời chúng tôi đã phỏng vấn người điều phối sự kiện cũng như một số nghệ sĩ và khách tham quan. Chúng tôi đã có bản tóm tắt về những gì chúng tôi sẽ in trên báo.)</em></p>\n<p><strong><em>=&gt; Chọn C</em></strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6965",
+          "questionText": "<p>At 4:27 P.M., what does Ms. Teodros most likely mean when she writes, “I’d like a copy of that once it’s ready”?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She would like to read an outline of some information.",
+            "(B) She is interested in seeing a complete list of participants.",
+            "(C) She wants to create a feedback survey for the event.",
+            "(D) She will send some cards to VIP visitors."
+          ],
+          "correctOptions": [
+            "(A) She would like to read an outline of some information."
+          ],
+          "transcript": "<p>Based on information<em> \"We’ve already got a summary of what we’re going to print in the paper.\"</em></p>\n\n<p>=&gt; Choose A</p>\n",
+          "explanationVi": "<p>Vào lúc 4:27 chiều, rất có thể cô Teodros có ý gì khi viết, “Tôi muốn có một bản sao của cuốn đó khi nó sẵn sàng”?</p>\n<p>(A) Cô ấy muốn đọc bản tóm tắt một số thông tin.</p>\n<p>(B) Cô ấy muốn xem danh sách đầy đủ những người tham gia.</p>\n<p>(C) Cô ấy muốn tạo một cuộc khảo sát phản hồi cho sự kiện này.</p>\n<p>(D) Cô ấy sẽ gửi một số thiệp cho khách VIP.</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"We’ve already got a summary of what we’re going to print in the paper.\" (</em><em>Chúng tôi đã có bản tóm tắt về những gì chúng tôi sẽ in trên báo.)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6966",
+          "questionText": "What positive comment was made about the event?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It provided discounts to art club members.",
+            "(B) It attracted non-resident visitors.",
+            "(C) Its admission fee was reasonable.",
+            "(D) Its parking situation was well organized."
+          ],
+          "correctOptions": [
+            "(B) It attracted non-resident visitors."
+          ],
+          "transcript": "<p>Information is in <em>\"it <strong>brought in a lot of people from out of town</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Nhận xét tích cực nào đã được đưa ra về sự kiện này?</p>\n<p>(A) Nó cung cấp giảm giá cho các thành viên câu lạc bộ nghệ thuật.</p>\n<p>(B) Nó thu hút du khách không phải là cư dân.</p>\n<p>(C) Phí nhập học của nó là hợp lý.</p>\n<p>(D) Tình hình đỗ xe của nó được tổ chức tốt.</p>\n<p>Thông tin:&nbsp;<em>\"it&nbsp;<strong>brought in a lot of people from out of town</strong>.\"</em></p>\n<p><em>(</em><em>nó đã thu hút rất nhiều người từ ngoài thị trấn.)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6967",
+          "questionText": "<p>What is implied about Wyatt Park?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is the town’s largest park.",
+            "(B) It received some negative reviews.",
+            "(C) It releases a daily report.",
+            "(D) It has some covered structures."
+          ],
+          "correctOptions": [
+            "(D) It has some covered structures."
+          ],
+          "transcript": "<p>Information is in <em>\"they’re using all of the picnic shelters at the event site, so <strong>most of the booths are protected</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Điều gì được ngụ ý về Wyatt Park?</p>\n<p>(A) Đây là công viên lớn nhất thị trấn.</p>\n<p>(B) Nó nhận được một số đánh giá tiêu cực.</p>\n<p>(C) Nó phát hành một báo cáo hàng ngày.</p>\n<p>(D) Nó có một số cấu trúc có mái che.</p>\n<p>Thông tin: \"<em>they’re using all of the picnic shelters at the event site, so&nbsp;<strong>most of the booths are protected</strong>.\"</em></p>\n<p><em>(</em><em>họ đang sử dụng tất cả các nơi trú ẩn dã ngoại tại địa điểm tổ chức sự kiện nên hầu hết các gian hàng đều được bảo vệ.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d06aed0472355e425c694d",
+      "questionText": "<p><strong>Read the following job posting.</strong><br>\nNow Hiring: Senior Administrative Assistant<br>\nSalco Community College is seeking a full-time senior administrative assistant. Preference will be given to candidates who can start immediately.<br>\nThe senior administrative assistant is responsible for a variety of tasks to help keep the office running smoothly, and this position would be ideal for a person who likes changing activities frequently and who can work under pressure. Duties include responding to information requests from the community; booking flights, hotels, and vehicle rentals for staff members’ business trips; contributing content to a monthly newsletter; and monitoring the office’s expenditures. An annual salary of approximately $28,000 (negotiable) is offered along with four weeks of paid vacation and medical insurance.<br>\nTo apply, send a resume and cover letter to hr@salcocc.edu on or before April 7. Our hiring committee will review the applications on April 8, and successful applicants will be contacted the following day to set up an interview. Interviews will most likely be held on April 11. Those who come to our office for an interview will also be asked to take a computer-based skills examination. Questions about the hiring process may be directed to the e-mail address listed above. We also accept inquiries by phone at 555- 7931 during regular business hours.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d06aed0472355e425c6968",
+          "questionText": "What is implied about Salco Community College?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Its number of full-time students has risen.",
+            "(B) It provides services at more than one campus.",
+            "(C) Its budget has recently been increased.",
+            "(D) It needs to fill a position quickly."
+          ],
+          "correctOptions": [
+            "(D) It needs to fill a position quickly."
+          ],
+          "transcript": "<p>Based on information <em>\"Salco Community College is <strong>seeking a full-time senior administrative assistant. Preference will be given to candidates who can start immediately</strong>.\"</em></p>\n\n<p>=&gt; Choose D</p>\n",
+          "explanationVi": "<p>Điều gì được ngụ ý về Cao đẳng Cộng đồng Salco?</p>\n<p>(A) Số lượng sinh viên toàn thời gian ở đó đã tăng lên.</p>\n<p>(B) Nó cung cấp dịch vụ tại nhiều cơ sở.</p>\n<p>(C) Ngân sách của nó gần đây đã được tăng lên.</p>\n<p>(D) Nó cần lấp đầy một vị trí một cách nhanh chóng.</p>\n<p>Thông tin: <em>\"Salco Community College is&nbsp;<strong>seeking a full-time senior administrative assistant. Preference will be given to candidates who can start immediately</strong>.\"</em></p>\n<p><em>(</em><em>Trường Cao đẳng Cộng đồng Salco đang tìm kiếm một trợ lý hành chính cấp cao toàn thời gian. Ưu tiên những ứng viên có thể bắt đầu ngay.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c6969",
+          "questionText": "<p>What is NOT mentioned as a duty of the position?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Increasing a newsletter’s circulation",
+            "(B) Providing information to the public",
+            "(C) Keeping track of spending",
+            "(D) Coordinating travel arrangements"
+          ],
+          "correctOptions": [
+            "(A) Increasing a newsletter’s circulation"
+          ],
+          "transcript": "<p><em>\"<strong>responding to information requests from the community</strong>; <strong>booking flights, hotels, and vehicle rentals for staff members’ business trips</strong>; contributing content to a monthly newsletter; and <strong>monitoring the office’s expenditures</strong>.\"&nbsp;</em></p>\n\n<p>=&gt; Eliminate B,C,D</p>\n",
+          "explanationVi": "<p>Điều gì KHÔNG được đề cập như một nhiệm vụ của vị trí này?</p>\n<p>(A) Tăng lượng phát hành bản tin</p>\n<p>(B) Cung cấp thông tin cho công chúng</p>\n<p>(C) Theo dõi chi tiêu</p>\n<p>(D) Điều phối việc sắp xếp chuyến đi</p>\n<p>Thông tin:&nbsp;<em>\"<strong>responding to information requests from the community</strong>;&nbsp;<strong>booking flights, hotels, and vehicle rentals for staff members’ business trips</strong>; contributing content to a monthly newsletter; and&nbsp;<strong>monitoring the office’s expenditures</strong>.\"&nbsp;</em></p>\n<p><em>(</em><em>đáp ứng các yêu cầu thông tin từ cộng đồng; đặt vé máy bay, khách sạn và thuê xe đi công tác của nhân viên; đóng góp nội dung cho bản tin hàng tháng và giám sát chi tiêu của văn phòng)</em></p>\n<p><em>=&gt; Loại&nbsp;B,C,D</em></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c696a",
+          "questionText": "<p>When will successful candidates initially be contacted?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) April 7",
+            "(B) April 8",
+            "(C) April 9",
+            "(D) April 11"
+          ],
+          "correctOptions": [
+            "(C) April 9"
+          ],
+          "transcript": "<p>Information is in <em>\"Our hiring committee will review the applications on <strong>April 8</strong>, and <strong>successful applicants will be contacted the following day to set up an interview</strong>.\"</em></p>\n\n<p>=&gt; The following day of&nbsp;April 8 is&nbsp;April 9.</p>\n\n<p>=&gt; C is correct</p>\n",
+          "explanationVi": "<p>Khi nào các ứng viên thành công ban đầu sẽ được liên lạc?</p>\n<p>(A) Ngày 7 tháng 4</p>\n<p>(B) Ngày 8 tháng 4</p>\n<p>(C) Ngày 9 tháng 4</p>\n<p>(D) Ngày 11 tháng 4</p>\n<p>Thông tin:&nbsp;<em>\"Our hiring committee will review the applications on&nbsp;<strong>April 8</strong>, and&nbsp;<strong>successful applicants will be contacted the following day to set up an interview</strong>.\"</em></p>\n<p><em>(</em><em>Ủy ban tuyển dụng của chúng tôi sẽ xem xét đơn đăng ký vào ngày 8 tháng 4 và những ứng viên thành công sẽ được liên hệ vào ngày hôm sau để sắp xếp một cuộc phỏng vấn.)</em></p>\n<p><em>--&gt;&nbsp;Ngày tiếp theo của ngày 8 tháng 4 là ngày 9 tháng 4.</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64d06aed0472355e425c696b",
+          "questionText": "<p>According to the job posting, what will some applicants be required to do?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Take a test on site",
+            "(B) Submit letters of recommendation",
+            "(C) Present a portfolio of work",
+            "(D) Complete an online application"
+          ],
+          "correctOptions": [
+            "(A) Take a test on site"
+          ],
+          "transcript": "<p>Information is in <em>\"Those who come to our office for an interview will also be <strong>asked to take a computer-based skills examination</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Theo tin tuyển dụng, một số ứng viên sẽ phải làm gì?</p>\n<p>(A) Làm bài kiểm tra tại chỗ</p>\n<p>(B) Gửi thư giới thiệu</p>\n<p>(C) Trình bày danh mục công việc</p>\n<p>(D) Hoàn thành đơn đăng ký trực tuyến</p>\n<p>Thông tin:&nbsp;<em>\"Those who come to our office for an interview will also be&nbsp;<strong>asked to take a computer-based skills examination</strong>.\"</em></p>\n<p><em>(</em><em>Những người đến văn phòng của chúng tôi để phỏng vấn cũng sẽ được yêu cầu làm bài kiểm tra kỹ năng trên máy tính)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        }
+      ]
+    }
+  ]
+}

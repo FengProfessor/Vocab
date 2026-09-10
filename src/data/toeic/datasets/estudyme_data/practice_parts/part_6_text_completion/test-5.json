@@ -1,0 +1,330 @@
+{
+  "topicId": "616f962fb4203c46d8e28f9f",
+  "name": "Test 5",
+  "slug": "test-5",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "616f9644b4203c46d8e28fa0",
+      "questionText": "Date:June 21 <br>To:Mike Harris<br>From:Rhonda Cross<br>Subject: RE: Landscaping and Maintenance<br><br>Thank you for your <b>(1)</b> _____ about our services. Arbor Care is a green lawn care and landscaping business. We only use environmentally friendly techniques and products when caring for the grounds of any business. We’ve been working in the Portland area for <b>(2)</b> _____ 20 years. Currently, we are serving more than 150 businesses in the downtown area. <br>As to your specific request, yes, we can easily remove dead trees and replace them with something that fits the <b>(3)</b> _____  landscaping. To give you an exact quote, we would need to stop by and access the situation in person. To have one of our garden technicians stop by, please call US at (713) 678-9916 <b>(4)</b> _____.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Ngày: 21 tháng 6<br>Tới: Mike Harris<br>Từ: Rhonda Cross<br>Chủ đề: RE: Cảnh quan và bảo trì<br><br>Cảm ơn bạn đã hỏi thăm về dịch vụ của chúng tôi. Arbor Care là một doanh nghiệp kinh doanh dịch vụ chăm sóc bãi cỏ và cảnh quan xanh. Chúng tôi chỉ sử dụng các kỹ thuật và sản phẩm thân thiện với môi trường khi chăm sóc mặt bằng của bất kỳ doanh nghiệp nào. Chúng tôi đã làm việc ở khu vực Portland hơn 20 năm. Hiện tại, chúng tôi đang phục vụ hơn 150 doanh nghiệp tại khu vực trung tâm thành phố.<br><br>Theo yêu cầu cụ thể của bạn, vâng, chúng tôi có thể dễ dàng loại bỏ những cây chết và thay thế chúng bằng cái gì đó phù hợp với cảnh quan hiện có. Để cung cấp cho bạn báo giá chính xác, chúng tôi cần phải ghé qua và trực tiếp tiếp cận tình hình. Để liên hệ một trong những kỹ thuật viên làm vườn của chúng tôi ghé qua, vui lòng gọi cho chúng tôi theo số (713) 678-9916. Chúng tôi hy vọng nhận được phản hồi sớm từ bạn.",
+      "childQuestions": [
+        {
+          "id": "616f9644b4203c46d8e28fa4",
+          "questionText": "Thank you for your <b>(1)</b> _____ about our services.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) submission",
+            "(B) placement",
+            "(C) review",
+            "(D) inquiry"
+          ],
+          "correctOptions": [
+            "(D) inquiry"
+          ],
+          "transcript": "<p>- submission:&nbsp;the act of accepting that somebody has defeated you and that you must obey them<br>\n- placement:&nbsp;the act of finding somebody a suitable job or place to live<br>\n- review:&nbsp;the act of considering something again in order to make changes to it, give an opinion of it or study it<br>\n- inquiry:&nbsp;an official process to find out the cause of something or to find out information about something</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<b>Kiến thức từ vựng:</b><br>- submission: sự trình, đệ trình<br>- placement: sắp đặt<br>- review: đánh giá<br>- inquiry: yêu cầu (thông tin) <br>Dựa theo ngữ cảnh câu, chọn <b>đáp án D</b>.<br><b>Tạm dịch:</b> Cảm ơn bạn đã hỏi thăm về dịch vụ của chúng tôi."
+        },
+        {
+          "id": "616f9644b4203c46d8e28fa5",
+          "questionText": "We’ve been working in the Portland area for <b>(2)</b> _____ 20 years.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) over",
+            "(B) around",
+            "(C) until",
+            "(D) through"
+          ],
+          "correctOptions": [
+            "(A) over"
+          ],
+          "transcript": "<p>over + time period</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>over + khoảng thời gian: hơn (bao l&acirc;u)<br />\naround: khoảng thời gian xấp xỉ<br />\nuntil: cho đến khi<br />\nthrough: qua (bao l&acirc;u)<br />\n<b>Tạm dịch:</b> Ch&uacute;ng t&ocirc;i đ&atilde; l&agrave;m việc ở v&ugrave;ng Portland trong hơn 20 năm.</p>\n\n<p><strong>=&gt; Chọn A</strong></p>\n"
+        },
+        {
+          "id": "616f9644b4203c46d8e28fa6",
+          "questionText": "As to your specific request, yes, we can easily remove dead trees and replace them with something that fits the <b>(3)</b> _____  landscaping.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) exist",
+            "(B) existed",
+            "(C) existing",
+            "(D) exists"
+          ],
+          "correctOptions": [
+            "(C) existing"
+          ],
+          "transcript": "<p>We need an adjective to modify the noun \"landscaping\" in a noun phrase \"the ..... landscaping\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "Vị trí cần điền là một tính từ do đứng trước danh từ “landscaping”, nên chọn <b>đáp án C</b>.<br><b>Tạm dịch:</b> Theo yêu cầu cụ thể của bạn, vâng, chúng tôi có thể dễ dàng loại bỏ những cây chết và thay thế chúng bằng cái gì đó phù hợp với cảnh quan hiện có."
+        },
+        {
+          "id": "616f9644b4203c46d8e28fa7",
+          "questionText": "<p>To have one of our garden technicians stop by, please call us at (713) 678-9916 <strong>(4)</strong> _____.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is a pleasure doing business with you",
+            "(B) We hope to hear from you soon.",
+            "(C) Please send us an email.",
+            "(D) Best wishes for your continued success."
+          ],
+          "correctOptions": [
+            "(B) We hope to hear from you soon."
+          ],
+          "transcript": "<p>Based on the previous sentence.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b> Để liên hệ với một trong những kỹ thuật viên làm vườn của chúng tôi, vui lòng gọi cho chúng tôi theo số (713) 678-9916 (4) _____.<br> (A) Rất hân hạnh được hợp tác kinh doanh với bạn<br>(B) Chúng tôi hy vọng sớm nhận được phản hồi từ bạn. <br> (C) Vui lòng gửi email cho chúng tôi. <br> (D) Lời chúc tốt đẹp nhất cho sự thành công liên tục của bạn. <br>Dựa vào ngữ cảnh câu, chọn <b>đáp án B</b>."
+        }
+      ]
+    },
+    {
+      "id": "616f9644b4203c46d8e28fa1",
+      "questionText": "<p align=\"center\"><strong>Outbound Sales Lead Specialist/Telemarketer</strong></p>\n<p align=\"center\">Location: Atlanta, GA</p>\n<p align=\"center\">Job Code: 3766</p>\n<p align=\"center\"># of openings: 4</p>\n<p><br>The Sales Lead Specialist will place outbound calls to <strong>(1)</strong> _____ customers seeking to purchase various services such as Insurance, tax help, financial help, telecommunications, or transportation. They will also call on leads from our existing customer base. Cold calls are required.<br>You will work directly with customers via the telephone and e-mail to describe products and services in order to persuade potential and current customers to purchase new products and services. The job will also require you to educate customers on product and service offerings <strong>(2)</strong> _____. There is also a minimum requirement for monthly sales that is set at $7,500 in net revenue. <strong>(3)</strong> _____ , the job calls for all employees to continually be taking product education course that will help you better serve our customers.<br>To be eligible for the position, you must have one or more years in telesales, strong customer service skills, and superior closing skills.<br>If you feel you <strong>(4)</strong> _____ these requirements and are looking for a lucrative exciting experience, please click below.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Chuyên gia đầu mối bán hàng sẽ thực hiện các cuộc gọi đến những khách hàng tiềm năng đang tìm mua các dịch vụ khác nhau như Bảo hiểm, trợ giúp về thuế, trợ giúp tài chính, viễn thông hoặc vận tải. Họ cũng sẽ kêu gọi khách hàng tiềm năng từ cơ sở khách hàng hiện tại của chúng tôi. Cuộc gọi tư vấn, tiếp thị ngẫu nhiên là rất cần thiết.<br><br>Bạn sẽ làm việc trực tiếp với khách hàng qua điện thoại và e-mail để mô tả các sản phẩm và dịch vụ nhằm thuyết phục khách hàng tiềm năng và khách hàng hiện tại mua sản phẩm và dịch vụ mới. Công việc cũng sẽ yêu cầu bạn hướng dẫn khách hàng về sản phẩm và dịch vụ cung cấp. Điều quan trọng là bạn phải thực hiện tối thiểu 150 cuộc gọi đi mỗi ngày. Ngoài ra còn có yêu cầu tối thiểu về doanh thu hàng tháng là doanh thu thuần là 7.500 USD. Thêm vào đó, công việc này yêu cầu tất cả nhân viên phải liên tục tham gia khóa học đào tạo về sản phẩm để giúp bạn phục vụ khách hàng tốt hơn.<br><br>Để đủ điều kiện cho vị trí này, bạn phải có một hoặc nhiều năm kinh nghiệm bán hàng qua điện thoại, kỹ năng phục vụ khách hàng vững vàng và kỹ năng chốt giao dịch vượt trội.<br><br>Nếu bạn cảm thấy mình đáp ứng được những yêu cầu này và đang tìm kiếm một trải nghiệm thú vị, vui lòng nhấp vào bên dưới.",
+      "childQuestions": [
+        {
+          "id": "616f9644b4203c46d8e28fa8",
+          "questionText": "The Sales Lead Specialist will place outbound calls to <b>(1)</b> _____  customers seeking to purchase various services such as Insurance, tax help, financial help, telecommunications, or transportation.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) substantial",
+            "(B) potential",
+            "(C) optimal",
+            "(D) logical"
+          ],
+          "correctOptions": [
+            "(B) potential"
+          ],
+          "transcript": "<p>- substantial:&nbsp;large in amount, value or importance<br>\n- potential:&nbsp;that can develop into something or be developed in the future<br>\n- optimal:&nbsp;the best possible<br>\n- logical:&nbsp;(of an action, event, etc.)&nbsp;seeming natural, reasonable or sensible</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<b>Kiến thức từ vựng:</b><br>- substantial: đáng kể, quan trọng<br>- potential: tiềm năng<br>- optimal: tốt nhất, tối ưu<br>- logical: hợp lý<br>Dựa theo ngữ cảnh câu, chọn <b>đáp án B</b>.<br><b>Tạm dịch:</b> Chuyên gia đầu mối bán hàng sẽ thực hiện các cuộc gọi đến những khách hàng tiềm năng đang tìm mua các dịch vụ khác nhau như Bảo hiểm, trợ giúp về thuế, trợ giúp tài chính, viễn thông hoặc vận tải."
+        },
+        {
+          "id": "616f9644b4203c46d8e28fa9",
+          "questionText": "The job will also require you to educate customers on product and service offerings  <b>(2)</b> _____",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The more you purchase, the more opportunity you’ll have for advancement.",
+            "(B) This managerial position will require an organized and highly motivated individual.",
+            "(C) If you could help find your replacement, it would be much appreciated.",
+            "(D) It will be crucial for you to place a minimum of 150 outbound calls each day."
+          ],
+          "correctOptions": [
+            "(D) It will be crucial for you to place a minimum of 150 outbound calls each day."
+          ],
+          "transcript": "<p>The following sentence is about \"a minimum requirement for monthly sales\" so this sentence is also about \"a minimum ...... each day\"</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "Câu sau nói về \"yêu cầu tối thiểu để có doanh thu hàng tháng\" nên câu này cũng nói về \"mức tối thiểu ...... mỗi ngày\", dựa vào ngữ cảnh câu chọn <b>đáp án D</b>.<br><b>Tạm dịch:</b> <br>Công việc cũng sẽ yêu cầu bạn hướng dẫn khách hàng về sản phẩm và dịch vụ cung cấp <b>(2)</b> _____<br> (A) Bạn càng mua nhiều, bạn càng có nhiều cơ hội thăng tiến. <br> (B) Vị trí quản lý này sẽ yêu cầu một cá nhân có tổ chức và có động lực cao. <br> (C) Nếu bạn có thể giúp tìm người thay thế mình thì điều đó sẽ rất cảm kích. <br>(D) Điều quan trọng là bạn phải thực hiện tối thiểu 150 cuộc gọi đi mỗi ngày."
+        },
+        {
+          "id": "616f9644b4203c46d8e28faa",
+          "questionText": "<p><strong>(3)</strong> _____ , the job calls for all employees to continually be taking product education course that will help you better serve our customers.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Actually",
+            "(B) However",
+            "(C) Additionally",
+            "(D) Therefore"
+          ],
+          "correctOptions": [
+            "(C) Additionally"
+          ],
+          "transcript": "<p>- Actually:&nbsp;in fact or really<br>\n- However:&nbsp;nevertheless<br>\n- Additionally:&nbsp;in a way that is more than was first mentioned or is usual<br>\n- Therefore:&nbsp;as a result</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<b>Kiến thức liên từ:</b><br>- Actually: thực ra<br>- However: tuy nhiên<br>- Additionally: ngoài ra<br>- Therefore: do đó<br>Dựa vào ngữ cảnh câu, chọn <b>đáp án C</b>.<br><b>Tạm dịch:</b> Thêm vào đó, công việc này yêu cầu tất cả nhân viên phải liên tục tham gia khóa học đào tạo về sản phẩm để giúp bạn phục vụ khách hàng tốt hơn."
+        },
+        {
+          "id": "616f9644b4203c46d8e28fab",
+          "questionText": "<p>If you feel you <strong>(4)</strong> _____ these requirements and are looking for a lucrative exciting experience, please click below.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) meet",
+            "(B) to meet",
+            "(C) meeting",
+            "(D) met"
+          ],
+          "correctOptions": [
+            "(A) meet"
+          ],
+          "transcript": "<p>The subject is \"you\" =&gt; \"meet\" is correct</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "Vị trí cần điền là một động từ ở thì hiện tại, nên chọn <b>đáp án A</b>.<br><b>Tạm dịch:</b> Nếu bạn cảm thấy mình đáp ứng được những yêu cầu này và đang tìm kiếm một trải nghiệm thú vị, vui lòng nhấp vào bên dưới."
+        }
+      ]
+    },
+    {
+      "id": "616f9644b4203c46d8e28fa2",
+      "questionText": "From:James Jones,Executive Manager <br>To:Sales Agents<br>Date:July 15<br>Subject: Policy Change<br><br>Dear Sales Agents, <br>There has been a recent change to our reimbursement policy. In the past, you simply had to pay out of pocket first then provide your receipts after renting vehicles, taking business trips, or <b>(1)</b> _____  other business expenses.<b>(2)</b> _____, now you will be required to fill out an application which will need to be approved by the accounting department first. <b>(3)</b> _____ If you spend beyond the amount given in the card, you will have to pay out of your own pocket and will not be reimbursed for that. <br>Please read the attachment to get further details on what expenses can and cannot be <b>(4)</b> _____  by the company.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Từ: James Jones, Giám đốc điều hành<br>Kính gửi: Đại lý bán hàng<br>Ngày: 15 tháng 7<br>Chủ đề: Thay đổi chính sách<br><br>Kính gửi các đại lý bán hàng, <br>Gần đây đã có một sự thay đổi về chính sách hoàn trả của chúng tôi. Trước đây, bạn chỉ cần tự bỏ tiền túi ra trả trước rồi xuất trình biên lai sau khi thuê xe, đi công tác hoặc phát sinh các chi phí kinh doanh khác. Tuy nhiên, giờ đây bạn sẽ phải điền vào một đơn đăng ký được bộ phận kế toán phê duyệt trước. Sau đó, bạn sẽ được cung cấp thẻ công ty có số tiền giới hạn. Nếu bạn chi tiêu vượt quá số tiền được cung cấp trong thẻ, bạn sẽ phải tự bỏ tiền túi của mình và sẽ không được hoàn trả số tiền đó. <br><br>Vui lòng đọc tệp đính kèm để biết thêm chi tiết về những chi phí nào có thể và không thể được công ty phê duyệt.",
+      "childQuestions": [
+        {
+          "id": "616f9644b4203c46d8e28fac",
+          "questionText": "In the past, you simply had to pay out of pocket first then provide your receipts after renting vehicles, taking business trips, or <b>(1)</b> _____  other business expenses.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) incur",
+            "(B) incurred",
+            "(C) incurring",
+            "(D) to incur"
+          ],
+          "correctOptions": [
+            "(C) incurring"
+          ],
+          "transcript": "<p>In this sentence, the preposition \"or\" connects 3 gerunds (V-ing): renting vehicles, taking business trips, or _____ =&gt; use another gerund</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "Sử dụng cấu trúc song song do trong câu có liên từ “or” nối các danh động từ: “renting vehicles, taking business trips”, nên chọn <b>đáp án C</b>.<br><b>Tạm dịch:</b> Trước đây, bạn chỉ cần tự bỏ tiền túi ra trước rồi cung cấp biên lai sau khi thuê xe, đi công tác hoặc phát sinh các chi phí kinh doanh khác."
+        },
+        {
+          "id": "616f9644b4203c46d8e28fad",
+          "questionText": "<b>(2)</b> _____, now you will be required to fill out an application which will need to be approved by the accounting department first.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) However",
+            "(B) Therefore",
+            "(C) Furthermore",
+            "(D) Since"
+          ],
+          "correctOptions": [
+            "(A) However"
+          ],
+          "transcript": "<p>Based on the previous sentence.</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<b>Kiến thức liên từ:</b><br>- However: tuy nhiên<br>- therefore: do đó<br>- furthermore: ngoài ra<br>- since: bởi vì<br>Dựa vào ngữ cảnh câu, chọn <b>đáp án A</b>.<br><b>Tạm dịch:</b> Tuy nhiên, giờ đây bạn sẽ phải điền vào một đơn đăng ký được bộ phận kế toán phê duyệt trước."
+        },
+        {
+          "id": "616f9644b4203c46d8e28fae",
+          "questionText": "<b>(3)</b> _____ If you spend beyond the amount given in the card, you will have to pay out of your own pocket and will not be reimbursed for that.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They will not approve any card not authorized by a bank.",
+            "(B) You will have to spend from your own credit card.",
+            "(C) Then you will be provided with a company card which holds limited funds.",
+            "(D) They must decide whether our budget allows for our expenses."
+          ],
+          "correctOptions": [
+            "(C) Then you will be provided with a company card which holds limited funds."
+          ],
+          "transcript": "<p>The following sentence mentions \"the card\" =&gt; This sentence is about \"a card\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong><br />\n(A) Họ sẽ kh&ocirc;ng chấp nhận bất kỳ thẻ n&agrave;o kh&ocirc;ng được ng&acirc;n h&agrave;ng ủy quyền.<br />\n(B) Bạn sẽ phải chi ti&ecirc;u từ thẻ t&iacute;n dụng của ch&iacute;nh m&igrave;nh.<br />\n(C) Sau đ&oacute;, bạn sẽ được cấp thẻ c&ocirc;ng ty c&oacute; số tiền giới hạn.<br />\n(D) Họ phải quyết định xem ng&acirc;n s&aacute;ch của ch&uacute;ng ta c&oacute; cho ph&eacute;p chi ti&ecirc;u hay kh&ocirc;ng.<br />\nDựa v&agrave;o ngữ cảnh của b&agrave;i, chọn <b>đ&aacute;p &aacute;n C</b>.</p>\n"
+        },
+        {
+          "id": "616f9644b4203c46d8e28faf",
+          "questionText": "<p>Please read the attachment to get further details on what expenses can and cannot be <strong>(4)</strong> _____ by the company.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) certain",
+            "(B) acknowledged",
+            "(C) established",
+            "(D) approved"
+          ],
+          "correctOptions": [
+            "(D) approved"
+          ],
+          "transcript": "<p>- certain:&nbsp;strongly believing something; having no doubts<br>\n- acknowledge:&nbsp;to accept that something is true<br>\n- establish:&nbsp;to start or create an organization, a system, etc. that is meant to last for a long time<br>\n- approve:&nbsp;to think that somebody/something is good, acceptable or suitable</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<b>Kiến thức từ vựng:</b><br>- certain: chắc chắn<br>- acknowledge: thừa nhận<br>- establish: thành lập<br>- approve: chấp thuận, phê duyệt<br>Dựa vào ngữ cảnh câu, chọn <b>đáp án D</b>.<br><b>Tạm dịch:</b> Vui lòng đọc tệp đính kèm để biết thêm chi tiết về những chi phí nào có thể và không thể được công ty phê duyệt."
+        }
+      ]
+    },
+    {
+      "id": "616f9644b4203c46d8e28fa3",
+      "questionText": "<p><span style=\"font-size:14px;\">Come visit Wild Water Parks, your summer destination for family and friends of all ages. We have kiddie pools, we have outdoor pools, we have indoor pools, we have waves, and we have <b>(1)</b> _____ water slides, including our Death Fall, the largest slide in the state. We have everything for everyone in <b>(2)</b> _____group. Don't forget our delicious snack stands and restaurants. We also have gift shops and playgrounds. <b>(3)</b>_____ You can get tickets by calling 123-5555 or a season's pass for a <b>(4)</b> ______ &nbsp;of the price. Call now and experience the fun!</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Hãy đến thăm Công viên nước hoang dã, điểm đến mùa hè của bạn cho gia đình và bạn bè ở mọi lứa tuổi. Chúng tôi có bể bơi dành cho trẻ em, chúng tôi có bể bơi ngoài trời, chúng tôi có bể bơi trong nhà, chúng tôi có sóng và chúng tôi có các đường trượt nước thú vị, bao gồm cả Death Fall, đường trượt lớn nhất bang. Chúng tôi có mọi thứ cho mọi người trong nhóm của bạn. Đừng quên các quầy bán đồ ăn nhẹ và nhà hàng ngon miệng của chúng tôi. Chúng tôi cũng có cửa hàng quà tặng và sân chơi. Chúng tôi thậm chí còn có một công viên dành cho người bạn lông xù của bạn. Bạn có thể mua vé bằng cách gọi số 123-5555 hoặc mua vé theo mùa với giá chỉ bằng một phần nhỏ chi phí. Hãy gọi ngay và trải nghiệm niềm vui!",
+      "childQuestions": [
+        {
+          "id": "616f9644b4203c46d8e28fb0",
+          "questionText": "we have <b>(1)</b> _____ water slides, including our Death Fall, the largest slide in the state.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) excite",
+            "(B) excited",
+            "(C) exciting",
+            "(D) excitement"
+          ],
+          "correctOptions": [
+            "(C) exciting"
+          ],
+          "transcript": "<p>Use an adjective in form of present participle to modify the noun \"water slides\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "Vị trí cần điền là một tính từ do đứng trước danh từ “water slides”, nên chọn <b>đáp án C</b>.<br><b>Tạm dịch:</b> chúng tôi có các đường trượt nước thú vị, bao gồm cả Death Fall, đường trượt lớn nhất bang."
+        },
+        {
+          "id": "616f9644b4203c46d8e28fb1",
+          "questionText": "We have everything for everyone in <b>(2)</b> _____group.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) their",
+            "(B) his",
+            "(C) our",
+            "(D) your"
+          ],
+          "correctOptions": [
+            "(D) your"
+          ],
+          "transcript": "<p>Based on the meaning of words</p>\n\n<p>The position that needs to be filled is a possessive adjective, in this sentence, \"your\" is used to refer to the reader's group or the person reading the announcement.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Vị tr&iacute; cần điền l&agrave; một t&iacute;nh từ sở hữu, trong c&acirc;u n&agrave;y, &quot;your&quot; được sử dụng để chỉ đến nh&oacute;m của người đọc hoặc người đang đọc th&ocirc;ng b&aacute;o.<br />\n<b>Tạm dịch:</b> Ch&uacute;ng t&ocirc;i c&oacute; mọi thứ cho mọi người trong nh&oacute;m của bạn.</p>\n\n<p><strong>=&gt; Chọn D</strong></p>\n"
+        },
+        {
+          "id": "616f9644b4203c46d8e28fb2",
+          "questionText": "<b>(3)</b>_____ You can get tickets by calling 123-5555",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The pools are the best place to stay.",
+            "(B) We even have a dog park for that furry companion of yours",
+            "(C) The chefs are top notch and the food is second to none.",
+            "(D) Hurry before the season is over and the promotion is finishes."
+          ],
+          "correctOptions": [
+            "(B) We even have a dog park for that furry companion of yours"
+          ],
+          "transcript": "<p>The entire passage is about \"park\" so <strong>B is the correct answer</strong>.</p>\n",
+          "explanationVi": "<b>Tạm dịch:</b> <br> (A) Hồ bơi là nơi tốt nhất để ở. <br> (B) Chúng tôi thậm chí còn có một công viên cho người bạn lông xù của bạn. <br> (C) Đầu bếp của chúng tôi là những người xuất sắc và đồ ăn không gì có thể so sánh được. <br> (D) Hãy nhanh lên trước khi hết mùa và chương trình khuyến mãi kết thúc. <br>Đoạn trước đã đề cập đến việc có một khu vực công viên dành cho thú cưng của bạn, vì vậy <b>đáp án B</b> hợp lý khi liên kết với nội dung trước đó và chứa thông tin về việc mua vé."
+        },
+        {
+          "id": "616f9644b4203c46d8e28fb3",
+          "questionText": "<p>You can get tickets by calling 123-5555 or a season’s pass for a <strong>(4)</strong>____ of the price.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) fraction",
+            "(B) section",
+            "(C) division",
+            "(D) total</p>"
+          ],
+          "correctOptions": [
+            "(A) fraction"
+          ],
+          "transcript": "<p>- fraction:&nbsp;a small part or amount of something<br>\n- section:&nbsp;any of the parts into which something is divided<br>\n- division:&nbsp;the act of separating something into parts or groups<br>\n- total:&nbsp;being the amount or number after everyone or everything is counted or added together</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<b>Kiến thức từ vựng:</b><br>- fraction: phần nhỏ<br>- section: phần, đoạn<br>- division: phân chia<br>- total: tổng cộng<br>Dựa vào ngữ cảnh câu, chọn <b>đáp án A</b>.<br><b>Tạm dịch:</b> Bạn có thể mua vé bằng cách gọi số 123-5555 hoặc mua vé theo mùa với giá chỉ bằng một phần nhỏ chi phí."
+        }
+      ]
+    }
+  ]
+}

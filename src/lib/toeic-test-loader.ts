@@ -206,6 +206,19 @@ function getCrawlerDataPath(...segments: string[]): string | null {
   const pathModule = getNodePath();
   if (!fsModule || !pathModule) return null;
 
+  // 1. Primary dataset path: src/data/toeic/datasets (tracked in Git and deployed to standalone server)
+  const dataCandidates = [
+    pathModule.join(process.cwd(), 'src', 'data', 'toeic', 'datasets', ...segments),
+    pathModule.resolve(__dirname, 'datasets', ...segments),
+    pathModule.resolve(__dirname, '../data/toeic/datasets', ...segments),
+    pathModule.resolve(__dirname, '../../data/toeic/datasets', ...segments),
+    pathModule.resolve(__dirname, '../../src/data/toeic/datasets', ...segments),
+  ];
+  for (const cand of dataCandidates) {
+    if (fsModule.existsSync(cand)) return cand;
+  }
+
+  // 2. Fallback candidate for local dev: crawlers/toeic
   const cwdCandidate = pathModule.join(process.cwd(), 'crawlers', 'toeic', ...segments);
   if (fsModule.existsSync(cwdCandidate)) return cwdCandidate;
 

@@ -1,0 +1,640 @@
+{
+  "topicId": "6305d1e55948b5402da8373d",
+  "name": "Test 14",
+  "slug": "test-14",
+  "part": "part_4_short_talks",
+  "totalQuestions": 30,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "630604735948b5402da837df",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/88806640.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nGood afternoon, Craig. It&rsquo;s Julie. I&rsquo;m afraid I&rsquo;m going to miss our meeting thirty minutes from now. I was on my way to your office when I received a call from my son&rsquo;s school. Apparently, he broke his leg while playing soccer during recess, so he has been taken to the hospital. I&rsquo;ve got to get there as soon as I can, so that&rsquo;s where I&rsquo;m heading now. Would you mind meeting me tomorrow in the afternoon? I&rsquo;m available any time after lunch. How about sending me a text message since I won&rsquo;t be able to answer my phone at the hospital? I hope you understand.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Chào buổi chiều, Craig. Tôi là Julie đây. Tôi e rằng tôi sẽ lỡ cuộc gặp trong ba mươi phút nữa của chúng ta. Tôi đang trên đường đến văn phòng của anh thì nhận được cuộc gọi từ trường của con trai tôi. Có vẻ như thằng bé đã bị gãy chân khi chơi bóng đá trong giờ giải lao nên nó đã phải nhập viện. Tôi phải đến chỗ thằng bé sớm nhất có thể, và tôi đang trên đường tới bệnh viện rồi. Anh có thể vui lòng gặp tôi vào chiều mai không? Tôi trống lịch sau bữa trưa. Hãy trả lời tôi qua tin nhắn nhé vì tôi không thể trả lời điện thoại ở bệnh viện được. Tôi hy vọng anh thông cảm cho tôi.</p>\n",
+      "childQuestions": [
+        {
+          "id": "630604735948b5402da837e9",
+          "questionText": "What is the problem?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The speaker forgot about an appointment.",
+            "(B) The speaker’s son suffered an injury.",
+            "(C) The speaker is going to be late for school.",
+            "(D) The speaker’s boss made her miss a meeting."
+          ],
+          "correctOptions": [
+            "(B) The speaker’s son suffered an injury."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604735948b5402da837ea",
+          "questionText": "When does the speaker want to meet Craig?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) This afternoon",
+            "(B) This evening",
+            "(C) Tomorrow morning",
+            "(D) Tomorrow afternoon"
+          ],
+          "correctOptions": [
+            "(D) Tomorrow afternoon"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604735948b5402da837eb",
+          "questionText": "What does the speaker ask Craig to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Invite another person to the meeting",
+            "(B) Contact her regarding his availability",
+            "(C) Send her a contact number by text message",
+            "(D) Fax her the report that she requests"
+          ],
+          "correctOptions": [
+            "(B) Contact her regarding his availability"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e0",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/43527738.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nIt appears as though the unseasonably warm weather we&rsquo;ve been getting in December is about to come to an end. Expect temperatures to plummet from today&#39;s high of 15 degrees to 3 degrees by tomorrow afternoon. And that&#39;s not the worst part. Tomorrow night, the temperature is going to drop below freezing, and it&rsquo;s highly likely that we&rsquo;ll see some snow flurries around midnight. By the day after tomorrow, you can expect up to 5 centimeters of snow along with temperatures as low as minus 5 degrees Celsius. So be sure to dress warmly when you go out tomorrow and be prepared for snowy conditions.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Có vẻ như thời tiết ấm áp trái mùa mà chúng ta có trong tháng 12 sắp kết thúc. Dự kiến nhiệt độ sẽ giảm mạnh từ mức cao nhất hôm nay là 15 độ xuống còn 3 độ vào chiều mai. Và đó vẫn chưa phải là phần tồi tệ nhất. Đêm mai, nhiệt độ sẽ giảm xuống dưới mức đóng băng và rất có thể sẽ có tuyết rơi vào khoảng nửa đêm. Vào ngày mốt, tuyết có thể dày tới 5 cm và nhiệt độ xuống tới âm 5 độ C. Vì vậy, hãy nhớ mặc ấm khi ra ngoài vào ngày mai và chuẩn bị đối phó với tuyết.</p>\n",
+      "childQuestions": [
+        {
+          "id": "630604735948b5402da837ec",
+          "questionText": "How has the weather in December been?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Normal",
+            "(B) Warmer than usual",
+            "(C) Cold",
+            "(D) Very cold"
+          ],
+          "correctOptions": [
+            "(B) Warmer than usual"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604735948b5402da837ed",
+          "questionText": "What does the speaker mean when he says, “And that’s not the worst part”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The weather is going to become bad.",
+            "(B) He heard some bad news just now.",
+            "(C) It will not stop raining for several days.",
+            "(D) The cold weather is going to continue."
+          ],
+          "correctOptions": [
+            "(A) The weather is going to become bad."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604735948b5402da837ee",
+          "questionText": "What will the weather be like on the day after tomorrow?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Warm and cloudy",
+            "(B) Cool and windy",
+            "(C) Cold and snowy",
+            "(D) Cool and rainy"
+          ],
+          "correctOptions": [
+            "(C) Cold and snowy"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e1",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/88794879.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nI&rsquo;ve got some great news for all full-time and part- time employees here at the Western Department store. You are now eligible for membership at the Coldwater Swimming Pool, which has just opened for the summer. Full-time employees can receive 50% off an individual or family membership while part-timers are eligible for 30% discounts on either type of membership. Both types of employees qualify for 60% discounts on swimming lessons. If you&rsquo;re interested in this great deal, speak with Juliet Foreman in the personnel office on the second floor. She can provide you with all of the details.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Tôi có một số tin vui dành cho tất cả nhân viên toàn thời gian và bán thời gian tại cửa hàng bách hóa Western. Hiện các bạn đã đủ điều kiện để trở thành thành viên tại Bể bơi Coldwater, bể vừa khai trương vào mùa hè. Nhân viên toàn thời gian có thể được giảm giá 50% khi đăng ký thẻ thành viên cá nhân hoặc thẻ gia đình trong khi nhân viên bán thời gian sẽ được giảm giá 30% cho một trong hai loại thẻ thành viên trên. Cả nhân viên bán thời gian và toàn thời gian đều đủ điều kiện được giảm giá 60% khi học bơi. Nếu các bạn quan tâm đến những ưu đãi tuyệt vời này, hãy tìm gặp Juliet Foreman tại văn phòng nhân sự trên tầng hai. Cô ấy có thể cung cấp cho các bạn tất cả thông tin chi tiết.</p>\n",
+      "childQuestions": [
+        {
+          "id": "630604735948b5402da837ef",
+          "questionText": "What is the purpose of the announcement?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To explain how to get a rebate",
+            "(B) To mention a deadline for an event",
+            "(C) To remind listeners about a sale",
+            "(D) To describe a special offer"
+          ],
+          "correctOptions": [
+            "(D) To describe a special offer"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604735948b5402da837f0",
+          "questionText": "Who qualifies for discounts on swimming lessons?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Children of employees",
+            "(B) Only full-time employees",
+            "(C) Only part-time employees",
+            "(D) All employees"
+          ],
+          "correctOptions": [
+            "(D) All employees"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604735948b5402da837f1",
+          "questionText": "What should listeners do to get more information?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Send an e-mail",
+            "(B) Call the swimming pool",
+            "(C) Speak with another employee",
+            "(D) Read a pamphlet"
+          ],
+          "correctOptions": [
+            "(C) Speak with another employee"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e2",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/33013630.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nThe Lexington Orchestra is holding open auditions this Saturday, April 2. The auditions will be held in the Cogswell Concert Hall from 9 A.M. until 8 P.M. No reservations are necessary. Simply show up with your instrument. You&rsquo;ll be asked to play two classical pieces and one modern piece of the conductor&rsquo;s choice. We welcome individuals who can play any instrument, but we&rsquo;re particularly interested in having more violins in the orchestra this year. Please note that members of the orchestra won&#39;t receive any financial compensation but will be given four complimentary tickets to each of the six summer performances.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Dàn nhạc Lexington sẽ tổ chức các buổi thử giọng công khai vào Thứ Bảy tuần này, ngày 2 tháng 4. Buổi thử giọng sẽ được tổ chức tại Phòng hòa nhạc Cogswell từ 9 giờ sáng cho đến 8 giờ tối. Không cần đăng ký hay đặt chỗ trước. Rất đơn giản, các bạn chỉ cần xuất hiện với nhạc cụ của mình. Các bạn sẽ được yêu cầu chơi hai bản nhạc cổ điển và một bản nhạc hiện đại do nhạc trưởng chỉ định. Chúng tôi hoan nghênh các cá nhân với bất loại kỳ nhạc cụ nào, nhưng chúng tôi đặc biệt quan tâm đến việc có thêm đàn violin trong dàn nhạc năm nay. Xin lưu ý rằng các thành viên của dàn nhạc sẽ không nhận được bất kỳ khoản thù lao tài chính nào nhưng sẽ được tặng bốn vé miễn phí cho mỗi buổi biểu diễn nằm trong serie sáu buổi biểu diễn mùa hè.</p>\n",
+      "childQuestions": [
+        {
+          "id": "630604735948b5402da837f2",
+          "questionText": "Who most likely is the announcement for?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Musicians",
+            "(B) Audience members",
+            "(C) Conductors",
+            "(D) Music instructors"
+          ],
+          "correctOptions": [
+            "(A) Musicians"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604735948b5402da837f3",
+          "questionText": "What is mentioned about the event?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is going to last for two days.",
+            "(B) Individuals must play three pieces of music.",
+            "(C) Attendees must be able to play two instruments.",
+            "(D) Only violinists are encouraged to try out."
+          ],
+          "correctOptions": [
+            "(B) Individuals must play three pieces of music."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604735948b5402da837f4",
+          "questionText": "What are orchestra members given?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Salaries",
+            "(B) CDs of their performances",
+            "(C) Instruments",
+            "(D) Concert tickets"
+          ],
+          "correctOptions": [
+            "(D) Concert tickets"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e3",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/41239671.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nI know that each and every one of you works hard and that you have numerous deliveries to make on your routes. However, I&rsquo;ve been getting some complaints from our customers regarding mistakes you&rsquo;ve been making. We got a call this morning from a customer who claimed that the items in the package he received were shattered. They were antiques, so he&rsquo;s requesting $1,200 in compensation. Another customer remarked she was given a package belonging to someone else. We need to cut down on these and other mistakes. So please be more careful, or I&rsquo;m going to have to let some of you go if you can&rsquo;t improve your performance.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Tôi biết rằng tất cả các bạn đều làm việc chăm chỉ với rất nhiều chuyến giao hàng phải thực hiện trên các tuyến đường. Tuy nhiên, nhiều khách hàng đã khiếu nại về một số lỗi mà các bạn đang mắc phải. Sáng nay, một khách hàng đã gọi tới và cho biết các món đồ trong gói hàng mà anh ấy nhận được đã bị vỡ vụn. Chúng là đồ cổ nên khách hàng yêu cầu khoản bồi thường 1.200 USD. Một khách hàng khác thì phản hồi rằng cô ấy đã được giao nhầm gói hàng của người khác. Chúng ta cần giảm bớt các lỗi trên và tránh mắc các lỗi khác. Vì vậy, hãy cẩn thận hơn, nếu không tôi sẽ buộc phải chấm dứt hợp đồng với những nhân viên không thể cải thiện hiệu suất của mình.</p>\n",
+      "childQuestions": [
+        {
+          "id": "630604745948b5402da837f5",
+          "questionText": "Who is the speaker talking to?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Telephone operators",
+            "(B) Shipping Department employees",
+            "(C) Delivery personnel",
+            "(D) Office receptionists"
+          ],
+          "correctOptions": [
+            "(C) Delivery personnel"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da837f6",
+          "questionText": "What problem does the speaker mention?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Some money was stolen.",
+            "(B) Some boxes were lost.",
+            "(C) Some items were broken.",
+            "(D) Some orders were never received."
+          ],
+          "correctOptions": [
+            "(C) Some items were broken."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da837f7",
+          "questionText": "What does the speaker suggest may happen?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Individuals may lose their jobs.",
+            "(B) Individuals may be suspended.",
+            "(C) Individuals may be given more training.",
+            "(D) Individuals may be transferred."
+          ],
+          "correctOptions": [
+            "(A) Individuals may lose their jobs."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e4",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/60952431.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nWe&#39;ve narrowed the job search down to the following three candidates: Vladimir Sobieski, Wilma Howard, and Maya Freeman. Each applicant has outstanding credentials and comes highly recommended. They all spent time here interviewing as well. Now, we need to arrive at a consensus regarding whom we should offer the open position to. I have my own personal favorite, but I&rsquo;d like to hear from every one of you regarding yours. So let me give you all a chance to speak in support of the person you&rsquo;d like to become your new colleague. Jeff, let&rsquo;s start with you.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nChúng ta có ba ứng viên lọt vào vòng cuối cùng là Vladimir Sobieski, Wilma Howard và Maya Freeman. Mỗi ứng viên đều có bằng cấp xuất sắc và được đánh giá cao. Tất cả họ đều đã dành thời gian tham gia cuộc phỏng vấn. Bây giờ, chúng ta cần đi đến thống nhất về việc nên đưa ra nhận ai vào làm. Tôi có nhận định riêng của mình, nhưng tôi cũng muốn nghe ý kiến của các bạn. Vì vậy, tất cả mọi người đều có thể để lên tiếng để chọn ra đồng nghiệp mới của các mình từ ba ứng viên này. Jeff, hãy bắt đầu từ ý kiến của anh đi.</p>",
+      "childQuestions": [
+        {
+          "id": "630604745948b5402da837f8",
+          "questionText": "What is mainly being discussed?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The qualifications of some job candidates",
+            "(B) The interviews that will be conducted",
+            "(C) A job search that is currently going on",
+            "(D) A position that needs to be filled soon"
+          ],
+          "correctOptions": [
+            "(C) A job search that is currently going on"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da837f9",
+          "questionText": "What does the speaker indicate about herself?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She knows which person she prefers for a job.",
+            "(B) She has already made her final decision.",
+            "(C) She has meet with Vladimir Sobieski twice.",
+            "(D) She wants to conduct some more interviews."
+          ],
+          "correctOptions": [
+            "(A) She knows which person she prefers for a job."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da837fa",
+          "questionText": "Why does the speaker say, “Jeff, let’s start with you”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To say that he needs to speak to one of the candidates",
+            "(B) To request that he state the individual he supports",
+            "(C) To tell him that he needs to give his presentation now",
+            "(D) To ask him to provide the results of his interview"
+          ],
+          "correctOptions": [
+            "(B) To request that he state the individual he supports"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e5",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/45727771.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nAs you know, we offered managerial positions to three applicants last week. We received positive responses from two of them. Both Jay Carpenter and Katy McDaniel accepted our offers and will begin working here two weeks from today. As for Delilah Cohen, she demanded more money than we&rsquo;re willing to offer, so we&#39;ve retracted our offer of employment to her. We contacted Lucy van Horton this morning, and she requested one day to consider our offer. I think she&rsquo;s concerned about having to come here from across country, but I&rsquo;ve been authorized by HR to cover her moving expenses if she requests that.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Như các bạn đã biết, tuần trước chúng ta đã gửi thư mời tiếp nhận vị trí quản lý cho ba ứng viên. Hai người trong số họ đã đưa ra phản hồi tích cực. Cả Jay Carpenter và Katy McDaniel đều chấp nhận lời đề nghị của chúng ta và sẽ bắt đầu làm việc ở đây trong vòng hai tuần kể từ hôm nay. Về phần Delilah Cohen, cô ta yêu cầu mức lương cao hơn mức mà chúng ta có thể chi trả, vì vậy lời đề nghị tuyển dụng cho cô ta đã bị huỷ bỏ. Sáng nay chúng ta đã liên lạc với Lucy Van Horton và cô ấy yêu cầu một ngày để xem xét lời đề nghị cho vị trí quản lý. Tôi nghĩ cô ấy lo ngại về việc phải di chuyển xa, nhưng tôi đã được bộ phận nhân sự ủy quyền chi trả chi phí di chuyển cho cô ấy nếu cô ấy yêu cầu.</p>\n",
+      "childQuestions": [
+        {
+          "id": "630604745948b5402da837fb",
+          "questionText": "What job did Jay Carpenter accept?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Human Resources employee",
+            "(B) Computer programmer",
+            "(C) Manager",
+            "(D) Software designer"
+          ],
+          "correctOptions": [
+            "(C) Manager"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da837fc",
+          "questionText": "Why was the offer to Delilah Cohen withdrawn?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She wanted a higher salary.",
+            "(B) She demanded more benefits.",
+            "(C) She did not want to start in two weeks.",
+            "(D) She insisted on a bonus."
+          ],
+          "correctOptions": [
+            "(A) She wanted a higher salary."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da837fd",
+          "questionText": "What can the woman do for Lucy van Horton?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Offer her health insurance",
+            "(B) Pay for her to move",
+            "(C) Help her find housing",
+            "(D) Increase her starting salary"
+          ],
+          "correctOptions": [
+            "(B) Pay for her to move"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e6",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/25/3117570.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/7784235.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nHello, Ms. Richardson. This is Emily Jenkins from JW Consulting. I sent you a schedule of the activities for next week&rsquo;s workshop by e-mail, but I haven&#39;t received a response yet. I&rsquo;d like you to know I&rsquo;ve decided that you&#39;re not going to give the lecture on foreign currency exchange this year. Instead, I&rsquo;d like you to speak about solving workplace problems. The reason is that Brian Andropov just informed me he can&rsquo;t participate in this year&#39;s workshop, so you&rsquo;ll be taking his place. Thus you&#39;ll be speaking on a different day than you were previously scheduled. Let me know if this is going to be a problem.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Xin chào cô Richardson. Đây là Emily Jenkins từ JW Consulting. Tôi đã gửi cho cô lịch trình các hoạt động của hội thảo tuần tới qua email nhưng tôi vẫn chưa nhận được phản hồi từ cô. Tôi muốn cô biết rằng cô sẽ không giảng bài về trao đổi ngoại tệ trong năm nay nữa. Thay vào đó, cô sẽ nói về cách giải quyết các vấn đề tại nơi làm việc. Lý do là vì Brian Andropov vừa thông báo rằng anh ấy không thể tham gia hội thảo năm nay nên cô sẽ thế chỗ của anh ấy. Do đó, cô sẽ phát biểu vào một ngày khác chứ không phải là ngày mà chúng ta đã dự kiến trước đó. Hãy cho tôi biết nếu sự thay đổi này gây ra khó khăn cho cô.</p>\n",
+      "childQuestions": [
+        {
+          "id": "630604745948b5402da837fe",
+          "questionText": "Who is Ms. Jenkins?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A lecturer",
+            "(B) A consultant",
+            "(C) A conference participant",
+            "(D) A banker"
+          ],
+          "correctOptions": [
+            "(B) A consultant"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da837ff",
+          "questionText": "Look at the graphic. When is Ms. Richardson going to give her lecture?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) On Monday",
+            "(B) On Tuesday",
+            "(C) On Wednesday",
+            "(D) On Thursday"
+          ],
+          "correctOptions": [
+            "(A) On Monday"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da83800",
+          "questionText": "What did Brian Andropov do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Paid to attend a conference",
+            "(B) Organized a conference",
+            "(C) Agreed to speak at a conference",
+            "(D) Ended his role in a conference"
+          ],
+          "correctOptions": [
+            "(D) Ended his role in a conference"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e7",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/25/33202264.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/26268781.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong></p>\n<p>Welcome to McMaster&rsquo;s Farm. We have one of the largest farms in the area. We grow crops and raise animals here on the farm. As you can see in the fields directly behind me, the corn is growing high and is almost ready to be harvested. The fields in the east are full of grass. We&rsquo;re going to go horseback riding in them a few minutes from now. To the east are where the sheep graze during the day. And right behind you is the barn, which you can see clearly. The field in back of it currently has some tomatoes and potatoes growing in it.<br />\n&nbsp;</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong></p> <p>Chào mừng đến với trang trại McMaster. Chúng tôi có một trong những nông trại lớn nhất trong khu vực. Chúng tôi trồng trọt và chăn nuôi ở đây. Như các bạn có thể thấy, trên cánh đồng ngay phía sau tôi, ngô đang mọc cao và gần như đã sẵn sàng để được thu hoạch. Cánh đồng đầy cỏ ở phía đông chính là nơi mà chúng ta sẽ trải nghiệm hoạt động cưỡi ngựa trong vài phút nữa. Đi tiếp về phía đông, có thể thấy nơi mà đàn cừu gặm cỏ vào ban ngày. Và ngay phía sau các bạn là nhà kho, các bạn có thể nhìn thấy nó rất rõ ràng. Cánh đồng phía sau hiện đang trồng một số giống cây cà chua và khoai tây.<br />\n",
+      "childQuestions": [
+        {
+          "id": "630604745948b5402da83801",
+          "questionText": "Who is the speaker?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A tour guide",
+            "(B) A teacher",
+            "(C) A farmer",
+            "(D) A horse trainer"
+          ],
+          "correctOptions": [
+            "(C) A farmer"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da83802",
+          "questionText": "What does the speaker indicate about the corn?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is growing poorly.",
+            "(B) It will be picked soon.",
+            "(C) It has been harvested.",
+            "(D) It was recently planted."
+          ],
+          "correctOptions": [
+            "(B) It will be picked soon."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da83803",
+          "questionText": "Look at the graphic. In which field can people ride horses?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Number 1",
+            "(B) Number 2",
+            "(C) Number 3",
+            "(D) Number 4"
+          ],
+          "correctOptions": [
+            "(D) Number 4"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "630604735948b5402da837e8",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/25/32797518.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/12482634.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong></p>\n<p>Hello. This is Mark Kelly. I&rsquo;m calling because I was overcharged on my phone bill one month. This summer, I visited Europe for two and a half months and didn&rsquo;t take my phone. Before leaving in June, I used my phone a few times, but I didn&rsquo;t use it in either July or August. I expected only to pay the basic rate 50 dollars each month, but I somehow got charged extra money. I don&rsquo;t believe I should pay that since I didn&rsquo;t start using my phone again until September. Would you please call me back at 504-5495 to let me know what&rsquo;s going on?</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong></p> <p>Xin chào. Đây là Mark Kelly. Tôi gọi điện vì hóa đơn điện thoại của tôi đã bị tính quá mức trong một tháng. Mùa hè này, tôi đã đến thăm châu Âu trong hai tháng rưỡi và không mang theo điện thoại. Trước khi rời đi vào tháng 6, tôi đã sử dụng điện thoại một vài lần nhưng cả tháng 7 hoặc tháng 8 thì tôi không hề sử dụng nó. Tôi ước tính rằng mình chỉ phải trả mức cơ bản là 50 đô la mỗi tháng, nhưng bằng cách nào đó tôi lại bị tính thêm tiền. Tôi không nghĩ rằng mình nên trả số tiền đó vì tôi chỉ mới bắt đầu sử dụng lại điện thoại của mình vào tháng 9 mà thôi. Xin vui lòng gọi lại cho tôi theo số 504-5495 để cho tôi biết vấn đề đang xảy ra với phí điện thoại của tôi, được chứ?</p>\n",
+      "childQuestions": [
+        {
+          "id": "630604745948b5402da83804",
+          "questionText": "What is the purpose of the speaker’s call?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To cancel a service",
+            "(B) To file a complaint",
+            "(C) To pay his phone bill",
+            "(D) To request a new service"
+          ],
+          "correctOptions": [
+            "(B) To file a complaint"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da83805",
+          "questionText": "What does the speaker say that he did?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Took his phone on vacation with him",
+            "(B) Canceled his service a few months ago",
+            "(C) Traveled abroad for a couple of months",
+            "(D) Called foreign countries with his phone"
+          ],
+          "correctOptions": [
+            "(C) Traveled abroad for a couple of months"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "630604745948b5402da83806",
+          "questionText": "Look at the graphic. In which month does the speaker believe he was charged too much?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) May",
+            "(B) June",
+            "(C) July",
+            "(D) August"
+          ],
+          "correctOptions": [
+            "(D) August"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

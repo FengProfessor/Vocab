@@ -1,0 +1,623 @@
+{
+  "topicId": "6a32509060281800269d77bd",
+  "name": "Test 24",
+  "slug": "test-24",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6a32513d3766e70025ece4a2",
+      "questionText": "<p style=\"text-align: justify;\">Dear Alice,<br>\nI trust that your meetings have been going well this week. This is just a short note to confirm the plans for Thursday evening. As I mentioned when we met to discuss the color scheme for your book, I have reserved two tickets for this Thursday's <em>Swan Lake</em> at the Sydney Arts Center.</p>\n\n<p style=\"text-align: justify;\">The performance begins at 7:30. As I suggested before, let's meet at the theater between 6:30 and 7:00. I will be sending the company's driver to meet you at your hotel at six o'clock. Afterwards, I hope you will be able to join me and our chief editor, Hank Rearden, for supper at La Mirage. Don't hesitate to contact me if there are any problems. This should be a nice relaxing evening before your departure on Friday morning.</p>\n\n<p style=\"text-align: justify;\">Yours truly,<br>\nMartina Hayes<br>\nSales Director</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a32513d3766e70025ece4a3",
+          "questionText": "<p style=\"text-align: justify;\">What is the purpose of the note?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "To extend an invitation",
+            "To confirm plans",
+            "To reply to an invitation",
+            "To cancel plans"
+          ],
+          "correctOptions": [
+            "To confirm plans"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The letter states: <em data-end=\"159\" data-start=\"87\">\"This is just a short note to confirm the plans for Thursday evening.\"</em> This directly shows that the purpose is to confirm previously arranged plans.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a32536c3766e70025ecf102",
+          "questionText": "<p>Why did Martina Hayes write this letter?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "To ensure Alice knows when and where to meet",
+            "To check that Alice knows where the theater is",
+            "To notify Alice of a change of plans",
+            "To confirm Alice's flight time"
+          ],
+          "correctOptions": [
+            "To ensure Alice knows when and where to meet"
+          ],
+          "transcript": "<p data-end=\"374\" data-start=\"343\" style=\"text-align: justify;\">Martina provides details about:</p>\n\n<ul data-end=\"538\" data-start=\"375\">\n\t<li data-end=\"409\" data-start=\"375\" style=\"text-align: justify;\">The performance time (7:30 p.m.)</li>\n\t<li data-end=\"457\" data-start=\"410\" style=\"text-align: justify;\">The meeting time (between 6:30 and 7:00 p.m.)</li>\n\t<li data-end=\"509\" data-start=\"458\" style=\"text-align: justify;\">The driver's pickup time (6:00 p.m. at the hotel)</li>\n\t<li data-end=\"538\" data-start=\"510\" style=\"text-align: justify;\">The dinner plans afterward</li>\n</ul>\n\n<p data-end=\"605\" data-start=\"540\" style=\"text-align: justify;\">These details help Alice know exactly <strong data-end=\"604\" data-start=\"578\">when and where to meet</strong>.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a32557f3766e70025ecfa31",
+      "questionText": "<p style=\"text-align: justify;\">Without a doubt, the most important part of any job application is the resume. Along with a cover letter, it is the first impression a prospective employee makes on a potential employer. Therefore, it is important that a resume provide as much relevant information as possible while remaining brief. A resume should be no more than one full side of a sheet of paper. All too many candidates make the mistake of submitting several pages which, more often than not, don't even get a second glance.</p>\n\n<p style=\"text-align: justify;\">A resume must be neatly printed, with at least three-quarter inch margins on all four sides. Use underlining, capital letters and asterisks to highlight important information. A resume should be single-spaced with an extra line between blocks of information.</p>\n\n<p style=\"text-align: justify;\">Begin a resume with your name, address, and contact information (e.g., telephone or fax numbers, email address). Do not include age, marital status, or other personal facts. Next, many resumes state the position sought or career goal. Then comes perhaps the most important part: a chronological outline of work experience-starting with the most recent job and working backwards-including for each position a brief description of relevant duties and skills used or acquired. Finally, include an outline of your educational background from the most recent backwards. Make sure to list dates of completion, full names and locations (if not common knowledge) of schools, and diplomas or certificates awarded.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a32557f3766e70025ecfa32",
+          "questionText": "<p>Which of the following should NOT be on your resume?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "The year you received your bachelor's degree",
+            "Your nationality and the fact that you are single",
+            "A description of tasks performed in your last job",
+            "Your name and telephone and fax numbers"
+          ],
+          "correctOptions": [
+            "Your nationality and the fact that you are single"
+          ],
+          "transcript": "<p>The passage explicitly says not to include <em data-end=\"210\" data-start=\"164\">age, marital status, or other personal facts</em>, which would include nationality and marital status.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3261d73766e70025ed432b",
+          "questionText": "<p>What is true about a resume?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "An outline of educational background should end with the most recent information.",
+            "Important information should be italicized.",
+            "A resume should have three-quarter inch margins on both sides.",
+            "Resumes should be brief but very informative."
+          ],
+          "correctOptions": [
+            "Resumes should be brief but very informative."
+          ],
+          "transcript": "<p>The text states that a resume should provide <em data-end=\"472\" data-start=\"408\">as much relevant information as possible while remaining brief</em>.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a3267c03766e70025ed6da3",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>Fax</strong></span></p>\n\n<p style=\"text-align: justify;\">To: Peter Cooke, Headly Electronics<br>\nFrom: Darren Simpson, Customs and Excise Bureau<br>\nRe: Shipment<br>\nDate: April 2nd</p>\n\n<p style=\"text-align: justify;\">A shipment of 48 refrigerators has now been cleared for collection by the Dover Port Authority Customs and Excise Bureau. This shipment arrived on March 27 th.&nbsp;An import tariff of £13 is payable on each item in the shipment. At £13 x 48 that comes to a total of £634. This is payable before the shipment will be released for collection. Payment should be made to Westman Bank, account #223003, account holder: Custom and Excise. please fax us once payment has been made.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a3267c03766e70025ed6da4",
+          "questionText": "<p>What is the purpose of this fax?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "To inform Darren Simpson of the cost of a refrigerator",
+            "To inform Darren Simpson that he should pay a fee",
+            "To inform Peter Cooke that his shipment has been rejected",
+            "To inform Peter Cooke that his shipment is ready for collection"
+          ],
+          "correctOptions": [
+            "To inform Peter Cooke that his shipment is ready for collection"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The fax states: <em data-end=\"202\" data-start=\"131\">“A shipment of 48 refrigerators has now been cleared for collection…”</em> which directly indicates the purpose is to inform Peter Cooke about the release of his shipment.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3274783766e70025edc1b8",
+          "questionText": "<p style=\"text-align: justify;\">What should Peter Cooke send after paying the import tariff?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "A letter",
+            "£634",
+            "A fax",
+            "An email"
+          ],
+          "correctOptions": [
+            "A fax"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The fax ends with: <em data-end=\"455\" data-start=\"410\">“please fax us once payment has been made.”</em> This clearly indicates the required follow-up.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a3275863766e70025edc5b3",
+      "questionText": "<p style=\"text-align: justify;\"><strong>Personnel Departntent News</strong>&nbsp;- It gives us great pleasure to announce the appointment of our new vice presidents. As of tomorrow, Marshall and Young, Inc. will have two new vice presidents: Research and Development's Gary Shepherd and Constance Hayes from the Product Design Department, who were informed of their promotions last Tuesday. Mr. Shepherd, who has been with this firm for ten years, will remain in R&amp;D and will be working with Jordan Jones, Senior VPin that department. Ms. Hayes, who has been a Project Manager in Product Design since joining Marshall and Young five years ago, will be heading up the Consumer Products Department along with Eugene Park, who is transferring from his position as vice president in R&amp;D. We are expecting an exciting year and looking forward to the continued success of Mr. Shepherd and Ms. Hayes.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a3275863766e70025edc5b4",
+          "questionText": "<p style=\"text-align: justify;\">When were the new vice-presidents told about the promotion?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Over a month ago",
+            "Tomorrow",
+            "Last Tuesday",
+            "The day after the vote"
+          ],
+          "correctOptions": [
+            "Last Tuesday"
+          ],
+          "transcript": "<p>The passage states they <em data-end=\"166\" data-start=\"115\">“were informed of their promotions last Tuesday.”</em></p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a335c503766e70025f19196",
+          "questionText": "<p style=\"text-align: justify;\">Who will be leading the Consumer Products Department along with Eugene?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Jordan Jones",
+            "Gary Shepherd",
+            "Constance Hayes",
+            "The Senior VP"
+          ],
+          "correctOptions": [
+            "Constance Hayes"
+          ],
+          "transcript": "<p>The text says Ms. Hayes <em data-end=\"382\" data-start=\"303\">“will be heading up the Consumer Products Department along with Eugene Park.”</em></p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a335fd83766e70025f19a1c",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>WHILE YOU WERE OUT</strong></span></p>\n\n<p style=\"text-align: justify;\"><strong>To</strong>:&nbsp; &nbsp; &nbsp;<em>William Maxwell</em></p>\n\n<p style=\"text-align: justify;\"><strong>From</strong>: <em>Katherine Potter, Blade Travel</em></p>\n\n<p style=\"text-align: justify;\"><strong>Date</strong>: <em>Wed., February 2nd</em></p>\n\n<p style=\"text-align: justify;\"><strong>Time</strong>: <em>7:30 p.m.</em></p>\n\n<p style=\"text-align: justify;\">RETURNED YOUR CALL / IMPORTANT/ <u>WILL CALL AGAIN</u>/ PLEASE CALL</p>\n\n<p style=\"text-align: justify;\">MESSAGE:&nbsp;The air portion of your trip has not yet been confirmed. Confirmation will probably come early tomorrow. However, all ground and hotel reservations have been confirmed for you and Joseph Hill. All confirmation numbers, tickets, etc. will be sent by messenger to Mr. Hill once everything is finalized.</p>\n\n<p style=\"text-align: justify;\">TAKEN BY: <em>David Sales</em></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a335fd83766e70025f19a1d",
+          "questionText": "<p>Why did Katherine Potter call?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "To ask William Maxwell to call Mr. Hill",
+            "To make a booking",
+            "To confirm William Maxwell's flight reservation",
+            "To inform William Maxwell that his flight is not confirmed"
+          ],
+          "correctOptions": [
+            "To inform William Maxwell that his flight is not confirmed"
+          ],
+          "transcript": "<p>She called to inform William Maxwell that his flight is <strong data-end=\"131\" data-start=\"110\">not yet confirmed</strong>:&nbsp;“The air portion of your trip has not yet been confirmed.”</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a335fd83766e70025f19a1e",
+          "questionText": "<p>Who will be traveling?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Joseph Hill and Katherine Potter",
+            "William Maxwell and Joseph Hill",
+            "Only David Sales",
+            "David Sales and William Maxwell"
+          ],
+          "correctOptions": [
+            "William Maxwell and Joseph Hill"
+          ],
+          "transcript": "<p>The message says the trip is confirmed for <strong data-end=\"316\" data-start=\"291\">“you and Joseph Hill”</strong>, so the travelers are <strong data-end=\"374\" data-start=\"339\">William Maxwell and Joseph Hill</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a335fd83766e70025f19a1f",
+          "questionText": "<p>Where does Katherine Potter probably work?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "An airline",
+            "A travel agency",
+            "A hotel",
+            "A messenger service"
+          ],
+          "correctOptions": [
+            "A travel agency"
+          ],
+          "transcript": "<p>She works at <strong data-end=\"477\" data-start=\"461\">Blade Travel</strong> and handles bookings and confirmations, so she likely works at a <strong data-end=\"560\" data-start=\"543\">travel agency</strong>.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a3362ad3766e70025f1a26b",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>Darnley's Dairy</strong></span></p>\n\n<p style=\"text-align: justify;\">We would like to thank all our loyal customers for choosing Darnley's Dairy for all their dairy needs. In order to streamline our delivery service, and to ensure you continue to receive our products in tip-top condition, we are asking all customers to fill out the order form below. Your details will be entered into our new customer database, and we will use this information to serve you better. As always, there will be no charge for home delivery. Thank you.</p>\n\n<p style=\"text-align: justify;\"><strong>Name</strong>: ------------------------------</p>\n\n<p style=\"text-align: justify;\"><strong>Street Address</strong>: ---------------------------</p>\n\n<p style=\"text-align: justify;\"><strong>City</strong>: ------------------------------</p>\n\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width: 655px;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\"><strong>Order&nbsp;</strong></td>\n\t\t\t<td style=\"width: 136px; text-align: center;\"><strong>Quantity</strong></td>\n\t\t\t<td style=\"width: 138px; text-align: center;\"><strong>How often&nbsp;</strong></td>\n\t\t\t<td style=\"width: 136px; text-align: center;\"><strong>Day&nbsp;</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\">Fat-free milk</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">1 carton</td>\n\t\t\t<td style=\"width: 138px; text-align: center;\">3 times a week</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">Mon, Wed &amp; Fri</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\">Low-fat milk</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 138px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\">Whole milk</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 138px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\">Organic milk</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 138px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"4\" style=\"width: 216px;\">Flavored milk:</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\">Chocolate</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 138px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\">Strawberry</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">1 carton</td>\n\t\t\t<td style=\"width: 138px; text-align: center;\">2 times a week</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">Sat and Sun&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"4\" style=\"width: 216px;\">Payment method:</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\">Cash</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">XX</td>\n\t\t\t<td style=\"width: 138px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 216px;\">Credit card</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 138px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 136px; text-align: center;\">&nbsp;</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>Please return this to your Darnley's Dairy milk deliverer.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a3362ad3766e70025f1a26c",
+          "questionText": "<p>What is the purpose of this form?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "To reduce delivery times",
+            "To catch customers who haven't paid their bills",
+            "To improve their delivery service",
+            "To thank customers"
+          ],
+          "correctOptions": [
+            "To improve their delivery service"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">“In order to streamline our delivery service… we are asking all customers to fill out the order form” =&gt;&nbsp;So the purpose is to <strong data-end=\"239\" data-start=\"200\">improve/streamline delivery service</strong>, not to charge or thank customers.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3362ad3766e70025f1a26d",
+          "questionText": "<p>How much does Darnley's charge for home delivery?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "It doesn't say",
+            "Free",
+            "$1 per item",
+            "It depends on the item."
+          ],
+          "correctOptions": [
+            "Free"
+          ],
+          "transcript": "<p>“there will be no charge for home delivery.” =&gt;&nbsp;So delivery is <strong data-end=\"442\" data-start=\"434\">free</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3362ad3766e70025f1a26e",
+          "questionText": "<p>How many varieties of milk can be ordered using this form?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Four",
+            "Two",
+            "Three",
+            "Five"
+          ],
+          "correctOptions": [
+            "Five"
+          ],
+          "transcript": "<p data-end=\"557\" data-start=\"539\">Milk types listed:</p>\n\n<ol data-end=\"693\" data-start=\"558\">\n\t<li data-end=\"576\" data-start=\"558\">Fat-free milk</li>\n\t<li data-end=\"594\" data-start=\"577\">Low-fat milk</li>\n\t<li data-end=\"610\" data-start=\"595\">Whole milk</li>\n\t<li data-end=\"628\" data-start=\"611\">Organic milk</li>\n\t<li data-end=\"693\" data-start=\"629\">Flavored milk (chocolate, strawberry counted as one category)</li>\n</ol>\n\n<p data-end=\"733\" data-start=\"695\">So there are <strong data-end=\"723\" data-start=\"708\">5 varieties</strong> in total.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a336f033766e70025f1ce22",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>MEMORANDUM</strong></span></p>\n\n<p>To:&nbsp; &nbsp; &nbsp;All Employees</p>\n\n<p>From: Sidney Flanders, Office Manager</p>\n\n<p>Date: September 4</p>\n\n<p>Re:&nbsp; &nbsp; Vacation Days</p>\n\n<p style=\"text-align: justify;\">Since it is never too early to be prepared, I am requesting that all employees promptly submit to their departmental managers any requests for vacation days for the remainder of the year. As you know, the end of the year is our busiest time, and there is always the problem of having to schedule vacations and personal time off around the end-of-year holidays. This is the most popular time for vacations, apart from the summer months, and it takes a lot of time to coordinate. I will work with all departmental managers to see that all vacation requests are honored where possible, except in caseswhere it is anticipated that the temporary staff will not be able to cover the projected workload. Unfortunately, we will have to request that some employees (generally employees with little seniority) postpone their vacation plans until a more convenient time. Those of you who do not get your first choice of vacation this time round will be given priority next time. However, please note that this is still not a flat guarantee that you will get your choice, even then. I would like to ask that all requests be made to the appropriate offices before the end of the week. Thank you for your cooperation in this matter. Rest assured that I will do my very best to accommodate all wishes.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a336f033766e70025f1ce23",
+          "questionText": "<p>Who will be receiving vacation requests?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "The office manager",
+            "Temporary employees",
+            "The personnel secretary",
+            "All employees"
+          ],
+          "correctOptions": [
+            "The office manager"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The memo says employees should submit requests to <strong data-end=\"165\" data-start=\"134\">their departmental managers</strong>, and the office manager (Sidney Flanders) is coordinating and working with them. So the requests are ultimately handled under the <strong data-end=\"331\" data-start=\"296\">office manager’s responsibility</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a336f033766e70025f1ce24",
+          "questionText": "<p>What is true for employees with more seniority?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "They will probably have their vacation requests honored.",
+            "They will not receive this memorandum.",
+            "They may be asked to postpone their vacations.",
+            "They will not need to make vacation requests."
+          ],
+          "correctOptions": [
+            "They will probably have their vacation requests honored."
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The memo says requests will be honored “where possible” and that <strong data-end=\"608\" data-start=\"533\">employees with little seniority are more likely to be asked to postpone</strong>, which implies senior employees have higher priority.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a336f033766e70025f1ce25",
+          "questionText": "<p>According to the memo, when should requests for vacation time be made?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "By the end of the month",
+            "By the end of the day",
+            "By the end of the year",
+            "By the end of the week"
+          ],
+          "correctOptions": [
+            "By the end of the week"
+          ],
+          "transcript": "<p>The memo clearly states:&nbsp;“before the end of the week”</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a336f033766e70025f1ce26",
+          "questionText": "<p>According to the memo, what problem often occurs?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Employees do not schedule enough vacation time.",
+            "Departmental managers often reject requests for time off.",
+            "There is difficulty scheduling vacations at year's end.",
+            "Vacation time is used too early in the year."
+          ],
+          "correctOptions": [
+            "There is difficulty scheduling vacations at year's end."
+          ],
+          "transcript": "<p>The memo explains the end of the year is busy and it is <strong data-end=\"1014\" data-start=\"973\">hard to coordinate vacation schedules</strong>.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a3373c43766e70025f1df2d",
+      "questionText": "<p style=\"text-align: right;\">Taylor and Bryce, Attorneys-at-Law</p>\n\n<p style=\"text-align: right;\">13 Woodlawn Avenue</p>\n\n<p style=\"text-align: right;\">Albany, NY 11208</p>\n\n<p style=\"text-align: justify;\">Polar Airlines, Inc.</p>\n\n<p style=\"text-align: justify;\">P.O. Box 1660-100</p>\n\n<p style=\"text-align: justify;\">Minneapolis, MN 55440</p>\n\n<p style=\"text-align: justify;\">Dear Sir / Madam,</p>\n\n<p style=\"text-align: justify;\">I received this free mileage coupon (attached) from your airline when I took a flight to San Francisco in March. Though I am currently not enrolled in the Polar Miles Program, having read about the various benefits on offer, I am interested in becoming a member and receiving the 10,000 bonus Polar Miles offered with the coupon. In addition, I would like to have the mileage of my recent flights on your airline (ticket copies attached) credited to my new Polar Miles account, if possible.</p>\n\n<p style=\"text-align: justify;\">I'd also like to take this opportunity to let you know that I appreciate all you did for me last December when I traveled on your airline from Boston to Finland. It was the first time I had used your airline, and to be honest, I had my doubts about what kind of service to expect. However, I am happy to say that I was proven wrong. The plane was six hours late taking off (due to a terrible Christmas Eve blizzard-over which I know you had little control!), but your staff did all they could to ameliorate the situation. I plan to continue to fly your airline because of the courteous assistance and service I received from Polar Airlines employees during that long delay and subsequent flight.</p>\n\n<p style=\"text-align: justify;\">Yours sincerely,</p>\n\n<p style=\"text-align: justify;\">Anthony Taylor</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a3373c43766e70025f1df2e",
+          "questionText": "<p>What was Mr. Taylor's reason for writing to Polar Airlines?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "He wanted to make a reservation.",
+            "He wanted to apply for a job.",
+            "He wanted to enroll in an air miles program.",
+            "He wanted to make a complaint."
+          ],
+          "correctOptions": [
+            "He wanted to enroll in an air miles program."
+          ],
+          "transcript": "<p style=\"text-align: justify;\">Mr. Taylor writes:&nbsp;“I am interested in becoming a member and receiving the 10,000 bonus Polar Miles...” =&gt;&nbsp;This shows he wants to <strong data-end=\"313\" data-start=\"281\">join the Polar Miles Program</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3373c43766e70025f1df2f",
+          "questionText": "<p>What did Mr. Taylor receive from Polar Airlines in March?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "A coupon",
+            "10,000 Polar Miles",
+            "Courteous service",
+            "His Polar Miles membership"
+          ],
+          "correctOptions": [
+            "A coupon"
+          ],
+          "transcript": "<p>He says:&nbsp;“I received this free mileage coupon... when I took a flight to San Francisco in March.” =&gt;&nbsp;So the item he received was <strong data-end=\"575\" data-start=\"563\">a coupon</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3373c43766e70025f1df30",
+          "questionText": "<p>What caused Mr. Taylor's plane to be delayed?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Mechanical problems",
+            "Weather conditions",
+            "Lack of assistance",
+            "Poor control by Polar Airlines"
+          ],
+          "correctOptions": [
+            "Weather conditions"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">He writes:&nbsp;“The plane was six hours late... due to a terrible Christmas Eve blizzard.” =&gt;&nbsp;A <strong data-end=\"798\" data-start=\"786\">blizzard</strong> is a severe snowstorm, so the delay was caused by <strong data-end=\"871\" data-start=\"849\">weather conditions</strong>.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a3399533766e70025f26411",
+      "questionText": "<p style=\"text-align: justify;\">Dear Alberta Bank Customer,</p>\n\n<p style=\"text-align: justify;\">The following contains important information about your new Alberta BankATM/Debit card. Please read it carefully. This information could help protect you against fraudulent use of your card by others.</p>\n\n<p style=\"text-align: justify;\">Instructions regarding the enclosed item(s):</p>\n\n<ul>\n\t<li style=\"text-align: justify;\">If the enclosed Alberta Bank Card replaces a valid card that is about to expire, simply sign the back of the new card and begin using it as you would ordinarily. Your confidential Personal Identification Number (PIN) is the same one you have been using.</li>\n\t<li style=\"text-align: justify;\">In all other cases, please take it to the Alberta Bank branch which is most convenient for you to sign and validate your new BankCard, and choose a new PIN. The Alberta Bankrecommends that customers do not use dates of birth as their PIN. Please remember to bring two forms of identification with you, such as a passport, student ID card, driver's license, or credit card issued by the Alberta Bank.</li>\n</ul>\n\n<p style=\"text-align: justify;\">If your Bank Card is lost, stolen or damaged, please call the Alberta Bank Card Helpline, in operation 24 hours a day. The telephone number for this helpline can be found on the back of your card. We advise you to make a note of this and keep it in a safe place. Remember, please destroy your old bank card properly.</p>\n\n<p style=\"text-align: justify;\">Do not hesitate to visit any of our branches any time you have any questions about the Alberta Bank and our wide range of services.</p>\n\n<p style=\"text-align: justify;\">Sincerely,</p>\n\n<p style=\"text-align: justify;\">Alberta Bank</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a3399533766e70025f26412",
+          "questionText": "<p>What was enclosed with this letter?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "A bank statement",
+            "A Personal Identification Number",
+            "An expiration notice",
+            "A new Bank Card"
+          ],
+          "correctOptions": [
+            "A new Bank Card"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The letter says:&nbsp;“If the enclosed Alberta Bank Card replaces a valid card...” =&gt;&nbsp;This shows that a <strong data-end=\"208\" data-start=\"191\">new Bank Card</strong> was enclosed with the letter.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3399533766e70025f26413",
+          "questionText": "<p>Who is the letter from?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "A customer",
+            "A bank",
+            "Friends",
+            "An advertising agency"
+          ],
+          "correctOptions": [
+            "A bank"
+          ],
+          "transcript": "<p>The letter begins with:&nbsp;“Dear Alberta Bank Customer”&nbsp;and ends with:&nbsp;“Sincerely, Alberta Bank” =&gt;&nbsp;So the sender is <strong data-end=\"444\" data-start=\"434\">a bank</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3399533766e70025f26414",
+          "questionText": "<p>If this card is a replacement for a lost card, what must the customer do?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Visit an Alberta Bank branch",
+            "Begin using the card as usual",
+            "Pick up a new card",
+            "Call Alberta Bank"
+          ],
+          "correctOptions": [
+            "Visit an Alberta Bank branch"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The letter says:&nbsp;“In all other cases, please take it to the Alberta Bank branch... to sign and validate your new Bank Card, and choose a new PIN.” =&gt;&nbsp;A replacement for a lost card is one of these <strong data-end=\"806\" data-start=\"791\">other cases</strong>, so the customer must <strong data-end=\"847\" data-start=\"829\">visit a branch</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a3399533766e70025f26415",
+          "questionText": "<p>Which of the following is NOT recommended as a PIN?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Customer's date of birth",
+            "Binary numbers",
+            "Customer's favorite numbers",
+            "Dates from US history"
+          ],
+          "correctOptions": [
+            "Customer's date of birth"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The letter states:&nbsp;“The Alberta Bank recommends that customers do not use dates of birth as their PIN.” =&gt;&nbsp;Therefore, a customer's <strong data-end=\"1120\" data-start=\"1103\">date of birth</strong> is not recommended.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a33a4d23766e70025f2a140",
+      "questionText": "<p style=\"text-align: justify;\">To:&nbsp; &nbsp; &nbsp;Celia Kelly</p>\n\n<p style=\"text-align: justify;\">From: Andrew Mathers</p>\n\n<p style=\"text-align: justify;\">Date: Saturday, March 21</p>\n\n<p style=\"text-align: justify;\">Re:&nbsp; &nbsp; Arrival in Tokyo</p>\n\n<p style=\"text-align: justify;\">I have been unexpectedly called to an emergency meeting in Seoul this weekend, and thus will not be able to meet Mr. Robert Bayerat Narita Airport in Tokyo tomorrow morning (Sunday, March 22) as planned. I'm sorry not to have contacted you earlier about this, but the call came through just as I was about to board my flight to Japan from NewYork.</p>\n\n<p style=\"text-align: justify;\">I was fortunate enough to get a seat right away on a plane for Seoul, so instead of being on my way to Tokyo right now, I am currently waiting in San Francisco to embark on the final leg of my flight to Korea.</p>\n\n<p style=\"text-align: justify;\">This whole thing was quite unforeseen, and I apologize for any inconvenience it may have caused; however, my presence in Seoul this weekend is urgently needed. I will contact you again upon my arrival there. My business in Korea will be concluded by Monday afternoon, so I expect no difficulty in being present for the start of the Tokyo conference on Tuesday morning. My assistant, Ms. Alice Lang, will be arriving there as planned, and will act as my agent until my arrival. I have asked her to contact Mr. Bayer as soon as possible to explain the situation and then to meet with him on my behalf according to our original schedule. I have no doubt Ms. Lang will handle the situation professionally and diplomatically.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a33a4d23766e70025f2a141",
+          "questionText": "<p>Who will be meeting in Tokyo on Sunday?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Andrew Mathers and Alice Lang",
+            "Alice Lang and Robert Bayer",
+            "Celia Kelly and Andrew Mathers",
+            "Celia Kelly and Robert Bayer"
+          ],
+          "correctOptions": [
+            "Alice Lang and Robert Bayer"
+          ],
+          "transcript": "<p>Andrew says:&nbsp;“My assistant, Ms. Alice Lang, will be arriving there as planned... I have asked her ... to meet with him on my behalf.” =&gt;&nbsp;Here, <strong data-end=\"249\" data-start=\"242\">him</strong> refers to <strong data-end=\"276\" data-start=\"260\">Robert Bayer</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a33a4d23766e70025f2a142",
+          "questionText": "<p>Who will be the last person informed of the change of plans?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Celia Kelly",
+            "Robert Bayer",
+            "Andrew Mathers",
+            "Alice Lang"
+          ],
+          "correctOptions": [
+            "Robert Bayer"
+          ],
+          "transcript": "<ul data-end=\"646\" data-start=\"388\">\n\t<li data-end=\"428\" data-start=\"388\">Andrew is already aware of the change.</li>\n\t<li data-end=\"462\" data-start=\"429\">Celia Kelly receives this memo.</li>\n\t<li data-end=\"533\" data-start=\"463\">Alice Lang is informed because Andrew asks her to act on his behalf.</li>\n\t<li data-end=\"646\" data-start=\"534\">Andrew says Alice will contact Robert Bayer <strong data-end=\"603\" data-start=\"580\">as soon as possible</strong>, meaning Robert has not yet been informed.</li>\n</ul>\n\n<p data-end=\"708\" data-start=\"648\">=&gt; So <strong data-end=\"667\" data-start=\"651\">Robert Bayer</strong> will likely be the last person informed.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a33a4d23766e70025f2a143",
+          "questionText": "<p>Where will Andrew Mathers most likely be on Tuesday morning?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "San Francisco",
+            "Seoul",
+            "New York",
+            "Tokyo"
+          ],
+          "correctOptions": [
+            "Tokyo"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">Andrew writes:&nbsp;“I expect no difficulty in being present for the start of the Tokyo conference on Tuesday morning.” =&gt;&nbsp;Therefore, he plans to be in <strong data-end=\"969\" data-start=\"960\">Tokyo</strong> on Tuesday morning.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a33a4d23766e70025f2a144",
+          "questionText": "<p>Due to which of the following reasons is Andrew Mathers changing his plans?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "He didn't want to meet Robert Bayer.",
+            "He thinks Alice Lang can do a better job.",
+            "He decided to take a last minute vacation.",
+            "He has to attend an emergency meeting."
+          ],
+          "correctOptions": [
+            "He has to attend an emergency meeting."
+          ],
+          "transcript": "<p style=\"text-align: justify;\">The memo begins:&nbsp;“I have been unexpectedly called to an emergency meeting in Seoul this weekend...” =&gt;&nbsp;This is the reason he cannot follow his original schedule.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

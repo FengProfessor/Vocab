@@ -1,0 +1,330 @@
+{
+  "topicId": "615c198e65d71f3a51f6742d",
+  "name": "Test 20",
+  "slug": "test-20",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "615d0d6d65d71f3a51f6764b",
+      "questionText": "<b>You are Cordially Invited</b><br> Dogorail would like to invite its business associates to the 25th Dogorail Transport and Logistics Exhibition scheduled for November 9 to 11 in Prague. Dogorail will be displaying its products and services on the main floor of the Zidenic Convention Center ---1--- the three-day event. And there will be a special presentation by Dogorail CEO Miroslav Sergeyev on the final night. ---2---Representatives from Dogorail will be in attendance to assist visitors with their queries. Private ---3--- on any of our offerings are welcome if you wish to obtain advice about your particular requirements.<br> To confirm your attendance to this event, please return the enclosed form, ---4--- filled out and with your signature appended, on or before April 30.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d6d65d71f3a51f6764f",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) onto",
+            "(B) upon",
+            "(C) throughout",
+            "(D) outside"
+          ],
+          "correctOptions": [
+            "(C) throughout"
+          ],
+          "transcript": "<p>onto (prep):&nbsp;used to show movement into or on a particular place</p>\n\n<p>upon (prep):&nbsp;on</p>\n\n<p>throughout (prep):&nbsp;in or into every part of something</p>\n\n<p>outside (prep):&nbsp;not in a room, building or container but on or to the outside of it</p>\n\n<p>Based on the meaning of words. \"throughout the three-day event\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>onto (prep): lên trên</p>\n<p>upon (prep): ở trên, vào lúc</p>\n<p>throughout (prep): khắp, suốt</p>\n<p>outside (prep): bên ngoài</p>\n<p><strong>Tạm dịch:</strong> Dogorail will be displaying its products and services on the main floor of the Zidenic Convention Center throughout the three-day event.</p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f67650",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Dogorail products will be unveiled to event invitees once he has finished.",
+            "(B) He will be discussing the recent rail projects in Moldova, Bulgaria, and Greece.",
+            "(C) Requests to use a meeting room at the event must be submitted in advance.",
+            "(D) His special address has been arranged to begin at 9:00 a.m."
+          ],
+          "correctOptions": [
+            "(B) He will be discussing the recent rail projects in Moldova, Bulgaria, and Greece."
+          ],
+          "transcript": "<p>Based on the previous sentence \"And there will be a special presentation by Dogorail CEO Miroslav Sergeyev on the final night.\"</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n\n<p>&nbsp;</p>\n",
+          "explanationVi": "<p>(A) Các sản phẩm Dogorail sẽ được ra mắt cho những người được mời tham dự sự kiện sau khi anh ấy kết thúc.</p>\n<p>(B) Ông ấy sẽ thảo luận về các dự án đường sắt gần đây ở Moldova, Bulgaria và Hy Lạp.</p>\n<p>(C) Yêu cầu sử dụng phòng họp tại sự kiện phải được nộp trước.</p>\n<p>(D) Bài phát biểu đặc biệt của ông ấy đã được sắp xếp để bắt đầu lúc 9 giờ sáng.</p>\n<p>Câu liền trước đang nói về việc Dogorail CEO sẽ có bài phát biểu -&gt; câu tiếp theo cần đưa ra thông tin nội dung bài phát biểu về vấn đề gì.</p>\n<p>Không chọn câu D vì Dogorail CEO phát biểu vào đêm cuối cùng, không phải buổi sáng</p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f67651",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) occupations",
+            "(B) consultations",
+            "(C) dominions",
+            "(D) possessions"
+          ],
+          "correctOptions": [
+            "(B) consultations"
+          ],
+          "transcript": "<p>occupations (n): a person's job</p>\n\n<p>consultations (n):&nbsp;a meeting to discuss something or to get advice</p>\n\n<p>dominions (n): control over a country or people</p>\n\n<p>possessions (n): the fact that you have or own something</p>\n\n<p>Based on the meaning of the words</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>occupations (n): nghề nghiệp, sự chiếm đóng</p>\n<p>consultations (n): sự hỏi ý kiến</p>\n<p>dominions (n): sự thống trị, lãnh địa</p>\n<p>possessions (n): quyền sở hữu</p>\n<p><strong>Tạm dịch:</strong>&nbsp;Chúng tôi hoan nghênh tư vấn riêng về bất kỳ dịch vụ nào của chúng tôi nếu bạn muốn nhận được lời khuyên về các yêu cầu cụ thể của mình.</p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f67652",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) primarily",
+            "(B) fluently",
+            "(C) fully",
+            "(D) temporarily"
+          ],
+          "correctOptions": [
+            "(C) fully"
+          ],
+          "transcript": "<p>primarily (adv): mainly</p>\n\n<p>fluently (adv): speak or read easily, well, and quickly</p>\n\n<p>fully (adv): completely</p>\n\n<p>temporarily (adv): in a way that does not last for long or for ever</p>\n\n<p>the enclosed form =&gt; fully filled out</p>\n\n<p><strong>Choose C is correct</strong></p>\n",
+          "explanationVi": "<p>primarily (adv): cơ bản, chính</p>\n<p>fluently (adv): trôi chảy</p>\n<p>fully (adv): đầy đủ</p>\n<p>temporarily (adv): tạm thời</p>\n<p><strong>Tạm dịch: </strong>Để xác nhận việc bạn tham dự sự kiện này, vui lòng gửi lại biểu mẫu đính kèm, đã điền đầy đủ thông tin và có chữ ký kèm theo, vào hoặc trước ngày 30 tháng 4.</p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d6d65d71f3a51f6764c",
+      "questionText": "<p><br>\nApril 28<br>\nThe Missourian<br>\n438 East St. Louis Street<br>\nSpringfield, MO 65806<br>\n<br>\nTo the Editor:<br>\nI wish to point out an error in a recent article in your newspaper. Last week, it ---5--- that over a thousand workers could lose their jobs if Liberty Medical Group merges with Midland Health Services. This is untrue.<br>\nI would like to emphasize that ---6--- have not been completed. I can say this because I am involved in the talks on behalf of Liberty Medical Group. In addition, if these two organizations merge, they would be in a better position to create new employment opportunities. This is because a consolidated firm can ---7--- jobs that each of the companies would have been unable to offer on their own.<br>\nIt is our expectation that you will print a retraction. ---8---I am hoping for your immediate response.<br>\nSincerely,<br>\nAndrew Sweet<br>\nCompany spokesperson</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d6d65d71f3a51f67653",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) was reported",
+            "(B) is reported",
+            "(C) will report",
+            "(D) will be reported"
+          ],
+          "correctOptions": [
+            "(A) was reported"
+          ],
+          "transcript": "<p>\"last week\" is the signal of simple past</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>\"last week\" là dấu hiệu của thì quá khứ đơn</p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f67654",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) evaluations",
+            "(B) acquisitions",
+            "(C) assignments",
+            "(D) negotiations"
+          ],
+          "correctOptions": [
+            "(D) negotiations"
+          ],
+          "transcript": "<p>evaluations (n): the process of judging the quality, value of something</p>\n\n<p>acquisitions (n): the process of getting something</p>\n\n<p>assignments (n): a piece of work given to someone</p>\n\n<p>negotiations (n): formal discussion between people who are trying to reach an agreement</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>evaluations (n): sự đánh giá</p>\n<p>acquisitions (n): sự thu được</p>\n<p>assignments (n): nhiệm vụ được giao</p>\n<p>negotiations (n): sự thương lượng</p>\n<p><strong>Tạm dịch:</strong> Tôi muốn nhấn mạnh rằng các cuộc đàm phán vẫn chưa hoàn tất. Tôi có thể nói điều này vì tôi tham gia vào các cuộc đàm phán thay mặt cho Tập đoàn Y tế Liberty.</p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f67655",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) review",
+            "(B) generate",
+            "(C) perfect",
+            "(D) monitor"
+          ],
+          "correctOptions": [
+            "(B) generate"
+          ],
+          "transcript": "<p>review (v): to think or talk about something again</p>\n\n<p>generate (v): to cause something to exist</p>\n\n<p>perfect (adj): complete and correct in every way</p>\n\n<p>monitor (v): to watch and check something carefully over a period of time</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>review (v): xem xét lại</p>\n<p>generate (v): tạo ra</p>\n<p>perfect (adj): hoàn hảo</p>\n<p>monitor (v): theo dõi</p>\n<p><strong>Tạm dịch:</strong> Điều này là do một công ty hợp nhất có thể tạo ra việc làm mà mỗi công ty không thể tự cung cấp được.</p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f67656",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We will be holding a press conference regarding the recent merger.",
+            "(B) Midland Health Services will be closing its doors this month.",
+            "(C) This will correct any misunderstanding caused by your earlier article.",
+            "(D) This will reduce the number of employees in our establishment."
+          ],
+          "correctOptions": [
+            "(C) This will correct any misunderstanding caused by your earlier article."
+          ],
+          "transcript": "<p>Based on the previous sentence \"It is our expectation that you will print a retraction.\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>(A) Chúng tôi sẽ tổ chức một cuộc họp báo về việc sáp nhập gần đây.</p>\n<p>(B) Dịch vụ Y tế Midland sẽ đóng cửa trong tháng này.</p>\n<p>(C) Điều này sẽ khắc phục mọi hiểu lầm do bài viết trước đó của bạn gây ra.</p>\n<p>(D) Điều này sẽ làm giảm số lượng nhân viên trong cơ sở của chúng tôi.</p>\n<p>Dựa vào câu liền trước \"It is our expectation that you will print a retraction.\" (Chúng tôi mong rằng bạn sẽ in bản rút lại)</p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d6d65d71f3a51f6764d",
+      "questionText": "<p><br>\nTo: Margo Sloane [msloane@bowenassociates.com]<br>\nFrom: Jan Fitch [jfitch@bowenassociates.com]<br>\nSubject: Equipment delivery<br>\nDate: October 11<br>\n<br>\nMr. Jurgens at the new branch called to say that the office equipment we ordered from Filepros arrived on October 9. He and the technicians are now busy installing the machinery.<br>\nUnfortunately, I learned that the shipment of other items from Draper ---9--- longer. The earliest they can guarantee delivery is after October 16, which could force us to delay our opening to October 25. If management prefers, we can --10--- the order. I have asked Mr. Sampson, one of our suppliers, ---11--- if he can get the needed items at short notice. He understands the situation and has confirmed that he can obtain the materials immediately. ---12---. I will wait for Word from you regarding the Draper order and will keep sending you updates.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d6d65d71f3a51f67657",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) took",
+            "(B) takes",
+            "(C) had taken",
+            "(D) will take"
+          ],
+          "correctOptions": [
+            "(D) will take"
+          ],
+          "transcript": "<p>Use the simple future tense to talk about things that may happen in the future</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dùng thì tương lai đơn để nói về những việc có thể xảy ra trong tương lai</p>\n<p><strong>Tạm dịch:</strong> Thật không may, tôi được biết rằng việc vận chuyển các mặt hàng khác từ Draper sẽ mất nhiều thời gian hơn.</p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f67658",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) dispatch",
+            "(B) refund",
+            "(C) process",
+            "(D) cancel"
+          ],
+          "correctOptions": [
+            "(D) cancel"
+          ],
+          "transcript": "<p>dispatch (v): to send something</p>\n\n<p>refund (v): to pay back money received or spent</p>\n\n<p>process (v): to deal with something</p>\n\n<p>cancel (v): to decide that something that has been arranged will not happen</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>dispatch (v): gửi đi</p>\n<p>refund (v): hoàn tiền</p>\n<p>process (v): xử lý</p>\n<p>cancel (v): hủy bỏ</p>\n<p><strong>Tạm dịch: </strong>Thời gian sớm nhất họ có thể đảm bảo giao hàng là sau ngày 16 tháng 10, điều này có thể buộc chúng tôi phải trì hoãn việc khai trương đến ngày 25 tháng 10. Nếu ban quản lý muốn, chúng tôi có thể hủy đơn hàng.</p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f67659",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) to check",
+            "(B) checking",
+            "(C) checks",
+            "(D) checked"
+          ],
+          "correctOptions": [
+            "(A) to check"
+          ],
+          "transcript": "<p>Structure: <em>ask sb to do sth</em></p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Cấu trúc:</strong>&nbsp;<em>ask sb to do sth -&nbsp;</em>yêu cầu ai làm gì</p>\n<p><strong>Tạm dịch: </strong>Tôi đã yêu cầu ông Sampson, một trong những nhà cung cấp của chúng tôi, kiểm tra xem liệu ông ấy có thể nhận được những mặt hàng cần thiết trong thời gian ngắn hay không.</p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f6765a",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Meanwhile, we will order the equipment from another supplier.",
+            "(B) As a result, we had no choice but to announce a new opening date.",
+            "(C) Unfortunately, the items from Mr. Sampson will be delayed again.",
+            "(D) In other words, we will be able to get what we need on time."
+          ],
+          "correctOptions": [
+            "(D) In other words, we will be able to get what we need on time."
+          ],
+          "transcript": "<p>Based on the previous sentence \"He understands the situation and has confirmed that he can obtain the materials immediately.\"</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>(A) Trong khi đó, chúng tôi sẽ đặt hàng thiết bị từ nhà cung cấp khác.</p>\n<p>(B) Kết quả là chúng tôi không còn lựa chọn nào khác ngoài việc thông báo ngày khai trương mới.</p>\n<p>(C) Thật không may, các món hàng từ ông Sampson sẽ lại bị trì hoãn.</p>\n<p>(D) Nói cách khác, chúng ta sẽ có thể nhận được thứ chúng ta cần đúng lúc.</p>\n<p>Dựa vào nghĩa của câu trước:</p>\n<p><strong>Tạm dịch:</strong> Anh ấy hiểu rõ tình hình và đã xác nhận rằng anh ấy có thể lấy được hàng ngay lập tức. <em><strong>Nói cách khác, chúng ta sẽ có thể nhận được những gì chúng ta cần đúng hạn</strong></em>.</p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d6d65d71f3a51f6764e",
+      "questionText": "<p><br>\nGoldline Staffing is seeking payroll clerks for its rapidly expanding head office in Minneapolis. Candidates will be responsible for maintaining payroll data for up to 2,000 employees. As a result, they must be highly organized and able to perform ---13--- tasks at a proficient level. In addition, they must have working knowledge of word processing and accounting software ---14---<br>\nNewly hired employees will be placed in positions best suited to their educational background and experience. We have noted that most applicants ask if there are opportunities to gain new skills. ---15---. In fact, employee development is one of our key programs. --- 16---, appropriate training will be provided to all successful applicants.<br>\nTo apply, send your resume and other required documents to jobs@goldline.com.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d6d65d71f3a51f6765b",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) delegated",
+            "(B) devoted",
+            "(C) outdated",
+            "(D) confused"
+          ],
+          "correctOptions": [
+            "(A) delegated"
+          ],
+          "transcript": "<p>delegated (adj): be given a particular job, duty, right</p>\n\n<p>devoted (adj): extremely loving and loyal</p>\n\n<p>outdated (adj): no longer useful or modern</p>\n\n<p>confused (adj): not clear and therefore difficult to understand</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>delegated (adj): được giao</p>\n<p>devoted (adj): hết lòng</p>\n<p>outdated (adj): lỗi thời</p>\n<p>confused (adj): rối lên, lộn xộn</p>\n<p><strong>Tạm dịch:</strong> Các ứng viên sẽ chịu trách nhiệm duy trì dữ liệu bảng lương cho tối đa 2.000 nhân viên. Do đó, họ phải có tính tổ chức cao và có khả năng thực hiện thành thạo các nhiệm vụ được giao.</p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f6765c",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) just",
+            "(B) complete",
+            "(C) equal",
+            "(D) alike"
+          ],
+          "correctOptions": [
+            "(D) alike"
+          ],
+          "transcript": "<p>just (adv):&nbsp;now, very soon, or very recently</p>\n\n<p>complete (adj): very great or to the largest degree possible</p>\n\n<p>equal (adj): the same in amount, number, or size</p>\n\n<p>alike (adj): similar to each other</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>just (adv): đúng lúc, vừa mới</p>\n<p>complete (adj): đầy đủ, trọn vẹn</p>\n<p>equal (adj): bằng</p>\n<p>alike (adj): giống nhau; tương tự</p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f6765d",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We appreciate this attitude and wish to provide the needed support.",
+            "(B) Pleasing our customers is just one of the company’s many goals.",
+            "(C) The number of employees on our payroll is likely to decrease.",
+            "(D) There is an increasing need for staff who have already had training."
+          ],
+          "correctOptions": [
+            "(A) We appreciate this attitude and wish to provide the needed support."
+          ],
+          "transcript": "<p>Based on the previous sentence \"We have noted that most applicants ask if there are opportunities to gain new skills.\"</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>(A) Chúng tôi đánh giá cao thái độ này và mong muốn cung cấp sự hỗ trợ cần thiết.</p>\n<p>(B) Làm hài lòng khách hàng chỉ là một trong nhiều mục tiêu của công ty.</p>\n<p>(C) Số lượng nhân viên trong bảng lương của chúng tôi có thể sẽ giảm.</p>\n<p>(D) Nhu cầu về nhân viên đã được đào tạo ngày càng tăng.</p>\n<p>Dựa vào câu liền trước</p>\n<p><strong>Tạm dịch:</strong> Chúng tôi nhận thấy rằng hầu hết người nộp đơn đều hỏi liệu có cơ hội để đạt được các kỹ năng mới hay không. <strong><em>Chúng tôi đánh giá cao thái độ này và mong muốn cung cấp sự hỗ trợ cần thiết.</em></strong></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "615d0d6d65d71f3a51f6765e",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In short",
+            "(B) Furthermore",
+            "(C) Consequently",
+            "(D) On the other hand"
+          ],
+          "correctOptions": [
+            "(C) Consequently"
+          ],
+          "transcript": "<p>Use an adverbs of result.</p>\n\n<p>Consequently = as a result</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Cần sử dụng một trạng từ liên kết chỉ kết quả</p>\n<p>Consequently (adv): do đó</p>\n<p><strong>Tạm dịch: </strong>Trên thực tế, phát triển nhân viên là một trong những chương trình trọng điểm của chúng tôi. <strong>Do đó</strong>, tất cả các ứng viên thành công sẽ được đào tạo phù hợp.</p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    }
+  ]
+}

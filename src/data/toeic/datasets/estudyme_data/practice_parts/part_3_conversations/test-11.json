@@ -1,0 +1,829 @@
+{
+  "topicId": "62fa09705948b5402da82f6d",
+  "name": "Test 11",
+  "slug": "test-11",
+  "part": "part_3_conversations",
+  "totalQuestions": 39,
+  "totalCards": 13,
+  "cards": [
+    {
+      "id": "62fa27835948b5402da82f75",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/17653695.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nW: Hello, Mr. Sanders. This is Julie Maple calling. I contacted you by e-mail this morning about a condo I&#39;d like to look at. Do you have time to show me the place today?<br />\nM: I sure do, Ms. Maple. You mentioned you&rsquo;d prefer to check it out around 3:30. Is that time still satisfactory for you?<br />\nW: Oh, no, it isn&rsquo;t. I&rsquo;ve got a meeting scheduled at 4:00, so I&rsquo;d like to see the place around 2:00 instead. That should give me plenty of time to check out the property.<br />\nM: Fortunately, I&#39;ve got time then, so I can comply with your request. Why don&#39;t we meet at 52 Jackson Avenue at that time?</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nW: Xin chào, ông Sanders. Tôi là Julie Maple. Tôi đã liên lạc với ông qua email sáng nay về một căn hộ chung cư mà tôi muốn xem. Hôm nay ông có thời gian để dẫn tôi đi xem căn hộ này không?<br />\nM: Tôi có, thưa bà Maple. Bà đã đề cập rằng bà muốn xem căn hộ vào khoảng 3:30. Bà vẫn thấy thời gian đó ổn chứ?<br />\nW: Ồ, không, không ổn. Tôi có một cuộc họp được lên lịch lúc 4:00, vì vậy tôi muốn xem căn hộ vào khoảng 2:00. Như vậy tôi sẽ có đủ thời gian để xem căn hộ.<br />\nM: May mắn thay, tôi rảnh trong khoảng thời gian đó, vì vậy tôi có thể dẫn bà đi xem căn hộ. Chúng ta hãy gặp nhau tại 52 Jackson Avenue vào thời điểm đó, được chứ?</p>\n\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f82",
+          "questionText": "Who most likely is the man?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A real estate agent",
+            "(B) A tour guide",
+            "(C) A travel agent",
+            "(D) An airline employee"
+          ],
+          "correctOptions": [
+            "(A) A real estate agent"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f83",
+          "questionText": "What does the woman want to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Sign a contract",
+            "(B) Look at a home",
+            "(C) Furnish her office",
+            "(D) Make an order"
+          ],
+          "correctOptions": [
+            "(B) Look at a home"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f84",
+          "questionText": "When are the speakers going to meet?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At 2:00",
+            "(B) At 3:30",
+            "(C) At 4:00",
+            "(D) At 5:20"
+          ],
+          "correctOptions": [
+            "(A) At 2:00"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f76",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/74613611.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nM: I&#39;m pleased we finally completed the interviews with the job candidates. I had no idea they were going to take nearly the entire day.<br />\nW: I know what you mean. I was on the intern search committee last year, and the interviews only required about half the time that this year&rsquo;s did. So which of the applicants did you like the most? I thought Sarah Carpenter was impressive and believe we should strongly consider her for a position.<br />\nM: She&rsquo;s definitely one of the leading candidates in my mind. We&rsquo;ll have to be sure to invite her back to conduct a second interview.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nM: Tôi rất vui vì cuối cùng chúng ta đã hoàn tất các cuộc phỏng vấn với các ứng viên xin việc. Tôi không biết rằng việc này sẽ kéo dài gần như cả ngày.<br />\nW: Tôi hiểu ý anh. Tôi đã tham gia ủy ban tìm kiếm thực tập sinh vào năm ngoái và các cuộc phỏng vấn chỉ mất khoảng một nửa thời gian so với năm nay. Vậy anh thích ứng viên nào nhất? Tôi nghĩ Sarah Carpenter rất ấn tượng và tin rằng chúng ta nên cân nhắc kỹ lưỡng cô ấy cho một số vị trí.<br />\nM: Cô ấy chắc chắn là một trong những ứng viên hàng đầu theo đánh giá của tôi. Chúng ta sẽ phải chắc chắn có thể mời cô ấy quay lại để tiến hành cuộc phỏng vấn thứ hai.</p>\n\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f85",
+          "questionText": "What are the speakers discussing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The company’s new interns",
+            "(B) Their feelings about their new boss",
+            "(C) The performance of another employee",
+            "(D) The results of some interviews"
+          ],
+          "correctOptions": [
+            "(D) The results of some interviews"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f86",
+          "questionText": "What does the woman say about last year’s activities?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They took less time to finish.",
+            "(B) They had better applicants.",
+            "(C) They required two days to complete.",
+            "(D) They were difficult to conduct."
+          ],
+          "correctOptions": [
+            "(A) They took less time to finish."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f87",
+          "questionText": "What is the man’s opinion of Sarah Carpenter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She should be hired immediately.",
+            "(B) She is worth being interviewed again.",
+            "(C) She performed better than he had expected.",
+            "(D) She was the best of all the job candidates."
+          ],
+          "correctOptions": [
+            "(B) She is worth being interviewed again."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f77",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/39711879.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nM: Lara, how is the work on the redesign of the Fargo Building progressing? Do you think that you&rsquo;re going to be able to finish everything by tomorrow&rsquo;s deadline?<br />\nW: I&rsquo;m afraid not, Mr. Ito. The work is taking much longer than I expected it to. However, I&#39;ve started making good progress, so I am positive that I can submit the blueprints to you no later than noon on Friday.<br />\nM: All right. I&rsquo;ll call the client now and request an extension. But you had better finish everything by the new due date. The client is eager to get a look at the plans, and I don&rsquo;t want to disappoint him.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br /> \nM: Lara, tiến độ công việc thiết kế lại Tòa nhà Fargo thế nào rồi? Cô có nghĩ rằng mình có thể hoàn thành mọi thứ trước thời hạn ngày mai không?<br />\nW: Tôi e là không, ông Ito à. Công việc mất nhiều thời gian hơn tôi nghĩ. Tuy nhiên, tiến độ công việc đã tiến triển nhanh hơn, vì vậy tôi chắc chắn rằng tôi có thể nộp bản thiết kế cho ông chậm nhất là trưa thứ Sáu.<br />\nM: Được rồi. Tôi sẽ gọi cho khách hàng ngay bây giờ và yêu cầu gia hạn. Nhưng tốt hơn là cô nên hoàn thành mọi thứ trước thời hạn đã gia hạn. Khách hàng rất muốn xem bản thiết kế và tôi không muốn làm ông ấy thất vọng.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f88",
+          "questionText": "What are the speakers mainly discussing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The results of a test",
+            "(B) A design the man finished",
+            "(C) A report the woman wrote",
+            "(D) The due date for a project"
+          ],
+          "correctOptions": [
+            "(D) The due date for a project"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f89",
+          "questionText": "Where most likely do the speakers work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a construction company",
+            "(B) At an architectural firm",
+            "(C) At a home decorating firm",
+            "(D) At a computer design company"
+          ],
+          "correctOptions": [
+            "(B) At an architectural firm"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f8a",
+          "questionText": "What does the woman mention about her work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She needs someone else to help her with it.",
+            "(B) She is unable to finish it by tomorrow.",
+            "(C) She wants to speak to the client about it.",
+            "(D) She requires a larger budget to complete it."
+          ],
+          "correctOptions": [
+            "(B) She is unable to finish it by tomorrow."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f78",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/85942708.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nM: Did you happen to read the news about promotions on the bulletin board? The list was just posted a few minutes ago. I can&rsquo;t believe Alice Milton got promoted to director.<br />\nW: You&rsquo;ve got to be kidding me. I heard she was probably going to get transferred to another branch or maybe even fired. Do you mean she&rsquo;s going to be our boss now?<br />\nM: That&rsquo;s right. According to what I read, her promotion won&rsquo;t go into effect for another month though. I&#39;m considering making a request to transfer to another office.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nM: Cô có tình cờ đọc tin tức về việc thăng chức trên bảng tin không? Danh sách vừa được đăng cách đây vài phút. Tôi không thể tin là Alice Milton được thăng chức lên giám đốc.<br />\nW: Anh đang đùa tôi đấy à. Tôi nghe nói cô ấy có thể sẽ được chuyển đến một chi nhánh khác hoặc thậm chí có thể bị sa thải. Ý anh là giờ cô ấy sẽ trở thành sếp của chúng ta à?<br />\nM: Đúng vậy. Theo những gì tôi đọc được, việc thăng chức của cô ấy sẽ bắt đầu có hiệu lực từ tháng sau. Tôi đang cân nhắc việc yêu cầu chuyển sang một văn phòng khác.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f8b",
+          "questionText": "What is being discussed?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The promotion of a colleague",
+            "(B) The opening of another branch",
+            "(C) A special offer at a store",
+            "(D) How to request a transfer"
+          ],
+          "correctOptions": [
+            "(A) The promotion of a colleague"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f8c",
+          "questionText": "What do the speakers say about Alice Milton?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is the company's new CEO.",
+            "(B) She recently transferred from another branch.",
+            "(C) She was fired from her previous job.",
+            "(D) She is going to be their supervisor."
+          ],
+          "correctOptions": [
+            "(D) She is going to be their supervisor."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f8d",
+          "questionText": "How does the man feel?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is worried about his job.",
+            "(B) He is nervous about what is happening.",
+            "(C) He is displeased with the news.",
+            "(D) He is satisfied with the results."
+          ],
+          "correctOptions": [
+            "(C) He is displeased with the news."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f79",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/99177171.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nW: Good morning. What can I assist you with today, sir?<br />\nM: I&rsquo;d like to open a checking account. How can I go about doing that?<br />\nW: It&rsquo;s a very simple process. First, you have to fill out this form here, and then you need to show me two forms of identification.<br />\nM: Should both of them be picture IDs? I&#39;ve only got my driver&rsquo;s license with me.<br />\nW: One has to have a picture, but the other can be something such as a library card. Would you happen to have a bill with your name and address on it as well?<br />\nM: Yes, I do. Here&rsquo;s my most recent electricity bill<br />\nW: Thank you very much.<br />\nM: You&#39;re welcome. All right, let me complete the form right now.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nW: Chào buổi sáng. Hôm nay tôi có thể giúp gì cho ông?<br />\nM: Tôi muốn mở một tài khoản thanh toán. Tôi có thể làm như thế nào?<br />\nW: Đây là một quy trình rất đơn giản. Đầu tiên, ông phải điền vào mẫu đơn này ở đây, sau đó ông cần cho tôi xem hai loại giấy tờ tùy thân.<br />\nM: Cả hai đều phải là giấy tờ tùy thân có ảnh sao? Tôi chỉ mang theo bằng lái xe.<br />\nW: Một loại phải có ảnh, nhưng loại còn lại có thể là thứ gì đó như thẻ thư viện. Ông có hóa đơn ghi tên và địa chỉ của mình không?<br />\nM: Có, tôi có. Đây là hóa đơn tiền điện gần đây nhất của tôi<br />\nW: Cảm ơn ông rất nhiều.<br />\nM: Không có gì. Được rồi, tôi sẽ điền vào mẫu đơn ngay bây giờ.</p>\n\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f8e",
+          "questionText": "Where does the conversation take place?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In a library",
+            "(B) At a bank",
+            "(C) At a school",
+            "(D) At a driver's license testing center"
+          ],
+          "correctOptions": [
+            "(B) At a bank"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f8f",
+          "questionText": "What kind of identification does the woman suggest?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A passport",
+            "(B) A driver's license",
+            "(C) A library card",
+            "(D) A student ID card"
+          ],
+          "correctOptions": [
+            "(C) A library card"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f90",
+          "questionText": "What does the man give the woman?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A utilities bill",
+            "(B) A registration form",
+            "(C) A copy of his lease",
+            "(D) A canceled check"
+          ],
+          "correctOptions": [
+            "(A) A utilities bill"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f7a",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/87169693.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nW: Did you attend last night&rsquo;s awards ceremony?<br />\nM: I had planned to go, but I needed to work late to complete the budget reports for tomorrow&rsquo;s meeting.<br />\nW: That&rsquo;s a shame. It was the most surprising event I&rsquo;ve attended in my five years here.<br />\nM: You can say that again. I heard about it from Steve Burgess. In the IT Department. He dropped by this morning to inform me about what happened.<br />\nW: Can you believe Andrew Simmons won the Employee of the Year award?<br />\nM: I was positive Emily Hargraves was going to be the winner. What did Andrew do to deserve it?<br />\nW: There&rsquo;s a rumor going around that he just landed a multimillion dollar contract. There hasn&rsquo;t been an official announcement though.<br />\nM: If that&rsquo;s true, that would explain everything.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nW: Anh có tham dự lễ trao giải tối qua không?<br />\nM: Tôi đã định đi, nhưng tôi cần phải tan làm muộn để hoàn thành báo cáo ngân sách cho cuộc họp ngày mai.<br />\nW: Thật đáng tiếc. Đó là sự kiện bất ngờ nhất mà tôi từng tham dự trong năm năm làm việc ở đây.<br />\nM: Cô có thể kể cho tôi nghe lần nữa. Tôi đã nghe từ Steve Burgess rồi. Bên Phòng CNTT ấy, anh ấy ghé qua sáng nay để cho tôi biết về những gì đã xảy ra.<br />\nW: Anh có tin Andrew Simmons đã giành giải Nhân viên của năm không?<br />\nM: Tôi đã tin rằng Emily Hargraves sẽ là người chiến thắng. Andrew đã làm gì để xứng đáng với giải thưởng này vậy?<br />\nW: Có tin đồn rằng anh ta vừa ký được hợp đồng trị giá hàng triệu đô la. Tuy nhiên vẫn chưa có thông báo chính thức nào cả.<br />\nM: Nếu đúng như vậy thì quá rõ ràng rồi.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f91",
+          "questionText": "Why does the man say, “You can say that again”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To express his agreement with the woman",
+            "(B) To confirm that a person made a mistake",
+            "(C) To ask the woman to repeat her previous comment",
+            "(D) To express his desire to have attended the ceremony"
+          ],
+          "correctOptions": [
+            "(A) To express his agreement with the woman"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f92",
+          "questionText": "Why are the speakers surprised?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A company event was canceled on short notice.",
+            "(B) Someone they did not expect won an award.",
+            "(C) The company failed to land a new contract.",
+            "(D) A person in the IT Department made a mistake."
+          ],
+          "correctOptions": [
+            "(B) Someone they did not expect won an award."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f93",
+          "questionText": "What does the woman say about Andrew Simmons?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He resigned to work at a rival firm.",
+            "(B) He won a million dollars in the lottery.",
+            "(C) He announced that he just signed a big contract.",
+            "(D) He was the winner of an award at the company."
+          ],
+          "correctOptions": [
+            "(D) He was the winner of an award at the company."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f7b",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/23947085.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nM: Good evening. I wonder if you can give me some assistance.<br />\nW: I&rsquo;ll do my best, sir. What do you require help with?<br />\nM: I received this shirt as a birthday present yesterday, but it&rsquo;s not really my style. Would it be possible to exchange it for something else?<br />\nW: You didn&rsquo;t take it out of the original plastic wrapping, right?<br />\nM: Yeah, that&#39;s correct. But because it was a gift, I don&rsquo;t have the receipt. I&rsquo;m really sorry about that.<br />\nW: That&rsquo;s perfectly all right. We handle requests like this on occasion. And since I know that the shirt was sold here, I&rsquo;m permitted to let you exchange it for something else costing the same price or lower.<br />\nM: That&rsquo;s great news. Can you show me where the men&rsquo;s shirts are, please?</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> \nM: Chào buổi tối. Tôi tự hỏi liệu cô có thể giúp tôi một chút không.<br />\nW: Tôi sẽ cố gắng hết sức, thưa ông. Ông cần giúp đỡ gì?<br />\nM: Tôi nhận được chiếc áo sơ mi này làm quà sinh nhật hôm qua, nhưng nó không thực sự hợp với phong cách của tôi. Tôi có thể đổi nó lấy thứ khác không?<br />\nW: Ông vẫn chưa lấy chiếc áo ra khỏi lớp bọc nhựa ban đầu, đúng chứ?<br />\nM: Đúng vậy. Nhưng vì đó là quà tặng nên tôi không có biên lai. Tôi thực sự xin lỗi về điều đó.<br />\nW: Không sao hết. Thỉnh thoảng chúng tôi cũng xử lý các yêu cầu như thế này. Và vì chiếc áo sơ mi đó chắc chắn được bán ở đây, ông có thể đổi nó lấy mặt hàng khác có giá tương đương hoặc thấp hơn.<br />\nM: Thật tuyệt. Cô có thể chỉ cho tôi chỗ trưng bày áo sơ mi nam không?</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f94",
+          "questionText": "Why is the man asking for assistance?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He would like to get his money back.",
+            "(B) He is interested in exchanging something.",
+            "(C) He wants to buy a present for a friend.",
+            "(D) He cannot find a shirt that he is looking for."
+          ],
+          "correctOptions": [
+            "(B) He is interested in exchanging something."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f95",
+          "questionText": "Why does the man dislike the item?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It does not fit him well.",
+            "(B) The sleeves are too short.",
+            "(C) The style does not suit him.",
+            "(D) It is too formal."
+          ],
+          "correctOptions": [
+            "(C) The style does not suit him."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f96",
+          "questionText": "What will the speakers probably do next?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Process a refund",
+            "(B) Look at some clothes",
+            "(C) Open the plastic wrapping",
+            "(D) Search for the receipt"
+          ],
+          "correctOptions": [
+            "(B) Look at some clothes"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f7c",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/18942437.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nM1: I&#39;m nervous about the new boss we&rsquo;re getting tomorrow. Have either of you met him?<br />\nW: I had lunch with Dave Thompson last week.<br />\nM2: What was your impression of him?<br />\nM1: Yeah, what was he like? Do you think he&#39;ll make a good boss?<br />\nW: It&rsquo;s hard to tell.<br />\nM2: How come?<br />\nW: He didn&rsquo;t say much at all. There were four of us dining together, but he mostly sat quietly and listened to us talk.<br />\nM1: I heard he&rsquo;s planning to restructure the department and that there might be layoffs.<br />\nM2: I hope your news is wrong, but I&rsquo;m afraid you&rsquo;re right. Still, none of us has been performing up to expectations lately, so it makes sense that he&rsquo;s coming here to shake things up.<br />\nW: And that&rsquo;s why all of us are worried.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br /> \nM1: Tôi lo lắng về ông chủ mới của chúng ta, người sẽ đến vào ngày mai. Hai người đã gặp ông ấy chưa?<br />\nW: Tôi đã ăn trưa với Dave Thompson tuần trước.<br />\nM2: Cô có ấn tượng gì về ông ấy?<br />\nM1: Đúng vậy, ông ấy như thế nào? Cô có nghĩ ông ấy sẽ là một ông chủ tốt không?<br />\nW: Khó mà biết được.<br />\nM2: Tại sao vậy?<br />\nW: Ông ấy không nói gì nhiều. Bốn người chúng tôi ăn tối cùng nhau, nhưng ông ấy chủ yếu ngồi im lặng và lắng nghe chúng tôi nói chuyện.<br />\nM1: Tôi nghe nói ông ấy đang có kế hoạch tái cấu trúc bộ phận và có thể sẽ có đợt sa thải.<br />\nM2: Tôi hy vọng tin tức đó là sai, nhưng tôi e là anh đã đúng. Tuy nhiên, thời gian gần đây không ai trong số chúng ta đạt được hiệu suất như kỳ vọng, vì vậy, việc ông ấy đến đây để thay đổi mọi thứ là điều dễ hiểu.<br />\nW: Và đó là lý do tại sao tất cả chúng ta đều lo lắng.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f97",
+          "questionText": "What are the speakers mainly discussing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Their work performance",
+            "(B) A recent lunch meeting",
+            "(C) An incoming supervisor",
+            "(D) The restructuring of a department"
+          ],
+          "correctOptions": [
+            "(C) An incoming supervisor"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f98",
+          "questionText": "What does the woman mean when she says, “It’s hard to tell”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She does not want to answer the question.",
+            "(B) She is not sure what Mr. Thompson will be like.",
+            "(C) She is not allowed to tell the men anything.",
+            "(D) She is not sure when she will meet Mr. Thompson."
+          ],
+          "correctOptions": [
+            "(B) She is not sure what Mr. Thompson will be like."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f99",
+          "questionText": "What are the speakers concerned about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The employees may have their salaries reduced.",
+            "(B) They are in danger of getting demoted.",
+            "(C) None of the employees will receive bonuses.",
+            "(D) Some of them might lose their jobs soon."
+          ],
+          "correctOptions": [
+            "(D) Some of them might lose their jobs soon."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f7d",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/17118169.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nM: Good afternoon. Is this the number I should call regarding subscriptions to the Daily Herald?<br />\nW: That&#39;s correct, sir. Are you interested in subscribing to the paper?<br />\nM: Actually, I already get the newspaper delivered to my home each day, but my subscription is about to expire, and I&rsquo;d like to renew it. My name is Charles Anderson.<br />\nW: Okay... Are you the Charles Anderson living at 58 Oak Street?<br />\nM: That&rsquo;s right. I&rsquo;d like to receive the paper for six more months, please.<br />\nW: No problem, Mr. Anderson. You know, we&rsquo;re running a special offer this month only. If you renew for one year, it will cost the same as it would if you paid for eight months. Are you interested?<br />\nM: That&#39;s a pretty good deal. How about signing me up for it, please?</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nM: Chào buổi chiều. Đây có phải là số tôi cần gọi để đăng ký mua báo Daily Herald không?<br />\nW: Đúng rồi, thưa ông. Ông có muốn đăng ký mua báo không?<br />\nM: Thực ra, tôi đã đặt dịch vụ giao báo đến tận nhà mỗi ngày, nhưng thời hạn đăng ký của tôi sắp hết hạn và tôi muốn gia hạn. Tôi tên là Charles Anderson.<br />\nW: Được rồi... Ông có phải là Charles Anderson sống tại số 58 phố Oak không?<br />\nM: Đúng rồi. Tôi muốn nhận báo thêm sáu tháng nữa, làm ơn.<br />\nW: Được thôi, ông Anderson. Ông biết đấy, chúng tôi đang có chương trình khuyến mại đặc biệt chỉ trong tháng này. Nếu ông gia hạn thêm một năm, chi phí sẽ bằng với chi phí ông trả cho tám tháng. Ông có hứng thú không?<br />\nM: Đó là một ưu đãi khá tốt. Làm ơn đăng ký cho tôi nhé?</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f9a",
+          "questionText": "Why does the man call the woman?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To cancel his order",
+            "(B) To complain about a missing delivery",
+            "(C) To renew his subscription",
+            "(D) To find out how to pay a bill"
+          ],
+          "correctOptions": [
+            "(C) To renew his subscription"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f9b",
+          "questionText": "Why does the woman say the man’s address?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To confirm his identity",
+            "(B) To find out where to send his order",
+            "(C) To make sure she knows his new address",
+            "(D) To ask where to mail a bill"
+          ],
+          "correctOptions": [
+            "(A) To confirm his identity"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f9c",
+          "questionText": "What does the woman tell the man about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A free magazine",
+            "(B) A discounted price",
+            "(C) An online service",
+            "(D) A complimentary gift"
+          ],
+          "correctOptions": [
+            "(B) A discounted price"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f7e",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/63251110.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nW: Do you know why the shipment from Dyson Manufacturing has failed to arrive yet?<br />\nM: I called Mr. Sykes this morning, and he explained the problem to me.<br />\nW: Yes?<br />\nM: Apparently, there was a bad snowstorm in Montana last week, so no trucks were able to leave the factory for three days.<br />\nW: Did he indicate when our shipment is going to make it here?<br />\nM: He informed me that he spoke with the driver and that we can expect it first thing tomorrow morning.<br />\nW: That&rsquo;s a relief. Without the items in that delivery, we will have to shut down the assembly lines. Would you mind calling him back to confirm when the products are arriving?<br />\nM: Not at all. I can give him a call once I return to my office.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nW: Anh có biết tại sao lô hàng từ Dyson Manufacturing vẫn chưa được giao đến không?<br />\nM: Tôi đã gọi cho ông Sykes sáng nay và ông ấy đã giải thích vấn đề cho tôi.<br />\nW: Vâng?<br />\nM: Có vẻ như tuần trước có một trận bão tuyết lớn ở Montana nên không có xe tải nào có thể rời khỏi nhà máy trong vòng ba ngày đó.<br />\nW: Ông ấy có cho biết khi nào lô hàng của chúng ta sẽ đến không?<br />\nM: Ông ấy thông báo rằng ông ấy đã nói chuyện với tài xế và lô hàng có thể đến vào sáng sớm mai.<br />\nW: Thật nhẹ nhõm. Nếu không có các mặt hàng trong lô hàng đó, chúng ta sẽ phải đóng cửa dây chuyền lắp ráp. Anh có thể gọi lại cho ông ấy để xác nhận thời điểm chính xác mà sản phẩm sẽ đến chứ?<br />\nM: Được thôi. Tôi có thể gọi điện cho ông ấy sau khi tôi trở về văn phòng.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82f9d",
+          "questionText": "What is the problem?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Some parts that were delivered were poorly made.",
+            "(B) A shipment was sent late due to the weather.",
+            "(C) A snowstorm kept employees from getting to work.",
+            "(D) The assembly line was shut down for three days."
+          ],
+          "correctOptions": [
+            "(B) A shipment was sent late due to the weather."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f9e",
+          "questionText": "Why does the woman say, “That’s a relief”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To request that the man double-check the results",
+            "(B) To show that she is pleased with the man’s comment",
+            "(C) To express her disappointment with some news",
+            "(D) To state that there is nothing she can do about a problem"
+          ],
+          "correctOptions": [
+            "(B) To show that she is pleased with the man’s comment"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82f9f",
+          "questionText": "What does the woman request that the man do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Get in touch with a supplier",
+            "(B) Renegotiate a contract",
+            "(C) Contact the post office",
+            "(D) Speak to the assembly line workers"
+          ],
+          "correctOptions": [
+            "(A) Get in touch with a supplier"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f7f",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/69728734.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nW1: I&rsquo;ve considered all the proposals, but I can&rsquo;t make up my mind. Which vendor should we hire?<br />\nM I&rsquo;m in favor of selecting the Powell Corporation.<br />\nW2:Why?<br />\nM: It has a proven track record of providing outstanding customer support. If anything goes wrong, Powell will handle it immediately.<br />\nW1: That&#39;s a strong endorsement. Have you worked with Powell before?<br />\nM: Not personally. However, I know people who have, and they&rsquo;re unanimous in praising the company&rsquo;s dedication to service.<br />\nW2: Well, I think we should go with the BYR Company. Its prices are the lowest, and we have financial constraints to worry about.<br />\nW1: Hmm... You&#39;re right about that. Let me think about everything for a while. I&#39;ll inform you of my choice by 5:00 P.M.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nW1: Tôi đã cân nhắc tất cả các đề xuất, nhưng tôi không thể đưa ra quyết định. Chúng ta nên thuê nhà cung cấp nào đây?<br />\nM: Tôi ủng hộ việc chọn Powell Corporation. <br />\nW2: Tại sao vậy?<br />\nM: Công ty này có thành tích thực tế về cung cấp dịch vụ hỗ trợ khách hàng xuất sắc. Nếu có bất kỳ vấn đề gì xảy ra, Powell sẽ xử lý ngay lập tức.<br />\nW1: Đó là một sự minh chứng mạnh mẽ. Anh đã từng làm việc với Powell chưa?<br />\nM: Cá nhân tôi thì chưa. Tuy nhiên, tôi biết những người đã từng làm việc với Powell và họ đều nhất trí khen ngợi sự tận tâm của công ty đối với dịch vụ của họ.<br />\nW2: Chà, còn tôi lại nghĩ chúng ta nên chọn Công ty BYR. Giá của công ty này thấp nhất mà chúng ta lại đang phải lo lắng về những hạn chế về tài chính.<br />\nW1: Ừm... Cô nói đúng về điều đó. Để tôi suy nghĩ về mọi thứ một lúc. Tôi sẽ thông báo cho mọi người về lựa chọn của tôi trước 5:00 chiều.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82fa0",
+          "questionText": "What is being discussed?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) How to attract more customers",
+            "(B) Which individuals gave good interviews",
+            "(C) Which company should be selected",
+            "(D) What should be said in a proposal"
+          ],
+          "correctOptions": [
+            "(C) Which company should be selected"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82fa1",
+          "questionText": "What does the man say about the Powell Corporation?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It provides good support to its customers.",
+            "(B) He has worked with the company in the past.",
+            "(C) The prices it offers are lower than its competitors’.",
+            "(D) The company is having financial difficulties."
+          ],
+          "correctOptions": [
+            "(A) It provides good support to its customers."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82fa2",
+          "questionText": "What will happen at 5:00 P.M.?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A presentation will be given.",
+            "(B) A decision will be made.",
+            "(C) An interview will be scheduled.",
+            "(D) A contract will be signed."
+          ],
+          "correctOptions": [
+            "(B) A decision will be made."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f80",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/19/29694922.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/97889957.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nM: Excuse me. I&rsquo;m looking to buy a blender.<br />\nW: The top-of-the-line model is this one here by Nelson Electronics. However, unless you&rsquo;re employed as a cook, you probably don&rsquo;t need it. It&rsquo;s also a bit pricy.<br />\nM: I intend to use it a couple of times each week, so it doesn&#39;t need to be anything special.<br />\nW: In that case, I recommend this one. It&rsquo;s our bestselling blender.<br />\nM: It looks fine, and the price isn&rsquo;t too bad either.<br />\nW: Just so you know, we&rsquo;ve got a special sale going on at the moment. Depending upon how much money you spend, you can get anywhere between five and twenty- percent off.<br />\nM: Sounds great. So how much of a discount will I get for buying this one?<br />\nW: You&#39;ll receive an extra fifteen percent off.<br />\nM: Excellent.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nM: Xin lỗi. Tôi đang muốn mua một chiếc máy xay sinh tố.<br />\nW: Mẫu máy cao cấp nhất là mẫu này của Nelson Electronics. Tuy nhiên, trừ khi anh làm nghề đầu bếp, anh có thể không cần đến nó. Giá của nó cũng hơi đắt.<br />\nM: Tôi định dùng nó vài lần mỗi tuần, nên không cần phải có gì đặc biệt.<br />\nW: Trong trường hợp đó, tôi khuyên anh nên dùng mẫu này. Đây là máy xay sinh tố bán chạy nhất của chúng tôi.<br />\nM: Trông nó ổn, và giá cũng không quá tệ.<br />\nW: Không biết anh đã biết về chương trình giảm giá đặc biệt của chúng tôi chưa. Tùy thuộc vào giá trị đơn hàng, anh có thể được giảm giá từ năm đến hai mươi phần trăm.<br />\nM: Nghe có vẻ tuyệt đấy. Vậy tôi sẽ được giảm giá bao nhiêu khi mua sản phẩm này?<br />\nW: Anh sẽ được giảm thêm mười lăm phần trăm.<br />\nM: Tuyệt vời.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82fa3",
+          "questionText": "What does the woman indicate about the blender by Nelson Electronics?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is the store’s bestselling model.",
+            "(B) It costs less than other blenders.",
+            "(C) It is useful for professional chefs.",
+            "(D) It comes with a money-back guarantee."
+          ],
+          "correctOptions": [
+            "(C) It is useful for professional chefs."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82fa4",
+          "questionText": "How often will the man use his blender?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Every day",
+            "(B) Two or three times a week",
+            "(C) Once or twice a month",
+            "(D) Only on special occasions"
+          ],
+          "correctOptions": [
+            "(B) Two or three times a week"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82fa5",
+          "questionText": "Look at the graphic. How much will the man spend on the item?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "$1-$50",
+            "$51-$100",
+            "$101-$200",
+            "$201 or more"
+          ],
+          "correctOptions": [
+            "$101-$200"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fa27835948b5402da82f81",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/19/63730741.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/16/51806387.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript</strong>:<br /> \nM: What a great speech that Dr. Apu just gave. I&rsquo;m glad I decided to attend it at the last moment.<br />\nW: I fully agree with you. His discussion on those new medical procedures was quite instructive.<br />\nM: So, uh, what are you planning to do next?<br />\nW: I&rsquo;m attending the speech by Dr. Archer. He&rsquo;s a world- renowned expert on vaccinations.<br />\nM: That doesn&rsquo;t appeal to me very much. Instead, I&#39;m going to the lecture being given by Dr. Probst. I took a class with him at med school, so it will be nice to see him again.<br />\nW: All right. They both finish at the same time, so how about meeting here at 1:30 and having lunch when the talks are over?<br />\nM: Good thinking. I&#39;ll see you in a while.</p>\n",
+      "explanationVi": "<p><strong>Transcript</strong>:<br />\nM: Bài phát biểu của Tiến sĩ Apu thật tuyệt vời. Tôi mừng vì đã quyết định tham dự vào phút chót.<br />\nW: Tôi hoàn toàn đồng ý với anh. Bài thảo luận của ông ấy về các thủ thuật y khoa mới khá bổ ích.<br />\nM: Vậy, ừm, cô định làm gì tiếp theo?<br />\nW: Tôi sẽ tham dự bài phát biểu của Tiến sĩ Archer. Ông ấy là chuyên gia nổi tiếng thế giới về vắc-xin.<br />\nM: Tôi không hứng thú với vắc-xin lắm. Thay vào đó, tôi sẽ đến dự buổi thuyết trình của Tiến sĩ Probst. Tôi đã học chung lớp với anh ấy ở trường y, nên sẽ rất vui khi chúng tôi có thể gặp lại nhau.<br />\nW: Được thôi. Cả hai buổi thuyết trình đều kết thúc cùng lúc, vậy thì chúng ta gặp nhau ở đây lúc 1:30 và cùng ăn trưa khi các buổi thảo luận kết thúc nhé?<br />\nM: Ý tưởng hay đấy. Tôi sẽ gặp lại cô sau.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fa27835948b5402da82fa6",
+          "questionText": "Where most likely are the speakers?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a hospital",
+            "(B) At a medical conference",
+            "(C) At a medical school",
+            "(D) At a healthcare clinic"
+          ],
+          "correctOptions": [
+            "(B) At a medical conference"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82fa7",
+          "questionText": "Look at the graphic. Which room will the woman be in?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Room 106",
+            "(B) Room 210",
+            "(C) Room 309",
+            "(D) Room 404"
+          ],
+          "correctOptions": [
+            "(C) Room 309"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fa27835948b5402da82fa8",
+          "questionText": "What does the man suggest about Dr. Probst?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He works as a doctor at the local hospital.",
+            "(B) The two of them are personally acquainted.",
+            "(C) He retired from his teaching duties recently.",
+            "(D) A new medical procedure was made by him."
+          ],
+          "correctOptions": [
+            "(B) The two of them are personally acquainted."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

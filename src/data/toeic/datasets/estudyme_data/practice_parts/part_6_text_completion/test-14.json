@@ -1,0 +1,330 @@
+{
+  "topicId": "6315a1525948b5402da8456b",
+  "name": "Test 14",
+  "slug": "test-14",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6316ae2b5948b5402da845cc",
+      "questionText": "To: Samantha Wallace, Edward Kershaw<br>From: Ted Winters<br>Subject: Changes<br>Date: June 10<br>I’ve been giving some thought to an idea, and I’d like to find out what <strong>(1)</strong> _________ of you think about it. Since the Sales and Marketing departments collaborate so much, I’m considering putting the two offices in the same room. So Sales would no longer be on the first floor, <strong>(2)</strong> _________ would Marketing be on the third floor. Instead, they’ll be on the second floor in a large, open area. There will be no individual offices except for those of the director and assistant director of each department.<br>I believe this would foster a sense of teamwork between the members of both departments. By <strong>(3)</strong> _________ what the salespeople are doing, the marketing people could create better advertisements and devise more ways to induce shoppers to buy our products. And by learning how the marketers think, the sales staff could come up with more effective ways to pitch our products. What do you two think of this proposal? <strong>(4)</strong> _________",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316ae2b5948b5402da845d0",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) each",
+            "(B) some",
+            "(C) either",
+            "(D) both"
+          ],
+          "correctOptions": [
+            "(D) both"
+          ],
+          "transcript": "<p>Both of + object pronoun<br>\n<strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Ta c&oacute;: Both of + object pronoun<br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6316ae2b5948b5402da845d1",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) and",
+            "(B) nor",
+            "(C) thus",
+            "(D) which"
+          ],
+          "correctOptions": [
+            "(B) nor"
+          ],
+          "transcript": "<p>When <em>nor</em>&nbsp;is used after a negative clause, we invert the subject and the verb after&nbsp;<em>nor</em>:</p>\n\n<p>So Sales <strong>would no longer </strong>be on the first floor, <strong>nor would </strong>Marketing be on the third floor.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Khi <em>nor</em> được sử dụng sau một câu phủ định, ta đảo chủ ngữ và động từ đứng sau <em>nor</em></p>\n<p>So Sales <strong>would no longer </strong>be on the first floor, <strong>nor would </strong>Marketing be on the third floor.</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845d2",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) knowledge",
+            "(B) knowing",
+            "(C) knowable",
+            "(D) will know"
+          ],
+          "correctOptions": [
+            "(B) knowing"
+          ],
+          "transcript": "<p>After 'by' we need a noun or gerund --&gt; Exclude C, D</p>\n\n<p>(A) <em>knowledge</em> is not suitable with the meaning and grammar constructure</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n\n<p>&nbsp;</p>\n",
+          "explanationVi": "<p>Sau 'by' ta cần một danh từ hoặc một danh động từ --&gt; Loại đáp án C và D</p>\n<p>Đáp án (A) <em>knowledge</em> không phù hợp về mặt nghĩa cũng như cấu trúc ngữ pháp</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>\n<p>&nbsp;</p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845d3",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Wouldn’t you agree that everything I did worked out well?",
+            "(B) Don’t you think that everyone approves of the changes we made?",
+            "(C) How about providing feedback on this idea when you have some time?",
+            "(D) When will you two have some time to start moving the desks around?"
+          ],
+          "correctOptions": [
+            "(C) How about providing feedback on this idea when you have some time?"
+          ],
+          "transcript": "<p>Ted Winters wants to know Samantha and Edward's opinions about his proposal and wants to discuss more with them.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Ted Winters muốn biết ý kiến của Samantha và Edward về bản đề xuất của anh ấy và muốn thảo luận thêm với họ về bản đề xuất đó</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6316ae2b5948b5402da845cd",
+      "questionText": "<p><strong>Electricity to Be Disconnected</strong><br>\n<strong>(5)</strong> _________ The area that is going to be covered by the blackout will be on Carter street between Eastern Avenue and Kenmore Road. Work crews from Alameda Power are going to be working on some high-powered lines on Carter street, so electricity there must be turned off to let them do their jobs <strong>(6)</strong> _________. Electricity will be disconnected at 9 A.M. and should be turned back on around 11:30 A.M. Residents who will be <strong>(7)</strong> _________ ought to take precautions so that they will be prepared during this time. If the work is not complete by 11:30, the electricity will remain off. City employees will make <strong>(8) </strong>_________ by loudspeaker in the area so that residents can be updated on the work crews’ progress. Please visit the Alameda Power website at www.alamedapower.com/carterstreet to learn more about which areas will be covered by the blackout. Questions or complaints can be e-mailed to info@alamedapower.com and will be responded to within 4 hours of being received.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316ae2b5948b5402da845d4",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Work crews are going to be repairing the street this Friday, October 10.",
+            "(B) On Wednesday, July 25, a water pipe is going to be repaired on Carter street.",
+            "(C) Some parts of the city will not have electricity on Thursday, September 14.",
+            "(D) This Saturday, August 11, the gas will be shut off in the Freemont neighborhood."
+          ],
+          "correctOptions": [
+            "(C) Some parts of the city will not have electricity on Thursday, September 14."
+          ],
+          "transcript": "<p>Based on the title and the following sentence</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>(A) C&aacute;c đội c&ocirc;ng nh&acirc;n sẽ sửa chữa đường phố v&agrave;o thứ S&aacute;u tuần n&agrave;y, ng&agrave;y 10 th&aacute;ng 10.</p>\n\n<p>(B) V&agrave;o thứ Tư, ng&agrave;y 25 th&aacute;ng 7, một đường ống nước sẽ được sửa chữa tr&ecirc;n đường Carter.</p>\n\n<p>(C) Một số khu vực trong th&agrave;nh phố sẽ kh&ocirc;ng c&oacute; điện v&agrave;o thứ Năm, ng&agrave;y 14 th&aacute;ng 9.</p>\n\n<p>(D) Thứ Bảy tuần n&agrave;y, ng&agrave;y 11 th&aacute;ng 8, gas sẽ bị cắt ở khu vực Freemont.</p>\n\n<p>Dựa v&agrave;o ti&ecirc;u đề v&agrave; c&aacute;c c&acirc;u sau</p>\n\n<p>=&gt; <strong>Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6316ae2b5948b5402da845d5",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) safer",
+            "(B) the safest",
+            "(C) safely",
+            "(D) safety"
+          ],
+          "correctOptions": [
+            "(C) safely"
+          ],
+          "transcript": "<p>We need to fill in an adverb to modify the verb 'do'</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Cần một trạng từ đứng trước để bổ sung nghĩa cho động từ 'do'</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845d6",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) affected",
+            "(B) upset",
+            "(C) absent",
+            "(D) reported"
+          ],
+          "correctOptions": [
+            "(A) affected"
+          ],
+          "transcript": "<p>Passive voice</p>\n\n<p>be affected: to be influenced by something</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Câu bị động</p>\n<p>be affected: bị ảnh hưởng bởi điều gì đó</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845d7",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) decisions",
+            "(B) announcements",
+            "(C) repairs",
+            "(D) upgrades"
+          ],
+          "correctOptions": [
+            "(B) announcements"
+          ],
+          "transcript": "<p>decision (n):&nbsp;a choice that you make about something after thinking about several possibilities</p>\n\n<p>announcement (n):&nbsp;something that someone says officially</p>\n\n<p>repair (n):&nbsp;to fix something that is broken or damaged</p>\n\n<p>upgrade (n):&nbsp;to improve the quality or usefulness of something</p>\n\n<p>Based on the meaning of the words <strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>decision (n):&nbsp; sự quyết định</p>\n<p>announcement (n):&nbsp; thông báo chính thức</p>\n<p>repair (n):&nbsp; sửa chữa</p>\n<p>upgrade (n):&nbsp; nâng cấp</p>\n<p>Dựa vào nghĩa của các từ =&gt; <strong>Chọn đáp án B</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6316ae2b5948b5402da845ce",
+      "questionText": "<p>TO: Mary Lewis&nbsp;<mjewis@dmmt.com><br>\nFROM: Eloise Purcell&nbsp;eloisep@dmmt.com&nbsp;<br>\nSUBJECT: Meeting<br>\nDATE: October 3<br>\nMary,<br>\nI know we are supposed to meet today right after lunch, but I’m afraid I’m not going to be able to get together with you then. Mr. Colter, my supervisor, requested that I give a presentation for the delegation from Spain <strong>(9)</strong> _________ arrived last night. I need to discuss the benefits of our latest line of software with them at 2:30 this afternoon. <strong>(10)</strong> _________ I therefore need to spend every minute until then working on what I intend to say.<br>\nHow does your schedule look tomorrow morning? I’ve got <strong>(11)</strong> _________ time between 9 and noon, so I can meet you then. If that doesn’t work for you, I’m also available between the hours of 4 and 6. Why don’t you let me know what the best time for you to meet is? I apologize for canceling our meeting on such <strong>(12)</strong> _________ notice, but this is a matter that is out of my control. I hope you understand.<br>\nRegards,<br>\nEloise</mjewis@dmmt.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316ae2b5948b5402da845d8",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) what",
+            "(B) when",
+            "(C) where",
+            "(D) that"
+          ],
+          "correctOptions": [
+            "(D) that"
+          ],
+          "transcript": "<p>Relative clause, we use that to refer to persons or things</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Mệnh đề quan hệ được sử dụng để đề cập đến một người hoặc một vật đã được nhắc đến trước đó</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845d9",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) However, I haven’t prepared any of my remarks yet.",
+            "(B) In case you don’t know, I was the lead designer on the software.",
+            "(C) Unfortunately, the software still has some big problems.",
+            "(D) Consequently, I’ll be leaving for Spain as soon as possible."
+          ],
+          "correctOptions": [
+            "(A) However, I haven’t prepared any of my remarks yet."
+          ],
+          "transcript": "<p>Based on the previous sentence</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>(A) Tuy nhiên, tôi vẫn chưa chuẩn bị bất kỳ nhận xét nào của mình.</p>\n<p>(B) Trong trường hợp bạn chưa biết, tôi là người thiết kế chính cho phần mềm.</p>\n<p>(C) Thật không may, phần mềm vẫn còn một số vấn đề lớn.</p>\n<p>(D) Do đó, tôi sẽ rời Tây Ban Nha càng sớm càng tốt.</p>\n<p>Dựa vào câu trước</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845da",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) a variety of",
+            "(B) very little",
+            "(C) no type of",
+            "(D) plenty of"
+          ],
+          "correctOptions": [
+            "(D) plenty of"
+          ],
+          "transcript": "<p>We use&nbsp;<em>plenty of</em>&nbsp;as a quantifier before both countable and uncountable nouns to mean ‘a lot’, ‘a large quantity’</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Sử dụng <em>plenty of</em> như định lượng từ, đứng trước cả danh từ đếm được và danh từ không đếm được, mang nghĩa là<em> 'một số lượng lớn'</em></p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845db",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) apparent",
+            "(B) short",
+            "(C) surprising",
+            "(D) tight"
+          ],
+          "correctOptions": [
+            "(B) short"
+          ],
+          "transcript": "<p>short notice:&nbsp;only a short time before something happens</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>short notice: rất nhanh; một thời gian rất ngắn trước khi có điều gì đó xảy ra</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6316ae2b5948b5402da845cf",
+      "questionText": "<p><strong>Bixby Bank to Open New Branch Downtown</strong>Hampton City (January 17) - Yesterday, a spokeswoman for Bixby Bank announced that the bank <strong>(13)</strong> _________ a new branch in the downtown part of Hampton City. The office will be located on the second floor of the Silverwood Shopping Center. <strong>(14)</strong> _________ Headquartered in Montgomery, the bank has been opening branch offices at a swift pace during the past two years. This year, it plans to open more than 30 branch offices across the entire state. The office in the mall will be Hampton City’s fourth Bixby Bank. The bank has been growing so much thanks to its <strong>(15)</strong> _________ on customer relations and quality service. In a recent survey, Bixby Bank ranked much higher than all of its competitors regarding how well it <strong>(16)</strong> _________ its customers and which services it provides for them. Bixby Bank recorded more than $25 million in profits last year, and analysts believe it will more than double that number this year.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6316ae2b5948b5402da845dc",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) opened",
+            "(B) has opened",
+            "(C) is opening",
+            "(D) to open"
+          ],
+          "correctOptions": [
+            "(C) is opening"
+          ],
+          "transcript": "<p>We use present continuous tense to express a plan that will happen in the near future</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Để diễn tả một kế hoạch sẽ xảy ra trong tương lai gần, ta dùng thì Hiện tại tiếp diễn</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845dd",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The shopping center recently closed due to poor sales.",
+            "(B) Experts believe Bixby Bank must improve its services.",
+            "(C) Bixby Bank is the state’s fastest growing bank.",
+            "(D) This will be the first branch that the bank has opened."
+          ],
+          "correctOptions": [
+            "(C) Bixby Bank is the state’s fastest growing bank."
+          ],
+          "transcript": "<p>Based on the next two sentences <strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>(A) Trung tâm mua sắm gần đây đã đóng cửa do doanh thu kém.</p>\n<p>(B) Các chuyên gia tin rằng Ngân hàng Bixby phải cải thiện dịch vụ của mình.</p>\n<p>(C) Ngân hàng Bixby là ngân hàng phát triển nhanh nhất bang.</p>\n<p>(D) Đây sẽ là chi nhánh đầu tiên mà ngân hàng mở ra.</p>\n<p>Dựa vào 2 câu tiếp theo <strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845de",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) emphasis",
+            "(B) impression",
+            "(C) consideration",
+            "(D) dedication"
+          ],
+          "correctOptions": [
+            "(A) emphasis"
+          ],
+          "transcript": "<p>emphasis (n):&nbsp;the particular importance or attention that is given to something</p>\n\n<p>impression (n):&nbsp;an idea or opinion of what something or someone is like</p>\n\n<p>consideration (n):&nbsp;the act of thinking about something carefully</p>\n\n<p>dedication (n):&nbsp;the willingness to give a lot of time and energy to something</p>\n\n<p>Based on the meaning of the words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>emphasis (n):&nbsp;tầm quan trọng</p>\n<p>impression (n):&nbsp;sự cảm nhận</p>\n<p>consideration (n):&nbsp; sự cân nhắc</p>\n<p>dedication (n):&nbsp;sự cống hiến</p>\n<p>=&gt; Dựa vào nghĩa của các từ, <strong>chọn đáp án A</strong></p>"
+        },
+        {
+          "id": "6316ae2b5948b5402da845df",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) considers",
+            "(B) treats",
+            "(C) appoints",
+            "(D) behaves"
+          ],
+          "correctOptions": [
+            "(B) treats"
+          ],
+          "transcript": "<p>consider (v):&nbsp;to spend time thinking about a possibility or making a decision</p>\n\n<p>treat (v):&nbsp;to behave towards someone or deal with something in a particular way</p>\n\n<p>appoint (v):&nbsp;to choose someone officially for a job or responsibility</p>\n\n<p>behave (v):&nbsp;to act in a particular way</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>consider (v):&nbsp;cân nhắc</p>\n<p>treat (v):&nbsp;đối xử</p>\n<p>appoint (v):&nbsp;chỉ định, bổ nhiệm</p>\n<p>behave (v):&nbsp;hành xử</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        }
+      ]
+    }
+  ]
+}

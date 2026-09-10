@@ -1,0 +1,640 @@
+{
+  "topicId": "63059e465948b5402da836e3",
+  "name": "Test 6",
+  "slug": "test-6",
+  "part": "part_4_short_talks",
+  "totalQuestions": 30,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6305a8745948b5402da836e7",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/75178428.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nYou are listening to the news for the town of Clinton on your local CCBN radio station. School district officials have announced that they will be extending the deadline for new candidates to register for the upcoming school board election this May. Remember, you can find the location of your voting district by visiting the official website of the town of Clinton. We encourage all of the citizens of Clinton to exercise their right to vote in the May election.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />  \nBạn đang nghe tin tức về thị trấn Clinton trên đài phát thanh CCBN địa phương. Các quan chức khu học chánh đã thông báo rằng họ sẽ gia hạn thời hạn đăng ký cho các ứng cử viên mới của cuộc bầu cử hội đồng trường sắp tới vào tháng 5 này. Hãy nhớ rằng, bạn có thể tìm thấy vị trí khu vực bỏ phiếu của mình bằng cách truy cập trang web chính thức của thị trấn Clinton. Chúng tôi khuyến khích tất cả công dân Clinton thực hiện quyền bầu cử của mình trong cuộc bầu cử tháng 5.</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8745948b5402da836f1",
+          "questionText": "What is the announcement about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An opinion survey",
+            "(B) An upcoming election",
+            "(C) An election outcome",
+            "(D) A website update"
+          ],
+          "correctOptions": [
+            "(B) An upcoming election"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836f2",
+          "questionText": "What can listeners do on the website?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Register as a candidate",
+            "(B) Cast their vote",
+            "(C) Find some information",
+            "(D) Enter a contest"
+          ],
+          "correctOptions": [
+            "(C) Find some information"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836f3",
+          "questionText": "What are listeners encouraged to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Participate in an official occasion",
+            "(B) Reserve a ticket in advance",
+            "(C) Exercise on a daily basis",
+            "(D) Listen to an upcoming announcement"
+          ],
+          "correctOptions": [
+            "(A) Participate in an official occasion"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836e8",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/65859203.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br />\nHello, everyone. Help us celebrate the ten- year anniversary of Salem Furniture Outlet in downtown Marion. From now until the end of the month, you can get a free 22-inch flat-screen television with a purchase of over $1,500 or more! So come on down and check out our fine selection of couches, chairs, dining room tables, and much more. This anniversary offer only lasts until the end of the month. Don&rsquo;t miss this great opportunity. Come in today!</p> \n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nXin chào tất cả mọi người. Hãy cùng chúng tôi kỷ niệm mười năm thành lập Cửa hàng nội thất Salem ở trung tâm thành phố Marion. Từ nay đến cuối tháng, các bạn có thể nhận được một chiếc tivi màn hình phẳng 22 inch miễn phí khi mua hàng với giá trị từ 1.500 USD trở lên! Vì vậy, hãy đến và chiêm ngưỡng bộ sưu tập tuyệt vời với ghế dài, ghế ngồi, bàn ăn và nhiều sản phẩm khác. Ưu đãi kỷ niệm này chỉ kéo dài đến cuối tháng. Đừng bỏ lỡ cơ hội tuyệt vời này. Hãy ghé qua ngay hôm nay!</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8745948b5402da836f4",
+          "questionText": "What is the outlet store celebrating?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An anniversary",
+            "(B) A festival",
+            "(C) An opening",
+            "(D) A holiday"
+          ],
+          "correctOptions": [
+            "(A) An anniversary"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836f5",
+          "questionText": "What must customers do to receive the promotional offer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Become a member",
+            "(B) Purchase a certain amount",
+            "(C) Recommend some brands",
+            "(D) Trade in a television"
+          ],
+          "correctOptions": [
+            "(B) Purchase a certain amount"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836f6",
+          "questionText": "When does the promotion end?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At the beginning of next month",
+            "(B) At the end of the year",
+            "(C) On the second Sunday of the month",
+            "(D) At the end of the month"
+          ],
+          "correctOptions": [
+            "(D) At the end of the month"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836e9",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/90297239.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nThank you for attending today&rsquo;s safety workshop. My name is Tim Hines and I&rsquo;ll be instructing everyone on how to maintain a safe work environment. As you know, a factory is full of safety hazards. I have looked over the history of accidents for this factory and it appears most accidents happen during the night shift. Therefore, my first suggestion for everyone here is to make sure you are getting enough sleep before your night shift. Sufficient rest is one of the best methods for avoiding work accidents.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> \nCảm ơn mọi người đã tham dự hội thảo an toàn ngày hôm nay. Tên tôi là Tim Hines và tôi sẽ hướng dẫn mọi người cách duy trì một môi trường làm việc an toàn. Như các bạn đã biết, một nhà máy luôn tiềm ẩn những mối nguy cơ về mất an toàn. Tôi đã xem qua lịch sử các vụ tai nạn của nhà máy này và có vẻ như hầu hết các vụ tai nạn đều xảy ra vào ca đêm. Vì vậy, gợi ý đầu tiên của tôi dành cho mọi người ở đây là đảm bảo các nhân viên ngủ đủ giấc trước ca đêm. Nghỉ ngơi đầy đủ là một trong những phương pháp tốt nhất để phòng tránh tai nạn lao động.</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8745948b5402da836f7",
+          "questionText": "Who most likely are the listeners?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Environmentalists",
+            "(B) Instructors",
+            "(C) Factory workers",
+            "(D) Medical students"
+          ],
+          "correctOptions": [
+            "(C) Factory workers"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836f8",
+          "questionText": "What document has the speaker reviewed?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An employee roster",
+            "(B) An annual budget",
+            "(C) A project overview",
+            "(D) An accident report"
+          ],
+          "correctOptions": [
+            "(D) An accident report"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836f9",
+          "questionText": "What does the speaker suggest listeners do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Have a good rest",
+            "(B) Work a day shift",
+            "(C) Receive more training",
+            "(D) Read a handout"
+          ],
+          "correctOptions": [
+            "(A) Have a good rest"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836ea",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/90124721.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nHello, Roger. It&rsquo;s Jenna speaking. According to an e-mail I received from Tina Miller, our business trip to Moscow has been delayed until next month. The factory we are scheduled to tour has been closed for some renovations. We are waiting until the construction at the factory is finished. In the meantime, I&rsquo;ll send you the revised travel itinerary for you to review. Let me know if you have any questions about this change.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nXin chào, Roger. Đây là Jenna. Theo một e-mail tôi nhận được từ Tina Miller, chuyến công tác của chúng ta tới Moscow đã bị hoãn cho đến tháng sau. Nhà máy mà chúng ta dự định tham quan đã đóng cửa để cải tạo. Chúng ta cần đợi cho đến khi việc xây dựng nhà máy được hoàn thành. Trong thời gian chờ đợi, tôi sẽ gửi cho anh hành trình di chuyển đã được sửa đổi để anh xem lại. Hãy cho tôi biết nếu anh có bất kỳ câu hỏi nào về những sự thay đổi này.</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8745948b5402da836fa",
+          "questionText": "What is the purpose of the trip to Moscow?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To finalize a contract",
+            "(B) To visit a factory",
+            "(C) To give a product demonstration",
+            "(D) To renovate a building"
+          ],
+          "correctOptions": [
+            "(B) To visit a factory"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836fb",
+          "questionText": "What is the reason for the delayed departure?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A necessary document is not ready.",
+            "(B) Some construction is underway.",
+            "(C) A company has gone out of business.",
+            "(D) Building materials have not arrived yet."
+          ],
+          "correctOptions": [
+            "(B) Some construction is underway."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836fc",
+          "questionText": "What does the speaker say she will send to the listener?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A copy of her passport",
+            "(B) A plane ticket",
+            "(C) An itinerary",
+            "(D) A blueprint"
+          ],
+          "correctOptions": [
+            "(C) An itinerary"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836eb",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/20458056.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nThank you, thank you so much...I feel truly honored to be promoted to Executive Chef at such a prestigious establishment such as Gray&rsquo;s on High street. I have been here for five years, and during that time we have been able to achieve a two-star Michelin rating. We have spent hundreds of hours in the kitchen at night perfecting our recipes and working on new and exciting culinary techniques. I have to say, this promotion is not just for me. I could not have done this without highly- skilled crew. Their diligence and hard work have led to our success. So, please join me in giving them a warm round of applause. To our future!</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nCảm ơn, cảm ơn rất nhiều...Tôi thực sự cảm thấy vinh dự khi được thăng chức Bếp trưởng Điều hành tại một cơ sở uy tín như Gray's trên phố High. Tôi đã làm ở đây được 5 năm và trong thời gian đó chúng ta đã đạt được xếp hạng hai sao Michelin. Chúng ta đã dành hàng trăm giờ trong bếp vào ban đêm để hoàn thiện các công thức nấu ăn của mình và nghiên cứu ra các kỹ thuật nấu nướng mới và thú vị. Tôi phải nói rằng, sựu thăng tiến này không chỉ dành cho tôi. Tôi không thể làm được điều này nếu không có đội ngũ nhân viên với tay nghề cao. Sự siêng năng và chăm chỉ của họ đã dẫn đến thành công của chúng ta. Vì vậy, hãy cùng tôi dành cho họ một tràng pháo tay nồng nhiệt nhé. Vì tương lai của chúng ta!</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8745948b5402da836fd",
+          "questionText": "What is the purpose of the speech?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To announce a discovery",
+            "(B) To announce a retirement",
+            "(C) To accept a promotion",
+            "(D) To accept an award"
+          ],
+          "correctOptions": [
+            "(C) To accept a promotion"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836fe",
+          "questionText": "Why does the speaker say: “I could not have done this without highly-skilled crew”",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She wants to thank her team.",
+            "(B) She hasn’t worked in a team before.",
+            "(C) She dislikes her coworkers.",
+            "(D) She wants to accept the award."
+          ],
+          "correctOptions": [
+            "(A) She wants to thank her team."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da836ff",
+          "questionText": "Where most likely does the speaker work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A bank",
+            "(B) A hospital",
+            "(C) A restaurant",
+            "(D) A warehouse"
+          ],
+          "correctOptions": [
+            "(C) A restaurant"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836ec",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/41467937.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nI&rsquo;m just calling because I wanted to say thank you so much for helping with the catering at last week&rsquo;s gallery opening. I really wouldn&rsquo;t have been able to do it alone, and I&rsquo;m so grateful that you helped me on such short notice. The green curry you made was absolutely delicious! You have to show me the recipe! I think there was not a single person who didn&rsquo;t love that dish. Anyway, I&rsquo;ll see you next week for the Charity Ball. I&rsquo;m really excited to see what dishes you cook for us!</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nTôi chỉ gọi điện để gửi lời cảm ơn sâu sắc cho sự giúp đỡ trong việc phục vụ ăn uống của buổi khai trương phòng trưng bày tuần trước. Tôi thực sự sẽ không thể làm điều đó một mình và tôi rất biết ơn vì bạn đã giúp tôi trong thời gian ngắn như vậy. Món cà ri xanh bạn làm thực sự rất ngon! Bạn nhớ chỉ cho tôi công thức nhé! Tôi nghĩ không có một người nào lại không thích món ăn đó. Dù sao đi nữa, tôi sẽ gặp bạn vào tuần tới tại Vũ hội từ thiện. Tôi thực sự rất háo hức muốn xem bạn sẽ nấu món gì cho chúng ta!</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8745948b5402da83700",
+          "questionText": "Why is the woman calling?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To express her gratitude",
+            "(B) To discuss a recipe",
+            "(C) To report some news",
+            "(D) To tell her about something"
+          ],
+          "correctOptions": [
+            "(A) To express her gratitude"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da83701",
+          "questionText": "What does the woman imply when she says, “You have to show me the recipe!”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She didn’t enjoy it.",
+            "(B) She wants to recommend a different ingredient.",
+            "(C) She wants to cook the dish herself.",
+            "(D) She wants her friend to try it."
+          ],
+          "correctOptions": [
+            "(C) She wants to cook the dish herself."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da83702",
+          "questionText": "Why is the woman looking forward to next week?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is going to the movies.",
+            "(B) She is taking her son to school.",
+            "(C) Some new project will be complete.",
+            "(D) They will work together again."
+          ],
+          "correctOptions": [
+            "(D) They will work together again."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836ed",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/2866856.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nIn other news... Bernburg Studios, which is the studio responsible for such blockbuster hits as Rolling Hills, and standing Tall is looking to film a movie in Westchester. The CEO has made an announcement requesting someone to allow them to film inside their home. In the movie, the chosen place will be the home of the Oscar Award winning actor Robert Holloway. The CEO admitted that it is awkward to impose upon someone&rsquo;s private life, but he also said he received hundreds of applications. After all, this is Robert Holloway we are talking about. The studio has not chosen a location yet so if you are still interested, visit Bernburg Studios website.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nTin tức tiếp theo... Bernburg Studios, hãng phim chịu trách nhiệm cho những bộ phim bom tấn đình đám như Rolling Hills, và Standing Tall đang muốn quay một bộ phim ở Westchester. Giám đốc điều hành đã đưa ra thông báo cấp phép cho việc quay phim trong nhà của người dân. Trong phim, địa điểm được chọn sẽ là nhà của nam diễn viên từng đoạt giải Oscar Robert Holloway. Vị CEO này thừa nhận rằng việc áp đặt đời sống riêng tư của ai đó là điều khó xử, nhưng ông cũng cho biết mình đã nhận được hàng trăm đơn đăng ký. Rốt cuộc thì đây chính là Robert Holloway mà chúng ta luôn biết đến. Studio vẫn chưa chọn địa điểm nên nếu các bạn vẫn quan tâm và muốn đăng ký, hãy truy cập trang web Bernburg Studios.</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8745948b5402da83703",
+          "questionText": "Who most likely is the speaker?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A salesman\tỊ'",
+            "(B) A dentist",
+            "(C) A news reporter",
+            "(D) A gardener"
+          ],
+          "correctOptions": [
+            "(C) A news reporter"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da83704",
+          "questionText": "What is Bernburg Studios looking for?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An actress",
+            "(B) A filming location",
+            "(C) A new script",
+            "(D) More ideas for movies"
+          ],
+          "correctOptions": [
+            "(B) A filming location"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8745948b5402da83705",
+          "questionText": "What does the speaker imply when she says, “After all, this is Robert Holloway we are talking about”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Robert Holloway is very famous.",
+            "(B) Robert Holloway owns the house.",
+            "(C) She will interview him next.",
+            "(D) She doesn’t know who Robert Holloway is."
+          ],
+          "correctOptions": [
+            "(A) Robert Holloway is very famous."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836ee",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/24/90699409.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/55696843.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nHello, Happy Day shoppers. It&rsquo;s our anniversary, and we&rsquo;re offering 50% off the prices advertised on everything until Friday night at midnight! Save on everything in our store, including our premium selection of pillows. Collect the whole series of Mama San brand pillows for half off! At the end of our sale, we will be restocking our shelves with a brand- new inventory, so everything must go! Be sure to stop into our style specialist. Bring a picture of a room you want to redecorate and we will help you make choices to make every day a Happy Day! Thank you for being our loyal customers and we look forward to making you smile!</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> \nXin chào các quý khách hang đang mua sắm trong ngày Happy Day. Hôm nay là ngày kỷ niệm thành lập của cửa hàng và chúng tôi sẽ giảm giá 50% trên mọi sản phẩm cho đến nửa đêm thứ Sáu! Hãy mua sắm thông minh với các khuyến mại và sản phẩm trong cửa hàng của chúng tôi, bao gồm cả lựa chọn dòng sản phẩm gối cao cấp của chúng tôi. Nhanh tay mua hàng, toàn bộ loạt gối thương hiệu Mama San sẽ được giảm giá một nửa! Khi kết thúc đợt giảm giá, chúng tôi sẽ bổ sung hàng mới lên kệ, vì vậy mọi thứ đều sẽ được bán đến khi hết hàng! Hãy dừng chân và tham khảo các chuyên gia phong cách của chúng tôi. Hãy mang theo hình ảnh căn phòng mà quý khách muốn trang trí để chúng tôi đưa ra những lựa chọn giúp mỗi ngày mới đều là một Ngày Hạnh Phúc! Cảm ơn vì đã là khách hàng trung thành của chúng tôi và chúng tôi mong được làm quý khách hài lòng!</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8745948b5402da83706",
+          "questionText": "Look at the graphic. How much can a shopper purchase the Dreamtime Pillow for before Friday?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) £15.00",
+            "(B) £11.50",
+            "(C) £21.00",
+            "(D) £50.00"
+          ],
+          "correctOptions": [
+            "(C) £21.00"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8755948b5402da83707",
+          "questionText": "What is indicated about Happy Days?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They have a wide variety of toys.",
+            "(B) They are bringing in more merchandise.",
+            "(C) They specialize in low-end furniture.",
+            "(D) They are going out of business this Friday."
+          ],
+          "correctOptions": [
+            "(B) They are bringing in more merchandise."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8755948b5402da83708",
+          "questionText": "What service does Happy Days offer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Personalized interior design advice",
+            "(B) Free shipping",
+            "(C) Home installation",
+            "(D) Wall-papering services"
+          ],
+          "correctOptions": [
+            "(A) Personalized interior design advice"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836ef",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/24/51395880.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/5978256.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br />   \nHello, this is Trent Herrington from Blanders & Co. We recently received your order from you and there are some items missing. The invoice clearly states that we ordered 30 binders but only received 20. We also did not receive any of the legal pads we ordered. We have some important cases today and we need those binders to organize our clients' defense professionally. As a law firm, it is very important that we arrive to court organized. Is it possible for us to we pick up the binders and legal pads this morning? Please call me back at 2612-4547 as soon as possible. Thanks.</p>",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> \nXin chào, đây là Trent Herrington từ Công ty Blanders &amp; Co. Gần đây chúng tôi đã nhận được đơn đặt hàng từ bạn và có một số mặt hàng bị thiếu. Trên hóa đơn ghi rõ rằng chúng tôi đã đặt mua 30 bìa hồ sơ nhưng chỉ nhận được 20 chiếc. Chúng tôi cũng không nhận được bất kỳ tập giấy hợp pháp nào mà chúng tôi đã đặt hàng. Hôm nay chúng tôi có một số vụ án quan trọng và chúng tôi cần những hồ sơ đó để tổ chức việc bào chữa cho khách hàng một cách chuyên nghiệp. Với tư cách là một công ty luật, điều rất quan trọng là chúng tôi phải đến tòa án được tổ chức. Sáng nay chúng tôi có thể đến lấy tập hồ sơ và tập hợp pháp được không? Vui lòng gọi lại cho tôi theo số 2612-4547 càng sớm càng tốt. Cảm ơn.</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8755948b5402da83709",
+          "questionText": "Look at the graphic. How many case binders and legal pads were not delivered in total?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 40",
+            "(B) 30",
+            "(C) 20",
+            "(D) 10"
+          ],
+          "correctOptions": [
+            "(C) 20"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8755948b5402da8370a",
+          "questionText": "According to the speaker, why are the case binders important?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To look professional in the office",
+            "(B) To look professional in the court",
+            "(C) To organize their financial record",
+            "(D) To maintain the deadline"
+          ],
+          "correctOptions": [
+            "(B) To look professional in the court"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8755948b5402da8370b",
+          "questionText": "Where does Trent Herrington most likely work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Accounting firm",
+            "(B) Law firm",
+            "(C) Patenting firm",
+            "(D) Catering business"
+          ],
+          "correctOptions": [
+            "(B) Law firm"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305a8745948b5402da836f0",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/24/25884063.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/67824269.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br />  \nWelcome aboard the Midnight Cruise, Loveport&rsquo;s most romantic evening! We will be spending the majority of our cruise in Billing&rsquo;s Bay, but we will also be following the coastline of Eagle Island to Port Lewis for a champagne toast. During our cruise, our host star master Jenkins, will be directing you through the constellations that are in view, and with any luck we will be able to witness tonight&rsquo;s meteor shower! While we are cruising, we ask that you wear your life jackets at all times when on deck for your safety. If you begin to feel sea sick at any time, I encourage you to visit our on-board clinic for some medication. Now I would like to ask everybody to join the captain in the stateroom for a rundown of this evening&#39;s services!</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> \nChào mừng quý khách đến với Midnight Cruise -  Du thuyền nửa đêm và trải nghiệm buổi tối lãng mạn nhất của Loveport! Chúng ta sẽ dành phần lớn hành trình trên Vịnh Billing, nhưng du thuyền cũng sẽ đi dọc theo bờ biển của Đảo Eagle đến Port Lewis để thưởng thức rượu sâm panh. Trong chuyến hành trình của này, chúng ta sẽ đi theo ngôi sao Jenkins trên bầu trời để hướng tới các chòm sao trong tầm mắt và nếu may mắn, chúng ta sẽ có thể chiêm ngưỡng một trận mưa sao băng vào tối nay! Trong khi di chuyển, chúng tôi yêu cầu quý khách luôn mặc áo phao khi ở trên boong để đảm bảo an toàn. Nếu quý khách bắt đầu cảm thấy say sóng, bất cứ lúc nào quý khách cũng có thể đến phòng khám trên tàu của chúng tôi để lấy một số loại thuốc. Bây giờ tôi muốn mời mọi người cùng đến với thuyền trưởng trong phòng khánh tiết nghe giới thiệu về các dịch vụ trên thuyền trong buổi tối nay!</p>",
+      "childQuestions": [
+        {
+          "id": "6305a8755948b5402da8370c",
+          "questionText": "Where will the cruise spend most of its time?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Eagle Island",
+            "(B) Port Lewis",
+            "(C) Billing’s Bay",
+            "(D) Socializing"
+          ],
+          "correctOptions": [
+            "(C) Billing’s Bay"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8755948b5402da8370d",
+          "questionText": "Who is Star master Jenkins?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Constellation guide",
+            "(B) Captain",
+            "(C) Bartender",
+            "(D) Host"
+          ],
+          "correctOptions": [
+            "(A) Constellation guide"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305a8755948b5402da8370e",
+          "questionText": "Look at the graphic. How long will the cruise be stopped at Port Lewis?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Midnight",
+            "(B) 11:00 PM",
+            "(C) 2 hours",
+            "(D) 1 hour"
+          ],
+          "correctOptions": [
+            "(D) 1 hour"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

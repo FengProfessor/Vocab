@@ -1,0 +1,330 @@
+{
+  "topicId": "6315a14a5948b5402da84569",
+  "name": "Test 13",
+  "slug": "test-13",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6315d3a35948b5402da845c7",
+      "questionText": "<p><strong>New Terminal to Open at Airport</strong><br>\nSpringfield International Airport is proud to announce that its newest terminal is going to open soon. After thirty months of construction, Terminal 2 is ready to start sending passengers to destinations <strong>(1)</strong> ________ the world. The new terminal has twenty-five gates that will be used by nine different airlines. Local budget airline Ace Airways will be the <strong>(2)</strong> ________ occupant of the terminal as it will have control over ten of the gates. Terminal 2 will be able to process several thousand passengers each day. It will also have all kinds of facilities, including duty-free shops and a number of franchise restaurants. <strong>(3)</strong> ________ Its gates will be able to handle the largest passenger airliners in the world, too. The terminal is set to open on Thursday, April 10. There will be a small ceremony at 7 A.M., and then passengers will be <strong>(4)</strong> ________ so that they can start going to their gates to catch their flights.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6315d3a35948b5402da845c8",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) over",
+            "(B) to",
+            "(C) around",
+            "(D) within"
+          ],
+          "correctOptions": [
+            "(C) around"
+          ],
+          "transcript": "<p>around the world: everywhere in the world</p>\n\n<p>=&gt; Choose C</p>\n",
+          "explanationVi": "around the world: mọi nơi trên thế giới <br><br>\n-> Chọn đáp án C"
+        },
+        {
+          "id": "6315d3a35948b5402da845c9",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) primate",
+            "(B) primary",
+            "(C) primed",
+            "(D) priming"
+          ],
+          "correctOptions": [
+            "(B) primary"
+          ],
+          "transcript": "<p>We need to fill in an adjective to modify the noun 'occupant'</p>\n\n<p>primary (adj):&nbsp;most basic or essential</p>\n\n<p>=&gt; Choose B</p>\n",
+          "explanationVi": "Chúng ta cần điền tính từ để bổ nghĩa cho danh từ “occupant”<br><br>\n\nprimary (adj): cơ bản nhất hoặc cần thiết<br><br>\n-> Chọn đáp án B"
+        },
+        {
+          "id": "6315d3a35948b5402da845ca",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Passengers have already complimented the quality of items sold in the stores.",
+            "(B) In addition, the gates are specifically designed for small commuter planes.",
+            "(C) It is anticipated that they will bring in millions of dollars in revenue annually.",
+            "(D) There is not yet anywhere for passengers to eat or to go shopping though."
+          ],
+          "correctOptions": [
+            "(C) It is anticipated that they will bring in millions of dollars in revenue annually."
+          ],
+          "transcript": "<p>Based on the previous sentences, choose C</p>\n",
+          "explanationVi": "Dựa vào những câu trước: \"Terminal 2 will be able to process several thousand passengers each day. It will also have all kinds of facilities, including duty-free shops and a number of franchise restaurants.\"<br><br>\n-> Chọn đáp án C"
+        },
+        {
+          "id": "6315d3a35948b5402da845cb",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) charged",
+            "(B) admitted",
+            "(C) dispatched",
+            "(D) booked"
+          ],
+          "correctOptions": [
+            "(B) admitted"
+          ],
+          "transcript": "<p>Passive voice</p>\n\n<p>admitted: to be allowed to enter a place</p>\n\n<p>=&gt; Choose B</p>\n",
+          "explanationVi": "Câu bị động <br><br>\nadmitted: được phép đi vào nơi nào đó<br><br>\n-> Chọn đáp án B"
+        }
+      ]
+    },
+    {
+      "id": "6315d3175948b5402da845b8",
+      "questionText": "<p>To: All Tenants, Bluebird Tower<br>\nFrom: Cliff Samuels, Building Manager<br>\nRe: Rent Increase<br>\nDate: August 2<br>\nPlease be aware that as of September 1, all rents in the building will increase by 10%. This increase applies both to individuals renting apartments <strong>(5)</strong> ________ those people who are renting office or commercial spaces. <strong>(6)</strong> ________ I will be sending new contracts to all tenants within the next five business days. You need to sign them and return them to me at my office on the first floor no later than August 15. Those of you who do not wish to pay the higher rent must <strong>(7)</strong> ________ the premises by August 31. Your security deposit <strong>(8)</strong> ________ as soon as we in the management office confirm that your space has not suffered any damage. You may feel free to speak with me about the rent increase or anything else that is on your mind. Just call me at 856-4584 during regular business hours.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6315d3175948b5402da845bb",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) and",
+            "(B) so",
+            "(C) or",
+            "(D) that"
+          ],
+          "correctOptions": [
+            "(A) and"
+          ],
+          "transcript": "<p>We use <em>both … and </em>to emphasise the link between two things</p>\n\n<p>=&gt; Choose A</p>\n",
+          "explanationVi": "Chúng ta sử dụng \"both ... and\" để nhấn mạnh sự liên kết giữa hai vật. <br><br>\n-> Chọn đáp án A"
+        },
+        {
+          "id": "6315d3175948b5402da845bc",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) There are unfortunately no more places available for rent at the moment.",
+            "(B) There is no need for any of you to sign a new lease if you do not wish to do so.",
+            "(C) All tenants must renegotiate the amount of rent that they pay sometime this week.",
+            "(D) The rents are being increased to account for the recent rise in utilities prices."
+          ],
+          "correctOptions": [
+            "(D) The rents are being increased to account for the recent rise in utilities prices."
+          ],
+          "transcript": "<p>The building manager gives reasons why the rent is increased</p>\n\n<p>=&gt; Based on the previous and the following sentence, choose D</p>\n",
+          "explanationVi": "Ban quản lý tòa nhà đưa ra lý do tăng giá thuê <br><br>\n\nDựa vào nội dung câu trước và câu sau -> Chọn đáp án D"
+        },
+        {
+          "id": "6315d3175948b5402da845bd",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) remove",
+            "(B) sell",
+            "(C) repair",
+            "(D) vacate"
+          ],
+          "correctOptions": [
+            "(D) vacate"
+          ],
+          "transcript": "<p>remove (v):&nbsp;to take something or someone away from somewhere</p>\n\n<p>sell (v):&nbsp;to give something to someone else in return for money</p>\n\n<p>repair (v): to fix something that is broken or damaged</p>\n\n<p>vacate (v):&nbsp;to leave a room, building, chair, etc. so that it is available for other people</p>\n\n<p>=&gt; Based on meaning of the words, choose D</p>\n",
+          "explanationVi": "remove (v): mang cái gì đó hoặc ai đó ra khỏi nơi nào đó <br><br>\n\nsell (v): đưa cái gì đó cho người khác để lấy tiền<br><br>\n\nrepair (v): sửa cái gì đó bị hỏng hoặc hư hỏng<br><br>\n\nvacate (v): rời khỏi một căn phòng, tòa nhà, cái ghế, v.v. để dành chỗ cho người khác<br><br>\n\nDựa vào nghĩa các từ -> Chọn đáp án D"
+        },
+        {
+          "id": "6315d3175948b5402da845be",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) have been returned",
+            "(B) returned",
+            "(C) will be returned",
+            "(D) was returned"
+          ],
+          "correctOptions": [
+            "(C) will be returned"
+          ],
+          "transcript": "<p>Future tense passive voice</p>\n\n<p>=&gt; Choose C</p>\n",
+          "explanationVi": "Câu bị động của thì tương lai đơn <br><br>\n-> Chọn đáp án C"
+        }
+      ]
+    },
+    {
+      "id": "6315d3175948b5402da845b9",
+      "questionText": "<p>March 15<br>\nDear Member of the Association of Auto Mechanics,<br>\nThe Association of Auto Mechanics (AAM) is going to hold its annual conference on September 14 and 15. The event is going to be held in Memphis, Tennessee. This is the same location as last year’s event. Due to the tremendous <strong>(9)</strong> ________ of the conference last year, it was unanimously decided by the members of the executive staff at the AAM to have it in Memphis once again.<br>\nThis year’s conference will have a large number of events, including talks, workshops, and a sales fair. The keynote speaker will be <strong>(10)</strong> ________ mechanic Robert McGuffin, an expert in the art of repairing antique vehicles. As a member of the AAM, you are <strong>(11)</strong> ________ to pay the discounted registration rate of $75. That will get you access to every event that is being held at the conference. Some airlines and hotels are offering discounts to our members. Please call (405) 326-8695 for more information regarding that. <strong>(12)</strong> ________<br>\nSincerely,<br>\nTim Matterhorn<br>\nPresident, Association of Auto Mechanics</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6315d3175948b5402da845bf",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) succeed",
+            "(B)success",
+            "(C) succession",
+            "(D) succeeding"
+          ],
+          "correctOptions": [
+            "(B)success"
+          ],
+          "transcript": "<p>Due to the preposition 'of', we need to fill in a noun</p>\n\n<p>success (n): the achieving of the results wanted or hoped for</p>\n\n<p><em>Note: success </em>is different from&nbsp;<em>succession (n): a number of similar events or people that happen</em></p>\n\n<p><em>=&gt; Choose B</em></p>\n\n<p>&nbsp;</p>\n",
+          "explanationVi": "Do có giới từ 'of' nên chúng ta cần điền một danh từ <br><br>\n\nsuccess (n): đạt được kết quả mong muốn hoặc hy vọng<br><br>\n\nLưu ý: success khác với succession (n): một số sự kiện hoặc người tương tự xảy ra<br><br>\n\n-> Chọn đáp án B"
+        },
+        {
+          "id": "6315d3175948b5402da845c0",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) famed",
+            "(B) imitation",
+            "(C) novice",
+            "(D) incompetent"
+          ],
+          "correctOptions": [
+            "(A) famed"
+          ],
+          "transcript": "<p>famed (adj):&nbsp;famous or known to many people:</p>\n\n<p>imitation (adj):&nbsp;made to look like something else</p>\n\n<p>novice (n):&nbsp;a person who is not experienced in a job or situation</p>\n\n<p>incompetent (adj):&nbsp;not having the ability to do something as it should be done</p>\n\n<p>Based on the meaning of the words =&gt; Choose A</p>\n",
+          "explanationVi": "famed (adj): nổi tiếng hoặc được nhiều người biết đến <br><br>\n\nimitation (adj): được làm để trông giống với cái gì khác<br><br>\n\nnovice (n): người chưa có kinh nghiệm trong công việc hoặc tình huống<br><br>\n\nincompetent (adj): không có khả năng làm điều gì đó như lẽ ra phải làm<br><br>\n\nDựa vào nghĩa của từ => Chọn đáp án A"
+        },
+        {
+          "id": "6315d3175948b5402da845c1",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) excepted",
+            "(B) avoided",
+            "(C) entitled",
+            "(D) reported"
+          ],
+          "correctOptions": [
+            "(C) entitled"
+          ],
+          "transcript": "<p>except (v):&nbsp;to not include something or someone</p>\n\n<p>avoid (v):&nbsp;to stay away from someone or something</p>\n\n<p>entitle (v):&nbsp;to give someone the right to do or have something</p>\n\n<p>report (v):&nbsp;to give a description of something or information about it to someone</p>\n\n<p>Based on the meaning of the words =&gt; Choose C</p>\n",
+          "explanationVi": "except (v): không bao gồm cái gì đó hoặc ai đó<br><br>\n\navoid (v): tránh xa ai đó hoặc cái gì đó<br><br>\n\nentitle (v): trao cho ai đó quyền làm hoặc có cái gì đó<br><br>\n\nreport (v): mô tả cái gì đó hoặc thông tin về nó cho ai đó<br><br>\n\nDựa vào nghĩa của từ => Chọn đáp án C"
+        },
+        {
+          "id": "6315d3175948b5402da845c2",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Thanks for attending the event.",
+            "(B) A great time was had by everyone.",
+            "(C) We hope to see you in September.",
+            "(D) Calls regarding this matter will be ignored."
+          ],
+          "correctOptions": [
+            "(C) We hope to see you in September."
+          ],
+          "transcript": "<p>The writer wants to express good wishes for the future</p>\n\n<p>=&gt; Choose C</p>\n",
+          "explanationVi": "Tác giả muốn bày tỏ những điều ước tốt đẹp cho tương lai <br><br>\n-> Chọn đáp án C"
+        }
+      ]
+    },
+    {
+      "id": "6315d3175948b5402da845ba",
+      "questionText": "<p><strong>Pearl Resident of the Year Named</strong><br>\nPearl (December 28) - In a ceremony held at city hall last night, Jason O’Brien was <strong>(13)</strong> ________ the<strong> </strong>Resident of the Year by Mayor Anna Harper. Mr. O’Brien, who has lived in Pearl for more than forty years since moving to the city as a child, has been in the news a lot this year. First, when a tornado swept through the city in the spring, Mr. O’Brien helped organize groups of residents to rescue those needing assistance. <strong>(14)</strong> ________ He also <strong>(15)</strong> ________ a large amount of money to relief<strong> </strong>efforts in the city. He came to the rescue once again when the Red River flooded its banks in summer and left half the city under two feet of water. Finally, Mr. O’Brien provided $2 million for the building of a local community center, where residents will be able to go for various leisure activities once construction on it is complete 14 months from now. According to Mayor Harper, <strong>(16)</strong> ________ else was even considered for the award.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6315d3175948b5402da845c3",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) nominated",
+            "(B) reported",
+            "(C) named",
+            "(D) stated"
+          ],
+          "correctOptions": [
+            "(C) named"
+          ],
+          "transcript": "<p>&nbsp;name (v):&nbsp;to choose or to state publicly</p>\n\n<p>nominated (v):&nbsp;to formally suggest that somebody/something should be chosen for an important role, prize, position, etc.</p>\n\n<p>reported (v):&nbsp;to give people information about something that you have heard, seen, done, etc.</p>\n\n<p>stated (v):&nbsp;to formally write or say something, especially in a careful and clear way</p>\n\n<p>=&gt; Choose C</p>\n",
+          "explanationVi": "<p>name (v): để lựa chọn hoặc tuy&ecirc;n bố một c&aacute;ch c&ocirc;ng khai<br />\nnominated (v): chỉ định, bổ nhiệm</p>\n\n<p>reported (v): b&aacute;o c&aacute;o</p>\n\n<p>stated (v): ph&aacute;t biểu, tuy&ecirc;n bố</p>\n\n<p>-&gt; Chọn đ&aacute;p &aacute;n C</p>\n"
+        },
+        {
+          "id": "6315d3175948b5402da845c4",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He was on a team that stopped the flooding from affecting the entire city.",
+            "(B) His efforts resulted in 20 people being saved from inside collapsed homes.",
+            "(C) Those groups warned local residents about the tornado and led them to safety.",
+            "(D) The money that he provided helped repair people’s homes that burned in fires."
+          ],
+          "correctOptions": [
+            "(B) His efforts resulted in 20 people being saved from inside collapsed homes."
+          ],
+          "transcript": "<p>Based on the previous sentences</p>\n\n<p>=&gt; Choose B</p>\n",
+          "explanationVi": "Dựa vào những câu trước đó -> Chọn đáp án B"
+        },
+        {
+          "id": "6315d3175948b5402da845c5",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) donated",
+            "(B) deposited",
+            "(C) invested",
+            "(D) contracted"
+          ],
+          "correctOptions": [
+            "(A) donated"
+          ],
+          "transcript": "<p>donate (v):&nbsp;to give money or goods to help a person or organization</p>\n\n<p>deposit (v):&nbsp;to leave something somewhere</p>\n\n<p>invest (v):&nbsp;to put money, effort, time, etc. into something to make a profit</p>\n\n<p>contract (v):&nbsp;to become smaller in amount or quantity</p>\n\n<p>Based on the meaning of the words =&gt; Choose A</p>\n",
+          "explanationVi": "donate (v): tặng tiền hoặc hàng hóa để giúp đỡ một người hoặc tổ chức <br><br>\n\ndeposit (v): để lại cái gì đó ở đâu đó<br><br>\n\ninvest (v): bỏ tiền, công sức, thời gian, v.v. vào việc gì đó để kiếm lợi nhuận<br><br>\n\ncontract (v): trở nên nhỏ hơn về số lượng hoặc số lượng<br><br>\n\nDựa vào nghĩa của các từ => Chọn đáp án A"
+        },
+        {
+          "id": "6315d3175948b5402da845c6",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) everybody",
+            "(B) anybody",
+            "(C) somebody",
+            "(D) nobody"
+          ],
+          "correctOptions": [
+            "(D) nobody"
+          ],
+          "transcript": "<p>nobody else: there is no other person</p>\n\n<p>=&gt; Choose D</p>\n",
+          "explanationVi": "nobody else: không có người nào khác <br><br>\n-> Chọn đáp án D"
+        }
+      ]
+    }
+  ]
+}

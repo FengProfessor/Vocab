@@ -1,0 +1,301 @@
+{
+  "topicId": "64d09909e323d7343d4d45e9",
+  "name": "Test 22",
+  "slug": "test-22",
+  "part": "part_7_triple_passages",
+  "totalQuestions": 15,
+  "totalCards": 3,
+  "cards": [
+    {
+      "id": "64d0c65de323d7343d4e7926",
+      "questionText": "<p><strong>refer to the following advertisement and e-mails.</strong><br>Assistant Needed<br>Wallenberg Real Estate has an opening for a real estate assistant to join the team at the Newport branch. A real-estate license is not required, as this position does not involve advising clients or negotiating terms. The job consists of setting up for open houses, posting new listings on our Web site, and gathering data about homes and land rights from governmental databases and public records. This position is part-time only, and the successful candidate will be able to set his or her own hours. Please send résumés to Alice Prescott at a.prescott@wallenbergre.com.<br>=======================================<br>To: Alice Prescott &lt;a.prescott@ wallenbergre.com&gt; <br>From: Candace Steiner &lt;steinerc@ hillhaven.net&gt;<br>Date: April 20 <br>Subject: Real Estate Assistant <br>Dear Ms. Prescott,<br>I am interested in the real estate assistant position that was recently posted in the Classified Ads section of the <em>Newport Herald</em>. Although I have never worked for a real estate firm, I spent three years as a receptionist at the office of Linden Insurance, so I am used to administrative duties. I was particularly attracted to the job at Wallenberg because I am taking classes at the Montford Institute part-time, so the working conditions are perfect for me.<br>I am a hard worker, and I am able to learn new tasks quickly. Attached you will find my current résumé along with an extra file detailing the software programs in which I am proficient. Because of these skills, I believe I would require very little training to get started. I hope we can meet in person to discuss the position further, as I am considering real estate for my future long-term career.<br>Sincerely,<br>Candace Steiner<br>=======================================<br>To: Randall Santiago &lt;r.santiago@wallenbergre.com&gt;, Stella McCord &lt;s.mccord@wallenbergre.com&gt;, Joseph Duncan &lt;j.duncan@wallenbergre.com&gt;<br>From: Alice Prescott &lt;a.prescott@wallenbergre.com&gt;<br>Date: April 24<br>Subject: Open position for real estate assistant<br>Good morning,<br>Thank you all for taking the time to sit in on the interviews this week. Since we didn't get the chance to make a final decision about the job candidates, I thought we could do it by e-mail. I believe that Ms. Steiner would be the best person for this position, so I think we should make her a job offer. I thought she was friendly and easygoing in the interview. Most importantly, the information she organized in her supplemental file is exactly what we need to avoid having to do a lot of training. Please let me know what you think!<br>Thanks!<br>Alice Prescott</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d0c65de323d7343d4e7929",
+          "questionText": "What is indicated in the advertisement as a responsibility of the position?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Setting up contracts",
+            "(B) Answering phones",
+            "(C) Researching properties",
+            "(D) Designing a Web site"
+          ],
+          "correctOptions": [
+            "(C) Researching properties"
+          ],
+          "transcript": "<p>Information is in the first passage <em>\"The job consists of setting up for open houses, posting new listings on our Web site, and <strong>gathering data about homes and land rights from governmental databases and public records</strong>.\"&nbsp;</em></p>\n",
+          "explanationVi": "Trong quảng cáo, một trong những nhiệm vụ được liệt kê là \"gathering data about homes and land rights from governmental databases and public records.\" (thu thập dữ liệu về nhà và quyền đất đai từ cơ sở dữ liệu chính phủ và hồ sơ công cộng.). Điều này tương đương với việc nghiên cứu tài sản. Do đó, đáp án đúng là (C) Researching properties."
+        },
+        {
+          "id": "64d0c65de323d7343d4e792a",
+          "questionText": "What is true about Ms. Steiner?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is familiar with selling homeowners' insurance.",
+            "(B) She is currently employed by a real estate agency.",
+            "(C) She has enrolled in a licensing program.",
+            "(D) She has experience in an office setting."
+          ],
+          "correctOptions": [
+            "(D) She has experience in an office setting."
+          ],
+          "transcript": "<p>Information is in the second passage <em>\"I spent three years as a receptionist at the office of Linden Insurance\"</em></p>\n",
+          "explanationVi": "“I spent three years as a receptionist at the office of Linden Insurance” (Tôi đã làm nhân viên lễ tân tại văn phòng Bảo hiểm Linden trong ba năm). Thông tin cho thấy Ms. Steiner đã làm lễ tân tại văn phòng của Linden Insurance trong ba năm, do đó đáp án đúng là (D) She has experience in an office setting."
+        },
+        {
+          "id": "64d0c65de323d7343d4e792b",
+          "questionText": "According to Ms. Steiner, what attracted her to the position?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The job duties",
+            "(B) The flexible working hours",
+            "(C) The convenient location",
+            "(D) The generous vacation time"
+          ],
+          "correctOptions": [
+            "(B) The flexible working hours"
+          ],
+          "transcript": "<p>Information is in the second passage <em>\"I was particularly attracted to the job at Wallenberg <strong>because I am taking classes at the Montford Institute part-time, so the working conditions are perfect for me</strong>.\"</em></p>\n",
+          "explanationVi": "Thông tin: “I was particularly attracted to the job at Wallenberg because I am taking classes at the Montford Institute part-time, so the working conditions are perfect for me.” (Tôi rất hứng thú với công việc ở Wallenberg vì tôi đang tham gia các lớp học bán thời gian tại Học viện Montford nên điều kiện làm việc rất hoàn hảo đối với tôi.). Ms. Steiner bị thu hút bởi công việc này vì điều kiện làm việc phù hợp với việc học bán thời gian của cô ấy. Điều này ám chỉ giờ làm việc linh hoạt. Do đó, đáp án đúng là (B) The flexible working hours."
+        },
+        {
+          "id": "64d0c65de323d7343d4e792c",
+          "questionText": "Why did Ms. Prescott send the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To ask about the availability of some interviewers",
+            "(B) To introduce a newly hired staff member",
+            "(C) To inform coworkers of an interview change",
+            "(D) To recommend a candidate for a position"
+          ],
+          "correctOptions": [
+            "(D) To recommend a candidate for a position"
+          ],
+          "transcript": "<p>Information is in the third passage&nbsp;<em>\"I believe that Ms. Steiner would be the best person for this position, so I think we should make her a job offer.\"&nbsp;</em></p>\n",
+          "explanationVi": "Thông tin: “I believe that Ms. Steiner would be the best person for this position, so I think we should make her a job offer.” (Tôi tin rằng cô Steiner sẽ là người phù hợp nhất cho vị trí này, vì vậy tôi nghĩ chúng ta nên đưa ra lời mời làm việc cho cô ấy.) Trong email của Ms. Prescott, cô ấy nói rằng cô ấy tin rằng Ms. Steiner là người phù hợp nhất cho vị trí này và đề nghị nên đưa ra lời mời làm việc cho cô ấy. Do đó, đáp án đúng là (D) To recommend a candidate for a position."
+        },
+        {
+          "id": "64d0c65de323d7343d4e792d",
+          "questionText": "What characteristic of Ms. Steiner is Ms. Prescott most interested in?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Her experience in the real estate field",
+            "(B) Her knowledge of software programs",
+            "(C) Her ability to work on short notice",
+            "(D) Her strong people skills"
+          ],
+          "correctOptions": [
+            "(B) Her knowledge of software programs"
+          ],
+          "transcript": "<p>Information is in the third passage <em>\"Most importantly, the information she organized in her supplemental file is exactly what we need to avoid having to do a lot of training.\"&nbsp;</em></p>\n",
+          "explanationVi": "Ms. Prescott đề cập rằng thông tin mà Ms. Steiner đã tổ chức trong tệp bổ sung là chính xác những gì họ cần để tránh phải đào tạo nhiều: “Most importantly, the information she organized in her supplemental file is exactly what we need to avoid having to do a lot of training.” Điều này ám chỉ kiến thức về các chương trình phần mềm. Do đó, đáp án đúng là (B) Her knowledge of software programs."
+        }
+      ]
+    },
+    {
+      "id": "64d0c65de323d7343d4e7927",
+      "questionText": "<strong>refer to the following article, invitation, and e-mail.</strong><br>STAUNTON (April 10)-Bringing together his passion for fitness and his natural people skills, Fabio Souza is launching a 24-hour gym in the Valley Lane neighborhood of Staunton. Mr. Souza has a wealth of experience as a certified personal trainer, as he was employed by TCB Fitness in Hillcrest for ten years. He took note of the positive aspects of that business and incorporated them into his own gym.<br>The new gym, which is called Loxley, will feature state-of-the-art workout equipment, engaging group classes, and monthly health seminars. The building, which is located on Kyle Avenue, is beautifully designed, with clean lines and an expert use of color. In fact, Mr. Souza started his career as an interior designer at Canton Inc. However, after his father was diagnosed with a heart condition, Mr. Souza started to understand the importance of exercise.<br>\"I wanted to create a fun and supportive environment for people in order to help them to get in shape,\" said Mr. Souza in a recent interview.<br>Loxley is set to open on May 1. Its services will be available to those with memberships only, at a cost of $600 annually.<br>======================================<br><strong>Celebrate our grand opening!</strong><br>LOXLEY<br>a full-service gym open around the clock<br>Friday, May 1<br>Special Activities*: 9 A.M.-7 P.M.<br>* Enjoy tours of our facility, free yoga classes, and free fitness consultations. Sign up for a one-year membership for $500.<br>======================================<br>To: Fabio Souza <f.souza@loxleygym.com><br>From: Bonnie Tolbert <bonnietolbert@bairdcorporation.net><br>Date: April 18<br>Subject: Loxley<br>Dear Fabio,<br>Thank you for the invitation for the grand opening of your gym. It's wonderful to see that you've followed your dream. Way to go! I remember that you always wanted to have your own business, even back when we were coworkers at TCB Fitness.<br>I wish I could be there in person on the opening day. Unfortunately, I'll be out of town on business. However, I plan to visit you and check out Loxley as soon as I can after that. I wish you all the best on your new venture!<br>Take care,<br>Bonnie</bonnietolbert@bairdcorporation.net></f.souza@loxleygym.com>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d0c65de323d7343d4e792e",
+          "questionText": "Why was the article written?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To promote the opening of a new fitness facility",
+            "(B) To announce classes for personal training certification",
+            "(C) To highlight a variety of working opportunities in Staunton",
+            "(D) To explain a new trend in the exercise community"
+          ],
+          "correctOptions": [
+            "(A) To promote the opening of a new fitness facility"
+          ],
+          "transcript": "<p>Based on information in the first passage<em> \"Bringing together his passion for fitness and his natural people skills, Fabio Souza is launching a 24-hour gym in the Valley Lane neighborhood of Staunton.\", \"The new gym, which is called Loxley, will feature state-of-the-art workout equipment, engaging group classes, and monthly health seminars. The building, which is located on Kyle Avenue, is beautifully designed, with clean lines and an expert use of color.\"</em></p>\n\n<p>=&gt; Choose A&nbsp;</p>\n",
+          "explanationVi": "Bài báo được viết để giới thiệu về việc khai trương phòng tập thể dục mới của Fabio Souza tên là Loxley: \"Mr. Souza is launching a 24-hour gym in the Valley Lane neighborhood of Staunton.\", \"The new gym, which is called Loxley, will feature state-of-the-art workout equipment, engaging group classes, and monthly health seminars. The building, which is located on Kyle Avenue, is beautifully designed, with clean lines and an expert use of color.\" Do đó, đáp án đúng là (A) To promote the opening of a new fitness facility."
+        },
+        {
+          "id": "64d0c65de323d7343d4e792f",
+          "questionText": "What motivated Mr. Souza to change his career path?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The inheritance of his father's company",
+            "(B) An on-the-job injury",
+            "(C) The illness of a relative",
+            "(D) A downturn in the job market"
+          ],
+          "correctOptions": [
+            "(C) The illness of a relative"
+          ],
+          "transcript": "<p>Information is in the first passage <em>\"However, <strong>after his father was diagnosed with a heart condition</strong>, Mr. Souza started to understand the importance of exercise.\"</em></p>\n",
+          "explanationVi": "Thông tin: “However, <b>after his father was diagnosed with a heart condition</b>, Mr. Souza started to understand the importance of exercise.” (Tuy nhiên, sau khi bố được chẩn đoán mắc bệnh tim, ông Souza bắt đầu hiểu tầm quan trọng của việc tập thể dục). Do đó, đáp án đúng là (C) The illness of a relative."
+        },
+        {
+          "id": "64d0c65de323d7343d4e7930",
+          "questionText": "What is indicated about the May 1 event?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It features discounted membership rates.",
+            "(B) It will have refreshments available to visitors.",
+            "(C) It includes free massages for participants.",
+            "(D) It will run tours of the site once per hour."
+          ],
+          "correctOptions": [
+            "(A) It features discounted membership rates."
+          ],
+          "transcript": "<p>In the second passage, there is information <em>\"Sign up for a <strong>one-year membership for $500</strong>.\"</em></p>\n\n<p>Meanwhile, in the first passage, it says that<em> \"Its services will be available to <strong>those with memberships only, at a cost of $600 annually</strong>.\"</em></p>\n\n<p><em>=&gt;&nbsp;</em>The event on May 1 is offering a special one-year membership rate of $500, which is a discount from the regular annual cost of $600.</p>\n\n<p>=&gt; A is correct</p>\n",
+          "explanationVi": "Thông tin đoạn 1: \"Its services will be available to <b>those with memberships only, at a cost of $600 annually.</b>\" (Các dịch vụ chỉ dành cho thành viên, với chi phí 600 đô la hàng năm.)<br>Sau đó quảng cáo cho sự kiện ngày 1 tháng 5 đề cập rằng nếu đăng ký thành viên một năm vào ngày khai trương, chi phí sẽ là $500 thay vì $600: \"Sign up for a one-year membership for $500.\" Do đó, đáp án đúng là (A) It features discounted membership rates."
+        },
+        {
+          "id": "64d0c65de323d7343d4e7931",
+          "questionText": "What is the purpose of Ms. Tolbert's e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To thank Mr. Souza for a job offer",
+            "(B) To accept an invitation",
+            "(C) To sign up for a membership",
+            "(D) To congratulate Mr. Souza"
+          ],
+          "correctOptions": [
+            "(D) To congratulate Mr. Souza"
+          ],
+          "transcript": "<p>Based on information in the third passage <em>\"Thank you for the invitation for the grand opening of your gym.&nbsp;It's wonderful to see that you've followed your dream. Way to go! I remember that you always wanted to have your own business, even back when we were coworkers at TCB Fitness.\", \"I wish you all the best on your new venture!\"</em></p>\n\n<p><em>=&gt;&nbsp;</em>The purpose of Ms. Tolbert's email is to congratulate Fabio Souza on the opening of his gym, Loxley. Tolbert&nbsp; expresses her appreciation for the invitation to the grand opening and congratulates Fabio Souza on following his dream and starting his own business.</p>\n",
+          "explanationVi": "Mục đích email của cô Tolbert là chúc mừng Fabio Souza khai trương phòng tập thể dục của anh ấy. Tolbert bày tỏ sự đánh giá cao về lời mời tham dự lễ khai trương và chúc mừng Fabio Souza đã theo đuổi ước mơ và bắt đầu công việc kinh doanh của riêng mình. \"It's wonderful to see that you've followed your dream. Way to go!... I wish you all the best on your new venture!\" Do đó, đáp án đúng là (D) To congratulate Mr. Souza."
+        },
+        {
+          "id": "64d0c65de323d7343d4e7932",
+          "questionText": "What is true about Ms. Tolbert?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is an investor in Loxley.",
+            "(B) She recently moved to Staunton.",
+            "(C) She is an experienced interior designer.",
+            "(D) She used to work in Hillcrest."
+          ],
+          "correctOptions": [
+            "(D) She used to work in Hillcrest."
+          ],
+          "transcript": "<p>In the third passage, there is information <em>\"even back when <strong>we were coworkers at TCB Fitness</strong>.\"</em></p>\n\n<p>In the first passage, it says that <em>\"he <strong>was employed by TCB Fitness in Hillcrest</strong> for ten years.\"</em></p>\n\n<p>=&gt; D is correct</p>\n",
+          "explanationVi": "Trong email của Ms. Tolbert, cô ấy đề cập rằng họ từng là đồng nghiệp tại TCB Fitness: \"I remember that you always wanted to have your own business, even back when we were coworkers at TCB Fitness.\" Trong khi đó bài cũng chỉ ra rằng TCB Fitness ở Hillcrest \"he <b>was employed by TCB Fitness in Hillcrest</b> for ten years.\" Do đó, đáp án đúng là (D) She used to work in Hillcrest."
+        }
+      ]
+    },
+    {
+      "id": "64d0c65de323d7343d4e7928",
+      "questionText": "<p><strong>refer to the following article, e-mail, and outline.</strong><br>\nSmall Changes Can Make a Big Difference<br>\nLONGVIEW (January 15) - Local entrepreneur Gwen Langston has volunteered to put on a free workshop on making and using eco-friendly household cleaners. The workshop is open to everyone, and it will be held at 7:30 P.M. on January 21 in room 103 of the Longview Community Center.<br>\nLangston has dedicated her life to helping the environment. She operates a small shop downtown called Reclaim Depot, which exclusively sells goods made from recycled or salvaged materials. Her shop is also a collection point for certain unwanted items.<br>\n\"Many people dump paint, automotive fluids, expired medicines, and more down the drain. These harmful chemicals often end up in our water supply. I hope everyone living in the Longview area will be motivated to use our collection point for their chemical waste to make sure these substances do not end up in the wrong place,\" said Langston.<br>\nNo registration is required for the workshop. However, attendees should note that seating is available on a first-come, first-served basis.<br>\n======================================<br>\nTo: &lt;stafflist@longviewquarterly.com&gt;<br>\nFrom: &lt;editor@longviewquarterly.com&gt;<br>\nDate: January 17<br>\nSubject: Opportunity<br>\nDear Staff,<br>\nGwen Langston will host a workshop on January 21. I stopped by her shop this morning to find out if she would be interested in participating in a brief interview for our publication. Fortunately, she's willing to do this, so I need one of you to cover this story. I'm sure our readers will be interested in her advice.<br>\nChristopher Mitchem<br>\nChief Editor, <em>Longview Quarterly</em><br>\n======================================<br>\n<em>Longview Quarterly</em><br>\nSpring Issue</p>\n\n<table border=\"1\" style=\"border-collapse: collapse; width: 100%; height: 97.969px;\">\n\t<tbody>\n\t\t<tr style=\"height: 19.5938px;\">\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px; text-align: center;\"><strong>Title</strong></td>\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px; text-align: center;\"><strong>Article Description</strong></td>\n\t\t\t<td style=\"width: 31.5194%; height: 19.5938px; text-align: center;\"><strong>Writer</strong></td>\n\t\t</tr>\n\t\t<tr style=\"height: 19.5938px;\">\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px;\">Ditch the Toxins</td>\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px;\">Tips for cleaning your home without the use of harsh chemicals and toxins</td>\n\t\t\t<td style=\"width: 31.5194%; height: 19.5938px;\">Enrico Padovano</td>\n\t\t</tr>\n\t\t<tr style=\"height: 19.5938px;\">\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px;\">Heart Healthy</td>\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px;\">\n\t\t\t<p>A collection of low-fat and low-sodium recipes that still pack a flavorful punch</p>\n\t\t\t</td>\n\t\t\t<td style=\"width: 31.5194%; height: 19.5938px;\">Danielle Laprade</td>\n\t\t</tr>\n\t\t<tr style=\"height: 19.5938px;\">\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px;\">Collecting for Cash</td>\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px;\">Harness rainwater easily for home use to save money and help the environment</td>\n\t\t\t<td style=\"width: 31.5194%; height: 19.5938px;\">Jeff Wofford</td>\n\t\t</tr>\n\t\t<tr style=\"height: 19.5938px;\">\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px;\">Longview Pride</td>\n\t\t\t<td style=\"width: 31.5154%; height: 19.5938px;\">A look at what local politicians are doing to get tourists interested in our little city</td>\n\t\t\t<td style=\"width: 31.5194%; height: 19.5938px;\">Victoria Fomina</td>\n\t\t</tr>\n\t</tbody>\n</table>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d0c65de323d7343d4e7933",
+          "questionText": "What is the article mainly about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A volunteer opportunity",
+            "(B) A business's grand opening",
+            "(C) An educational event",
+            "(D) An environmental regulation"
+          ],
+          "correctOptions": [
+            "(C) An educational event"
+          ],
+          "transcript": "<p>Based on information<em> \"Local entrepreneur Gwen Langston has volunteered to put on a free workshop on making and using eco-friendly household cleaners.\"</em></p>\n\n<p>=&gt;&nbsp;The article is mainly about an upcoming workshop on making and using eco-friendly household cleaners, which is an educational event.</p>\n\n<p>=&gt; C is correct</p>\n",
+          "explanationVi": "Bài viết chủ yếu nói về một workshop sắp tới về sản xuất và sử dụng chất tẩy rửa gia dụng thân thiện với môi trường, là một sự kiện mang tính giáo dục: \"Local entrepreneur Gwen Langston has volunteered to put on a free workshop on making and using eco-friendly household cleaners.\" (Doanh nhân địa phương Gwen Langston đã tình nguyện tổ chức một buổi hội thảo miễn phí về cách chế tạo và sử dụng chất tẩy rửa gia dụng thân thiện với môi trường.) Do đó, đáp án đúng là (C) An educational event."
+        },
+        {
+          "id": "64d0c65de323d7343d4e7934",
+          "questionText": "According to the article, what activity does Ms. Langston wish that residents would do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Dispose of chemicals responsibly",
+            "(B) Review the products from her business",
+            "(C) Use energy-efficient household appliances",
+            "(D) Pick up litter in public areas"
+          ],
+          "correctOptions": [
+            "(A) Dispose of chemicals responsibly"
+          ],
+          "transcript": "<p>Information is in the first passage <em>\"I hope everyone living in the Longview area will be motivated to use our collection point for their chemical waste to make sure these substances do not end up in the wrong place\"</em></p>\n",
+          "explanationVi": "Bài báo đề cập rằng Gwen Langston mong muốn người dân sử dụng điểm thu gom của cô ấy để xử lý chất thải hóa học một cách có trách nhiệm: \"I hope everyone living in the Longview area will be motivated to use our collection point for their chemical waste to make sure these substances do not end up in the wrong place.\" Do đó, đáp án đúng là (A) Dispose of chemicals responsibly."
+        },
+        {
+          "id": "64d0c65de323d7343d4e7935",
+          "questionText": "What is suggested about Mr. Mitchem?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is collecting some goods for recycling.",
+            "(B) He conducted a job interview this morning.",
+            "(C) He will accompany a coworker to a workshop.",
+            "(D) He has visited Reclaim Depot."
+          ],
+          "correctOptions": [
+            "(D) He has visited Reclaim Depot."
+          ],
+          "transcript": "<p>In the second passage, there is information <em>\"I <strong>stopped by her shop</strong> this morning to find out if she would be interested in participating in a brief interview for our publication.\"</em></p>\n\n<p>In the first passage, it says that <em>\"She operates <strong>a small shop downtown called Reclaim Depot</strong>\"</em></p>\n\n<p>=&gt; D is correct</p>\n",
+          "explanationVi": "Bài báo chỉ ra rằng Langston điều hành một cửa hàng nhỏ ở trung tâm thành phố tên là Reclaim Depot. “She <b>operates a small shop downtown called Reclaim Depot</b>.” Trong email của Mr. Mitchem, ông đề cập rằng ông đã ghé qua cửa hàng của Gwen Langston vào sáng hôm đó: “I stopped by her shop this morning to find out if she would be interested in participating in a brief interview for our publication.” Do đó, đáp án đúng là (D) He has visited Reclaim Depot."
+        },
+        {
+          "id": "64d0c65de323d7343d4e7936",
+          "questionText": "<p>What article would be best for people wanting to make use of a natural water source?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Ditch the Toxins",
+            "(B) Heart Healthy",
+            "(C) Collecting for Cash",
+            "(D) Longview Pride"
+          ],
+          "correctOptions": [
+            "(C) Collecting for Cash"
+          ],
+          "transcript": "<p>Information is in the third passage <em>\"Collecting for Cash - Harness rainwater easily for home use to save money and help the environment\"</em></p>\n",
+          "explanationVi": "Thông tin: “Collecting for Cash - Harness rainwater easily for home use to save money and help the environment.” (Dễ dàng khai thác nước mưa để sử dụng trong gia đình nhằm tiết kiệm tiền và góp phần bảo vệ môi trường.) Bài báo \"Collecting for Cash\" nói về cách dễ dàng thu nước mưa để sử dụng trong gia đình, giúp tiết kiệm tiền và bảo vệ môi trường. Do đó, đáp án đúng là (C) Collecting for Cash."
+        },
+        {
+          "id": "64d0c65de323d7343d4e7937",
+          "questionText": "Who most likely interviewed Ms. Langston?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Mr. Padovano",
+            "(B) Ms. Laprade",
+            "(C) Mr. Wofford",
+            "(D) Ms. Fomina"
+          ],
+          "correctOptions": [
+            "(A) Mr. Padovano"
+          ],
+          "transcript": "<p>In the first passage, there is information <em>\"Local entrepreneur <strong>Gwen Langston</strong> has volunteered to put on a free <strong>workshop on making and using eco-friendly household cleaners.</strong>\"</em></p>\n\n<p>Look at the outline, it says that <em>\"Tips for <strong>cleaning your home without the use of harsh chemicals and toxins</strong>\" </em>-<em>&nbsp; </em>writer&nbsp;Enrico Padovano.</p>\n\n<p>=&gt; A is correct</p>\n",
+          "explanationVi": "Thông tin: “Local entrepreneur <b>Gwen Langston</b> has volunteered to put on a free <b>workshop on making and using eco-friendly household cleaners.</b>” (Doanh nhân địa phương Gwen Langston đã tình nguyện tổ chức một buổi hội thảo miễn phí về cách chế tạo và sử dụng chất tẩy rửa gia dụng thân thiện với môi trường.) Bài báo \"Ditch the Toxins\" có nội dung về các mẹo làm sạch nhà mà không sử dụng hóa chất và độc tố khắc nghiệt, phù hợp với chủ đề hội thảo của Gwen Langston: \"Tips for cleaning your home without the use of harsh chemicals and toxins.\" Do đó, rất có thể người đã phỏng vấn Ms. Langston là (A) Mr. Padovano."
+        }
+      ]
+    }
+  ]
+}

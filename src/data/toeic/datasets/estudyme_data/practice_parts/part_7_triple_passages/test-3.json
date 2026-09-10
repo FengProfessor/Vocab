@@ -1,0 +1,301 @@
+{
+  "topicId": "61404ce465d71f3a51f64562",
+  "name": "Test 3",
+  "slug": "test-3",
+  "part": "part_7_triple_passages",
+  "totalQuestions": 15,
+  "totalCards": 3,
+  "cards": [
+    {
+      "id": "61404efe65d71f3a51f64598",
+      "questionText": "<p>To: Jake Baldwin <baldwinj@technet.com><br>\nFrom: Dream Oasis Hotel <booking@dreamoasishotel.com><br>\nDate: September 22<br>\nSubject: Your Reservation<br>\nAttachment: invoice.html<br>\n<br>\nDear Mr. Baldwin,</booking@dreamoasishotel.com></baldwinj@technet.com></p>\n\n<p><baldwinj@technet.com><booking@dreamoasishotel.com>Thank you for reserving a room at the Dream Oasis Hotel. You have booked a room with a double bed for the nights of October 13 and 14. Your reservation number is 5259.<br>\nI am writing to inform you that you must pay your balance by September 29 in order to confirm your reservation. Your total room fee is $165.25 for both nights. Payment can be made via credit card by visiting ourwebsite at www.dreamoasishotel.com and entering your reservation number. You may also call US and complete your payment over the phone. If payment is not received by September 29, your reservation will be canceled automatically. Please see the attached invoice for related details.<br>\nWhen you arrive at the airport, the easiest way to travel to our hotel is by subway. We are located next to exit 3 at City Hall Station. If you have trouble finding US, please don't hesitate to call US at 555-2134. A staff member is available 24 hours a day to assist you.<br>\n<br>\nThank you again for choosing our hotel,<br>\nAmy Lee<br>\nCustomer Service Manager<br>\nDream Oasis Hotel<br>\n======================================<br>\nTo: Dream Oasis Hotel <booking@dreamoasishotel.com><br>\nFrom: Jake Baldwin <baldwinj@technet.com><br>\nDate:September 23<br>\nSubject: RE: Your Reservation<br>\n<br>\nDear Ms. Lee,<br>\nI am writing in regard to my reservation at the Dream Oasis Hotel for October 13 and 14.1 received your e-mail about the payment for my upcoming stay at the hotel. However, I would like to inquire about extending my stay for an extra night. I recently heard that there will be a local food festival held on October 16 and I would like to attend it. Therefore, I would like to stay at your hotel until October 15. Please let me know a revised room fee so that I can make the correct payment as soon as possible.<br>\n<br>\nJake Baldwin<br>\n===================================<br>\nTo: Jake Baldwin <baldwinj@technet.com><br>\nFrom:Amy Lee <alee@dreamoasishotel.com><br>\nDate: September 24<br>\nSubject: The 15th<br>\nDear Mr. Baldwin,<br>\n<br>\nYou are right to be excited about the food festival that will be held on the October 16th. Unfortunately, this event has become so popular that the city fills up for that weekend. I regret to inform you that there is no vacancy at the Dream Oasis Hotel for the night of the 15th. I went ahead and looked into some of our partner hotels in the area, but those properties also are at full occupancy I do hope you are able to find someplace to stay in the city so you can enjoy the festival while you are in town; I just wish it could have been with us. You could try the Executive Inn in Fairview; it is a large hotel and they do have vacancies.<br>\n<br>\nSincere apologies,<br>\nAmy Lee<br>\nCustomer Service Manager<br>\nDream Oasis Hotel</alee@dreamoasishotel.com></baldwinj@technet.com></baldwinj@technet.com></booking@dreamoasishotel.com></booking@dreamoasishotel.com></baldwinj@technet.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "61404efe65d71f3a51f6459b",
+          "questionText": "What is the purpose of the first e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To explain a cancellation policy",
+            "(B) To request a payment",
+            "(C) To schedule a reservation",
+            "(D) To offer a special service"
+          ],
+          "correctOptions": [
+            "(B) To request a payment"
+          ],
+          "transcript": "<p>The information is in: <i>\"I am writing to inform you that you must pay your balance by September 29 in order to confirm your reservation.\"</i></p>\n",
+          "explanationVi": "<p>Mục đ&iacute;ch của email đầu ti&ecirc;n l&agrave; g&igrave;?<br />\n(A) Để giải th&iacute;ch ch&iacute;nh s&aacute;ch hủy<br />\n(B) Để y&ecirc;u cầu thanh to&aacute;n<br />\n(C) Để l&ecirc;n lịch đặt chỗ<br />\n(D) Để cung cấp một dịch vụ đặc biệt</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;I am <strong>writing to inform you </strong>that <strong>you must pay your balance</strong> by September 29 in order to confirm your reservation.&quot;</i></p>\n\n<p><i>(T&ocirc;i viết thư n&agrave;y để th&ocirc;ng b&aacute;o với bạn rằng bạn phải thanh to&aacute;n số dư của m&igrave;nh trước ng&agrave;y 29 th&aacute;ng 9 để x&aacute;c nhận việc đặt chỗ của m&igrave;nh.)</i></p>\n\n<p><strong>=&gt; Chọn B</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f6459c",
+          "questionText": "What is Mr. Baldwin asked to provide when making a payment online?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) His telephone number",
+            "(B) His e-mail address",
+            "(C) His room number",
+            "(D) His reservation number"
+          ],
+          "correctOptions": [
+            "(D) His reservation number"
+          ],
+          "transcript": "<p>You can see the information in: <i>\"Payment can be made via credit card by visiting ourwebsite at www.dreamoasishotel.com and entering your reservation number.\"</i></p>\n",
+          "explanationVi": "<p>&Ocirc;ng Baldwin được y&ecirc;u cầu cung cấp những g&igrave; khi thực hiện thanh to&aacute;n trực tuyến?<br />\n(A) Số điện thoại của &ocirc;ng ấy<br />\n(B) Địa chỉ email của &ocirc;ng ấy<br />\n(C) Số ph&ograve;ng của &ocirc;ng ấy<br />\n(D) Số đặt ph&ograve;ng của &ocirc;ng ấy</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;Payment can be made via credit card by visiting our website at www.dreamoasishotel.com and entering your <strong>reservation number</strong>.&quot;</i></p>\n\n<p><i>(C&oacute; thể thực hiện thanh to&aacute;n qua thẻ t&iacute;n dụng bằng c&aacute;ch truy cập trang web của ch&uacute;ng t&ocirc;i tại www.dreamoasishotel.com v&agrave; nhập số đặt ph&ograve;ng của bạn.)</i></p>\n\n<p><strong>=&gt; Chọn D</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f6459d",
+          "questionText": "What information is NOT included in Ms. Lee’s e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The cost of the stay",
+            "(B) The travel insurance",
+            "(C) The location of the hotel",
+            "(D) Staff contact information"
+          ],
+          "correctOptions": [
+            "(B) The travel insurance"
+          ],
+          "transcript": "<p>(A) - Your total room fee is $165.25 for both nights.<br>\n(C) - We are located next to exit 3 at City Hall Station.<br>\n(D) - If you have trouble finding US, please don't hesitate to call US at 555-2134. A staff member is available 24 hours a day to assist you.</p>\n",
+          "explanationVi": "<p>Th&ocirc;ng tin n&agrave;o KH&Ocirc;NG c&oacute; trong email của c&ocirc; Lee?<br />\n(A) Chi ph&iacute; lưu tr&uacute;<br />\n(B) Bảo hiểm du lịch<br />\n(C) Vị tr&iacute; của kh&aacute;ch sạn<br />\n(D) Th&ocirc;ng tin li&ecirc;n lạc của nh&acirc;n vi&ecirc;n</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>(A) - <em>Your total room fee is $165.25 for both nights. (Tổng tiền ph&ograve;ng của bạn l&agrave; $165,25 cho cả hai đ&ecirc;m.)</em><br />\n(C) - <em>We are located next to exit 3 at City Hall Station. (Kh&aacute;ch sạn ch&uacute;ng t&ocirc;i nằm cạnh lối ra số 3 tại Ga T&ograve;a thị ch&iacute;nh.)</em><br />\n(D) - <em>If you have trouble finding US, please don&#39;t hesitate to call US at 555-2134. A staff member is available 24 hours a day to assist you. (Nếu bạn gặp kh&oacute; khăn khi t&igrave;m ch&uacute;ng t&ocirc;i, vui l&ograve;ng gọi cho ch&uacute;ng t&ocirc;i theo số 555-2134. Một nh&acirc;n vi&ecirc;n lu&ocirc;n sẵn s&agrave;ng 24 giờ một ng&agrave;y để hỗ trợ bạn.)</em></p>\n\n<p><strong>=&gt; B kh&ocirc;ng c&oacute; th&ocirc;ng tin trong email của c&ocirc; Lee</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f6459e",
+          "questionText": "Why can’t Mr. Baldwin stay at the Dream Oasis Hotel on the night of the 15th?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The hotel is full because of the food festival.",
+            "(B) The hotel is full because it is very popular.",
+            "(C) The hotel is full because there is a convention in town.",
+            "(D) The hotel is full because the food at the hotel is very good."
+          ],
+          "correctOptions": [
+            "(A) The hotel is full because of the food festival."
+          ],
+          "transcript": "<p>Information is in: <i>\"I regret to inform you that there is no vacancy at the Dream Oasis Hotel for the night of the 15th.\"</i></p>\n",
+          "explanationVi": "<p>Tại sao &ocirc;ng Baldwin kh&ocirc;ng thể ở kh&aacute;ch sạn Dream Oasis v&agrave;o đ&ecirc;m ng&agrave;y 15?<br />\n(A) Kh&aacute;ch sạn chật k&iacute;n v&igrave; lễ hội ẩm thực.<br />\n(B) Kh&aacute;ch sạn đầy kh&aacute;ch v&igrave; n&oacute; rất nổi tiếng.<br />\n(C) Kh&aacute;ch sạn chật k&iacute;n v&igrave; c&oacute; một hội nghị trong thị trấn.<br />\n(D) Kh&aacute;ch sạn đầy kh&aacute;ch v&igrave; đồ ăn ở kh&aacute;ch sạn rất ngon.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;I regret to inform you that there is <strong>no vacancy at the Dream Oasis Hotel for the night of the 15th</strong>.&quot; (T&ocirc;i rất tiếc phải th&ocirc;ng b&aacute;o với bạn rằng kh&aacute;ch sạn Dream Oasis kh&ocirc;ng c&ograve;n chỗ trống v&agrave;o đ&ecirc;m ng&agrave;y 15.)</i></p>\n\n<p><strong>=&gt; Chọn A</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f6459f",
+          "questionText": "What does Amy Lee recommend?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) That Mr. Baldwin try another hotel in town",
+            "(B) That Mr. Baldwin try a hotel in Fairview",
+            "(C) That Mr. Baldwin try to attend the food festival next year",
+            "(D) That Mr. Baldwin ask again on the 14th, in case there is a cancellation"
+          ],
+          "correctOptions": [
+            "(B) That Mr. Baldwin try a hotel in Fairview"
+          ],
+          "transcript": "<p>Information is in: <i>\"You could try the Executive Inn in Fairview; it is a large hotel and they do have vacancies.\"</i></p>\n",
+          "explanationVi": "<p>Amy Lee khuy&ecirc;n g&igrave;?<br />\n(A) &Ocirc;ng Baldwin thử ở một kh&aacute;ch sạn kh&aacute;c trong thị trấn<br />\n(B) Rằng &ocirc;ng Baldwin thử thu&ecirc; một kh&aacute;ch sạn ở Fairview<br />\n(C) Rằng &ocirc;ng Baldwin cố gắng tham dự lễ hội ẩm thực v&agrave;o năm tới<br />\n(D) &Ocirc;ng Baldwin sẽ hỏi lại v&agrave;o ng&agrave;y 14, trong trường hợp c&oacute; sự hủy bỏ</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;<strong>You could try the Executive Inn in Fairview</strong>; it is a large hotel and they do have vacancies.&quot;</i></p>\n\n<p><i>(Bạn c&oacute; thể thử Executive Inn ở Fairview; đ&acirc;y l&agrave; một kh&aacute;ch sạn lớn v&agrave; họ c&ograve;n chỗ trống.)</i></p>\n\n<p><strong>=&gt; Chọn B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "61404efe65d71f3a51f64599",
+      "questionText": "<h4 align=\"center\">Colonial Heights Nursing Home</h4>\n\n<p>Colonial Heights is proud to have served the elderly population of Houston, Texas, for over 30 years. Our nursing home is equipped with state-of-the-art facilities. Our five- story building allows each floor to offer Individualized levels of care for our residents. Our building houses a rehabilitation gym and we also provide psychological counseling services for residents.<br>\nWe currently have openings for several positions. We are looking to hire a nursing home administrator who has at least three years of experience and a valid license. There is also an opening for an admissions coordinator. Those applying for the admissions coordinator job must have a bachelor’s degree and at least two years of related experience. We are also looking for hospice workers who can provide personal care to residents in a compassionate and caring manner. Previous experience is not necessary, so everyone interested is welcome to apply for this position.<br>\nYou can see this job listing and submit an application online by visiting our website at www.chnh.com.<br>\n<br>\n==============================<br>\nTo: Tommy Jenkins <tommyjenkins7@zeusnet.com><br>\nFrom: Greg Parker <g_parker@chnh.com><br>\nSubject:Hiring Procedure<br>\nDate:September 14<br>\n<br>\nDear Mr. Jenkins,</g_parker@chnh.com></tommyjenkins7@zeusnet.com></p>\n\n<p><tommyjenkins7@zeusnet.com><g_parker@chnh.com>Congratulations! You have made it through the first round of the application process for the position of admissions coordinator. We require that all applicants visit Colonial Heights Nursing Home in order to attend an in-person interview. I would appreciate it if you let me know about a convenient time for your interview by September 17.</g_parker@chnh.com></tommyjenkins7@zeusnet.com></p>\n\n<p><tommyjenkins7@zeusnet.com><g_parker@chnh.com>I look forward to meeting you.<br>\n<br>\nSincerely,<br>\nGreg Parker<br>\nHuman Resources Manager<br>\nColonial Heights Nursing Home<br>\n=========================<br>\nTo: Greg Parker <g_parker@chnh.com><br>\nFrom:Tommy Jenkins <tommyjenkins7@zeusnet.com><br>\nDate: September 15<br>\nSubject: Hiring Procedure<br>\n<br>\nDear Mr. Parker,</tommyjenkins7@zeusnet.com></g_parker@chnh.com></g_parker@chnh.com></tommyjenkins7@zeusnet.com></p>\n\n<p><tommyjenkins7@zeusnet.com><g_parker@chnh.com><g_parker@chnh.com><tommyjenkins7@zeusnet.com>Thank you so much for giving me the opportunity to interview for the position of admissions coordinator. You requested that I inform you about my availability for September 17. I have another interview at 10:00 A.M., but I will be able to be at Colonial Heights Nursing Home by 1:00 P.M. I hope this is convenient for you. Shady Pines Nursing Home, as you know, is a competing facility located on the other side of town, and the hours they offer are very attractive. I would prefer to work in a modern facility such as Colonial Heights.</tommyjenkins7@zeusnet.com></g_parker@chnh.com></g_parker@chnh.com></tommyjenkins7@zeusnet.com></p>\n\n<p><tommyjenkins7@zeusnet.com><g_parker@chnh.com><g_parker@chnh.com><tommyjenkins7@zeusnet.com>I look forward to interviewing with you and touring your facilities.<br>\n<br>\nSincerely,<br>\nTommy Jenkins</tommyjenkins7@zeusnet.com></g_parker@chnh.com></g_parker@chnh.com></tommyjenkins7@zeusnet.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "61404efe65d71f3a51f645a0",
+          "questionText": "What is mentioned about Colonial Heights Nursing Home?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A)It has five locations in Texas.",
+            "(B)It has operated for over half a century.",
+            "(C)It provides art classes.",
+            "(D)It offers mental health services."
+          ],
+          "correctOptions": [
+            "(D)It offers mental health services."
+          ],
+          "transcript": "<p>The information is in: <i>\"Our building houses a rehabilitation gym and we also provide psychological counseling services for residents.\"</i></p>\n",
+          "explanationVi": "<p>Điều g&igrave; được đề cập về Viện dưỡng l&atilde;o Colonial Heights?<br />\n(A) N&oacute; c&oacute; năm địa điểm ở Texas.<br />\n(B) N&oacute; đ&atilde; hoạt động được hơn nửa thế kỷ.<br />\n(C) N&oacute; cung cấp c&aacute;c lớp học nghệ thuật.<br />\n(D) N&oacute; cung cấp c&aacute;c dịch vụ sức khỏe t&acirc;m thần.</p>\n\n<p>Th&ocirc;ng tin:&nbsp;<i>&quot;Our building houses a rehabilitation gym and we <strong>also provide psychological counseling services</strong> for residents.&quot;&nbsp;</i></p>\n\n<p><i>(T&ograve;a nh&agrave; của ch&uacute;ng t&ocirc;i c&oacute; ph&ograve;ng tập thể dục phục hồi chức năng v&agrave; ch&uacute;ng t&ocirc;i cũng cung cấp dịch vụ tư vấn t&acirc;m l&yacute; cho cư d&acirc;n.)</i></p>\n\n<p><strong>=&gt; Chọn D</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f645a1",
+          "questionText": "According to the notice, which position does not require experience?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Nursing home administrator",
+            "(B) Hospice worker",
+            "(C) Admissions coordinator",
+            "(D) Front desk receptionist"
+          ],
+          "correctOptions": [
+            "(B) Hospice worker"
+          ],
+          "transcript": "<p>You can see the information in: <i>\"We are also looking for hospice workers who can provide personal care to residents in a compassionate and caring manner. Previous experience is not necessary, so everyone interested is welcome to apply for this position.\"</i></p>\n",
+          "explanationVi": "<p>Theo th&ocirc;ng b&aacute;o, vị tr&iacute; n&agrave;o kh&ocirc;ng y&ecirc;u cầu kinh nghiệm?<br />\n(A) Quản trị vi&ecirc;n viện dưỡng l&atilde;o<br />\n(B) Nh&acirc;n vi&ecirc;n chăm s&oacute;c cuối đời<br />\n(C) Điều phối vi&ecirc;n tuyển sinh<br />\n(D) Nh&acirc;n vi&ecirc;n lễ t&acirc;n ở quầy lễ t&acirc;n</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;We are also <strong>looking for hospice workers</strong> who can provide personal care to residents in a compassionate and caring manner. <strong>Previous experience is not necessary</strong>, so everyone interested is welcome to apply for this position.&quot;</i></p>\n\n<p><i>(Ch&uacute;ng t&ocirc;i cũng đang t&igrave;m kiếm nh&acirc;n vi&ecirc;n chăm s&oacute;c cuối đời c&oacute; thể cung cấp dịch vụ chăm s&oacute;c c&aacute; nh&acirc;n cho cư d&acirc;n một c&aacute;ch tận t&acirc;m v&agrave; chu đ&aacute;o. Kh&ocirc;ng cần kinh nghiệm trước đ&acirc;y n&ecirc;n mọi người quan t&acirc;m đều c&oacute; thể ứng tuyển v&agrave;o vị tr&iacute; n&agrave;y.)</i></p>\n\n<p><strong>=&gt; Chọn B</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f645a2",
+          "questionText": "What is indicated about Colonial Heights Nursing Home?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It plans to expand its facilities.",
+            "(B) It accepts applications through its website.",
+            "(C) It offers the highest wages in the state.",
+            "(D) It recently renewed its operating certificate"
+          ],
+          "correctOptions": [
+            "(B) It accepts applications through its website."
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"You can see this job listing and submit an application online by visiting our website at www.chnh.com.\"</i></p>\n",
+          "explanationVi": "<p>Những g&igrave; được chỉ ra về Viện dưỡng l&atilde;o Colonial Heights?<br />\n(A) N&oacute; c&oacute; kế hoạch mở rộng cơ sở vật chất của m&igrave;nh.<br />\n(B) N&oacute; chấp nhận đơn đăng k&yacute; th&ocirc;ng qua trang web của m&igrave;nh.<br />\n(C) N&oacute; đưa ra mức lương cao nhất trong tiểu bang.<br />\n(D) Gần đ&acirc;y n&oacute; đ&atilde; gia hạn giấy chứng nhận hoạt động</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;You can see this job listing and <strong>submit an application online</strong> by visiting our website at www.chnh.com.&quot;</i></p>\n\n<p><i>(Bạn c&oacute; thể xem danh s&aacute;ch c&ocirc;ng việc n&agrave;y v&agrave; nộp đơn trực tuyến bằng c&aacute;ch truy cập trang web của ch&uacute;ng t&ocirc;i tại www.chnh.com.)</i></p>\n\n<p><strong>=&gt; Chọn B</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f645a3",
+          "questionText": "Why might Tommy Jenkins decide not to work for Colonial Heights Nursing Home?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They do not have physical fitness centers.",
+            "(B) Their facilities are not modern.",
+            "(C) The job is too far away.",
+            "(D) Shady Pines Nursing Home can give him a better schedule."
+          ],
+          "correctOptions": [
+            "(D) Shady Pines Nursing Home can give him a better schedule."
+          ],
+          "transcript": "<p>Information is in: <i>\"I have another interview at 10:00 A.M., but I will be able to be at Colonial Heights Nursing Home by 1:00 P.M. I hope this is convenient for you. Shady Pines Nursing Home, as you know, is a competing facility located on the other side of town, and the hours they offer are very attractive.\"</i></p>\n",
+          "explanationVi": "<p>Tại sao Tommy Jenkins c&oacute; thể quyết định kh&ocirc;ng l&agrave;m việc cho Viện dưỡng l&atilde;o Colonial Heights?<br />\n(A) Họ kh&ocirc;ng c&oacute; trung t&acirc;m thể dục thể chất.<br />\n(B) Cơ sở vật chất của họ kh&ocirc;ng hiện đại.<br />\n(C) C&ocirc;ng việc ở qu&aacute; xa.<br />\n(D) Viện dưỡng l&atilde;o Shady Pines c&oacute; thể cho anh ấy một lịch tr&igrave;nh tốt hơn.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;I have another interview at 10:00 A.M., but I will be able to be at Colonial Heights Nursing Home by 1:00 P.M. I hope this is convenient for you. <strong>Shady Pines Nursing Home</strong>, as you know, is a competing facility located on the other side of town, and <strong>the hours they offer are very attractive</strong>.&quot;</i></p>\n\n<p><i>(T&ocirc;i c&oacute; một cuộc phỏng vấn kh&aacute;c v&agrave;o l&uacute;c 10 giờ s&aacute;ng, nhưng t&ocirc;i sẽ c&oacute; mặt tại Viện dưỡng l&atilde;o Colonial Heights trước 1 giờ chiều. T&ocirc;i hy vọng điều n&agrave;y thuận tiện cho bạn. Viện dưỡng l&atilde;o Shady Pines, như bạn biết, l&agrave; một cơ sở cạnh tranh nằm ở ph&iacute;a b&ecirc;n kia thị trấn v&agrave; thời gian họ cung cấp rất hấp dẫn.)</i></p>\n\n<p><strong>=&gt; Chọn D</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f645a4",
+          "questionText": "When can Tommy Jenkins be at the interview at Colonial Heights?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 10:00 A.M.",
+            "(B) Before 1:00 P.M.",
+            "(C) After 1:00 P.M.",
+            "(D) After 4:00 P.M."
+          ],
+          "correctOptions": [
+            "(C) After 1:00 P.M."
+          ],
+          "transcript": "<p>The information is given in: <i>\"I have another interview at 10:00 A.M., but I will be able to be at Colonial Heights Nursing Home by 1:00 P.M.\"</i></p>\n",
+          "explanationVi": "<p>Khi n&agrave;o Tommy Jenkins c&oacute; thể c&oacute; mặt tại cuộc phỏng vấn ở Colonial Heights?<br />\n(A) 10 giờ s&aacute;ng<br />\n(B) Trước 1 giờ chiều.<br />\n(C) Sau 1 giờ chiều.<br />\n(D) Sau 4 giờ chiều.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;I have another interview at 10:00 A.M., but I will be able to be <strong>at Colonial Heights Nursing Home by 1:00 P.M.</strong>&quot;</i></p>\n\n<p><i>(&quot;T&ocirc;i c&oacute; một cuộc phỏng vấn kh&aacute;c v&agrave;o l&uacute;c 10 giờ s&aacute;ng, nhưng t&ocirc;i sẽ c&oacute; thể c&oacute; mặt tại Viện dưỡng l&atilde;o Colonial Heights trước 1 giờ chiều.&quot;)</i></p>\n\n<p><strong>=&gt; Chọn B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "61404efe65d71f3a51f6459a",
+      "questionText": "<p>May 12<br>\nDear Mr. Gray,<br>\nYou are a long-time member of the Georgian Society of Architects (GSA). We would like to inform you that we are adding some changes to the services provided to members this year. Specifically, we will be adding a new Gold Class level membership that will give privileged members access to more resources than ever before. We are excited to tell you that you meet all of the qualifications for this special membership offer and may sign up immediately. You should be receiving a brochure in the mail soon that will provide more information. We hope that you decide to join this amazing Gold Class membership.<br>\nAs you know, the GSA’s annual members’ conference will be held on June 14 at the Stargate Conference Center in Atlanta, Georgia. We noticed you have already registered your attendance. We can’t wait to see you there. If you need any further assistance making arrangements, don’t hesitate to call our offices at (124) 555-5251.<br>\n<br>\nYours truly,<br>\nJoan ROSS<br>\nGeorgian Society of Architects<br>\n=========================</p>\n\n<h3 align=\"center\">Georgian Society of Architects</h3>\n\n<h4 align=\"center\">GOLD CLASS MEMBERSHIP</h4>\n\n<p>In order to quality for this special membership, applicants must have at least 20 years of experience in the field as well as hold a degree in architecture from an accredited university.<br>\nBenefits include: instantly expand your contacts through access to our database of over 50,000 practicing colleague, pay half the regular price when registering for conferences hosted by GSA, and receive our monthly newsletter, which contains the latest market research and economic analysis to help your business.<br>\nGold Class members will also be eligible to apply for professional liability insurance coverage offered exclusively to our Gold Class members.<br>\nTo apply, simply fill out the form attached to this brochure and mail it to our headquarters. The $40.00 application fee can either be paid by check or credit card by calling our accountant at (124) 555-5253.<br>\n<br>\n============================</p>\n\n<h3 align=\"center\">STARGATE CONVENTION CENTER SCHEDULE OF EVENTS</h3>\n\n<h4 align=\"center\">JUNE 14</h4>\n\n<h4 align=\"center\">GEORGIAN SOCIETY OF ARCHITECTS</h4>\n\n<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse\" width=\"90%\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>9:00 A.M - 9:45 A.M</td>\n\t\t\t<td align=\"right\">Sign at the desk in the lobby</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>9:00 A.M - 9:45 A.M</td>\n\t\t\t<td align=\"right\">Guest Speaker Jerry Jenkins Jr. in Conference Room A</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>12:00 P.M.-1:30 P.M</td>\n\t\t\t<td align=\"right\">Lunch in the Diamond Room</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>2:00 P.M.-4:00 P.M.</td>\n\t\t\t<td align=\"right\">Regional Presentations in Conference Room A</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>6:00 P.M.-9:00 P.M.</td>\n\t\t\t<td align=\"right\">Dinner and cocktails in the Sapphire Lounge</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p><br>\nPlease remember to bring your Society ID to ensure a smooth registration for the day's events!</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "61404efe65d71f3a51f645a5",
+          "questionText": "What is the purpose of the letter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To publicize a conference",
+            "(B) To advertise a new membership",
+            "(C) To confirm an appointment",
+            "(D) To attract a new member"
+          ],
+          "correctOptions": [
+            "(B) To advertise a new membership"
+          ],
+          "transcript": "<p>Information is in: <i>\" We would like to inform you that we are adding some changes to the services provided to members this year.\"</i></p>\n",
+          "explanationVi": "<p>Mục đ&iacute;ch của bức thư l&agrave; g&igrave;?<br />\n(A) Để c&ocirc;ng bố một hội nghị<br />\n(B) Để quảng c&aacute;o tư c&aacute;ch th&agrave;nh vi&ecirc;n mới<br />\n(C) Để x&aacute;c nhận một cuộc hẹn<br />\n(D) Để thu h&uacute;t th&agrave;nh vi&ecirc;n mới</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot; We would like to inform you that we are adding some changes to the services provided to members this year.&quot;</i></p>\n\n<p><i>(Ch&uacute;ng t&ocirc;i muốn th&ocirc;ng b&aacute;o cho bạn rằng ch&uacute;ng t&ocirc;i đang bổ sung một số thay đổi đối với c&aacute;c dịch vụ cung cấp cho th&agrave;nh vi&ecirc;n trong năm nay.)</i></p>\n\n<p><strong>=&gt; Chọn B</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f645a6",
+          "questionText": "What is Mr. Gray encouraged to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Register for a conference",
+            "(B) Reschedule an appointment",
+            "(C) Upgrade his service",
+            "(D) Pay by credit card"
+          ],
+          "correctOptions": [
+            "(C) Upgrade his service"
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\" We are excited to tell you that you meet all of the qualifications for this special membership offer and may sign up immediately. You should be receiving a brochure in the mail soon that will provide more information. We hope that you decide to join this amazing Gold Class membership.\"</i></p>\n",
+          "explanationVi": "<p>&Ocirc;ng Grey được khuyến kh&iacute;ch l&agrave;m g&igrave;?<br />\n(A) Đăng k&yacute; một hội nghị<br />\n(B) Sắp xếp lại một cuộc hẹn<br />\n(C) N&acirc;ng cấp dịch vụ của anh ấy<br />\n(D) Thanh to&aacute;n bằng thẻ t&iacute;n dụng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot; We are excited to tell you that you meet all of the qualifications for this special membership offer and may sign up immediately. You should be receiving a brochure in the mail soon that will provide more information. <strong>We hope that you decide to join this amazing Gold Class membership.</strong>&quot;</i></p>\n\n<p><i>(Ch&uacute;ng t&ocirc;i rất vui mừng th&ocirc;ng b&aacute;o với bạn rằng bạn đ&aacute;p ứng tất cả c&aacute;c ti&ecirc;u chuẩn cho ưu đ&atilde;i d&agrave;nh cho th&agrave;nh vi&ecirc;n đặc biệt n&agrave;y v&agrave; c&oacute; thể đăng k&yacute; ngay lập tức. Bạn sẽ sớm nhận được một t&agrave;i liệu quảng c&aacute;o qua thư sẽ cung cấp th&ecirc;m th&ocirc;ng tin. Ch&uacute;ng t&ocirc;i hy vọng rằng bạn quyết định tham gia th&agrave;nh vi&ecirc;n Hạng V&agrave;ng tuyệt vời n&agrave;y.)</i></p>\n\n<p><strong>=&gt; Chọn C</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f645a7",
+          "questionText": "What is indicated about Mr. Gray?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He has worked as an architect for over two decades.",
+            "(B) He spoke at last year’s GSA members’ conference.",
+            "(C) He contributes to an architecture journal.",
+            "(D) He forgot to pay his membership fee in April."
+          ],
+          "correctOptions": [
+            "(A) He has worked as an architect for over two decades."
+          ],
+          "transcript": "<p>Based on the information given in: <i>\"In order to quality for this special membership, applicants must have at least 20 years of experience in the field as well as hold a degree in architecture from an accredited university.\"</i> which is in the gold class membership sent to Mr. Gray, it can be inferred that he has worked for 20 years as an architect.</p>\n",
+          "explanationVi": "<p>Điều g&igrave; được chỉ ra về &ocirc;ng Gray?<br />\n(A) &Ocirc;ng ấy đ&atilde; l&agrave;m kiến ​​tr&uacute;c sư được hơn hai thập kỷ.<br />\n(B) &Ocirc;ng ấy đ&atilde; ph&aacute;t biểu tại hội nghị th&agrave;nh vi&ecirc;n GSA năm ngo&aacute;i.<br />\n(C) &Ocirc;ng ấy đ&oacute;ng g&oacute;p cho một tạp ch&iacute; kiến ​​tr&uacute;c.<br />\n(D) &Ocirc;ng ấy qu&ecirc;n đ&oacute;ng ph&iacute; th&agrave;nh vi&ecirc;n v&agrave;o th&aacute;ng Tư.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i>&quot;In order to quality for this special membership, <strong>applicants must have at least 20 years of experience</strong> in the field as well as <strong>hold a degree in architecture</strong> from an accredited university.&quot;</i></p>\n\n<p><em>(Để đủ ti&ecirc;u chuẩn trở th&agrave;nh th&agrave;nh vi&ecirc;n đặc biệt n&agrave;y, ứng vi&ecirc;n phải c&oacute; &iacute;t nhất 20 năm kinh nghiệm trong lĩnh vực n&agrave;y cũng như c&oacute; bằng kiến ​​tr&uacute;c từ một trường đại học được c&ocirc;ng nhận)</em></p>\n\n<p>&Ocirc;ng Gray được mời tham gia th&agrave;nh vi&ecirc;n hạng V&agrave;ng, c&oacute; thể suy ra rằng &ocirc;ng đ&atilde; l&agrave;m kiến ​​tr&uacute;c sư được 20 năm.</p>\n\n<p><strong>=&gt; Chọn A</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f645a8",
+          "questionText": "What time should Mr. Gray sign in on the day of the conference?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 8:45 A.M.-10:00 A.M.",
+            "(B) 9:00 A.M. exactly",
+            "(C) Anytime",
+            "(D) 9:00 A.M.-9:45 A.M."
+          ],
+          "correctOptions": [
+            "(D) 9:00 A.M.-9:45 A.M."
+          ],
+          "transcript": "<p>The information is in: <i>9:00 A.M - 9:45 A.M Sign at the desk in the lobby</i></p>\n",
+          "explanationVi": "<p>&Ocirc;ng Gray n&ecirc;n đến l&uacute;c mấy giờ trong ng&agrave;y diễn ra hội nghị?<br />\n(A) 8:45 s&aacute;ng-10:00 s&aacute;ng<br />\n(B) 9 giờ s&aacute;ng ch&iacute;nh x&aacute;c<br />\n(C) Bất cứ l&uacute;c n&agrave;o<br />\n(D) 9:00 s&aacute;ng-9:45 s&aacute;ng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong>&nbsp;<i><strong>9:00 A.M - 9:45 A.M</strong> Sign at the desk in the lobby</i></p>\n\n<p><i>(9:00 A.M - 9:45 A.M Đăng k&yacute; tại b&agrave;n ở sảnh)</i></p>\n\n<p><strong>=&gt; Chọn D</strong></p>\n"
+        },
+        {
+          "id": "61404efe65d71f3a51f645a9",
+          "questionText": "How many meals are included in the event?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Breakfast, lunch, and dinner",
+            "(B) Brunch and dinner",
+            "(C) Dinner and cocktails",
+            "(D) Lunch and dinner"
+          ],
+          "correctOptions": [
+            "(D) Lunch and dinner"
+          ],
+          "transcript": "<p>Based on the information in the schedule of events, line 3 and 5.</p>\n\n<p>12:00 P.M.-1:30 P.M&nbsp;&nbsp; &nbsp;<strong>Lunch </strong>in the Diamond Room<br>\n6:00 P.M.-9:00 P.M.&nbsp;&nbsp; &nbsp;<strong>Dinner </strong>and cocktails in the Sapphire Lounge</p>\n",
+          "explanationVi": "<p>Sự kiện bao gồm bao nhi&ecirc;u bữa ăn?<br />\n(A) Bữa s&aacute;ng, bữa trưa v&agrave; bữa tối<br />\n(B) Bữa trưa v&agrave; bữa tối<br />\n(C) Bữa tối v&agrave; cocktail<br />\n(D) Bữa trưa v&agrave; bữa tối</p>\n\n<p>Th&ocirc;ng tin:&nbsp;Dựa tr&ecirc;n th&ocirc;ng tin trong lịch tr&igrave;nh sự kiện, d&ograve;ng 3 v&agrave; 5.</p>\n\n<p>12:00 P.M.-1:30 P.M&nbsp;&nbsp; &nbsp;<strong>Lunch </strong>in the Diamond Room<br />\n6:00 P.M.-9:00 P.M.&nbsp;&nbsp; &nbsp;<strong>Dinner </strong>and cocktails in the Sapphire Lounge</p>\n\n<p><strong>=&gt; Chọn D</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

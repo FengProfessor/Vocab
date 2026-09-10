@@ -1,0 +1,204 @@
+{
+  "topicId": "6319a071f2fe240a4043ae7e",
+  "name": "Test 17",
+  "slug": "test-17",
+  "part": "part_7_double_passages",
+  "totalQuestions": 10,
+  "totalCards": 2,
+  "cards": [
+    {
+      "id": "6319c45af2fe240a4043aeb6",
+      "questionText": "<p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">May 22</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Dear Mr. Washington,</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">I am writing to complain about the late delivery of the computer set I ordered at the end of April. The customized video display terminals were supposed to be delivered by May 16. I requested to have the order shipped on or before May 10. You assured me that the set would be delivered within 6 days. However, they arrived 3 days late and I faced considerable difficulty with my work due to the delay.</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Sincerely,</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Timothy Macquire</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Director</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Computer Science Department</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">____________________________________________________</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">May 25</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Dear Mr. Macquire,</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Thank you for writing us about your dissatisfaction concerning the delay in receiving your customized video display terminals (our invoice #CP-80-1200). The delay, however, was not caused at our end. As specified in your purchase order of April 28, we shipped via Fexter - a logistics company that you selected. The terminals were actually picked up on May 10, as you can see from the attached air bill (Fexter #55-MC9908). Also, you can find shipping details on your order in our order tracking service and see where the delay occurred at our website www.comtechpro.com.</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">From what I see, it appears that Fexter is responsible for the delay. Please let me know if I may help further in this matter.</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Sincerely,</span></span></span></p> <p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">James R. Washington</span></span></span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6319c45af2fe240a4043aeba",
+          "questionText": "What is the purpose of the first letter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To ask for express shipping of the monitors",
+            "(B) To request extra service from ComtechPro",
+            "(C) To express disappointment about an order",
+            "(D) To ask for a compensation for the delay"
+          ],
+          "correctOptions": [
+            "(C) To express disappointment about an order"
+          ],
+          "transcript": "<p>Information:&nbsp;<em>I am writing to <strong>complain about the late delivery</strong> of the computer set I ordered at the end of April.&nbsp;</em></p>\n",
+          "explanationVi": "<p>Mục đích của lá thư đầu tiên là gì?</p>\n<p>(A) Để yêu cầu chuyển phát nhanh màn hình</p>\n<p>(B) Để yêu cầu dịch vụ bổ sung từ ComtechPro</p>\n<p>(C) Để bày tỏ sự thất vọng về một đơn hàng</p>\n<p>(D) Để yêu cầu bồi thường cho sự chậm trễ</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>I am writing to&nbsp;<strong>complain about the late delivery</strong> of the computer set I ordered at the end of April.&nbsp;</em></p>\n<p><em>(</em><em>Tôi viết thư này để phàn nàn về việc giao trễ bộ máy tính mà tôi đặt mua vào cuối tháng 4.)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "6319c45af2fe240a4043aebb",
+          "questionText": "When did Timothy receive his order?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) May 16",
+            "(B) May 19",
+            "(C) May 22",
+            "(D) May 25"
+          ],
+          "correctOptions": [
+            "(B) May 19"
+          ],
+          "transcript": "<p>Information: <em>The customized video display terminals were <strong>supposed to be delivered by May 16</strong>. I requested to have the order shipped on or before May 10. You <strong>assured </strong>me that the set would be delivered <strong>within 6 days</strong>. However, <strong>they arrived 3 days late...</strong></em></p>\n\n<p><em><strong>=&gt; The order arrived on&nbsp;May 19</strong></em></p>\n",
+          "explanationVi": "<p>Khi nào Timothy nhận được lệnh của mình?</p>\n<p>(A) Ngày 16 tháng 5</p>\n<p>(B) Ngày 19 tháng 5</p>\n<p>(C) Ngày 22 tháng 5</p>\n<p>(D) Ngày 25 tháng 5</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>The customized video display terminals were&nbsp;<strong>supposed to be delivered by May 16</strong>. I requested to have the order shipped on or before May 10. You&nbsp;<strong>assured&nbsp;</strong>me that the set would be delivered&nbsp;<strong>within 6 days</strong>. However,&nbsp;<strong>they arrived 3 days late...</strong></em></p>\n<p><em>(Các thiết bị đầu cuối hiển thị video tùy chỉnh dự kiến sẽ được giao trước ngày 16 tháng 5. Tôi đã yêu cầu giao đơn hàng vào hoặc trước ngày 10 tháng 5. Bạn đảm bảo với tôi rằng bộ sản phẩm sẽ được giao trong vòng 6 ngày. Tuy nhiên, chúng đến muộn 3 ngày...)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "6319c45af2fe240a4043aebc",
+          "questionText": "When were the monitors ordered?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) April 26",
+            "(B) April 28",
+            "(C) May 10",
+            "(D) May 22"
+          ],
+          "correctOptions": [
+            "(B) April 28"
+          ],
+          "transcript": "<p>Information in the second letter:&nbsp;<em>As specified in <strong>your purchase order of April 28,..</strong></em></p>\n",
+          "explanationVi": "<p>Khi nào màn hình được đặt hàng?</p>\n<p>(A) Ngày 26 tháng 4</p>\n<p>(B) Ngày 28 tháng 4</p>\n<p>(C) Ngày 10 tháng 5</p>\n<p>(D) Ngày 22 tháng 5</p>\n<p><strong>Thông tin ở lá thư thứ 2:</strong> <em>As specified in&nbsp;<strong>your purchase order of April 28,..</strong></em></p>\n<p><em>(</em><em>Như đã nêu trong đơn đặt hàng ngày 28/4 của Quý khách,...)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "6319c45af2fe240a4043aebd",
+          "questionText": "What is enclosed in Mr. Washington’s letter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A report by the sales person",
+            "(B) A copy of the price quote",
+            "(C) A copy of the air bill",
+            "(D) The sales receipt"
+          ],
+          "correctOptions": [
+            "(C) A copy of the air bill"
+          ],
+          "transcript": "<p>Information:&nbsp;<em>The terminals were actually picked up on May 10, as you can see from the <strong>attached air bill</strong> (Fexter #55-MC9908)</em></p>\n",
+          "explanationVi": "<p>Trong thư của ông Washington có nội dung gì?</p>\n<p>(A) Báo cáo của người bán hàng</p>\n<p>(B) Một bản sao báo giá</p>\n<p>(C) Một bản sao hóa đơn hàng không</p>\n<p>(D) Biên lai bán hàng</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>The terminals were actually picked up on May 10, as you can see from the&nbsp;<strong>attached air bill</strong> (Fexter #55-MC9908)</em></p>\n<p><em>(</em><em>Các thiết bị đầu cuối thực sự đã được nhận vào ngày 10 tháng 5, như bạn có thể thấy trong hóa đơn hàng không đính kèm (Fexter #55-MC9908).)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "6319c45af2fe240a4043aebe",
+          "questionText": "<p>According to Mr. Washington, who is responsible for the problem?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) ComtechPro",
+            "(B) The university",
+            "(C) Fexter",
+            "(D) The Computer Science Department"
+          ],
+          "correctOptions": [
+            "(C) Fexter"
+          ],
+          "transcript": "<p>Information:&nbsp;<em>From what I see, it appears that <strong>Fexter is responsible for the delay</strong></em></p>\n",
+          "explanationVi": "<p>Theo ông Washington, ai chịu trách nhiệm về vấn đề này?</p>\n<p>(A) ComtechPro</p>\n<p>(B) Trường đại học</p>\n<p>(C) Fexter</p>\n<p>(D) Khoa Khoa học Máy tính</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>From what I see, it appears that&nbsp;<strong>Fexter is responsible for the delay</strong></em></p>\n<p><em>(</em><em>Theo những gì tôi thấy, có vẻ như Fexter phải chịu trách nhiệm về sự chậm trễ này)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6319c45af2fe240a4043aeb7",
+      "questionText": "<p style=\"margin-bottom: 11px; text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\"><b>Hotel Suite 126</b></span></span></span></p>\n\n<p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">For security purposes, each hotel suite is equipped with an electronic locking device that prevents anyone other than the hotel guest from accessing the suite. Each room key has a special numerical code that is automatically erased at the check-out time on your scheduled date of departure. Should you require a time extension for your room, please phone the front desk to inform the staff of the changes to your departure time. Check-out occurs daily at one o'clock p.m.</span></span></span></p>\n\n<p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Thank you. </span></span></span></p>\n\n<p style=\"margin-bottom: 11px; text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">____________________________________________________</span></span></span></p>\n\n<p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Hello, this is Lorne Peters in Suite 126. I was originally scheduled to check out on Sunday, March 3rd, but I have an urgent business meeting on Monday and need to <strong>extend </strong>my stay. My meeting will not finish until late Monday night, so I think that I had better stay until Tuesday.</span></span></span></p>\n\n<p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">I was also wondering if it would be possible to delay the usual check-out time on Tuesday for an additional hour. Please leave me a note at the front desk letting me know whether or not this will be possible. I will pick up the message Monday morning. Finally, I would like to schedule a wake-up call for Monday morning at 6:30.</span></span></span></p>\n\n<p style=\"margin-bottom: 11px; text-align: justify;\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">Thank you.</span></span></span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6319c45af2fe240a4043aebf",
+          "questionText": "What has been done to make the suites safer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Security guards are posted at all entrances.",
+            "(B) Cameras are installed in all hallways.",
+            "(C) Numerical codes on keys are changed often.",
+            "(D) The front doors of the hotel are locked at 10:30 p.m."
+          ],
+          "correctOptions": [
+            "(C) Numerical codes on keys are changed often."
+          ],
+          "transcript": "<p>Information:&nbsp;<em><strong>Each room key has a special numerical code</strong> that is automatically erased at the check-out time on your scheduled date of departure</em></p>\n",
+          "explanationVi": "<p>Những gì đã được thực hiện để làm cho các dãy phòng an toàn hơn?</p>\n<p>(A) Nhân viên bảo vệ được bố trí ở tất cả các lối vào.</p>\n<p>(B) Camera được lắp đặt ở tất cả các hành lang.</p>\n<p>(C) Mã số trên các phím được thay đổi thường xuyên.</p>\n<p>(D) Cửa trước của khách sạn bị khóa lúc 10:30 tối.</p>\n<p>Thông tin:&nbsp;<em><strong>Each room key has a special numerical code</strong> that is automatically erased at the check-out time on your scheduled date of departure</em></p>\n<p><em>(</em><em>Mỗi chìa khóa phòng đều có một mã số đặc biệt được tự động xóa khi trả phòng vào ngày khởi hành dự kiến của bạn)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "6319c45af2fe240a4043aec0",
+          "questionText": "What is NOT indicated about Mr. Peters?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is staying in Suite 126.",
+            "(B) He will attend a meeting on Monday.",
+            "(C) A staff member will wake him up by phone.",
+            "(D) He will check out on Sunday morning."
+          ],
+          "correctOptions": [
+            "(D) He will check out on Sunday morning."
+          ],
+          "transcript": "<p>Information for (A):&nbsp;<em>Hello, this is <strong>Lorne Peters in Suite 126</strong>.</em></p>\n\n<p>Information for (B):&nbsp;<em>I have an urgent <strong>business meeting on Monday</strong></em></p>\n\n<p>Information for (C):&nbsp;<em>I would like to schedule a <strong>wake-up call </strong>for Monday morning at 6:30.</em></p>\n",
+          "explanationVi": "<p>Điều gì KHÔNG được chỉ ra về ông Peters?</p>\n<p>(A) Anh ấy đang ở phòng 126.</p>\n<p>(B) Anh ấy sẽ tham dự một cuộc họp vào thứ Hai.</p>\n<p>(C) Một nhân viên sẽ đánh thức anh ấy qua điện thoại.</p>\n<p>(D) Anh ấy sẽ trả phòng vào sáng Chủ nhật.</p>\n<p>Thông tin:&nbsp;</p>\n<p>(A):&nbsp;<em>Hello, this is&nbsp;<strong>Lorne Peters in Suite 126</strong>. (</em><em>Xin chào, đây là Lorne Peters ở Phòng 126.)</em></p>\n<p>(B):&nbsp;<em>I have an urgent&nbsp;<strong>business meeting on Monday&nbsp;</strong>(</em><em>Tôi có cuộc họp kinh doanh khẩn cấp vào thứ Hai)</em></p>\n<p>(C):&nbsp;<em>I would like to schedule a&nbsp;<strong>wake-up call&nbsp;</strong>for Monday morning at 6:30. (</em><em>Tôi muốn lên lịch đánh thức vào sáng thứ Hai lúc 6:30)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "6319c45af2fe240a4043aec1",
+          "questionText": "In the phone message, the word “extend” in paragraph 1, line 3 is closest in meaning to",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) prolong",
+            "(B) supplement",
+            "(C) protrude",
+            "(D) enlarge"
+          ],
+          "correctOptions": [
+            "(A) prolong"
+          ],
+          "transcript": "<p>extend (v):&nbsp;to make something last longer = prolong</p>\n",
+          "explanationVi": "<p>extend (v): kéo dài</p>\n<p>prolong (v): kéo dài</p>\n<p>supplement (v): bổ sung</p>\n<p>protrude (v): làm nhô ra</p>\n<p>enlarge (v): mở rộng</p>\n<p>=&gt; extend = prolong <strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "6319c45af2fe240a4043aec2",
+          "questionText": "What time would Mr. Peters like to check out of the hotel on Tuesday?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 11 a.m.",
+            "(B) Noon",
+            "(C) 1 pm.",
+            "(D) 2 p.m."
+          ],
+          "correctOptions": [
+            "(D) 2 p.m."
+          ],
+          "transcript": "<p>According to the first passage:&nbsp;<em><strong>Check-out </strong>occurs daily at <strong>one o'clock p.m</strong>.</em></p>\n\n<p>According to the second passage: <em>I was also wondering if it would be possible to <strong>delay the usual check-out time</strong> on Tuesday for <strong>an additional hour</strong>.</em></p>\n",
+          "explanationVi": "<p>Ông Peters muốn trả phòng khách sạn lúc mấy giờ vào thứ Ba?</p>\n<p>(A) 11 giờ sáng</p>\n<p>(B) Buổi trưa</p>\n<p>(C) 1 giờ chiều</p>\n<p>(D) 2 giờ chiều</p>\n<p>Thông tin:&nbsp;</p>\n<p>Đoạn 1:&nbsp;<em><strong>Check-out&nbsp;</strong>occurs daily at&nbsp;<strong>one o'clock p.m</strong>. (</em><em>Việc trả phòng diễn ra hàng ngày vào lúc 1 giờ chiều.)</em></p>\n<p>Đoạn 2:<em> </em><em>I was also wondering if it would be possible to&nbsp;<strong>delay the usual check-out time</strong>&nbsp;on Tuesday for&nbsp;<strong>an additional hour</strong>. (</em><em>Tôi cũng đang tự hỏi liệu có thể hoãn lại thời gian trả phòng thông thường vào thứ Ba thêm một giờ nữa hay không.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "6319c45af2fe240a4043aec3",
+          "questionText": "<p>How will the hotel inform Mr. Peters whether or not he can extend his stay?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) With a phone message",
+            "(B) By e-mail",
+            "(C) By fax",
+            "(D) With a written message"
+          ],
+          "correctOptions": [
+            "(D) With a written message"
+          ],
+          "transcript": "<p>Information in the second passage:&nbsp;<em>Please <strong>leave me a note</strong> at the front desk letting me know whether or not this will be possible.</em></p>\n",
+          "explanationVi": "<p>Khách sạn sẽ thông báo cho ông Peters như thế nào về việc ông có thể gia hạn thời gian lưu trú hay không?</p>\n<p>(A) Với một tin nhắn điện thoại</p>\n<p>(B) Qua email</p>\n<p>(C) Bằng fax</p>\n<p>(D) Với một tin nhắn bằng văn bản</p>\n<p>Thông tin:&nbsp;<em>Please&nbsp;<strong>leave me a note</strong> at the front desk letting me know whether or not this will be possible.</em></p>\n<p><em>(</em><em>Vui lòng để lại cho tôi một mảnh giấy ở quầy lễ tân cho tôi biết liệu điều này có khả thi hay không.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        }
+      ]
+    }
+  ]
+}

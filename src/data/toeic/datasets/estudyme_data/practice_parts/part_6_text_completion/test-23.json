@@ -1,0 +1,330 @@
+{
+  "topicId": "6a166741716fea002570ad45",
+  "name": "Test 23",
+  "slug": "test-23",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6a1675f06229c00025f938de",
+      "questionText": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\"><strong>Look to Riessler Landscaping for all your garden requirements</strong></p>\n\n<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">Riessler Landscaping offers everything needed to build your ideal garden. We will carefully consider your ideas and provide recommendations that suit your gardening goals. <b>(1)</b>_____.The nursery at Riessler Landscaping features a wide selection of plants in various types and sizes, showcasing vibrant colors throughout the year. You are sure to find something that will add&nbsp;<b>(2)</b>_____ to your garden. We are <b>(3)</b>_____ equipped to build small ponds or other water features. As our name indicates, we also handle larger landscaping projects - whatever you require. With over 40 years of experience in landscape design, <b>(4)</b>_____ expertise is unmatched.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a1675f06229c00025f938df",
+          "questionText": "<p><strong>(1)</strong></p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Employees have contributed written pieces to the community newspaper.",
+            "Adding lighting can improve the appearance of a carefully planned garden.",
+            "Nearby competitors are unable to offer lower prices than ours.",
+            "Riessler Landscaping aims to turn your ideas into reality."
+          ],
+          "correctOptions": [
+            "Riessler Landscaping aims to turn your ideas into reality."
+          ],
+          "transcript": "<p data-end=\"140\" data-start=\"0\">Before the blank: the passage talks about listening and giving suggestions.<br data-end=\"78\" data-start=\"75\">\nAfter the blank: it shifts to introducing specific services.</p>\n\n<p data-end=\"315\" data-start=\"142\">→ A connecting sentence is needed to clearly state the company’s goal.<br data-end=\"215\" data-start=\"212\">\n→ Choose D because it summarizes the previous idea and smoothly leads into the service introduction.</p>\n\n<p data-end=\"427\" data-start=\"317\">(A) Employees have contributed written pieces to the community newspaper.<br data-end=\"388\" data-start=\"385\">\n→ Irrelevant; not related to gardening.</p>\n\n<p data-end=\"547\" data-start=\"429\">(B) Adding lighting can improve the appearance of a carefully planned garden.<br data-end=\"511\" data-start=\"508\">\n→ Too specific and lacks connection.</p>\n\n<p data-end=\"649\" data-start=\"549\">(C) Nearby competitors are unable to offer lower prices than ours.<br data-end=\"605\" data-start=\"602\">\n→ Focuses on pricing; does not fit the flow.</p>\n\n<p data-end=\"810\" data-start=\"651\">(D) Riessler Landscaping aims to turn your ideas into reality.<br data-end=\"722\" data-start=\"719\">\n→ Effectively wraps up the previous point and transitions into the service introduction.</p>\n",
+          "explanationVi": "<p>Trước chỗ trống: n&oacute;i về lắng nghe &amp; đưa ra gợi &yacute;. Sau chỗ trống: chuyển sang giới thiệu dịch vụ cụ thể.<br />\n&rarr; Cần 1 c&acirc;u kết nối, n&oacute;i r&otilde; mục ti&ecirc;u của c&ocirc;ng ty&nbsp;<br />\n-&gt; Chọn D: Tổng kết &yacute; trước, dẫn sang phần giới thiệu dịch vụ</p>\n\n<p>(A) Employees have contributed written pieces to the community newspaper. -&gt; Lạc đề, kh&ocirc;ng li&ecirc;n quan l&agrave;m vườn<br />\n(B) Adding lighting can improve the appearance of a carefully planned garden. -&gt; Qu&aacute; chi tiết, chưa được dẫn dắt<br />\n(C) Nearby competitors are unable to offer lower prices than ours. -&gt; Quảng c&aacute;o gi&aacute; &ndash; kh&ocirc;ng ph&ugrave; hợp mạch<br />\n(D) Riessler Landscaping aims to turn your ideas into reality. &rarr; Tổng kết &yacute; trước, dẫn sang phần giới thiệu dịch vụ</p>\n\n<p><strong>Dịch</strong>:... Ch&uacute;ng t&ocirc;i sẽ lắng nghe &yacute; tưởng của bạn v&agrave; đưa ra những gợi &yacute; ph&ugrave; hợp với mong muốn l&agrave;m vườn của bạn. Mục ti&ecirc;u của Riessler Landscaping l&agrave; biến tầm nh&igrave;n của bạn th&agrave;nh hiện thực....</p>\n"
+        },
+        {
+          "id": "6a16910a6229c00025f97dd8",
+          "questionText": "<p><strong>(2)</strong></p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "years",
+            "area",
+            "beauty",
+            "humidity"
+          ],
+          "correctOptions": [
+            "beauty"
+          ],
+          "transcript": "<p data-end=\"35\" data-start=\"0\">The structure is “<strong>add + Noun + to</strong>.”</p>\n\n<p data-end=\"200\" data-start=\"37\">The context before the blank includes phrases such as “eye-catching colors,” “plants,” and “year-round,” which all describe visual beauty and landscaping features.</p>\n\n<p data-end=\"261\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"202\">→ Therefore, C is the most semantically appropriate choice.</p>\n",
+          "explanationVi": "<p>Cấu tr&uacute;c: <strong>add + NOUN + to</strong><br />\nNgữ cảnh ở trước c&oacute; những từ như &ldquo;eye-catching colors&rdquo; m&agrave;u sắc bắt mắt, &ldquo;plants&rdquo;c&acirc;y cối, &ldquo;year-round&rdquo; đẹp quanh năm<br />\n-&gt; chọn C l&agrave; ph&ugrave; hợp ngữ nghĩa nhất.<br />\n(A) years (n) năm<br />\n(B) area (n) khu vực&nbsp;<br />\n(C) beauty (n) vẻ đẹp<br />\n(D) humidity (n) độ ẩm<br />\n<strong>Dịch</strong>:<br />\nBạn chắc chắn sẽ t&igrave;m được thứ g&igrave; đ&oacute; c&oacute; thể tăng th&ecirc;m vẻ đẹp cho khu vườn của m&igrave;nh.</p>\n"
+        },
+        {
+          "id": "6a1692686229c00025f981fb",
+          "questionText": "<p><strong>(3)</strong></p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "also",
+            "however",
+            "seldom",
+            "somehow"
+          ],
+          "correctOptions": [
+            "also"
+          ],
+          "transcript": "<p data-end=\"161\" data-start=\"0\">An adverb is needed to modify “equipped” with the meaning of “in addition” or “furthermore” in order to continue describing the benefits provided by the service.</p>\n\n<p data-pm-slice=\"0 0 []\">also (adv): in addition; too</p>\n\n<p>however (adv): used to introduce a statement that contrasts with something that has just been said</p>\n\n<p>seldom (adv): not often</p>\n\n<p>somehow (adv): in a way that is not known or certain</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n\n<p data-end=\"205\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"163\"><strong>Useful structure:</strong><br data-end=\"183\" data-start=\"180\">\n“also equipped to + V”</p>\n",
+          "explanationVi": "<p>Cần một trạng từ bổ nghĩa cho equipped với nghĩa l&agrave; &ldquo;ngo&agrave;i ra / th&ecirc;m nữa&rdquo; để tiếp nối n&oacute;i về những lợi &iacute;ch m&agrave; dịch vụ cung cấp.</p>\n\n<p data-pm-slice=\"0 0 []\">also (adv): cũng&nbsp;</p>\n\n<p>however (adv): tuy nhi&ecirc;n&nbsp;</p>\n\n<p>seldom (adv): hiếm khi&nbsp;</p>\n\n<p>somehow (adv): bằng c&aacute;ch n&agrave;o đ&oacute;&nbsp;</p>\n\n<p><strong>=&gt; Chọn A&nbsp;</strong></p>\n\n<p><strong>Useful Structures</strong>: also equipped to + V</p>\n\n<p><strong>Dịch</strong>: Ch&uacute;ng t&ocirc;i cũng được trang bị đầy đủ để x&acirc;y dựng c&aacute;c hồ nước nhỏ hoặc c&aacute;c hạng mục cảnh quan li&ecirc;n quan đến nước kh&aacute;c.</p>\n"
+        },
+        {
+          "id": "6a1692ef6229c00025f98490",
+          "questionText": "<p><strong>(4)</strong></p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "they",
+            "our",
+            "its",
+            "others"
+          ],
+          "correctOptions": [
+            "our"
+          ],
+          "transcript": "<p>The noun “expertise” comes after the blank, so an adjective is needed to fill the blank.<br data-end=\"91\" data-start=\"88\">\n→ Therefore, choose “our.”</p>\n",
+          "explanationVi": "<p data-pm-slice=\"0 0 []\">Ph&iacute;a sau chỗ trống l&agrave; Danh từ expertise, do vậy cần 1 t&iacute;nh từ đứng ở chỗ &ocirc; trống. -&gt; chọn &quot;our&quot;.</p>\n\n<p><strong>Dịch</strong>: Với hơn 40 năm hoạt động trong lĩnh vực thiết kế cảnh quan, chuy&ecirc;n m&ocirc;n của ch&uacute;ng t&ocirc;i l&agrave; v&ocirc; song.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6a16c45e6229c00025fa4a75",
+      "questionText": "<p style=\"text-align: justify;\">10 January</p>\n\n<p style=\"text-align: justify;\">Kay Berman</p>\n\n<p style=\"text-align: justify;\">70 Manchester Road, HARROGATE<br>\nHG22 3MJ</p>\n\n<p style=\"text-align: justify;\">Dear Ms. Berman,</p>\n\n<p style=\"text-align: justify;\">We are delighted to recognize your 30-year work anniversary with Brandrix Distribution Centre.&nbsp;<b>(1)</b>_____. Your dedication, loyalty, and hard work have played a major role in our success over the years, and we deeply value your commitment to high standards. Over the years, you&nbsp;<b>(2)</b>_____&nbsp;strong initiative, creativity, and leadership.</p>\n\n<p style=\"text-align: justify;\">A commemorative plaque will&nbsp;<b>(3)</b>_____&nbsp;be sent to you by post. We hope this small gift expresses our appreciation and serves as a reminder of how highly you are valued.</p>\n\n<p style=\"text-align: justify;\">Congratulations on reaching this&nbsp;<b>(4)</b>_____&nbsp;Thank you for being an important member of the Brandrix family.</p>\n\n<p style=\"text-align: justify;\">Sincerely,</p>\n\n<p style=\"text-align: justify;\">Lance Powar, Vice President of Human</p>\n\n<p style=\"text-align: justify;\">Resources Brandrix Distribution Centre</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a16c45e6229c00025fa4a76",
+          "questionText": "<p>(1)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "We highly appreciate our loyal long-term customers.",
+            "We would like to invite you to our holiday celebration.",
+            "Our yearly report is expected to be published soon.",
+            "You have been an important part of our team."
+          ],
+          "correctOptions": [
+            "You have been an important part of our team."
+          ],
+          "transcript": "<p data-end=\"186\" data-start=\"54\">A sentence expressing appreciation for the employee’s long contribution is needed to continue the congratulatory tone of the letter.</p>\n\n<p>(A) We highly appreciate our loyal long-term customers: talks about customers, not the employee</p>\n\n<p>(B) We would like to invite you to our holiday celebration: changes the topic suddenly</p>\n\n<p>(C) Our yearly report is expected to be published soon: unrelated to the anniversary</p>\n\n<p>(D)&nbsp;<strong data-end=\"237\" data-start=\"190\">You have been an important part of our team</strong>: shows appreciation and recognition for the employee’s contribution</p>\n\n<p data-end=\"584\" data-start=\"569\"><strong>=&gt; Choose D</strong></p>\n\n<p data-end=\"646\" data-start=\"586\"><strong>Useful structure:</strong><br data-end=\"606\" data-start=\"603\">\n“be an important part of + noun/pronoun”</p>\n",
+          "explanationVi": "<p data-end=\"132\" data-start=\"0\">Cần một c&acirc;u thể hiện sự tr&acirc;n trọng đối với những đ&oacute;ng g&oacute;p l&acirc;u d&agrave;i của nh&acirc;n vi&ecirc;n để tiếp tục duy tr&igrave; giọng văn ch&uacute;c mừng của bức thư.</p>\n\n<p data-end=\"232\" data-start=\"134\">(A) <em data-end=\"190\" data-start=\"138\">We highly appreciate our loyal long-term customers</em>: n&oacute;i về kh&aacute;ch h&agrave;ng, kh&ocirc;ng phải nh&acirc;n vi&ecirc;n.</p>\n\n<p data-end=\"319\" data-start=\"234\">(B) <em data-end=\"294\" data-start=\"238\">We would like to invite you to our holiday celebration</em>: chuyển chủ đề đột ngột.</p>\n\n<p data-end=\"411\" data-start=\"321\">(C) <em data-end=\"377\" data-start=\"325\">Our yearly report is expected to be published soon</em>: kh&ocirc;ng li&ecirc;n quan đến dịp kỷ niệm.</p>\n\n<p data-end=\"530\" data-start=\"413\">(D) <em data-end=\"462\" data-start=\"417\">You have been an important part of our team</em>: thể hiện sự ghi nhận v&agrave; tr&acirc;n trọng đối với đ&oacute;ng g&oacute;p của nh&acirc;n vi&ecirc;n.</p>\n\n<p data-end=\"545\" data-start=\"532\"><strong>=&gt; Chọn </strong><b>D</b></p>\n\n<p data-end=\"659\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"547\">Cấu tr&uacute;c hữu &iacute;ch:<br data-end=\"567\" data-start=\"564\" />\n&ldquo;be an important part of + danh từ/đại từ&rdquo;<br data-end=\"612\" data-start=\"609\" />\n= &ldquo;l&agrave; một phần quan trọng của + danh từ/đại từ&rdquo;</p>\n"
+        },
+        {
+          "id": "6a17bdfd6229c00025fe09c7",
+          "questionText": "<p>(2)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "should show",
+            "is showing",
+            "have shown",
+            "have to show"
+          ],
+          "correctOptions": [
+            "have shown"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">The phrase “Over the years” indicates the present perfect tense, which describes actions or qualities continuing from the past until now.</p>\n\n<p>(B) is showing: present continuous tense</p>\n\n<p>(A) should show: expresses advice or expectation</p>\n\n<p>(C) have shown: correct present perfect form</p>\n\n<p>(D) have to show: expresses obligation</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n\n<p><strong>Useful structure:</strong></p>\n\n<p>“have/has + past participle”</p>\n",
+          "explanationVi": "<p data-end=\"164\" data-start=\"0\">Cụm từ &ldquo;Over the years&rdquo; cho thấy cần d&ugrave;ng th&igrave; hiện tại ho&agrave;n th&agrave;nh (present perfect tense), d&ugrave;ng để diễn tả h&agrave;nh động hoặc phẩm chất k&eacute;o d&agrave;i từ qu&aacute; khứ đến hiện tại.</p>\n\n<p data-end=\"207\" data-start=\"166\">(B) <em data-end=\"182\" data-start=\"170\">is showing</em>: th&igrave; hiện tại tiếp diễn.</p>\n\n<p data-end=\"263\" data-start=\"209\">(A) <em data-end=\"226\" data-start=\"213\">should show</em>: diễn tả lời khuy&ecirc;n hoặc sự kỳ vọng.</p>\n\n<p data-end=\"321\" data-start=\"265\">(C) <em data-end=\"281\" data-start=\"269\">have shown</em>: dạng đ&uacute;ng của th&igrave; hiện tại ho&agrave;n th&agrave;nh.</p>\n\n<p data-end=\"363\" data-start=\"323\">(D) <em data-end=\"341\" data-start=\"327\">have to show</em>: diễn tả sự bắt buộc.</p>\n\n<p data-end=\"378\" data-start=\"365\"><strong>=&gt; Chọn C</strong></p>\n\n<p data-end=\"397\" data-start=\"380\"><strong>Cấu tr&uacute;c hữu &iacute;ch:</strong></p>\n\n<p data-end=\"460\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"399\">&ldquo;have/has + past participle&rdquo;<br data-end=\"430\" data-start=\"427\" />\n= &ldquo;have/has + qu&aacute; khứ ph&acirc;n từ&rdquo;</p>\n"
+        },
+        {
+          "id": "6a17beb66229c00025fe0cf6",
+          "questionText": "<p>(3)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "after",
+            "soon",
+            "likewise",
+            "despite"
+          ],
+          "correctOptions": [
+            "soon"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">An adverb of time is needed to modify the verb phrase “will be sent.”</p>\n\n<p>(A) after (prep/conj): needs another clause or object</p>\n\n<p>(B) soon (adv): in a short time</p>\n\n<p>(C) likewise (adv): similarly</p>\n\n<p>(D) despite (prep): shows contrast</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n\n<p><strong>Useful structure:</strong></p>\n\n<p>“will soon be + past participle”</p>\n",
+          "explanationVi": "<p data-end=\"74\" data-start=\"0\">Cần một trạng từ chỉ thời gian để bổ nghĩa cho cụm động từ &ldquo;will be sent&rdquo;.</p>\n\n<p data-end=\"143\" data-start=\"76\">(A) <em data-end=\"87\" data-start=\"80\">after</em> (giới từ/li&ecirc;n từ): cần một mệnh đề hoặc t&acirc;n ngữ đi k&egrave;m.</p>\n\n<p data-end=\"201\" data-start=\"145\">(B) <em data-end=\"155\" data-start=\"149\">soon</em> (trạng từ): trong thời gian ngắn, sắp xảy ra.</p>\n\n<p data-end=\"249\" data-start=\"203\">(C) <em data-end=\"217\" data-start=\"207\">likewise</em> (trạng từ): tương tự, cũng vậy.</p>\n\n<p data-end=\"299\" data-start=\"251\">(D) <em data-end=\"264\" data-start=\"255\">despite</em> (giới từ): thể hiện sự tương phản.</p>\n\n<p data-end=\"314\" data-start=\"301\"><strong>=&gt; Chọn B</strong></p>\n\n<p data-end=\"333\" data-start=\"316\"><strong>Cấu tr&uacute;c hữu &iacute;ch:</strong></p>\n\n<p data-end=\"403\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"335\">&ldquo;will soon be + past participle&rdquo;<br data-end=\"370\" data-start=\"367\" />\n= &ldquo;sẽ sớm được + qu&aacute; khứ ph&acirc;n từ&rdquo;</p>\n"
+        },
+        {
+          "id": "6a17bfd16229c00025fe1121",
+          "questionText": "<p>(4)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "milestone",
+            "agreement",
+            "comprehension",
+            "destination"
+          ],
+          "correctOptions": [
+            "milestone"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">A noun meaning an important achievement or stage is needed because the letter celebrates a 30-year anniversary.</p>\n\n<p>(A) milestone (n): an important event or achievement</p>\n\n<p>(B) agreement (n): an arrangement between people</p>\n\n<p>(C) comprehension (n): understanding</p>\n\n<p>(D) destination (n): a place someone goes to</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n\n<p><strong>Useful structure:</strong></p>\n\n<p>“reach a milestone”</p>\n",
+          "explanationVi": "<p data-end=\"108\" data-start=\"0\">Cần một danh từ mang nghĩa một th&agrave;nh tựu hoặc giai đoạn quan trọng v&igrave; bức thư đang ch&uacute;c mừng kỷ niệm 30 năm.</p>\n\n<p data-end=\"175\" data-start=\"110\">(A) <em data-end=\"125\" data-start=\"114\">milestone</em> (danh từ): một sự kiện hoặc th&agrave;nh tựu quan trọng.</p>\n\n<p data-end=\"232\" data-start=\"177\">(B) <em data-end=\"192\" data-start=\"181\">agreement</em> (danh từ): một thỏa thuận giữa c&aacute;c b&ecirc;n.</p>\n\n<p data-end=\"278\" data-start=\"234\">(C) <em data-end=\"253\" data-start=\"238\">comprehension</em> (danh từ): sự hiểu biết.</p>\n\n<p data-end=\"336\" data-start=\"280\">(D) <em data-end=\"297\" data-start=\"284\">destination</em> (danh từ): điểm đến, nơi ai đ&oacute; đi tới.</p>\n\n<p data-end=\"351\" data-start=\"338\"><strong>=&gt; Chọn A</strong></p>\n\n<p data-end=\"370\" data-start=\"353\"><strong>Cấu tr&uacute;c hữu &iacute;ch:</strong></p>\n\n<p data-end=\"429\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"372\">&ldquo;reach a milestone&rdquo;<br data-end=\"394\" data-start=\"391\" />\n= &ldquo;đạt được một cột mốc quan trọng&rdquo;</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6a17ea309241d80026e14152",
+      "questionText": "<p style=\"text-align: justify;\">To: Cindy Mulligan &lt;cmulligan@xmail.com&gt;</p>\n\n<p style=\"text-align: justify;\">From: Ali Chaleby &lt;achaleby@ralenciadesign.com&gt;</p>\n\n<p style=\"text-align: justify;\">Date: August 15</p>\n\n<p style=\"text-align: justify;\">Subject: Plans for living room</p>\n\n<p style=\"text-align: justify;\">Attachment: Samples</p>\n\n<p style=\"text-align: justify;\">Dear Ms. Mulligan,</p>\n\n<p style=\"text-align: justify;\">My design team is currently in the process of&nbsp;<b>(1)</b>_____&nbsp;the plans for your living room. Based on our previous discussion, I have selected various paint options for the walls and borders. Please review the attached file and let us know whether you are satisfied with those new&nbsp;<b>(2)</b>_____. If not, it is still possible to make adjustments.&nbsp;<b>(3)</b>_____. Your feedback will help us improve the design before we begin implementation.</p>\n\n<p style=\"text-align: justify;\">Please let&nbsp;<b>(4)</b>_____&nbsp;know if you have any questions. I look forward to your response.</p>\n\n<p style=\"text-align: justify;\">Kind regards,</p>\n\n<p style=\"text-align: justify;\">Ali Chaleby, Ralencia Design</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a17ea309241d80026e14153",
+          "questionText": "<p>(1)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "finalizing",
+            "finalizes",
+            "finalized",
+            "finalize"
+          ],
+          "correctOptions": [
+            "finalizing"
+          ],
+          "transcript": "<p data-pm-slice=\"1 1 []\">The expression “in the process of” must be followed by a gerund (V-ing form).</p>\n\n<p data-pm-slice=\"1 1 []\">(A) finalizing: gerund form</p>\n\n<p data-pm-slice=\"1 1 []\">(B) finalizes: present simple</p>\n\n<p data-pm-slice=\"1 1 []\">(C) finalized: past participle/past tense</p>\n\n<p data-pm-slice=\"1 1 []\">(D) finalize: base form</p>\n\n<p data-pm-slice=\"1 1 []\"><strong>=&gt; Choose A</strong></p>\n\n<p data-pm-slice=\"1 1 []\"><strong>Useful structure:</strong>&nbsp;“be in the process of + V-ing”</p>\n",
+          "explanationVi": "<p>Cụm từ &ldquo;in the process of&rdquo; phải được theo sau bởi danh động từ (dạng V-ing).</p>\n\n<p>(A) finalizing: dạng danh động từ (V-ing)</p>\n\n<p>(B) finalizes: th&igrave; hiện tại đơn</p>\n\n<p>(C) finalized: qu&aacute; khứ ph&acirc;n từ / qu&aacute; khứ đơn</p>\n\n<p>(D) finalize: động từ nguy&ecirc;n mẫu</p>\n\n<p><strong>=&gt; Chọn A</strong></p>\n\n<p><strong>Cấu tr&uacute;c:</strong> &ldquo;be in the process of + V-ing&rdquo;</p>\n"
+        },
+        {
+          "id": "6a17f14e6d2caa0024100b47",
+          "questionText": "<p>(2)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "schedules",
+            "institutions",
+            "colors",
+            "periods"
+          ],
+          "correctOptions": [
+            "colors"
+          ],
+          "transcript": "<p data-pm-slice=\"1 1 []\">The email discusses paint options for walls and borders, so a noun related to paint is needed.</p>\n\n<p data-pm-slice=\"1 1 []\">(A) schedules: timetables</p>\n\n<p data-pm-slice=\"1 1 []\">(B) institutions: organizations</p>\n\n<p data-pm-slice=\"1 1 []\">(C) colors: paint shades or hues</p>\n\n<p data-pm-slice=\"1 1 []\">(D) periods: lengths of time</p>\n\n<p data-pm-slice=\"1 1 []\"><strong>=&gt; Choose C</strong></p>\n\n<p data-pm-slice=\"1 1 []\"><strong>Useful structure:</strong>&nbsp;“paint options for + noun”</p>\n",
+          "explanationVi": "<p>Email n&agrave;y thảo luận về c&aacute;c lựa chọn sơn cho tường v&agrave; đường viền, v&igrave; vậy cần một danh từ li&ecirc;n quan đến sơn.</p>\n\n<p>(A) schedules: lịch tr&igrave;nh</p>\n\n<p>(B) institutions: tổ chức</p>\n\n<p>(C) colors: m&agrave;u sắc hoặc t&ocirc;ng m&agrave;u sơn</p>\n\n<p>(D) periods: khoảng thời gian</p>\n\n<p><strong>=&gt; Chọn C</strong></p>\n\n<p>Cấu tr&uacute;c: &ldquo;paint options for + danh từ&rdquo;</p>\n"
+        },
+        {
+          "id": "6a17f1ec6d2caa0024100f09",
+          "questionText": "<p>(3)&nbsp;</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "I have already started preparing plans for your kitchen.",
+            "We do not intend to start the work for another two weeks.",
+            "Your living room is especially large and well-ventilated.",
+            "We still have not received your latest payment."
+          ],
+          "correctOptions": [
+            "We do not intend to start the work for another two weeks."
+          ],
+          "transcript": "<p data-pm-slice=\"1 1 []\">A sentence explaining that changes are still possible is needed to match the previous sentence.</p>\n\n<p data-pm-slice=\"1 1 []\">(A) I have already started preparing plans for your kitchen: unrelated topic</p>\n\n<p data-pm-slice=\"1 1 []\">(B) We do not intend to start the work for another two weeks: explains there is still time for adjustments</p>\n\n<p data-pm-slice=\"1 1 []\">(C) Your living room is especially large and well-ventilated: irrelevant detail</p>\n\n<p data-pm-slice=\"1 1 []\">(D) We still have not received your latest payment: inappropriate and unrelated</p>\n\n<p data-pm-slice=\"1 1 []\"><strong>=&gt; Choose B</strong></p>\n\n<p data-pm-slice=\"1 1 []\"><strong>Useful structure:</strong> “intend to + V”</p>\n",
+          "explanationVi": "<p>Cần một c&acirc;u giải th&iacute;ch rằng việc thay đổi vẫn c&ograve;n c&oacute; thể để ph&ugrave; hợp với c&acirc;u trước đ&oacute;.</p>\n\n<p>(A) I have already started preparing plans for your kitchen: chủ đề kh&ocirc;ng li&ecirc;n quan</p>\n\n<p>(B) We do not intend to start the work for another two weeks: giải th&iacute;ch rằng vẫn c&ograve;n thời gian để điều chỉnh</p>\n\n<p>(C) Your living room is especially large and well-ventilated: chi tiết kh&ocirc;ng li&ecirc;n quan</p>\n\n<p>(D) We still have not received your latest payment: kh&ocirc;ng ph&ugrave; hợp v&agrave; kh&ocirc;ng li&ecirc;n quan</p>\n\n<p><strong>=&gt; Chọn B</strong></p>\n\n<p>Cấu tr&uacute;c: &ldquo;intend to + động từ&rdquo;</p>\n"
+        },
+        {
+          "id": "6a17f27c6d2caa0024101251",
+          "questionText": "<p>(4)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "her",
+            "them",
+            "they",
+            "me"
+          ],
+          "correctOptions": [
+            "me"
+          ],
+          "transcript": "<p data-end=\"171\" data-start=\"10\">(A) her&nbsp;(possessive adjective/pronoun)<br data-end=\"51\" data-start=\"48\">\n(B) them&nbsp;(plural object pronoun)<br data-end=\"89\" data-is-only-node=\"\" data-start=\"86\">\n(C) they (subject pronoun)<br data-end=\"135\" data-start=\"132\">\n(D) me (singular object pronoun)</p>\n\n<p data-end=\"171\" data-start=\"10\"><strong>=&gt; Choose D</strong></p>\n\n<p data-end=\"395\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"173\">Choosing “me” is the most grammatically and semantically appropriate option.</p>\n\n<p data-end=\"395\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"173\">The structure “Please let me know” is an extremely common email closing expression. The writer is asking the customer to respond directly to him.</p>\n",
+          "explanationVi": "<p>(A) her (t&iacute;nh từ đại từ sở hữu / đại từ sở hữu)</p>\n\n<p>(B) them (đại từ t&acirc;n ngữ số nhiều)</p>\n\n<p>(C) they (đại từ chủ ngữ)</p>\n\n<p>(D) me (đại từ t&acirc;n ngữ số &iacute;t)</p>\n\n<p><strong>=&gt; Chọn D</strong></p>\n\n<p>Việc chọn &ldquo;me&rdquo; l&agrave; lựa chọn ph&ugrave; hợp nhất về mặt ngữ ph&aacute;p v&agrave; ngữ nghĩa.</p>\n\n<p>Cấu tr&uacute;c &ldquo;Please let me know&rdquo; l&agrave; một c&aacute;ch kết th&uacute;c email cực kỳ phổ biến. Người viết đang y&ecirc;u cầu kh&aacute;ch h&agrave;ng phản hồi trực tiếp cho m&igrave;nh.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6a191c5b08b3a1002507a5be",
+      "questionText": "<p style=\"text-align: justify;\">To: Marsha Laura mlaura@mansfield.com</p>\n\n<p style=\"text-align: justify;\">From: Kaymar PCP info@kaymarpcp.com</p>\n\n<p style=\"text-align: justify;\">Date: September 8</p>\n\n<p style=\"text-align: justify;\">Subject: Your recent office visit</p>\n\n<p style=\"text-align: justify;\">Dear Ms. Laura,</p>\n\n<p style=\"text-align: justify;\">Thank you for visiting Kaymar Primary Care Practice recently. We hope you found our services <b>(1)</b>_____, and we appreciate any feedback you may have for further improvement.</p>\n\n<p style=\"text-align: justify;\">A&nbsp;<b>(2)</b>_____ of your consultation has been uploaded to our portal. Please review it at your convenience and contact us if you have any questions.</p>\n\n<p style=\"text-align: justify;\">As a reminder, the portal allows you to perform a variety of tasks. <b>(3)</b>_____, you may schedule appointments, make payments, access your medical records, check lab results, and request prescription refills.&nbsp;<b>(4)</b>_____. Your personal information will remain protected and confidential.</p>\n\n<p style=\"text-align: justify;\">We thank you for your business. We look forward to serving you again in the future.</p>\n\n<p style=\"text-align: justify;\">Kaymar Primary Care Practice</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a191c5b08b3a1002507a5bf",
+          "questionText": "<p>(1)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "satisfactorily",
+            "satisfied",
+            "satisfactory",
+            "satisfaction"
+          ],
+          "correctOptions": [
+            "satisfactory"
+          ],
+          "transcript": "<p data-pm-slice=\"1 1 []\">The sentence needs an adjective describing “services” after the structure “found + object + adjective.”</p>\n\n<p data-pm-slice=\"1 1 []\">(A) satisfactorily: an adverb meaning in an acceptable way</p>\n\n<p data-pm-slice=\"1 1 []\">(B) satisfied: an adjective usually describing people’s feelings</p>\n\n<p data-pm-slice=\"1 1 []\">(C) satisfactory: an adjective meaning good enough or acceptable</p>\n\n<p data-pm-slice=\"1 1 []\">(D) satisfaction: a noun meaning pleasure or fulfillment</p>\n\n<p data-pm-slice=\"1 1 []\"><strong>=&gt; Choose C</strong></p>\n\n<p data-pm-slice=\"1 1 []\"><strong>Useful structure:</strong> “find + object + adjective”</p>\n",
+          "explanationVi": "<p>C&acirc;u n&agrave;y cần một t&iacute;nh từ để m&ocirc; tả &ldquo;services&rdquo; sau cấu tr&uacute;c &ldquo;found + object + adjective&rdquo;.</p>\n\n<p>(A) satisfactorily: trạng từ, nghĩa l&agrave; &ldquo;một c&aacute;ch đạt y&ecirc;u cầu&rdquo;</p>\n\n<p>(B) satisfied: t&iacute;nh từ, thường d&ugrave;ng để m&ocirc; tả cảm x&uacute;c của con người</p>\n\n<p>(C) satisfactory: t&iacute;nh từ, nghĩa l&agrave; &ldquo;đủ tốt&rdquo; hoặc &ldquo;đạt y&ecirc;u cầu&rdquo;</p>\n\n<p>(D) satisfaction: danh từ, nghĩa l&agrave; &ldquo;sự h&agrave;i l&ograve;ng&rdquo;</p>\n\n<p><strong>=&gt; Chọn C</strong></p>\n\n<p><strong>Cấu tr&uacute;c:</strong> &ldquo;find + object + adjective&rdquo;</p>\n"
+        },
+        {
+          "id": "6a1943a608b3a10025083740",
+          "questionText": "<p>(2)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "picture",
+            "lesson",
+            "summary",
+            "trip"
+          ],
+          "correctOptions": [
+            "summary"
+          ],
+          "transcript": "<p data-pm-slice=\"1 1 []\">The sentence talks about information from a consultation uploaded to the portal, so a noun related to a report or overview is needed.</p>\n\n<p data-pm-slice=\"1 1 []\">(A) picture: an image</p>\n\n<p data-pm-slice=\"1 1 []\">(B) lesson: a teaching session</p>\n\n<p data-pm-slice=\"1 1 []\">(C) summary: a short report of main points</p>\n\n<p data-pm-slice=\"1 1 []\">(D) trip: a journey</p>\n\n<p data-pm-slice=\"1 1 []\"><strong>=&gt; Choose C</strong></p>\n\n<p data-pm-slice=\"1 1 []\"><strong>Useful structure:</strong> “a summary of + noun”</p>\n",
+          "explanationVi": "<p>C&acirc;u n&agrave;y n&oacute;i về th&ocirc;ng tin từ buổi tư vấn được tải l&ecirc;n cổng th&ocirc;ng tin, v&igrave; vậy cần một danh từ li&ecirc;n quan đến b&aacute;o c&aacute;o hoặc bản t&oacute;m tắt.</p>\n\n<p>(A) picture: h&igrave;nh ảnh</p>\n\n<p>(B) lesson: b&agrave;i học hoặc buổi học</p>\n\n<p>(C) summary: bản t&oacute;m tắt ngắn c&aacute;c &yacute; ch&iacute;nh</p>\n\n<p>(D) trip: chuyến đi</p>\n\n<p><strong>=&gt; Chọn C</strong></p>\n\n<p><strong>Cấu tr&uacute;c:</strong> &ldquo;a summary of + noun&rdquo;</p>\n"
+        },
+        {
+          "id": "6a1945f108b3a10025084586",
+          "questionText": "<p>(3)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "However",
+            "For instance",
+            "To repeat",
+            "Consequently"
+          ],
+          "correctOptions": [
+            "For instance"
+          ],
+          "transcript": "<p data-pm-slice=\"1 1 []\">The second sentence gives examples of portal activities, so a phrase used to introduce examples is needed.</p>\n\n<p data-pm-slice=\"1 1 []\">(A) However: showing contrast</p>\n\n<p data-pm-slice=\"1 1 []\">(B) For instance: for example</p>\n\n<p data-pm-slice=\"1 1 []\">(C) To repeat: saying something again</p>\n\n<p data-pm-slice=\"1 1 []\">(D) Consequently: as a result</p>\n\n<p data-pm-slice=\"1 1 []\"><strong>=&gt; Choose B</strong></p>\n\n<p data-pm-slice=\"1 1 []\"><strong>Useful structure:</strong> “For instance, + example”</p>\n",
+          "explanationVi": "<p>C&acirc;u thứ hai đưa ra v&iacute; dụ về c&aacute;c hoạt động tr&ecirc;n cổng th&ocirc;ng tin, v&igrave; vậy cần một cụm từ d&ugrave;ng để giới thiệu v&iacute; dụ.</p>\n\n<p>(A) However: thể hiện sự tương phản</p>\n\n<p>(B) For instance: v&iacute; dụ như</p>\n\n<p>(C) To repeat: n&oacute;i lại điều g&igrave; đ&oacute;</p>\n\n<p>(D) Consequently: kết quả l&agrave;</p>\n\n<p><strong>=&gt; Chọn B</strong></p>\n\n<p><strong>Cấu tr&uacute;c:</strong> &ldquo;For instance, + example&rdquo;</p>\n"
+        },
+        {
+          "id": "6a19498608b3a100250859be",
+          "questionText": "<p>(4)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "We encourage you to use this resource to take care of your health-care needs.",
+            "The office staff will finish work earlier on Friday afternoons.",
+            "Kindly arrive at our office fifteen minutes before your scheduled time.",
+            "We are sorry for any misunderstanding regarding your appointment schedule."
+          ],
+          "correctOptions": [
+            "We encourage you to use this resource to take care of your health-care needs."
+          ],
+          "transcript": "<p data-pm-slice=\"1 1 []\">The paragraph discusses the benefits and functions of the portal, so a sentence encouraging patients to use the resource is needed.</p>\n\n<p data-pm-slice=\"1 1 []\">(A) We encourage you to use this resource to take care of your health-care needs.</p>\n\n<p data-pm-slice=\"1 1 []\">(B) The office staff will finish work earlier on Friday afternoons.</p>\n\n<p data-pm-slice=\"1 1 []\">(C) Kindly arrive at our office fifteen minutes before your scheduled time.</p>\n\n<p data-pm-slice=\"1 1 []\">(D) We are sorry for any misunderstanding regarding your appointment schedule.</p>\n\n<p data-pm-slice=\"1 1 []\"><strong>=&gt; Choose A</strong></p>\n\n<p data-pm-slice=\"1 1 []\"><strong>Useful structure:</strong> “encourage someone to + verb”</p>\n",
+          "explanationVi": "<p>Đoạn văn n&oacute;i về c&aacute;c lợi &iacute;ch v&agrave; chức năng của cổng th&ocirc;ng tin, v&igrave; vậy cần một c&acirc;u khuyến kh&iacute;ch bệnh nh&acirc;n sử dụng t&agrave;i nguy&ecirc;n n&agrave;y.</p>\n\n<p>(A) Ch&uacute;ng t&ocirc;i khuyến kh&iacute;ch bạn sử dụng t&agrave;i nguy&ecirc;n n&agrave;y để chăm s&oacute;c nhu cầu y tế của m&igrave;nh.</p>\n\n<p>(B) Nh&acirc;n vi&ecirc;n văn ph&ograve;ng sẽ kết th&uacute;c c&ocirc;ng việc sớm hơn v&agrave;o c&aacute;c buổi chiều thứ S&aacute;u.</p>\n\n<p>(C) Vui l&ograve;ng đến văn ph&ograve;ng của ch&uacute;ng t&ocirc;i sớm 15 ph&uacute;t trước giờ hẹn.</p>\n\n<p>(D) Ch&uacute;ng t&ocirc;i xin lỗi v&igrave; bất kỳ sự hiểu lầm n&agrave;o li&ecirc;n quan đến lịch hẹn của bạn.</p>\n\n<p><strong>=&gt; Chọn A</strong></p>\n\n<p><strong>Cấu tr&uacute;c:</strong> &ldquo;encourage someone to + động từ&rdquo;</p>\n"
+        }
+      ]
+    }
+  ]
+}

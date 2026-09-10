@@ -1,0 +1,640 @@
+{
+  "topicId": "613f25a365d71f3a51f62557",
+  "name": "Test 5",
+  "slug": "test-5",
+  "part": "part_4_short_talks",
+  "totalQuestions": 30,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "613f277465d71f3a51f62602",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0401.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "Hello, Ms. Grayson. <b> Q1 This is Michael Cook calling from Alliance Financial Bank. Q2 It has recently come to my attention that some clients who renewed their credit card this month were sent the wrong card</b>. We have had multiple calls from bank members saying that they were sent a credit card with someone else’s name on it. According to our records, you were also sent the wrong credit card. <b> Q3 We ask that you please dispose of the credit card by cutting it with a pair of scissors</b>. In the meantime, we will issue a new credit card and have it delivered by express mail. We apologize for the inconvenience.",
+      "explanationVi": "Xin chào, cô Grayson. <b> Q1 Đây là Michael Cook gọi từ Ngân hàng Tài chính Alliance. Q2 Gần đây tôi nhận thấy rằng một số khách hàng gia hạn thẻ tín dụng trong tháng này đã bị gửi nhầm thẻ</b>. Chúng tôi đã nhận được nhiều cuộc gọi từ các khách hàng nói rằng họ đã được gửi một thẻ tín dụng có tên người khác trên đó. Theo hồ sơ của chúng tôi, cô cũng đã bị gửi nhầm thẻ tín dụng. <b> Q3 Cô hãy vui lòng tiêu huỷ thẻ tín dụng bằng cách dùng kéo cắt nó</b>. Đồng thời, chúng tôi sẽ phát hành một thẻ tín dụng mới và gửi thẻ bằng đường chuyển phát nhanh. Chúng tôi xin lỗi vì sự bất tiện này.",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f6260c",
+          "questionText": "Where does the speaker work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a retail store",
+            "(B) At a bank",
+            "(C) At a gift shop",
+            "(D) At a shipping company"
+          ],
+          "correctOptions": [
+            "(B) At a bank"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f6260d",
+          "questionText": "What does the speaker apologize for?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A delivery mistake",
+            "(B) An incorrect charge",
+            "(C) A scheduling error",
+            "(D) A defective product"
+          ],
+          "correctOptions": [
+            "(A) A delivery mistake"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f6260e",
+          "questionText": "What does the speaker ask the listener to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Return a call",
+            "(B) Renew his credit card",
+            "(C) Get rid of the recently delivered card",
+            "(D) Sign an application form"
+          ],
+          "correctOptions": [
+            "(C) Get rid of the recently delivered card"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f62603",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0402.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Q1 Attention, all shoppers. The West Point Mall will be closing in 10 minutes</b>. We thank you for shopping with US and greatly appreciate your business. <b> Q2 To purchase items, please bring them to the cashier right now</b>. Also, we would like to inform you that a wallet that was found inside the store has been sent to the front desk. <b> Q3 If your name is Catherine Goya, please stop by the front desk to claim the wallet</b>. Once again, we will be closing in 10 minutes. Please finish your shopping immediately.</p>\n",
+      "explanationVi": "<b> Q1 Xin lưu ý, thưa các khách hàng. Trung tâm mua sắm West Point sẽ đóng cửa sau 10 phút nữa</b>. Chúng tôi cảm ơn các bạn đã lựa chọn tin tưởng mua sắm và đánh giá cao thời gian quý báu mà quý vị đã dành cho West Point . <b> Q2 Để thanh toán, vui lòng mang sản phẩm đến quầy thu ngân ngay bây giờ</b>. Ngoài ra, chúng tôi muốn thông báo rằng một chiếc ví đã được tìm thấy bên trong cửa hàng và đã được gửi đến quầy lễ tân. <b> Q3 Quý khách có tên Catherine Goya, vui lòng ghé qua quầy lễ tân để nhận ví</b>. Một lần nữa, chúng tôi sẽ đóng cửa sau 10 phút nữa. Xin hãy hoàn thành việc mua sắm của quý khách ngay lập tức.",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f6260f",
+          "questionText": "Where is the announcement being made?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In a subway station",
+            "(B) In a conference hall",
+            "(C) In a shopping mall",
+            "(D) In a baggage claim area"
+          ],
+          "correctOptions": [
+            "(C) In a shopping mall"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62610",
+          "questionText": "What are the listeners asked to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Proceed to the checkout immediately",
+            "(B) Register for a workshop",
+            "(C) Search for a missing item",
+            "(D) Visit a different location"
+          ],
+          "correctOptions": [
+            "(A) Proceed to the checkout immediately"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62611",
+          "questionText": "Why should Ms. Goya go to the front desk?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To pay a membership fee",
+            "(B) To recover a lost item",
+            "(C) To receive a voucher",
+            "(D) To return an item"
+          ],
+          "correctOptions": [
+            "(B) To recover a lost item"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f62604",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0403.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "Thank you for calling Joyce Optical. If you are calling to check on the status of an order, press 1.<b> Q1 Remember, we are the only glasses store in town that offers the services of our opticians free of charge. Q2 That means you can get a complimentary eye examination as your vision changes. Q3 If you would like to meet with one of our opticians, press 2 now</b>. We appreciate you choosing Joyce Optical and we hope to see you soon.",
+      "explanationVi": "Cảm ơn quý khách đã gọi cho Joyce Optical. Nếu quý khách gọi điện để kiểm tra trạng thái đơn đặt hàng, hãy nhấn phím 1.<b> Q1 Hãy nhớ rằng, chúng tôi là cửa hàng kính duy nhất trong thị trấn cung cấp dịch vụ bác sĩ nhãn khoa miễn phí. Q2 Điều đó có nghĩa là quý khách có thể được khám mắt miễn phí khi cảm thấy thị lực thay đổi. Q3 Nếu quý khách muốn nói chuyện với một trong các bác sĩ nhãn khoa của chúng tôi, hãy nhấn phím 2 ngay bây giờ</b>. Chúng tôi đánh giá cao việc quý khách đã chọn sử dụng dịch vụ của Joyce Optical và chúng tôi hy vọng sẽ sớm gặp lại quý khách.",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f62612",
+          "questionText": "What business created the message?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A glassware factory",
+            "(B) A pharmacy",
+            "(C) An eyeglasses store",
+            "(D) An insurance company"
+          ],
+          "correctOptions": [
+            "(C) An eyeglasses store"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62613",
+          "questionText": "According to the speaker, what service does the business offer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Free eye examinations",
+            "(B) Online purchases",
+            "(C) Special discounts for regular customers",
+            "(D) Free delivery on large orders"
+          ],
+          "correctOptions": [
+            "(A) Free eye examinations"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62614",
+          "questionText": "Why would listeners press 2?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To cancel an order",
+            "(B) To change delivery information",
+            "(C) To schedule an appointment",
+            "(D) To leave a message"
+          ],
+          "correctOptions": [
+            "(C) To schedule an appointment"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f62605",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0404.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Q1 Would you like to own a high-powered laptop that is small enough to fit in your suit pocket or purse</b>? Then the new compact laptop Hypertop from Hyperline is the one you have been waiting for. The laptop also boasts impressive graphics and fast processing times. However, this is not available at our stores for now. <b> Q2 To purchase this laptop, you need to visit our website and place an order. Q3 If you order this laptop this week, we will provide a portable printer at no extra charge as a special promotion</b>. Don&rsquo;t hesitate. Take advantage of this amazing opportunity!</p>\n",
+      "explanationVi": "<p><b>Q1 Bạn có muốn sở hữu một chiếc máy tính xách tay có hiệu năng cao mà vẫn đủ nhỏ để bỏ vừa trong túi hoặc ví của bạn</b> không? Vậy thì sản phẩm máy tính xách tay nhỏ gọn mới Hypertop của Hyperline chính là thứ mà bạn đang chờ đợi. Máy tính xách tay này cũng có đồ họa ấn tượng và thời gian xử lý nhanh. Tuy nhiên, hiện tại sản phẩm này chưa có sẵn tại các cửa hàng của chúng tôi. <b> Q2 Để mua máy tính xách tay này, bạn cần truy cập trang web của chúng tôi và đặt hàng. Q3 Nếu bạn đặt mua chiếc máy tính xách tay này trong tuần này, chúng tôi sẽ cung cấp miễn phí một máy in di động như một phần của chương trình khuyến mãi đặc biệt</b>. Đừng ngần ngại. Hãy tận dụng cơ hội tuyệt vời này!</p>",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f62615",
+          "questionText": "What special feature of the new laptop does the speaker mention?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A)  It is the lightest in the market.",
+            "(B) It has a built-in high-definition camera.",
+            "(C) It is water-resistant.",
+            "(D) It is convenient to carry."
+          ],
+          "correctOptions": [
+            "(D) It is convenient to carry."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62616",
+          "questionText": "How can customers purchase the new laptop?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) By accessing a website",
+            "(B) By stopping by the speaker’s office",
+            "(C) By visiting a local store",
+            "(D) By calling a customer service hotline"
+          ],
+          "correctOptions": [
+            "(A) By accessing a website"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62617",
+          "questionText": "What can customers receive this week?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An additional battery",
+            "(B) A carrying case",
+            "(C) A portable speaker",
+            "(D) A small printer"
+          ],
+          "correctOptions": [
+            "(D) A small printer"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f62606",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0405.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "Hi, thanks for coming for this special meeting today. <b> Q1 The reason I called everyone is to announce our new partnership with Walker Studios</b>. As the CEO of Metro Studios, it is my great pleasure to witness this amazing opportunity to work with such a high caliber company like Walker Studios. They possess a number of studios that are capable of producing cutting edge quality 3-D films. This will allow our company to begin producing 3-D films. <b> Q2 And why wouldn’t we</b>? The majority of our films are science fiction, and I believe a transition into 3-D is an excellent path for US. I have ensured that we will have full access to Walker Studio’s equipment, and in return they will become a shareholder in our company. <b> Q3 I suggest that our studio staff should spend the next following weeks studying how this new type of equipment works, so we can begin producing content as soon as possible.</b>",
+      "explanationVi": "Xin chào, cảm ơn vì đã đến tham dự cuộc họp đặc biệt ngày hôm nay. <b> Q1 Lý do tôi gọi mọi người là để thông báo về mối quan hệ hợp tác mới của chúng ta với Walker Studios</b>. Với tư cách là Giám đốc điều hành của Metro Studios, tôi rất vui khi có được cơ hội tuyệt vời, làm việc với một công ty tầm cỡ như Walker Studios. Họ sở hữu một số hãng phim với khả năng sản xuất phim 3D chất lượng vượt trội. Điều này sẽ cho phép công ty chúng ta bắt đầu sản xuất phim 3D. <b> Q2 Tại sao không chứ</b>? Phần lớn phim của chúng ta là phim khoa học viễn tưởng và tôi tin rằng việc chuyển sang dạng phim 3D là con đường tuyệt vời cho chúng ta. Tôi đã đảm bảo rằng chúng ta sẽ có toàn quyền truy cập vào thiết bị của Walker Studio và đổi lại họ sẽ trở thành cổ đông của công ty chúng ta. <b> Q3 Tôi đề nghị nhân viên studio nên dành những tuần tiếp theo để nghiên cứu cách hoạt động của loại thiết bị mới này để chúng ta có thể bắt đầu sản xuất nội dung càng sớm càng tốt.</b>",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f62618",
+          "questionText": "What is the reason for the meeting?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To announce a new partnership",
+            "(B) To introduce a new manager",
+            "(C) To propose a budget plan",
+            "(D) To announce his retirement"
+          ],
+          "correctOptions": [
+            "(A) To announce a new partnership"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62619",
+          "questionText": "What does the woman imply when she says “And why wouldn’t we?”",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To suggest the partnership is good",
+            "(B) To review some materials",
+            "(C) To recommend a new method",
+            "(D) To offer a training program"
+          ],
+          "correctOptions": [
+            "(A) To suggest the partnership is good"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f6261a",
+          "questionText": "What does the woman suggest the studio staff do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Go on vacation",
+            "(B Continue using the old equipment",
+            "(C) Produce a movie",
+            "(D) Study the new equipment"
+          ],
+          "correctOptions": [
+            "(D) Study the new equipment"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f62607",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0406.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "Hi, everybody. This Saturday, the fitness center will be upgrading our water heating system in the bathrooms. <b> Unfortunately, the hot water will be off from 9:00 A.M. to 12:00 P.M</b>. If anyone was planning to come in and exercise, <b> you might want to hold off until later </b>. If the work gets delayed, <b> I will send a text message to all club members to notify you of any changes.</b>",
+      "explanationVi": "Chào mọi người. Thứ Bảy tuần này, trung tâm thể dục sẽ nâng cấp hệ thống đun nước nóng trong phòng tắm. <b> Thật không may, hệ thống nước nóng sẽ tắt từ 9:00 sáng đến 12 giờ trưa</b>. Nếu có ai đó định đến và tập thể dục, <b> thì nên tạm hoãn lại </b>. Nếu việc nâng cấp tiếp tục bị trì hoãn, <b> tôi sẽ gửi tin nhắn tới tất cả thành viên câu lạc bộ để thông báo về bất kỳ thay đổi nào.</b>",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f6261b",
+          "questionText": "What problem does the speaker mention?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A shipment was missed.",
+            "(B) The order was wrong.",
+            "(C) The center will have no hot water.",
+            "(D) The hot water is working."
+          ],
+          "correctOptions": [
+            "(C) The center will have no hot water."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f6261c",
+          "questionText": "What does the speaker imply when he says, “you might want to hold off until later”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A)  Members of the center should come in the afternoon.",
+            "(B) Members of the center shouldn’t come.",
+            "(C) There will be a meeting in the morning.",
+            "(D) The center is closed in the afternoon."
+          ],
+          "correctOptions": [
+            "(A)  Members of the center should come in the afternoon."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f6261d",
+          "questionText": "What does the speaker say he will do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Send a text message",
+            "(B) Send an email",
+            "(C) Make a phone call",
+            "(D) Post a letter"
+          ],
+          "correctOptions": [
+            "(A) Send a text message"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f62608",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0407.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<b> Q1 Hi, Chef Garder, this is Lauren Cole phoning from the restaurant kitchen</b>. The delivery just came in, and <b> Q2 there is a lot more meat and fish delivered that we don’t usually have on our list</b>. I don’t recall any special events coming up, and the calendar doesn't have anything on it. Did you make the order? I’m going to call the supplier but I want to check with you first in case you need the products. <b> Q3 Give me a call back, and please bear in mind I have to finish the kitchen inventory by 11:00 A.M... and it’s already nine thirty</b>. Thanks Chef.",
+      "explanationVi": "<b> Q1 Xin chào bếp trưởng Garder, đây là Lauren Cole đang gọi điện từ bếp của nhà hàng</b>. Hàng vừa mới được giao, và <b> Q2 có thêm rất nhiều thịt và cá vón không thường có trong danh sách giao hàng</b>. Tôi không hề nhớ rằng có bất kỳ sự kiện đặc biệt nào sắp diễn ra và trên lịch cũng không đánh dấu gì cả. Anh có chắc rằng đã thực hiện đơn đặt hàng? Tôi định gọi cho nhà cung cấp nhưng tôi muốn kiểm tra với anh trước trong trường hợp anh thật sự cần những sản phẩm đó. <b> Q3 Hãy gọi lại cho tôi và xin lưu ý rằng tôi phải hoàn thành việc kiểm kê nhà bếp trước 11 giờ sáng... và bây giờ đã là 9 giờ 30</b>. Cảm ơn bếp trưởng.",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f6261e",
+          "questionText": "Where does the speaker work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a market",
+            "(B) At a clinic",
+            "(C) At a restaurant",
+            "(D) At a factory"
+          ],
+          "correctOptions": [
+            "(C) At a restaurant"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f6261f",
+          "questionText": "What problem does the speaker describe?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Extra items were delivered.",
+            "(B) The delivery is late.",
+            "(C) The business was closed.",
+            "(D) There is a special event planned."
+          ],
+          "correctOptions": [
+            "(A) Extra items were delivered."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62620",
+          "questionText": "What does the woman mean when she says “I have to finish the kitchen inventory by 11:00 A.M.”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She would like a response soon.",
+            "(B) She doesn’t need to know soon.",
+            "(C) She needs some help with the new menu.",
+            "(D) They have the right ingredients."
+          ],
+          "correctOptions": [
+            "(A) She would like a response soon."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f62609",
+      "questionText": "<table align =\"center\" width=\"90%\"  border=1 cellspacing=0 cellpadding=0  style=border-collapse:collapse > <tr> <td colspan =\"4\" align =\"center\"> <b> Training Schedule </b></td>  </tr> <tr> <td align =\"center\"> <b> Monday</td>  <td align =\"center\"> <b> Tuesday </td><td align =\"center\"> <b> Wednesday</td>  <td align =\"center\"> <b> Thursday</td></tr> <tr> <td align =\"center\">Meet and great </td>  <td align =\"center\"> Machine training </td> <td align =\"center\">Machine training </td>  <td align =\"center\"> Machine training  </td> </tr>  <tr> <td align =\"center\"> Factory tour </td>  <td align =\"center\">  </td> <td align =\"center\"> </td>  <td align =\"center\"> Lunch meeting with president  </td> </tr>   </table>",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0408.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "Welcome to your first training session at Jarret’s! The next four days will be quite intense as you will be shown a lot of different equipment you will be required to handle in your daily job. Try not to get too overwhelmed. <b> Q1 Once you get used to the assembly process, the machines will become very easy for your efficiency at working the line will grow rapidly within a year</b>. At Jarret’s we pride ourselves on producing quality materials in a positive environment. We hold weekly team building exercise and a monthly staff getaway. <b> Q2 I’m sure you will enjoy our company events and become good friends with your colleagues</b>. Today we will have a tour of the factory and meet the workers. The next three days are spent on machine training. <b> Q3 One of the days we will have a special team lunch and the president will be coming in to meet everybody.</b>",
+      "explanationVi": "Chào mừng các bạn đến với buổi đào tạo đầu tiên tại Jarret's! Bốn ngày tiếp theo sẽ khá căng thẳng vì các bạn sẽ được xem rất nhiều thiết bị khác nhau mà các bạn sẽ phải sử dụng trong công việc hàng ngày của mình. Cố gắng đừng quá choáng ngợp nhé. <b> Q1 Khi bạn đã quen với quy trình lắp ráp, việc sử dụng máy móc sẽ trở nên rất dễ dàng vì hiệu quả làm việc của bạn sẽ tăng lên nhanh chóng trong vòng một năm</b>. Tại Jarret's, chúng tôi tự hào về việc sản xuất các vật liệu chất lượng trong một môi trường tích cực. Chúng tôi tổ chức các hoạt động team building hàng tuần và nghỉ ngơi hàng tháng cho nhân viên. <b> Q2 Tôi chắc chắn rằng các bạn sẽ thích các sự kiện của công ty chúng ta và sẽ hoà hợp với các đồng nghiệp của mình</b>. Hôm nay chúng ta sẽ đi tham quan nhà máy và gặp gỡ các công nhân. Ba ngày tiếp theo được dành cho việc đào tạo sử dụng máy móc. <b> Q3 Vài ngày nữa, sẽ có bữa trưa đặc biệt và chủ tịch sẽ đến gặp mọi người.</b>",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f62621",
+          "questionText": "What are the listeners training to be?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Airline attendants",
+            "(B) Military soldiers",
+            "(C) Assembly line workers",
+            "(D) Computer programmers"
+          ],
+          "correctOptions": [
+            "(C) Assembly line workers"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62622",
+          "questionText": "According to the speaker, what will the listeners enjoy doing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Learning their job",
+            "(B) Assembling products",
+            "(C) Producing quality materials",
+            "(D) Going to company events"
+          ],
+          "correctOptions": [
+            "(D) Going to company events"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62623",
+          "questionText": "Look at the graphic. On what day will the listeners meet with the company president?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Monday",
+            "(B) Tuesday",
+            "(C) Wednesday",
+            "(D) Thursday"
+          ],
+          "correctOptions": [
+            "(D) Thursday"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f6260a",
+      "questionText": "<table align =\"center\" width=\"90%\"  border=1 cellspacing=0 cellpadding=0  style=border-collapse:collapse > <tr> <td colspan =\"5\" align =\"center\"> <h3>FOCUS GROUP QUESTIONAIRE RESULTS:</h3> <br> <b> Major respondents selected the following </b></td>  </tr> <tr> <td align =\"center\"> <b> Alright Ales New Styles</td>  <td align =\"center\"> <b> Do you like the lable </td><td align =\"center\"> <b> Do you like the flavor?</td>  <td align =\"center\"> <b> Would you choose this again?</td> <td align =\"center\"> <b> Would you recommend this beer?</td></tr> <tr> <td align =\"center\">Dark Ale </td>  <td align =\"center\"> Yes </td> <td align =\"center\">No </td>  <td align =\"center\"> Maybe </td> <td align =\"center\"> Maybe </td></tr>  <tr> <td align =\"center\"> Red Ale </td>  <td align =\"center\"> No </td> <td align =\"center\"> Yes </td>  <td align =\"center\"> Yes  </td> <td align =\"center\"> Yes  </td></tr>   <tr> <td align =\"center\"> Belgium Style </td>  <td align =\"center\"> Yes </td> <td align =\"center\"> No </td>  <td align =\"center\"> No  </td> <td align =\"center\"> No </td></tr>   <tr> <td align =\"center\"> Wheat Ale </td>  <td align =\"center\"> Yes</td> <td align =\"center\"> Yes </td>  <td align =\"center\"> Yes  </td> <td align =\"center\"> Yes  </td></tr>  </table>",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0409.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p>Alright everyone, here&rsquo;s the analysis of this year&rsquo;s micro brew market shares. The good news is, Alright Ales is still in the top five small breweries in the Northcut region.<b> Q1 The bad news is, the newest entry into our market, Strange Brew Ales, has a directly competing beer and is making strong gains</b>. In order to stay competitive, we must be able to introduce new styles of craft beer to our consumers. Our analysts agree, if the current trend continues, Strange Brew Ales will bump us out of the top five by this time next year. Our master brewers have come up with four new styles of beer that we will introduce to a focus group at the upcoming Northcut Beer Festival. <b> Q2 Once we get consumer feedback we will select the two most popular offerings and create an aggressive marketing campaign</b>. Our sales must increase by at least 5% over the next quarter in order to maintain our market share in Northcut.</p>\n",
+      "explanationVi": "<p>Được rồi mọi người, đây là bản phân tích thị phần vi mô của ác công ty bia trong năm nay. Tin tốt là, Alright Ales vẫn nằm trong top năm nhà máy bia với quy mô nhỏ hàng đầu ở khu vực Northcut.<b> Q1 Tin xấu là, sản phẩm mới nhất gia nhập thị trường của chúng ta, Strange Brew Ales, đang gặp phải một đối thủ cạnh tranh trực tiếp với lợi nhuận mạnh mẽ </b>. Để duy trì tính cạnh tranh, chúng ta phải có khả năng giới thiệu các loại bia thủ công mới tới người tiêu dùng. Các nhà phân tích của chúng ta đồng ý rằng, với xu hướng hiện tại, Strange Brew Ales có thể sẽ đẩy chúng ta ra khỏi top 5 vào thời điểm này năm sau. Các thợ nấu bia giàu kinh nghiệm của chúng ta đã sáng tạo ra bốn kiểu bia mới mà để giới thiệu với nhóm khách hàng trọng điểm tại Lễ hội bia Northcut sắp tới. <b> Q2 Sau khi nhận được phản hồi của người tiêu dùng, chúng ta sẽ chọn hai sản phẩm phổ biến nhất và tạo một chiến dịch Marketing năng nổ</b>. Doanh số bán hàng của chúng ta phải tăng ít nhất 5% trong quý tới để duy trì thị phần tại Northcut.</p>",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f62624",
+          "questionText": "Why is Alright Ales worried?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They have a new competitor.",
+            "(B) They are nervous about their new beers,",
+            "(C) They are not in the top 5 of the market share in Northcut.",
+            "(D) They will have to cut staff."
+          ],
+          "correctOptions": [
+            "(A) They have a new competitor."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62625",
+          "questionText": "What will the company likely do with the results of the survey?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Change the label of the Red Ale",
+            "(B) Work on the Belgium Ale",
+            "(C) Begin marketing the chosen beers",
+            "(D) Start working on a new style of beer"
+          ],
+          "correctOptions": [
+            "(C) Begin marketing the chosen beers"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62626",
+          "questionText": "Look at the graphic. What beer is least likely to be part of Alright Ales’ new product line?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Wheat Ale",
+            "(B) Dark Ale",
+            "(C) Red Ale",
+            "(D) Belgium style"
+          ],
+          "correctOptions": [
+            "(D) Belgium style"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f277465d71f3a51f6260b",
+      "questionText": "@PS@/estudyme/legacy-data/kstoeic/images/7539627_1562640045613.png@PE@",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test05_0410.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "Welcome to Big Toys’ warehouse orientation. As the industry leader in children’s toys,<b> Q1 it is essential that you understand the huge volume of merchandise that you will be dealing with as a stockroom worker</b>. The worksheet in front  of you is a map of our warehouse. Each section of the warehouse is divided into zones by the type of toy, and then arranged alphabetically by manufacturer. <b> Q2 At the bottom of the map is a list of toys we would like you to collect and place on the designated pallet for shelving</b>. There will be a “Z” and a number before the name of the toy, to let you know what zone it is in. <b> Q3 This is a timed exercise, and all toys should be collected within 1 hour</b>. I understand this is a trial by fire, but once you get the hang of our organization, you will be able to complete a task like this with ease.",
+      "explanationVi": "Chào mừng các bạn đến với buổi định hướng kho hàng của Big Toys. Là công ty dẫn đầu ngành đồ chơi trẻ em,<b> Q1, điều cần thiết là các bạn phải nắm được về khối lượng hàng hóa khổng lồ mà các bạn sẽ xử lý với tư cách là nhân viên kho hàng</b>. Bảng tính trước mặt bạn là bản đồ kho hàng của chúng tôi. Mỗi khu vực trong kho được chia thành các khu theo loại đồ chơi, sau đó được nhà sản xuất sắp xếp theo thứ tự bảng chữ cái. <b> Q2 Ở cuối bản đồ là danh sách đồ chơi mà chúng tôi muốn các bạn thu thập và đặt trên pallet được chỉ định để trưng bày</b>. Sẽ có chữ “Z” và một con số trước tên đồ chơi để cho bạn biết nó nằm ở khu vực nào. <b> Q3 Đây là bài tập tính giờ và tất cả đồ chơi phải được thu thập trong vòng 1 giờ</b> . Tôi hiểu đây là một cuộc thử nghiệm trực tiếp, nhưng một khi các bạn đã hiểu rõ về quy trình tổ chức của chúng tôi, các bạn sẽ có thể hoàn thành những nhiệm vụ kiểu như thế này một cách dễ dàng.",
+      "childQuestions": [
+        {
+          "id": "613f277465d71f3a51f62627",
+          "questionText": "What is indicated at the orientation?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Big Toys will be a boring job.",
+            "(B) Big Toys has a large selection of products.",
+            "(C) Their inventory system is confusing.",
+            "(D) The managers will be very critical of mistakes."
+          ],
+          "correctOptions": [
+            "(B) Big Toys has a large selection of products."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62628",
+          "questionText": "Look at the graphic. Where will the trainees spend most of their time during the training exercise?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Zone 1",
+            "(B) Zone 2",
+            "(C) Zone 3",
+            "(D) Zone 4"
+          ],
+          "correctOptions": [
+            "(A) Zone 1"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f277465d71f3a51f62629",
+          "questionText": "How quickly should the trainees complete their exercise?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 2 hours",
+            "(B) 45 minutes or less",
+            "(C) 1 1/2 hours",
+            "(D) 1 hour or less"
+          ],
+          "correctOptions": [
+            "(D) 1 hour or less"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

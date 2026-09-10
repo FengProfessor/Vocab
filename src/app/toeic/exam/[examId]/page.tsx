@@ -174,9 +174,18 @@ function ToeicExamRoomInner() {
 
     const minutes = timeParam ? parseInt(timeParam, 10) : defaultMinutes;
 
+    const isAuthenticHardcoded = availableTests.some((t) => t.testId === decodedExamId);
+    const isBrowser = typeof window !== 'undefined';
+    // For non-hardcoded dynamic tests in browser, avoid flashing duplicate 6852 questions
+    const safeFallbackQuestions =
+      isBrowser && !isAuthenticHardcoded && !isPartPractice
+        ? []
+        : currentMode === 'practice'
+          ? fullQuestions
+          : stripSensitiveToeicData(fullQuestions);
+
     return {
-      fallbackQuestions:
-        currentMode === 'practice' ? fullQuestions : stripSensitiveToeicData(fullQuestions),
+      fallbackQuestions: safeFallbackQuestions,
       testTitle: resolvedTitle,
       durationSeconds: minutes * 60,
     };
@@ -666,7 +675,12 @@ function ToeicExamRoomInner() {
 
         {/* Main Content Area */}
         <main className="relative flex-1 overflow-hidden">
-          {currentQ && (
+          {isLoadingQuestions && questions.length === 0 ? (
+            <div className="flex h-[calc(100vh-48px)] flex-col items-center justify-center gap-3 font-mono text-xs text-slate-500">
+              <Loader2 className="h-5 w-5 animate-spin text-emerald-600 dark:text-emerald-400" />
+              <span>Đang nạp dữ liệu bài thi {testTitle}...</span>
+            </div>
+          ) : currentQ ? (
             <ToeicSplitPane
               question={currentQ}
               mode={currentMode}
@@ -696,7 +710,7 @@ function ToeicExamRoomInner() {
               }}
               className="h-[calc(100vh-48px)]"
             />
-          )}
+          ) : null}
 
           {/* Question Palette Matrix */}
           <ToeicQuestionPalette

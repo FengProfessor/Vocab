@@ -1,0 +1,330 @@
+{
+  "topicId": "6140002165d71f3a51f62a94",
+  "name": "Test 3",
+  "slug": "test-3",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6140037765d71f3a51f62ace",
+      "questionText": "<b>Urgent! Journeyman Plumber Needed</b><br>Ace Plumbing is looking for an experienced plumber to join our <b> (1)</b> ______  business here in Columbia.  <b> (2)</b> ______   We have always been a family-owned-and-run business, but with the <b> (3)</b> ______   increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber. The candidate should have experience with all <b> (4)</b> ______   of plumbing, both commercial and residential. Please send your resume to aceplumbing@gmail.com and we will schedule an interview.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p><strong>Gấp! Cần Tuyển Thợ Sửa Ống&nbsp;</strong></p>\n\n<p>Ace Plumbing đang t&igrave;m kiếm một thợ sửa ống c&oacute; kinh nghiệm để gia nhập v&agrave;o doanh nghiệp đang mở rộng của ch&uacute;ng t&ocirc;i tại Columbia. Ace Plumbing đ&atilde; phục vụ khu vực Columbia từ năm 1954. Ch&uacute;ng t&ocirc;i lu&ocirc;n l&agrave; một doanh nghiệp gia đ&igrave;nh, nhưng với sự gia tăng đ&aacute;ng kể d&acirc;n số ở Columbia trong ba năm qua, ch&uacute;ng t&ocirc;i c&oacute; cơ hội ch&agrave;o đ&oacute;n một thợ sửa ống mới. Ứng vi&ecirc;n n&ecirc;n c&oacute; kinh nghiệm với tất cả c&aacute;c loại hệ thống ống nước, cả thương mại v&agrave; d&acirc;n cư. Vui l&ograve;ng gửi sơ yếu l&yacute; lịch của bạn tới <a rel=\"noreferrer\">aceplumbing@gmail.com</a> v&agrave; ch&uacute;ng t&ocirc;i sẽ l&ecirc;n lịch phỏng vấn.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140037765d71f3a51f62ad2",
+          "questionText": "Ace Plumbing is looking for an experienced plumber to join our <b> (1)</b> ______  business here in Columbia.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) expanding",
+            "(B) expecting",
+            "(C) contracting",
+            "(D) controlling"
+          ],
+          "correctOptions": [
+            "(A) expanding"
+          ],
+          "transcript": "<p>\"Ace Plumbing is looking for an experienced plumber....\" to \"expand\" their business =&gt; \"expanding\" is the most suitable</p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) expanding - mở rộng<br />\n(B) expecting - mong đợi<br />\n(C) contracting - thu hẹp<br />\n(D) controlling - kiểm so&aacute;t</p>\n\n<p>Dựa theo ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n A&nbsp;expanding</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ace Plumbing đang t&igrave;m kiếm một thợ sửa ống c&oacute; kinh nghiệm để gia nhập v&agrave;o doanh nghiệp đang mở rộng của ch&uacute;ng t&ocirc;i tại Columbia.</p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62ad3",
+          "questionText": "<b> (2)</b> ______   We have always been a family-owned-and-run business, but with the ______   increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Ace Plumbing has been servicing the Columbia area since 1954.",
+            "(B) We have little connection to the community.",
+            "(C) We have been struggling to pay our bills.",
+            "(D) Ace Plumbing is in financial trouble."
+          ],
+          "correctOptions": [
+            "(A) Ace Plumbing has been servicing the Columbia area since 1954."
+          ],
+          "transcript": "<p>Based on the previous sentence.</p>\n",
+          "explanationVi": "<p>(2) ______ Ch&uacute;ng t&ocirc;i lu&ocirc;n l&agrave; một doanh nghiệp gia đ&igrave;nh, nhưng với sự gia tăng ______ trong d&acirc;n số Columbia trong ba năm qua, ch&uacute;ng t&ocirc;i c&oacute; cơ hội ch&agrave;o đ&oacute;n một thợ sửa ống mới</p>\n\n<p>(A) Ace Plumbing đ&atilde; phục vụ khu vực Columbia từ năm 1954.<br />\n(B) Ch&uacute;ng t&ocirc;i c&oacute; &iacute;t mối li&ecirc;n hệ với cộng đồng.<br />\n(C) Ch&uacute;ng t&ocirc;i đ&atilde; gặp kh&oacute; khăn trong việc thanh to&aacute;n h&oacute;a đơn.<br />\n(D) Ace Plumbing đang gặp vấn đề t&agrave;i ch&iacute;nh.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62ad4",
+          "questionText": "______   We have always been a family-owned-and-run business, but with the <b> (3)</b> ______   increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) monstrous",
+            "(B) dramatic",
+            "(C) impossible",
+            "(D) insane"
+          ],
+          "correctOptions": [
+            "(B) dramatic"
+          ],
+          "transcript": "<p>(A) monstrous:&nbsp;considered to be shocking and unacceptable because it is morally wrong or unfair<br>\n(B) dramatic:&nbsp;sudden, very great and often surprising<br>\n(C) impossible: not possible<br>\n(D) insane:&nbsp;very stupid, crazy or dangerous</p>\n\n<p>Based on the meaning of sentence =&gt; \"dramatic increase\" is correct.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) monstrous - khổng lồ, gh&ecirc; gớm<br />\n(B) dramatic - đ&aacute;ng kể, ấn tượng<br />\n(C) impossible - kh&ocirc;ng thể<br />\n(D) insane - đi&ecirc;n rồ</p>\n\n<p>Dựa v&agrave;o nghĩa của c&acirc;u, <strong>chọn đ&aacute;p &aacute;n B</strong>&nbsp;dramatic</p>\n\n<p>Tạm dịch:&nbsp;Ch&uacute;ng t&ocirc;i lu&ocirc;n l&agrave; một doanh nghiệp gia đ&igrave;nh, nhưng với sự gia tăng đ&aacute;ng kể trong d&acirc;n số Columbia trong ba năm qua, ch&uacute;ng t&ocirc;i c&oacute; cơ hội ch&agrave;o đ&oacute;n một thợ sửa ống mới</p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62ad5",
+          "questionText": "The candidate should have experience with all <b> (4)</b> ______   of plumbing, both commercial and residential.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) pieces",
+            "(B) flows",
+            "(D) types",
+            "(c) installations"
+          ],
+          "correctOptions": [
+            "(D) types"
+          ],
+          "transcript": "<p>(A) pieces:&nbsp;a part of something<br>\n(B) flows:&nbsp;the steady and continuous movement of something/somebody in one direction<br>\n(C) types:&nbsp;a kind or sort<br>\n(D) installations:&nbsp;the act of fixing equipment or furniture in position so that it can be used</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) pieces - c&aacute;c mảnh, phần<br />\n(B) flows - c&aacute;c d&ograve;ng, lưu lượng<br />\n(C) types - c&aacute;c loại<br />\n(D) installations - c&aacute;c hệ thống lắp đặt</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n C</strong>&nbsp;types</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ứng vi&ecirc;n n&ecirc;n c&oacute; kinh nghiệm với tất cả c&aacute;c loại hệ thống ống nước, cả thương mại v&agrave; d&acirc;n cư.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140037765d71f3a51f62acf",
+      "questionText": "Learn social media marketing tactics only at Genius Marketing’s Power Conference<br>Are you ready to take your social media marketing to the next level? Then  <b> (1)</b> ______   Genius Marketing’s Power Conference and learn cutting-edge social media marketing tactics.  <b> (2)</b> ______   This could be the most educational two days of your year. <br>Genius Marketing will give you real-world tactics to boost your paid and organic social media marketing efforts.   <b> (3)</b> ______   you buy social media advertising or focus on organic social media engagement, Genius Marketing’s Power Conference is the conference you need to attend this year. You’ll be inspired by experts, meet others with your challenges, and get actionable tactics to drive traffic, increase sales and  <b> (4)</b> ______  customer satisfaction. <br>To apply, just click the link below. <br>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p><strong>Học c&aacute;c chiến thuật tiếp thị truyền th&ocirc;ng x&atilde; hội chỉ tại Hội nghị Power của Genius Marketing</strong></p>\n\n<p>Bạn đ&atilde; sẵn s&agrave;ng để n&acirc;ng cấp tiếp thị truyền th&ocirc;ng x&atilde; hội của m&igrave;nh l&ecirc;n một tầm cao mới? H&atilde;y tham dự Hội nghị Power của Genius Marketing v&agrave; học c&aacute;c chiến thuật tiếp thị truyền th&ocirc;ng x&atilde; hội ti&ecirc;n tiến. Hội nghị sẽ được tổ chức tại Houston v&agrave;o ng&agrave;y 3 v&agrave; 4 th&aacute;ng 5. Đ&acirc;y c&oacute; thể l&agrave; hai ng&agrave;y học tập nhất trong năm của bạn.</p>\n\n<p>Genius Marketing sẽ cung cấp cho bạn c&aacute;c chiến thuật thực tế để n&acirc;ng cao hiệu quả tiếp thị truyền th&ocirc;ng x&atilde; hội trả ph&iacute; v&agrave; tự nhi&ecirc;n của bạn. D&ugrave; bạn mua quảng c&aacute;o truyền th&ocirc;ng x&atilde; hội hay tập trung v&agrave;o sự tương t&aacute;c tự nhi&ecirc;n tr&ecirc;n mạng x&atilde; hội, Hội nghị Power của Genius Marketing l&agrave; sự kiện bạn cần tham dự trong năm nay. Bạn sẽ được truyền cảm hứng bởi c&aacute;c chuy&ecirc;n gia, gặp gỡ những người c&oacute; c&ugrave;ng th&aacute;ch thức v&agrave; nhận được c&aacute;c chiến thuật c&oacute; thể h&agrave;nh động để tăng lượng truy cập, doanh số b&aacute;n h&agrave;ng v&agrave; sự h&agrave;i l&ograve;ng của kh&aacute;ch h&agrave;ng.</p>\n\n<p>Để đăng k&yacute;, chỉ cần nhấp v&agrave;o li&ecirc;n kết dưới đ&acirc;y.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140037765d71f3a51f62ad6",
+          "questionText": "Then  <b> (1)</b> ______   Genius Marketing’s Power Conference and learn cutting-edge social media marketing tactics.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) attend",
+            "(B) attends",
+            "(C) attended",
+            "(D) attending"
+          ],
+          "correctOptions": [
+            "(A) attend"
+          ],
+          "transcript": "<p>This is a imperative, so we need to use the infinitive \"attend\".</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong>H&atilde;y tham dự Hội nghị Power của Genius Marketing v&agrave; học c&aacute;c chiến thuật tiếp thị truyền th&ocirc;ng x&atilde; hội ti&ecirc;n tiến.</p>\n\n<p>Chỗ cần điền động từ dạng nguy&ecirc;n mẫu, ph&ugrave; hợp với cấu tr&uacute;c c&acirc;u y&ecirc;u cầu h&agrave;nh động trong th&igrave; hiện tại để diễn tả h&agrave;nh động cần thực hiện.</p>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (A) attend.</strong></p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62ad7",
+          "questionText": "<b> (2)</b> ______   This could be the most educational two days of your year.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Guide people in the industry to greatness by joining today.",
+            "(B) The conference will be in Houston on May 3 and 4.",
+            "(C) Registration for this two-week course will be on November 20.",
+            "(D) Classes will be held throughout the month of March."
+          ],
+          "correctOptions": [
+            "(B) The conference will be in Houston on May 3 and 4."
+          ],
+          "transcript": "<p>Based on the following sentence: \"This could be the most educational two days of your year.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong>(2) ______ Đ&acirc;y c&oacute; thể l&agrave; hai ng&agrave;y học tập nhất trong năm của bạn.</p>\n\n<p>(A) Hướng dẫn mọi người trong ng&agrave;nh đạt được th&agrave;nh c&ocirc;ng bằng c&aacute;ch tham gia ngay h&ocirc;m nay.<br />\n(B) Hội nghị sẽ được tổ chức tại Houston v&agrave;o ng&agrave;y 3 v&agrave; 4 th&aacute;ng 5.<br />\n(C) Đăng k&yacute; cho kh&oacute;a học hai tuần n&agrave;y sẽ v&agrave;o ng&agrave;y 20 th&aacute;ng 11.<br />\n(D) C&aacute;c lớp học sẽ được tổ chức trong suốt th&aacute;ng Ba.</p>\n\n<p>Dựa v&agrave;o c&acirc;u theo sau ta chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62ad8",
+          "questionText": "<b> (3)</b> ______   you buy social media advertising or focus on organic social media engagement, Genius Marketing’s Power Conference is the conference you need to attend this year.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Either",
+            "(B) Whether",
+            "(C) Rather",
+            "(D) Not only"
+          ],
+          "correctOptions": [
+            "(B) Whether"
+          ],
+          "transcript": "<p>Whether.... or</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) <strong>Either</strong>: D&ugrave;ng để chỉ một trong hai lựa chọn, nhưng kh&ocirc;ng ph&ugrave; hợp ở đ&acirc;y v&igrave; c&acirc;u cần một từ để nối hai khả năng.</p>\n\n<p>(B) <strong>Whether</strong>: D&ugrave;ng để chỉ sự lựa chọn giữa hai hoặc nhiều khả năng, l&agrave; lựa chọn ph&ugrave; hợp v&igrave; c&acirc;u đang so s&aacute;nh hai lựa chọn.</p>\n\n<p>(C) <strong>Rather</strong>: D&ugrave;ng để chỉ sự ưu ti&ecirc;n hơn, kh&ocirc;ng ph&ugrave; hợp với ngữ cảnh n&agrave;y v&igrave; c&acirc;u kh&ocirc;ng cần chỉ sự ưu ti&ecirc;n.</p>\n\n<p>(D) <strong>Not only</strong>: D&ugrave;ng để giới thiệu một phần của một cấu tr&uacute;c c&acirc;u phức tạp với &ldquo;but also,&rdquo; kh&ocirc;ng ph&ugrave; hợp ở đ&acirc;y v&igrave; c&acirc;u kh&ocirc;ng c&oacute; phần &ldquo;but also.&rdquo;</p>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (B) Whether.</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>D&ugrave; bạn mua quảng c&aacute;o truyền th&ocirc;ng x&atilde; hội hay tập trung v&agrave;o sự tương t&aacute;c tự nhi&ecirc;n tr&ecirc;n mạng x&atilde; hội, Hội nghị Power của Genius Marketing l&agrave; sự kiện bạn cần tham dự trong năm nay.</p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62ad9",
+          "questionText": "<p>You’ll be inspired by experts, meet others with your challenges, and get actionable tactics to drive traffic, increase sales and <b> (4)</b>______customer satisfaction</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) divide",
+            "(B) engage",
+            "(C) devalue",
+            "(D) endure"
+          ],
+          "correctOptions": [
+            "(B) engage"
+          ],
+          "transcript": "<p>(A) divide:&nbsp;to separate into parts; to make something separate into parts<br>\n(B) engage:&nbsp;to succeed in attracting and keeping somebody’s attention and interest<br>\n(C) devalue:&nbsp;to reduce in value when it is exchanged for the money of another country<br>\n(D) endure:&nbsp;to experience and deal with something that is painful or unpleasant without giving up</p>\n\n<p>Based on the meaning of sentence</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) divide - chia t&aacute;ch<br />\n(B) engage - thu h&uacute;t, gắn kết<br />\n(C) devalue - giảm gi&aacute; trị<br />\n(D) endure - chịu đựng</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n\n<p><strong>Tạm dịch :&nbsp;</strong>Bạn sẽ được truyền cảm hứng bởi c&aacute;c chuy&ecirc;n gia, gặp gỡ những người c&oacute; c&ugrave;ng th&aacute;ch thức, v&agrave; nhận được c&aacute;c chiến thuật c&oacute; thể h&agrave;nh động để tăng lượng truy cập, doanh số b&aacute;n h&agrave;ng v&agrave; gắn kết sự h&agrave;i l&ograve;ng của kh&aacute;ch h&agrave;ng.</p>\n\n<p>&nbsp;</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140037765d71f3a51f62ad0",
+      "questionText": "To: Nancy Craft<br>From: Omar Patel<br>Date:January 16<br>Subject: Pre-shipping Procedures<br><br>At the manufacturing team meeting, <b> (1)</b> ______  was raised that inventory wasn’t always being properly stored before being shipped. <b> (2)</b> ______  that concern, the team decided to review the written procedure to determine if additional steps should be added.<b> (3)</b> ______  Please try to arrange the schedules of the team in the packaging and storage wing so a majority of the managers can attend this meeting. <br>I am confident that the packaging and storage team management <b> (4)</b> ______  that the written procedure leaves no room for any inventory to accidentally be improperly stored. Any suggestions made by the packaging and storage team will only enhance a superior checklist.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p>Gửi: Nancy Craft Từ: Omar Patel Ng&agrave;y: 16 th&aacute;ng 1 Chủ đề: Quy tr&igrave;nh trước khi vận chuyển</p>\n\n<p>Tại cuộc họp nh&oacute;m sản xuất, mối quan ngại đ&atilde; được n&ecirc;u ra rằng h&agrave;ng tồn kho kh&ocirc;ng phải l&uacute;c n&agrave;o cũng được lưu trữ đ&uacute;ng c&aacute;ch trước khi vận chuyển. Do mối quan ngại đ&oacute;, nh&oacute;m đ&atilde; quyết định xem x&eacute;t lại quy tr&igrave;nh viết để x&aacute;c định xem c&oacute; cần th&ecirc;m bước n&agrave;o hay kh&ocirc;ng. Một cuộc họp của nh&oacute;m đ&oacute;ng g&oacute;i v&agrave; lưu trữ đ&atilde; được l&ecirc;n kế hoạch v&agrave;o thứ Ba, ng&agrave;y 23 th&aacute;ng 1. Vui l&ograve;ng cố gắng sắp xếp lịch tr&igrave;nh của nh&oacute;m trong khu vực đ&oacute;ng g&oacute;i v&agrave; lưu trữ để phần lớn c&aacute;c quản l&yacute; c&oacute; thể tham dự cuộc họp n&agrave;y. T&ocirc;i tin tưởng rằng ban quản l&yacute; nh&oacute;m đ&oacute;ng g&oacute;i v&agrave; lưu trữ sẽ ph&aacute;t hiện ra rằng quy tr&igrave;nh viết kh&ocirc;ng để chỗ cho bất kỳ h&agrave;ng tồn kho n&agrave;o v&ocirc; t&igrave;nh bị lưu trữ kh&ocirc;ng đ&uacute;ng c&aacute;ch. Bất kỳ đề xuất n&agrave;o do nh&oacute;m đ&oacute;ng g&oacute;i v&agrave; lưu trữ đưa ra sẽ chỉ n&acirc;ng cao một danh s&aacute;ch kiểm tra vượt trội.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140037765d71f3a51f62ada",
+          "questionText": "At the manufacturing team meeting, <b> (1)</b> ______  was raised that inventory wasn’t always being properly stored before being shipped.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) understanding",
+            "(B) concern",
+            "(C) challenges",
+            "(D) patience"
+          ],
+          "correctOptions": [
+            "(B) concern"
+          ],
+          "transcript": "<p>(A) understanding:&nbsp;the knowledge that somebody has about a particular subject or situation<br>\n(B) concern:&nbsp;a feeling of worry, especially one that is shared by many people<br>\n(C) challenges:&nbsp;a new or difficult task that tests somebody’s ability and skill<br>\n(D) patience:&nbsp;the ability to stay calm and accept a delay or something annoying without complaining</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) understanding - sự hiểu biết<br />\n(B) concern - mối quan ngại<br />\n(C) challenges - th&aacute;ch thức<br />\n(D) patience - sự ki&ecirc;n nhẫn</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Tại cuộc họp nh&oacute;m sản xuất, mối quan ngại đ&atilde; được n&ecirc;u ra rằng h&agrave;ng tồn kho kh&ocirc;ng phải l&uacute;c n&agrave;o cũng được lưu trữ đ&uacute;ng c&aacute;ch trước khi vận chuyển.</p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62adb",
+          "questionText": "<b> (2)</b> ______  that concern, the team decided to review the written procedure to determine if additional steps should be added.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) So",
+            "(B) Due to",
+            "(C) Regardless of",
+            "(D) Provided"
+          ],
+          "correctOptions": [
+            "(B) Due to"
+          ],
+          "transcript": "<p>The blank precedes a noun phrase (that concern), so we need to choose a preposition. Based on the meaning, we choose \"due to\".</p>\n",
+          "explanationVi": "<p>&quot;Due to&quot; c&oacute; nghĩa l&agrave; &quot;do&quot;, &quot;v&igrave;&quot;, v&agrave; n&oacute; được sử dụng để chỉ ra nguy&ecirc;n nh&acirc;n hoặc l&yacute; do. Trong ngữ cảnh n&agrave;y, n&oacute; chỉ ra rằng v&igrave; mối quan ngại đ&atilde; được n&ecirc;u ra, nh&oacute;m đ&atilde; quyết định xem x&eacute;t lại quy tr&igrave;nh viết.</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Do mối quan ngại đ&oacute;, nh&oacute;m đ&atilde; quyết định xem x&eacute;t lại quy tr&igrave;nh viết để x&aacute;c định xem c&oacute; cần th&ecirc;m bước n&agrave;o hay kh&ocirc;ng.</p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62adc",
+          "questionText": "<p><b>(3)</b>&nbsp;______ Please try to arrange the schedules of the team in the packaging and storage wing so a majority of the managers can attend this meeting.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A meeting of the packaging and storage team has been set for Tuesday, January 23.",
+            "(B) All employees should be asked to review the procedure before starting work on Tuesday.",
+            "(C) The meeting will investigate the possibility of redundancies in the packaging process.",
+            "(D) Additional training sessions plan to be added sometime at the end of December."
+          ],
+          "correctOptions": [
+            "(A) A meeting of the packaging and storage team has been set for Tuesday, January 23."
+          ],
+          "transcript": "<p>Based on the following sentence: \"Please try to arrange the schedules of the team in the packaging and storage wing so a majority of the managers can attend this meeting.\" =&gt; This sentence mentions \"a meeting\"</p>\n",
+          "explanationVi": "<p><b>(3)</b> ______ Vui l&ograve;ng cố gắng sắp xếp lịch tr&igrave;nh của nh&oacute;m trong khu vực đ&oacute;ng g&oacute;i v&agrave; lưu trữ để phần lớn c&aacute;c quản l&yacute; c&oacute; thể tham dự cuộc họp n&agrave;y.</p>\n\n<p>(A) Một cuộc họp của nh&oacute;m đ&oacute;ng g&oacute;i v&agrave; lưu trữ đ&atilde; được l&ecirc;n kế hoạch v&agrave;o thứ Ba, ng&agrave;y 23 th&aacute;ng 1.<br />\n(B) Tất cả nh&acirc;n vi&ecirc;n n&ecirc;n được y&ecirc;u cầu xem x&eacute;t quy tr&igrave;nh trước khi bắt đầu l&agrave;m việc v&agrave;o thứ Ba.<br />\n(C) Cuộc họp sẽ điều tra khả năng c&oacute; c&aacute;c bước thừa trong quy tr&igrave;nh đ&oacute;ng g&oacute;i.<br />\n(D) C&aacute;c buổi đ&agrave;o tạo bổ sung dự kiến sẽ được th&ecirc;m v&agrave;o một thời điểm n&agrave;o đ&oacute; v&agrave;o cuối th&aacute;ng 12.</p>\n\n<p>Dựa v&agrave;o c&acirc;u sau ta chọn <strong>đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62add",
+          "questionText": "I am confident that the packaging and storage team management <b> (4)</b> ______  that the written procedure leaves no room for any inventory to accidentally be improperly stored.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) is discovering",
+            "(B) have been discovered",
+            "(C) will discover",
+            "(D) has discovered"
+          ],
+          "correctOptions": [
+            "(C) will discover"
+          ],
+          "transcript": "<p>This sentence indicates that \"manufacturing team decided to review the written procedure\" and asked the packaging and storage team to review for the upcoming meeting. He is confident that the procedure is adequate and the inventory will be properly stored =&gt; use future tense</p>\n",
+          "explanationVi": "<p>Trong ngữ cảnh n&agrave;y, người viết b&agrave;y tỏ sự tự tin về một sự việc sẽ xảy ra trong tương lai. &quot;Will discover&quot; l&agrave; th&igrave; tương lai đơn, th&iacute;ch hợp để diễn tả h&agrave;nh động sẽ xảy ra sau n&agrave;y.</p>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (C) will discover.</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>T&ocirc;i tin tưởng rằng ban quản l&yacute; nh&oacute;m đ&oacute;ng g&oacute;i v&agrave; lưu trữ sẽ ph&aacute;t hiện ra rằng quy tr&igrave;nh viết kh&ocirc;ng để chỗ cho bất kỳ h&agrave;ng tồn kho n&agrave;o v&ocirc; t&igrave;nh bị lưu trữ kh&ocirc;ng đ&uacute;ng c&aacute;ch.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140037765d71f3a51f62ad1",
+      "questionText": "June 3, 2016 <br>Yui Minakuchi <br>143 Dean St. Apt. 3 <br>Brooklyn, NY 10787<br><br>Dear Ms. Minakuchi, <br> It is my pleasure to inform you that Hannover Design would like<b> (1)</b> ______  you to interview for our summer intern program. We are only interviewing fifteen candidates this year for the six positions we have available. You will be pleased to know that you were selected out of a group of over 200 people <b> (2)</b> ______  applied for an interview. <br>We will be holding interviews on March 6 and 7 from 1:00 to 6:00 P.M. We would like for you to come on the 6th at 1:30 P.M. if you are able to. If not, we can <b> (3)</b> ______  for you to come on the 7th. <b> (4)</b> ______  If you have any questions, feel free to call our office (212-347-9919) and the human resources department will be able to assist you. We look forward to hearing from you soon. <br><br>Sincerely, <br><br>Max Wright <br>Office Manager <br>Hannover Design <br>212-326-1268<br>M.Wright@hannoverdesign.com",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p>Ng&agrave;y 3 th&aacute;ng 6, 2016<br />\nYui Minakuchi<br />\n143 Dean St. Apt. 3<br />\nBrooklyn, NY 10787</p>\n\n<p>K&iacute;nh gửi Ms. Minakuchi,</p>\n\n<p>T&ocirc;i rất vui mừng th&ocirc;ng b&aacute;o rằng Hannover Design muốn mời bạn tham gia phỏng vấn cho chương tr&igrave;nh thực tập m&ugrave;a h&egrave; của ch&uacute;ng t&ocirc;i. Năm nay, ch&uacute;ng t&ocirc;i chỉ phỏng vấn mười lăm ứng vi&ecirc;n cho s&aacute;u vị tr&iacute; hiện c&oacute;. Bạn sẽ vui mừng khi biết rằng bạn đ&atilde; được chọn từ nh&oacute;m hơn 200 người đ&atilde; nộp đơn xin phỏng vấn.</p>\n\n<p>Ch&uacute;ng t&ocirc;i sẽ tổ chức phỏng vấn v&agrave;o ng&agrave;y 6 v&agrave; 7 th&aacute;ng 3 từ 1:00 đến 6:00 chiều. Ch&uacute;ng t&ocirc;i mong bạn c&oacute; thể đến v&agrave;o ng&agrave;y 6 l&uacute;c 1:30 chiều nếu bạn c&oacute; thể. Nếu kh&ocirc;ng, ch&uacute;ng t&ocirc;i c&oacute; thể sắp xếp để bạn đến v&agrave;o ng&agrave;y 7. Vui l&ograve;ng cho ch&uacute;ng t&ocirc;i biết sớm nhất c&oacute; thể nếu bạn c&oacute; thể tham dự. Nếu bạn c&oacute; bất kỳ c&acirc;u hỏi n&agrave;o, vui l&ograve;ng gọi đến văn ph&ograve;ng của ch&uacute;ng t&ocirc;i (212-347-9919) v&agrave; bộ phận nh&acirc;n sự sẽ c&oacute; thể hỗ trợ bạn. Ch&uacute;ng t&ocirc;i mong sớm nhận được hồi &acirc;m từ bạn.</p>\n\n<p>Tr&acirc;n trọng,</p>\n\n<p>Max Wright<br />\nQuản l&yacute; Văn ph&ograve;ng<br />\nHannover Design<br />\n212-326-1268<br />\n<a rel=\"noreferrer\">M.Wright@hannoverdesign.com</a></p>\n",
+      "childQuestions": [
+        {
+          "id": "6140037765d71f3a51f62ade",
+          "questionText": "It is my pleasure to inform you that Hannover Design would like<b> (1)</b> ______  you to interview for our summer intern program.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) to invite",
+            "(B) will invite",
+            "(C) has invited",
+            "(D) will be inviting"
+          ],
+          "correctOptions": [
+            "(A) to invite"
+          ],
+          "transcript": "<p>would like + to infinitive</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Cấu tr&uacute;c: </strong>would like + to infinitive để diễn tả mong muốn hoặc &yacute; định l&agrave;m một việc g&igrave; đ&oacute;.</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>T&ocirc;i rất vui mừng th&ocirc;ng b&aacute;o rằng Hannover Design muốn mời bạn tham gia phỏng vấn cho chương tr&igrave;nh thực tập m&ugrave;a h&egrave; của ch&uacute;ng t&ocirc;i.</p>\n\n<p><strong>=&gt; Chọn A</strong></p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62adf",
+          "questionText": "You will be pleased to know that you were selected out of a group of over 200 people <b> (2)</b> ______  applied for an interview",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) whom",
+            "(B) that",
+            "(C) whose",
+            "(D) which"
+          ],
+          "correctOptions": [
+            "(B) that"
+          ],
+          "transcript": "<p>In the relative clause \"_____ applied for an interview\" modifies \"people\", we need to use the relative pronoun for people in the position of subject.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Trong c&acirc;u n&agrave;y, ch&uacute;ng ta cần một đại từ quan hệ để nối c&acirc;u với cụm từ &quot;a group of over 200 people&quot;. Đại từ quan hệ &quot;that&quot; thường được sử dụng để chỉ người hoặc vật trong c&acirc;u x&aacute;c định v&agrave; l&agrave; ph&ugrave; hợp nhất trong ngữ cảnh n&agrave;y.</p>\n\n<p>=&gt; Chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Bạn sẽ vui mừng khi biết rằng bạn đ&atilde; được chọn từ nh&oacute;m hơn 200 người đ&atilde; nộp đơn xin phỏng vấn.</p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62ae0",
+          "questionText": "We would like for you to come on the 6th at 1:30 P.M. if you are able to. If not, we can <b> (3)</b> ______  for you to come on the 7th.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) order",
+            "(B) arrange",
+            "(C) oblige",
+            "(D) attend"
+          ],
+          "correctOptions": [
+            "(B) arrange"
+          ],
+          "transcript": "<p>arrange + for somebody + to do something</p>\n\n<p>(A) order:&nbsp;&nbsp;to ask for something to eat or drink in a restaurant, bar, etc.<br>\n(B) arrange:&nbsp;to plan or organize something in advance<br>\n(C) oblige:&nbsp;to force somebody to do something, by law, because it is a duty, etc.<br>\n(D) attend:&nbsp;to be present at an event</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong><br />\n(A) order: đặt h&agrave;ng<br />\n(B) arrange: sắp xếp<br />\n(C) oblige: bắt buộc<br />\n(D) attend: tham dự</p>\n\n<p>Trong ngữ cảnh n&agrave;y, ch&uacute;ng ta cần một động từ c&oacute; nghĩa l&agrave; sắp xếp hoặc tổ chức thời gian cho một sự kiện. &quot;Arrange&quot; l&agrave; động từ ph&ugrave; hợp nhất v&igrave; n&oacute; c&oacute; nghĩa l&agrave; tổ chức hoặc sắp xếp điều g&igrave; đ&oacute;.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n\n<p>Tạm dịch:&nbsp;Ch&uacute;ng t&ocirc;i mong bạn c&oacute; thể đến v&agrave;o ng&agrave;y 6 l&uacute;c 1:30 chiều nếu bạn c&oacute; thể. Nếu kh&ocirc;ng, ch&uacute;ng t&ocirc;i c&oacute; thể sắp xếp để bạn đến v&agrave;o ng&agrave;y 7.</p>\n"
+        },
+        {
+          "id": "6140037765d71f3a51f62ae1",
+          "questionText": "<b> (4)</b> ______  If you have any questions, feel free to call our office (212-347-9919) and the human resources department will be able to assist you.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) You will need to bring a completed application and some type of identification card.",
+            "(B) Please let us know as soon as possible if you will be able to attend.",
+            "(C) We wish we were able to accept your offer, but we must decline it.",
+            "(D) Please RSVP and indicate if you plan on bringing a guest."
+          ],
+          "correctOptions": [
+            "(B) Please let us know as soon as possible if you will be able to attend."
+          ],
+          "transcript": "<p>In the previous sentence, the email sender gives Ms. Minakuchi options when to come for the interview so they need to know when Ms. Minakuchi will be able to attend <strong>=&gt; B is the right answer</strong></p>\n",
+          "explanationVi": "<p><b>(4)</b> ______Nếu bạn c&oacute; bất kỳ c&acirc;u hỏi n&agrave;o, h&atilde;y thoải m&aacute;i gọi đến văn ph&ograve;ng của ch&uacute;ng t&ocirc;i (212-347-9919) v&agrave; ph&ograve;ng nh&acirc;n sự sẽ sẵn s&agrave;ng hỗ trợ bạn.&nbsp;</p>\n\n<p>(A) Bạn sẽ cần mang theo một đơn đăng k&yacute; đ&atilde; ho&agrave;n tất v&agrave; một loại thẻ chứng minh nh&acirc;n d&acirc;n.</p>\n\n<p>(B) Xin vui l&ograve;ng cho ch&uacute;ng t&ocirc;i biết c&agrave;ng sớm c&agrave;ng tốt nếu bạn c&oacute; thể tham dự.</p>\n\n<p>(C) Ch&uacute;ng t&ocirc;i mong l&agrave; c&oacute; thể chấp nhận đề nghị của bạn, nhưng ch&uacute;ng t&ocirc;i phải từ chối.</p>\n\n<p>(D) Vui l&ograve;ng x&aacute;c nhận tham dự v&agrave; cho biết nếu bạn dự định mang theo kh&aacute;ch.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của C&acirc;u n&agrave;y y&ecirc;u cầu người nhận th&ocirc;ng b&aacute;o sớm nếu họ c&oacute; thể tham dự buổi phỏng vấn =&gt; chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

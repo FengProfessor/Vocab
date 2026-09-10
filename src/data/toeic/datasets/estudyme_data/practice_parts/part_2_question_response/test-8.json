@@ -1,0 +1,435 @@
+{
+  "topicId": "614bed8165d71f3a51f67227",
+  "name": "Test 8",
+  "slug": "test-8",
+  "part": "part_2_question_response",
+  "totalQuestions": 25,
+  "totalCards": 25,
+  "cards": [
+    {
+      "id": "614bee0765d71f3a51f672e0",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0201.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nHow often should I replace the battery in this device?<br />\n(A) It is in place.<br />\n<b>(B) At least once a year. </b><br />\n(C) He often goes on business trips.</p>\n",
+      "explanationVi": "<p>T&ocirc;i n&ecirc;n thay pin cho thiết bị n&agrave;y sau bao l&acirc;u?<br />\n(A) N&oacute; đ&atilde; được lắp v&agrave;o.<br />\n<strong>(B) &Iacute;t nhất mỗi năm một lần.</strong><br />\n(C) Anh ấy thường xuy&ecirc;n đi c&ocirc;ng t&aacute;c.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e1",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0202.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWhere do you keep the spare tire?<br />\n<b>(A) In the trunk of the car. </b><br />\n(B) For an unexpected emergency.<br />\n(C) Yes, I&rsquo;m a little bit tired.</p>\n",
+      "explanationVi": "<p>Bạn để lốp dự ph&ograve;ng ở đ&acirc;u?<br />\n<strong>(A) Trong cốp xe.</strong><br />\n(B) Để ph&ograve;ng trường hợp khẩn cấp bất ngờ.<br />\n(C) V&acirc;ng, t&ocirc;i hơi mệt.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e2",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0203.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWeren&rsquo;t you going to send an e-mail with corrections to the document?<br />\n(A) Driving directions.<br />\n(B) I&rsquo;ll change the format.<br />\n<b>(C) It&rsquo;s not finished yet. </b></p>\n",
+      "explanationVi": "<p>Chẳng phải bạn đ&atilde; định gửi một email với c&aacute;c chỉnh sửa cho t&agrave;i liệu sao?<br />\n(A) Chỉ đường l&aacute;i xe.<br />\n(B) T&ocirc;i sẽ thay đổi định dạng.<br />\n<strong>(C) N&oacute; vẫn chưa ho&agrave;n th&agrave;nh.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e3",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0204.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nDid you sign up for the special workshop on Monday?<br />\n<b>(A) Yes, I&rsquo;m looking forward to it. </b><br />\n(B) No, I didn&rsquo;t see the road sign.<br />\n(C) He rescheduled the appointment.</p>\n",
+      "explanationVi": "<p>Bạn đ&atilde; đăng k&yacute; tham gia hội thảo đặc biệt v&agrave;o thứ Hai chưa?<br />\n<strong>(A)&nbsp;V&acirc;ng, t&ocirc;i đang mong chờ điều đ&oacute;.</strong><br />\n(B) Kh&ocirc;ng, t&ocirc;i kh&ocirc;ng thấy biển b&aacute;o giao th&ocirc;ng.<br />\n(C) Anh ấy đ&atilde; đặt lại lịch cuộc hẹn.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e4",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0205.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nHaven&rsquo;t you backed up your files yet?<br />\n(A) She installed the hardware.<br />\n<b>(B) Actually, it does so automatically. </b><br />\n(C) She&rsquo;ll be back soon.</p>\n",
+      "explanationVi": "<p>Bạn chưa sao lưu c&aacute;c tập tin của m&igrave;nh sao?<br />\n(A) C&ocirc; ấy đ&atilde; c&agrave;i đặt phần cứng.<br />\n<strong>(B) Thực ra, n&oacute; tự động l&agrave;m như vậy.</strong><br />\n(C) C&ocirc; ấy sẽ sớm quay lại.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e5",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0206.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWhen did I talk to you last?<br />\n(A) No, not right now.<br />\n<b>(B) Sometime last winter. </b><br />\n(C) I&rsquo;ll take you there immediately.</p>\n",
+      "explanationVi": "<p>Lần cuối t&ocirc;i n&oacute;i chuyện với bạn l&agrave; khi n&agrave;o?<br />\n(A) Kh&ocirc;ng, kh&ocirc;ng phải b&acirc;y giờ.<br />\n<strong>(B) V&agrave;o l&uacute;c n&agrave;o đ&oacute; m&ugrave;a đ&ocirc;ng năm ngo&aacute;i.</strong><br />\n(C) T&ocirc;i sẽ đưa bạn đến đ&oacute; ngay lập tức.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e6",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0207.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nThe reservation is for 8:00 P.M, isn&rsquo;t it?<br />\n(A) The dinner was a vegetarian meal.<br />\n(B) He worked all night.<br />\n<b>(C) Let me check the schedule. </b></p>\n",
+      "explanationVi": "<p>Đặt chỗ v&agrave;o l&uacute;c 8 giờ tối, phải kh&ocirc;ng?<br />\n(A) Bữa tối l&agrave; bữa ăn chay.<br />\n(B) Anh ấy l&agrave;m việc suốt đ&ecirc;m.<br />\n<strong>(C) Để t&ocirc;i kiểm tra lịch tr&igrave;nh.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e7",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0208.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWe&rsquo;d appreciate it if you would not park near the entrance.<br />\n(A) The park closes before midnight.<br />\n<b>(B) I won&rsquo;t do that. </b><br />\n(C) Between the two buildings.</p>\n",
+      "explanationVi": "<p>Ch&uacute;ng t&ocirc;i rất cảm k&iacute;ch nếu bạn kh&ocirc;ng đỗ xe gần lối v&agrave;o.<br />\n(A) C&ocirc;ng vi&ecirc;n đ&oacute;ng cửa trước nửa đ&ecirc;m.<br />\n<strong>(B) T&ocirc;i sẽ kh&ocirc;ng l&agrave;m thế.</strong><br />\n(C) Giữa hai t&ograve;a nh&agrave;.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e8",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0209.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWhich paint would be best for these walls?<br />\n(A) Probably three or four cans.<br />\n(B) Yes, we ordered it already.<br />\n<b>(C) Light blue would look nice. </b></p>\n",
+      "explanationVi": "<p>Loại sơn n&agrave;o sẽ l&agrave; tốt nhất cho những bức tường n&agrave;y?<br />\n(A) C&oacute; lẽ l&agrave; ba hoặc bốn lon.<br />\n(B) V&acirc;ng, ch&uacute;ng t&ocirc;i đ&atilde; đặt h&agrave;ng rồi.<br />\n<strong>(C) M&agrave;u xanh nhạt tr&ocirc;ng sẽ đẹp.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672e9",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0210.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nI can&rsquo;t find our tickets anywhere.<br />\n<b>(A) You should check your backpack. </b><br />\n(B) She already boarded the airplane.<br />\n(C) It&rsquo;s more expensive than expected.</p>\n",
+      "explanationVi": "<p>T&ocirc;i kh&ocirc;ng thể t&igrave;m thấy v&eacute; của ch&uacute;ng ta ở đ&acirc;u cả.<br />\n<strong>(A) Bạn n&ecirc;n kiểm tra ba l&ocirc; của bạn.</strong><br />\n(B) C&ocirc; ấy đ&atilde; l&ecirc;n m&aacute;y bay rồi.<br />\n(C) N&oacute; đắt hơn dự kiến.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672ea",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0211.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWho will be giving the keynote speech at the conference?<br />\n(A) Mr. Franks wrote a reference letter.<br />\n(B) It was very impressive.<br />\n<b>(C) A famous novelist. </b></p>\n",
+      "explanationVi": "<p>Ai sẽ l&agrave; người ph&aacute;t biểu ch&iacute;nh tại hội nghị?<br />\n(A) &Ocirc;ng Franks đ&atilde; viết một l&aacute; thư giới thiệu.<br />\n(B) N&oacute; đ&atilde; rất ấn tượng.<br />\n<strong>(C) Một tiểu thuyết gia nổi tiếng.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672eb",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0212.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nHow do you get to work each day?<br />\n(A) I have to leave home before 8:00.<br />\n<b>(B) I ride my bike or walk. </b><br />\n(C) The office on the first floor.</p>\n",
+      "explanationVi": "<p>Mỗi ng&agrave;y bạn đi l&agrave;m bằng c&aacute;ch n&agrave;o?<br />\n(A) T&ocirc;i phải rời nh&agrave; trước 8:00.<br />\n<strong>(B) T&ocirc;i đi xe đạp hoặc đi bộ.</strong><br />\n(C) Văn ph&ograve;ng ở tầng một.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672ec",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0213.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWill the contest be held in the courtyard or the V auditorium?<br />\n<b>(A) On a stage would be preferable. </b><br />\n(B) He will announce the winner.<br />\n(C) I&rsquo;m too tired to go.</p>\n",
+      "explanationVi": "<p>Cuộc thi sẽ được tổ chức ở s&acirc;n trong hay hội trường V?<br />\n<strong>(A) Tốt hơn l&agrave; tổ chức tr&ecirc;n s&acirc;n khấu.</strong><br />\n(B) Anh ấy sẽ c&ocirc;ng bố người chiến thắng.<br />\n(C) T&ocirc;i qu&aacute; mệt để đi.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672ed",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0214.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nCould you move the air conditioner to the other room?<br />\n(A) Yes, I&rsquo;ve moved into a new apartment.<br />\n(B) What is the temperature?<br />\n<b>(C) I&rsquo;ll need help to do that. </b></p>\n",
+      "explanationVi": "<p>Bạn c&oacute; thể di chuyển c&aacute;i điều h&ograve;a sang ph&ograve;ng kh&aacute;c kh&ocirc;ng?<br />\n(A) V&acirc;ng, t&ocirc;i đ&atilde; chuyển đến một căn hộ mới.<br />\n(B) Nhiệt độ l&agrave; bao nhi&ecirc;u?<br />\n<strong>(C) T&ocirc;i sẽ cần trợ gi&uacute;p để l&agrave;m điều đ&oacute;.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672ee",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0215.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nDid you clean the meeting room for our clients?<br />\n(A) The hotel is affordable.<br />\n<b>(B) No, but I will shortly. </b><br />\n(C) They were satisfied with our proposal.</p>\n",
+      "explanationVi": "<p>Bạn đ&atilde; dọn dẹp ph&ograve;ng họp cho kh&aacute;ch h&agrave;ng của ch&uacute;ng ta chưa?<br />\n(A) Kh&aacute;ch sạn c&oacute; gi&aacute; cả phải chăng.<br />\n<strong>(B) Kh&ocirc;ng, nhưng t&ocirc;i sẽ l&agrave;m sớm th&ocirc;i.</strong><br />\n(C) Họ h&agrave;i l&ograve;ng với đề xuất của ch&uacute;ng t&ocirc;i.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672ef",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0216.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWhy didn&rsquo;t the train arrive on time today?<br />\n<b>(A) It was delayed because of construction. </b><br />\n(B) Yes, it&rsquo;s always punctual.<br />\n(C) Actually, the tickets are non-refundable.</p>\n",
+      "explanationVi": "<p>Tại sao t&agrave;u kh&ocirc;ng đến đ&uacute;ng giờ h&ocirc;m nay?<br />\n<strong>(A) T&agrave;u bị chậm v&igrave; đang thi c&ocirc;ng.</strong><br />\n(B) V&acirc;ng, t&agrave;u lu&ocirc;n đ&uacute;ng giờ.<br />\n(C) Thực ra, tiền v&eacute; kh&ocirc;ng được ho&agrave;n lại được.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672f0",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0217.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nShould I put the clothes in the dryer or hang them outside?<br />\n(A) No, this shirt is too small.<br />\n(B) It&rsquo;s a brand-new hairdryer.<br />\n<b>(C) Either is fine with me. </b></p>\n",
+      "explanationVi": "<p>T&ocirc;i n&ecirc;n cho quần &aacute;o v&agrave;o m&aacute;y sấy hay phơi ra ngo&agrave;i?<br />\n(A) Kh&ocirc;ng, chiếc &aacute;o n&agrave;y qu&aacute; nhỏ.<br />\n(B) Đ&acirc;y l&agrave; m&aacute;y sấy t&oacute;c mới.<br />\n<strong>(C) T&ocirc;i thấy c&aacute;i n&agrave;o cũng được.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672f1",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0218.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nHow did you access the company database?<br />\n(A) He will accompany you.<br />\n<b>(B) You need Mr. Harrison&rsquo;s permission. </b><br />\n(C) At the annual conference.</p>\n",
+      "explanationVi": "<p>Bạn đ&atilde; truy cập v&agrave;o cơ sở dữ liệu của c&ocirc;ng ty như thế n&agrave;o?<br />\n(A) Anh ấy sẽ đi c&ugrave;ng bạn.<br />\n<strong>(B) Bạn cần sự cho ph&eacute;p của &ocirc;ng Harrison.</strong><br />\n(C) Tại hội nghị thường ni&ecirc;n.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672f2",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0219.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nLet&rsquo;s ask Mr. Miller to increase the budget for the business trip.<br />\n(A) We&rsquo;re going to Atlanta.<br />\n<b>(B) Yes, I will right away. </b><br />\n(C) I booked the airplane tickets.</p>\n",
+      "explanationVi": "<p>Ch&uacute;ng ta h&atilde;y hỏi &ocirc;ng Miller tăng ng&acirc;n s&aacute;ch cho chuyến c&ocirc;ng t&aacute;c.<br />\n(A) Ch&uacute;ng ta sẽ đến Atlanta.<br />\n<strong>(B) V&acirc;ng, t&ocirc;i sẽ đi hỏi ngay.</strong><br />\n(C) T&ocirc;i đ&atilde; đặt v&eacute; m&aacute;y bay.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672f3",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0220.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nCan you make a reservation for the company dinner next week?<br />\n<b>(A) Let me know how many people will attend. </b><br />\n(B) We ordered too much food.<br />\n(C) Because Ms. Dean has recently been promoted.</p>\n",
+      "explanationVi": "<p>Bạn c&oacute; thể đặt chỗ cho bữa tối của c&ocirc;ng ty v&agrave;o tuần tới kh&ocirc;ng?<br />\n<strong>(A) H&atilde;y cho t&ocirc;i biết c&oacute; bao nhi&ecirc;u người sẽ tham dự.</strong><br />\n(B) Ch&uacute;ng t&ocirc;i đ&atilde; gọi qu&aacute; nhiều đồ ăn.<br />\n(C) Bởi v&igrave; c&ocirc; Dean vừa mới được thăng chức.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672f4",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0222.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nI&rsquo;ve been reviewing several candidates for a vacant position.<br />\n<b>(A) I hope you can find a qualified person. </b><br />\n(B) The election is next month.<br />\n(C) Congratulations on your new job.</p>\n",
+      "explanationVi": "<p>T&ocirc;i đ&atilde; xem x&eacute;t một số ứng vi&ecirc;n cho một vị tr&iacute; tuyển dụng c&ograve;n trống.<br />\n<strong>(A) T&ocirc;i hy vọng bạn c&oacute; thể t&igrave;m được một người đủ ti&ecirc;u chuẩn.</strong><br />\n(B) Cuộc bầu cử sẽ diễn ra v&agrave;o th&aacute;ng tới.<br />\n(C) Xin ch&uacute;c mừng bạn đ&atilde; c&oacute; c&ocirc;ng việc mới.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672f5",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0224.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nThis television isn&rsquo;t still under warranty, is it?<br />\n(A) We replaced the item at no cost to the customer.<br />\n(B) A trusted brand for over 30 years.<br />\n<b>(C) I believe it expired just a month ago. </b></p>\n",
+      "explanationVi": "<p>Chiếc tivi n&agrave;y vẫn chưa được bảo h&agrave;nh, đ&uacute;ng kh&ocirc;ng?<br />\n(A) Ch&uacute;ng t&ocirc;i đ&atilde; thay thế sản phẩm miễn ph&iacute; cho kh&aacute;ch h&agrave;ng.<br />\n(B) Một thương hiệu đ&aacute;ng tin cậy trong hơn 30 năm.<br />\n<strong>(C) T&ocirc;i tin rằng n&oacute; đ&atilde; hết hạn một th&aacute;ng trước.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "614bee0765d71f3a51f672f6",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test08_0225.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nI just spoke with Jonathan on the phone.<br />\n(A) A spokesperson for Hines Tours.<br />\n<b>(B) Oh, is he feeling better? </b><br />\n(C) I&rsquo;ll adjust the microphone.</p>\n",
+      "explanationVi": "<p>T&ocirc;i vừa n&oacute;i chuyện với Jonathan qua điện thoại.<br />\n(A) Người ph&aacute;t ng&ocirc;n của Hines Tours.<br />\n<strong>(B) Ồ, anh ấy c&oacute; khỏe hơn kh&ocirc;ng?</strong><br />\n(C) T&ocirc;i sẽ điều chỉnh c&aacute;i m&iacute;c.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "616e6a2665d71f3a51f67f17",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/elearning-react/2021/10/19/56978723.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nWhy are the lights off in the conference room?<br />\n(A) I was sitting there.<br />\n<b>(B) They are watching a video. </b><br />\n(C) Yes, she&rsquo;s off duty.</p>\n",
+      "explanationVi": "<p>Tại sao đ&egrave;n trong ph&ograve;ng họp lại tắt?<br />\n(A) T&ocirc;i đang ngồi ở đ&oacute;.<br />\n<strong>(B) Họ đang xem một video.</strong><br />\n(C) V&acirc;ng, c&ocirc; ấy đang nghỉ l&agrave;m.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "616e6a5b65d71f3a51f67f18",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/elearning-react/2021/10/19/69937413.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><b>Transcript:</b><br />\nDo you know where the employee break room is?<br />\n(A) We will take a ten-minute break.<br />\n(B) Have you worked here long?<br />\n<b>(C) On the second floor. </b></p>\n",
+      "explanationVi": "<p>Bạn c&oacute; biết ph&ograve;ng nghỉ của nh&acirc;n vi&ecirc;n ở đ&acirc;u kh&ocirc;ng?<br />\n(A) Ch&uacute;ng ta sẽ nghỉ mười ph&uacute;t giải lao.<br />\n(B) Bạn đ&atilde; l&agrave;m việc ở đ&acirc;y l&acirc;u chưa?<br />\n<strong>(C) Ở tầng hai.</strong></p>\n",
+      "childQuestions": []
+    }
+  ]
+}

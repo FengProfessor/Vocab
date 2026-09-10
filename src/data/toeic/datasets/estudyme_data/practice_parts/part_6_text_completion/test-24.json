@@ -1,0 +1,330 @@
+{
+  "topicId": "6a324c5360281800269d77bb",
+  "name": "Test 24",
+  "slug": "test-24",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6a324e103766e70025ecd119",
+      "questionText": "<p style=\"text-align: justify;\">Date: September 23, 2005<br>\nFrom: Hymills@Mills.com<br>\nTo: zenap23@happy.co<br>\nSubject: Stationary Order&nbsp;</p>\n\n<p style=\"text-align: justify;\">This is just to&nbsp;<b>(1)</b>_____&nbsp;the order placed over the telephone earlier today. As we discussed before, I would like to order the&nbsp;<b>(2)</b>_____&nbsp;items:&nbsp;</p>\n\n<p style=\"text-align: justify;\">32 boxes of A4 paper, white, recycled<br>\n20 boxes of A4 paper, white (NOT recycled)<br>\n2 packs of A4 paper, green<br>\n2 boxes of black ball point pens (the cheapest you have in stock)<br>\n1 box of red ball point pens<br>\n15 large glue sticks, any brand</p>\n\n<p style=\"text-align: justify;\">I would also like to confirm that this order will be&nbsp;<b>(3)</b>_____&nbsp;to our account, as is our usual policy. Please send the&nbsp;<b>(4)</b>_____&nbsp;as soon as it is ready. I need to submit it to the accounting department before the end of the week.</p>\n\n<p style=\"text-align: justify;\">Thank you for your consideration,<br>\nHayley Mills</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a324e103766e70025ecd11a",
+          "questionText": "<p>(1)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "refer",
+            "confirm",
+            "notify",
+            "respect"
+          ],
+          "correctOptions": [
+            "confirm"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">\"Confirm\" means to verify or officially state that something is correct. In business emails, it is very common to write to confirm an order after discussing it by phone.</p>\n\n<ul>\n\t<li data-end=\"441\" data-start=\"380\"><strong data-end=\"392\" data-start=\"382\">notify</strong> = inform someone about something (wrong meaning)</li>\n\t<li data-end=\"496\" data-start=\"442\"><strong data-end=\"453\" data-start=\"444\">refer</strong> = mention or direct attention to something</li>\n\t<li data-end=\"553\" data-start=\"497\"><strong data-end=\"510\" data-start=\"499\">respect</strong> = admire or show consideration for someone</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a324eec3766e70025ecd51f",
+          "questionText": "<p>(2)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "following",
+            "below",
+            "preceding",
+            "under"
+          ],
+          "correctOptions": [
+            "following"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">\"The following items\" is a fixed expression meaning \"the items listed below.\"</p>\n\n<ul>\n\t<li data-end=\"878\" data-start=\"754\" style=\"text-align: justify;\"><strong data-end=\"765\" data-start=\"756\">below</strong> → We usually say \"the items below,\" but after \"order the ___ items,\" \"following\" sounds more natural and formal.</li>\n\t<li data-end=\"933\" data-start=\"879\" style=\"text-align: justify;\"><strong data-end=\"894\" data-start=\"881\">preceding</strong> = coming before (the opposite meaning)</li>\n\t<li data-end=\"981\" data-start=\"934\" style=\"text-align: justify;\"><strong data-end=\"945\" data-start=\"936\">under</strong> = beneath; not used in this context</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a324eec3766e70025ecd520",
+          "questionText": "<p>(3)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "asked",
+            "taken",
+            "charged",
+            "bought"
+          ],
+          "correctOptions": [
+            "charged"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">\"Charge something to an account\" means the company will pay later through its business account instead of paying immediately.</p>\n\n<ul data-end=\"1421\" data-start=\"1334\">\n\t<li data-end=\"1357\" data-start=\"1334\" style=\"text-align: justify;\"><strong data-end=\"1345\" data-start=\"1336\">asked</strong> = requested</li>\n\t<li data-end=\"1382\" data-start=\"1358\" style=\"text-align: justify;\"><strong data-end=\"1370\" data-start=\"1360\">bought</strong> = purchased</li>\n\t<li data-end=\"1421\" data-start=\"1383\" style=\"text-align: justify;\"><strong data-end=\"1394\" data-start=\"1385\">taken</strong> = received or carried away</li>\n</ul>\n\n<p data-end=\"1473\" data-start=\"1423\" style=\"text-align: justify;\">None of these fit the phrase: \"___ to our account.\"</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a324eec3766e70025ecd521",
+          "questionText": "<p>(4)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "invoice",
+            "papers",
+            "notice",
+            "arrangement"
+          ],
+          "correctOptions": [
+            "invoice"
+          ],
+          "transcript": "<p style=\"text-align: justify;\">An <strong data-end=\"1665\" data-start=\"1654\">invoice</strong> is a document that shows what was purchased, the quantity, price, and amount due. Accounting departments need invoices for payment records.</p>\n\n<ul>\n\t<li data-end=\"1863\" data-start=\"1826\" style=\"text-align: justify;\"><strong data-end=\"1843\" data-start=\"1828\">arrangement</strong> = plan or agreement</li>\n\t<li data-end=\"1902\" data-start=\"1864\" style=\"text-align: justify;\"><strong data-end=\"1876\" data-start=\"1866\">notice</strong> = announcement or warning</li>\n\t<li data-end=\"1947\" data-start=\"1903\" style=\"text-align: justify;\"><strong data-end=\"1915\" data-start=\"1905\">papers</strong> = general documents (too vague)</li>\n</ul>\n\n<p style=\"text-align: justify;\">Clue in the text:&nbsp;I need to submit it to the accounting department before the end of the week. =&gt;&nbsp;The accounting department usually requires an <strong data-end=\"2108\" data-start=\"2097\">invoice</strong>.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a34b32e3766e70025f6a5ca",
+      "questionText": "<p style=\"text-align: justify;\">Dear Mrs. Whitman,</p>\n\n<p style=\"text-align: justify;\">I regret to inform you that your application for a government subsidized housing&nbsp;<b>(1)</b>_____ has been&nbsp;rejected. While we understand that you recently became unemployed, as a home owner who has&nbsp;more than $10,000 dollars currently&nbsp;<b>(2)</b>_____ in a bank account, you simply do not fit any of the basic&nbsp;criteria for a subsidized housing loan. However, as a single parent, if you are receiving no financial&nbsp;support from the father of your children, you may qualify for child care assistance. I suggest that&nbsp;you contact our office to make an appointment to discuss this further. The number to call for&nbsp;<b>(3)</b>_____ appointments is 023-445-4460. The phone line is operational between the hours of 9:00 a.m. and 6:00&nbsp;p.m. Please have your social security number on hand when you call. This&nbsp;<b>(4)</b>_____ speed up the process.&nbsp;</p>\n\n<p style=\"text-align: justify;\">Sincerely,</p>\n\n<p style=\"text-align: justify;\">Clarence Dewitt</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a34b32e3766e70025f6a5cb",
+          "questionText": "<p>(1)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "agree",
+            "affirmation",
+            "loan",
+            "permission"
+          ],
+          "correctOptions": [
+            "loan"
+          ],
+          "transcript": "<p data-end=\"307\" data-start=\"226\" style=\"text-align: justify;\">A <strong data-end=\"236\" data-start=\"228\">loan</strong> is money borrowed from a bank or government that must be repaid later.</p>\n\n<p data-end=\"449\" data-start=\"309\" style=\"text-align: justify;\">The letter explains that the applicant does not meet the requirements for a <strong data-end=\"412\" data-start=\"385\">subsidized housing loan</strong>, so this is the most logical choice.</p>\n\n<ul data-end=\"614\" data-start=\"470\">\n\t<li data-end=\"528\" data-start=\"470\" style=\"text-align: justify;\"><strong data-end=\"487\" data-start=\"472\">affirmation</strong> = a positive statement or confirmation&nbsp;</li>\n\t<li data-end=\"563\" data-start=\"529\" style=\"text-align: justify;\"><strong data-end=\"540\" data-start=\"531\">agree</strong> = a verb, not a noun&nbsp;</li>\n\t<li data-end=\"614\" data-start=\"564\" style=\"text-align: justify;\"><strong data-end=\"580\" data-start=\"566\">permission</strong> = authorization to do something&nbsp;</li>\n</ul>\n\n<p data-end=\"631\" data-start=\"616\" style=\"text-align: justify;\"><strong data-end=\"631\" data-start=\"616\">Vocabulary:</strong></p>\n\n<ul data-end=\"720\" data-start=\"632\">\n\t<li data-end=\"658\" data-start=\"632\" style=\"text-align: justify;\">housing loan = home loan</li>\n\t<li data-end=\"720\" data-start=\"659\" style=\"text-align: justify;\">subsidized loan = a loan partly supported by the government</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34b9163766e70025f6be0f",
+          "questionText": "<p>(2)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "mortgage",
+            "withdrawn",
+            "transfer",
+            "deposited"
+          ],
+          "correctOptions": [
+            "deposited"
+          ],
+          "transcript": "<p data-end=\"917\" data-start=\"866\"><strong data-end=\"877\" data-start=\"866\">Deposit</strong> means to put money into a bank account.</p>\n\n<p data-end=\"979\" data-start=\"919\">The sentence describes money that is already in her account.</p>\n\n<ul>\n\t<li data-end=\"1030\" data-start=\"1000\"><strong data-end=\"1014\" data-start=\"1002\">mortgage</strong> = a home loan&nbsp;</li>\n\t<li data-end=\"1088\" data-start=\"1031\"><strong data-end=\"1045\" data-start=\"1033\">transfer</strong> = move money from one account to another&nbsp;</li>\n\t<li data-end=\"1132\" data-start=\"1089\"><strong data-end=\"1104\" data-start=\"1091\">withdrawn</strong> = taken out of an account&nbsp;</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34b9163766e70025f6be10",
+          "questionText": "<p>(3)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "consultation",
+            "remittance",
+            "talking",
+            "denomination"
+          ],
+          "correctOptions": [
+            "consultation"
+          ],
+          "transcript": "<p data-end=\"1510\" data-start=\"1439\">A <strong data-end=\"1457\" data-start=\"1441\">consultation</strong> is a meeting to discuss a problem or receive advice.</p>\n\n<p data-end=\"1613\" data-start=\"1512\">The office is inviting Mrs. Whitman to make an appointment to discuss possible child-care assistance.</p>\n\n<ul>\n\t<li data-end=\"1697\" data-start=\"1634\"><strong data-end=\"1652\" data-start=\"1636\">denomination</strong> = a type or value of money/religious group&nbsp;</li>\n\t<li data-end=\"1740\" data-start=\"1698\"><strong data-end=\"1714\" data-start=\"1700\">remittance</strong> = money sent to someone&nbsp;</li>\n\t<li data-end=\"1786\" data-start=\"1741\"><strong data-end=\"1754\" data-start=\"1743\">talking</strong> = informal and unnatural here&nbsp;</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34b9163766e70025f6be11",
+          "questionText": "<p>(4)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "helped",
+            "will help",
+            "used to help",
+            "is helping"
+          ],
+          "correctOptions": [
+            "will help"
+          ],
+          "transcript": "<p data-end=\"2091\" data-start=\"2047\">The writer is talking about a future result.</p>\n\n<p data-end=\"2179\" data-start=\"2093\">If she has her Social Security number ready, it <strong data-end=\"2154\" data-start=\"2141\">will help</strong> make the process faster.</p>\n\n<ul>\n\t<li data-end=\"2227\" data-start=\"2200\"><strong data-end=\"2212\" data-start=\"2202\">helped</strong> = past tense&nbsp;</li>\n\t<li data-end=\"2267\" data-start=\"2228\"><strong data-end=\"2244\" data-start=\"2230\">is helping</strong> = present continuous&nbsp;</li>\n\t<li data-end=\"2313\" data-start=\"2268\"><strong data-end=\"2286\" data-start=\"2270\">used to help</strong> = describes a past habit&nbsp;</li>\n</ul>\n\n<p data-end=\"2372\" data-start=\"2363\">Examples:</p>\n\n<ul data-end=\"2499\" data-start=\"2373\">\n\t<li data-end=\"2426\" data-start=\"2373\">Exercising regularly will help improve your health.</li>\n\t<li data-end=\"2499\" data-start=\"2427\">Having the documents ready will help speed up the application process.</li>\n</ul>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a34b9ce3766e70025f6bfa3",
+      "questionText": "<p style=\"text-align: justify;\">Over the last few months, we have received&nbsp;<b>(1)</b>_____ letters from readers, asking us where they can&nbsp;buy some of the items that have been on display in the background of a number of our fashion&nbsp;features. It almost seems that the furnishings and decorative items from those photo shoots have&nbsp;<b>(2)</b>_____ interest than the clothes themselves.</p>\n\n<p style=\"text-align: justify;\">For this reason you will notice that, starting on page 78 of this month's edition, we have introduced&nbsp;a new feature entitled \"Where can I buy...?\" This new section will appear immediately after our&nbsp;main fashion photo feature each month. We will be listing the designers and manufacturers for just&nbsp;about everything you can see in each photo, and we will be giving you the numbers and websites you&nbsp;need to find out more. Many of these items will be made available at a&nbsp;<b>(3)</b>_____ to magazine subscribers.&nbsp;</p>\n\n<p style=\"text-align: justify;\">All the more reason to take out a subscription!&nbsp;</p>\n\n<p style=\"text-align: justify;\">Take a&nbsp;<b>(4)</b>_____ and let us know what you think.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a34b9ce3766e70025f6bfa4",
+          "questionText": "<p>(1)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "a lot of",
+            "much",
+            "lots",
+            "numbers of"
+          ],
+          "correctOptions": [
+            "a lot of"
+          ],
+          "transcript": "<p data-end=\"300\" data-start=\"194\" style=\"text-align: justify;\">\"Letters\" is a <strong data-end=\"234\" data-start=\"209\">countable plural noun</strong>, so we need an expression that can modify plural countable nouns.</p>\n\n<p data-end=\"339\" data-start=\"302\" style=\"text-align: justify;\"><strong data-end=\"324\" data-start=\"304\">a lot of letters</strong> = many letters</p>\n\n<ul data-end=\"533\" data-start=\"360\">\n\t<li data-end=\"404\" data-start=\"360\" style=\"text-align: justify;\"><strong data-end=\"370\" data-start=\"362\">lots</strong> &nbsp;→ should be <strong data-end=\"404\" data-start=\"385\">lots of letters</strong></li>\n\t<li data-end=\"478\" data-start=\"405\" style=\"text-align: justify;\"><strong data-end=\"415\" data-start=\"407\">much</strong> &nbsp;→ used with uncountable nouns (much money, much information)</li>\n\t<li data-end=\"533\" data-start=\"479\" style=\"text-align: justify;\"><strong data-end=\"495\" data-start=\"481\">numbers of</strong> &nbsp;→ should be <strong data-end=\"533\" data-start=\"510\">a number of letters</strong></li>\n</ul>\n\n<p style=\"text-align: justify;\">Examples;</p>\n\n<ul data-end=\"533\" data-start=\"360\">\n\t<li data-end=\"583\" data-start=\"549\" style=\"text-align: justify;\">We received <strong data-end=\"582\" data-start=\"563\">a lot of emails</strong>.</li>\n\t<li data-end=\"625\" data-start=\"584\" style=\"text-align: justify;\">There are <strong data-end=\"618\" data-start=\"596\">a lot of customers</strong> today.</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34b9ce3766e70025f6bfa5",
+          "questionText": "<p>(2)&nbsp;</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "aroused",
+            "provoked",
+            "aroused more",
+            "made more"
+          ],
+          "correctOptions": [
+            "aroused more"
+          ],
+          "transcript": "<p data-end=\"930\" data-start=\"872\"><strong data-end=\"891\" data-start=\"872\">Arouse interest</strong> = make people interested in something.</p>\n\n<p data-end=\"1039\" data-start=\"932\">Because the sentence contains <strong data-end=\"995\" data-start=\"962\">\"than the clothes themselves\"</strong>, a comparative form (<strong data-end=\"1025\" data-start=\"1017\">more</strong>) is required.</p>\n\n<ul>\n\t<li data-end=\"1109\" data-start=\"1060\"><strong data-end=\"1073\" data-start=\"1062\">aroused</strong> &nbsp;→ missing the comparison (\"more\")</li>\n\t<li data-end=\"1180\" data-start=\"1110\"><strong data-end=\"1125\" data-start=\"1112\">made more</strong> &nbsp;→ we say <em data-end=\"1154\" data-start=\"1137\">arouse interest</em>, not <em data-end=\"1180\" data-start=\"1160\">make more interest</em></li>\n\t<li data-end=\"1276\" data-start=\"1181\"><strong data-end=\"1195\" data-start=\"1183\">provoked</strong> &nbsp;→ usually provokes reactions, anger, controversy, not interest in this context</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34b9ce3766e70025f6bfa6",
+          "questionText": "<p>(3)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "major retailer",
+            "bargain",
+            "discount",
+            "price off"
+          ],
+          "correctOptions": [
+            "discount"
+          ],
+          "transcript": "<p>The fixed expression is: \"at a discount\" =&gt;&nbsp;&nbsp;meaning <strong data-end=\"1638\" data-start=\"1616\">at a reduced price</strong>.</p>\n\n<ul>\n\t<li data-end=\"1706\" data-start=\"1660\"><strong data-end=\"1673\" data-start=\"1662\">bargain</strong> &nbsp;→ usually \"at a bargain price\"</li>\n\t<li data-end=\"1760\" data-start=\"1707\"><strong data-end=\"1727\" data-start=\"1709\">major retailer</strong> &nbsp;→ completely different meaning</li>\n\t<li data-end=\"1801\" data-start=\"1761\"><strong data-end=\"1776\" data-start=\"1763\">price off</strong> &nbsp;→ incorrect expression</li>\n</ul>\n\n<p>Example:</p>\n\n<ul>\n\t<li data-end=\"1857\" data-start=\"1817\">Members can buy tickets at a discount.</li>\n\t<li data-end=\"1892\" data-start=\"1858\">The store offers a 20% discount.</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34b9ce3766e70025f6bfa7",
+          "questionText": "<p>(4)&nbsp;</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "look",
+            "break",
+            "off",
+            "time"
+          ],
+          "correctOptions": [
+            "look"
+          ],
+          "transcript": "<p>This is a very common expression:&nbsp;take a look = have a look = examine something</p>\n\n<ul>\n\t<li data-end=\"2136\" data-start=\"2088\"><strong data-end=\"2099\" data-start=\"2090\">break</strong> &nbsp;→ take a break (different meaning)</li>\n\t<li data-end=\"2161\" data-start=\"2137\"><strong data-end=\"2146\" data-start=\"2139\">off</strong> &nbsp;→ impossible</li>\n\t<li data-end=\"2208\" data-start=\"2162\"><strong data-end=\"2172\" data-start=\"2164\">time</strong> &nbsp;→ take time (different structure)</li>\n</ul>\n\n<p>Example:&nbsp;</p>\n\n<ul>\n\t<li data-end=\"2257\" data-start=\"2224\">Take a look at our new website.</li>\n\t<li data-end=\"2304\" data-start=\"2258\">Please take a look and give me your opinion.</li>\n</ul>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6a34bc6b3766e70025f6c7eb",
+      "questionText": "<p style=\"text-align: justify;\">To:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fiona Kim</p>\n\n<p style=\"text-align: justify;\">From:&nbsp; &nbsp; &nbsp;Baljit Singh</p>\n\n<p style=\"text-align: justify;\">Subject:&nbsp;Urgent Busines</p>\n\n<p style=\"text-align: justify;\">Ms. Kim:&nbsp;</p>\n\n<p style=\"text-align: justify;\">I wish you to present yourself at my office at 9:00 a.m. tomorrow. It has been&nbsp;<b>(1)</b>_____ to my attention by&nbsp;various members of staff that you have not been acting in a very cooperative manner of late, and I&nbsp;feel we need to meet to discuss the <b>(2)</b>_____. I was very surprised to hear this, and although I have&nbsp;been ignoring it, hoping that this was a temporary matter, it has been going on long enough that I think we need to talk.</p>\n\n<p style=\"text-align: justify;\">I will not go into&nbsp;<b>(3)</b>_____ in this memo, but needless to say we will be discussing three major incidents&nbsp;which have caused us to lose important contracts. I have not yet decided what will happen to your&nbsp;position at this company; it depends rather on the outcome of our meeting tomorrow and the outcome&nbsp;of a second meeting that I will have with both of your&nbsp;<b>(4)</b>_____ tomorrow afternoon.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a34bc6b3766e70025f6c7ec",
+          "questionText": "<p>(1)&nbsp;</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "presented",
+            "made",
+            "held",
+            "brought"
+          ],
+          "correctOptions": [
+            "brought"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">This is a very common business expression:&nbsp;bring something to someone's attention&nbsp;= make someone aware of something.</p>\n\n<p style=\"text-align: justify;\">The sentence is in the passive voice:&nbsp;It has been brought to my attention...</p>\n\n<p style=\"text-align: justify;\">Example:&nbsp;The problem was brought to my attention yesterday.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34bc6b3766e70025f6c7ed",
+          "questionText": "<p>(2)</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "situation",
+            "circumstance",
+            "event",
+            "development"
+          ],
+          "correctOptions": [
+            "situation"
+          ],
+          "transcript": "<p data-end=\"803\" data-start=\"720\" style=\"text-align: justify;\">The manager is referring generally to Fiona's recent behavior and its consequences.</p>\n\n<p data-end=\"876\" data-start=\"805\" style=\"text-align: justify;\"><strong data-end=\"818\" data-start=\"805\">Situation</strong> = a set of circumstances or problems that need attention.</p>\n\n<ul>\n\t<li data-end=\"962\" data-start=\"897\" style=\"text-align: justify;\"><strong data-end=\"915\" data-start=\"899\">circumstance:</strong>&nbsp;usually used in the plural (<em data-end=\"961\" data-start=\"946\">circumstances</em>)</li>\n\t<li data-end=\"1010\" data-start=\"963\" style=\"text-align: justify;\"><strong data-end=\"980\" data-start=\"965\">development:</strong>&nbsp;means a new event or change</li>\n\t<li data-end=\"1058\" data-start=\"1011\" style=\"text-align: justify;\"><b>event:</b> refers to one specific occurrence</li>\n</ul>\n\n<p style=\"text-align: justify;\">Example:&nbsp;We need to discuss the situation before making a decision.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34bc6b3766e70025f6c7ee",
+          "questionText": "<p>(3)&nbsp;</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "information",
+            "carefully",
+            "details",
+            "in detail"
+          ],
+          "correctOptions": [
+            "details"
+          ],
+          "transcript": "<p>The fixed expression is:&nbsp;go into details&nbsp;= explain something thoroughly.</p>\n\n<p>The manager does not want to explain everything in the memo because it will be discussed in the meeting.</p>\n\n<ul>\n\t<li data-end=\"1488\" data-start=\"1435\"><b>carefully:</b> adverb; doesn't fit after \"go into\"</li>\n\t<li data-end=\"1566\" data-start=\"1489\"><strong data-end=\"1504\" data-start=\"1491\">in detail:</strong>&nbsp;We say <em data-end=\"1530\" data-start=\"1514\">go into detail</em> (singular), not <em data-end=\"1566\" data-start=\"1547\">go into in detail</em></li>\n\t<li data-end=\"1608\" data-start=\"1567\"><strong data-end=\"1584\" data-start=\"1569\">information:</strong>&nbsp;incorrect collocation</li>\n</ul>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "6a34bc6b3766e70025f6c7ef",
+          "questionText": "<p>(4)&nbsp;</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "foreman",
+            "leaders",
+            "supervisors",
+            "watchers"
+          ],
+          "correctOptions": [
+            "supervisors"
+          ],
+          "transcript": "<p data-end=\"1932\" data-start=\"1862\">A <strong data-end=\"1878\" data-start=\"1864\">supervisor</strong> is a person who directly oversees an employee's work.</p>\n\n<p data-end=\"2023\" data-start=\"1934\">The manager wants to hear from the people responsible for monitoring Fiona's performance.</p>\n\n<ul>\n\t<li data-end=\"2097\" data-start=\"2044\"><b>foreman:</b> mainly used in factories/construction</li>\n\t<li data-end=\"2125\" data-start=\"2098\"><b>leaders:</b> too general</li>\n\t<li data-end=\"2172\" data-start=\"2126\"><b>watchers:</b> not used in business contexts</li>\n</ul>\n",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

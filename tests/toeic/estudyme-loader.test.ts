@@ -15,8 +15,12 @@ import path from 'node:path';
 import { TestRunner, expect, ToeicUnifiedQuestion } from './test-harness';
 
 const ROOT_DIR = path.resolve(__dirname, '../..');
-const PRACTICE_PARTS_DIR = path.resolve(ROOT_DIR, 'crawlers/toeic/estudyme_data/practice_parts');
-const ESTUDYME_FULL_DIR = path.resolve(ROOT_DIR, 'crawlers/toeic/estudyme_data/full_tests');
+const PRACTICE_PARTS_DIR = fs.existsSync(path.resolve(ROOT_DIR, 'src/data/toeic/datasets/estudyme_data/practice_parts'))
+  ? path.resolve(ROOT_DIR, 'src/data/toeic/datasets/estudyme_data/practice_parts')
+  : path.resolve(ROOT_DIR, 'crawlers/toeic/estudyme_data/practice_parts');
+const ESTUDYME_FULL_DIR = fs.existsSync(path.resolve(ROOT_DIR, 'src/data/toeic/datasets/estudyme_data/full_tests'))
+  ? path.resolve(ROOT_DIR, 'src/data/toeic/datasets/estudyme_data/full_tests')
+  : path.resolve(ROOT_DIR, 'crawlers/toeic/estudyme_data/full_tests');
 
 export interface EstudymeRawCard {
   id: string;
@@ -367,6 +371,40 @@ export async function runEstudymeLoaderTests(runner: TestRunner): Promise<void> 
       for (let i = 0; i < 200; i++) {
         expect(adapted[i].questionNumber).toBe(i + 1);
       }
+    });
+
+    runner.it('EST-13: Full test uniqueness — All 21 Estudyme full tests have distinct audio and questions', () => {
+      const audioHashes = new Set<string>();
+      for (let testNum = 1; testNum <= 21; testNum++) {
+        let fname = `test-${testNum}.json`;
+        if (testNum === 11) fname = 'test-11-new.json';
+        if (testNum === 12) fname = 'test-12-new.json';
+
+        const p = path.join(ESTUDYME_FULL_DIR, fname);
+        expect(fs.existsSync(p)).toBe(true);
+
+        const data = JSON.parse(fs.readFileSync(p, 'utf-8'));
+        const q1Sound = data.cards[0]?.sound || '';
+        expect(q1Sound.length).toBeGreaterThan(0);
+        expect(audioHashes.has(q1Sound)).toBe(false);
+        audioHashes.add(q1Sound);
+      }
+      expect(audioHashes.size).toBe(21);
+    });
+
+    runner.it('EST-14: Distinct content between consecutive tests (Test 1 vs Test 2 vs Test 3)', () => {
+      const t1 = JSON.parse(fs.readFileSync(path.join(ESTUDYME_FULL_DIR, 'test-1.json'), 'utf-8'));
+      const t2 = JSON.parse(fs.readFileSync(path.join(ESTUDYME_FULL_DIR, 'test-2.json'), 'utf-8'));
+      const t3 = JSON.parse(fs.readFileSync(path.join(ESTUDYME_FULL_DIR, 'test-3.json'), 'utf-8'));
+
+      // Part 5 card (index 54) question text must be completely different
+      expect(t1.cards[54].questionText).not.toBe(t2.cards[54].questionText);
+      expect(t2.cards[54].questionText).not.toBe(t3.cards[54].questionText);
+      expect(t1.cards[54].questionText).not.toBe(t3.cards[54].questionText);
+
+      // Part 1 Q1 sound must be completely different
+      expect(t1.cards[0].sound).not.toBe(t2.cards[0].sound);
+      expect(t2.cards[0].sound).not.toBe(t3.cards[0].sound);
     });
   });
 }

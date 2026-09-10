@@ -1,0 +1,330 @@
+{
+  "topicId": "6140001465d71f3a51f62a92",
+  "name": "Test 1",
+  "slug": "test-1",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6140036665d71f3a51f62aa6",
+      "questionText": "To: samsmith@digitallT.com <br>From: sharronb@email.com<br>Date: September 24<br>Subject:  Business Contract<br><br>Dear Mr. Smith, <br>I am Sharron Biggs, CEO and founder of BiggsGraphics. I recently came across your advertisement <b> (1)</b>  _____  partnership of a graphic design company for a number of your projects. BiggsGraphics has  <b> (2)</b>  _____   experience working with various small businesses and companies in designing advertising campaigns, logos, and websites. <b> (3)</b>  _____  Our website www.biggs-graphics.com also has some information about our company. <br><br>I’m interested in working with your company on your projects and hope we can build a beneficial partnership. I look forward <b> (4)</b>  _____  your reply. <br><br>Sincerely, Sharron Biggs <br>CEO, BiggsGraphics",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p>Tới:&nbsp;samsmith@digitallT.com<br />\nTừ:&nbsp;sharronb@email.com<br />\nNg&agrave;y: 24 th&aacute;ng 9<br />\nChủ đề: Hợp đồng kinh doanh</p>\n\n<p>K&iacute;nh gửi &ocirc;ng Smith,</p>\n\n<p>T&ocirc;i l&agrave; Sharron Biggs, Gi&aacute;m đốc điều h&agrave;nh v&agrave; người s&aacute;ng lập BiggsGraphics. Gần đ&acirc;y, t&ocirc;i đ&atilde; thấy quảng c&aacute;o của qu&yacute; c&ocirc;ng ty t&igrave;m kiếm sự hợp t&aacute;c với một c&ocirc;ng ty thiết kế đồ họa cho một số dự &aacute;n của qu&yacute; c&ocirc;ng ty. BiggsGraphics c&oacute; nhiều kinh nghiệm l&agrave;m việc với c&aacute;c doanh nghiệp nhỏ v&agrave; c&aacute;c c&ocirc;ng ty trong việc thiết kế c&aacute;c chiến dịch quảng c&aacute;o, logo v&agrave; trang web. T&ocirc;i đ&atilde; đ&iacute;nh k&egrave;m một số thiết kế trước đ&acirc;y của ch&uacute;ng t&ocirc;i để minh họa những g&igrave; ch&uacute;ng t&ocirc;i chuy&ecirc;n về. Trang web của ch&uacute;ng t&ocirc;i&nbsp;www.biggs-graphics.com&nbsp;cũng c&oacute; th&ocirc;ng tin về c&ocirc;ng ty của ch&uacute;ng t&ocirc;i.</p>\n\n<p>T&ocirc;i rất quan t&acirc;m đến việc hợp t&aacute;c với qu&yacute; c&ocirc;ng ty trong c&aacute;c dự &aacute;n của qu&yacute; c&ocirc;ng ty v&agrave; hy vọng ch&uacute;ng ta c&oacute; thể x&acirc;y dựng một mối quan hệ đối t&aacute;c c&oacute; lợi. T&ocirc;i mong chờ phản hồi từ qu&yacute; c&ocirc;ng ty.</p>\n\n<p>Tr&acirc;n trọng,<br />\nSharron Biggs<br />\nGi&aacute;m đốc điều h&agrave;nh, BiggsGraphics</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140036665d71f3a51f62aaa",
+          "questionText": "I recently came across your advertisement <b> (1)</b>  _____  partnership of a graphic design company for a number of your projects.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) seek",
+            "(B) to seek",
+            "(C) seeking",
+            "(D) are seeking"
+          ],
+          "correctOptions": [
+            "(C) seeking"
+          ],
+          "transcript": "<p>This is a reduced relative clause. The original sentence is \"I recently came across your advertisement which sought partnership of a graphic company for a number of your projects.</p>\n",
+          "explanationVi": "<p>Đ&acirc;y l&agrave; c&acirc;u mệnh đề r&uacute;t gọn. C&acirc;u đầy đủ l&agrave; &quot;&nbsp;&quot;I recently came across your advertisement which sought partnership of a graphic company for a number of your projects.&quot;</p>\n\n<p><strong>Tạm dịch:</strong>&nbsp;Gần đ&acirc;y, t&ocirc;i đ&atilde; thấy quảng c&aacute;o của qu&yacute; c&ocirc;ng ty, trong đ&oacute; t&igrave;m kiếm sự hợp t&aacute;c với một c&ocirc;ng ty thiết kế đồ họa cho một số dự &aacute;n của qu&yacute; c&ocirc;ng ty</p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62aab",
+          "questionText": "BiggsGraphics has  <b> (2)</b>  _____   experience working with various small businesses and companies in designing advertising campaigns, logos, and websites.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) extensive",
+            "(B) restricted",
+            "(C) generous",
+            "(D) limitless"
+          ],
+          "correctOptions": [
+            "(A) extensive"
+          ],
+          "transcript": "<p>(A) extensive:&nbsp;covering a large area; great in amount</p>\n\n<p>(B) restricted:&nbsp;limited or small in size or amount</p>\n\n<p>(C) generous:&nbsp;giving or willing to give freely; given freely</p>\n\n<p>(D) limitless:&nbsp;without a limit; very great</p>\n\n<p>Based on the meaning of words<br>\n<strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><b>Kiến thức từ vựng:</b></p>\n\n<p>(A) extensive: phong ph&uacute;, nhiều</p>\n\n<p>(B) restricted:&nbsp;bị hạn chế</p>\n\n<p>(C) generous: h&agrave;o ph&oacute;ng</p>\n\n<p>(D) limitless: kh&ocirc;ng giới hạn</p>\n\n<p>Dựa theo ngữ cảnh c&acirc;u, chọn <b>đ&aacute;p &aacute;n A</b>.</p>\n\n<p><strong>Tạm dịch:</strong>&nbsp;BiggsGraphics c&oacute; nhiều kinh nghiệm l&agrave;m việc với c&aacute;c doanh nghiệp nhỏ v&agrave; c&aacute;c c&ocirc;ng ty trong việc thiết kế c&aacute;c chiến dịch quảng c&aacute;o, logo v&agrave; trang web.</p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62aac",
+          "questionText": "<b> (3)</b>  _____  Our website www.biggs-graphics.com also has some information about our company.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) I would really appreciate the opportunity to work with you.",
+            "(B) I heard that Digital lT is a great company.",
+            "(C) In fact, our designs are often copied by other companies.",
+            "(D) I have attached a number of our past designs to illustrate what we specialize in."
+          ],
+          "correctOptions": [
+            "(D) I have attached a number of our past designs to illustrate what we specialize in."
+          ],
+          "transcript": "<p>Based on the previous sentence: \"BiggsGraphics has (2) _____ experience working with various small businesses and companies <b>in designing advertising campaigns, logos, and websites.</b>\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>(3)____ Trang web của ch&uacute;ng t&ocirc;i&nbsp;www.biggs-graphics.com&nbsp;cũng c&oacute; th&ocirc;ng tin về c&ocirc;ng ty của ch&uacute;ng t&ocirc;i.</p>\n\n<p>(A) T&ocirc;i rất tr&acirc;n trọng cơ hội được l&agrave;m việc với qu&yacute; c&ocirc;ng ty.<br />\n(B) T&ocirc;i đ&atilde; nghe rằng Digital IT l&agrave; một c&ocirc;ng ty tuyệt vời.<br />\n(C) Thực tế, c&aacute;c thiết kế của ch&uacute;ng t&ocirc;i thường bị c&aacute;c c&ocirc;ng ty kh&aacute;c sao ch&eacute;p.<br />\n(D) T&ocirc;i đ&atilde; đ&iacute;nh k&egrave;m một số thiết kế trước đ&acirc;y của ch&uacute;ng t&ocirc;i để minh họa những g&igrave; ch&uacute;ng t&ocirc;i chuy&ecirc;n về.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh c&acirc;u, chọn <b>đ&aacute;p &aacute;n D</b>.</p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62aad",
+          "questionText": "I look forward  <b> (4)</b>  _____  your reply.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) at",
+            "(B) to",
+            "(C) with",
+            "(D) from"
+          ],
+          "correctOptions": [
+            "(B) to"
+          ],
+          "transcript": "<p>look forward to something/ Ving</p>\n",
+          "explanationVi": "<p>Cấu tr&uacute;c: look forward to something/ Ving</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>T&ocirc;i mong chờ phản hồi từ qu&yacute; c&ocirc;ng ty.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140036665d71f3a51f62aa7",
+      "questionText": "<p>Thank you for shopping at Larson’s China. Our products are known for their modern and unique patterns and color combinations, as well as <b> (1)</b> _____ and strength. <b> (2)</b> _____ Please note, however, that repeated drops and rough handling will <b> (3)</b> _____ eventual breakage. We suggest you store them carefully and that you don’t use harsh chemicals, steel sponges, or <b> (4)</b> _____ scrubbing when cleaning them. Please visit our website at www.larsonchina.com for information about handling and care or call us at 555-1234 if you have any questions or concerns.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p>Cảm ơn qu&yacute; kh&aacute;ch đ&atilde; mua sắm tại Larson&rsquo;s China. Sản phẩm của ch&uacute;ng t&ocirc;i được biết đến với c&aacute;c họa tiết v&agrave; sự kết hợp m&agrave;u sắc hiện đại v&agrave; độc đ&aacute;o, cũng như độ bền v&agrave; độ chắc chắn. (Ch&uacute;ng an to&agrave;n khi sử dụng trong m&aacute;y rửa ch&eacute;n v&agrave; l&ograve; vi s&oacute;ng, v&agrave; ch&uacute;ng t&ocirc;i tin rằng qu&yacute; kh&aacute;ch sẽ sử dụng ch&uacute;ng trong nhiều năm tới. Tuy nhi&ecirc;n, xin lưu &yacute; rằng việc rơi nhiều lần v&agrave; xử l&yacute; th&ocirc; bạo sẽ dẫn đến việc bị vỡ. Ch&uacute;ng t&ocirc;i đề nghị qu&yacute; kh&aacute;ch cất giữ ch&uacute;ng cẩn thận v&agrave; kh&ocirc;ng sử dụng c&aacute;c h&oacute;a chất mạnh, bọt biển th&eacute;p, hoặc ch&agrave; x&aacute;t mạnh khi l&agrave;m sạch ch&uacute;ng. Xin vui l&ograve;ng truy cập trang web của ch&uacute;ng t&ocirc;i tại&nbsp;www.larsonchina.com&nbsp;để biết th&ocirc;ng tin về c&aacute;ch xử l&yacute; v&agrave; chăm s&oacute;c hoặc gọi cho ch&uacute;ng t&ocirc;i theo số 555-1234 nếu qu&yacute; kh&aacute;ch c&oacute; bất kỳ c&acirc;u hỏi hay thắc mắc n&agrave;o.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140036665d71f3a51f62aae",
+          "questionText": "Our products are known for their modern and unique patterns and color combinations, as well as <b> (1)</b>  _____ and strength",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) durably",
+            "(B) durability",
+            "(C) durabled",
+            "(D) durable"
+          ],
+          "correctOptions": [
+            "(B) durability"
+          ],
+          "transcript": "<p>as well as ..... and strength =&gt; need a noun for word agreement.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Vị tr&iacute; cần điền một danh từ m&ocirc; tả đặc t&iacute;nh của sản phẩm&nbsp;để đi c&ugrave;ng với danh từ &quot;strength&quot;, n&ecirc;n chọn <strong>đ&aacute;p &aacute;n&nbsp;(B)</strong> durability</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Sản phẩm của ch&uacute;ng t&ocirc;i được biết đến với c&aacute;c họa tiết v&agrave; sự kết hợp m&agrave;u sắc hiện đại v&agrave; độc đ&aacute;o, cũng như độ bền v&agrave; độ chắc chắn</p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62aaf",
+          "questionText": "<b> (2)</b>  _____  Please note, however, that repeated drops and rough handling will _____  eventual breakage.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Larson’s utensils and silverware go great with the dinnerware.",
+            "(B) Our most popular line, the Spring Flower China is sold out at most locations,",
+            "(C) Visit our store to check out our other beautiful products.",
+            "(D) They are dishwasher- and microwave-safe and we’re confident that you’ll be using them for years to come."
+          ],
+          "correctOptions": [
+            "(D) They are dishwasher- and microwave-safe and we’re confident that you’ll be using them for years to come."
+          ],
+          "transcript": "<p>Based on the previous sentence: \"<b>Our products</b> are known for their modern and unique patterns and color combinations...\" mentioning \"products\"</p>\n\n<p><strong>=&gt; so D is the right answer.</strong></p>\n",
+          "explanationVi": "<p>Tạm dịch:&nbsp;(2) Tuy nhi&ecirc;n, xin lưu &yacute; rằng việc rơi vỡ v&agrave; xử l&yacute; th&ocirc; bạo nhiều lần sẽ _____ việc hỏng h&oacute;c cuối c&ugrave;ng</p>\n\n<p>(A) Bộ dụng cụ v&agrave; dao nĩa của Larson rất hợp với bộ đồ ăn.<br />\n(B) D&ograve;ng sản phẩm phổ biến nhất của ch&uacute;ng t&ocirc;i, Spring Flower China, đ&atilde; hết h&agrave;ng tại hầu hết c&aacute;c địa điểm.<br />\n(C) H&atilde;y gh&eacute; thăm cửa h&agrave;ng của ch&uacute;ng t&ocirc;i để xem c&aacute;c sản phẩm đẹp kh&aacute;c.<br />\n(D) Ch&uacute;ng c&oacute; thể d&ugrave;ng trong m&aacute;y rửa ch&eacute;n v&agrave; l&ograve; vi s&oacute;ng, v&agrave; ch&uacute;ng t&ocirc;i tự tin rằng bạn sẽ sử dụng ch&uacute;ng trong nhiều năm tới.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62ab0",
+          "questionText": "_____  Please note, however, that repeated drops and rough handling will  <b>(3)</b>  _____  eventual breakage.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) result in",
+            "(B) occur to",
+            "(C) ending at",
+            "(D) stop with"
+          ],
+          "correctOptions": [
+            "(A) result in"
+          ],
+          "transcript": "<p>(A) result in:&nbsp;to cause a particular situation to happen<br>\n(B) occur to:&nbsp;to come into your mind<br>\n(C) ending at:&nbsp;to finish or stop, or to make something finish or stop<br>\n(D) stop with:&nbsp;to stop doing, using, or having something, especially something annoying or not wanted</p>\n\n<p>Based on the meaning of verbs</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) result in - dẫn đến<br />\n(B) occur to - xảy ra với<br />\n(C) ending at - kết th&uacute;c tại<br />\n(D) stop with - dừng lại với</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Xin lưu &yacute;, tuy nhi&ecirc;n, rằng việc rơi vỡ v&agrave; xử l&yacute; th&ocirc; bạo nhiều lần sẽ dẫn đến hỏng h&oacute;c cuối c&ugrave;ng.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh c&acirc;u, chọn <strong>đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62ab1",
+          "questionText": "We suggest you store them carefully and that you don’t use harsh chemicals, steel sponges, or <b>(4)</b>  _____  scrubbing when cleaning them.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) ambitious",
+            "(B) combative",
+            "(C) aggressive",
+            "(D) complacent"
+          ],
+          "correctOptions": [
+            "(C) aggressive"
+          ],
+          "transcript": "<p>(A) ambitious:&nbsp;having a strong wish to be successful, powerful, or rich<br>\n(B) combative: eager to fight or argue<br>\n(C) aggressive:&nbsp;showing anger and a willingness to attack other people<br>\n(D) complacent:&nbsp;feeling so satisfied with your own abilities or situation that you feel you do not need to try any harder</p>\n\n<p>Based on the meaning of words =&gt; \"aggressive scrubbing\" is compatible to things mentioned such as \"harsh chemicals, steel sponges\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) ambitious - tham vọng<br />\n(B) combative - hiếu chiến<br />\n(C) aggressive - hung hăng<br />\n(D) complacent - tự m&atilde;n</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ch&uacute;ng t&ocirc;i khuy&ecirc;n bạn n&ecirc;n bảo quản ch&uacute;ng cẩn thận v&agrave; kh&ocirc;ng sử dụng c&aacute;c h&oacute;a chất mạnh, miếng bọt biển bằng th&eacute;p, hoặc ch&agrave; x&aacute;t mạnh khi l&agrave;m sạch ch&uacute;ng.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140036665d71f3a51f62aa8",
+      "questionText": "Entry Position: Gold &amp; Slide Accounting Firm<br><br> We are looking for enthusiastic candidates with an educational background in finance or <b> (1)</b>   _____. All candidates should have some computer experience. Job experience is not <b> (2)</b>   _____ but preferred. Candidates with a bilingual language ability  <b> (3)</b>  _____ favored. Positions include jobs in accounting, statistics, and general office assistant. If you are interested, please visit our website at www.G&amp;Saccountingfirm.com/employment for more information. You can send your cover letters and resumes to Karen Hill at khill@G&amp;S.com. We will begin interviewing candidates on Monday, November 5. <b> (4)</b>  _____",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Vị trí Mới: Công ty Kế toán Gold & Slide\n\nChúng tôi đang tìm kiếm các ứng viên nhiệt huyết với nền tảng giáo dục trong lĩnh vực tài chính hoặc kế toán. Tất cả các ứng viên nên có một số kinh nghiệm về máy tính. Kinh nghiệm làm việc không bắt buộc nhưng được ưu tiên. Các ứng viên có khả năng song ngữ sẽ được ưu ái. Các vị trí bao gồm công việc kế toán, thống kê và trợ lý văn phòng chung. Nếu bạn quan tâm, vui lòng truy cập trang web của chúng tôi tại www.G&Saccountingfirm.com/employment để biết thêm thông tin. Bạn có thể gửi thư xin việc và sơ yếu lý lịch đến Karen Hill tại khill@G&S.com. Chúng tôi sẽ bắt đầu phỏng vấn các ứng viên vào Thứ Hai, ngày 5 tháng 11. Các vị trí sẽ bắt đầu vào tháng tiếp theo.",
+      "childQuestions": [
+        {
+          "id": "6140036665d71f3a51f62ab2",
+          "questionText": "We are looking for enthusiastic candidates with an educational background in finance or <b> (1)</b>   _____.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) account",
+            "(B) accountant",
+            "(C) accounting",
+            "(D) accounted"
+          ],
+          "correctOptions": [
+            "(C) accounting"
+          ],
+          "transcript": "<p>With the hint \"in finance or (1) _____.\" =&gt; need a noun for agreement</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li>(A) account: danh từ &quot;account&quot; c&oacute; nghĩa l&agrave; t&agrave;i khoản, kh&ocirc;ng ph&ugrave; hợp trong ngữ cảnh n&agrave;y v&igrave; kh&ocirc;ng li&ecirc;n quan đến nền tảng gi&aacute;o dục.</li>\n\t<li>(B) accountant: danh từ &quot;accountant&quot; c&oacute; nghĩa l&agrave; kế to&aacute;n vi&ecirc;n, kh&ocirc;ng ph&ugrave; hợp trong ngữ cảnh n&agrave;y v&igrave; kh&ocirc;ng đề cập đến nền tảng gi&aacute;o dục m&agrave; l&agrave; một nghề nghiệp.</li>\n\t<li>(C) accounting: danh từ &quot;accounting&quot; c&oacute; nghĩa l&agrave; ng&agrave;nh kế to&aacute;n, ph&ugrave; hợp trong ngữ cảnh n&agrave;y v&igrave; đề cập đến nền tảng gi&aacute;o dục.</li>\n\t<li>(D) accounted: động từ &quot;accounted&quot; l&agrave; dạng qu&aacute; khứ của &quot;account,&quot; kh&ocirc;ng ph&ugrave; hợp trong ngữ cảnh n&agrave;y.</li>\n</ul>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (C)</strong> accounting.</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ch&uacute;ng t&ocirc;i đang t&igrave;m kiếm c&aacute;c ứng vi&ecirc;n nhiệt huyết với nền tảng gi&aacute;o dục trong lĩnh vực t&agrave;i ch&iacute;nh hoặc kế to&aacute;n.</p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62ab3",
+          "questionText": "Job experience is not <b>(2)</b>   _____ but preferred.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) basic",
+            "(B) decisive",
+            "(C) additional",
+            "(D) necessary"
+          ],
+          "correctOptions": [
+            "(D) necessary"
+          ],
+          "transcript": "<p>(A) basic:&nbsp;forming the part of something that is most necessary and from which other things develop<br>\n(B) decisive:&nbsp;very important for the final result of a particular situation<br>\n(C) additional:&nbsp;more than was first mentioned or is usual<br>\n(D) necessary:&nbsp;that is needed for a purpose or a reason</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>(A) basic - cơ bản<br />\n(B) decisive - quyết định<br />\n(C) additional - bổ sung<br />\n(D) necessary - cần thiết</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, <strong>chọn đ&aacute;p &aacute;n D</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Kinh nghiệm l&agrave;m việc kh&ocirc;ng bắt buộc nhưng được ưu ti&ecirc;n.</p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62ab4",
+          "questionText": "Candidates with a bilingual language ability  <b> (3)</b>  _____ favored.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) is being",
+            "(B) will be",
+            "(C) has been",
+            "(D) were being"
+          ],
+          "correctOptions": [
+            "(B) will be"
+          ],
+          "transcript": "<p>The firm is looking for candidates =&gt; use future tense</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li>(A) is being: &quot;is being&quot; kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; l&agrave; dạng hiện tại tiếp diễn v&agrave; kh&ocirc;ng ph&ugrave; hợp với ngữ cảnh của một th&ocirc;ng b&aacute;o tuyển dụng.</li>\n\t<li>(B) will be: &quot;will be&quot; l&agrave; dạng th&igrave; tương lai, ph&ugrave; hợp v&igrave; n&oacute; n&oacute;i về việc ứng vi&ecirc;n c&oacute; khả năng song ngữ sẽ được ưu &aacute;i trong tương lai.</li>\n\t<li>(C) has been: &quot;has been&quot; l&agrave; dạng hiện tại ho&agrave;n th&agrave;nh, kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; n&oacute;i về qu&aacute; khứ hoặc một trạng th&aacute;i k&eacute;o d&agrave;i từ qu&aacute; khứ đến hiện tại.</li>\n\t<li>(D) were being: &quot;were being&quot; l&agrave; dạng qu&aacute; khứ tiếp diễn, kh&ocirc;ng ph&ugrave; hợp v&igrave; th&ocirc;ng b&aacute;o tuyển dụng thường sử dụng th&igrave; hiện tại hoặc tương lai.</li>\n</ul>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (B) </strong>will be.</p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62ab5",
+          "questionText": "We will begin interviewing candidates on Monday, November 5. <b> (4)</b>  _____",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We sincerely thank you for your interest.",
+            "(B) The positions begin the following month.",
+            "(C) Please call us for more information.",
+            "(D) We apologize for any inconvenience"
+          ],
+          "correctOptions": [
+            "(B) The positions begin the following month."
+          ],
+          "transcript": "<p>Based on the previous sentence: \"We will begin interviewing candidates on Monday, November 5.\"&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch :&nbsp;</strong>Ch&uacute;ng t&ocirc;i sẽ bắt đầu phỏng vấn c&aacute;c ứng vi&ecirc;n v&agrave;o Thứ Hai, ng&agrave;y 5 th&aacute;ng 11.(4)_____</p>\n\n<p>(A) Ch&uacute;ng t&ocirc;i ch&acirc;n th&agrave;nh cảm ơn bạn v&igrave; sự quan t&acirc;m của bạn.<br />\n(B) C&aacute;c vị tr&iacute; sẽ bắt đầu v&agrave;o th&aacute;ng tiếp theo.<br />\n(C) Vui l&ograve;ng gọi cho ch&uacute;ng t&ocirc;i để biết th&ecirc;m th&ocirc;ng tin.<br />\n(D) Ch&uacute;ng t&ocirc;i xin lỗi v&igrave; bất kỳ sự bất tiện n&agrave;o.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u,<strong> chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140036665d71f3a51f62aa9",
+      "questionText": "To:Kitchen staff,office employees<br>From:Manager, LarryPark<br>Date:March 23<br>Subject: Renovations<br><br>To all kitchen staff and Harmon employees, <br><br>From Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment <b> (1)</b>   _____ in to replace the old ones. <b> (2)</b>   _____ Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time. <br><br>The renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided <b> (3)</b>   _____  the lunch and dinner rushes. We apologize for the inconvenience but we hope that the changes will <b> (4)</b>  _____ the services in the cafeteria.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "Gửi: Nhân viên bếp, nhân viên văn phòng\nTừ: Quản lý, Larry Park\nNgày: 23 tháng 3\nChủ đề: Cải tạo\n\nKính gửi toàn thể nhân viên bếp và nhân viên văn phòng Harmon,\n\nTừ Chủ nhật, ngày 23 tháng 3 đến Thứ năm, ngày 27 tháng 3, các khu vực bếp của căng tin nhân viên sẽ được cải tạo khi các thiết bị và máy móc mới được đưa vào thay thế cho các thiết bị cũ. Do đó, các bữa ăn nóng sẽ không có sẵn cho khách hàng. Thay vào đó, các cửa hàng tiện lợi sẽ cung cấp thêm nhiều loại sandwich, hộp cơm chuẩn bị sẵn và đồ ăn nhẹ cho nhân viên trong thời gian này.\n\nViệc cải tạo sẽ tăng số lượng chậu rửa, lò nướng và bếp ga để có thể phục vụ một lượng bữa ăn lớn hơn trong các giờ cao điểm buổi trưa và buổi tối. Chúng tôi xin lỗi về sự bất tiện này nhưng hy vọng rằng những thay đổi sẽ cải thiện dịch vụ tại căng tin.",
+      "childQuestions": [
+        {
+          "id": "6140036665d71f3a51f62ab6",
+          "questionText": "From Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment <b> (1)</b>   _____ in to replace the old ones. <b></b>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) are bringing",
+            "(B) have brought",
+            "(C) bring",
+            "(D) are brought"
+          ],
+          "correctOptions": [
+            "(D) are brought"
+          ],
+          "transcript": "<p>The subject is \"new appliances and equipment\" and the verb is \"bring\" =&gt; use passive form</p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li>\n\t<p><strong>(A) are bringing</strong>: Dạng hiện tại tiếp diễn kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; biểu thị h&agrave;nh động đang xảy ra trong thời điểm hiện tại, kh&ocirc;ng phải một h&agrave;nh động được l&ecirc;n kế hoạch sẽ xảy ra trong tương lai.</p>\n\t</li>\n\t<li>\n\t<p><strong>(B) have brought</strong>: Dạng hiện tại ho&agrave;n th&agrave;nh kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; biểu thị h&agrave;nh động đ&atilde; xảy ra trong qu&aacute; khứ v&agrave; c&oacute; li&ecirc;n quan đến hiện tại, kh&ocirc;ng ph&ugrave; hợp với ngữ cảnh về c&aacute;c thiết bị sẽ được đưa v&agrave;o trong tương lai.</p>\n\t</li>\n\t<li>\n\t<p><strong>(C) bring</strong>: Dạng hiện tại đơn kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; kh&ocirc;ng thể diễn tả được h&agrave;nh động sẽ xảy ra trong tương lai trong ngữ cảnh n&agrave;y.</p>\n\t</li>\n\t<li>\n\t<p><strong>(D) are brought</strong>: Dạng bị động của hiện tại đơn ph&ugrave; hợp v&igrave; n&oacute; chỉ ra rằng c&aacute;c thiết bị mới sẽ được đưa v&agrave;o (bởi một t&aacute;c nh&acirc;n kh&ocirc;ng x&aacute;c định) trong qu&aacute; tr&igrave;nh cải tạo</p>\n\t</li>\n</ul>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (D)</strong> are brought.</p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62ab7",
+          "questionText": "<b> (2)</b>   _____ Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) This will take a lot of work.",
+            "(B) As a result, the convenience shops will be closed.",
+            "(C) Because of this, hot meals will not be available for the patrons.",
+            "(D) There will be noise and chaos as a result."
+          ],
+          "correctOptions": [
+            "(C) Because of this, hot meals will not be available for the patrons."
+          ],
+          "transcript": "<p>Based on the following sentence: \"Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong>&nbsp;(2)____ Thay v&agrave;o đ&oacute;, c&aacute;c cửa h&agrave;ng tiện lợi sẽ cung cấp th&ecirc;m nhiều loại sandwich, hộp cơm chuẩn bị sẵn, v&agrave; đồ ăn nhẹ cho nh&acirc;n vi&ecirc;n trong thời gian n&agrave;y.</p>\n\n<p>(A) Điều n&agrave;y sẽ mất nhiều c&ocirc;ng sức.<br />\n(B) Kết quả l&agrave;, c&aacute;c cửa h&agrave;ng tiện lợi sẽ đ&oacute;ng cửa.<br />\n(C) Do đ&oacute;, c&aacute;c bữa ăn n&oacute;ng sẽ kh&ocirc;ng c&oacute; sẵn cho kh&aacute;ch h&agrave;ng.<br />\n(D) Sẽ c&oacute; tiếng ồn v&agrave; hỗn loạn như l&agrave; kết quả.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u , chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62ab8",
+          "questionText": "The renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided <b> (3)</b>   _____  the lunch and dinner rushes.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) before",
+            "(B) after",
+            "(C) during",
+            "(D) within"
+          ],
+          "correctOptions": [
+            "(C) during"
+          ],
+          "transcript": "<p>\"....a larger volume of meals can be provided (3) _____ the lunch and dinner rushes.\" =&gt; during is suitable</p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li>\n\t<p><strong>(A) before</strong>: &quot;before&quot; kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; chỉ thời gian trước khi c&aacute;c giờ cao điểm diễn ra, kh&ocirc;ng phản &aacute;nh mục đ&iacute;ch của việc cải tạo để phục vụ trong c&aacute;c giờ cao điểm.</p>\n\t</li>\n\t<li>\n\t<p><strong>(B) after</strong>: &quot;after&quot; kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; chỉ thời gian sau c&aacute;c giờ cao điểm, kh&ocirc;ng li&ecirc;n quan đến việc cung cấp bữa ăn trong c&aacute;c giờ đ&oacute;.</p>\n\t</li>\n\t<li>\n\t<p><strong>(C) during</strong>: &quot;during&quot; l&agrave; lựa chọn ph&ugrave; hợp v&igrave; n&oacute; chỉ ra rằng c&aacute;c bữa ăn sẽ được cung cấp trong suốt thời gian c&aacute;c giờ cao điểm buổi trưa v&agrave; buổi tối.</p>\n\t</li>\n\t<li>\n\t<p><strong>(D) within</strong>: &quot;within&quot; kh&ocirc;ng ph&ugrave; hợp v&igrave; n&oacute; chỉ ra một khoảng thời gian kh&ocirc;ng ch&iacute;nh x&aacute;c trong ngữ cảnh n&agrave;y.</p>\n\t</li>\n</ul>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (C) during.</strong></p>\n"
+        },
+        {
+          "id": "6140036665d71f3a51f62ab9",
+          "questionText": "We apologize for the inconvenience but we hope that the changes will <b> (4)</b>  _____ the services in the cafeteria.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) develop",
+            "(B) improve",
+            "(C) rectify",
+            "(D) recover"
+          ],
+          "correctOptions": [
+            "(B) improve"
+          ],
+          "transcript": "<p>(A) develop:&nbsp;to gradually grow or become bigger, more advanced, stronger, etc.; to make something do this</p>\n\n<p>(B) improve:&nbsp;&nbsp;to make something/somebody better than before</p>\n\n<p>(C) rectify:&nbsp;to put right something that is wrong</p>\n\n<p>(D) recover:&nbsp;to get well again after being ill, hurt, etc.</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li>\n\t<p><strong>(A) develop</strong>: &quot;develop&quot; c&oacute; nghĩa l&agrave; ph&aacute;t triển, kh&ocirc;ng ho&agrave;n to&agrave;n ph&ugrave; hợp trong ngữ cảnh n&agrave;y v&igrave; n&oacute; kh&ocirc;ng nhấn mạnh việc l&agrave;m cho dịch vụ trở n&ecirc;n tốt hơn.</p>\n\t</li>\n\t<li>\n\t<p><strong>(B) improve</strong>: &quot;improve&quot; c&oacute; nghĩa l&agrave; cải thiện, ph&ugrave; hợp trong ngữ cảnh v&igrave; n&oacute; chỉ việc l&agrave;m cho dịch vụ tốt hơn.</p>\n\t</li>\n\t<li>\n\t<p><strong>(C) rectify</strong>: &quot;rectify&quot; c&oacute; nghĩa l&agrave; sửa chữa, thường được d&ugrave;ng khi cần khắc phục lỗi cụ thể, kh&ocirc;ng ho&agrave;n to&agrave;n ph&ugrave; hợp v&igrave; kh&ocirc;ng nhất thiết c&oacute; lỗi trong dịch vụ cần phải được sửa chữa.</p>\n\t</li>\n\t<li>\n\t<p><strong>(D) recover</strong>: &quot;recover&quot; c&oacute; nghĩa l&agrave; hồi phục, kh&ocirc;ng ph&ugrave; hợp trong ngữ cảnh n&agrave;y v&igrave; n&oacute; kh&ocirc;ng li&ecirc;n quan đến việc n&acirc;ng cao chất lượng dịch vụ.</p>\n\t</li>\n</ul>\n\n<p><strong>Đ&aacute;p &aacute;n đ&uacute;ng l&agrave; (B) improve.</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

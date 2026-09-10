@@ -1,0 +1,623 @@
+{
+  "topicId": "614012e065d71f3a51f62c45",
+  "name": "Test 3",
+  "slug": "test-3",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6140136765d71f3a51f62ca5",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Memo</strong></span></p>\n\n<p><span style=\"font-size:14px;\">To: All Employees<br>\nFrom: David Koch<br>\nSubject: Important Information<br>\nDate: May 22<br>\n<br>\nWe will be holding our annual meeting for shareholders on June 3. I will be giving a short presentation during the opening ceremony, and I hope everyone can attend. Below is a basic schedule of the meeting.<br>\n<br>\nOpening ceremony: 1:00 P.M<br>\nAnnual report: 2:00 P.M<br>\nDiscussion: 4:00 P.M<br>\nDinner: 6:00 P.M</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62caf",
+          "questionText": "What is the purpose of the memo?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To remind employees of a project deadline",
+            "(B) To suggest revisions to an annual report",
+            "(C) To provide a schedule for an event",
+            "(D) To report to shareholders on annual"
+          ],
+          "correctOptions": [
+            "(C) To provide a schedule for an event"
+          ],
+          "transcript": "<p><em>\"We will be holding our annual meeting for shareholders on June 3.... Below is a basic schedule of the meeting.\"</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Mục đ&iacute;ch của bản ghi nhớ l&agrave; g&igrave;?</p>\n\n<p>(A) Nhắc nhở nh&acirc;n vi&ecirc;n về thời hạn của dự &aacute;n</p>\n\n<p>(B) Đề xuất sửa đổi b&aacute;o c&aacute;o thường ni&ecirc;n</p>\n\n<p>(C) Cung cấp lịch tr&igrave;nh cho một sự kiện</p>\n\n<p>(D) B&aacute;o c&aacute;o với c&aacute;c cổ đ&ocirc;ng về</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p><i>&quot;Ch&uacute;ng t&ocirc;i sẽ tổ chức cuộc họp thường ni&ecirc;n d&agrave;nh cho c&aacute;c cổ đ&ocirc;ng v&agrave;o ng&agrave;y 3 th&aacute;ng 6.... Dưới đ&acirc;y l&agrave; lịch tr&igrave;nh cơ bản của cuộc họp.&quot;</i></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cb0",
+          "questionText": "At what time will David Koch speak?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A)  1:00 P.M",
+            "(B) 2:00 P.M",
+            "(C) 4:00 P.M",
+            "(D) 6:00 P.M"
+          ],
+          "correctOptions": [
+            "(A)  1:00 P.M"
+          ],
+          "transcript": "<p>Based on the information given in: <i>\"I will be giving a short presentation during the opening ceremony, and I hope everyone can attend.\"</i> and the opening ceremony is at 1:00 P.M.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>David Koch sẽ ph&aacute;t biểu v&agrave;o thời điểm n&agrave;o?</p>\n\n<p>(A) 1:00 Chiều</p>\n\n<p>(B) 2:00 Chiều</p>\n\n<p>(C) 4:00&nbsp;Chiều</p>\n\n<p>(D) 6:00 Chiều</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa tr&ecirc;n th&ocirc;ng tin được đưa ra trong: <em>&quot;T&ocirc;i sẽ c&oacute; một b&agrave;i thuyết tr&igrave;nh ngắn trong lễ khai mạc v&agrave; t&ocirc;i hy vọng mọi người c&oacute; thể tham dự.&quot; </em>v&agrave; lễ khai mạc sẽ diễn ra l&uacute;c 1:00 chiều.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62ca6",
+      "questionText": "<p><strong>Judy Lynch&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10:12</strong></p>\n\n<p>Will we be able to charge this dinner gathering to the company credit card?</p>\n\n<p><strong>Nathan Lee&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10:13</strong></p>\n\n<p>Unfortunately, no. The company policy changed just last month. Only meetings conducted with clients during lunch or dinner can be covered as company expenses.</p>\n\n<p><strong>Judy Lynch&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10:14</strong></p>\n\n<p>That's too bad. I guess we'll just have to split the bill this time.</p>\n\n<p><strong>Nathan Lee&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10:14</strong></p>\n\n<p>Yes, but at least you can go to any restaurant you want.</p>\n\n<p><strong>Judy Lynch&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;10:15</strong></p>\n\n<p>True. I'll let everyone know. Thanks!</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cb1",
+          "questionText": "Why does Judy contact Nathan?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To get him to pay for the dinner",
+            "(B) To get information about company expenses",
+            "(C) To ask if he wanted to join the dinner",
+            "(D) To get recommendations for a good restaurant"
+          ],
+          "correctOptions": [
+            "(B) To get information about company expenses"
+          ],
+          "transcript": "<p>Based on Judy's first message that she wanted to know they would be able to charge the dinner gathering to the company credit card.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao Judy li&ecirc;n lạc với Nathan?</p>\n\n<p>(A) Để anh ấy trả tiền cho bữa tối</p>\n\n<p>(B) Để biết th&ocirc;ng tin về chi ph&iacute; của c&ocirc;ng ty</p>\n\n<p>(C) Để hỏi xem anh ấy c&oacute; muốn tham gia bữa tối kh&ocirc;ng</p>\n\n<p>(D) Để nhận được giới thiệu về một nh&agrave; h&agrave;ng ngon</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa tr&ecirc;n tin nhắn đầu ti&ecirc;n của Judy rằng c&ocirc; ấy muốn biết họ c&oacute; thể thanh to&aacute;n chi ph&iacute; tiệc tối bằng thẻ t&iacute;n dụng của c&ocirc;ng ty hay kh&ocirc;ng.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cb2",
+          "questionText": "At 10:14, what does Judy mean when she writes “we’ll have to split the bill”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They will charge the company.",
+            "(B) They will ask the accounting department.",
+            "(C) They will have to choose who will pay.",
+            "(D) They will each have to pay a portion of the cost."
+          ],
+          "correctOptions": [
+            "(D) They will each have to pay a portion of the cost."
+          ],
+          "transcript": "<p>split is to divide into two or more parts, especially along a particular line =&gt; split the bill means Judy and Nathan are both responsible for the cost of the meal.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>L&uacute;c 10:14, Judy c&oacute; &yacute; g&igrave; khi c&ocirc; ấy viết &quot;we&rsquo;ll have to split the bill&quot;?</p>\n\n<p>(A) Họ sẽ t&iacute;nh ph&iacute; c&ocirc;ng ty.</p>\n\n<p>(B) Họ sẽ hỏi ph&ograve;ng kế to&aacute;n.</p>\n\n<p>(C) Họ sẽ phải chọn người sẽ trả tiền.</p>\n\n<p>(D) Mỗi ​​người sẽ phải trả một phần chi ph&iacute;.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>chia th&agrave;nh hai hoặc nhiều phần, đặc biệt l&agrave; theo một d&ograve;ng cụ thể =&gt; chia h&oacute;a đơn c&oacute; nghĩa l&agrave; Judy v&agrave; Nathan đều chịu tr&aacute;ch nhiệm về chi ph&iacute; của bữa ăn.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62ca7",
+      "questionText": "<p><span style=\"font-size:14px;\">January 19<br>\nDear Mr. Peterson,</span></p>\n\n<p><span style=\"font-size:14px;\">The results have come back from the blood test you had done. Please call us at your earliest convenience to reserve a time when you can meet with Dr. Herman.</span></p>\n\n<p><span style=\"font-size:14px;\">We would like to remind you that due to changes in laws pertaining to health insurance, all patients are encouraged to make sure that their contact and insurance information is current and accurate. This can be done either by calling our customer service line at 555-6842 or stopping by the front desk on your next visit.<br>\n<br>\nSincerely,<br>\nLaura Linkerton<br>\nSuperior Health Clinic</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cb3",
+          "questionText": "What most likely will Mr. Peterson do in the near future?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Renew an insurance policy",
+            "(B) Schedule a doctor’s appointment",
+            "(C) Apply for a clerical position",
+            "(D) Run a blood test"
+          ],
+          "correctOptions": [
+            "(B) Schedule a doctor’s appointment"
+          ],
+          "transcript": "<p>Based on the information given in: <i>\"Please call us at your earliest convenience to reserve a time when you can meet with Dr. Herman.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>&Ocirc;ng Peterson c&oacute; khả năng l&agrave;m g&igrave; trong tương lai gần?</p>\n\n<p>(A) Gia hạn hợp đồng bảo hiểm</p>\n\n<p>(B) L&ecirc;n lịch hẹn kh&aacute;m b&aacute;c sĩ</p>\n\n<p>(C) Nộp đơn xin việc h&agrave;nh ch&iacute;nh</p>\n\n<p>(D) X&eacute;t nghiệm m&aacute;u</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa tr&ecirc;n th&ocirc;ng tin trong:<em> &quot;Vui l&ograve;ng gọi cho ch&uacute;ng t&ocirc;i sớm nhất c&oacute; thể để đặt lịch hẹn gặp B&aacute;c sĩ Herman.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cb4",
+          "questionText": "What is Mr. Peterson asked to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Submit an insurance form",
+            "(B) Reply to the letter",
+            "(C) Verify personal information",
+            "(D) Fill out a survey"
+          ],
+          "correctOptions": [
+            "(C) Verify personal information"
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"We would like to remind you that due to changes in laws pertaining to health insurance, all patients are encouraged to make sure that their contact and insurance information is current and accurate.\"</i> that Mr. Peterson who is one of the patients must check his information is current and accurate due to changes in laws pertaining to health insurance.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>&Ocirc;ng Peterson được y&ecirc;u cầu l&agrave;m g&igrave;?</p>\n\n<p>(A) Nộp mẫu đơn bảo hiểm</p>\n\n<p>(B) Trả lời thư</p>\n\n<p>(C) X&aacute;c minh th&ocirc;ng tin c&aacute; nh&acirc;n</p>\n\n<p>(D) Điền v&agrave;o bản khảo s&aacute;t</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;Ch&uacute;ng t&ocirc;i muốn nhắc nhở bạn rằng do những thay đổi trong luật li&ecirc;n quan đến bảo hiểm y tế, tất cả bệnh nh&acirc;n được khuyến kh&iacute;ch đảm bảo rằng th&ocirc;ng tin li&ecirc;n lạc v&agrave; bảo hiểm của họ l&agrave; mới nhất v&agrave; ch&iacute;nh x&aacute;c.&quot;</em> rằng &ocirc;ng Peterson, một trong những bệnh nh&acirc;n, phải kiểm tra th&ocirc;ng tin của m&igrave;nh l&agrave; mới nhất v&agrave; ch&iacute;nh x&aacute;c do những thay đổi trong luật li&ecirc;n quan đến bảo hiểm y tế.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62ca8",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Shopping Local</strong></span></p>\n\n<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>Seattle Business District Association</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Did you know?<br>\n<b>• Shopping local puts twice as much revenue into the economy than using chain retailers.<br>\n• Shopping local supports the city of Seattle through local taxes.<br>\n• Shopping local helps the environment. It saves gas and causes less air pollution.<br>\n• Shopping local creates more jobs in Seattle and improves living standards in the community.</b><br>\nWe would like to encourage all residents of Seattle to support their local communities by shopping at traditional local stores and markets.<br>\nTo find out more and learn about all the great shops and services available to local residents, visit the website of the Seattle Business District Association atwww.sbda.org.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cb5",
+          "questionText": "What is the purpose of the flyer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To promote sustainable living",
+            "(B) To notify shoppers about a sale",
+            "(C) To announce a new business opening",
+            "(D) To influence shopping patterns"
+          ],
+          "correctOptions": [
+            "(D) To influence shopping patterns"
+          ],
+          "transcript": "<p>The information is in: <i>\"Did you know? • Shopping local puts twice as much revenue into the economy than using chain retailers. • Shopping local supports the city of Seattle through local taxes. • Shopping local helps the environment. It saves gas and causes less air pollution. • Shopping local creates more jobs in Seattle and improves living standards in the community.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Mục đ&iacute;ch của tờ rơi l&agrave; g&igrave;?</p>\n\n<p>(A) Th&uacute;c đẩy lối sống bền vững</p>\n\n<p>(B) Th&ocirc;ng b&aacute;o cho người mua sắm về một đợt giảm gi&aacute;</p>\n\n<p>(C) Th&ocirc;ng b&aacute;o về một doanh nghiệp mới mở</p>\n\n<p>(D) Ảnh hưởng đến th&oacute;i quen mua sắm</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong:<em> </em></p>\n\n<p><em>&quot;Bạn c&oacute; biết kh&ocirc;ng? </em></p>\n\n<p><em>&bull; Mua sắm tại địa phương mang lại doanh thu gấp đ&ocirc;i cho nền kinh tế so với việc sử dụng c&aacute;c nh&agrave; b&aacute;n lẻ chuỗi. </em></p>\n\n<p><em>&bull; Mua sắm tại địa phương hỗ trợ th&agrave;nh phố Seattle th&ocirc;ng qua thuế địa phương. </em></p>\n\n<p><em>&bull; Mua sắm tại địa phương gi&uacute;p bảo vệ m&ocirc;i trường. N&oacute; tiết kiệm xăng v&agrave; g&acirc;y &ocirc; nhiễm kh&ocirc;ng kh&iacute; &iacute;t hơn.</em></p>\n\n<p><em>&bull; Mua sắm tại địa phương tạo ra nhiều việc l&agrave;m hơn ở Seattle v&agrave; cải thiện mức sống trong cộng đồng.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cb6",
+          "questionText": "What is NOT mentioned as a benefit of shopping local?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It facilitates a job market.",
+            "(B) It is environmentally friendly.",
+            "(C) It supports the local economy.",
+            "(D) It encourages foreign investments"
+          ],
+          "correctOptions": [
+            "(D) It encourages foreign investments"
+          ],
+          "transcript": "<p>(A) - Shopping local creates more jobs in Seattle and improves living standards in the community.<br>\n(B) - Shopping local helps the environment. It saves gas and causes less air pollution.<br>\n(C) - Shopping local puts twice as much revenue into the economy than using chain retailers.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Lợi &iacute;ch n&agrave;o KH&Ocirc;NG được đề cập đến khi mua sắm tại địa phương?</p>\n\n<p>(A) N&oacute; tạo điều kiện cho thị trường việc l&agrave;m.</p>\n\n<p>(B) N&oacute; th&acirc;n thiện với m&ocirc;i trường.</p>\n\n<p>(C) N&oacute; hỗ trợ nền kinh tế địa phương.</p>\n\n<p>(D) N&oacute; khuyến kh&iacute;ch đầu tư nước ngo&agrave;i</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>(A) - Mua sắm tại địa phương tạo ra nhiều việc l&agrave;m hơn ở Seattle v&agrave; cải thiện mức sống trong cộng đồng.<br />\n(B) - Mua sắm tại địa phương gi&uacute;p bảo vệ m&ocirc;i trường. N&oacute; tiết kiệm xăng v&agrave; g&acirc;y &iacute;t &ocirc; nhiễm kh&ocirc;ng kh&iacute; hơn.<br />\n(C) - Mua sắm tại địa phương mang lại doanh thu gấp đ&ocirc;i cho nền kinh tế so với việc sử dụng c&aacute;c nh&agrave; b&aacute;n lẻ chuỗi.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62ca9",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>Grandview Business News</strong></span></p>\n\n<p><span style=\"font-size:14px;\">The Burnelle’s launched their meal delivery service for busy families just six months ago, and the business is flourishing, exceeding expectations. - [1] - Their small shop Farm-to-Table, located in Central Grandview Heights, has been forced to increase staff by 120% to keep up with demand. The whole premise of the idea came up after Rachel and Robert Burnelle had their first child. Both working parents had constantly turned to fastfood for their meals and realized that many of their friends did as well. They wanted healthier options which most fast-food fanchises don’t provide. - [2] - The business is so popular that they have been getting orders from outside the city. “The response has been overwhelming,\" says Rachel. “Our customers especially appreciate the freshness and quality of our meals.” Janet, a customer from the start added, “Not only is the food healthy, it’s not that much more expensive than fast-food meals, but it’s much better for you.” - [3] -<br>\nThe Burnelles say they are planning to expand their delivery routes and open three Farm-to-Table grocery shops with ready-made meals around the city of Grandview within the next year. - [4] –</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cb7",
+          "questionText": "What is the article about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The changing role of fast food companies",
+            "(B) The importance of healthy eating",
+            "(C) The expansion of farmland at Grandview",
+            "(D) The success and growth of a small business"
+          ],
+          "correctOptions": [
+            "(D) The success and growth of a small business"
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"The Burnelle’s launched their meal delivery service for busy families just six months ago, and the business is flourishing, exceeding expectations.\" that the bussiness is flourishing which has the same meaning with successful.</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>B&agrave;i viết n&oacute;i về điều g&igrave;?</p>\n\n<p>(A) Vai tr&ograve; thay đổi của c&aacute;c c&ocirc;ng ty thức ăn nhanh</p>\n\n<p>(B) Tầm quan trọng của việc ăn uống l&agrave;nh mạnh</p>\n\n<p>(C) Việc mở rộng đất n&ocirc;ng nghiệp tại Grandview</p>\n\n<p>(D) Sự th&agrave;nh c&ocirc;ng v&agrave; ph&aacute;t triển của một doanh nghiệp nhỏ</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;The Burnelle&rsquo;s đ&atilde; ra mắt dịch vụ giao đồ ăn cho c&aacute;c gia đ&igrave;nh bận rộn chỉ s&aacute;u th&aacute;ng trước v&agrave; doanh nghiệp đang ph&aacute;t triển mạnh mẽ, vượt qu&aacute; mong đợi.&quot;</em> rằng doanh nghiệp đang ph&aacute;t triển mạnh mẽ c&oacute; c&ugrave;ng &yacute; nghĩa với th&agrave;nh c&ocirc;ng.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cb8",
+          "questionText": "What is the main selling point of Farm-to-Table meals according to the article?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is delivered very quickly.",
+            "(B) It is very inexpensive.",
+            "(C) It is healthy.",
+            "(D) It is delicious."
+          ],
+          "correctOptions": [
+            "(C) It is healthy."
+          ],
+          "transcript": "<p>The information is in: <i>\"They wanted healthier options which most fast-food fanchises don’t provide.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo b&agrave;i b&aacute;o, điểm b&aacute;n h&agrave;ng ch&iacute;nh của bữa ăn từ N&ocirc;ng trại đến B&agrave;n ăn l&agrave; g&igrave;?</p>\n\n<p>(A) Giao h&agrave;ng rất nhanh.</p>\n\n<p>(B) Rất rẻ.</p>\n\n<p>(C) L&agrave;nh mạnh.</p>\n\n<p>(D) Ngon.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong:<em> &quot;Họ muốn c&aacute;c lựa chọn l&agrave;nh mạnh hơn m&agrave; hầu hết những người h&acirc;m mộ đồ ăn nhanh kh&ocirc;ng cung cấp.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cb9",
+          "questionText": "In which of the positions marked [1], [2], [3] and [4] does the following sentence belong?<br> “That is when the Burnelles decided to quit their office jobs and start their own healthy food delivery service for working people.”",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(B) [2]"
+          ],
+          "transcript": "<p>Because the sentences before [2] mention about the Burnelles had first child and they had to turned to fastfood for their meal but they wanteda healthier options than fastfood.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&acirc;u sau đ&acirc;y thuộc vị tr&iacute; n&agrave;o trong số c&aacute;c vị tr&iacute; được đ&aacute;nh dấu [1], [2], [3] v&agrave; [4]?<br />\n&ldquo;Đ&oacute; l&agrave; khi gia đ&igrave;nh Burnelle quyết định nghỉ việc văn ph&ograve;ng v&agrave; bắt đầu dịch vụ giao đồ ăn l&agrave;nh mạnh cho người lao động.&rdquo;</p>\n\n<p>(A) [1]</p>\n\n<p>(B) [2]</p>\n\n<p>(C) [3]</p>\n\n<p>(D) [4]</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Bởi v&igrave; c&aacute;c c&acirc;u trước [2] đề cập đến việc gia đ&igrave;nh Burnelle c&oacute; đứa con đầu l&ograve;ng v&agrave; họ phải chuyển sang đồ ăn nhanh để ăn nhưng họ muốn c&oacute; lựa chọn l&agrave;nh mạnh hơn đồ ăn nhanh.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62caa",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong><span style=\"font-family:Arial,Helvetica,sans-serif;\">Attention Shoppers</span></strong></span></p>\n\n<p><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\">We regret to inform you that there has been a general recall on all Kent brand ladders manufactured between March 30 and July 30 this year.<br>\n<b>• The ladders do not comply with mandatory safety standards and could be unstable.<br>\n• The ladders could move while standing on them and could contribute to dangerous falls.<br>\n• Do not use the ladders for any reason. Contact the Kent Company to receive a refund or a replacement product. Customers will receive a full refund even without proof of purchase as long as they return the ladders.</b><br>\nThe Kent Company can be reached by calling 1-800-555-2493. Press 8 in order to be transferred to a representative who deals exclusively with product recalls. We sincerely apologize for this inconvenience.</span></span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cba",
+          "questionText": "Where most likely could this notice be found?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a real estate office",
+            "(B) At a hardware store",
+            "(C) At a movie theater",
+            "(D) At a grocery store"
+          ],
+          "correctOptions": [
+            "(B) At a hardware store"
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"We regret to inform you that there has been a general recall on all Kent brand ladders manufactured between March 30 and July 30 this year.\"</i> that the notice is at Kent Company which manufactures ladders.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Th&ocirc;ng b&aacute;o n&agrave;y c&oacute; thể được t&igrave;m thấy ở đ&acirc;u?</p>\n\n<p>(A) Tại một văn ph&ograve;ng bất động sản</p>\n\n<p>(B) Tại một cửa h&agrave;ng phần cứng</p>\n\n<p>(C) Tại một rạp chiếu phim</p>\n\n<p>(D) Tại một cửa h&agrave;ng tạp h&oacute;a</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;Ch&uacute;ng t&ocirc;i rất tiếc phải th&ocirc;ng b&aacute;o với bạn rằng đ&atilde; c&oacute; lệnh thu hồi chung đối với tất cả c&aacute;c loại thang hiệu Kent được sản xuất từ ​​ng&agrave;y 30 th&aacute;ng 3 đến ng&agrave;y 30 th&aacute;ng 7 năm nay.&quot; </em>rằng th&ocirc;ng b&aacute;o n&agrave;y nằm tại C&ocirc;ng ty Kent sản xuất thang.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cbb",
+          "questionText": "What are customers warned about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Using a defective product",
+            "(B) Renewing a warranty",
+            "(C) Submitting an order form",
+            "(D) Filing a complaint"
+          ],
+          "correctOptions": [
+            "(A) Using a defective product"
+          ],
+          "transcript": "<p>The information is in: <i>\"The ladders do not comply with mandatory safety standards and could be unstable. • The ladders could move while standing on them and could contribute to dangerous falls. • Do not use the ladders for any reason.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Kh&aacute;ch h&agrave;ng được cảnh b&aacute;o về điều g&igrave;?</p>\n\n<p>(A) Sử dụng sản phẩm bị lỗi</p>\n\n<p>(B) Gia hạn bảo h&agrave;nh</p>\n\n<p>(C) Gửi mẫu đơn đặt h&agrave;ng</p>\n\n<p>(D) Nộp đơn khiếu nại</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong: <em>&quot;Thang kh&ocirc;ng tu&acirc;n thủ c&aacute;c ti&ecirc;u chuẩn an to&agrave;n bắt buộc v&agrave; c&oacute; thể kh&ocirc;ng ổn định. &bull; Thang c&oacute; thể di chuyển khi đứng tr&ecirc;n thang v&agrave; c&oacute; thể g&acirc;y ra những c&uacute; ng&atilde; nguy hiểm. &bull; Kh&ocirc;ng sử dụng thang v&igrave; bất kỳ l&yacute; do g&igrave;.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cbc",
+          "questionText": "According to the notice, how can more information be obtained?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) By filling out a form",
+            "(B) By consulting an instruction manual",
+            "(C) By contacting a company",
+            "(D) By watching a video tutorial"
+          ],
+          "correctOptions": [
+            "(C) By contacting a company"
+          ],
+          "transcript": "<p><i>\"Contact the Kent Company to receive a refund or a replacement product.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo th&ocirc;ng b&aacute;o, l&agrave;m thế n&agrave;o để c&oacute; th&ecirc;m th&ocirc;ng tin?</p>\n\n<p>(A) Bằng c&aacute;ch điền v&agrave;o biểu mẫu</p>\n\n<p>(B) Bằng c&aacute;ch tham khảo hướng dẫn sử dụng</p>\n\n<p>(C) Bằng c&aacute;ch li&ecirc;n hệ với c&ocirc;ng ty</p>\n\n<p>(D) Bằng c&aacute;ch xem video hướng dẫn</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p><em>&quot;Li&ecirc;n hệ với C&ocirc;ng ty Kent để được ho&agrave;n tiền hoặc đổi sản phẩm kh&aacute;c.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62cab",
+      "questionText": "<p><span style=\"font-size:14px;\"><strong>9:15 Patricia Noble (moderator)&nbsp; </strong>Good morning everyone. I've posted some ideas for the upcoming Leadership Workshop in June.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:16 Patricia Noble (moderator)&nbsp; </strong>Please share some of your ideas. We would like some input.&nbsp;</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:20 Jared Davis&nbsp; </strong>It looks very standard. Can we add some activities such as camping expeditions or something?</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:21 Lawrence O’Donnell&nbsp; </strong>I don't know if I'll be able to attend this time. My group is finishing up a major project. Camping sounds great though.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:22 Patricia Noble (moderator)&nbsp; </strong>Camping is a good idea but it'll take more time to plan. We'll definitely keep this in mind for the next workshop.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:24 Jimmy Rhee</strong>&nbsp; &nbsp;I don't think videos are very effective. How about getting more speakers to present? I'd rather interact with someone.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:27 Monica Choi&nbsp; &nbsp;</strong>I'm looking forward to the camping idea. But for this workshop, I agree with Jimmy. Videos can be quite boring.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:30 Jared Davis&nbsp; &nbsp;</strong>I noticed that John Olive is not presenting this time. What happened? He was very popular. I'd like to attend his workshop.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:41 Patricia Noble (moderator) </strong>John hasn't confirmed with us yet because he may have conflicting schedules. He's trying to work around his schedule.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:52 Isabella Price</strong> I'd like to attend John's workshop as well. I noticed that there are still a couple of empty slots. Would anyone be interested in hearing Ge Xi? I'd love to get a different cultural aspect.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>9:58 Jared Davis </strong>Great idea! Ge Xi has had a lot of experience as a supervisor in China and she always has some interesting stories.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>10:01 Jimmy Rhee</strong> I second that. I would certainly like to hear what Ge Xi presents. And speaking of cultural perspectives, Adam has had experience managing employees in a number of countries. He'd be interesting I think.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>10:09 Isabella Price&nbsp;</strong> Yes, let's get Adam to present in the workshop.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>10:15 Adam Cruz&nbsp; </strong>Wow, I'm flattered by your vote of confidence. I certainly wouldn't mind participating in the workshop. I'm free in the afternoons.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>10:19 Patricia Noble (moderator) </strong>Thank you Adam. I'll put you down for the 3:00-4:00 P.M. slot if that's OK with you.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>10:30 Adam Cruz</strong>&nbsp; That sounds great. And could you send me a guideline if you have one.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cbd",
+          "questionText": "Who are most likely participating in this group discussion?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The general public",
+            "(B) All employees of the company",
+            "(C) Employees from different countries",
+            "(D) Managers and other group leaders of the company"
+          ],
+          "correctOptions": [
+            "(D) Managers and other group leaders of the company"
+          ],
+          "transcript": "<p>Based on the context of the conversation, Patricia asked the others to share their ideas about the upcoming Leadership Workshop and Lawrence talk about his group.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Ai c&oacute; khả năng tham gia thảo luận nh&oacute;m n&agrave;y nhất?</p>\n\n<p>(A) C&ocirc;ng ch&uacute;ng</p>\n\n<p>(B) Tất cả nh&acirc;n vi&ecirc;n của c&ocirc;ng ty</p>\n\n<p>(C) Nh&acirc;n vi&ecirc;n từ c&aacute;c quốc gia kh&aacute;c nhau</p>\n\n<p>(D) Quản l&yacute; v&agrave; c&aacute;c trưởng nh&oacute;m kh&aacute;c của c&ocirc;ng ty</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa tr&ecirc;n bối cảnh của cuộc tr&ograve; chuyện, Patricia y&ecirc;u cầu những người kh&aacute;c chia sẻ &yacute; tưởng của họ về Hội thảo L&atilde;nh đạo sắp tới v&agrave; Lawrence n&oacute;i về nh&oacute;m của m&igrave;nh.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cbe",
+          "questionText": "What’s being discussed?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The best presentations from the meeting",
+            "(B) The best speakers at the company",
+            "(C) The schedule for the workshop",
+            "(D) International co-workers"
+          ],
+          "correctOptions": [
+            "(C) The schedule for the workshop"
+          ],
+          "transcript": "<p>Patricia asked the others to share their ideas about the upcoming Leadership in her second message.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; đang được thảo luận?</p>\n\n<p>(A) C&aacute;c b&agrave;i thuyết tr&igrave;nh hay nhất từ ​​cuộc họp</p>\n\n<p>(B) Những diễn giả giỏi nhất tại c&ocirc;ng ty</p>\n\n<p>(C) Lịch tr&igrave;nh cho hội thảo</p>\n\n<p>(D) Đồng nghiệp quốc tế</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Patricia đ&atilde; y&ecirc;u cầu những người kh&aacute;c chia sẻ &yacute; tưởng của họ về L&atilde;nh đạo sắp tới trong th&ocirc;ng điệp thứ hai của c&ocirc; ấy.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cbf",
+          "questionText": "At 10:15, what does Adam Cruz mean when he writes “I’m flattered by your vote of confidence”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He’s thankful that people want him to be manager.",
+            "(B) He's grateful that people see him as a good leader.",
+            "(C) He’s happy he has been selected by his co-workers for the job.",
+            "(D) He’s honored that his international experience has been recognized."
+          ],
+          "correctOptions": [
+            "(B) He's grateful that people see him as a good leader."
+          ],
+          "transcript": "<p>Because Jimmy praised Adam for having experience managing employees in a number of countries and Isabella suggest Adam presenting at the workshop.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>L&uacute;c 10:15, Adam Cruz c&oacute; &yacute; g&igrave; khi viết &ldquo;T&ocirc;i rất vui v&igrave; sự t&iacute;n nhiệm của anh&rdquo;?</p>\n\n<p>(A) Anh ấy biết ơn v&igrave; mọi người muốn anh ấy l&agrave;m quản l&yacute;.</p>\n\n<p>(B) Anh ấy biết ơn v&igrave; mọi người coi anh ấy l&agrave; một nh&agrave; l&atilde;nh đạo giỏi.</p>\n\n<p>(C) Anh ấy vui v&igrave; được đồng nghiệp lựa chọn cho c&ocirc;ng việc n&agrave;y.</p>\n\n<p>(D) Anh ấy vinh dự v&igrave; kinh nghiệm quốc tế của m&igrave;nh được c&ocirc;ng nhận.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Bởi v&igrave; Jimmy khen ngợi Adam v&igrave; c&oacute; kinh nghiệm quản l&yacute; nh&acirc;n vi&ecirc;n ở một số quốc gia v&agrave; Isabella gợi &yacute; Adam tr&igrave;nh b&agrave;y tại hội thảo.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cc0",
+          "questionText": "What will Patricia Noble probably do next?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Email some information to a co-worker",
+            "(B) Set up a meeting for employees",
+            "(C) Meet with international workers",
+            "(D) Call co-workers about the changes"
+          ],
+          "correctOptions": [
+            "(A) Email some information to a co-worker"
+          ],
+          "transcript": "<p>Because Adam asked her to send him a guidline if she had one.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Patricia Noble c&oacute; thể sẽ l&agrave;m g&igrave; tiếp theo?</p>\n\n<p>(A) Gửi email một số th&ocirc;ng tin cho đồng nghiệp</p>\n\n<p>(B) Thiết lập cuộc họp cho nh&acirc;n vi&ecirc;n</p>\n\n<p>(C) Gặp gỡ với nh&acirc;n vi&ecirc;n quốc tế</p>\n\n<p>(D) Gọi điện cho đồng nghiệp về những thay đổi</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Bởi v&igrave; Adam đ&atilde; y&ecirc;u cầu c&ocirc; ấy gửi cho anh ấy một hướng dẫn nếu c&ocirc; ấy c&oacute;.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62cac",
+      "questionText": "<p><span style=\"font-size:14px;\">To: Samantha Russell srussell@speednet.com<br>\nFrom: Sam Berger </span><sberger@highlandshotal.com><br>\n<span style=\"font-size:14px;\">Subject: Reservation<br>\nDate: July 1<br>\nAttachment: receipt<br>\n<br>\nDear Ms. Russell,</span></sberger@highlandshotal.com></p>\n\n<p><sberger@highlandshotal.com><span style=\"font-size:14px;\">Thank you for choosing Highlands Hotel as the location for your upcoming celebration. We are contacting you to confirm the details of your reservation for rooms on the nights of July 12 and 13. You have reserved all 12 rooms on the fourth floor of our hotel. Additionally, you will have unrestricted access to the main conference room for exclusive use on both of those days. You mentioned that family members from all around the country will be gathering for this event. We will provide you with any assistance you need during your stay.</span></sberger@highlandshotal.com></p>\n\n<p><sberger@highlandshotal.com><span style=\"font-size:14px;\">Our hotel supplies free Wi-Fi as well as access to our Internet café, where guests can use our computers for free when they want to surf the Internet or send e-mail. This café will be available from 5:00 A.M. to 12:00 RM. Also, guests are encouraged to eat at our awarding-winning restaurant, which is open from 7:00 A.M. to 10:00 P.M.</span></sberger@highlandshotal.com></p>\n\n<p><sberger@highlandshotal.com><span style=\"font-size:14px;\">This e-mail also contains a receipt for your $100 deposit paid by credit card on June 30. If you would like to view the layout and seating for our conference room, you can visit our website at www.highlandshotel.com.<br>\n<br>\nSincerely,<br>\nSam Berger<br>\nHighlands Hotel</span></sberger@highlandshotal.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cc1",
+          "questionText": "What kind of event is being held on July 12 and 13?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A family reunion",
+            "(B) A business conference",
+            "(C) A shareholders’ meeting",
+            "(D) A job fair"
+          ],
+          "correctOptions": [
+            "(A) A family reunion"
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"You mentioned that family members from all around the country will be gathering for this event. \"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Sự kiện n&agrave;o được tổ chức v&agrave;o ng&agrave;y 12 v&agrave; 13 th&aacute;ng 7?</p>\n\n<p>(A) Một cuộc họp mặt gia đ&igrave;nh</p>\n\n<p>(B) Một hội nghị kinh doanh</p>\n\n<p>(C) Một cuộc họp cổ đ&ocirc;ng</p>\n\n<p>(D) Một hội chợ việc l&agrave;m</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra th&ocirc;ng tin từ: <em>&quot;Bạn đ&atilde; đề cập rằng c&aacute;c th&agrave;nh vi&ecirc;n gia đ&igrave;nh từ khắp cả nước sẽ tụ họp cho sự kiện n&agrave;y.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cc2",
+          "questionText": "What is NOT mentioned as a benefit of the reservation?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Exclusive use of an entire floor",
+            "(B) Complimentary meals",
+            "(C) Access to a conference room",
+            "(D) Free Internet access"
+          ],
+          "correctOptions": [
+            "(B) Complimentary meals"
+          ],
+          "transcript": "<p>(A) - You have reserved all 12 rooms on the fourth floor of our hotel.<br>\n(C) - Additionally, you will have unrestricted access to the main conference room for exclusive use on both of those days.<br>\n(D) - Our hotel supplies free Wi-Fi as well as access to our Internet café.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; KH&Ocirc;NG được đề cập đến như một lợi &iacute;ch của việc đặt ph&ograve;ng?</p>\n\n<p>(A) Sử dụng độc quyền to&agrave;n bộ một tầng</p>\n\n<p>(B) Bữa ăn miễn ph&iacute;</p>\n\n<p>(C) Truy cập ph&ograve;ng hội nghị</p>\n\n<p>(D) Truy cập Internet miễn ph&iacute;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>(A) - Bạn đ&atilde; đặt tất cả 12 ph&ograve;ng ở tầng bốn của kh&aacute;ch sạn ch&uacute;ng t&ocirc;i.<br />\n(C) - Ngo&agrave;i ra, bạn sẽ được quyền truy cập kh&ocirc;ng giới hạn v&agrave;o ph&ograve;ng hội nghị ch&iacute;nh để sử dụng độc quyền v&agrave;o cả hai ng&agrave;y đ&oacute;.<br />\n(D) - Kh&aacute;ch sạn của ch&uacute;ng t&ocirc;i cung cấp Wi-Fi miễn ph&iacute; cũng như quyền truy cập v&agrave;o qu&aacute;n c&agrave; ph&ecirc; Internet của ch&uacute;ng t&ocirc;i.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cc3",
+          "questionText": "According to the e-mail, what can Ms. Russell find on the Highlands Hotel’s website?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A reservation number",
+            "(B) A hotel restaurant menu",
+            "(C) A seating plan",
+            "(D) A discount coupon"
+          ],
+          "correctOptions": [
+            "(C) A seating plan"
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"If you would like to view the layout and seating for our conference room, you can visit our website at www.highlandshotel.com.\"</i> that the website shows the layout and seating for the conference room.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo email, c&ocirc; Russell c&oacute; thể t&igrave;m thấy g&igrave; tr&ecirc;n trang web của Kh&aacute;ch sạn Highlands?</p>\n\n<p>(A) M&atilde; số đặt ph&ograve;ng</p>\n\n<p>(B) Thực đơn nh&agrave; h&agrave;ng của kh&aacute;ch sạn</p>\n\n<p>(C) Sơ đồ chỗ ngồi</p>\n\n<p>(D) Phiếu giảm gi&aacute;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;Nếu bạn muốn xem sơ đồ v&agrave; chỗ ngồi cho ph&ograve;ng hội nghị của ch&uacute;ng t&ocirc;i, bạn c&oacute; thể truy cập trang web của ch&uacute;ng t&ocirc;i tại www.highlandshotel.com.&quot;</em> rằng trang web hiển thị sơ đồ v&agrave; chỗ ngồi cho ph&ograve;ng hội nghị.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62cad",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Attention Members of Super Fit Gym</strong></span></p>\n\n<p><span style=\"font-size:14px;\">One workout plan doesn't work for everyone. That is why here at Super Fit Gym we offer the largest variety of fitness programs in the area. You are sure to find something fun and exciting that helps you meet your fitness goals. Now we are excited to bring you a new dance fitness program. The class will run this summer from June 12 to August 23. Dance is an interesting and interactive way to exercise. It is also appropriate for those individuals who are not able to engage in strenuous physical activity.</span></p>\n\n<p><span style=\"font-size:14px;\">Those who wish to sign up for this dance class are encouraged to sign up in pairs. If you don't have someone to sign up with, you will team up with another individual on the first day of a class. Registration will be available from May 10 to June 1. You can register on our website by filling out a registration form. A class fee must be paid at the time of registration by credit card.</span></p>\n\n<p><span style=\"font-size:14px;\">In accordance with our rules and regulations, those who wish to receive a class fee refund must withdraw from a class a week or more before the scheduled start date. No refund will be given to those who withdraw from a class after that deadline.</span></p>\n\n<p><span style=\"font-size:14px;\">For more details concerning class content, schedules, and fees, contact our manager, Scott Peterson, at (231) 555-2523.<br>\n<br>\nSincerely,<br>\nSuper Fit Gym Staff</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cc4",
+          "questionText": "What is the purpose of the notice?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To postpone an opening ceremony",
+            "(B) To hire new instructors",
+            "(C) To explain payment options",
+            "(D) To announce a new class"
+          ],
+          "correctOptions": [
+            "(D) To announce a new class"
+          ],
+          "transcript": "<p>The information is in: <i>\"Now we are excited to bring you a new dance fitness program.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Mục đ&iacute;ch của th&ocirc;ng b&aacute;o l&agrave; g&igrave;?</p>\n\n<p>(A) Ho&atilde;n lễ khai giảng</p>\n\n<p>(B) Thu&ecirc; gi&aacute;o vi&ecirc;n mới</p>\n\n<p>(C) Giải th&iacute;ch c&aacute;c phương thức thanh to&aacute;n</p>\n\n<p>(D) Th&ocirc;ng b&aacute;o về lớp học mới</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong:<em> &quot;Now we are excited to bring you a new dance fitness program.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cc5",
+          "questionText": "What most likely will happen on June 12?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Some instructors will be absent.",
+            "(B) Some members will be assigned partners.",
+            "(C) Some refunds will be given.",
+            "(D) Some certificates of completion will be issued."
+          ],
+          "correctOptions": [
+            "(B) Some members will be assigned partners."
+          ],
+          "transcript": "<p>It can be inferred from: <i>\" If you don't have someone to sign up with, you will team up with another individual on the first day of a class.\"</i>that members will be assigned partners on the first day of a class and the class will run from June 12.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; c&oacute; khả năng xảy ra nhất v&agrave;o ng&agrave;y 12 th&aacute;ng 6?</p>\n\n<p>(A) Một số giảng vi&ecirc;n sẽ vắng mặt.</p>\n\n<p>(B) Một số th&agrave;nh vi&ecirc;n sẽ được chỉ định bạn học.</p>\n\n<p>(C) Một số khoản ho&agrave;n lại sẽ được đưa ra.</p>\n\n<p>(D) Một số chứng chỉ ho&agrave;n th&agrave;nh sẽ được cấp.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;Nếu bạn kh&ocirc;ng c&oacute; ai để đăng k&yacute; c&ugrave;ng, bạn sẽ lập nh&oacute;m với một c&aacute; nh&acirc;n kh&aacute;c v&agrave;o ng&agrave;y đầu ti&ecirc;n của lớp học.&quot;</em> rằng c&aacute;c th&agrave;nh vi&ecirc;n sẽ được chỉ định bạn học v&agrave;o ng&agrave;y đầu ti&ecirc;n của lớp học v&agrave; lớp học sẽ diễn ra từ ng&agrave;y 12 th&aacute;ng 6.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cc6",
+          "questionText": "According to the notice, what is the latest date that participants can receive a refund for the class?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) May 10",
+            "(B) June 5",
+            "(C) June 12",
+            "(D) August 23"
+          ],
+          "correctOptions": [
+            "(B) June 5"
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"In accordance with our rules and regulations, those who wish to receive a class fee refund must withdraw from a class a week or more before the scheduled start date.\"</i> that a week before the schedules start date - June 12 is June 5.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo th&ocirc;ng b&aacute;o, ng&agrave;y muộn nhất m&agrave; người tham gia c&oacute; thể nhận được tiền ho&agrave;n lại cho lớp học l&agrave; ng&agrave;y n&agrave;o?</p>\n\n<p>(A) Ng&agrave;y 10 th&aacute;ng 5</p>\n\n<p>(B) Ng&agrave;y 5 th&aacute;ng 6</p>\n\n<p>(C) Ng&agrave;y 12 th&aacute;ng 6</p>\n\n<p>(D) Ng&agrave;y 23 th&aacute;ng 8</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;Theo quy định của ch&uacute;ng t&ocirc;i, những người muốn được ho&agrave;n lại học ph&iacute; lớp học phải r&uacute;t khỏi lớp học một tuần hoặc hơn trước ng&agrave;y bắt đầu theo lịch tr&igrave;nh.&quot;</em> rằng một tuần trước ng&agrave;y bắt đầu theo lịch tr&igrave;nh - ng&agrave;y 12 th&aacute;ng 6 l&agrave; ng&agrave;y 5 th&aacute;ng 6.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cc7",
+          "questionText": "What is mentioned as a reason to contact Mr. Peterson?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To schedule an appointment",
+            "(B) To inquire about a class",
+            "(C) To update personal contact details",
+            "(D) To withdraw from a class"
+          ],
+          "correctOptions": [
+            "(B) To inquire about a class"
+          ],
+          "transcript": "<p>The information is in: <i>\"For more details concerning class content, schedules, and fees, contact our manager, Scott Peterson, at (231) 555-2523.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những l&yacute; do n&agrave;o được đề cập để li&ecirc;n hệ với &ocirc;ng Peterson?</p>\n\n<p>(A) Để l&ecirc;n lịch hẹn</p>\n\n<p>(B) Để hỏi về một lớp học</p>\n\n<p>(C) Để cập nhật th&ocirc;ng tin li&ecirc;n lạc c&aacute; nh&acirc;n</p>\n\n<p>(D) Để r&uacute;t khỏi một lớp học</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong:<em> &quot;Để biết th&ecirc;m chi tiết về nội dung lớp học, lịch tr&igrave;nh v&agrave; học ph&iacute;, h&atilde;y li&ecirc;n hệ với người quản l&yacute; của ch&uacute;ng t&ocirc;i, Scott Peterson, theo số (231) 555-2523.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136765d71f3a51f62cae",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Memo</strong></span></p>\n\n<p><span style=\"font-size:14px;\">To: All Employees<br>\nFrom: Veronica Jackman, Executive Manager<br>\nDate: October 10<br>\nSubject: Staffing<br>\n<br>\n- [1] - Sheila Roberts, our marketing director will be away on a business trip to Singapore from October 21 to November 5. In her absence, Michael Lee will temporarily take over some of her responsibilities at Goldman’s Department store. However, for those of you who have projects near completion with Ms. Roberts, we ask that you make final arrangements with her before October 15. - [2] - Some of the urgent projects have already been discussed with Michael. If your project can wait for Sheila’s return, we ask that you inform both Sheila and Michael so that other projects can go forward.<br>\n- [3] - I realize this may seem like an inconvenience, especially so close to the holiday season, but I have great confidence that Michael will be able to handle the responsibilities in Sheila’s absence. Michael has worked closely with Sheila and will deal with the newer projects handed to him. - [4] -<br>\nIf you have further questions or concerns about this, please contact Sheila before October 20 or me at any time.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136765d71f3a51f62cc8",
+          "questionText": "Where do the recipients of the e-mail work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a marketing firm",
+            "(B) At a law office",
+            "(C) At a department store",
+            "(D) At a travel agency"
+          ],
+          "correctOptions": [
+            "(C) At a department store"
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"In her absence, Michael Lee will temporarily take over some of her responsibilities at Goldman’s Department store.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Người nhận email l&agrave;m việc ở đ&acirc;u?</p>\n\n<p>(A) Tại một c&ocirc;ng ty tiếp thị</p>\n\n<p>(B) Tại một văn ph&ograve;ng luật</p>\n\n<p>(C) Tại một cửa h&agrave;ng b&aacute;ch h&oacute;a</p>\n\n<p>(D) Tại một c&ocirc;ng ty lữ h&agrave;nh</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra th&ocirc;ng tin từ: <em>&quot;Trong trường hợp c&ocirc; ấy vắng mặt, Michael Lee sẽ tạm thời đảm nhiệm một số tr&aacute;ch nhiệm của c&ocirc; ấy tại cửa h&agrave;ng b&aacute;ch h&oacute;a Goldman.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cc9",
+          "questionText": "What is indicated about Sheila Roberts?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is getting a new job.",
+            "(B) She has been promoted.",
+            "(C) She is going on vacation.",
+            "(D) She is going on a business trip."
+          ],
+          "correctOptions": [
+            "(D) She is going on a business trip."
+          ],
+          "transcript": "<p>The information is in: <i>\"Sheila Roberts, our marketing director will be away on a business trip to Singapore.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Sheila Roberts được chỉ ra điều g&igrave;?</p>\n\n<p>(A) C&ocirc; ấy đang c&oacute; một c&ocirc;ng việc mới.</p>\n\n<p>(B) C&ocirc; ấy đ&atilde; được thăng chức.</p>\n\n<p>(C) C&ocirc; ấy đang đi nghỉ.</p>\n\n<p>(D) C&ocirc; ấy đang đi c&ocirc;ng t&aacute;c.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong: <em>&quot;Sheila Roberts, gi&aacute;m đốc tiếp thị của ch&uacute;ng t&ocirc;i sẽ đi c&ocirc;ng t&aacute;c ở Singapore.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62cca",
+          "questionText": "When should employees with nearly completed projects contact Sheila by?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) October 15",
+            "(B) October 20",
+            "(C) October 21",
+            "(D) November 5"
+          ],
+          "correctOptions": [
+            "(A) October 15"
+          ],
+          "transcript": "<p>The information is in: <i>\"However, for those of you who have projects near completion with Ms. Roberts, we ask that you make final arrangements with her before October 15.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Khi n&agrave;o nh&acirc;n vi&ecirc;n c&oacute; dự &aacute;n gần ho&agrave;n th&agrave;nh n&ecirc;n li&ecirc;n hệ với Sheila?</p>\n\n<p>(A) Ng&agrave;y 15 th&aacute;ng 10</p>\n\n<p>(B) Ng&agrave;y 20 th&aacute;ng 10</p>\n\n<p>(C) Ng&agrave;y 21 th&aacute;ng 10</p>\n\n<p>(D) Ng&agrave;y 5 th&aacute;ng 11</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong: <em>&quot;Tuy nhi&ecirc;n, đối với những bạn c&oacute; dự &aacute;n gần ho&agrave;n th&agrave;nh với c&ocirc; Roberts, ch&uacute;ng t&ocirc;i y&ecirc;u cầu bạn sắp xếp cuối c&ugrave;ng với c&ocirc; ấy trước ng&agrave;y 15 th&aacute;ng 10.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140136765d71f3a51f62ccb",
+          "questionText": "In which of the positions marked [1], [2], [3] and [4] does the following sentence belong? <br>“Michael will arrange separate meetings with different departments during Sheila’s absence to ensure a smooth transition and communication during his temporary tenure.”",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(D) [4]"
+          ],
+          "transcript": "<p>Because the sentence before [4] mentioned about that Michael could handle the responsibilities in Sheila's absence and he had worked closely with Sheila and would deal with the newer projects handed to him.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&acirc;u sau đ&acirc;y thuộc vị tr&iacute; n&agrave;o trong số c&aacute;c vị tr&iacute; được đ&aacute;nh dấu [1], [2], [3] v&agrave; [4]?<br />\n&ldquo;Michael sẽ sắp xếp c&aacute;c cuộc họp ri&ecirc;ng với c&aacute;c ph&ograve;ng ban kh&aacute;c nhau trong thời gian Sheila vắng mặt để đảm bảo qu&aacute; tr&igrave;nh chuyển đổi v&agrave; giao tiếp diễn ra su&ocirc;n sẻ trong nhiệm kỳ tạm thời của m&igrave;nh.&rdquo;</p>\n\n<p>(A) [1]</p>\n\n<p>(B) [2]</p>\n\n<p>(C) [3]</p>\n\n<p>(D) [4]</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Bởi v&igrave; c&acirc;u trước [4] c&oacute; đề cập đến việc Michael c&oacute; thể xử l&yacute; c&aacute;c tr&aacute;ch nhiệm khi Sheila vắng mặt v&agrave; anh ấy đ&atilde; l&agrave;m việc chặt chẽ với Sheila v&agrave; sẽ giải quyết c&aacute;c dự &aacute;n mới được giao cho anh ấy.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "topicId": "64c786dd42f5200632c823b5",
+  "name": "Test 21",
+  "slug": "test-21",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "64c786dd42f5200632c823b6",
+      "questionText": "<p><strong>Excitement and thrills are just around the corner!</strong><br>Director Nick Murray revealed in a recent interview that the sequel to the popular The Warrant is coming out on July 29. The movie, called The Warrant 2: Deadly Search, stars Eric Jackson and will be playing in theaters nationwide.<br>Baxter Theater is holding a special promotion for the movie. Book your ticket at www.baxter99.com by July 20, and you'll be sent a voucher to download one of the eighteen songs from The Warrant 2's soundtrack.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823c0",
+          "questionText": "According to the information, what will happen on July 29?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A celebrity will be interviewed.",
+            "(B) A price will decrease.",
+            "(C) A theater will have a grand opening.",
+            "(D) A film will debut."
+          ],
+          "correctOptions": [
+            "(D) A film will debut."
+          ],
+          "transcript": "<p>Information is in: <em>\"Director Nick Murray revealed in a recent interview that the <strong>sequel to the popular The Warrant is coming out on July 29</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Theo thông tin, điều gì sẽ xảy ra vào ngày 29/7?</p>\n<p>(A) Một người nổi tiếng sẽ được phỏng vấn.</p>\n<p>(B) Giá sẽ giảm.</p>\n<p>(C) Một nhà hát sẽ khai trương.</p>\n<p>(D) Một bộ phim sẽ ra mắt.</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"Director Nick Murray revealed in a recent interview that the&nbsp;<strong>sequel to the popular The Warrant is coming out on July 29</strong>.\"</em></p>\n<p><em>(</em><em>Đạo diễn Nick Murray tiết lộ trong một cuộc phỏng vấn gần đây rằng phần tiếp theo của bộ phim nổi tiếng The Warrant sẽ ra mắt vào ngày 29 tháng 7.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823c1",
+          "questionText": "<p>How can a free music voucher be obtained?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) By purchasing tickets for a group",
+            "(B) By completing a survey",
+            "(C) By making an online reservation",
+            "(D) By arriving at a site early"
+          ],
+          "correctOptions": [
+            "(C) By making an online reservation"
+          ],
+          "transcript": "<p>Information is in: <em>\"<strong>Book your ticket at www.baxter99.com by July 20, and you'll be sent a voucher</strong> to download one of the eighteen songs from The Warrant 2's soundtrack.\"</em></p>\n",
+          "explanationVi": "<p>Làm thế nào có thể nhận được một phiếu âm nhạc miễn phí?</p>\n<p>(A) Bằng cách mua vé cho một nhóm</p>\n<p>(B) Bằng cách hoàn thành một cuộc khảo sát</p>\n<p>(C) Bằng cách đặt chỗ trực tuyến</p>\n<p>(D) Bằng cách đến địa điểm sớm</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"<strong>Book your ticket at www.baxter99.com by July 20, and you'll be sent a voucher</strong> to download one of the eighteen songs from The Warrant 2's soundtrack.\"</em></p>\n<p><em>(</em><em>Hãy đặt vé tại www.baxter99.com trước ngày 20 tháng 7 và bạn sẽ nhận được phiếu tải xuống một trong mười tám bài hát từ nhạc phim của The Warrant 2.)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823b7",
+      "questionText": "<p>To: All Employees &lt;staff@cahaltravel.com&gt;<br>From: Vadim Bodrova &lt;v.bodrova@cahaltravel.com&gt; <br>Date: December 18 <br>Subject: Repeat business <br>As we discussed in the staff meeting, Cahal Travel is looking for ways to increase the percentage of customers who book more than one trip with us. Currently, we annually contact customers who have booked an international trip with us to introduce packages they may be interested in. Starting from next week, we will send them information about tour packages once every four months. Please see below an example of a real customer entry for your reference.</p>\n<table>\n<tbody>\n<tr>\n<td width=\"312\">\n<p><strong>Current</strong></p>\n<p>Name: CUSTOMER NAME</p>\n<p>Phone: PHONE NUMBER &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\n<p>Destination(s): PREVIOUS TRAVEL SITES</p>\n<p>Contact: PREFERRED FORM OF CONTACT</p>\n<p><strong>&nbsp;</strong></p>\n</td>\n<td width=\"312\">\n<p><strong>New </strong></p>\n<p>Name: Henrik Hetland</p>\n<p>Phone: 649-555-3328</p>\n<p>E-mail address: hhetland@broadmoorinc.net</p>\n<p>Destination(s): Tokyo, Japan; Santiago, Chile</p>\n<p>Contact: E-mail</p>\n<p>Last Contact: December 2</p>\n</td>\n</tr>\n</tbody>\n</table>\n<p>I'm happy to answer any questions you may have about the new procedure.</p>\n<p>Thank you!</p>\n<p>Vadim Bodrova</p>\n<p>Cahal Travel</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823c2",
+          "questionText": "What will the business change?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The processing fee for booking a trip",
+            "(B) The size of the groups for tour packages",
+            "(C) The frequency of contacting past customers",
+            "(D) The requirements for new vacation planners"
+          ],
+          "correctOptions": [
+            "(C) The frequency of contacting past customers"
+          ],
+          "transcript": "<p>Information is in: <em>\"Cahal Travel is looking for ways to <strong>increase the percentage of customers who book more than one trip with us</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Doanh nghiệp sẽ thay đổi điều gì?</p>\n<p>(A) Phí xử lý khi đặt chuyến đi</p>\n<p>(B) Quy mô của các nhóm đối với các gói tour du lịch</p>\n<p>(C) Tần suất liên lạc với khách hàng trong quá khứ</p>\n<p>(D) Các yêu cầu đối với người lập kế hoạch kỳ nghỉ mới</p>\n<p>Thông tin:&nbsp;<em>\"Cahal Travel is looking for ways to&nbsp;<strong>increase the percentage of customers who book more than one trip with us</strong>.\"</em></p>\n<p><em>(</em><em>\"Cahal Travel đang tìm cách tăng tỷ lệ khách hàng đặt nhiều chuyến đi với chúng tôi.\")</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823c3",
+          "questionText": "<p>Who most likely is Mr. Hetland?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A job candidate",
+            "(B) A travel agent",
+            "(C) An airline employee",
+            "(D) An overseas traveler"
+          ],
+          "correctOptions": [
+            "(D) An overseas traveler"
+          ],
+          "transcript": "<p>Based on information: <em>\"Please see below an example of a real customer entry for your reference.\", \"Destination(s): Tokyo, Japan; Santiago, Chile\"</em></p>\n\n<p>=&gt; Choose D</p>\n",
+          "explanationVi": "<p>Ai có nhiều khả năng là ông Hetland nhất?</p>\n<p>(A) Một ứng viên xin việc</p>\n<p>(B) Một đại lý du lịch</p>\n<p>(C) Một nhân viên hàng không</p>\n<p>(D) Một du khách nước ngoài</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"Please see below an example of a real customer entry for your reference.\"</em></p>\n<p><em>(</em><em>\"Vui lòng xem bên dưới một ví dụ về mục nhập khách hàng thực tế để bạn tham khảo.)</em></p>\n<p><em>\"Destination(s): Tokyo, Japan; Santiago, Chile\" </em></p>\n<p><em>((Các) điểm đến: Tokyo, Nhật Bản; Santiago, Chile)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823b8",
+      "questionText": "<p><strong>Stewart Bowser </strong>[9:24 A.M.]<br>Do you have a minute? I'm trying to reserve a time slot for Joseph Harris to have a checkup with Dr. Pritchard, but there is a problem. It looks like he has been entered into the system twice. I'm not sure which file to use.<br><strong>Delilah Gibbs </strong>[9:25 A.M.]<br>That sometimes happens if someone inputs new patient information without saving the changes properly. However, there could also be two people with the same name.<br><strong>Stewart Bowser </strong>[9:26 A.M.]<br>Good point. How can I tell if that's the case?<br><strong>Delilah Gibbs</strong> [9:27 A.M.]<br>Look at the birth date to confirm the patient's identity. Then you'll know whether or not you have the right one.<br><strong>Stewart Bowser </strong>[9:28 A.M.]<br>Of course! Thank you!</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823c4",
+          "questionText": "What is Mr. Bowser trying to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Change an address",
+            "(B) Make an appointment",
+            "(C) Bill a patient",
+            "(D) Contact a doctor"
+          ],
+          "correctOptions": [
+            "(B) Make an appointment"
+          ],
+          "transcript": "<p>Information is in: <em>\"I'm trying to <strong>reserve a time slot for Joseph Harris to have a checkup with Dr. Pritchard</strong>\"</em></p>\n",
+          "explanationVi": "<p>Ông Bowser đang cố gắng làm gì vậy?</p>\n<p>(A) Thay đổi địa chỉ</p>\n<p>(B) Đặt một cuộc hẹn</p>\n<p>(C) Lập hoá đơn cho bệnh nhân</p>\n<p>(D) Liên hệ với bác sĩ</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"I'm trying to&nbsp;<strong>reserve a time slot for Joseph Harris to have a checkup with Dr. Pritchard</strong>\"</em></p>\n<p><em>(</em><em>Tôi đang cố gắng dành một khoảng thời gian để Joseph Harris đến khám với bác sĩ Pritchard)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823c5",
+          "questionText": "<p>At 9:28 A.M., what does Mr. Bowser most likely mean when he writes, \"Of course\"?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He knows a patient personally.",
+            "(B) A computer is working fine.",
+            "(C) He is willing to help Ms. Gibbs.",
+            "(D) A solution is obvious."
+          ],
+          "correctOptions": [
+            "(D) A solution is obvious."
+          ],
+          "transcript": "<p>Based on information: <em>\"Look at the birth date to confirm the patient's identity. Then you'll know whether or not you have the right one.\"</em></p>\n\n<p>=&gt; Choose D</p>\n",
+          "explanationVi": "<p>Vào lúc 9:28 sáng, rất có thể ông Bowser có ý gì khi viết \"Tất nhiên\"?</p>\n<p>(A) Anh ấy biết một bệnh nhân.</p>\n<p>(B) Một máy tính đang hoạt động tốt.</p>\n<p>(C) Anh ấy sẵn sàng giúp đỡ cô Gibbs.</p>\n<p>(D) Một giải pháp là hiển nhiên.</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"Look at the birth date to confirm the patient's identity. Then you'll know whether or not you have the right one.\"</em></p>\n<p><em>(</em><em>Nhìn ngày sinh để xác nhận danh tính của bệnh nhân. Sau đó sẽ biết mình có đúng hay không.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823b9",
+      "questionText": "To: Hans Edgren <h.edgren@lincoya.com><br>From: Amherst Bank <accounts@amherstbank.com><br>Date: December 9<br>Subject: Amherst Bank Credit Card<br>Dear Mr. Edgren,<br>I am writing to inform you that the limit on your Amherst Bank credit card has been raised from $1,800 to $2,500. ---[1] --- We are taking this action because you have had no late payments on your account for the past year. Your account's interest rate will also be lowered by two percent. ---[2] ---.<br>If you are satisfied with these conditions, your service contract will be automatically updated, and no further action is needed. However, should you wish to return to the previous credit limit and interest rate, please inform the bank by calling 1-800-555-7799. ---[3] ---. Thank you for being an Amherst Bank customer. ---[4] ---.<br>Sincerely,<br>Benjamin Elliot<br>Account Services, Amherst Bank</accounts@amherstbank.com></h.edgren@lincoya.com>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823c6",
+          "questionText": "Why did Mr. Elliot send the e-mail to Mr. Edgren?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To check some unusual activity on a credit card",
+            "(B) To remind him that a credit limit has been reached",
+            "(C) To notify him of account changes on his credit card",
+            "(D) To ask him to pay the monthly bill on his account"
+          ],
+          "correctOptions": [
+            "(C) To notify him of account changes on his credit card"
+          ],
+          "transcript": "<p>Information is in: <em>\"I am writing to inform you that the <strong>limit on your Amherst Bank credit card has been raised from $1,800 to $2,500.</strong>\"</em></p>\n",
+          "explanationVi": "<p>Tại sao ông Elliot lại gửi e-mail cho ông Edgren?</p>\n<p>(A) Để kiểm tra một số hoạt động bất thường trên thẻ tín dụng</p>\n<p>(B) Để nhắc anh ấy rằng đã đạt đến giới hạn tín dụng</p>\n<p>(C) Để thông báo cho anh ấy về những thay đổi tài khoản trên thẻ tín dụng của anh ấy</p>\n<p>(D) Để yêu cầu anh ấy thanh toán hóa đơn hàng tháng trên tài khoản của anh ấy</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"I am writing to inform you that the&nbsp;<strong>limit on your Amherst Bank credit card has been raised from $1,800 to $2,500.</strong>\"</em></p>\n<p><em>(</em><em>Tôi viết thư này để thông báo cho bạn rằng giới hạn trên thẻ tín dụng Ngân hàng Amherst của bạn đã được tăng từ 1.800 USD lên 2.500 USD.)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823c7",
+          "questionText": "<p>What is Mr. Edgren asked to do?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Contact the company if he wants to reset some terms",
+            "(B) Update his billing address on the account",
+            "(C) Verify that he approved some recent purchases",
+            "(D) Provide a reason for making a late payment"
+          ],
+          "correctOptions": [
+            "(A) Contact the company if he wants to reset some terms"
+          ],
+          "transcript": "<p>Information is in: <em>\"should you <strong>wish to return to the previous credit limit and interest rate</strong>, please inform the bank by calling 1-800-555-7799.\"</em></p>\n",
+          "explanationVi": "<p>Ông Edgren được yêu cầu làm gì?</p>\n<p>(A) Liên hệ với công ty nếu anh ấy muốn đặt lại một số điều khoản</p>\n<p>(B) Cập nhật địa chỉ thanh toán của anh ấy trên tài khoản</p>\n<p>(C) Xác minh rằng anh ấy đã chấp thuận một số giao dịch mua gần đây</p>\n<p>(D) Cung cấp lý do thanh toán trễ</p>\n<p>Thông tin:&nbsp;<em>\"should you <strong>wish to return to the previous credit limit and interest rate</strong>, please inform the bank by calling 1-800-555-7799.\"</em></p>\n<p><em>(</em><em>nếu bạn muốn quay lại hạn mức tín dụng và lãi suất trước đó, vui lòng thông báo cho ngân hàng bằng cách gọi tới số 1-800-555-7799)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823c8",
+          "questionText": "<p>In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?</p>\n<p>\"Confirmation of your request will then be sent by e-mail.\"</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "<p>C is correct because it can connect with the sentence <em>\"However, should you wish to return to the previous credit limit and interest rate, please inform the bank by calling 1-800-555-7799.\"</em></p>\n\n<p><em>=&gt; \"Your request\" </em>refers to <em>\"wish to return to the previous credit limit and interest rate\"</em></p>\n",
+          "explanationVi": "<p>Câu sau đây thuộc về vị trí nào được đánh dấu [1], [2], [3] và [4]?</p>\n<p>\"Xác nhận yêu cầu của bạn sau đó sẽ được gửi qua e-mail.\"</p>\n<p><em>C đúng vì có thể kết nối với câu&nbsp;</em><em>\"However, should you wish to return to the previous credit limit and interest rate, please inform the bank by calling 1-800-555-7799.\"</em></p>\n<p><em>(</em><em>Tuy nhiên, nếu bạn muốn quay lại hạn mức tín dụng và lãi suất trước đó, vui lòng thông báo cho ngân hàng bằng cách gọi tới số 1-800-555-7799)</em></p>\n<p><em>=&gt; \"Your request\"&nbsp;</em>=&nbsp;<em>\"wish to return to the previous credit limit and interest rate\"</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823ba",
+      "questionText": "To: All Magnolia Advisors Staff<br>From: Kwang-min Hwang<br>Date: October 24<br>Subject: Financial data<br>Magnolia Advisors is responsible for an increasing amount of sensitive financial data from our clients. Because of this, the executive committee has decided to make changes to improve the protection of confidential files and prevent unauthorized access. On November 6, card readers will be installed on the doors of all file storage rooms, and employees will be issued key cards. In addition to denying entry to those without cards, the card readers will keep a record of who is entering the room and when. If a card reader malfunctions, please see Maintenance Director Jim Abbott in his office. Should you have questions or concerns about the change, feel free to call me at extension 23.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823c9",
+          "questionText": "What is the purpose of the memo?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To describe computer software that stores digital files",
+            "(B) To notify employees of increased security measures",
+            "(C) To congratulate the staff on meeting a financial goal",
+            "(D) To introduce a new policy regarding client interactions"
+          ],
+          "correctOptions": [
+            "(B) To notify employees of increased security measures"
+          ],
+          "transcript": "<p>Information is in: <em>\"the executive committee has decided to make changes to <strong>improve the protection of confidential files and prevent unauthorized access</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Mục đích của bản ghi nhớ là gì?</p>\n<p>(A) Để mô tả phần mềm máy tính lưu trữ các tập tin kỹ thuật số</p>\n<p>(B) Để thông báo cho nhân viên về các biện pháp an ninh tăng cường</p>\n<p>(C) Để chúc mừng nhân viên đã đạt được mục tiêu tài chính</p>\n<p>(D) Để giới thiệu một chính sách mới liên quan đến tương tác với khách hàng</p>\n<p><strong>Thông tin:</strong> <em>\"the executive committee has decided to make changes to&nbsp;<strong>improve the protection of confidential files and prevent unauthorized access</strong>.\"</em></p>\n<p><em>(ban điều hành đã quyết định thực hiện các thay đổi để cải thiện việc bảo vệ các tập tin bí mật và ngăn chặn sự truy cập trái phép.)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823ca",
+          "questionText": "<p>What does Mr. Hwang recommend doing if a device is not working?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Visiting a maintenance employee",
+            "(B) Reporting a problem by e-mail",
+            "(C) Calling him at his office",
+            "(D) Ordering some replacement equipment"
+          ],
+          "correctOptions": [
+            "(A) Visiting a maintenance employee"
+          ],
+          "transcript": "<p>Information is in: <em>\"If <strong>a card reader malfunctions</strong>, please <strong>see Maintenance Director Jim Abbott</strong> in his office.\"</em></p>\n",
+          "explanationVi": "<p>Ông Hwang khuyên nên làm gì nếu thiết bị không hoạt động?</p>\n<p>(A) Đến thăm nhân viên bảo trì</p>\n<p>(B) Báo cáo vấn đề bằng e-mail</p>\n<p>(C) Gọi cho anh ấy tại văn phòng của anh ấy</p>\n<p>(D) Đặt mua một số thiết bị thay thế</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"If&nbsp;<strong>a card reader malfunctions</strong>, please&nbsp;<strong>see Maintenance Director Jim Abbott</strong> in his office.\"</em></p>\n<p><em>(</em><em>Nếu đầu đọc thẻ gặp trục trặc, vui lòng gặp Giám đốc Bảo trì Jim Abbott tại văn phòng của ông ấy.)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823bb",
+      "questionText": "To: Ellie Jarvis <elliejarvis@boylestoninc.com><br>From: GTP Cleaning <info@gtpcleaning.com><br>Date: January 19<br>Subject: Order #49025<br>Dear Ms. Jarvis,<br>On behalf of GTP Cleaning, I would like to apologize for an issue with your order (#49025) that has put its delivery behind schedule.<br>The following products are in stock and will be dispatched today, arriving at your mailing address within 2-3 days:<br>Brightex Wood Polish, 9.7-oz. canister<br>McGraw All-Purpose Cleaner, 32-oz. bottle<br>Trumbull Scouring Pads, pack of 6<br>Avery Window Cleaner, 26-oz, bottle, new non-toxic formula<br>The following item is currently out of stock:<br>Freida Pod, pack of 3 2.5-oz. air-freshener units, Cherry Blossom fragrance<br>We will not receive replacements for the out-of-stock item at our warehouse for 4 to 6 weeks. If you take no action, this item will be shipped as soon as it becomes available again. There will be no additional charge for the separate shipment. Please note that there are variations of the same air-freshener, such as Calming Lavender and French Vanilla. Please click here to check out the complete list on our Web'site, as you may find something you prefer. If so, you can adjust the order in your account anytime before the final item is shipped.<br>Thank you for your patronage!<br>Leon Espinoza<br>GTP Cleaning</info@gtpcleaning.com></elliejarvis@boylestoninc.com>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823cb",
+          "questionText": "Why was the e-mail sent?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To offer a refund",
+            "(B) To approve a request",
+            "(C) To explain a delay",
+            "(D) To promote a product"
+          ],
+          "correctOptions": [
+            "(C) To explain a delay"
+          ],
+          "transcript": "<p>Information is in: <em>\"I would like to apologize for an issue with your order (#49025) that has <strong>put its delivery behind schedule</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Tại sao email được gửi?</p>\n<p>(A) Để đề nghị hoàn lại tiền</p>\n<p>(B) Để phê duyệt một yêu cầu</p>\n<p>(C) Để giải thích sự chậm trễ</p>\n<p>(D) Để quảng bá sản phẩm</p>\n<p><strong>Thông tin:&nbsp;</strong><em>\"I would like to apologize for an issue with your order (#49025) that has&nbsp;<strong>put its delivery behind schedule</strong>.\"</em></p>\n<p><em>(</em><em>Tôi muốn xin lỗi về vấn đề với đơn đặt hàng của bạn (#49025) khiến việc giao hàng chậm tiến độ.)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823cc",
+          "questionText": "<p>What is mentioned about the Freida Pod?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It has been discontinued.",
+            "(B) It is available in multiple scents.",
+            "(C) It has non-toxic ingredients.",
+            "(D) It is the most popular product."
+          ],
+          "correctOptions": [
+            "(B) It is available in multiple scents."
+          ],
+          "transcript": "<p>Based on information: <em>\"Freida Pod, pack of 3 2.5-oz. <strong>air-freshener </strong>units, <strong>Cherry Blossom fragrance</strong>\", \"Please note that there are <strong>variations of the same air-freshener, such as Calming Lavender and French Vanilla</strong>.\"</em></p>\n\n<p>=&gt; Choose B</p>\n",
+          "explanationVi": "<p>Điều gì được đề cập về Freida Pod?</p>\n<p>(A) Nó đã bị ngừng sản xuất.</p>\n<p>(B) Nó có nhiều mùi hương.</p>\n<p>(C) Nó có thành phần không độc hại.</p>\n<p>(D) Nó là sản phẩm phổ biến nhất.</p>\n<p><strong>Thông tin:</strong> <em>\"Freida Pod, pack of 3 2.5-oz.&nbsp;<strong>air-freshener&nbsp;</strong>units,&nbsp;<strong>Cherry Blossom fragrance</strong>\", \"Please note that there are&nbsp;<strong>variations of the same air-freshener, such as Calming Lavender and French Vanilla</strong>.\"</em></p>\n<p><em>(</em><em>Freida Pod, gói 3 bộ làm mát không khí 2,5 oz, hương hoa anh đào\", \"Xin lưu ý rằng có nhiều biến thể của cùng một chất làm mát không khí, chẳng hạn như Hoa oải hương dịu nhẹ và Vani Pháp.)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823cd",
+          "questionText": "<p>What does Mr. Espinoza ask Ms. Jarvis to do?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) View some alternative options online",
+            "(B) Check the quantity of her order",
+            "(C) Resend the payment for the current order",
+            "(D) Provide feedback after testing a product"
+          ],
+          "correctOptions": [
+            "(A) View some alternative options online"
+          ],
+          "transcript": "<p>Information is in: <em>\"Please click here to check out the complete list on our Website, as you may find something you prefer.\"</em></p>\n",
+          "explanationVi": "<p>Ông Espinoza yêu cầu cô Jarvis làm gì?</p>\n<p>(A) Xem trực tuyến một số lựa chọn thay thế</p>\n<p>(B) Kiểm tra số lượng đơn đặt hàng của cô ấy</p>\n<p>(C) Gửi lại khoản thanh toán cho đơn hàng hiện tại</p>\n<p>(D) Cung cấp phản hồi sau khi thử nghiệm sản phẩm</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>\"Please click here to check out the complete list on our website, as you may find something you prefer.\"</em></p>\n<p><em>(</em><em>Xin vui lòng bấm vào đây để xem danh sách đầy đủ trên trang web của chúng tôi, vì bạn có thể tìm thấy thứ gì đó bạn thích.)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823bc",
+      "questionText": "<p><strong>Cantrece Shopping Center Wins National Award</strong><br>\nMarch 22-Cantrece Shopping Center has been honored with the prestigious Conifer Prize in a ceremony held last night at the San Mateo Hotel. The award is presented annually to a company or organization whose building follows eco-friendly practices, uses sustainable building materials, and reduces energy consumption. The shopping center is an exemplary model for all of these categories. Solar panels on the building's rooftop supply over $80 of the building's needs. In addition, skylights reduce the need for daytime lighting, and a rainwater collection system provides water for flushing toilets and cleaning. The building's designer, Yolanda Knapp, was present to accept the award at the ceremony, and she said she and her colleagues will continue to strive to create functional structures that use resources responsibly.<br>\nThe judging panel that selects the winner of the Conifer Prize is continually looking for companies that meet their criteria. If you would like to recommend a company to be considered for this prize, please visit www.coniferprize.com.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823ce",
+          "questionText": "For what did the Cantrece Shopping Center receive an award?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Its environmentally friendly design",
+            "(B) Its contributions to charity",
+            "(C) Its unique products for sale",
+            "(D) Its record number of customers"
+          ],
+          "correctOptions": [
+            "(A) Its environmentally friendly design"
+          ],
+          "transcript": "<p>Information is in: <em>\"The award is presented annually to a <strong>company or organization whose building follows eco-friendly practices, uses sustainable building materials, and reduces energy consumption</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Trung tâm mua sắm Cantrece đã nhận được giải thưởng vì điều gì?</p>\n<p>(A) Thiết kế thân thiện với môi trường</p>\n<p>(B) Đóng góp của nó cho hoạt động từ thiện</p>\n<p>(C) Sản phẩm độc đáo của nó được bán</p>\n<p>(D) Số lượng khách hàng kỷ lục</p>\n<p><strong>Thông tin:</strong>&nbsp;<em>The award is presented annually to a&nbsp;<strong>company or organization whose building follows eco-friendly practices, uses sustainable building materials, and reduces energy consumption</strong>.</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823cf",
+          "questionText": "<p>Where does Ms. Knapp most likely work?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a magazine publisher",
+            "(B) At a shopping center",
+            "(C) At a real estate agency",
+            "(D) At an architectural firm"
+          ],
+          "correctOptions": [
+            "(D) At an architectural firm"
+          ],
+          "transcript": "<p>Information is in: <em>\"The <strong>building's designer, Yolanda Knapp</strong>, was present to accept the award at the ceremony\"</em></p>\n",
+          "explanationVi": "<p>Cô Knapp có thể làm việc ở đâu?</p>\n<p>(A) Tại một nhà xuất bản tạp chí</p>\n<p>(B) Tại một trung tâm mua sắm</p>\n<p>(C) Tại một đại lý bất động sản</p>\n<p>(D) Tại một công ty kiến trúc</p>\n<p><strong>Thông tin: </strong><em>\"The&nbsp;<strong>building's designer, Yolanda Knapp</strong>, was present to accept the award at the ceremony\"</em></p>\n<p><em>(Người thiết kế tòa nhà, Yolanda Knapp, đã có mặt để nhận giải tại buổi lễ)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823d0",
+          "questionText": "<p>According to the article, what can be done on the Web site?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Downloading a list of selection criteria",
+            "(B) Viewing photographs from previous winners",
+            "(C) Nominating companies for future awards",
+            "(D) Reading the interview with Ms. Knapp"
+          ],
+          "correctOptions": [
+            "(C) Nominating companies for future awards"
+          ],
+          "transcript": "<p>Information is in: <em>\"If you would like to <strong>recommend a company to be considered for this prize, please visit www.coniferprize.com</strong>.\"</em></p>\n",
+          "explanationVi": "<p>Theo bài báo, những gì có thể được thực hiện trên trang Web?</p>\n<p>(A) Tải xuống danh sách tiêu chí lựa chọn</p>\n<p>(B) Xem ảnh của những người chiến thắng trước đó</p>\n<p>(C) Đề cử các công ty cho các giải thưởng trong tương lai</p>\n<p>(D) Đọc bài phỏng vấn với cô Knapp</p>\n<p>Thông tin:&nbsp;<em>If you would like to&nbsp;<strong>recommend a company to be considered for this prize, please visit www.coniferprize.com</strong>.</em></p>\n<p><em>(</em><em>Nếu bạn muốn đề xuất một công ty được xem xét cho giải thưởng này, vui lòng truy cập www.coniferprize.com)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823bd",
+      "questionText": "To: Sylvia Reid <s.reid@harringoninc.com><br>From: Chris Alexander <chris_alexander@modoccorp.com><br>Date: February 19<br>Subject: Modoc Corp.<br>Dear Ms. Reid,<br>It was a pleasure meeting you at the recent Cosmetics Retailers Trade Expo in San Francisco. As promised, I'm sending you the current catalog for Modoc Corp. -[1]-.<br>I understand that you are looking for ways to boost sales in your shop, and I believe that our products can help you reach this goal. -[2]-. We have a variety of face creams, cleansers, and other skincare products. One of our best sellers is Meridian, a lightweight moisturizer that is intended for daily use. Customers love it because it is fragrance-free, so they don't have to worry about how it might combine with their perfume or other beauty products. -[3]-.<br>Should you have any questions, I would be happy to answer them anytime.  [4]-. You can reach me at this e-mail address or at 248-555-0973.<br>Warmest regards,<br>Chris Alexander</chris_alexander@modoccorp.com></s.reid@harringoninc.com>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823d5",
+          "questionText": "What is the purpose of the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To thank Ms. Reid for a demonstration",
+            "(B) To follow through on a request",
+            "(C) To register for a trade expo",
+            "(D) To set up a business meeting"
+          ],
+          "correctOptions": [
+            "(B) To follow through on a request"
+          ],
+          "transcript": "<p>Based on information: <em>\"As promised, I'm sending you the current catalog for Modoc Corp.\"</em></p>\n\n<p>=&gt; Choose B</p>\n",
+          "explanationVi": "<p>Mục đích của email là gì?</p>\n<p>(A) Để cảm ơn cô Reid vì đã trình diễn</p>\n<p>(B) Để thực hiện theo yêu cầu</p>\n<p>(C) Để đăng ký hội chợ thương mại</p>\n<p>(D) Để tổ chức một cuộc họp kinh doanh</p>\n<p>Thông tin:&nbsp;<em>\"As promised, I'm sending you the current catalog for Modoc Corp.\"</em></p>\n<p><em>(</em><em>Như đã hứa, tôi gửi cho bạn catalog hiện tại của Modoc Corp.)</em></p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823d6",
+          "questionText": "What is implied about Ms. Reid?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She tried some free samples.",
+            "(B) She lives in San Francisco.",
+            "(C) She developed a new perfume.",
+            "(D) She works in the field of cosmetics."
+          ],
+          "correctOptions": [
+            "(D) She works in the field of cosmetics."
+          ],
+          "transcript": "<p>Based on information: <em>\"I understand that you are looking for ways to boost sales in your shop, and I believe that <strong>our products can help you reach this goal. We have a variety of face creams, cleansers, and other skincare products</strong>.\"</em></p>\n\n<p>=&gt; Choose D</p>\n",
+          "explanationVi": "<p>Điều gì được ngụ ý về cô Reid?</p>\n<p>(A) Cô ấy đã thử một số mẫu miễn phí.</p>\n<p>(B) Cô ấy sống ở San Francisco.</p>\n<p>(C) Cô ấy đã phát triển một loại nước hoa mới.</p>\n<p>(D) Cô ấy làm việc trong lĩnh vực mỹ phẩm.</p>\n<p>Thông tin:&nbsp;<em>\"I understand that you are looking for ways to boost sales in your shop, and I believe that&nbsp;<strong>our products can help you reach this goal. We have a variety of face creams, cleansers, and other skincare products</strong>.\"</em></p>\n<p><em>(</em><em>Tôi hiểu rằng bạn đang tìm cách để tăng doanh số bán hàng tại cửa hàng của mình và tôi tin rằng sản phẩm của chúng tôi có thể giúp bạn đạt được mục tiêu này. Chúng tôi có nhiều loại kem dưỡng da mặt, sữa rửa mặt và các sản phẩm chăm sóc da khác.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823d7",
+          "questionText": "What benefit of Meridian is mentioned?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It does not have any odor.",
+            "(B) It is environmentally friendly.",
+            "(C) It lasts for a long time.",
+            "(D) It comes in various sizes."
+          ],
+          "correctOptions": [
+            "(A) It does not have any odor."
+          ],
+          "transcript": "<p>Information is in: <em>\"One of our best sellers is <strong>Meridian</strong>, a lightweight moisturizer that is intended for daily use. Customers love it because <strong>it is fragrance-free</strong>\"</em></p>\n",
+          "explanationVi": "<p>Lợi ích của Meridian được nhắc đến là gì?</p>\n<p>(A) Nó không có mùi gì cả.</p>\n<p>(B) Nó thân thiện với môi trường.</p>\n<p>(C) Nó tồn tại trong một thời gian dài.</p>\n<p>(D) Nó có nhiều kích cỡ khác nhau.</p>\n<p>Thông tin:&nbsp;<em>\"One of our best sellers is&nbsp;<strong>Meridian</strong>, a lightweight moisturizer that is intended for daily use. Customers love it because&nbsp;<strong>it is fragrance-free</strong>\"</em></p>\n<p><em>(</em><em>Một trong những sản phẩm bán chạy nhất của chúng tôi là Meridian, một loại kem dưỡng ẩm nhẹ dành cho sử dụng hàng ngày. Khách hàng yêu thích vì không có mùi thơm)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823d8",
+          "questionText": "<p>In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?</p>\n<p>\"I'm sure you'll find that it has numerous items you'll be interested in.\"</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(A) [1]"
+          ],
+          "transcript": "<p>A is correct because it can connect with the sentence: <em>\"As promised, I'm sending you the current <strong>catalog</strong> for Modoc Corp.\"</em></p>\n",
+          "explanationVi": "<p>Câu sau đây thuộc về vị trí nào được đánh dấu [1], [2], [3] và [4]?</p>\n<p><em>“Tôi chắc chắn bạn sẽ thấy trong đó có rất nhiều món đồ mà bạn sẽ quan tâm.”</em></p>\n<p>A đúng vì nó có thể liên kết với câu:<em>\"As promised, I'm sending you the current&nbsp;<strong>catalog</strong> for Modoc Corp.\"</em></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823be",
+      "questionText": "<strong>Kelly Ward</strong> [1:30 P.M.]<br>Good afternoon. I've invited Esther Tsao to this chat, as she has volunteered to assist with the planning.<br><strong>Esther Tsao </strong>[1:31 P.M.]<br>I'm happy to be a part of this event. My roofing business, which has now been closed, always sold a lot of materials from our booth at the conference over the years.<br><strong>Kelly Ward </strong>[1:32 P.M.]<br>I'm glad to hear that. Now you'll be able to participate from the other side of things.<br><strong>Herbert Inez </strong>[1:34 P.M.]<br>We're glad to have your help. Adding a second day for the first time creates some unique challenges. For example, the only site I found that is available for the weekend of October 8th is Orchard Hall. It's not as conveniently located as Toliver Plaza, where we've held the event before, but it's much more affordable.<br><strong>Kelly Ward </strong>[1:35 P.M.]<br>That's perfect. Could you contact Orchard Hall today so that we can put down a deposit and lock in the dates?<br><strong>Herbert Inez</strong> [1:36 P.M.]<br>Sure. And I'll try to negotiate a discount for conference attendees staying on site.<br><strong>Esther Tsao</strong> [1:38 P.M.]<br>Has the guest speaker for the evening session been selected yet?<br><strong>Kelly Ward</strong> [1:39 P.M.]<br>We have invited Marcel Dillon to do it.<br><strong>Esther Tsao</strong> [1:40 P.M.]<br>He would be fantastic! I saw photos of the latest building he designed in New York, and it is a masterpiece.<br><strong>Herbert Inez</strong> [1:42 P.M.]<br>I agree. I'm sure a lot of people will be interested in hearing what he has to say.<br><strong>Kelly Ward </strong>[1:43 P.M.]<br>Exactly! I expect to get confirmation from him sometime this week.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823d1",
+          "questionText": "<p>What is indicated about Ms. Tsao?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She has participated in the conference as a vendor.",
+            "(B) She is responsible for decorating the booths.",
+            "(C) She will give a presentation at the conference.",
+            "(D) She plans to put her business up for sale."
+          ],
+          "correctOptions": [
+            "(A) She has participated in the conference as a vendor."
+          ],
+          "transcript": "<p>Based on information: <em>\"I'm happy to be a part of this event. My roofing business, which has now been closed, always sold a lot of materials from our booth at the conference over the years.\"</em></p>\n\n<p>=&gt; Choose A</p>\n",
+          "explanationVi": "<p>Điều gì được chỉ ra về cô Tsao?</p>\n<p>(A) Cô ấy đã tham gia hội nghị với tư cách là nhà cung cấp.</p>\n<p>(B) Cô ấy chịu trách nhiệm trang trí các gian hàng.</p>\n<p>(C) Cô ấy sẽ thuyết trình tại hội nghị.</p>\n<p>(D) Cô ấy dự định rao bán doanh nghiệp của mình.</p>\n<p><strong>Thông tin:</strong> <em>\"I'm happy to be a part of this event. My roofing business, which has now been closed, always sold a lot of materials from our booth at the conference over the years.\"</em></p>\n<p>(Tôi rất vui khi được tham gia sự kiện này. Công việc kinh doanh tấm lợp của tôi hiện đã đóng cửa nhưng luôn bán được rất nhiều vật liệu từ gian hàng của chúng tôi tại hội nghị trong những năm qua.)</p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823d2",
+          "questionText": "<p>What is suggested about this year's conference?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Its venue is conveniently located.",
+            "(B) Its admission rates will be raised.",
+            "(C) It will be longer than previous ones.",
+            "(D) It will be held in New York."
+          ],
+          "correctOptions": [
+            "(C) It will be longer than previous ones."
+          ],
+          "transcript": "<p>Information is in: <em>\"Adding a second day for the first time creates some unique challenges.\"</em></p>\n",
+          "explanationVi": "<p>Điều gì được gợi ý về hội nghị năm nay?</p>\n<p>(A) Địa điểm của nó nằm ở vị trí thuận tiện.</p>\n<p>(B) Tỷ lệ nhập học của nó sẽ được tăng lên.</p>\n<p>(C) Nó sẽ dài hơn những cái trước.</p>\n<p>(D) Nó sẽ được tổ chức ở New York.</p>\n<p>Thông tin:&nbsp;<em>\"Adding a second day for the first time creates some unique challenges.\"</em></p>\n<p><em>(</em><em>Thêm ngày thứ hai lần đầu tiên sẽ tạo ra một số thách thức độc đáo.)</em></p>\n<p><strong><em>=&gt; Chọn C</em></strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823d3",
+          "questionText": "At 1:35 P.M., what does Ms. Ward mean when she writes, \"That's perfect\"?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is glad that Mr. Inez has finalized a contract.",
+            "(B) She likes the event dates that Mr. Inez selected.",
+            "(C) She is satisfied with the venue they will use.",
+            "(D) She thinks the guest speaker will do a great job."
+          ],
+          "correctOptions": [
+            "(C) She is satisfied with the venue they will use."
+          ],
+          "transcript": "<p>Based on information: <em>\"For example, the only site I found that is available for the weekend of October 8th is Orchard Hall. It's not as conveniently located as Toliver Plaza, where we've held the event before, but it's much more affordable.\"</em></p>\n\n<p>=&gt; Choose C</p>\n",
+          "explanationVi": "<p>Vào lúc 1:35 chiều, cô Ward có ý gì khi viết \"Thật hoàn hảo\"?</p>\n<p>(A) Cô ấy vui mừng vì ông Inez đã hoàn tất hợp đồng.</p>\n<p>(B) Cô ấy thích những ngày diễn ra sự kiện mà ông Inez đã chọn.</p>\n<p>(C) Cô ấy hài lòng với địa điểm họ sẽ sử dụng.</p>\n<p>(D) Cô ấy nghĩ diễn giả khách mời sẽ làm rất tốt.</p>\n<p>Thông tin:&nbsp;<em>\"For example, the only site I found that is available for the weekend of October 8th is Orchard Hall. It's not as conveniently located as Toliver Plaza, where we've held the event before, but it's much more affordable.\"</em></p>\n<p><em>(</em><em>Ví dụ: địa điểm duy nhất tôi tìm thấy còn trống vào cuối tuần ngày 8 tháng 10 là Orchard Hall. Nó không có vị trí thuận tiện như Toliver Plaza, nơi chúng tôi đã tổ chức sự kiện trước đây, nhưng giá cả phải chăng hơn nhiều.)</em></p>\n<p><strong><em>=&gt; Chọn C</em></strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823d4",
+          "questionText": "<p>Who most likely is Marcel Dillon?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A journalist",
+            "(B) A fashion designer",
+            "(C) An event planner",
+            "(D) An architect"
+          ],
+          "correctOptions": [
+            "(D) An architect"
+          ],
+          "transcript": "<p>Based on information: <em>\"He would be fantastic! I saw <strong>photos of the latest building he designed in New York</strong>, and it is a masterpiece.\"</em></p>\n\n<p>=&gt; Choose D</p>\n",
+          "explanationVi": "<p>Ai có nhiều khả năng là Marcel Dillon nhất?</p>\n<p>(A) Một nhà báo</p>\n<p>(B) Một nhà thiết kế thời trang</p>\n<p>(C) Người tổ chức sự kiện</p>\n<p>(D) Một kiến trúc sư</p>\n<p>Thông tin:&nbsp;<em>\"He would be fantastic! I saw&nbsp;<strong>photos of the latest building he designed in New York</strong>, and it is a masterpiece.\"</em></p>\n<p><em>(</em><em>Anh ấy thật tuyệt vời! Tôi đã xem những bức ảnh về tòa nhà mới nhất anh ấy thiết kế ở New York, và đó là một kiệt tác.)</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64c786dd42f5200632c823bf",
+      "questionText": "<p><strong>Seymour Music Hall</strong><br><strong>Go Beyond the Music!</strong><br>Spring is the perfect time to visit Seymour Music Hall and enjoy music-related programs and activities. Every Wednesday at noon, we offer a free concert to the public to showcase the talents of students taking lessons in our music tutoring program.<br><strong>Hours of Operation:</strong><br>Monday-Thursday 10 A.M.-6 P.M. / Friday 11 A.M.-8 P.M. / Saturday-Sunday 11 A.M.-7 P.M. / Closed on all major holidays.<br><strong>Current Exhibits:</strong><br>Music Through the Ages (permanent collection): Rio Room<br>Modern Jazz: Amber Room<br>Instruments Across the Globe: Dunbar Room<br><strong>Lectures:</strong><br><strong>March 16, 6:30 P.M.</strong><br>Ranjeet Sardar, the conductor of the Surat Symphony Orchestra, discusses how to choose the instrument that is right for you based on your interest and physical attributes. This information can be especially helpful for children who are joining an orchestra or band for the first time.<br><strong>April 20, 6:30 P.M.</strong><br>Jihee Kim, who has been creating designs for album covers and concert posters for over a decade, explains how she translates the emotions of the music into pictures.<br><strong>May 18, 7:30 P.M.</strong><br>Archie Bouley, curator of the \"Modern Jazz\" exhibit on display in the Amber Room, discusses her research methods. Her goal for the exhibit was to show how jazz trends develop and change.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64c786dd42f5200632c823d9",
+          "questionText": "<p>What is indicated on the Web page about Seymour Music Hall?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Its exhibits change every month.",
+            "(B) It is offering free music lessons.",
+            "(C) Its on-site lectures require tickets.",
+            "(D) It is open to the public daily."
+          ],
+          "correctOptions": [
+            "(D) It is open to the public daily."
+          ],
+          "transcript": "<p>Based on information: <em>\"<strong>Monday-Thursday </strong>10 A.M.-6 P.M. / <strong>Friday </strong>11 A.M.-8 P.M. / <strong>Saturday-Sunday</strong> 11 A.M.-7 P.M.\"</em></p>\n\n<p>=&gt; Choose D</p>\n",
+          "explanationVi": "<p>Trang web về Seymour Music Hall có nội dung gì?</p>\n<p>(A) Triển lãm của nó thay đổi hàng tháng.</p>\n<p>(B) Nó đang cung cấp các bài học âm nhạc miễn phí.</p>\n<p>(C) Các bài giảng tại chỗ cần có vé.</p>\n<p>(D) Nó mở cửa cho công chúng hàng ngày.</p>\n<p>Thông tin:&nbsp;<em>\"<strong>Monday-Thursday&nbsp;</strong>10 A.M.-6 P.M. /&nbsp;<strong>Friday&nbsp;</strong>11 A.M.-8 P.M. /&nbsp;<strong>Saturday-Sunday</strong> 11 A.M.-7 P.M.\"</em></p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823da",
+          "questionText": "<p>What is NOT a topic that is covered in Seymour Music Hall's current exhibits?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Trends in a particular genre",
+            "(B) International musical instruments",
+            "(C) The history of music",
+            "(D) Modern recording techniques"
+          ],
+          "correctOptions": [
+            "(D) Modern recording techniques"
+          ],
+          "transcript": "<p>Music Through the Ages (permanent collection): Rio Room =&gt; Eliminate C<br>\nModern Jazz: Amber Room&nbsp;=&gt; Eliminate A<br>\nInstruments Across the Globe: Dunbar Room&nbsp;=&gt; Eliminate B</p>\n",
+          "explanationVi": "<p>Chủ đề nào KHÔNG phải là chủ đề được đề cập trong các cuộc triển lãm hiện tại của Seymour Music Hall?</p>\n<p>(A) Xu hướng trong một thể loại cụ thể</p>\n<p>(B) Nhạc cụ quốc tế</p>\n<p>(C) Lịch sử âm nhạc</p>\n<p>(D) Kỹ thuật ghi âm hiện đại</p>\n<p>Thông tin:&nbsp;</p>\n<p>Music Through the Ages (permanent collection): Rio Room =&gt; Loại C<br>Modern Jazz: Amber Room =&gt; Loại A<br>Instruments Across the Globe: Dunbar Room =&gt; Loại B</p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823db",
+          "questionText": "Who most likely is Ms. Kim?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A film producer",
+            "(B) A music critic",
+            "(C) A graphic designer",
+            "(D) A professional musician"
+          ],
+          "correctOptions": [
+            "(C) A graphic designer"
+          ],
+          "transcript": "<p>Based on information: <em>\"<strong>Jihee Kim, who has been creating designs</strong> for album covers and concert posters for over a decade\"</em></p>\n\n<p>=&gt; Choose C</p>\n",
+          "explanationVi": "<p>Ai có nhiều khả năng là cô Kim nhất?</p>\n<p>(A) Một nhà sản xuất phim</p>\n<p>(B) Một nhà phê bình âm nhạc</p>\n<p>(C) Một nhà thiết kế đồ họa</p>\n<p>(D) Một nhạc sĩ chuyên nghiệp</p>\n<p>Thông tin:&nbsp;<em>\"<strong>Jihee Kim, who has been creating designs</strong> for album covers and concert posters for over a decade\"</em></p>\n<p><em>(</em><em>Jihee Kim, người đã thiết kế bìa album và poster buổi hòa nhạc trong hơn một thập kỷ)</em></p>\n<p><strong>=&gt; Chọn C</strong></p>"
+        },
+        {
+          "id": "64c786dd42f5200632c823dc",
+          "questionText": "<p>What will lecture attendees learn about in April?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Capturing feelings in visual form",
+            "(B) Improving music-playing techniques",
+            "(C) Researching famous musicians",
+            "(D) Selecting a musical instrument</p>"
+          ],
+          "correctOptions": [
+            "(A) Capturing feelings in visual form"
+          ],
+          "transcript": "<p>Based on information: <em>\"<strong>April </strong>20, 6:30 P.M. ...&nbsp;explains how she <strong>translates the emotions of the music into pictures</strong>.\"</em></p>\n\n<p>=&gt; Choose A</p>\n",
+          "explanationVi": "<p>Những người tham dự bài giảng sẽ học về điều gì trong tháng Tư?</p>\n<p>(A) Ghi lại cảm xúc dưới dạng hình ảnh</p>\n<p>(B) Cải thiện kỹ thuật chơi nhạc</p>\n<p>(C) Nghiên cứu các nhạc sĩ nổi tiếng</p>\n<p>(D) Chọn một nhạc cụ</p>\n<p>Thông tin:&nbsp;<em>\"<strong>April&nbsp;</strong>20, 6:30 P.M. ...&nbsp;explains how she&nbsp;<strong>translates the emotions of the music into pictures</strong>.\"</em></p>\n<p><em>(</em><em>Ngày 20 tháng 4, 6:30 chiều ... giải thích cách cô ấy chuyển tải cảm xúc của âm nhạc thành hình ảnh.)</em></p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        }
+      ]
+    }
+  ]
+}

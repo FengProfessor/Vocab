@@ -1,0 +1,204 @@
+{
+  "topicId": "6140173765d71f3a51f62f72",
+  "name": "Test 2",
+  "slug": "test-2",
+  "part": "part_7_double_passages",
+  "totalQuestions": 10,
+  "totalCards": 2,
+  "cards": [
+    {
+      "id": "61404c6365d71f3a51f6447c",
+      "questionText": "<table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse\" width=\"90%\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t<h3 align=\"center\">Taylor Fabrics</h3>\n\n\t\t\t<h4 align=\"center\">Invoice</h4>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>Ordered by: Tammy Fleck<br>\nOrder taken by: Craig Dell<br>\nOrder date: August 11<br>\nEstimated delivery date: August 14-16<br>\nDelivery address: 628 Green Circle Drive, Austin,TX 78701<br>\nE-mail: tfleck@capnet.com<br>\nMobile phone: (512) 555-9782</p>\n\n<table align=\"center\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse\" width=\"90%\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td align=\"center\"><b>Quanlity</b></td>\n\t\t\t<td align=\"center\"><b>Item</b></td>\n\t\t\t<td align=\"center\"><b>Description</b></td>\n\t\t\t<td align=\"center\"><b>Price</b></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td align=\"center\">4 yards</td>\n\t\t\t<td align=\"center\">Fabric 10</td>\n\t\t\t<td align=\"center\">Solid White</td>\n\t\t\t<td align=\"center\">$28.00</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td align=\"center\">5 yards</td>\n\t\t\t<td align=\"center\">Fabric 38</td>\n\t\t\t<td align=\"center\">Floral pattern</td>\n\t\t\t<td align=\"center\">$50.00</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td align=\"center\">6 yards</td>\n\t\t\t<td align=\"center\">Fabric 41</td>\n\t\t\t<td align=\"center\">Checkered pattern</td>\n\t\t\t<td align=\"center\">$48.00</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td align=\"center\">2 yards</td>\n\t\t\t<td align=\"center\">Fabric 48</td>\n\t\t\t<td align=\"center\">Leopard pattern</td>\n\t\t\t<td align=\"center\">$30.00</td>\n\t\t</tr>\n\t\t<tr colspan=\"3\">\n\t\t\t<td colspan=\"3\">&nbsp;</td>\n\t\t\t<td>Tax: $15.60</td>\n\t\t</tr>\n\t\t<tr colspan=\"3\">\n\t\t\t<td colspan=\"3\">&nbsp;</td>\n\t\t\t<td>Shipping:$12.00</td>\n\t\t</tr>\n\t\t<tr colspan=\"3\">\n\t\t\t<td colspan=\"3\">&nbsp;</td>\n\t\t\t<td>Total: $183.6</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>Payment method: Billed to credit card account ending in 4680<br>\nIf you have questions about your order, please e-mail us at customerservice@taylorfabrics.com. All of our packages sent within the United States are guaranteed to arrive within 10 days of order confirmation. If they don’t arrive on time, we promise to reimburse you for 30% of your total purchase.<br>\n==============================<br>\nTo:customerservice@taylorfabrics.com<br>\nFrom:Tammy Fleck <tfleck@capnet.com><br>\nDate:August 25<br>\nSubject:Delivery Delay<br>\n<br>\nDear Customer Service,<br>\nI received my order from Taylor Fabrics yesterday that I placed two weeks ago. Not only was the package delivered later than promised, but one of my orders was incorrectly shipped. The invoice correctly reflects my wish to receive 5 yards of the floral pattern fabric, but only 2 yards of it were delivered. Because of this error, I won’t be able to complete the dress I was making for my friend’s birthday. I am very disappointed.<br>\nOnce this issue has been resolved and the additional fabric has been sent, please send a text message to my mobile phone.<br>\nThank you,<br>\nTammy Fleck</tfleck@capnet.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "61404c6365d71f3a51f6447e",
+          "questionText": "Who most likely is Mr. Dell?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A designer",
+            "(B)A salesperson",
+            "(C) A customer",
+            "(D) A manufacturer"
+          ],
+          "correctOptions": [
+            "(B)A salesperson"
+          ],
+          "transcript": "<p>Information can be inferred from: \"Order taken by: Craig Dell\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Ai c&oacute; nhiều khả năng l&agrave; &ocirc;ng Dell nhất?</p>\n\n<p>(A) Một nh&agrave; thiết kế<br />\n(B) Một nh&acirc;n vi&ecirc;n b&aacute;n h&agrave;ng<br />\n(C) Một kh&aacute;ch h&agrave;ng<br />\n(D) Một nh&agrave; sản xuất</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; thể được suy ra từ: &quot;Đơn h&agrave;ng được thực hiện bởi: Craig Dell&quot;&nbsp;</p>\n\n<p><strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "61404c6365d71f3a51f6447f",
+          "questionText": "What is implied about Ms. Fleck?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is a long-term customer of Taylor Fabrics.",
+            "(B) She is a professional fashion designer",
+            "(C) She is a former employee of Taylor Fabrics.",
+            "(D) She will be partially paid back for her purchase."
+          ],
+          "correctOptions": [
+            "(D) She will be partially paid back for her purchase."
+          ],
+          "transcript": "<p>The first passage stated that Ms. Fleck would be reimbursed 30% of the total purchase if her order didn't arrive on time. Meanwhile, in the second passage, Ms. Fleck said that the package was delivered later than promised. =&gt; Answer D is correct.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; được ngụ &yacute; về c&ocirc; Fleck?</p>\n\n<p>(A) C&ocirc; ấy l&agrave; kh&aacute;ch h&agrave;ng l&acirc;u năm của Taylor Fabrics.<br />\n(B) C&ocirc; ấy l&agrave; một nh&agrave; thiết kế thời trang chuy&ecirc;n nghiệp<br />\n(C) C&ocirc; ấy l&agrave; cựu nh&acirc;n vi&ecirc;n của Taylor Fabrics.<br />\n(D) C&ocirc; ấy sẽ được ho&agrave;n trả một phần cho việc mua h&agrave;ng của m&igrave;nh.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Đoạn đầu ti&ecirc;n n&oacute;i rằng b&agrave; Fleck sẽ được ho&agrave;n lại 30% tổng số tiền mua nếu đơn h&agrave;ng của b&agrave; kh&ocirc;ng đến đ&uacute;ng hẹn. Trong khi đ&oacute;, ở đoạn thứ hai, b&agrave; Fleck cho biết g&oacute;i h&agrave;ng được giao muộn hơn so với cam kết.<br />\n<br />\n<strong>=&gt; Đ&aacute;p &aacute;n D đ&uacute;ng.</strong></p>\n"
+        },
+        {
+          "id": "61404c6365d71f3a51f64480",
+          "questionText": "Why did Ms. Fleck send the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Her credit card was incorrectly charged.",
+            "(B) She wants to return an item.",
+            "(C) She received the incorrect quantity of an item.",
+            "(D) One of her orders had the wrong pattern."
+          ],
+          "correctOptions": [
+            "(C) She received the incorrect quantity of an item."
+          ],
+          "transcript": "<p>Information in the sentence: \"The invoice correctly reflects my wish to receive 5 yards of the floral pattern fabric, but only 2 yards of it were delivered.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao c&ocirc; Fleck lại gửi e-mail n&agrave;y?</p>\n\n<p>(A) Thẻ t&iacute;n dụng của c&ocirc; ấy bị t&iacute;nh ph&iacute; sai.<br />\n(B) C&ocirc; ấy muốn trả lại một m&oacute;n đồ.<br />\n(C) C&ocirc; ấy đ&atilde; nhận được số lượng mặt h&agrave;ng kh&ocirc;ng ch&iacute;nh x&aacute;c.<br />\n(D) Một trong những đơn h&agrave;ng của c&ocirc; ấy c&oacute; mẫu sai.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở trong c&acirc;u: &ldquo;H&oacute;a đơn phản &aacute;nh đ&uacute;ng mong muốn của t&ocirc;i l&agrave; nhận được 5 thước vải in hoa nhưng chỉ giao được 2 thước&rdquo;.<br />\n<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "61404c6365d71f3a51f64481",
+          "questionText": "Which fabric will Ms. Fleck need more of to make a dress?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Fabric 10",
+            "(B) Fabric 38",
+            "(C) Fabric 41",
+            "(D) Fabric 48"
+          ],
+          "correctOptions": [
+            "(B) Fabric 38"
+          ],
+          "transcript": "<p>Information in the sentences: \"The invoice correctly reflects my wish to receive 5 yards of the floral pattern fabric, but only 2 yards of it were delivered. Because of this error, I won’t be able to complete the dress I was making for my friend’s birthday.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&ocirc; Fleck sẽ cần th&ecirc;m loại vải n&agrave;o để may một chiếc v&aacute;y?</p>\n\n<p>(A) Vải 10<br />\n(B) Vải 38<br />\n(C) Vải 41<br />\n(D) Vải 48</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin ở trong c&aacute;c c&acirc;u: &ldquo;H&oacute;a đơn phản &aacute;nh ch&iacute;nh x&aacute;c mong muốn của t&ocirc;i l&agrave; nhận được 5 thước vải họa tiết hoa nhưng chỉ giao được 2 thước. V&igrave; lỗi n&agrave;y n&ecirc;n t&ocirc;i sẽ kh&ocirc;ng thể ho&agrave;n th&agrave;nh chiếc v&aacute;y m&igrave;nh đang may cho sinh nhật của bạn t&ocirc;i.&quot;<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "61404c6365d71f3a51f64482",
+          "questionText": "<p>How should Taylor Fabrics customer service contact Ms. Fleck?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) By text message",
+            "(B) By voice mail",
+            "(C) By e-mail",
+            "(D) By letter"
+          ],
+          "correctOptions": [
+            "(A) By text message"
+          ],
+          "transcript": "<p>Information in the sentence: \"Once this issue has been resolved and the additional fabric has been sent, please send a text message to my mobile phone.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Bộ phận dịch vụ kh&aacute;ch h&agrave;ng của Taylor Fabrics n&ecirc;n li&ecirc;n hệ với c&ocirc; Fleck bằng c&aacute;ch n&agrave;o?</p>\n\n<p>(A) Bằng tin nhắn văn bản<br />\n(B) Bằng thư thoại<br />\n(C) Qua email<br />\n(D) Bằng thư</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin trong c&acirc;u: &quot;Sau khi vấn đề n&agrave;y được giải quyết v&agrave; vải bổ sung đ&atilde; được gửi đi, vui l&ograve;ng gửi tin nhắn đến điện thoại di động của t&ocirc;i.&quot;<br />\n<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "61404c6365d71f3a51f6447d",
+      "questionText": "<p style=\"text-align: center;\">Next Month at the Belmont Historical Society</p>\n\n<p style=\"text-align: center;\">Documentary Film Night: \"Exploring the Arctic\"</p>\n\n<p style=\"text-align: center;\">May 5, Spruce Theater</p>\n\n<p style=\"text-align: center;\">Photo Exhibition: \"America in the 20th Century\"</p>\n\n<p style=\"text-align: center;\">Opening Night, May 9, Linda Cameron Art Gallery</p>\n\n<p style=\"text-align: center;\">Author Talk: Glen Campbell, \"The Culture of Early America\"</p>\n\n<p style=\"text-align: center;\">May 14, Chris Charlton Auditorium</p>\n\n<p style=\"text-align: center;\">Musical Performance: \"American Folk Masters\"</p>\n\n<p style=\"text-align: center;\">May 22, Spruce Theater</p>\n\n<p>Children and seniors are allowed free entry to all events. Additionally, if you pay the registration fee and become a member of the Belmont Historical Society on our website, you can attend any event free of charge.<br>\nFor questions about booking group visits, contact David Smith at dsmith@belmonthistoricalsociety.com. For more details regarding upcoming events and venue locations, or to rent one of our venues, visit us at www.belmonthistoricalsociety.com<br>\n=========================<br>\nTo: David Smith<dsmith@belmonthistoricalsociety.com><br>\nFrom: Jared Tate <jtate@clarkuniversity.com><br>\nDate: April 22<br>\nSubject: Group Visit<br>\n<br>\nDear Mr. Smith,<br>\nHello, my name is Jared Tate and I am a professor in the History Department at Clark University in downtown Maryville.<br>\nI am teaching an introductory history course for freshmen this semester, and I thought it would be helpful to attend the event featuring Mr. Campbell. His talk is very pertinent to the subjects we are currently covering in class.<br>\nI was also wondering if it would be possible to arrange a question-and-answer session between Mr. Campbell and my group of about 50 students. Please tell him that we are looking forward to seeing him.<br>\nI appreciate your reading my e-mail and I hope to hear back from you soon.<br>\n<br>\nJared Tate<br>\nHistory Department, Clark University</jtate@clarkuniversity.com></dsmith@belmonthistoricalsociety.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "61404c6365d71f3a51f64483",
+          "questionText": "What is indicated about the Belmont Historical Society?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It does not allow children into some events.",
+            "(B) It is run by the city of Belmont.",
+            "(C) It was founded by Linda Cameron.",
+            "(D) It will hold its events at several places."
+          ],
+          "correctOptions": [
+            "(D) It will hold its events at several places."
+          ],
+          "transcript": "<p>Information can be inferred from:<br>\n\"Documentary Film Night: \"Exploring the Arctic\"<br>\nMay 5, Spruce Theater<br>\nPhoto Exhibition: \"America in the 20th Century\"<br>\nOpening Night, May 9, Linda Cameron Art Gallery<br>\nAuthor Talk: Glen Campbell, \"The Culture of Early America\"<br>\nMay 14, Chris Charlton Auditorium<br>\nMusical Performance: \"American Folk Masters\"<br>\nMay 22, Spruce Theater</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong></p>\n\n<p>Điều g&igrave; được chỉ ra về Hiệp hội Lịch sử Belmont?</p>\n\n<p>(A) N&oacute; kh&ocirc;ng cho ph&eacute;p trẻ em tham gia một số sự kiện.<br />\n(B) N&oacute; được điều h&agrave;nh bởi th&agrave;nh phố Belmont.<br />\n(C) N&oacute; được th&agrave;nh lập bởi Linda Cameron.<br />\n(D) N&oacute; sẽ tổ chức c&aacute;c sự kiện ở một số nơi.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; thể được suy ra từ:<br />\n&quot;Đ&ecirc;m phim t&agrave;i liệu: &quot;Kh&aacute;m ph&aacute; Bắc Cực&quot;<br />\nNg&agrave;y 5 th&aacute;ng 5, Nh&agrave; h&aacute;t Spruce<br />\nTriển l&atilde;m ảnh: &quot;Nước Mỹ trong thế kỷ 20&quot;<br />\nĐ&ecirc;m khai mạc, ng&agrave;y 9 th&aacute;ng 5, Ph&ograve;ng trưng b&agrave;y nghệ thuật Linda Cameron<br />\nTr&ograve; chuyện của t&aacute;c giả: Glen Campbell, &quot;Văn h&oacute;a thời kỳ đầu của nước Mỹ&quot;<br />\nNg&agrave;y 14 th&aacute;ng 5, Th&iacute;nh ph&ograve;ng Chris Charlton<br />\nBiểu diễn &acirc;m nhạc: &quot;Những bậc thầy d&acirc;n gian Mỹ&quot;<br />\nNg&agrave;y 22 th&aacute;ng 5, Nh&agrave; h&aacute;t Spruce<br />\n<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "61404c6365d71f3a51f64484",
+          "questionText": "What most likely is Mr. Tate currently teaching?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Environmental conditions of the Arctic",
+            "(B) Early American history",
+            "(C) American folk music",
+            "(D) Modern photography"
+          ],
+          "correctOptions": [
+            "(B) Early American history"
+          ],
+          "transcript": "<p>Information can be inferred from: \"I am a professor in the History Department at Clark University in downtown Maryville.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Rất c&oacute; thể &ocirc;ng Tate hiện đang giảng dạy m&ocirc;n g&igrave;?</p>\n\n<p>(A) Điều kiện m&ocirc;i trường của Bắc Cực<br />\n(B) Lịch sử nước Mỹ thời kỳ đầu<br />\n(C) &Acirc;m nhạc d&acirc;n gian Mỹ<br />\n(D) Nhiếp ảnh hiện đại</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; thể được suy ra từ: &ldquo;T&ocirc;i l&agrave; gi&aacute;o sư tại Khoa Lịch sử tại Đại học Clark ở trung t&acirc;m th&agrave;nh phố Maryville.&rdquo;<br />\n<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "61404c6365d71f3a51f64485",
+          "questionText": "What is NOT mentioned as being available on the Belmont Historical Society website?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Information about scheduled events",
+            "(B) Member registration",
+            "(C)Rental details",
+            "(D) Descriptions of previous events"
+          ],
+          "correctOptions": [
+            "(D) Descriptions of previous events"
+          ],
+          "transcript": "<p>\"For more details regarding upcoming events and venue locations, or to rent one of our venues, visit us at www.belmonthistoricalsociety.com\" =&gt; Eliminate A, B &amp; C</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; KH&Ocirc;NG được đề cập l&agrave; c&oacute; sẵn tr&ecirc;n trang web của Hiệp hội Lịch sử Belmont?v</p>\n\n<p>(A) Th&ocirc;ng tin về c&aacute;c sự kiện đ&atilde; l&ecirc;n lịch<br />\n(B) Đăng k&yacute; th&agrave;nh vi&ecirc;n<br />\n(C) Chi tiết cho thu&ecirc;<br />\n(D) M&ocirc; tả c&aacute;c sự kiện trước đ&oacute;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>&quot;Để biết th&ecirc;m th&ocirc;ng tin chi tiết về c&aacute;c sự kiện sắp tới v&agrave; địa điểm gặp gỡ hoặc thu&ecirc; một trong c&aacute;c địa điểm của ch&uacute;ng t&ocirc;i, h&atilde;y truy cập tại www.belmonthisalsociety.com&quot; =&gt; Loại bỏ A, B &amp; C<br />\n<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "61404c6365d71f3a51f64486",
+          "questionText": "In the e-mail, the word “introductory” in paragraph 2, line 1, is closest in meaning to",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) basic",
+            "(B) required",
+            "(C) profound",
+            "(D) optional"
+          ],
+          "correctOptions": [
+            "(A) basic"
+          ],
+          "transcript": "<p>(A) basic:&nbsp;forming the part of something that is most necessary and from which other things develop</p>\n\n<p>(B) required:&nbsp;to need something; to depend on somebody/something</p>\n\n<p>(C) profound:&nbsp;very great; felt or experienced very strongly</p>\n\n<p>(D) optional:&nbsp;that you can choose to do or have if you want to</p>\n\n<p>Based on the meaning to choose the correct answer.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Trong e-mail, từ &ldquo;giới thiệu&rdquo; ở đoạn 2, d&ograve;ng 1 c&oacute; nghĩa gần nhất với</p>\n\n<p>(A) cơ bản<br />\n(B) bắt buộc<br />\n(C) s&acirc;u sắc<br />\n(D) t&ugrave;y chọn</p>\n\n<p>Dựa v&agrave;o nghĩa của từ để chọn đ&aacute;p &aacute;n đ&uacute;ng<br />\n<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "61404c6365d71f3a51f64487",
+          "questionText": "<p>What does Mr. Tate request?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A signed copy of a book",
+            "(B) A detailed survey",
+            "(C) A chance to meet a speaker",
+            "(D) A group discount"
+          ],
+          "correctOptions": [
+            "(C) A chance to meet a speaker"
+          ],
+          "transcript": "<p>Information in the sentence: \"I was also wondering if it would be possible to arrange a question-and-answer session between Mr. Campbell and my group of about 50 students.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>&Ocirc;ng Tate y&ecirc;u cầu g&igrave;?</p>\n\n<p>(A) Một bản sao c&oacute; chữ k&yacute; của một cuốn s&aacute;ch<br />\n(B) Một cuộc khảo s&aacute;t chi tiết<br />\n(C) Cơ hội gặp một diễn giả<br />\n(D) Giảm gi&aacute; theo nh&oacute;m</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin trong c&acirc;u: &ldquo;T&ocirc;i cũng đang ph&acirc;n v&acirc;n liệu c&oacute; thể sắp xếp một buổi hỏi đ&aacute;p giữa thầy Campbell v&agrave; nh&oacute;m khoảng 50 sinh vi&ecirc;n của t&ocirc;i được kh&ocirc;ng&rdquo;.<br />\n<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

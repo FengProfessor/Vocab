@@ -1,0 +1,829 @@
+{
+  "topicId": "6135c2a008e2737191f349b6",
+  "name": "Test 6",
+  "slug": "test-6",
+  "part": "part_3_conversations",
+  "totalQuestions": 39,
+  "totalCards": 13,
+  "cards": [
+    {
+      "id": "613f247965d71f3a51f62293",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0301.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nW: Hi, Mr. Joyce. This is Sally Walker calling from Frohman Publishing. <b> Q1 My company has a three-page text that we need translated into Chinese. I know you sometimes do these kinds of short-term jobs for our company.</b><br />\nM: Yeah, I would be happy to. <b> Q2 However, you should know that it is my policy to be paid in advance. </b>Is that OK?<br />\nW: That&#39;s no problem. I&rsquo;ll transfer the money into your bank account immediately.<b> Q3 The deadline for this translation hasn&rsquo;t been decided yet. Once I know, I will inform you.</b><br />\nM: Thank you for your understanding. Please e-mail me the document. I&#39;ll do my best.</p>\n",
+      "explanationVi": "<b> Transript:</b> <br> W: Chào anh Joyce. Đây là Sally Walker gọi từ Nhà xuất bản Frohman. <b> Q1 Công ty của tôi có một văn bản dài ba trang cần dịch sang tiếng Trung. Tôi biết thỉnh thoảng anh cũng nhận làm những công việc part-time ngắn hạn như thế này.</b><br>M: Vâng, tôi rất sẵn lòng. <b> Q2 Tuy nhiên, không biết liệu cô đã nắm được thông tin rằng tôi luôn nhận thù lao trước chưa. </b>Vậy ổn chứ? <br>W: Không thành vấn đề. Tôi sẽ chuyển tiền vào tài khoản ngân hàng của anh ngay lập tức.<b> Q3 Hạn chót cho bản dịch này vẫn chưa được ấn định. Tôi sẽ thông báo cho anh khi có them thông tin.</b><br>M: Cảm ơn cô đã thông cảm. Xin vui lòng gửi tài liệu cho tôi qua email. Tôi sẽ cố gắng hết sức để hoàn thành nó.",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622a0",
+          "questionText": "Why is the woman calling?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To extend a rental period",
+            "(B) To confirm an appointment",
+            "(C) To offer a part-time job",
+            "(D) To accept a proposal"
+          ],
+          "correctOptions": [
+            "(C) To offer a part-time job"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622a1",
+          "questionText": "What does the man ask the woman to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Interpret for her supervisor",
+            "(B) Send an advance payment",
+            "(C) Submit an official request",
+            "(D) Provide a work space"
+          ],
+          "correctOptions": [
+            "(B) Send an advance payment"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622a2",
+          "questionText": "What will the woman inform the man about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A requirement",
+            "(B) A deadline",
+            "(C) A meeting time",
+            "(D) A company policy"
+          ],
+          "correctOptions": [
+            "(B) A deadline"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f62294",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0302.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nW: Good morning, James. <b> Q1 Here is a copy of your expense report from last month&rsquo;s business trip to Tokyo.</b><br />\nM: Thanks, Mary. <b> Q2 Oh, while you&rsquo;re here, can you leave a message in this get-well-soon card for Bryce?</b> He had knee surgery yesterday and I was thinking this card might cheer him up.<br />\nW: Oh, did he? I didn&#39;t even know he was in the hospital. I was out of town yesterday. Is it serious?<br />\nM: Not that I know of. But he said he had to stay in the hospital for a few days. <b> Q3 I&rsquo;m planning on visiting him this evening after work.</b></p>\n",
+      "explanationVi": "<b> Transript:</b> <br> W: Chào buổi sáng, James. <b> Q1 Đây là bản sao của báo cáo chi phí của anh trong chuyến công tác tới Tokyo vào tháng trước.</b><br>M: Cảm ơn, Mary. <b> Q2 À, nhân tiện có cô ở đây, cô có thể để lại lời nhắn trong tấm thiệp chúc sớm khỏe lại này cho Bryce được chứ?</b> Anh ấy đã phẫu thuật đầu gối ngày hôm qua và tôi nghĩ tấm thiệp này có thể khiến anh ấy vui lên. <br>W: Ồ, vậy sao? Tôi thậm chí còn không biết anh ấy đang ở bệnh viện. Hôm qua tôi có việc bận nên đã không có mặt ở thị trấn. Tình trạng của anh ấy có nghiêm trọng không? <br>M: Tôi không rõ. Nhưng anh ấy nói anh ấy phải ở lại bệnh viện vài ngày. <b> Q3 Tôi dự định tối nay sẽ đến thăm anh ấy sau giờ làm việc.",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622a3",
+          "questionText": "What did the woman make a copy of?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A receipt",
+            "(B) A meeting schedule",
+            "(C) An expense report",
+            "(D) A prescription"
+          ],
+          "correctOptions": [
+            "(C) An expense report"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622a4",
+          "questionText": "What does the man ask the woman to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Sign a contract",
+            "(B) Write a message",
+            "(C) Contact a receptionist",
+            "(D) Go on a business trip to Tokyo"
+          ],
+          "correctOptions": [
+            "(B) Write a message"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622a5",
+          "questionText": "What does the man plan to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Visit his co-worker",
+            "(B) Submit a report",
+            "(C) Make a new reservation",
+            "(D) Work overtime"
+          ],
+          "correctOptions": [
+            "(A) Visit his co-worker"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f62295",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0303.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nW: <b> Q1 I need to talk to you about the interior decorations we are carrying out at the Carleton&rsquo;s property</b>. They are a major client, so we need to make sure that they are completely satisfied. Have you consulted with them about the furniture for the master bedroom?<br />\nM: I have. They agreed on all of our plans except for the choice for the master bed. <b> Q2 They&rsquo;re worried it is too big and will occupy too much space, so I&rsquo;m looking for something smaller that still fits the color scheme of the room.</b><br />\nW: OK. <b> Q3 I was planning on ordering all the furniture today, but I think we&rsquo;ll have to wait until we get their permission.</b></p>\n",
+      "explanationVi": "<b> Transript:</b> <br> W: <b> Q1 Tôi cần nói chuyện với anh về việc trang trí nội thất mà chúng ta đang thực hiện tại nhà của ông bà Carleton</b>. Họ là khách hàng quan trọng nên chúng ta cần đảm bảo rằng họ hoàn toàn hài lòng. Anh đã tham khảo ý kiến của họ về nội thất cho phòng ngủ chính chưa? <br>M: Tôi đã tham khảo rồi. Họ đồng ý với tất cả các đề xuất của chúng ta ngoại trừ lựa chọn về giường ngủ master. <b> Q2 Họ lo rằng chiếc giường quá lớn sẽ chiếm quá nhiều không gian, vì vậy tôi đang tìm lựa chọn thay thế với kích cỡ nhỏ hơn nhưng vẫn phù hợp với tông màu của căn phòng.</b><br>W: OK. <b> Q3 Tôi định đặt mua tất cả đồ nội thất vào hôm nay, nhưng tôi nghĩ chúng ta sẽ phải đợi cho đến khi nhận được sự đồng thuận của họ.</b>",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622a6",
+          "questionText": "What field do the speakers work in?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Education",
+            "(B) Manufacturing",
+            "(C) Product development",
+            "(D) Interior design"
+          ],
+          "correctOptions": [
+            "(D) Interior design"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622a7",
+          "questionText": "What does the man plan to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Choose different furniture",
+            "(B) Share a building plan",
+            "(C) Change a color scheme",
+            "(D) Place an order for wallpaper"
+          ],
+          "correctOptions": [
+            "(A) Choose different furniture"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622a8",
+          "questionText": "According to the woman, why will the speakers have to wait?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A shipment has been delayed.",
+            "(B) A contract has not been signed yet.",
+            "(C) Authorization must first be obtained.",
+            "(D) Some equipment is out of order."
+          ],
+          "correctOptions": [
+            "(C) Authorization must first be obtained."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f62296",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0304.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nW: <b> Q1 Hi, I&rsquo;d like to adopt a pet that doesn&rsquo;t have a home</b>. I live alone and feel that a dog would be great company.<br />\nM You came to the right place. <b> Q1 We have many cute dogs here who were rescued from the street and don&rsquo;t have a home</b>. What kind of dog are you looking for specifically?<br />\nW: <b> Q2 Well, my house is not that big, so I was hoping for a dog small enough to hold in my lap.</b><br />\nM: All right. <b> Q3 Before we can allow you to adopt a dog, we need you to complete some official paperwork</b>. If you have a seat in the lobby, I&rsquo;ll bring you the documents immediately.</p>\n",
+      "explanationVi": "<b> Transript:</b> <br> W: <b> Q1 Xin chào, tôi muốn nhận nuôi một con thú cưng không có chủ</b>. Tôi sống một mình và cảm thấy rằng một chú chó sẽ là người bạn đồng hành tuyệt vời. <br>M: Cô đã đến đúng nơi rồi đó. <b> Q1 Ở đây chúng tôi có rất nhiều chú chó dễ thương được giải cứu trên đường phố và không có chủ đến nhận</b>. Cô có đang tìm kiếm một giống chó cụ thể nào không? <br>W: <b> Q2 Nhà tôi không lớn lắm nên tôi hy vọng có một con chó nhỏ thôi để tôi có thể ôm vào lòng.</b><br>M: Được rồi. <b> Q3 Trước cô có thể nhận nuôi một chú chó, cô cần hoàn thành một số thủ tục giấy tờ chính thức</b>. Cô có thể ngồi nghỉ chân ở ngoài sảnh, tôi sẽ mang hồ sơ đến cho cô ngay.",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622a9",
+          "questionText": "Where most likely are the speakers?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a pet shop",
+            "(B) At a catering company",
+            "(C) At a fire station",
+            "(D) At an animal shelter"
+          ],
+          "correctOptions": [
+            "(D) At an animal shelter"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622aa",
+          "questionText": "What aspect of the woman’s needs is mentioned?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The price",
+            "(B) The size",
+            "(C) The age",
+            "(D) The color"
+          ],
+          "correctOptions": [
+            "(B) The size"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622ab",
+          "questionText": "According to the man, what does the woman have to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Make an advance payment",
+            "(B) Bring her identification",
+            "(C) Fill out some documents",
+            "(D) Submit a letter of reference"
+          ],
+          "correctOptions": [
+            "(C) Fill out some documents"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f62297",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0305.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nM: Hello, this is David Wright. <b> Q1 I represent the guitar player Joe Jackson, who will be performing at your venue this weekend. Q2 I wanted to remind you that Mr. Jackson requests that no cameras be allowed during the duration of his performance.</b><br />\nW: Yes, I remember. We have posted flyers at the entrance prohibiting cameras and have asked our staff to remind guests that photography is not allowed.<br />\nM: Thank you for your cooperation. As you know, Mr. Jackson is very sensitive when he plays.<br />\nW: <b> Q3 I&rsquo;ll make an announcement onstage before the show to inform the audience one more time about this restriction.</b></p>\n",
+      "explanationVi": "<b> Transript:</b> <br> M: Xin chào, đây là David Wright. <b> Q1 Tôi là người đại diện của nghệ sĩ guitar Joe Jackson, người sẽ biểu diễn tại hội trường của bạn vào cuối tuần này. Q2 Tôi muốn lưu ý rằng ông Jackson yêu cầu không được phép sử dụng máy ảnh trong suốt thời gian ông ấy biểu diễn.</b><br>W: Vâng, tôi nhớ điều đó. Chúng tôi đã dán tờ rơi cấm chụp ảnh ở lối vào và yêu cầu nhân viên nhắc nhở khách rằng không được phép chụp ảnh. <br>M: Cảm ơn sự hợp tác của cô. Như cô đã biết, ông Jackson rất nhạy cảm khi biểu diễn. <br>W: <b> Q3 Tôi sẽ thông báo điều này một lần nữa trước khi bắt đầu buổi biểu diễn để khán giả nắm được quy định.</b>",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622ac",
+          "questionText": "Who most likely is the man?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A photographer",
+            "(B) A talent agent",
+            "(C) A performer",
+            "(D) A receptionist"
+          ],
+          "correctOptions": [
+            "(B) A talent agent"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622ad",
+          "questionText": "Why is the man calling?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To buy a ticket in advance",
+            "(B) To confirm a reservation",
+            "(C) To provide a reminder",
+            "(D) To inquire about an advertisement"
+          ],
+          "correctOptions": [
+            "(C) To provide a reminder"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622ae",
+          "questionText": "What does the woman offer to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Restrict backstage access",
+            "(B) Take pictures of Mr. Jackson",
+            "(C) Show the man a list of guests",
+            "(D) Make an official announcement"
+          ],
+          "correctOptions": [
+            "(D) Make an official announcement"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f62298",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0306.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nM: Hi, Kelly. Did you see our advertisement in this month&rsquo;s issue of Fishing Fanatic? <b> Q1 The accompanying graphic shows how our fishing rods are stronger than any other product on the market.</b><br />\nW: Yeah, I saw it this morning. <b> Q2 I&rsquo;m hoping the advertisement will help convince customers to purchase our newest line of fishing rods.</b><br />\nM: <b> Q3 I&rsquo;m sure it will. I&rsquo;ll get in touch with the advertising agency and request that the ad be placed in other magazines as well.</b></p>\n",
+      "explanationVi": "<b> Transript:</b> <br> M: Xin chào, Kelly. Cô đã thấy quảng cáo của chúng ta trên ấn bản Fishing Fanatic tháng này chưa? <b> Q1 Áp phích đi kèm thể hiện sức mạnh vượt trội sủa cần câu của chúng ta so với bất kỳ sản phẩm nào khác trên thị trường.</b><br> W: Vâng, tôi đã thấy sáng nay. <b> Q2 Tôi hy vọng rằng quảng cáo sẽ thuyết phục khách hàng mua dòng cần câu mới nhất của chúng ta.</b><br> M: <b> Q3 Chắc chắn là như vậy rồi. Tôi sẽ liên hệ với công ty quảng cáo và yêu cầu đăng quảng cáo trên các tạp chí khác nữa.</b>",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622af",
+          "questionText": "What is mentioned about the product?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is affordable.",
+            "(B) It is superior to competitors’.",
+            "(C) It is safe for children to use.",
+            "(D) It is simple to install."
+          ],
+          "correctOptions": [
+            "(B) It is superior to competitors’."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622b0",
+          "questionText": "According to the man, what will the advertisement help to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Promote new products",
+            "(B) Increase stock value",
+            "(C) Encourage new innovations",
+            "(D) Reduce customer complaints"
+          ],
+          "correctOptions": [
+            "(A) Promote new products"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622b1",
+          "questionText": "What will the man do next?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Create a website",
+            "(B) Buy a magazine",
+            "(C) Revise an article",
+            "(D) Contact an agency"
+          ],
+          "correctOptions": [
+            "(D) Contact an agency"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f62299",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0307.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nM1: Heights Department store, Michael speaking, how can I help you?<br />\nW: Hi, this is Sarah. <b> Q1 I purchased a Regan cashmere coat from you two weeks ago, but I still haven&rsquo;t received it yet. I was told that I&rsquo;d get it in 2-3 days.</b><br />\nM1: Hold on a second, <b> Q2 you&rsquo;ll need to speak with a representative from the Regan boutique. I&rsquo;ll transfer your call.</b><br />\nW: No problem.<br />\nM2: Hello, this is Regan Luxury Boutique, Brian speaking, what can I help you with?<br />\nW: Yes, Brian, this is Sarah. I bought a coat from you two weeks ago and I&rsquo;m wondering what happened to the shipment.<br />\nM2: Oh, hello Sarah, I&rsquo;m sorry to hear that you haven&rsquo;t received it yet. Let me check the computer here. <b> Q3 Can you give me your full name?</b><br />\nW: Sure, it&rsquo;s Sarah Jane Park.</p>\n",
+      "explanationVi": "<b> Transript:</b> <br> M1: Cửa hàng bách hóa Heights xin nghe, tôi là Michael, tôi có thể giúp gì cho quý khách? <br>W: Xin chào, tôi là Sarah. <b> Q1 Tôi đã đặt mua một chiếc áo khoác cashmere Regan từ cửa hàng của anh cách đây hai tuần, nhưng đến nay tôi vẫn chưa nhận được hàng. Đáng lẽ theo như thông báo thì tôi sẽ nhận được trong vòng 2-3 ngày.</b><br>M1: Xin đợi một chút, <b> Q2 quý khách vui lòng nói chuyện với nhân viên cửa hàng Regan. Tôi sẽ chuyển tiếp cuộc gọi.</b><br>W: Được thôi. <br>M2: Xin chào, đây là cửa hàng là Regan Luxury Boutique, Brian đang nghe, tôi có thể giúp gì cho quý khách? <br>W: Chào Brian, tôi là Sarah. Tôi đã mua một chiếc áo khoác từ cửa hàng cách đây hai tuần và tôi muốn hỏi về việc giao hàng. <br>M2: Ồ, chào Sarah, tôi rất tiếc khi biết rằng cô vẫn chưa nhận được hàng. Tôi sẽ kiểm tra trên hệ thống. <b> Q3 Cô có thể cho tôi biết họ tên đầy đủ của cô không?</b><br> W: Chắc chắn rồi, tôi là Sarah Jane Park.",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622b2",
+          "questionText": "Why is the woman calling?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She hasn’t received her product.",
+            "(B) She was overcharged for the item.",
+            "(C) She wants a product exchanged.",
+            "(D) She wants to return a product."
+          ],
+          "correctOptions": [
+            "(A) She hasn’t received her product."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622b3",
+          "questionText": "Why does Michael transfer the call?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is busy with another customer.",
+            "(B) She requests another representative.",
+            "(C) She called the wrong department.",
+            "(D) The manager is unavailable."
+          ],
+          "correctOptions": [
+            "(C) She called the wrong department."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622b4",
+          "questionText": "What does Brian ask the woman for?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The tracking number",
+            "(B) Her receipt",
+            "(C) Her full name",
+            "(D) The product name"
+          ],
+          "correctOptions": [
+            "(C) Her full name"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f6229a",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0308.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nM: Hi, Mrs. West. <b> Q1 Everything is setup for your anniversary party tonight</b>. If you can arrive at about 6:00 P.M., that would be great.<br />\nW: 6:00 P.M.? I have meetings until 8:00 P.M. tonight. You know we are merging with another company at the moment; it&rsquo;s a very important time for our company.<br />\nM: Oh no... I&rsquo;ve scheduled the band to play from six to ten o&rsquo;clock. And dinner will be served at seven o&rsquo;clock.<br />\nW: Well, I wish you would have told me about this earlier.<br />\nM: <b> Q2 But it&rsquo;s your fifth year anniversary party...</b><br />\nW: OK. <b> Q3 I will cancel my last meeting tonight and arrive around six thirty</b>. So don&rsquo;t worry; everything will be fine. I will just be a little late.</p>\n",
+      "explanationVi": "<b> Transript:</b> <br> M: Chào bà West. <b> Q1 Mọi thứ đã được chuẩn bị sẵn sàng cho bữa tiệc kỷ niệm ngày cưới của bà vào tối nay</b>. Nếu bà có thể đến vào khoảng 6:00 chiều thì thật tuyệt. <br> W: 6:00 chiều? Tôi có một cuộc họp kéo dài đến 8:00 tối nay. Anh biết đấy, chúng tôi đang sáp nhập với một công ty khác; đây là thời điểm rất quan trọng đối với công ty chúng tôi. <br> M: Ồ không... Tôi đã lên lịch cho ban nhạc biểu diễn từ sáu đến mười giờ. Và bữa tối sẽ được phục vụ lúc bảy giờ. <br> W: Chà, tôi ước gì anh đã nói với tôi về điều này sớm hơn. <br> M: <b> Q2 Nhưng đây là bữa tiệc kỷ niệm năm thứ năm của bà...</b><br> W: Được rồi. <b> Q3 Tôi sẽ hủy cuộc họp tối nay và đến vào khoảng sáu giờ ba mươi</b>. Vì vậy, đừng lo lắng; mọi thứ sẽ ổn thôi. Tôi sẽ chỉ đến muộn một chút.",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622b5",
+          "questionText": "What are the speakers mainly discussing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Merging with another company",
+            "(B) Last month’s sales reports",
+            "(C) The woman’s anniversary party",
+            "(D) When the band will arrive"
+          ],
+          "correctOptions": [
+            "(C) The woman’s anniversary party"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622b6",
+          "questionText": "What does the man mean when he says “But it’s your fifth year anniversary party”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He wants her to change her schedule.",
+            "(B) He thinks it’s not important.",
+            "(C) He will tell the band not to come.",
+            "(D) He wants her to go to the meetings."
+          ],
+          "correctOptions": [
+            "(A) He wants her to change her schedule."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622b7",
+          "questionText": "What solution does the woman provide?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She will cancel the band.",
+            "(B) She will cancel the dinner service.",
+            "(C) She will cancel her meetings.",
+            "(D) She will fire the man."
+          ],
+          "correctOptions": [
+            "(C) She will cancel her meetings."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f6229b",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0309.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nM: Hi, Susan. This is Rob. <b> Q1 Did you get the flowers I sent you?</b><br />\nW: Yes, I did, but unfortunately, I&rsquo;m allergic to sunflowers. I had to go to the hospital because they were in my office for several hours.<br />\nM: <b> Q2 Oh, I thought you would like them.</b><br />\nW: You know I&rsquo;m allergic to pollen Rob. How could you forget? <b> Q3 You should take me to dinner tomorrow night to apologize.</b><br />\nM: OK. I will! I&rsquo;ll take you somewhere nice. Sorry about the flowers!</p>\n",
+      "explanationVi": "<b> Transript:</b> <br> M: Chào Susan. Tôi là Rob. <b> Q1 Cô đã nhận được hoa tôi gửi chưa?</b><br> W: Vâng, tôi đã nhận được, nhưng thật không may, tôi bị dị ứng với hoa hướng dương. Tôi đã phải đến bệnh viện vì tiếp xúc với loại hoa này trong văn phòng nhiều giờ. <br> M: <b> Q2 Ồ, tôi nghĩ cô sẽ thích chúng.</b><br> W: Anh biết tôi bị dị ứng với phấn hoa mà Rob. Làm sao anh có thể quên được? <b> Q3 Anh có thể đưa tôi đi ăn tối vào tối mai để xin lỗi.</b><br> M: Được rồi. Tôi sẽ làm như thế! Tôi sẽ đưa cô đến một nơi nào đó thật đẹp. Xin lỗi về những bông hoa nhé!",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622b8",
+          "questionText": "Why is the man calling the woman?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To check the sales figures",
+            "(B) To check if she received the flowers",
+            "(C) To check if she wanted to go to dinner",
+            "(D) To check if the documents were ready"
+          ],
+          "correctOptions": [
+            "(B) To check if she received the flowers"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622b9",
+          "questionText": "What does the woman say he should do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Take her to the hospital",
+            "(B) Pay her hospital bills",
+            "(C) Take her out for dinner",
+            "(D) Buy her more flowers"
+          ],
+          "correctOptions": [
+            "(C) Take her out for dinner"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622ba",
+          "questionText": "Why does the man say “I thought you would like them”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To express disappointment",
+            "(B) To show appreciation",
+            "(C) To show respect",
+            "(D) To show he thinks it’s funny"
+          ],
+          "correctOptions": [
+            "(A) To express disappointment"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f6229c",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0310.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nM1: Hi Bob, hi Karen. The reason I called you in is to talk about the budget for the last two months. <b> Q1 This biggest issue is that our entertainment expenses are way too high. </b> I think we need to reduce the amount we are spending on company lunches and dinners.<br />\nW: <b> Q2 Yes, I agree. I think we need to start paying for our own lunches.</b><br />\nM2: I agree with both of you, but I think we need to keep entertaining clients. I think if we pay for our own lunches, then that will leave money to take clients out for dinner.<br />\nM1: That&rsquo;s a pretty good idea Bob. Karen, does that sound OK with you?<br />\nW: I think that&rsquo;s a great compromise Bob. <b> Q3 I will make a monthly budget plan and e-mail it to you this afternoon.</b></p>\n",
+      "explanationVi": "<b> Transript:</b> <br> M1: Chào Bob, chào Karen. Lý do tôi gọi hai người vào là để nói về ngân sách trong hai tháng qua. <b> Q1 Vấn đề lớn nhất là chi phí dành cho giải trí của chúng ta quá cao. </b> Tôi nghĩ chúng ta cần giảm số tiền chi cho bữa trưa và bữa tối của công ty. <br> W: <b> Q2 Vâng, tôi đồng ý. Tôi nghĩ chúng ta cần bắt đầu tự trả tiền cho bữa trưa của mình.</b> <br> M2: Tôi đồng ý với cả hai người, nhưng tôi nghĩ chúng ta cần tiếp tục chiêu đãi khách hàng. Tôi nghĩ nếu chúng ta tự trả tiền cho bữa trưa của mình, thì sẽ còn ngân sách để đưa khách hàng đi ăn tối. <br> M1: Ý kiến đó khá hay đấy Bob. Karen, cô thấy ổn chứ? <br> W: Tôi nghĩ thu xếp như vậy là rất hợp lý đó Bob. <b> Q3 Tôi sẽ lập kế hoạch ngân sách hàng tháng và gửi email cho các anh vào chiều nay.</b>",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622bb",
+          "questionText": "What is the main problem the speakers are discussing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) What they should eat for lunch",
+            "(B) Going out for dinner",
+            "(C) High entertainment expenses",
+            "(D) Getting more customers"
+          ],
+          "correctOptions": [
+            "(C) High entertainment expenses"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622bc",
+          "questionText": "What does the woman suggest they do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Stop going out for dinner",
+            "(B) Reduce client numbers",
+            "(C) Stop having lunches",
+            "(D) Pay for their own lunches"
+          ],
+          "correctOptions": [
+            "(D) Pay for their own lunches"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622bd",
+          "questionText": "What does the woman say she will send the man?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A monthly budget plan",
+            "(B) This month’s sales report",
+            "(C) The old budget plan",
+            "(D) Last month’s marketing materials"
+          ],
+          "correctOptions": [
+            "(A) A monthly budget plan"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f6229d",
+      "questionText": "<table align =\"center\" width=\"90%\" width=\"90%\" border=1 cellspacing=0 cellpadding=0  style=border-collapse:collapse ><tr> <td align =\"center\" colspan =\"2\"> <b> Lifts will be out of order</td></tr> <tr> <td align =\"center\"> North Wing</td> <td align =\"center\"> 8:00 – 9:00 A.M  </td> </tr><tr> <td align =\"center\"> East Wing</td> <td align =\"center\"> 11:00 – 12:00 A.M  </td> </tr><tr> <td align =\"center\"> South Wing</td> <td align =\"center\"> 1:30 – 2:30 P.M  </td> </tr><tr> <td align =\"center\"> West Wing</td> <td align =\"center\"> 3:00 – 4:00 A.M  </td> </tr></table>",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0311.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nW: Do you know why the lifts will be out of order next week?<br />\nM: <b> Q1 Last week, Harriet saw that there were some inspectors in the building next door</b>. Our maintenance checks aren&rsquo;t up to date so if we get inspected, the building manager might be in trouble.<br />\nW: Oh, OK. But did you see the time schedule? <b> Q2 The busiest wing in the hospital will be closed from 8-9 A.M.</b> So many people will be arriving to work at that time. I don&rsquo;t understand why they would schedule the North Wing repair at that time.<br />\nM: Hmm... Yes, you&rsquo;re right. <b> Q3 I think we should talk to Dr. Franklin about this</b>. I&rsquo;m sure he can get the schedule changed.<br />\nW: I better do it now so the technicians have time to reschedule.</p>\n",
+      "explanationVi": "<b> Transript:</b> <br> W: Anh có biết tại sao thang máy sẽ dừng hoạt động vào tuần tới không? <br>M: <b> Q1 Tuần trước, Harriet thấy có một số thanh tra viên ở tòa nhà bên cạnh</b>. Các cuộc kiểm tra bảo trì của chúng ta không được diễn ra thường xuyên nên nếu chúng ta bị kiểm tra thì quản lý tòa nhà có thể gặp rắc rối. <br>W: Ồ, ra vậy. Nhưng anh có thấy lịch trình không? <b> Q2 Khu vực đông đúc nhất trong bệnh viện sẽ bị đóng cửa từ 8-9 giờ sáng.</b> Rất nhiều người sẽ đi làm vào thời điểm đó. Tôi không hiểu tại sao họ lại lên lịch sửa chữa Khu Bắc vào cùng thời điểm. <br>M: Ừm... Vâng, cô nói đúng. <b> Q3 Tôi nghĩ chúng ta nên nói chuyện với Bác sĩ Franklin về việc này</b>. Tôi chắc chắn là ông ấy có thể thay đổi lịch trình. <br>W: Tốt hơn là tôi nên làm ngay bây giờ để các kỹ thuật viên có thời gian sắp xếp lại lịch.",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622be",
+          "questionText": "What did Harriet see last week?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Technicians in the building next door",
+            "(B) Technicians posting about lift repairs",
+            "(C) Some technicians installing lighting",
+            "(D) Her boss having a meeting with some technicians"
+          ],
+          "correctOptions": [
+            "(A) Technicians in the building next door"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622bf",
+          "questionText": "Look at the graphic. Which is the busiest wing in the hospital?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) West",
+            "(B) East",
+            "(C) North",
+            "(D) South"
+          ],
+          "correctOptions": [
+            "(C) North"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622c0",
+          "questionText": "What does the man suggest the woman do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Cancel the repairs immediately",
+            "(B) Talk to Dr. Franklin",
+            "(C) Ask Dr. Franklin to lunch",
+            "(D) Close the north wing"
+          ],
+          "correctOptions": [
+            "(B) Talk to Dr. Franklin"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f6229e",
+      "questionText": "@PS@/estudyme/legacy-data/kstoeic/images/3768637_1564544455406.png@PE@",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0312.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nW: Good morning, this is Hardy&rsquo;s All Purpose. How can I help you?<br />\nM: <b> Q1 Hello. I picked up a camping pack this morning but it&rsquo;s missing some of the items.</b><br />\nW: Do you know which items aren&rsquo;t there?<br />\nM: <b> Q2 I have the mats, sleeping bags and the carry bag. I thought there was supposed to be one more item in there.</b><br />\nW: Ah yes, I know what it is. Are you able to drop in the store today? <b> Q3 I will give you a 15% refund because of the mistake.</b><br />\nM Oh, really? That&rsquo;s very kind of you. I&rsquo;ll come this afternoon and pick it up.</p>\n",
+      "explanationVi": "<b> Transript:</b> <br> W: Chào buổi sáng, đây là Hardy’s All Purpose. Tôi có thể giúp gì cho quý khách? <br>M: <b> Q1 Xin chào. Tôi đã mua một bộ dụng cụ cắm trại vào sáng nay, nhưng nó lại thiếu một số món.</b><br>W: Bạn có biết món nào bị thiếu không có ở đó không? <br>M: <b> Q2 Chỉ có thảm, túi ngủ và túi đựng. Tôi nghĩ là còn thiếu một món nữa.</b><br>W: À vâng, tôi biết đó là gì rồi. Quý khách có thể ghé cửa hàng trong ngày hôm nay không? <b> Q3 Tôi sẽ hoàn lại cho anh 15% hoá đơn vì lỗi này.</b><br>M Ồ, thật sao? Cô thật tốt bụng. Tôi sẽ đến vào chiều nay và lấy món đồ đó.",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622c1",
+          "questionText": "Where does the woman likely work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A camping store",
+            "(B) A hardware store",
+            "(C) A medical clinic",
+            "(D) A shipping company"
+          ],
+          "correctOptions": [
+            "(A) A camping store"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622c2",
+          "questionText": "Look at the graphic. What is the man missing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Carry bag",
+            "(B) Portable gas stove",
+            "(C) Camping mats",
+            "(D) Sleeping bags"
+          ],
+          "correctOptions": [
+            "(B) Portable gas stove"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622c3",
+          "questionText": "What does the woman offer to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Give him a full refund",
+            "(B) Give him a 15% discount voucher",
+            "(C) Give him a 15% refund",
+            "(D) Give him a free tent"
+          ],
+          "correctOptions": [
+            "(C) Give him a 15% refund"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "613f247965d71f3a51f6229f",
+      "questionText": "<table align =\"center\" width=\"90%\" width=\"90%\" border=1 cellspacing=0 cellpadding=0  style=border-collapse:collapse ><tr> <td align =\"center\" colspan =\"2\"> <b> Henson's Corporate Cleaners <br>Carpet Cleaning</td></tr> <tr> <td align =\"center\"> Frieze</td> <td align =\"center\"> $100 per room  </td> </tr><tr> <td align =\"center\"> Shag Pile</td> <td align =\"center\"> $150 per room </td> </tr><tr> <td align =\"center\"> Velvet</td> <td align =\"center\"> $250 per room </td> </tr><tr> <td align =\"center\"> Woven Carpet</td> <td align =\"center\"> $400 per room </td> </tr></table>",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/legacy-data/kstoeic/sound/eco2018_Test06_0313.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><b>Transript:</b><br />\nM: Hi, I have a carpet that Is identical to this one here. <b> Q1 I need it cleaned as I&rsquo;m going to be selling my office soon</b>. There are 3 rooms.<br />\nW: <b> Q2 Three rooms of that carpet would cost seven-hundred and fifty.</b><br />\nM: Oh really? I thought you were advertising a 15% discount on all your carpets?<br />\nW: That discount only covers our frieze and shag pile carpets.<br />\nM: Hmm... <b> Q3 I see. OK. I will need some time to think about it and I will come back.</b></p>\n",
+      "explanationVi": "<b> Transript:</b> <br> M: Xin chào, tôi có một tấm thảm giống hệt như tấm này ở đây. <b> Q1 Tôi cần giặt thảm vì tôi sắp bán văn phòng của mình</b>. Có tổng cộng 3 phòng. <br> W: <b> Q2 Ba phòng với tấm thảm như thế sẽ tốn bảy trăm năm mươi đô la.</b><br> M: Thật sao? Tôi tưởng cô đang quảng cáo giảm giá 15% cho tất cả các loại thảm của cô? <br> W: Giảm giá đó chỉ áp dụng cho dòng thảm frieze và shag pile của chúng tôi. <br> M: Ừm... <b> Q3 Tôi hiểu rồi. Được thôi. Tôi sẽ cần thời gian để suy nghĩ về giá đó và tôi sẽ quay lại sau.</b>",
+      "childQuestions": [
+        {
+          "id": "613f247965d71f3a51f622c4",
+          "questionText": "What does the man say he is planning on doing with his office?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Renovate it",
+            "(B) Sell it",
+            "(C) Clean it",
+            "(D) Repaint it"
+          ],
+          "correctOptions": [
+            "(B) Sell it"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622c5",
+          "questionText": "Look at the graphic. What is the carpet made of?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Frieze",
+            "(B) Shag Pile",
+            "(C) Velvet",
+            "(D) Woven Carpet"
+          ],
+          "correctOptions": [
+            "(C) Velvet"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "613f247965d71f3a51f622c6",
+          "questionText": "What does the man say he will do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Buy the carpet today",
+            "(B) Ask his wife about it",
+            "(C) Tell his manager",
+            "(D) Think about it and come back"
+          ],
+          "correctOptions": [
+            "(D) Think about it and come back"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

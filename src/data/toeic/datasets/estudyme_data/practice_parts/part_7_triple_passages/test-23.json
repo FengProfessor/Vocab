@@ -1,0 +1,301 @@
+{
+  "topicId": "6a214d2c60281800269d32bd",
+  "name": "Test 23",
+  "slug": "test-23",
+  "part": "part_7_triple_passages",
+  "totalQuestions": 15,
+  "totalCards": 3,
+  "cards": [
+    {
+      "id": "6a2151bc3766e70025b03dee",
+      "questionText": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\"><strong>Lawal Home Service: Serving Southern California for over 40 years</strong></p>\n\n<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">Lawal Home Service offers roofing and solar energy solutions to residents of Inglewood and nearby communities in Southern California. Beyond roof replacement, the company provides a broad range of services, including attic insulation, gutter repair, leak fixing, and solar panel installation.</p>\n\n<p style=\"text-align: justify;\">The company emphasizes clear communication and careful attention to detail. On every project, supervisors remain on-site to respond to client questions, share progress updates, and ensure the work area stays safe and clean. To schedule a free roof inspection, visit Lawal Home Service or call 310-555-0108.</p>\n\n<hr>\n<p data-pm-slice=\"0 0 []\"><strong>Lawal Home Service Contact Form</strong></p>\n\n<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">Count on the professionals at Lawal Home Service to assess your roofing needs quickly and with expert care. Please take a few moments to fill out the form, providing as much information as you can. Keep in mind that every roof installed by Lawal is backed by a 25-year warranty.</p>\n\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width: 671px;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 104px;\">Name&nbsp;</td>\n\t\t\t<td style=\"width: 551px;\">Drew Gerson</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 104px;\">Date</td>\n\t\t\t<td style=\"width: 551px;\">December 12</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 104px;\">E-mail</td>\n\t\t\t<td style=\"width: 551px;\">dgerson95@onyxmail.com</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 104px;\">Phone</td>\n\t\t\t<td style=\"width: 551px;\">310-555-0192</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 104px;\">Address</td>\n\t\t\t<td style=\"width: 551px;\">\n\t\t\t<p>820 North Acacia Street Inglewood, CA 90301</p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 104px;\">How many we help you?</td>\n\t\t\t<td style=\"width: 551px;\">\n\t\t\t<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">Several shingles were damaged and blown off during last week's windstorm and need to be replaced. Since the roof is more than 30 years old and water has started leaking through the area above the patio, I am also considering a full roof replacement. I would appreciate speaking with someone who can explain my options and provide a cost estimate.</p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>&nbsp;</p>\n\n<hr>\n<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\"><strong>Neighborhood Reviews: Lawal Home Service</strong></p>\n\n<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">★★★★★</p>\n\n<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\"><em>“I was extremely satisfied with the attention to detail and quality of their work.”</em></p>\n\n<section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-10\" data-turn=\"assistant\" data-turn-id=\"request-WEB:84e94a88-984f-409b-8ea4-5d8d2b1370f3-4\" data-turn-id-container=\"request-WEB:84e94a88-984f-409b-8ea4-5d8d2b1370f3-4\" dir=\"auto\">\n<p data-end=\"514\" data-start=\"135\" style=\"text-align: justify;\">After I submitted a description of my roofing issue to Lawal Home Service, one of their estimators visited my property the very next day to inspect the roof. Once I chose to move forward with a roof replacement, their crew was able to begin work the following week. As promised, Diana Perez remained on-site throughout the project and was always available to answer my questions.</p>\n\n<p data-end=\"943\" data-start=\"516\" style=\"text-align: justify;\">The work began on December 19 and was completed by December 20. After finishing the roofing installation, the crew thoroughly cleaned the area. They even used two magnetic tools similar to lawnmowers to sweep my entire yard and collect any roofing nails that might have fallen. I had never seen such a careful cleanup process before. I was extremely satisfied with the attention to detail and professionalism they demonstrated.</p>\n\n<p data-end=\"973\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"945\" style=\"text-align: justify;\">— Drew Gerson, Inglewood, CA</p>\n</section>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a2151bc3766e70025b03def",
+          "questionText": "<p data-pm-slice=\"0 0 []\">Based on the advertisement, which of the following services is offered by Lawal Home Service?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Planting trees",
+            "Gutter repair",
+            "Constructing home extensions",
+            "Installing new heating systems"
+          ],
+          "correctOptions": [
+            "Gutter repair"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">The advertisement specifically mentions that the company provides \"attic insulation, gutter repair, leak fixing, and solar panel installation.\"</p>\n",
+          "explanationVi": "<p>Quảng c&aacute;o n&ecirc;u r&otilde; rằng c&ocirc;ng ty cung cấp c&aacute;c dịch vụ &quot;attic insulation, gutter repair, leak fixing, and solar panel installation&quot;.</p>\n"
+        },
+        {
+          "id": "6a224d673766e70025b48848",
+          "questionText": "<p>What information does Mr. Gerson provide on the form regarding his roof?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "It has started leaking.",
+            "It was replaced not long ago.",
+            "The installation cost was relatively low.",
+            "It comes with a 30-year warranty."
+          ],
+          "correctOptions": [
+            "It has started leaking."
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">Mr. Gerson states that \"water has started leaking through the area above the patio.\"</p>\n",
+          "explanationVi": "<p>&Ocirc;ng Gerson cho biết rằng &quot;water has started leaking through the area above the patio.&quot;</p>\n"
+        },
+        {
+          "id": "6a224e193766e70025b49c62",
+          "questionText": "<p data-pm-slice=\"0 0 []\">On which date did Lawal Home Service conduct an inspection of Mr. Gerson’s roof?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "December 19",
+            "December 20",
+            "December 13",
+            "December 12"
+          ],
+          "correctOptions": [
+            "December 13"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">Mr. Gerson submitted the form on December 12, and in his review he says an estimator visited his property \"the very next day\" to inspect the roof. Therefore, the inspection took place on December 13.</p>\n",
+          "explanationVi": "<p style=\"text-align: justify;\">&Ocirc;ng Gerson đ&atilde; gửi biểu mẫu v&agrave;o ng&agrave;y 12 th&aacute;ng 12, v&agrave; trong b&agrave;i đ&aacute;nh gi&aacute; của m&igrave;nh &ocirc;ng cho biết một nh&acirc;n vi&ecirc;n ước t&iacute;nh đ&atilde; đến thăm nh&agrave; &ocirc;ng &quot;the very next day&quot; để kiểm tra m&aacute;i nh&agrave;. Do đ&oacute;, việc kiểm tra diễn ra v&agrave;o ng&agrave;y 13 th&aacute;ng 12.</p>\n"
+        },
+        {
+          "id": "6a2250803766e70025b4a719",
+          "questionText": "<p data-pm-slice=\"1 1 []\">Who most likely is Ms. Perez?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "An interior designer",
+            "A scheduling coordinator",
+            "A roofing estimator",
+            "A project supervisor"
+          ],
+          "correctOptions": [
+            "A project supervisor"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">The advertisement says that supervisors remain on-site during projects. Mr. Gerson notes that Diana Perez remained on-site throughout the project and was always available to answer questions, which matches the role of a supervisor.</p>\n",
+          "explanationVi": "<p style=\"text-align: justify;\">Quảng c&aacute;o cho biết rằng c&aacute;c gi&aacute;m s&aacute;t vi&ecirc;n lu&ocirc;n c&oacute; mặt tại c&ocirc;ng tr&igrave;nh trong suốt qu&aacute; tr&igrave;nh thi c&ocirc;ng. &Ocirc;ng Gerson ghi nhận rằng Diana Perez đ&atilde; c&oacute; mặt tại c&ocirc;ng tr&igrave;nh trong to&agrave;n bộ dự &aacute;n v&agrave; lu&ocirc;n sẵn s&agrave;ng trả lời c&aacute;c c&acirc;u hỏi, điều n&agrave;y ph&ugrave; hợp với vai tr&ograve; của một gi&aacute;m s&aacute;t vi&ecirc;n.</p>\n"
+        },
+        {
+          "id": "6a22515f3766e70025b4a97a",
+          "questionText": "<p data-pm-slice=\"1 1 []\" style=\"text-align: justify;\">Based on the review, what did Mr. Gerson find surprising about the Lawal Home Service crew?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "The tools they used for a job",
+            "The cost of their service",
+            "The warranty provided",
+            "The quality of the materials used"
+          ],
+          "correctOptions": [
+            "The tools they used for a job"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">He says, \"They even used two magnetic tools similar to lawnmowers to sweep my entire yard and collect roofing nails. I had never seen such a careful cleanup process before.\"</p>\n",
+          "explanationVi": "<p style=\"text-align: justify;\">&Ocirc;ng n&oacute;i rằng: &quot;They even used two magnetic tools similar to lawnmowers to sweep my entire yard and collect roofing nails. I had never seen such a careful cleanup process before.&quot;</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6a2251df3766e70025b4ab2f",
+      "questionText": "<p>To: Omar Balaji &lt;obalaji@darbourycompany.com&gt;</p>\n\n<p>From: Juanita Pereira &lt;jpereira@bunbunbooks.com&gt;</p>\n\n<p>Date: May 10</p>\n\n<p>Subject: Notebook inquiry</p>\n\n<p>Dear Mr. Balaji,</p>\n\n<p style=\"text-align: justify;\">We are growing our office supply department at Bun Bun Books and plan to introduce a range of blank notebooks with lined pages. We would appreciate your assistance in developing the following cover designs.</p>\n\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width: 726px;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 185px;\"><strong>Cover Design Name</strong></td>\n\t\t\t<td style=\"width: 389px;\"><strong>Central Image</strong></td>\n\t\t\t<td style=\"width: 131px;\"><strong>Background&nbsp;Color</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 185px;\">Great Thoughts</td>\n\t\t\t<td style=\"width: 389px;\">Lightbulb, lightning bolt, and star icons</td>\n\t\t\t<td style=\"width: 131px;\">Blue</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 185px;\">World Suitcase</td>\n\t\t\t<td style=\"width: 389px;\">Suitcase with country name travel stickers</td>\n\t\t\t<td style=\"width: 131px;\">Black</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 185px;\">Lavender Bouquet</td>\n\t\t\t<td style=\"width: 389px;\">Large bunch of lavender on tall, pale green stems</td>\n\t\t\t<td style=\"width: 131px;\">Yellow</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 185px;\">Sail Away</td>\n\t\t\t<td style=\"width: 389px;\">Sun setting in the sky above a sailboat on a lake</td>\n\t\t\t<td style=\"width: 131px;\">White</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p data-end=\"154\" data-start=\"0\" style=\"text-align: justify;\">We must ensure the notebooks are in stock for our annual sale beginning on August 1. Once the sample covers are approved, when should we submit our order?</p>\n\n<p data-end=\"184\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"156\" style=\"text-align: justify;\">Thank you,<br data-end=\"169\" data-start=\"166\">\nJuanita Pereira</p>\n\n<hr>\n<p data-pm-slice=\"0 0 []\">To: Juanita Pereira jpereira@bunbunbooks.com</p>\n\n<p>From: Omar Balaji obalaji@darbourycompany.com</p>\n\n<p>Date: May 25</p>\n\n<p>Subject: Re: Notebook inquiry</p>\n\n<p>Hello Ms. Pereira,</p>\n\n<p style=\"text-align: justify;\">I have sent several sample notebook covers for your review. However, one of the designs could not be included for approval because it required a late adjustment to the background color. The sticker artwork was not clearly visible against the original black background. We are currently testing a light beige background, and I will forward the revised sample once it has been approved internally.</p>\n\n<p style=\"text-align: justify;\">You should receive the final sample by the end of this week. If you provide approval for all designs by June 11, we will be able to ship your full order of bound notebooks before July 20, ensuring everything arrives ahead of your sale starting on August 1. Please feel free to reach out if you have any questions.</p>\n\n<p style=\"text-align: justify;\">Best regards,</p>\n\n<p style=\"text-align: justify;\">Omar Balaji, Darboury Company</p>\n\n<hr>\n<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>Darboury Company</strong></span></p>\n\n<p style=\"text-align: center;\"><strong>Order Form</strong></p>\n\n<p>Customer: Bun Bun Books</p>\n\n<p>Ship by: July 15</p>\n\n<p>Shipping method: Standard</p>\n\n<p>Requested delivery date: July 20</p>\n\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width: 778px;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 92px;\"><strong>Item code</strong></td>\n\t\t\t<td style=\"width: 415px;\"><strong>Product Description</strong></td>\n\t\t\t<td style=\"width: 160px;\"><strong>Cover Design</strong></td>\n\t\t\t<td style=\"width: 87px;\"><strong>Amount</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 92px;\">H3-SA</td>\n\t\t\t<td style=\"width: 415px;\">Small hardbound journal notebook</td>\n\t\t\t<td style=\"width: 160px;\">Sail Away</td>\n\t\t\t<td style=\"width: 87px;\">150</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 92px;\">H3-LB</td>\n\t\t\t<td style=\"width: 415px;\">Small hardbound journal notebook</td>\n\t\t\t<td style=\"width: 160px;\">Lavender Bouquet</td>\n\t\t\t<td style=\"width: 87px;\">150</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 92px;\">N3-WS</td>\n\t\t\t<td style=\"width: 415px;\">Standard-size spiral notebook</td>\n\t\t\t<td style=\"width: 160px;\">World Suitcase</td>\n\t\t\t<td style=\"width: 87px;\">200</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 92px;\">N3-GT</td>\n\t\t\t<td style=\"width: 415px;\">Standard-size spiral notebook</td>\n\t\t\t<td style=\"width: 160px;\">Great Thoughts</td>\n\t\t\t<td style=\"width: 87px;\">200</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 92px;\">D1</td>\n\t\t\t<td style=\"width: 415px;\">Large metal display rack (holds standard-size spiral notebooks)</td>\n\t\t\t<td style=\"width: 160px;\">&nbsp;-----</td>\n\t\t\t<td style=\"width: 87px;\">1</td>\n\t\t</tr>\n\t</tbody>\n</table>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a2251df3766e70025b4ab30",
+          "questionText": "<p>What is one service that Darboury Company most likely provides?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Travel arrangements",
+            "Publishing textbooks",
+            "Delivering flowers",
+            "Designing graphics"
+          ],
+          "correctOptions": [
+            "Designing graphics"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">Ms. Pereira asks Darboury Company to develop notebook cover designs, and Mr. Balaji discusses artwork, background colors, and sample covers.</p>\n",
+          "explanationVi": "<p style=\"text-align: justify;\">B&agrave; Pereira y&ecirc;u cầu C&ocirc;ng ty Darboury ph&aacute;t triển c&aacute;c thiết kế b&igrave;a sổ tay, v&agrave; &ocirc;ng Balaji thảo luận về t&aacute;c phẩm nghệ thuật, m&agrave;u nền v&agrave; c&aacute;c mẫu b&igrave;a.</p>\n"
+        },
+        {
+          "id": "6a2272773766e70025b52317",
+          "questionText": "<p data-pm-slice=\"0 0 []\">What sample was postponed?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Great Thoughts",
+            "Lavender Bouquet",
+            "Sail Away",
+            "World Suitcase"
+          ],
+          "correctOptions": [
+            "World Suitcase"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">The email says the design with \"a suitcase with country name travel stickers\" had a problem because the stickers were not visible against the black background. This corresponds to World Suitcase.</p>\n",
+          "explanationVi": "<p style=\"text-align: justify;\">Email cho biết rằng thiết kế c&oacute; &quot;a suitcase with country name travel stickers&quot; gặp vấn đề v&igrave; c&aacute;c nh&atilde;n d&aacute;n kh&ocirc;ng thể nh&igrave;n r&otilde; tr&ecirc;n nền m&agrave;u đen. Điều n&agrave;y tương ứng với World Suitcase.</p>\n"
+        },
+        {
+          "id": "6a22855f3766e70025b58338",
+          "questionText": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">When is the final date for Ms. Pereira to approve the samples?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "June 11",
+            "July 15",
+            "August 1",
+            "May 25"
+          ],
+          "correctOptions": [
+            "June 11"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">Mr. Balaji writes: \"If you provide approval for all designs by June 11, we will be able to ship your full order...\"</p>\n",
+          "explanationVi": "<p>&Ocirc;ng Balaji viết: &quot;If you provide approval for all designs by June 11, we will be able to ship your full order...&quot;</p>\n"
+        },
+        {
+          "id": "6a2286b53766e70025b5885e",
+          "questionText": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">According to the form, what information is provided about the Bun Bun Books order?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "A display stand will be included.",
+            "It will be shipped via overnight delivery.",
+            "Payment will be made upon delivery.",
+            "It is expected to arrive after the scheduled date."
+          ],
+          "correctOptions": [
+            "A display stand will be included."
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">The order form includes item D1: Large metal display rack (holds standard-size spiral notebooks), which is a display stand.</p>\n",
+          "explanationVi": "<p>Phiếu đặt h&agrave;ng bao gồm mục D1: &ldquo;Large metal display rack (holds standard-size spiral notebooks)&rdquo;, đ&acirc;y l&agrave; một gi&aacute; trưng b&agrave;y.</p>\n"
+        },
+        {
+          "id": "6a22874c3766e70025b58b25",
+          "questionText": "<p data-pm-slice=\"0 0 []\">What background color is featured on the cover of item N3-GT?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Black",
+            "Yellow",
+            "Blue",
+            "White"
+          ],
+          "correctOptions": [
+            "Blue"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">Item N3-GT corresponds to Great Thoughts. The table shows that the Great Thoughts cover design has a Blue background.</p>\n",
+          "explanationVi": "<p>Mục N3-GT tương ứng với &ldquo;Great Thoughts&rdquo;. Bảng cho thấy thiết kế b&igrave;a &ldquo;Great Thoughts&rdquo; c&oacute; nền m&agrave;u xanh dương.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6a228dca3766e70025b5ac86",
+      "questionText": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">To: Managers</p>\n\n<p style=\"text-align: justify;\">From: Charlotte Black</p>\n\n<p style=\"text-align: justify;\">Date: August 16</p>\n\n<p style=\"text-align: justify;\">Subject: Employee of the month</p>\n\n<p style=\"text-align: justify;\">Dear Managers,</p>\n\n<p style=\"text-align: justify;\">It is time to cast your votes for the September Employee of the Month at Wilson Autos. The following employees have been nominated:</p>\n\n<p style=\"text-align: justify;\"><strong>Erica Boyd</strong> has only been part of our team for a short time, but she has already demonstrated strong potential and a willingness to learn.</p>\n\n<p style=\"text-align: justify;\"><strong>Lauren Almahdi</strong> consistently takes initiative. When she notices a task that needs attention, she informs management and often volunteers to handle it herself.</p>\n\n<p style=\"text-align: justify;\"><strong>Nick Salehi</strong> identified an error in our computer system, preventing the purchase of unneeded inventory and helping the company save money.</p>\n\n<p style=\"text-align: justify;\"><strong>Max Rhodes</strong> has provided outstanding support in training new employees. His calm demeanor, patience, and clear explanations have been especially valuable.</p>\n\n<p style=\"text-align: justify;\">Please send your vote by Friday. To be selected, a nominee must receive at least three votes. The winner will be announced next Monday at the front desk and on our website.</p>\n\n<p style=\"text-align: justify;\">Thank you,</p>\n\n<p style=\"text-align: justify;\">Charlotte Black</p>\n\n<p style=\"text-align: justify;\">General Manager, Wilson Autos</p>\n\n<hr>\n<p data-pm-slice=\"0 0 []\">https://www.westchesterreviews.com</p>\n\n<p data-pm-slice=\"0 0 []\">Wilson Autos (Westchester)</p>\n\n<p>★★★★★</p>\n\n<p style=\"text-align: justify;\">My wife and I recently purchased a new Excelera truck from the Westchester branch of Wilson Autos, and Erica Boyd assisted us throughout the process. Although she was fairly new to the job, she had an impressive understanding of the trucks we were interested in test-driving. Whenever she encountered a question she could not answer, her mentor, Max, stepped in and provided the information right away.</p>\n\n<p style=\"text-align: justify;\">We were extremely satisfied with the level of customer service we received, and we were especially happy when the general manager matched the price being offered by a competing dealership for the Excelera. I would strongly recommend Wilson Autos to anyone shopping for a new vehicle.</p>\n\n<p style=\"text-align: justify;\">— Henry Riggs, August 22</p>\n\n<hr>\n<p data-pm-slice=\"0 0 []\" style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>The employee of the month for September is ERICA BOYD!</strong></span></p>\n\n<p data-end=\"579\" data-start=\"54\" style=\"text-align: justify;\">During her first three months at Wilson Autos, Erica has learned new skills rapidly and consistently shown a strong desire to expand her knowledge. She has developed an excellent understanding of our vehicle inventory and effectively uses that expertise to assist customers and help close sales. In addition, she has played a key role in motivating satisfied customers to share feedback on our social media platforms. As a result, we received more positive reviews in the last month than in the previous four months combined.</p>\n\n<p data-end=\"764\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"581\" style=\"text-align: justify;\">In recognition of her outstanding performance, Erica has been awarded a $50 gift card to Alonzo's Restaurant. Congratulations, Erica, and thank you for your exceptional contributions!</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6a228dca3766e70025b5ac87",
+          "questionText": "<p data-pm-slice=\"1 1 []\">What is the main purpose of the e-mail?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "To present a list of applicants for a position",
+            "To provide a recap of a managers’ meeting",
+            "To ask for opinions from managers",
+            "To recommend a manager for an award"
+          ],
+          "correctOptions": [
+            "To ask for opinions from managers"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">Charlotte Black asks managers to cast their votes for the September Employee of the Month.</p>\n",
+          "explanationVi": "<p>Charlotte Black y&ecirc;u cầu c&aacute;c quản l&yacute; bỏ phiếu cho Nh&acirc;n vi&ecirc;n của th&aacute;ng 9.</p>\n"
+        },
+        {
+          "id": "6a22957f3766e70025b5d1a2",
+          "questionText": "<p data-pm-slice=\"0 0 []\">According to the e-mail, who identified a technical problem?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "Ms. Almahdi",
+            "Mr. Salehi",
+            "Ms. Black",
+            "Mr. Rhodes"
+          ],
+          "correctOptions": [
+            "Mr. Salehi"
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\">The email states that Nick Salehi identified an error in the computer system, preventing unnecessary inventory purchases.</p>\n",
+          "explanationVi": "<p>Email cho biết rằng Nick Salehi đ&atilde; ph&aacute;t hiện một lỗi trong hệ thống m&aacute;y t&iacute;nh, gi&uacute;p ngăn chặn việc mua h&agrave;ng tồn kho kh&ocirc;ng cần thiết.</p>\n"
+        },
+        {
+          "id": "6a2296e73766e70025b5d562",
+          "questionText": "<p data-pm-slice=\"0 0 []\">What can be inferred about Mr. Riggs?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "He previously owned an Excelera truck.",
+            "He lives near Ms. Boyd.",
+            "He has bought a vehicle from Wilson Autos before.",
+            "He discussed a price reduction with Ms. Black."
+          ],
+          "correctOptions": [
+            "He discussed a price reduction with Ms. Black."
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">Mr. Riggs mentions that \"the general manager matched the price being offered by a competing dealership.\" Since Charlotte Black is the General Manager, it is reasonable to infer that he discussed the price reduction with her.</p>\n",
+          "explanationVi": "<p style=\"text-align: justify;\">&Ocirc;ng Riggs đề cập rằng &quot;the general manager matched the price being offered by a competing dealership.&quot; V&igrave; Charlotte Black l&agrave; Tổng gi&aacute;m đốc, c&oacute; thể suy ra rằng &ocirc;ng đ&atilde; thảo luận về việc giảm gi&aacute; với b&agrave; ấy.</p>\n"
+        },
+        {
+          "id": "6a229a3f3766e70025b5e0a1",
+          "questionText": "<p>According to the notice, what information is provided about Ms. Boyd?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "She is responsible for an increase in customer reviews and feedback.",
+            "She frequently dines at Alonzo's Restaurant.",
+            "She oversees Wilson Autos' social media accounts.",
+            "She recently finished a sales training program."
+          ],
+          "correctOptions": [
+            "She is responsible for an increase in customer reviews and feedback."
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">The notice states that Erica encouraged satisfied customers to share feedback on social media, resulting in more positive reviews in the last month than in the previous four months combined.</p>\n",
+          "explanationVi": "<p style=\"text-align: justify;\">Th&ocirc;ng b&aacute;o cho biết rằng Erica đ&atilde; khuyến kh&iacute;ch c&aacute;c kh&aacute;ch h&agrave;ng h&agrave;i l&ograve;ng chia sẻ phản hồi tr&ecirc;n mạng x&atilde; hội, dẫn đến việc c&oacute; nhiều đ&aacute;nh gi&aacute; t&iacute;ch cực trong th&aacute;ng vừa qua hơn tổng bốn th&aacute;ng trước đ&oacute; cộng lại.</p>\n"
+        },
+        {
+          "id": "6a229ae53766e70025b5e2bb",
+          "questionText": "<p>Which of the following is most likely true about Ms. Boyd?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "She achieved the highest sales figures in August.",
+            "She has many years of experience working in the automotive industry.",
+            "She received votes from at least three managers.",
+            "She joined Wilson Autos in April."
+          ],
+          "correctOptions": [
+            "She received votes from at least three managers."
+          ],
+          "transcript": "<p data-pm-slice=\"0 0 []\" style=\"text-align: justify;\">The email states that a nominee must receive at least three votes to be selected. Since Erica won Employee of the Month, she must have received at least three manager votes.</p>\n",
+          "explanationVi": "<p style=\"text-align: justify;\">Email cho biết rằng một ứng vi&ecirc;n phải nhận được &iacute;t nhất ba phiếu bầu để được chọn. V&igrave; Erica đ&atilde; trở th&agrave;nh Nh&acirc;n vi&ecirc;n của th&aacute;ng, n&ecirc;n c&ocirc; ấy chắc chắn đ&atilde; nhận được &iacute;t nhất ba phiếu bầu từ c&aacute;c quản l&yacute;.</p>\n"
+        }
+      ]
+    }
+  ]
+}

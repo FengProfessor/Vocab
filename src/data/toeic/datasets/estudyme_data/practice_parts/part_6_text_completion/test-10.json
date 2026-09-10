@@ -1,0 +1,330 @@
+{
+  "topicId": "6140005665d71f3a51f62a9b",
+  "name": "Test 10",
+  "slug": "test-10",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6140039e65d71f3a51f62b55",
+      "questionText": "To: All Staff <br>From: Michael Davis, Head Technician<br>Subject: Network Upgrade<br><br>We regret to inform the staff that as of next week, from Monday the 13th of November to sometime midweek, the employee key card system will not be active. In order to get into and out of the building, you will need to buzz security. In order to unlock, or lock, any door, you will <b> (1) </b> ______ assistance from the security team. <br>The old system was reviewed and many vulnerabilities were discovered.  <b> (2) </b> ______, the company has decided to replace the old system. This process should take three to four days. <br>As part of the process, new key cards will be issued to each member of the staff. Key cards will be available for you to pick up from Wednesday, the 15th of November, in the security office. Please, feel free to stop by any time <b> (3) </b> ______  the day to collect yours.  <b> (4) </b> ______.<br>We apologize for any inconvenience this may cause.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140039e65d71f3a51f62b59",
+          "questionText": "In order to unlock, or lock, any door, you will <b> (1) </b> ______ assistance from the security team.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) is requesting",
+            "(B) has requested",
+            "(C) have to request",
+            "(D) had to request"
+          ],
+          "correctOptions": [
+            "(C) have to request"
+          ],
+          "transcript": "<p>will + infinitive <strong>=&gt; only C is grammatically correct</strong></p>\n",
+          "explanationVi": "<p>will + động từ ở dạng nguy&ecirc;n thể<strong> -&gt; Chọn đ&aacute;p &aacute;n C</strong><br />\nTạm dịch: Để mở kh&oacute;a hoặc kh&oacute;a bất kỳ c&aacute;nh cửa n&agrave;o, bạn sẽ phải y&ecirc;u cầu đội an ninh hỗ trợ.</p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b5a",
+          "questionText": "<b> (2) </b> ______, the company has decided to replace the old system. This process should take three to four days.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Unfortunately",
+            "(B) Therefore",
+            "(C) Regardless",
+            "(D) Finally"
+          ],
+          "correctOptions": [
+            "(B) Therefore"
+          ],
+          "transcript": "<p>(A) Unfortunately:&nbsp;used to say that something is sad, disappointing, or has a bad effect</p>\n\n<p>(B) Therefore:&nbsp;as a result</p>\n\n<p>(C) Regardless:&nbsp;despite; not being affected by something</p>\n\n<p>(D) Finally:&nbsp;after a long time or some difficulty</p>\n\n<p>Based on the meaning of conjunctions</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c li&ecirc;n từ:<br />\n(A) Thật kh&ocirc;ng may<br />\n(B) V&igrave; vậy<br />\n(C) Bất kể<br />\n(D) Cuối c&ugrave;ng<br />\nTạm dịch: V&igrave; vậy, c&ocirc;ng ty đ&atilde; quyết định thay thế hệ thống cũ. Qu&aacute; tr&igrave;nh n&agrave;y sẽ mất ba đến bốn ng&agrave;y.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b5b",
+          "questionText": "Please, feel free to stop by any time <b> (3) </b> ______  the day to collect yours.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) upon",
+            "(B) during",
+            "(C) before",
+            "(D) at"
+          ],
+          "correctOptions": [
+            "(B) during"
+          ],
+          "transcript": "<p>during + a period of time</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>during + một khoảng thời gian<br />\nTạm dịch: Xin vui l&ograve;ng gh&eacute; qua bất kỳ l&uacute;c n&agrave;o trong ng&agrave;y để nhận h&agrave;ng của bạn.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b5c",
+          "questionText": "<p>Please, feel free to stop by any time ______ the day to collect yours. <strong> (4) </strong> ______.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The move from keys to keyless entry should make the facility more secure.",
+            "(B) We will be looking forward to seeing you sometime next week.",
+            "(C) The security office is open 24 hours a day.",
+            "(D) This is for product security."
+          ],
+          "correctOptions": [
+            "(C) The security office is open 24 hours a day."
+          ],
+          "transcript": "<p>The previous sentence mentions \"a day\" =&gt; This sentence is about time</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>C&acirc;u trước đề cập đến trong ng&agrave;y: &quot;Xin vui l&ograve;ng gh&eacute; qua bất kỳ l&uacute;c n&agrave;o trong ng&agrave;y để nhận h&agrave;ng của bạn&quot;. =&gt; C&acirc;u n&agrave;y n&oacute;i về thời gian<br />\n(A) Việc chuyển từ ch&igrave;a kh&oacute;a sang lối v&agrave;o kh&ocirc;ng cần ch&igrave;a kh&oacute;a sẽ gi&uacute;p cơ sở an to&agrave;n hơn.<br />\n(B) Ch&uacute;ng t&ocirc;i rất mong được gặp bạn v&agrave;o tuần tới.<br />\n(C) Văn ph&ograve;ng an ninh mở cửa 24 giờ một ng&agrave;y.<br />\n(D) Điều n&agrave;y l&agrave; để bảo mật sản phẩm.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140039e65d71f3a51f62b56",
+      "questionText": "<b> Music Teacher Needed</b> Mike’s Music School is <b> (1) </b> ______  seeking a new piano instructor for weekend and evening classes. Mike’s Music School has been operating in the Central district since 1992. <b> (2) </b> ______. Because of this, we hope to hire a long-time resident of Central to join our team. Applicants should be well versed in  <b> (3) </b> ______  teaching techniques. If you are interested in  <b> (4) </b> ______  for the position, we will be holding interviews and auditions this Saturday at 12:00 at our main studio on Elm street and Dupont Ave.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140039e65d71f3a51f62b5d",
+          "questionText": "Mike’s Music School is <b> (1) </b> ______  seeking a new piano instructor for weekend and evening classes.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) active",
+            "(B) actived",
+            "(C) actively",
+            "(D) activated"
+          ],
+          "correctOptions": [
+            "(C) actively"
+          ],
+          "transcript": "<p>The blank is between \"is\" and \"seeking\" =&gt; need to use an adverb to modify the verb</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Chỗ trống nằm giữa &quot;is&quot; v&agrave; &quot; seeking&quot; =&gt; cần d&ugrave;ng trạng từ để bổ nghĩa cho động từ.<br />\nTạm dịch: Trường &Acirc;m nhạc của Mike đang t&iacute;ch cực t&igrave;m kiếm một người hướng dẫn piano mới cho c&aacute;c lớp học cuối tuần v&agrave; buổi tối.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b5e",
+          "questionText": "Mike’s Music School has been operating in the Central district since 1992. <b> (2) </b> ______.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Our company tries to work with outside communities.",
+            "(B) Our commitment to the community is as important as our commitment to our students.",
+            "(C) Our company is unique and uses strange instruments.",
+            "(D) Our company is in a special location, next to the auto service center."
+          ],
+          "correctOptions": [
+            "(B) Our commitment to the community is as important as our commitment to our students."
+          ],
+          "transcript": "<p>Based on the previous sentence.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o &yacute; của c&acirc;u trước đ&oacute;: &quot;Trường &Acirc;m nhạc Mike đ&atilde; hoạt động ở quận Trung t&acirc;m từ năm 1992.&quot;....<br />\n(A) C&ocirc;ng ty ch&uacute;ng t&ocirc;i cố gắng l&agrave;m việc với cộng đồng b&ecirc;n ngo&agrave;i.<br />\n(B) Cam kết của ch&uacute;ng t&ocirc;i với cộng đồng cũng quan trọng như cam kết của ch&uacute;ng t&ocirc;i với học sinh.<br />\n(C) C&ocirc;ng ty ch&uacute;ng t&ocirc;i l&agrave; c&ocirc;ng ty độc nhất v&agrave; sử dụng những c&ocirc;ng cụ kỳ lạ.<br />\n(D) C&ocirc;ng ty ch&uacute;ng t&ocirc;i nằm ở một vị tr&iacute; đặc biệt, cạnh trung t&acirc;m dịch vụ &ocirc; t&ocirc;.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b5f",
+          "questionText": "Applicants should be well versed in  <b> (3) </b> ______  teaching techniques.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) contemporary",
+            "(B) unknown",
+            "(C) strange",
+            "(D) boring"
+          ],
+          "correctOptions": [
+            "(A) contemporary"
+          ],
+          "transcript": "<p>(A) contemporary:&nbsp;belonging to the same time</p>\n\n<p>(B) unknown:&nbsp;not known or identified</p>\n\n<p>(C) strange:&nbsp;unusual or surprising, especially in a way that is difficult to understand</p>\n\n<p>(D) boring:&nbsp;not interesting; making you feel tired and impatient</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c từ:<br />\n(A) đồng thời<br />\n(B) kh&ocirc;ng r&otilde;<br />\n(C) lạ<br />\n(D) nh&agrave;m ch&aacute;n<br />\nTạm dịch: Ứng vi&ecirc;n phải th&agrave;nh thạo đồng thời c&aacute;c kỹ thuật giảng dạy hiện đại.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b60",
+          "questionText": "<p>If you are interested in <strong> (4) </strong> ______ for the position, we will be holding interviews and auditions this Saturday at 12:00 at our main studio on Elm street and Dupont Ave.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) apply",
+            "(B) applied",
+            "(C) applying",
+            "(D) to apply"
+          ],
+          "correctOptions": [
+            "(C) applying"
+          ],
+          "transcript": "<p>be interested in + Ving/ something</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>be interested in + Ving/something: quan t&acirc;m đến điều g&igrave;, th&iacute;ch l&agrave;m g&igrave;<br />\nTạm dịch: Nếu bạn quan t&acirc;m đến việc ứng tuyển v&agrave;o vị tr&iacute; n&agrave;y, ch&uacute;ng t&ocirc;i sẽ tổ chức c&aacute;c cuộc phỏng vấn v&agrave; thử giọng v&agrave;o thứ Bảy tuần n&agrave;y l&uacute;c 12:00 tại studio ch&iacute;nh của ch&uacute;ng t&ocirc;i tr&ecirc;n phố Elm v&agrave; Đại lộ Dupont.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140039e65d71f3a51f62b57",
+      "questionText": "<p style=\"text-align: center;\"><strong>Saldesta Rest Your Mind and Body</strong></p>\n\n<p style=\"text-align: justify;\">It’s what you’ve been dreaming of. Peaceful sleep without a struggle is what you need. That’s what Saldesta <b> (1) </b> ______ . Saldesta helps people fall asleep quickly and stay asleep the entire night. It’s the only non-narcotic sleeping aid, and it’s <b> (2) </b> ______ for long-term use. <b> (3) </b> ______ Talk to your doctor first before using sleeping aids for extended periods. Tonight, just close your eyes, and leave everything else to Saldesta.<br>\nFind out how to improve your sleep at www.saldesta.com. Or call 1-800-Saldesta.<br>\nImportant Safety Information: Saldesta works quickly and should be taken right <b> (4) </b> ______ bed. Be sure you have at least eight hours to devote to sleep before coming active. Do not use alcohol while taking Saldesta. Most sleep medication carries some risk of dependency.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140039e65d71f3a51f62b61",
+          "questionText": "That’s what Saldesta  <b> (1) </b> ______  .",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) offers",
+            "(B) sustains",
+            "(C) mitigates",
+            "(D) maintains"
+          ],
+          "correctOptions": [
+            "(A) offers"
+          ],
+          "transcript": "<p>(A) offers:&nbsp;to say that you are willing to give something to somebody</p>\n\n<p>(B) sustains:&nbsp;to provide enough of what somebody/something needs in order to live or exist</p>\n\n<p>(C) mitigates:&nbsp;to make something less harmful, serious, etc.</p>\n\n<p>(D) maintains:&nbsp;to make something continue at the same level, standard, etc.</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c từ:<br />\n(A) đề xuất<br />\n(B) duy tr&igrave;, chịu đựng, k&eacute;o d&agrave;i<br />\n(C) giảm nhẹ<br />\n(D) duy tr&igrave;, giữ cho c&aacute;i g&igrave; khỏi thay đổi hoặc gi&aacute;n đoạn<br />\nTạm dịch: Đ&oacute; l&agrave; những g&igrave; Saldesta đề xuất<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b62",
+          "questionText": "It’s the only non-narcotic sleeping aid, and it’s <b> (2) </b> ______ for long-term use.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) to approve",
+            "(B) approves",
+            "(C) approving",
+            "(D) approved"
+          ],
+          "correctOptions": [
+            "(D) approved"
+          ],
+          "transcript": "<p>Passive form</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Cấu tr&uacute;c bị động của th&igrave; hiện tại đơn: am/is/are + Vpp2<br />\nTạm dịch: Đ&acirc;y l&agrave; loại thuốc hỗ trợ giấc ngủ kh&ocirc;ng g&acirc;y nghiện duy nhất v&agrave; được ph&eacute;p sử dụng l&acirc;u d&agrave;i.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b63",
+          "questionText": "<b> (3) </b> ______  Talk to your doctor first before using sleeping aids for extended periods.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) So you can feel comfortable taking it night after night.",
+            "(B) Talk to your doctor today to see if it’s right for you.",
+            "(C) This is the only stimulant approved for prolonged use that is approved by the FDA.",
+            "(D) Enter this code for a free sample and discounts."
+          ],
+          "correctOptions": [
+            "(A) So you can feel comfortable taking it night after night."
+          ],
+          "transcript": "<p>Based on the previous sentence: \"It’s the only non-narcotic sleeping aid...\" <strong>=&gt; A is the right answer</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o c&acirc;u trước: &quot;L&agrave; thuốc ngủ duy nhất kh&ocirc;ng g&acirc;y nghiện...&quot; =&gt; A l&agrave; đ&aacute;p &aacute;n đ&uacute;ng<br />\n(A) Để bạn c&oacute; thể cảm thấy thoải m&aacute;i khi d&ugrave;ng n&oacute; h&agrave;ng đ&ecirc;m.<br />\n(B) H&atilde;y n&oacute;i chuyện với b&aacute;c sĩ của bạn ngay h&ocirc;m nay để xem liệu n&oacute; c&oacute; ph&ugrave; hợp với bạn kh&ocirc;ng.<br />\n(C) Đ&acirc;y l&agrave; chất k&iacute;ch th&iacute;ch duy nhất được FDA chấp thuận để sử dụng k&eacute;o d&agrave;i.<br />\n(D) Nhập m&atilde; n&agrave;y để nhận mẫu miễn ph&iacute; v&agrave; giảm gi&aacute;.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b64",
+          "questionText": "Saldesta works quickly and should be taken right <b> (4) </b> ______  bed.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) during",
+            "(B) around",
+            "(C) before",
+            "(D) after"
+          ],
+          "correctOptions": [
+            "(C) before"
+          ],
+          "transcript": "<p>(A) during:&nbsp;all through a period of time</p>\n\n<p>(B) around:&nbsp;surrounding somebody/something; on each side of something</p>\n\n<p>(C) before:&nbsp;earlier than somebody/something</p>\n\n<p>(D) after:&nbsp;later than something; following something in time</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c từ:<br />\n(A) trong thời gian<br />\n(B) xung quanh<br />\n(C) trước khi<br />\n(D) sau<br />\nTạm dịch: Saldesta c&oacute; t&aacute;c dụng nhanh v&agrave; n&ecirc;n uống ngay trước khi đi ngủ.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140039e65d71f3a51f62b58",
+      "questionText": "Employee Message Board <br>Request for Feedback<br>Posted by James Frohm, Human Resources Director <br><br>Hello colleagues, <br>The holiday season is fast approaching and we need to<b> (1) </b> ______  our office party! There  have  been several  <b> (2) </b> ______  for locations and themes made to me directly, but I wanted to invite everyone in the office to give me their feedback. All ideas are welcome, but I must remind everyone that our office <b> (3) </b> ______ . Our party can include all forms of secular celebration, but out of respect for everyone, there may be no religious themes. Please respond to me directly by e-mail at jamesfrohm@ccn.net, so I can get started making plans. <b> (4) </b> ______. <br>Sincerely, <br>James",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140039e65d71f3a51f62b65",
+          "questionText": "The holiday season is fast approaching and we need to <b> (1) </b> ______  our office party!",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) make",
+            "(B) plan",
+            "(C) conceive",
+            "(D) deliver"
+          ],
+          "correctOptions": [
+            "(B) plan"
+          ],
+          "transcript": "<p>(A) make:&nbsp;to produce something</p>\n\n<p>(B) plan:&nbsp;to make detailed arrangements for something you want to do in the future</p>\n\n<p>(C) conceive:&nbsp;to form an idea, a plan, etc. in your mind</p>\n\n<p>(D) deliver:&nbsp;to take goods, letters, etc. to the person or people they have been sent to</p>\n\n<p>Based on the meaning of verbs</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c từ:<br />\n(A) l&agrave;m<br />\n(B) l&ecirc;n kế hoạch<br />\n(C) h&igrave;nh th&agrave;nh<br />\n(D) giao h&agrave;ng<br />\nTạm dịch: Kỳ nghỉ lễ đang đến rất nhanh v&agrave; ch&uacute;ng ta cần l&ecirc;n kế hoạch cho bữa tiệc văn ph&ograve;ng của m&igrave;nh!<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b66",
+          "questionText": "There have been several <b>(2)</b> ______  for locations and themes made to me directly, but I wanted to invite everyone in the office to give me their feedback",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) comments",
+            "(B) suggestions",
+            "(C) spots",
+            "(D) suggested"
+          ],
+          "correctOptions": [
+            "(B) suggestions"
+          ],
+          "transcript": "<p>(A) comments:&nbsp;something that you say or write that expresses your opinion</p>\n\n<p>(B) suggestions:&nbsp;an idea, plan, or action that is suggested or the act of suggesting it</p>\n\n<p>(C) spots:&nbsp;a small round area that has a different colour or feels different from the surface it is on</p>\n\n<p>(D) suggested:&nbsp;to put forward an idea or a plan for other people to think about</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c từ:<br />\n(A) b&igrave;nh luận<br />\n(B) gợi &yacute;<br />\n(C) đốm<br />\n(D) đề xuất<br />\nTạm dịch: Đ&atilde; c&oacute; một số gợi &yacute; về địa điểm v&agrave; chủ đề được gửi trực tiếp cho t&ocirc;i, nhưng t&ocirc;i muốn mời mọi người trong văn ph&ograve;ng đưa ra phản hồi cho t&ocirc;i.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b67",
+          "questionText": "All ideas are welcome, but I must remind everyone that our office <b> (3) </b> ______ .",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) is a safe space for all customs and cultures",
+            "(B) stays open late on Tuesday",
+            "(C) needs a new janitor",
+            "(D) will move next week"
+          ],
+          "correctOptions": [
+            "(A) is a safe space for all customs and cultures"
+          ],
+          "transcript": "<p>Based on the sentence's meaning.</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&acirc;u: Mọi &yacute; kiến ​​đều được hoan ngh&ecirc;nh nhưng t&ocirc;i phải nhắc nhở mọi người rằng văn ph&ograve;ng của ch&uacute;ng ta......<br />\n(A) l&agrave; kh&ocirc;ng gian an to&agrave;n cho mọi phong tục, văn h&oacute;a<br />\n(B) mở cửa muộn v&agrave;o thứ ba<br />\n(C) cần một người g&aacute;c cổng mới<br />\n(D) sẽ chuyển đi v&agrave;o tuần tới<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140039e65d71f3a51f62b68",
+          "questionText": "Please respond to me directly by e-mail at jamesfrohm@ccn.net, so I can get started making plans. <b> (4) </b> ______.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) I look forward to your ideas and enthusiasm.",
+            "(B) I’m look forward to your ideas and enthusiasm.",
+            "(C) I look forward to your undivided attention.",
+            "(D) I hope you reply before its too late."
+          ],
+          "correctOptions": [
+            "(A) I look forward to your ideas and enthusiasm."
+          ],
+          "transcript": "<p>The notice is about \"Request for Feedback\" and previously it is mentioned that \"All ideas are welcome\" =&gt; look forward to your ideas and enthusiasm</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Th&ocirc;ng b&aacute;o về &quot;Y&ecirc;u cầu phản hồi&quot; v&agrave; trước đ&oacute; c&oacute; đề cập l&agrave; &quot;Mọi &yacute; kiến ​​đều được hoan ngh&ecirc;nh&quot; =&gt; rất mong được sự g&oacute;p &yacute; v&agrave; nhiệt t&igrave;nh của c&aacute;c bạn<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}
