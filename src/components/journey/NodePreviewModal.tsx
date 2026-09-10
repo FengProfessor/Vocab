@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import {
   Dialog,
   DialogContent,
@@ -234,6 +235,22 @@ export function NodePreviewModal({
             <span>
               <strong>Nguyên tắc mở khóa:</strong> Checkpoint gồm các câu hỏi đa kỹ năng tổng hợp và ôn tập xoáy ốc. Cần đạt tối thiểu <strong>80%</strong> để ghi nhận hoàn thành.
             </span>
+          </div>
+        )}
+
+        {/* Contextual Vocab Station callout */}
+        {step.type === 'vocab' && (
+          <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-50/90 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/40 text-[11px] text-amber-900 dark:text-amber-200">
+            <span className="leading-tight">
+              💡 <strong>Luyện đa năng:</strong> Đọc đoạn văn, đục lỗ & xếp câu S-V-O thay vì chỉ xem flashcard.
+            </span>
+            <Link
+              href={`/practice/vocab-station?pack=${encodeURIComponent(step.ref)}&roadmapStep=${encodeURIComponent(step.id)}`}
+              onClick={onClose}
+              className="shrink-0 rounded-lg bg-amber-600 px-2.5 py-1.5 font-bold text-white shadow-xs hover:bg-amber-700 active:scale-95"
+            >
+              Trạm Đa Năng →
+            </Link>
           </div>
         )}
 

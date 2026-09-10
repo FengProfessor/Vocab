@@ -43,7 +43,7 @@ export interface RoadmapLevelView {
   id: string; title: string; titleVi: string; description: string; isStartLevel: boolean; units: RoadmapUnitView[];
 }
 
-export type RoadmapTrackId = 'cefr' | 'thpt' | 'toeic';
+export type RoadmapTrackId = 'cefr' | 'vocab' | 'thpt' | 'toeic';
 
 // ── Exit standards ──
 export interface ExitStandard {

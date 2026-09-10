@@ -367,11 +367,20 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         >
           <BookOpen className="mr-2 h-5 w-5 sm:h-6 sm:w-6" /> Bắt đầu học
         </Button>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           <button onClick={() => setShowGuide(true)} className="inline-flex items-center gap-1.5 text-sm font-bold text-indigo-500 hover:text-indigo-700">
             <HelpCircle className="h-4 w-4" /> Cách học hiệu quả
           </button>
           <Link href="/student" className="text-sm font-bold text-slate-400 hover:text-slate-600">← Về Dashboard</Link>
+        </div>
+        <div className="rounded-xl border border-amber-200 bg-amber-50/80 px-4 py-2.5 text-xs font-medium text-amber-800 dark:border-amber-900/40 dark:bg-amber-950/20 dark:text-amber-300">
+          ✨ Học sinh mất gốc? Luyện qua đoạn văn, đục lỗ & xếp câu S-V-O:{' '}
+          <Link
+            href={roadmapStepParam ? `/practice/vocab-station?roadmapStep=${encodeURIComponent(roadmapStepParam)}` : '/practice/vocab-station'}
+            className="font-bold underline hover:text-amber-950 dark:hover:text-amber-200"
+          >
+            Mở Trạm Luyện Đa Năng →
+          </Link>
         </div>
       </div>
     );

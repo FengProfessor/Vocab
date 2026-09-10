@@ -22,7 +22,8 @@ import {
   type RoadmapUnitView,
   type RoadmapTrackId,
 } from '@/lib/roadmap-client';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import type { MilestonePopupPayload } from '@/components/gamification/MilestonePopup';
 import {
@@ -34,6 +35,7 @@ import {
   ChevronRight,
   Layers,
   Flame,
+  Sparkles,
 } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
 import Link from 'next/link';
@@ -43,6 +45,7 @@ import { TrackSwitcher, type TrackStats } from '@/components/journey/TrackSwitch
 import { ModuleCard } from '@/components/journey/ModuleCard';
 import { NodePreviewModal } from '@/components/journey/NodePreviewModal';
 import { UnitBadgeModal } from '@/components/journey/UnitBadgeModal';
+import { VocabRoadmapSection } from '@/components/journey/VocabRoadmapSection';
 
 const MilestonePopup = dynamic(
   () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),
@@ -88,6 +91,37 @@ export default function JourneyPage() {
   const [busyStep, setBusyStep] = useState<string | null>(null);
   const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
 
+  // Vocab foundation track progress from localStorage
+  const [completedVocabPacks, setCompletedVocabPacks] = useState<string[]>([]);
+  const [completedVocabTopics, setCompletedVocabTopics] = useState<string[]>([]);
+  const [_masteredVocabWords, setMasteredVocabWords] = useState<string[]>([]);
+
+  useEffect(() => {
+    try {
+      const rawCompleted = localStorage.getItem('vocab_station_completed_packs');
+      if (rawCompleted) setCompletedVocabPacks(JSON.parse(rawCompleted));
+      const rawTopics = localStorage.getItem('vocab_station_completed_topics');
+      if (rawTopics) setCompletedVocabTopics(JSON.parse(rawTopics));
+      const rawMastered = localStorage.getItem('vocab_station_mastered_words');
+      if (rawMastered) setMasteredVocabWords(JSON.parse(rawMastered));
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const vocabStats: TrackStats = useMemo(() => {
+    const completedUnits = completedVocabPacks.length + completedVocabTopics.length;
+    const totalUnits = 46; // 10 core packs + 36 topics (12 x 3 stages)
+    const progressPct = Math.min(100, Math.round((completedUnits / totalUnits) * 100));
+    return {
+      completedUnits,
+      totalUnits,
+      progressPct,
+      currentLevelTitle: '3.000 Từ & Động Từ Cốt Lõi',
+      isEnrolled: true,
+    };
+  }, [completedVocabPacks, completedVocabTopics]);
+
   // Modals for interactive preview & celebration
   const [previewStep, setPreviewStep] = useState<RoadmapStepView | null>(null);
   const [previewUnit, setPreviewUnit] = useState<RoadmapUnitView | null>(null);
@@ -106,13 +140,28 @@ export default function JourneyPage() {
       let urlTrack: RoadmapTrackId | null = null;
       if (typeof window !== 'undefined') {
         const param = new URLSearchParams(window.location.search).get('track');
-        if (param === 'cefr' || param === 'thpt') urlTrack = param;
+        if (param === 'cefr' || param === 'thpt' || param === 'toeic' || param === 'vocab') {
+          urlTrack = param as RoadmapTrackId;
+        }
       }
       const stored =
         typeof window !== 'undefined'
           ? (localStorage.getItem(TRACK_STORAGE_KEY) as RoadmapTrackId | null)
           : null;
-      const want = preferred ?? urlTrack ?? (stored === 'thpt' || stored === 'cefr' ? stored : undefined);
+      const want = preferred ?? urlTrack ?? (stored === 'vocab' || stored === 'toeic' || stored === 'thpt' || stored === 'cefr' ? stored : undefined);
+
+      if (want === 'vocab') {
+        setTrack('vocab');
+        setNeedsPlacement(false);
+        setEnrolledAny(true);
+        try {
+          localStorage.setItem(TRACK_STORAGE_KEY, 'vocab');
+        } catch {
+          /* ignore */
+        }
+        setLoading(false);
+        return;
+      }
 
       const data = await fetchRoadmap(want);
       const list = data.enrollments ?? [];
@@ -120,7 +169,7 @@ export default function JourneyPage() {
       setEnrolledAny(data.enrolled || list.length > 0);
 
       const activeTrack: RoadmapTrackId =
-        data.track === 'thpt' || data.track === 'cefr'
+        data.track === 'thpt' || data.track === 'cefr' || data.track === 'toeic'
           ? data.track
           : want ?? 'cefr';
       setTrack(activeTrack);
@@ -165,7 +214,17 @@ export default function JourneyPage() {
         data: { session },
       } = await supabase.auth.getSession();
       if (!session?.user) {
-        router.push('/auth');
+        // Allow guest exploration of vocab track or general roadmap without login block
+        let urlTrack: RoadmapTrackId | null = null;
+        if (typeof window !== 'undefined') {
+          const param = new URLSearchParams(window.location.search).get('track');
+          if (param === 'cefr' || param === 'thpt' || param === 'toeic' || param === 'vocab') {
+            urlTrack = param as RoadmapTrackId;
+          }
+        }
+        setTrack(urlTrack || 'vocab');
+        setEnrolledAny(true);
+        setLoading(false);
         return;
       }
       if (active) await load();
@@ -173,7 +232,7 @@ export default function JourneyPage() {
     return () => {
       active = false;
     };
-  }, [router, load]);
+  }, [load]);
 
   // Handle milestone popup from sessionStorage
   useEffect(() => {
@@ -198,13 +257,23 @@ export default function JourneyPage() {
   }, []);
 
   const switchTrack = async (next: RoadmapTrackId): Promise<void> => {
-    if (next === track && !needsPlacement && tree.length > 0) return;
+    if (next === track && !needsPlacement && (tree.length > 0 || next === 'vocab')) return;
     setLoading(true);
     setMode(null);
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href);
       url.searchParams.set('track', next);
       window.history.pushState({}, '', url.toString());
+    }
+    if (next === 'vocab') {
+      setTrack('vocab');
+      try {
+        localStorage.setItem(TRACK_STORAGE_KEY, 'vocab');
+      } catch {
+        /* ignore */
+      }
+      setLoading(false);
+      return;
     }
     await load(next);
   };
@@ -311,6 +380,18 @@ OK = học lại · Cancel = giữ nguyên.`,
       }
 
       if (step.type === 'vocab') {
+        // Hỗ trợ trực tiếp Trạm Luyện Từ Vựng Đa Năng cho các gói Starter / Foundation / CEFR A0
+        const isFoundationOrStarter =
+          step.ref.startsWith('starter-') ||
+          levelId === 'A0' ||
+          !step.ref.includes('/');
+        if (isFoundationOrStarter) {
+          router.push(
+            `/practice/vocab-station?pack=${encodeURIComponent(step.ref)}&roadmapStep=${encodeURIComponent(step.id)}`,
+          );
+          return;
+        }
+
         toast.loading('Đang chuẩn bị gói từ...', { id: 'journey-open' });
         const res = await authFetch('/api/import/packages', {
           method: 'POST',
@@ -861,7 +942,7 @@ OK = học lại · Cancel = giữ nguyên.`,
 
   // ── MAIN JOURNEY MODULE CARDS UI ──
   return (
-    <StudentShell title="Lộ trình">
+    <StudentShell title="Lộ trình" requireAuth={false}>
       <div className="mx-auto max-w-3xl p-4 sm:p-6 pb-28 space-y-6" data-onboarding="journey-main">
         {/* Milestone Achievement Popup */}
         <MilestonePopup
@@ -906,7 +987,9 @@ OK = học lại · Cancel = giữ nguyên.`,
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground flex items-center gap-2">
               <span>Lộ Trình Học Tập</span>
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                {track === 'thpt'
+                {track === 'vocab'
+                  ? 'Từ Vựng Cốt Lõi'
+                  : track === 'thpt'
                   ? 'THPT Global Success'
                   : track === 'toeic'
                   ? 'TOEIC Reading'
@@ -914,7 +997,9 @@ OK = học lại · Cancel = giữ nguyên.`,
               </span>
             </h1>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-              {track === 'thpt' || levelId.startsWith('lop-')
+              {track === 'vocab'
+                ? '100 Động từ sống còn · 5 Tầng Sư Phạm · Làm chủ bố cục câu (S + V + O) & 5 cách luyện tập'
+                : track === 'thpt' || levelId.startsWith('lop-')
                 ? `Global Success lớp ${levelId.replace('lop-', '')} · Bám sát cấu trúc đề thi tốt nghiệp 2025`
                 : track === 'toeic' || levelId.startsWith('toeic-')
                 ? `Luyện thi TOEIC Reading ${levelId.replace('toeic-', '')}+ · Part 5, 6, 7 bám sát cấu trúc đề thi thật`
@@ -922,14 +1007,14 @@ OK = học lại · Cancel = giữ nguyên.`,
             </p>
           </div>
 
-          <Link href="/student">
-            <Button
-              variant="outline"
-              size="sm"
-              className="min-h-[44px] rounded-xl flex items-center gap-1 text-xs font-semibold"
-            >
-              <ArrowLeft className="w-4 h-4" /> Bảng điều khiển
-            </Button>
+          <Link
+            href="/student"
+            className={cn(
+              buttonVariants({ variant: 'outline', size: 'sm' }),
+              'min-h-[44px] rounded-xl flex items-center gap-1 text-xs font-semibold'
+            )}
+          >
+            <ArrowLeft className="w-4 h-4" /> Bảng điều khiển
           </Link>
         </div>
 
@@ -937,13 +1022,18 @@ OK = học lại · Cancel = giữ nguyên.`,
         <TrackSwitcher
           currentTrack={track}
           onTrackChange={(t) => void switchTrack(t)}
+          vocabStats={vocabStats}
           cefrStats={cefrStats}
           thptStats={thptStats}
           toeicStats={toeicStats}
         />
 
-        {/* Level change & multi-track enrollment quick actions */}
-        <div className="flex flex-wrap items-center gap-2">
+        {track === 'vocab' ? (
+          <VocabRoadmapSection />
+        ) : (
+          <>
+            {/* Level change & multi-track enrollment quick actions */}
+            <div className="flex flex-wrap items-center gap-2">
           {track === 'thpt' ? (
             <Button
               variant="outline"
@@ -1120,6 +1210,27 @@ OK = học lại · Cancel = giữ nguyên.`,
 
         {/* ── MAIN MODULE CARDS LIST BY LEVEL ── */}
         <div className="space-y-8">
+          {track === 'cefr' && levelId === 'A0' && (
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl border-2 border-amber-300 bg-amber-50/90 dark:border-amber-800 dark:bg-amber-950/30 text-amber-950 dark:text-amber-100 shadow-xs">
+              <div className="space-y-0.5">
+                <div className="flex items-center gap-1.5 font-black text-xs text-amber-800 dark:text-amber-300">
+                  <Sparkles className="w-3.5 h-3.5 fill-current" /> Khuyến nghị sư phạm cho người mất gốc:
+                </div>
+                <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                  Nên bắt đầu bằng <strong>Lộ trình 100 Động Từ Cốt Lõi</strong> để làm chủ bố cục câu (S + V + O) trước khi học ngữ pháp.
+                </p>
+              </div>
+              <Button
+                size="sm"
+                variant="chunky"
+                onClick={() => void switchTrack('vocab')}
+                className="shrink-0 text-xs font-bold rounded-xl shadow-xs"
+              >
+                Mở Lộ Trình Động Từ →
+              </Button>
+            </div>
+          )}
+
           {visibleTree.start.map((level) => {
             const exit = getExitStandard(level.id);
             const levelUnitsTotal = level.units.length;
@@ -1248,6 +1359,8 @@ OK = học lại · Cancel = giữ nguyên.`,
               ))}
             </div>
           </details>
+        )}
+          </>
         )}
       </div>
     </StudentShell>

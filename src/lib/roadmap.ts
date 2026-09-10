@@ -12,6 +12,7 @@ import placementArtifact from '@/data/roadmap/placement-v1.json';
 import pronunciationArtifact from '@/data/pronunciation/lessons-v1.json';
 import type { PronunciationLesson, RachelVideoMeta } from '@/types/pronunciation';
 import starterPacksArtifact from '@/data/roadmap/starter-packs-v1.json';
+import foundationVerbsArtifact from '@/data/roadmap/foundation-verbs-v1.json';
 import thptContentArtifact from '@/data/thpt/content-v1.json';
 import exitStandardsArtifact from '@/data/roadmap/exit-standards-v1.json';
 
@@ -139,6 +140,111 @@ const starterPacks = (starterPacksArtifact as unknown as { packs: StarterPack[] 
 export function getStarterPack(packId: string): StarterPack | null {
   if (!packId.startsWith('starter-')) return null;
   return starterPacks.find((p) => p.id === packId) ?? null;
+}
+
+// ── 100 Động từ Cốt lõi & Đoạn văn ngữ cảnh (Foundation Verbs & Stories) ──
+export interface FoundationVerbItem {
+  lemma: string;
+  meaningVi: string;
+  ipa: string;
+  pattern: string;
+  collocation: string;
+  example: string;
+  exampleVi: string;
+  cloze: {
+    sentence: string;
+    options: string[];
+    answer: string;
+    explain: string;
+  };
+  sentenceScramble: {
+    tokens: string[];
+    answer: string[];
+    meaningVi: string;
+  };
+}
+
+export interface FoundationStoryBlank {
+  id: number;
+  answer: string;
+  options: string[];
+}
+
+export interface FoundationStory {
+  title: string;
+  passage: string;
+  passageVi: string;
+  highlightWords: string[];
+  cloze: {
+    text: string;
+    blanks: FoundationStoryBlank[];
+  };
+}
+
+export interface FoundationVerbPack {
+  id: string;
+  tier: number;
+  title: string;
+  description: string;
+  story: FoundationStory;
+  verbs: FoundationVerbItem[];
+}
+
+export function getFoundationVerbPacks(): FoundationVerbPack[] {
+  return (foundationVerbsArtifact as unknown as { verbPacks: FoundationVerbPack[] }).verbPacks ?? [];
+}
+
+export function getFoundationVerbPack(id: string): FoundationVerbPack | null {
+  return getFoundationVerbPacks().find((p) => p.id === id) ?? null;
+}
+
+export function getFoundationVerb(lemma: string): FoundationVerbItem | null {
+  const norm = lemma.trim().toLowerCase();
+  for (const pack of getFoundationVerbPacks()) {
+    const found = pack.verbs.find((v) => v.lemma.toLowerCase() === norm);
+    if (found) return found;
+  }
+  return null;
+}
+
+export function resolveFoundationVerbPack(packIdOrRef?: string | null): FoundationVerbPack {
+  const packs = getFoundationVerbPacks();
+  if (!packs || packs.length === 0) {
+    throw new Error('No foundation verb packs available');
+  }
+  if (!packIdOrRef) return packs[0];
+
+  const exact = packs.find((p) => p.id === packIdOrRef);
+  if (exact) return exact;
+
+  const mapping: Record<string, string> = {
+    'starter-a0-verbs': 'starter-verb-01',
+    'starter-a0-daily': 'starter-verb-03',
+    'starter-a0-greetings': 'starter-verb-01',
+    'starter-a0-people': 'starter-verb-01',
+    'starter-a0-numbers': 'starter-verb-02',
+    'starter-a0-colors': 'starter-verb-02',
+    'starter-a0-classroom': 'starter-verb-05',
+    'starter-a0-food': 'starter-verb-03',
+    'starter-a0-body': 'starter-verb-03',
+    'starter-a0-animals': 'starter-verb-02',
+    'starter-a0-clothes': 'starter-verb-07',
+    'starter-a0-weather': 'starter-verb-02',
+  };
+
+  const mappedId = mapping[packIdOrRef];
+  if (mappedId) {
+    const mapped = packs.find((p) => p.id === mappedId);
+    if (mapped) return mapped;
+  }
+
+  return packs[0];
+}
+
+export function getFoundationVerbsByTier(tier: number): FoundationVerbItem[] {
+  return getFoundationVerbPacks()
+    .filter((p) => p.tier === tier)
+    .flatMap((p) => p.verbs);
 }
 
 export function getPronunciationLesson(id: string): PronunciationLesson | null {

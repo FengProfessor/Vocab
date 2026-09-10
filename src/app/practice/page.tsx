@@ -11,6 +11,17 @@ import { StudentShell } from '@/components/student/StudentShell';
 
 const MODES = [
   {
+    href: '/practice/vocab-station',
+    emoji: '🌟',
+    title: '100 Động từ Cốt lõi & Luyện ngữ cảnh',
+    desc: 'Lộ trình bài bản mất gốc A0-A1 · Đọc đoạn văn · Đục lỗ · Bố cục S-V-O · Flashcard 2.0',
+    ring: 'border-amber-300 bg-amber-50/90 hover:border-amber-500 hover:bg-amber-100/70 dark:border-amber-800 dark:bg-amber-950/30',
+    badge: 'bg-amber-600',
+    text: 'text-amber-950 dark:text-amber-100',
+    sub: 'text-amber-800/90 dark:text-amber-300/80',
+    arrow: 'text-amber-500',
+  },
+  {
     href: '/toeic',
     emoji: '🎯',
     title: 'Thi thử TOEIC chuẩn ETS',

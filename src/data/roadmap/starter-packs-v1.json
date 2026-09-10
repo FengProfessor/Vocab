@@ -1,6 +1,6 @@
 {
-  "version": "starter-v2",
-  "note": "Pack sinh tồn A0 — tạo tay theo docs/roadmap-research/03-vocab-level-map.md (A0: chào hỏi, số, màu, đồ vật lớp học, đồ dùng cá nhân, đồ ăn, cơ thể, động từ sinh tồn, động vật, quần áo, thời tiết, sinh hoạt) gồm 12 packs x 12 từ = 144 từ cơ bản cho 6 Chặng A0.",
+  "version": "starter-v3",
+  "note": "Pack sinh tồn A0 — 12 packs chủ đề cơ bản (144 từ) + 10 packs Động từ Cốt lõi (100 từ) cho học sinh mất gốc bài bản.",
   "packs": [
     {
       "id": "starter-a0-greetings",
@@ -61,6 +61,56 @@
       "id": "starter-a0-daily",
       "title": "Sinh hoạt hằng ngày",
       "words": ["wake up", "sleep", "wash", "cook", "clean", "study", "work", "play", "walk", "run", "read", "write"]
+    },
+    {
+      "id": "starter-verb-01",
+      "title": "10 Động từ Sinh tồn & Nhu cầu",
+      "words": ["be", "have", "do", "want", "need", "like", "know", "think", "see", "look"]
+    },
+    {
+      "id": "starter-verb-02",
+      "title": "10 Động từ Chuyển động & Di chuyển",
+      "words": ["go", "come", "walk", "run", "sit", "stand", "move", "stay", "leave", "arrive"]
+    },
+    {
+      "id": "starter-verb-03",
+      "title": "10 Động từ Sinh hoạt & Thể chất",
+      "words": ["wake up", "sleep", "eat", "drink", "cook", "wash", "clean", "wear", "open", "close"]
+    },
+    {
+      "id": "starter-verb-04",
+      "title": "10 Động từ Giao tiếp & Trò chuyện",
+      "words": ["say", "tell", "talk", "speak", "ask", "answer", "call", "hear", "listen", "write"]
+    },
+    {
+      "id": "starter-verb-05",
+      "title": "10 Động từ Tương tác & Cho nhận",
+      "words": ["give", "take", "help", "make", "bring", "send", "show", "wait", "meet", "invite"]
+    },
+    {
+      "id": "starter-verb-06",
+      "title": "10 Động từ Học tập & Công việc",
+      "words": ["learn", "study", "read", "teach", "work", "try", "use", "find", "check", "prepare"]
+    },
+    {
+      "id": "starter-verb-07",
+      "title": "10 Động từ Mua sắm & Trao đổi",
+      "words": ["buy", "sell", "pay", "cost", "spend", "choose", "decide", "order", "agree", "refuse"]
+    },
+    {
+      "id": "starter-verb-08",
+      "title": "10 Động từ Cảm xúc & Hy vọng",
+      "words": ["love", "hate", "enjoy", "feel", "hope", "wish", "remember", "forget", "understand", "believe"]
+    },
+    {
+      "id": "starter-verb-09",
+      "title": "10 Động từ Tác động & Trạng thái",
+      "words": ["put", "hold", "cut", "catch", "change", "stop", "start", "finish", "pass", "lose"]
+    },
+    {
+      "id": "starter-verb-10",
+      "title": "10 Động từ Biến đổi & Kết quả",
+      "words": ["win", "grow", "follow", "keep", "let", "allow", "happen", "seem", "become", "travel"]
     }
   ]
 }

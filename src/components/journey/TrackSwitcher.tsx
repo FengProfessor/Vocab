@@ -17,6 +17,7 @@ export interface TrackSwitcherProps {
   currentTrack: RoadmapTrackId;
   onTrackChange: (track: RoadmapTrackId) => void;
   cefrStats?: TrackStats;
+  vocabStats?: TrackStats;
   thptStats?: TrackStats;
   toeicStats?: TrackStats;
   className?: string;
@@ -27,17 +28,48 @@ export function TrackSwitcher({
   currentTrack,
   onTrackChange,
   cefrStats,
+  vocabStats,
   thptStats,
   toeicStats,
   className,
   disabled = false,
 }: TrackSwitcherProps) {
   const activeStats =
-    currentTrack === 'cefr' ? cefrStats : currentTrack === 'toeic' ? toeicStats : thptStats;
+    currentTrack === 'vocab'
+      ? vocabStats
+      : currentTrack === 'cefr'
+      ? cefrStats
+      : currentTrack === 'toeic'
+      ? toeicStats
+      : thptStats;
 
   const handleTrackClick = (targetTrack: RoadmapTrackId) => {
     if (disabled || targetTrack === currentTrack) return;
     onTrackChange(targetTrack);
+  };
+
+  const handleTrackKeyDown = (e: React.KeyboardEvent, trackId: RoadmapTrackId) => {
+    const tracks: RoadmapTrackId[] = ['vocab', 'cefr', 'thpt', 'toeic'];
+    const idx = tracks.indexOf(trackId);
+    let nextTrack: RoadmapTrackId | null = null;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      nextTrack = tracks[(idx + 1) % tracks.length];
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      nextTrack = tracks[(idx - 1 + tracks.length) % tracks.length];
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      nextTrack = tracks[0];
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      nextTrack = tracks[tracks.length - 1];
+    }
+    if (nextTrack !== null) {
+      handleTrackClick(nextTrack);
+      const el = document.getElementById(`track-tab-${nextTrack}`);
+      el?.focus();
+    }
   };
 
   return (
@@ -46,17 +78,73 @@ export function TrackSwitcher({
       <div
         role="tablist"
         aria-label="Chọn lộ trình học"
-        className="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1.5 bg-muted/60 dark:bg-muted/30 border border-border/80 rounded-2xl shadow-xs"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 p-1.5 bg-muted/60 dark:bg-muted/30 border border-border/80 rounded-2xl shadow-xs"
       >
-        {/* CEFR Tab */}
+        {/* Vocab Foundation Tab */}
         <button
+          key="track-tab-vocab"
+          id="track-tab-vocab"
           type="button"
           role="tab"
+          tabIndex={currentTrack === 'vocab' ? 0 : -1}
+          aria-selected={currentTrack === 'vocab'}
+          disabled={disabled}
+          onClick={() => handleTrackClick('vocab')}
+          onKeyDown={(e) => handleTrackKeyDown(e, 'vocab')}
+          className={cn(
+            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
+            currentTrack === 'vocab'
+              ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
+              : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
+          )}
+        >
+          <div className="flex items-center gap-3 min-w-0">
+            <span
+              className={cn(
+                'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg font-bold shadow-xs',
+                currentTrack === 'vocab'
+                  ? 'bg-gradient-to-br from-amber-500 to-orange-600 text-white'
+                  : 'bg-muted text-muted-foreground'
+              )}
+            >
+              🎯
+            </span>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="font-bold text-sm tracking-tight truncate">Từ Vựng Cốt Lõi</span>
+                <span className="inline-flex items-center text-[10px] font-medium bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 px-1.5 py-0.5 rounded-full">
+                  Mất gốc
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground truncate">
+                {vocabStats?.isEnrolled && vocabStats.completedUnits !== undefined
+                  ? `${vocabStats.completedUnits}/${vocabStats.totalUnits} chặng`
+                  : '100 Động từ · 5 Tầng'}
+              </p>
+            </div>
+          </div>
+
+          {vocabStats?.isEnrolled && (
+            <div className="shrink-0 text-right hidden sm:block">
+              <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                {vocabStats.progressPct}%
+              </span>
+            </div>
+          )}
+        </button>
+        {/* CEFR Tab */}
+        <button
+          key="track-tab-cefr"
+          id="track-tab-cefr"
+          type="button"
+          role="tab"
+          tabIndex={currentTrack === 'cefr' ? 0 : -1}
           aria-selected={currentTrack === 'cefr'}
           disabled={disabled}
           onClick={() => handleTrackClick('cefr')}
+          onKeyDown={(e) => handleTrackKeyDown(e, 'cefr')}
           className={cn(
-            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation',
+            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
             currentTrack === 'cefr'
               ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
               : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
@@ -95,7 +183,7 @@ export function TrackSwitcher({
           </div>
 
           {cefrStats?.isEnrolled && (
-            <div className="shrink-0 text-right hidden xs:block">
+            <div className="shrink-0 text-right hidden sm:block">
               <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
                 {cefrStats.progressPct}%
               </span>
@@ -105,13 +193,17 @@ export function TrackSwitcher({
 
         {/* THPT Tab */}
         <button
+          key="track-tab-thpt"
+          id="track-tab-thpt"
           type="button"
           role="tab"
+          tabIndex={currentTrack === 'thpt' ? 0 : -1}
           aria-selected={currentTrack === 'thpt'}
           disabled={disabled}
           onClick={() => handleTrackClick('thpt')}
+          onKeyDown={(e) => handleTrackKeyDown(e, 'thpt')}
           className={cn(
-            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation',
+            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
             currentTrack === 'thpt'
               ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
               : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
@@ -150,7 +242,7 @@ export function TrackSwitcher({
           </div>
 
           {thptStats?.isEnrolled && (
-            <div className="shrink-0 text-right hidden xs:block">
+            <div className="shrink-0 text-right hidden sm:block">
               <span className="text-xs font-bold text-red-600 dark:text-red-400">
                 {thptStats.progressPct}%
               </span>
@@ -160,13 +252,17 @@ export function TrackSwitcher({
 
         {/* TOEIC Tab */}
         <button
+          key="track-tab-toeic"
+          id="track-tab-toeic"
           type="button"
           role="tab"
+          tabIndex={currentTrack === 'toeic' ? 0 : -1}
           aria-selected={currentTrack === 'toeic'}
           disabled={disabled}
           onClick={() => handleTrackClick('toeic')}
+          onKeyDown={(e) => handleTrackKeyDown(e, 'toeic')}
           className={cn(
-            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation',
+            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
             currentTrack === 'toeic'
               ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
               : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
@@ -205,7 +301,7 @@ export function TrackSwitcher({
           </div>
 
           {toeicStats?.isEnrolled && (
-            <div className="shrink-0 text-right hidden xs:block">
+            <div className="shrink-0 text-right hidden sm:block">
               <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
                 {toeicStats.progressPct}%
               </span>
@@ -234,7 +330,9 @@ export function TrackSwitcher({
             <div
               className={cn(
                 'h-full transition-all duration-500 rounded-full',
-                currentTrack === 'cefr'
+                currentTrack === 'vocab'
+                  ? 'bg-gradient-to-r from-amber-500 to-emerald-500'
+                  : currentTrack === 'cefr'
                   ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
                   : currentTrack === 'toeic'
                   ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
@@ -247,7 +345,9 @@ export function TrackSwitcher({
           <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-0.5">
             <span className="flex items-center gap-1">
               <Lock className="w-3 h-3 text-muted-foreground/80 shrink-0" />
-              Mở khóa tuyến tính khoa học: Đạt checkpoint ≥80% để mở chặng tiếp theo
+              {currentTrack === 'vocab'
+                ? 'Lộ trình 5 Tầng Sư Phạm: 100 động từ làm mỏ neo cú pháp (S + V + O) & 5 cách luyện tập'
+                : 'Mở khóa tuyến tính khoa học: Đạt checkpoint ≥80% để mở chặng tiếp theo'}
             </span>
             {activeStats.currentLevelTitle && (
               <span className="font-medium text-foreground shrink-0">
