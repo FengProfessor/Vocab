@@ -767,7 +767,9 @@ function loadStudy4Test(testId: string): ToeicUnifiedQuestion[] {
     return cloneUnifiedQuestions(testCache.get(cacheKey)!);
   }
 
-  const fullPath = getCrawlerDataPath('toeic_data', `study4_test_${testId}.json`);
+  const fullPath =
+    getCrawlerDataPath('study4_data', `study4_test_${testId}.json`) ||
+    getCrawlerDataPath('toeic_data', `study4_test_${testId}.json`);
   if (!fullPath) {
     return loadFullToeicTest(testId);
   }
