@@ -37,7 +37,13 @@ import {
   getAvailableToeicTests,
   stripSensitiveToeicData,
   convertLegacyMiniTest,
+  type ToeicFilterMode,
 } from '@/lib/toeic-test-loader';
+import {
+  getAnsweredQuestionIds,
+  getMistakeQuestionIds,
+  recordQuestionAnswers,
+} from '@/lib/toeic-question-history';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
@@ -73,6 +79,11 @@ function ToeicExamRoomInner() {
   const limitParam = searchParams.get('limit');
   const timeParam = searchParams.get('time');
   const roadmapStep = searchParams.get('roadmapStep') ?? '';
+  const filterModeParam = searchParams.get('filterMode');
+  const filterMode: ToeicFilterMode =
+    filterModeParam === 'mistakes' || filterModeParam === 'all_random'
+      ? (filterModeParam as ToeicFilterMode)
+      : 'unseen';
 
   const limitNum = limitParam ? parseInt(limitParam, 10) : undefined;
 
@@ -122,7 +133,13 @@ function ToeicExamRoomInner() {
         .replace(/^estudyme-test-(\d+)/i, 'Đề ETS Simulation $1')
         .replace(/^study4_test_(\d+)/i, 'Đề ETS $1');
       const sourceLabel = isBank ? 'Ngân hàng đề' : (foundItem?.title || cleanLabel);
-      const pQuestions = loadToeicPartPractice(partNum, targetTestId, limitNum, true);
+      const excludedIds = isBank && partNum ? getAnsweredQuestionIds(partNum) : undefined;
+      const mistakeIds = isBank && partNum ? getMistakeQuestionIds(partNum) : undefined;
+      const pQuestions = loadToeicPartPractice(partNum, targetTestId, limitNum, true, {
+        filterMode,
+        excludedIds,
+        mistakeIds,
+      });
       const minutes = timeParam
         ? parseInt(timeParam, 10)
         : Math.max(5, Math.ceil(pQuestions.length * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25)));
@@ -251,15 +268,39 @@ function ToeicExamRoomInner() {
 
     async function fetchSanitizedTest() {
       try {
-        const query = new URLSearchParams({
-          testId: targetTestId,
-          ...(partNum ? { part: String(partNum) } : {}),
-          ...(limitNum ? { limit: String(limitNum) } : {}),
-          ...(timeParam ? { time: timeParam } : {}),
-          mode: currentMode,
-        });
+        const isBankPractice = isPartPractice && targetTestId === 'bank';
+        const excludedIds = isPartPractice && partNum ? getAnsweredQuestionIds(partNum) : undefined;
+        const mistakeIds = isPartPractice && partNum ? getMistakeQuestionIds(partNum) : undefined;
 
-        const res = await fetch(`/api/toeic/test?${query.toString()}`);
+        let res: Response;
+        if (isBankPractice || (isPartPractice && partNum)) {
+          res = await fetch('/api/toeic/test', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              testId: targetTestId,
+              part: partNum ? String(partNum) : undefined,
+              limit: limitNum ? String(limitNum) : undefined,
+              time: timeParam,
+              mode: currentMode,
+              filterMode,
+              excludedIds,
+              mistakeIds,
+            }),
+          });
+        } else {
+          const query = new URLSearchParams({
+            testId: targetTestId,
+            ...(partNum ? { part: String(partNum) } : {}),
+            ...(limitNum ? { limit: String(limitNum) } : {}),
+            ...(timeParam ? { time: timeParam } : {}),
+            mode: currentMode,
+            ...(filterMode ? { filterMode } : {}),
+          });
+
+          res = await fetch(`/api/toeic/test?${query.toString()}`);
+        }
+
         if (res.ok) {
           const data: ToeicTestApiResponse = await res.json();
           if (data.success && data.questions && data.questions.length > 0 && !isCancelled) {
@@ -286,7 +327,7 @@ function ToeicExamRoomInner() {
     return () => {
       isCancelled = true;
     };
-  }, [targetTestId, currentMode, fallbackQuestions, partNum, timeParam, limitNum]);
+  }, [targetTestId, currentMode, fallbackQuestions, partNum, timeParam, limitNum, filterMode, isPartPractice]);
 
   // ── 4. Session State Hook & Submitted Exam Persistence ──
   const sessionKey = useMemo(() => {
@@ -320,6 +361,25 @@ function ToeicExamRoomInner() {
     setIsSavedToHistoryState(Boolean(session.savedToHistory));
     setIsGuestState(Boolean(session.isGuest));
 
+    // Record question answers into question history (R1 & R3)
+    const historyResults = questions
+      .filter((q) => answers[q.questionNumber] !== undefined && answers[q.questionNumber] !== null)
+      .map((q) => {
+        const userChoice = answers[q.questionNumber];
+        const matching = reviewQuestions?.find((rq) => rq.id === q.id);
+        const correctAnswer = matching?.correctAnswer || q.correctAnswer;
+        return {
+          questionId: q.id,
+          part: q.part,
+          isCorrect: Boolean(correctAnswer && userChoice === correctAnswer),
+          selectedOption: userChoice || '',
+        };
+      });
+
+    if (historyResults.length > 0) {
+      recordQuestionAnswers(historyResults);
+    }
+
     // If user is guest or exam not yet saved to DB, cache in localStorage immediately
     if (session.isGuest || !session.savedToHistory) {
       if (typeof window !== 'undefined') {
@@ -335,6 +395,7 @@ function ToeicExamRoomInner() {
               timeSpentSeconds: durationSeconds - session.timeRemainingSeconds,
               scoreResult: result,
               savedAt: Date.now(),
+              questionIds: questions.map((q) => q.id),
             })
           );
         } catch (e) {
@@ -452,6 +513,7 @@ function ToeicExamRoomInner() {
             answers: pending.answers,
             timeSpentSeconds: pending.timeSpentSeconds || 0,
             honeypot: '',
+            questionIds: pending.questionIds || questions.map((q) => q.id),
           }),
         });
 
@@ -514,6 +576,7 @@ function ToeicExamRoomInner() {
             timeSpentSeconds: durationSeconds - session.timeRemainingSeconds,
             scoreResult: activeResult,
             savedAt: Date.now(),
+            questionIds: questions.map((q) => q.id),
           })
         );
       }
@@ -812,6 +875,7 @@ function ToeicExamRoomInner() {
               honeypot: honeypotValue,
               part: partNum || undefined,
               limit: limitNum || undefined,
+              questionIds: questions.map((q) => q.id),
             });
             if (res && !res.success && res.error) {
               toast.error(res.error);

@@ -25,6 +25,14 @@ import {
   Info,
 } from 'lucide-react';
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
+import { toast } from 'sonner';
+import {
+  getPartProgressStats,
+  resetPartProgress,
+  TOEIC_HISTORY_UPDATED_EVENT,
+  type PartProgressStats,
+  TOEIC_PART_BANK_TOTALS,
+} from '@/lib/toeic-question-history';
 import type {
   ToeicCatalogIndex,
   ToeicCatalogTestItem,
@@ -286,11 +294,39 @@ function ToeicCatalogContent() {
 
   // Part Practice Configurator State
   const [selectedSource, setSelectedSource] = useState<string>('all');
+  const [selectedFilterMode, setSelectedFilterMode] = useState<'unseen' | 'mistakes' | 'all_random'>('unseen');
   const [selectedCount, setSelectedCount] = useState<number>(() => {
     return PART_DEFINITIONS.find((p) => p.part === validPart)?.defaultCount || 10;
   });
   const [customCountInput, setCustomCountInput] = useState<string>('');
   const [selectedMode, setSelectedMode] = useState<'practice' | 'real'>('practice');
+  const [partProgress, setPartProgress] = useState<PartProgressStats>(() => getPartProgressStats(validPart));
+  const [isResetConfirmOpen, setIsResetConfirmOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setPartProgress(getPartProgressStats(selectedPart));
+  }, [selectedPart]);
+
+  useEffect(() => {
+    const handleHistoryUpdate = () => {
+      setPartProgress(getPartProgressStats(selectedPart));
+    };
+
+    window.addEventListener(TOEIC_HISTORY_UPDATED_EVENT, handleHistoryUpdate);
+    window.addEventListener('storage', handleHistoryUpdate);
+
+    return () => {
+      window.removeEventListener(TOEIC_HISTORY_UPDATED_EVENT, handleHistoryUpdate);
+      window.removeEventListener('storage', handleHistoryUpdate);
+    };
+  }, [selectedPart]);
+
+  const handleResetConfirm = () => {
+    resetPartProgress(selectedPart);
+    setPartProgress(getPartProgressStats(selectedPart));
+    setIsResetConfirmOpen(false);
+    toast.success(`Đã đặt lại tiến độ Part ${selectedPart} về 0 câu.`);
+  };
 
   const handleSelectPart = (partNum: number) => {
     setSelectedPart(partNum);
@@ -991,6 +1027,92 @@ function ToeicCatalogContent() {
                 </div>
               </div>
 
+              {/* ── VISUAL PROGRESS BAR & STATS ── */}
+              <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/40 p-4 space-y-3">
+                {/* Top Row: Title & Reset Action */}
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                    TIẾN ĐỘ HOÀN THÀNH PART {selectedPart}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setIsResetConfirmOpen(true)}
+                    className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 transition-colors cursor-pointer"
+                    title={`Đặt lại tiến độ Part ${selectedPart}`}
+                  >
+                    <RotateCcw className="h-3 w-3" />
+                    <span>Đặt lại tiến độ</span>
+                  </button>
+                </div>
+
+                {/* Progress Bar Track */}
+                <div className="h-2 w-full rounded-xs bg-slate-200 dark:bg-slate-800 overflow-hidden flex">
+                  <div
+                    className="bg-slate-900 dark:bg-white transition-all duration-300"
+                    style={{ width: `${Math.min(100, Math.max(0, partProgress.percentage))}%` }}
+                  />
+                </div>
+
+                {/* 3-Column Stats Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="border border-slate-200 dark:border-slate-800 p-3 rounded-sm bg-white dark:bg-slate-950">
+                    <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Đã làm:</div>
+                    <div className="text-xs font-mono tabular-nums font-bold text-slate-900 dark:text-white mt-0.5">
+                      {partProgress.completedCount} / {partProgress.totalQuestions} câu ({partProgress.percentage}%)
+                    </div>
+                  </div>
+                  <div className="border border-slate-200 dark:border-slate-800 p-3 rounded-sm bg-white dark:bg-slate-950">
+                    <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Cần ôn:</div>
+                    <div className="text-xs font-mono tabular-nums font-bold text-amber-600 dark:text-amber-400 mt-0.5">
+                      {partProgress.mistakeCount} câu từng làm sai
+                    </div>
+                  </div>
+                  <div className="border border-slate-200 dark:border-slate-800 p-3 rounded-sm bg-white dark:bg-slate-950">
+                    <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Còn lại:</div>
+                    <div className="text-xs font-mono tabular-nums font-bold text-slate-600 dark:text-slate-400 mt-0.5">
+                      {partProgress.unseenCount} câu chưa làm
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Reset Confirmation Modal */}
+              {isResetConfirmOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4">
+                  <div className="w-full max-w-md rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-lg space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400">
+                        <RotateCcw className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                          Xác nhận đặt lại tiến độ Part {selectedPart}?
+                        </h3>
+                        <p className="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                          Toàn bộ lịch sử {partProgress.completedCount} câu đã làm của Part này sẽ bị xóa khỏi máy. Bạn sẽ bắt đầu luyện tập lại từ 0 câu.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                      <button
+                        type="button"
+                        onClick={() => setIsResetConfirmOpen(false)}
+                        className="px-3 py-1.5 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors"
+                      >
+                        Hủy
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleResetConfirm}
+                        className="px-3 py-1.5 rounded-sm bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold cursor-pointer transition-colors"
+                      >
+                        Xác nhận đặt lại
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* ── BƯỚC 1: NGUỒN ĐỀ THI LẤY CÂU HỎI ── */}
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2">
@@ -1107,12 +1229,135 @@ function ToeicCatalogContent() {
                 </div>
               </div>
 
-              {/* ── BƯỚC 2: SỐ LƯỢNG CÂU HỎI MUỐN LÀM ── */}
+              {/* ── BƯỚC 2: BỘ LỌC CÂU HỎI THÔNG MINH (CHỐNG TRÙNG LẶP) ── */}
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
+                    2
+                  </span>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                    Bộ lọc câu hỏi thông minh (Chống trùng lặp):
+                  </label>
+                </div>
+
+                <div className="grid sm:grid-cols-3 gap-3">
+                  {/* Option 1: Unseen (Default) */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedFilterMode('unseen')}
+                    className={`flex items-start gap-3 p-3.5 rounded-sm border text-left transition-colors cursor-pointer ${
+                      selectedFilterMode === 'unseen'
+                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
+                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                    }`}
+                  >
+                    <div className="mt-0.5">
+                      <div
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center ${
+                          selectedFilterMode === 'unseen'
+                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            : 'border-slate-400'
+                        }`}
+                      >
+                        {selectedFilterMode === 'unseen' && (
+                          <div className="w-1.5 h-1.5 rounded-xs bg-white dark:bg-slate-900" />
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5 flex-wrap">
+                        <span>Chỉ câu mới chưa làm (Chống trùng)</span>
+                        <span className="rounded-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-1 py-0.2 text-[10px] font-mono font-bold">
+                          [MẶC ĐỊNH]
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                        Quét toàn bộ kho đề và loại bỏ 100% câu đã làm trong lịch sử. Đảm bảo mỗi lượt luyện tập là câu hỏi hoàn toàn mới.
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* Option 2: Mistakes */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedFilterMode('mistakes')}
+                    className={`flex items-start gap-3 p-3.5 rounded-sm border text-left transition-colors cursor-pointer ${
+                      partProgress.mistakeCount === 0 ? 'opacity-60' : ''
+                    } ${
+                      selectedFilterMode === 'mistakes'
+                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
+                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                    }`}
+                  >
+                    <div className="mt-0.5">
+                      <div
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center ${
+                          selectedFilterMode === 'mistakes'
+                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            : 'border-slate-400'
+                        }`}
+                      >
+                        {selectedFilterMode === 'mistakes' && (
+                          <div className="w-1.5 h-1.5 rounded-xs bg-white dark:bg-slate-900" />
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5 flex-wrap">
+                        <span>Ôn lại các câu từng làm sai ({partProgress.mistakeCount} câu sẵn sàng)</span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                        Tập trung củng cố những câu từng chọn sai để khắc phục điểm yếu và rèn luyện phản xạ chính xác.
+                        {partProgress.mistakeCount === 0 && (
+                          <span className="block mt-1 text-amber-600 dark:text-amber-400 font-medium">
+                            (Chưa có câu làm sai nào ở Part này)
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* Option 3: All Random */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedFilterMode('all_random')}
+                    className={`flex items-start gap-3 p-3.5 rounded-sm border text-left transition-colors cursor-pointer ${
+                      selectedFilterMode === 'all_random'
+                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
+                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                    }`}
+                  >
+                    <div className="mt-0.5">
+                      <div
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center ${
+                          selectedFilterMode === 'all_random'
+                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            : 'border-slate-400'
+                        }`}
+                      >
+                        {selectedFilterMode === 'all_random' && (
+                          <div className="w-1.5 h-1.5 rounded-xs bg-white dark:bg-slate-900" />
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-900 dark:text-white">
+                        Xáo trộn ngẫu nhiên toàn bộ kho
+                      </div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                        Bốc ngẫu nhiên không hoàn lại từ kho {partProgress.totalQuestions} câu hỏi của Part này, không xét lịch sử làm bài.
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              {/* ── BƯỚC 3: SỐ LƯỢNG CÂU HỎI MUỐN LÀM ── */}
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
-                      2
+                      3
                     </span>
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
                       Số lượng câu hỏi muốn làm:
@@ -1171,14 +1416,14 @@ function ToeicCatalogContent() {
                 </div>
               </div>
 
-              {/* ── BƯỚC 3: CHẾ ĐỘ LUYỆN TẬP ── */}
+              {/* ── BƯỚC 4: HÌNH THỨC LÀM BÀI ── */}
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-700 text-white dark:bg-slate-300 dark:text-slate-900 font-mono text-xs font-bold">
-                    3
+                    4
                   </span>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                    Chế độ luyện tập:
+                    Hình thức làm bài:
                   </label>
                 </div>
 
@@ -1264,12 +1509,20 @@ function ToeicCatalogContent() {
                   </span>
                   <span>·</span>
                   <span>
+                    {selectedFilterMode === 'unseen'
+                      ? 'Chỉ câu mới'
+                      : selectedFilterMode === 'mistakes'
+                      ? 'Ôn câu sai'
+                      : 'Ngẫu nhiên'}
+                  </span>
+                  <span>·</span>
+                  <span>
                     {selectedMode === 'practice' ? 'Luyện tập (Có giải thích)' : 'Thi thử (Tính giờ)'}
                   </span>
                 </div>
 
                 <Link
-                  href={`/toeic/exam/${selectedSource === 'all' ? 'bank' : selectedSource}?part=${selectedPart}&limit=${effectiveCount}&mode=${selectedMode}`}
+                  href={`/toeic/exam/${selectedSource === 'all' ? 'bank' : selectedSource}?part=${selectedPart}&limit=${effectiveCount}&mode=${selectedMode}&filterMode=${selectedFilterMode}`}
                   className="inline-flex items-center justify-center gap-2 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 px-5 py-2.5 text-xs sm:text-sm font-bold transition-colors shadow-xs shrink-0"
                 >
                   <Play className="h-3.5 w-3.5 fill-current" />

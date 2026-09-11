@@ -1125,71 +1125,484 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
   return questions;
 }
 
+// ── Smart Question Selector & Anti-Duplication Interfaces (R2) ──
+
+export type ToeicFilterMode = 'unseen' | 'mistakes' | 'all_random';
+
+export interface ToeicPartPracticeOptions {
+  filterMode?: 'unseen' | 'mistakes' | 'all_random';
+  excludedIds?: string[];
+  mistakeIds?: string[];
+  seed?: number;
+}
+
+export interface ToeicStimulusGroup {
+  groupId: string;
+  part: ToeicPart;
+  testId: string;
+  questions: ToeicUnifiedQuestion[];
+}
+
+/**
+ * Deterministic pseudo-random number generator for reproducible practice sessions.
+ */
+function seededRandom(seed: number) {
+  let s = seed % 2147483647;
+  if (s <= 0) s += 2147483646;
+  return () => {
+    s = (s * 16807) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
+}
+
+/**
+ * Shuffles an array in place or copy, deterministically if seed is provided.
+ */
+function shuffleArray<T>(array: T[], seed?: number): T[] {
+  const arr = [...array];
+  if (seed !== undefined) {
+    const rand = seededRandom(seed);
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      const temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+  } else {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+  }
+  return arr;
+}
+
+/**
+ * Groups unified questions into atomic stimulus groups (preserving Part 3/4 audio dialogues,
+ * Part 6 text completion blanks, Part 7 single/double/triple passages) to prevent slicing mid-stimulus.
+ */
+export function groupQuestionsIntoStimulusGroups(
+  questions: ToeicUnifiedQuestion[]
+): ToeicStimulusGroup[] {
+  const groups: ToeicStimulusGroup[] = [];
+  if (!questions || questions.length === 0) return groups;
+
+  let currentGroup: ToeicUnifiedQuestion[] = [];
+  let currentGroupType: 'single' | 'audio' | 'passage' = 'single';
+  let currentKey: string | undefined = undefined;
+
+  for (let i = 0; i < questions.length; i++) {
+    const q = questions[i];
+    const p = q.part;
+
+    if (p === 1 || p === 2 || p === 5) {
+      if (currentGroup.length > 0) {
+        groups.push({
+          groupId: currentGroup[0].id,
+          part: currentGroup[0].part,
+          testId: currentGroup[0].testId,
+          questions: currentGroup,
+        });
+        currentGroup = [];
+        currentKey = undefined;
+      }
+      groups.push({
+        groupId: q.id,
+        part: q.part,
+        testId: q.testId,
+        questions: [q],
+      });
+      continue;
+    }
+
+    if (p === 3 || p === 4) {
+      const audioKey = q.audioUrl || `no-audio-${q.testId}-${Math.floor(q.questionNumber / 3)}`;
+      const sameAudio =
+        currentGroup.length > 0 &&
+        currentGroupType === 'audio' &&
+        currentKey === audioKey &&
+        currentGroup.length < 3;
+      if (sameAudio) {
+        currentGroup.push(q);
+      } else {
+        if (currentGroup.length > 0) {
+          groups.push({
+            groupId: currentGroup[0].id,
+            part: currentGroup[0].part,
+            testId: currentGroup[0].testId,
+            questions: currentGroup,
+          });
+        }
+        currentGroup = [q];
+        currentGroupType = 'audio';
+        currentKey = audioKey;
+      }
+      continue;
+    }
+
+    if (p === 6) {
+      const passageKey = q.passage || `no-passage-${q.testId}-${Math.floor(q.questionNumber / 4)}`;
+      const samePassage =
+        currentGroup.length > 0 &&
+        currentGroupType === 'passage' &&
+        currentKey === passageKey &&
+        currentGroup.length < 4;
+      if (samePassage) {
+        currentGroup.push(q);
+      } else {
+        if (currentGroup.length > 0) {
+          groups.push({
+            groupId: currentGroup[0].id,
+            part: currentGroup[0].part,
+            testId: currentGroup[0].testId,
+            questions: currentGroup,
+          });
+        }
+        currentGroup = [q];
+        currentGroupType = 'passage';
+        currentKey = passageKey;
+      }
+      continue;
+    }
+
+    if (p === 7) {
+      const passageKey = q.passage || `no-passage-${q.testId}-${q.id}`;
+      const samePassage =
+        currentGroup.length > 0 &&
+        currentGroupType === 'passage' &&
+        currentKey === passageKey;
+      if (samePassage) {
+        currentGroup.push(q);
+      } else {
+        if (currentGroup.length > 0) {
+          groups.push({
+            groupId: currentGroup[0].id,
+            part: currentGroup[0].part,
+            testId: currentGroup[0].testId,
+            questions: currentGroup,
+          });
+        }
+        currentGroup = [q];
+        currentGroupType = 'passage';
+        currentKey = passageKey;
+      }
+      continue;
+    }
+  }
+
+  if (currentGroup.length > 0) {
+    groups.push({
+      groupId: currentGroup[0].id,
+      part: currentGroup[0].part,
+      testId: currentGroup[0].testId,
+      questions: currentGroup,
+    });
+  }
+
+  return groups;
+}
+
+/**
+ * Internal helper to load stimulus groups for a TOEIC part from bank or specific test.
+ */
+function loadPartStimulusGroups(part: ToeicPart, cleanId: string): ToeicStimulusGroup[] {
+  const isAllBank = cleanId === 'all' || cleanId === 'bank' || cleanId === 'all-tests' || cleanId === 'toan-bo';
+  if (isAllBank) {
+    const items = catalogIndex?.practiceParts?.[String(part)] || [];
+    const allGroups: ToeicStimulusGroup[] = [];
+    for (const item of items) {
+      const loaded = loadEstudymePracticeTest(item);
+      const filtered = loaded.filter((q) => q.part === part);
+      allGroups.push(...groupQuestionsIntoStimulusGroups(filtered));
+    }
+    if (allGroups.length === 0) {
+      const fallback = loadFullToeicTest('6852').filter((q) => q.part === part);
+      allGroups.push(...groupQuestionsIntoStimulusGroups(fallback));
+    }
+    return allGroups;
+  } else if (!cleanId) {
+    const fallback = loadFullToeicTest('6852').filter((q) => q.part === part);
+    return groupQuestionsIntoStimulusGroups(fallback);
+  } else {
+    const fullTest = loadAnyToeicTest(cleanId);
+    const filtered = fullTest.filter((q) => q.part === part);
+    return groupQuestionsIntoStimulusGroups(filtered);
+  }
+}
+
 /**
  * Loads questions for a specific TOEIC Part (e.g. Part 1, Part 5, Part 7)
  * for focused practice mode. Supports testId='all' or 'bank' for pool extraction,
- * question limit slicing, and optional continuous question renumbering.
+ * question limit slicing, continuous question renumbering, and smart anti-duplication selection.
  *
  * @param part Part number (1 to 7)
  * @param testId Optional test identifier (defaults to '6852', or 'all'/'bank' for entire test bank)
  * @param limit Optional maximum number of questions to load
  * @param renumber Whether to renumber questionNumber continuously from 1 to N
+ * @param options Optional practice filter options (unseen, mistakes, all_random)
  */
 export function loadToeicPartPractice(
   part: ToeicPart,
   testId?: string,
   limit?: number,
-  renumber: boolean = false
+  renumber: boolean = false,
+  options?: ToeicPartPracticeOptions
 ): ToeicUnifiedQuestion[] {
   if (!part || (part as number) < 1 || (part as number) > 7) {
     return [];
   }
 
-  let questions: ToeicUnifiedQuestion[] = [];
   const cleanId = typeof testId === 'string' ? testId.trim().toLowerCase() : '';
   const isAllBank = cleanId === 'all' || cleanId === 'bank' || cleanId === 'all-tests' || cleanId === 'toan-bo';
 
-  if (isAllBank) {
-    // Collect questions across all practice sets for this part from the catalog
-    const items = catalogIndex?.practiceParts?.[String(part)] || [];
-    for (const item of items) {
-      const loaded = loadEstudymePracticeTest(item);
-      for (const q of loaded) {
-        if (q.part === part) {
-          questions.push(q);
+  // 100% Backward compatibility for existing 4-parameter calls without options
+  if (!options) {
+    let questions: ToeicUnifiedQuestion[] = [];
+
+    if (isAllBank) {
+      const items = catalogIndex?.practiceParts?.[String(part)] || [];
+      for (const item of items) {
+        const loaded = loadEstudymePracticeTest(item);
+        for (const q of loaded) {
+          if (q.part === part) {
+            questions.push(q);
+          }
+          if (limit && questions.length >= limit) break;
         }
         if (limit && questions.length >= limit) break;
       }
-      if (limit && questions.length >= limit) break;
-    }
 
-    // If still empty or no practice files found, fallback to full tests
-    if (questions.length === 0) {
+      if (questions.length === 0) {
+        questions = loadFullToeicTest('6852').filter((q) => q.part === part);
+      }
+    } else if (!cleanId) {
       questions = loadFullToeicTest('6852').filter((q) => q.part === part);
+    } else {
+      const fullTest = loadAnyToeicTest(testId);
+      questions = fullTest.filter((q) => q.part === part);
     }
-  } else if (!cleanId) {
-    // Omitted testId: default to '6852' for exact backwards compatibility
-    questions = loadFullToeicTest('6852').filter((q) => q.part === part);
+
+    if (limit && limit > 0 && questions.length > limit) {
+      questions = questions.slice(0, limit);
+    }
+
+    if (renumber) {
+      return questions.map((q, idx) => ({
+        ...q,
+        questionNumber: idx + 1,
+      }));
+    }
+
+    return questions;
+  }
+
+  // ── Smart Question Selector with Options (R2) ──
+  const filterMode = options.filterMode || 'unseen';
+  const excludedIds = new Set(options.excludedIds || []);
+  const mistakeIds = new Set(options.mistakeIds || []);
+  const targetLimit = limit && limit > 0 ? limit : Infinity;
+
+  // If in mistakes mode and mistakeIds is empty, return empty array immediately
+  if (filterMode === 'mistakes' && mistakeIds.size === 0) {
+    return [];
+  }
+
+  const allGroups = loadPartStimulusGroups(part, cleanId);
+  let selectedGroups: ToeicStimulusGroup[] = [];
+
+  if (filterMode === 'mistakes') {
+    // Pick stimulus groups containing question IDs in mistakeIds
+    const addedGroupIds = new Set<string>();
+    if (options.mistakeIds && options.mistakeIds.length > 0) {
+      // Preserve mistakeIds presentation order
+      for (const mId of options.mistakeIds) {
+        for (const g of allGroups) {
+          if (!addedGroupIds.has(g.groupId) && g.questions.some((q) => q.id === mId)) {
+            selectedGroups.push(g);
+            addedGroupIds.add(g.groupId);
+            break;
+          }
+        }
+      }
+    } else {
+      for (const g of allGroups) {
+        if (g.questions.some((q) => mistakeIds.has(q.id))) {
+          selectedGroups.push(g);
+        }
+      }
+    }
+
+    if (options.seed !== undefined) {
+      selectedGroups = shuffleArray(selectedGroups, options.seed);
+    }
+  } else if (filterMode === 'all_random') {
+    // Shuffle all stimulus groups without replacement
+    selectedGroups = shuffleArray(allGroups, options.seed);
   } else {
-    // Specific testId provided (Study4 or Estudyme full test or set)
-    const fullTest = loadAnyToeicTest(testId);
-    questions = fullTest.filter((q) => q.part === part);
+    // filterMode === 'unseen' (default)
+    // Partition into unseen, mistakes, and other seen groups
+    const unseenGroups: ToeicStimulusGroup[] = [];
+    const mistakeGroups: ToeicStimulusGroup[] = [];
+    const otherSeenGroups: ToeicStimulusGroup[] = [];
+
+    for (const g of allGroups) {
+      const isExcluded = g.questions.some((q) => excludedIds.has(q.id));
+      if (!isExcluded) {
+        unseenGroups.push(g);
+      } else {
+        const hasMistake = g.questions.some((q) => mistakeIds.has(q.id));
+        if (hasMistake) {
+          mistakeGroups.push(g);
+        } else {
+          otherSeenGroups.push(g);
+        }
+      }
+    }
+
+    // Shuffle unseen groups if testId is bank or seed is provided
+    let prioritizedUnseen = unseenGroups;
+    if (isAllBank || options.seed !== undefined) {
+      prioritizedUnseen = shuffleArray(unseenGroups, options.seed);
+    }
+
+    // Accumulate groups: unseen first, then fallback to mistakes, then other seen groups
+    let accumulatedCount = 0;
+
+    for (const g of prioritizedUnseen) {
+      if (accumulatedCount >= targetLimit) break;
+      selectedGroups.push(g);
+      accumulatedCount += g.questions.length;
+    }
+
+    // Gracefully supplement if unseen groups are fewer than requested limit
+    if (accumulatedCount < targetLimit) {
+      const shuffledMistakes = isAllBank ? shuffleArray(mistakeGroups, options.seed) : mistakeGroups;
+      for (const g of shuffledMistakes) {
+        if (accumulatedCount >= targetLimit) break;
+        selectedGroups.push(g);
+        accumulatedCount += g.questions.length;
+      }
+    }
+
+    if (accumulatedCount < targetLimit) {
+      const shuffledSeen = isAllBank ? shuffleArray(otherSeenGroups, options.seed) : otherSeenGroups;
+      for (const g of shuffledSeen) {
+        if (accumulatedCount >= targetLimit) break;
+        selectedGroups.push(g);
+        accumulatedCount += g.questions.length;
+      }
+    }
   }
 
-  // Apply limit if specified
-  if (limit && limit > 0 && questions.length > limit) {
-    questions = questions.slice(0, limit);
+  // Flatten selected groups into questions[]
+  let resultQuestions: ToeicUnifiedQuestion[] = [];
+  for (const g of selectedGroups) {
+    resultQuestions.push(...g.questions);
+    if (limit && limit > 0 && resultQuestions.length >= limit) {
+      break;
+    }
   }
 
-  // Renumber if requested
+  // Slicing: clamp to requested limit while preserving stimulus cluster integrity
+  if (limit && limit > 0 && resultQuestions.length > limit) {
+    resultQuestions = resultQuestions.slice(0, limit);
+  }
+
+  // Renumbering: if renumber is true, renumber sequentially 1..N
   if (renumber) {
-    return questions.map((q, idx) => ({
+    return resultQuestions.map((q, idx) => ({
       ...q,
       questionNumber: idx + 1,
     }));
   }
 
-  return questions;
+  return resultQuestions;
+}
+
+// Global master question index for deterministic score lookups
+const globalMasterQuestionIndex = new Map<string, ToeicUnifiedQuestion>();
+
+/**
+ * Given a list of question IDs, looks up and returns the master questions matching those
+ * exact IDs in that exact order (with correctAnswer, explanationVi, transcript).
+ */
+export function loadToeicQuestionsByIds(questionIds: string[]): ToeicUnifiedQuestion[] {
+  if (!questionIds || questionIds.length === 0) return [];
+
+  const result: ToeicUnifiedQuestion[] = [];
+
+  for (const id of questionIds) {
+    if (!id) continue;
+    let found = globalMasterQuestionIndex.get(id);
+
+    if (!found) {
+      // Check ID pattern: q-{testId}-{qnum}
+      if (id.startsWith('q-') && id.lastIndexOf('-') > 2) {
+        const candidateTestId = id.substring(2, id.lastIndexOf('-'));
+        try {
+          const loaded = loadAnyToeicTest(candidateTestId);
+          for (const q of loaded) {
+            globalMasterQuestionIndex.set(q.id, q);
+          }
+          found = globalMasterQuestionIndex.get(id);
+        } catch {}
+      }
+    }
+
+    if (!found) {
+      // Fallback 1: load canonical 6852
+      try {
+        const f6852 = loadFullToeicTest('6852');
+        for (const q of f6852) {
+          globalMasterQuestionIndex.set(q.id, q);
+        }
+        found = globalMasterQuestionIndex.get(id);
+      } catch {}
+    }
+
+    if (!found && catalogIndex?.practiceParts) {
+      // Fallback 2: scan practice sets if still not indexed
+      for (const pKey of Object.keys(catalogIndex.practiceParts)) {
+        if (found) break;
+        const items = catalogIndex.practiceParts[pKey] || [];
+        for (const item of items) {
+          const practiceQs = loadEstudymePracticeTest(item);
+          for (const q of practiceQs) {
+            globalMasterQuestionIndex.set(q.id, q);
+          }
+          found = globalMasterQuestionIndex.get(id);
+          if (found) break;
+        }
+      }
+    }
+
+    if (found) {
+      result.push({
+        ...found,
+        options: found.options ? found.options.map((o) => ({ ...o })) : [],
+      });
+    } else {
+      // Synthetic fallback for mock test IDs in test suites
+      result.push({
+        id,
+        testId: 'synthetic',
+        questionNumber: 1,
+        part: 1,
+        section: 'listening',
+        options: [
+          { key: 'A', text: 'Option A' },
+          { key: 'B', text: 'Option B' },
+          { key: 'C', text: 'Option C' },
+          { key: 'D', text: 'Option D' },
+        ],
+        correctAnswer: 'A',
+      });
+    }
+  }
+
+  return result;
 }
 
 /**

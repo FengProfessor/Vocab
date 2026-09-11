@@ -5,6 +5,7 @@ import {
   loadAnyToeicTest,
   loadFullToeicTest,
   loadToeicPartPractice,
+  loadToeicQuestionsByIds,
   convertLegacyMiniTest,
 } from '@/lib/toeic-test-loader';
 import { calculateToeicScore } from '@/lib/toeic-scoring';
@@ -30,6 +31,7 @@ interface SubmitRequestBody {
   limit?: number;
   answers?: Record<number, ToeicOptionKey>;
   timeSpentSeconds?: number;
+  questionIds?: string[];
   honeypot?: string;
   _hp_trap?: string;
   _hp_author_code?: string;
@@ -104,27 +106,38 @@ export async function POST(req: NextRequest) {
 
     // 3. Load Master Questions on Server (with correctAnswer, explanationVi, transcript)
     let masterQuestions: ToeicUnifiedQuestion[] = [];
-    const legacyQuestions = convertLegacyMiniTest(testId);
 
-    if (legacyQuestions.length > 0) {
-      masterQuestions = legacyQuestions;
-    } else if (
-      partNum &&
-      (testId === 'all' ||
-        testId === 'bank' ||
-        testId === 'all-tests' ||
-        testId === 'practice' ||
-        testId === 'part-practice' ||
-        (!testId.includes('part_') && !testId.includes('-set')))
-    ) {
-      masterQuestions = loadToeicPartPractice(partNum, testId, limitNum, true);
-    } else {
-      masterQuestions = loadAnyToeicTest(testId);
-      if (partNum && masterQuestions.some((q) => q.part !== partNum)) {
-        masterQuestions = masterQuestions.filter((q) => q.part === partNum);
+    if (Array.isArray(body.questionIds) && body.questionIds.length > 0) {
+      // Deterministic scoring alignment: score against exact served questions
+      masterQuestions = loadToeicQuestionsByIds(body.questionIds).map((q, idx) => ({
+        ...q,
+        questionNumber: idx + 1,
+      }));
+      if (!partNum && masterQuestions.length > 0) {
+        partNum = masterQuestions[0].part;
       }
-      if (limitNum && limitNum > 0 && masterQuestions.length > limitNum) {
-        masterQuestions = masterQuestions.slice(0, limitNum);
+    } else {
+      const legacyQuestions = convertLegacyMiniTest(testId);
+      if (legacyQuestions.length > 0) {
+        masterQuestions = legacyQuestions;
+      } else if (
+        partNum &&
+        (testId === 'all' ||
+          testId === 'bank' ||
+          testId === 'all-tests' ||
+          testId === 'practice' ||
+          testId === 'part-practice' ||
+          (!testId.includes('part_') && !testId.includes('-set')))
+      ) {
+        masterQuestions = loadToeicPartPractice(partNum, testId, limitNum, true);
+      } else {
+        masterQuestions = loadAnyToeicTest(testId);
+        if (partNum && masterQuestions.some((q) => q.part !== partNum)) {
+          masterQuestions = masterQuestions.filter((q) => q.part === partNum);
+        }
+        if (limitNum && limitNum > 0 && masterQuestions.length > limitNum) {
+          masterQuestions = masterQuestions.slice(0, limitNum);
+        }
       }
     }
 

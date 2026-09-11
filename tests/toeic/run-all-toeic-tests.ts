@@ -23,6 +23,7 @@ import { runUiMinimalistTests } from './ui-minimalist.test';
 import { runUserFeedbackV4Tests } from './user-feedback-v4.test';
 import { runCopyrightWhitelabelTests } from './copyright-whitelabel.test';
 import { runAntiScrapingTests } from './test-anti-scraping-poison';
+import { runAntiDuplicationTests } from './anti-duplication.test';
 
 async function main() {
   console.log('================================================================================');
@@ -120,6 +121,14 @@ async function main() {
   const statsAS = runnerAS.getStats();
   tierStats.push({ tierName: 'Anti-Scraping & Data Poisoning', stats: statsAS, minRequired: 9 });
   console.log(`✓ Anti-Scraping & Data Poisoning Finished: ${statsAS.passed}/${statsAS.total} passed (${statsAS.durationMs}ms)\n`);
+
+  // Suite: Smart Question Anti-Duplication & Practice Progress (Tiers 1-4)
+  console.log('▶ Running Suite: Anti-Duplication & Practice Progress (Tiers 1-4, min 35 required)...');
+  const runnerAD = new TestRunner();
+  await runAntiDuplicationTests(runnerAD);
+  const statsAD = runnerAD.getStats();
+  tierStats.push({ tierName: 'Anti-Duplication & Practice Progress', stats: statsAD, minRequired: 35 });
+  console.log(`✓ Anti-Duplication Finished: ${statsAD.passed}/${statsAD.total} passed (${statsAD.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

@@ -158,7 +158,12 @@ export function useToeicExamSession({
 
   // ── 3. Submit Exam Method (Server-Side Scoring with Local Fallback) ──
   const submitExam = useCallback(
-    async (options?: { honeypot?: string; part?: number; limit?: number }) => {
+    async (options?: {
+      honeypot?: string;
+      part?: number;
+      limit?: number;
+      questionIds?: string[];
+    }) => {
       if (isSubmittedRef.current || isSubmitting) return;
       setIsSubmitting(true);
 
@@ -180,6 +185,7 @@ export function useToeicExamSession({
             examMode: mode,
             part: options?.part,
             limit: options?.limit,
+            questionIds: options?.questionIds || questions.map((q) => q.id),
             answers,
             timeSpentSeconds: Math.max(0, elapsed),
             honeypot: options?.honeypot || '',
