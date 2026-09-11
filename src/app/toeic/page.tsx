@@ -14,6 +14,8 @@ import {
   ListFilter,
   SlidersHorizontal,
   Lightbulb,
+  Trophy,
+  Target,
 } from 'lucide-react';
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
 import type {
@@ -241,108 +243,195 @@ function ToeicCatalogContent() {
             Hệ Thống Khảo Thí & Luyện Thi TOEIC
           </h1>
 
-          {/* Technical Subtitle */}
+          {/* Compact Subtitle */}
           <p className="mt-2 max-w-3xl text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Phòng thi máy tính mô phỏng chuẩn ETS / IIG: 200 câu hỏi mỗi đề, cấu trúc Split-Pane 2 cột,
-            Question Palette 4 trạng thái, gắn cờ Flag và bảng điểm quy đổi 10–990. Ngân hàng câu hỏi thực tế
-            luyện phản xạ linh hoạt theo 7 Part với giải thích ngữ cảnh chi tiết.
+            Phòng thi máy tính trực tuyến chuẩn định dạng ETS: 200 câu hỏi chia 2 cột, bảng điều hướng 4 trạng thái, gắn cờ Flag và bảng điểm quy đổi 10–990.
           </p>
 
-          {/* Real Scale Ticker (Monospace Tabular Nums) */}
-          <div className="mt-5 inline-flex flex-wrap items-center gap-x-3 gap-y-1.5 rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800/80 px-3 py-2 font-mono text-xs text-slate-700 dark:text-slate-300 tabular-nums">
-            <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-              <span className="inline-block rounded-full w-2 h-2 bg-emerald-500" />
-              <span>Kho Đề Thực Tế:</span>
+          {/* ── Prominent Stat Cards Grid ── */}
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {/* Card 1: 15.175 Câu Hỏi (Hero Metric) */}
+            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
+              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Kho Câu Hỏi</span>
+                <span className="flex h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500/20" />
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
+                  15.175
+                </span>
+                <span className="font-mono text-xs font-semibold text-slate-500">câu</span>
+              </div>
+              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                Ngân hàng đề đồ sộ
+              </p>
             </div>
-            <span className="font-bold text-slate-900 dark:text-white">
-              15.175 Câu Hỏi
-            </span>
-            <span className="text-slate-400 dark:text-slate-600">|</span>
-            <span className="font-bold text-slate-900 dark:text-white">
-              28 Đề Full Test (200 Câu)
-            </span>
-            <span className="text-slate-400 dark:text-slate-600">|</span>
-            <span className="font-bold text-slate-900 dark:text-white">
-              7 Parts Luyện Tập Linh Hoạt
-            </span>
-          </div>
 
-          {/* Micro Specifications Bar */}
-          <div className="mt-4 flex flex-wrap items-center gap-2 font-mono text-xs text-slate-600 dark:text-slate-400">
-            <span className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-2 py-0.5">
-              200 CÂU / ĐỀ FULL
-            </span>
-            <span className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-2 py-0.5">
-              120 PHÚT THI
-            </span>
-            <span className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-2 py-0.5">
-              THANG ĐIỂM 10–990
-            </span>
-            <span className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-2 py-0.5">
-              AUTOSAVE 2S
-            </span>
-            <span className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-2 py-0.5">
-              AUDIO CHUẨN ETS
-            </span>
+            {/* Card 2: 28 Đề Full Test */}
+            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
+              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Đề Full Test</span>
+                <FileText className="h-4 w-4 text-slate-400" />
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
+                  {full200Count}
+                </span>
+                <span className="font-mono text-xs font-semibold text-slate-500">đề thi</span>
+              </div>
+              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                200 câu · 120 phút thi
+              </p>
+            </div>
+
+            {/* Card 3: 7 Parts */}
+            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
+              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Phần Thi</span>
+                <Layers className="h-4 w-4 text-slate-400" />
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
+                  7
+                </span>
+                <span className="font-mono text-xs font-semibold text-slate-500">Parts</span>
+              </div>
+              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                Luyện tập Part 1 đến 7
+              </p>
+            </div>
+
+            {/* Card 4: Thang Barem ETS 10–990 */}
+            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
+              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Barem ETS</span>
+                <Trophy className="h-4 w-4 text-slate-400" />
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
+                  10–990
+                </span>
+                <span className="font-mono text-xs font-semibold text-slate-500">điểm</span>
+              </div>
+              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                Khảo thí chuẩn quốc tế
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* ── 2. DOCKED 2-TAB NAVIGATION BAR ── */}
-        <div className="border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <nav className="flex space-x-2 sm:space-x-8 -mb-px" aria-label="Tabs">
-              {/* Tab 1: ĐỀ FULL TEST */}
+        {/* ── 2. PROMINENT 2-TAB CTA SWITCHER ── */}
+        <div className="border-t border-slate-200 dark:border-slate-800 bg-slate-100/70 dark:bg-slate-950/60 p-3 sm:p-4">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" role="tablist">
+              {/* Tab 1: ĐỀ FULL TEST CTA */}
               <button
                 type="button"
+                role="tab"
+                aria-selected={activeTab === 'full_test'}
                 onClick={() => {
                   setActiveTab('full_test');
                   setSearchQuery('');
                 }}
-                className={`py-3.5 px-2 sm:px-1 inline-flex items-center gap-2 border-b-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer ${
+                className={`flex items-center justify-between p-3.5 sm:p-4 rounded-sm border transition-all cursor-pointer text-left ${
                   activeTab === 'full_test'
-                    ? 'border-slate-900 text-slate-900 dark:border-white dark:text-white'
-                    : 'border-transparent text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                    ? 'border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900 shadow-sm'
+                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-850'
                 }`}
               >
-                <FileText className="h-4 w-4" />
-                <span>ĐỀ THI FULL TEST (200 CÂU - 120 PHÚT)</span>
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-sm font-mono text-base font-bold ${
+                      activeTab === 'full_test'
+                        ? 'bg-white/10 text-white dark:bg-slate-900/10 dark:text-slate-900'
+                        : 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200'
+                    }`}
+                  >
+                    <FileText className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-wider">
+                        Đề Thi Full Test (200 Câu)
+                      </span>
+                    </div>
+                    <p
+                      className={`text-xs mt-0.5 ${
+                        activeTab === 'full_test'
+                          ? 'text-slate-300 dark:text-slate-600'
+                          : 'text-slate-500 dark:text-slate-400'
+                      }`}
+                    >
+                      Mô phỏng 120 phút chuẩn phòng thi máy tính ETS
+                    </p>
+                  </div>
+                </div>
+
                 <span
-                  className={`rounded-sm px-1.5 py-0.5 font-mono text-xs tabular-nums ${
+                  className={`hidden sm:inline-flex rounded-sm px-2.5 py-1 font-mono text-xs font-bold tabular-nums shrink-0 ${
                     activeTab === 'full_test'
-                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
-                      : 'bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300'
+                      ? 'bg-white/20 text-white dark:bg-slate-900/10 dark:text-slate-900'
+                      : 'border border-slate-200 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300'
                   }`}
                 >
                   [{full200Count} Đề]
                 </span>
               </button>
 
-              {/* Tab 2: LUYỆN THEO 7 PART */}
+              {/* Tab 2: LUYỆN THEO 7 PART CTA */}
               <button
                 type="button"
+                role="tab"
+                aria-selected={activeTab === 'practice_parts'}
                 onClick={() => {
                   setActiveTab('practice_parts');
                   setSearchQuery('');
                 }}
-                className={`py-3.5 px-2 sm:px-1 inline-flex items-center gap-2 border-b-2 text-xs sm:text-sm font-bold transition-colors cursor-pointer ${
+                className={`flex items-center justify-between p-3.5 sm:p-4 rounded-sm border transition-all cursor-pointer text-left ${
                   activeTab === 'practice_parts'
-                    ? 'border-slate-900 text-slate-900 dark:border-white dark:text-white'
-                    : 'border-transparent text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                    ? 'border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900 shadow-sm'
+                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-850'
                 }`}
               >
-                <Layers className="h-4 w-4" />
-                <span>LUYỆN TẬP THEO 7 PART</span>
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-sm font-mono text-base font-bold ${
+                      activeTab === 'practice_parts'
+                        ? 'bg-white/10 text-white dark:bg-slate-900/10 dark:text-slate-900'
+                        : 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200'
+                    }`}
+                  >
+                    <Layers className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-wider">
+                        Luyện Tập Theo Từng Part
+                      </span>
+                    </div>
+                    <p
+                      className={`text-xs mt-0.5 ${
+                        activeTab === 'practice_parts'
+                          ? 'text-slate-300 dark:text-slate-600'
+                          : 'text-slate-500 dark:text-slate-400'
+                      }`}
+                    >
+                      Luyện linh hoạt Part 1–7 với giải thích chi tiết tức thì
+                    </p>
+                  </div>
+                </div>
+
                 <span
-                  className={`rounded-sm px-1.5 py-0.5 font-mono text-xs tabular-nums ${
+                  className={`hidden sm:inline-flex rounded-sm px-2.5 py-1 font-mono text-xs font-bold tabular-nums shrink-0 ${
                     activeTab === 'practice_parts'
-                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
-                      : 'bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300'
+                      ? 'bg-white/20 text-white dark:bg-slate-900/10 dark:text-slate-900'
+                      : 'border border-slate-200 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300'
                   }`}
                 >
                   [7 Parts]
                 </span>
               </button>
-            </nav>
+            </div>
           </div>
         </div>
       </header>
