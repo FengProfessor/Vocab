@@ -1116,17 +1116,6 @@ OK = học lại · Cancel = giữ nguyên.`,
               + Mở thêm THPT
             </Button>
           )}
-
-          {!hasToeic && track !== 'toeic' && (
-            <Button
-              variant="outline"
-              size="sm"
-              className="min-h-[38px] rounded-md text-xs font-medium text-blue-600 dark:text-blue-400"
-              onClick={() => void switchTrack('toeic')}
-            >
-              + Mở thêm TOEIC
-            </Button>
-          )}
         </div>
 
         {/* Pedagogical info banner */}
@@ -1136,7 +1125,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             <div className="leading-relaxed">
               <strong>Lộ trình THPT Song Hành:</strong> Mỗi Unit gồm Từ vựng SGK Global Success +
               Ngữ pháp CEFR tương ứng. Lớp thấp hơn được mở tự do để ôn tập. Bạn có thể chuyển tab{' '}
-              <strong>CEFR</strong> hoặc <strong>TOEIC</strong> bất cứ lúc nào mà không mất tiến độ.
+              <strong>CEFR</strong> bất cứ lúc nào mà không mất tiến độ.
             </div>
           </div>
         ) : track === 'toeic' || levelId.startsWith('toeic-') ? (
@@ -1151,7 +1140,7 @@ OK = học lại · Cancel = giữ nguyên.`,
           <div className="rounded-lg border border-amber-200/90 bg-amber-50/80 p-3 text-xs text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-100 flex items-start gap-2.5">
             <Award className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
             <div className="leading-relaxed">
-              {getExitDisclaimer()} Bạn có thể mở thêm lộ trình <strong>THPT</strong> hoặc <strong>TOEIC</strong> song song.
+              {getExitDisclaimer()} Bạn có thể mở thêm lộ trình <strong>THPT</strong> song song.
             </div>
           </div>
         )}
