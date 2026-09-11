@@ -31,7 +31,6 @@ import { GuestSaveExamModal } from '@/components/toeic/GuestSaveExamModal';
 import { useToeicExamSession } from '@/hooks/useToeicExamSession';
 
 import {
-  loadFullToeicTest,
   loadToeicPartPractice,
   loadAnyToeicTest,
   getToeicCatalogIndex,
@@ -493,7 +492,20 @@ function ToeicExamRoomInner() {
     submittedScoreResult,
   ]);
 
-  // ── 7. Empty & Loading State Guards ──
+  // ── 7. Exam Scope Memoization (Unconditional Hook) ──
+  const isFullTestExam = useMemo(() => {
+    if (isPartPractice) return false;
+    if (questions.length < 100) return false;
+    const hasListening = questions.some(
+      (q) => q.section === 'listening' || (q.part && q.part <= 4)
+    );
+    const hasReading = questions.some(
+      (q) => q.section === 'reading' || (q.part && q.part >= 5)
+    );
+    return hasListening && hasReading;
+  }, [isPartPractice, questions]);
+
+  // ── 8. Empty & Loading State Guards ──
   if (isLoadingQuestions && questions.length === 0) {
     return (
       <StudentShell title={testTitle} immersive={true} requireAuth={false}>
@@ -532,24 +544,13 @@ function ToeicExamRoomInner() {
     );
   }
 
-  // ── 8. Post-Submission: Render Score Report & Review Mode ──
+  // ── 9. Post-Submission: Render Score Report & Review Mode ──
   const activeScoreResult = submittedScoreResult || session.scoreResult;
   const activeAnswers =
     Object.keys(submittedAnswers).length > 0 ? submittedAnswers : session.answers;
   const isCompleted = isExamSubmittedState || session.isSubmitted;
   const isHistorySaved = isSavedToHistoryState || session.savedToHistory;
   const isCurrentGuest = isGuestState || session.isGuest;
-  const isFullTestExam = useMemo(() => {
-    if (isPartPractice) return false;
-    if (questions.length < 100) return false;
-    const hasListening = questions.some(
-      (q) => q.section === 'listening' || (q.part && q.part <= 4)
-    );
-    const hasReading = questions.some(
-      (q) => q.section === 'reading' || (q.part && q.part >= 5)
-    );
-    return hasListening && hasReading;
-  }, [isPartPractice, questions]);
 
   if (isCompleted && activeScoreResult) {
     return (

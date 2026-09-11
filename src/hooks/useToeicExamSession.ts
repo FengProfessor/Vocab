@@ -67,8 +67,10 @@ export function useToeicExamSession({
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const lastSaveTimeRef = useRef<number>(0);
   const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const isSubmittedRef = useRef<boolean>(false);
-  isSubmittedRef.current = isSubmitted;
+  const isSubmittedRef = useRef<boolean>(isSubmitted);
+  useEffect(() => {
+    isSubmittedRef.current = isSubmitted;
+  }, [isSubmitted]);
 
   // ── 1. Restore draft from localStorage on mount ──
   useEffect(() => {
