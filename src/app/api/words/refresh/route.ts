@@ -120,14 +120,19 @@ export async function POST(req: Request): Promise<NextResponse> {
       // Tier 1: global_dictionary
       const { data: gdEntries } = await supabase
         .from('global_dictionary')
-        .select('word, data')
+        .select('word, data, image_url, image_source, image_confidence')
         .in('word', wordsToQuery);
       
-      const gdMap = new Map<string, GdData>();
+      const gdMap = new Map<string, { data: GdData; image_url?: string | null; image_source?: string | null; image_confidence?: number | null }>();
       if (gdEntries) {
         for (const entry of gdEntries) {
           if (entry.word && entry.data) {
-            gdMap.set(entry.word.toLowerCase().trim(), entry.data as GdData);
+            gdMap.set(entry.word.toLowerCase().trim(), {
+              data: entry.data as GdData,
+              image_url: entry.image_url,
+              image_source: entry.image_source,
+              image_confidence: entry.image_confidence,
+            });
           }
         }
       }
@@ -161,20 +166,27 @@ export async function POST(req: Request): Promise<NextResponse> {
         const lower = w.word.trim().toLowerCase();
         
         // Try Tier 1
-        const gdData = gdMap.get(lower);
+        const gdEntry = gdMap.get(lower);
+        const gdData = gdEntry?.data;
         const gdMeaning = gdData?.results?.[0]?.meanings?.[0];
         if (gdMeaning?.definition) {
+          const updates: Record<string, unknown> = {
+            translation: gdMeaning.definition,
+            ipa: parseIpa(gdData?.pronunciations?.[0]?.ipa) || '',
+            pos: gdMeaning.pos || '',
+            example: gdMeaning.example || '',
+            example_vi: gdMeaning.example_vi || '',
+            synonyms: [],
+            antonyms: [],
+          };
+          if (gdEntry?.image_url) {
+            updates.image_url = gdEntry.image_url;
+            updates.image_source = gdEntry.image_source || 'global_dict';
+            updates.image_confidence = gdEntry.image_confidence ?? null;
+          }
           const { error: updateErr } = await supabase
             .from('words')
-            .update({
-              translation: gdMeaning.definition,
-              ipa: parseIpa(gdData?.pronunciations?.[0]?.ipa) || '',
-              pos: gdMeaning.pos || '',
-              example: gdMeaning.example || '',
-              example_vi: gdMeaning.example_vi || '',
-              synonyms: [],
-              antonyms: [],
-            })
+            .update(updates)
             .eq('id', w.id);
           
           if (!updateErr) {

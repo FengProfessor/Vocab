@@ -179,11 +179,16 @@ export function normalizeWord(word: string): string {
 export function classifyWord(word: string, pos = '', definition = ''): WordClass {
   const w = normalizeWord(word);
 
+  // Động từ cơ bản (be, have, do) là các động từ cốt lõi trong lộ trình học, không bị coi là function word bỏ qua ảnh
+  const posLower = pos.toLowerCase();
+  if ((w === 'be' || w === 'have' || w === 'do') && (posLower.includes('verb') || posLower.includes('động từ') || !posLower)) {
+    return 'concrete';
+  }
+
   // 1. Từ trong blacklist function → skip
   if (FUNCTION_WORDS.has(w)) return 'function';
 
   // 2. Phát hiện qua POS tiếng Việt (project dùng "Mạo từ", "Giới từ"...)
-  const posLower = pos.toLowerCase();
   if (
     posLower.includes('mạo từ') ||
     posLower.includes('giới từ') ||

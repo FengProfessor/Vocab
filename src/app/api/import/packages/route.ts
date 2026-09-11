@@ -54,17 +54,39 @@ async function importPack(supabase: ReturnType<typeof createServiceClient>, { us
 
   const classroomId = await getOrCreatePersonalClassroom(supabase, userId);
 
-  const { data: existingRows, error: fetchErr } = await supabase.from('words').select('id, word').eq('classroom_id', classroomId).in('word', words);
+  const { data: existingRows, error: fetchErr } = await supabase.from('words').select('id, word, image_url').eq('classroom_id', classroomId).in('word', words);
   if (fetchErr) throw fetchErr;
   const existingSet = new Set(existingRows?.map((r) => r.word.toLowerCase()) || []);
   const wordsToInsert = words.filter((w) => !existingSet.has(w));
 
-  const { data: gdEntries, error: gdErr } = wordsToInsert.length > 0
-    ? await supabase.from('global_dictionary').select('word, data, image_url, image_source, image_confidence').in('word', wordsToInsert)
+  // Tự động bù đắp image_url cho các từ đã import từ trước nhưng bị thiếu ảnh
+  const existingMissingImg = (existingRows || []).filter((r) => !r.image_url).map((r) => r.word.toLowerCase());
+  const wordsToFetchGd = [...new Set([...wordsToInsert, ...existingMissingImg])];
+
+  const { data: gdEntries, error: gdErr } = wordsToFetchGd.length > 0
+    ? await supabase.from('global_dictionary').select('word, data, image_url, image_source, image_confidence').in('word', wordsToFetchGd)
     : { data: [], error: null };
   if (gdErr) throw gdErr;
   const gdMap = new Map<string, NonNullable<typeof gdEntries>[number]>();
   for (const entry of gdEntries ?? []) gdMap.set(entry.word.toLowerCase(), entry);
+
+  // Cập nhật ảnh cho từ cũ bị thiếu ảnh nếu global_dictionary có ảnh
+  if (existingMissingImg.length > 0) {
+    for (const oldWord of existingMissingImg) {
+      const gdEntry = gdMap.get(oldWord);
+      if (gdEntry?.image_url) {
+        await supabase
+          .from('words')
+          .update({
+            image_url: gdEntry.image_url,
+            image_source: gdEntry.image_source || 'global_dict',
+            image_confidence: gdEntry.image_confidence ?? null,
+          })
+          .eq('classroom_id', classroomId)
+          .eq('word', oldWord);
+      }
+    }
+  }
 
   const rows = wordsToInsert.map((word) => {
     const gdEntry = gdMap.get(word);

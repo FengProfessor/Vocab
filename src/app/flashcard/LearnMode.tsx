@@ -530,9 +530,27 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                 ✍️ Gõ từ tiếng Anh
               </Badge>
 
+              {/* Ảnh minh họa gợi ý trực quan */}
+              {recallWord.image_url && (
+                <div className="relative mx-auto mt-1 aspect-[16/10] max-h-[min(18dvh,120px)] w-full max-w-[220px] shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 shadow-xs">
+                  <img
+                    src={resolveImageSrc(recallWord.image_url)}
+                    alt=""
+                    referrerPolicy="no-referrer"
+                    loading="eager"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    onError={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      img.style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
+
               {/* Nghĩa chiếm phần giữa — không bị input/nút đè */}
-              <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5 py-2">
-                <h2 className="line-clamp-5 w-full break-words px-1 text-[clamp(1.35rem,5.5vw,2.1rem)] font-black leading-tight tracking-tight text-slate-900">
+              <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5 py-1.5">
+                <h2 className="line-clamp-4 w-full break-words px-1 text-[clamp(1.2rem,5vw,1.85rem)] font-black leading-tight tracking-tight text-slate-900">
                   {recallWord.translation}
                 </h2>
                 <div className="flex shrink-0 flex-wrap items-center justify-center gap-1.5">
