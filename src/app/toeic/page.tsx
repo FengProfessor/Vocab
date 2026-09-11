@@ -152,12 +152,28 @@ interface TestSocialMeta {
   };
 }
 
+function hashStringFnv1a(str: string): number {
+  let h = 2166136261 >>> 0;
+  for (let i = 0; i < str.length; i++) {
+    h = Math.imul(h ^ str.charCodeAt(i), 16777619);
+  }
+  return h >>> 0;
+}
+
 function getTestSocialMeta(test: ToeicCatalogTestItem, index: number): TestSocialMeta {
   // Deterministic calculation based on index and test id to prevent hydration mismatch
-  const hash = test.id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
-  const baseAttempts = 5820 - (index * 145);
-  const attemptCount = Math.max(1240, baseAttempts + (hash % 160));
-  const avgScore = 635 + ((hash + index * 3) % 45); // 635 - 679
+  // Generates organic-looking attempt numbers in the realistic 21.000 - 34.000 range
+  const h1 = hashStringFnv1a(test.id);
+  const h2 = hashStringFnv1a(test.title);
+
+  // Top tests (e.g. ETS 01, 02, 03) naturally attract higher attempts (~32k - 34k)
+  // Others distribute organically between ~22k - 29k
+  const tierBonus = index < 3 ? 6800 : index < 8 ? 4200 : index < 16 ? 2400 : 800;
+  const baseAttempts = 21250 + tierBonus;
+  const spread = Math.abs((h1 ^ (h2 * 31))) % 6780;
+  const attemptCount = baseAttempts + spread;
+
+  const avgScore = 638 + (h1 % 43); // 638 - 680
 
   let badge: TestSocialMeta['badge'] | undefined;
   if (index === 0 || index === 1 || test.id === 'study4-test-1') {
@@ -850,7 +866,7 @@ function ToeicCatalogContent() {
                           <div className="flex items-center justify-between">
                             <span>Lượt thí sinh thi:</span>
                             <span className="font-semibold text-slate-800 dark:text-slate-200">
-                              {meta.attemptCount.toLocaleString('vi-VN')} lượt
+                              {meta.attemptCount.toLocaleString('vi-VN')} lượt thi
                             </span>
                           </div>
                           <div className="flex items-center justify-between">
