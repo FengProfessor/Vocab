@@ -17,6 +17,8 @@ import {
   poisonUnifiedQuestion,
   generateToeicSessionToken,
   hashIpForSession,
+  isWhitelistedIp,
+  clearBotFlag,
 } from '@/lib/toeic-anti-scraping';
 import type { ToeicPart, ToeicUnifiedQuestion } from '@/types/toeic';
 
@@ -43,6 +45,12 @@ const PART_RECOMMENDED_MINUTES: Record<ToeicPart, number> = {
 export async function GET(req: NextRequest) {
   try {
     const ip = getClientIp(req);
+
+    // Auto-unban localhost or explicitly requested reset
+    if (isWhitelistedIp(ip) || req.nextUrl.searchParams.get('unban') === '1') {
+      clearBotFlag(ip);
+    }
+
     // Rate limit: 60 test load requests per minute per IP
     const rl = await checkRateLimitAsync(`toeic-test:${ip}`, 60, 60_000);
     if (!rl.allowed) {

@@ -13,6 +13,8 @@ import {
   isClientFlaggedAsBot,
   poisonUnifiedQuestion,
   embedInvisibleWatermark,
+  isWhitelistedIp,
+  clearBotFlag,
 } from '@/lib/toeic-anti-scraping';
 import type {
   ToeicPart,
@@ -48,6 +50,11 @@ interface SubmitRequestBody {
 export async function POST(req: NextRequest) {
   try {
     const ip = getClientIp(req);
+
+    // Auto-unban localhost or whitelisted IPs
+    if (isWhitelistedIp(ip)) {
+      clearBotFlag(ip);
+    }
 
     // 1. Rate Limiting: 20 submit requests per minute per IP
     const rl = await checkRateLimitAsync(`toeic-submit:${ip}`, 20, 60_000);
@@ -176,9 +183,11 @@ export async function POST(req: NextRequest) {
     }
 
     // 6. Active Cyber Defense: Check suspicious submit dumping
-    const isFastSubmitDump = masterQuestions.length >= 30 && timeSpentSeconds < 10;
-    if (isFastSubmitDump) {
-      flagClientAsBot(ip, `Fast submit dumping: ${timeSpentSeconds}s for ${masterQuestions.length}Q`);
+    // Only flag as bot if an impossible number of questions were answered in under 5 seconds
+    const answeredCount = Object.keys(answers).length;
+    const isFastSubmitDump = answeredCount >= 50 && timeSpentSeconds < 5;
+    if (isFastSubmitDump && !isWhitelistedIp(ip)) {
+      flagClientAsBot(ip, `Fast submit dumping: ${timeSpentSeconds}s for ${answeredCount} answered questions`);
     }
 
     const isPoisonedTarget =

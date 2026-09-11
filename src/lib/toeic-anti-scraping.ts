@@ -121,6 +121,21 @@ export function extractInvisibleWatermark(text: string): string | null {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
+ * Whitelist check for localhost and internal development environments.
+ * Local developer testing must NEVER be flagged as a bot or poisoned.
+ */
+export function isWhitelistedIp(clientIdentifier?: string | null): boolean {
+  if (!clientIdentifier || clientIdentifier === 'unknown') return true;
+  const clean = clientIdentifier.replace(/^::ffff:/, '').trim().toLowerCase();
+  return (
+    clean === '127.0.0.1' ||
+    clean === '::1' ||
+    clean === 'localhost' ||
+    clean === '0.0.0.0'
+  );
+}
+
+/**
  * Checks if a test ID is a canary honeypot target.
  */
 export function isHoneypotTestId(testId?: string | null): boolean {
@@ -130,9 +145,11 @@ export function isHoneypotTestId(testId?: string | null): boolean {
 
 /**
  * Flags an IP / Client identifier as an identified scraper bot.
+ * Whitelisted IPs are completely exempt.
  */
 export function flagClientAsBot(clientIdentifier: string, reason: string): void {
   if (!clientIdentifier || clientIdentifier === 'unknown') return;
+  if (isWhitelistedIp(clientIdentifier)) return;
   flaggedBots.set(clientIdentifier, {
     flaggedAt: Date.now(),
     reason,
@@ -145,6 +162,10 @@ export function flagClientAsBot(clientIdentifier: string, reason: string): void 
  */
 export function isClientFlaggedAsBot(clientIdentifier: string): boolean {
   if (!clientIdentifier || clientIdentifier === 'unknown') return false;
+  if (isWhitelistedIp(clientIdentifier)) {
+    flaggedBots.delete(clientIdentifier);
+    return false;
+  }
   const record = flaggedBots.get(clientIdentifier);
   if (!record) return false;
 
@@ -164,6 +185,14 @@ export function clearBotFlag(clientIdentifier: string): void {
   requestVelocities.delete(clientIdentifier);
 }
 
+/**
+ * Clears all bot flags and request velocities globally.
+ */
+export function clearAllBotFlags(): void {
+  flaggedBots.clear();
+  requestVelocities.clear();
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 3. BEHAVIORAL VELOCITY HEURISTICS
 // ─────────────────────────────────────────────────────────────────────────────
@@ -181,6 +210,7 @@ export function checkReadingVelocity(
   maxViolations = 3
 ): boolean {
   if (!clientIdentifier || clientIdentifier === 'unknown') return true;
+  if (isWhitelistedIp(clientIdentifier)) return true;
 
   const now = Date.now();
   const state = requestVelocities.get(clientIdentifier) || {
@@ -387,4 +417,9 @@ export function createPoisonedQuestionBank(
   }
 
   return poisoned;
+}
+
+// Ensure in-memory bot records are clean on startup in non-production
+if (process.env.NODE_ENV !== 'production') {
+  clearAllBotFlags();
 }

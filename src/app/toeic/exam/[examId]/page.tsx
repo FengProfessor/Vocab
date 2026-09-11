@@ -13,7 +13,7 @@
  * - Guest score preservation with 3-second Google OAuth sign-in
  */
 
-import React, { useMemo, useState, Suspense, useEffect, useCallback } from 'react';
+import React, { useMemo, useState, Suspense, useEffect, useCallback, useRef } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Loader2, AlertCircle } from 'lucide-react';
@@ -191,6 +191,7 @@ function ToeicExamRoomInner() {
   // Honeypot anti-bot trap state
   const [honeypotValue, setHoneypotValue] = useState<string>('');
   const [sessionToken, setSessionToken] = useState<string>('');
+  const inFlightExplanationRef = useRef<Set<number>>(new Set());
 
   // ── 2.1. On-Demand Single-Question Explanation Fetcher (Zero Bulk Leak) ──
   const fetchSingleExplanation = useCallback(
@@ -199,6 +200,11 @@ function ToeicExamRoomInner() {
       if (targetQ?.correctAnswer && targetQ?.explanationVi) {
         return;
       }
+      if (inFlightExplanationRef.current.has(qNum)) {
+        return;
+      }
+      inFlightExplanationRef.current.add(qNum);
+
       try {
         const res = await fetch('/api/toeic/explain', {
           method: 'POST',
@@ -228,6 +234,8 @@ function ToeicExamRoomInner() {
         }
       } catch (err) {
         console.warn('[ToeicExam] Failed to fetch on-demand explanation:', err);
+      } finally {
+        inFlightExplanationRef.current.delete(qNum);
       }
     },
     [questions, sessionToken, targetTestId]

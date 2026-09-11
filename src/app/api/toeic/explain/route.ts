@@ -9,6 +9,8 @@ import {
   poisonUnifiedQuestion,
   embedInvisibleWatermark,
   verifyToeicSessionToken,
+  isWhitelistedIp,
+  clearBotFlag,
 } from '@/lib/toeic-anti-scraping';
 
 interface ExplainRequestBody {
@@ -36,6 +38,11 @@ export async function POST(req: NextRequest) {
   try {
     const ip = getClientIp(req);
 
+    // Auto-unban localhost or explicitly requested reset
+    if (isWhitelistedIp(ip) || req.nextUrl.searchParams.get('unban') === '1') {
+      clearBotFlag(ip);
+    }
+
     // 1. Basic Rate Limiting: 60 explanation requests per minute per IP
     const rl = await checkRateLimitAsync(`toeic-explain:${ip}`, 60, 60_000);
     if (!rl.allowed) {
@@ -62,12 +69,12 @@ export async function POST(req: NextRequest) {
       flagClientAsBot(ip, `Honeypot triggered in explain: ${cleanTestId}`);
     }
 
-    // 3. Behavioral Velocity Limiting (< 1.5s per question)
-    const isVelocityNormal = checkReadingVelocity(ip);
+    // 3. Behavioral Velocity Limiting (Protects against programmatic scrapers)
+    checkReadingVelocity(ip, 300, 10);
 
-    // 4. ACTIVE DATA POISONING: If client is flagged as bot or velocity violated,
-    // SILENTLY return HTTP 200 OK with toxic inverted grammar and shifted answers!
-    if (isHoneypotTriggered || !isVelocityNormal || isClientFlaggedAsBot(ip)) {
+    // 4. ACTIVE DATA POISONING: ONLY trigger if client hit a honeypot trap or is an identified bot!
+    // Legitimate users clicking fast or toggling explanations will NEVER receive poisoned data!
+    if (isHoneypotTriggered || isClientFlaggedAsBot(ip)) {
       const allMaster = loadAnyToeicTest(cleanTestId);
       const fallbackTarget =
         allMaster.find((q) => q.questionNumber === qNum) || allMaster[0];
