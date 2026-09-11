@@ -12,13 +12,10 @@ export type StudentNavItem = {
   onboardingId?: string;
 };
 
-export function buildStudentNavItems(opts: {
+export function buildStudentNavItems(_opts?: {
   classroomId?: string | null;
   hasClass?: boolean;
 }): StudentNavItem[] {
-  const hasClass = Boolean(opts.hasClass || opts.classroomId);
-  const classroomId = opts.classroomId;
-
   const items: StudentNavItem[] = [
     {
       href: '/student',
@@ -101,29 +98,6 @@ export function buildStudentNavItems(opts: {
       onboardingId: 'import',
     },
   ];
-
-  if (hasClass) {
-    items.push(
-      {
-        href: '/student/profile#stats',
-        label: 'Thống kê',
-        emoji: '📊',
-        color: '#3b82f6',
-        tile: '#e7f0ff',
-        requiresClass: true,
-        match: (pathname) => pathname.startsWith('/student/profile'),
-      },
-      {
-        href: classroomId ? `/student/leaderboard?class=${classroomId}` : '/student/leaderboard',
-        label: 'Bảng xếp hạng',
-        emoji: '🏆',
-        color: '#f59e0b',
-        tile: '#fff3df',
-        requiresClass: true,
-        match: (pathname) => pathname.startsWith('/student/leaderboard'),
-      },
-    );
-  }
 
   return items;
 }

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { type RoadmapTrackId } from '@/lib/roadmap-client';
-import { CheckCircle2, Lock } from 'lucide-react';
+import { CheckCircle2, Lock, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export interface TrackStats {
@@ -49,7 +49,7 @@ export function TrackSwitcher({
   };
 
   const handleTrackKeyDown = (e: React.KeyboardEvent, trackId: RoadmapTrackId) => {
-    const tracks: RoadmapTrackId[] = ['vocab', 'cefr', 'thpt', 'toeic'];
+    const tracks: RoadmapTrackId[] = ['vocab', 'cefr', 'thpt'];
     const idx = tracks.indexOf(trackId);
     let nextTrack: RoadmapTrackId | null = null;
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
@@ -73,12 +73,12 @@ export function TrackSwitcher({
   };
 
   return (
-    <div className={cn('w-full space-y-3', className)} data-testid="track-switcher">
+    <div className={cn('w-full space-y-2.5', className)} data-testid="track-switcher">
       {/* Segmented Tab Bar */}
       <div
         role="tablist"
         aria-label="Chọn lộ trình học"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 p-1.5 bg-muted/60 dark:bg-muted/30 border border-border/80 rounded-2xl shadow-xs"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-1 p-1 bg-muted/30 dark:bg-muted/20 border border-border/70 rounded-md shadow-2xs"
       >
         {/* Vocab Foundation Tab */}
         <button
@@ -92,19 +92,19 @@ export function TrackSwitcher({
           onClick={() => handleTrackClick('vocab')}
           onKeyDown={(e) => handleTrackKeyDown(e, 'vocab')}
           className={cn(
-            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
+            'min-h-[52px] w-full text-left p-2 rounded transition-all duration-150 flex items-center justify-between gap-2.5 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
             currentTrack === 'vocab'
-              ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
-              : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
+              ? 'bg-background text-foreground shadow-2xs ring-1 ring-border/80 font-semibold'
+              : 'text-muted-foreground hover:text-foreground hover:bg-background/60 opacity-85'
           )}
         >
-          <div className="flex items-center gap-3 min-w-0">
+          <div className="flex items-center gap-2.5 min-w-0">
             <span
               className={cn(
-                'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg font-bold shadow-xs',
+                'flex h-8 w-8 shrink-0 items-center justify-center rounded text-base font-medium border',
                 currentTrack === 'vocab'
-                  ? 'bg-gradient-to-br from-amber-500 to-orange-600 text-white'
-                  : 'bg-muted text-muted-foreground'
+                  ? 'bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30'
+                  : 'bg-muted/60 text-muted-foreground border-transparent'
               )}
             >
               🎯
@@ -112,7 +112,7 @@ export function TrackSwitcher({
             <div className="min-w-0">
               <div className="flex items-center gap-1.5">
                 <span className="font-bold text-sm tracking-tight truncate">Từ Vựng Cốt Lõi</span>
-                <span className="inline-flex items-center text-[10px] font-medium bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 px-1.5 py-0.5 rounded-full">
+                <span className="inline-flex items-center text-[10px] font-semibold bg-amber-500/10 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-500/20 px-1.5 py-0.5 rounded">
                   Mất gốc
                 </span>
               </div>
@@ -132,6 +132,7 @@ export function TrackSwitcher({
             </div>
           )}
         </button>
+
         {/* CEFR Tab */}
         <button
           key="track-tab-cefr"
@@ -144,19 +145,19 @@ export function TrackSwitcher({
           onClick={() => handleTrackClick('cefr')}
           onKeyDown={(e) => handleTrackKeyDown(e, 'cefr')}
           className={cn(
-            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
+            'min-h-[52px] w-full text-left p-2 rounded transition-all duration-150 flex items-center justify-between gap-2.5 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
             currentTrack === 'cefr'
-              ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
-              : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
+              ? 'bg-background text-foreground shadow-2xs ring-1 ring-border/80 font-semibold'
+              : 'text-muted-foreground hover:text-foreground hover:bg-background/60 opacity-85'
           )}
         >
-          <div className="flex items-center gap-3 min-w-0">
+          <div className="flex items-center gap-2.5 min-w-0">
             <span
               className={cn(
-                'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg font-bold shadow-xs',
+                'flex h-8 w-8 shrink-0 items-center justify-center rounded text-base font-medium border',
                 currentTrack === 'cefr'
-                  ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white'
-                  : 'bg-muted text-muted-foreground'
+                  ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30'
+                  : 'bg-muted/60 text-muted-foreground border-transparent'
               )}
             >
               🌱
@@ -165,11 +166,11 @@ export function TrackSwitcher({
               <div className="flex items-center gap-1.5">
                 <span className="font-bold text-sm tracking-tight truncate">CEFR Quốc Tế</span>
                 {cefrStats?.isEnrolled ? (
-                  <span className="inline-flex items-center text-[10px] font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 px-1.5 py-0.5 rounded-full">
+                  <span className="inline-flex items-center text-[10px] font-semibold bg-emerald-500/10 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-500/20 px-1.5 py-0.5 rounded">
                     A0–B2
                   </span>
                 ) : (
-                  <span className="inline-flex items-center text-[10px] font-medium bg-primary/10 text-primary px-1.5 py-0.5 rounded-full">
+                  <span className="inline-flex items-center text-[10px] font-semibold bg-primary/10 text-primary border border-primary/20 px-1.5 py-0.5 rounded">
                     + Thêm
                   </span>
                 )}
@@ -203,19 +204,19 @@ export function TrackSwitcher({
           onClick={() => handleTrackClick('thpt')}
           onKeyDown={(e) => handleTrackKeyDown(e, 'thpt')}
           className={cn(
-            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
+            'min-h-[52px] w-full text-left p-2 rounded transition-all duration-150 flex items-center justify-between gap-2.5 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
             currentTrack === 'thpt'
-              ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
-              : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
+              ? 'bg-background text-foreground shadow-2xs ring-1 ring-border/80 font-semibold'
+              : 'text-muted-foreground hover:text-foreground hover:bg-background/60 opacity-85'
           )}
         >
-          <div className="flex items-center gap-3 min-w-0">
+          <div className="flex items-center gap-2.5 min-w-0">
             <span
               className={cn(
-                'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg font-bold shadow-xs',
+                'flex h-8 w-8 shrink-0 items-center justify-center rounded text-base font-medium border',
                 currentTrack === 'thpt'
-                  ? 'bg-gradient-to-br from-red-500 to-orange-600 text-white'
-                  : 'bg-muted text-muted-foreground'
+                  ? 'bg-red-500/15 text-red-700 dark:text-red-300 border-red-500/30'
+                  : 'bg-muted/60 text-muted-foreground border-transparent'
               )}
             >
               🎓
@@ -224,11 +225,11 @@ export function TrackSwitcher({
               <div className="flex items-center gap-1.5">
                 <span className="font-bold text-sm tracking-tight truncate">THPT Quốc Gia</span>
                 {thptStats?.isEnrolled ? (
-                  <span className="inline-flex items-center text-[10px] font-medium bg-red-100 text-red-800 dark:bg-red-950/60 dark:text-red-300 px-1.5 py-0.5 rounded-full">
+                  <span className="inline-flex items-center text-[10px] font-semibold bg-red-500/10 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-500/20 px-1.5 py-0.5 rounded">
                     Lớp 10–12
                   </span>
                 ) : (
-                  <span className="inline-flex items-center text-[10px] font-medium bg-primary/10 text-primary px-1.5 py-0.5 rounded-full">
+                  <span className="inline-flex items-center text-[10px] font-semibold bg-primary/10 text-primary border border-primary/20 px-1.5 py-0.5 rounded">
                     + Thêm
                   </span>
                 )}
@@ -249,70 +250,11 @@ export function TrackSwitcher({
             </div>
           )}
         </button>
-
-        {/* TOEIC Tab */}
-        <button
-          key="track-tab-toeic"
-          id="track-tab-toeic"
-          type="button"
-          role="tab"
-          tabIndex={currentTrack === 'toeic' ? 0 : -1}
-          aria-selected={currentTrack === 'toeic'}
-          disabled={disabled}
-          onClick={() => handleTrackClick('toeic')}
-          onKeyDown={(e) => handleTrackKeyDown(e, 'toeic')}
-          className={cn(
-            'min-h-[52px] sm:min-h-[56px] w-full text-left p-3 rounded-xl transition-all duration-200 flex items-center justify-between gap-3 select-none touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
-            currentTrack === 'toeic'
-              ? 'bg-background text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10 font-semibold'
-              : 'text-muted-foreground hover:text-foreground hover:bg-background/50 opacity-85'
-          )}
-        >
-          <div className="flex items-center gap-3 min-w-0">
-            <span
-              className={cn(
-                'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg font-bold shadow-xs',
-                currentTrack === 'toeic'
-                  ? 'bg-gradient-to-br from-blue-500 to-indigo-600 text-white'
-                  : 'bg-muted text-muted-foreground'
-              )}
-            >
-              🏢
-            </span>
-            <div className="min-w-0">
-              <div className="flex items-center gap-1.5">
-                <span className="font-bold text-sm tracking-tight truncate">TOEIC Reading</span>
-                {toeicStats?.isEnrolled ? (
-                  <span className="inline-flex items-center text-[10px] font-medium bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 px-1.5 py-0.5 rounded-full">
-                    450–800
-                  </span>
-                ) : (
-                  <span className="inline-flex items-center text-[10px] font-medium bg-primary/10 text-primary px-1.5 py-0.5 rounded-full">
-                    + Thêm
-                  </span>
-                )}
-              </div>
-              <p className="text-xs text-muted-foreground truncate">
-                {toeicStats?.isEnrolled && toeicStats.currentLevelTitle
-                  ? `${toeicStats.currentLevelTitle} · ${toeicStats.completedUnits}/${toeicStats.totalUnits} chặng`
-                  : 'Part 5, 6, 7 có giải thích'}
-              </p>
-            </div>
-          </div>
-
-          {toeicStats?.isEnrolled && (
-            <div className="shrink-0 text-right hidden sm:block">
-              <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
-                {toeicStats.progressPct}%
-              </span>
-            </div>
-          )}
-        </button>
       </div>
 
       {/* Active Track Progress Bar & Linear Unlocking Principle */}
       {activeStats && activeStats.isEnrolled && (
-        <div className="rounded-xl border bg-card/60 p-3 text-xs space-y-2">
+        <div className="rounded-md border border-border/70 bg-card/40 p-2 text-xs space-y-1.5">
           <div className="flex items-center justify-between gap-2">
             <span className="font-semibold text-muted-foreground flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
@@ -326,17 +268,17 @@ export function TrackSwitcher({
             </span>
           </div>
 
-          <div className="relative h-2 w-full overflow-hidden rounded-full bg-muted">
+          <div className="relative h-1 w-full overflow-hidden rounded-xs bg-muted/80">
             <div
               className={cn(
-                'h-full transition-all duration-500 rounded-full',
+                'h-full transition-all duration-300 rounded-xs',
                 currentTrack === 'vocab'
-                  ? 'bg-gradient-to-r from-amber-500 to-emerald-500'
+                  ? 'bg-amber-500'
                   : currentTrack === 'cefr'
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500'
+                  ? 'bg-emerald-500'
                   : currentTrack === 'toeic'
-                  ? 'bg-gradient-to-r from-blue-500 to-indigo-500'
-                  : 'bg-gradient-to-r from-red-500 to-orange-500'
+                  ? 'bg-blue-500'
+                  : 'bg-red-500'
               )}
               style={{ width: `${Math.min(100, Math.max(0, activeStats.progressPct))}%` }}
             />
@@ -344,7 +286,11 @@ export function TrackSwitcher({
 
           <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-0.5">
             <span className="flex items-center gap-1">
-              <Lock className="w-3 h-3 text-muted-foreground/80 shrink-0" />
+              {currentTrack === 'vocab' ? (
+                <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+              ) : (
+                <Lock className="w-3 h-3 text-muted-foreground/80 shrink-0" />
+              )}
               {currentTrack === 'vocab'
                 ? 'Lộ trình 5 Tầng Sư Phạm: 100 động từ làm mỏ neo cú pháp (S + V + O) & 5 cách luyện tập'
                 : 'Mở khóa tuyến tính khoa học: Đạt checkpoint ≥80% để mở chặng tiếp theo'}

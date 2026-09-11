@@ -87,26 +87,70 @@ export default function JourneyPage() {
   const [needsPlacement, setNeedsPlacement] = useState(false);
   const [tree, setTree] = useState<RoadmapLevelView[]>([]);
   const [levelId, setLevelId] = useState<string>('A0');
-  const [track, setTrack] = useState<RoadmapTrackId>('cefr');
+  const [track, setTrack] = useState<RoadmapTrackId>(() => {
+    if (typeof window === 'undefined') return 'cefr';
+    try {
+      const sp = new URLSearchParams(window.location.search);
+      const t = sp.get('track');
+      if (t === 'vocab' || t === 'cefr' || t === 'thpt' || t === 'toeic') return t as RoadmapTrackId;
+      const stored = localStorage.getItem(TRACK_STORAGE_KEY);
+      if (stored === 'vocab' || stored === 'cefr' || stored === 'thpt' || stored === 'toeic') return stored as RoadmapTrackId;
+    } catch {
+      /* ignore */
+    }
+    return 'cefr';
+  });
   const [busyStep, setBusyStep] = useState<string | null>(null);
   const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
 
   // Vocab foundation track progress from localStorage
-  const [completedVocabPacks, setCompletedVocabPacks] = useState<string[]>([]);
-  const [completedVocabTopics, setCompletedVocabTopics] = useState<string[]>([]);
-  const [_masteredVocabWords, setMasteredVocabWords] = useState<string[]>([]);
-
-  useEffect(() => {
+  const [completedVocabPacks, setCompletedVocabPacks] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
     try {
       const rawCompleted = localStorage.getItem('vocab_station_completed_packs');
-      if (rawCompleted) setCompletedVocabPacks(JSON.parse(rawCompleted));
-      const rawTopics = localStorage.getItem('vocab_station_completed_topics');
-      if (rawTopics) setCompletedVocabTopics(JSON.parse(rawTopics));
-      const rawMastered = localStorage.getItem('vocab_station_mastered_words');
-      if (rawMastered) setMasteredVocabWords(JSON.parse(rawMastered));
+      return rawCompleted ? JSON.parse(rawCompleted) : [];
     } catch {
-      /* ignore */
+      return [];
     }
+  });
+  const [completedVocabTopics, setCompletedVocabTopics] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
+    try {
+      const rawTopics = localStorage.getItem('vocab_station_completed_topics');
+      return rawTopics ? JSON.parse(rawTopics) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [_masteredVocabWords, setMasteredVocabWords] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
+    try {
+      const rawMastered = localStorage.getItem('vocab_station_mastered_words');
+      return rawMastered ? JSON.parse(rawMastered) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    const handleSync = () => {
+      try {
+        const rawCompleted = localStorage.getItem('vocab_station_completed_packs');
+        if (rawCompleted) setCompletedVocabPacks(JSON.parse(rawCompleted));
+        const rawTopics = localStorage.getItem('vocab_station_completed_topics');
+        if (rawTopics) setCompletedVocabTopics(JSON.parse(rawTopics));
+        const rawMastered = localStorage.getItem('vocab_station_mastered_words');
+        if (rawMastered) setMasteredVocabWords(JSON.parse(rawMastered));
+      } catch {
+        /* ignore */
+      }
+    };
+    window.addEventListener('storage', handleSync);
+    window.addEventListener('focus', handleSync);
+    return () => {
+      window.removeEventListener('storage', handleSync);
+      window.removeEventListener('focus', handleSync);
+    };
   }, []);
 
   const vocabStats: TrackStats = useMemo(() => {
@@ -663,7 +707,7 @@ OK = học lại · Cancel = giữ nguyên.`,
               onClick={() => !submitting && void submitPlacement({ track: 'thpt', selfSelect: g.id })}
             >
               <CardContent className="flex items-center gap-4 p-4 min-h-[56px]">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-red-500 to-orange-500 text-white font-bold text-sm">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded bg-gradient-to-br from-red-500 to-orange-500 text-white font-bold text-sm">
                   {g.id.replace('lop-', '')}
                 </span>
                 <div>
@@ -739,7 +783,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             >
               <CardContent className="flex items-center gap-4 p-4 min-h-[56px]">
                 <span
-                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${LEVEL_COLORS[l.id]} text-white font-bold text-xs text-center px-1`}
+                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded bg-gradient-to-br ${LEVEL_COLORS[l.id]} text-white font-bold text-xs text-center px-1`}
                 >
                   {l.id.replace('toeic-', '')}+
                 </span>
@@ -806,7 +850,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             >
               <CardContent className="flex items-center gap-4 p-4 min-h-[56px]">
                 <span
-                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${LEVEL_COLORS[l.id]} text-white font-bold`}
+                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded bg-gradient-to-br ${LEVEL_COLORS[l.id]} text-white font-bold`}
                 >
                   {l.id}
                 </span>
@@ -931,7 +975,7 @@ OK = học lại · Cancel = giữ nguyên.`,
   // ── MAIN JOURNEY MODULE CARDS UI ──
   return (
     <StudentShell title="Lộ trình" requireAuth={false}>
-      <div className="mx-auto max-w-3xl p-4 sm:p-6 pb-28 space-y-6" data-onboarding="journey-main">
+      <div className="mx-auto max-w-3xl p-3 sm:p-5 pb-16 space-y-3.5" data-onboarding="journey-main">
         {/* Milestone Achievement Popup */}
         <MilestonePopup
           open={!!milestonePopup}
@@ -970,11 +1014,11 @@ OK = học lại · Cancel = giữ nguyên.`,
         />
 
         {/* Header Title & Nav */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground flex items-center gap-2">
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
               <span>Lộ Trình Học Tập</span>
-              <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary">
+              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 uppercase tracking-wide font-mono">
                 {track === 'vocab'
                   ? 'Từ Vựng Cốt Lõi'
                   : track === 'thpt'
@@ -984,7 +1028,7 @@ OK = học lại · Cancel = giữ nguyên.`,
                   : 'Chuẩn CEFR'}
               </span>
             </h1>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+            <p className="text-xs text-muted-foreground mt-0.5">
               {track === 'vocab'
                 ? '100 Động từ sống còn · 5 Tầng Sư Phạm · Làm chủ bố cục câu (S + V + O) & 5 cách luyện tập'
                 : track === 'thpt' || levelId.startsWith('lop-')
@@ -999,10 +1043,10 @@ OK = học lại · Cancel = giữ nguyên.`,
             href="/student"
             className={cn(
               buttonVariants({ variant: 'outline', size: 'sm' }),
-              'min-h-[44px] rounded-xl flex items-center gap-1 text-xs font-semibold'
+              'min-h-[36px] rounded px-2.5 flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground shadow-2xs'
             )}
           >
-            <ArrowLeft className="w-4 h-4" /> Bảng điều khiển
+            <ArrowLeft className="w-3.5 h-3.5" /> Bảng điều khiển
           </Link>
         </div>
 
@@ -1026,7 +1070,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             <Button
               variant="outline"
               size="sm"
-              className="min-h-[44px] rounded-xl text-xs font-semibold"
+              className="min-h-[38px] rounded-md text-xs font-medium"
               onClick={() => setMode('thpt-grade')}
             >
               Đổi lớp (10 / 11 / 12)
@@ -1035,7 +1079,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             <Button
               variant="outline"
               size="sm"
-              className="min-h-[44px] rounded-xl text-xs font-semibold"
+              className="min-h-[38px] rounded-md text-xs font-medium"
               onClick={() => setMode('toeic-level')}
             >
               Đổi mục tiêu TOEIC (450 / 650 / 800)
@@ -1044,7 +1088,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             <Button
               variant="outline"
               size="sm"
-              className="min-h-[44px] rounded-xl text-xs font-semibold"
+              className="min-h-[38px] rounded-md text-xs font-medium"
               onClick={() => setMode('pick-intro')}
             >
               Đổi cấp CEFR
@@ -1055,7 +1099,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             <Button
               variant="outline"
               size="sm"
-              className="min-h-[44px] rounded-xl text-xs font-semibold text-emerald-600 dark:text-emerald-400"
+              className="min-h-[38px] rounded-md text-xs font-medium text-emerald-600 dark:text-emerald-400"
               onClick={() => void switchTrack('cefr')}
             >
               + Mở thêm CEFR
@@ -1066,7 +1110,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             <Button
               variant="outline"
               size="sm"
-              className="min-h-[44px] rounded-xl text-xs font-semibold text-red-600 dark:text-red-400"
+              className="min-h-[38px] rounded-md text-xs font-medium text-red-600 dark:text-red-400"
               onClick={() => void switchTrack('thpt')}
             >
               + Mở thêm THPT
@@ -1077,7 +1121,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             <Button
               variant="outline"
               size="sm"
-              className="min-h-[44px] rounded-xl text-xs font-semibold text-blue-600 dark:text-blue-400"
+              className="min-h-[38px] rounded-md text-xs font-medium text-blue-600 dark:text-blue-400"
               onClick={() => void switchTrack('toeic')}
             >
               + Mở thêm TOEIC
@@ -1087,7 +1131,7 @@ OK = học lại · Cancel = giữ nguyên.`,
 
         {/* Pedagogical info banner */}
         {track === 'thpt' || levelId.startsWith('lop-') ? (
-          <div className="rounded-2xl border border-sky-200/90 bg-sky-50/80 p-3.5 text-xs text-sky-950 dark:border-sky-900/60 dark:bg-sky-950/40 dark:text-sky-100 flex items-start gap-2.5">
+          <div className="rounded-lg border border-sky-200/90 bg-sky-50/80 p-3 text-xs text-sky-950 dark:border-sky-900/60 dark:bg-sky-950/40 dark:text-sky-100 flex items-start gap-2.5">
             <Layers className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
             <div className="leading-relaxed">
               <strong>Lộ trình THPT Song Hành:</strong> Mỗi Unit gồm Từ vựng SGK Global Success +
@@ -1096,7 +1140,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             </div>
           </div>
         ) : track === 'toeic' || levelId.startsWith('toeic-') ? (
-          <div className="rounded-2xl border border-blue-200/90 bg-blue-50/80 p-3.5 text-xs text-blue-950 dark:border-blue-900/60 dark:bg-blue-950/40 dark:text-blue-100 flex items-start gap-2.5">
+          <div className="rounded-lg border border-blue-200/90 bg-blue-50/80 p-3 text-xs text-blue-950 dark:border-blue-900/60 dark:bg-blue-950/40 dark:text-blue-100 flex items-start gap-2.5">
             <Target className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
             <div className="leading-relaxed">
               <strong>Luyện thi TOEIC Reading:</strong> Rèn luyện phản xạ Part 5 (Incomplete Sentences),
@@ -1104,7 +1148,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             </div>
           </div>
         ) : (
-          <div className="rounded-2xl border border-amber-200/90 bg-amber-50/80 p-3.5 text-xs text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-100 flex items-start gap-2.5">
+          <div className="rounded-lg border border-amber-200/90 bg-amber-50/80 p-3 text-xs text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-100 flex items-start gap-2.5">
             <Award className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
             <div className="leading-relaxed">
               {getExitDisclaimer()} Bạn có thể mở thêm lộ trình <strong>THPT</strong> hoặc <strong>TOEIC</strong> song song.
@@ -1113,22 +1157,22 @@ OK = học lại · Cancel = giữ nguyên.`,
         )}
 
         {/* Dedicated IPA Soundboard & Practice Studio */}
-        <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-4 sm:p-5 shadow-xs">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="relative overflow-hidden rounded-lg border border-primary/20 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent p-3.5 sm:p-4 shadow-2xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-start sm:items-center gap-3 min-w-0">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-xs">
-                <Volume2 className="h-5 w-5" />
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-2xs">
+                <Volume2 className="h-4 w-4" />
               </div>
               <div className="space-y-0.5">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.2 rounded-full">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-1.5 py-0.5 rounded">
                     Phiên Âm IPA
                   </span>
                   <span className="text-[11px] text-muted-foreground font-medium hidden sm:inline">
                     44 Âm Chuẩn Quốc Tế · Rachel&apos;s English
                   </span>
                 </div>
-                <h3 className="text-base sm:text-lg font-extrabold text-foreground tracking-tight">
+                <h3 className="text-sm sm:text-base font-bold text-foreground tracking-tight">
                   Bảng Phiên Âm IPA Quốc Tế &amp; Studio Luyện Âm
                 </h3>
                 <p className="text-xs text-muted-foreground">
@@ -1138,7 +1182,7 @@ OK = học lại · Cancel = giữ nguyên.`,
             </div>
             <Link href="/ipa" className="shrink-0">
               <Button
-                className="h-10 rounded-xl font-semibold shadow-xs w-full sm:w-auto text-xs"
+                className="h-9 rounded-md font-semibold shadow-2xs w-full sm:w-auto text-xs px-3"
               >
                 Học Phiên Âm IPA <ChevronRight className="w-4 h-4 ml-1" />
               </Button>
@@ -1148,11 +1192,11 @@ OK = học lại · Cancel = giữ nguyên.`,
 
         {/* ── NEXT ACTIONABLE STEP HERO CARD ── */}
         {nextActionableStep && (
-          <Card className="border-2 border-primary/40 bg-gradient-to-r from-primary/10 via-primary/5 to-background shadow-md overflow-hidden rounded-2xl">
-            <CardContent className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <Card className="border border-primary/30 bg-gradient-to-r from-primary/10 via-primary/5 to-background shadow-xs overflow-hidden rounded-lg">
+            <CardContent className="p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="space-y-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-primary bg-primary/15 px-2 py-0.5 rounded-full animate-pulse">
+                  <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/15 px-1.5 py-0.5 rounded animate-pulse">
                     <Flame className="w-3 h-3 fill-current" />
                     Bước học tiếp theo
                   </span>
@@ -1161,7 +1205,7 @@ OK = học lại · Cancel = giữ nguyên.`,
                   </span>
                 </div>
 
-                <p className="text-base sm:text-lg font-extrabold text-foreground tracking-tight break-words">
+                <p className="text-sm sm:text-base font-bold text-foreground tracking-tight break-words">
                   {nextActionableStep.step.title}
                 </p>
 
@@ -1174,13 +1218,13 @@ OK = học lại · Cancel = giữ nguyên.`,
 
               <Button
                 type="button"
-                variant="chunky"
+                variant="default"
                 disabled={busyStep !== null}
                 onClick={() => {
                   setPreviewStep(nextActionableStep.step);
                   setPreviewUnit(nextActionableStep.unit);
                 }}
-                className="min-h-[48px] px-6 text-sm font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shrink-0 touch-manipulation"
+                className="min-h-[44px] px-5 text-xs font-semibold rounded-md flex items-center justify-center gap-2 shadow-2xs shrink-0 touch-manipulation"
               >
                 {busyStep === nextActionableStep.step.id ? (
                   'Đang mở...'
@@ -1197,11 +1241,11 @@ OK = học lại · Cancel = giữ nguyên.`,
         )}
 
         {/* ── MAIN MODULE CARDS LIST BY LEVEL ── */}
-        <div className="space-y-8">
+        <div className="space-y-6">
           {track === 'cefr' && levelId === 'A0' && (
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl border-2 border-amber-300 bg-amber-50/90 dark:border-amber-800 dark:bg-amber-950/30 text-amber-950 dark:text-amber-100 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-lg border border-amber-300 bg-amber-50/90 dark:border-amber-800 dark:bg-amber-950/30 text-amber-950 dark:text-amber-100 shadow-2xs">
               <div className="space-y-0.5">
-                <div className="flex items-center gap-1.5 font-black text-xs text-amber-800 dark:text-amber-300">
+                <div className="flex items-center gap-1.5 font-bold text-xs text-amber-800 dark:text-amber-300">
                   <Sparkles className="w-3.5 h-3.5 fill-current" /> Khuyến nghị sư phạm cho người mất gốc:
                 </div>
                 <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -1210,9 +1254,9 @@ OK = học lại · Cancel = giữ nguyên.`,
               </div>
               <Button
                 size="sm"
-                variant="chunky"
+                variant="default"
                 onClick={() => void switchTrack('vocab')}
-                className="shrink-0 text-xs font-bold rounded-xl shadow-xs"
+                className="shrink-0 text-xs font-semibold rounded-md shadow-2xs"
               >
                 Mở Lộ Trình Động Từ →
               </Button>
@@ -1227,10 +1271,10 @@ OK = học lại · Cancel = giữ nguyên.`,
             ).length;
 
             return (
-              <section key={level.id} className="space-y-4">
+              <section key={level.id} className="space-y-3">
                 {/* Level Banner */}
                 <div
-                  className={`rounded-2xl bg-gradient-to-r ${LEVEL_COLORS[level.id] ?? 'from-slate-600 to-slate-700'} p-5 text-white shadow-md space-y-3`}
+                  className={`rounded-lg bg-gradient-to-r ${LEVEL_COLORS[level.id] ?? 'from-slate-600 to-slate-700'} p-4 text-white shadow-xs space-y-2.5`}
                 >
                   <div className="flex items-center justify-between gap-3">
                     <div>
@@ -1239,27 +1283,27 @@ OK = học lại · Cancel = giữ nguyên.`,
                           ? `Chương Trình Lớp ${level.id.replace('lop-', '')}`
                           : `Cấp Độ Chuẩn ${level.id}`}
                       </p>
-                      <h2 className="text-xl sm:text-2xl font-black tracking-tight mt-0.5">
+                      <h2 className="text-lg sm:text-xl font-bold tracking-tight mt-0.5">
                         {level.titleVi}
                       </h2>
                     </div>
 
                     <div className="text-right shrink-0">
                       <span className="text-xs opacity-85 block">Tiến độ cấp</span>
-                      <span className="text-sm sm:text-base font-extrabold tabular-nums">
+                      <span className="text-sm sm:text-base font-bold tabular-nums">
                         {levelUnitsDone}/{levelUnitsTotal} chặng
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm opacity-90 leading-relaxed">
+                  <p className="text-xs opacity-90 leading-relaxed">
                     {level.description}
                   </p>
 
                   {/* Level Exit Standards (Can-Do) */}
                   {exit && (
-                    <details className="rounded-xl bg-black/20 p-3 text-xs backdrop-blur-xs transition-all">
-                      <summary className="cursor-pointer font-bold select-none flex items-center justify-between">
+                    <details className="rounded-md bg-black/20 p-2.5 text-xs backdrop-blur-xs transition-all">
+                      <summary className="cursor-pointer font-semibold select-none flex items-center justify-between">
                         <span className="flex items-center gap-1.5">
                           <Target className="w-4 h-4" />
                           Chuẩn đầu ra cấp độ (Can-Do Skills)
@@ -1267,23 +1311,23 @@ OK = học lại · Cancel = giữ nguyên.`,
                         <span className="text-[11px] opacity-80">Chi tiết ▼</span>
                       </summary>
 
-                      <div className="mt-2.5 pt-2 border-t border-white/10 space-y-2">
+                      <div className="mt-2 pt-2 border-t border-white/10 space-y-2">
                         {exit.targetLemmas && (
                           <p className="text-xs font-semibold text-emerald-200">
                             Kho từ vựng mục tiêu: {exit.targetLemmas}
                           </p>
                         )}
-                        <p className="font-bold opacity-90">Năng lực đạt được sau cấp độ:</p>
-                        <ul className="space-y-1 pl-1">
-                          {exit.canDo.map((line, idx) => (
-                            <li key={idx} className="flex items-start gap-1.5 opacity-95">
-                              <span className="text-emerald-300 font-bold">✓</span>
-                              <span>{line}</span>
-                            </li>
+                        <p className="font-semibold text-xs opacity-90">Năng lực đạt được sau cấp độ:</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
+                          {exit.canDo.map((skill, idx) => (
+                            <div key={idx} className="flex items-start gap-1.5">
+                              <span className="text-emerald-300 font-bold shrink-0">✓</span>
+                              <span className="opacity-95">{skill}</span>
+                            </div>
                           ))}
-                        </ul>
+                        </div>
                         {exit.notYet && exit.notYet.length > 0 && (
-                          <p className="text-[11px] opacity-75 pt-1">
+                          <p className="text-[11px] opacity-75 pt-0.5">
                             Chưa bao gồm: {exit.notYet.join(' · ')}
                           </p>
                         )}
@@ -1292,18 +1336,18 @@ OK = học lại · Cancel = giữ nguyên.`,
                   )}
                 </div>
 
-                {/* Module Cards Grid / Stacking */}
-                <div className="space-y-4">
-                  {level.units.map((unit) => {
-                    const isUnitCurrent =
-                      nextActionableStep?.unit.id === unit.id ||
-                      unit.steps.some((s) => s.status === 'current');
+                {/* Module Cards Grid */}
+                <div className="space-y-3">
+                  {level.units.map((u) => {
+                    const isCurrentUnit =
+                      nextActionableStep?.unit.id === u.id ||
+                      u.steps.some((s) => s.status === 'current');
 
                     return (
                       <ModuleCard
-                        key={unit.id}
-                        unit={unit}
-                        isCurrentUnit={isUnitCurrent}
+                        key={u.id}
+                        unit={u}
+                        isCurrentUnit={isCurrentUnit}
                         busyStepId={busyStep}
                         onStepClick={(step, u) => {
                           setPreviewStep(step);
@@ -1323,8 +1367,8 @@ OK = học lại · Cancel = giữ nguyên.`,
 
         {/* Lower levels review section (free review) */}
         {visibleTree.review.length > 0 && (
-          <details className="rounded-2xl border bg-muted/20 p-4 sm:p-5">
-            <summary className="cursor-pointer font-bold text-sm text-muted-foreground select-none flex items-center justify-between">
+          <details className="rounded-lg border bg-muted/20 p-3.5 sm:p-4">
+            <summary className="cursor-pointer font-semibold text-xs text-muted-foreground select-none flex items-center justify-between">
               <span>
                 {track === 'thpt'
                   ? 'Lớp thấp hơn (Mở tự do để ôn tập)'
@@ -1333,9 +1377,9 @@ OK = học lại · Cancel = giữ nguyên.`,
               <span className="text-xs">Xem danh sách ▼</span>
             </summary>
 
-            <div className="mt-4 space-y-3 pt-3 border-t">
+            <div className="mt-3 space-y-2.5 pt-2.5 border-t">
               {visibleTree.review.map((level) => (
-                <div key={level.id} className="text-xs text-muted-foreground space-y-1">
+                <div key={level.id} className="text-xs text-muted-foreground space-y-0.5">
                   <p className="font-semibold text-foreground">
                     {level.id} — {level.titleVi} ({level.units.length} chặng)
                   </p>

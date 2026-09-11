@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   Volume2,
@@ -113,10 +112,82 @@ const STAGE_CONFIGS: Record<
   },
 };
 
+function parseStorageSet(key: string): Set<string> {
+  try {
+    if (typeof window === 'undefined') return new Set();
+    const raw = localStorage.getItem(key);
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      return new Set(
+        parsed
+          .map((item) => String(item).toLowerCase().trim())
+          .filter(Boolean)
+      );
+    }
+    if (parsed && typeof parsed === 'object') {
+      return new Set(
+        Object.keys(parsed)
+          .map((k) => k.toLowerCase().trim())
+          .filter(Boolean)
+      );
+    }
+    return new Set();
+  } catch {
+    return new Set();
+  }
+}
+
+function getInitialStage(): 1 | 2 | 3 {
+  if (typeof window === 'undefined') return 1;
+  try {
+    const sp = new URLSearchParams(window.location.search);
+    const topicParam = sp.get('topic');
+    if (topicParam) {
+      const found = getVocabTopic(topicParam);
+      if (found) return found.stage;
+    }
+    const stageParam = sp.get('stage');
+    if (stageParam === '1' || stageParam === '2' || stageParam === '3') {
+      return Number(stageParam) as 1 | 2 | 3;
+    }
+  } catch {
+    /* ignore */
+  }
+  return 1;
+}
+
+function getInitialBedrock(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    const sp = new URLSearchParams(window.location.search);
+    const b = sp.get('bedrock');
+    const p = sp.get('pack');
+    return b === 'true' || b === '1' || Boolean(p);
+  } catch {
+    return false;
+  }
+}
+
+function getInitialTopicId(): string | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const sp = new URLSearchParams(window.location.search);
+    const topicParam = sp.get('topic');
+    if (topicParam) {
+      const found = getVocabTopic(topicParam);
+      if (found) return found.id;
+    }
+  } catch {
+    /* ignore */
+  }
+  return null;
+}
+
 export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) {
-  const [selectedStage, setSelectedStage] = useState<1 | 2 | 3>(1);
-  const [isBedrockExpanded, setIsBedrockExpanded] = useState<boolean>(false);
-  const [expandedTopicId, setExpandedTopicId] = useState<string | null>(null);
+  const [selectedStage, setSelectedStage] = useState<1 | 2 | 3>(getInitialStage);
+  const [isBedrockExpanded, setIsBedrockExpanded] = useState<boolean>(getInitialBedrock);
+  const [expandedTopicId, setExpandedTopicId] = useState<string | null>(getInitialTopicId);
   const [playingWord, setPlayingWord] = useState<string | null>(null);
 
   // Load datasets
@@ -125,9 +196,15 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
   const currentStageData = useMemo(() => getVocabStage(selectedStage), [selectedStage]);
 
   // Track progress from localStorage with dynamic sync
-  const [completedPacks, setCompletedPacks] = useState<Set<string>>(new Set());
-  const [completedTopics, setCompletedTopics] = useState<Set<string>>(new Set());
-  const [masteredWords, setMasteredWords] = useState<Set<string>>(new Set());
+  const [completedPacks, setCompletedPacks] = useState<Set<string>>(() =>
+    parseStorageSet('vocab_station_completed_packs')
+  );
+  const [completedTopics, setCompletedTopics] = useState<Set<string>>(() =>
+    parseStorageSet('vocab_station_completed_topics')
+  );
+  const [masteredWords, setMasteredWords] = useState<Set<string>>(() =>
+    parseStorageSet('vocab_station_mastered_words')
+  );
 
   const router = useRouter();
   const [loadingPackId, setLoadingPackId] = useState<string | null>(null);
@@ -175,71 +252,13 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
 
   const audioReqIdRef = useRef<number>(0);
 
-  const parseStorageSet = useCallback((key: string): Set<string> => {
-    try {
-      if (typeof window === 'undefined') return new Set();
-      const raw = localStorage.getItem(key);
-      if (!raw) return new Set();
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) {
-        return new Set(
-          parsed
-            .map((item) => String(item).toLowerCase().trim())
-            .filter(Boolean)
-        );
-      }
-      if (parsed && typeof parsed === 'object') {
-        return new Set(
-          Object.keys(parsed)
-            .map((k) => k.toLowerCase().trim())
-            .filter(Boolean)
-        );
-      }
-      return new Set();
-    } catch {
-      return new Set();
-    }
-  }, []);
-
   const syncProgressFromStorage = useCallback(() => {
     setCompletedPacks(parseStorageSet('vocab_station_completed_packs'));
     setCompletedTopics(parseStorageSet('vocab_station_completed_topics'));
     setMasteredWords(parseStorageSet('vocab_station_mastered_words'));
-  }, [parseStorageSet]);
-
-  // Deep linking and URL parameter initialization (preserves stage/topic across refresh & deep links)
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    try {
-      const sp = new URLSearchParams(window.location.search);
-      const stageParam = sp.get('stage');
-      const topicParam = sp.get('topic');
-      const bedrockParam = sp.get('bedrock');
-      const packParam = sp.get('pack');
-
-      if (topicParam) {
-        const foundTopic = getVocabTopic(topicParam);
-        if (foundTopic) {
-          setSelectedStage(foundTopic.stage);
-          setExpandedTopicId(foundTopic.id);
-          setIsBedrockExpanded(false);
-        }
-      } else if (stageParam === '1' || stageParam === '2' || stageParam === '3') {
-        setSelectedStage(Number(stageParam) as 1 | 2 | 3);
-      }
-
-      if (bedrockParam === 'true' || bedrockParam === '1' || packParam) {
-        setSelectedStage(1);
-        setIsBedrockExpanded(true);
-        setExpandedTopicId(null);
-      }
-    } catch {
-      /* ignore */
-    }
   }, []);
 
   useEffect(() => {
-    syncProgressFromStorage();
     const handleStorage = (e: StorageEvent) => {
       if (!e.key || e.key.startsWith('vocab_station_')) {
         syncProgressFromStorage();
@@ -371,15 +390,15 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
   };
 
   return (
-    <div className="space-y-4 pb-16 sm:pb-8" data-testid="vocab-roadmap-section">
-      {/* ── R1. STAGE SWITCHER PILLS & MICRO HORIZONTAL PROGRESS ── */}
-      <div className="rounded-2xl border border-slate-200/80 bg-white p-3 shadow-xs dark:border-slate-800 dark:bg-slate-900/90 sm:p-4">
+    <div className="space-y-2.5 pb-12 sm:pb-6" data-testid="vocab-roadmap-section">
+      {/* ── R1. STAGE SWITCHER & MICRO PROGRESS ── */}
+      <div className="rounded-md border border-border/80 bg-card/70 p-2 sm:p-2.5 shadow-2xs">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          {/* Stage Tabs (Pill style) */}
+          {/* Stage Tabs */}
           <div
             role="tablist"
             aria-label="Chọn chặng lộ trình từ vựng"
-            className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 overflow-x-auto no-scrollbar w-full sm:w-auto"
+            className="flex items-center gap-1 p-0.5 rounded bg-muted/50 border border-border/50 overflow-x-auto no-scrollbar w-full sm:w-auto"
           >
             {([1, 2, 3] as const).map((sNum) => {
               const sc = STAGE_CONFIGS[sNum];
@@ -395,11 +414,12 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                   aria-controls="stage-tabpanel"
                   onClick={() => handleStageSelect(sNum)}
                   onKeyDown={(e) => handleTabKeyDown(e, sNum)}
-                  className={`min-h-[44px] flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-lg px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:focus-visible:ring-sky-400 touch-manipulation ${
+                  className={cn(
+                    'min-h-[44px] flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded px-2.5 sm:px-3 py-1 text-xs font-semibold transition-all shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary touch-manipulation',
                     isCurrent
-                      ? 'bg-white text-slate-900 shadow-xs dark:bg-slate-700 dark:text-white'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
-                  }`}
+                      ? 'bg-background text-foreground shadow-2xs border border-border/80 font-bold'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-background/40'
+                  )}
                 >
                   <span className="text-sm">{sc.icon}</span>
                   <span className="whitespace-nowrap">Chặng {sNum}</span>
@@ -412,30 +432,40 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
           </div>
 
           {/* Corner Progress Stats */}
-          <div className="flex items-center justify-between sm:justify-end gap-2.5 text-xs text-slate-500 dark:text-slate-400 shrink-0">
+          <div className="flex items-center justify-between sm:justify-end gap-2.5 text-xs text-muted-foreground shrink-0">
             <span className="text-[11px] sm:text-xs">
-              Đã thuộc: <strong className="font-bold text-slate-900 dark:text-white">{stageStats.masteredCount}</strong>/{stageStats.totalCount} từ
+              Đã thuộc: <strong className="font-bold text-foreground">{stageStats.masteredCount}</strong>/{stageStats.totalCount} từ
             </span>
-            <span className="font-extrabold text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm">
+            <span className="font-extrabold text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm tabular-nums">
               {stageStats.progressPct}%
             </span>
           </div>
         </div>
 
-        {/* Micro Horizontal Progress Bar (~3px - 4px) */}
-        <div className="mt-2.5">
-          <div className="h-1 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+        {/* Micro Horizontal Progress Bar */}
+        <div className="mt-2">
+          <div className="h-1 w-full overflow-hidden rounded-xs bg-muted/80">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-sky-500 transition-all duration-500 ease-out"
+              className="h-full rounded-xs bg-emerald-500 transition-all duration-300 ease-out"
               style={{ width: `${stageStats.progressPct}%` }}
             />
           </div>
+        </div>
+
+        {/* Stage Subtitle & Summary */}
+        <div className="mt-1.5 pt-1.5 border-t border-border/40 flex items-center justify-between text-[11px] text-muted-foreground">
+          <span className="truncate">
+            <strong className="text-foreground font-semibold">{STAGE_CONFIGS[selectedStage].titleVi}</strong>: {STAGE_CONFIGS[selectedStage].tagline}
+          </span>
+          <span className="font-mono text-[10px] font-bold text-muted-foreground/80 shrink-0 ml-2 hidden sm:inline">
+            {STAGE_CONFIGS[selectedStage].level}
+          </span>
         </div>
       </div>
 
       {/* ── R2 PART 1. 100 BEDROCK VERBS ACCORDION (STAGE 1 ONLY) ── */}
       {selectedStage === 1 && (
-        <div className="rounded-2xl border border-amber-200/90 bg-white dark:border-amber-900/40 dark:bg-slate-900 overflow-hidden shadow-xs">
+        <div className="rounded-md border border-amber-300/70 bg-card dark:border-amber-900/40 overflow-hidden shadow-2xs">
           {/* Collapsed Compact Row */}
           <button
             id="bedrock-accordion-toggle"
@@ -447,67 +477,68 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                 return next;
               });
             }}
-            className="w-full min-h-[52px] p-3 sm:px-4 flex items-center justify-between gap-2.5 sm:gap-3 text-left hover:bg-amber-50/40 dark:hover:bg-amber-950/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 dark:focus-visible:ring-amber-400 focus-visible:ring-inset touch-manipulation"
+            className="w-full min-h-[48px] p-2 sm:px-3 py-1.5 flex items-center justify-between gap-2.5 sm:gap-3 text-left hover:bg-amber-500/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 dark:focus-visible:ring-amber-400 focus-visible:ring-inset touch-manipulation"
             data-testid="bedrock-accordion-toggle"
             aria-expanded={isBedrockExpanded}
             aria-controls="bedrock-accordion-content"
           >
             <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-base font-bold text-amber-600 dark:text-amber-400">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-amber-500/10 text-xs font-bold text-amber-700 dark:text-amber-300 border border-amber-500/20">
                 ⭐
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span role="heading" aria-level={4} className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate block">
+                  <span role="heading" aria-level={4} className="text-xs sm:text-sm font-bold text-foreground truncate block">
                     100 Động Từ Cốt Lõi
                     <span className="hidden sm:inline"> (Bedrock Verbs)</span>
                   </span>
-                  <span className="hidden sm:inline-block rounded-md bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 shrink-0">
+                  <span className="hidden sm:inline-block rounded border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 text-[10px] font-semibold text-amber-800 dark:text-amber-300 shrink-0">
                     5 Tầng S-V-O
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                <p className="text-[11px] text-muted-foreground truncate">
                   Khung xương định hình câu · Lấy gốc sống còn
                 </p>
               </div>
             </div>
 
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-600 dark:text-slate-300">
+              <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground">
                 {bedrockMasteredCount}/100 từ
               </span>
 
               {/* Mini progress bar on tablet/desktop */}
-              <div className="w-16 h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden hidden sm:block">
+              <div className="w-12 h-1 rounded-xs bg-muted overflow-hidden hidden sm:block">
                 <div
-                  className="h-full rounded-full bg-amber-500 transition-all duration-300"
+                  className="h-full rounded-xs bg-amber-500 transition-all duration-300"
                   style={{ width: `${Math.max(2, bedrockProgressPct)}%` }}
                 />
               </div>
-              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 w-7 sm:w-8 text-right hidden sm:inline-block">
+              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 w-7 sm:w-8 text-right hidden sm:inline-block tabular-nums">
                 {bedrockProgressPct}%
               </span>
 
               <ChevronDown
-                className={`h-4 w-4 text-slate-400 transition-transform duration-200 shrink-0 ${
-                  isBedrockExpanded ? 'rotate-180 text-amber-600 dark:text-amber-400' : ''
-                }`}
+                className={cn(
+                  'h-4 w-4 text-muted-foreground transition-transform duration-200 shrink-0',
+                  isBedrockExpanded && 'rotate-180 text-amber-600 dark:text-amber-400'
+                )}
               />
             </div>
           </button>
 
-          {/* Expanded Inline Accordion */}
+          {/* Expanded Inline Content */}
           {isBedrockExpanded && (
             <div
               id="bedrock-accordion-content"
               role="region"
               aria-labelledby="bedrock-accordion-toggle"
-              className="border-t border-amber-100 bg-amber-50/20 p-4 sm:p-5 dark:border-amber-900/30 dark:bg-slate-900/60 space-y-4"
+              className="border-t border-amber-300/40 bg-amber-50/15 p-2.5 sm:p-3 dark:border-amber-900/30 dark:bg-card/40 space-y-2.5"
               data-testid="bedrock-accordion-content"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-amber-200/50 dark:border-amber-900/30">
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                  100 động từ chia làm 5 tầng (10 gói). Bạn có thể luyện tập nhanh theo từng gói hoặc làm chủ toàn bộ.
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2 border-b border-amber-300/30">
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  100 động từ chia làm 5 tầng (10 gói). Luyện tập nhanh theo từng gói hoặc làm chủ toàn bộ.
                 </p>
                 <button
                   type="button"
@@ -518,20 +549,20 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                   }}
                   className={cn(
                     buttonVariants({ variant: 'outline', size: 'sm' }),
-                    'min-h-[44px] rounded-xl text-xs font-bold border-amber-300 text-amber-800 hover:bg-amber-100 hover:text-amber-900 dark:border-amber-800 dark:text-amber-300 dark:hover:bg-amber-950/50 dark:hover:text-amber-200 shrink-0 shadow-xs touch-manipulation'
+                    'min-h-[44px] rounded text-xs font-semibold border-amber-400/80 text-amber-900 dark:border-amber-800 dark:text-amber-200 hover:bg-amber-100/60 dark:hover:bg-amber-950/40 shrink-0 shadow-2xs touch-manipulation'
                   )}
                 >
                   {loadingPackId === 'starter-verb-01' ? (
-                    <Loader2 className="h-3.5 w-3.5 animate-spin mr-1 text-amber-500" />
+                    <Loader2 className="h-3.5 w-3.5 animate-spin mr-1 text-amber-600" />
                   ) : (
-                    <Play className="h-3.5 w-3.5 fill-current mr-1 text-amber-500" />
+                    <Play className="h-3.5 w-3.5 fill-current mr-1 text-amber-600" />
                   )}
                   Học Flashcard 100 Động Từ →
                 </button>
               </div>
 
-              {/* 5 Tiers */}
-              <div className="space-y-3">
+              {/* 5 Tiers - Minimalist High Density Layout */}
+              <div className="space-y-2">
                 {([1, 2, 3, 4, 5] as const).map((tierNum) => {
                   const tierMeta = TIER_META[tierNum];
                   const tierPacks = tierGroups[tierNum] || [];
@@ -539,23 +570,23 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                   return (
                     <div
                       key={`tier-${tierNum}`}
-                      className="rounded-xl border border-slate-200/80 bg-white/90 p-3 sm:p-4 dark:border-slate-800 dark:bg-slate-900/90 space-y-3"
+                      className="rounded border border-border/70 bg-background/90 p-2 sm:p-2.5 space-y-2"
                     >
                       <div className="flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-2">
-                          <span className="rounded-md bg-amber-100 px-1.5 py-0.5 font-mono text-[10px] font-black text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">
+                        <div className="flex items-center gap-1.5">
+                          <span className="rounded border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[10px] font-bold text-amber-800 dark:text-amber-300">
                             TẦNG {tierNum}
                           </span>
-                          <h5 className={`text-xs sm:text-sm font-bold ${tierMeta.color}`}>
+                          <h5 className={`text-xs font-bold ${tierMeta.color}`}>
                             {tierMeta.name}
                           </h5>
                         </div>
-                        <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                        <span className="text-[10px] font-medium text-muted-foreground">
                           {tierMeta.badge}
                         </span>
                       </div>
 
-                      <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
+                      <div className="grid grid-cols-1 gap-1.5 lg:grid-cols-2">
                         {tierPacks.map((packItem, pIdx) => {
                           const packIndexGlobal = (tierNum - 1) * 2 + pIdx;
                           const packIcon = PACK_ICONS[packIndexGlobal] || '✨';
@@ -567,36 +598,36 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                           return (
                             <div
                               key={packItem.id}
-                              className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-3 shadow-2xs dark:border-slate-800 dark:bg-slate-900"
+                              className="flex flex-col justify-between rounded border border-border/70 bg-card p-2 shadow-2xs space-y-2"
                             >
                               <div>
                                 <div className="flex items-center justify-between gap-2">
-                                  <div className="flex items-center gap-2 min-w-0">
-                                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-xs font-bold dark:bg-amber-500/20">
+                                  <div className="flex items-center gap-1.5 min-w-0">
+                                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-amber-500/10 text-xs font-medium border border-amber-500/20">
                                       {packIcon}
                                     </span>
                                     <div className="min-w-0">
-                                      <span className="text-[9px] font-bold uppercase tracking-wider text-slate-400 block">
+                                      <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground block">
                                         Gói {packIndexGlobal + 1}/10 · 10 từ
                                       </span>
-                                      <span className="text-xs font-bold text-slate-900 dark:text-white truncate block">
+                                      <span className="text-xs font-bold text-foreground truncate block">
                                         {cleanTitle}
                                       </span>
                                     </div>
                                   </div>
                                   {isDone ? (
-                                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 shrink-0">
+                                    <span className="inline-flex items-center gap-1 rounded bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/20 px-1.5 py-0.5 text-[10px] font-semibold shrink-0">
                                       <CheckCircle2 className="h-3 w-3" /> Đã xong
                                     </span>
                                   ) : (
-                                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-400 shrink-0">
+                                    <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground shrink-0">
                                       10 từ
                                     </span>
                                   )}
                                 </div>
 
                                 {/* Word Chips */}
-                                <div className="mt-2 flex flex-wrap gap-1">
+                                <div className="mt-1.5 flex flex-wrap gap-1">
                                   {packItem.verbs.map((v) => {
                                     const isPlaying = playingWord === v.lemma;
                                     const isVerbLearned = masteredWords.has(v.lemma.toLowerCase());
@@ -609,12 +640,12 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                                         aria-label={`Phát âm từ ${v.lemma}`}
                                         aria-busy={isPlaying}
                                         className={cn(
-                                          'group/chip inline-flex items-center gap-1 rounded-md border px-2 py-1 text-[11px] font-medium transition-all min-h-[36px] touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 dark:focus-visible:ring-amber-400',
+                                          'group/chip inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[11px] font-medium transition-all min-h-[28px] touch-manipulation focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-500',
                                           isPlaying
-                                            ? 'border-amber-400 bg-amber-100/80 text-amber-950 dark:border-amber-700 dark:bg-amber-950/60 dark:text-amber-200 shadow-2xs'
+                                            ? 'border-amber-400 bg-amber-100/80 text-amber-950 dark:border-amber-700 dark:bg-amber-950/60 dark:text-amber-200'
                                             : isVerbLearned
-                                            ? 'border-emerald-300 bg-emerald-50 text-emerald-900 hover:bg-emerald-100/70 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200 dark:hover:bg-emerald-900/30'
-                                            : 'border-slate-200 bg-slate-50 text-slate-800 hover:border-amber-400 hover:bg-amber-50 hover:text-amber-900 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-200 dark:hover:border-amber-700/60 dark:hover:bg-amber-950/40 dark:hover:text-amber-200'
+                                            ? 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200'
+                                            : 'border-border/70 bg-background text-foreground hover:border-amber-400 hover:bg-amber-50/50 hover:text-amber-900 dark:hover:bg-amber-950/30 dark:hover:text-amber-200'
                                         )}
                                       >
                                         {isVerbLearned && (
@@ -626,7 +657,7 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                                             'h-3 w-3 shrink-0 transition-all',
                                             isPlaying
                                               ? 'opacity-100 text-amber-600 dark:text-amber-400 animate-pulse scale-125'
-                                              : 'opacity-50 group-hover/chip:opacity-100'
+                                              : 'opacity-40 group-hover/chip:opacity-100'
                                           )}
                                         />
                                       </button>
@@ -635,7 +666,7 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                                 </div>
                               </div>
 
-                              <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800">
+                              <div className="pt-1.5 border-t border-border/50">
                                 <button
                                   type="button"
                                   disabled={loadingPackId !== null}
@@ -645,13 +676,13 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                                   }}
                                   className={cn(
                                     buttonVariants({ variant: 'outline', size: 'sm' }),
-                                    'w-full min-h-[44px] text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 hover:bg-amber-50 hover:text-amber-900 border-amber-200/80 dark:border-amber-900/40 dark:hover:bg-amber-950/40 dark:hover:text-amber-300 shadow-2xs touch-manipulation'
+                                    'w-full min-h-[44px] text-xs font-medium rounded flex items-center justify-center gap-1.5 border border-border/80 hover:bg-accent shadow-2xs touch-manipulation'
                                   )}
                                 >
                                   {loadingPackId === packItem.id ? (
-                                    <Loader2 className="h-3.5 w-3.5 animate-spin text-amber-600 dark:text-amber-400" />
+                                    <Loader2 className="h-3.5 w-3.5 animate-spin text-amber-600" />
                                   ) : (
-                                    <Play className="h-3.5 w-3.5 fill-current text-amber-600 dark:text-amber-400" />
+                                    <Play className="h-3.5 w-3.5 fill-current text-amber-600" />
                                   )}
                                   Học Flashcard Gói Này
                                 </button>
@@ -675,14 +706,14 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
         role="tabpanel"
         aria-labelledby={`stage-tab-${selectedStage}`}
         aria-label={`Danh sách chủ đề Chặng ${selectedStage}`}
-        className="space-y-2"
+        className="space-y-1.5"
       >
         <div className="flex items-center justify-between px-1 py-0.5">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
               12 Chủ Đề Chặng {selectedStage}
             </span>
-            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+            <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
               {(currentStageData?.topics || []).length} chủ đề
             </span>
           </div>
@@ -690,14 +721,14 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
             <button
               type="button"
               onClick={() => setExpandedTopicId(null)}
-              className="min-h-[44px] inline-flex items-center px-2 py-1 text-xs font-semibold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md touch-manipulation"
+              className="min-h-[44px] inline-flex items-center px-2 py-1 text-xs font-semibold text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded touch-manipulation"
             >
               Thu gọn
             </button>
           )}
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           {(currentStageData?.topics || []).map((topic: VocabStageTopic) => {
             const isExpanded = expandedTopicId === topic.id;
             const topicWordsInMastered = topic.words.filter((w) =>
@@ -714,11 +745,12 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
             return (
               <div
                 key={topic.id}
-                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                className={cn(
+                  'rounded-md border transition-all duration-150 overflow-hidden',
                   isExpanded
-                    ? 'border-sky-300 bg-white ring-1 ring-sky-300/60 shadow-xs dark:border-sky-700 dark:bg-slate-900 dark:ring-sky-700/60'
-                    : 'border-slate-200/90 bg-white hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700'
-                }`}
+                    ? 'border-sky-400/80 bg-card shadow-2xs dark:border-sky-700/80'
+                    : 'border-border/70 bg-card hover:border-border dark:hover:border-border'
+                )}
                 data-testid={`topic-row-${topic.id}`}
               >
                 {/* Compact Row Header */}
@@ -732,63 +764,64 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                       return next;
                     });
                   }}
-                  className="w-full min-h-[52px] p-3 sm:px-4 flex items-center justify-between gap-2.5 sm:gap-3 text-left transition-colors hover:bg-slate-50/60 dark:hover:bg-slate-800/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:focus-visible:ring-sky-400 focus-visible:ring-inset touch-manipulation"
+                  className="w-full min-h-[48px] p-2 sm:px-3 py-1.5 flex items-center justify-between gap-2.5 sm:gap-3 text-left transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-inset touch-manipulation"
                   data-testid={`topic-toggle-${topic.id}`}
                   aria-expanded={isExpanded}
                   aria-controls={`topic-content-${topic.id}`}
                 >
                   {/* Left: Icon & Title */}
-                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 flex-1">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-base dark:bg-slate-800">
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-muted/60 text-xs font-medium border border-border/40">
                       {topic.icon}
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-baseline gap-1.5 flex-wrap">
-                        <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 shrink-0">
+                        <span className="text-xs font-semibold text-muted-foreground shrink-0">
                           {topic.index}.
                         </span>
-                        <span role="heading" aria-level={4} className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate block">
+                        <span role="heading" aria-level={4} className="text-xs sm:text-sm font-bold text-foreground truncate block">
                           {topic.title}
                         </span>
-                        <span className="text-xs text-slate-400 dark:text-slate-500 font-normal truncate hidden sm:inline">
+                        <span className="text-xs text-muted-foreground font-normal truncate hidden sm:inline">
                           · {topic.titleEn}
                         </span>
                       </div>
-                      <span className="text-[11px] text-slate-400 dark:text-slate-500 block sm:hidden truncate">
+                      <span className="text-[11px] text-muted-foreground block sm:hidden truncate">
                         {topic.titleEn}
                       </span>
                     </div>
                   </div>
 
                   {/* Right: Word count, Progress, Chevron */}
-                  <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-                    <span className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium shrink-0">
+                  <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+                    <span className="text-[11px] sm:text-xs text-muted-foreground font-medium shrink-0">
                       {topic.wordCount} từ
                     </span>
 
                     {isTopicDone ? (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 shrink-0">
+                      <span className="inline-flex items-center gap-1 rounded bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/20 px-1.5 py-0.5 text-[10px] font-semibold shrink-0">
                         <Check className="h-3 w-3" /> Xong
                       </span>
                     ) : (
                       <div className="flex items-center gap-1 sm:gap-2">
                         {/* Mini Progress Bar */}
-                        <div className="w-10 sm:w-16 h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                        <div className="w-10 sm:w-14 h-1 rounded-xs bg-muted overflow-hidden">
                           <div
-                            className="h-full rounded-full bg-sky-500 transition-all duration-300"
+                            className="h-full rounded-xs bg-sky-500 transition-all duration-300"
                             style={{ width: `${Math.max(2, topicProgressPct)}%` }}
                           />
                         </div>
-                        <span className="text-xs font-bold text-slate-600 dark:text-slate-300 w-6 sm:w-7 text-right hidden sm:inline-block">
+                        <span className="text-xs font-bold text-muted-foreground w-6 sm:w-7 text-right hidden sm:inline-block tabular-nums">
                           {topicProgressPct}%
                         </span>
                       </div>
                     )}
 
                     <ChevronDown
-                      className={`h-4 w-4 text-slate-400 transition-transform duration-200 shrink-0 ${
-                        isExpanded ? 'rotate-180 text-sky-600 dark:text-sky-400' : ''
-                      }`}
+                      className={cn(
+                        'h-4 w-4 text-muted-foreground transition-transform duration-200 shrink-0',
+                        isExpanded && 'rotate-180 text-sky-600 dark:text-sky-400'
+                      )}
                     />
                   </div>
                 </button>
@@ -799,22 +832,22 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                     id={`topic-content-${topic.id}`}
                     role="region"
                     aria-labelledby={`topic-toggle-${topic.id}`}
-                    className="border-t border-slate-100 bg-slate-50/60 p-4 sm:p-5 dark:border-slate-800/80 dark:bg-slate-900/50 space-y-3.5"
+                    className="border-t border-border/60 bg-muted/20 p-2.5 sm:p-3 space-y-2.5"
                     data-testid={`topic-content-${topic.id}`}
                   >
                     {/* Short description */}
-                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p className="text-xs text-muted-foreground leading-relaxed">
                       {topic.description}
                     </p>
 
                     {/* Sample word chips with audio */}
                     <div>
-                      <div className="flex items-center justify-between mb-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                      <div className="flex items-center justify-between mb-1.5 text-[11px] font-semibold text-muted-foreground">
                         <span>Từ vựng tiêu biểu (bấm để nghe):</span>
                         <span>Đã thuộc: {topicWordsInMastered}/{topic.wordCount}</span>
                       </div>
 
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-1">
                         {topic.words.slice(0, 8).map((w: VocabStageItem) => {
                           const isWordLearned = masteredWords.has(w.word.toLowerCase());
                           const isPlaying = playingWord === w.word;
@@ -827,29 +860,34 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                               aria-label={`Phát âm từ ${w.word}`}
                               aria-busy={isPlaying}
                               className={cn(
-                                'group/chip inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-medium transition-all min-h-[36px] touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:focus-visible:ring-sky-400',
+                                'group/chip inline-flex items-center gap-1.5 rounded border px-2 py-0.5 text-xs font-medium transition-all min-h-[30px] touch-manipulation focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-sky-500',
                                 isPlaying
-                                  ? 'border-sky-400 bg-sky-100/80 text-sky-950 dark:border-sky-700 dark:bg-sky-950/70 dark:text-sky-200 shadow-2xs'
+                                  ? 'border-sky-400 bg-sky-100/80 text-sky-950 dark:border-sky-700 dark:bg-sky-950/70 dark:text-sky-200'
                                   : isWordLearned
-                                  ? 'border-emerald-300 bg-emerald-50 text-emerald-900 hover:bg-emerald-100/70 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200 dark:hover:bg-emerald-900/30'
-                                  : 'border-slate-200 bg-white text-slate-700 hover:border-sky-400 hover:bg-sky-50 hover:text-sky-900 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:border-sky-700/60 dark:hover:bg-sky-950/40 dark:hover:text-sky-200'
+                                  ? 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200'
+                                  : 'border-border/70 bg-background text-foreground hover:border-sky-400 hover:bg-sky-50/50 hover:text-sky-950 dark:hover:bg-sky-950/30 dark:hover:text-sky-200'
                               )}
                             >
-                              <span className="font-semibold">{w.word}</span>
+                              <div className="flex items-center gap-1">
+                                {isWordLearned && (
+                                  <Check className="h-2.5 w-2.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                                )}
+                                <span className="font-semibold">{w.word}</span>
+                              </div>
                               <span className="text-[10px] opacity-70">({w.meaningVi})</span>
                               <Volume2
                                 className={cn(
                                   'h-3 w-3 shrink-0 transition-all',
                                   isPlaying
                                     ? 'opacity-100 text-sky-600 dark:text-sky-400 animate-pulse scale-125'
-                                    : 'opacity-50 group-hover/chip:opacity-100'
+                                    : 'opacity-40 group-hover/chip:opacity-100'
                                 )}
                               />
                             </button>
                           );
                         })}
                         {topic.wordCount > 8 && (
-                          <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium text-slate-500 dark:text-slate-400">
+                          <span className="inline-flex items-center px-1.5 py-0.5 text-xs font-medium text-muted-foreground">
                             +{topic.wordCount - 8} từ trong các gói bên dưới
                           </span>
                         )}
@@ -857,31 +895,36 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                     </div>
 
                     {/* Micro-packs (15 từ / gói) */}
-                    <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 space-y-2">
-                      <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 dark:text-slate-300">
-                        <span>Gói học Flashcard chuẩn (15 từ/gói):</span>
-                        <span className="text-[10px] text-slate-400 hidden sm:inline">Ví dụ chuẩn từ điển · Lưu Sổ từ FSRS</span>
+                    <div className="pt-2 border-t border-border/50 space-y-1.5">
+                      <div className="flex items-center justify-between text-[11px] font-bold text-muted-foreground">
+                        <span>Gói học Flashcard (15 từ/gói):</span>
+                        <span className="text-[10px] text-muted-foreground/80 hidden sm:inline">Ví dụ chuẩn từ điển · Lưu Sổ từ FSRS</span>
                       </div>
 
-                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-1">
                         {Array.from({ length: Math.ceil(topic.wordCount / 15) }).map((_, pIdx) => {
                           const packId = `${topic.id}-p${pIdx}`;
                           const isPackLoading = loadingPackId === packId;
                           const pStart = pIdx * 15;
                           const pWords = topic.words.slice(pStart, pStart + 15);
-                          const isPackDone = pWords.length > 0 && pWords.every((w) => masteredWords.has(w.word.toLowerCase()));
+                          const isPackDone =
+                            completedPacks.has(packId) ||
+                            (pWords.length > 0 && pWords.every((w) => masteredWords.has(w.word.toLowerCase())));
 
                           return (
                             <button
                               key={packId}
                               type="button"
                               disabled={loadingPackId !== null}
-                              onClick={() => handleStartPack(packId)}
+                              onClick={() => {
+                                onSelectPack?.(packId);
+                                handleStartPack(packId);
+                              }}
                               className={cn(
-                                'flex items-center justify-between rounded-xl border p-2 text-left text-xs font-semibold transition min-h-[44px] touch-manipulation',
+                                'flex items-center justify-between rounded border p-1.5 sm:p-2 text-left text-xs font-medium transition min-h-[44px] touch-manipulation',
                                 isPackDone
-                                  ? 'border-emerald-200 bg-emerald-50/70 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300'
-                                  : 'border-slate-200 bg-white text-slate-700 hover:border-sky-400 hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-800/70 dark:text-slate-200'
+                                  ? 'border-emerald-300 bg-emerald-50/60 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300'
+                                  : 'border-border/70 bg-background text-foreground hover:border-sky-400 hover:bg-sky-50/40 dark:hover:border-sky-700/60 dark:hover:bg-sky-950/30'
                               )}
                             >
                               <div className="min-w-0">
@@ -893,30 +936,57 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                               ) : isPackDone ? (
                                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                               ) : (
-                                <Play className="h-3 w-3 text-slate-400 shrink-0" />
+                                <Play className="h-3 w-3 text-muted-foreground/60 shrink-0" />
                               )}
                             </button>
                           );
                         })}
                       </div>
 
-                      <button
-                        type="button"
-                        disabled={loadingPackId !== null}
-                        onClick={() => handleStartPack(`${topic.id}-p0`)}
-                        className={cn(
-                          buttonVariants({ variant: 'chunky', size: 'sm' }),
-                          'w-full min-h-[44px] rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs touch-manipulation mt-2'
-                        )}
-                      >
-                        {loadingPackId === `${topic.id}-p0` ? (
-                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        ) : (
-                          <Play className="h-3.5 w-3.5 fill-current" />
-                        )}
-                        Học Flashcard Gói 1 (15 từ đầu)
-                        <ArrowRight className="h-3.5 w-3.5 ml-0.5" />
-                      </button>
+                      {/* Smart single CTA for the next uncompleted pack */}
+                      {(() => {
+                        const totalPacks = Math.ceil(topic.wordCount / 15);
+                        let nextPIdx = 0;
+                        for (let i = 0; i < totalPacks; i++) {
+                          const pWords = topic.words.slice(i * 15, (i + 1) * 15);
+                          const pId = `${topic.id}-p${i}`;
+                          const isDone =
+                            completedPacks.has(pId) ||
+                            (pWords.length > 0 && pWords.every((w) => masteredWords.has(w.word.toLowerCase())));
+                          if (!isDone) {
+                            nextPIdx = i;
+                            break;
+                          }
+                          if (i === totalPacks - 1) nextPIdx = 0;
+                        }
+                        const targetPackId = `${topic.id}-p${nextPIdx}`;
+                        const allDone = topic.wordCount > 0 && topicWordsInMastered >= topic.wordCount;
+
+                        return (
+                          <button
+                            type="button"
+                            disabled={loadingPackId !== null}
+                            onClick={() => {
+                              onSelectPack?.(targetPackId);
+                              handleStartPack(targetPackId);
+                            }}
+                            className={cn(
+                              buttonVariants({ variant: 'default', size: 'sm' }),
+                              'w-full min-h-[44px] rounded text-xs font-semibold flex items-center justify-center gap-1.5 shadow-2xs touch-manipulation mt-1'
+                            )}
+                          >
+                            {loadingPackId === targetPackId ? (
+                              <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                            ) : (
+                              <Play className="h-3.5 w-3.5 fill-current" />
+                            )}
+                            {allDone
+                              ? `Ôn tập lại: Gói ${nextPIdx + 1} (15 từ đầu)`
+                              : `Học tiếp: Gói ${nextPIdx + 1} (${topic.words.slice(nextPIdx * 15, (nextPIdx + 1) * 15).length} từ)`}
+                            <ArrowRight className="h-3.5 w-3.5 ml-0.5" />
+                          </button>
+                        );
+                      })()}
                     </div>
                   </div>
                 )}
