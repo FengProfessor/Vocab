@@ -14,6 +14,8 @@ import {
   Clock,
   Target,
   Zap,
+  RotateCcw,
+  Info,
 } from 'lucide-react';
 import type { ToeicScoreResult } from '@/types/toeic';
 import { getCefrDescriptor } from '@/lib/toeic-scoring';
@@ -35,6 +37,7 @@ export interface GuestSaveExamModalProps {
   isFullTest?: boolean;
   totalQuestions?: number;
   partNum?: number | null;
+  onRetake?: () => void;
 }
 
 export function GuestSaveExamModal({
@@ -47,6 +50,7 @@ export function GuestSaveExamModal({
   isFullTest,
   totalQuestions,
   partNum,
+  onRetake,
 }: GuestSaveExamModalProps) {
   if (!isOpen) return null;
 
@@ -143,6 +147,16 @@ export function GuestSaveExamModal({
             <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
               &ldquo;{cefrInfo.title}&rdquo; — {scoreResult.rawTotal} câu đúng
             </p>
+
+            {scoreResult.rawTotal === 0 && (
+              <div className="rounded-sm border border-amber-200 bg-amber-50/80 p-2.5 dark:border-amber-900/60 dark:bg-amber-950/40 text-left flex items-start gap-2">
+                <Info className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                <div className="text-[11px] text-amber-900 dark:text-amber-300 leading-relaxed">
+                  <span className="font-bold">Quy chuẩn khảo thí ETS (Thang 10–990): </span>
+                  Bài thi TOEIC không có điểm 0. Điểm sàn tối thiểu khi đúng 0 câu là 10 điểm (5 LC + 5 RC).
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <div className="mt-4 rounded-sm border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950/50 text-center space-y-3">
@@ -279,6 +293,21 @@ export function GuestSaveExamModal({
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </Link>
+
+          {/* Reset / Retake Button */}
+          {onRetake && (
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                onRetake();
+              }}
+              className="flex w-full items-center justify-center gap-1.5 rounded-sm border border-slate-300 dark:border-slate-700 bg-slate-100/80 dark:bg-slate-800 py-2 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-200/80 dark:hover:bg-slate-750 transition cursor-pointer"
+            >
+              <RotateCcw className="h-3.5 w-3.5 text-slate-500 dark:text-slate-400" />
+              <span>Làm lại bài thi từ đầu</span>
+            </button>
+          )}
 
           {/* Dismiss / Browse as guest */}
           <button

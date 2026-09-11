@@ -130,7 +130,17 @@ export function SubmitConfirmModal({
         </div>
 
         {/* Warning if there are unanswered questions */}
-        {unansweredCount > 0 ? (
+        {answeredCount === 0 ? (
+          <div className="flex items-start gap-2.5 rounded-sm border border-rose-200 bg-rose-50/80 p-3 text-xs text-rose-900 dark:border-rose-900/60 dark:bg-rose-950/40 dark:text-rose-200">
+            <AlertTriangle className="h-4 w-4 shrink-0 text-rose-600 dark:text-rose-400 mt-0.5" />
+            <div className="space-y-0.5">
+              <p className="font-bold">Bạn chưa chọn đáp án cho câu nào (0/{totalQuestions}):</p>
+              <p className="leading-relaxed">
+                Nếu nộp bài lúc này, bài thi sẽ được tính 0 câu đúng và nhận điểm sàn tối thiểu <strong>10/990</strong> theo chuẩn thang điểm ETS (5 Listening + 5 Reading).
+              </p>
+            </div>
+          </div>
+        ) : unansweredCount > 0 ? (
           <div className="flex items-start gap-2.5 rounded-sm border border-amber-200 bg-amber-50/70 p-3 text-xs text-amber-900 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200">
             <AlertTriangle className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
             <div className="space-y-0.5">
@@ -169,6 +179,11 @@ export function SubmitConfirmModal({
               <>
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
                 <span>Đang chấm điểm...</span>
+              </>
+            ) : answeredCount === 0 ? (
+              <>
+                <Send className="h-3.5 w-3.5" />
+                <span>Nộp bài trống (0 câu)</span>
               </>
             ) : (
               <>

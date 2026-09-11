@@ -509,6 +509,18 @@ export function ToeicScoreReportView({
                     <span className="text-slate-600 dark:text-slate-400">{cefrInfo.targetFeedbackVi}</span>
                   </div>
                 </div>
+
+                {scoreResult.rawTotal === 0 && (
+                  <div className="rounded-sm border border-amber-200 bg-amber-50/70 p-3 text-xs text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-300 flex items-start gap-2">
+                    <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-bold">Giải thích thang điểm ETS (10 - 990 điểm):</p>
+                      <p className="text-[11px] text-amber-800 dark:text-amber-400 mt-0.5 leading-relaxed">
+                        Theo quy chuẩn khảo thí quốc tế của ETS, thang điểm TOEIC chính thức dao động từ 10 đến 990 điểm. Điểm sàn tối thiểu cho thí sinh đúng 0 câu là 10 điểm (5 điểm Listening + 5 điểm Reading). Bài thi TOEIC không có điểm 0.
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             </>
           ) : (

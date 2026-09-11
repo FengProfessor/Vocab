@@ -385,6 +385,17 @@ function ToeicExamRoomInner() {
             Number(pending.part || 0) === Number(partNum || 0) &&
             pending.examMode === currentMode;
 
+        // Discard stale empty submissions (0 answers) so user can take a fresh exam unless returning from OAuth
+        const hasAnswers = Object.keys(pending.answers || {}).length > 0;
+        const isOAuthRedirect =
+          typeof window !== 'undefined' &&
+          Boolean(sessionStorage.getItem('lingopro_oauth_redirect_to'));
+
+        if (!hasAnswers && !isOAuthRedirect) {
+          localStorage.removeItem('lingo_pending_toeic_save');
+          return;
+        }
+
         if (matchesSession && pending.scoreResult) {
           setSubmittedScoreResult(pending.scoreResult);
           setSubmittedAnswers(pending.answers || {});
@@ -434,6 +445,24 @@ function ToeicExamRoomInner() {
 
     void syncPendingGuestSubmission();
   }, [sessionKey, targetTestId, currentMode, partNum]);
+
+  // Retake exam handler (clears persisted submission and local draft)
+  const handleRetakeExam = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.removeItem('lingo_pending_toeic_save');
+        localStorage.removeItem(sessionKey);
+      } catch (e) {
+        console.warn('[ToeicExam] Reset storage error:', e);
+      }
+    }
+    setSubmittedScoreResult(null);
+    setSubmittedAnswers({});
+    setIsExamSubmittedState(false);
+    setIsSavedToHistoryState(false);
+    session.resetExam();
+    setShowPracticeExplanation(false);
+  }, [session, sessionKey]);
 
   // ── 6. Google Sign-In for Guests (Preserves in-progress/completed session) ──
   const handleGoogleSignInForGuest = useCallback(async () => {
@@ -565,22 +594,7 @@ function ToeicExamRoomInner() {
             isGuest={isCurrentGuest && !isHistorySaved}
             savedToHistory={isHistorySaved}
             onOpenGuestSaveModal={() => setIsGuestModalOpen(true)}
-            onRetake={() => {
-              if (typeof window !== 'undefined') {
-                try {
-                  localStorage.removeItem('lingo_pending_toeic_save');
-                  localStorage.removeItem(sessionKey);
-                } catch (e) {
-                  console.warn('[ToeicExam] Reset storage error:', e);
-                }
-              }
-              setSubmittedScoreResult(null);
-              setSubmittedAnswers({});
-              setIsExamSubmittedState(false);
-              setIsSavedToHistoryState(false);
-              session.resetExam();
-              setShowPracticeExplanation(false);
-            }}
+            onRetake={handleRetakeExam}
             onBackToHub={() => router.push('/toeic')}
           />
 
@@ -595,6 +609,7 @@ function ToeicExamRoomInner() {
             isFullTest={isFullTestExam}
             totalQuestions={questions.length}
             partNum={partNum}
+            onRetake={handleRetakeExam}
           />
         </div>
       </StudentShell>
