@@ -8,6 +8,7 @@ import {
   ArrowDownToLine,
   Brain,
   ChevronDown,
+  GraduationCap,
   Loader2,
   LogOut,
   Menu,
@@ -88,6 +89,7 @@ export function StudentShell({
   const profileRef = useRef<HTMLDivElement>(null);
   const [profile, setProfile] = useState<ShellProfile | null>(null);
   const [profileEmail, setProfileEmail] = useState('');
+  const [isTeacherUser, setIsTeacherUser] = useState(false);
   const [classroomId, setClassroomId] = useState<string | null>(null);
   const [reviewDueCount, setReviewDueCount] = useState(0);
   const [newCount, setNewCount] = useState(0);
@@ -136,7 +138,7 @@ export function StudentShell({
         }
 
         const authHeaders = { Authorization: `Bearer ${session.access_token}` };
-        const [{ data: profileData }, wordsResponse, grammarResponse] = await Promise.all([
+        const [{ data: profileData }, wordsResponse, grammarResponse, teacherClassesRes] = await Promise.all([
           supabase
             .from('profiles')
             .select('*')
@@ -148,10 +150,17 @@ export function StudentShell({
           fetch('/api/grammar/progress?summary=1', { headers: authHeaders })
             .then((response) => response.json())
             .catch(() => null),
+          supabase
+            .from('classrooms')
+            .select('id', { count: 'exact', head: true })
+            .eq('teacher_id', session.user.id)
+            .neq('name', '__personal__'),
         ]);
 
         if (profileData) {
           setProfile(profileData as ShellProfile);
+          const hasTeacher = profileData.role === 'teacher' || (teacherClassesRes?.count ?? 0) > 0;
+          setIsTeacherUser(hasTeacher);
         }
 
         if (wordsResponse?.success) {
@@ -394,8 +403,20 @@ export function StudentShell({
               )}
             </nav>
 
-            {/* Footer drawer: Pro + FB + đăng xuất */}
+            {/* Footer drawer: Teacher + Pro + FB + đăng xuất */}
             <div className="shrink-0 space-y-0.5 border-t border-[#f0f0f4] px-3 pb-3 pt-2">
+              {isTeacherUser && (
+                <Link
+                  href="/teacher"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] bg-indigo-50 px-2.5 py-2 text-sm font-extrabold text-indigo-700 hover:bg-indigo-100 transition-colors"
+                >
+                  <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px] shadow-[0_1px_2px_rgba(79,70,229,.18)]">
+                    🎓
+                  </span>
+                  <span>Dành cho Giáo viên</span>
+                </Link>
+              )}
               <Link
                 href="/upgrade"
                 onClick={() => setIsMenuOpen(false)}
@@ -473,6 +494,17 @@ export function StudentShell({
           )}
         </nav>
         <div className="mt-2.5 shrink-0 space-y-0.5 border-t border-[#f0f0f4] pt-3">
+          {isTeacherUser && (
+            <Link
+              href="/teacher"
+              className="flex items-center gap-[11px] rounded-[11px] bg-indigo-50 px-2.5 py-2 text-sm font-extrabold text-indigo-700 hover:bg-indigo-100 transition-colors"
+            >
+              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px] shadow-[0_1px_2px_rgba(79,70,229,.18)]">
+                🎓
+              </span>
+              <span>Dành cho Giáo viên</span>
+            </Link>
+          )}
           <Link
             href="/upgrade"
             className="flex items-center gap-[11px] rounded-[11px] bg-[#f6f1ff] px-2.5 py-2 text-sm font-extrabold text-[#7c3aed]"
@@ -550,6 +582,15 @@ export function StudentShell({
             </div>
           ) : (
             <div className="flex shrink-0 items-center gap-1 sm:gap-2.5">
+              {isTeacherUser && (
+                <Link
+                  href="/teacher"
+                  className="hidden items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-[12px] font-extrabold text-indigo-700 transition-colors hover:bg-indigo-100 sm:flex"
+                >
+                  <GraduationCap className="h-4 w-4 text-indigo-600" />
+                  Cổng Giáo viên
+                </Link>
+              )}
               <Link
                 href="/download"
                 className="hidden items-center gap-1.5 rounded-full border border-[#ffd7bf] bg-[#fff4ec] px-3 py-1.5 text-[12px] font-black text-[#b5502f] transition-colors hover:bg-[#ffe9dc] lg:flex"
@@ -604,7 +645,7 @@ export function StudentShell({
                 {isProfileOpen && (
                   <div
                     role="menu"
-                    className="absolute right-0 top-12 z-40 w-[188px] rounded-[14px] border border-[#ececf1] bg-white p-1.5 shadow-[0_12px_32px_rgba(16,24,40,.14)]"
+                    className="absolute right-0 top-12 z-40 w-[196px] rounded-[14px] border border-[#ececf1] bg-white p-1.5 shadow-[0_12px_32px_rgba(16,24,40,.14)]"
                   >
                     <div className="px-2.5 pb-1.5 pt-2">
                       <div className="truncate text-[13px] font-extrabold text-[#0f172a]">
@@ -617,6 +658,16 @@ export function StudentShell({
                       )}
                     </div>
                     <div className="my-1 h-px bg-[#f1f1f5]" />
+                    {isTeacherUser && (
+                      <Link
+                        href="/teacher"
+                        onClick={() => setIsProfileOpen(false)}
+                        className="flex min-h-[40px] items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-[13.5px] font-extrabold text-indigo-600 hover:bg-indigo-50"
+                      >
+                        <GraduationCap className="h-[17px] w-[17px] text-indigo-600" />
+                        <span>Dành cho Giáo viên</span>
+                      </Link>
+                    )}
                     <Link
                       href="/student/profile"
                       onClick={() => setIsProfileOpen(false)}

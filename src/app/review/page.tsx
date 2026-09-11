@@ -42,14 +42,16 @@ function ReviewHubContent() {
         if (!cancelled && data.success && Array.isArray(data.data)) {
           const count = data.data.length;
           setDueCount(count);
-          // Ghi cache cho lần sau paint ngay
-          writeWordSummaryCache(session.user.id, {
-            total: cached?.total ?? count,
-            newCount: cached?.newCount ?? 0,
-            reviewDueCount: count,
-            dueCount: cached?.dueCount ?? count,
-            classroomId: cached?.classroomId ?? null,
-          });
+          // Ghi cache cho lần sau paint ngay (chỉ cho kho cá nhân)
+          if (!classParam) {
+            writeWordSummaryCache(session.user.id, {
+              total: cached?.total ?? count,
+              newCount: cached?.newCount ?? 0,
+              reviewDueCount: count,
+              dueCount: cached?.dueCount ?? count,
+              classroomId: cached?.classroomId ?? null,
+            });
+          }
         } else if (!cancelled) {
           setDueCount(0);
         }

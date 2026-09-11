@@ -17,11 +17,12 @@ export async function GET(req: Request) {
 
     const supabase = createServiceClient();
 
-    // 1. Get classrooms
+    // 1. Get classrooms (filter out personal word collections)
     const { data: classrooms, error: classErr } = await supabase
       .from('classrooms')
       .select('*, enrollments(count)')
       .eq('teacher_id', auth.userId)
+      .neq('name', '__personal__')
       .order('created_at', { ascending: false });
 
     if (classErr) throw classErr;
@@ -55,7 +56,16 @@ export async function GET(req: Request) {
       
       if (studentErr) throw studentErr;
 
-      // Map to include TESOL metrics (Simulated based on pedagogical heuristics for this prototype)
+      const studentIds = (studentData || []).map(s => s.student_id);
+      const [profilesRes, enrollmentsRes] = studentIds.length > 0 ? await Promise.all([
+        supabase.from('profiles').select('id, plan, plan_expires_at').in('id', studentIds),
+        supabase.from('enrollments').select('student_id, joined_at').eq('classroom_id', classroomId).in('student_id', studentIds),
+      ]) : [{ data: [] }, { data: [] }];
+
+      const profMap = new Map((profilesRes.data || []).map(p => [p.id, p]));
+      const enrMap = new Map((enrollmentsRes.data || []).map(e => [e.student_id, e.joined_at]));
+
+      // Map to include TESOL metrics & student plan details
       students = (studentData || []).map(s => {
         const accuracy = s.avg_quiz_accuracy || 0;
         const vms = s.vms || 0;
@@ -73,14 +83,24 @@ export async function GET(req: Request) {
         else if (words >= 150) cefr = 'B1';
         else if (words >= 50) cefr = 'A2';
 
+        const p = profMap.get(s.student_id);
+        const joinedAt = enrMap.get(s.student_id);
+
         return {
           ...s,
           active_vms: activeVms,
           communicative_depth: depth,
-          cefr_level: cefr
+          cefr_level: cefr,
+          plan: p?.plan || 'free',
+          plan_expires_at: p?.plan_expires_at || null,
+          joined_at: joinedAt || null,
         };
       });
     }
+
+    const cacheHeader = classroomId
+      ? 'private, no-cache, no-store, must-revalidate'
+      : 'private, max-age=5, stale-while-revalidate=15';
 
     return NextResponse.json(
       {
@@ -89,7 +109,7 @@ export async function GET(req: Request) {
         students,
       },
       {
-        headers: { 'Cache-Control': 'private, max-age=20, stale-while-revalidate=40' },
+        headers: { 'Cache-Control': cacheHeader },
       }
     );
   } catch (error: unknown) {

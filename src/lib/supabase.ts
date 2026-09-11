@@ -38,7 +38,9 @@ export function createServiceClient() {
  * Helper to fetch all rows beyond Supabase's default 1000-row limit.
  * Pass a callback that builds the query with a `.range(from, to)`.
  */
-export async function fetchAllRows<T = any>(buildQuery: (from: number, to: number) => any): Promise<T[]> {
+export async function fetchAllRows<T = Record<string, unknown>>(
+  buildQuery: (from: number, to: number) => PromiseLike<{ data: T[] | null; error: unknown }>
+): Promise<T[]> {
   const all: T[] = [];
   let from = 0;
   const step = 1000;
@@ -411,4 +413,7 @@ export interface StudentProgress {
   last_active?: string;
   communicative_depth: number; // 0-100 score on contextual usage
   cefr_level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+  plan?: string;
+  plan_expires_at?: string | null;
+  joined_at?: string | null;
 }

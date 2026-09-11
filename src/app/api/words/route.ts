@@ -949,7 +949,7 @@ export async function PUT(req: Request): Promise<NextResponse> {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
 
-    const { wordId, translation, pos, ipa } = await req.json();
+    const { wordId, translation, pos, ipa, example, example_vi } = await req.json();
     if (!isValidString(wordId, 100)) return NextResponse.json({ success: false, error: 'wordId is required' }, { status: 400 });
 
     const supabase = createServiceClient();
@@ -974,6 +974,18 @@ export async function PUT(req: Request): Promise<NextResponse> {
         return NextResponse.json({ success: false, error: 'invalid ipa' }, { status: 400 });
       }
       updates.ipa = ipa;
+    }
+    if (example !== undefined) {
+      if (typeof example !== 'string' || example.length > 2000) {
+        return NextResponse.json({ success: false, error: 'invalid example' }, { status: 400 });
+      }
+      updates.example = example;
+    }
+    if (example_vi !== undefined) {
+      if (typeof example_vi !== 'string' || example_vi.length > 2000) {
+        return NextResponse.json({ success: false, error: 'invalid example_vi' }, { status: 400 });
+      }
+      updates.example_vi = example_vi;
     }
 
     const { error } = await supabase.from('words').update(updates).eq('id', wordId);

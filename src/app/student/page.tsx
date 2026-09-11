@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import {
   ArrowDownToLine, Brain, LogOut, Loader2, Plus,
   User, LayoutGrid, ArrowRight,
-  Menu, X, Clock, Search, ChevronDown, UserPlus, Sparkles,
+  Menu, X, Clock, Search, ChevronDown, UserPlus, Sparkles, School, Copy,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -115,6 +115,19 @@ interface ActiveVocabPack {
   words: Array<{ word_id: string; position: number }>;
 }
 
+interface EnrolledClassroom {
+  id: string;
+  name: string;
+  description: string | null;
+  invite_code: string | null;
+  joined_at: string | null;
+  teacher: {
+    id: string;
+    name: string;
+    email: string;
+  };
+}
+
 interface StudentUserMetadata {
   email?: string;
   lingopro_onboarding_completed?: unknown;
@@ -127,6 +140,9 @@ export default function StudentDashboard() {
   const [userMetadata, setUserMetadata] = useState<StudentUserMetadata | null>(null);
   const [words, setWords] = useState<Word[]>([]);
   const [classroomId, setClassroomId] = useState<string | null>(null);
+  const [currentClassScope, setCurrentClassScope] = useState<string>('__personal__');
+  const currentClassScopeRef = useRef<string>('__personal__');
+  const [enrolledClassrooms, setEnrolledClassrooms] = useState<EnrolledClassroom[]>([]);
   const [joinedClass, setJoinedClass] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isRetryingAI, setIsRetryingAI] = useState(false);
@@ -175,6 +191,23 @@ export default function StudentDashboard() {
   // Chặn double-load: getSession + onAuthStateChange SIGNED_IN/INITIAL_SESSION
   const loadStartedRef = useRef(false);
 
+  const fetchClassrooms = async (token?: string | null): Promise<EnrolledClassroom[]> => {
+    try {
+      const res = await authFetch('/api/student/classrooms', {}, token);
+      const json = await res.json();
+      if (json.success && Array.isArray(json.classrooms)) {
+        setEnrolledClassrooms(json.classrooms);
+        if (json.classrooms.length > 0) {
+          setJoinedClass(true);
+        }
+        return json.classrooms as EnrolledClassroom[];
+      }
+    } catch (e) {
+      console.error('[Student] Failed to fetch classrooms:', e);
+    }
+    return [];
+  };
+
   useEffect(() => {
     const checkAuth = async () => {
       console.log('[Student] Auth check started');
@@ -183,22 +216,42 @@ export default function StudentDashboard() {
       if (session?.user) {
         accessTokenRef.current = session.access_token;
         setUserMetadata(session.user.user_metadata);
-        // Stale-while-revalidate: paint counts từ cache ngay (0ms)
-        const cached = readWordSummaryCache(session.user.id);
-        if (cached) {
-          setTotalWords(cached.total);
-          setNewCount(cached.newCount);
-          setReviewDueCount(cached.reviewDueCount);
-          if (cached.classroomId) setClassroomId(cached.classroomId);
-          setCountsReady(true);
+
+        let initialScope = '__personal__';
+        if (typeof window !== 'undefined') {
+          const p = new URLSearchParams(window.location.search);
+          const classParam = p.get('class');
+          if (classParam) {
+            initialScope = classParam;
+            currentClassScopeRef.current = classParam;
+            setCurrentClassScope(classParam);
+          }
         }
+
+        // Stale-while-revalidate: paint counts từ cache ngay (chỉ cho personal scope)
+        if (initialScope === '__personal__') {
+          const cached = readWordSummaryCache(session.user.id);
+          if (cached) {
+            setTotalWords(cached.total);
+            setNewCount(cached.newCount);
+            setReviewDueCount(cached.reviewDueCount);
+            if (cached.classroomId) setClassroomId(cached.classroomId);
+            setCountsReady(true);
+          }
+        }
+
+        void fetchClassrooms(session.access_token);
+
         if (!loadStartedRef.current) {
           loadStartedRef.current = true;
-          loadData(session.user.id, session.access_token);
+          loadData(session.user.id, session.access_token, initialScope);
         }
       } else {
         setIsLoading(false);
-        router.push('/auth');
+        const redirectPath = typeof window !== 'undefined'
+          ? `${window.location.pathname}${window.location.search}`
+          : '/student';
+        router.push(`/auth?redirectTo=${encodeURIComponent(redirectPath)}`);
       }
     };
     void checkAuth();
@@ -207,10 +260,11 @@ export default function StudentDashboard() {
       if (event === 'SIGNED_IN' && session?.user) {
         accessTokenRef.current = session.access_token;
         setUserMetadata(session.user.user_metadata);
+        void fetchClassrooms(session.access_token);
         // Chỉ reload khi chưa load (tránh double với getSession)
         if (!loadStartedRef.current) {
           loadStartedRef.current = true;
-          loadData(session.user.id, session.access_token);
+          loadData(session.user.id, session.access_token, currentClassScopeRef.current);
         }
       } else if (event === 'SIGNED_OUT') {
         loadStartedRef.current = false;
@@ -233,6 +287,7 @@ export default function StudentDashboard() {
       classroomId?: string | null;
       levelCounts?: number[];
     },
+    targetScope?: string,
   ) => {
     const total = data.total || 0;
     const nextNew = data.newCount ?? 0;
@@ -247,13 +302,17 @@ export default function StudentDashboard() {
     }
     if (data.classroomId) setClassroomId(data.classroomId);
     setCountsReady(true);
-    writeWordSummaryCache(userId, {
-      total,
-      newCount: nextNew,
-      reviewDueCount: nextReview,
-      dueCount: data.dueCount,
-      classroomId: data.classroomId ?? null,
-    });
+
+    const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
+    if (!scope || scope === '__personal__') {
+      writeWordSummaryCache(userId, {
+        total,
+        newCount: nextNew,
+        reviewDueCount: nextReview,
+        dueCount: data.dueCount,
+        classroomId: data.classroomId ?? null,
+      });
+    }
   };
 
   /** Heatmap + streak liên tiếp (stats lite). Gọi sau shell. */
@@ -288,7 +347,10 @@ export default function StudentDashboard() {
   }, [dailyActivity, gamification.current_streak, gamification.last_active_date]);
 
   /** Levels L1–L6 + grammar due + packs — idle, không chặn first paint. */
-  const loadSecondaryDashboard = (userId: string, token?: string | null) => {
+  const loadSecondaryDashboard = (userId: string, token?: string | null, targetScope?: string) => {
+    const scope = targetScope !== undefined ? targetScope : currentClassScope;
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+
     loadActivityStats(token);
 
     void authFetch('/api/grammar/progress?summary=1', {}, token)
@@ -305,10 +367,10 @@ export default function StudentDashboard() {
       .catch(() => {});
 
     const loadLevels = () => {
-      void authFetch('/api/words?summary=1&levels=1', {}, token)
+      void authFetch(`/api/words?summary=1&levels=1${scopeParam}`, {}, token)
         .then((r) => r.json())
         .then((sum) => {
-          if (sum?.success) applySummaryCounts(userId, sum);
+          if (sum?.success) applySummaryCounts(userId, sum, scope);
         })
         .catch(() => {});
     };
@@ -319,8 +381,10 @@ export default function StudentDashboard() {
     }
   };
 
-  const loadData = async (userId: string, accessToken?: string) => {
+  const loadData = async (userId: string, accessToken?: string, targetScope?: string) => {
     const token = accessToken ?? accessTokenRef.current;
+    const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
     try {
       if (STAMPEDE_MODE) {
         /**
@@ -335,7 +399,7 @@ export default function StudentDashboard() {
             .eq('id', userId)
             .single(),
           authFetch(
-            `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&includeCounts=1`,
+            `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&includeCounts=1${scopeParam}`,
             {},
             token,
           )
@@ -354,25 +418,19 @@ export default function StudentDashboard() {
           setWords(wordsJson.data || []);
           setClassroomId(wordsJson.classroomId ?? null);
           setWordsOffset(WORDS_PAGE_SIZE);
-          applySummaryCounts(userId, {
-            total: wordsJson.total,
-            newCount: wordsJson.newCount,
-            reviewDueCount: wordsJson.reviewDueCount,
-            dueCount: wordsJson.dueCount,
-            classroomId: wordsJson.classroomId ?? null,
-          });
+          applySummaryCounts(userId, wordsJson, scope);
         }
         setWordsLoading(false);
         // Sau shell: heatmap + đếm từ hôm nay + chart L1–L6 (không chặn paint)
-        loadSecondaryDashboard(userId, token);
+        loadSecondaryDashboard(userId, token, scope);
         return;
       }
 
       // ── Full mode (STAMPEDE=0): progressive load, đủ packs/grammar/heatmap ──
-      const summaryP = authFetch('/api/words?summary=1', {}, token)
+      const summaryP = authFetch(`/api/words?summary=1${scopeParam}`, {}, token)
         .then((r) => r.json())
         .then((sum) => {
-          if (sum?.success) applySummaryCounts(userId, sum);
+          if (sum?.success) applySummaryCounts(userId, sum, scope);
           return sum;
         })
         .catch(() => null);
@@ -393,11 +451,11 @@ export default function StudentDashboard() {
       setIsLoading(false);
       setWordsLoading(true);
 
-      loadSecondaryDashboard(userId, token);
+      loadSecondaryDashboard(userId, token, scope);
 
       try {
         const wordsJson = await authFetch(
-          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0`,
+          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0${scopeParam}`,
           {},
           token,
         ).then((r) => r.json()).catch(() => null);
@@ -407,7 +465,7 @@ export default function StudentDashboard() {
           setClassroomId(wordsJson.classroomId ?? null);
           setWordsOffset(WORDS_PAGE_SIZE);
           if (typeof wordsJson.newCount === 'number' || typeof wordsJson.reviewDueCount === 'number') {
-            applySummaryCounts(userId, wordsJson);
+            applySummaryCounts(userId, wordsJson, scope);
           } else if (typeof wordsJson.total === 'number') {
             setTotalWords(wordsJson.total);
           }
@@ -428,9 +486,11 @@ export default function StudentDashboard() {
   const loadMoreWords = async () => {
     if (!profile?.id || isLoadingMore) return;
     setIsLoadingMore(true);
+    const scope = currentClassScopeRef.current;
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
     try {
       const res = await authFetch(
-        `/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}`,
+        `/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}${scopeParam}`,
         {},
         accessTokenRef.current,
       );
@@ -451,10 +511,12 @@ export default function StudentDashboard() {
   // Auto-refresh nhẹ: chỉ dùng summary endpoint để cập nhật dueCount
   const refreshSummary = async (userId: string) => {
     try {
-      const res = await authFetch('/api/words?summary=1', {}, accessTokenRef.current);
+      const scope = currentClassScopeRef.current;
+      const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+      const res = await authFetch(`/api/words?summary=1${scopeParam}`, {}, accessTokenRef.current);
       const data = await res.json();
       if (data.success) {
-        applySummaryCounts(userId, data);
+        applySummaryCounts(userId, data, scope);
         // Cập nhật isDue trên words hiện có dựa trên thời gian
         const now = Date.now();
         setWords((prev) => prev.map((w) => {
@@ -464,6 +526,30 @@ export default function StudentDashboard() {
       }
     } catch {
       // silent fail
+    }
+  };
+
+  const handleSwitchScope = (newScope: string) => {
+    if (newScope === currentClassScope) return;
+    currentClassScopeRef.current = newScope;
+    setCurrentClassScope(newScope);
+    setWords([]);
+    setWordsOffset(0);
+    setWordsLoading(true);
+    setCountsReady(false);
+
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      if (newScope && newScope !== '__personal__') {
+        url.searchParams.set('class', newScope);
+      } else {
+        url.searchParams.delete('class');
+      }
+      window.history.replaceState({}, '', url.toString());
+    }
+
+    if (profile?.id) {
+      void loadData(profile.id, accessTokenRef.current || undefined, newScope);
     }
   };
 
@@ -627,7 +713,7 @@ export default function StudentDashboard() {
       if (res.ok) {
         toast.success('✅ Meaning updated!');
         setSelectedWord(null);
-        if (profile?.id) loadData(profile.id);
+        if (profile?.id) void loadData(profile.id, accessTokenRef.current || undefined, currentClassScopeRef.current);
       } else {
         throw new Error('Update failed');
       }
@@ -646,7 +732,9 @@ export default function StudentDashboard() {
       });
       if (res.ok) {
         toast.success('Word deleted');
-        if (profile?.id) loadData(profile.id);
+        if (profile?.id) void loadData(profile.id, accessTokenRef.current || undefined, currentClassScopeRef.current);
+      } else {
+        throw new Error('Failed to delete word');
       }
     } catch {
       toast.error('Failed to delete word');
@@ -666,7 +754,7 @@ export default function StudentDashboard() {
       const data = await res.json();
       if (data.refreshed > 0) {
         toast.success(`✅ AI analyzed ${data.refreshed} word(s)!`);
-        setTimeout(() => { if (profile?.id) loadData(profile.id); }, 2000);
+        setTimeout(() => { if (profile?.id) void loadData(profile.id, accessTokenRef.current || undefined, currentClassScopeRef.current); }, 2000);
       }
     } catch {
       // Background maintenance failed - silently log without toast
@@ -704,10 +792,11 @@ export default function StudentDashboard() {
       if (result.data) {
         setClassroomId(result.data.id);
         setJoinedClass(true);
+        void fetchClassrooms(accessTokenRef.current);
+        handleSwitchScope(result.data.id);
       }
       setIsJoinModalOpen(false);
       setJoinCode('');
-      if (profile?.id) void loadData(profile.id);
     } catch {
       setJoinError('Kết nối thất bại, vui lòng thử lại.');
     } finally {
@@ -715,14 +804,15 @@ export default function StudentDashboard() {
     }
   };
 
-  // Tự động mở modal Tham gia lớp nếu truy cập /student?joinClass=1
+  // Tự động mở modal Tham gia lớp nếu truy cập /student?joinClass=... (hỗ trợ mã mời hoặc cờ 1)
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('joinClass') === '1') {
+      const jc = params.get('joinClass');
+      if (jc) {
         setJoinError(null);
-        setJoinCode('');
+        setJoinCode(jc === '1' ? '' : jc.toUpperCase());
         setIsJoinModalOpen(true);
         const url = new URL(window.location.href);
         url.searchParams.delete('joinClass');
@@ -732,6 +822,11 @@ export default function StudentDashboard() {
       // ignore
     }
   }, []);
+
+  const activeClassroom = useMemo(() => {
+    if (!currentClassScope || currentClassScope === '__personal__') return null;
+    return enrolledClassrooms.find((c) => c.id === currentClassScope) || null;
+  }, [currentClassScope, enrolledClassrooms]);
 
   // Debounce search — must be before any early return (Rules of Hooks)
   useEffect(() => {
@@ -840,6 +935,111 @@ export default function StudentDashboard() {
             </div>
           </div>
 
+          {/* Classroom Switcher Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-slate-200/80 bg-white p-2.5 shadow-sm">
+            <div className="flex items-center gap-2 min-w-0 flex-1">
+              <span className="text-xs font-black uppercase tracking-wider text-slate-400 pl-1 shrink-0">Phạm vi:</span>
+              <div className="relative min-w-0 flex-1 sm:max-w-xs">
+                <select
+                  value={currentClassScope}
+                  onChange={(e) => {
+                    if (e.target.value === '__join_new__') {
+                      setJoinError(null);
+                      setJoinCode('');
+                      setIsJoinModalOpen(true);
+                    } else {
+                      handleSwitchScope(e.target.value);
+                    }
+                  }}
+                  className="w-full cursor-pointer appearance-none rounded-xl border border-indigo-200 bg-indigo-50/70 py-1.5 pl-8 pr-8 text-xs sm:text-sm font-black text-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-400 hover:bg-indigo-100/60 transition truncate"
+                >
+                  <option value="__personal__">👤 Kho từ cá nhân (Của bạn)</option>
+                  {enrolledClassrooms.map((cls) => (
+                    <option key={cls.id} value={cls.id}>
+                      🏫 {cls.name} · GV: {cls.teacher.name}
+                    </option>
+                  ))}
+                  <option value="__join_new__">➕ Tham gia lớp học bằng mã...</option>
+                </select>
+                <div className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-indigo-600">
+                  {currentClassScope === '__personal__' ? (
+                    <User className="h-4 w-4" />
+                  ) : (
+                    <School className="h-4 w-4" />
+                  )}
+                </div>
+                <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-indigo-600" />
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1.5 shrink-0">
+              <button
+                type="button"
+                onClick={() => {
+                  setJoinError(null);
+                  setJoinCode('');
+                  setIsJoinModalOpen(true);
+                }}
+                className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition active:scale-95"
+              >
+                <UserPlus className="h-3.5 w-3.5 text-slate-500" />
+                <span className="hidden sm:inline">Tham gia lớp</span>
+                <span className="sm:hidden">Vào lớp</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Active Classroom Banner */}
+          {activeClassroom && (
+            <div className="rounded-2xl border border-indigo-200 bg-gradient-to-r from-indigo-50 via-sky-50 to-white p-3 sm:p-4 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-start sm:items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm font-bold">
+                    <School className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-sm sm:text-base font-black text-slate-900">{activeClassroom.name}</h3>
+                      <Badge className="bg-indigo-100 text-indigo-800 hover:bg-indigo-100 text-[10px] font-bold">
+                        Đang xem từ vựng của lớp
+                      </Badge>
+                    </div>
+                    <p className="text-xs font-medium text-slate-600 mt-0.5">
+                      Giáo viên: <strong className="text-slate-800">{activeClassroom.teacher.name}</strong>
+                      {activeClassroom.teacher.email ? ` (${activeClassroom.teacher.email})` : ''}
+                      {activeClassroom.joined_at && (
+                        <span className="text-slate-400"> · Tham gia: {new Date(activeClassroom.joined_at).toLocaleDateString('vi-VN')}</span>
+                      )}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 self-start sm:self-center">
+                  {activeClassroom.invite_code && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigator.clipboard.writeText(activeClassroom.invite_code!);
+                        toast.success(`Đã sao chép mã lớp: ${activeClassroom.invite_code}`);
+                      }}
+                      className="inline-flex items-center gap-1 rounded-xl border border-indigo-200 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm hover:bg-indigo-50/50 transition"
+                      title="Sao chép mã lớp"
+                    >
+                      <span className="font-mono text-indigo-600 font-bold">{activeClassroom.invite_code}</span>
+                      <Copy className="h-3 w-3 text-slate-400" />
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => handleSwitchScope('__personal__')}
+                    className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-600 hover:bg-slate-50 transition"
+                  >
+                    Kho cá nhân
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Desktop banner; mobile = fixed popup trong component */}
           <EnableNotifications />
 
@@ -850,7 +1050,7 @@ export default function StudentDashboard() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {/* Thẻ Học Từ Mới */}
             <Link
-              href={classroomId ? `/flashcard?class=${classroomId}&mode=learn` : '/flashcard?mode=learn'}
+              href={currentClassScope && currentClassScope !== '__personal__' ? `/flashcard?class=${encodeURIComponent(currentClassScope)}&mode=learn` : '/flashcard?mode=learn'}
               data-onboarding="learn"
               className="group relative flex items-center justify-between rounded-2xl border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-500 to-indigo-700 p-4 text-white shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/30 active:scale-[0.98]"
             >
@@ -877,7 +1077,7 @@ export default function StudentDashboard() {
 
             {/* Thẻ Ôn Tập FSRS */}
             <Link
-              href={classroomId ? `/review?class=${classroomId}` : '/review'}
+              href={currentClassScope && currentClassScope !== '__personal__' ? `/review?class=${encodeURIComponent(currentClassScope)}` : '/review'}
               data-onboarding="review"
               className="group relative flex items-center justify-between rounded-2xl border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-500 to-teal-700 p-4 text-white shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/30 active:scale-[0.98]"
             >
@@ -998,9 +1198,9 @@ export default function StudentDashboard() {
             data-onboarding="vault"
           >
             <div className="flex items-center justify-between gap-2">
-              <h3 className="flex items-center gap-1.5 text-sm font-black text-slate-800 sm:text-base">
-                <span className="text-base leading-none">📦</span>
-                Kho từ vựng
+              <h3 className="flex items-center gap-1.5 text-sm font-black text-slate-800 sm:text-base truncate">
+                <span className="text-base leading-none shrink-0">📦</span>
+                <span className="truncate">{activeClassroom ? `Từ vựng · ${activeClassroom.name}` : 'Kho từ vựng'}</span>
               </h3>
               <div className="flex flex-wrap items-center justify-end gap-1.5">
                 <Badge variant="outline" className="h-6 px-2 text-[10px] font-bold tabular-nums">

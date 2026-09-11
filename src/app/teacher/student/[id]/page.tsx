@@ -6,7 +6,7 @@ import type { StudentProgress } from '@/lib/supabase';
 import dynamic from 'next/dynamic';
 import {
   ArrowLeft, Brain, TrendingUp, Calendar, Target, Sparkles,
-  MessageSquare, ChevronRight, Loader2, AlertCircle
+  MessageSquare, ChevronRight, Loader2, AlertCircle, BookOpen, Plus, Copy, CheckCircle2
 } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
@@ -52,7 +52,8 @@ export default function StudentDetailPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [aiSuggestion, setAiSuggestion] = useState<string>('');
   const [isAiLoading, setIsAiLoading] = useState(false);
-  
+  const [copiedMsg, setCopiedMsg] = useState(false);
+
   // Custom states for optimizations
   const [isErrorsModalOpen, setIsErrorsModalOpen] = useState(false);
   const [errorsList, setErrorsList] = useState<StudentErrorItem[]>([]);
@@ -62,27 +63,26 @@ export default function StudentDetailPage() {
   const generateAiInsight = useCallback(async (current: StudentProgress) => {
     setIsAiLoading(true);
     try {
-      // Basic logic to determine tag for the prompt
       const isDormant = current.last_active && (new Date().getTime() - new Date(current.last_active).getTime() > 3 * 24 * 60 * 60 * 1000);
       const isCramming = (current.lcs || 0) < 30 && (current.avg_quiz_accuracy || 0) > 0.8 && (current.quizzes_taken || 0) > 2;
       const isRisingStar = (current.lcs || 0) > 80 && (current.avg_quiz_accuracy || 0) > 0.8;
       const isAtRisk = (current.vms || 0) < 30 && (current.words_reviewed || 0) > 10;
-      
+
       const tag = isDormant ? 'DORMANT' : isRisingStar ? 'RISING STAR' : isCramming ? 'CRAMMING' : isAtRisk ? 'AT RISK' : 'NORMAL';
       const msg = isDormant ? 'Vắng mặt lâu ngày' : isRisingStar ? 'Tiến bộ vượt trội' : isCramming ? 'Học dồn tập trung' : isAtRisk ? 'Đang gặp khó khăn' : 'Bình thường';
 
       const res = await authFetch('/api/teacher/coaching-insight', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          studentName: current.student_name, 
-          vms: current.vms, 
-          lcs: current.lcs, 
-          tag, 
+        body: JSON.stringify({
+          studentName: current.student_name,
+          vms: current.vms,
+          lcs: current.lcs,
+          tag,
           msg,
           cefr: current.cefr_level || 'A1',
           activeVms: current.active_vms || 0,
-          tesolFocus: true // Flag to prompt for pedagogical advice
+          tesolFocus: true,
         }),
       });
       const json = await res.json();
@@ -101,13 +101,12 @@ export default function StudentDetailPage() {
       const json = await res.json();
       if (json.error) throw new Error(json.error);
       setData(json);
-      
-      // Auto-fetch AI coaching insight
+
       if (json.current) {
         void generateAiInsight(json.current);
       }
     } catch (err: unknown) {
-      toast.error('Failed to load student data');
+      toast.error('Không tải được dữ liệu học sinh');
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -178,35 +177,64 @@ export default function StudentDetailPage() {
     return (
       <div className="min-h-dvh flex flex-col items-center justify-center p-6 text-center">
         <AlertCircle className="h-12 w-12 text-muted-foreground mb-4" />
-        <h2 className="text-xl font-bold">Student not found</h2>
-        <Link href="/teacher" className="text-primary hover:underline mt-4">Back to Dashboard</Link>
+        <h2 className="text-xl font-bold">Không tìm thấy học sinh</h2>
+        <Link href="/teacher" className="text-primary hover:underline mt-4">Quay lại Bảng điều khiển</Link>
       </div>
     );
   }
 
-  // Smart Tag Logic (Duplicate for UI display)
   const isDormant = current.last_active && (new Date().getTime() - new Date(current.last_active).getTime() > 3 * 24 * 60 * 60 * 1000);
   const isCramming = (current.lcs || 0) < 30 && (current.avg_quiz_accuracy || 0) > 0.8 && (current.quizzes_taken || 0) > 2;
   const isRisingStar = (current.lcs || 0) > 80 && (current.avg_quiz_accuracy || 0) > 0.8;
   const isAtRisk = (current.vms || 0) < 30 && (current.words_reviewed || 0) > 10;
 
   const getStatusInfo = () => {
-    if (isDormant) return { label: 'Dormant', color: 'bg-rose-100 text-rose-600 border-rose-200', icon: Calendar, msg: 'Học sinh đã ngừng hoạt động hơn 3 ngày. Cần nhắc nhở quay lại học.' };
-    if (isRisingStar) return { label: 'Rising Star', color: 'bg-emerald-100 text-emerald-600 border-emerald-200', icon: Sparkles, msg: 'Học sinh đang tiến bộ rất nhanh và đều đặn. Cần khen ngợi để duy trì động lực.' };
-    if (isCramming) return { label: 'Cramming', color: 'bg-amber-100 text-amber-600 border-amber-200', icon: Loader2, msg: 'Học sinh có dấu hiệu học dồn. Cần khuyên học sinh giãn cách thời gian học.' };
-    if (isAtRisk) return { label: 'At Risk', color: 'bg-rose-100 text-rose-600 border-rose-200', icon: AlertCircle, msg: 'Học sinh đang gặp khó khăn trong việc ghi nhớ. Cần kiểm tra lại các từ vựng đang học.' };
-    return { label: 'Normal', color: 'bg-slate-100 text-slate-500 border-slate-200', icon: Target, msg: 'Tiến độ học tập bình thường.' };
+    if (isDormant) return {
+      label: 'Vắng mặt',
+      color: 'bg-rose-100 text-rose-700 border-rose-200',
+      icon: Calendar,
+      title: 'Học sinh ngừng hoạt động > 3 ngày',
+      advice: 'Cần gửi tin nhắn nhắc nhở hoặc liên hệ trực tiếp để học sinh không bị rơi rụng kiến thức theo đường cong lãng quên Ebbinghaus.'
+    };
+    if (isRisingStar) return {
+      label: 'Tiến bộ nhanh',
+      color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+      icon: Sparkles,
+      title: 'Tiến độ học xuất sắc & đều đặn',
+      advice: 'Học sinh duy trì tính kỷ luật rất tốt (LCS cao và độ chính xác > 80%). Nên khen ngợi kịp thời và có thể giao thêm từ vựng nâng cao.'
+    };
+    if (isCramming) return {
+      label: 'Học dồn',
+      color: 'bg-amber-100 text-amber-700 border-amber-200',
+      icon: Loader2,
+      title: 'Học sinh có dấu hiệu học dồn',
+      advice: 'Điểm quiz cao nhưng tính đều đặn thấp. Học dồn chỉ giúp nhớ ngắn hạn; cần hướng dẫn học sinh phân bổ 5-10 phút mỗi ngày theo FSRS.'
+    };
+    if (isAtRisk) return {
+      label: 'Cần củng cố',
+      color: 'bg-rose-100 text-rose-700 border-rose-200',
+      icon: AlertCircle,
+      title: 'Gặp khó khăn trong việc ghi nhớ',
+      advice: 'Độ bền ghi nhớ (VMS) dưới 30% dù đã học nhiều từ. Nên giao bài tập củng cố (Drill) và kiểm tra lại phương pháp liên tưởng của học sinh.'
+    };
+    return {
+      label: 'Bình thường',
+      color: 'bg-slate-100 text-slate-700 border-slate-200',
+      icon: Target,
+      title: 'Tiến độ học tập ổn định',
+      advice: 'Học sinh duy trì học tập bình thường. Khuyến khích tiếp tục giữ vững nhịp độ ôn tập hàng ngày.'
+    };
   };
 
   const status = getStatusInfo();
 
-  // AI Coaching Logic (Phase 2)
   const getAISuggestion = () => {
-    if (isDormant) return `Chào ${current.student_name.split(' ')[0]}! Thầy thấy bạn đã lâu chưa quay lại ôn tập. Chỉ cần 5 phút mỗi ngày để giữ vững tiến độ nhé. Cố lên!`;
-    if (isRisingStar) return `Chào ${current.student_name.split(' ')[0]}! Kết quả học tập của bạn rất ấn tượng, đặc biệt là tính kỷ luật (LCS ${current.lcs}%). Tiếp tục phát huy nhé!`;
-    if (isCramming) return `Chào ${current.student_name.split(' ')[0]}! Bài quiz của bạn điểm rất tốt, nhưng thầy thấy bạn thường học dồn. Hãy thử chia nhỏ thời gian học ra để nhớ lâu hơn nhé.`;
-    if (isAtRisk) return `Chào ${current.student_name.split(' ')[0]}! Thầy thấy độ ổn định ghi nhớ (VMS ${current.vms}%) của bạn hơi thấp. Bạn nên dành thêm thời gian xem lại các từ hay sai nhé.`;
-    return `Chào ${current.student_name.split(' ')[0]}! Thầy đang theo dõi tiến độ của bạn. Nếu cần hỗ trợ thêm về phần từ vựng nào thì báo thầy nhé.`;
+    const firstName = current.student_name.split(' ')[0] || 'em';
+    if (isDormant) return `Chào ${firstName}! Thầy thấy em đã vài ngày chưa vào ôn tập từ vựng. Mỗi ngày chỉ cần 5 phút là đủ để giữ vững chuỗi học và không bị quên từ. Cố lên nhé!`;
+    if (isRisingStar) return `Chào ${firstName}! Kết quả học tập của em rất ấn tượng, đặc biệt là tính kỷ luật (chăm chỉ ${current.lcs}%). Tiếp tục phát huy phong độ này nhé!`;
+    if (isCramming) return `Chào ${firstName}! Điểm bài quiz của em rất tốt, nhưng thầy thấy em đang có xu hướng học dồn. Hãy thử chia nhỏ thời gian ra ôn mỗi ngày 5-10 phút để nhớ sâu hơn nhé.`;
+    if (isAtRisk) return `Chào ${firstName}! Thầy thấy độ bền ghi nhớ từ vựng của em (VMS ${current.vms}%) đang hơi thấp. Em nên dành thêm chút thời gian xem lại các từ khó hay sai nhé.`;
+    return `Chào ${firstName}! Thầy đang theo dõi tiến độ của em. Nếu gặp khó khăn hay cần hỗ trợ thêm phần từ vựng nào thì nhắn thầy ngay nhé!`;
   };
 
   const formattedHistory = history.map(h => ({
@@ -220,41 +248,55 @@ export default function StudentDetailPage() {
     date: new Date(q.completed_at).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' })
   }));
 
+  const copyMessengerTemplate = () => {
+    const text = aiSuggestion || getAISuggestion();
+    navigator.clipboard.writeText(text);
+    setCopiedMsg(true);
+    toast.success('Đã sao chép tin nhắn vào clipboard!');
+    setTimeout(() => setCopiedMsg(false), 2000);
+  };
+
   return (
     <div className="min-h-dvh bg-muted/40 font-sans pb-12">
       {/* Header */}
-      <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 px-6 flex items-center gap-4">
-        <button onClick={() => router.back()} className="p-2 hover:bg-muted rounded-xl transition-colors">
+      <header className="sticky top-0 z-30 bg-background/80 backdrop-blur border-b h-14 px-4 sm:px-6 flex items-center gap-4">
+        <button
+          onClick={() => router.back()}
+          className="p-2 hover:bg-muted rounded-xl transition-colors"
+          title="Quay lại"
+        >
           <ArrowLeft className="h-5 w-5" />
         </button>
-        <div className="flex-1">
-          <h1 className="font-bold text-lg">{current.student_name}</h1>
-          <p className="text-xs text-muted-foreground">{current.email}</p>
+        <div className="flex-1 min-w-0">
+          <h1 className="font-bold text-base sm:text-lg truncate">{current.student_name}</h1>
+          <p className="text-xs text-muted-foreground truncate">{current.email}</p>
         </div>
-        <div className={`px-3 py-1 rounded-full text-xs font-bold border uppercase flex items-center gap-1.5 ${status.color}`}>
-          <status.icon className="h-3 w-3" />
+        <div className={`px-3 py-1 rounded-full text-xs font-bold border uppercase flex items-center gap-1.5 shrink-0 ${status.color}`}>
+          <status.icon className="h-3.5 w-3.5" />
           {status.label}
         </div>
-        <div className="px-2 py-0.5 rounded-md text-[10px] bg-amber-100 text-amber-700 border border-amber-200 font-black tracking-tighter">
+        <div className="px-2 py-0.5 rounded-md text-[10px] bg-amber-100 text-amber-700 border border-amber-200 font-black tracking-tighter shrink-0">
           {current.cefr_level || 'A1'}
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto p-4 lg:p-8 space-y-8">
         {/* Stats Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="bg-background border rounded-2xl p-6 shadow-sm border-emerald-500/20">
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-emerald-500/10 p-2 rounded-xl text-emerald-500">
                 <Target className="h-5 w-5" />
               </div>
-              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Active Mastery (TESOL)</p>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Độ thành thạo thực chiến (VMS)</p>
             </div>
             <p className="text-4xl font-bold flex items-baseline gap-2">
               {current.active_vms || 0}%
-              <span className="text-sm font-normal text-muted-foreground">productive</span>
+              <span className="text-sm font-normal text-muted-foreground">vốn từ chủ động</span>
             </p>
-            <p className="text-[10px] text-muted-foreground mt-2 uppercase font-bold tracking-wider">Passive: {current.vms}% | Depth: {current.communicative_depth || 0}%</p>
+            <p className="text-[11px] text-muted-foreground mt-2 font-medium">
+              Thụ động: <strong className="text-foreground">{current.vms}%</strong> &bull; Chiều sâu ngữ cảnh: <strong className="text-foreground">{current.communicative_depth || 0}%</strong>
+            </p>
           </div>
 
           <div className="bg-background border rounded-2xl p-6 shadow-sm">
@@ -262,13 +304,15 @@ export default function StudentDetailPage() {
               <div className="bg-sky-500/10 p-2 rounded-xl text-sky-500">
                 <TrendingUp className="h-5 w-5" />
               </div>
-              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Consistency (LCS)</p>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Chỉ số chăm chỉ (LCS)</p>
             </div>
             <p className="text-4xl font-bold flex items-baseline gap-2">
               {current.lcs}%
-              <span className="text-sm font-normal text-muted-foreground">activity</span>
+              <span className="text-sm font-normal text-muted-foreground">tính kỷ luật</span>
             </p>
-            <p className="text-xs text-muted-foreground mt-2">Days active in the last 14 days.</p>
+            <p className="text-xs text-muted-foreground mt-2">
+              Tỷ lệ số ngày có học từ vựng trong 14 ngày qua.
+            </p>
           </div>
 
           <div className="bg-background border rounded-2xl p-6 shadow-sm">
@@ -276,40 +320,42 @@ export default function StudentDetailPage() {
               <div className="bg-primary/10 p-2 rounded-xl text-primary">
                 <Brain className="h-5 w-5" />
               </div>
-              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Quiz Performance</p>
+              <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Hiệu quả kiểm tra (Quiz)</p>
             </div>
             <p className="text-4xl font-bold flex items-baseline gap-2">
               {Math.round((current.avg_quiz_accuracy || 0) * 100)}%
-              <span className="text-sm font-normal text-muted-foreground">accuracy</span>
+              <span className="text-sm font-normal text-muted-foreground">chính xác</span>
             </p>
-            <p className="text-xs text-muted-foreground mt-2">{current.quizzes_taken} sessions completed.</p>
+            <p className="text-xs text-muted-foreground mt-2">
+              Đã hoàn thành <strong className="text-foreground">{current.quizzes_taken}</strong> bài kiểm tra.
+            </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Trend Charts */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-background border rounded-3xl p-8 shadow-md">
-              <div className="flex items-center justify-between mb-8">
+            <div className="bg-background border rounded-3xl p-6 sm:p-8 shadow-md">
+              <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
                 <div>
-                  <h3 className="text-xl font-bold">Learning Velocity</h3>
-                  <p className="text-sm text-muted-foreground">Mastery (VMS) vs Consistency (LCS) over 30 days</p>
+                  <h3 className="text-lg sm:text-xl font-bold">Biểu đồ phát triển năng lực</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Độ bền trí nhớ (VMS) và Độ chăm chỉ (LCS) trong 30 ngày qua</p>
                 </div>
                 <div className="flex gap-4 text-xs font-semibold">
-                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-emerald-500" /> VMS</div>
-                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-sky-500" /> LCS</div>
+                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-emerald-500" /> VMS (Trí nhớ)</div>
+                  <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-sky-500" /> LCS (Chăm chỉ)</div>
                 </div>
               </div>
-              <div className="h-[350px] w-full">
+              <div className="h-[320px] w-full">
                 <StudentVmsLineChart data={formattedHistory} />
               </div>
             </div>
 
-            <div className="bg-background border rounded-3xl p-8 shadow-md">
+            <div className="bg-background border rounded-3xl p-6 sm:p-8 shadow-md">
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h3 className="text-xl font-bold">Quiz History</h3>
-                  <p className="text-sm text-muted-foreground">Accuracy percentage over recent attempts</p>
+                  <h3 className="text-lg sm:text-xl font-bold">Lịch sử làm bài Quiz</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Tỷ lệ chính xác qua các lần làm quiz gần nhất</p>
                 </div>
               </div>
               <div className="h-[250px] w-full">
@@ -318,91 +364,125 @@ export default function StudentDetailPage() {
             </div>
           </div>
 
-          {/* AI Side Cards */}
+          {/* AI Side Cards — Cleary Separated Pedagogical Diagnosis & Messenger Template */}
           <div className="space-y-6 print:hidden">
-            <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 shadow-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="bg-primary/20 p-2.5 rounded-2xl text-primary">
+            {/* Card 1: Chẩn đoán Sư phạm (Pedagogical Diagnosis) */}
+            <div className="bg-background border border-primary/20 rounded-3xl p-6 sm:p-7 shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-primary/10 p-2.5 rounded-2xl text-primary">
                   <Sparkles className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-bold text-primary">AI Coaching Card</h3>
-              </div>
-              <div className="bg-background rounded-2xl p-5 border border-primary/10 mb-6 shadow-sm min-h-[80px] flex items-center">
-                {isAiLoading ? (
-                  <div className="flex items-center gap-3 text-muted-foreground animate-pulse">
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    <span className="text-sm italic">Gemini is analyzing data...</span>
-                  </div>
-                ) : (
-                  <p className="text-sm italic leading-relaxed text-slate-700 whitespace-pre-wrap">&quot;{aiSuggestion || getAISuggestion()}&quot;</p>
-                )}
-              </div>
-              
-              <div className="space-y-4">
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Actionable Template</p>
-                <div className="bg-background border rounded-2xl p-4 text-sm relative group min-h-[100px]">
-                  {isAiLoading ? (
-                    <div className="space-y-2">
-                      <div className="h-3 bg-muted rounded w-full animate-pulse" />
-                      <div className="h-3 bg-muted rounded w-3/4 animate-pulse" />
-                    </div>
-                  ) : (
-                    <p className="text-slate-600 leading-relaxed">{aiSuggestion || getAISuggestion()}</p>
-                  )}
+                <div>
+                  <h3 className="text-base font-bold text-foreground">Chẩn đoán Sư phạm</h3>
+                  <p className="text-[11px] text-muted-foreground">Phân tích chuyên sâu phương pháp TESOL & FSRS</p>
                 </div>
-                <button 
-                  disabled={isAiLoading}
-                  onClick={() => {
-                    navigator.clipboard.writeText(aiSuggestion || getAISuggestion());
-                    toast.success('Message copied to clipboard!');
-                  }}
-                  className="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform disabled:opacity-50"
-                >
-                  <MessageSquare className="h-4 w-4" /> Copy for Messenger
-                </button>
+              </div>
+
+              <div className="space-y-3.5">
+                <div className="bg-muted/40 rounded-2xl p-4 border text-xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-muted-foreground uppercase text-[10px]">Tình trạng:</span>
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${status.color}`}>
+                      {status.label}
+                    </span>
+                  </div>
+                  <p className="font-semibold text-foreground text-sm">{status.title}</p>
+                </div>
+
+                <div className="bg-indigo-50/60 border border-indigo-100 rounded-2xl p-4 text-xs text-indigo-950 leading-relaxed space-y-1.5">
+                  <p className="font-bold uppercase tracking-wider text-[10px] text-indigo-700">Khuyến nghị cho Giáo viên:</p>
+                  <p>{status.advice}</p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-[11px] text-muted-foreground pt-1">
+                  <div className="border rounded-xl p-2.5 bg-background">
+                    <span className="block text-[10px] uppercase font-bold text-muted-foreground">Độ bền FSRS</span>
+                    <strong className="text-emerald-600 text-sm">{current.vms}%</strong>
+                  </div>
+                  <div className="border rounded-xl p-2.5 bg-background">
+                    <span className="block text-[10px] uppercase font-bold text-muted-foreground">Từ đã ôn</span>
+                    <strong className="text-sky-600 text-sm">{current.words_reviewed || 0} từ</strong>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="bg-background border rounded-3xl p-8 shadow-sm">
-              <h3 className="text-lg font-bold mb-6">Quick Actions</h3>
-              <div className="space-y-3">
-                <button 
+            {/* Card 2: Mẫu tin nhắn gửi học sinh (Actionable Messenger Template) */}
+            <div className="bg-gradient-to-br from-primary/5 to-violet-500/5 border border-primary/20 rounded-3xl p-6 sm:p-7 shadow-sm space-y-4">
+              <div className="flex items-center gap-2.5">
+                <div className="bg-primary/20 p-2 rounded-xl text-primary">
+                  <MessageSquare className="h-4 w-4" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-primary">Mẫu tin nhắn gửi học sinh</h3>
+                  <p className="text-[11px] text-muted-foreground">Gợi ý nội dung gửi qua Zalo / Messenger</p>
+                </div>
+              </div>
+
+              <div className="bg-background rounded-2xl p-4 border border-primary/15 text-sm min-h-[90px] flex items-center shadow-inner">
+                {isAiLoading ? (
+                  <div className="flex items-center gap-2.5 text-muted-foreground animate-pulse text-xs italic">
+                    <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                    <span>Gemini AI đang soạn tin nhắn phù hợp...</span>
+                  </div>
+                ) : (
+                  <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed italic whitespace-pre-wrap">
+                    &ldquo;{aiSuggestion || getAISuggestion()}&rdquo;
+                  </p>
+                )}
+              </div>
+
+              <button
+                disabled={isAiLoading}
+                onClick={copyMessengerTemplate}
+                className="w-full flex items-center justify-center gap-2 py-2.5 bg-primary text-white rounded-xl font-bold text-sm shadow-md shadow-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50"
+              >
+                {copiedMsg ? <CheckCircle2 className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {copiedMsg ? 'Đã sao chép!' : 'Sao chép gửi học sinh'}
+              </button>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="bg-background border rounded-3xl p-6 shadow-sm">
+              <h3 className="text-base font-bold mb-4">Tác vụ nhanh</h3>
+              <div className="space-y-2.5">
+                <button
                   onClick={() => {
                     setIsErrorsModalOpen(true);
                     void fetchStudentErrors();
                   }}
-                  className="w-full flex items-center justify-between p-4 rounded-2xl bg-muted/30 hover:bg-muted transition-colors text-sm font-semibold text-left"
+                  className="w-full flex items-center justify-between p-3.5 rounded-xl bg-muted/30 hover:bg-muted transition-colors text-xs sm:text-sm font-semibold text-left"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2.5">
                     <AlertCircle className="h-4 w-4 text-rose-500" />
-                    View Recent Errors
+                    Xem các từ hay quên / làm sai
                   </div>
                   <ChevronRight className="h-4 w-4 text-muted-foreground" />
                 </button>
 
-                <button 
+                <button
                   onClick={() => window.print()}
-                  className="w-full flex items-center justify-between p-4 rounded-2xl bg-muted/30 hover:bg-muted transition-colors text-sm font-semibold text-left"
+                  className="w-full flex items-center justify-between p-3.5 rounded-xl bg-muted/30 hover:bg-muted transition-colors text-xs sm:text-sm font-semibold text-left"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2.5">
                     <BookOpen className="h-4 w-4 text-sky-500" />
-                    Export Progress PDF
+                    Xuất báo cáo tiến độ (PDF)
                   </div>
                   <ChevronRight className="h-4 w-4 text-muted-foreground" />
                 </button>
 
-                <button 
+                <button
                   disabled={isAssigningDrill}
                   onClick={() => void handleAssignDrill()}
-                  className="w-full flex items-center justify-between p-4 rounded-2xl bg-muted/30 hover:bg-muted transition-colors text-sm font-semibold disabled:opacity-50 text-left"
+                  className="w-full flex items-center justify-between p-3.5 rounded-xl bg-muted/30 hover:bg-muted transition-colors text-xs sm:text-sm font-semibold disabled:opacity-50 text-left"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2.5">
                     {isAssigningDrill ? (
                       <Loader2 className="h-4 w-4 animate-spin text-primary shrink-0" />
                     ) : (
                       <Plus className="h-4 w-4 text-emerald-500 shrink-0" />
                     )}
-                    <span>{isAssigningDrill ? 'Assigning...' : 'Assign Extra Drill'}</span>
+                    <span>{isAssigningDrill ? 'Đang giao...' : 'Giao bài tập củng cố (Drill)'}</span>
                   </div>
                   <ChevronRight className="h-4 w-4 text-muted-foreground" />
                 </button>
@@ -419,21 +499,21 @@ export default function StudentDetailPage() {
             <div className="flex items-center justify-between pb-4 border-b">
               <div className="flex items-center gap-2">
                 <AlertCircle className="h-5 w-5 text-rose-500" />
-                <h2 className="text-xl font-bold">Struggling Words (Recent Errors)</h2>
+                <h2 className="text-lg sm:text-xl font-bold">Từ vựng cần củng cố (Lỗi gần đây)</h2>
               </div>
-              <button 
+              <button
                 onClick={() => setIsErrorsModalOpen(false)}
-                className="text-muted-foreground hover:text-foreground text-sm font-semibold px-3 py-1.5 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+                className="text-muted-foreground hover:text-foreground text-xs font-semibold px-3 py-1.5 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
               >
-                Close
+                Đóng
               </button>
             </div>
-            
+
             <div className="flex-1 overflow-y-auto py-4">
               {isLoadingErrors ? (
                 <div className="flex flex-col items-center justify-center py-12 gap-3">
                   <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                  <p className="text-sm text-muted-foreground">Loading student errors...</p>
+                  <p className="text-sm text-muted-foreground">Đang tải danh sách từ lỗi...</p>
                 </div>
               ) : errorsList.length === 0 ? (
                 <div className="text-center py-12 text-muted-foreground">
@@ -444,7 +524,7 @@ export default function StudentDetailPage() {
               ) : (
                 <div className="space-y-4">
                   <p className="text-xs text-muted-foreground">
-                    Danh sách 10 từ vựng học sinh có độ ổn định ghi nhớ (stability) thấp nhất và độ khó (difficulty) cao nhất.
+                    Danh sách 10 từ vựng học sinh có độ ổn định ghi nhớ (stability) thấp nhất và độ khó cao nhất.
                   </p>
                   <div className="border rounded-2xl overflow-hidden divide-y">
                     {errorsList.map((err) => (
@@ -458,10 +538,10 @@ export default function StudentDetailPage() {
                               </span>
                             )}
                             <span className="text-[10px] font-semibold bg-rose-50 text-rose-600 border border-rose-100 px-1.5 py-0.5 rounded">
-                              Difficulty: {err.difficulty}/10
+                              Độ khó: {err.difficulty}/10
                             </span>
                             <span className="text-[10px] font-semibold bg-blue-50 text-blue-600 border border-blue-100 px-1.5 py-0.5 rounded">
-                              Stability: {Math.round(err.stability * 10) / 10}d
+                              Độ bền: {Math.round(err.stability * 10) / 10} ngày
                             </span>
                           </div>
                           <p className="text-xs font-semibold text-foreground/80">{err.translation}</p>
@@ -473,10 +553,10 @@ export default function StudentDetailPage() {
                         </div>
                         <div className="text-right shrink-0">
                           <span className="text-xs font-semibold text-muted-foreground block">
-                            Reviews: {err.reviewCount}
+                            Đã ôn: {err.reviewCount} lần
                           </span>
                           <span className="text-[10px] text-muted-foreground block mt-1">
-                            Next: {new Date(err.nextReviewDate).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' })}
+                            Kỳ tới: {new Date(err.nextReviewDate).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' })}
                           </span>
                         </div>
                       </div>
@@ -487,13 +567,13 @@ export default function StudentDetailPage() {
             </div>
 
             <div className="pt-4 border-t flex justify-end gap-3">
-              <button 
+              <button
                 onClick={() => setIsErrorsModalOpen(false)}
                 className="border rounded-xl px-5 py-2.5 text-sm font-semibold hover:bg-muted transition-colors"
               >
-                Close
+                Đóng
               </button>
-              <button 
+              <button
                 disabled={isAssigningDrill || errorsList.length === 0}
                 onClick={async () => {
                   await handleAssignDrill();
@@ -502,7 +582,7 @@ export default function StudentDetailPage() {
                 className="bg-primary text-white rounded-xl px-5 py-2.5 text-sm font-semibold hover:bg-primary/90 transition-colors flex items-center gap-2 disabled:opacity-50"
               >
                 {isAssigningDrill ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
-                Assign All to Drill
+                Giao tất cả từ này vào Drill
               </button>
             </div>
           </div>
@@ -545,6 +625,3 @@ export default function StudentDetailPage() {
     </div>
   );
 }
-
-// Re-using some icons from the sidebar
-import { BookOpen, Plus } from 'lucide-react';

@@ -19,8 +19,8 @@ export function StudentVmsLineChart({
         <Tooltip
           contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
         />
-        <Line type="monotone" dataKey="vms" stroke="#10b981" strokeWidth={3} dot={{ r: 4, fill: '#10b981', strokeWidth: 0 }} activeDot={{ r: 6 }} />
-        <Line type="monotone" dataKey="lcs" stroke="#0ea5e9" strokeWidth={3} dot={{ r: 4, fill: '#0ea5e9', strokeWidth: 0 }} activeDot={{ r: 6 }} />
+        <Line type="monotone" dataKey="vms" name="Độ bền trí nhớ (VMS)" stroke="#10b981" strokeWidth={3} dot={{ r: 4, fill: '#10b981', strokeWidth: 0 }} activeDot={{ r: 6 }} />
+        <Line type="monotone" dataKey="lcs" name="Độ chăm chỉ (LCS)" stroke="#0ea5e9" strokeWidth={3} dot={{ r: 4, fill: '#0ea5e9', strokeWidth: 0 }} activeDot={{ r: 6 }} />
       </LineChart>
     </ResponsiveContainer>
   );
@@ -38,7 +38,7 @@ export function StudentQuizBarChart({
         <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#666' }} />
         <YAxis axisLine={false} tickLine={false} domain={[0, 100]} tick={{ fontSize: 12, fill: '#666' }} />
         <Tooltip contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }} />
-        <Bar dataKey="acc" fill="#6366f1" radius={[8, 8, 0, 0]} barSize={30} />
+        <Bar dataKey="acc" name="Tỷ lệ chính xác (%)" fill="#6366f1" radius={[8, 8, 0, 0]} barSize={30} />
       </BarChart>
     </ResponsiveContainer>
   );
