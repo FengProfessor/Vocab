@@ -22,6 +22,7 @@ import {
   Star,
   CheckCircle2,
   Sparkles,
+  Info,
 } from 'lucide-react';
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
 import type {
@@ -961,52 +962,52 @@ function ToeicCatalogContent() {
               </div>
             </div>
 
-            {/* Selected Part Detail Banner */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 uppercase">
-                      Part {currentPartMeta.part} ({currentPartMeta.section.toUpperCase()})
-                    </span>
-                    <span className="text-xs text-slate-500 font-medium font-mono tabular-nums">
-                      Tốc độ chuẩn: ~{currentPartMeta.secondsPerQuestion}s / câu
-                    </span>
-                  </div>
-                  <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+            {/* Part Practice Setup Box (Consolidated & Streamlined) */}
+            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-6 space-y-5 shadow-xs">
+              {/* Header: Unified 1-Line Part Title + Info Tooltip */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3.5">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tabular-nums">
+                    Part {currentPartMeta.part} ({currentPartMeta.section === 'listening' ? 'LC' : 'RC'})
+                  </span>
+                  <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                     {currentPartMeta.name} — {currentPartMeta.vietnameseTitle}
                   </h2>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-mono tabular-nums">
+                    (~{currentPartMeta.secondsPerQuestion}s/câu)
+                  </span>
+                </div>
+
+                {/* Pedagogical Description Tooltip */}
+                <div className="group relative flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 cursor-help select-none shrink-0">
+                  <Info className="h-3.5 w-3.5 text-slate-400" />
+                  <span className="underline decoration-dotted text-[11px] font-medium">Hướng dẫn phần thi</span>
+                  <div className="absolute right-0 top-full mt-1.5 hidden w-80 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 text-xs text-slate-600 dark:text-slate-300 shadow-lg group-hover:block z-30 leading-relaxed">
+                    <div className="font-bold text-slate-900 dark:text-white mb-1">
+                      {currentPartMeta.name}
+                    </div>
                     {currentPartMeta.desc}
-                  </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Part Practice Setup Box */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-6 space-y-6">
-              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
-                <SlidersHorizontal className="h-4 w-4 text-slate-700 dark:text-slate-300" />
-                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                  Cấu hình bài luyện Part {currentPartMeta.part}
-                </h3>
-              </div>
-
-              {/* Step 1: Nguồn đề */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300 flex items-center justify-between">
-                  <span>1. Nguồn đề thi lấy câu hỏi:</span>
-                  <span className="font-mono text-slate-500 font-normal">
-                    {selectedSource === 'all' ? 'Tất cả các đề ETS' : selectedSource}
+              {/* ── BƯỚC 1: NGUỒN ĐỀ THI LẤY CÂU HỎI ── */}
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
+                    1
                   </span>
-                </label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                    Nguồn đề thi lấy câu hỏi:
+                  </label>
+                </div>
 
                 <div className="grid sm:grid-cols-2 gap-3">
                   {/* Option 1: Test Bank All */}
                   <button
                     type="button"
                     onClick={() => setSelectedSource('all')}
-                    className={`flex items-start gap-3 p-3 rounded-sm border text-left transition-colors cursor-pointer ${
+                    className={`flex items-start gap-3 p-3.5 rounded-sm border text-left transition-colors cursor-pointer ${
                       selectedSource === 'all'
                         ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
                         : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
@@ -1026,18 +1027,21 @@ function ToeicCatalogContent() {
                       </div>
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white">
-                        Toàn bộ ngân hàng câu hỏi (Test Bank ETS)
+                      <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                        <span>Toàn bộ ngân hàng câu hỏi (ETS Bank)</span>
+                        <span className="rounded-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-1 py-0.2 text-[10px] font-mono font-bold">
+                          KHUYÊN DÙNG
+                        </span>
                       </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                        Lấy câu hỏi chuẩn format từ toàn bộ kho đề ({currentPartMeta.questionCount.toLocaleString('vi-VN')} câu có sẵn)
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                        Lấy ngẫu nhiên chuẩn format từ toàn bộ kho {currentPartMeta.questionCount.toLocaleString('vi-VN')} câu có sẵn của Part {currentPartMeta.part}
                       </div>
                     </div>
                   </button>
 
                   {/* Option 2: Select Specific Test */}
                   <div
-                    className={`flex flex-col p-3 rounded-sm border transition-colors ${
+                    className={`flex flex-col p-3.5 rounded-sm border transition-colors ${
                       selectedSource !== 'all'
                         ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
                         : 'border-slate-200 dark:border-slate-800'
@@ -1103,14 +1107,19 @@ function ToeicCatalogContent() {
                 </div>
               </div>
 
-              {/* Step 2: Số câu hỏi */}
-              <div className="space-y-2">
+              {/* ── BƯỚC 2: SỐ LƯỢNG CÂU HỎI MUỐN LÀM ── */}
+              <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
-                    2. Số lượng câu hỏi muốn làm:
-                  </label>
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
+                      2
+                    </span>
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                      Số lượng câu hỏi muốn làm:
+                    </label>
+                  </div>
                   <span className="font-mono text-xs text-slate-500 tabular-nums">
-                    Thời gian dự kiến: ~{estimatedTimeMinutes} phút (~{currentPartMeta.secondsPerQuestion}s / câu)
+                    Dự kiến: ~{estimatedTimeMinutes} phút (~{currentPartMeta.secondsPerQuestion}s/câu)
                   </span>
                 </div>
 
@@ -1127,7 +1136,7 @@ function ToeicCatalogContent() {
                         }}
                         className={`px-3.5 py-1.5 rounded-sm border text-xs font-mono font-bold transition-colors cursor-pointer ${
                           isSelected
-                            ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white'
+                            ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs'
                             : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                         }`}
                       >
@@ -1162,11 +1171,16 @@ function ToeicCatalogContent() {
                 </div>
               </div>
 
-              {/* Step 3: Chế độ làm bài */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
-                  3. Chế độ luyện tập:
-                </label>
+              {/* ── BƯỚC 3: CHẾ ĐỘ LUYỆN TẬP ── */}
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-700 text-white dark:bg-slate-300 dark:text-slate-900 font-mono text-xs font-bold">
+                    3
+                  </span>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                    Chế độ luyện tập:
+                  </label>
+                </div>
 
                 <div className="grid sm:grid-cols-2 gap-3">
                   <button
@@ -1238,34 +1252,29 @@ function ToeicCatalogContent() {
                 </div>
               </div>
 
-              {/* Action Launch Bar */}
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="font-mono text-xs text-slate-600 dark:text-slate-400 tabular-nums">
-                  Đang chọn:{' '}
-                  <span className="font-bold text-slate-900 dark:text-white">
+              {/* ── ACTION LAUNCH BAR (RÚT GỌN, CHỐNG TRÀN MOBILE) ── */}
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-slate-600 dark:text-slate-400 tabular-nums">
+                  <span className="rounded-sm bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-bold text-slate-900 dark:text-white">
                     Part {currentPartMeta.part}
-                  </span>{' '}
-                  •{' '}
-                  <span className="font-bold text-slate-900 dark:text-white">
+                  </span>
+                  <span>·</span>
+                  <span className="font-semibold text-slate-900 dark:text-white">
                     {effectiveCount} câu
-                  </span>{' '}
-                  • Nguồn:{' '}
-                  <span className="font-bold text-slate-900 dark:text-white">
-                    {selectedSource === 'all' ? 'Toàn bộ ngân hàng' : selectedSource}
-                  </span>{' '}
-                  • Chế độ:{' '}
-                  <span className="font-bold text-slate-900 dark:text-white">
-                    {selectedMode === 'practice' ? 'Luyện tập' : 'Thi thử'}
+                  </span>
+                  <span>·</span>
+                  <span>
+                    {selectedMode === 'practice' ? 'Luyện tập (Có giải thích)' : 'Thi thử (Tính giờ)'}
                   </span>
                 </div>
 
                 <Link
                   href={`/toeic/exam/${selectedSource === 'all' ? 'bank' : selectedSource}?part=${selectedPart}&limit=${effectiveCount}&mode=${selectedMode}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 px-6 py-2.5 text-xs sm:text-sm font-bold transition-colors shadow-xs"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 px-5 py-2.5 text-xs sm:text-sm font-bold transition-colors shadow-xs shrink-0"
                 >
-                  <Play className="h-4 w-4 fill-current" />
-                  <span>Bắt đầu làm bài Part {currentPartMeta.part} ({effectiveCount} câu)</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <Play className="h-3.5 w-3.5 fill-current" />
+                  <span>Bắt đầu luyện Part {currentPartMeta.part} ({effectiveCount} câu)</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>
