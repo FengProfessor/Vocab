@@ -22,6 +22,7 @@ import { runEstudymeLoaderTests } from './estudyme-loader.test';
 import { runUiMinimalistTests } from './ui-minimalist.test';
 import { runUserFeedbackV4Tests } from './user-feedback-v4.test';
 import { runCopyrightWhitelabelTests } from './copyright-whitelabel.test';
+import { runAntiScrapingTests } from './test-anti-scraping-poison';
 
 async function main() {
   console.log('================================================================================');
@@ -111,6 +112,14 @@ async function main() {
   const statsCW = runnerCW.getStats();
   tierStats.push({ tierName: 'Copyright & White-Labeling', stats: statsCW, minRequired: 8 });
   console.log(`✓ Copyright & White-Labeling Finished: ${statsCW.passed}/${statsCW.total} passed (${statsCW.durationMs}ms)\n`);
+
+  // Suite: Anti-Scraping, Honeypot & Data Poisoning Defense
+  console.log('▶ Running Suite: Anti-Scraping, Honeypot & Data Poisoning Defense (Active Cyber Defense)...');
+  const runnerAS = new TestRunner();
+  await runAntiScrapingTests(runnerAS);
+  const statsAS = runnerAS.getStats();
+  tierStats.push({ tierName: 'Anti-Scraping & Data Poisoning', stats: statsAS, minRequired: 9 });
+  console.log(`✓ Anti-Scraping & Data Poisoning Finished: ${statsAS.passed}/${statsAS.total} passed (${statsAS.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

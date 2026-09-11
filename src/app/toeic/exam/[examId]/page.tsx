@@ -100,10 +100,7 @@ function ToeicExamRoomInner() {
     if (legacyQuestions.length > 0) {
       const minutes = timeParam ? parseInt(timeParam, 10) : 20;
       return {
-        fallbackQuestions:
-          currentMode === 'practice'
-            ? legacyQuestions
-            : stripSensitiveToeicData(legacyQuestions),
+        fallbackQuestions: stripSensitiveToeicData(legacyQuestions),
         testTitle: `TOEIC Mini Test (${decodedExamId})`,
         durationSeconds: minutes * 60,
       };
@@ -130,8 +127,7 @@ function ToeicExamRoomInner() {
         ? parseInt(timeParam, 10)
         : Math.max(5, Math.ceil(pQuestions.length * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25)));
       return {
-        fallbackQuestions:
-          currentMode === 'practice' ? pQuestions : stripSensitiveToeicData(pQuestions),
+        fallbackQuestions: stripSensitiveToeicData(pQuestions),
         testTitle: `Luyện tập Part ${partNum} (${pQuestions.length} câu — ${sourceLabel})`,
         durationSeconds: minutes * 60,
       };
@@ -179,9 +175,7 @@ function ToeicExamRoomInner() {
     const safeFallbackQuestions =
       isBrowser && !isAuthenticHardcoded && !isPartPractice
         ? []
-        : currentMode === 'practice'
-          ? fullQuestions
-          : stripSensitiveToeicData(fullQuestions);
+        : stripSensitiveToeicData(fullQuestions);
 
     return {
       fallbackQuestions: safeFallbackQuestions,
@@ -196,6 +190,48 @@ function ToeicExamRoomInner() {
 
   // Honeypot anti-bot trap state
   const [honeypotValue, setHoneypotValue] = useState<string>('');
+  const [sessionToken, setSessionToken] = useState<string>('');
+
+  // ── 2.1. On-Demand Single-Question Explanation Fetcher (Zero Bulk Leak) ──
+  const fetchSingleExplanation = useCallback(
+    async (qNum: number) => {
+      const targetQ = questions.find((q) => q.questionNumber === qNum);
+      if (targetQ?.correctAnswer && targetQ?.explanationVi) {
+        return;
+      }
+      try {
+        const res = await fetch('/api/toeic/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            testId: targetTestId,
+            questionNumber: qNum,
+            sessionToken,
+          }),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            setQuestions((prev) =>
+              prev.map((q) =>
+                q.questionNumber === qNum
+                  ? {
+                      ...q,
+                      correctAnswer: data.correctAnswer,
+                      explanationVi: data.explanationVi,
+                      transcript: data.transcript,
+                    }
+                  : q
+              )
+            );
+          }
+        }
+      } catch (err) {
+        console.warn('[ToeicExam] Failed to fetch on-demand explanation:', err);
+      }
+    },
+    [questions, sessionToken, targetTestId]
+  );
 
   // Guest freemium save modal & Google auth loading
   const [isGuestModalOpen, setIsGuestModalOpen] = useState<boolean>(false);
@@ -220,6 +256,9 @@ function ToeicExamRoomInner() {
           const data: ToeicTestApiResponse = await res.json();
           if (data.success && data.questions && data.questions.length > 0 && !isCancelled) {
             setQuestions(data.questions);
+            if (data.sessionToken) {
+              setSessionToken(data.sessionToken);
+            }
             setIsLoadingQuestions(false);
             return;
           }
@@ -324,13 +363,16 @@ function ToeicExamRoomInner() {
     onSubmit: handleSubmit,
   });
 
-  // In practice mode: auto-reveal explanation if this question has an answer
+  // In practice mode: auto-reveal explanation and fetch on-demand if question answered
   useEffect(() => {
     if (currentMode === 'practice') {
       const hasAnswer = Boolean(session.answers[session.currentQNum]);
       setShowPracticeExplanation(hasAnswer);
+      if (hasAnswer) {
+        void fetchSingleExplanation(session.currentQNum);
+      }
     }
-  }, [currentMode, session.currentQNum, session.answers]);
+  }, [currentMode, session.currentQNum, session.answers, fetchSingleExplanation]);
 
   // Toggle instant explanation mode directly during the exam
   const toggleExamMode = useCallback(async () => {
@@ -340,32 +382,13 @@ function ToeicExamRoomInner() {
       toast('Đã chuyển sang chế độ Thi thử (ẩn đáp án và giải thích cho đến khi nộp bài)');
     } else {
       setCurrentMode('practice');
-      // If questions don't have explanations yet (loaded via real mode api), fetch practice questions
-      const missingExplanations = questions.some((q) => !q.correctAnswer);
-      if (missingExplanations) {
-        try {
-          const query = new URLSearchParams({
-            testId: targetTestId,
-            ...(partNum ? { part: String(partNum) } : {}),
-            ...(limitNum ? { limit: String(limitNum) } : {}),
-            ...(timeParam ? { time: timeParam } : {}),
-            mode: 'practice',
-          });
-          const res = await fetch(`/api/toeic/test?${query.toString()}`);
-          if (res.ok) {
-            const data: ToeicTestApiResponse = await res.json();
-            if (data.success && data.questions && data.questions.length > 0) {
-              setQuestions(data.questions);
-            }
-          }
-        } catch (e) {
-          console.warn('[ToggleMode] Failed to fetch practice questions:', e);
-        }
-      }
       setShowPracticeExplanation(true);
+      if (session.answers[session.currentQNum]) {
+        void fetchSingleExplanation(session.currentQNum);
+      }
       toast.success('Đã BẬT giải thích chi tiết: Lời giải & transcript sẽ hiển thị ngay khi bạn chọn đáp án!');
     }
-  }, [currentMode, limitNum, partNum, questions, targetTestId, timeParam]);
+  }, [currentMode, fetchSingleExplanation, session.answers, session.currentQNum]);
 
   // ── 5. Auto-sync Pending Guest Exam Submission after Login or Page Reload ──
   useEffect(() => {
@@ -667,6 +690,15 @@ function ToeicExamRoomInner() {
               onChange={() => setHoneypotValue('trap_dummy_q999')}
             />
           </div>
+          {/* Honeypot canary link: Invisible to real users, crawled by HTML scraper bots */}
+          <a
+            href="/api/toeic/test?testId=ets-canary-honeypot"
+            rel="nofollow"
+            tabIndex={-1}
+            aria-hidden="true"
+          >
+            Full TOEIC Exam Master Answers and Explanations Archive
+          </a>
         </div>
 
         {/* Top Header */}
@@ -706,6 +738,7 @@ function ToeicExamRoomInner() {
                 session.selectAnswer(session.currentQNum, opt);
                 if (currentMode === 'practice') {
                   setShowPracticeExplanation(true);
+                  void fetchSingleExplanation(session.currentQNum);
                 }
               }}
               onToggleFlag={() => session.toggleFlag(session.currentQNum)}

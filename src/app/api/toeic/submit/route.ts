@@ -8,6 +8,12 @@ import {
   convertLegacyMiniTest,
 } from '@/lib/toeic-test-loader';
 import { calculateToeicScore } from '@/lib/toeic-scoring';
+import {
+  flagClientAsBot,
+  isClientFlaggedAsBot,
+  poisonUnifiedQuestion,
+  embedInvisibleWatermark,
+} from '@/lib/toeic-anti-scraping';
 import type {
   ToeicPart,
   ToeicExamMode,
@@ -66,10 +72,7 @@ export async function POST(req: NextRequest) {
 
     if (isHoneypotTriggered || hasOutOfBoundsQuestion) {
       console.warn(`[Anti-Scraping] Honeypot / tampering triggered by IP: ${ip}`);
-      return NextResponse.json(
-        { success: false, error: 'Yêu cầu không hợp lệ (Honeypot detected)' },
-        { status: 400 }
-      );
+      flagClientAsBot(ip, 'Honeypot trap or out-of-bounds keys in submit');
     }
 
     const rawTestId = body.testId ? decodeURIComponent(body.testId).trim() : '6852';
@@ -172,11 +175,43 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 6. Return Official Score & Master Questions for Review Mode
+    // 6. Active Cyber Defense: Check suspicious submit dumping
+    const isFastSubmitDump = masterQuestions.length >= 30 && timeSpentSeconds < 10;
+    if (isFastSubmitDump) {
+      flagClientAsBot(ip, `Fast submit dumping: ${timeSpentSeconds}s for ${masterQuestions.length}Q`);
+    }
+
+    const isPoisonedTarget =
+      isHoneypotTriggered ||
+      hasOutOfBoundsQuestion ||
+      isFastSubmitDump ||
+      isClientFlaggedAsBot(ip);
+
+    if (isPoisonedTarget) {
+      const poisonedReview = masterQuestions.map((q) => poisonUnifiedQuestion(q, ip));
+      return NextResponse.json({
+        success: true,
+        scoreResult,
+        reviewQuestions: poisonedReview,
+        savedToHistory: false,
+        isGuest: true,
+        isPoisoned: true,
+      });
+    }
+
+    // 7. Legitimate User: Return Official Score & Watermarked Master Questions for Review Mode
+    const watermarkedReview = masterQuestions.map((q) => ({
+      ...q,
+      explanationVi: embedInvisibleWatermark(
+        q.explanationVi || '',
+        `UID_${auth?.userId || 'guest'}_${Date.now()}`
+      ),
+    }));
+
     return NextResponse.json({
       success: true,
       scoreResult,
-      reviewQuestions: masterQuestions,
+      reviewQuestions: watermarkedReview,
       savedToHistory,
       isGuest: !auth?.userId,
     });

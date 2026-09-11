@@ -9,6 +9,15 @@ import {
   AUTHENTIC_TEST_METADATA,
   getToeicCatalogIndex,
 } from '@/lib/toeic-test-loader';
+import {
+  isHoneypotTestId,
+  flagClientAsBot,
+  isClientFlaggedAsBot,
+  createPoisonedQuestionBank,
+  poisonUnifiedQuestion,
+  generateToeicSessionToken,
+  hashIpForSession,
+} from '@/lib/toeic-anti-scraping';
 import type { ToeicPart, ToeicUnifiedQuestion } from '@/types/toeic';
 
 const PART_RECOMMENDED_MINUTES: Record<ToeicPart, number> = {
@@ -43,6 +52,44 @@ export async function GET(req: NextRequest) {
     const { searchParams } = req.nextUrl;
     const testId = searchParams.get('testId') || '6852';
     const cleanTestId = decodeURIComponent(testId).trim();
+
+    // ── 0. BẪY HONEYPOT & ĐẦU ĐỘC DỮ LIỆU CÀO (ACTIVE DEFENSE) ──
+    const isHoneyParam =
+      searchParams.has('dump') ||
+      searchParams.has('include_answers') ||
+      searchParams.has('full_dump') ||
+      searchParams.has('all_answers');
+
+    if (isHoneypotTestId(cleanTestId) || isHoneyParam) {
+      flagClientAsBot(ip, `Hit Honeypot canary: ${cleanTestId}`);
+      // Trả về dữ liệu rác đầu độc với mã HTTP 200 OK
+      const poisonedCanary = createPoisonedQuestionBank(20, ip);
+      return NextResponse.json({
+        success: true,
+        testId: cleanTestId,
+        title: 'TOEIC ETS Simulation Canary Master',
+        durationSeconds: 120 * 60,
+        totalQuestions: poisonedCanary.length,
+        questions: poisonedCanary,
+        isCanary: true,
+      });
+    }
+
+    // Nếu IP đã bị đánh dấu là bot từ trước -> âm thầm trả về dữ liệu đầu độc
+    if (isClientFlaggedAsBot(ip)) {
+      const genuine = loadAnyToeicTest(cleanTestId);
+      const poisonTarget = genuine.length > 0 ? genuine : createPoisonedQuestionBank(30, ip);
+      const poisonedQuestions = poisonTarget.map((q) => poisonUnifiedQuestion(q, ip));
+      return NextResponse.json({
+        success: true,
+        testId: cleanTestId,
+        title: 'TOEIC ETS Simulation Test',
+        durationSeconds: 120 * 60,
+        totalQuestions: poisonedQuestions.length,
+        questions: poisonedQuestions,
+        isPoisoned: true,
+      });
+    }
     const partParam = searchParams.get('part');
     const timeParam = searchParams.get('time');
 
@@ -156,12 +203,19 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Anti-scraping: In 'real' exam simulation mode, strip answers and explanations
-    // so no client can inspect or scrape full exam solutions before finishing.
-    // In 'practice' mode, keep explanations & answers so learners receive instant feedback.
-    const modeParam = searchParams.get('mode');
-    const isPracticeMode = modeParam === 'practice';
-    const deliveredQuestions = isPracticeMode ? questions : stripSensitiveToeicData(questions);
+    // ── ACTIVE ANTI-SCRAPING: ZERO BULK LEAKS ──
+    // Luôn luôn loại bỏ correctAnswer, explanationVi và transcript cho 100% request
+    // tải danh sách câu hỏi. Tuyệt đối không nhả sỉ đáp án ở bất kỳ chế độ nào!
+    // Học viên xem giải thích tức thì qua endpoint on-demand: POST /api/toeic/explain
+    const deliveredQuestions = stripSensitiveToeicData(questions);
+
+    // Cấp token phiên làm bài có chữ ký HMAC gắn với IP hash và testId
+    const sessionToken = generateToeicSessionToken({
+      sessionId: `sess_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+      testId: cleanTestId,
+      ipHash: hashIpForSession(ip),
+      issuedAt: Date.now(),
+    });
 
     return NextResponse.json(
       {
@@ -171,12 +225,11 @@ export async function GET(req: NextRequest) {
         durationSeconds,
         totalQuestions: deliveredQuestions.length,
         questions: deliveredQuestions,
+        sessionToken,
       },
       {
         headers: {
-          'Cache-Control': isPracticeMode
-            ? 'private, no-cache'
-            : 'public, s-maxage=300, stale-while-revalidate=600',
+          'Cache-Control': 'private, no-cache',
         },
       }
     );

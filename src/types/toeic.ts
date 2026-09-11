@@ -162,6 +162,7 @@ export interface ToeicTestApiResponse {
   durationSeconds: number;
   totalQuestions: number;
   questions: ToeicSanitizedQuestion[];
+  sessionToken?: string;
   error?: string;
 }
 
