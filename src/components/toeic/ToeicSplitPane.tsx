@@ -340,18 +340,6 @@ export function ToeicSplitPane({
                 )}
               </div>
             )}
-
-            {/* Transcript in Practice Mode (Listening only) */}
-            {!isExamMode && showExplanation && question.transcript && question.section === 'listening' && (
-              <div className="rounded-sm border border-slate-200 bg-slate-50 p-3 sm:p-4 text-xs dark:border-slate-700 dark:bg-slate-800/40">
-                <p className="font-mono text-xs font-bold text-slate-900 dark:text-slate-100 mb-1">
-                  Lời thoại bài nghe (Transcript):
-                </p>
-                <div className="text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap font-sans text-xs">
-                  {stripHtmlTags(question.transcript)}
-                </div>
-              </div>
-            )}
           </div>
         </section>
 
@@ -419,16 +407,13 @@ export function ToeicSplitPane({
               </div>
             )}
 
-            {/* Practice Mode In-Line Status Banner */}
-            {!isExamMode && (
-              <div className="flex items-center justify-between px-3 py-2 rounded-sm bg-amber-50/70 border border-amber-200/80 dark:bg-amber-950/30 dark:border-amber-900/50">
+            {/* Practice Mode Hint (only shown before answering to guide the user) */}
+            {!isExamMode && !selectedOption && !showExplanation && (
+              <div className="flex items-center justify-between px-3 py-1.5 rounded-sm bg-amber-50/70 border border-amber-200/80 dark:bg-amber-950/30 dark:border-amber-900/50">
                 <div className="flex items-center gap-2">
                   <span className="text-amber-600 dark:text-amber-400 text-xs">💡</span>
-                  <span className="font-mono text-xs font-bold text-amber-900 dark:text-amber-200">
-                    Chế độ Luyện tập:
-                  </span>
                   <span className="text-xs text-amber-800/90 dark:text-amber-300">
-                    {selectedOption ? 'Đã hiện giải thích đáp án bên dưới' : 'Chọn đáp án để xem giải thích ngay'}
+                    Chế độ Luyện tập: Chọn đáp án để xem giải thích ngay
                   </span>
                 </div>
                 {onToggleExplanation && (
@@ -437,7 +422,7 @@ export function ToeicSplitPane({
                     onClick={onToggleExplanation}
                     className="font-mono text-[11px] font-bold text-amber-800 hover:text-amber-950 dark:text-amber-300 underline cursor-pointer shrink-0 ml-2"
                   >
-                    {showExplanation || selectedOption ? 'Ẩn' : 'Hiện'}
+                    Xem trước
                   </button>
                 )}
               </div>
