@@ -736,10 +736,7 @@ function ToeicExamRoomInner() {
             currentQNum={session.currentQNum}
             onSelectQuestion={(qNum) => {
               session.goToQuestion(qNum);
-              // Auto-close palette on small mobile screens
-              if (typeof window !== 'undefined' && window.innerWidth < 640) {
-                setIsPaletteOpen(false);
-              }
+              setIsPaletteOpen(false);
             }}
             isOpen={isPaletteOpen}
             onToggleOpen={() => setIsPaletteOpen((prev) => !prev)}

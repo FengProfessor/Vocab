@@ -138,6 +138,18 @@ export function ToeicQuestionPalette({
     return count;
   }, [flagged, questions]);
 
+  // Handle ESC key to close palette
+  useEffect(() => {
+    if (!isOpen || !onToggleOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onToggleOpen();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onToggleOpen]);
+
   const handleTileClick = (qNum: number) => {
     onSelectQuestion(qNum);
     // On mobile viewports, can auto-close or keep open depending on user preference
@@ -158,10 +170,19 @@ export function ToeicQuestionPalette({
         </button>
       )}
 
+      {/* Backdrop overlay to dismiss palette drawer when open */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/40 transition-opacity"
+          onClick={onToggleOpen}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Main Palette Drawer / Sidebar */}
       <aside
         aria-label="Bảng câu hỏi"
-        className={`fixed inset-y-0 right-0 z-40 flex flex-col border-l border-slate-200 bg-white shadow-none transition-all duration-200 dark:border-slate-800 dark:bg-slate-950 ${
+        className={`fixed inset-y-0 right-0 z-40 flex flex-col border-l border-slate-200 bg-white shadow-xl transition-all duration-200 dark:border-slate-800 dark:bg-slate-950 ${
           isOpen
             ? 'w-full sm:w-80 md:w-96 translate-x-0'
             : 'w-0 translate-x-full pointer-events-none'
@@ -187,10 +208,14 @@ export function ToeicQuestionPalette({
             <button
               type="button"
               onClick={onToggleOpen}
-              className="flex h-7 w-7 items-center justify-center rounded-xs border border-slate-200 text-slate-500 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 cursor-pointer"
-              title="Đóng bảng câu hỏi"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 cursor-pointer font-mono text-xs font-semibold"
+              title="Đóng bảng câu hỏi (Phím tắt: Esc)"
             >
               <X className="h-3.5 w-3.5" />
+              <span>Đóng</span>
+              <kbd className="hidden sm:inline text-[10px] px-1 py-0.2 rounded-xs bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                Esc
+              </kbd>
             </button>
           )}
         </div>

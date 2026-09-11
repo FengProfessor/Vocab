@@ -206,28 +206,6 @@ export function ToeicSplitPane({
               : 'flex flex-col shrink-0 max-h-[44vh] overflow-y-auto'
           } lg:col-span-6 xl:col-span-7 lg:max-h-none lg:h-full lg:overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900`}
         >
-          {/* Pane header info */}
-          <div className="shrink-0 hidden lg:flex items-center justify-between border-b border-slate-200 px-4 py-2 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
-            <div className="flex items-center gap-2">
-              <span className="flex h-5 w-5 items-center justify-center rounded-xs border border-slate-200 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-                {question.section === 'listening' ? (
-                  <Headphones className="h-3 w-3" />
-                ) : (
-                  <FileText className="h-3 w-3" />
-                )}
-              </span>
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                {question.section === 'listening'
-                  ? `Listening — Part ${question.part}`
-                  : `Reading — Part ${question.part}`}
-              </span>
-            </div>
-
-            <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
-              {question.section === 'listening' ? 'Tài liệu nghe' : 'Đoạn văn đọc hiểu'}
-            </span>
-          </div>
-
           {/* Scrollable Stimulus Body */}
           <div className="flex-1 overflow-y-auto p-3 sm:p-5 space-y-3 sm:space-y-4 scrollbar-thin">
             {/* 1. Audio Player for Listening Parts 1-4 */}
@@ -317,19 +295,31 @@ export function ToeicSplitPane({
 
             {/* 6. Part 6 & Part 7 Reading Passages */}
             {(question.part === 6 || question.part === 7) && question.passage && (
-              <div className="space-y-3 sm:space-y-4">
+              <div className="flex flex-col min-h-full space-y-4">
                 {passageSegments.map((segment, idx) => (
                   <article
                     key={idx}
-                    className="rounded-sm border border-slate-200 bg-slate-50/60 p-3.5 sm:p-5 shadow-none dark:border-slate-800 dark:bg-slate-900/40"
+                    className="flex-1 flex flex-col justify-between rounded-sm border border-slate-200 bg-slate-50/50 p-4 sm:p-6 shadow-2xs dark:border-slate-800 dark:bg-slate-900/40 min-h-[380px]"
                   >
-                    {passageSegments.length > 1 && (
-                      <div className="mb-2.5 inline-flex items-center rounded-sm border border-slate-200 bg-slate-100 px-2 py-0.5 font-mono text-[11px] font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                        Đoạn văn {idx + 1}
+                    <div>
+                      <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 mb-3">
+                        <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                          {passageSegments.length > 1
+                            ? `Đoạn văn ${idx + 1}/${passageSegments.length}`
+                            : 'Văn bản đọc hiểu'}
+                        </span>
+                        <span className="font-mono text-[11px] text-slate-400">
+                          ETS Reading Stimulus
+                        </span>
                       </div>
-                    )}
-                    <div className="prose dark:prose-invert max-w-none text-sm sm:text-base leading-relaxed whitespace-pre-wrap font-serif text-slate-800 dark:text-slate-200">
-                      {segment}
+                      <div className="prose dark:prose-invert max-w-none text-sm sm:text-base leading-relaxed whitespace-pre-wrap font-serif text-slate-800 dark:text-slate-200">
+                        {segment}
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-3 border-t border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400 select-none">
+                      <span>📄 Đọc kỹ thông tin đoạn văn trên để trả lời câu hỏi bên phải</span>
+                      <span>Part {question.part}</span>
                     </div>
                   </article>
                 ))}
@@ -422,9 +412,33 @@ export function ToeicSplitPane({
             {/* Question Prompt */}
             {question.prompt && (
               <div className="rounded-sm bg-slate-50 p-3 sm:p-3.5 border border-slate-200 dark:bg-slate-900 dark:border-slate-800">
-                <p className="text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100 leading-relaxed">
+                <p className="text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100 leading-relaxed break-words">
                   {stripHtmlTags(question.prompt)}
                 </p>
+              </div>
+            )}
+
+            {/* Practice Mode In-Line Status Banner */}
+            {!isExamMode && (
+              <div className="flex items-center justify-between px-3 py-2 rounded-sm bg-amber-50/70 border border-amber-200/80 dark:bg-amber-950/30 dark:border-amber-900/50">
+                <div className="flex items-center gap-2">
+                  <span className="text-amber-600 dark:text-amber-400 text-xs">💡</span>
+                  <span className="font-mono text-xs font-bold text-amber-900 dark:text-amber-200">
+                    Chế độ Luyện tập:
+                  </span>
+                  <span className="text-xs text-amber-800/90 dark:text-amber-300">
+                    {selectedOption ? 'Đã hiện giải thích đáp án bên dưới' : 'Chọn đáp án để xem giải thích ngay'}
+                  </span>
+                </div>
+                {onToggleExplanation && (
+                  <button
+                    type="button"
+                    onClick={onToggleExplanation}
+                    className="font-mono text-[11px] font-bold text-amber-800 hover:text-amber-950 dark:text-amber-300 underline cursor-pointer shrink-0 ml-2"
+                  >
+                    {showExplanation || selectedOption ? 'Ẩn' : 'Hiện'}
+                  </button>
+                )}
               </div>
             )}
 
@@ -521,50 +535,66 @@ export function ToeicSplitPane({
               </div>
             )}
 
-            {/* Explanation Box in Practice Mode */}
+            {/* Explanation Box in Practice Mode (Core USP Feature) */}
             {!isExamMode && onToggleExplanation && (
               <div className="pt-2">
                 <button
                   type="button"
                   onClick={onToggleExplanation}
-                  className="inline-flex items-center gap-1.5 rounded-sm border border-slate-200 bg-white px-2.5 py-1.5 font-mono text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 cursor-pointer shadow-2xs"
+                  className={`inline-flex items-center justify-between w-full rounded-sm border px-3.5 py-2 font-mono text-xs font-bold transition cursor-pointer shadow-2xs ${
+                    showExplanation || selectedOption
+                      ? 'border-amber-400 bg-amber-50 text-amber-950 dark:border-amber-700 dark:bg-amber-950/50 dark:text-amber-100'
+                      : 'border-amber-300 bg-amber-50/60 text-amber-900 hover:bg-amber-100 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200'
+                  }`}
                 >
-                  <HelpCircle className="h-3.5 w-3.5 text-slate-500" />
-                  <span>{showExplanation ? '▲ Ẩn giải thích' : '💡 Xem giải thích chi tiết ▼'}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-600 dark:text-amber-400 text-sm">💡</span>
+                    <span>
+                      {showExplanation || selectedOption
+                        ? '▲ GIẢI THÍCH CHI TIẾT & BẢN DỊCH'
+                        : '▼ XEM GIẢI THÍCH CHI TIẾT & BẢN DỊCH'}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-xs bg-amber-200/80 dark:bg-amber-900/60 font-bold text-amber-900 dark:text-amber-100">
+                      GIẢI THÍCH ETS
+                    </span>
+                  </div>
+                  <span className="text-[11px] font-normal text-amber-700 dark:text-amber-300">
+                    {showExplanation || selectedOption ? 'Nhấn để thu gọn' : 'Xem ngay'}
+                  </span>
                 </button>
 
-                {showExplanation && (
-                  <div className="mt-2.5 rounded-sm border border-slate-200 bg-slate-50 p-3.5 text-xs leading-relaxed text-slate-800 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 space-y-2.5 animate-in fade-in duration-100">
+                {(showExplanation || selectedOption) && (
+                  <div className="mt-2.5 rounded-sm border border-amber-200 bg-white p-4 text-xs leading-relaxed text-slate-800 dark:border-amber-900/60 dark:bg-slate-950/80 dark:text-slate-200 space-y-3 shadow-2xs animate-in fade-in duration-150">
                     {/* Status Banner */}
                     {selectedOption && question.correctAnswer && (
-                      <div className="flex items-center gap-2 font-mono text-xs font-bold">
+                      <div className="p-2.5 rounded-xs border border-slate-200 dark:border-slate-800 font-mono text-xs font-bold">
                         {selectedOption === question.correctAnswer ? (
-                          <span className="inline-flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
+                          <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
                             <CheckCircle2 className="h-4 w-4 shrink-0" />
                             <span>Chính xác! Đáp án đúng là ({question.correctAnswer})</span>
-                          </span>
+                          </div>
                         ) : (
-                          <span className="inline-flex items-center gap-1.5 text-rose-700 dark:text-rose-400">
+                          <div className="flex items-center gap-2 text-rose-700 dark:text-rose-400">
                             <XCircle className="h-4 w-4 shrink-0" />
                             <span>Chưa chính xác. Bạn chọn ({selectedOption}) — Đáp án đúng: ({question.correctAnswer})</span>
-                          </span>
+                          </div>
                         )}
                       </div>
                     )}
 
                     {!selectedOption && question.correctAnswer && (
-                      <div className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-mono text-xs font-bold">
-                        <HelpCircle className="h-3.5 w-3.5 shrink-0 text-slate-400" />
-                        <span>Đáp án đúng của câu này: ({question.correctAnswer})</span>
+                      <div className="inline-flex items-center gap-2 text-amber-900 dark:text-amber-200 font-mono text-xs font-bold bg-amber-50 dark:bg-amber-950/30 p-2 rounded-xs border border-amber-200 dark:border-amber-800 w-full">
+                        <HelpCircle className="h-4 w-4 shrink-0 text-amber-500" />
+                        <span>Đáp án chuẩn ETS của câu này: ({question.correctAnswer})</span>
                       </div>
                     )}
 
                     {question.explanationVi ? (
-                      <div>
-                        <p className="font-mono font-bold text-slate-900 dark:text-slate-100 mb-1">
-                          Giải thích chi tiết:
+                      <div className="space-y-1.5 pt-1">
+                        <p className="font-mono text-xs font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider flex items-center gap-1.5">
+                          <span>📖 Phân tích ngữ pháp & Bản dịch tiếng Việt:</span>
                         </p>
-                        <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300">
+                        <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 text-xs sm:text-sm pl-2.5 border-l-2 border-amber-400 dark:border-amber-600">
                           {stripHtmlTags(question.explanationVi)}
                         </div>
                       </div>
@@ -575,11 +605,11 @@ export function ToeicSplitPane({
                     ) : null}
 
                     {question.transcript && question.section === 'listening' && (
-                      <div className="border-t border-slate-200 dark:border-slate-800 pt-2">
-                        <p className="font-mono font-bold text-slate-900 dark:text-slate-100 mb-1">
-                          Lời thoại bài nghe (Transcript):
+                      <div className="border-t border-slate-200 dark:border-slate-800 pt-2.5 space-y-1.5">
+                        <p className="font-mono text-xs font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider flex items-center gap-1.5">
+                          <span>🎧 Lời thoại bài nghe (Transcript):</span>
                         </p>
-                        <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans">
+                        <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans text-xs sm:text-sm pl-2.5 border-l-2 border-blue-400 dark:border-blue-600">
                           {stripHtmlTags(question.transcript)}
                         </div>
                       </div>
