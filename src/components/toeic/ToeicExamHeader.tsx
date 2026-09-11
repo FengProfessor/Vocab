@@ -62,9 +62,9 @@ export function ToeicExamHeader({
       className={`sticky top-0 z-30 flex h-12 w-full items-center justify-between border-b border-slate-200 bg-white px-3 sm:px-4 shadow-none dark:border-slate-800 dark:bg-slate-950 ${className}`}
     >
       {/* Left: Title & Section / Part Badge */}
-      <div className="flex items-center gap-2.5 min-w-0">
-        <div className="flex items-center gap-2 min-w-0">
-          <h1 className="truncate text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 max-w-[140px] sm:max-w-xs md:max-w-md">
+      <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+          <h1 className="hidden sm:block truncate text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 max-w-xs md:max-w-md">
             {title}
           </h1>
 
@@ -85,7 +85,7 @@ export function ToeicExamHeader({
 
           {/* Part indicator */}
           {currentPart && (
-            <span className="inline-flex rounded-sm border border-slate-200 bg-slate-100 px-1.5 py-0.5 font-mono text-[11px] font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 shrink-0">
+            <span className="inline-flex rounded-sm border border-slate-200 bg-slate-100 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 shrink-0">
               Part {currentPart}
             </span>
           )}
@@ -108,7 +108,7 @@ export function ToeicExamHeader({
       {/* Center: Digital Countdown Timer */}
       <div className="flex items-center">
         <div
-          className={`flex items-center gap-1.5 rounded-sm px-3 py-1 font-mono text-xs sm:text-sm font-bold tabular-nums tracking-wider border transition-colors ${
+          className={`flex items-center gap-1 sm:gap-1.5 rounded-sm px-2 sm:px-3 py-1 font-mono text-xs sm:text-sm font-bold tabular-nums tracking-wider border transition-colors ${
             isTimeWarning
               ? 'border-rose-500 bg-rose-50 text-rose-600 dark:border-rose-600 dark:bg-rose-950/40 dark:text-rose-400'
               : 'border-slate-300 bg-slate-100 text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100'
@@ -125,12 +125,12 @@ export function ToeicExamHeader({
       </div>
 
       {/* Right: Mode Toggle, Palette, Pause & Submit Actions */}
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex items-center gap-1 sm:gap-2 shrink-0">
         {onToggleMode && (
           <button
             type="button"
             onClick={onToggleMode}
-            className={`flex items-center gap-1.5 rounded-sm px-2.5 py-1 text-xs font-mono font-bold transition-colors cursor-pointer border ${
+            className={`flex items-center gap-1 rounded-sm p-1.5 sm:px-2.5 sm:py-1 text-xs font-mono font-bold transition-colors cursor-pointer border ${
               mode === 'practice'
                 ? 'border-emerald-500 bg-emerald-50 text-emerald-700 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-300'
                 : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200'
@@ -158,7 +158,7 @@ export function ToeicExamHeader({
           <button
             type="button"
             onClick={onOpenPalette}
-            className="flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2.5 py-1 text-xs font-mono font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer"
+            className="hidden sm:flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2.5 py-1 text-xs font-mono font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer"
             title="Mở bảng điều hướng câu hỏi"
           >
             <Grid className="h-3.5 w-3.5" />
@@ -170,7 +170,7 @@ export function ToeicExamHeader({
           <button
             type="button"
             onClick={onPause}
-            className="flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer"
+            className="flex items-center gap-1 rounded-sm border border-slate-300 bg-white p-1.5 sm:px-2.5 sm:py-1 text-xs font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer"
             title="Tạm dừng làm bài"
           >
             <Pause className="h-3.5 w-3.5" />
@@ -181,7 +181,7 @@ export function ToeicExamHeader({
         <button
           type="button"
           onClick={onSubmit}
-          className="flex items-center gap-1.5 rounded-sm bg-slate-900 px-3.5 py-1 text-xs font-bold text-white shadow-none transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer"
+          className="flex items-center gap-1 sm:gap-1.5 rounded-sm bg-slate-900 px-2.5 sm:px-3.5 py-1 text-xs font-bold text-white shadow-none transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer"
         >
           <Send className="h-3 w-3" />
           <span>Nộp bài</span>

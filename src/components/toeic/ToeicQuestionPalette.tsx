@@ -145,12 +145,12 @@ export function ToeicQuestionPalette({
 
   return (
     <>
-      {/* Floating Toggle Button when Palette is collapsed (positioned safely above footer) */}
+      {/* Floating Toggle Button when Palette is collapsed (positioned safely above footer, hidden on mobile to avoid blocking choices) */}
       {!isOpen && (
         <button
           type="button"
           onClick={onToggleOpen}
-          className="fixed right-4 bottom-20 z-40 flex sm:hidden h-9 items-center gap-2 rounded-sm border border-slate-700 bg-slate-900 px-3 font-mono text-xs font-bold text-white shadow-md transition-colors hover:bg-slate-800 dark:border-slate-300 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer"
+          className="fixed right-4 bottom-20 z-40 hidden md:flex h-9 items-center gap-2 rounded-sm border border-slate-700 bg-slate-900 px-3 font-mono text-xs font-bold text-white shadow-md transition-colors hover:bg-slate-800 dark:border-slate-300 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer"
           title="Mở bảng câu hỏi"
         >
           <Grid className="h-4 w-4" />
