@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   XCircle,
   Grid,
+  Loader2,
 } from 'lucide-react';
 import type {
   ToeicUnifiedQuestion,
@@ -602,7 +603,12 @@ export function ToeicSplitPane({
                       <p className="text-slate-500 text-xs">
                         Đáp án chuẩn ETS: <strong>({question.correctAnswer})</strong>.
                       </p>
-                    ) : null}
+                    ) : (
+                      <div className="flex items-center gap-2 py-2 text-amber-800 dark:text-amber-300 text-xs font-mono">
+                        <Loader2 className="h-4 w-4 animate-spin text-amber-600 dark:text-amber-400 shrink-0" />
+                        <span>Đang tải phân tích ngữ pháp & bản dịch...</span>
+                      </div>
+                    )}
 
                     {question.transcript && question.section === 'listening' && (
                       <div className="border-t border-slate-200 dark:border-slate-800 pt-2.5 space-y-1.5">

@@ -749,7 +749,13 @@ function ToeicExamRoomInner() {
               totalQuestions={session.totalQuestions}
               showExplanation={showPracticeExplanation}
               onToggleExplanation={() =>
-                setShowPracticeExplanation((prev) => !prev)
+                setShowPracticeExplanation((prev) => {
+                  const next = !prev;
+                  if (next) {
+                    void fetchSingleExplanation(session.currentQNum);
+                  }
+                  return next;
+                })
               }
               onEnablePracticeMode={toggleExamMode}
               onOpenPalette={() => setIsPaletteOpen((prev) => !prev)}
