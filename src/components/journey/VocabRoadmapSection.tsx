@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   Volume2,
   CheckCircle2,
@@ -9,9 +10,12 @@ import {
   ArrowRight,
   Check,
   ChevronDown,
+  Loader2,
 } from 'lucide-react';
+import { toast } from 'sonner';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { authFetch } from '@/lib/auth-fetch';
 import { playWordAudio, stopWordAudio } from '@/lib/audio';
 import {
   getFoundationVerbPacks,
@@ -124,6 +128,50 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
   const [completedPacks, setCompletedPacks] = useState<Set<string>>(new Set());
   const [completedTopics, setCompletedTopics] = useState<Set<string>>(new Set());
   const [masteredWords, setMasteredWords] = useState<Set<string>>(new Set());
+
+  const router = useRouter();
+  const [loadingPackId, setLoadingPackId] = useState<string | null>(null);
+
+  const handleStartPack = async (packId: string) => {
+    if (loadingPackId) return;
+    setLoadingPackId(packId);
+    toast.loading('Đang mở gói học Flashcard...', { id: 'vocab-launch' });
+    try {
+      const res = await authFetch('/api/import/packages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ packId }),
+      });
+      const data = (await res.json()) as {
+        success?: boolean;
+        classroomId?: string;
+        wordIds?: string[];
+        error?: string;
+      };
+      if (!res.ok || !data.success || !data.classroomId || !data.wordIds?.length) {
+        throw new Error(data.error || 'Không mở được gói từ.');
+      }
+      try {
+        await authFetch('/api/words/refresh', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),
+        });
+      } catch {
+        /* fallback */
+      }
+      toast.dismiss('vocab-launch');
+      const ids = data.wordIds.map((id) => encodeURIComponent(id)).join(',');
+      router.push(
+        `/flashcard?class=${encodeURIComponent(data.classroomId)}&mode=learn&ids=${ids}&roadmapStep=${encodeURIComponent(packId)}`
+      );
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : 'Có lỗi khi tải gói từ', {
+        id: 'vocab-launch',
+      });
+      setLoadingPackId(null);
+    }
+  };
 
   const audioReqIdRef = useRef<number>(0);
 
@@ -461,17 +509,25 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                   100 động từ chia làm 5 tầng (10 gói). Bạn có thể luyện tập nhanh theo từng gói hoặc làm chủ toàn bộ.
                 </p>
-                <Link
-                  href="/practice/vocab-station?pack=starter-verb-01"
-                  onClick={() => onSelectPack?.('starter-verb-01')}
+                <button
+                  type="button"
+                  disabled={loadingPackId !== null}
+                  onClick={() => {
+                    onSelectPack?.('starter-verb-01');
+                    handleStartPack('starter-verb-01');
+                  }}
                   className={cn(
                     buttonVariants({ variant: 'outline', size: 'sm' }),
                     'min-h-[44px] rounded-xl text-xs font-bold border-amber-300 text-amber-800 hover:bg-amber-100 hover:text-amber-900 dark:border-amber-800 dark:text-amber-300 dark:hover:bg-amber-950/50 dark:hover:text-amber-200 shrink-0 shadow-xs touch-manipulation'
                   )}
                 >
-                  <Play className="h-3.5 w-3.5 fill-current mr-1 text-amber-500" />
-                  Luyện Cả 100 Động Từ →
-                </Link>
+                  {loadingPackId === 'starter-verb-01' ? (
+                    <Loader2 className="h-3.5 w-3.5 animate-spin mr-1 text-amber-500" />
+                  ) : (
+                    <Play className="h-3.5 w-3.5 fill-current mr-1 text-amber-500" />
+                  )}
+                  Học Flashcard 100 Động Từ →
+                </button>
               </div>
 
               {/* 5 Tiers */}
@@ -580,17 +636,25 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                               </div>
 
                               <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-800">
-                                <Link
-                                  href={`/practice/vocab-station?pack=${encodeURIComponent(packItem.id)}`}
-                                  onClick={() => onSelectPack?.(packItem.id)}
+                                <button
+                                  type="button"
+                                  disabled={loadingPackId !== null}
+                                  onClick={() => {
+                                    onSelectPack?.(packItem.id);
+                                    handleStartPack(packItem.id);
+                                  }}
                                   className={cn(
                                     buttonVariants({ variant: 'outline', size: 'sm' }),
                                     'w-full min-h-[44px] text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 hover:bg-amber-50 hover:text-amber-900 border-amber-200/80 dark:border-amber-900/40 dark:hover:bg-amber-950/40 dark:hover:text-amber-300 shadow-2xs touch-manipulation'
                                   )}
                                 >
-                                  <Play className="h-3.5 w-3.5 fill-current text-amber-600 dark:text-amber-400" />
-                                  Vào Luyện Gói Này
-                                </Link>
+                                  {loadingPackId === packItem.id ? (
+                                    <Loader2 className="h-3.5 w-3.5 animate-spin text-amber-600 dark:text-amber-400" />
+                                  ) : (
+                                    <Play className="h-3.5 w-3.5 fill-current text-amber-600 dark:text-amber-400" />
+                                  )}
+                                  Học Flashcard Gói Này
+                                </button>
                               </div>
                             </div>
                           );
@@ -785,54 +849,74 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                           );
                         })}
                         {topic.wordCount > 8 && (
-                          <Link
-                            href={`/practice/vocab-station?topic=${encodeURIComponent(topic.id)}`}
-                            className="inline-flex items-center px-2.5 py-1 text-xs font-semibold text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300 hover:underline min-h-[44px] touch-manipulation"
-                          >
-                            +{topic.wordCount - 8} từ khác →
-                          </Link>
+                          <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium text-slate-500 dark:text-slate-400">
+                            +{topic.wordCount - 8} từ trong các gói bên dưới
+                          </span>
                         )}
                       </div>
                     </div>
 
-                    {/* Action Buttons: Main Button & Quick Modes */}
-                    <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-                      <Link
-                        href={`/practice/vocab-station?topic=${encodeURIComponent(topic.id)}`}
+                    {/* Micro-packs (15 từ / gói) */}
+                    <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 space-y-2">
+                      <div className="flex items-center justify-between text-[11px] font-bold text-slate-600 dark:text-slate-300">
+                        <span>Gói học Flashcard chuẩn (15 từ/gói):</span>
+                        <span className="text-[10px] text-slate-400 hidden sm:inline">Ví dụ chuẩn từ điển · Lưu Sổ từ FSRS</span>
+                      </div>
+
+                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+                        {Array.from({ length: Math.ceil(topic.wordCount / 15) }).map((_, pIdx) => {
+                          const packId = `${topic.id}-p${pIdx}`;
+                          const isPackLoading = loadingPackId === packId;
+                          const pStart = pIdx * 15;
+                          const pWords = topic.words.slice(pStart, pStart + 15);
+                          const isPackDone = pWords.length > 0 && pWords.every((w) => masteredWords.has(w.word.toLowerCase()));
+
+                          return (
+                            <button
+                              key={packId}
+                              type="button"
+                              disabled={loadingPackId !== null}
+                              onClick={() => handleStartPack(packId)}
+                              className={cn(
+                                'flex items-center justify-between rounded-xl border p-2 text-left text-xs font-semibold transition min-h-[44px] touch-manipulation',
+                                isPackDone
+                                  ? 'border-emerald-200 bg-emerald-50/70 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300'
+                                  : 'border-slate-200 bg-white text-slate-700 hover:border-sky-400 hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-800/70 dark:text-slate-200'
+                              )}
+                            >
+                              <div className="min-w-0">
+                                <span className="block font-bold truncate">Gói {pIdx + 1}</span>
+                                <span className="block text-[10px] opacity-75">{pWords.length} từ</span>
+                              </div>
+                              {isPackLoading ? (
+                                <Loader2 className="h-3.5 w-3.5 animate-spin text-sky-600 shrink-0" />
+                              ) : isPackDone ? (
+                                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                              ) : (
+                                <Play className="h-3 w-3 text-slate-400 shrink-0" />
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      <button
+                        type="button"
+                        disabled={loadingPackId !== null}
+                        onClick={() => handleStartPack(`${topic.id}-p0`)}
                         className={cn(
                           buttonVariants({ variant: 'chunky', size: 'sm' }),
-                          'w-full min-h-[44px] rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs flex-1 touch-manipulation'
+                          'w-full min-h-[44px] rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs touch-manipulation mt-2'
                         )}
                       >
-                        <Play className="h-3.5 w-3.5 fill-current" />
-                        Vào Luyện Tập Chủ Đề Này
+                        {loadingPackId === `${topic.id}-p0` ? (
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                        ) : (
+                          <Play className="h-3.5 w-3.5 fill-current" />
+                        )}
+                        Học Flashcard Gói 1 (15 từ đầu)
                         <ArrowRight className="h-3.5 w-3.5 ml-0.5" />
-                      </Link>
-
-                      {/* Quick Modes */}
-                      <div className="grid grid-cols-3 gap-1 shrink-0">
-                        <Link
-                          href={`/practice/vocab-station?topic=${encodeURIComponent(topic.id)}&tab=flashcard`}
-                          className="min-h-[44px] flex items-center justify-center rounded-xl bg-slate-100 px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold text-slate-700 hover:bg-sky-100 hover:text-sky-900 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-sky-950/40 dark:hover:text-sky-300 transition-colors text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 touch-manipulation"
-                          title="Thẻ từ 2.0"
-                        >
-                          💡 Thẻ từ
-                        </Link>
-                        <Link
-                          href={`/practice/vocab-station?topic=${encodeURIComponent(topic.id)}&tab=cloze`}
-                          className="min-h-[44px] flex items-center justify-center rounded-xl bg-slate-100 px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold text-slate-700 hover:bg-sky-100 hover:text-sky-900 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-sky-950/40 dark:hover:text-sky-300 transition-colors text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 touch-manipulation"
-                          title="Đục lỗ câu"
-                        >
-                          ✍️ Đục lỗ
-                        </Link>
-                        <Link
-                          href={`/practice/vocab-station?topic=${encodeURIComponent(topic.id)}&tab=match`}
-                          className="min-h-[44px] flex items-center justify-center rounded-xl bg-slate-100 px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold text-slate-700 hover:bg-sky-100 hover:text-sky-900 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-sky-950/40 dark:hover:text-sky-300 transition-colors text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 touch-manipulation"
-                          title="Ghép cặp phản xạ"
-                        >
-                          ⚡ Phản xạ
-                        </Link>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 )}

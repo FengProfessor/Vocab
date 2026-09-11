@@ -232,6 +232,14 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     }).catch((err) => console.error('[Learn] save SRS failed:', err));
 
     if (v === 'correct') {
+      try {
+        const raw = localStorage.getItem('vocab_station_mastered_words');
+        const set = new Set<string>(raw ? JSON.parse(raw) : []);
+        set.add(recallWord.word.toLowerCase());
+        localStorage.setItem('vocab_station_mastered_words', JSON.stringify(Array.from(set)));
+      } catch {
+        /* ignore */
+      }
       advanceTimer.current = setTimeout(goNextRecall, NEXT_DELAY_MS);
     }
     // wrong / close: không auto-next — user bấm «Tiếp theo» hoặc Enter/Space
@@ -372,15 +380,6 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
             <HelpCircle className="h-4 w-4" /> Cách học hiệu quả
           </button>
           <Link href="/student" className="text-sm font-bold text-slate-400 hover:text-slate-600">← Về Dashboard</Link>
-        </div>
-        <div className="rounded-xl border border-amber-200 bg-amber-50/80 px-4 py-2.5 text-xs font-medium text-amber-800 dark:border-amber-900/40 dark:bg-amber-950/20 dark:text-amber-300">
-          ✨ Học sinh mất gốc? Luyện qua đoạn văn, đục lỗ & xếp câu S-V-O:{' '}
-          <Link
-            href={roadmapStepParam ? `/practice/vocab-station?roadmapStep=${encodeURIComponent(roadmapStepParam)}` : '/practice/vocab-station'}
-            className="font-bold underline hover:text-amber-950 dark:hover:text-amber-200"
-          >
-            Mở Trạm Luyện Đa Năng →
-          </Link>
         </div>
       </div>
     );
@@ -700,11 +699,31 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
             onClick={async () => {
               const roadmapStep = searchParams.get('roadmapStep');
               if (roadmapStep && remainingNew === 0) {
+                try {
+                  if (roadmapStep.startsWith('starter-verb-')) {
+                    const raw = localStorage.getItem('vocab_station_completed_packs');
+                    const list: string[] = raw ? JSON.parse(raw) : [];
+                    if (!list.includes(roadmapStep)) {
+                      list.push(roadmapStep);
+                      localStorage.setItem('vocab_station_completed_packs', JSON.stringify(list));
+                    }
+                  } else if (roadmapStep.startsWith('s1-') || roadmapStep.startsWith('s2-') || roadmapStep.startsWith('s3-')) {
+                    const raw = localStorage.getItem('vocab_station_completed_topics');
+                    const list: string[] = raw ? JSON.parse(raw) : [];
+                    if (!list.includes(roadmapStep)) {
+                      list.push(roadmapStep);
+                      localStorage.setItem('vocab_station_completed_topics', JSON.stringify(list));
+                    }
+                  }
+                } catch {
+                  /* ignore */
+                }
                 const result = await completeRoadmapStep(roadmapStep);
                 if (result) toast.success(`+${result.xpAwarded} XP lộ trình`);
                 else if (getLastRoadmapStepError()) toast.error(getLastRoadmapStepError()!);
               }
-              router.push(roadmapStep ? '/journey' : '/student');
+              const isVocabTrack = roadmapStep && (roadmapStep.startsWith('starter-verb-') || roadmapStep.startsWith('s1-') || roadmapStep.startsWith('s2-') || roadmapStep.startsWith('s3-'));
+              router.push(roadmapStep ? (isVocabTrack ? '/journey?track=vocab' : '/journey') : '/student');
             }}
           >
             <ChevronLeft className="mr-2 h-4 w-4" /> {searchParams.get('roadmapStep') ? 'Về lộ trình' : 'Dashboard'}
@@ -719,8 +738,28 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               onClick={async () => {
                 const roadmapStep = searchParams.get('roadmapStep');
                 if (roadmapStep) {
+                  try {
+                    if (roadmapStep.startsWith('starter-verb-')) {
+                      const raw = localStorage.getItem('vocab_station_completed_packs');
+                      const list: string[] = raw ? JSON.parse(raw) : [];
+                      if (!list.includes(roadmapStep)) {
+                        list.push(roadmapStep);
+                        localStorage.setItem('vocab_station_completed_packs', JSON.stringify(list));
+                      }
+                    } else if (roadmapStep.startsWith('s1-') || roadmapStep.startsWith('s2-') || roadmapStep.startsWith('s3-')) {
+                      const raw = localStorage.getItem('vocab_station_completed_topics');
+                      const list: string[] = raw ? JSON.parse(raw) : [];
+                      if (!list.includes(roadmapStep)) {
+                        list.push(roadmapStep);
+                        localStorage.setItem('vocab_station_completed_topics', JSON.stringify(list));
+                      }
+                    }
+                  } catch {
+                    /* ignore */
+                  }
                   await completeRoadmapStep(roadmapStep);
-                  router.push('/journey');
+                  const isVocabTrack = roadmapStep.startsWith('starter-verb-') || roadmapStep.startsWith('s1-') || roadmapStep.startsWith('s2-') || roadmapStep.startsWith('s3-');
+                  router.push(isVocabTrack ? '/journey?track=vocab' : '/journey');
                   return;
                 }
                 router.push(classroomId ? `/flashcard?class=${classroomId}` : '/flashcard');

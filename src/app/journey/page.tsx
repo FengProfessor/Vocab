@@ -380,18 +380,6 @@ OK = học lại · Cancel = giữ nguyên.`,
       }
 
       if (step.type === 'vocab') {
-        // Hỗ trợ trực tiếp Trạm Luyện Từ Vựng Đa Năng cho các gói Starter / Foundation / CEFR A0
-        const isFoundationOrStarter =
-          step.ref.startsWith('starter-') ||
-          levelId === 'A0' ||
-          !step.ref.includes('/');
-        if (isFoundationOrStarter) {
-          router.push(
-            `/practice/vocab-station?pack=${encodeURIComponent(step.ref)}&roadmapStep=${encodeURIComponent(step.id)}`,
-          );
-          return;
-        }
-
         toast.loading('Đang chuẩn bị gói từ...', { id: 'journey-open' });
         const res = await authFetch('/api/import/packages', {
           method: 'POST',

@@ -3,6 +3,7 @@ import { createServiceClient } from '@/lib/supabase';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { CATALOG_VERSION, MICRO_PACK_SIZE, getCatalogTree, resolvePack } from '@/lib/vocab-catalog';
 import { getStarterPack } from '@/lib/roadmap';
+import { getVocabTopic } from '@/lib/vocab-stages';
 import pro3mData from '@/data/vocab/pro3m.json';
 import pro3mPlusData from '@/data/vocab/pro3m-plus.json';
 
@@ -161,6 +162,37 @@ export async function POST(req: Request): Promise<NextResponse> {
       });
       if (result.error) return NextResponse.json({ success: false, error: result.error.message }, { status: result.error.status });
       return NextResponse.json({ success: true, ...result.ok, message: result.ok!.imported > 0 ? `Đã thêm ${result.ok!.imported} từ. Bắt đầu học ngay khi trí nhớ còn mới!` : 'Đã mở lại chặng học này.' });
+    }
+
+    // ── Vocab Stage Topic Pack (Chặng 1, 2, 3 - chia micro-pack 15 từ) ──
+    if (typeof body.packId === 'string' && (body.packId.startsWith('s1-') || body.packId.startsWith('s2-') || body.packId.startsWith('s3-'))) {
+      const match = body.packId.match(/^(s\d-topic-[a-z0-9-]+?)(?:-p(\d+))?$/);
+      const topicId = match ? match[1] : body.packId;
+      const packIndex = match && match[2] !== undefined ? parseInt(match[2], 10) : (typeof body.packIndex === 'number' ? body.packIndex : 0);
+      const topic = getVocabTopic(topicId);
+      if (!topic) return NextResponse.json({ success: false, error: 'Chủ đề từ vựng không tồn tại.' }, { status: 404 });
+      const pageSize = 15;
+      const start = packIndex * pageSize;
+      let words = topic.words.slice(start, start + pageSize).map((w) => w.word);
+      if (words.length === 0) {
+        words = topic.words.slice(0, pageSize).map((w) => w.word);
+      }
+      const stagePackId = `${topic.id}-p${packIndex}`;
+      const result = await importPack(supabase, {
+        userId,
+        packId: stagePackId,
+        words,
+        topicId: topic.id,
+        topicTitle: `${topic.title} · Gói ${packIndex + 1}`,
+        packIndex,
+        catalogVersion: 'stage-v1',
+      });
+      if (result.error) return NextResponse.json({ success: false, error: result.error.message }, { status: result.error.status });
+      return NextResponse.json({
+        success: true,
+        ...result.ok,
+        message: result.ok!.imported > 0 ? `Đã thêm ${result.ok!.imported} từ. Bắt đầu học ngay!` : 'Đã mở lại gói từ này.',
+      });
     }
 
     // ── Path V3: packId ──

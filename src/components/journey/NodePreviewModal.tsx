@@ -238,21 +238,7 @@ export function NodePreviewModal({
           </div>
         )}
 
-        {/* Contextual Vocab Station callout */}
-        {step.type === 'vocab' && (
-          <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-50/90 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/40 text-[11px] text-amber-900 dark:text-amber-200">
-            <span className="leading-tight">
-              💡 <strong>Luyện đa năng:</strong> Đọc đoạn văn, đục lỗ & xếp câu S-V-O thay vì chỉ xem flashcard.
-            </span>
-            <Link
-              href={`/practice/vocab-station?pack=${encodeURIComponent(step.ref)}&roadmapStep=${encodeURIComponent(step.id)}`}
-              onClick={onClose}
-              className="shrink-0 rounded-lg bg-amber-600 px-2.5 py-1.5 font-bold text-white shadow-xs hover:bg-amber-700 active:scale-95"
-            >
-              Trạm Đa Năng →
-            </Link>
-          </div>
-        )}
+
 
         {/* Action Buttons */}
         <DialogFooter className="flex-row items-center justify-end gap-2 pt-3 border-t">
