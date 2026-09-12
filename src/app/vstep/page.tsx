@@ -442,26 +442,26 @@ export default function VstepCatalogPage() {
       case 'onthivstep':
         return (
           <span className="px-1.5 py-0.5 text-[10px] font-mono font-medium rounded border border-blue-200 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300">
-            OnThiVSTEP
+            Đọc Chuyên Đề
           </span>
         );
       case 'englishteststore':
         return (
           <span className="px-1.5 py-0.5 text-[10px] font-mono font-medium rounded border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300">
-            EnglishTestStore
+            Luyện Tương Tác
           </span>
         );
       case 'vnu':
         return (
           <span className="px-1.5 py-0.5 text-[10px] font-mono font-medium rounded border border-purple-200 dark:border-purple-900/60 bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300">
-            VNU ĐHQG
+            Chuẩn ĐHQG
           </span>
         );
       case 'vstepowl':
       default:
         return (
           <span className="px-1.5 py-0.5 text-[10px] font-mono font-medium rounded border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-            VSTEP Owl
+            Khảo Thí Chuẩn
           </span>
         );
     }
@@ -485,7 +485,7 @@ export default function VstepCatalogPage() {
               Phòng Khảo Thí VSTEP Chuẩn Quốc Gia
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Mô phỏng phòng thi máy tính: 190 đề thi & bài luyện, 5.604 câu hỏi bản quyền kèm audio streaming R2
+              Mô phỏng phòng thi máy tính: 190 đề thi & bài luyện, 5.604 câu hỏi chuẩn định dạng VSTEP B1-B2-C1
             </p>
           </div>
         </div>
@@ -569,7 +569,7 @@ export default function VstepCatalogPage() {
               </div>
               <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-200/60 dark:border-slate-700/60 mt-2 flex items-center justify-between">
                 <span>24 Full Mock · 166 Luyện</span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Bản quyền MOET</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Chuẩn Khung 6 Bậc</span>
               </div>
             </div>
 
@@ -753,7 +753,7 @@ export default function VstepCatalogPage() {
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Toàn bộ 190 đề thi & bài luyện từ mọi đối tác bản quyền
+              Toàn bộ 190 đề thi & bài luyện trong hệ thống khảo thí
             </p>
           </button>
         </div>
@@ -925,11 +925,11 @@ export default function VstepCatalogPage() {
                 }}
                 className="text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded px-2.5 py-1.5 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-1 focus:ring-slate-400 font-mono"
               >
-                <option value="all">Mọi Nguồn Đề ({counts.sources.all})</option>
-                <option value="vstepowl">VSTEP Owl ({counts.sources.vstepowl})</option>
-                <option value="onthivstep">OnThiVSTEP ({counts.sources.onthivstep})</option>
-                <option value="englishteststore">EnglishTestStore ({counts.sources.englishteststore})</option>
-                <option value="vnu">VNU ĐHQG ({counts.sources.vnu})</option>
+                <option value="all">Tất Cả Các Bộ Đề ({counts.sources.all})</option>
+                <option value="vstepowl">Khảo Thí Chuẩn Hóa ({counts.sources.vstepowl})</option>
+                <option value="onthivstep">Đọc Hiểu Chuyên Đề ({counts.sources.onthivstep})</option>
+                <option value="englishteststore">Trắc Nghiệm Tương Tác ({counts.sources.englishteststore})</option>
+                <option value="vnu">Đề Mẫu ĐHQGHN ({counts.sources.vnu})</option>
               </select>
 
               {/* CEFR Level Dropdown */}

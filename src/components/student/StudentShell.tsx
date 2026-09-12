@@ -12,7 +12,10 @@ import {
   Loader2,
   LogOut,
   Menu,
+  Sparkles,
   User,
+  UserPlus,
+  Users,
   X,
 } from 'lucide-react';
 import { NotificationBell } from '@/components/NotificationBell';
@@ -39,23 +42,15 @@ import {
   readWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
-import { buildStudentNavItems, type StudentNavItem } from '@/lib/student-nav';
+import {
+  buildStudentNavSections,
+  type StudentNavItem,
+  type StudentNavSection,
+} from '@/lib/student-nav';
 import { cn } from '@/lib/utils';
 
 type ShellProfile = Profile & {
   telegram_id?: string | null;
-};
-
-/** Nav item — emoji màu (không lucide vector) */
-type NavItem = {
-  href: string;
-  label: string;
-  emoji: string;
-  color: string;
-  tile: string;
-  match: (pathname: string) => boolean;
-  /** Đã có ở footer mobile → ẩn trong drawer */
-  footerDup?: boolean;
 };
 
 interface StudentShellProps {
@@ -87,6 +82,11 @@ export function StudentShell({
   const pathname = usePathname();
   const router = useRouter();
   const profileRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
+  const desktopNavRef = useRef<HTMLElement>(null);
+  const wasMenuOpen = useRef(false);
   const [profile, setProfile] = useState<ShellProfile | null>(null);
   const [profileEmail, setProfileEmail] = useState('');
   const [isTeacherUser, setIsTeacherUser] = useState(false);
@@ -114,12 +114,29 @@ export function StudentShell({
     } catch {
       setEmbedMode(false);
     }
+    setIsMenuOpen(false);
+    setIsProfileOpen(false);
+
+    try {
+      const saved = sessionStorage.getItem('lingopro_sidebar_scroll');
+      if (saved && desktopNavRef.current) {
+        desktopNavRef.current.scrollTop = Number(saved);
+      } else if (desktopNavRef.current) {
+        const activeLink = desktopNavRef.current.querySelector<HTMLElement>('[aria-current="page"]');
+        activeLink?.scrollIntoView({ block: 'nearest' });
+      }
+    } catch {
+      // ignore
+    }
   }, [pathname]);
 
   useEffect(() => {
+    let isCancelled = false;
+
     const loadShellData = async () => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
+        if (isCancelled) return;
         if (!session?.user) {
           if (requireAuth) {
             router.push('/auth');
@@ -131,7 +148,7 @@ export function StudentShell({
 
         // Paint counts từ cache ngay (trước network)
         const cached = readWordSummaryCache(session.user.id);
-        if (cached) {
+        if (cached && !isCancelled) {
           setReviewDueCount(cached.reviewDueCount);
           setNewCount(cached.newCount ?? 0);
           if (cached.classroomId) setClassroomId(cached.classroomId);
@@ -156,6 +173,8 @@ export function StudentShell({
             .eq('teacher_id', session.user.id)
             .neq('name', '__personal__'),
         ]);
+
+        if (isCancelled) return;
 
         if (profileData) {
           setProfile(profileData as ShellProfile);
@@ -182,12 +201,33 @@ export function StudentShell({
           setGrammarDue(Number(grammarResponse.dueCount ?? 0));
         }
       } finally {
-        setIsBootstrapping(false);
+        if (!isCancelled) {
+          setIsBootstrapping(false);
+        }
       }
     };
 
     void loadShellData();
-  }, [router]);
+
+    // Lắng nghe thay đổi phiên đăng nhập thời gian thực (token refresh, signout ở tab khác)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (isCancelled) return;
+      if (event === 'SIGNED_OUT') {
+        setProfile(null);
+        setProfileEmail('');
+        if (requireAuth) {
+          router.push('/auth');
+        }
+      } else if (event === 'TOKEN_REFRESHED' && session?.user) {
+        setProfileEmail(session.user.email ?? '');
+      }
+    });
+
+    return () => {
+      isCancelled = true;
+      subscription.unsubscribe();
+    };
+  }, [router, requireAuth]);
 
   // Khoá scroll body khi drawer mở
   useEffect(() => {
@@ -198,6 +238,20 @@ export function StudentShell({
       document.body.style.overflow = prev;
     };
   }, [isMenuOpen]);
+
+  // Tự động đóng drawer khi màn hình mở rộng sang desktop (>= 768px)
+  useEffect(() => {
+    const mql = window.matchMedia('(min-width: 768px)');
+    const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) {
+        setIsMenuOpen(false);
+      }
+    };
+    mql.addEventListener('change', handleMediaChange);
+    return () => {
+      mql.removeEventListener('change', handleMediaChange);
+    };
+  }, []);
 
   // Tour onboarding: mở/đóng drawer (Ngữ pháp trên mobile)
   useEffect(() => {
@@ -225,28 +279,109 @@ export function StudentShell({
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // Quản lý focus & khôi phục focus khi đóng drawer
+  useEffect(() => {
+    if (isMenuOpen && !wasMenuOpen.current) {
+      const timer = setTimeout(() => {
+        if (drawerRef.current) {
+          const firstFocusable = drawerRef.current.querySelector<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+          );
+          firstFocusable?.focus();
+        }
+      }, 50);
+      return () => clearTimeout(timer);
+    } else if (!isMenuOpen && wasMenuOpen.current) {
+      menuButtonRef.current?.focus();
+    }
+    wasMenuOpen.current = isMenuOpen;
+  }, [isMenuOpen]);
+
+  const handleDrawerKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      setIsMenuOpen(false);
+      return;
+    }
+    if (e.key === 'Tab' && drawerRef.current) {
+      const focusableEls = drawerRef.current.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (focusableEls.length === 0) return;
+      const firstEl = focusableEls[0];
+      const lastEl = focusableEls[focusableEls.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length === 1) {
+      touchStartRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+        time: Date.now(),
+      };
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!touchStartRef.current || e.changedTouches.length === 0) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartRef.current.x;
+    const deltaY = e.changedTouches[0].clientY - touchStartRef.current.y;
+    const deltaTime = Math.max(Date.now() - touchStartRef.current.time, 1);
+    touchStartRef.current = null;
+    // Vuốt sang trái: góc ngang chủ đạo (deltaX vượt trội deltaY)
+    const isHorizontal = Math.abs(deltaX) > Math.abs(deltaY) * 1.2;
+    // Flick nhanh (>= 30px trong 250ms) hoặc kéo dứt khoát (>= 45px)
+    const isDismissSwipe = deltaX < -30 && (deltaTime < 250 || deltaX < -45);
+
+    if (isHorizontal && isDismissSwipe) {
+      setIsMenuOpen(false);
+    }
+  };
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.push('/auth');
   };
 
-  const navItems = useMemo<StudentNavItem[]>(
-    () => buildStudentNavItems({ classroomId, hasClass: Boolean(classroomId) }),
-    [classroomId],
+  const navSections = useMemo<StudentNavSection[]>(
+    () =>
+      buildStudentNavSections({
+        classroomId,
+        hasClass: Boolean(classroomId),
+        reviewDueCount,
+        grammarDueCount: grammarDue,
+      }),
+    [classroomId, reviewDueCount, grammarDue],
   );
 
-  const mobileDrawerItems = useMemo(
-    () => navItems.filter((item) => !item.footerDup),
-    [navItems],
+  const mobileDrawerSections = useMemo<StudentNavSection[]>(
+    () =>
+      navSections
+        .map((section) => ({
+          ...section,
+          items: section.items.filter((item) => !item.footerDup),
+        }))
+        .filter((section) => section.items.length > 0),
+    [navSections],
   );
 
   const onboardingIdFor = (href: string): string | undefined => {
@@ -263,31 +398,40 @@ export function StudentShell({
     item: StudentNavItem,
     active: boolean,
     onClick?: () => void,
-  ) => (
-    <Link
-      key={item.label}
-      href={item.href}
-      data-onboarding={item.onboardingId || onboardingIdFor(item.href)}
-      onClick={onClick}
-      className={`flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm transition-colors active:scale-[0.98] md:min-h-0 ${
-        active
-          ? 'bg-[#eef0ff] font-extrabold text-[#4f46e5]'
-          : 'font-bold text-[#525a68] hover:bg-slate-50'
-      }`}
-    >
-      <span
-        className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg text-[15px] leading-none"
-        style={
+  ) => {
+    const Icon = item.icon;
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        data-onboarding={item.onboardingId || onboardingIdFor(item.href)}
+        onClick={onClick}
+        aria-current={active ? 'page' : undefined}
+        className={cn(
+          'group flex min-h-[36px] items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors',
           active
-            ? { background: '#fff', boxShadow: '0 1px 2px rgba(79,70,229,.2)' }
-            : { background: item.tile }
-        }
+            ? 'border-l-2 border-indigo-600 bg-indigo-50/70 font-semibold text-indigo-700 dark:border-indigo-500 dark:bg-indigo-950/40 dark:text-indigo-300'
+            : 'border-l-2 border-transparent font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200',
+        )}
       >
-        {item.emoji}
-      </span>
-      <span className="truncate">{item.label}</span>
-    </Link>
-  );
+        <Icon
+          className={cn(
+            'h-[18px] w-[18px] shrink-0 transition-colors',
+            active
+              ? 'text-indigo-600 dark:text-indigo-400'
+              : 'text-slate-500 group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300',
+          )}
+          strokeWidth={active ? 2 : 1.75}
+        />
+        <span className="min-w-0 truncate">{item.label}</span>
+        {item.badge !== undefined && item.badge !== null && (
+          <span className="ml-auto shrink-0 rounded-md bg-indigo-100 px-1.5 py-0.5 text-[10px] font-bold text-indigo-700 dark:bg-indigo-900/60 dark:text-indigo-300">
+            {item.badge}
+          </span>
+        )}
+      </Link>
+    );
+  };
 
   const initials = (profile?.full_name || profileEmail || 'U')
     .split(' ')
@@ -300,6 +444,9 @@ export function StudentShell({
   const currentLevel = xpToLevel(gamification.total_xp);
   const showBottomNav = !hideMobileNav && !effectiveImmersive;
   const showChrome = !effectiveImmersive;
+  const isTeacherActive = pathname.startsWith('/teacher');
+  const isUpgradeActive = pathname.startsWith('/upgrade');
+  const isGroupActive = pathname.startsWith('/group');
 
   return (
     <>
@@ -315,22 +462,21 @@ export function StudentShell({
       {showChrome && isMenuOpen && (
         <div className="fixed inset-0 z-[100] md:hidden">
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
             onClick={() => setIsMenuOpen(false)}
             aria-hidden
           />
           <div
+            ref={drawerRef}
+            id="mobile-nav-drawer"
             role="dialog"
             aria-modal="true"
             aria-label="Menu điều hướng"
             tabIndex={-1}
-            ref={(el) => { if (el) el.focus(); }}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape' || e.key === 'Esc') {
-                setIsMenuOpen(false);
-              }
-            }}
-            className="absolute inset-y-0 left-0 flex w-[min(18rem,88vw)] flex-col bg-white shadow-2xl pl-safe outline-none"
+            onKeyDown={handleDrawerKeyDown}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            className="absolute inset-y-0 left-0 flex w-[min(18rem,88vw)] flex-col bg-white shadow-2xl pl-safe outline-none touch-pan-y animate-in slide-in-from-left duration-200 ease-out dark:border-r dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
             style={{ paddingTop: 'var(--safe-top)', paddingBottom: 'var(--safe-bottom)' }}
           >
             <div className="mb-4 flex items-center justify-between px-5 pt-5">
@@ -339,30 +485,32 @@ export function StudentShell({
                 onClick={() => setIsMenuOpen(false)}
                 className="flex items-center gap-2.5 font-black text-[#4f46e5]"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_12px_rgba(99,102,241,.35)]">
+                <span className="flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-violet-500 shadow-xs">
                   <Brain className="h-5 w-5 text-white" />
                 </span>
-                <span className="text-xl">LingoPro</span>
+                <span className="bg-gradient-to-br from-indigo-500 to-violet-500 bg-clip-text text-xl font-black tracking-tight text-transparent">
+                  LingoPro
+                </span>
               </Link>
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(false)}
-                className="touch-target flex items-center justify-center rounded-xl hover:bg-slate-100"
+                className="touch-target flex items-center justify-center rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                 aria-label="Đóng menu"
               >
-                <X className="h-6 w-6 text-slate-500" />
+                <X className="h-6 w-6 text-slate-500 dark:text-slate-400" />
               </button>
             </div>
 
             {/* Streak / XP */}
             <div className="mx-5 mb-3 flex gap-2">
-              <div className="flex flex-1 items-center gap-1.5 rounded-full border border-[#fde2c0] bg-[#fff5e9] px-3 py-1.5">
+              <div className="flex flex-1 items-center gap-1.5 rounded-md border border-[#fde2c0] bg-[#fff5e9] px-3 py-1.5 dark:border-amber-900/40 dark:bg-amber-950/25">
                 <span className="text-sm leading-none">🔥</span>
                 <span className="tabular-nums text-xs font-black text-[#ea7a23]">
                   {gamification.current_streak} ngày
                 </span>
               </div>
-              <div className="flex flex-1 items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-3 py-1.5">
+              <div className="flex flex-1 items-center gap-1.5 rounded-md border border-[#fbeaa6] bg-[#fffbe8] px-3 py-1.5 dark:border-yellow-900/40 dark:bg-yellow-950/25">
                 <span className="text-sm leading-none">⭐</span>
                 <span className="tabular-nums text-xs font-black text-[#b45309]">
                   {gamification.total_xp} XP
@@ -370,11 +518,18 @@ export function StudentShell({
               </div>
             </div>
 
-            {/* Nav scroll — giống desktop, bỏ mục trùng footer */}
-            <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto overscroll-contain px-3 scrollbar-none">
-              {mobileDrawerItems.map((item) =>
-                renderNavLink(item, item.match(pathname), () => setIsMenuOpen(false)),
-              )}
+            {/* Nav scroll — theo phân nhóm, bỏ mục trùng footer */}
+            <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto overscroll-contain px-3 scrollbar-none">
+              {mobileDrawerSections.map((section, sIdx) => (
+                <div key={section.id} className={sIdx === 0 ? 'space-y-0.5' : 'mt-3 space-y-0.5'}>
+                  <div className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    {section.title}
+                  </div>
+                  {section.items.map((item) =>
+                    renderNavLink(item, item.match(pathname), () => setIsMenuOpen(false)),
+                  )}
+                </div>
+              ))}
               {onJoinClass ? (
                 <button
                   type="button"
@@ -382,52 +537,56 @@ export function StudentShell({
                     onJoinClass();
                     setIsMenuOpen(false);
                   }}
-                  className="flex w-full min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50 active:scale-[0.98]"
+                  className="group mt-2 flex min-h-[36px] w-full items-center gap-2.5 rounded-md border-l-2 border-transparent px-2.5 py-1.5 text-left text-[13px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200"
                 >
-                  <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
-                    👤
-                  </span>
-                  <span className="truncate">Tham gia lớp</span>
+                  <UserPlus className="h-[18px] w-[18px] shrink-0 text-slate-500 transition-colors group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300" strokeWidth={1.75} />
+                  <span className="min-w-0 truncate">Tham gia lớp</span>
                 </button>
               ) : (
                 <Link
                   href="/student?joinClass=1"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50 active:scale-[0.98]"
+                  className="group mt-2 flex min-h-[36px] items-center gap-2.5 rounded-md border-l-2 border-transparent px-2.5 py-1.5 text-[13px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200"
                 >
-                  <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
-                    👤
-                  </span>
-                  <span className="truncate">Tham gia lớp</span>
+                  <UserPlus className="h-[18px] w-[18px] shrink-0 text-slate-500 transition-colors group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300" strokeWidth={1.75} />
+                  <span className="min-w-0 truncate">Tham gia lớp</span>
                 </Link>
               )}
             </nav>
 
-            {/* Footer drawer: Teacher + Pro + FB + đăng xuất */}
-            <div className="shrink-0 space-y-0.5 border-t border-[#f0f0f4] px-3 pb-3 pt-2">
+            {/* Footer drawer: Teacher + Pro + Group + đăng xuất */}
+            <div className="shrink-0 space-y-1 border-t border-[#f0f0f4] px-3 pb-3 pt-2 dark:border-slate-800">
               {isTeacherUser && (
                 <Link
                   href="/teacher"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] bg-indigo-50 px-2.5 py-2 text-sm font-extrabold text-indigo-700 hover:bg-indigo-100 transition-colors"
+                  aria-current={isTeacherActive ? 'page' : undefined}
+                  className={cn(
+                    'group flex min-h-[36px] items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors',
+                    isTeacherActive
+                      ? 'border-l-2 border-indigo-600 bg-indigo-50/70 font-semibold text-indigo-700 dark:border-indigo-500 dark:bg-indigo-950/40 dark:text-indigo-300'
+                      : 'border-l-2 border-transparent font-medium text-indigo-600 hover:bg-indigo-50/60 dark:text-indigo-400 dark:hover:bg-indigo-950/30',
+                  )}
                 >
-                  <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px] shadow-[0_1px_2px_rgba(79,70,229,.18)]">
-                    🎓
-                  </span>
-                  <span>Dành cho Giáo viên</span>
+                  <GraduationCap className="h-[18px] w-[18px] shrink-0 text-indigo-600 dark:text-indigo-400" strokeWidth={1.75} />
+                  <span className="min-w-0 truncate">Dành cho Giáo viên</span>
                 </Link>
               )}
               <Link
                 href="/upgrade"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] bg-[#f6f1ff] px-2.5 py-2 text-sm font-extrabold text-[#7c3aed]"
+                aria-current={isUpgradeActive ? 'page' : undefined}
+                className={cn(
+                  'group flex min-h-[36px] items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors',
+                  isUpgradeActive
+                    ? 'border-l-2 border-purple-500 bg-purple-50/70 font-semibold text-purple-700 dark:border-purple-500 dark:bg-purple-950/40 dark:text-purple-300'
+                    : 'border-l-2 border-transparent font-medium text-purple-700 hover:bg-purple-50/60 dark:text-purple-300 dark:hover:bg-purple-950/30',
+                )}
               >
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px] shadow-[0_1px_2px_rgba(124,58,237,.18)]">
-                  👑
-                </span>
-                <span>Nâng cấp Pro</span>
+                <Sparkles className="h-[18px] w-[18px] shrink-0 text-purple-600 dark:text-purple-400" strokeWidth={1.75} />
+                <span className="min-w-0 truncate">Nâng cấp Pro</span>
                 {profile?.plan && profile.plan !== 'free' && (
-                  <span className="ml-auto rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black uppercase text-violet-600">
+                  <span className="ml-auto shrink-0 rounded-md bg-purple-100 px-1.5 py-0.5 text-[10px] font-bold uppercase text-purple-700 dark:bg-purple-900/60 dark:text-purple-300">
                     {profile.plan}
                   </span>
                 )}
@@ -435,22 +594,24 @@ export function StudentShell({
               <Link
                 href="/group"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] hover:bg-slate-50"
+                aria-current={isGroupActive ? 'page' : undefined}
+                className={cn(
+                  'group flex min-h-[36px] items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors',
+                  isGroupActive
+                    ? 'border-l-2 border-indigo-600 bg-indigo-50/70 font-semibold text-indigo-700 dark:border-indigo-500 dark:bg-indigo-950/40 dark:text-indigo-300'
+                    : 'border-l-2 border-transparent font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200',
+                )}
               >
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
-                  👥
-                </span>
-                <span>Nhóm của tôi</span>
+                <Users className="h-[18px] w-[18px] shrink-0 text-slate-500 transition-colors group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300" strokeWidth={1.75} />
+                <span className="min-w-0 truncate">Nhóm của tôi</span>
               </Link>
               <button
                 type="button"
                 onClick={handleSignOut}
-                className="flex w-full min-h-[44px] items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-extrabold text-[#e11d48] hover:bg-rose-50"
+                className="group flex min-h-[36px] w-full items-center gap-2.5 rounded-md border-l-2 border-transparent px-2.5 py-1.5 text-left text-[13px] font-medium text-rose-600 transition-colors hover:bg-rose-50 hover:text-rose-700 dark:text-rose-400 dark:hover:bg-rose-950/40 dark:hover:text-rose-300"
               >
-                <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-rose-50 text-[15px]">
-                  🚪
-                </span>
-                <span>Đăng xuất</span>
+                <LogOut className="h-[18px] w-[18px] shrink-0 text-rose-500 transition-colors group-hover:text-rose-600 dark:text-rose-400" strokeWidth={1.75} />
+                <span className="min-w-0 truncate">Đăng xuất</span>
               </button>
             </div>
           </div>
@@ -459,84 +620,107 @@ export function StudentShell({
 
       {/* ═══ DESKTOP SIDEBAR ═══ */}
       {showChrome && (
-      <aside className="fixed inset-y-0 left-0 z-20 hidden w-[248px] border-r border-[#ececf1] bg-white px-4 py-[22px] md:flex md:flex-col">
-        <Link href="/student" className="flex items-center gap-2.5 px-2 pb-[22px] pt-1">
-          <span className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-gradient-to-br from-indigo-500 to-violet-500 shadow-[0_4px_12px_rgba(99,102,241,.35)]">
-            <Brain className="h-5 w-5 text-white" />
+      <aside className="fixed inset-y-0 left-0 z-20 hidden w-[248px] border-r border-[#ececf1] bg-white px-3 py-4 md:flex md:flex-col dark:border-slate-800 dark:bg-slate-900">
+        <Link href="/student" className="flex items-center gap-2.5 px-2 pb-3.5 pt-1">
+          <span className="flex h-[32px] w-[32px] items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-violet-500 shadow-xs">
+            <Brain className="h-[18px] w-[18px] text-white" />
           </span>
-          <span className="bg-gradient-to-br from-indigo-500 to-violet-500 bg-clip-text text-xl font-black tracking-tight text-transparent">
+          <span className="bg-gradient-to-br from-indigo-500 to-violet-500 bg-clip-text text-lg font-black tracking-tight text-transparent">
             LingoPro
           </span>
         </Link>
-        <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto scrollbar-none">
-          {navItems.map((item) => renderNavLink(item, item.match(pathname)))}
+        <nav
+          ref={desktopNavRef}
+          onScroll={(e) => {
+            try {
+              sessionStorage.setItem('lingopro_sidebar_scroll', String(e.currentTarget.scrollTop));
+            } catch {
+              // ignore
+            }
+          }}
+          className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto scrollbar-none pr-0.5"
+        >
+          {navSections.map((section, sIdx) => (
+            <div key={section.id} className={sIdx === 0 ? 'space-y-0.5' : 'mt-3 space-y-0.5'}>
+              <div className="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                {section.title}
+              </div>
+              {section.items.map((item) => renderNavLink(item, item.match(pathname)))}
+            </div>
+          ))}
           {onJoinClass ? (
             <button
               type="button"
               onClick={onJoinClass}
-              className="flex w-full items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
+              className="group mt-2 flex min-h-[36px] w-full items-center gap-2.5 rounded-md border-l-2 border-transparent px-2.5 py-1.5 text-left text-[13px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200"
             >
-              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
-                👤
-              </span>
-              <span className="truncate">Tham gia lớp</span>
+              <UserPlus className="h-[18px] w-[18px] shrink-0 text-slate-500 transition-colors group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300" strokeWidth={1.75} />
+              <span className="min-w-0 truncate">Tham gia lớp</span>
             </button>
           ) : (
             <Link
               href="/student?joinClass=1"
-              className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
+              className="group mt-2 flex min-h-[36px] items-center gap-2.5 rounded-md border-l-2 border-transparent px-2.5 py-1.5 text-[13px] font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200"
             >
-              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
-                👤
-              </span>
-              <span className="truncate">Tham gia lớp</span>
+              <UserPlus className="h-[18px] w-[18px] shrink-0 text-slate-500 transition-colors group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300" strokeWidth={1.75} />
+              <span className="min-w-0 truncate">Tham gia lớp</span>
             </Link>
           )}
         </nav>
-        <div className="mt-2.5 shrink-0 space-y-0.5 border-t border-[#f0f0f4] pt-3">
+        <div className="mt-2 shrink-0 space-y-1 border-t border-[#f0f0f4] pt-2.5 dark:border-slate-800">
           {isTeacherUser && (
             <Link
               href="/teacher"
-              className="flex items-center gap-[11px] rounded-[11px] bg-indigo-50 px-2.5 py-2 text-sm font-extrabold text-indigo-700 hover:bg-indigo-100 transition-colors"
+              aria-current={isTeacherActive ? 'page' : undefined}
+              className={cn(
+                'group flex min-h-[36px] items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors',
+                isTeacherActive
+                  ? 'border-l-2 border-indigo-600 bg-indigo-50/70 font-semibold text-indigo-700 dark:border-indigo-500 dark:bg-indigo-950/40 dark:text-indigo-300'
+                  : 'border-l-2 border-transparent font-medium text-indigo-600 hover:bg-indigo-50/60 dark:text-indigo-400 dark:hover:bg-indigo-950/30',
+              )}
             >
-              <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px] shadow-[0_1px_2px_rgba(79,70,229,.18)]">
-                🎓
-              </span>
-              <span>Dành cho Giáo viên</span>
+              <GraduationCap className="h-[18px] w-[18px] shrink-0 text-indigo-600 dark:text-indigo-400" strokeWidth={1.75} />
+              <span className="min-w-0 truncate">Dành cho Giáo viên</span>
             </Link>
           )}
           <Link
             href="/upgrade"
-            className="flex items-center gap-[11px] rounded-[11px] bg-[#f6f1ff] px-2.5 py-2 text-sm font-extrabold text-[#7c3aed]"
+            aria-current={isUpgradeActive ? 'page' : undefined}
+            className={cn(
+              'group flex min-h-[36px] items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors',
+              isUpgradeActive
+                ? 'border-l-2 border-purple-500 bg-purple-50/70 font-semibold text-purple-700 dark:border-purple-500 dark:bg-purple-950/40 dark:text-purple-300'
+                : 'border-l-2 border-transparent font-medium text-purple-700 hover:bg-purple-50/60 dark:text-purple-300 dark:hover:bg-purple-950/30',
+            )}
           >
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-white text-[15px] shadow-[0_1px_2px_rgba(124,58,237,.18)]">
-              👑
-            </span>
-            <span>Nâng cấp Pro</span>
+            <Sparkles className="h-[18px] w-[18px] shrink-0 text-purple-600 dark:text-purple-400" strokeWidth={1.75} />
+            <span className="min-w-0 truncate">Nâng cấp Pro</span>
             {profile?.plan && profile.plan !== 'free' && (
-              <span className="ml-auto rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black uppercase text-violet-600">
+              <span className="ml-auto shrink-0 rounded-md bg-purple-100 px-1.5 py-0.5 text-[10px] font-bold uppercase text-purple-700 dark:bg-purple-900/60 dark:text-purple-300">
                 {profile.plan}
               </span>
             )}
           </Link>
           <Link
             href="/group"
-            className="flex items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-sm font-bold text-[#525a68] transition-colors hover:bg-slate-50"
+            aria-current={isGroupActive ? 'page' : undefined}
+            className={cn(
+              'group flex min-h-[36px] items-center gap-2.5 rounded-md px-2.5 py-1.5 text-[13px] transition-colors',
+              isGroupActive
+                ? 'border-l-2 border-indigo-600 bg-indigo-50/70 font-semibold text-indigo-700 dark:border-indigo-500 dark:bg-indigo-950/40 dark:text-indigo-300'
+                : 'border-l-2 border-transparent font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200',
+            )}
           >
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-[#eef1f5] text-[15px]">
-              👥
-            </span>
-            <span>Nhóm của tôi</span>
+            <Users className="h-[18px] w-[18px] shrink-0 text-slate-500 transition-colors group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300" strokeWidth={1.75} />
+            <span className="min-w-0 truncate">Nhóm của tôi</span>
           </Link>
           <button
             type="button"
             onClick={handleSignOut}
-            className="flex w-full items-center gap-[11px] rounded-[11px] px-2.5 py-2 text-left text-sm font-extrabold text-[#e11d48] transition-colors hover:bg-rose-50"
+            className="group flex min-h-[36px] w-full items-center gap-2.5 rounded-md border-l-2 border-transparent px-2.5 py-1.5 text-left text-[13px] font-medium text-rose-600 transition-colors hover:bg-rose-50 hover:text-rose-700 dark:text-rose-400 dark:hover:bg-rose-950/40 dark:hover:text-rose-300"
           >
-            <span className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-lg bg-rose-50 text-[15px]">
-              🚪
-            </span>
-            <span>Đăng xuất</span>
+            <LogOut className="h-[18px] w-[18px] shrink-0 text-rose-500 transition-colors group-hover:text-rose-600 dark:text-rose-400" strokeWidth={1.75} />
+            <span className="min-w-0 truncate">Đăng xuất</span>
           </button>
         </div>
       </aside>
@@ -560,18 +744,21 @@ export function StudentShell({
         {showChrome && !effectiveImmersive ? <FreeQuotaBanner /> : null}
 
         {showChrome && (
-        <header className="sticky top-0 z-30 flex h-header-safe items-center justify-between gap-1.5 border-b border-[#ececf1] bg-white/90 px-2.5 backdrop-blur-md sm:gap-3 sm:px-7">
+        <header className="sticky top-0 z-30 flex h-header-safe items-center justify-between gap-1.5 border-b border-[#ececf1] bg-white/90 px-2.5 backdrop-blur-md sm:gap-3 sm:px-7 dark:border-slate-800 dark:bg-slate-900/90">
           <div className="flex min-w-0 flex-1 items-center gap-1.5 sm:gap-3">
             <button
+              ref={menuButtonRef}
               type="button"
-              className="touch-target -ml-1 flex items-center justify-center rounded-xl md:hidden active:bg-slate-100"
+              className="touch-target -ml-1 flex items-center justify-center rounded-md md:hidden active:bg-slate-100 dark:active:bg-slate-800 text-slate-700 dark:text-slate-300"
               onClick={() => setIsMenuOpen(true)}
               aria-label="Mở menu"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-nav-drawer"
             >
               <Menu className="h-6 w-6 shrink-0" />
             </button>
             {/* Title: hiện cả mobile (truncate) */}
-            <h1 className="truncate text-base font-black tracking-tight sm:text-[19px]">
+            <h1 className="truncate text-base font-black tracking-tight sm:text-[19px] text-slate-900 dark:text-slate-100">
               {title}
             </h1>
           </div>
@@ -622,19 +809,19 @@ export function StudentShell({
                 dailyGoal={gamification.daily_goal}
                 classroomId={classroomId}
               />
-              <div className="hidden h-[22px] w-px bg-[#e8e8ee] sm:block" />
+              <div className="hidden h-[22px] w-px bg-[#e8e8ee] sm:block dark:bg-slate-800" />
               <div className="relative" ref={profileRef}>
                 <button
                   type="button"
                   onClick={() => setIsProfileOpen((value) => !value)}
-                  className="flex min-h-[44px] items-center gap-1.5 rounded-full py-[3px] pl-[3px] pr-1 transition-colors hover:bg-slate-50 sm:gap-2 sm:pr-1.5"
+                  className="flex min-h-[44px] items-center gap-1.5 rounded-full py-[3px] pl-[3px] pr-1 transition-colors hover:bg-slate-50 sm:gap-2 sm:pr-1.5 dark:hover:bg-slate-800"
                   aria-expanded={isProfileOpen}
                   aria-haspopup="menu"
                 >
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 text-xs font-black text-white sm:h-[34px] sm:w-[34px] sm:text-sm">
                     {initials}
                   </span>
-                  <span className="hidden max-w-[120px] truncate text-[13.5px] font-extrabold text-[#0f172a] sm:block">
+                  <span className="hidden max-w-[120px] truncate text-[13.5px] font-extrabold text-[#0f172a] sm:block dark:text-slate-200">
                     {profile?.full_name?.split(' ')[0] || 'bạn'}
                   </span>
                   <ChevronDown
@@ -645,41 +832,41 @@ export function StudentShell({
                 {isProfileOpen && (
                   <div
                     role="menu"
-                    className="absolute right-0 top-12 z-40 w-[196px] rounded-[14px] border border-[#ececf1] bg-white p-1.5 shadow-[0_12px_32px_rgba(16,24,40,.14)]"
+                    className="absolute right-0 top-12 z-40 w-[196px] rounded-md border border-[#ececf1] bg-white p-1.5 shadow-[0_12px_32px_rgba(16,24,40,.14)] animate-in fade-in-50 zoom-in-95 duration-100 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
                   >
                     <div className="px-2.5 pb-1.5 pt-2">
-                      <div className="truncate text-[13px] font-extrabold text-[#0f172a]">
+                      <div className="truncate text-[13px] font-extrabold text-[#0f172a] dark:text-slate-100">
                         {profile?.full_name || 'Học viên'}
                       </div>
                       {profileEmail && (
-                        <div className="truncate text-[11px] font-semibold text-[#9aa2b1]">
+                        <div className="truncate text-[11px] font-semibold text-[#9aa2b1] dark:text-slate-400">
                           {profileEmail}
                         </div>
                       )}
                     </div>
-                    <div className="my-1 h-px bg-[#f1f1f5]" />
+                    <div className="my-1 h-px bg-[#f1f1f5] dark:bg-slate-800" />
                     {isTeacherUser && (
                       <Link
                         href="/teacher"
                         onClick={() => setIsProfileOpen(false)}
-                        className="flex min-h-[40px] items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-[13.5px] font-extrabold text-indigo-600 hover:bg-indigo-50"
+                        className="flex min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-extrabold text-indigo-600 hover:bg-indigo-50 dark:text-indigo-400 dark:hover:bg-indigo-950/30"
                       >
-                        <GraduationCap className="h-[17px] w-[17px] text-indigo-600" />
+                        <GraduationCap className="h-[17px] w-[17px] text-indigo-600 dark:text-indigo-400" />
                         <span>Dành cho Giáo viên</span>
                       </Link>
                     )}
                     <Link
                       href="/student/profile"
                       onClick={() => setIsProfileOpen(false)}
-                      className="flex min-h-[40px] items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-[13.5px] font-bold text-[#475569] hover:bg-slate-50"
+                      className="flex min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-bold text-[#475569] hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/60"
                     >
-                      <User className="h-[17px] w-[17px] text-[#64748b]" />
+                      <User className="h-[17px] w-[17px] text-[#64748b] dark:text-slate-400" />
                       <span>Hồ sơ của tôi</span>
                     </Link>
                     <button
                       type="button"
                       onClick={handleSignOut}
-                      className="flex w-full min-h-[40px] items-center gap-2.5 rounded-[9px] px-2.5 py-2 text-left text-[13.5px] font-extrabold text-[#e11d48] hover:bg-rose-50"
+                      className="flex w-full min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-[13.5px] font-extrabold text-[#e11d48] hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-950/40"
                     >
                       <LogOut className="h-[17px] w-[17px]" />
                       <span>Đăng xuất</span>
