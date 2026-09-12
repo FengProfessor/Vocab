@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-24",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 24",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-24/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Good morning, this is Maria Gray calling from Dilbert Furniture. This message is for Rebecca Rhodes. I need to speak with her about the number of desks she requested, and want to confirm her order before we ship her purchases.</li></ul><p><b>Question 2.</b></p><ul><li>Our technician has discovered some problems with our computer system and will be doing upgrades. This means there will be no internet access tomorrow. If you need access to the Internet, you can use the wireless computers in the conference room.</li></ul><p><b>Question 3.</b></p><ul><li>Good evening, ladies and gentlemen. The Royal Gallery will be closing in just 10 minutes, so we ask that you make your way to the nearest exit. For those of you taking the audio tour, please return the audio equipment to the front desk in our lobby. Thank you for visiting us today, and we hope you enjoyed your visit to the gallery.</li></ul><p><b>Question 4.</b></p><ul><li>You’re listening to Gym Fitness. I’m your host, Sylvia Brasher. After this long winter, many of us want to lose some weight. We’ll be speaking with Julio Barbosa, a physical fitness expert. He is going to provide us with some suggestions for losing weight and how to maintain your ideal weight by starting a simple exercise routine. He will also tell us about his plans to open a new fitness center in Grassoville. Thanks for joining us today, Julio.</li></ul><p><b>Question 5.</b></p><ul><li>You’re listening to the morning traffic report. Traffic is moving steadily this morning with only minor problems on Washington Avenue due to some roadwork. Those headed north may want to take Stewart Road instead. Stay tuned for the financial report coming up right after the commercial break.</li></ul><p><b>Question 6.</b></p><ul><li>My name is David Ford, and I’m one of the programmers at Jade Software. Today I’m going to show you how our new accounting program works and go over some of its interesting features. The program was designed to make accounting a lot easier by organizing figures automatically. Now I will show you a short video about the development of this software.</li></ul><p><b>Question 7.</b></p><ul><li>Welcome to the Niagara Falls tour. We will take a boat tour of Horseshoe Falls on the Canadian side. You will have incredible views of this one great natural wonder. During the tour, please be sure to put on your raincoat to avoid getting wet. At the end of our tour, we will visit the Niagara Falls museum, where you can read about the history of the falls and see some local Indian artifacts. Now follow me/and we can board our tour boat.</li></ul><p><b>Question 8.</b></p><ul><li>This is Julie calling from the Stylista Hair Salon. I’m trying to reach Mr. Andrews concerning the interview we scheduled for this afternoon. I’m not feeling well today, so I’m afraid I’ll have to cancel our meeting. However, we are very interested in your application for our hairstylist position. I hope to be back in the office tomorrow, so please call my secretary and let her know if you are available to meet with me tomorrow.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What should Rebecca do?",
+              "options": [
+                "Confirm an order",
+                "Request some furniture",
+                "Ship some furniture",
+                "Cancel the order"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What can employees do if they need to use the internet?",
+              "options": [
+                "Phone the technical personnel",
+                "Use the computers in the conference room",
+                "Go to the wireless coffee shop in the building",
+                "Use the computers at home"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is the purpose of the announcement?",
+              "options": [
+                "To provide information about a tour",
+                "To introduce a new exhibit",
+                "To offer a new audio service",
+                "To announce the closing of the facility"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is mentioned about Julio Barbosa?",
+              "options": [
+                "He wrote a book on weight loss.",
+                "He works in a hospital.",
+                "He is starting a new business.",
+                "He operates a restaurant."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What will the listeners probably hear next?",
+              "options": [
+                "A business news report",
+                "A weather report",
+                "A traffic report",
+                "A commercial"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is the purpose of the talk?",
+              "options": [
+                "To request account statements",
+                "To introduce new software",
+                "To announce a schedule change",
+                "To explain some office policies"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the audience told to do?",
+              "options": [
+                "Read a brochure",
+                "Board the bus",
+                "Wear raincoats",
+                "Stay seated"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is the main purpose of the call?",
+              "options": [
+                "To reschedule an interview",
+                "To arrange a class",
+                "To postpone an exhibition",
+                "To request an application"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-01/part1-2.mp3"
+          },
+          "tapescript": "<div><p><b>Conversation 1</b></p><ul><li><b>Interviewer:</b> Simon, tell us about yourself.</li><li><b>Simon:</b> Well, like lots of other kids my age, I’ve grown up taking my boat onto the rivers in this area. One of my favourite rivers is <b>(1) the River Stanton, which is fast with excellent white water – so things can get pretty dangerous but it’s exciting</b> and I’m experienced.</li><li><b>Interviewer:</b> Now, it was while you were on the River Stanton that you noticed something was wrong.</li><li><b>Simon:</b> Yeah, <b>(2) I always wondered why the water made my eyes burn if it got on my face...and why it was a strange, orange colour</b>, especially when the water was running low.</li><li><b>Interviewer:</b> So you decided to find out more.</li><li><b>Simon:</b> Yeah, I asked other people using the river and <b>(3) I visited a few websites and found out that the river was orange because of pollution from the old mines in the area.</b> There was a lot of mining for coal done in this part of the country. I knew that from my history class at school, but what I didn’t know was that pollution was coming from those old mine works and escaping into the rivers.</li><li><b>Interviewer:</b> then you did a qualification, didn’t you?</li><li><b>Simon:</b> Yes, I found out about an organization called: “The Friends of the River Stanton”. They told me they did a special course where I could learn how to test the river water to see if it was healthy or not. So that’s what I did and I got really interested in the subject.</li><li><b>Interviewer:</b> In fact, you got so interested that you actually started to look for an answer to the pollution problem!</li><li><b>Simon:</b> I learned as much as I could about the chemistry behind the pollution. I can’t really explain all the detail, but basically <b>(4) if you add something called limestone to the river, it can improve the chemistry.</b> That means that the plants and fish which had died because of all the mining companies that used to be in the area…could live in the river again. <b>So that made me really happy.</b></li></ul><p><b>Conversation 2</b></p><ul><li><b>Officer:</b> Yes, what can I do for you?</li><li><b>Student:</b> My friend is in homestay...and she really enjoys it...so I’d like to join a family as well.</li><li><b>Officer:</b> Okay, so let me get some details. What’s your name?</li><li><b>Student:</b> My name is Keiko Yuichini.</li><li><b>Officer:</b> And you’re female. And your nationality?</li><li><b>Student:</b> I’m Japanese.</li><li><b>Officer:</b> And you’re how old?</li><li><b>Student:</b> I’m twenty-eight years old.</li><li><b>Officer:</b> Now you live at one of the colleges…which one?</li><li><b>Student:</b> Willow College, umm Room 21C.</li><li><b>Officer:</b> <b>And how long are you planning on staying with homestay?</b></li><li><b>Student:</b> <b>About four months</b> (1)</li><li><b>Officer:</b> And what course are you enrolled in?</li><li><b>Student:</b> Well, <b>I’ve enrolled for twenty weeks in the Advanced English Studies</b> (2).</li><li><b>Officer:</b> Okay. Do you have any preference for a family with children or without children?</li><li><b>Student:</b> I prefer I mean I like young children, but I’d like to be with older people.</li><li><b>Officer:</b> All right. Now what about you? Are you a vegetarian or do you have any special food requirements?</li><li><b>Student:</b> No, I am not a vegetarian but I don’t eat a lot of meat. <b>I really like seafood</b> (3).</li><li><b>Officer:</b> Are you familiar with the public transport system?</li><li><b>Student:</b> No.</li><li><b>Officer:</b> What about the trains?</li><li><b>Student:</b> I like catching the train. They are much faster.</li><li><b>Officer:</b> Now let me go check on the computer and see who I’ve got. <b>I’ll check my records and I’ll give you details this afternoon</b> (4).</li><li><b>Student:</b> Thank you for helping me.</li><li><b>Officer:</b> It’s pleasure. Bye.</li></ul><p><b>Conversation 3</b></p><ul><li><b>Interviewer:</b> Sophie, you’re a native English speaker and you’re been working as a translator for some time now.</li><li><b>Sophie:</b> <b>I’m currently doing a lot of legal texts (9)</b> – the details of court cases can be interesting and the language quite challenging.</li><li><b>Interviewer:</b> And what kind of language gives you the most problems? The kind of expressions used in technology, perhaps, or science?</li><li><b>Sophie:</b> Actually, I don’t have much trouble with those. <b>What’s still quite tricky, though, is when someone mentions a person or an event, perhaps in their country’s history (10).</b></li><li><b>Interviewer:</b> So, do you normally deal with big private firms or with state institutions like local government?</li><li><b>Sophie:</b> Well, I was once contacted by an insurance company and I did a job for them, <b>but nearly always it’s a case of an agency asking if I’d be willing to do a particular text (11).</b></li><li><b>Interviewer:</b> That mush speed things up a lot.</li><li><b>Sophie:</b> Yes, but it can still be a very long working day. I don’t mind which part of the day I’m working though – that’s one of the advantages of working from home.</li><li><b>Interviewer:</b> How do you see the long – term future of translating? Will it continue to be a good area to work in?</li><li><b>Sophie:</b> Oh, I think so. Professional standards are higher than they’ve ever been, and <b>the increasingly wide range of languages used internationally means that the demand for high-quality translation will keep growing for many years to come (12).</b></li></ul></div>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why does Simon like the River Stanton?",
+              "options": [
+                "Because of its water speed",
+                "Because of its scenery",
+                "Because of its peace",
+                "Because of its dangers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What was wrong with the river?",
+              "options": [
+                "The water turned brown when it was running low.",
+                "The water turned brown when it was running fast.",
+                "The water turned orange when it was running fast.",
+                "The water turned orange when it was running low."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What was the cause of the river’s problem?",
+              "options": [
+                "Old mine work",
+                "Farming activities",
+                "Fishing activities",
+                "Tourism activities"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What made Simon happy?",
+              "options": [
+                "He found the solution to the river’s problem.",
+                "He found limestones in the river.",
+                "He found a lot of fish in the river.",
+                "He found a lot of plants in the river."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why does the student want to live with a family?",
+              "options": [
+                "Because she feels homesick",
+                "Because she wants to improve her English",
+                "Because she doesn’t want to cook",
+                "Because her friend is enjoying her homestay"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "How long is the student’s course?",
+              "options": [
+                "Four months",
+                "20 weeks",
+                "5 months",
+                "12 weeks"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What may the student like to eat?",
+              "options": [
+                "Seafood",
+                "Pork",
+                "Beef",
+                "Vegetable"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "When does the officer give the student her homestay details?",
+              "options": [
+                "Right after he checks on his computer",
+                "At lunch time",
+                "In the afternoon",
+                "Tomorrow afternoon"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is Sophie’s job now?",
+              "options": [
+                "A secretary",
+                "A translator",
+                "A manager",
+                "A designer"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What is the most challenging thing in Sophie’s job?",
+              "options": [
+                "Technical terms",
+                "Informal expressions",
+                "Scientific terms",
+                "Cultural preferences"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "According to Sophie, what is the advantage of working from home?",
+              "options": [
+                "She doesn’t have to travel to work.",
+                "She doesn’t have to dress formally.",
+                "She doesn’t have to sign contracts.",
+                "Her working time can be flexible."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does Sophie think about her job in the future?",
+              "options": [
+                "It will be more demanding.",
+                "It will be easier.",
+                "It is not necessary any more.",
+                "It can help her earn a lot of money."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1:</b></p><p>Dolls have always fascinated me, and that’s why, five years ago, I was delighted to be offered the job of running a doll museum.</p><p>Dolls have existed for thousands of years, and the earliest dolls we know about we found in graves in ancient Egypt. I only wish we could get one or two for our museum. But we haven’t unfortunately got anything as old as that in the museum. All the same, we have got examples from Europe from the twelfth century, but my favorite early dolls are actually from the seventeenth century. They interest me not just because they are early, or fairly early, but also because of the clothes they are wearing. They have their original clothes, and from them we know what the owners wore, since dolls in those days were always dressed like their owners. They were made of the only material readily available for things like this at the time: solid wood and they were painted in great detail. In fact, on the best examples, like the ones in the museum, the detail includes the seventeenth-century make-up.</p><p>Dolls like these were very expensive then, and only the very rich could afford them. These days, they’re popular with collectors and if you want one today, you have to pay anything up to ten thousand pounds for a doll in perfect condition from this time! By the way, what makes them so valuable is that, as far as a collector is concerned, a doll is only worth collecting if it is in perfect condition, and that means having the original clothes.</p><p>Doll collecting has become very fashionable since the museum opened, with people interested in dolls from every period, including later dolls. There’s great interest in nineteenth-century examples, when dolls were no longer made of wood, but began to have soft bodies and real hair. They were very delicate and few have survived, meaning such a doll would be worth about two thousand pounds, perhaps a bit more. Later, in the nineteenth century, you could often take off the doll’s hair. If you can, you can often see the maker’s name underneath, and of course the right one increases a doll’s value.</p><p>There was a really big change in dolls at the beginning of the twentieth century. In the museum we have one of the earliest examples, from about 1909, of a doll that’s a model of a baby. Previously all dolls, the earliest ones, were little adults.</p><p><b>Talk/Lecture 2</b></p><p>Hello. I’m Stephen Mills. I will travel with you to the Tiger Tour in India, but I’m not your guide. I work as an artist and I’m going to take some photographs of tigers so that I can use them when I paint some pictures later. An expert guide will join the group when we arrive in India, but I’m leading the group until then.</p><p>We leave London on the 6th of November, arriving in India the following day. It’s a good time of year to visit the wildlife park where the tigers live. The rainy season finishes in October. And later in the year, the park gets more crowded and the tigers become shy.</p><p>We’ll spend ten days in the wildlife park. There are twenty other types of animals and three hundred types of bird to see as well as tigers. There are eighteen of us altogether and everything is organized for your comfort by the tour company. For example, although we’re in the jungle, we won’t have to sleep in tents! The hotels where we’ll stay are all very comfortable.</p><p>To be sure of seeing tigers, we’ll stay in two different parts of the wildlife park. We’ll spend three days in the north, where we’ll travel around in an open truck, and the rest of the time in the south, where we’ll travel around on elephants. That should be fun!</p><p>On the way back to London, we have dinner and one night’s bed and breakfast in the Indian capital, Delhi. There you can either go sightseeing or go shopping, whichever you prefer. But please note that lunch is not provided on our day of departure, as the plane leaves at two in the afternoon.</p><p>Now, if there are any questions ....</p><p><b>Talk/Lecture 3:</b></p><p>Announcer: For the second in our series about locally-run businesses, we meet Simon Winridge, co-founder of the hugely-successfully Winridge Forest Railway Park. Welcome, Simon. Now, perhaps you can begin by telling us a little bit about how it all started.</p><p>Man: Well, during the 1970s, my wife, Liz and I had just acquired 80 acres of sheep-farming land, and we decided to settle down and have children. Pretty soon we had a daughter, Sarah, and a son, Duncan. The place was wonderful for the kids: they particularly loved trains and gradually built up an enormous network of miniature railway track. I began to develop larger-scale models of locomotives but we didn’t think anything more of it until I went on a trip to a theme park near Birmingham and decided we could do a much better job! So we set up a small one ourselves based on the miniature railway and we opened to the public for just a month that year, 1984- in July- our driest month- because our children said they didn’t want our guests to have a miserable, wet visit. I dealt with Park business and Liz carried on with the farm work.</p><p>It soon became clear that we were onto a winner. We began to extend the railway track and lay it among more interesting landscape by planting trees, which in turn attracted more wildlife, and by making cuttings through the rock.</p><p>Nowadays, we’re open all year round and we’re pleased to say that Winridge is one of the most popular visitor attractions in the area- with 50.000 visitors a year- a million and a half people have been through our doors since we opened.</p>",
+          "questions": [
+            {
+              "id": "L2Q21",
+              "type": "mcq",
+              "question": "What is the main purpose of the talk?",
+              "options": [
+                "To describe how the man's favorite dolls look like",
+                "To explain how dolls used to look like in the twelfth century",
+                "To compare the differences in all doll examples in the museum",
+                "To explain how dolls were made differently in times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q22",
+              "type": "mcq",
+              "question": "The dolls that the man interested in .........",
+              "options": [
+                "Existed from the twentieth century",
+                "Existed from the seventeenth century",
+                "Existed from the eighteenth century",
+                "Existed from the nineteenth century"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q23",
+              "type": "mcq",
+              "question": "At the beginning of the twentieth century, dolls were .................",
+              "options": [
+                "Babies",
+                "Adults",
+                "Elderly",
+                "Males"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q24",
+              "type": "mcq",
+              "question": "What makes the dolls in the seventeenth century special?",
+              "options": [
+                "They existed fairly early",
+                "They were made from solid wood",
+                "They are very expensive today",
+                "Their decorations are original"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q25",
+              "type": "mcq",
+              "question": "What can you do with the nineteen- century dolls?",
+              "options": [
+                "Buy them with thousands of pounds",
+                "Take off their hair",
+                "Replace their hair with real hair",
+                "See the maker's name on the body"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "When is the best time to see the tigers?",
+              "options": [
+                "November",
+                "October",
+                "September",
+                "The following day"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "How long will they be in the park?",
+              "options": [
+                "Twenty days",
+                "Eighteen days",
+                "Ten days",
+                "No information"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is arranged to make sure the visitors are comfortable?",
+              "options": [
+                "Meals",
+                "Transportation",
+                "Accommodation",
+                "Schedule"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is Stephen Mill's profession?",
+              "options": [
+                "Photographer",
+                "Tour guide",
+                "Traveller",
+                "Artist"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What is not included in the program?",
+              "options": [
+                "Going sightseeing in Delhi",
+                "Going shopping in Delhi",
+                "Breakfast on the last day",
+                "Lunch on the last day"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Simon's idea for a theme park came from ..............",
+              "options": [
+                "his childhood hobby",
+                "his interest in landscape design",
+                "his visit to another park",
+                "his wife's idea"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "When they started, the family decided to open the park only when ..................",
+              "options": [
+                "The weather was expected to be good",
+                "There were not many people in the neighborhood",
+                "The children weren't at school",
+                "There were fewer farming commitments"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Since opening the park has had ..................",
+              "options": [
+                "50,000 visitors",
+                "1,000,000 visitors",
+                "5,000 visitors",
+                "1,500,000 visitors"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What did their children love?",
+              "options": [
+                "Trains",
+                "Theme park",
+                "Farm work",
+                "We weather"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "The park today is ..................",
+              "options": [
+                "Closed on holidays",
+                "Opened all year",
+                "Closed every two months",
+                "Opened on weekdays"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-48",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 48",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-23/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Great Midland Railway would like to apologize to passengers as we will not be providing the advertised buffet service with tea, coffee cold drinks and full English and continental breakfasts on this journey. This is due to fire in the locomotive shed before departure. A trolley service is available, however which will be visiting all coaches with a selection of cold drinks and sandwiches. Passengers are requested to remain in their seats for this service.</li></ul><p><b>Question 2.</b></p><ul><li>Well, I was afraid you’d have to wait till Thursday but I just talked to the engineer and er today’s Tuesday, isn’t it he said you could pick it up tomorrow Is that all right for you?</li></ul><p><b>Question 3.</b></p><ul><li>Motorists travelling to Bury are notified of a serious fire in the town. The traffic isn’t moving at all and there are hold ups in all directions. Avoid Bury if you can. In Birmingham there’s already heavy traffic around Edgbaston as the crowds arrive for the cricket final. There are a number of minor roads closed around the cricket ground so if you’ve got a ticket for the final make sure you give yourself plenty of time to get there On the M11 to Cambridge there’s been.</li></ul><p><b>Question 4.</b></p><ul><li>It’s 7.30 and now we have a choice of our viewers here in Wales. On HTV we have Bill Barnard and Ian Fall in The Sport in Question. On TSW we have a documentary on the 400th anniversary of Sir Francis Drake’s death which examines Drake’s last voyage to the Caribbean and on Channel 4 Wales there’s an adaptation of Johns McShene’s novel about modern university life. A Place in History.</li></ul><p><b>Question 5.</b></p><ul><li>I’ve got instructions for getting to Dad’s new house here, Ken Turn off at junction 28 and take the first turning signposted to the City centre and Barnstable. After that, drive for about 200 yards and there’s another left turn. There’s no signpost but he says it leads to Matlock village and it’s called Gate Lane. The new house is 150 yards along on the right. It’s an old brick building with a lovely…</li></ul><p><b>Question 6.</b></p><ul><li>ideal for a weekend break. We have indoor heated swimming pools Jacuzzis and saunas three gymnasia with qualified fitness instructors all freely available to guests. There are three top class restaurants to cater for every taste. And even a crèche so the busy mum and dad are free to enjoy the facilities. Double and single rooms can be booked only through.</li></ul><p><b>Question 7.</b></p><ul><li>...and all passengers should disembark while the plane is being refuelled. This should take about 45 minutes. Passengers to London should follow the signs to the luggage collection points and the exits. Passengers continuing their journeys to destinations in Europe should proceed to terminal B. There is a bus to take you there. Passengers continuing their flight to the USA should wait in the departure lounge. We will call you as soon as it is safe for you to reboard the plane. On behalf of Air Midland, I would like to thank you for choosing.</li></ul><p><b>Question 8.</b></p><ul><li>A woman whose life was saved by an emergency operation while on a flight from Cape Town to Jakarta will take another flight to Jakarta tomorrow this time on her honeymoon. Georgina Curry survived thanks to quick thinking from two doctors on board the plane who performed an emergency appendix operation at 30,000 feet. But today only love is in the air Miss Curry marries her fiancé David Hume.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What can you get on the train?",
+              "options": [
+                "full English breakfast",
+                "full continental breakfast",
+                "tea and coffee",
+                "sandwiches"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "When will the television be ready for collection?",
+              "options": [
+                "on Tuesday",
+                "on Wednesday",
+                "on Thursday",
+                "on Friday"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What should people going to Birmingham do?",
+              "options": [
+                "cancel the trip",
+                "leave early",
+                "use minor roads",
+                "use Bury road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which channel broadcasts about history?",
+              "options": [
+                "HTV",
+                "Channel 4 Wales",
+                "TSW",
+                "no channel at all"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Where does Ken’s father live?",
+              "options": [
+                "in the City centre",
+                "in Matlock village",
+                "in Gate Lane",
+                "near a motorway"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is being advertised?",
+              "options": [
+                "a luxury hotel",
+                "a fitness centre",
+                "a summer camp",
+                "a restaurant"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "You are flying to New York. Where should passengers to New York go?",
+              "options": [
+                "to terminal B",
+                "to the departure lounge",
+                "to luggage collection",
+                "to the exits"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is it true about Georgina Curry?",
+              "options": [
+                "She went to Jakarta for an appendix operation.",
+                "She is going to Jakarta for an appendix operation.",
+                "She went to Jakarta on her honeymoon.",
+                "She is going to Jakarta on her honeymoon"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-18/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> And today, I’m talking to Angela Morgan. Angela, what made you decide to fly round the world in a helicopter?</li><li><b>W:</b> People often ask me why I decided to do it but I’m surprised they don’t ask ‘Why did you wait so long?’ because I’m 57 now. I’m sorry I didn’t do it years ago, because it was such a wonderful experience. But the main purpose for going was to collect £500,000 for sick children by getting different companies to pay us money for each kilometre that we flew.</li><li><b>M:</b> And now everyone calls you the flying grandmother!</li><li><b>W:</b> Yes, the thing about growing older is that you don’t feel any different inside so you have to do as much as you can while you can. I’m healthy, and my own children are grown up, so I was free to go.</li><li><b>M:</b> And what about preparing for the trip?</li><li><b>W:</b> Well, it took five months to plan. I was going to go with my husband but he couldn’t take time off work. Instead, I made the trip with my flying teacher who became a great friend while she was teaching me to fly three years ago. I passed my flying test after two weeks; found it quite easy.</li><li><b>M:</b> And what was the trip like?</li><li><b>W:</b> It was really exciting flying over so many different countries. The only thing was that we weren’t able to spend much time sightseeing because we only stopped to get water and to camp. We took very little with us but we did have tents and cooking things to use at night. We had to spend two days in Thailand because of an engine problem but that was the longest we spent anywhere. Fortunately nothing else went wrong, so we just kept on going after that.</li><li><b>M:</b> What did you enjoy most about the trip?</li><li><b>W:</b> The most wonderful thing about flying was seeing the differences in the countryside as we flew across 26 countries in 97 days. We flew over oceans and close to mountains; sometimes it was quite frightening, but we didn’t travel when it was dark. We spent several nights camping in the desert and the sky was just full of stars. I made a video of the trip; you’ll see it in a minute.</li><li><b>M:</b> Was there anything that you missed while you were away?</li><li><b>W:</b> Well, to my surprise I didn’t miss going to work or going out to restaurants or films. The most difficult thing was sitting still all the time. I normally play tennis and swim several times a week, so I started to feel very unfit. I missed hot water and proper showers sometimes too, but not as much as I thought I would!</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>M:</b> Britta, you’re English, but you live in Berlin. Have you lived here for a long time?</li><li><b>W:</b> Well, I was born in England, but I’ve lived in Germany for the past twenty years. I arrived in Berlin about four years ago. Before that, I lived in Bonn for six years, but I work as a journalist and when the newspaper moved to Berlin, I moved with them.</li><li><b>M:</b> Were you pleased to come to Berlin?</li><li><b>W:</b> Yes, I was. I was looking forward to being in a big city like Berlin. Bonn was quite a lot smaller, so I love the busy atmosphere and all the cultural entertainments here museums, theatres and so on. The only thing I don’t like is the traffic it’s a bit noisy in the mornings. It wakes me up about 6.30, but most days I have to get up early anyway!</li><li><b>M:</b> Where do you live in Berlin?</li><li><b>W:</b> I have a flat in the old part of the city. It’s right in the centre and it’s not too expensive. It costs me about £500 a month. My street is becoming very popular. There are lots of new art galleries, and small cafés and friendly restaurants everywhere. Eating out in Berlin is fun, and it’s cheap, so it’s something I do quite often.</li><li><b>M:</b> How do you find transport in Berlin?</li><li><b>W:</b> Well, the transport system here is very good, so I have a tram and bus ticket but in fact, most of the time I cycle. Travel here is much cheaper than in other countries I know perhaps that’s why people don’t walk very much!</li><li><b>M:</b> What do you like to do in Berlin at the weekends?</li><li><b>W:</b> Well, I like art, so sometimes I go to one of the galleries. I have a nephew called Philippe. He’s only three but he likes coming with me. He likes the café best, I think. And it’s a change from going to the park that’s something he does very often. He usually comes out with me while his parents go shopping.</li><li><b>M:</b> Do you miss your friends and family in England?</li><li><b>W:</b> I work colleagues socially but I’ve got some very good friends who live in the same street as me. I enjoy meeting people, and I find Berlin is a very friendly city.</li><li><b>M:</b> Thank you for talking to us, Britta.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Rachel, tell us how your shows for children started. You studied art at college, didn’t you?</li><li><b>W:</b> That’s right. But I gave up my career as an artist when my twin daughters were born. Painting took up too much time when I was looking after them. I thought about teaching art classes part-time, but instead I started making dolls for my daughters. I love acting, so I often invented little plays for the dolls, doing the voices myself.</li><li><b>M:</b> And when did you start doing shows for other people?</li><li><b>W:</b> When our daughters were five, my husband suggested using the dolls to entertain the children at their birthday party. I wrote a little show and he built a dolls’ theatre. My daughters and their friends loved it. As a result, other parents asked me to come and do the show at their children’s parties. That’s how it all began.</li><li><b>M:</b> It must be a lot of work for you?</li><li><b>W:</b> Yes. I love making the dolls, but I decided that I needed someone to help me with the shows. Luckily my neighbour, Lena, was keen to perform with me. Her husband records the music to go with the shows. It would be impossible to do everything on my own.</li><li><b>M:</b> Have you ever had any problems?</li><li><b>W:</b> Only once. I did a show for a group of three-year-olds, and I’d written a story about a lion. Unfortunately, the children were really afraid of the lion and started crying. I was worried the parents might complain but luckily they were all able to laugh about it afterwards.</li><li><b>M:</b> And what did you learn from that?</li><li><b>W:</b> The experience taught me that I had to find out beforehand just what children enjoy. Like me, Lena has two daughters, so whenever we’ve invented a new story we show it to our four girls first. They always tell us exactly what they think of it. And sometimes I take new dolls to the local primary school to check that children like them.</li><li><b>M:</b> And the shows continue to be successful?</li><li><b>W:</b> They do. I have a range of different shows for five to nine-year-olds. In fact, the shows have become so successful I could do one every day, but I don’t want to do that. The reason the shows have become popular, I think, is because I love every minute of every show and so other people love them too. I certainly didn’t realise when I organised that birthday party for my daughters all those years ago that it would change my life so much!</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What does Angela say about her life now?",
+              "options": [
+                "She feels much older.",
+                "She likes to be active and busy.",
+                "She is lonely without her children.",
+                "Her children don't like people to call her “flying grandmother”"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is true about Angela’s flying lessons?",
+              "options": [
+                "Her course lasted five months.",
+                "Her husband took lessons as well.",
+                "She got to know her teacher well.",
+                "She found it a bit difficult to fly at her old age."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What did Angela enjoy most about the trip?",
+              "options": [
+                "flying at night",
+                "walking in the desert",
+                "watching the changes in the scenery",
+                "seeing stars at night."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What did Angela miss most while she was away?",
+              "options": [
+                "going to restaurants",
+                "modern bathrooms",
+                "regular exercise",
+                "interesting entertainment"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "How long has Britta lived in Berlin?",
+              "options": [
+                "four years",
+                "six years",
+                "twenty years",
+                "twelve years."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Britta say about living in Berlin?",
+              "options": [
+                "She can’t sleep at night because of the traffic noise.",
+                "She misses the museums and theatres in Bonn.",
+                "She likes living in a big, busy city.",
+                "She prefers living in Bonn to living in Berlin."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How does Britta usually travel around in Berlin?",
+              "options": [
+                "She walks.",
+                "She uses her bicycle.",
+                "She uses the tram or bus.",
+                "She drives her car."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is true about Britta’s friends?",
+              "options": [
+                "live near her.",
+                "work with her.",
+                "are still in England.",
+                "are from her hometown."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What did Rachel do before her children were born?",
+              "options": [
+                "an art teacher.",
+                "a painter.",
+                "an actor.",
+                "a doll maker"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Who first thought of doing a show at a party?",
+              "options": [
+                "Rachel’s husband",
+                "Rachel’s children",
+                "Rachel’s parents",
+                "friends of Rachel’s daughter"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How does Rachel’s neighbour, Lena, help?",
+              "options": [
+                "makes some dolls for the shows.",
+                "performs in the shows.",
+                "writes the music for the shows.",
+                "records music for the show"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How do Rachel’s daughters help her?",
+              "options": [
+                "They show new dolls to their school friends.",
+                "They think of ideas for new stories.",
+                "They give her their opinions on her new plays.",
+                "They help her make new dolls."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Young people in Great Britain are watching <b>less and less news on television</b>. This is according to <b>Ofcom</b>, a regulatory body that oversees broadcasting practices in the UK. This comes as no surprise as young people become increasingly <b>addicted to their smartphones</b>. Youth are opting for <b>online distractions</b> like YouTube videos, social media and games rather than switch on a TV and watch a news programme. Britain's Guardian newspaper reported that: \"The youth of the nation are more likely to get their day's news about the world from <b>social media</b> or by reading graffiti in bus stations than seeing it on the telly, with the average 16-24-year-old watching just <b>two minutes' worth of live TV news per day</b>.\"</p><p>Ofcom commissioned research into the news-viewing habits of people around the country. The report is called \"<b>News Consumption in the UK: 2019</b>\". The research suggests that young people are increasingly using <b>social media as their primary news source</b>. Researchers wrote: \"There is evidence that UK adults are consuming news more actively via social media.\" They reported an <b>increase in posts and comments</b> on Facebook and Twitter about the news compared to last year. Ofcom suggested <b>presenting news stories in a less complicated, more accessible way</b> to attract young people's attention. Some people suggested this would be \"<b>dumbing down content</b> for young audiences\".</p><p><b>Talk/Lecture 2</b></p><p>There has been a <b>dramatic increase in the popularity of veganism</b> around the world in the past decade. Many people are becoming vegans in an attempt to lead a <b>lifestyle that is more conducive to helping the planet</b>. Giving up eating meat, dairy and other food from animals constitutes the bulk of changes vegans make to their lives. However, an increasing number of vegans are now <b>extending their beliefs to fashion</b>. There is a considerable increase in the <b>sales of vegan clothing, footwear and accessories</b>. Retailers are marketing products that are <b>free from cow skin and other animal products</b>. Shops are full of synthetic fur coats, plastic belts, and shoes made from <b>tree bark, recycled plastic bottles, rubber and coconut fibre</b>.</p><p>Research in the United Kingdom revealed that <b>42 per cent of shoppers considered animal welfare</b> before buying clothes. The researchers discovered that people of all ages would consider purchasing <b>vegan footwear</b>. The trend in vegan fashion has also reached <b>luxury brands</b>. Designer <b>Stella McCartney</b> has designed a new range of fashion that is free from leather and makes use of <b>recycled products</b>. Her new collection is based on a theme of the iconic sixties pop group the Beatles. Ms McCartney's father, Paul, was lead singer of the group. She has designed <b>leather-free Yellow Submarine sneakers</b> and colourful fake fur coats. Ms McCartney is a committed <b>animal rights activist</b>.</p><p><b>Talk/Lecture 3</b></p><p><b>Alan Turing</b>, the man widely recognised as being the <b>father of modern computer science</b>, has been honored by being selected to appear on a United Kingdom banknote. Mr Turing was chosen ahead of a wealth of notable British historical figures and luminaries to be the face of the <b>new £50 note</b>. Turing was instrumental in helping Britain and its allies <b>win World War II</b>. He led a team of codebreakers to <b>crack the Enigma code</b> the Nazis used to send messages to warships and military commanders. He invented the now famous <b>British Bombe</b> to do this. This was a giant computer, which ushered in the <b>birth of modern computing and the beginnings of artificial intelligence</b>.</p><p>Alan Turing was a <b>mathematical genius</b> who also excelled in the sciences. He was born in London in 1912. He graduated from <b>Cambridge University</b> and then outlined his vision for creating an <b>algorithm-based computing machine</b>. He said of his invention: \"This is only a foretaste of what is to come, and only the shadow of what is going to be.\" His idea is <b>central to the computers we use today</b>. His brilliance led to his being asked to join the WWII code-breaking team. Despite his pivotal role in ending that war, he was <b>persecuted in the post-war years for being homosexual</b>. Being gay was illegal in the UK until 1967. He chose to be <b>chemically castrated</b> rather than go to prison. Turing died in 1954, aged 41, in an apparent <b>suicide</b>.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What are young people becoming ever more addicted to?",
+              "options": [
+                "The 20th century",
+                "News",
+                "Alcohol",
+                "Their smartphones"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did the speaker call things like Youtube and videos?",
+              "options": [
+                "Online distractions",
+                "Rubbish",
+                "Eye candy",
+                "Harmful"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "On average, how much live TV news do young British people watch?",
+              "options": [
+                "30 minutes a day",
+                "2 minutes a day",
+                "Three hours a week",
+                "An hour a day"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What was the primary source of news for young people?",
+              "options": [
+                "Radio",
+                "TV",
+                "Social media",
+                "Newspapers"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "Why did Ofcom suggest making news less complicated?",
+              "options": [
+                "To attract young people",
+                "To make it happier",
+                "For advertising",
+                "People’s brains are shrinking"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What was veganism conductive to?",
+              "options": [
+                "Lowering cholesterol",
+                "Gardening",
+                "Good cooking",
+                "Helping the planet"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What are vegans extending their beliefs to?",
+              "options": [
+                "Religion",
+                "Politics",
+                "Fashion",
+                "Philosophy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What kind of fibre is being used to make vegan shoes?",
+              "options": [
+                "High speed fibre",
+                "Coconut fibre",
+                "Hemp fibre",
+                "Silk fibre"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "How old are the people who would buy vegan clothes?",
+              "options": [
+                "12-20",
+                "Aged",
+                "All ages",
+                "People in their 30s"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What did Stella McCartney design that had a yellow submarine theme?",
+              "options": [
+                "A boat",
+                "Underwear",
+                "A popcorn holder",
+                "Sneakers"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What denomination of banknote will Mr Turing appear on?",
+              "options": [
+                "The £5 note",
+                "The £10 note",
+                "The £100 note",
+                "The £50 note"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What is the name of the computer that Alan Turing made?",
+              "options": [
+                "Apple",
+                "IBM",
+                "The British Bombe",
+                "The English Rose"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What was Mr Turing’s vision of computers based on?",
+              "options": [
+                "Egyptian hieroglyphics",
+                "Plasma",
+                "Quantum physics",
+                "An algorithm"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What was his vision only the shadow of?",
+              "options": [
+                "What is going to be",
+                "What always was",
+                "What could be",
+                "What was to be"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "In what year did Alan die?",
+              "options": [
+                "1952",
+                "1954",
+                "1953",
+                "1951"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

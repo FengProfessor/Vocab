@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-22",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 22",
+  "duration": 172,
+  "date": "2026-03-20",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-22/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>There’s a lorry on fire in Smith street in Bridgend town centre. A lot of people have stopped to watch and delays are building up. You’re advised to take Lodge lane instead. On the westbound carriageway of the M4, an overturned car is blocking two lanes of traffic before junction 32, that’s the turning for Bridgend. Police advise drivers to turn off at junction 31 for an alternative route to avoid delays…</li></ul><p><b>Question 2.</b></p><ul><li>Hi David. It’s Susan here. It’s about meeting later on. I know we said eight o’clock at the Crown, but it looks like I’m stuck in the office for a while we’ve got a bit of a problem so if I don’t ring again do you think you could come and get me at about nine?</li></ul><p><b>Question 3.</b></p><ul><li>This is a customer announcement. We have a range of special offers in several departments. In our fashion department on the first floor we have a sale in men’s’ designer shirts. On the second floor in household goods, there are special offers in kitchenware and small appliances. And in our food hall on the ground floor some outstanding discounts on cuts of beef…</li></ul><p><b>Question 4.</b></p><ul><li>Residents of Newbury upon Thames whose homes were bought by the government to make way for a planned by pass are to be offered their houses back again. Eleven families were moved out in 1991, but now the scheme has been put on hold following government spending cuts. Under a new law the former residents are allowed to buy back their former houses at the price they were given on leaving.</li></ul><p><b>Question 5.</b></p><ul><li>Hello, this is the claims manager from Royal Solihull Insurance. I’m ringing concerning your claim. I was hoping to arrange for one of our representatives to call and discuss your recent burglary with you. Um… We can’t arrange a payment until we’ve had this discussion. Would you like to call one of our secretaries on 01214285976 and we can fix up a time? Please don’t forget to quote the burglary reference number…</li></ul><p><b>Question 6.</b></p><ul><li>Police are asking old age pensioners to be on the look out for a thief who is posing as a gas board official. The thief, who is a well-dressed young man, calls at pensioners’ homes and tells them he is checking for gas leaks. While in the house, he steals any money he can find. Police have issued a special message for pensioners today advising them that gas board officials always wear a uniform and carry an official identity card.</li></ul><p><b>Question 7.</b></p><ul><li>Thank you for calling the Putney museum. I’m afraid all our telephonists are busy at the moment. If you want to wait you should press 3 after the short tone and your call will be stacked. If you have an enquiry about opening times, you can hear a recorded message by pressing 2 after the short tone. If you want to speak to a member of staff and you know their extension, you can dial their number after the short tone. If you want to leave a message, please speak after the long tone.</li></ul><p><b>Question 8.</b></p><ul><li>If you want to buy a house in the London area and you’re on a limited budget, where’s the best place to look? Of course a central location is what many of us want, but houses in the centre are no bargain. If you want to move out to the leafy suburbs you’ll also have to have a lot of money in the bank. To my mind, the best place to start is in the established or shall we say former suburbs. That’s where you’ll find the real bargains.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What should drivers to Bridgend do?",
+              "options": [
+                "drive down Lodge Lane",
+                "turn off at junction 32",
+                "drive down Smith Street",
+                "cancel the drive"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What is David supposed to do?",
+              "options": [
+                "pick Susan up at the office",
+                "meet Susan at 9 o'clock",
+                "ring Susan at the office",
+                "meet Susan at 8 o'clock"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Which is NOT on special offers?",
+              "options": [
+                "men's designer shirts",
+                "fruits",
+                "kitchenware",
+                "beef"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Why was the construction of the bypass cancelled?",
+              "options": [
+                "the residents did not want to move their homes",
+                "there was another plan to build houses there",
+                "the government reduced spending",
+                "the bypass was of no use at all"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Who is the caller?",
+              "options": [
+                "the claims director of an insurance firm",
+                "a representative of an insurance firm",
+                "a secretary of an insurance firm",
+                "a burglar"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Who are the police searching for?",
+              "options": [
+                "a gas board official",
+                "a well-dressed man",
+                "an old age pensioner",
+                "a witness"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What should you do if you want to speak to a member of staff?",
+              "options": [
+                "press 3",
+                "press 2",
+                "speak after the tone",
+                "dial his extension"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Where are the cheapest houses to be found?",
+              "options": [
+                "in the new suburbs",
+                "in the old suburbs",
+                "in the City centre",
+                "out of town"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-22/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Jack Salter is a young Canadian who has just won the young photographer of the year competition. Jack, is that right you started out taking photos of street signs?</li><li><b>M:</b> That’s right. I’ve been serious about photography for about a year, maybe a year and a half but I’ve been taking photos ever since I was little. I probably first picked up a camera when I was about seven and went around taking photos of street signs of all shapes and sizes. My mother tells me it was all down to my being attracted to the bright colours. I guess she’s right.</li><li><b>W:</b> Can you tell me a little about the winning photograph?</li><li><b>M:</b> It was the first day of dry weather for a while and I decided to go out and play around with some new kit for my camera. I started off in my own yard. There wasn’t much to photograph though until this butterfly happened to land on a large flower, and fortunately I was able to get what turned out to be the prizewinning photo.</li><li><b>W:</b> Were you happy with the photograph?</li><li><b>M:</b> I was lucky actually, because on the camera screen the butterfly didn’t look terribly amazing. I could see that it was in a great position and the background scene was nice and clear but you couldn’t see the pattern on its wings because of the size of the screen. It was only when I saw the picture on the computer that I realized how good it was.</li><li><b>W:</b> What do you think of the other photos from the competition?</li><li><b>M:</b> I’ve seen the work on display with mine and the standard is hard to believe. There are photos of animals and plants from all over the world and you can see the work of photographers from places as far apart as Russia and Australia.</li><li><b>W:</b> Has anything changed for you since winning the competition?</li><li><b>M:</b> That’s a hard question. Before winning I’d been concentrating mainly on taking photos of people, although after coming to London for the exhibition and talking to all the other photographers I intend to get more into doing shots of landscapes in different countries.</li><li><b>W:</b> Do you have any advice for young people starting out in photography?</li><li><b>M:</b> Don’t make excuses. My entry was taken with an excellent camera but that’s not everything. My method is just to get out there, and do it and you don’t have to go far to get the shot, you’ll find something. You’ll start to love it.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>M:</b> My guest today is Amy Rowntree, who’s a fashion designer. Amy, when did you decide you wanted a career in fashion?</li><li><b>W:</b> Well, I started experimenting with the clothes I wore myself while I was still at school. It wasn’t until I left school and worked as an assistant in a big store though that I knew I wanted a career in fashion. It was after that I got involved in running fashion shows.</li><li><b>M:</b> So, what skills does a fashion designer need?</li><li><b>W:</b> Well, you need to know how to turn your first idea into clothes that are ready for someone to wear. It’s useful to know about materials like wool and cotton. The essential thing though is a knowledge of the techniques used in creating clothes. You also have to be patient, especially at the start of your career.</li><li><b>M:</b> What do you find most enjoyable about working in fashion?</li><li><b>W:</b> It’s pleasing to see an idea come to life when you see the clothes in a show. It’s also great to go from being completely unknown, to fashion stores knowing exactly who you are when you ring up that’s the best thing about it for me it’s hard work selling my designs but it’s good to earn money doing something you love.</li><li><b>M:</b> And what about the current fashion scene?</li><li><b>W:</b> I feel that the main aim now is to make clothes easy for people to wear. I understand that’s important and actually sports clothes are what make the most money for the fashion industry. But I think you need to design really beautiful clothes too. I’d like to see more of fashion as a kind of art.</li><li><b>M:</b> Do you find it easy to think of new designs?</li><li><b>W:</b> Oh, yes. I get ideas all the time, and I draw them so that I don’t forget them. And I take photos too. I often get my ideas from things I see when I’m out in streets and parks. I don’t get many ideas from clothes in museums although I know other designers do.</li><li><b>M:</b> And are you working on any new projects at the moment?</li><li><b>W:</b> Well, my big ambition is to put on a fashion show in New York, but no luck yet! I’ve been asked to design the clothes for a film though, so I’m working on that. It’ll be out next summer. And I’m talking with a big store in London about the possibility of doing a special range of suits for men.</li><li><b>M:</b> Really</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Right, Sandra. You wanted to see me to get some feedback on your group’s proposal. The one you’re submitting for the Geography Society field trip competition. I’ve had a look through your proposal and I think it’s a really good choice. In fact, I only have a few things to say about it but even in an outline document like this you really have to be careful to avoid typos and problems with layout in the proposal and even in the contents page. So read it through carefully before submitting it, okay?</li><li><b>W:</b> Will do.</li><li><b>M:</b> And I’ve made a few notes on the proposal about things which could have been better sequenced.</li><li><b>W:</b> Okay.</li><li><b>M:</b> As for the writing itself, I’ve annotated the proposal and where I thought it could be improved. Generally speaking, I feel you’ve often used complex structures and long sentences for the sake of it and as a consequence although your paragraphing and inclusion of subheadings help … it’s quite hard to follow your train of thought at times. So cut them down a bit, can you?</li><li><b>W:</b> Really?</li><li><b>M:</b> Yes. And don’t forget simple formatting like numbering.</li><li><b>W:</b> Didn’t I use page numbers?</li><li><b>M:</b> I didn’t mean that. Look, you’ve remembered to include headers and footers, which is good, but listing ideas clearly is important. Number them or use bullet points, which is even clearer. Then you’ll focus the reader on your main points. I thought your suggestion to go to the Navajo Tribal Park was a very good idea.</li><li><b>W:</b> I’ve always wanted to go there. My father was a great fan of cowboy films and the Wild West so I was subjected to seeing all the epics, many of which were shot there. As a consequence, it feels very familiar to me and it’s awesome both geographically and visually, so it’s somewhere I’ve always wanted to visit. The subsequent research I did and the online photographs made me even keener.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Jack go into his yard to take his winning photo?",
+              "options": [
+                "He wanted to be out in the sunshine.",
+                "He was looking for shots of flowers.",
+                "He was trying out some new equipment.",
+                "He wanted to take photos of his own yard."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "How did Jack feel when he first looked at his winning photo?",
+              "options": [
+                "proud of how good it was.",
+                "worried about the background.",
+                "the photo was terrible.",
+                "unsure how clear the detail was."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "Why was Jack surprised by the other photos from the competition?",
+              "options": [
+                "because the quality was so high.",
+                "because the styles were so similar.",
+                "because the subjects were so unusual.",
+                "because they are sent from faraway places."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Jack want to do after winning the competition?",
+              "options": [
+                "get ideas from other photographers.",
+                "come to London for another exhibition.",
+                "take more photos of people.",
+                "take more photos of landscapes."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "According to Amy, what is the most important skill for a designer?",
+              "options": [
+                "remaining patient in difficult situations.",
+                "knowing about different materials.",
+                "knowing how to make clothes.",
+                "turning your idea into product."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Amy particularly like about her work?",
+              "options": [
+                "being able to sell her designs",
+                "seeing her clothes on display",
+                "having her name recognized.",
+                "earning a good salary."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What helps Amy find new ideas for designs?",
+              "options": [
+                "Talking with other designers.",
+                "going to visit museums.",
+                "looking at photos of clothes.",
+                "seeing things around her."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What project is Amy working on at the moment?",
+              "options": [
+                "a collection of clothes for a film",
+                "a fashion show in New York",
+                "a new range for a London store",
+                "special clothes for her own store."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "According to the tutor, what should Sandra do with her proposal?",
+              "options": [
+                "make an outline of it.",
+                "include a contents page.",
+                "include more information.",
+                "Avoid formatting problem."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What should Sandra do to make it easier to follow her proposal?",
+              "options": [
+                "insert subheadings.",
+                "use more paragraphs.",
+                "shorten her sentences.",
+                "Use some complex sentences."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What was the problem with the formatting on Sandra's proposal?",
+              "options": [
+                "Separate points were not clearly identified.",
+                "There were no headers.",
+                "The headings were not always clear.",
+                "Page numbers were not inserted."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What made Sandra want to visit the Navajo National Park?",
+              "options": [
+                "the articles she read.",
+                "the movies she saw as a child.",
+                "the photographs she found on the internet.",
+                "the stories her father told."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Hello everyone, My name’s Sandy Duffy and I’m here to tell you about my career as a video game writer.</p><p>I work with game developers and designers to think of good stories, and I write all the dialogue in the game.</p><p>When I was in secondary school, I never imagined that I would do this job. I played guitar that’s what I planned to do as my job. But I had an accident when I was playing basketball and hurt my hand, so I had to think of another career. My mother wanted me to be a journalist, but I didn’t think it was for me.</p><p>I didn’t know what to study at university. I was good at lots of science subjects, including physics and math, but I also loved entertaining people and I was good at Art. In the end, I went to film school where I studied lighting, special effects, how to use camera...all that! It was there that I started to think about working in the video game industry.</p><p>Now, a question that every always asks me is “How did you get your first job?” Well, I had a friend whose job was organizing conferences, at one of the conferences, she met a man who owned a company that made video games. I wrote to him and sent my CV. He obviously liked what he read because he gave me an interview and offered me a job as a junior.</p><p>People also ask me what I like best about being a video game writer. Well, the money is good and it’s quite exciting, just last night, for example, I was at a big dinner where they were giving prizes for new games. But what I love is the fact that I get on well with everyone in the business. That’s what makes my job so much fun.</p><p>Obviously, no job is perfect though, and there are things I don’t like. I’ve just started a new job and I have to spend a lot of time on the road or at the airport, which I find very hard. I’d really like to be able to spend more time at home.</p><p><b>Talk/Lecture 2</b></p><p>Do you want to take part in a trip of a lifetime? Then join Go4Health India. This amazing five – day trek will take you through one of the world’s most beautiful mountain ranges, the Indian Himalayas.</p><p>You will also be helping raise vital funds for our charity which aims to promote health care all over the world.</p><p>The trip starts in the city of Delhi where you will have the chance to see one of the charity’s health care projects in action. The following day we set off on our incredible journey into the mountains.</p><p>During the trek you will pass colourful towns and villages and enjoy the most magnificent mountain views. You will experience all this before you even reach the peak of our trek to see the stunning DhaulaDahr mountain range. Once at the top you can climb even higher if you want to and experience walking on a glacier to each Lakes cave. You will soon know what it feels like to be on top of the world. And on the way down you will be able to admire the wonderful views across the valley.</p><p>To join Go4Health India all you need to do is pay an entry fee of 250 pounds. You also need to promise to raise a minimum of 2500 pounds before the start of the trip. Fundraising is part of the challenge, but don’t worry our fundraising team is on hand to help you. Once you have signed up you will receive an information pack. This includes details of the trek as well as the work of the charity. It also contains useful tips and advice on fundraising. And you will also get a charity cap to wear with pride. You will also receive a full training guide which will help you reach a reasonable level of fitness. Our top training tips will definitely improve your physical ability so that you can get the most out of the trek!</p><p>The cost of the trip includes your flights, accommodation, food, tour guides and medical support. However, please note that airport and tax is not included. You will have to meet this additional cost yourself.</p><p>Dates for this year’s Go4Health India are 3rd to 13th November. Visit our website www.Go4Health.uk and sign up today!</p><p><b>Talk/Lecture 3</b></p><p>Last year in India, people bought around 1.5 million new cars. This will probably go up to three million a year in the next few years. That’s how the India economy is changing. Many Indians in the big cities are richer than ever and they want to spend money on new products. However, most of the money is still in the big cities. There is still a lot of poverty in the villages and countryside.</p><p>Now the government hopes a new road in India can help to change India’s economy. The golden Quadrilateral road or GQ connects the country’s four biggest cities. Delhi, Mumbai, Chennai and Kolkata. Hopefully, the road will carry business from the giant cities to the smaller and poorer villages and the other half of the India’s population.</p><p>The GQ is nearly 6,000 kilometre long and the most hi – tech high way in the world. At the administration headquarters in Delhi, you can watch thousands of vehicles moving around the country on a computer screen. If there is a problem anywhere with the road, electronic sensors tell the headquarters and engineers instantly drive there.</p><p>When you drive on the high way, there is every kind of transport. There are animals pulling cars, motorcycles, lines of old trucks and fast moving modern cars. Sometimes the road goes right through middle of a city. So there are often traffic jams and pedestrians trying to cross the six lanes. Industry is also growing along the new highway.</p><p>When a large company opens a factory, lots of other smaller factories and offices also open. Trucks then drive and deliver all over India along the new high way. For India, all this is a symbol of the country’s future.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What did Sandy Duffy want to be when she was at school?",
+              "options": [
+                "a journalist",
+                "a musician",
+                "A director",
+                "A basketball player"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did Sandy study at university?",
+              "options": [
+                "Math and Physics",
+                "film making",
+                "Technology",
+                "Art"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How did Sandy get her first job as a video game writer?",
+              "options": [
+                "She answered a job advertisement",
+                "She met someone at a conference",
+                "She sent some information about herself to a company",
+                "She was invited by a friend"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does Sandy like best about being a video game writer?",
+              "options": [
+                "the prizes she has won",
+                "the high salary",
+                "the people she works with",
+                "the great working condition"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does Sandy dislike about being a video game writer?",
+              "options": [
+                "She has to travel a lot",
+                "She has to work long hours",
+                "She often has to change her job",
+                "She has to live far from home"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How long does the trek last?",
+              "options": [
+                "a day",
+                "three days",
+                "five days",
+                "a week"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "The trek aims to raise money for .............",
+              "options": [
+                "health care",
+                "school education",
+                "hospital",
+                "the old people"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The cost of the trek includes .............",
+              "options": [
+                "flight and airport taxes",
+                "medical provision and taxes",
+                "Foods",
+                "Food and accommodation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Participants must .............",
+              "options": [
+                "walk across a glacier",
+                "complete a fitness course",
+                "agree to raise funds for the charity",
+                "pay amount of money"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "The trip starts on .............",
+              "options": [
+                "1st of November",
+                "3rd of November",
+                "13th of November",
+                "23th of November"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Where do many of the rich people live?",
+              "options": [
+                "next to the new road",
+                "in the cities",
+                "in the countryside",
+                "in isolated places"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How long is the road?",
+              "options": [
+                "600 kilometres",
+                "6,000 kilometers",
+                "60,000 kilometres",
+                "60 miles"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What can you see on the computers at the road's headquarters in Delhi?",
+              "options": [
+                "small vehicles on the road",
+                "any vehicle and problems on the road",
+                "big vehicles on the road",
+                "serious problems on the road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What types of transport can you see on the road?",
+              "options": [
+                "all types",
+                "mostly cars",
+                "mostly motorbikes",
+                "the presenter doesn't say"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the presenter describe the new road as a symbol of India's future?",
+              "options": [
+                "because it's the same shape as the country of India",
+                "because it is modern, it is helping the economy grow",
+                "Because India has big population",
+                "Because India has lots of transport"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Why Healthy Soil Matters",
+            "text": "<p>When people think about protecting the environment, they often picture forests, oceans, or endangered animals, but the ground beneath our feet rarely gets the same attention. Soil, however, is one of the most important resources on the planet, since almost all of the food humans eat depends on it in some way. Healthy soil is full of tiny living organisms, including bacteria, fungi, and insects, all working together to break down dead plants and turn them into nutrients that new plants can use. Without these living communities, soil would be little more than lifeless dirt, unable to support crops or forests.</p><p>Farming practices used over the past century have, unfortunately, damaged soil health in many parts of the world. Heavy use of chemical fertilizers can boost crop growth in the short term, but over time it often weakens the natural balance of nutrients and organisms living in the soil. Repeatedly plowing the same fields also breaks apart soil structure, making it easier for wind and rain to wash valuable topsoil away. Some experts estimate that a significant amount of farmable land has already lost much of its natural fertility, forcing farmers to rely even more heavily on artificial fertilizers just to maintain normal harvests.</p><p>Fortunately, many farmers around the world are now adopting <strong>gentler</strong> methods to protect and rebuild soil health. One popular approach, known as crop rotation, involves planting different crops in the same field from season to season instead of growing the same plant repeatedly. This practice helps replace nutrients naturally and reduces the buildup of pests that target one particular crop. Another method, cover cropping, involves planting certain plants specifically to protect bare soil between main growing seasons, preventing erosion and adding organic material once the cover crop is plowed back into the ground.</p><p>Healthy soil offers benefits that extend well beyond a single farmer's field. Soil rich in organic material can absorb and hold significantly more water than damaged soil, which helps reduce flooding during heavy rain and provides a buffer during dry periods. Healthy soil also stores large amounts of carbon underground, meaning that improving soil health worldwide could meaningfully <strong>offset</strong> some of the carbon dioxide currently building up in the atmosphere. For this reason, some scientists now argue that soil deserves far more attention in conversations about fighting climate change.</p><p>Protecting soil ultimately requires cooperation between farmers, governments, and everyday consumers. Government programs that reward farmers for using soil-friendly methods can make a meaningful difference, as can consumers choosing to support farms that prioritize long-term soil health over short-term yield. With greater awareness and the right incentives, much of the damage already done to the world's soil could gradually be reversed.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và câu đúc kết ở đoạn cuối: bài đọc nhấn mạnh tầm quan trọng thiết yếu của đất đai, tác hại của các phương pháp canh tác cũ, giới thiệu các giải pháp phục hồi và kết luận rằng với sự hợp tác, phần lớn thiệt hại hoàn toàn có thể được đảo ngược (damage could gradually be reversed). Do đó, phương án đúng phải bao quát trọn vẹn hai vế: tầm quan trọng của sức khỏe đất và khả năng phục hồi tổn hại, tránh chọn các phương án quá cực đoan hoặc phủ nhận vai trò của đất.</li><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q6, R1Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R1Q1</b>, quét từ khóa \"crop rotation\" ở đoạn 3: bài đọc giải thích kỹ thuật này bao gồm việc trồng các loại cây khác nhau trên cùng một thửa ruộng qua các mùa (planting different crops in the same field from season to season).</li><li>Với <b>R1Q5</b>, định vị cụm từ \"soil rich in organic material\" ở đoạn 4: bài đọc ghi nhận loại đất này có khả năng hấp thụ và giữ nhiều nước hơn đáng kể (absorb and hold significantly more water).</li><li>Với <b>R1Q6</b>, quét từ khóa \"cover cropping\" ở đoạn 3: mục đích chính của việc trồng cây che phủ là bảo vệ đất trống và ngăn ngừa xói mòn giữa các mùa vụ chính (protect bare soil between main growing seasons, preventing erosion).</li><li>Với <b>R1Q7</b>, quét từ khóa \"heavy rain\" hoặc \"flooding\" ở đoạn 4: đất khỏe giúp giảm ngập lụt trong các đợt mưa lớn nhờ khả năng thấm hút nước tốt.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q4):</b> Đối soát kỹ danh sách các nguyên nhân gây tổn hại đất được liệt kê trong bài: lạm dụng phân bón hóa học (đoạn 2), cày xới đất liên tục (đoạn 2), và xói mòn do gió mưa (đoạn 2). Phương án đề cập đến \"ô nhiễm không khí từ các nhà máy lân cận (Air pollution drifting from nearby factories)\" là chi tiết hoàn toàn không xuất hiện trong bài đọc.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q3</b>, từ <strong>\"gentler\"</strong> ở đoạn 3 mô tả các phương pháp canh tác mới nhằm bảo vệ và phục hồi đất, trái ngược với các phương pháp gây hại ở đoạn 2, do đó sát nghĩa nhất với tính chất ít gây hại hơn (less harmful).</li><li>Với <b>R1Q8</b>, từ <strong>\"offset\"</strong> ở đoạn 4 đi với lượng khí carbon dioxide tích tụ trong khí quyển, mang ý nghĩa cải thiện sức khỏe đất sẽ giúp bù đắp/cân bằng lại một phần lượng khí thải này, do đó đồng nghĩa với làm cân bằng (balance out).</li></ul></li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Kết hợp logic thông tin ở đoạn 4 về khả năng lưu trữ carbon của đất. Tác giả chỉ ra rằng đất khỏe lưu giữ lượng lớn carbon dưới lòng đất, từ đó suy luận được rằng việc cải thiện sức khỏe đất trên toàn thế giới sẽ góp phần có ý nghĩa trong việc giải quyết biến đổi khí hậu.</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái ngôn từ vĩ mô ở đoạn cuối cùng (đoạn 5). Tác giả nhận định tổn hại của đất có thể phục hồi dần nhờ sự nhận thức và chính sách hỗ trợ thích hợp, thể hiện tinh thần lạc quan, khuyến khích (Encouraging) và tin tưởng vào khả năng cải thiện khi có sự hợp tác.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Từ vựng</b> (R1Q3, R1Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R1Q1, R1Q5, R1Q6, R1Q7) và câu hỏi <b>Loại trừ</b> (R1Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm vững, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R1Q9), <b>Thái độ tác giả</b> (R1Q10) và <b>Ý chính toàn bài</b> (R1Q2).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does crop rotation involve?</span>",
+              "options": [
+                "Growing the same crop every season without change.",
+                "Adding chemical fertilizer instead of changing crops.",
+                "Removing all crops from a field for several years.",
+                "Planting different crops in the same field each season."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Soil health is important and much of the damage is reversible.",
+                "Chemical fertilizers are the only way to grow healthy crops.",
+                "Soil has no meaningful connection to climate change at all.",
+                "Most of the world's farmland has already been permanently ruined."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"gentler\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "genuine",
+                "cheaper",
+                "faster",
+                "less harmful"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a cause of soil damage?</span>",
+              "options": [
+                "Heavy use of chemical fertilizers over time",
+                "Air pollution drifting from nearby factories",
+                "Erosion caused by wind and rain",
+                "Repeated plowing of the same fields"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what benefit does soil rich in organic material provide?</span>",
+              "options": [
+                "It absorbs and holds significantly more water.",
+                "It eliminates the need for any rainfall at all.",
+                "It absorbs and holds significantly more water permanently.",
+                "It prevents all future soil erosion completely."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, cover cropping is mainly used to _______.</span>",
+              "options": [
+                "remove insects and fungi living in the soil",
+                "replace crop rotation as the main farming method",
+                "increase the price farmers receive for their crops",
+                "protect bare soil and prevent erosion between seasons"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what can healthy soil help reduce during heavy rain?</span>",
+              "options": [
+                "Flooding, by absorbing and holding more water permanently.",
+                "The overall temperature of the surrounding air.",
+                "Soil erosion caused only by wind, not rain.",
+                "Flooding, by absorbing and holding more water."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"offset\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "balance out",
+                "release",
+                "measure",
+                "increase"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between soil health and climate change?</span>",
+              "options": [
+                "Soil has no meaningful role in climate discussions at all.",
+                "Only chemical fertilizers can help address climate change.",
+                "Improving soil health could meaningfully help address climate change.",
+                "Climate change has already destroyed all farmable soil worldwide."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's attitude toward efforts to protect soil health?</span>",
+              "options": [
+                "Pessimistic, viewing soil damage as impossible to reverse.",
+                "Encouraging, viewing improvement as achievable with cooperation.",
+                "Neutral, offering no opinion on the issue.",
+                "Dismissive of farmers' ability to change their methods."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Housing Affordability in the UK and US: A Shared Crisis, Different Roots",
+            "text": "<p>That housing has become markedly less affordable across both the United Kingdom and the United States over the past two decades is, among economists studying either country, close to uncontested; what remains genuinely disputed is how much the two crises actually share in underlying cause, given that the two housing markets operate under strikingly different planning systems, tax structures, and patterns of urban geography.</p><p>In the UK, restrictive planning law has drawn particular attention from economists, since the country's postwar planning framework requires most new development to secure <b>discretionary</b> permission from local authorities rather than proceeding automatically within pre-zoned areas, a system that grants existing residents considerable influence over whether nearby construction proceeds at all. Some economists argue this structure has, over decades, produced a housing stock that has grown persistently slower than population and household formation would predict, though others counter that land scarcity in a small, densely populated country would constrain supply regardless of planning rules.</p><p>The American picture, drawing on a federal system in which land-use authority sits overwhelmingly with municipalities rather than national or even state government, presents a more geographically uneven story: some metropolitan areas, particularly those with robust local job growth clustered around technology or finance sectors, have seen housing costs rise sharply even as construction elsewhere in the same country remains comparatively unconstrained, suggesting that supply restriction alone cannot fully account for the American pattern without also accounting for uneven regional demand.</p><p><strong>This regional unevenness</strong>, several housing economists argue, complicates any policy prescription that treats the American housing market as a single, nationally uniform problem; a zoning reform that meaningfully increases housing supply in a slow-growing region may do comparatively little to address affordability in a high-demand coastal metropolitan area, where restrictive local zoning interacts with genuinely high demand in ways a supply-only explanation cannot fully capture.</p><p>Beyond supply constraints, both countries have seen housing increasingly treated as a financial asset rather than purely as shelter, a shift some economists trace partly to sustained low interest rates in the years following the 2008 financial crisis, which made borrowing to purchase property, including additional investment property, considerably cheaper relative to historical norms. Whether this <b>financialization</b> independently drove prices upward, or merely amplified price increases that supply constraints had already set in motion, remains a matter some researchers describe as empirically difficult to disentangle given how closely the two dynamics have moved together over the same period.</p><p>Government responses have varied considerably in both scope and apparent effectiveness: the UK has experimented with subsidized mortgage schemes intended to help first-time buyers, though critics note such schemes, by increasing what buyers can afford to bid without a corresponding increase in supply, may have modestly pushed prices upward rather than improving affordability overall. The US, lacking comparable federal housing-demand programs at similar scale, has instead seen a patchwork of state and local reforms — some loosening zoning restrictions, others introducing rent-stabilization measures — whose effects, given how recently many were implemented, remain too early to evaluate with confidence.</p><p>Taken together, the evidence suggests that while the UK and US housing crises share a family resemblance rooted partly in restricted supply and partly in housing's financialization, the precise mixture of causes, and consequently the most promising remedies, differ enough between the two countries — and even between regions within the US — that policies successful in one context should not be assumed to transfer cleanly to the other.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R2Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn kết luận tổng kết của bài: bài viết mở đầu bằng việc so sánh khủng hoảng nhà ở tại Anh và Mỹ có nhiều điểm chung nhưng khác biệt về nguyên nhân cốt lõi, và kết luận ở đoạn 7 rằng mặc dù hai quốc gia có sự tương đồng nhất định, sự kết hợp chính xác của các nguyên nhân và giải pháp triển vọng lại đủ khác biệt khiến chính sách của nước này khó áp dụng nguyên bản cho nước kia. Do đó, phương án đúng phải bao quát trọn vẹn việc khủng hoảng nhà ở tại Anh và Mỹ chia sẻ một số nguyên nhân nhưng đủ khác biệt để cần các giải pháp riêng biệt.</li><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R2Q1</b>, quét từ khóa \"regional unevenness\" ở đoạn 4: bài đọc giải thích sự bất bình đẳng theo khu vực làm phức tạp chính sách vì một cải cách tập trung vào nguồn cung ở khu vực tăng trưởng chậm có thể ít giải quyết được vấn đề giá cả ở các khu vực ven biển có cầu rất cao.</li><li>Với <b>R2Q5</b>, định vị cụm từ \"subsidized mortgage schemes\" ở đoạn 6: bài đọc chỉ ra các chương trình trợ cấp thế chấp của Anh có thể đã vô tình đẩy giá nhà tăng nhẹ do tăng sức mua mà không đi kèm sự gia tăng tương ứng về nguồn cung.</li><li>Với <b>R2Q7</b>, quét từ khóa \"planning law\" ở đoạn 2: luật quy hoạch của Anh yêu cầu hầu hết các dự án phát triển mới phải xin phép tùy nghi (discretionary permission) từ chính quyền địa phương theo từng trường hợp cụ thể thay vì được cấp phép tự động.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q4):</b> Đối soát kỹ các phản ứng/chính sách của chính phủ được liệt kê ở đoạn 6: chương trình trợ cấp thế chấp cho người mua nhà lần đầu tại Anh, các biện pháp cải cách quy hoạch vùng/bang tại Mỹ, và chính sách ổn định giá thuê nhà được áp dụng ở cấp địa phương. Phương án đề cập đến \"hạn chế nhập cư nhằm giảm cầu nhà ở (Immigration restrictions)\" là chi tiết hoàn toàn không xuất hiện trong bài đọc.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q3, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q3</b>, từ <strong>\"discretionary\"</strong> ở đoạn 2 mô tả quy trình cấp phép dựa trên sự xem xét, quyết định từng trường hợp của chính quyền địa phương thay vì cấp tự động, do đó đồng nghĩa với việc xem xét theo từng trường hợp (case-by-case).</li><li>Với <b>R2Q8</b>, từ <strong>\"financialization\"</strong> ở đoạn 5 được giải thích trực tiếp ngay trong câu liền trước là việc nhà ở ngày càng được xử lý/coi như một tài sản tài chính để đầu tư thay vì chỉ là nơi ở thuần túy, do đó mang nghĩa sát nhất với việc coi nhà ở là tài sản đầu tư (treatment as an investment asset).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Tập trung vào cụm từ chỉ định <strong>\"This regional unevenness\"</strong> ở đầu đoạn 4. Áp dụng quy tắc đọc ngược lại đoạn 3 trước đó: đoạn 3 phân tích bức tranh tại Mỹ mang tính chất không đồng đều về mặt địa lý giữa các vùng thị trấn/đô thị (geographically uneven story / uneven regional demand). Vì vậy, cụm từ này quy chiếu thẳng đến mô hình nhà ở không đồng đều về mặt địa lý tại Mỹ (the geographically uneven US housing pattern).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Kết hợp logic thông tin ở đoạn 5 về mối quan hệ giữa tài chính hóa và hạn chế nguồn cung. Tác giả chỉ ra rằng việc xác định yếu tố nào đóng vai trò động lực chính thúc đẩy giá nhà tăng là điều vô cùng khó phân định thực chứng vì cả hai động lực này đều diễn ra song song trong cùng một thời kỳ. Từ đó suy luận được rằng việc xác định yếu tố nào là nguyên nhân chính vẫn còn rất khó làm rõ.</li><li><b>Dạng câu hỏi Thái độ/Cách tiếp cận của tác giả (R2Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt văn bản. Tác giả liên tục đưa ra các góc nhìn đối trọng, phân tích sự tương tác phức tạp giữa nguồn cung, cầu vùng miền, quy hoạch và tài chính hóa mà không vội vàng quy kết cho một nguyên nhân đơn lẻ. Đây là minh chứng rõ nét cho cách tiếp cận phân tích mang tính thận trọng, khách quan (Analytical and cautious) và tránh đưa ra một lời giải thích đơn giản hóa.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R2Q6) và <b>Từ vựng</b> (R2Q3, R2Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R2Q1, R2Q5, R2Q7) và câu hỏi <b>Loại trừ</b> (R2Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R2Q9), <b>Cách tiếp cận tác giả</b> (R2Q10) và <b>Ý chính toàn bài</b> (R2Q2).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, why does regional unevenness complicate US housing policy?</span>",
+              "options": [
+                "Every US region shares identical housing demand levels.",
+                "Zoning reform has eliminated all regional price differences.",
+                "Coastal metropolitan areas have stopped experiencing any demand growth.",
+                "A supply-focused reform may not fix high-demand coastal markets."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Financialization is the only true cause of rising housing costs.",
+                "Restrictive planning law alone explains both countries' housing crises.",
+                "Government subsidy programs have already resolved both housing crises.",
+                "UK and US housing crises share causes but differ enough to need distinct remedies."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"discretionary\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "discreet",
+                "case-by-case",
+                "automatic",
+                "mandatory"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a government housing response?</span>",
+              "options": [
+                "US state and local zoning reform measures",
+                "UK subsidized mortgage schemes for first-time buyers",
+                "Rent-stabilization measures introduced locally",
+                "Immigration restrictions aimed at reducing housing demand"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what effect might UK subsidized mortgage schemes have had?</span>",
+              "options": [
+                "They increased housing supply without affecting buyer demand.",
+                "They may have modestly pushed prices upward without more supply.",
+                "They eliminated the need for any future planning reform.",
+                "They definitely reduced housing prices across the entire country."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This regional unevenness\"</strong> at the start of paragraph 4 refers to _______.</span>",
+              "options": [
+                "subsidized mortgage schemes",
+                "the geographically uneven US housing pattern",
+                "uniform national housing policy",
+                "postwar planning frameworks"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what has UK planning law required for most new development?</span>",
+              "options": [
+                "Permission only from national, not local, government.",
+                "No permission at all, since zoning was abolished nationally.",
+                "Discretionary permission from local authorities case by case.",
+                "Discretionary permission granted automatically without local input."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"financialization\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "treatment as an investment asset",
+                "deregulation",
+                "government subsidization",
+                "construction expansion"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about whether financialization or supply constraints primarily drove price increases?</span>",
+              "options": [
+                "Low interest rates had no measurable effect on either country.",
+                "Which factor primarily drove increases remains difficult to disentangle.",
+                "Financialization alone has been definitively proven to be the sole cause.",
+                "Supply constraints have been fully ruled out as a contributing cause."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall approach to explaining the UK and US housing crises?</span>",
+              "options": [
+                "Focused narrowly on blaming government subsidy programs alone.",
+                "Analytical and cautious, avoiding a single unified explanation.",
+                "Strongly convinced that planning law alone explains both crises.",
+                "Dismissive of any connection between the two countries' markets."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Rethinking Adipose Tissue: More Than Passive Storage",
+            "text": "<p>For much of the twentieth century, physiologists treated fat tissue as biologically unremarkable — an inert reservoir of stored energy, expanding or shrinking passively according to caloric surplus or deficit, with little independent influence over the rest of the body. <strong>That assumption</strong> has been comprehensively overturned over the past three decades, replaced by a considerably more active picture in which adipose tissue functions as a genuine endocrine organ, continuously secreting hormones and signaling molecules that shape appetite, inflammation, and metabolic regulation throughout the body.</p><p>Not all fat behaves identically. White adipose tissue, the type most people associate with body fat generally, stores energy in large lipid droplets and constitutes the overwhelming majority of adult human fat mass. Brown adipose tissue, by contrast, contains densely packed mitochondria that burn stored lipids directly to generate heat rather than store energy, a function particularly important in infants, who lack the ability to shiver effectively, and in animals that hibernate. Adult humans retain modest brown fat deposits, primarily around the neck and upper back, though the functional significance of this <strong>residual</strong> tissue in adult metabolism remains an active area of investigation.</p><p>Central to adipose tissue's reclassification as an endocrine organ is the discovery of adipokines, hormone-like signaling molecules secreted directly by fat cells. Leptin, the most extensively studied adipokine, signals to the brain's hypothalamus roughly in proportion to total fat mass, suppressing appetite when energy reserves are <strong>ample</strong>. Paradoxically, many people with obesity exhibit elevated leptin levels alongside persistent hunger, a pattern researchers now attribute to leptin resistance — a blunted brain response to the hormone rather than an absence of the signal itself, complicating any straightforward account in which more leptin should mean less appetite.</p><p>Beyond appetite regulation, adipose tissue plays a considerably less appreciated role in chronic low-grade inflammation, particularly as fat mass, and visceral fat specifically, expands beyond a certain threshold. Enlarged fat cells appear to attract immune cells, particularly a class of macrophages that secrete inflammatory signaling molecules directly into the surrounding tissue and bloodstream. This chronic, low-level inflammation — distinct from the acute inflammation associated with injury or infection — has been implicated in insulin resistance, cardiovascular disease, and several other conditions long associated with obesity, suggesting that at least part of obesity's health burden may operate through this inflammatory pathway rather than through excess weight alone.</p><p>Where fat accumulates, current research suggests, may matter as much as how much accumulates. Visceral fat, stored deep within the abdominal cavity surrounding internal organs, appears considerably more metabolically active — and more strongly linked to the inflammatory pathway discussed above — than subcutaneous fat stored just beneath the skin. Two people with identical total body fat percentages can consequently carry meaningfully different metabolic risk depending on how that fat is distributed, a finding that has led some researchers to argue that waist circumference, rather than body mass index alone, deserves greater clinical attention as a risk indicator.</p><p>Further complicating the white-versus-brown distinction, researchers have identified a third category sometimes termed beige fat: cells residing within white fat depots that, under certain conditions such as prolonged cold exposure or sustained aerobic exercise, begin expressing some of brown fat's heat-generating characteristics. <strong>[1]</strong> This conversion, observed most clearly in animal studies, has generated considerable interest as a potential therapeutic target for obesity and metabolic disease. <strong>[2]</strong> Whether beige fat can be reliably and safely induced at a clinically meaningful scale in humans, however, remains substantially less certain than the animal evidence alone might suggest. <strong>[3]</strong> Several pharmaceutical approaches attempting to trigger this conversion directly have so far produced inconsistent results in early human trials. <strong>[4]</strong></p><p>Taken together, this reframing of adipose tissue — from passive storage depot to active, hormonally communicative organ with distinct subtypes and distribution-dependent risk profiles — has meaningfully reshaped how researchers approach obesity and metabolic disease, even as substantial uncertainty remains about which of these mechanisms offer the most promising targets for future treatment.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R3Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn kết luận tổng kết của bài: bài viết mở đầu bằng việc chỉ ra quan niệm cũ coi mô mỡ chỉ là nơi lưu trữ thụ động đã bị bác bỏ hoàn toàn, thay vào đó mô mỡ hoạt động như một cơ quan nội tiết chủ động liên tục tiết ra các hormone; đoạn cuối đúc kết lại sự thay đổi nhận thức này. Do đó, phương án đúng phải bao quát trọn vẹn bản chất mô mỡ hoạt động như một cơ quan tín hiệu hormone chủ động chứ không phải kho lưu trữ thụ động, tránh chọn các phương án quá hẹp hoặc cực đoan.</li><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R3Q1</b>, quét từ khóa \"leptin\" hoặc \"obesity\" ở đoạn 3: bài đọc chỉ ra nghịch lý là nhiều người béo phì có nồng độ leptin cao nhưng vẫn cảm thấy đói liên tục (elevated leptin levels alongside persistent hunger) do hiện tượng kháng leptin.</li><li>Với <b>R3Q5</b>, định vị cụm từ \"waist circumference\" ở đoạn 5 để tìm lý do: bài đọc giải thích mỡ nội tạng (visceral fat) liên kết mạnh mẽ hơn với nguy cơ viêm nhiễm so với mỡ dưới da, khiến vòng eo trở thành chỉ số cảnh báo rủi ro quan trọng.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q4):</b> Đối soát kỹ các chức năng/đặc tính của mô mỡ được liệt kê trong bài: lưu trữ năng lượng trong các giọt lipid lớn (đoạn 2), tạo nhiệt nhờ mật độ ty thể dày đặc (đoạn 2), và tiết ra các phân tử tín hiệu giống hormone (đoạn 3). Phương án đề cập đến \"sản xuất tế bào hồng cầu cho hệ tuần hoàn (Producing red blood cells for circulation)\" là chi tiết hoàn toàn không xuất hiện trong văn bản.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q3, R3Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q3</b>, từ <strong>\"ample\"</strong> ở đoạn 3 mô tả lượng năng lượng dự trữ khi leptin được tiết ra để ức chế cảm giác thèm ăn (khi năng lượng đã dồi dào/đầy đủ), do đó đồng nghĩa với sự phong phú, dồi dào (abundant).</li><li>Với <b>R3Q8</b>, từ <strong>\"residual\"</strong> ở đoạn 2 mô tả phần mỡ nâu còn sót lại ở người trưởng thành sau khi sinh ra, do đó mang nghĩa sát nhất với phần còn lại, thặng dư (remaining).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q6):</b> Tập trung vào cụm từ chỉ định <strong>\"That assumption\"</strong> ở đầu câu hai đoạn 1. Áp dụng quy tắc đọc ngược lại câu trước: câu trước nhắc đến quan niệm cho rằng mô mỡ chỉ là một kho lưu trữ năng lượng thụ động, trơ về mặt sinh học (an inert reservoir of stored energy). Vì vậy, \"That assumption\" quy chiếu thẳng đến giả định xem mô mỡ là kho lưu trữ thụ động, không hoạt tính.</li><li><b>Dạng câu hỏi Chèn câu vào đoạn văn (R3Q7):</b> Phân tích mối liên hệ logic của câu cần chèn: \"This process, sometimes called browning...\" (Quá trình này, đôi khi gọi là sự hóa nâu...). Tìm vị trí nhắc đến quá trình chuyển đổi tế bào ngay trước đó: câu đầu tiên của đoạn 6 giới thiệu quá trình các tế bào mỡ trắng bắt đầu bộc lộ đặc tính tạo nhiệt của mỡ nâu. Câu chèn bổ sung tên gọi \"browning\" và tính chất đảo ngược cho chính quá trình chuyển đổi này. Do đó, vị trí [1] (ngay sau câu 1 đoạn 6) là vị trí duy nhất đảm bảo tính liên kết từ vựng và logic.</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Kết hợp logic thông tin ở đoạn 6 về các hướng tiếp cận dược phẩm. Bài đọc chỉ ra rằng các thử nghiệm lâm sàng ban đầu trên người nhằm kích hoạt chuyển đổi mỡ beige vẫn tạo ra kết quả không nhất quán (produced inconsistent results). Từ đó suy luận được rằng các phương pháp dược phẩm vẫn chưa thành công một cách đáng tin cậy trong các thử nghiệm đầu tiên trên người.</li><li><b>Dạng câu hỏi Thái độ tác giả (R3Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt văn bản và đặc biệt ở đoạn kết luận. Tác giả đánh giá cao việc tái định hình mô mỡ giúp mở ra các hướng điều trị mới, nhưng đồng thời nhấn mạnh sự không chắc chắn đáng kể (substantial uncertainty) về mặt hiệu quả thực tế. Đây là minh chứng rõ nét cho thái độ lạc quan có mức độ/thận trọng đi kèm với sự thừa nhận các rào cản chưa giải quyết (Cautiously optimistic, while acknowledging significant remaining uncertainty).</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R3Q6), <b>Chèn câu</b> (R3Q7) và <b>Từ vựng</b> (R3Q3, R3Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q5) và câu hỏi <b>Loại trừ</b> (R3Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R3Q9), <b>Thái độ tác giả</b> (R3Q10) và <b>Ý chính toàn bài</b> (R3Q2).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what pattern do many people with obesity show regarding leptin?</span>",
+              "options": [
+                "Elevated leptin levels alongside persistent hunger, always cured.",
+                "Elevated leptin levels alongside persistent hunger.",
+                "Elevated leptin levels alongside reduced fat mass.",
+                "Extremely low leptin levels alongside reduced hunger."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Fat tissue functions as an active hormone-signaling organ, not passive storage.",
+                "Brown fat alone explains adipose tissue's endocrine function.",
+                "Adipose tissue remains merely passive storage, contrary to older views.",
+                "Leptin resistance affects every person regardless of body fat levels."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"ample\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "stored",
+                "abundant",
+                "simple",
+                "excessive"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a function or characteristic of fat tissue?</span>",
+              "options": [
+                "Generating heat through dense mitochondria",
+                "Storing energy within large lipid droplets",
+                "Producing red blood cells for circulation",
+                "Secreting hormone-like signaling molecules"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, why might waist circumference deserve more clinical attention than BMI alone?</span>",
+              "options": [
+                "Subcutaneous fat is more strongly linked to inflammatory risk.",
+                "Visceral fat is more strongly linked to inflammatory risk.",
+                "Waist circumference replaced BMI as the only diagnostic tool.",
+                "BMI has been proven completely unrelated to any health risk."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"That assumption\"</strong> in paragraph 1 refers to _______.</span>",
+              "options": [
+                "fat as an inert, passive storage depot",
+                "caloric surplus or deficit",
+                "the rest of the body",
+                "hormones and signaling molecules"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'This process, sometimes called browning, appears to be at least partly reversible once the triggering conditions are removed.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"residual\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "vital",
+                "remaining",
+                "residential",
+                "metabolic"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about pharmaceutical approaches to inducing beige fat conversion in humans?</span>",
+              "options": [
+                "Inconsistent trial results caused researchers to stop studying brown fat entirely.",
+                "They initially worked well before ultimately being abandoned entirely.",
+                "They have not yet reliably succeeded in early trials.",
+                "Brown fat contains densely packed mitochondria that generate heat."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the therapeutic potential of manipulating fat tissue types?</span>",
+              "options": [
+                "Cautiously optimistic, while acknowledging significant remaining uncertainty.",
+                "Narrowly critical only of pharmaceutical trial design methods.",
+                "Fully confident that beige fat therapies will soon cure obesity.",
+                "Dismissive of any therapeutic potential in fat tissue research."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Economics of the Secondhand Clothing Trade",
+            "text": "<p>Not only has the secondhand clothing trade shed much of the stigma once attached to buying garments previously owned by strangers, but the sector has, over the past decade, quietly grown into a commercial force substantial enough that several major retailers now operate dedicated resale platforms alongside their conventional new-goods business — a convergence that would have seemed commercially implausible to most apparel executives only fifteen years earlier, when resale was still treated almost exclusively as a niche pursuit for budget-conscious shoppers or vintage-clothing enthusiasts rather than a mainstream retail category in its own right.</p><p>Several converging forces appear to explain this shift, though economists studying the sector caution against attributing it to any single dominant cause. Rising environmental awareness among younger consumers has plausibly increased demand for garments perceived as more sustainable than new production, though survey-based evidence for how much this awareness actually drives individual purchasing decisions, as opposed to simply shaping how consumers describe their motivations after the fact, remains considerably weaker than the cultural narrative surrounding sustainable consumption might suggest. Online resale platforms, by substantially lowering the transaction costs — photographing, listing, shipping, payment processing — that once made informal secondhand selling burdensome, have arguably done more to expand the market's practical accessibility than any shift in underlying consumer values.</p><p>That major retailers have entered resale directly, rather than simply tolerating third-party platforms reselling their products, reflects a further calculation beyond consumer demand alone: brands increasingly recognize that uncontrolled secondhand markets can <strong>undercut</strong> new-product pricing and dilute brand positioning, whereas an officially sanctioned resale channel allows a retailer to capture some of that transaction value itself while simultaneously reinforcing a sustainability narrative useful for broader brand marketing. Whether this dual motivation — genuine environmental commitment intertwined with defensive market positioning — meaningfully changes how these programs are designed and operated compared to independent resale platforms remains, at this stage, an underexamined empirical question rather than a settled one.</p><p>The secondhand trade's environmental credentials, frequently invoked in both marketing materials and casual public discussion, turn out to be considerably more qualified once examined closely. Extending a garment's usable life by purchasing it secondhand does, most life-cycle analyses agree, reduce the average per-wear environmental footprint compared to that same garment being discarded prematurely. What remains genuinely contested is whether resale purchasing, in aggregate, meaningfully <strong>displaces</strong> new-garment purchasing rather than simply adding to total consumption — a distinction with substantial implications, since a secondhand purchase that merely supplements rather than replaces a new purchase captures considerably less of the claimed environmental benefit.</p><p><strong>This displacement question</strong> connects directly to a broader pattern some economists have identified in resold-goods markets generally: cheaper resale prices can, under certain conditions, expand rather than reduce total consumption by making frequent purchasing more affordable, a dynamic sometimes termed the rebound effect. <strong>[1]</strong> Whether this effect meaningfully applies to secondhand clothing specifically, as opposed to markets for durable goods where it has been more extensively documented, remains contested among researchers who study the sector. <strong>[2]</strong> Some point to survey evidence suggesting resale shoppers report buying more items overall, not fewer, once secondhand options become more accessible and affordable. <strong>[3]</strong> Others counter that this survey-based evidence cannot easily distinguish increased total consumption from consumption merely redirected away from new-garment purchases the shopper would otherwise have made. <strong>[4]</strong></p><p>Labor conditions within the secondhand supply chain have also drawn increasing scrutiny, particularly at sorting facilities that process bulk donated clothing shipped from wealthier countries for resale or export. Much of this sorting labor occurs in lower-wage regions under conditions that, while generally distinct from the manufacturing-stage labor abuses long associated with new fast-fashion production, nonetheless raise comparable ethical questions. Critics argue that the secondhand trade's broadly positive public image has allowed these conditions to receive disproportionately less scrutiny than conditions in new-garment manufacturing, even though the underlying economic vulnerabilities driving both forms of labor exploitation arguably overlap considerably more than public discussion typically acknowledges.</p><p>Taken together, the secondhand clothing trade occupies a considerably more complicated position than either its most enthusiastic advocates or its harshest critics tend to acknowledge: capable of delivering genuine, if only partially quantified, environmental and economic benefit under some conditions, while simultaneously carrying consumption-pattern and labor complications that its predominantly positive public narrative has, evidence increasingly suggests, not yet fully absorbed or addressed.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R4Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn kết luận tổng kết của bài: bài viết mở đầu bằng việc nêu sự phát triển của thị trường quần áo cũ từ một ngành ngách thành lực lượng thương mại lớn, và đúc kết ở đoạn cuối rằng ngành này chiếm vị trí phức tạp — có khả năng mang lại lợi ích thực sự nhưng chỉ mới được chứng minh một phần và còn đi kèm nhiều hệ lụy về tiêu dùng, lao động. Do đó, phương án đúng phải bao quát trọn vẹn bản chất ngành thời trang cũ mang lại lợi ích thực tế nhưng mới chỉ được chứng minh một phần, tránh chọn các phương án quá cực đoan hoặc khẳng định phiến diện.</li><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R4Q1</b>, quét từ khóa \"major retailers\" hoặc \"undercut\" ở đoạn 3: bài đọc chỉ ra các nhà bán lẻ lớn tự vận hành nền tảng bán lại nhằm thu lại một phần giá trị giao dịch đồng thời hạn chế việc các thị trường tự do làm hạ giá/ảnh hưởng tiêu cực đến sản phẩm mới của họ (capture value while limiting undercutting).</li><li>Với <b>R4Q5</b>, định vị cụm từ \"genuinely contested\" ở đoạn 4: bài đọc giải thích điều vẫn còn tranh cãi là liệu việc mua đồ cũ có thực sự thay thế (displaces) việc mua đồ mới hay chỉ đơn thuần là cộng thêm vào tổng lượng tiêu dùng.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q4):</b> Đối soát kỹ các yếu tố thúc đẩy sự phát triển của ngành thời trang cũ ở đoạn 2 và 3: nhận thức về môi trường của người tiêu dùng trẻ (environmental awareness), chi phí giao dịch giảm nhờ các nền tảng trực tuyến (lower transaction costs), và sự tham gia trực tiếp của các nhà bán lẻ lớn (retailers entering resale directly). Phương án đề cập đến \"chính sách ưu đãi thuế mới của chính phủ (government tax incentives)\" là chi tiết hoàn toàn không xuất hiện trong văn bản.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q3</b>, từ <strong>\"undercut\"</strong> ở đoạn 3 mô tả việc thị trường bán lại tự do làm suy giảm/ảnh hưởng tiêu cực đến định giá của sản phẩm mới, do đó sát nghĩa nhất với làm yếu đi/làm suy giảm (weaken).</li><li>Với <b>R4Q8</b>, từ <strong>\"displaces\"</strong> ở đoạn 4 đi với \"new-garment purchasing\" để nói về việc mua đồ cũ thay thế cho việc mua đồ mới, do đó đồng nghĩa với thay thế (replaces).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q6):</b> Tập trung vào cụm từ chỉ định <strong>\"This displacement question\"</strong> ở đầu đoạn 5. Áp dụng quy tắc đọc ngược lại câu cuối của đoạn 4: câu trước đặt ra nghi vấn liệu việc mua bán đồ cũ có thực sự thay thế hay chỉ làm tăng thêm tổng lượng tiêu dùng đồ mới. Vì vậy, cụm từ này quy chiếu thẳng đến câu hỏi liệu đồ cũ có thay thế hay làm gia tăng thêm lượng tiêu dùng mới.</li><li><b>Dạng câu hỏi Chèn câu vào đoạn văn (R4Q7):</b> Phân tích mối liên hệ logic của câu cần chèn: \"This uncertainty mirrors, in a smaller way, the broader debate over whether efficiency gains generally reduce or merely redirect resource consumption.\" (Sự không chắc chắn này phản ánh một cách nhỏ hơn cuộc tranh luận rộng lớn hơn về việc liệu tăng hiệu suất có giảm bớt hay chỉ chuyển hướng tiêu thụ tài nguyên). Tìm vị trí đúc kết lại toàn bộ các ý kiến trái chiều được trình bày trong đoạn 5: câu trước vị trí [4] nêu quan điểm phản bác của một số nhà nghiên cứu đối với các khảo sát tiêu dùng. Việc đặt câu chèn ở vị trí [4] (cuối đoạn 5) giúp tổng kết toàn bộ sự bất đồng ý kiến này bằng cách liên hệ nó với cuộc tranh luận rộng hơn. Do đó, vị trí [4] là lựa chọn duy nhất đảm bảo tính liên kết tổng hợp logic.</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Kết hợp logic thông tin ở đoạn 5 về hiệu ứng bật nảy (rebound effect). Bài đọc chỉ ra rằng khi các nền tảng bán lại giúp việc mua sắm đồ cũ dễ dàng và rẻ hơn, một số người tiêu dùng có xu hướng mua nhiều đồ hơn tổng cộng. Từ đó suy luận được rằng việc tăng khả năng truy cập nền tảng bán lại có thể làm tăng tổng lượng tiêu dùng ở một số người sắm đồ.</li><li><b>Dạng câu hỏi Thái độ tác giả (R4Q10):</b> Phân tích sắc thái ngôn từ vĩ mô ở đoạn kết luận (đoạn 7). Tác giả nhận định ngành quần áo cũ ở vị trí phức tạp khi vừa mang lại lợi ích thực sự nhưng cũng đi kèm nhiều thách thức về mô hình tiêu dùng và điều kiện lao động chưa được giải quyết triệt để. Đây là minh chứng rõ nét cho thái độ chừng mực, khách quan (Measured), thừa nhận lợi ích thực tế đi kèm với những phức tạp chưa được làm rõ.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R4Q6), <b>Chèn câu</b> (R4Q7) và <b>Từ vựng</b> (R4Q3, R4Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R4Q1, R4Q5) và câu hỏi <b>Loại trừ</b> (R4Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R4Q9), <b>Thái độ tác giả</b> (R4Q10) và <b>Ý chính toàn bài</b> (R4Q2).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, why have major retailers begun operating their own resale platforms?</span>",
+              "options": [
+                "Rising consumer environmental awareness alone forced this business decision.",
+                "Every retailer now sells exclusively secondhand rather than new goods.",
+                "It has definitely eliminated all undercutting from third-party resellers.",
+                "It may let them capture value while limiting undercutting."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Consumer demand alone fully caused the secondhand trade's recent growth.",
+                "Secondhand clothing has been conclusively proven to reduce total consumption.",
+                "Secondhand clothing offers no meaningful economic or environmental benefit.",
+                "Secondhand clothing offers real but only partially proven benefits."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"undercut\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "weaken",
+                "undercoat",
+                "replace",
+                "destroy"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor in the secondhand trade's growth?</span>",
+              "options": [
+                "Major retailers entering the resale market directly",
+                "Rising environmental awareness among younger consumers",
+                "Lower transaction costs from online resale platforms",
+                "New government tax incentives for resale businesses"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what remains genuinely contested about secondhand purchasing's environmental benefit?</span>",
+              "options": [
+                "Whether it displaces purchases only in wealthier countries specifically.",
+                "Whether it meaningfully displaces new purchases or merely adds to them.",
+                "It has been proven to always fully replace new purchases.",
+                "Life-cycle analyses caused the rebound effect to disappear entirely."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This displacement question\"</strong> at the start of paragraph 5 refers to _______.</span>",
+              "options": [
+                "life-cycle analyses",
+                "the per-wear environmental footprint",
+                "whether resale purchasing displaces or adds to new consumption",
+                "prematurely discarded garments"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'This uncertainty mirrors, in a smaller way, the broader debate over whether efficiency gains generally reduce or merely redirect resource consumption.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"displaces\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "replaces",
+                "eliminates",
+                "displays",
+                "reduces"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between resale platform accessibility and total clothing consumption?</span>",
+              "options": [
+                "Total consumption increases caused resale platforms to become more accessible.",
+                "Increased accessibility only affects durable-goods markets, never clothing.",
+                "Increased accessibility may raise total consumption for some shoppers.",
+                "Increased accessibility has been proven to raise total consumption for everyone."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall stance toward claims about the secondhand clothing trade's benefits?</span>",
+              "options": [
+                "Dismissive, viewing the secondhand trade as offering no real benefit.",
+                "Measured, acknowledging real benefit alongside unresolved complications.",
+                "Fully convinced the secondhand trade is an unqualified success.",
+                "Narrowly focused only on criticizing sorting-facility labor conditions."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "formal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You are the Director of an English Center. You received an email from a Filipino teacher named Mr. Cruz who is interested in applying for a teaching position.</p> Read part of his email below.",
+          "content": "<p class='mb-1'>I am very interested in joining your teaching staff. However, I would like to know more about the center before applying.</p><ul><li>Who are your primary students (children or adults)?</li><li>How many classes are teachers expected to teach per week?</li><li>Does the center organize any outdoor activities for students?</li><li>What is the application process?</li></ul>",
+          "description": "Write an email responding to Mr. Cruz. You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li><strong>Dạng bài:</strong> Formal Email (Thư công việc trang trọng).</li><li><strong>Vai trò:</strong> Giám đốc trung tâm tiếng Anh.</li><li><strong>Yêu cầu:</strong> Trả lời 4 câu hỏi: đối tượng học sinh, số buổi dạy/tuần, hoạt động ngoại khóa và quy trình ứng tuyển.</li><li><strong>Độ dài:</strong> Tối thiểu 120 từ.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Dear Mr. Cruz,</li><li><strong>Opening:</strong> Cảm ơn vì sự quan tâm của ứng viên đến trung tâm. Ví dụ: Thank you for your interest in joining our English center.</li><li><strong>Body Paragraph 1:</strong> Trả lời về đối tượng học sinh và thời lượng dạy. Ví dụ: Currently, our center primarily focuses on teaching English to children aged 6 to 15. A full-time teacher usually covers 10 to 12 classes per week.</li><li><strong>Body Paragraph 2:</strong> Trả lời về hoạt động ngoại khóa. Ví dụ: Regarding outdoor activities, we regularly organize English camps and field trips to help students practice in real-life situations.</li><li><strong>Body Paragraph 3:</strong> Hướng dẫn ứng tuyển. Ví dụ: To apply, please send your CV and scanned teaching certificates to our HR email.</li><li><strong>Closing & Sign-off:</strong> Sincerely, / Best regards, [Your Title].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng văn phong chuyên nghiệp, lịch sự. Sử dụng các cấu trúc liệt kê và giải thích quy trình.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Teaching position:</strong> Vị trí giảng dạy</li><li><strong>Target audience:</strong> Đối tượng mục tiêu</li><li><strong>Teaching workload:</strong> Khối lượng công việc giảng dạy</li><li><strong>Extracurricular activities:</strong> Hoạt động ngoại khóa</li><li><strong>Recruitment process:</strong> Quy trình tuyển dụng</li><li><strong>Teaching certificates:</strong> Bằng cấp giảng dạy</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>In response to your query:</strong> Để trả lời câu hỏi của ông</li><li><strong>In terms of:</strong> Xét về mặt</li><li><strong>Furthermore:</strong> Hơn thế nữa</li><li><strong>As for the application:</strong> Về phần ứng tuyển</li><li><strong>Should you have any further questions:</strong> Nếu ông có thêm câu hỏi nào</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>We are pleased to hear from you:</strong> Chúng tôi rất vui khi nhận được thư của ông.</li><li><strong>We look forward to receiving your application:</strong> Chúng tôi mong nhận được hồ sơ của ông.</li><li><strong>We appreciate your interest:</strong> Chúng tôi trân trọng sự quan tâm của ông.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Sử dụng đại từ quá thân mật (ví dụ: Hey/Hi) thay vì Dear.</li><li>Viết thiếu một trong bốn ý hỏi của đề bài.</li><li>Sử dụng thì tương lai hoặc hiện tại không nhất quán khi mô tả quy định trung tâm.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Kiểm tra xem đã có thông tin về cả người lớn/trẻ em và hoạt động ngoại khóa chưa.</li><li>Đảm bảo giọng văn thể hiện được vị thế của một giám đốc (lịch sự nhưng quyết đoán).</li><li>Soát lỗi chính tả từ \"extracurricular\" và \"certificates\".</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy cung cấp thông tin rõ ràng, minh bạch để thu hút ứng viên tiềm năng, điều này thể hiện kỹ năng Task Fulfillment tốt.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "opinion",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>It is often argued that mental health, physical exercise, and a healthy lifestyle play a crucial role in improving a person's cognitive functions.</p><p class='mb-1'>Some experts believe that these factors are the key to maintaining a sharp memory as people get older.</p><p class='mb-1'><strong>To what extent do you agree or disagree that mental health and a healthy lifestyle benefit people's memory?</strong></p>",
+          "description": "Write an essay to an educated reader to give your opinion on whether mental health and a healthy lifestyle benefit people's memory. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li><strong>Dạng bài:</strong> Opinion Essay (Agree/Disagree).</li><li><strong>Chủ đề:</strong> Tác động của sức khỏe tinh thần và lối sống lành mạnh lên trí nhớ.</li><li><strong>Yêu cầu:</strong> Nêu rõ mức độ đồng ý và giải thích tại sao hai yếu tố này giúp cải thiện khả năng ghi nhớ.</li><li><strong>Độ dài:</strong> Tối thiểu 250 từ.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu mối liên hệ giữa lối sống và trí não. Khẳng định hoàn toàn đồng ý (Strongly Agree).</li><li><strong>Body 1:</strong> Phân tích vai trò của sức khỏe tinh thần. Ví dụ: A stress-free mind allows for better concentration and information retention.</li><li><strong>Body 2:</strong> Phân tích vai trò của thể thao và lối sống (dinh dưỡng, ngủ nghỉ). Ví dụ: Physical exercise increases blood flow to the brain, which stimulates the growth of new brain cells.</li><li><strong>Body 3:</strong> Kết hợp giữa tinh thần và thể chất để tạo ra trí nhớ bền vững.</li><li><strong>Conclusion:</strong> Tóm tắt lại các luận điểm và khẳng định tầm quan trọng của việc chăm sóc bản thân toàn diện.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các thuật ngữ liên quan đến sinh học và tâm lý học cơ bản ở mức độ B1/B2 để tăng tính thuyết phục.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Cognitive function:</strong> Chức năng nhận thức</li><li><strong>Information retention:</strong> Khả năng lưu giữ thông tin</li><li><strong>Mental well-being:</strong> Sức khỏe tinh thần</li><li><strong>Physical exertion:</strong> Sự nỗ lực thể chất (luyện tập)</li><li><strong>Memory loss:</strong> Suy giảm trí nhớ</li><li><strong>Neurological health:</strong> Sức khỏe thần kinh</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Undeniably:</strong> Không thể phủ nhận</li><li><strong>In light of this:</strong> Dưới góc độ này</li><li><strong>To illustrate:</strong> Để minh họa</li><li><strong>From a biological perspective:</strong> Từ góc nhìn sinh học</li><li><strong>By contrast:</strong> Ngược lại</li><li><strong>Ultimately:</strong> Cuối cùng</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Brain power:</strong> Thay cho \"memory\".</li><li><strong>Wholesome habits:</strong> Thay cho \"healthy lifestyle\".</li><li><strong>Psychological state:</strong> Thay cho \"mental health\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li><strong>I am of the opinion that...:</strong> Tôi có quan điểm rằng...</li><li><strong>There is ample evidence to suggest that...:</strong> Có nhiều bằng chứng cho thấy rằng...</li><li><strong>Not only does it benefit the body, but it also...:</strong> Không chỉ có lợi cho cơ thể, mà nó còn...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nói về sức khỏe thể chất mà quên mất yếu tố tinh thần (mental health).</li><li>Dùng quá nhiều từ vựng chung chung như \"good\", \"nice\", \"bad\".</li><li>Thiếu ví dụ minh họa về cách một lối sống cụ thể giúp ích cho trí nhớ (ví dụ: ngủ đủ giấc).</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Đảm bảo đoạn kết bài không đưa ra thông tin mới hoàn toàn.</li><li>Kiểm tra lại các mạo từ (a, an, the) và danh từ số nhiều.</li><li>Đảm bảo câu Thesis Statement ở mở bài phản ánh đúng nội dung các đoạn thân bài.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tiếp cận vấn đề theo hướng khoa học: Tập thể dục -> Lưu thông máu -> Trí nhớ tốt. Tư duy logic này sẽ giúp bạn đạt điểm cao ở phần Coherence và Cohesion.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you often use banking services?",
+            "What do you think about the quality of banking services in your area?",
+            "Would you rather do your banking online or in person? Why?",
+            "Do you prefer studying alone or with a group?",
+            "What time of day do you study best?",
+            "Do you think your study habits have changed compared to the past?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này gồm 6 câu hỏi trong 3 phút, đánh giá khả năng giao tiếp tự nhiên và phản xạ ngôn ngữ của bạn.</li><li><strong>Topic A (Dịch vụ ngân hàng):</strong> Câu 1–3 hỏi về tần suất sử dụng dịch vụ ngân hàng, chất lượng dịch vụ và sở thích giữa ngân hàng online và trực tiếp.</li><li><strong>Topic B (Sở thích học tập):</strong> Câu 4–6 hỏi về học một mình hay học nhóm, thời điểm học hiệu quả nhất và sự thay đổi thói quen học tập theo thời gian.</li><li>Giám khảo đánh giá dựa trên độ trôi chảy, vốn từ vựng, ngữ pháp và phát âm.</li><li>Nên dành khoảng 25–35 giây cho mỗi câu và cân bằng thời gian giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc ARE: Answer → Reason → Example để trả lời đầy đủ và tự nhiên.</li><li><strong>Ví dụ Topic A:</strong> Yes, I use banking services quite often, mainly for transferring money and paying bills. For example, I use my banking app almost every day.</li><li><strong>Ví dụ Topic B:</strong> I prefer studying alone because I can focus better without distractions. For instance, I usually study best in the early morning when my mind is fresh.</li><li>Luôn tự hỏi Why? hoặc Can you tell me more? để kéo dài câu trả lời một cách tự nhiên.</li><li>Dùng câu chuyển ý: Besides banking, I would also like to share my study preferences.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói ổn định, dùng từ đệm khi cần thời gian suy nghĩ thay vì im lặng kéo dài.</li><li>Dùng hiện tại đơn để nói về thói quen và hiện tại hoàn thành khi nói về sự thay đổi so với trước đây.</li><li>Nếu quên từ vựng, hãy mô tả khái niệm bằng từ đơn giản hơn thay vì dừng lại.</li><li>Từ vựng Topic A: a reliable service (dịch vụ đáng tin cậy), a secure transaction (giao dịch an toàn), a bank branch (chi nhánh ngân hàng).</li><li>Từ vựng Topic B: concentrate better (tập trung tốt hơn), a study routine (thói quen học tập), exchange ideas (trao đổi ý tưởng).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>convenient banking transactions – giao dịch ngân hàng thuận tiện</li><li>a user-friendly app – ứng dụng thân thiện với người dùng</li><li>save time and effort – tiết kiệm thời gian và công sức</li><li>work independently – làm việc độc lập</li><li>a productive study session – một buổi học hiệu quả</li><li>adapt my learning method – điều chỉnh phương pháp học tập</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>First of all – trước hết</li><li>In addition – ngoài ra</li><li>For example – ví dụ</li><li>On top of that – hơn thế nữa</li><li>Therefore – vì vậy</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>In my opinion, online banking has made financial management much easier. – Theo tôi, ngân hàng trực tuyến đã giúp việc quản lý tài chính dễ dàng hơn nhiều.</li><li>I personally think good banking services should be fast, secure and accessible. – Cá nhân tôi nghĩ dịch vụ ngân hàng tốt cần nhanh chóng, an toàn và dễ tiếp cận.</li><li>From my perspective, visiting a bank in person is sometimes still necessary for important transactions. – Theo tôi, đến ngân hàng trực tiếp đôi khi vẫn cần thiết cho các giao dịch quan trọng.</li><li>I believe that studying alone helps me concentrate better than studying in a group. – Tôi tin rằng học một mình giúp tôi tập trung tốt hơn là học nhóm.</li><li>As far as I am concerned, everyone should find the study method that works best for them. – Theo tôi, mỗi người nên tìm ra phương pháp học phù hợp nhất với bản thân.</li><li>Personally, my study habits have become more organized compared to a few years ago. – Cá nhân tôi thấy thói quen học tập của mình đã có tổ chức hơn so với vài năm trước.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời Yes hoặc No mà không giải thích thêm lý do – lỗi nghiêm trọng nhất.</li><li>Nhầm lẫn giữa ngân hàng truyền thống và ngân hàng trực tuyến khi trả lời.</li><li>Chỉ nói học một mình hay học nhóm mà không giải thích lý do.</li><li>Dùng sai thì khi so sánh thói quen hiện tại với quá khứ, nên dùng hiện tại hoàn thành.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: That is an interesting question, let me think for a moment.</li><li>Mô tả khái niệm thay vì cố nhớ từ chính xác.</li><li>Nếu bí ý ở Topic A, hãy nói về việc dùng ví điện tử hoặc thanh toán không tiền mặt.</li><li>Nếu bí ý ở Topic B, hãy chuyển sang nói về một môn học bạn thấy khó và cách bạn học nó.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy coi đây là cuộc trò chuyện tự nhiên với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy làm mới tư duy để tránh nhầm lẫn chủ đề.</li><li>Sự tự nhiên và mạch lạc quan trọng hơn việc cố dùng từ vựng khó.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You are planning a trip with your family and need to decide how to organize it.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Plan the trip by yourself</li><li>Option 2: Let a tourist agency plan the trip for you</li><li>Option 3: Ask a friend who has already been there to plan it for you</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống yêu cầu bạn lựa chọn cách tổ chức chuyến đi phù hợp nhất cho gia đình mình.</li><li>Cần đánh giá đầy đủ cả ba phương án trước khi đưa ra lựa chọn cuối cùng.</li><li>Tiêu chí chấm điểm gồm lập luận, vốn từ vựng, ngữ pháp và độ trôi chảy.</li><li>Thời gian khoảng 4 phút, nên dành khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc I-C-E: Introduction → Comparison → End để trình bày mạch lạc.</li><li>Option 1: Tự lên kế hoạch giúp linh hoạt và tiết kiệm chi phí nhưng tốn nhiều thời gian và công sức.</li><li>Option 2: Nhờ công ty du lịch lên kế hoạch tiết kiệm thời gian nhưng chi phí cao hơn và ít linh hoạt.</li><li>Option 3: Nhờ bạn bè đã từng đến đó tư vấn giúp có thông tin thực tế và đáng tin cậy với chi phí thấp.</li><li>Liên hệ đến nhu cầu và ngân sách thực tế của một chuyến đi gia đình.</li><li>Dùng từ nối đối lập để so sánh ưu và nhược điểm giữa các lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các phương án với nhau thay vì phân tích tách biệt từng lựa chọn.</li><li>Dùng hiện tại đơn để mô tả lợi ích chung và câu điều kiện loại 1 khi dự đoán kết quả từng lựa chọn.</li><li>Nếu quên từ chuyên biệt, hãy mô tả hành động hoặc lợi ích thay vì từ chính xác.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>tailor the trip to our needs – điều chỉnh chuyến đi theo nhu cầu của gia đình</li><li>a well-organized itinerary – một lịch trình được sắp xếp tốt</li><li>firsthand experience – kinh nghiệm thực tế đã trải qua</li><li>save on travel costs – tiết kiệm chi phí du lịch</li><li>time-consuming process – quá trình tốn nhiều thời gian</li><li>a trustworthy recommendation – lời khuyên đáng tin cậy</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>On the one hand – một mặt</li><li>On the other hand – mặt khác</li><li>However – tuy nhiên</li><li>Moreover – hơn nữa</li><li>As a result – kết quả là</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I would choose to ask my friend for advice because firsthand experience is often more reliable than general information. – Tôi sẽ chọn nhờ bạn bè tư vấn vì kinh nghiệm thực tế thường đáng tin cậy hơn thông tin chung chung.</li><li>Compared to hiring a tourist agency, planning the trip myself gives more flexibility, though it takes more time. – So với thuê công ty du lịch, tự lên kế hoạch linh hoạt hơn dù tốn thời gian hơn.</li><li>In my view, combining a friend's advice with my own research would lead to the best plan. – Theo tôi, kết hợp lời khuyên của bạn bè với việc tự tìm hiểu sẽ tạo ra kế hoạch tốt nhất.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nói về lựa chọn yêu thích mà bỏ qua phân tích hai phương án còn lại.</li><li>Lặp lại từ good hoặc bad quá nhiều thay vì dùng tính từ đa dạng hơn.</li><li>Không đưa ra quyết định rõ ràng ở phần kết luận.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng, hãy chuyển sang nói về chi phí hoặc thời gian chuẩn bị của từng lựa chọn.</li><li>Dùng câu: Let's look at this option from a different angle.</li><li>Nếu bí ở một lựa chọn, hãy tạm chuyển sang lựa chọn khác rồi quay lại sau.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một người đang thực sự lên kế hoạch cho chuyến đi của gia đình mình.</li><li>Đưa ra đề xuất kết hợp, ví dụ tự lên kế hoạch dựa trên gợi ý của bạn bè, để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits of playing team sports",
+          "mindmap": {
+            "title": "Benefits of Team Sports",
+            "ideas": [
+              "Keeping fit and healthy",
+              "Making new friends",
+              "Improving skills",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "What problems do people face when playing sports?",
+            "What kinds of sports do people in your country play?",
+            "How can people stay motivated to exercise regularly?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề tập trung vào lợi ích của việc chơi các môn thể thao đồng đội.</li><li>Ba nhánh chính gồm giữ gìn sức khỏe, kết bạn mới và cải thiện kỹ năng.</li><li>Ý tưởng thứ tư có thể là rèn luyện tinh thần đồng đội hoặc quan điểm cá nhân về thể thao.</li><li>Tiêu chí chấm điểm gồm phát triển ý, tính mạch lạc, từ vựng và ngữ pháp.</li><li>Thời gian khoảng 5 phút, trong đó khoảng 3–3,5 phút cho bài nói chính và phần còn lại cho câu hỏi phụ.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc FEEL: Point → Explanation → Example → Link để phát triển từng nhánh ý.</li><li><strong>Ví dụ 1:</strong> Today, I would like to talk about the benefits of playing team sports.</li><li><strong>Ví dụ 2:</strong> In my opinion, team sports also teach us valuable lessons about teamwork and communication.</li><li>Đưa ví dụ thực tế về việc chơi bóng đá, bóng chuyền hoặc cầu lông cùng bạn bè.</li><li>Bám sát sơ đồ tư duy để tránh lan man và lặp ý.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng câu chuyển ý mượt mà giữa các nhánh để bài nói mạch lạc hơn.</li><li>Dùng hiện tại đơn cho sự thật chung và hiện tại hoàn thành khi nói về kinh nghiệm chơi thể thao đã tích lũy.</li><li>Có thể paraphrase team sports bằng group-based sports hoặc collaborative physical activities.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>stay physically fit – giữ gìn thể chất khỏe mạnh</li><li>build strong friendships – xây dựng tình bạn bền chặt</li><li>enhance teamwork skills – nâng cao kỹ năng làm việc nhóm</li><li>improve physical stamina – cải thiện sức bền thể chất</li><li>a sense of belonging – cảm giác thuộc về một tập thể</li><li>develop discipline and perseverance – rèn luyện tính kỷ luật và kiên trì</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>To begin with – trước tiên</li><li>Furthermore – hơn nữa</li><li>Another important benefit is – một lợi ích quan trọng khác là</li><li>For instance – chẳng hạn</li><li>In conclusion – tóm lại</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I strongly believe that team sports help people stay both physically and mentally healthy. – Tôi tin rằng thể thao đồng đội giúp con người khỏe mạnh cả về thể chất lẫn tinh thần.</li><li>From my perspective, playing sports with others is one of the best ways to make new friends. – Theo tôi, chơi thể thao cùng người khác là một trong những cách tốt nhất để kết bạn mới.</li><li>In my opinion, team sports teach skills such as cooperation that individual sports cannot fully provide. – Theo tôi, thể thao đồng đội dạy những kỹ năng như hợp tác mà thể thao cá nhân không thể mang lại đầy đủ.</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li>What problems do people face when playing sports? → Common problems include lack of time, risk of injury and difficulty finding teammates or facilities.</li><li>What kinds of sports do people in your country play? → Football is extremely popular, along with badminton, volleyball and table tennis.</li><li>How can people stay motivated to exercise regularly? → By setting realistic goals, exercising with friends and tracking progress to see improvement over time.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê lợi ích mà không đưa ví dụ cụ thể minh họa.</li><li>Quên phát triển ý tưởng cá nhân ở nhánh thứ tư.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Khi bí ý, hãy liên hệ đến trải nghiệm cá nhân khi chơi một môn thể thao yêu thích.</li><li>Dùng câu: That is a complex issue. If we evaluate it from a health and social perspective...</li><li>Nếu quên từ chuyên ngành, hãy dùng từ đơn giản hoặc mô tả khái niệm.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Hãy nhìn chủ đề từ góc độ sức khỏe cá nhân, quan hệ xã hội và sự phát triển kỹ năng để có cái nhìn toàn diện.</li><li>Tính logic và sự liên kết giữa các ý là yếu tố quan trọng nhất để đạt điểm cao.</li><li>Thể hiện quan điểm cá nhân rõ ràng về giá trị của thể thao đồng đội trong cuộc sống hiện đại.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

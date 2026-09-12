@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-38",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 38",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What will the boy take back to the shop?</b></p><ul><li><b>Girl:</b> Did you get everything you wanted?</li><li><b>Boy:</b> I did. In fact I only needed to go into one shop. I'd seen a T-shirt in the window and I got the last one in the sale. And some shorts to match. I bought this jacket too but I'm not sure if I like it.</li><li><b>Girl:</b> Oh, it looks great. I'd keep it. But those <b>shorts</b> are a horrible colour. I should change them.</li><li><b>Boy:</b> You're right. They looked different in the shop.</li></ul><p><b>2. What time does Paula pick Julie up?</b></p><ul><li><b>Woman:</b> Hi Julie. This is Paula. I'm ringing to remind you that I'll pick you up tonight. The film doesn't start until eight fifteen, so we can go a bit later than I thought. I'll leave here at about twenty past seven so I'll be at your house at <b>twenty to eight</b>. We need to allow time to park the car and I want to get good seats. See you later then. Give me a ring if there's a problem.</li></ul><p><b>3. What will they get first?</b></p><ul><li><b>Girl:</b> The most important thing I need is new trainers. I know exactly which ones I want. They're in the shop by the library. Let's go straight there.</li><li><b>Woman:</b> Just a minute. That's the opposite end of town. I want to get a film for my camera in this shop while we're here.</li><li><b>Girl:</b> Don't forget we need some fruit.</li><li><b>Woman:</b> We'll get that last, after we've bought your <b>trainers</b>, because it'll be heavy.</li></ul><p><b>4. What time did the woman leave the keys?</b></p><ul><li><b>Woman:</b> Oh, I'm in a hurry and I can't find my keys. I always leave them on the hall table.</li><li><b>Man:</b> Let's see. You didn't leave them in the car, did you? That's what I did last week.</li><li><b>Woman:</b> I'll go and look.</li><li><b>Man:</b> There are some keys in the <b>kitchen</b> but I don't think they're yours. I'll get them.</li><li><b>Woman:</b> Those are mine. Thanks.</li></ul><p><b>5. What does the man decide to eat?</b></p><ul><li><b>Woman:</b> What will you have? How about fish and chips? It's really good here.</li><li><b>Man:</b> Actually I think I'll just have a drink.</li><li><b>Woman:</b> You must have more than that. It's hours since we had lunch. What about chicken then or a chicken sandwich?</li><li><b>Man:</b> If they have <b>salad</b>, I'll have some with a <b>roll</b>.</li></ul><p><b>6. What time is the woman’s new appointment?</b></p><ul><li><b>Woman 1:</b> Good morning. Dr Clarke's surgery.</li><li><b>Woman 2:</b> Hello. Could I change the appointment I have for tomorrow, please? It's in the morning and I can't come till the afternoon. The name's Joanna Saunders.</li><li><b>Woman 1:</b> Certainly. I'll have a look and see if Dr Clarke is free. ... So you can't come at a quarter past ten. Erm ... quarter to three is available or a quarter past four.</li><li><b>Woman 2:</b> I'll take the <b>later one</b>, thank you. Goodbye.</li></ul><p><b>7. What was cancelled?</b></p><ul><li><b>Woman:</b> We missed the first day of our holiday because of the bad weather.</li><li><b>Man:</b> Oh! Was your plane cancelled?</li><li><b>Woman:</b> That wasn't the problem. And the coach was waiting to take us to the port, but the sea was so rough we had to wait till the next day and take a helicopter to the island. It was much more expensive and I was looking forward to the <b>ferry crossing</b>.</li></ul><p><b>8. What did Jason enjoy doing on Saturday?</b></p><ul><li><b>Girl:</b> Hi, Jason. Did you have a good day yesterday? Did you have a football match?</li><li><b>Boy:</b> Yes, but we lost, so we all felt a bit miserable. The score was 5-0.</li><li><b>Girl:</b> I went shopping with Sally. We really enjoyed ourselves. But I know you don't like shopping.</li><li><b>Boy:</b> Well, actually I spent Saturday afternoon looking for a birthday present for my sister, and I had a <b>great time in the bookshops and music shops</b>. I got her a book and a CD. Then I went to the cinema to see <i>Road to the Stars</i>. I was really looking forward to it, but it wasn't as good as I expected.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What will the boy take back to the shop?",
+              "options": [
+                "A T-shirt",
+                "Some shorts",
+                "A jacket",
+                "A coat"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What time does Paula pick Julie up?",
+              "options": [
+                "8.15",
+                "7.20",
+                "7.40",
+                "8.20"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What will they get first?",
+              "options": [
+                "New trainers",
+                "A film",
+                "Some fruit",
+                "A camera"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Where did the woman leave the keys?",
+              "options": [
+                "In the kitchen",
+                "On the hall table",
+                "In the car",
+                "On the chair"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What does the man decide to eat?",
+              "options": [
+                "Fish and chips",
+                "Chicken",
+                "Chicken sandwich",
+                "Salad and a roll"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What time is the woman’s new appointment?",
+              "options": [
+                "10.15",
+                "2.45",
+                "4.15",
+                "4.50"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What was cancelled?",
+              "options": [
+                "The ferry",
+                "The plane",
+                "The train",
+                "The coach"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What did Jason enjoy doing on Saturday?",
+              "options": [
+                "Played football",
+                "Bought a birthday present",
+                "Went to the cinema",
+                "Listened to music"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Scott:</b> Dave. I’m going to the supermarket to pick up food and drink for Saturday’s picnic later. Any suggestions?</li><li><b>Dave:</b> Well, everyone has been talking about having a barbecue down by the river, so why don’t you pick up some hamburger and hot dogs?</li><li><b>Scott:</b> Okay, but how much hamburger meat are we going to need? And hot dogs too?</li><li><b>Dave:</b> Uh, I don’t know. How about three <b>pounds</b> of hamburger and a couple packages of hot dogs?</li><li><b>Scott:</b> Oh, that’s not going to be enough. Do you remember the last picnic we went on? Your roommate, Jim, ate about ten hamburgers by himself!</li><li><b>Dave:</b> You’re right. Let’s see. I’d better write this down. Uh, let’s see about nine pounds of hamburger meat and, uh . . . , seven <b>packages</b> of hot dogs.</li><li><b>Scott:</b> And you better pick up some chicken for those who don’t like hamburger or hot dogs.</li><li><b>Dave:</b> Okay. How about five or six bags of potato chips?</li><li><b>Scott:</b> Humm. Better make that eight or so.</li><li><b>Dave:</b> Alright. Oh, and we’re gonna [going to] need some hamburger and hot dog buns. How about five packages a piece? I think that sounds about right.</li><li><b>Scott:</b> Yeah, <b>you better</b> pick up some mustard, ketchup, and mayonnaise too.</li><li><b>Dave:</b> Okay. What else? Uh, we’re gonna [going to] need some soft drinks. How about ten of those big 2-liter bottles?</li><li><b>Scott:</b> Sounds fine, but be sure to buy a variety of drinks.</li><li><b>Dave:</b> Okay. And what about dessert?</li><li><b>Scott:</b> Well, maybe we could ask Kathy to make a few cherry pies like she did last time.</li><li><b>Dave:</b> Well, I wouldn’t mind that, but you know, she’s been very busy working two jobs, so I’d hate to ask her. [Oh, hum . . .] and uh . . . Hey, why don’t you whip up some of your oatmeal cookies? [Well . . .] Hey, you could even ask, uh . . . , what’s her name . . . yeah that new girl, Susan, the one that moved in across the street! [Well . . .] I bet she’d be willing to help you! [I don’t know . . .] She’s a real knockout!</li><li><b>Scott:</b> Nah, I don’t think I could ask her . . . [Ahh!] I don’t know her phone number, plus . . . [Door bell rings . . .]</li><li><b>Dave:</b> Hey, you don’t need to. She’s at the door!</li><li><b>Scott:</b> What do you mean?</li><li><b>Dave:</b> Well, I thought you two would hit it off, so I called her up saying I was you, and I invited her over to watch a movie.</li><li><b>Scott:</b> You did what???</li><li><b>Dave:</b> Wait, wait, wait . . . [uhhhhh . . .]</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Son:</b> Dad. Can I go outside to play?</li><li><b>Dad:</b> Well, did you get your Saturday’s work done?</li><li><b>Son:</b> Ah, Dad. Do I have to?</li><li><b>Dad:</b> Well, you know the rules. No playing until the work is done.</li><li><b>Son:</b> So, what is my work?</li><li><b>Dad:</b> Well, first you have to clean the bathroom including the toilet. And don’t forget to scrub the bathtub.</li><li><b>Son:</b> No, I want to do the family room.</li><li><b>Dad:</b> Well, okay, but you have to vacuum the family room and the hall, and be sure to dust everything. Oh, and don’t forget to wipe the walls and clean the baseboards. [Okay.] And after that. [Oh, no.] Next, sweep and mop the kitchen floor and be sure to polish the table in the living room.</li><li><b>Son:</b> Okay. Okay.</li><li><b>Dad:</b> And make your bed and pick up all your toys and put them away. And . . .</li><li><b>Son:</b> More?</li><li><b>Dad:</b> Yeah. And then, how about going out for lunch and getting a big milk shake, but you probably don’t want to do that.</li><li><b>Son:</b> No, No. I want to.</li><li><b>Dad:</b> Okay. While you’re doing your work, I’ll be out in the yard raking leaves and pulling weeds.</li></ul><p><b>Conversation 3:</b></p><p>Okay, everyone. I want to review the first two days of our travel itinerary for the trip. Okay, yeah, please take out the paper that I handed out earlier. Okay. Uh. First of all, we have been very fortunate to have been able to purchase discount tickets to cover most of the transportation costs and scheduling (scheduled) activities. And I want to also thank the, uh, group of parents who, uh, worked very hard in order to, uh, raise funding, uh, through different businesses in the community. I really appreciate that.</p><p>Uh, let’s see. Okay, everyone should meet at the airport at 6:00 a.m. This will give you time to check in and get through security. Our plane departs at 9:00.</p><p>Uh, our plane arrives in New York at 3:00 p.m., and we will take a bus from the airport to the hotel. We’ve been able to get great rates on this hotel because we’re staying on a weekday instead of the weekend.</p><p>In the morning, for any of you who like to get exercise, we will be meeting in the lobby around 6:00 a.m. to go jogging around Central Park for about 45 minutes, and we’ll get back to the hotel about the time when the restaurant opens, so you’ll enough time to grab a quick breakfast before we leave the hotel at 8:00. We’ll be taking a ferry ride to Ellis Island and then to Liberty Island to visit the Statue of Liberty. I mean, this is something that you really can’t miss, and later, we will go to Times Square where you can have lunch on your own for about an hour from about 1 to 2.</p><p>Later in the afternoon, you have the choice of visiting the Empire State Building or the Metropolitan Museum of Art. Either one of these is . . . are great, and we have some great, uh, group discounts. Uh, we will meet back at the hotel at 6:00 p.m., and we’ll have dinner at a very nice Italian restaurant downtown, and then we’ll catch an exciting broadway musical around 8:30 p.m.</p><p>Uh, any questions?</p>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "When is the picnic?",
+              "options": [
+                "on Thursday",
+                "on Friday",
+                "on Saturday",
+                "on Sunday"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "Where is the picnic being held?",
+              "options": [
+                "at a park",
+                "at the beach",
+                "at Dave's house",
+                "by a river"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "How many packages of hot dogs do they decide to buy?",
+              "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Dave suggest Scott make for the picnic dessert?",
+              "options": [
+                "cherry pie",
+                "chocolate cake",
+                "oatmeal cookies",
+                "fudge brownies"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What does the boy want to do at the beginning of the conversation?",
+              "options": [
+                "go play outside",
+                "play video games",
+                "watch TV",
+                "play football"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does the boy have to do in his bedroom?",
+              "options": [
+                "put away his books",
+                "make his bed",
+                "pick up his dirty clothes",
+                "clean the floor"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What is the father going to do while the boy is doing his household chores?",
+              "options": [
+                "wash the car",
+                "paint the house",
+                "work in the yard",
+                "clean the floor"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Where will the father and son go after the housework is done?",
+              "options": [
+                "to a movie",
+                "out to eat",
+                "to a ball game",
+                "to a shopping center"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What time does the plane depart?",
+              "options": [
+                "6:00 AM",
+                "7:30 AM",
+                "8:00 AM",
+                "9:00 AM"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "How will the group get to the hotel from the airport?",
+              "options": [
+                "They will take taxis",
+                "They will ride the subway",
+                "They will be going by bus",
+                "They can choose either bus or subway"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What is the group planning to do around Times Square for about an hour?",
+              "options": [
+                "They're going to have lunch",
+                "They will have time to do some shopping",
+                "They will see a festival",
+                "They will be having a tour of the area"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What are they going to do after dinner?",
+              "options": [
+                "The group is going to watch a musical",
+                "They will catch an exciting movie",
+                "They will be attending a Broadway play",
+                "They will see a football match"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-19/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talks/Lectures 1 (Q.21-25)</b></p><p>Hello, I’m Sarah Brown, and I’m here to tell you about my job as a weather forecaster. I’ve been a weather forecaster for a television company for seven years and two years ago I became the head of the weather department. Now, I divide my time equally between presenting weather forecasting on television and managing the weather department which has a staff of eleven. At thirty years old I’m the youngest ever head of weather and the first woman to do the job. Since our news and weather service goes out all round the world, we all take turns to work at night I prefer that to doing the show when I have to get up at four in the morning. I normally work an eight-hour day and at that time I do ten or twelve forecasts. Before doing a weather forecast, I study data on the computer. This is the information I use in my forecasts. There isn’t much time to learn what I have to say but fortunately I’ve never forgotten my words so I don’t get nervous. My husband and I try to have the same free days, but neither of us has a regular pattern of work. He’s a pilot on long-distance flights, so although he works hard he has a lot more time at home than I do. We moved to our present house about a year ago, and he’s enjoying painting it. I took up flying as a hobby five years ago. I hope to get my pilot’s licence this year but because of the job, I haven’t been to the flying school for ages For exercise I swim and ski and I like running. I’m really proud of myself for running in the London Marathon it’s a forty-kilometre race and I never thought I could manage it! My husband plays tennis, and we sometimes play together, but he’s better than me so I never win. Because I’m on world news, people sometimes recognise me in really distant places. Once, in an Indian village, an old man took me to have my photo taken with all his family. I get some lovely letters one person wrote to say that my smile made her feel happy all day. People occasionally even write and ask me to marry them!</p><p><b>Talks/Lectures 2 (Q.26-30)</b></p><p>Thank you all for coming to my talk this evening. It’s nice to see so many people in the audience. For those of you who don’t know very much about PS Camping let me start by giving you some background information about the company. The company started twenty-five years ago. It actually opened as a retail chain selling camping equipment, and then twenty years ago it bought a small number of campsites in the UK and began offering camping holidays. The company grew rapidly and has been providing holidays in continental Europe for the last fifteen years. If you book a camping holiday with us you’ll have a choice of over 300 sites. In Italy we now have some 64 sites that we either own, or have exclusive use of. France is where we have the majority of sites, and we currently have a project to expand into Switzerland. We also have a number of sites in Northern Spain particularly in the mountainous region of Picos de Europa. We’ve upgraded all these Spanish sites, and improved them considerably from their original three-star rating. We believe our holidays offer superb facilities for the whole family. Parents who want their children to be fully occupied for all or part of the day can take advantage of our children’s activities. These are organised by our well-qualified and enthusiastic staff. Each day kicks off with a sports match perhaps football, or volleyball, followed by an hour of drama for everyone. This may include singing or dancing, mime or other activities. In the afternoon, there’s a different art activity for each day of the week including a poster competition or model making What’s more, our sites are truly child-friendly and, with this in mind we operate a no-noise rule in the evenings Children’s evening activities usually finish at 9.30 or occasionally 10, and from 10.30 holiday-makers are expected to be quiet in the areas where there are tents. We want nothing to go wrong on a PS Camping holiday, but if it does, we also want all customers to be insured. If you haven’t organised an annual insurance policy of your own you’ll need to take out the low-cost cover we offer and we require that you arrange this when you make your holiday reservation. There are many advantages to choosing PS Camping, and to recommending it to others. As a regular customer you’ll be kept informed of special offers and your friends can benefit from ten per cent off their holiday or book a luxury tent for the price of a standard one. In return, we’ll send you a thank-you present, which you can choose from a list of high-quality items.</p><p><b>Talks/Lectures 3 (Q.31-35)</b></p><p>Good morning I’m very pleased to have been invited along to your club to talk about our Charity Sponsored Walking Holiday for Education Aid. I’ll start by giving you a brief overview of what it entails. First of all let me explain what we mean by ‘sponsored’ here. This is where people promise to donate money to the charity if you achieve your goal in this case to walk a certain number of miles. Basically we are organizing a ten-day holiday, from the sixth to the sixteenth of November with eight days actual walking, trekking in the Semira Mountains. Let’s have a look at some of the details. We require you to raise sponsorship money of at least $3,200 paying $250 of it up front as a deposit and the rest in stages throughout the year Out of this, about 35% will go on your expenses and that leaves 65% guaranteed to go to the charity. Which brings me to the most important part. This trek is being specifically organized to help education in the Semira region. Last year we helped train teachers for the disabled, and this year we’re focusing on the pupils Each of the walkers’ sponsorship money will go to help an individual special needs pupil in one of the mountain schools. In the second part of the talk I’ll be giving you a lot more details, but back to the basic information. Age limits is the second time we have run this kind of holiday and um, on the first we even had an eighty-year old But we found it was wise to establish limits this time You have to be at least eighteen and the top limit is now seventy though you need to obtain a health certificate from your doctor if you are over sixty years old. Now, the Semira Mountains are among the highest in the world but you mustn’t be too daunted we will mainly be trekking in the foothills only, although there will be spectacular views even in the foothills. However, you will need to be extremely fit if you aren’t now and you’re interested in coming with us You have plenty of time to get into shape You will be sleeping in tents so you must have quite a bit of equipment with you but you will be helped by local assistants. Your bedding and so forth will be carried by them. We ask that you only walk with a small rucksack with needs for the day. I don’t think I’ve really said enough about the marvellous area you’ll be walking in Let’s have a look at some of the sights you’ll be seeing. Apart from these spectacular snow-covered peaks and valleys, there are marvellous historic villages, the area has been famous for centuries for making beautiful carpets although recently there has been a trend to move into weaving blankets and wood carving. The people are extremely friendly and welcoming. We deliberately keep the parties small in size to minimize disruption to people and landscape.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "How long has Sarah worked as a weather forecaster?",
+              "options": [
+                "two years",
+                "seven years",
+                "eleven years.",
+                "thirty years"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What does Sarah say about her job?",
+              "options": [
+                "She sometimes has to work at night.",
+                "She enjoys getting up early.",
+                "She works ten or twelve hours a day.",
+                "She sometimes forgets her words."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does Sarah say about her doing weather forecast?",
+              "options": [
+                "she prepares it in advance.",
+                "she sometimes forgets her words.",
+                "she worries about making a mistake.",
+                "She sometimes get nervous on television."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What is true about Sarah’s husband?",
+              "options": [
+                "He works on the same days each week.",
+                "He wants to move nearer his work.",
+                "He spends a lot of time travelling.",
+                "He has little time to relax."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What did Sarah say about her hobby?",
+              "options": [
+                "She has got her pilot’s license.",
+                "She taught her husband to play tennis.",
+                "She took part in a long race.",
+                "Flying is difficult so she gave it up."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How long has PS Camping been organising holidays?",
+              "options": [
+                "15 years.",
+                "20 years.",
+                "25 years.",
+                "30 years."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Where does the company has most camping sites?",
+              "options": [
+                "France.",
+                "Italy.",
+                "Switzerland.",
+                "Spain"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Which organised activity can children do every day of the week?",
+              "options": [
+                "football",
+                "drama",
+                "model making",
+                "volleyball"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about the holiday insurance offered by PS Camping?",
+              "options": [
+                "It can be charged on an annual basis.",
+                "It is included in the price of the holiday.",
+                "It must be taken out at the time of booking.",
+                "It can be optional."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can customers recommending PS Camping to friends receive?",
+              "options": [
+                "a free gift.",
+                "an upgrade to a luxury tent.",
+                "a discount.",
+                "a thank-you letter."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "How long will you be walking on the holiday?",
+              "options": [
+                "6 days.",
+                "8 days.",
+                "10 days.",
+                "16 days"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What proportion of the sponsorship money goes to charity?",
+              "options": [
+                "25%",
+                "35%",
+                "50%",
+                "65%"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What is the top age limit to attend the holiday?",
+              "options": [
+                "50 years old.",
+                "60 years old.",
+                "80 years old.",
+                "70 years old."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What will you carry as you walk?",
+              "options": [
+                "all of your belongings.",
+                "some of your belongings.",
+                "none of your belongings.",
+                "some of your belongings and food."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What does the Semira Region have a long tradition of?",
+              "options": [
+                "making carpets.",
+                "weaving blankets.",
+                "carving wood.",
+                "processing food"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

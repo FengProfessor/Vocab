@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-04",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 04",
+  "duration": 172,
+  "date": "2026-03-17",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What will the boy take back to the shop?</b></p><ul><li><b>Girl:</b> Did you get everything you wanted?</li><li><b>Boy:</b> I did. In fact I only needed to go into one shop. I'd seen a T-shirt in the window and I got the last one in the sale. And some shorts to match. I bought this jacket too but I'm not sure if I like it.</li><li><b>Girl:</b> Oh, it looks great. I'd keep it. But those <b>shorts</b> are a horrible colour. I should change them.</li><li><b>Boy:</b> You're right. They looked different in the shop.</li></ul><p><b>2. What time does Paula pick Julie up?</b></p><ul><li><b>Woman:</b> Hi Julie. This is Paula. I'm ringing to remind you that I'll pick you up tonight. The film doesn't start until eight fifteen, so we can go a bit later than I thought. I'll leave here at about twenty past seven so I'll be at your house at <b>twenty to eight</b>. We need to allow time to park the car and I want to get good seats. See you later then. Give me a ring if there's a problem.</li></ul><p><b>3. What will they get first?</b></p><ul><li><b>Girl:</b> The most important thing I need is new trainers. I know exactly which ones I want. They're in the shop by the library. Let's go straight there.</li><li><b>Woman:</b> Just a minute. That's the opposite end of town. I want to get a film for my camera in this shop while we're here.</li><li><b>Girl:</b> Don't forget we need some fruit.</li><li><b>Woman:</b> We'll get that last, after we've bought your <b>trainers</b>, because it'll be heavy.</li></ul><p><b>4. What time did the woman leave the keys?</b></p><ul><li><b>Woman:</b> Oh, I'm in a hurry and I can't find my keys. I always leave them on the hall table.</li><li><b>Man:</b> Let's see. You didn't leave them in the car, did you? That's what I did last week.</li><li><b>Woman:</b> I'll go and look.</li><li><b>Man:</b> There are some keys in the <b>kitchen</b> but I don't think they're yours. I'll get them.</li><li><b>Woman:</b> Those are mine. Thanks.</li></ul><p><b>5. What does the man decide to eat?</b></p><ul><li><b>Woman:</b> What will you have? How about fish and chips? It's really good here.</li><li><b>Man:</b> Actually I think I'll just have a drink.</li><li><b>Woman:</b> You must have more than that. It's hours since we had lunch. What about chicken then or a chicken sandwich?</li><li><b>Man:</b> If they have <b>salad</b>, I'll have some with a <b>roll</b>.</li></ul><p><b>6. What time is the woman’s new appointment?</b></p><ul><li><b>Woman 1:</b> Good morning. Dr Clarke's surgery.</li><li><b>Woman 2:</b> Hello. Could I change the appointment I have for tomorrow, please? It's in the morning and I can't come till the afternoon. The name's Joanna Saunders.</li><li><b>Woman 1:</b> Certainly. I'll have a look and see if Dr Clarke is free. ... So you can't come at a quarter past ten. Erm ... quarter to three is available or a quarter past four.</li><li><b>Woman 2:</b> I'll take the <b>later one</b>, thank you. Goodbye.</li></ul><p><b>7. What was cancelled?</b></p><ul><li><b>Woman:</b> We missed the first day of our holiday because of the bad weather.</li><li><b>Man:</b> Oh! Was your plane cancelled?</li><li><b>Woman:</b> That wasn't the problem. And the coach was waiting to take us to the port, but the sea was so rough we had to wait till the next day and take a helicopter to the island. It was much more expensive and I was looking forward to the <b>ferry crossing</b>.</li></ul><p><b>8. What did Jason enjoy doing on Saturday?</b></p><ul><li><b>Girl:</b> Hi, Jason. Did you have a good day yesterday? Did you have a football match?</li><li><b>Boy:</b> Yes, but we lost, so we all felt a bit miserable. The score was 5-0.</li><li><b>Girl:</b> I went shopping with Sally. We really enjoyed ourselves. But I know you don't like shopping.</li><li><b>Boy:</b> Well, actually I spent Saturday afternoon looking for a birthday present for my sister, and I had a <b>great time in the bookshops and music shops</b>. I got her a book and a CD. Then I went to the cinema to see <i>Road to the Stars</i>. I was really looking forward to it, but it wasn't as good as I expected.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What will the boy take back to the shop?",
+              "options": [
+                "A T-shirt",
+                "Some shorts",
+                "A jacket",
+                "A coat"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What time does Paula pick Julie up?",
+              "options": [
+                "8.15",
+                "7.20",
+                "7.40",
+                "8.20"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What will they get first?",
+              "options": [
+                "New trainers",
+                "A film",
+                "Some fruit",
+                "A camera"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Where did the woman leave the keys?",
+              "options": [
+                "In the kitchen",
+                "On the hall table",
+                "In the car",
+                "On the chair"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What does the man decide to eat?",
+              "options": [
+                "Fish and chips",
+                "Chicken",
+                "Chicken sandwich",
+                "Salad and a roll"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What time is the woman’s new appointment?",
+              "options": [
+                "10.15",
+                "2.45",
+                "4.15",
+                "4.50"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What was cancelled?",
+              "options": [
+                "The ferry",
+                "The plane",
+                "The train",
+                "The coach"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What did Jason enjoy doing on Saturday?",
+              "options": [
+                "Played football",
+                "Bought a birthday present",
+                "Went to the cinema",
+                "Listened to music"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Interview with Harry Park</b></p><ul><li><b>Interviewer:</b> Harry Park, you run a travel company which organises adventure holidays in some difficult places. How did you first become interested in ‘adventure travel’?</li><li><b>Harry:</b> Well, my father worked in an insurance company once he had a family. But before that he’d spent several years travelling the world, and he never stopped telling us about it. His stories were much more exciting than the books I read, and they made me want to travel and have adventures of my own (5).</li><li><b>Interviewer:</b> And what made you decide to start an adventure travel company?</li><li><b>Harry:</b> Well, when I was in my twenties, I travelled a lot in different countries. I went exploring and climbing in mountains and deserts. I wanted to show other people how wonderful these things were (6). The business has been very successful, but when I started it I didn’t know if I’d make any money.</li><li><b>Interviewer:</b> Your company’s called <b>Far and Wide</b>. How did you choose the name?</li><li><b>Harry:</b> Well, I just called it <b>Park Travel</b> at first. But everyone thought that was terribly boring! My wife kept suggesting different things, but in the end it was a customer who gave me the idea (7). <b>Far and Wide</b> is also the title of a book that a friend wrote, so it reminds me of him, too.</li><li><b>Interviewer:</b> Great... The places you visit are usually very unspoilt, Harry. Some people think it’s not a good idea to take tourists there. What would you say to them?</li><li><b>Harry:</b> Well, most of the places we visit have no inhabitants, so we aren’t going to spoil people’s way of life, or bring in things like television and fridges! And I make sure that we always take care of the environment (8). We are careful not to cause pollution, so we take all our rubbish away.</li><li><b>Interviewer:</b> Some of the things you do are also dangerous. Do you enjoy danger?</li><li><b>Harry:</b> Well, it’s not a question of enjoying it - it’s just that you can’t do what I do without thinking about the possible dangers. I’m never frightened though. If I’m taking a group up a mountain or something like that, I just concentrate on what I have to do and get on with it.</li><li><b>Interviewer:</b> You’ve been to some fascinating places, Harry.....</li></ul><p><b>Conversation 2: The Human Body Facts</b></p><ul><li><b>A:</b> Hey, I’m reading this really interesting article about the human body.</li><li><b>B:</b> Yeah? Well, we know all about that from biology lessons.</li><li><b>A:</b> No, we didn’t learn much at all at school! They’re discovering loads more things all the time. Really amazing things! Did you know that only about one tenth of the cells in your body are really you? The rest are bacteria.</li><li><b>B:</b> What? I’m not really me?</li><li><b>A:</b> No, of course you are you, but you also have millions, or trillions, of bacteria in you.</li><li><b>B:</b> Eeeeuuugh!</li><li><b>A:</b> No, they’re mostly really helpful. Someone did an experiment to see if animals can live without bacteria, and he found that a lot of them died or had to have a special diet. Animals need bacteria to digest food, you see. So we’re better off with bacteria.</li><li><b>B:</b> Unless the bacteria are bad.</li><li><b>A:</b> Unless they are bad, but they’re nearly all good. Oh yeah, and going back to cells, do you know how many cells you have in your body?</li><li><b>B:</b> Quite a lot, I’d say. A good few.</li><li><b>A:</b> Yeah, but how many?</li><li><b>B:</b> I don’t know. I’m not mathematical.</li><li><b>A:</b> <b>7 octillion!</b> That’s 7 plus 27 noughts.</li><li><b>B:</b> I knew it was a lot.</li><li><b>A:</b> OK, that’s an amazingly huge number, almost impossible to imagine. But the really weird thing is that most of the atoms are empty space, just air or nothingness. And if you took out the empty space, you could fit your body inside a tiny cube which measures one 500th of a centimetre on either side. That’s a box measuring 0.002 of a centimetre on each side. You’d be much too small to see.</li><li><b>B:</b> Mmm, I can imagine that. It sounds like something that would happen in a really bad Hollywood movie. You know, a mad scientist goes: (funny voice) ‘I’m going to extract all the air from your body’. OK, enough facts for one day.</li><li><b>A:</b> Don’t go! One last thing, did you know …</li><li><b>B:</b> No.</li><li><b>A:</b> Did you know that you probably have <b>mites in your eyelashes</b>?</li><li><b>B:</b> Mites in my eyelashes? What are mites exactly anyway?</li><li><b>A:</b> Yeah, they’re very small creatures, like insects, only not insects. They’re about a third of a millimetre long, so you can’t really see them. These particular mites live in eyelashes and eyebrows.</li><li><b>B:</b> But in mine?</li><li><b>A:</b> Well, maybe not. Only about 50% of people have them, and more older people. So you might not have any. Anyway, they’re completely harmless, they just eat dead skin.</li><li><b>B:</b> Yeah, right, harmless. I really would have preferred not to know that.</li><li><b>A:</b> Sorry.</li><li><b>B:</b> I mean, really!</li></ul><p><b>Conversation 3: Weekend Plans</b></p><ul><li><b>Girl:</b> So, have you got any plans for the weekend?</li><li><b>Boy:</b> Yeah, me and my mates are going to this activity centre in the mountains.</li><li><b>Girl:</b> Oh, yeah?</li><li><b>Boy:</b> You can do all kinds of things. It’s a new centre; it sounds great. We’re going to go <b>dirtboarding</b> …</li><li><b>Girl:</b> What’s that?</li><li><b>Boy:</b> It’s like skateboarding or snowboarding. You have a board, or deck, to stand on and wheels. They’re pretty strong because you go down rough mountain tracks on them. Steep, rough mountain tracks.</li><li><b>Girl:</b> Sounds a bit risky. Have you done it before?</li><li><b>Boy:</b> No, but I’ve done similar things. Anyway, we’re also going to go <b>canyoning</b>. Before you ask, that’s when you jump and swim down a river canyon. You have to use ropes and special equipment. And maybe we’ll go white water rafting too.</li><li><b>Girl:</b> Phew. It sounds far too difficult to me.</li><li><b>Boy:</b> They have lots of things that you could do too. Like <b>zip-wiring</b>, you know when you go along a wire through the trees or down a mountain.</li><li><b>Girl:</b> Go down a mountain on a wire!</li><li><b>Boy:</b> It’s really easy, and exciting too. You just have to hold on and enjoy the ride. Or there’s bungee jumping.</li><li><b>Girl:</b> Jump off a bridge on a long elastic band! Me? You’ve got to be joking! Anyway, I’m going away this weekend too, thank you for asking.</li><li><b>Boy:</b> I was going to ask. So where are you going?</li><li><b>Girl:</b> <b>Paris!</b> I’m so excited!</li><li><b>Boy:</b> Paris, wow!</li><li><b>Girl:</b> Yeah, it’ll be brilliant! We’re going to do all the sights, like go up the Eiffel Tower and take a boat along the River Seine and see the old parts of the city. It looks so beautiful in the photos. And then there are all the art galleries. You know how much I like art. I can’t wait to go round the Louvre and see all those famous paintings.</li><li><b>Boy:</b> I think the famous Impressionist paintings are somewhere else.</li><li><b>Girl:</b> Yeah, I know, they’re in the Musée d’Orsay. We’re going there too. And then I want to go to the Rodin Museum and see that famous statue, you know, The Thinker. And of course, if we’re in Paris, we’ll have to go shopping. Or look at the shops, at least. And then there’s the restaurants. Just think, French food!</li><li><b>Boy:</b> You’ve got a lot planned for one weekend.</li><li><b>Girl:</b> Oh, we’re going for four days, actually.</li><li><b>Boy:</b> Oh, four days, very nice. And who are you going with?</li><li><b>Girl:</b> Oh, just a friend.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Harry decide to start an adventure travel company?",
+              "options": [
+                "Because he wanted to share his experience with others",
+                "Because he thought he could make a lot of money",
+                "Because he hoped to have more travelling himself",
+                "Because he wanted to become a successful person"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "Who suggested the name for Harry’s company?",
+              "options": [
+                "A friend",
+                "A customer",
+                "His wife",
+                "His father"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Harry try to do when he visits a place?",
+              "options": [
+                "Gives the local people jobs",
+                "Takes modern equipment",
+                "Avoid damaging the area",
+                "Takes as many photos as possible"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Harry say about doing dangerous things?",
+              "options": [
+                "It’s frightening",
+                "It’s enjoyable",
+                "It’s a tiring job",
+                "It’s part of his job"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What do animals need bacteria for?",
+              "options": [
+                "Fighting diseases",
+                "Providing energy",
+                "Digesting food",
+                "Preventing diseases"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "How many cells are there in your body?",
+              "options": [
+                "7 million",
+                "7 trillion",
+                "17 trillion",
+                "7 octillion"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How long are the mites?",
+              "options": [
+                "3 millimetres",
+                "A third of a millimetre long",
+                "0.03 millimetres long",
+                "Two thirds of a millimetre long"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What do mites eat?",
+              "options": [
+                "Dead skin",
+                "Your eyelashes",
+                "Tiny insects",
+                "Harmful insects"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is a dirt board?",
+              "options": [
+                "A board with wheels that you stand on",
+                "A board with no wheels that you stand on",
+                "A board with wheels that you sit on",
+                "A board with no wheels that you sit on"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did you need to go canyoning?",
+              "options": [
+                "Ropes and a helmet",
+                "A guide and special equipment",
+                "Ropes and special equipment",
+                "Special equipment and a helmet"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "When does Paris look so beautiful?",
+              "options": [
+                "At night",
+                "On television",
+                "In the photos",
+                "In the movies"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How long will the girl stay in Paris?",
+              "options": [
+                "The weekend",
+                "4 days",
+                "5 days",
+                "A week"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Young people in Great Britain are watching <b>less and less news on television</b>. This is according to <b>Ofcom</b>, a regulatory body that oversees broadcasting practices in the UK. This comes as no surprise as young people become increasingly <b>addicted to their smartphones</b>. Youth are opting for <b>online distractions</b> like YouTube videos, social media and games rather than switch on a TV and watch a news programme. Britain's Guardian newspaper reported that: \"The youth of the nation are more likely to get their day's news about the world from <b>social media</b> or by reading graffiti in bus stations than seeing it on the telly, with the average 16-24-year-old watching just <b>two minutes' worth of live TV news per day</b>.\"</p><p>Ofcom commissioned research into the news-viewing habits of people around the country. The report is called \"<b>News Consumption in the UK: 2019</b>\". The research suggests that young people are increasingly using <b>social media as their primary news source</b>. Researchers wrote: \"There is evidence that UK adults are consuming news more actively via social media.\" They reported an <b>increase in posts and comments</b> on Facebook and Twitter about the news compared to last year. Ofcom suggested <b>presenting news stories in a less complicated, more accessible way</b> to attract young people's attention. Some people suggested this would be \"<b>dumbing down content</b> for young audiences\".</p><p><b>Talk/Lecture 2</b></p><p>There has been a <b>dramatic increase in the popularity of veganism</b> around the world in the past decade. Many people are becoming vegans in an attempt to lead a <b>lifestyle that is more conducive to helping the planet</b>. Giving up eating meat, dairy and other food from animals constitutes the bulk of changes vegans make to their lives. However, an increasing number of vegans are now <b>extending their beliefs to fashion</b>. There is a considerable increase in the <b>sales of vegan clothing, footwear and accessories</b>. Retailers are marketing products that are <b>free from cow skin and other animal products</b>. Shops are full of synthetic fur coats, plastic belts, and shoes made from <b>tree bark, recycled plastic bottles, rubber and coconut fibre</b>.</p><p>Research in the United Kingdom revealed that <b>42 per cent of shoppers considered animal welfare</b> before buying clothes. The researchers discovered that people of all ages would consider purchasing <b>vegan footwear</b>. The trend in vegan fashion has also reached <b>luxury brands</b>. Designer <b>Stella McCartney</b> has designed a new range of fashion that is free from leather and makes use of <b>recycled products</b>. Her new collection is based on a theme of the iconic sixties pop group the Beatles. Ms McCartney's father, Paul, was lead singer of the group. She has designed <b>leather-free Yellow Submarine sneakers</b> and colourful fake fur coats. Ms McCartney is a committed <b>animal rights activist</b>.</p><p><b>Talk/Lecture 3</b></p><p><b>Alan Turing</b>, the man widely recognised as being the <b>father of modern computer science</b>, has been honored by being selected to appear on a United Kingdom banknote. Mr Turing was chosen ahead of a wealth of notable British historical figures and luminaries to be the face of the <b>new £50 note</b>. Turing was instrumental in helping Britain and its allies <b>win World War II</b>. He led a team of codebreakers to <b>crack the Enigma code</b> the Nazis used to send messages to warships and military commanders. He invented the now famous <b>British Bombe</b> to do this. This was a giant computer, which ushered in the <b>birth of modern computing and the beginnings of artificial intelligence</b>.</p><p>Alan Turing was a <b>mathematical genius</b> who also excelled in the sciences. He was born in London in 1912. He graduated from <b>Cambridge University</b> and then outlined his vision for creating an <b>algorithm-based computing machine</b>. He said of his invention: \"This is only a foretaste of what is to come, and only the shadow of what is going to be.\" His idea is <b>central to the computers we use today</b>. His brilliance led to his being asked to join the WWII code-breaking team. Despite his pivotal role in ending that war, he was <b>persecuted in the post-war years for being homosexual</b>. Being gay was illegal in the UK until 1967. He chose to be <b>chemically castrated</b> rather than go to prison. Turing died in 1954, aged 41, in an apparent <b>suicide</b>.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What are young people becoming ever more addicted to?",
+              "options": [
+                "The 20th century",
+                "News",
+                "Alcohol",
+                "Their smartphones"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did the speaker call things like Youtube and videos?",
+              "options": [
+                "Online distractions",
+                "Rubbish",
+                "Eye candy",
+                "Harmful"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "On average, how much live TV news do young British people watch?",
+              "options": [
+                "30 minutes a day",
+                "2 minutes a day",
+                "Three hours a week",
+                "An hour a day"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What was the primary source of news for young people?",
+              "options": [
+                "Radio",
+                "TV",
+                "Social media",
+                "Newspapers"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "Why did Ofcom suggest making news less complicated?",
+              "options": [
+                "To attract young people",
+                "To make it happier",
+                "For advertising",
+                "People’s brains are shrinking"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What was veganism conductive to?",
+              "options": [
+                "Lowering cholesterol",
+                "Gardening",
+                "Good cooking",
+                "Helping the planet"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What are vegans extending their beliefs to?",
+              "options": [
+                "Religion",
+                "Politics",
+                "Fashion",
+                "Philosophy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What kind of fibre is being used to make vegan shoes?",
+              "options": [
+                "High speed fibre",
+                "Coconut fibre",
+                "Hemp fibre",
+                "Silk fibre"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "How old are the people who would buy vegan clothes?",
+              "options": [
+                "12-20",
+                "Aged",
+                "All ages",
+                "People in their 30s"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What did Stella McCartney design that had a yellow submarine theme?",
+              "options": [
+                "A boat",
+                "Underwear",
+                "A popcorn holder",
+                "Sneakers"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What denomination of banknote will Mr Turing appear on?",
+              "options": [
+                "The £5 note",
+                "The £10 note",
+                "The £100 note",
+                "The £50 note"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What is the name of the computer that Alan Turing made?",
+              "options": [
+                "Apple",
+                "IBM",
+                "The British Bombe",
+                "The English Rose"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What was Mr Turing’s vision of computers based on?",
+              "options": [
+                "Egyptian hieroglyphics",
+                "Plasma",
+                "Quantum physics",
+                "An algorithm"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What was his vision only the shadow of?",
+              "options": [
+                "What is going to be",
+                "What always was",
+                "What could be",
+                "What was to be"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "In what year did Alan die?",
+              "options": [
+                "1952",
+                "1954",
+                "1953",
+                "1951"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Myanmar: A General Introduction",
+            "text": "<p>Myanmar is a large country in Southeast Asia, bordered by China, India, Thailand, Laos, and Bangladesh. With a population of more than fifty million people, it is one of the biggest countries in the region by both land area and population. Its capital city is Naypyidaw, though the largest and most famous city is Yangon, once the country's capital and still its main center for business and culture. Many visitors are surprised to learn how varied the country's landscape is, from mountains in the north to a long coastline in the south. The country is also crossed by several major rivers that support farming and transportation across many regions.</p><p>For much of the twentieth century, Myanmar was known internationally as Burma, and the country experienced decades of military rule that limited contact with the outside world. In recent years, Myanmar has gone through significant political change, though the situation remains complicated and still affects daily life for many citizens. Because of this history, some older maps and books still use the name Burma instead of Myanmar. Understanding this background helps explain why the country is less familiar to many travelers than some of its neighbors.</p><p>Buddhism plays a central role in Myanmar's culture, and most of the population follows this religion closely. Golden pagodas can be found in almost every town, and the most famous of these, the Shwedagon Pagoda in Yangon, attracts both worshippers and tourists from around the world. Traditional festivals connected to the Buddhist calendar are celebrated throughout the year with music, food, and colorful processions. Local cuisine blends influences from neighboring China, India, and Thailand, resulting in dishes that use rice, fish, and a wide range of spices. Tea leaf salad, a dish unique to the region, remains one of the most popular foods among both locals and visitors.</p><p>Agriculture remains central to Myanmar's economy, with rice as the most important crop grown across the <strong>fertile</strong> plains near the Irrawaddy River. The country is also known for natural resources such as jade, teak wood, and natural gas, which are exported to neighboring countries, since demand for <strong>them</strong> continues to grow steadily. Despite these resources, Myanmar remains one of the less developed economies in Southeast Asia, and many rural communities still lack reliable access to electricity and modern transportation. Economic growth has been <strong>uneven</strong>, with cities developing far faster than most parts of the countryside in recent decades.</p><p>In recent years, growing numbers of travelers have become interested in visiting Myanmar to see its temples, rivers, and traditional villages. The ancient city of Bagan, home to thousands of historic pagodas spread across a wide plain, has become especially popular among tourists. However, limited infrastructure and ongoing political instability continue to make travel and investment more difficult than in some neighboring countries. Many observers believe that Myanmar's long-term development will depend heavily on how these underlying challenges are eventually addressed.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R1Q1</b>, quét các từ khóa \"capital city\" và \"Yangon\" ở đoạn 1 để xác định mối quan hệ địa lý (Naypyidaw là thủ đô, trong khi Yangon là thành phố lớn nhất).</li><li>Với <b>R1Q5</b>, quét cụm từ \"Tea leaf salad\" ở đoạn 3 để xác định đặc điểm của món ăn (món ăn độc đáo của khu vực và vẫn rất phổ biến).</li><li>Với <b>R1Q10</b>, quét từ khóa \"Bagan\" ở đoạn 5 để tìm chi tiết miêu tả về thành phố này (thành cổ nổi tiếng với hàng nghìn bảo tháp/chùa cổ).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q2, R1Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R1Q2</b>, đọc ngữ cảnh đoạn 4 nói về sự phát triển kinh tế không đồng đều giữa các vùng miền/nhóm người để tìm từ đồng nghĩa với <strong>\"uneven\"</strong> (unequal).</li><li>Với <b>R1Q8</b>, xét ngữ cảnh đoạn 4 mô tả vùng đồng bằng màu mỡ/phì nhiêu thích hợp cho trồng trọt để chọn từ đồng nghĩa cho <strong>\"fertile\"</strong> (productive).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q4):</b> Đọc ngược lại câu liền trước ở đoạn 4 để tìm danh từ số nhiều làm đối tượng cho hành động được xuất khẩu và nhu cầu ngày càng tăng (các tài nguyên thiên nhiên / natural resources).</li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q6):</b> Tổng hợp các tài nguyên thiên nhiên được nhắc đến ở đoạn 4 (ngọc bích, gỗ cẩm lai/tếch, khí tự nhiên), sau đó đối soát với 4 phương án để chọn chi tiết không được đề cập (vàng / gold).</li><li><b>Dạng câu hỏi Suy luận (R1Q7):</b> Kết hợp các dữ kiện ở đoạn 4 và đoạn cuối về cơ sở hạ tầng thiếu thốn và tình hình chính trị phức tạp để suy ra ảnh hưởng đối với du lịch và đầu tư (gặp nhiều khó khăn hơn).</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R1Q3, R1Q9):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R1Q3</b>, tổng hợp nội dung xuyên suốt từ địa lý, văn hóa, lịch sử đến kinh tế để chọn phương án bao quát bức tranh tổng thể về Myanmar.</li><li>Với <b>R1Q9</b>, nhận diện mục đích viết toàn bài nhằm cung cấp cái nhìn tổng quan, giới thiệu chung cho độc giả về đất nước và con người Myanmar.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R1Q4) và <b>Từ vựng</b> (R1Q2, R1Q8). Tiếp theo, thực hiện đọc quét dữ kiện cho các câu <b>Chi tiết</b> (R1Q1, R1Q5, R1Q10) và câu <b>Loại trừ</b> (R1Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R1Q7), <b>Ý chính toàn bài</b> (R1Q3) và <b>Mục đích của tác giả</b> (R1Q9).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about Myanmar's capital city?</span>",
+              "options": [
+                "Mandalay is the capital, while Yangon is the largest city.",
+                "Yangon is the capital, but Naypyidaw is the largest city.",
+                "Naypyidaw is both the capital and the largest city.",
+                "Naypyidaw is the capital, but Yangon is the largest city."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"uneven\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "unstable",
+                "informal",
+                "unproven",
+                "unequal"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Tourism is now the single largest part of Myanmar's economy.",
+                "Myanmar is a diverse country whose culture, economy, and history remain complex.",
+                "Myanmar's political history has had no lasting effect on the country.",
+                "Myanmar has completed a full transition to a modern, developed economy."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "neighboring countries",
+                "natural resources",
+                "modern transportation",
+                "rural communities"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about tea leaf salad?</span>",
+              "options": [
+                "It is a dish unique to the region that has become unpopular.",
+                "It is a dish served only during Buddhist festivals each year.",
+                "It is a dish unique to the region that remains popular today.",
+                "It is a dish borrowed from Thailand that remains popular today."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as one of Myanmar's natural resources?</span>",
+              "options": [
+                "Teak wood used in construction and furniture making.",
+                "Gold mined from mountains in the northern regions.",
+                "Jade exported to neighboring countries for profit.",
+                "Natural gas exported to neighboring countries for profit."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about travel and investment in Myanmar?</span>",
+              "options": [
+                "They are made more difficult by limited infrastructure and instability.",
+                "They are now fully supported by modern transportation networks.",
+                "They have become easier than in most neighboring Southeast Asian countries.",
+                "They depend mainly on the availability of natural gas exports."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"fertile\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "productive",
+                "exported",
+                "futile",
+                "vast"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To give readers a general introduction to Myanmar's geography and culture.",
+                "To persuade readers to invest in Myanmar's natural gas industry.",
+                "To provide a detailed travel guide for visiting Bagan specifically.",
+                "To criticize the political history of military rule in Myanmar."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about the city of Bagan?</span>",
+              "options": [
+                "It is a modern city known for its business district and airports.",
+                "It is an ancient city known for hundreds, not thousands, of pagodas.",
+                "It is an ancient city known for thousands of historic pagodas.",
+                "It is an ancient city known for thousands of temples in Yangon."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Vietnamese Women Today: What Has Changed",
+            "text": "<p>For much of the twentieth century, the expected role of a Vietnamese woman centered heavily on the household: raising children, managing domestic finances, and deferring to the judgment of a husband or father figure. That expectation drew on centuries of Confucian influence, which placed a woman's primary value in her contribution to family harmony rather than to public or professional life. Over the past few decades, however, that picture has shifted substantially, even if the shift remains far from complete.</p><p>Education has been one of the clearest engines of this change. Women now make up roughly half of university students nationwide, a figure that would have seemed unlikely two generations ago. In some fields, including medicine and business administration, female enrollment has begun to match or exceed that of men. This educational shift has, in turn, reshaped expectations about what a young woman's life might look like after graduation, opening doors largely closed to her grandmother's generation.</p><p>Vietnam has long had comparatively high female labor force participation by regional standards, but the nature of that participation has been changing. Rather than concentrating in agriculture or informal trade, as earlier generations often did, growing numbers of women now work in management, technology, and entrepreneurship. Female-led startups have become increasingly visible in cities such as Hanoi and Ho Chi Minh City, and business associations specifically supporting women entrepreneurs have multiplied over the past decade.</p><p>Marriage and family patterns have shifted alongside these economic changes. The average age at which women marry has risen steadily, and many now spend years building a career or completing further education before starting a family, a sequence unusual a generation ago. Family size has also declined, partly reflecting greater autonomy over reproductive decisions and partly reflecting the practical demands of balancing paid work with raising children. Many young couples now discuss these decisions together long before marriage, a shift from earlier generations who rarely questioned <strong>them</strong>.</p><p>Despite this progress, significant inequalities persist beneath the surface of these gains. Surveys consistently find that employed women still perform a disproportionate share of housework and childcare, a pattern researchers describe as a double burden. Paid employment, in other words, has rarely been matched by a corresponding redistribution of domestic responsibility. Women also remain underrepresented in the most senior levels of corporate and political leadership, even in sectors where they form the majority of the workforce.</p><p>These changes, moreover, have not spread evenly across the country. Urban women, especially in major cities, tend to experience far more dramatic shifts in education, career opportunity, and social expectation than their rural counterparts, where traditional family structures often remain more firmly <strong>entrenched</strong>. This urban-rural divide means that any single description of the modern Vietnamese woman risks <strong>flattening</strong> what is, in practice, a wide range of overlapping and sometimes contradictory experiences.</p><p>Taken together, the trajectory is unmistakably one of expanding opportunity, even as older expectations continue to shape daily life in less visible ways. Whether the coming decades bring a fuller redistribution of domestic responsibility, or simply a wider set of demands placed on women who now juggle both roles, will likely depend on shifting cultural attitudes as much as on continued economic progress.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R2Q1</b>, quét các từ khóa \"university students\" ở đoạn 2 để xác định tỷ lệ (phụ nữ hiện chiếm khoảng một nửa số lượng sinh viên đại học trên toàn quốc).</li><li>Với <b>R2Q5</b>, quét từ khóa \"labor force participation\" ở đoạn 3 để kiểm tra nhận định về lực lượng lao động nữ của Việt Nam (luôn ở mức cao so với mặt bằng chung khu vực).</li><li>Với <b>R2Q10</b>, quét các từ khóa \"urban\" và \"rural\" ở đoạn 6 để so sánh sự thay đổi (phụ nữ thành thị có xu hướng trải qua sự thay đổi rõ rệt/mạnh mẽ hơn phụ nữ nông thôn).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q2, R2Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R2Q2</b>, đọc ngữ cảnh đoạn 6 nói về cấu trúc gia đình truyền thống vẫn bám rễ/được củng cố vững chắc (<strong>\"entrenched\"</strong>) để tìm từ đồng nghĩa thích hợp (established).</li><li>Với <b>R2Q8</b>, xét ngữ cảnh đoạn 6 nói về khoảng cách thành thị - nông thôn khiến bất kỳ sự miêu tả đơn lẻ nào cũng có nguy cơ làm phẳng/đơn giản hóa quá mức (<strong>\"flattening\"</strong>) các trải nghiệm đa dạng để chọn từ đồng nghĩa (oversimplifying).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q4):</b> Đọc ngược lại câu liền trước ở đoạn 4 để tìm danh từ số nhiều chỉ đối tượng (các quyết định sinh con/sinh sản - reproductive decisions) mà các cặp vợ chồng trẻ trước đây hiếm khi đặt câu hỏi hay nghi ngờ.</li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q6):</b> Tổng hợp các minh chứng về cơ hội mở rộng cho phụ nữ (tỷ lệ vào đại học tăng, tham gia quản lý/công nghệ, tuổi kết hôn trung bình tăng), đối soát với 4 phương án để chọn chi tiết không được đề cập (việc tăng số lượng phụ nữ trong quốc hội).</li><li><b>Dạng câu hỏi Suy luận (R2Q7):</b> Kết hợp các dữ kiện ở đoạn 5 về việc phụ nữ gánh vác trách nhiệm gia đình quá nhiều (double burden) để suy ra sự phân công công việc nhà chưa phát triển kịp với mức độ tham gia lực lượng lao động trả lương của họ.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R2Q3, R2Q9):</b> Phân tích lập luận toàn cục của bài đọc:<ul><li>Với <b>R2Q3</b>, tổng hợp nội dung xuyên suốt từ sự mở rộng vai trò xã hội đến các rào cản bất bình đẳng còn tồn tại để chọn phương án bao quát toàn bài.</li><li>Với <b>R2Q9</b>, nhận diện mục đích chính của tác giả là mô tả sự thay đổi trong vai trò của phụ nữ Việt Nam song song với việc phân tích những mặt hạn chế/bất bình đẳng vẫn đang dai dẳng.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R2Q4) và <b>Từ vựng</b> (R2Q2, R2Q8). Tiếp theo, thực hiện đọc quét dữ kiện cho các câu <b>Chi tiết</b> (R2Q1, R2Q5, R2Q10) và câu <b>Loại trừ</b> (R2Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R2Q7), <b>Ý chính toàn bài</b> (R2Q3) và <b>Mục đích của tác giả</b> (R2Q9).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about university students in Vietnam?</span>",
+              "options": [
+                "Women now make up the majority, not half, of university students.",
+                "Women now make up roughly half of primary school students nationwide.",
+                "Men now make up roughly half of university students nationwide.",
+                "Women now make up roughly half of university students nationwide."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"entrenched\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "distributed",
+                "established",
+                "entangled",
+                "questioned"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Vietnamese women's roles have expanded, though inequality and old expectations persist.",
+                "Traditional expectations for Vietnamese women have remained essentially unchanged.",
+                "Vietnamese women have achieved complete equality with men in the workplace.",
+                "Rural Vietnamese women have seen faster social change than urban women."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "earlier generations",
+                "paid work",
+                "young couples",
+                "reproductive decisions"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about Vietnam's female labor force participation?</span>",
+              "options": [
+                "It has only recently become high, unlike in the past.",
+                "It has long been comparatively low by regional standards.",
+                "It has long been comparatively high by regional standards.",
+                "Southeast Asia overall has higher participation than Vietnam does."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as evidence of expanding opportunity for Vietnamese women?</span>",
+              "options": [
+                "Growing numbers of women in management, technology, and entrepreneurship.",
+                "A significant rise in the number of women elected to parliament.",
+                "A rising average marriage age as women pursue careers first.",
+                "Rising female university enrollment that now matches or exceeds men's."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about domestic responsibility in Vietnamese households?</span>",
+              "options": [
+                "Increased housework by women has caused a decline in paid employment.",
+                "Researchers describe this pattern using the term double burden.",
+                "It has completely reversed, with men now doing most of the housework.",
+                "It has not kept pace with women's rising participation in paid work."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"flattening\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "expanding",
+                "ignoring",
+                "flattering",
+                "oversimplifying"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To celebrate the complete achievement of gender equality in Vietnam.",
+                "To criticize young Vietnamese women for delaying marriage and childbearing.",
+                "To describe how Vietnamese women's roles have changed despite lingering inequality.",
+                "To argue that Confucian traditions should be fully restored in Vietnam."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do urban and rural women's experiences compare?</span>",
+              "options": [
+                "Urban and rural women experience nearly identical rates of change.",
+                "Rural women tend to experience more dramatic change than urban women.",
+                "Urban men tend to experience more dramatic change than urban women.",
+                "Urban women tend to experience more dramatic change than rural women."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "AI Assistants, Information Search, and Travel Booking",
+            "text": "<p>For most of the internet era, finding information and booking a trip involved two separate skills: typing the right keywords into a search engine, then navigating a maze of airline and hotel websites to compare prices. Conversational AI assistants are now collapsing that distinction, offering to search, compare, and in some cases complete a booking within a single exchange. What once required a dozen browser tabs increasingly happens inside one conversation.</p><p>Underlying most of these assistants is a technique often called retrieval-augmented generation, in which a language model pulls relevant documents or listings from an external source before composing its answer, rather than relying solely on patterns memorized during training. This matters because a model answering purely from memory can confidently state prices, schedules, or availability that are simply out of date. <strong>Grounding</strong> responses in freshly retrieved data is meant to reduce that risk, though it does not eliminate it entirely.</p><p>In travel specifically, some assistants have moved beyond merely summarizing options to actually taking action: filling out booking forms, comparing fares across airlines, and completing a purchase once a traveler confirms the details. This shift from answering questions to executing tasks represents a meaningful expansion of what these systems are trusted to do, since a factual error in a summary is inconvenient, while an error during an actual purchase carries real financial consequences.</p><p>Proponents argue that this convenience saves considerable time, particularly for travelers juggling multiple constraints such as budget, dates, and layover preferences that are tedious to specify repeatedly across different websites, a burden AI assistants aim to lift from <strong>them</strong>. Some early user studies suggest that people do report saving time compared with manual searching, although the samples in these studies remain small and the tasks tested are not always representative of real booking complexity.</p><p>Critics raise a different set of concerns. Because language models can produce fluent, confident text even when incorrect, a travel assistant might describe a nonexistent flight route or misstate a refund policy with no obvious sign that anything is wrong. When such a system is also authorized to complete purchases, the consequences of an undetected error shift from mild embarrassment to a financial dispute, raising questions about who bears responsibility when an AI-initiated booking goes wrong.</p><p>These developments are also reshaping the businesses that traditionally sat between travelers and their trips. Online travel agencies and search engines have long earned revenue through advertising and referral fees tied to how results are displayed, a model that assumes a human is scanning a results page. An AI assistant that quietly selects one option on a traveler's behalf disrupts that arrangement, and several companies in the sector are still working out how, or whether, to adapt their revenue models.</p><p>None of this suggests that AI travel assistants are simply better or worse than the tools they are replacing; the picture is more mixed than either enthusiasm or alarm would suggest. What seems clearer is that trust in these systems will likely need to be earned <strong>incrementally</strong>, through transparent sourcing and clear accountability when something goes wrong, rather than assumed simply because the underlying technology is impressive.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5, R3Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R3Q1</b>, quét cụm từ \"retrieval-augmented generation\" ở đoạn 2 để xác định nguyên lý hoạt động (trích xuất các tài liệu liên quan từ nguồn bên ngoài trước khi đưa ra câu trả lời).</li><li>Với <b>R3Q5</b>, quét các từ khóa \"purchase error\" và \"summary\" ở đoạn 3 để so sánh mức độ ảnh hưởng (lỗi khi thanh toán mua dịch vụ dẫn đến hậu quả tài chính thực tế nghiêm trọng hơn lỗi tóm tắt).</li><li>Với <b>R3Q10</b>, quét cụm từ \"early user studies\" ở đoạn 4 để tìm ra hạn chế của các nghiên cứu (mẫu khảo sát nhỏ và các tác vụ thử nghiệm chưa phản ánh đúng độ phức tạp thực tế).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q2, R3Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R3Q2</b>, đọc ngữ cảnh đoạn 2 mô tả việc đặt căn cứ/dựa câu trả lời trên dữ liệu mới trích xuất (<strong>\"grounding\"</strong>) để chọn từ đồng nghĩa phù hợp (basing).</li><li>Với <b>R3Q8</b>, xét ngữ cảnh đoạn 7 nói về quá trình thay đổi từng bước/từng chút một (<strong>\"incrementally\"</strong>) để tìm từ đồng nghĩa thích hợp (gradually).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q4):</b> Đọc ngược lại câu liền trước ở đoạn 4 để xác định danh từ số nhiều làm đối tượng chịu áp lực gánh nặng (du khách / travelers).</li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q6):</b> Tổng hợp danh sách các công việc AI trợ lý du lịch có thể làm ở đoạn 3 (điền thông tin, so sánh giá, hoàn tất đặt chỗ), đối soát 4 phương án để chọn chi tiết không được nhắc đến (đàm phán trực tiếp với nhân viên hãng bay).</li><li><b>Dạng câu hỏi Suy luận (R3Q7):</b> Kết hợp các dữ kiện ở các đoạn cuối về sự thay đổi thói quen tìm kiếm của người dùng để suy luận ảnh hưởng tới doanh nghiệp du lịch truyền thống (cần tính toán lại mô hình doanh thu).</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R3Q3, R3Q9):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R3Q3</b>, tổng hợp nội dung toàn bài từ tiện ích của trợ lý AI đến những rủi ro và thách thức đi kèm để chọn ý chính bao quát.</li><li>Với <b>R3Q9</b>, nhận diện mục đích viết của tác giả nhằm đưa ra cái nhìn khách quan, cân bằng giữa lợi ích và hạn chế của các công cụ AI này.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R3Q4) và <b>Từ vựng</b> (R3Q2, R3Q8). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q5, R3Q10) và câu <b>Loại trừ</b> (R3Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã ráp nối, bạn sẽ dễ dàng chọn phương án chính xác cho các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R3Q7), <b>Ý chính toàn bài</b> (R3Q3) và <b>Mục đích của tác giả</b> (R3Q9).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does retrieval-augmented generation involve?</span>",
+              "options": [
+                "Pulling documents from an outside source after responding instead.",
+                "Pulling relevant documents from an outside source before responding.",
+                "Generating a response entirely from patterns memorized in training.",
+                "Pulling relevant advertisements from an outside source before responding."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"grounding\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "grinding",
+                "basing",
+                "guaranteeing",
+                "advertising"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "AI assistants are reshaping search and travel booking, with real risks.",
+                "AI assistants are useful only for comparing flight prices, nothing else.",
+                "Search engines remain unaffected by the rise of AI assistants.",
+                "AI travel assistants have replaced human travel agents completely worldwide."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "AI assistants",
+                "websites",
+                "layover preferences",
+                "travelers"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do purchase errors and summary errors compare?</span>",
+              "options": [
+                "Purchase errors carry more serious consequences than summary errors do.",
+                "Purchase errors and summary errors carry identical financial consequences.",
+                "Summary errors carry more serious consequences than purchase errors do.",
+                "Errors occur only in summaries, never during actual purchases."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a task travel-booking AI assistants can perform?</span>",
+              "options": [
+                "Negotiating a lower price directly with airline staff members.",
+                "Filling out booking forms on a traveler's behalf.",
+                "Completing a purchase once a traveler gives confirmation.",
+                "Comparing fares across different airlines automatically."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about traditional travel businesses?</span>",
+              "options": [
+                "They may soon need to rethink how they earn revenue.",
+                "Changes in revenue models made AI assistants more popular.",
+                "They have long earned revenue through advertising and referrals.",
+                "They will inevitably disappear within the next few years."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"incrementally\"</strong> in paragraph 7 is closest in meaning to _______.</span>",
+              "options": [
+                "incidentally",
+                "gradually",
+                "financially",
+                "instantly"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To promote one specific AI travel assistant over its many rivals.",
+                "To argue that traditional search engines are now completely obsolete.",
+                "To warn readers never to trust any AI travel service.",
+                "To present a balanced view of AI assistants' benefits."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is a key limitation of the early user studies?</span>",
+              "options": [
+                "Their samples were small, yet their tasks were fully realistic.",
+                "They studied only hotel bookings, not flights or other tasks.",
+                "Their samples were large and their tasks fully representative.",
+                "Their samples were small, and their tasks were unrealistic."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Do Mice Keep Making Eggs? A Contested Finding in Reproductive Biology",
+            "text": "<p>For decades, reproductive biology rested on a tidy assumption: female mammals are born with a fixed, non-renewable supply of egg cells, one that can only shrink, never grow, across a lifetime. In humans, this framework fits the evidence well and helps explain why fertility declines sharply with age as the finite reserve is gradually used up. The assumption seemed settled enough that few researchers thought to question it directly in other species, let alone attempt to overturn it.</p><p>That settled picture began to <strong>wobble</strong> in the early 2000s, when a research team led by the biologist Jonathan Tilly reported evidence that adult mouse ovaries contained germline stem cells capable of generating new egg cells well into adulthood. If correct, this would mean that at least some mammals do not simply deplete a fixed store of eggs but can, under certain conditions, keep producing more, a possibility the earlier dogma had ruled out almost by definition. The claim, unsurprisingly, did not sit quietly within the field.</p><p>The implications, had the finding held up cleanly, would have been considerable. A renewable egg supply might eventually inform new approaches to treating age-related infertility, or even suggest that reproductive aging is more biologically flexible than long assumed. It is little surprise that the original papers drew intense attention, both from specialists eager to test the claim and from a wider public hungry for any hint that fertility decline might someday be reversible. Some early commentary even speculated about implications for human fertility treatment, well ahead of any confirming evidence.</p><p>That attention, however, was quickly matched by skepticism. Several independent laboratories attempted to replicate the original findings and reported difficulty confirming that the proposed stem cells behaved as claimed, or that they meaningfully contributed new eggs rather than merely resembling egg precursors in appearance. Debate over methodology, cell markers, and interpretation continued for years, and the reproductive biology community remained visibly split on how much weight the original claims deserved. Some researchers came to view the entire concept with active suspicion.</p><p>More recent studies, employing more rigorous lineage-tracing techniques that genetically mark cells and track their descendants over time, have offered partial and heavily qualified support for limited postnatal egg formation in mice under specific experimental conditions. <strong>This</strong> is a considerably narrower claim than the original, striking suggestion of an essentially unlimited or continuously renewing supply. Most researchers now describe the phenomenon, if it exists at all, as modest and tightly conditional rather than transformative.</p><p>Whether any of this translates to humans remains, at best, an open question rather than an established fact. Mice and humans differ substantially in reproductive lifespan and ovarian structure, and in the pace at which egg reserves are used, so a mechanism documented cautiously in mice cannot simply be assumed to operate the same way in women. Researchers who study this question tend to describe extrapolation to humans as premature rather than merely uncertain, a distinction that matters considerably in how the findings are communicated publicly.</p><p>None of this scientific caution has entirely stopped commercial interest from moving faster than the evidence. Some fertility clinics have marketed procedures described as ovarian stem-cell therapy or egg rejuvenation, implying a level of scientific confidence that the underlying research does not yet support. Many reproductive biologists have publicly criticized this gap between marketing claims and unsettled science, arguing that hopeful patients deserve a clearer picture of how <strong>tentative</strong> the underlying findings still are.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5, R4Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R4Q1</b>, quét tên riêng \"Jonathan Tilly\" ở đoạn 2 để tìm báo cáo của nhóm nghiên cứu (buồng trứng chuột trưởng thành chứa tế bào mầm có khả năng tạo trứng mới).</li><li>Với <b>R4Q5</b>, quét cụm từ \"independent laboratories\" ở đoạn 4 để xác định phản hồi từ các phòng thí nghiệm độc lập (gặp khó khăn trong việc xác nhận các tế bào mầm hoạt động đúng như tuyên bố).</li><li>Với <b>R4Q10</b>, quét từ khóa \"fertility clinics\" ở đoạn 7 để tìm thực trạng tại các phòng khám (đưa ra thông tin thể hiện mức độ tin cậy vượt quá những gì bằng chứng khoa học hiện tại hỗ trợ).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q2, R4Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R4Q2</b>, đọc ngữ cảnh đoạn 2 nói về quan niệm cũ vốn đã ổn định nay bắt đầu lung lay/dao động (<strong>\"wobble\"</strong>) trước phát hiện mới để chọn từ đồng nghĩa phù hợp (waver).</li><li>Với <b>R4Q8</b>, xét ngữ cảnh đoạn 7 mô tả các kết luận khoa học hiện mới chỉ ở mức dự kiến/chưa chắc chắn (<strong>\"tentative\"</strong>) để chọn từ đồng nghĩa thích hợp (uncertain).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q4):</b> Đọc ngược lại câu liền trước ở đoạn 5 để xác định danh từ/hiện tượng (việc hình thành trứng sau sinh - postnatal egg formation) mà từ chỉ định <strong>\"this\"</strong> đang thay thế.</li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q6):</b> Tổng hợp danh sách các lý do cần cẩn trọng khi áp dụng kết quả từ chuột sang người ở các đoạn giữa (khác biệt về vòng đời sinh sản, cấu trúc buồng trứng, tốc độ tiêu thụ dự trữ), sau đó đối soát 4 phương án để chọn nhận định không được đề cập.</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Kết hợp các lập luận ở các đoạn 5 và 6 về việc nếu hiện tượng sản xuất trứng liên tục ở chuột có thật thì nó cũng chỉ ở mức độ hạn chế/nhỏ chứ không mang tính đột phá lớn như kỳ vọng ban đầu.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R4Q3, R4Q9):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R4Q3</b>, tổng hợp nội dung xuyên suốt bài viết về cuộc tranh luận liên quan đến khả năng tạo trứng liên tục ở chuột và sự khác biệt đối với con người để chọn ý chính bao quát.</li><li>Với <b>R4Q9</b>, nhận diện mục đích viết chính của tác giả nhằm giải thích cuộc tranh luận khoa học đồng thời đưa ra lời cảnh báo không nên thổi phồng tính chắc chắn của các phát hiện này.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R4Q4) và <b>Từ vựng</b> (R4Q2, R4Q8). Tiếp theo, thực hiện đọc quét dữ kiện cho các câu <b>Chi tiết</b> (R4Q1, R4Q5, R4Q10) và câu <b>Loại trừ</b> (R4Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng chọn phương án chính xác cho các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R4Q7), <b>Ý chính toàn bài</b> (R4Q3) và <b>Mục đích của tác giả</b> (R4Q9).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did Tilly's research team report about adult mouse ovaries?</span>",
+              "options": [
+                "They lacked any cells reportedly able to produce new eggs.",
+                "Adult human ovaries reportedly contained stem cells producing eggs.",
+                "They contained stem cells that reportedly stopped producing eggs.",
+                "They contained stem cells able to produce new eggs."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"wobble\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "waver",
+                "expand",
+                "collapse",
+                "warble"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Scientists have proven mice produce eggs continuously throughout their lives.",
+                "Humans and mice share an identical egg-production process.",
+                "Continuous egg production in mice is debated, and humans differ.",
+                "Fertility clinics have confirmed ovarian rejuvenation works in humans."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"this\"</strong> in paragraph 5 refers to _______.</span>",
+              "options": [
+                "lineage-tracing techniques",
+                "experimental conditions",
+                "the original claim",
+                "postnatal egg formation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did independent laboratories report?</span>",
+              "options": [
+                "Difficulty reported by original researchers, not independent laboratories.",
+                "Difficulty finding any stem cells in mouse ovaries at all.",
+                "Ease in confirming that the proposed stem cells behaved as claimed.",
+                "Difficulty confirming that the proposed stem cells behaved as claimed."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a reason for caution about applying mouse findings to humans?</span>",
+              "options": [
+                "Mice have already been proven incapable of aging like humans.",
+                "Mice and humans differ substantially in ovarian structure.",
+                "Mice and humans differ substantially in reproductive lifespan.",
+                "Mice and humans differ in how fast reserves are used."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred about the scientific community's current view of continuous egg production in mice?</span>",
+              "options": [
+                "Most researchers see it, if real, as limited rather than dramatic.",
+                "Skepticism caused the original stem cells to stop functioning.",
+                "Most researchers now flatly deny the phenomenon exists at all.",
+                "Jonathan Tilly led the team that first reported the finding."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"tentative\"</strong> in paragraph 7 is closest in meaning to _______.</span>",
+              "options": [
+                "false",
+                "expensive",
+                "uncertain",
+                "temporary"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To explain a debate while cautioning against overstating its certainty.",
+                "To promote a specific fertility clinic offering egg rejuvenation.",
+                "To argue humans and mice share identical reproductive biology.",
+                "To prove definitively that stem-cell therapy is a scientific fraud."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true of some fertility clinics?</span>",
+              "options": [
+                "They imply less scientific confidence than evidence actually supports.",
+                "They imply more scientific confidence than current evidence supports.",
+                "Most clinics have stopped offering such therapy for weak evidence.",
+                "Few clinics imply more scientific confidence than evidence supports."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. Your luggage did not arrive when you landed at the airport, and an airline staff member has emailed you asking for more information.</p> Read part of the email below.",
+          "content": "<p class='mb-1'>We are sorry to hear that your luggage has not arrived. To help us locate it as soon as possible, please provide us with the following information.</p><ul><li>Which flight were you on, and what time did it depart/arrive?</li><li>Please describe your luggage in detail.</li><li>What is the best way to contact you once your luggage is found?</li></ul>",
+          "description": "You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Information Email</strong> (thư cung cấp thông tin theo yêu cầu), gửi cho nhân viên hãng hàng không nên cần giọng văn <strong>lịch sự, rõ ràng, hơi trang trọng</strong> hơn thư bạn bè thông thường. Đề bài yêu cầu trả lời đủ <strong>3 ý chính</strong>: (1) chuyến bay nào và thời gian, (2) mô tả chi tiết hành lý bị mất, (3) thông tin liên hệ để hãng bay liên lạc khi tìm thấy hành lý. Bài viết cần tối thiểu <strong>120 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi lịch sự. Ví dụ: Dear Sir/Madam,</li><li><strong>Opening:</strong> Cảm ơn phản hồi và nêu mục đích thư. Ví dụ: Thank you for getting back to me so quickly. Please find the information you requested below.</li><li><strong>Body 1 (chuyến bay và thời gian):</strong> Ví dụ: I was on flight VN214 from Hanoi to Ho Chi Minh City, which departed at 8:30 a.m. and landed at around 10:45 a.m. yesterday.</li><li><strong>Body 2 (mô tả hành lý):</strong> Ví dụ: My luggage is a medium-sized black suitcase with a red ribbon tied to the handle, and it has a luggage tag with my name on it.</li><li><strong>Body 3 (thông tin liên hệ):</strong> Ví dụ: You can reach me at the phone number provided on my ticket, or via email, whichever is more convenient for you.</li><li><strong>Closing:</strong> Ví dụ: I would really appreciate it if you could update me on the situation as soon as possible.</li><li><strong>Sign-off:</strong> Best regards, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Dùng thì quá khứ đơn khi kể lại thông tin chuyến bay đã diễn ra, và cấu trúc lịch sự (I would appreciate it if..., Could you please...) để giữ giọng văn trang trọng phù hợp với đối tượng nhận thư là nhân viên sân bay. Mô tả hành lý nên cụ thể về màu sắc, kích thước, đặc điểm nhận dạng.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>lost luggage:</strong> hành lý bị thất lạc</li><li><strong>luggage tag:</strong> thẻ hành lý</li><li><strong>flight number:</strong> số hiệu chuyến bay</li><li><strong>departure/arrival time:</strong> giờ khởi hành/hạ cánh</li><li><strong>medium-sized suitcase:</strong> vali cỡ trung</li><li><strong>identifiable feature:</strong> đặc điểm nhận dạng</li><li><strong>contact information:</strong> thông tin liên hệ</li><li><strong>compensation:</strong> bồi thường</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Regarding...:</strong> Về việc...</li><li><strong>As requested:</strong> Theo yêu cầu</li><li><strong>In addition:</strong> Ngoài ra</li><li><strong>Furthermore:</strong> Hơn nữa</li><li><strong>As soon as possible:</strong> Càng sớm càng tốt</li></ul><p><strong>Cách diễn đạt cảm xúc:</strong></p><ul><li><strong>I would really appreciate it if...:</strong> Tôi thực sự sẽ rất biết ơn nếu...</li><li><strong>I am quite concerned about...:</strong> Tôi khá lo lắng về...</li><li><strong>I look forward to hearing from you soon:</strong> Tôi mong sớm nhận được phản hồi từ bạn</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Bỏ sót một trong ba thông tin được yêu cầu, đặc biệt là mô tả chi tiết hành lý.</li><li>Dùng văn phong quá suồng sã như viết thư cho bạn bè.</li><li>Quên nêu rõ số hiệu chuyến bay hoặc thời gian cụ thể.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã cung cấp đủ cả 3 thông tin được yêu cầu chưa.</li><li>Rà soát lại giọng văn đã đủ lịch sự, rõ ràng chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy hình dung mình đang thực sự cần hãng bay giúp tìm lại hành lý, vì vậy cần cung cấp thông tin chính xác, đầy đủ và trình bày một cách lịch sự, chuyên nghiệp.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "adv_dis",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>Green energy sources such as solar, wind and hydroelectric power have become increasingly popular as countries seek to reduce their reliance on fossil fuels.</p><p class='mb-1'>While many people see green energy as the key to a sustainable future, others point out that it also comes with certain drawbacks and challenges.</p><p class='mb-1'><strong>Discuss the advantages and disadvantages of green energy.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the advantages and disadvantages of green energy. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Advantages & Disadvantages Essay</strong>. Bạn cần trình bày cả <strong>ưu điểm và nhược điểm</strong> của việc sử dụng năng lượng xanh một cách cân bằng, khách quan, không thiên về một phía. Có thể đưa quan điểm cá nhân ở phần kết luận nếu đề cho phép. Bài viết cần tối thiểu <strong>250 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu chủ đề và nêu luận điểm chính. Ví dụ: As the world faces growing environmental challenges, green energy has emerged as a promising yet imperfect solution.</li><li><strong>Body 1 (ưu điểm):</strong> Ví dụ: One major advantage of green energy is that it significantly reduces greenhouse gas emissions compared to traditional fossil fuels.</li><li><strong>Body 2 (ưu điểm khác):</strong> Ví dụ: In addition, renewable sources such as solar and wind are virtually inexhaustible, unlike coal or oil, which are finite resources.</li><li><strong>Body 3 (nhược điểm):</strong> Ví dụ: However, green energy also has notable drawbacks, including the high initial investment costs and the intermittent nature of sources like solar and wind power.</li><li><strong>Conclusion:</strong> Tóm tắt hai mặt và đưa ra quan điểm cá nhân. Ví dụ: In conclusion, although green energy presents certain challenges, its long-term environmental benefits make it a worthwhile investment for the future.</li></ul><p><strong>Mỗi đoạn thân bài nên theo cấu trúc:</strong> Topic sentence → Giải thích → Ví dụ minh họa → Kết mini-đoạn, giúp bài viết mạch lạc và cân đối giữa hai mặt.</p><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng cấu trúc so sánh (compared to, unlike, whereas) để làm nổi bật sự đối lập giữa ưu và nhược điểm, cùng với các từ nối chuyển ý rõ ràng giữa hai phần. Cần có thesis statement nêu rõ định hướng bài viết ngay từ mở bài.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>renewable energy:</strong> năng lượng tái tạo</li><li><strong>greenhouse gas emissions:</strong> khí thải nhà kính</li><li><strong>fossil fuels:</strong> nhiên liệu hóa thạch</li><li><strong>initial investment:</strong> chi phí đầu tư ban đầu</li><li><strong>intermittent supply:</strong> nguồn cung không liên tục</li><li><strong>sustainable development:</strong> phát triển bền vững</li><li><strong>energy dependency:</strong> sự phụ thuộc năng lượng</li><li><strong>carbon-neutral:</strong> trung hòa carbon</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>In addition / Moreover (Thêm ý):</strong> Hơn nữa</li><li><strong>However / On the other hand (Đối lập):</strong> Tuy nhiên</li><li><strong>As a result / Consequently (Nguyên nhân-kết quả):</strong> Do đó</li><li><strong>For example / Such as (Ví dụ):</strong> Ví dụ như</li><li><strong>In conclusion / Overall (Kết luận):</strong> Tóm lại</li><li><strong>Compared to / Unlike (So sánh):</strong> So với / Không giống như</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>green energy:</strong> có thể thay bằng \"renewable power sources\"</li><li><strong>advantages and disadvantages:</strong> có thể thay bằng \"benefits and drawbacks\"</li><li><strong>sustainable future:</strong> có thể thay bằng \"a greener tomorrow\"</li></ul><p><strong>Cách diễn đạt so sánh:</strong></p><ul><li><strong>Compared to fossil fuels,...:</strong> So với nhiên liệu hóa thạch,...</li><li><strong>Unlike traditional energy sources,...:</strong> Không giống như các nguồn năng lượng truyền thống,...</li><li><strong>While X offers..., Y presents...:</strong> Trong khi X mang lại..., thì Y lại tồn tại...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ tập trung vào ưu điểm hoặc nhược điểm mà bỏ qua mặt còn lại.</li><li>Thiếu ví dụ cụ thể để minh họa cho từng luận điểm.</li><li>Không có sự chuyển ý rõ ràng giữa phần ưu điểm và nhược điểm.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã đạt tối thiểu 250 từ chưa.</li><li>Đảm bảo bài viết trình bày cân đối cả ưu điểm và nhược điểm.</li><li>Xem lại phần kết luận đã tóm tắt hợp lý cả hai mặt chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy giữ thái độ khách quan, trình bày cả hai mặt một cách công bằng thay vì thiên vị. Sự cân đối và logic trong lập luận là yếu tố then chốt để đạt điểm cao ở dạng bài này.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you often play or watch sports?",
+            "What is your favorite sport and why?",
+            "Do you think sports are important for a person's health?",
+            "Do you often watch TV programs?",
+            "What type of TV program do you enjoy watching the most?",
+            "Do you prefer watching TV alone or with your family?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này kéo dài <strong>3 phút</strong> với <strong>6 câu hỏi</strong>, được giám khảo hỏi trực tiếp theo hình thức hội thoại tự nhiên.</li><li><strong>Chủ đề A (Thể thao):</strong> Ba câu hỏi đầu xoay quanh việc chơi/xem thể thao, môn thể thao yêu thích và tầm quan trọng của thể thao với sức khỏe.</li><li><strong>Chủ đề B (Chương trình TV):</strong> Ba câu hỏi sau khai thác thói quen xem TV, thể loại chương trình yêu thích và việc xem một mình hay cùng gia đình.</li><li>Tiêu chí chấm điểm gồm: <strong>Độ trôi chảy (Fluency)</strong>, <strong>Từ vựng (Vocabulary)</strong>, <strong>Ngữ pháp (Grammar)</strong> và <strong>Phát âm (Pronunciation)</strong>.</li><li>Nên phân bổ khoảng <strong>25–30 giây</strong> cho mỗi câu hỏi, tránh dồn quá nhiều thời gian cho một chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Áp dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong>: trả lời trực tiếp, đưa lý do, sau đó minh họa bằng ví dụ cụ thể.</li><li><strong>Ví dụ Chủ đề A:</strong> \"I play badminton twice a week with my classmates because it helps me stay fit and relieve stress after studying.\"</li><li><strong>Ví dụ Chủ đề B:</strong> \"I usually watch documentaries because they help me learn new things about the world while relaxing.\"</li><li>Luôn tự hỏi <strong>Why?/How?</strong> sau mỗi câu trả lời ngắn để mở rộng ý (bắt buộc).</li><li>Dùng một câu chuyển ý ngắn gọn khi chuyển từ Chủ đề A sang B, ví dụ: \"Now, moving on to my entertainment habits...\" (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói đều, sử dụng các từ đệm tự nhiên như \"well\", \"actually\" để tránh im lặng kéo dài.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> khi nói về thói quen chơi thể thao và xem TV (\"I usually...\", \"I tend to...\"), dùng <strong>hiện tại hoàn thành</strong> nếu nhắc đến trải nghiệm tích lũy (\"I have watched this show since I was a kid\").</li><li>Nếu quên từ, hãy diễn giải bằng cách mô tả (paraphrase) thay vì dừng lại.</li><li>Từ vựng Chủ đề A: <strong>keep fit</strong> (giữ dáng), <strong>team spirit</strong> (tinh thần đồng đội), <strong>work up a sweat</strong> (đổ mồ hôi khi tập luyện), <strong>a sport enthusiast</strong> (người đam mê thể thao).</li><li>Từ vựng Chủ đề B: <strong>prime-time show</strong> (chương trình giờ vàng), <strong>reality TV</strong> (truyền hình thực tế), <strong>binge-watch</strong> (xem liền một mạch), <strong>broadcast</strong> (phát sóng).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>boost physical fitness</strong> (tăng cường thể lực) — Chủ đề A.</li><li><strong>relieve stress</strong> (giải tỏa căng thẳng) — Chủ đề A.</li><li><strong>a competitive spirit</strong> (tinh thần cạnh tranh) — Chủ đề A.</li><li><strong>an informative program</strong> (chương trình mang tính thông tin) — Chủ đề B.</li><li><strong>a great way to unwind</strong> (cách tuyệt vời để thư giãn) — Chủ đề B.</li><li><strong>family bonding time</strong> (thời gian gắn kết gia đình) — Chủ đề B.</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Actually,</strong> – mở đầu ý kiến cá nhân tự nhiên (thực ra thì).</li><li><strong>In terms of...</strong> – giới hạn phạm vi câu trả lời (về mặt...).</li><li><strong>Apart from that,</strong> – bổ sung ý (bên cạnh đó).</li><li><strong>The main reason is that...</strong> – nêu lý do chính.</li><li><strong>Speaking of...</strong> – chuyển chủ đề mượt mà (nói đến...).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"Personally, I think sports play a vital role in maintaining both physical and mental health.\" (Cá nhân tôi nghĩ...) — Chủ đề A.</li><li>\"From my point of view, team sports also teach valuable life skills like cooperation.\" (Theo quan điểm của tôi...) — Chủ đề A.</li><li>\"As far as I'm concerned, watching TV with family strengthens our relationship.\" (Theo tôi thì...) — Chủ đề B.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời cụt lủn kiểu \"Yes\" hoặc \"Football\" mà không giải thích thêm — đây là lỗi nghiêm trọng nhất.</li><li>Với Chủ đề A: nhầm lẫn giữa \"play\" (chơi thể thao) và \"do\" (dùng cho một số môn như gym, yoga).</li><li>Với Chủ đề B: chỉ liệt kê tên chương trình mà không giải thích lý do yêu thích.</li><li>Dùng sai thì, ví dụ dùng thì tương lai khi mô tả thói quen hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu chêm: \"That's an interesting question, let me think for a moment\" để có thêm thời gian.</li><li>Nếu quên từ vựng cụ thể, hãy mô tả bằng từ đơn giản hơn, ví dụ thay vì \"badminton\" có thể nói \"a sport played with a racket and a shuttlecock\".</li><li>Với Chủ đề A, nếu không nhớ chi tiết, có thể nói chung chung về \"a sport that helps me stay active\" rồi phát triển thêm.</li><li>Với Chủ đề B, nếu bí ý tưởng, hãy liên hệ đến lợi ích giải trí và thư giãn của việc xem TV.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy xem đây như một cuộc trò chuyện thân mật, không phải một bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Chủ đề A sang B, hãy \"reset\" tâm lý và coi đó là một câu hỏi hoàn toàn mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố gắng dùng từ vựng học thuật phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your class is organizing a potluck party and needs to choose one dish for the whole class to prepare together.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Fried spring rolls</li><li>Option 2: Fried rice</li><li>Option 3: Beef noodles</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống: lớp bạn đang tổ chức một buổi tiệc góp món (potluck) và cần chọn một món ăn để cả lớp cùng chuẩn bị.</li><li>Ba lựa chọn: <strong>chả giò (fried spring rolls)</strong>, <strong>cơm chiên (fried rice)</strong>, và <strong>mì bò (beef noodles)</strong>.</li><li>Tiêu chí chấm điểm: khả năng phân tích, so sánh và đưa ra kết luận thuyết phục, cùng với Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>4 phút</strong> — khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction – Comparison/Body – End)</strong>: giới thiệu tình huống, phân tích lần lượt ba lựa chọn, sau đó kết luận và đưa ra lý do.</li><li><strong>Option 1 (chả giò):</strong> \"Fried spring rolls are easy to prepare in large quantities and popular with almost everyone, but they can be a bit greasy for some people.\"</li><li><strong>Option 2 (cơm chiên):</strong> \"Fried rice is simple, filling, and budget-friendly, though it might be seen as a less exciting choice for a party.\"</li><li><strong>Option 3 (mì bò):</strong> \"Beef noodles are hearty and flavorful, but they require more cooking skills and could be more expensive due to the beef.\"</li><li>Mẹo: luôn neo lập luận vào bối cảnh thực tế của một buổi tiệc lớp học (bắt buộc).</li><li>Mẹo: dùng từ nối tương phản như \"however\", \"on the other hand\" để chuyển giữa ưu và nhược điểm (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết ba lựa chọn với nhau thay vì nói tách biệt, ví dụ: \"Compared to Option 3, Option 1 is much easier and quicker to prepare for a large group.\"</li><li>Về thì: dùng <strong>câu điều kiện loại 1</strong> khi dự đoán hệ quả (\"If we choose beef noodles, we will need more time and ingredients\") và <strong>hiện tại đơn</strong> khi mô tả đặc điểm từng món ăn.</li><li>Paraphrase cụm \"prepare\" thành \"make\" hoặc \"cook\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>easy to prepare</strong> (dễ chuẩn bị).</li><li><strong>budget-friendly</strong> (tiết kiệm chi phí).</li><li><strong>a crowd-pleaser</strong> (món ăn được nhiều người yêu thích).</li><li><strong>time-consuming</strong> (tốn thời gian).</li><li><strong>a hearty meal</strong> (bữa ăn no bụng, thịnh soạn).</li><li><strong>suit different tastes</strong> (phù hợp với nhiều khẩu vị).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>On the other hand,</strong> – nêu quan điểm đối lập (mặt khác).</li><li><strong>Compared to...,</strong> – so sánh giữa các lựa chọn.</li><li><strong>Taking everything into account,</strong> – tổng kết trước khi kết luận (xét tổng thể).</li><li><strong>Nevertheless,</strong> – nhấn mạnh điểm trái ngược (tuy nhiên).</li><li><strong>As a result,</strong> – nêu hệ quả (kết quả là).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"If it were up to me, I would choose fried spring rolls because they are convenient and loved by most people.\" (Nếu là tôi...)</li><li>\"I would strongly recommend fried rice for its simplicity and low cost.\" (Tôi sẽ khuyên...)</li><li>\"In my opinion, beef noodles would make the party feel more special despite the extra effort.\" (Theo ý kiến của tôi...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen món ăn mình chọn mà không chỉ ra nhược điểm của các lựa chọn còn lại.</li><li>Lặp đi lặp lại từ \"delicious\"/\"good\" thay vì dùng tính từ đa dạng hơn như \"flavorful\", \"convenient\".</li><li>Không đưa ra kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng chuyên ngành ẩm thực, chuyển hướng sang yếu tố chi phí hoặc thời gian chuẩn bị để tiếp tục lập luận.</li><li>Dùng câu chêm: \"Let's evaluate this option from a different perspective\" để có thêm thời gian suy nghĩ.</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một thành viên thực sự đang góp ý cho lớp — điều gì thực sự phù hợp với số đông.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả cho lựa chọn được chọn để thể hiện tư duy phản biện.</li><li>Sự mạch lạc và logic trong lập luận quan trọng hơn việc dùng từ vựng phức tạp.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits of traveling in a group",
+          "mindmap": {
+            "title": "Benefits of Group Traveling",
+            "ideas": [
+              "Sharing costs and reducing travel expenses",
+              "Feeling safer and more supported during the trip",
+              "Creating shared memories and stronger friendships",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "What do you think are the main advantages of traveling with a group rather than alone?",
+            "Are there any disadvantages to traveling in a group?",
+            "Would you say group traveling is more suitable for young people or for families? Why?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề: <strong>Lợi ích của việc đi du lịch theo nhóm</strong>, với 3 nhánh ý chính và 1 nhánh ý cá nhân (gợi ý nhánh thứ 4: học hỏi kỹ năng làm việc nhóm khi đi du lịch cùng nhau).</li><li>Tiêu chí chấm điểm: khả năng phát triển ý mạch lạc theo sơ đồ tư duy, cùng Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>5 phút</strong>; khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> vì chủ đề mang tính trải nghiệm xã hội, cần cả lý lẽ lẫn ví dụ thực tế.</li><li><strong>Ví dụ 1 (mở bài):</strong> \"Traveling in a group brings a variety of benefits, from saving money to creating unforgettable memories with others.\"</li><li><strong>Ví dụ 2 (nhánh cá nhân):</strong> \"Personally, I find that group trips also help me improve my teamwork and communication skills, since everyone has to plan and compromise together.\"</li><li>Mẹo: khi nói về từng nhánh ý, hãy đưa ra một ví dụ chuyến đi nhóm cụ thể để minh họa thay vì chỉ nói lý thuyết.</li><li>Mẹo: bám sát sơ đồ tư duy để tránh lan man, không lặp lại ý đã nói (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng cụm từ chuyển tiếp mượt mà giữa các nhánh ý, ví dụ \"Another advantage worth mentioning is...\".</li><li>Về thì: dùng <strong>hiện tại đơn</strong> để nêu sự thật/quan điểm chung (\"Group trips usually cost less per person\") và <strong>hiện tại hoàn thành</strong> để nói về trải nghiệm tích lũy (\"I have been on several trips with my classmates\").</li><li>Paraphrase \"traveling in a group\" bằng \"group trips\" hoặc \"traveling with others\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>split the cost</strong> (chia sẻ chi phí).</li><li><strong>a sense of security</strong> (cảm giác an toàn).</li><li><strong>build lasting friendships</strong> (xây dựng tình bạn lâu dài).</li><li><strong>share responsibilities</strong> (chia sẻ trách nhiệm).</li><li><strong>create shared memories</strong> (tạo ra những kỷ niệm chung).</li><li><strong>work as a team</strong> (làm việc theo nhóm).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with,</strong> – mở đầu nhánh ý đầu tiên (trước hết).</li><li><strong>Moreover,</strong> – bổ sung ý (hơn nữa).</li><li><strong>Another point worth noting is...</strong> – chuyển sang nhánh ý mới.</li><li><strong>In addition to that,</strong> – mở rộng ý (thêm vào đó).</li><li><strong>To sum up,</strong> – kết luận (tóm lại).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"I would say that traveling in a group is one of the most cost-effective ways to explore new places.\" (Tôi cho rằng...)</li><li>\"From what I've experienced, group trips always leave me with stories I still talk about years later.\" (Theo những gì tôi trải nghiệm được...)</li><li>\"It seems to me that having companions makes unfamiliar destinations feel much less intimidating.\" (Đối với tôi thì có vẻ như...)</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"What do you think are the main advantages of traveling with a group rather than alone?\"</strong> – Lower costs, more safety, and the joy of sharing experiences with others.</li><li><strong>\"Are there any disadvantages to traveling in a group?\"</strong> – Conflicts over schedules or preferences, and less flexibility in decision-making.</li><li><strong>\"Would you say group traveling is more suitable for young people or for families? Why?\"</strong> – It suits both, but young people may enjoy the adventure and bonding aspect more, while families value the safety and shared responsibilities.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê ý mà không giải thích hoặc cho ví dụ cụ thể.</li><li>Quên nhánh ý cá nhân — nên chuẩn bị trước một trải nghiệm đi du lịch nhóm thực tế của bản thân.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào một chuyến đi nhóm thực tế của bản thân hoặc bạn bè khi bí ý.</li><li>Câu chêm học thuật: \"That is a complex issue. If we evaluate it from a societal viewpoint...\"</li><li>Nếu quên từ vựng chuyên ngành, dùng mô tả đơn giản, ví dụ thay vì \"itinerary\" có thể nói \"a plan of places to visit during the trip\".</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ từ góc nhìn thực tế của một người trẻ thường xuyên đi du lịch cùng bạn bè hoặc gia đình.</li><li>Sự mạch lạc và logic trong luồng ý là yếu tố then chốt để đạt điểm cao.</li><li>Đừng cố nhồi nhét từ vựng khó, hãy ưu tiên truyền tải ý tưởng rõ ràng và tự nhiên.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

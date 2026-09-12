@@ -1,0 +1,540 @@
+{
+  "id": "vstep-reading-ets-09",
+  "title": "VSTEP B1, B2, C1 Reading - Full Test 009 (EnglishTestStore Practice)",
+  "duration": 60,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 32,
+      "tasks": [
+        {
+          "id": "ets-r09-task-1",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 5.",
+          "passage": {
+            "title": "Passage 1",
+            "text": "In 1723 there arrived in Philadelphia a penniless young man, eager for work and for knowledge. As the years passed, this man, Benjamin Franklin, contributed greatly to his city and to his country. Became a printer and a publisher, and a learned man in many subjects, he also helped to spread learning by establishing a public library and by founding the American Philosophical Society, which is an important academy of great scholars to this day.\n        Franklin initiated many improvements in the city of Philadelphia, making it on of the world's first cities to have paved and lighted streets as well as a police force and a fire fighting company. He also made many practical inventions such as the Franklin stove, which was a very efficient heater, and the lightning rod to protect building in electric storms. His Scientific work with electricity earned Franklin world fame. \n        Franklin played an important role in the early history of the United States. He took part in drawing up the Declaration of Independence and the Constitution. He was the first ambassador to France, and he helped negotiate the treaty of 1783, which ended the Revolutionary War.\n        As an active member and as president of the Abolitionist Society, Franklin devoted the last years of his life to the movement to end slavery."
+          },
+          "questions": [
+            {
+              "id": "ets-r09-q01",
+              "type": "mcq",
+              "question": "When Franklin arrived in Philadelphia in 1723, he was",
+              "options": [
+                "rich",
+                "well-off",
+                "neither nich nor poor",
+                "very poor"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "ets-r09-q02",
+              "type": "mcq",
+              "question": "How did Franklin help to spread learning?",
+              "options": [
+                "He was eager for work and knowledge",
+                "He became a printer and a publisher",
+                "He contributed to his city and his country",
+                "He established a public library and founded the American Philosophical Society"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "ets-r09-q03",
+              "type": "mcq",
+              "question": "What made Franklin famous allover the world?",
+              "options": [
+                "The Franklin stove",
+                "The lightning rod",
+                "The fire fighting company",
+                "His scientific work with electricity"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "ets-r09-q04",
+              "type": "mcq",
+              "question": "Which of the following statements is not true?",
+              "options": [
+                "Franklin alone drew up the Declaration of Independence",
+                "Franklin was one of those eminent Americans who drew up the Declaration of Independence.",
+                "Franklin was the first American ambassador to France",
+                "Franklin helped negotiate the treaty of 1783"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "ets-r09-q05",
+              "type": "mcq",
+              "question": "In what was Franklin active during the last years of his life?",
+              "options": [
+                "The revelutionary war",
+                "his scientific work",
+                "his practical inventions",
+                "the abolitionist movement"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-r09-task-2",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 6 to 16.",
+          "passage": {
+            "title": "PASSAGE 2",
+            "text": "In 1969, the Apollo 11 astronauts made their historic landing on the surface of the Moon. This momentous trip for humanity also provided scientists with an abundance of material for study; from rock and soil samples brought back from the Moon, scientists have been able to determine much about the composition of the Moon as well as to draw inferences about the development of the Moon from its composition.\n   The Moon soil that came back on Apollo 11 contains small bits of rock and glass which were probably ground from larger rocks when meteors impacted with the surface of the Moon. The bits of glass are spherical in shape and constitute approximately half of the Moon soil. Scientists found no trace of animal or plant life in this soil.\n    In addition to the Moon soil, astronauts gathered two basic types of rocks from the surface of the Moon: basalt and breccia. Basalt is a cooled and hardened volcanic lava common to the Earth. Since basalt is formed under extremely high temperatures, the presence of this type of rock is an indication that the temperature of the Moon was once extremely hot. Breccia, the other kind of rock brought back by the astronauts, was formed during the impact of falling objects on the surface of the Moon. This second type of rock consists of small pieces of rock compressed together by the force of impact. Gases, such as hydrogen and helium, were found in some of the rocks, and scientists believe that these gases were carried to the Moon by the solar wind, the streams of gases that are constantly emitted by the Sun."
+          },
+          "questions": [
+            {
+              "id": "ets-r09-q06",
+              "type": "mcq",
+              "question": "Which of the following would be the most appropriate title for this passage?",
+              "options": [
+                "The Apollo Astronauts",
+                "Soil on the Moon",
+                "What the Moon Is Made Of",
+                "Basalt and Breccia"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 6
+            },
+            {
+              "id": "ets-r09-q07",
+              "type": "mcq",
+              "question": "An \"abundance\" is ________",
+              "options": [
+                "a disorderly pile",
+                "a wealthy bunch",
+                "an insignificant proportion",
+                "a large amount"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 7
+            },
+            {
+              "id": "ets-r09-q08",
+              "type": "mcq",
+              "question": "According to the passage, what does Moon soil consist of?",
+              "options": [
+                "Hydrogen and helium",
+                "Large chunks of volcanic lava",
+                "Tiny pieces of stones and glass",
+                "Streams of gases"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 8
+            },
+            {
+              "id": "ets-r09-q09",
+              "type": "mcq",
+              "question": "The word \"spherical\"  is closest in meaning to _______",
+              "options": [
+                "earthen",
+                "circular",
+                "angular",
+                "amorphous"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-r09-q10",
+              "type": "mcq",
+              "question": "Which of the following was NOT brought back to the Earth by the astronauts?",
+              "options": [
+                "Basalt",
+                "Soil",
+                "Breccia",
+                "Plant life"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-r09-q11",
+              "type": "mcq",
+              "question": "An \"indication\" is \n_______",
+              "options": [
+                "an exhibition",
+                "a clue",
+                "a denial",
+                "a dictate"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-r09-q12",
+              "type": "mcq",
+              "question": "According to the passage, breccia was formed ________",
+              "options": [
+                "when objects struck the Moon",
+                "from volcanic lava",
+                "when streams of gases hit the surface of the Moon",
+                "from the interaction of helium and hydrogen"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-r09-q13",
+              "type": "mcq",
+              "question": "It is implied in the passage that scientists believe that the gases found in the Moon rocks",
+              "options": [
+                "were not originally from the Moon",
+                "were created inside the rocks",
+                "traveled from the Moon to the Sun",
+                "caused the Moon's temperature to rise"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-r09-q14",
+              "type": "mcq",
+              "question": "The word \"emitted\" is closest in meaning to _________",
+              "options": [
+                "set off",
+                "vaporized",
+                "sent out",
+                "separated"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-r09-q15",
+              "type": "mcq",
+              "question": "The author's purpose in this passage is to _______",
+              "options": [
+                "describe some rock and soil samples",
+                "explain some of the things learned from space flights",
+                "propose a new theory about the creation of the Moon",
+                "demonstrate the difference between basalt and breccia"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 15
+            },
+            {
+              "id": "ets-r09-q16",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that ________",
+              "options": [
+                "the only items of importance that astronauts brought back from the Moon were rock and soil samples .",
+                "scientists learned relatively little from the Moon rock and soil samples .",
+                "scientists db not believe that it is necessary to return to the Moon .",
+                "rock and soil samples were only some of a myriad of significant items from the Moon."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 16
+            }
+          ]
+        },
+        {
+          "id": "ets-r09-task-3",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 17 to 21.",
+          "passage": {
+            "title": "PASSAGE 3",
+            "text": "The Montessori method of educating children is guided by perhaps a half–dozen major principles of education. The first affirms the biological programming of child development, the child's capacity for self –realization, for \"auto-education.\" The second calls for \"scientific pedagogy.\" A science of childhood based on observation.  The third demands a natural environment in which self-development can be expressed and observed. Montessori believed that the school could be made into such an environment, thus becoming a laboratory for scientific pedagogy. This environment should be determined scientifically. In order to expand, children, left at liberty to exercise their activities, ought to find in their surroundings something organized in direct relation to the children's internal organization. All of these principles imply the next, which Montessori calls the \"biological concept of liberty in pedagogy\": the child must be free to act spontaneously and to interact with the prepared environment. The entire program is concerned with the individual child; the spontaneity, the needs, the observation, the freedom are always those of the individual. Finally, the modus operandi of the method is sensory training."
+          },
+          "questions": [
+            {
+              "id": "ets-r09-q17",
+              "type": "mcq",
+              "question": "Which of the following is the best title for the passage?",
+              "options": [
+                "Principles of the Montessori Method",
+                "Modern Principles of Education",
+                "Results of the Montessori Method",
+                "Stages of Child Development"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-r09-q18",
+              "type": "mcq",
+              "question": "The phrase \"such an environment\" refers to which of the following kinds of environment?",
+              "options": [
+                "Biological, accompanied by specimens",
+                "Scientific, accompanied by experiments",
+                "Pedagogical, in which ideology prevails",
+                "Natural, in which self-expression prevails"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-r09-q19",
+              "type": "mcq",
+              "question": "According to the passage, the Montessori method focuses on",
+              "options": [
+                "the individual child",
+                "pairs of children",
+                "small groups of children",
+                "large groups of children"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 19
+            },
+            {
+              "id": "ets-r09-q20",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that the Montessori method was named after a",
+              "options": [
+                "school",
+                "town",
+                "person",
+                "book"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-r09-q21",
+              "type": "mcq",
+              "question": "Which of the following would NOT be advocated by the Montessori method?",
+              "options": [
+                "Tightly controlling children's group activities",
+                "Carefully teaching children to listen and observe",
+                "Permitting children to work at their own pace",
+                "Allowing children to speak out at will during classes"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 21
+            }
+          ]
+        },
+        {
+          "id": "ets-r09-task-4",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 22 to 32.",
+          "passage": {
+            "title": "Passage 4",
+            "text": "Rent control is the system whereby the local government tells building owners how much they can charge their tenants in rent. In the United States, rent controls date back to at least World War II.\n          In 1943 the federal government imposed rent controls to help solve the problem of housing shortages during wartime. The federal program ended after the war, but in some locations, including New York City, controls continued. Under New York's controls, a landlord generally cannot raise rents on apartments as long as the tenants continue to renew their leases. In places such as Santa Monica, California, rent controls are more recent. They were spurred by the inflation of the 1970's, which, combined with California's rapid population growth, pushed housing prices, as well as rents, to record levels. In 1979 Santa Monica's municipal government ordered landlords to roll back their rents to the levels charged in 1978. Future rents could only go up by two-thirds as much as any increase in the overall price level.\n          In any housing market, rental prices perform three functions: (1) promoting the efficient maintenance of existing housing and stimulating the construction of new housing, (2) allocating existing scarce housing among competing claimants, and (3) rationing use of existing housing by potential renters.\n          One result of rent control is a decrease in the construction of new rental units. Rent controls have artificially depressed the most important long-term determinant of profitability - rents. Consider some examples. In a recent year in Dallas, Texas, with a 16 percent rental vacancy rate but no rent control laws, 11,000 new housing units were built. In the same year, in San Francisco, California, only 2,000 units were built. The major difference? San Francisco has only a 1.6 percent vacancy rate but stringent rent control laws. In New York City, except for government-subsidized construction, the only rental units being built are luxury units, which are exempt from controls. In Santa Monica, California, new apartments are not being constructed. New office rental space and commercial developments are, however. They are exempt from rent controls."
+          },
+          "questions": [
+            {
+              "id": "ets-r09-q22",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "The construction of apartments in the United States",
+                "Causes and effects of rent control",
+                "The fluctuations of rental prices",
+                "The shortage of affordable housing in the United States"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-r09-q23",
+              "type": "mcq",
+              "question": "The word \"They\" refers to",
+              "options": [
+                "the tenants",
+                "their leases",
+                "places",
+                "rent controls"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-r09-q24",
+              "type": "mcq",
+              "question": "Which of the following was NOT a reason for the introduction of rent controls in Santa Monica, California?",
+              "options": [
+                "Rapid population growth",
+                "Inflation",
+                "Economic conditions during wartime",
+                "Record-high housing prices"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-r09-q25",
+              "type": "mcq",
+              "question": "The phrase \"roll back\" is closest in meaning to",
+              "options": [
+                "credit",
+                "measure",
+                "vary",
+                "reduce"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-r09-q26",
+              "type": "mcq",
+              "question": "The word \"stimulating\" is closest in meaning to",
+              "options": [
+                "experimenting with",
+                "identifying",
+                "estimating",
+                "encouraging"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-r09-q27",
+              "type": "mcq",
+              "question": "It can be inferred that the purpose of rent control is to",
+              "options": [
+                "protect tenants",
+                "promote construction",
+                "increase vacancy rates",
+                "decrease sales of rental units"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-r09-q28",
+              "type": "mcq",
+              "question": "The word \"depressed\" is closest in meaning to",
+              "options": [
+                "saddened",
+                "created",
+                "lowered",
+                "defeated"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-r09-q29",
+              "type": "mcq",
+              "question": "The information in the last paragraph supports which of the following statements?",
+              "options": [
+                "San Francisco has eliminated its rent control laws.",
+                "Rent control leads to a reduction in the construction of housing units",
+                "Luxury apartments are rarely built when there is rent control",
+                "There is a growing need for government-subsidized housing"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-r09-q30",
+              "type": "mcq",
+              "question": "According to the passage, which of the following cities does NOT currently have rent controls?",
+              "options": [
+                "Santa Monica",
+                "Dallas",
+                "San Francisco",
+                "New York City"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-r09-q31",
+              "type": "mcq",
+              "question": "The word \"stringent\" is closest in meaning to",
+              "options": [
+                "straightforward",
+                "strict",
+                "expanded",
+                "efficient"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 31
+            },
+            {
+              "id": "ets-r09-q32",
+              "type": "mcq",
+              "question": "According to the passage, which of the following is NOT exempt from rent control?",
+              "options": [
+                "Luxury apartments",
+                "Commercial development",
+                "Moderately priced apartments",
+                "Office space."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 32
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

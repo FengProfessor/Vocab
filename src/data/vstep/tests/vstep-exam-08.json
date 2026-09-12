@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-08",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 08",
+  "duration": 172,
+  "date": "2026-03-21",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What is John going to do tonight?</b></p><ul><li><b>Speaker 1:</b> Hello Mrs Brown. Is John there?</li><li><b>Speaker 2:</b> No. He’s out on his bicycle at the moment</li><li><b>Speaker 1:</b> Uh Can he go swimming tonight?</li><li><b>Speaker 2:</b> Sorry, Paul. He’s got a football match tonight</li></ul><p><b>2. Which bag does the woman buy?</b></p><ul><li><b>Speaker 1:</b> I want to buy a present for Diana?</li><li><b>Speaker 2:</b> What about a bag?</li><li><b>Speaker 1:</b> Yes. This one’s nice. It’s small and round</li><li><b>Speaker 2:</b> I think she prefers a square bag</li><li><b>Speaker 1:</b> No. this is better. I’ll get the round one.</li></ul><p><b>3. How much did the woman pay for the apples?</b></p><ul><li><b>Speaker 1:</b> Can I help you?</li><li><b>Speaker 2:</b> Yes. I’d like a pound of apples please.</li><li><b>Speaker 1:</b> Do you want the ones at 30 pence, 35 pence or 40 pence?</li><li><b>Speaker 2:</b> The one at 30 pence, please.</li></ul><p><b>4. When must the boys get on the coach?</b></p><ul><li>The football match starts at 2:30. But we should get there at half past one. The coach will pick you up at ten to one. As it takes about 40 minutes to drive there. So we’ll meet in a school car park. Don’t be late boys, will you?</li></ul><p><b>5. What fruit do they take?</b></p><ul><li><b>Speaker 1:</b> Mom, Have we got any fruit to take on the picnic. There were some oranges and bananas.</li><li><b>Speaker 2:</b> Here are the bananas. Let’s take those. Oh. The oranges were gone. What about taking some grapes or apples as well?</li><li><b>Speaker 1:</b> Ok. Let’s take the grapes. That would be enough.</li></ul><p><b>6. Which present has the man bought?</b></p><ul><li><b>Speaker 1:</b> Is the book in the bag for Mom then? I didn’t think she’s particularly interested in flowers.</li><li><b>Speaker 2:</b> I thought she liked it, to give her some good ideas for the garden. Although she never reads it. It’s got some lovely photos.</li><li><b>Speaker 1:</b> I thought you were going to get those gloves I show you in that shop last Saturday. They match the scarf I bought her</li></ul><p><b>7. Where are the photographs?</b></p><ul><li><b>Speaker 1:</b> Have you seen my new passport photographs? I put them on the bookshelf. Oh here they are with your coffee cups. I hope they aren’t dirty.</li><li><b>Speaker 2:</b> Oh sorry. I was showing them to Pat. He said they make you look like that newsreader on the television</li></ul><p><b>8. What did Ben break?</b></p><ul><li><b>Speaker 1:</b> Ben. What’s this broken cup doing here?</li><li><b>Speaker 2:</b> Sorry mom. I had an accident when I was washing up. You know those big dinner plates.</li><li><b>Speaker 1:</b> You have broken them as well.</li><li><b>Speaker 2:</b> Oh just a couple. They slipped out of my hands into the sink and the cup got broken as well</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What is John going to do tonight?",
+              "options": [
+                "swimming",
+                "cycling",
+                "playing football",
+                "running"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Which bag does the woman buy?",
+              "options": [
+                "square bag",
+                "small and round bag",
+                "a big bag",
+                "an oval bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How much did the woman pay for the apples?",
+              "options": [
+                "30 pence",
+                "35 pence",
+                "40 pence",
+                "34 pence"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "When must the boys get on the coach?",
+              "options": [
+                "12:50",
+                "01:30",
+                "02:30",
+                "03:20"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What fruit do they take?",
+              "options": [
+                "oranges",
+                "bananas",
+                "grapes",
+                "apples"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Which present has the man bought?",
+              "options": [
+                "book",
+                "bag",
+                "gloves",
+                "flowers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Where are the photographs?",
+              "options": [
+                "on the bookshelf",
+                "on the TV",
+                "on the table with the coffee cups",
+                "in the café shop"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What did Ben break?",
+              "options": [
+                "vase",
+                "glass",
+                "cup",
+                "dinner bowls"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Scott:</b> Dave. I’m going to the supermarket to pick up food and drink for Saturday’s picnic later. Any suggestions?</li><li><b>Dave:</b> Well, everyone has been talking about having a barbecue down by the river, so why don’t you pick up some hamburger and hot dogs?</li><li><b>Scott:</b> Okay, but how much hamburger meat are we going to need? And hot dogs too?</li><li><b>Dave:</b> Uh, I don’t know. How about three <b>pounds</b> of hamburger and a couple packages of hot dogs?</li><li><b>Scott:</b> Oh, that’s not going to be enough. Do you remember the last picnic we went on? Your roommate, Jim, ate about ten hamburgers by himself!</li><li><b>Dave:</b> You’re right. Let’s see. I’d better write this down. Uh, let’s see about nine pounds of hamburger meat and, uh . . . , seven <b>packages</b> of hot dogs.</li><li><b>Scott:</b> And you better pick up some chicken for those who don’t like hamburger or hot dogs.</li><li><b>Dave:</b> Okay. How about five or six bags of potato chips?</li><li><b>Scott:</b> Humm. Better make that eight or so.</li><li><b>Dave:</b> Alright. Oh, and we’re gonna [going to] need some hamburger and hot dog buns. How about five packages a piece? I think that sounds about right.</li><li><b>Scott:</b> Yeah, <b>you better</b> pick up some mustard, ketchup, and mayonnaise too.</li><li><b>Dave:</b> Okay. What else? Uh, we’re gonna [going to] need some soft drinks. How about ten of those big 2-liter bottles?</li><li><b>Scott:</b> Sounds fine, but be sure to buy a variety of drinks.</li><li><b>Dave:</b> Okay. And what about dessert?</li><li><b>Scott:</b> Well, maybe we could ask Kathy to make a few cherry pies like she did last time.</li><li><b>Dave:</b> Well, I wouldn’t mind that, but you know, she’s been very busy working two jobs, so I’d hate to ask her. [Oh, hum . . .] and uh . . . Hey, why don’t you whip up some of your oatmeal cookies? [Well . . .] Hey, you could even ask, uh . . . , what’s her name . . . yeah that new girl, Susan, the one that moved in across the street! [Well . . .] I bet she’d be willing to help you! [I don’t know . . .] She’s a real knockout!</li><li><b>Scott:</b> Nah, I don’t think I could ask her . . . [Ahh!] I don’t know her phone number, plus . . . [Door bell rings . . .]</li><li><b>Dave:</b> Hey, you don’t need to. She’s at the door!</li><li><b>Scott:</b> What do you mean?</li><li><b>Dave:</b> Well, I thought you two would hit it off, so I called her up saying I was you, and I invited her over to watch a movie.</li><li><b>Scott:</b> You did what???</li><li><b>Dave:</b> Wait, wait, wait . . . [uhhhhh . . .]</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Son:</b> Dad. Can I go outside to play?</li><li><b>Dad:</b> Well, did you get your Saturday’s work done?</li><li><b>Son:</b> Ah, Dad. Do I have to?</li><li><b>Dad:</b> Well, you know the rules. No playing until the work is done.</li><li><b>Son:</b> So, what is my work?</li><li><b>Dad:</b> Well, first you have to clean the bathroom including the toilet. And don’t forget to scrub the bathtub.</li><li><b>Son:</b> No, I want to do the family room.</li><li><b>Dad:</b> Well, okay, but you have to vacuum the family room and the hall, and be sure to dust everything. Oh, and don’t forget to wipe the walls and clean the baseboards. [Okay.] And after that. [Oh, no.] Next, sweep and mop the kitchen floor and be sure to polish the table in the living room.</li><li><b>Son:</b> Okay. Okay.</li><li><b>Dad:</b> And make your bed and pick up all your toys and put them away. And . . .</li><li><b>Son:</b> More?</li><li><b>Dad:</b> Yeah. And then, how about going out for lunch and getting a big milk shake, but you probably don’t want to do that.</li><li><b>Son:</b> No, No. I want to.</li><li><b>Dad:</b> Okay. While you’re doing your work, I’ll be out in the yard raking leaves and pulling weeds.</li></ul><p><b>Conversation 3:</b></p><p>Okay, everyone. I want to review the first two days of our travel itinerary for the trip. Okay, yeah, please take out the paper that I handed out earlier. Okay. Uh. First of all, we have been very fortunate to have been able to purchase discount tickets to cover most of the transportation costs and scheduling (scheduled) activities. And I want to also thank the, uh, group of parents who, uh, worked very hard in order to, uh, raise funding, uh, through different businesses in the community. I really appreciate that.</p><p>Uh, let’s see. Okay, everyone should meet at the airport at 6:00 a.m. This will give you time to check in and get through security. Our plane departs at 9:00.</p><p>Uh, our plane arrives in New York at 3:00 p.m., and we will take a bus from the airport to the hotel. We’ve been able to get great rates on this hotel because we’re staying on a weekday instead of the weekend.</p><p>In the morning, for any of you who like to get exercise, we will be meeting in the lobby around 6:00 a.m. to go jogging around Central Park for about 45 minutes, and we’ll get back to the hotel about the time when the restaurant opens, so you’ll enough time to grab a quick breakfast before we leave the hotel at 8:00. We’ll be taking a ferry ride to Ellis Island and then to Liberty Island to visit the Statue of Liberty. I mean, this is something that you really can’t miss, and later, we will go to Times Square where you can have lunch on your own for about an hour from about 1 to 2.</p><p>Later in the afternoon, you have the choice of visiting the Empire State Building or the Metropolitan Museum of Art. Either one of these is . . . are great, and we have some great, uh, group discounts. Uh, we will meet back at the hotel at 6:00 p.m., and we’ll have dinner at a very nice Italian restaurant downtown, and then we’ll catch an exciting broadway musical around 8:30 p.m.</p><p>Uh, any questions?</p>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "When is the picnic?",
+              "options": [
+                "on Thursday",
+                "on Friday",
+                "on Saturday",
+                "on Sunday"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "Where is the picnic being held?",
+              "options": [
+                "at a park",
+                "at the beach",
+                "at Dave's house",
+                "by a river"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "How many packages of hot dogs do they decide to buy?",
+              "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Dave suggest Scott make for the picnic dessert?",
+              "options": [
+                "cherry pie",
+                "chocolate cake",
+                "oatmeal cookies",
+                "fudge brownies"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What does the boy want to do at the beginning of the conversation?",
+              "options": [
+                "go play outside",
+                "play video games",
+                "watch TV",
+                "play football"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does the boy have to do in his bedroom?",
+              "options": [
+                "put away his books",
+                "make his bed",
+                "pick up his dirty clothes",
+                "clean the floor"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What is the father going to do while the boy is doing his household chores?",
+              "options": [
+                "wash the car",
+                "paint the house",
+                "work in the yard",
+                "clean the floor"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Where will the father and son go after the housework is done?",
+              "options": [
+                "to a movie",
+                "out to eat",
+                "to a ball game",
+                "to a shopping center"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What time does the plane depart?",
+              "options": [
+                "6:00 AM",
+                "7:30 AM",
+                "8:00 AM",
+                "9:00 AM"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "How will the group get to the hotel from the airport?",
+              "options": [
+                "They will take taxis",
+                "They will ride the subway",
+                "They will be going by bus",
+                "They can choose either bus or subway"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What is the group planning to do around Times Square for about an hour?",
+              "options": [
+                "They're going to have lunch",
+                "They will have time to do some shopping",
+                "They will see a festival",
+                "They will be having a tour of the area"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What are they going to do after dinner?",
+              "options": [
+                "The group is going to watch a musical",
+                "They will catch an exciting movie",
+                "They will be attending a Broadway play",
+                "They will see a football match"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1</b></p><p>Well, there’s nothing quite like finding your first old ship – it was 300 years old. Well, there’s nothing quite like finding your first Ok just lying at the bottom of the sea, so it wasn’t difficult to find. Most are covered in sand and rocks – but this one wasn’t.</p><p>I’m actually a teacher, not a full time diver – I dive in my free time but I often get to them before the professional divers, because I have good up-to-date equipment. Another thing that helps is talking to fish-men who tell me about their local area. I’ve even written a book about some of their experiences.</p><p>At the moment, I’m looking for the gold from a ship called The Sea Bird. It was an enormous well-built ship and it was coming from Australia on a winter night in 1859. Everything was going fine until the ship reached the English coast, when it crashed into some rocks in a very strong wind and sank to the bottom of the sea. It was carrying gold from Australia, and most of it is still at the bottom of the sea.</p><p>My wedding ring is actually made from gold which I found on an eighteenth – century sailing ship. A friend of mine, another diver, has already found 88,000 pounds worth of gold from different ship. He’s now decided to give up his job and become a full – time diver.</p><p>My house is full of things like coins, bottles and old guns. My wife is always complaining about the number of objects around the house – she says I should open an antiques shop – but I love all these old things. Anyway, in the end, I gave some things from my collection to museums, because I didn’t want to sell them. But my wife still wasn’t very pleased, I’m afraid.</p><p>As diving is a dangerous hobby, It’s not a good idea to try to teach yourself. I’d advise anyone interested to do what I did. There are some excellent diving clubs like the one I joined, which run courses for beginners. It is best to do one of these before you go on a diving holiday...</p><p><b>Talk 2</b></p><p>Are you interested in history? Well, I’d like to tell you about some of the historical places open to visitors in this part of the country.</p><p>Let’s start with the oldest first, Black Rock Caves have been here for over two million years. And, for half a million year, they were home to people and various animals, particularly tigers. You can explore these ancient homes and imagine what life was like for the people who lived there. The caves are open daily from April to October. A special attraction on evenings in August is a walk by candle light. Don’t take this tour if you are afraid of the dark.</p><p>Next I recommend a visit to Salter house. This was built by Sir Joshua Salter and dates back to seventeen sixty – five. The Salter family are still living these today. The house became famous in nineteen eighty two when the television series Aunt Dorothy was filmed there. The furniture and paintings are well worth seeing, but the attraction nobody wants to miss is the kitchen. This is where Aunt Dorothy cooked her enormous meals and gave advice to anyone who passed through this part of the house.</p><p>And don’t forget to visit the Old Port. You will need several hours to see everything there, especially if you take a trip along the riverside in an old tram as far as the fishing village. The guides there all wear traditional costume and you too get the chance to try on clothes from hundred years ago. You can buy gifts in the old village stores and eat delicious snacks in the Tea Shop. If you visit the village factory, you can see how sweets were made a hundred years ago, and taste them, too.</p><p>So, you see there’s plenty of...</p><p><b>Talk 3</b></p><p>This lecture is going to introduce you to traditional Chinese philosophy. First, you will learn about, uh, the yin and yang philosophy. Secondly, we will look at the five elements of this philosophy. It is important that you remember these five elements as we will be discussing them throughout the lecture. The five elements of yin and yang are: water, wood, fire, earth, and umm, metal. Ok, so those are the five elements. Umm, let’s begin with the definition of yin and yang. Yin and yang should be considered as opposite forces like, uhh, like land and ocean, for example. These are opposite. Now, these opposites do not compete with each other. They are complementary. When you think of yin and yang, think complementary opposites.</p><p>So, moving from complementary opposites, let’s return to the five elements we mentioned earlier. If you recall, we said they were water, wood, fire, earth and metal. The Chinese divided yin and yang into five elements to gain an understanding of how the body, mind and spirit work. According to the Chinese, every person’s physical and mental health relies on a balance of the five elements.</p><p>Individuals may have more of one element than another. Of course, ideally, all elements are in balance or harmony. What does this mean? Uh, it means that a person’s body contains equal amounts of each element.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The first old ship which Frank found was ..........",
+              "options": [
+                "covered by rocks",
+                "older than he first thought",
+                "easy to find",
+                "had a lot of gold"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did Frank find the ships so quickly?",
+              "options": [
+                "reads history books",
+                "is a professional driver",
+                "his friends helped him",
+                "uses the latest equipment"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does Frank say about the ship called The Sea Bird?",
+              "options": [
+                "It was so expensive",
+                "It was built in 1859",
+                "It sank in a storm",
+                "It was badly made"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What did Frank say about his wedding ring?",
+              "options": [
+                "was made from gold he found himself",
+                "it was given by someone",
+                "is worth 88,000 pounds",
+                "was found by a friend"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How did Frank learn to dive?",
+              "options": [
+                "by joining a diving club",
+                "by asking the dive tutor",
+                "by teaching himself",
+                "by going on a diving holiday"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "The Black Rock Caves have been home for....",
+              "options": [
+                "Two million years",
+                "A million year",
+                "A half a million year",
+                "centuries"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "When can the cave attract the tourists?",
+              "options": [
+                "from April to October",
+                "April",
+                "October",
+                "August"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Salter house was built in ............",
+              "options": [
+                "1765s",
+                "1756s",
+                "1928s",
+                "1982s"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "The things that are worth to visit in Salter house is ............",
+              "options": [
+                "the furniture",
+                "the paintings",
+                "the enormous meals",
+                "the kitchen"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should tourists do as visiting The Old Port?",
+              "options": [
+                "take an old trek to visit the riverside",
+                "buy different traditional costumes",
+                "try sweets made in the Tea Shop",
+                "visit the village factory"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What does the professor say about the elements in the body?",
+              "options": [
+                "Ideally, these should be different amounts of each",
+                "The amount of each in the body is not very important",
+                "They can be out of balance",
+                "Different people have different elements"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the professor, what are yin and yang?",
+              "options": [
+                "They are opposite forces",
+                "They are what make a person healthy",
+                "They are four different elements",
+                "They are the land and the ocean"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What does the professor say about yin and yang?",
+              "options": [
+                "They represent opposing forces that complement each other.",
+                "They are constantly changing to maintain harmony.",
+                "They must remain equal in order to maintain good health.",
+                "They are divided into five elements that compete with one another."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "According to the Chinese, five elements of Yin and Yang are studied for the work of",
+              "options": [
+                "the body and spirit",
+                "body, mind and spirit work",
+                "balance and harmony",
+                "medicine and health"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the professor says “Yin and Yang should be considered as opposite forces like, uhh, like land and ocean, for example”?",
+              "options": [
+                "To correct something she said earlier",
+                "To explain a term she just introduced",
+                "To explain what is wrong with a particular theory",
+                "To remind the students of something discussed earlier"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "School Lunches Around the World",
+            "text": "<p>School lunch programs look very different depending on where in the world a student happens to attend school. In some countries, lunch is treated almost like a subject in itself, with clear rules about nutrition and presentation. In others, students bring food from home or buy whatever is available nearby, with far less official oversight. These differences reflect not only budgets but also cultural attitudes toward food, health, and childhood. Even within a single country, lunch quality can vary sharply between wealthier and poorer school districts.</p><p>In France, school lunch is often a sit-down, multi-course meal, sometimes including a small starter, a main dish, cheese, and fruit, all eaten at a proper table rather than rushed through in a few minutes. In Japan, the lunch program, known as kyushoku, is centrally planned to meet strict nutritional standards, and students themselves often help serve the food and clean up afterward as part of their daily routine. In the United States, lunch is typically served cafeteria-style, and the quality can vary <strong>enormously</strong> from one school district to another depending on local funding. Many other countries fall somewhere between these approaches, mixing central planning with local flexibility.</p><p>Well-designed lunch programs offer benefits that go beyond simply filling hungry stomachs. Students who eat a balanced meal in the middle of the day tend to concentrate better during afternoon classes and show fewer behavior problems linked to hunger or blood sugar swings. Subsidized or free lunch programs for children from low-income families also help reduce a source of daily inequality that might otherwise follow some students throughout their entire school career. Teachers in several countries have reported noticeably calmer classrooms after lunch policies were improved. Some schools also invite parents or nutritionists to help design healthier menus.</p><p>Despite these benefits, running a good lunch program is genuinely difficult. Tight budgets often force schools to choose between cheaper, less nutritious ingredients and pricier options that meet stricter health guidelines. Food waste is another persistent problem, since students frequently throw away vegetables or other healthy items they simply do not want to eat, even when cafeteria staff have prepared <strong>them</strong> carefully. This waste <strong>undermines</strong> the nutritional goals the meal was originally designed to meet. Balancing nutrition, cost, and student taste preferences remains an ongoing challenge for administrators everywhere.</p><p>Around the world, schools continue to experiment with new approaches to lunch, from farm-to-table programs that source ingredients locally to efforts aimed at reducing plastic packaging and food waste. Some schools now involve students directly in planning menus, hoping that a sense of ownership will make healthy options more appealing. What began as a simple matter of feeding hungry children has gradually become tied to broader conversations about health, sustainability, and equal opportunity in education.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa).<ul><li>Với <b>R1Q1</b>, quét tên chương trình \"kyushoku\" ở đoạn 2 để tìm vai trò của học sinh trong giờ ăn (học sinh tự phục vụ thức ăn và dọn dẹp sau bữa ăn).</li><li>Với <b>R1Q5</b>, tìm từ khóa \"France\" ở đoạn 2 để xác định đặc điểm bữa ăn trưa (bữa ăn nhiều món ngồi tại bàn cẩn thận thay vì ăn vội vàng).</li><li>Với <b>R1Q10</b>, quét từ khóa \"Food waste\" ở đoạn 4 để tìm thực trạng rác thải thức ăn (học sinh thường vứt bỏ rau củ hoặc món ăn lành mạnh mà các em không thích).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q2, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q2</b>, từ <strong>\"enormously\"</strong> ở đoạn 2 mô tả sự chênh lệch chất lượng bữa ăn giữa các khu vực học chánh. Ngữ cảnh này thể hiện mức độ chênh lệch rất lớn (greatly).</li><li>Với <b>R1Q8</b>, từ <strong>\"undermines\"</strong> ở đoạn 4 mô tả tác động tiêu cực của việc lãng phí thức ăn đối với các mục tiêu dinh dưỡng ban đầu. Từ này đồng nghĩa với làm suy giảm, làm yếu đi (weakens).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R1Q3, R1Q9):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt câu chủ đề các đoạn).<ul><li>Với <b>R1Q3</b>, tổng hợp thông tin từ việc so sánh mô hình bữa ăn trưa ở các quốc gia khác nhau, những lợi ích mang lại cùng các rào cản thách thức. Ý chính phải phản ánh sự đa dạng toàn cầu cùng cả hai mặt lợi ích và thách thức.</li><li>Với <b>R1Q9</b>, nhận diện mục đích tổng quát của bài viết: mô tả sự khác biệt giữa các chương trình ăn trưa và giải thích các thách thức thực tế đang gặp phải.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q4):</b> Đọc ngược lại câu chứa đại từ <strong>\"them\"</strong> ở đoạn 4 để tìm danh từ số nhiều đứng trước làm đối tượng được nhân viên bếp chuẩn bị cẩn thận nhưng vẫn bị vứt bỏ (vegetables or other healthy items).</li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q6):</b> Đối soát các hướng tiếp cận mới được liệt kê ở đoạn cuối (chương trình từ trang nông trại đến bàn ăn, giảm đóng gói nhựa, cho học sinh tham gia lên thực đơn). Chi tiết không được đề cập (như việc hủy bỏ hoàn toàn bữa trưa để tiết kiệm chi phí) chính là đáp án cần chọn.</li><li><b>Dạng câu hỏi Suy luận (R1Q7):</b> Tìm thông tin ở đoạn 3 về các chương trình bữa trưa trợ giá/miễn phí cho học sinh nghèo. Logic bài đọc chỉ ra rằng các chương trình này giúp giảm bớt sự bất bình đẳng mà các em có thể phải đối mặt.</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên giải quyết trước các câu hỏi quy chiếu (R1Q4) và từ vựng (R1Q2, R1Q8) để làm chủ thời gian. Kế tiếp, áp dụng kỹ thuật đọc quét định vị từ khóa để xử lý các câu hỏi chi tiết (R1Q1, R1Q5, R1Q10) và loại trừ (R1Q6). Cuối cùng, tổng hợp logic toàn bài để trả lời chuẩn xác câu suy luận (R1Q7), ý chính (R1Q3) và mục đích bài viết (R1Q9).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about Japan's kyushoku program?</span>",
+              "options": [
+                "Students help cook the food but never clean up.",
+                "Teachers help serve the food and clean up afterward.",
+                "Students in France help serve the food and clean up.",
+                "Students help serve the food and clean up afterward."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"enormously\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "slightly",
+                "locally",
+                "anonymously",
+                "greatly"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Food waste is the only serious problem facing school lunches.",
+                "School lunch programs offer no real benefit to student learning.",
+                "School lunch programs vary worldwide and involve real benefits and challenges.",
+                "All countries now provide the exact same type of school lunch."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "the meal",
+                "healthy food items",
+                "cafeteria staff",
+                "nutritious ingredients"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about school lunch in France?</span>",
+              "options": [
+                "It is often a single dish eaten at a table.",
+                "It is often a sit-down meal eaten outside the school.",
+                "It is often a sit-down, multi-course meal eaten at a table.",
+                "It is often eaten quickly while standing at a counter."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a new approach schools are trying?</span>",
+              "options": [
+                "Sourcing ingredients locally through farm-to-table programs.",
+                "Reducing plastic packaging used for school lunches.",
+                "Involving students directly in planning school menus.",
+                "Eliminating school lunch programs entirely to save money."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about subsidized lunch programs for low-income students?</span>",
+              "options": [
+                "They were first introduced in France before other countries.",
+                "They are available in every country regardless of funding.",
+                "They may help reduce inequality students would otherwise face.",
+                "They completely eliminate all inequality between students in school."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"undermines\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "destroys",
+                "funds",
+                "underlines",
+                "weakens"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To convince readers that Japan's lunch program is superior to all others.",
+                "To provide a detailed recipe guide for healthy school lunch meals.",
+                "To criticize schools in the United States for their cafeteria system.",
+                "To describe how school lunch programs differ and the challenges they face."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about food waste at school?</span>",
+              "options": [
+                "Teachers often throw away vegetables or other items students dislike.",
+                "Students often throw away vegetables or other healthy items they dislike.",
+                "Students often throw away meat dishes but eat all their vegetables.",
+                "Students rarely throw away food, since portions are always small."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Jamu and UNESCO's Intangible Cultural Heritage",
+            "text": "<p>When people think of UNESCO recognition, physical landmarks such as ancient temples or historic city centers often come to mind first. Since 2003, however, UNESCO has also maintained a separate list dedicated to intangible cultural heritage, a category covering living practices, oral traditions, performing arts, and traditional knowledge rather than buildings or monuments. The distinction matters because intangible heritage survives only through people who continue to practice <strong>it</strong>, not through stone or preservation alone.</p><p>In late 2023, UNESCO added jamu, an Indonesian tradition of herbal wellness practices, to this intangible heritage list. Jamu refers to a wide range of traditional drinks and remedies made from ingredients such as turmeric, ginger, tamarind, and various local roots and leaves, prepared according to knowledge passed down through generations. For centuries, jamu has been part of daily life across much of Indonesia, used both to maintain general wellness and to treat specific minor ailments.</p><p>The practice of making and selling jamu has historically been closely associated with women. A well-known group of traveling sellers, called jamu gendong, once carried baskets of bottled jamu on their backs and sold it door to door in villages and city neighborhoods. Beyond the physical preparation of the drinks, jamu is tied to a broader philosophy of balance between body, mind, and daily life, reflecting ideas about wellness that predate modern medicine in the region.</p><p>UNESCO recognition carries several potential benefits for a tradition like jamu. International visibility can boost tourism interest and encourage younger Indonesians to take renewed pride in a practice sometimes seen as old-fashioned compared with modern pharmaceuticals. Government agencies and cultural organizations often use such recognition to justify funding for documentation projects, training programs, and efforts to support the practitioners who keep the tradition alive day to day.</p><p>The recognition also carries risks that specialists in cultural heritage frequently point out. Increased commercial interest can push producers toward mass-produced, standardized versions of jamu that prioritize shelf life and marketability over the more varied, personalized recipes traditionally passed down within families and local communities. Some heritage experts worry that international attention, if not managed carefully, can end up <strong>flattening</strong> the very diversity that made a tradition worth recognizing in the first place.</p><p>This tension is not unique to jamu. Many other traditions on UNESCO's intangible heritage list, from traditional music forms to specific culinary practices in various countries, face similar pressures once they gain international attention. Because intangible heritage depends entirely on active practitioners rather than a fixed physical structure, it remains inherently more <strong>fragile</strong> than a monument, which will still stand whether or not anyone visits it.</p><p>For jamu specifically, sustaining the tradition will likely depend less on the UNESCO designation itself and more on whether younger generations continue learning the practice directly from elders. Encountering jamu only as a bottled product on a store shelf is not the same as learning the tradition firsthand. International recognition can open doors and draw attention, but keeping a living tradition genuinely alive still depends on the everyday choices of the communities that practice it.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa).<ul><li>Với <b>R2Q1</b>, quét từ khóa \"UNESCO\" và mốc thời gian liên quan đến việc bổ sung jamu vào danh sách di sản văn hóa phi vật thể.</li><li>Với <b>R2Q5</b>, tìm cụm từ \"jamu gendong\" để xác định phương thức người bán hàng rong vận chuyển và tiếp cận người mua (bằng giỏ/gánh và bán tận nhà).</li><li>Với <b>R2Q10</b>, quét các từ khóa liên quan đến sự tồn tại lâu dài của jamu (\"survival\", \"long-term\") ở đoạn cuối để tìm yếu tố quyết định cốt lõi (sự truyền nghề trực tiếp giữa thế hệ trẻ và người đi trước).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q2, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q2</b>, từ <strong>\"flattening\"</strong> ở đoạn 5 mô tả nguy cơ của việc thương mại hóa làm đơn giản hóa, giảm bớt hoặc làm mất đi tính đa dạng tinh tế của các công thức truyền thống.</li><li>Với <b>R2Q8</b>, từ <strong>\"fragile\"</strong> ở đoạn 6 mô tả bản chất dễ tổn thương, mỏng mảnh của di sản phi vật thể nếu không được bảo tồn cẩn thận. Ngữ cảnh này chỉ sự mỏng mảnh/dễ bị ảnh hưởng (vulnerable).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R2Q3, R2Q9):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt câu chủ đề các đoạn).<ul><li>Với <b>R2Q3</b>, tổng hợp ý của toàn bài từ việc UNESCO công nhận jamu, lợi ích thúc đẩy văn hóa cho đến những thách thức và nguy cơ thương mại hóa. Phương án chọn phải bao quát cả hai mặt lợi ích lẫn rủi ro này.</li><li>Với <b>R2Q9</b>, nhận diện mục đích chính của tác giả: phân tích và giải thích ý nghĩa, cơ hội cũng như thách thức mà danh hiệu UNESCO mang lại cho văn hóa jamu.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q4):</b> Đọc ngược lại câu chứa đại từ <strong>\"it\"</strong> ở đoạn 1 để xác định danh từ số ít làm chủ ngữ logic (chỉ khái niệm di sản văn hóa phi vật thể - intangible heritage).</li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q6):</b> Rà soát danh sách lợi ích của việc UNESCO công nhận được liệt kê trong bài (tăng trưởng du lịch, niềm tự hào giới trẻ, hỗ trợ quỹ bảo tồn). Lựa chọn lợi ích không hề xuất hiện trong bài (như việc đảm bảo mức lương cao hơn cho người bán).</li><li><b>Dạng câu hỏi Suy luận (R2Q7):</b> Tập trung vào phần phân tích nguy cơ thương mại hóa và sản xuất hàng loạt. Logic của bài chỉ ra rằng việc công nghiệp hóa có thể làm suy giảm sự phong phú, đa dạng vốn có trong các công thức gia truyền.</li></ul><p><b>Lời khuyên:</b> Hãy bắt đầu làm các câu hỏi quy chiếu (R2Q4) và từ vựng (R2Q2, R2Q8) trước để lấy điểm nhanh. Tiếp theo, áp dụng kỹ năng đọc quét để xử lý các câu hỏi chi tiết (R2Q1, R2Q5, R2Q10) và loại trừ (R2Q6). Sau khi đã hiểu cấu trúc và thông tin chi tiết của bài đọc, bạn sẽ dễ dàng suy luận (R2Q7) và chọn đáp án chuẩn xác cho các câu hỏi tổng hợp ý chính (R2Q3) cũng như mục đích bài viết (R2Q9).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, when did UNESCO add jamu to its intangible heritage list?</span>",
+              "options": [
+                "UNESCO removed jamu from the list in late 2023.",
+                "Indonesia added jamu to its own national list in 2023.",
+                "UNESCO added jamu to the list in late 2023.",
+                "UNESCO added jamu to the list back in 2003."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"flattening\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "reducing",
+                "funding",
+                "destroying",
+                "flattering"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "UNESCO recognition guarantees a tradition will never change or disappear.",
+                "Physical monuments face the exact same risks as jamu does.",
+                "Jamu is a newly invented drink with no historical roots.",
+                "UNESCO's recognition of jamu brings benefits but also risks to the tradition."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 1 refers to _______.</span>",
+              "options": [
+                "the list",
+                "intangible heritage",
+                "physical landmarks",
+                "ancient temples"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about jamu gendong sellers?</span>",
+              "options": [
+                "They were shop owners who sold jamu from a fixed spot.",
+                "They were male sellers who carried jamu in baskets.",
+                "They carried jamu in baskets and sold it door to door.",
+                "They carried jamu in trucks and sold it door to door."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a potential benefit of UNESCO recognition?</span>",
+              "options": [
+                "Encouraging younger Indonesians to take pride in the practice.",
+                "Helping justify funding for documentation and training programs.",
+                "Boosting tourism interest in Indonesian traditions overall.",
+                "Guaranteeing higher wages for traditional jamu sellers nationwide."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the risks of commercializing jamu?</span>",
+              "options": [
+                "A decline in traditional recipes caused more commercial interest.",
+                "Mass production will certainly destroy jamu within a decade.",
+                "Jamu gendong sellers historically carried baskets on their backs.",
+                "Mass production may reduce the variety found in family recipes."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"fragile\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "worthless",
+                "expensive",
+                "vulnerable",
+                "frugal"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To explain what UNESCO recognition means for jamu.",
+                "To argue that jamu should replace modern pharmaceuticals entirely.",
+                "To provide step-by-step instructions for making jamu at home.",
+                "To criticize UNESCO for recognizing too many traditions each year."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what will most affect jamu's long-term survival?</span>",
+              "options": [
+                "Whether the UNESCO designation itself is renewed every few years.",
+                "Whether older generations stop practicing jamu in favor of the young.",
+                "Whether younger generations learn the practice directly from elders.",
+                "Whether jamu is sold in more stores as a bottled product."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Beyond the Horned Helmet: Who the Vikings Really Were",
+            "text": "<p>Popular culture has long portrayed the Vikings as little more than savage raiders, sweeping down from Scandinavia in horned helmets to pillage coastal villages before vanishing back across the sea. This image, while dramatic, badly oversimplifies a culture that was also deeply engaged in trade, exploration, craftsmanship, and even early forms of self-governance. The raiding certainly happened, but it was only one part of a much larger and more complicated picture.</p><p>The horned helmet, in particular, appears to be a nineteenth-century invention rather than a historical fact. No archaeological excavation has ever recovered a Viking-era helmet fitted with horns, and most surviving helmets from the period are notably plain, practical pieces of metalwork. Historians generally trace the horned image to costume designers working on operas and later illustrations, whose visually striking choice simply stuck in the popular imagination far more firmly than the archaeological record ever did.</p><p>Trade, not just raiding, connected Viking communities to a surprisingly wide world. Norse traders traveled extensively along Russian rivers, exchanging furs, amber, and slaves for silver coins that originated as far away as Baghdad, evidence of indirect but real commercial links stretching deep into the Islamic world. Viking merchants also maintained trading contacts with Constantinople, sometimes serving as elite guards for the Byzantine emperor, a role that placed former raiders in surprisingly formal, institutional positions.</p><p>Viking exploration pushed even further than their trade routes, reaching across the North Atlantic centuries before other Europeans attempted similar voyages. Norse settlers established colonies in Iceland and later Greenland, and archaeological evidence at a site called L'Anse aux Meadows, in present-day Newfoundland, confirms that Vikings reached North America roughly five hundred years before Columbus's better-known voyage, though historians still debate how long the Vikings maintained <strong>it</strong> as a permanent foothold. These settlements depended heavily on skilled shipbuilding, since the longship's shallow draft and flexible hull made such long ocean crossings genuinely <strong>feasible</strong>.</p><p>Viking society also included forms of collective decision-making that complicate the stereotype of pure lawlessness. Local and regional assemblies, known as things, brought free men together to settle disputes, pass judgments, and make certain communal decisions, functioning as an early and admittedly limited form of representative governance. Iceland's assembly, the Althing, is often cited as one of the oldest continuously operating parliamentary institutions in the world, tracing its origins back to the late ninth century.</p><p>The Viking Age eventually wound down for several overlapping reasons rather than any single cause. The gradual spread of Christianity across Scandinavia reshaped political and religious structures that had previously favored raiding expeditions. Around the same period, a cooling climate made the Greenland settlements increasingly difficult to sustain, contributing to their eventual abandonment centuries later. Growing political consolidation into more centralized kingdoms further reduced the loose, opportunistic conditions that had once made large-scale raiding relatively easy to organize.</p><p>Taken together, the archaeological and historical record paints a picture considerably more <strong>layered</strong> than the horned-helmet stereotype suggests. Vikings were raiders, certainly, but they were also traders, explorers, craftsmen, and, in their own limited way, early practitioners of assembly-based governance. Reducing them to a single violent caricature flattens a culture whose actual reach and complexity continue to surprise historians studying the period today.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5, R3Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa).<ul><li>Với <b>R3Q1</b>, quét từ khóa \"horned helmet\" ở đoạn 2 để xác định nguồn gốc hình ảnh nón có sừng (nguồn gốc do các nhà thiết kế trang phục sáng tạo ra thay vì dựa trên bằng chứng khảo cổ thực tế).</li><li>Với <b>R3Q5</b>, tìm các cụm từ \"Norse traders\", \"silver coins\", \"Baghdad\" ở đoạn 3 để định vị loại hàng hóa được trao đổi (lông thú và hổ phách - furs and amber).</li><li>Với <b>R3Q10</b>, quét địa danh \"Constantinople\" ở đoạn 3 để xác định vai trò của các thương nhân Viking (làm cận vệ tinh nhuệ cho hoàng đế Byzantine).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q2, R3Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q2</b>, từ <strong>\"feasible\"</strong> ở đoạn 4 đi kèm ngữ cảnh thiết kế tàu longship giúp các chuyến vượt đại dương dài ngày có thể thực hiện được. Ngữ cảnh này mang nghĩa có thể thực hiện (possible).</li><li>Với <b>R3Q8</b>, từ <strong>\"layered\"</strong> ở đoạn 7 mô tả cái nhìn về xã hội Viking vốn có nhiều khía cạnh phức tạp, đa chiều chứ không đơn điệu. Từ này sát nghĩa nhất với sự phức tạp (complex).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R3Q3, R3Q9):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt câu chủ đề các đoạn).<ul><li>Với <b>R3Q3</b>, tổng hợp thông tin toàn bài: bên cạnh việc cướp phá (raiders), người Viking còn là nhà thương thuyết, nhà khai phá và quản trị. Ý chính phải phản ánh bức tranh toàn diện và đa dạng này.</li><li>Với <b>R3Q9</b>, nhận diện mục đích của tác giả: phá bỏ các định kiến/rập khuôn lịch sử đơn điệu để đưa ra một cái nhìn chính xác, tinh tế và đầy đủ hơn (nuanced picture) về xã hội Viking.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q4):</b> Đọc ngược lại câu trước từ <strong>\"it\"</strong> ở đoạn 4 để tìm thực thể số ít được nhắc đến làm đối tượng địa lý cho các chuyến hành trình dài ngày (North America).</li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q6):</b> Rà soát các nguyên nhân làm thoái trào Thời đại Viking được nhắc đến ở đoạn 6 (sự lan rộng của Công giáo, khí hậu lạnh đi, sự tập trung quyền lực chính trị). Chi tiết không được đề cập (như một thất bại quân sự lớn trước một vương quốc châu Âu đối thủ) chính là đáp án cần chọn.</li><li><b>Dạng câu hỏi Suy luận (R3Q7):</b> Tìm chi tiết về cơ quan \"Althing\" ở Iceland ở đoạn 5. Việc tồn tại một hệ thống nghị viện/hội đồng lập pháp chứng minh rằng xã hội Viking có tổ chức quản trị bài bản và phức tạp hơn rất nhiều so với những định kiến thô sơ về họ.</li></ul><p><b>Lời khuyên:</b> Hãy bắt đầu bằng cách xử lý các câu hỏi quy chiếu (R3Q4) và từ vựng (R3Q2, R3Q8) để ghi điểm nhanh chóng. Tiếp theo, áp dụng đọc quét định vị từ khóa cho các câu hỏi chi tiết (R3Q1, R3Q5, R3Q10) và loại trừ (R3Q6). Cuối cùng, dựa trên bức tranh tổng thể của bài đọc, hãy hoàn tất các câu hỏi tư duy cao như suy luận (R3Q7), ý chính (R3Q3) và mục đích bài viết (R3Q9).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, where does the horned helmet image likely come from?</span>",
+              "options": [
+                "Modern Scandinavian historians researching Viking artifacts.",
+                "Actual blacksmiths working during the Viking era.",
+                "Costume designers, rather than archaeological evidence.",
+                "Several confirmed archaeological excavations of helmets."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"feasible\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "feeble",
+                "profitable",
+                "guaranteed",
+                "possible"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Vikings invented democracy and passed it directly to modern Iceland.",
+                "Vikings never actually reached North America before European contact.",
+                "Vikings were purely violent raiders with no other real achievements.",
+                "Vikings were more than raiders, also being traders, explorers, and early governors."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "Columbus's voyage",
+                "North America",
+                "Greenland",
+                "L'Anse aux Meadows"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did Norse traders exchange for silver coins from Baghdad?</span>",
+              "options": [
+                "They exchanged silver coins for furs and amber instead.",
+                "They exchanged furs and amber for silver coins from Rome.",
+                "They exchanged furs and amber for the silver coins.",
+                "They exchanged weapons and tools for the silver coins."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a reason the Viking Age declined?</span>",
+              "options": [
+                "The gradual spread of Christianity across Scandinavia.",
+                "A cooling climate that affected the Greenland settlements.",
+                "A major military defeat by a rival European kingdom.",
+                "Growing political consolidation into centralized kingdoms."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the Althing in Iceland?</span>",
+              "options": [
+                "It proves Vikings invented the first fully democratic nation.",
+                "The Althing dates back to the late ninth century.",
+                "It suggests Vikings had more organized governance than stereotypes imply.",
+                "Christianity's spread caused the Althing to be established."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"layered\"</strong> in paragraph 7 is closest in meaning to _______.</span>",
+              "options": [
+                "simple",
+                "wealthy",
+                "leathered",
+                "complex"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To provide a detailed timeline of every Viking military campaign.",
+                "To present a more accurate, nuanced picture of Viking society.",
+                "To celebrate the horned helmet as an authentic Viking symbol.",
+                "To argue that Viking raiding never actually happened at all."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what role did some Viking merchants play in Constantinople?</span>",
+              "options": [
+                "They served as elite guards for the Byzantine emperor.",
+                "They served as elite guards for the Roman emperor.",
+                "They refused to ever serve the Byzantine emperor directly.",
+                "Byzantine merchants served as guards for Viking chieftains instead."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Opening Doors: The United States and Trade with Asia",
+            "text": "<p>By the middle of the nineteenth century, American merchants and policymakers had grown increasingly frustrated by how little access they had to markets across East Asia. Japan, in particular, had maintained a policy of near-total isolation for more than two centuries, permitting only strictly limited trade through a single port and largely barring contact with Western nations. American ambitions in the Pacific, driven by a mix of commercial hope and expanding whaling and steamship interests, collided directly with this policy of deliberate <strong>seclusion</strong>.</p><p>In 1853, Commodore Matthew Perry sailed a squadron of American warships, popularly remembered as the black ships, into Japanese waters and delivered a formal request that Japan open itself to trade and diplomatic relations. Perry returned the following year with an even larger force, and under this pressure, Japanese officials signed the Treaty of Kanagawa in 1854, formally ending Japan's long period of relative isolation. The treaty itself granted only limited trading rights, but it opened a door that had been firmly shut for generations.</p><p>American motivations behind this pressure were not purely commercial. Steamships crossing the Pacific needed reliable coaling stations, and American whaling crews, who frequently found themselves shipwrecked along the Japanese coast, needed guaranteed protection and assistance rather than the harsh treatment some had previously received. Broader commercial ambition mattered too, however, since American traders hoped that access to Japan might eventually open a path toward the much larger and more lucrative markets of China.</p><p>The treaties that followed Perry's expedition, along with similar agreements the Western powers extracted from China during roughly the same period, followed a strikingly similar and one-sided pattern. Provisions for extraterritoriality allowed foreign citizens accused of crimes to be tried under their own country's laws rather than local ones. Fixed low tariffs, meanwhile, limited how much these nations could tax foreign imports on their own soil. Most-favored-nation clauses further ensured that any concession granted to one Western power automatically extended to all the others as well.</p><p>For Japan specifically, the consequences of this forced opening proved genuinely transformative, though hardly in ways foreign negotiators had anticipated or intended. Domestic political upheaval, partly triggered by resentment over the unequal treaties, contributed to the collapse of the shogunate and the restoration of imperial rule in 1868. The new Meiji government pursued rapid, deliberate modernization along largely Western lines, driven substantially by a determination to renegotiate the unequal treaties from a position of far greater strength.</p><p>China's experience during this same period followed a related but distinct trajectory. Western powers, including the United States, secured a growing network of treaty ports along the Chinese coast. By the century's end, American policymakers had begun formally advocating what became known as the Open Door Policy. This approach was meant to preserve broad, roughly equal commercial access for all foreign powers, rather than allowing any single nation exclusive control over Chinese markets.</p><p>Historians continue to debate how best to characterize this entire era of American engagement with Asia. Some frame <strong>it</strong> primarily as a straightforward, if occasionally <strong>coercive</strong>, expansion of global commerce that ultimately benefited all parties involved. Others emphasize the coercive gunboat diplomacy at its foundation, arguing that celebratory language about opening markets obscures how much of this economic access was extracted under direct or implied military threat. Such critics maintain that little of it was freely negotiated in good faith.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5, R4Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa).<ul><li>Với <b>R4Q1</b>, quét tên riêng \"Perry\" và mốc thời gian \"1854\" ở đoạn 2 để tìm kết quả sự trở lại của ông (mang theo lực lượng đông hơn và Nhật Bản đã ký hiệp ước).</li><li>Với <b>R4Q5</b>, quét từ khóa \"extraterritoriality\" (quyền ngoại tài phán) ở đoạn 4 để tìm định nghĩa chính xác (cho phép công dân nước ngoài được xét xử theo luật pháp của nước họ).</li><li>Với <b>R4Q10</b>, quét cụm từ \"Open Door Policy\" ở đoạn 6 để xác định mục tiêu cốt lõi (duy trì cơ hội thương mại bình đẳng cho tất cả các cường quốc ngoại giao).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q2, R4Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q2</b>, từ <strong>\"seclusion\"</strong> ở đoạn 1 mô tả chính sách bế quan tỏa cảng của Nhật Bản trước khi mở cửa giao thương. Ngữ cảnh này mang nghĩa sự cô lập, tách biệt (isolation).</li><li>Với <b>R4Q8</b>, từ <strong>\"coercive\"</strong> ở đoạn 7 đi kèm với \"gunboat diplomacy\" (ngoại giao pháo thủ) dùng lực lượng quân sự để ép buộc. Từ này sát nghĩa nhất với tính chất dùng sức mạnh/cưỡng chế (forceful).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R4Q3, R4Q9):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt câu chủ đề các đoạn).<ul><li>Với <b>R4Q3</b>, tổng hợp nội dung xuyên suốt bài đọc về sức ép của Mỹ đối với Nhật Bản và Trung Quốc trong việc mở cửa thương mại qua các hiệp ước bất bình đẳng. Ý chính phải phản ánh bức tranh toàn cảnh về sức ép thương mại này.</li><li>Với <b>R4Q9</b>, nhận diện mục đích của tác giả: phân tích lý do và bối cảnh lịch sử khiến Mỹ gây áp lực buộc các nước Đông Á mở cửa giao thương.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q4):</b> Đọc ngược lại câu trước từ <strong>\"it\"</strong> ở đoạn 7 để xác định danh từ/cụm danh từ làm chủ ngữ logic (chỉ sự can thiệp/dấn thân của Mỹ vào châu Á - American engagement with Asia).</li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q6):</b> Đối soát các đặc điểm của hiệp ước bất bình đẳng được đề cập ở đoạn 4 (quyền ngoại tài phán, thuế quan cố định ở mức thấp, điều khoản tối huệ quốc). Chi tiết không được đề cập (như việc căn cứ quân sự vĩnh viễn được trao cho nước ngoài trên lãnh thổ nội địa) chính là phương án cần chọn.</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Định vị thông tin về chính quyền Meiji (Minh Trị) sau năm 1868 ở đoạn 5. Logic trong bài chỉ ra rằng Nhật Bản đẩy mạnh hiện đại hóa một phần để tăng thế lực và uy tín nhằm đàm phán lại các hiệp ước bất bình đẳng.</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên giải quyết các câu hỏi quy chiếu (R4Q4) và từ vựng (R4Q2, R4Q8) trước để tích lũy điểm số nhanh chóng. Kế tiếp, sử dụng kỹ thuật đọc quét định vị từ khóa cho nhóm câu hỏi chi tiết (R4Q1, R4Q5, R4Q10) và loại trừ (R4Q6). Cuối cùng, tổng hợp mạch logic của toàn bài đọc để xử lý chính xác câu hỏi suy luận (R4Q7), ý chính (R4Q3) và mục đích bài viết (R4Q9).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what happened when Perry returned to Japan?</span>",
+              "options": [
+                "He returned with a smaller force, and Japan signed the treaty in 1854.",
+                "He returned with a larger force, but Japan refused to sign any treaty.",
+                "He returned with a larger force, and China signed the treaty in 1854.",
+                "He returned with a larger force, and Japan signed the treaty in 1854."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"seclusion\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "expansion",
+                "isolation",
+                "protection",
+                "seduction"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "The US and Japan negotiated trade agreements as complete equals.",
+                "The US pressured Japan and China into trade agreements historians still debate.",
+                "Japan eagerly sought American trade long before Perry's expedition.",
+                "China's Open Door Policy had no connection to events in Japan."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 7 refers to _______.</span>",
+              "options": [
+                "global commerce",
+                "American engagement with Asia",
+                "all parties involved",
+                "coercive gunboat diplomacy"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did extraterritoriality allow?</span>",
+              "options": [
+                "Foreign citizens to avoid any trial for crimes committed.",
+                "Foreign citizens to be tried under their own laws.",
+                "Foreign citizens to be tried only under local Japanese laws.",
+                "Local citizens to be tried under a foreign country's laws."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a feature of the unequal treaties?</span>",
+              "options": [
+                "Extraterritoriality protections granted to foreign citizens accused of crimes.",
+                "Permanent military bases granted to foreign powers on local soil.",
+                "Fixed low tariffs limiting taxes on foreign imports overall.",
+                "Most-favored-nation clauses extending concessions to all Western powers."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about Japan's Meiji government after 1868?</span>",
+              "options": [
+                "It pursued modernization partly to gain leverage in renegotiating treaties.",
+                "The shogunate collapsed and imperial rule was restored in 1868.",
+                "Successful treaty renegotiation caused Japan's modernization efforts to begin.",
+                "It pursued modernization solely to copy Western culture for its own sake."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"coercive\"</strong> in paragraph 7 is closest in meaning to _______.</span>",
+              "options": [
+                "corrosive",
+                "gentle",
+                "forceful",
+                "profitable"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To argue that Commodore Perry acted purely out of ambition.",
+                "To celebrate the economic benefits Japan gained from Western contact.",
+                "To explain why the US pressured Asia to open trade.",
+                "To provide a full biography of Commodore Matthew Perry's career."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did the Open Door Policy aim to do?</span>",
+              "options": [
+                "Give the United States exclusive control over Chinese markets.",
+                "Preserve roughly equal commercial access for all foreign powers.",
+                "Preserve equal access only for European powers, not the US.",
+                "Close Chinese ports entirely to all foreign powers."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You are planning to move to a new house closer to your school.</p> Write an email to your close friend telling him/her about your plan.",
+          "content": "<p class='mb-1'>Include the following points in your email:</p><ul><li>Explain why you want to move closer to school.</li><li>Give some information about the moving company you plan to hire.</li><li>Ask if he/she is free to help you pack and arrange your belongings.</li><li>Describe the new neighbourhood you are moving to.</li></ul>",
+          "description": "You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Informal Email</strong> (thư gửi bạn thân) chia sẻ kế hoạch chuyển nhà. Đề bài yêu cầu trả lời đủ <strong>4 ý chính</strong>: (1) lý do muốn chuyển đến gần trường, (2) thông tin về công ty chuyển nhà mà bạn dự định thuê, (3) hỏi bạn thân có rảnh để cùng sắp xếp đồ đạc không, (4) mô tả khu vực lân cận (neighbourhood) nơi bạn sắp chuyển đến. Bài viết cần tối thiểu <strong>120 từ</strong>, giọng văn thân mật, tự nhiên.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi thân mật. Ví dụ: Dear Nam,</li><li><strong>Opening:</strong> Dẫn dắt vào chủ đề. Ví dụ: I've got some exciting news to share — I'm planning to move to a new place soon!</li><li><strong>Body 1 (lý do chuyển nhà):</strong> Ví dụ: I've decided to move closer to school so that I can save time commuting and get more sleep in the morning.</li><li><strong>Body 2 (công ty chuyển nhà):</strong> Ví dụ: I've already booked a moving company called Swift Movers, which offers affordable rates and has great reviews online.</li><li><strong>Body 3 (nhờ giúp sắp xếp đồ):</strong> Ví dụ: If you're free this weekend, would you mind helping me pack and arrange my things? I'd really appreciate it.</li><li><strong>Body 4 (mô tả khu vực mới):</strong> Ví dụ: The new neighbourhood is really lovely, with a small park nearby and plenty of cafes within walking distance.</li><li><strong>Closing & Sign-off:</strong> Ví dụ: Let me know if you can make it. Best wishes, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Dùng thì hiện tại tiếp diễn/tương lai gần (be going to) khi nói về kế hoạch sắp tới, và động từ khuyết thiếu (would you mind...?) khi nhờ vả một cách lịch sự, thân thiện. Nên đa dạng hóa tính từ khi miêu tả khu vực mới để tránh lặp từ.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>moving company:</strong> công ty chuyển nhà</li><li><strong>commute:</strong> đi lại (đến trường/công ty)</li><li><strong>pack up belongings:</strong> đóng gói đồ đạc</li><li><strong>affordable rates:</strong> mức giá phải chăng</li><li><strong>within walking distance:</strong> trong tầm đi bộ</li><li><strong>quiet neighbourhood:</strong> khu dân cư yên tĩnh</li><li><strong>settle in:</strong> ổn định chỗ ở mới</li><li><strong>convenient location:</strong> vị trí thuận tiện</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>By the way:</strong> Nhân tiện</li><li><strong>Besides:</strong> Bên cạnh đó</li><li><strong>Actually:</strong> Thực ra</li><li><strong>In case:</strong> Trong trường hợp</li><li><strong>So that:</strong> Để mà</li></ul><p><strong>Cách diễn đạt cảm xúc:</strong></p><ul><li><strong>I'm really excited about...:</strong> Tôi thực sự rất hào hứng về...</li><li><strong>It would mean a lot if you could help:</strong> Sẽ có ý nghĩa rất lớn nếu bạn có thể giúp</li><li><strong>I can't wait to show you around:</strong> Tôi không thể chờ để dẫn bạn đi tham quan</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Bỏ sót một trong bốn yêu cầu của đề bài, đặc biệt là phần mô tả khu vực mới.</li><li>Nhờ vả một cách quá trực tiếp, thiếu lịch sự.</li><li>Thiếu phần chào mở đầu hoặc lời chào kết thúc thư.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã trả lời đủ cả 4 ý trong đề chưa.</li><li>Rà soát chính tả và cách chia thì động từ.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy viết như đang thực sự chia sẻ một tin vui với bạn thân, kết hợp khéo léo giữa việc thông báo kế hoạch và nhờ vả một cách tự nhiên, chân thành.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "cause_effect",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>A recent survey found that stress levels among young people are now above average compared to previous generations, with academic pressure and social media often cited as major contributing factors.</p><p class='mb-1'>This rising trend of stress is having a noticeable impact on young people's mental health, academic performance and overall well-being.</p><p class='mb-1'><strong>Analyze the causes of this problem and its effects on young people's lives.</strong></p>",
+          "description": "Write an essay to an educated reader to analyze the causes of rising stress levels among young people and its effects. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Cause–Effect Essay</strong>, dựa trên kết quả một khảo sát cho thấy mức độ căng thẳng (stress) của giới trẻ đang ở trên mức trung bình. Bạn cần phân tích <strong>nguyên nhân</strong> dẫn đến tình trạng này và <strong>hậu quả</strong> mà nó gây ra đối với cuộc sống của giới trẻ. Lưu ý diễn giải lại số liệu khảo sát bằng ngôn từ của mình, không sao chép nguyên văn đề bài. Bài viết cần tối thiểu <strong>250 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Diễn giải lại kết quả khảo sát và nêu luận điểm chính. Ví dụ: Recent studies have shown that stress levels among young people have risen significantly, raising concerns about their overall well-being.</li><li><strong>Body 1 (nguyên nhân):</strong> Ví dụ: One major cause of this rising stress is academic pressure, as students are increasingly expected to achieve high grades while juggling numerous extracurricular activities.</li><li><strong>Body 2 (nguyên nhân khác):</strong> Ví dụ: In addition, the constant exposure to social media has intensified feelings of comparison and inadequacy among young people.</li><li><strong>Body 3 (hậu quả):</strong> Ví dụ: As a result, many young people experience symptoms such as anxiety, sleep disturbances and a decline in academic performance.</li><li><strong>Conclusion:</strong> Tóm tắt nguyên nhân và hậu quả. Ví dụ: In conclusion, addressing the root causes of youth stress, particularly academic pressure and social media influence, is essential to safeguarding their mental health.</li></ul><p><strong>Mỗi đoạn thân bài nên theo cấu trúc:</strong> Topic sentence → Giải thích → Ví dụ minh họa → Kết mini-đoạn, giúp lập luận chặt chẽ và có chiều sâu.</p><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng cấu trúc nguyên nhân – kết quả (due to, as a result, this leads to, contribute to) để liên kết các ý mạch lạc, và thì hiện tại hoàn thành khi nói về xu hướng đang diễn ra (have risen, has intensified). Cần có thesis statement rõ ràng ngay từ mở bài.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>academic pressure:</strong> áp lực học tập</li><li><strong>peer comparison:</strong> so sánh với bạn bè</li><li><strong>mental health:</strong> sức khỏe tâm thần</li><li><strong>anxiety:</strong> lo âu</li><li><strong>sleep disturbance:</strong> rối loạn giấc ngủ</li><li><strong>social media exposure:</strong> mức độ tiếp xúc mạng xã hội</li><li><strong>extracurricular activities:</strong> hoạt động ngoại khóa</li><li><strong>burnout:</strong> kiệt sức</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>In addition / Furthermore (Thêm ý):</strong> Hơn nữa</li><li><strong>However / Nevertheless (Đối lập):</strong> Tuy nhiên</li><li><strong>As a result / Consequently (Nguyên nhân-kết quả):</strong> Do đó</li><li><strong>For instance / Such as (Ví dụ):</strong> Ví dụ như</li><li><strong>In conclusion / To sum up (Kết luận):</strong> Tóm lại</li><li><strong>Notably / Significantly (Nhấn mạnh):</strong> Đáng chú ý là</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>stress levels above average:</strong> có thể thay bằng \"heightened levels of psychological pressure\"</li><li><strong>young people:</strong> có thể thay bằng \"adolescents\" hoặc \"the younger generation\"</li><li><strong>effects on their lives:</strong> có thể thay bằng \"implications for their well-being\"</li></ul><p><strong>Cách diễn đạt nguyên nhân/hậu quả:</strong></p><ul><li><strong>One of the main causes is...:</strong> Một trong những nguyên nhân chính là...</li><li><strong>This, in turn, leads to...:</strong> Điều này, đến lượt nó, dẫn đến...</li><li><strong>Such pressure often results in...:</strong> Áp lực như vậy thường dẫn đến...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nêu nguyên nhân mà không phân tích hậu quả tương ứng, hoặc ngược lại.</li><li>Sao chép nguyên văn số liệu khảo sát trong đề mà không diễn giải lại.</li><li>Thiếu ví dụ cụ thể để minh họa cho luận điểm.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã đạt tối thiểu 250 từ chưa.</li><li>Đảm bảo bài viết có cả phần nguyên nhân và phần hậu quả rõ ràng.</li><li>Xem lại phần mở bài đã diễn giải số liệu khảo sát bằng ngôn từ riêng chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy phân tích vấn đề một cách logic, đi từ nguyên nhân đến hậu quả một cách rõ ràng, có ví dụ cụ thể để minh chứng thay vì chỉ nêu chung chung.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you enjoy eating healthy food? Why or why not?",
+            "Would you like to follow a Mediterranean diet? Why or why not?",
+            "What dishes would you like to share if your friends came over to your place?",
+            "What is your favorite park and why do you like it?",
+            "How often do you go to that park?",
+            "What do you like most about spending time in parks in general?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần 1 kéo dài <strong>3 phút</strong> với <strong>6 câu hỏi</strong> chia thành 2 chủ đề nhỏ, giúp giám khảo đánh giá khả năng giao tiếp tự nhiên ngay từ đầu bài thi.</li><li><strong>Topic A (Ăn uống lành mạnh):</strong> Câu 1-3 hỏi về sở thích ăn uống lành mạnh, quan điểm về chế độ ăn Địa Trung Hải và món ăn muốn chia sẻ với bạn bè, kiểm tra vốn từ về ẩm thực và khả năng bày tỏ sở thích cá nhân.</li><li><strong>Topic B (Công viên yêu thích):</strong> Câu 4-6 hỏi về công viên yêu thích, tần suất ghé thăm và cảm nhận chung về không gian công viên, kiểm tra khả năng miêu tả địa điểm và giải thích lý do yêu thích.</li><li>Tiêu chí chấm điểm gồm <strong>Fluency</strong>, <strong>Vocabulary</strong>, <strong>Grammar</strong> và <strong>Pronunciation</strong>.</li><li>Nên phân bổ khoảng <strong>25-35 giây</strong> cho mỗi câu, tránh trả lời quá dài ở Topic A khiến Topic B bị thiếu thời gian.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Áp dụng cấu trúc <strong>Answer - Reason - Example (ARE)</strong> để câu trả lời có chiều sâu thay vì chỉ nói một câu ngắn gọn.</li><li><strong>Ví dụ Topic A:</strong> \"I really enjoy eating healthy food because it keeps me energetic and helps me avoid getting sick often.\"</li><li><strong>Ví dụ Topic B:</strong> \"My favorite park is the one near my house because it has a peaceful lake and plenty of trees for shade.\"</li><li>Luôn tự hỏi <strong>Why?/How?</strong> sau khi trả lời để mở rộng ý, tránh câu trả lời cụt lủn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển tiếp mượt mà, ví dụ: \"Speaking of healthy habits, going to the park is actually another thing I try to do regularly.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ nhịp nói ổn định, dùng từ đệm như \"well\", \"actually\", \"to be honest\" để tránh im lặng kéo dài khi suy nghĩ.</li><li>Dùng <strong>thì hiện tại đơn</strong> để nói về thói quen và sở thích chung (I usually..., I tend to...) và <strong>would like to</strong> khi nói về mong muốn (I would like to try a Mediterranean diet).</li><li>Nếu quên từ, hãy diễn giải thay vì im lặng, ví dụ thay vì \"nutritious\" có thể nói \"food that is good for your body\".</li><li>Từ vựng cho Topic A: <strong>a balanced diet</strong> (chế độ ăn cân bằng), <strong>fresh produce</strong> (nông sản tươi), <strong>share a meal</strong> (chia sẻ bữa ăn).</li><li>Từ vựng cho Topic B: <strong>green space</strong> (không gian xanh), <strong>fresh air</strong> (không khí trong lành), <strong>unwind</strong> (thư giãn).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>low in fat and sugar</strong> - ít chất béo và đường (Topic A)</li><li><strong>rich in fruits and vegetables</strong> - giàu trái cây và rau củ (Topic A)</li><li><strong>a home-cooked feast</strong> - bữa tiệc tự nấu tại nhà (Topic A)</li><li><strong>a peaceful escape</strong> - nơi trốn tránh yên bình (Topic B)</li><li><strong>jog around the park</strong> - chạy bộ quanh công viên (Topic B)</li><li><strong>a family-friendly spot</strong> - địa điểm phù hợp cho gia đình (Topic B)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước tiên</li><li><strong>Besides that</strong> - bên cạnh đó</li><li><strong>Moreover</strong> - hơn nữa</li><li><strong>As for...</strong> - còn về...</li><li><strong>Overall</strong> - nhìn chung</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>Personally, I feel that...</strong> ví dụ: \"Personally, I feel that eating healthy makes a huge difference in my energy levels.\" (Cá nhân tôi cảm thấy rằng...)</li><li><strong>What I love most about...is...</strong> ví dụ: \"What I love most about my local park is how quiet it is in the early morning.\" (Điều tôi thích nhất về...là...)</li><li><strong>In my opinion, ...is worth trying</strong> ví dụ: \"In my opinion, the Mediterranean diet is definitely worth trying because it's both tasty and healthy.\" (Theo tôi, ...đáng để thử)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\" hoặc \"No\" rồi im lặng - lỗi nghiêm trọng nhất khiến giám khảo không đánh giá được khả năng ngôn ngữ.</li><li>Ở Topic A, nhiều bạn chỉ nói \"I like healthy food\" mà không giải thích lý do hay nêu món ăn cụ thể.</li><li>Ở Topic B, nhiều bạn chỉ nói tên công viên mà không miêu tả được không gian hay cảm xúc khi ở đó.</li><li>Dùng sai thì, ví dụ dùng thì quá khứ khi miêu tả thói quen hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's an interesting question, let me think about it for a second.\"</li><li>Nếu quên từ vựng cụ thể, hãy mô tả bằng từ đơn giản hơn thay vì dừng lại.</li><li>Với Topic A, nếu bí ý, hãy nói về một món ăn gia đình hay nấu hoặc một bữa ăn đáng nhớ.</li><li>Với Topic B, nếu bí ý, hãy chuyển sang kể về một không gian ngoài trời khác quen thuộc như sân trường hay bờ sông.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy coi đây như một cuộc trò chuyện thân mật với giám khảo, không phải một bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để tránh nhầm lẫn nội dung giữa hai chủ đề.</li><li>Sự tự nhiên và trôi chảy quan trọng hơn việc cố dùng từ vựng phức tạp mà không chắc chắn.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your friend has an important presentation coming up and wants to practice speaking beforehand.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Practice standing in front of a mirror</li><li>Option 2: Record herself and listen back to the recording</li><li>Option 3: Practice speaking in front of a small group of friends</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống đưa ra là giúp bạn thân chọn cách luyện tập trước khi thuyết trình quan trọng, với 3 lựa chọn: đứng trước gương, ghi âm và nghe lại, hoặc nói trước một nhóm bạn nhỏ.</li><li>Tiêu chí chấm điểm gồm khả năng phân tích, so sánh và đưa ra quyết định có lý lẽ thuyết phục.</li><li>Thời gian làm bài là <strong>4 phút</strong>, trong đó khoảng 1 phút chuẩn bị và 3 phút nói.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction - Comparison/Body - End)</strong>: giới thiệu tình huống, so sánh 3 lựa chọn, sau đó kết luận và chọn phương án tốt nhất.</li><li><strong>Option 1 (Đứng trước gương):</strong> Giúp quan sát ngôn ngữ cơ thể và biểu cảm khuôn mặt, tuy nhiên không giúp cải thiện được giọng nói hay cách phát âm.</li><li><strong>Option 2 (Ghi âm và nghe lại):</strong> Giúp nhận ra lỗi phát âm, tốc độ nói và những từ đệm thừa, nhưng không tạo được cảm giác thực tế của việc đứng trước khán giả.</li><li><strong>Option 3 (Nói trước nhóm nhỏ):</strong> Giúp làm quen với cảm giác hồi hộp thật sự và nhận phản hồi trực tiếp, tuy nhiên có thể khiến người mới luyện tập cảm thấy áp lực hơn.</li><li>Nên gắn lập luận với ngữ cảnh thực tế, ví dụ mức độ tự tin hiện tại của bạn thân hoặc thời gian còn lại trước buổi thuyết trình.</li><li>Dùng từ nối tương phản để chuyển giữa ưu và nhược điểm của từng lựa chọn, ví dụ \"however\", \"on the other hand\".</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ so sánh trực tiếp Option 1 và Option 2 trước khi nói tới Option 3.</li><li>Dùng thì hiện tại đơn để miêu tả đặc điểm chung của từng phương pháp (Practicing in front of a mirror helps...) và thì tương lai gần khi nói về đề xuất (She will probably feel more confident...).</li><li>Sử dụng từ đồng nghĩa để tránh lặp lại \"good\" hoặc \"helpful\", ví dụ \"effective\", \"practical\", \"realistic\".</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>body language</strong> - ngôn ngữ cơ thể</li><li><strong>build confidence</strong> - xây dựng sự tự tin</li><li><strong>identify weaknesses</strong> - nhận ra điểm yếu</li><li><strong>constructive feedback</strong> - phản hồi mang tính xây dựng</li><li><strong>simulate a real audience</strong> - mô phỏng khán giả thật</li><li><strong>reduce stage fright</strong> - giảm cảm giác lo lắng khi đứng trước đám đông</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared to...</strong> - so với...</li><li><strong>On the other hand</strong> - mặt khác</li><li><strong>Nevertheless</strong> - tuy nhiên</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố</li><li><strong>All things considered</strong> - nhìn chung, xét mọi mặt</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I were her, I would choose...</strong> ví dụ: \"If I were her, I would choose to practice in front of a small group because it feels the most realistic.\" (Nếu là cô ấy, tôi sẽ chọn...)</li><li><strong>I'm leaning towards...</strong> ví dụ: \"I'm leaning towards recording herself since it's the most convenient way to self-correct.\" (Tôi nghiêng về phía...)</li><li><strong>All things considered, I believe...</strong> ví dụ: \"All things considered, I believe practicing in front of a small group would be the most effective option.\" (Xét mọi mặt, tôi tin rằng...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của các lựa chọn còn lại.</li><li>Lặp lại từ \"good\" hoặc \"helpful\" nhiều lần thay vì dùng tính từ học thuật hơn.</li><li>Không đưa ra kết luận rõ ràng ở cuối bài, khiến giám khảo không biết bạn thực sự chọn phương án nào.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng chuyên biệt về kỹ năng thuyết trình, hãy chuyển hướng sang yếu tố cảm xúc hoặc thời gian, ví dụ \"it also helps her feel calmer on the actual day\".</li><li>Dùng câu đệm: \"Let's evaluate this option from a different perspective\" để có thêm thời gian suy nghĩ.</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang lựa chọn tiếp theo thay vì dừng lại quá lâu.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như người đưa ra lời khuyên thực sự cho bạn thân - đâu là cách luyện tập hiệu quả và thực tế nhất.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn được chọn để thể hiện tư duy phản biện, ví dụ có thể kết hợp ghi âm trước rồi mới nói trước nhóm nhỏ.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The impact of technology on learning",
+          "mindmap": {
+            "title": "Technology and Learning",
+            "ideas": [
+              "Over-reliance on technology",
+              "Reduced critical thinking",
+              "Information overload",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Do you think technology will completely replace traditional teaching methods?",
+            "How can people avoid becoming too dependent on technology?",
+            "What skills do students need to use technology effectively for learning?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về ảnh hưởng của công nghệ đối với việc học, dựa trên 3 nhánh ý chính: sự phụ thuộc quá mức vào công nghệ, tư duy phản biện bị suy giảm, tình trạng quá tải thông tin, cùng nhánh ý tự do thứ 4.</li><li>Tiêu chí chấm điểm gồm khả năng phát triển ý, tính mạch lạc và vốn từ vựng học thuật liên quan đến công nghệ và giáo dục.</li><li>Thời gian là <strong>5 phút</strong>, bao gồm khoảng 3-3.5 phút cho bài nói chính và phần còn lại cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>FEEL (Point - Explanation - Example - Link)</strong> cho mỗi nhánh ý để đảm bảo có dẫn chứng cụ thể thay vì chỉ liệt kê ý chung chung.</li><li><strong>Câu mở đầu gợi ý:</strong> \"Today, I would like to talk about how technology has influenced the way students learn, both positively and negatively.\"</li><li><strong>Câu cho nhánh ý cá nhân:</strong> \"Besides these issues, I also think technology can create a false sense of understanding when students simply search for answers instead of truly learning.\"</li><li>Nên đưa ra ví dụ thực tế để tăng tính thuyết phục, ví dụ nhắc đến việc học sinh dùng công cụ tìm kiếm để giải bài tập ngay lập tức mà không suy nghĩ.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lan man sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển tiếp mượt mà giữa các nhánh ý để bài nói liền mạch.</li><li>Kết hợp <strong>thì hiện tại đơn</strong> để nêu sự thật chung (Students rely heavily on technology) và <strong>hiện tại hoàn thành</strong> để nói về xu hướng tích lũy (Technology has changed the way we access information).</li><li>Paraphrase cụm từ chính \"technology\" bằng các cách diễn đạt khác như \"digital tools\" hoặc \"online resources\".</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>over-reliance on technology</strong> - sự phụ thuộc quá mức vào công nghệ</li><li><strong>critical thinking skills</strong> - kỹ năng tư duy phản biện</li><li><strong>information overload</strong> - quá tải thông tin</li><li><strong>instant access to information</strong> - tiếp cận thông tin ngay lập tức</li><li><strong>digital distractions</strong> - những thứ gây xao nhãng từ thiết bị số</li><li><strong>filter reliable sources</strong> - chọn lọc nguồn thông tin đáng tin cậy</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>First and foremost</strong> - trước hết</li><li><strong>Another downside is...</strong> - một nhược điểm khác là...</li><li><strong>Not only... but also...</strong> - không chỉ... mà còn...</li><li><strong>As a result</strong> - kết quả là</li><li><strong>To sum up</strong> - tóm lại</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>From my perspective, ...</strong> ví dụ: \"From my perspective, technology should support learning, not replace independent thinking.\" (Theo quan điểm của tôi, ...)</li><li><strong>It seems to me that...</strong> ví dụ: \"It seems to me that students today struggle to focus because of constant digital distractions.\" (Dường như đối với tôi rằng...)</li><li><strong>I would argue that...</strong> ví dụ: \"I would argue that learning how to evaluate information is more important than ever.\" (Tôi cho rằng...)</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Do you think technology will completely replace traditional teaching methods?\"</strong> - Not entirely, because face-to-face interaction and guidance from teachers still play an irreplaceable role in learning.</li><li><strong>\"How can people avoid becoming too dependent on technology?\"</strong> - They can set specific times for offline study, practice solving problems independently first, and use technology only to check or supplement their work.</li><li><strong>\"What skills do students need to use technology effectively for learning?\"</strong> - They need strong information literacy, time management, and the ability to critically evaluate online sources.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê nhánh ý mà không giải thích hoặc đưa ví dụ cụ thể.</li><li>Quên nhánh ý cá nhân (nhánh thứ 4) - nên chuẩn bị trước để tránh bị động.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Khi bí ý, hãy liên hệ đến trải nghiệm học tập thực tế của bản thân với công nghệ để có thêm ví dụ.</li><li>Dùng câu học thuật để câu giờ: \"That is a complex issue. If we evaluate it from an educational perspective...\"</li><li>Nếu quên từ vựng chuyên môn, hãy dùng từ đồng nghĩa đơn giản hơn hoặc mô tả khái niệm bằng câu dễ hiểu.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Hãy tư duy thực tế, nhìn nhận công nghệ như một công cụ hỗ trợ chứ không thay thế hoàn toàn con người.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố then chốt để đạt điểm cao.</li><li>Đừng ngại đưa ra góc nhìn cá nhân, vì điều đó giúp bài nói trở nên chân thực và thuyết phục hơn.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

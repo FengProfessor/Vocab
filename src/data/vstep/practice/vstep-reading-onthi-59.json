@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-59",
+  "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 04 (Reading Part 2 - Test 04)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 2 - Test 04",
+            "text": "<p style=\"text-align:justify;\">Sleep is one of the most important biological processes in human life, yet many people fail to get enough of it. Scientists have spent decades studying sleep to understand why we need it and what happens when we don't get enough. Research has shown that sleep is not simply a passive state of rest but an active process during which the brain and body perform <strong>crucial</strong> maintenance and repair work.</p>\n\n<p style=\"text-align:justify;\">During sleep, the brain goes through several distinct stages, each serving different functions. The first stage is light sleep, a transition period between wakefulness and sleep. <strong>This</strong> is followed by deeper stages of sleep where heart rate slows, body temperature drops, and the body begins repair processes. The most fascinating stage is REM (Rapid Eye Movement) sleep, during which most dreaming occurs. During REM sleep, the brain is highly active, processing memories and emotions from the day. Scientists believe that this stage is essential for learning and emotional regulation.</p>\n\n<p style=\"text-align:justify;\">The consequences of sleep <strong>deprivation</strong> are serious and well-documented. People who consistently fail to get adequate sleep—typically 7-9 hours for adults—experience impaired cognitive function, including problems with memory, attention, and decision-making. Chronic sleep loss has also been linked to numerous health problems, such as obesity, diabetes, cardiovascular disease, and weakened immune function. Furthermore, lack of sleep can significantly affect mood, leading to irritability, anxiety, and depression.</p>\n\n<p style=\"text-align:justify;\">Despite understanding the importance of sleep, modern society often treats it as a luxury rather than a necessity. The <strong>prevalence</strong> of electronic devices, irregular work schedules, and high-stress lifestyles all contribute to widespread sleep problems. However, experts emphasize that prioritizing sleep is one of the most important things people can do for their health. Establishing regular sleep schedules, creating comfortable sleep environments, and limiting screen time before bed are simple but effective strategies for improving sleep quality.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r59-q1",
+              "type": "mcq",
+              "question": "What is the main idea of this passage?",
+              "options": [
+                "Dreams are the most important part of sleep",
+                "Sleep is essential and has significant effects on health",
+                "Most people sleep too much",
+                "Electronic devices help people sleep better"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r59-q2",
+              "type": "mcq",
+              "question": "The word \"crucial\" in paragraph 1 is closest in meaning to ____.",
+              "options": [
+                "optional and unnecessary",
+                "extremely important",
+                "slightly helpful",
+                "completely useless"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r59-q3",
+              "type": "mcq",
+              "question": "According to paragraph 1, sleep is described as ____.",
+              "options": [
+                "a passive state of inactivity",
+                "an active process with important functions",
+                "a waste of time",
+                "unnecessary for adults"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r59-q4",
+              "type": "mcq",
+              "question": "The word \"This\" in paragraph 2 refers to ____.",
+              "options": [
+                "the brain going through several stages",
+                "light sleep",
+                "REM sleep",
+                "dreaming"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r59-q5",
+              "type": "mcq",
+              "question": "What happens during REM sleep according to the passage?",
+              "options": [
+                "The brain is completely inactive",
+                "Heart rate increases significantly",
+                "The brain processes memories and emotions",
+                "The body temperature rises"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r59-q6",
+              "type": "mcq",
+              "question": "The word \"deprivation\" in paragraph 3 most likely means ____.",
+              "options": [
+                "having too much of something",
+                "lacking or being denied something",
+                "improving the quality of something",
+                "distributing something equally"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r59-q7",
+              "type": "mcq",
+              "question": "According to paragraph 3, all of the following are consequences of sleep loss EXCEPT ____.",
+              "options": [
+                "memory problems",
+                "increased creativity",
+                "cardiovascular disease",
+                "mood changes"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r59-q8",
+              "type": "mcq",
+              "question": "The word \"prevalence\" in paragraph 4 is closest in meaning to ____.",
+              "options": [
+                "absence or lack",
+                "widespread occurrence",
+                "high quality",
+                "low cost"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r59-q9",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that ____.",
+              "options": [
+                "most people understand and prioritize sleep properly",
+                "modern lifestyle often interferes with good sleep habits",
+                "electronic devices have no effect on sleep",
+                "sleep problems cannot be solved"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r59-q10",
+              "type": "mcq",
+              "question": "The author's purpose in writing this passage is to ____.",
+              "options": [
+                "entertain readers with stories about dreams",
+                "inform readers about the importance of sleep",
+                "criticize people who sleep too much",
+                "advertise sleep medication"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

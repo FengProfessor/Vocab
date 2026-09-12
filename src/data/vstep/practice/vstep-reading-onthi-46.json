@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-46",
+  "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 01 (Reading Part 1 - Test 01)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 1 - Test 01",
+            "text": "<p style=\"text-align:center;\"><strong>TEXT A - Community Center Notice</strong></p>\n<p style=\"text-align:justify;\">Dear residents,</p>\n<p style=\"text-align:justify;\">Due to <strong>unforeseen</strong> circumstances, the swimming pool will be temporarily closed for maintenance from May 15th to May 22nd. We apologize for any <strong>inconvenience</strong> this may cause.</p>\n<p style=\"text-align:justify;\">During this period, members can use the facilities at our partner center, Riverside Sports Club, at no additional charge. Please bring your membership card for <strong>verification</strong>.</p>\n<p style=\"text-align:justify;\">The gym, tennis courts, and yoga classes will remain open as usual.</p>\n<p style=\"text-align:right;\"><em>Management Team</em></p>\n</div>\n\n<div style=\"background: #fff9e6; padding: 15px; margin: 20px 0; border-left: 4px solid #f39c12;\">\n<p style=\"text-align:center;\"><strong>TEXT B - Work Email</strong></p>\n<p><strong>From:</strong> Sarah Chen<br><strong>To:</strong> Team<br><strong>Subject:</strong> Project Update</p>\n<p style=\"text-align:justify;\">Hi everyone,</p>\n<p style=\"text-align:justify;\">I want to <strong>acknowledge</strong> all the hard work on this project. The client has requested some <strong>modifications</strong> to the design. I'm confident we can <strong>accommodate</strong> their requests. Let's meet tomorrow at 2 PM.</p>\n<p>Best, Sarah</p>\n</div>\n\n<div style=\"background: #e8f5e9; padding: 15px; margin: 20px 0; border-left: 4px solid #27ae60;\">\n<p style=\"text-align:center;\"><strong>TEXT C - Product Advertisement</strong></p>\n<p style=\"text-align:center; font-size: 18px;\"><strong>Tech Pro Smart Watch 5</strong></p>\n<p style=\"text-align:justify;\">Experience our <strong>innovative</strong> health monitoring system with <strong>remarkable</strong> accuracy! Features: Water-resistant, 7-day battery with <strong>rapid</strong> charging (30 min). Limited offer - 30% off!</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r46-q1",
+              "type": "mcq",
+              "question": "In TEXT A, what does \"unforeseen\" mean?",
+              "options": [
+                "expected and planned",
+                "not predicted or anticipated",
+                "very expensive",
+                "happening every year"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r46-q2",
+              "type": "mcq",
+              "question": "According to TEXT A, what can members do during the pool closure?",
+              "options": [
+                "Get a refund for their membership",
+                "Use another sports center for free",
+                "Wait until the pool reopens",
+                "Cancel their membership"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r46-q3",
+              "type": "mcq",
+              "question": "The word \"inconvenience\" in TEXT A is closest in meaning to?",
+              "options": [
+                "benefit or advantage",
+                "trouble or difficulty",
+                "excitement",
+                "danger"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r46-q4",
+              "type": "mcq",
+              "question": "What does \"verification\" in TEXT A mean?",
+              "options": [
+                "payment",
+                "cancellation",
+                "confirmation or proof",
+                "registration"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r46-q5",
+              "type": "mcq",
+              "question": "In TEXT B, what does Sarah want to \"acknowledge\"?",
+              "options": [
+                "The project deadline",
+                "The client complaints",
+                "The team's hard work",
+                "The design problems"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r46-q6",
+              "type": "mcq",
+              "question": "The word \"modifications\" in TEXT B means?",
+              "options": [
+                "cancellations",
+                "changes or adjustments",
+                "approvals",
+                "complaints"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r46-q7",
+              "type": "mcq",
+              "question": "What does \"accommodate\" mean in TEXT B?",
+              "options": [
+                "refuse or reject",
+                "delay or postpone",
+                "fulfill or meet the needs of",
+                "discuss or debate"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r46-q8",
+              "type": "mcq",
+              "question": "In TEXT C, \"innovative\" is closest in meaning to?",
+              "options": [
+                "traditional",
+                "introducing new ideas",
+                "expensive",
+                "complicated"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r46-q9",
+              "type": "mcq",
+              "question": "What does \"remarkable\" mean in TEXT C?",
+              "options": [
+                "ordinary",
+                "poor",
+                "extraordinary or impressive",
+                "slow"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r46-q10",
+              "type": "mcq",
+              "question": "The word \"rapid\" in TEXT C means?",
+              "options": [
+                "slow",
+                "quick or fast",
+                "wireless",
+                "expensive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-32",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 32",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-25/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>The accounting department is offering assistance in filling out tax forms for all employees. Individual consultations will be held on Friday from 9 a.m. to 1 p.m. If you are interested, please sign up for an appointment at the accounting department before Thursday.</li></ul><p><b>Question 2.</b></p><ul><li>Good evening, ladies and gentlemen. The Royal Gallery will be closing in just 10 minutes, so we ask that you make your way to the nearest exit. For those of you taking the audio tour, please return the audio equipment to the front desk in our lobby. Thank you for visiting us today, and we hope you enjoyed your visit to the gallery.</li></ul><p><b>Question 3.</b></p><ul><li>Looking for a new, refreshing and healthy beverage? Try Sunkiss’s Fruitblast for a cool drink that is not only delicious, but good for your body. Fruitblast is full of the nutrients that your body needs. It comes in six different flavors and is perfect for school lunches or with an afternoon snack. So if you’re tired of all those high-sugar drinks, try Fruitblast as a healthy and delicious alternative. Fruitblast is available at most convenience stores.</li></ul><p><b>Question 4.</b></p><ul><li>This is the KGBS traffic report. Traffic on Highway 6 headed west is heavy due to some flooding caused by last night’s storm. If you are going west, we suggest taking Highway 15 instead, as the roads are clear in that area. Also, don’t forget that Lakefront Road will be closed starting tomorrow because of the new bridge construction. You may want to take Valley view Drive as an alternate route.</li></ul><p><b>Question 5.</b></p><ul><li>Thank you for coming to the meeting this morning. It is my pleasure to introduce Colin Carey, our new artistic director. Mr. Carey has significant experience in layout, and most recently worked for Brady Publishing in Sydney. I am sure he will make a welcome addition to our staff. Today, he will present some new design concepts for our magazine. Please give a warm welcome to Colin Carey.</li></ul><p><b>Question 6.</b></p><ul><li>I’d like to welcome all our new interns this morning. I’ve been a television producer here at SATV for the past 5 years, and it’s my pleasure to guide you through the orientation seminar this week. During my time here, I’ve learned about program scheduling, assisting directors and how to multitask. And as technology is constantly changing, I believe you will need to keep updated with all the advances in computer and camera equipment. These are the most valuable skills to those of you beginning your careers in this industry. Keep that in mind as we go through this 7-day seminar.</li></ul><p><b>Question 7.</b></p><ul><li>This is Andrew Bank’s account line. We now offer online service for customers manage their accounts. Simply visit our website at www.andrewbank.com to sign up for this service. Fill out the form and we will e-mail you a confirmation number.</li></ul><p><b>Question 8.</b></p><ul><li>May I have your attention, please? This morning, electricians are going to be wiring the new lobby. Power will be down for two hours from 11 a.m. to 1 p.m. Please save any work on your computer before 11 a.m. to avoid losing it.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "When will the consultations be held?",
+              "options": [
+                "On Monday",
+                "On Thursday",
+                "On Friday",
+                "On Saturday"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What are the tourists asked to do?",
+              "options": [
+                "Use the audio equipment",
+                "Pay for their purchases",
+                "Return some books",
+                "Leave the building"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is the advertisement for?",
+              "options": [
+                "A snack food",
+                "A vitamin supplement",
+                "A beverage",
+                "Mineral water"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What advice does the speaker give?",
+              "options": [
+                "Take an alternate route",
+                "Use the subway",
+                "Avoid the city center",
+                "Drive slowly"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of the talk?",
+              "options": [
+                "To provide information on a magazine",
+                "To introduce a new member of staff",
+                "To explain new projects",
+                "To inform staff of new policies"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "How long is the orientation?",
+              "options": [
+                "One day",
+                "Five days",
+                "One week",
+                "Two weeks"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What might customers receive through email?",
+              "options": [
+                "an account number",
+                "a confirmation number",
+                "a form",
+                "a phone number"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is happening at 11 a.m this morning?",
+              "options": [
+                "Electricians are repairing the lobby",
+                "There will be a power cut",
+                "Employees are working on their computers",
+                "Employees are having lunch"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-01/part1-2.mp3"
+          },
+          "tapescript": "<div><p><b>Conversation 1</b></p><ul><li><b>Interviewer:</b> Simon, tell us about yourself.</li><li><b>Simon:</b> Well, like lots of other kids my age, I’ve grown up taking my boat onto the rivers in this area. One of my favourite rivers is <b>(1) the River Stanton, which is fast with excellent white water – so things can get pretty dangerous but it’s exciting</b> and I’m experienced.</li><li><b>Interviewer:</b> Now, it was while you were on the River Stanton that you noticed something was wrong.</li><li><b>Simon:</b> Yeah, <b>(2) I always wondered why the water made my eyes burn if it got on my face...and why it was a strange, orange colour</b>, especially when the water was running low.</li><li><b>Interviewer:</b> So you decided to find out more.</li><li><b>Simon:</b> Yeah, I asked other people using the river and <b>(3) I visited a few websites and found out that the river was orange because of pollution from the old mines in the area.</b> There was a lot of mining for coal done in this part of the country. I knew that from my history class at school, but what I didn’t know was that pollution was coming from those old mine works and escaping into the rivers.</li><li><b>Interviewer:</b> then you did a qualification, didn’t you?</li><li><b>Simon:</b> Yes, I found out about an organization called: “The Friends of the River Stanton”. They told me they did a special course where I could learn how to test the river water to see if it was healthy or not. So that’s what I did and I got really interested in the subject.</li><li><b>Interviewer:</b> In fact, you got so interested that you actually started to look for an answer to the pollution problem!</li><li><b>Simon:</b> I learned as much as I could about the chemistry behind the pollution. I can’t really explain all the detail, but basically <b>(4) if you add something called limestone to the river, it can improve the chemistry.</b> That means that the plants and fish which had died because of all the mining companies that used to be in the area…could live in the river again. <b>So that made me really happy.</b></li></ul><p><b>Conversation 2</b></p><ul><li><b>Officer:</b> Yes, what can I do for you?</li><li><b>Student:</b> My friend is in homestay...and she really enjoys it...so I’d like to join a family as well.</li><li><b>Officer:</b> Okay, so let me get some details. What’s your name?</li><li><b>Student:</b> My name is Keiko Yuichini.</li><li><b>Officer:</b> And you’re female. And your nationality?</li><li><b>Student:</b> I’m Japanese.</li><li><b>Officer:</b> And you’re how old?</li><li><b>Student:</b> I’m twenty-eight years old.</li><li><b>Officer:</b> Now you live at one of the colleges…which one?</li><li><b>Student:</b> Willow College, umm Room 21C.</li><li><b>Officer:</b> <b>And how long are you planning on staying with homestay?</b></li><li><b>Student:</b> <b>About four months</b> (1)</li><li><b>Officer:</b> And what course are you enrolled in?</li><li><b>Student:</b> Well, <b>I’ve enrolled for twenty weeks in the Advanced English Studies</b> (2).</li><li><b>Officer:</b> Okay. Do you have any preference for a family with children or without children?</li><li><b>Student:</b> I prefer I mean I like young children, but I’d like to be with older people.</li><li><b>Officer:</b> All right. Now what about you? Are you a vegetarian or do you have any special food requirements?</li><li><b>Student:</b> No, I am not a vegetarian but I don’t eat a lot of meat. <b>I really like seafood</b> (3).</li><li><b>Officer:</b> Are you familiar with the public transport system?</li><li><b>Student:</b> No.</li><li><b>Officer:</b> What about the trains?</li><li><b>Student:</b> I like catching the train. They are much faster.</li><li><b>Officer:</b> Now let me go check on the computer and see who I’ve got. <b>I’ll check my records and I’ll give you details this afternoon</b> (4).</li><li><b>Student:</b> Thank you for helping me.</li><li><b>Officer:</b> It’s pleasure. Bye.</li></ul><p><b>Conversation 3</b></p><ul><li><b>Interviewer:</b> Sophie, you’re a native English speaker and you’re been working as a translator for some time now.</li><li><b>Sophie:</b> <b>I’m currently doing a lot of legal texts (9)</b> – the details of court cases can be interesting and the language quite challenging.</li><li><b>Interviewer:</b> And what kind of language gives you the most problems? The kind of expressions used in technology, perhaps, or science?</li><li><b>Sophie:</b> Actually, I don’t have much trouble with those. <b>What’s still quite tricky, though, is when someone mentions a person or an event, perhaps in their country’s history (10).</b></li><li><b>Interviewer:</b> So, do you normally deal with big private firms or with state institutions like local government?</li><li><b>Sophie:</b> Well, I was once contacted by an insurance company and I did a job for them, <b>but nearly always it’s a case of an agency asking if I’d be willing to do a particular text (11).</b></li><li><b>Interviewer:</b> That mush speed things up a lot.</li><li><b>Sophie:</b> Yes, but it can still be a very long working day. I don’t mind which part of the day I’m working though – that’s one of the advantages of working from home.</li><li><b>Interviewer:</b> How do you see the long – term future of translating? Will it continue to be a good area to work in?</li><li><b>Sophie:</b> Oh, I think so. Professional standards are higher than they’ve ever been, and <b>the increasingly wide range of languages used internationally means that the demand for high-quality translation will keep growing for many years to come (12).</b></li></ul></div>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why does Simon like the River Stanton?",
+              "options": [
+                "Because of its water speed",
+                "Because of its scenery",
+                "Because of its peace",
+                "Because of its dangers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What was wrong with the river?",
+              "options": [
+                "The water turned brown when it was running low.",
+                "The water turned brown when it was running fast.",
+                "The water turned orange when it was running fast.",
+                "The water turned orange when it was running low."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What was the cause of the river’s problem?",
+              "options": [
+                "Old mine work",
+                "Farming activities",
+                "Fishing activities",
+                "Tourism activities"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What made Simon happy?",
+              "options": [
+                "He found the solution to the river’s problem.",
+                "He found limestones in the river.",
+                "He found a lot of fish in the river.",
+                "He found a lot of plants in the river."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why does the student want to live with a family?",
+              "options": [
+                "Because she feels homesick",
+                "Because she wants to improve her English",
+                "Because she doesn’t want to cook",
+                "Because her friend is enjoying her homestay"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "How long is the student’s course?",
+              "options": [
+                "Four months",
+                "20 weeks",
+                "5 months",
+                "12 weeks"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What may the student like to eat?",
+              "options": [
+                "Seafood",
+                "Pork",
+                "Beef",
+                "Vegetable"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "When does the officer give the student her homestay details?",
+              "options": [
+                "Right after he checks on his computer",
+                "At lunch time",
+                "In the afternoon",
+                "Tomorrow afternoon"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is Sophie’s job now?",
+              "options": [
+                "A secretary",
+                "A translator",
+                "A manager",
+                "A designer"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What is the most challenging thing in Sophie’s job?",
+              "options": [
+                "Technical terms",
+                "Informal expressions",
+                "Scientific terms",
+                "Cultural preferences"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "According to Sophie, what is the advantage of working from home?",
+              "options": [
+                "She doesn’t have to travel to work.",
+                "She doesn’t have to dress formally.",
+                "She doesn’t have to sign contracts.",
+                "Her working time can be flexible."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does Sophie think about her job in the future?",
+              "options": [
+                "It will be more demanding.",
+                "It will be easier.",
+                "It is not necessary any more.",
+                "It can help her earn a lot of money."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-06/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1 / Lecture 1:</b></p><p>Welcome everybody to this presentation about creating a corporate image for your company. I wonder if, when you came in today, you thought, 'Hey, this guy hasn't got a suit on. This could be an interesting day!' You see, I believe that the way you dress is very important. I decided to come here rather casually dressed not because I wanted to make a fashion statement but because I wanted to let you know that this is not going to be a formal presentation. On the other hand, I want you to work hard and get something out of the day. I'm not wearing shorts and a T-shirt, for instance. So how would you describe the way I'm dressed?</p><p><b>Smart but casual.</b></p><p>Exactly. But I also believe there are particular occasions when you need to wear a suit such as meeting a client – especially if you expect the client to be wearing one. Which brings me to a recent trend which we've picked up from the Americans: 'Dress down Friday'. How many of you are dressing more informally on a Friday? Quite a lot of you. How many of you go as far as wearing jeans? Not so many. Probably many of that small group work in the IT sector? I thought so.</p><p>So you see it's not just the day of the week or what clients may expect of you, it's the business you're in. If, for example, you work in a bank you're probably going to be in a dark suit every day of the week. And then there are those of us who are expected to wear a uniform. What you are doing here is projecting a very specific image of your company or service. Usually it's to do with reliability, expertise and efficiency. Customers and the general public feel reassured about someone in a recognisable uniform. Dress down Friday is a long way off for this group of employees. Now let's have a look at other ways in which a company projects its image...</p><p><b>Talk 2 / Lecture 2:</b></p><p>Do you get enough sleep at night? Do you ever feel tired during school? You may not be the only one. According to the National Sleep Foundation, kids aren't getting enough sleep. And it's affecting how they do in school.</p><p>Experts say that kids need about ten hours of sleep each night. Your body needs sleep so it can rest for the next day. Animals need sleep to stay healthy. Cats and dogs sleep for about fifteen hours each day!</p><p>Sleep is also important for your brain. Just like your body, your brain needs a little vacation every night. Without enough sleep, students can't learn as well. They cannot pay attention, follow directions, or solve problems as well. Also, tired kids act in ways that they usually don't. They can easily get angry with their friends or get in trouble in class.</p><p>Scientists at the National Sleep Foundation talked to 1,400 kids. They asked them about their sleeping habits. They found that about seventy percent of kids were not getting enough sleep. The scientists think that soda and television are part of the reason. Drinks like cola, coffee, and tea have caffeine in them. Caffeine makes people stay awake. Kids who had drinks with caffeine got less sleep than other kids. Television is also a problem. When kids watch too much TV, they have to stay up later to finish their homework. Scientists also found that many kids had a TV in their room. These kids often stayed up late to watch a show.</p><p>So what can you do to make sure that you get enough sleep? Try not to drink anything with caffeine, especially at night. Sleep experts suggest that you try to go to bed at the same time every night. Don't do anything exciting before you go to bed. For instance, don't watch a scary movie or exercise. Try to do something relaxing, like reading a book or listening to quiet music.</p><p><b>Talk 3 / Lecture 3:</b></p><p>If you have ever seen the northern lights, you know that they are one of most beautiful sights. People often seeing a faint glow appear on the horizon in the night sky. Then they may see wonderful colors such as green, red, blue, or purple stretch the sky. The shape of the northern lights can be straight lines, or it may be curved like the letter S, or round, just like a wheel. The colored lights and shapes move across the night sky, like ocean waves. No matter what the color or shape is, the northern lights are truly an amazing sight.</p><p>Many people know them by their common name \"the northern lights.\" But do you know the meaning of the real name? The scientific name for the northern lights from Latin. It is <b>aurora borealis</b>. In English, the Latin word <b>aurora</b> translates to \"dawn,\" which means \"early morning.\" The Latin word <b>borealis</b> means \"northern.\" So <b>aurora borealis</b> can be translated as \"northern dawn,\" which describes the look of the northern sky in the very early morning.</p><p>If you have never seen <b>aurora borealis</b>, you are not alone. This natural phenomenon is not common in most parts of the world. In fact, many people travel or go on tours to places where they can see the northern lights. Where are these places? The best place to see <b>aurora borealis</b> is near the North Pole – the northernmost point of Earth – especially in areas such as northern Greenland, Scandinavia, and Alaska.</p><p>Many years ago, before modern science, people developed stories, myths, and legends to explain natural phenomena such as <b>aurora borealis</b>. Finnish people called them \"fox fires,\" and believed the lights were caused when foxes made fires to keep warm. The Inuit people of northern Canada and Greenland believed that the <b>aurora</b> was the dance of animal spirits such as deer, seals, and whales.</p><p>The way the northern lights work is similar to a neon sign. Gas travels along magnetic lines. The lights occur when electric particles – electrons – collide with gas atoms, causing the atoms to give off light. The result is the amazing sweeps and waves of color that you can see. It's a wonderful sight if you happen to be in the right place at the right time.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The presenter doesn't wear a suit because",
+              "options": [
+                "He is not an important person.",
+                "He wants to talk about different fashion trend.",
+                "The presentation is not formal.",
+                "He works for a fashion company."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "According to the speaker, which statement is TRUE?",
+              "options": [
+                "It's important to look casually-dressed in public.",
+                "A suit is necessary when meeting clients.",
+                "Wearing shorts is OK, sometimes.",
+                "Nobody can describe the way he's dressed."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does the phrase 'Dress-down Fridays' mean?",
+              "options": [
+                "Employees must wear fashionable clothes on Fridays.",
+                "Employees can wear anything they want on Fridays.",
+                "Employees are allowed to wear informally on Fridays.",
+                "Employees are required to wear special clothes on Fridays."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "According to the speaker, who may be the most informal dressers?",
+              "options": [
+                "People working in IT",
+                "People working in banks.",
+                "People working in customer services.",
+                "People working with clients."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does a customer feel about a man in uniform?",
+              "options": [
+                "reliable",
+                "recognized",
+                "expertised",
+                "reassured"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How many hours of sleep do experts suggest for kids?",
+              "options": [
+                "Ten",
+                "About fifteen",
+                "1,400",
+                "70"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "According to the speaker, why is sleep important for the brain?",
+              "options": [
+                "Sleep generates dreams so brain can relax.",
+                "Brain can rest in a sleep.",
+                "Sleep can save energy for the brain.",
+                "Sleep improves the effectiveness of the brain."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Why don't the students learn well when they are tired?",
+              "options": [
+                "They can't finish their homework.",
+                "They can't deal with troubles in class.",
+                "They get very excited.",
+                "They can't pay attention very well"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Which is NOT a reason for poor sleep?",
+              "options": [
+                "drinking soda",
+                "playing computer games",
+                "staying up late",
+                "exercising before sleep"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should students try to do each night?",
+              "options": [
+                "Watch a scary movie",
+                "Drink some hot tea",
+                "Go to bed at a regular time",
+                "relax with a TV show"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Which is NOT the shape of the northern lights?",
+              "options": [
+                "a straight line",
+                "a curved line",
+                "a round shape",
+                "an oval shape"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What does 'aurora borealis' exactly mean?",
+              "options": [
+                "northern lights",
+                "northern dawn",
+                "northern sky",
+                "early morning lights"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Where is the best place to see the northern lights?",
+              "options": [
+                "The northernmost point of Earth",
+                "The north of Poland",
+                "Scandinavian countries",
+                "Most parts of the world"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What is one of the stories developed by people before modern science?",
+              "options": [
+                "The lights were caused by volcanic eruptions.",
+                "The lights were the dance of animal spirits.",
+                "The lights appeared when people moved north.",
+                "The lights came from fires of northern gods."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned in this talk?",
+              "options": [
+                "A description of the lights",
+                "The scientific explanation for the lights",
+                "The discovery of the lights",
+                "Beliefs about the light"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

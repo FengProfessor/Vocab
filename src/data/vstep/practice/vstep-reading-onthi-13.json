@@ -1,0 +1,71 @@
+{
+  "id": "vstep-reading-onthi-13",
+  "title": "Luyện Đọc VSTEP: VstepR4-Test 11 (VstepR4-Test 11)",
+  "duration": 10,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 3,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "VstepR4-Test 11",
+            "text": "<div class=\"Section1\">\n<p class=\"Bodytext70\">Manatees and dugongs are members of the mammalian order Sirenia. Completely aquatic, sirenians inhabit the tropical Coastal and certain adjacent waters of the West Indies, northern South America, Southern North America (Florida), western Africa, and Southern Asia to northern Australia. Sirenians live in Coastal waters, large rivers, estuaries, lagoons, and connected lakes. Today there exist four species of Sirenia: One dugong and three manatees.</p>\n<p class=\"Bodytext70\">Although similar in appearance to seals and walruses, sirenians are more closely related to elephants. The skin of the sirenian is finely wrinkled and greyish-brown in color. The tail is wide and flat—shaped like a paddle with the exception of the dugong, which has a dolphin-like tail. Sirenians have inspired many a legend about mermaids. The chunky body and homely tacial teatures of a sirenian do not bring to mind the image of a beautitul woman, but the mammal’s gracetul movements combined with a sailor’s faulty Vision might give rise to some unusual stories.</p>\n</div>"
+          },
+          "questions": [
+            {
+              "id": "otv-r13-q1",
+              "type": "mcq",
+              "question": "It is most probable that Sirenians would NOT be found",
+              "options": [
+                "An the Gulf of Mexico",
+                "Off the coast of Ghana",
+                "In Alaskan waters",
+                "On the Brazilian coast"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Câu này hỏi về nơi sinh sống của loài Bò biển, cho nên ta sẽ đọc câu 2 của đoạn 1 vì nó có chứa các vị trí:</p>\n<p><i>Hoàn toàn sống dưới nước, loài Bò biển sinh sống ở các vùng biển nhiệt đới, và một số vùng cận biển nhất định ở Tây Ấn, phía Nam Bắc Mỹ, Tây Phi, Nam Á đến phía Bắc của nước Úc</i>.</p>\n<p>Đáp án A. <i>Một vịnh ở Mexico</i>. Mexico là một nơi có khí hậu nhiệt đới nóng ẩm cho nên cũng có thể phù hợp với điều kiện sống của bò biển. Tương tự, đáp án D. Trong vùng biển Brazil, thì Brazil cũng là một nước có khí hậu nhiệt đới. Và đáp án C. ngoài khơi ở Ghana, thì Ghana lại nằm trong khối Tây Phi, một nơi sinh sống của Bò biển. Trong khi đó, đáp án B. Ở vùng nước ở Alaska, thì Alaska lại nằm ở phía Tây Bắc của Bắc Mỹ chứ không phải phía Nam, hơn nữa khí hậu ở đây là đại dương vĩ độ trung nên không đáp ứng điều kiện nào cho loài Bò biển sinh sống.</p>\n<p>=> B là đáp án đúng </p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r13-q2",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that",
+              "options": [
+                "Some sirenians look like dolphins",
+                "Physical resemblance among animals does not mean they are related",
+                "Sirenians look more like elephants than walruses",
+                "Like seals, sirenians can also live on land"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án A. <i>Một số con bò biển nhìn giống cá heo</i>. Từ khóa trong câu này là “dolphin” và sirenians” nên chúng ta tìm đọc câu 3 đoạn 2: “Đuôi rộng và hình dẹt giống như một chiếc mái chèo, ngoại trừ cá cúi, có đuôi giống như đuôi của cá heo.” Như vậy chỉ có loài cá cúi chứ không phải tất cả loài Bò biển có điểm tương đồng về đuôi với cá heo. Tuy nhiên không phải cả hình dáng của con vật này giống với cá heo mà chỉ có phần đuôi. -> A loại</p>\n<p>Đáp án B. <i>Việc giống nhau về hình thức giữa các loài động vật không có nghĩa là chúng có họ với nhau</i>. Dựa vào câu 1 của đoạn 2 “Mặc dù tương đồng về ngoại hình với hải cẩu và hải mã, Bò biển lại có mối liên hệ gần gũi hơn với voi.” Như vậy mặc dù giống với hải cẩu và hải mã về ngoại hình nhưng Bỏ biển lại có liên quan đến voi, cho thấy hình thức giống nhau không quyết định mối liên hệ giữa các loài động vật. -> B đúng</p>\n<p>Đáp án C. <i>Bò biển trông giống voi hơn là hải mã</i>. Sau khi xem xét đáp án B thì ta biết rằng bò biển nhìn giống hải mã. -> C loại</p>\n<p>Đáp án D. <i>Giống như hải cẩu, Bò biển có thể sống ở trên mặt đất</i>. Thông tin này không đúng với nội dung ở câu 2 đoạn 1 (đã dịch ở câu số 45) rằng Bò biển hoàn toàn sống ở dưới nước. -> D loại</p>\n<p>=> B là đáp án đúng </p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r13-q3",
+              "type": "mcq",
+              "question": "The passage suggests that",
+              "options": [
+                "Most sailors were nearsighted",
+                "It takes a lot to inspire a legend",
+                "Legends sometimes have unlikely sources",
+                "Mermaids were as homely as sirenians"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đoạn này hỏi về ảnh hưởng của loài Bò biển nên chúng ta sẽ đọc tiếp 2 câu còn lại của đoạn 2:</p>\n<p><i>Những con Bò biển đã truyền cảm hứng cho rất nhiều huyền thoại về nàng tiên cá. Thân hình mũm mĩm cùng với những đặc điểm khuôn mặt xấu xí của một con Bò biển không làm người ta nghĩ đến hình ảnh một người phụ nữ xinh đẹp, nhưng chuyển động duyên dáng của loài thú này, cùng với việc một thủy thủ nhìn nhầm có thể dựng lên một vài câu chuyện không bình thường</i>.</p>\n<p>Đáp án A. <i>Hầu hết các thủy thủ đều bị cận thị</i>. Không có thông tin để suy ra thông tin này bởi vì trong đoạn trên chỉ đề cập đến việc một thủy thủ nhìn nhầm mà không nói khái quát đến những người là thủy thủ. -> A loại</p>\n<p>Đáp án B. <i>Phải có rất nhiều thứ mới gợi lên cảm hứng cho một truyền thuyết</i>. Theo thông tin ở đoạn 1, chỉ bằng chuyển động duyên dáng của một con bò biển, cộng với việc một thủy thủ có thể nhìn nhầm có thể dẫn đến một truyền thuyết. -> B loại</p>\n<p>Đáp án C. <i>Truyền thuyết đôi lúc bắt nguồn từ những nguồn gốc không chính xác</i>. Điều này đúng bởi vì như thông tin ở trên, chỉ vì một thủy thủ nhìn nhầm mà truyền thuyết về nàng tiên cá xuất hiện. -> C đúng</p>\n<p>Đáp án D. <i>Nàng tiên cá cũng xấu như bò biển</i>. 2 câu trên không miêu tả về nàng tiên cá, và cũng nói rằng “những đặc điểm khuôn mặt xấu xí của một con bò biển không làm cho người ta liên tưởng đến hình ảnh một người phụ nữ xinh đẹp”, cho nên không thể đưa ra kết luận so sánh nàng tiên cá và bò biển về ngoại hình. -> D loại </p>",
+              "part": "Reading",
+              "orderNumber": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

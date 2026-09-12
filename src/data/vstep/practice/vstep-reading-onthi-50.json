@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-50",
+  "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 05 (Reading Part 1 - Test 05)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 1 - Test 05",
+            "text": "<p style=\"text-align:center;\"><strong>TEXT A - Course Announcement</strong></p>\n<p><strong>Professional Photography Workshop</strong></p>\n<p style=\"text-align:justify;\">Learn <strong>fundamental</strong> photography techniques from industry experts. This <strong>intensive</strong> two-day workshop covers composition, lighting, and editing. Limited to 15 participants to ensure <strong>personalized</strong> attention. Early bird discount <strong>available</strong> until May 1st.</p>\n</div>\n\n<div style=\"background: #f3e5f5; padding: 15px; margin: 20px 0; border-left: 4px solid #9c27b0;\">\n<p style=\"text-align:center;\"><strong>TEXT B - Office Memo</strong></p>\n<p><strong>From:</strong> HR Department<br><strong>Subject:</strong> Remote Work Policy Update</p>\n<p style=\"text-align:justify;\">We are <strong>implementing</strong> a new hybrid work policy. Employees can work remotely up to three days per week, subject to manager approval. This <strong>flexible</strong> arrangement aims to improve work-life balance. Please <strong>submit</strong> your preferred schedule by Friday.</p>\n</div>\n\n<div style=\"background: #e0f2f1; padding: 15px; margin: 20px 0; border-left: 4px solid #009688;\">\n<p style=\"text-align:center;\"><strong>TEXT C - Online Review</strong></p>\n<p><strong>TechNova Wireless Earbuds</strong> ★★★★★</p>\n<p style=\"text-align:justify;\">These earbuds deliver <strong>exceptional</strong> sound quality at an affordable price. The noise cancellation is <strong>impressive</strong> and battery life is <strong>outstanding</strong> - lasting over 24 hours. The design is <strong>sleek</strong> and comfortable for extended wear. Highly recommend!</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r50-q1",
+              "type": "mcq",
+              "question": "In TEXT A, what does \"fundamental\" mean?",
+              "options": [
+                "advanced or complex",
+                "basic or essential",
+                "optional",
+                "expensive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r50-q2",
+              "type": "mcq",
+              "question": "The word \"intensive\" in TEXT A is closest in meaning to?",
+              "options": [
+                "relaxed and casual",
+                "concentrated and thorough",
+                "beginner-level",
+                "online"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r50-q3",
+              "type": "mcq",
+              "question": "What does \"personalized\" mean in TEXT A?",
+              "options": [
+                "general and impersonal",
+                "tailored to individual needs",
+                "expensive",
+                "difficult"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r50-q4",
+              "type": "mcq",
+              "question": "The word \"available\" in TEXT A means?",
+              "options": [
+                "sold out",
+                "able to be obtained or used",
+                "cancelled",
+                "postponed"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r50-q5",
+              "type": "mcq",
+              "question": "In TEXT B, what does \"implementing\" mean?",
+              "options": [
+                "cancelling or removing",
+                "putting into effect or action",
+                "discussing",
+                "rejecting"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r50-q6",
+              "type": "mcq",
+              "question": "The word \"flexible\" in TEXT B is closest in meaning to?",
+              "options": [
+                "rigid and fixed",
+                "adaptable and adjustable",
+                "complicated",
+                "temporary"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r50-q7",
+              "type": "mcq",
+              "question": "What does \"submit\" mean in TEXT B?",
+              "options": [
+                "delete or remove",
+                "present for consideration or approval",
+                "refuse",
+                "forget"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r50-q8",
+              "type": "mcq",
+              "question": "In TEXT C, what does \"exceptional\" mean?",
+              "options": [
+                "average or normal",
+                "unusually good or outstanding",
+                "poor",
+                "expensive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r50-q9",
+              "type": "mcq",
+              "question": "The word \"outstanding\" in TEXT C is closest in meaning to?",
+              "options": [
+                "terrible",
+                "exceptionally good",
+                "average",
+                "short"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r50-q10",
+              "type": "mcq",
+              "question": "What does \"sleek\" mean in TEXT C?",
+              "options": [
+                "bulky and heavy",
+                "smooth and stylish in design",
+                "colorful",
+                "old-fashioned"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

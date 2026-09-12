@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-17",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 17",
+  "duration": 172,
+  "date": "2026-03-15",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-17/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>And now for tomorrow's weather. Partly cloudy in the morning for London and the south-east but overcast by midday with rain in the afternoon. Temperatures will range from 11-19°C. There'll also be rain in the north which will quickly spread to the rest of the country. Rain will be very heavy in some areas by late afternoon especially in western and central England and there will be strong winds over most of mainland Britain.</li></ul><p><b>Question 2.</b></p><ul><li>Hello. This is the lost property office. There's no one here to take your call at present but if you've lost something please listen carefully to the following message. If you've lost valuables such as jewelry, cash or credit cards you'll need to contact your nearest police station as soon as possible to make a statement. In the case of a credit card you should also contact your bank immediately. For any other items please call in at our office between 9am and 5pm Monday to Friday. Thank you.</li></ul><p><b>Question 3.</b></p><ul><li>Erm ... yeah, hello, yes, it's me. Look, I know I'm supposed to be in the meeting now but something's come up. I feel dreadful about it, but. Oh, what a day this has been! First my train was delayed for half an hour then ... er... Anyway, I could still have got there but would you believe it my engine's packed in and I'm stranded here next to the motorway until the breakdown service turns up. I'm so sorry.</li></ul><p><b>Question 4.</b></p><ul><li>Late last night thieves broke into Mac Hannan Hall where a collection of the late Lady Betty Baldridge's paintings statues and antiques are on display to the public. The thieves, who disabled a sophisticated electronic security system ignored all the less valuable paintings and pieces on display taking only. The Lonely Wanderer by Karl van Turbeck. The 1-metre high bronze figure which stands on a marble base is regarded as the jewel of the Baldridge collection and is valued at over £5 million.</li></ul><p><b>Question 5.</b></p><ul><li>This isn't terribly difficult but if you're one of those people who won't even change a light bulb just call a breakdown service. Anyway, make sure you're safely off the road with your hazard triangle in place at least 20 meters behind you. Find the jack, spanner and spare they should all be in the boot and check the spare isn't flat, too. Put the jack in place under your car but before you begin to lift the side of the car. Don't forget to loosen the nuts on the wheel. Then jack the car up undo the nuts & take off the wheel.</li></ul><p><b>Question 6.</b></p><ul><li>Attention, please. We would like to remind you that next Monday at nine o'clock we will be having our yearly staff picnic. All staff and their families are invited to attend. Plenty of food and drink will be provided for everyone and we will be having our famous barbecue. We will also have our annual fun and games. Prizes include a new DVD player and a holiday.</li></ul><p><b>Question 7.</b></p><ul><li>Due to problems with the lighting the concert has to be postponed until Friday the 22. The concert will also be moved from hall A to the larger hall C. A bigger venue means a five hundred tickets will now be available twice the original number. Because of the extra tickets will now be priced at the lower cost of twenty dollars.</li></ul><p><b>Question 8.</b></p><ul><li>In the event of a fire please follow these directions. Stand up and walk towards the nearest exit. Do not run, and do not try to gather your things. When outside, wait for your teacher on the football field. Next week we will have the first of our two annual fire drills. Thank you.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which part(s) of England will have the heaviest rainfall?",
+              "options": [
+                "London and south-east",
+                "Northern",
+                "Western and Central",
+                "mainland Britain"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What should you do in case of losing money?",
+              "options": [
+                "call the lost property office",
+                "to contact the police to make a statement",
+                "to contact your bank immediately",
+                "go to the lost property office"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Why can’t she be at the meeting?",
+              "options": [
+                "Her flight was delayed.",
+                "She is feeling unwell.",
+                "Her car has broken down.",
+                "Her train was delayed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What was stolen in the burglary?",
+              "options": [
+                "a painting",
+                "a statue",
+                "a famous jewel",
+                "antiques"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What are the instructions about?",
+              "options": [
+                "how to change a light bulb",
+                "how to change your car’s hazard lights",
+                "what to do if your car breaks down",
+                "how to change a flat tire"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Which prizes are mentioned?",
+              "options": [
+                "A holiday and a CD player",
+                "A DVD player and a CD player",
+                "A DVD player and a holiday",
+                "A holiday and a television"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "How much would five tickets cost?",
+              "options": [
+                "$100",
+                "$50",
+                "$20",
+                "$200"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "If there is a fire, what should you do?",
+              "options": [
+                "Run out of the building",
+                "Stay seated",
+                "Walk out of the building",
+                "Jog out of the building"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-17/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> All right. Saturday's the big day. Are you ready? Yes, Susan?</li><li><b>W:</b> Tests make me nervous. What can I do?</li><li><b>M:</b> Good question. It's natural to be a little nervous before a test. The important thing is: don't panic. You've studied hard for this test. You can pass it. Be confident! Relax! Now, you're more likely to be relaxed if you are well prepared. Here are some tips. First, before you leave home, check to make sure you have everything you need. You should have your admission ticket. This was mailed to you last week. You should have two number-two pencils and a good eraser. You should have identification your student ID card, a driver's license, or a passport. If you're taking the math portion of the test, you should have a calculator. Second, know what you can't bring to the test. You cannot bring a watch with a loud alarm. You cannot bring any food or drink. You cannot bring extra paper to write on. You cannot bring any books, notes, or dictionaries. You cannot bring compasses, rulers, protractors, or other aids - except for the calculator. You cannot bring colored pens, pencils, or highlighters. You cannot bring cell phones or pagers. You cannot bring any portable tape recorders, walkmans, or headphones. Questions?</li><li><b>W:</b> Um...what if I uh, have to go to the bathroom during the test?</li><li><b>M:</b> You can't. So go before! Don't worry, there will be breaks after each section of the test. You'll be able to go then.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi there. On last week's programme, we interviewed the man behind the idea of the International camps so I thought that this week you'd be interested to hear more about one of the camps which will be held later this year over to you Michael.</li><li><b>M:</b> Thank you. Yes, the Camp is open to everyone between the ages of 18 to 23. You don't have to be a student. You don't even have to be employed but you must be able to speak one foreign language in addition to your mother tongue.</li><li><b>W:</b> OK. And what about accommodation?</li><li><b>M:</b> Well, the International Camp organisers supply tents which sleep up to four people. But you are unlikely to know the people who you'll be sharing a tent with. The nationalities are mixed so you'll be sharing with people who may not even speak your language!</li><li><b>W:</b> Sounds interesting. Who does the cooking at the Camp?</li><li><b>M:</b> Everybody is expected to help with the running of the Camp. That means helping to prepare food, keeping the camp site clean and tidy, and so on. The Camp organisers are looking for people who can get along with others whatever happens.</li><li><b>W:</b> And is there anything you need to take?</li><li><b>M:</b> Well as I've said, tents are provided but you'll need to bring your own pillow, knife, fork and spoon. If you get chosen, you're also asked to bring along photographs, postcards, anything that shows some of the traditions and customs of your own country. Everything goes into an exhibition at the start of the Camp together with a huge map of the world showing the different countries people come from.</li><li><b>W:</b> And is there any entertainment?</li><li><b>M:</b> Yes, there is. Everyone helps to provide the Camp entertainment. You are expected to sing, dance or play something musical. It doesn't matter how good or bad you are. There is a space on the form to write down what you can do.</li><li><b>W:</b> Sounds great fun. And what does it all cost?</li><li><b>M:</b> Well, you have to find your own way to the Camp so it's up to you whether you fly, cycle, walk, hitch-hike or whatever. The charge for a week's Camp is 300 dollars. But you'll have to change that into your own currency to get a better idea of the cost. You have to pay the full cost before you arrive. But you can pay in any currency you want or you can use a credit card if you have one. Right. Now for the phone number to ring ...</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> In today's programme. David Green has come along to tell us all about Waterside Shopping Centre near Northport. Good morning, David.</li><li><b>M:</b> Good morning. Well, I visited Waterside last week and I think it has something for everyone and I would recommend it for a day out. It's taken three years to build and finally opened three weeks ago, two months later than planned. Firstly, getting there; there are organized coach trips from most towns in the area but they leave early and come home very late, so I drove. There are 12,000 free parking spaces, so parking is no problem. You can also get there by train, but the station is 15 minutes from Waterside by bus and the buses are really crowded so you sometimes have a long wait.</li><li><b>W:</b> And what about opening times?</li><li><b>M:</b> Well, one thing to remember is that the shops don't open till 10.00 in the morning except on Saturday when they open at 9.00. So don't get there too early on a weekday. They close at 8 o'clock every day except Friday when they're open until 9 pm.</li><li><b>W:</b> Can you tell us some more about the facilities at the shopping centre?</li><li><b>M:</b> Yes, it's arranged on three levels. You'll find all your favourites here. In fact, if you want to buy a pair of shoes there are 15 different shops to choose from on levels one and two. When you run out of money there are seven different banks but collect your money before you get to the third level as there aren't any banks up there. On that level, however, there are several restaurants as well as a cinema with seven screens. And don't get lost like I did, go to the information desk on the first level and get a map.</li><li><b>W:</b> What else can you do at Waterside?</li><li><b>M:</b> Before you go back to your car or the bus and in fact it might be better to do this before you go shopping and have too much to carry go and see the lake. Take a walk or have a go at fishing, sailing or wind surfing if you have time. Or you can rest your tired feet and watch the birds and ducks, but you are asked not to feed them.</li><li><b>W:</b> Was there anything you didn't like about the shopping centre?</li><li><b>M:</b> Oh. Well, although I had a good day, I would complain about one thing but not the usual thing the service in the shops was good and I had an excellent lunch in a cafe. No, the silly thing was that everywhere was quite clean but people were dropping their sweet papers and empty drink cans on the ground because there wasn't anywhere else to throw them. Apart from that I would recommend it.</li><li><b>W:</b> And so that's all for today's programme ...</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why do students need identification?",
+              "options": [
+                "The professor can't remember their names.",
+                "The test requires it.",
+                "There are not enough calculators.",
+                "Too many students want to take the test."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "According to the professor, why is it important to be prepared for the test?",
+              "options": [
+                "It will make you nervous.",
+                "It will help you relax.",
+                "It will guarantee that you get a high mark.",
+                "It will save time on the day of the test."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What is the speaker's main point?",
+              "options": [
+                "What type of questions will be on the test",
+                "Which subjects will be on the test",
+                "How long the test will last",
+                "Things you should and shouldn't bring for the test"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does the professor imply?",
+              "options": [
+                "There will be a test on Saturday.",
+                "There will be no school on Saturday.",
+                "Saturday is the longest day of the year.",
+                "He doesn't like Saturdays."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What must you be if you want to apply for the Camp?",
+              "options": [
+                "be a student",
+                "be at least twenty-four years old",
+                "be employed",
+                "speak more than one language."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What can you expect in a camp tent?",
+              "options": [
+                "mix with other nationalities.",
+                "share with five other people.",
+                "know the other people.",
+                "share with people from the same nationality."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What do you NOT have to take to the Camp?",
+              "options": [
+                "tent",
+                "a knife",
+                "pictures",
+                "postcards"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How must the Camp fees be paid?",
+              "options": [
+                "in dollars.",
+                "by cheque.",
+                "before the Camp starts.",
+                "in your own currency"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "According to the speaker, what is the best way of travelling to Waterside?",
+              "options": [
+                "coach.",
+                "car.",
+                "train.",
+                "bus."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "On Fridays, what time are the shops open from?",
+              "options": [
+                "8 o'clock",
+                "9 o'clock",
+                "10 o'clock",
+                "11 o'clock"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What can you NOT do at Waterside?",
+              "options": [
+                "feed the ducks",
+                "go shopping",
+                "go sailing",
+                "go wind surfing"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does the speaker complain about?",
+              "options": [
+                "There was nowhere to put rubbish.",
+                "The food in the café was disappointing.",
+                "The service in the shops was slow.",
+                "There weren't any bathrooms."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-17/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1 (Questions 21-25)</b></p><p>Welcome, ladies and gentlemen, to the Morecambe Museum of Fashion. Before we go up to the fashion exhibition ‘Clothes of the Future’ I would like to show you some slides on the screen, and say a few words about the history of fashion.</p><p>I will also mention some of the important people in fashion. This will provide an introduction for you and will prepare you for the clothes that we’re going to see in the exhibition. As I’m sure you know nowadays fashion is something that almost everybody enjoys. People of all age groups and all incomes usually have an interest in what they wear. But this has only recently happened, and I will tell you why. Until the beginning of this century, it was only the rich who could afford to follow fashion. There were no factories to make many copies of the same article, as there are today. Rich men and women wore trousers, jackets and dresses which were made especially for them. This picture here shows a young lady being measured for a dress that she will have made by hand, exactly how she wants it to be. Ladies’ clothes in those days were long and usually tight-fitting and made of heavy material. However, the new century – the 1900s – brought new ideas.</p><p>The important person at this time was Coco Chanel who started making clothes in 1908, in Paris. Many people think she was the 20th century’s most important influence on fashion. Chanel loved to wear loose-fitting clothes and produced jackets and skirts which everyone admired. Here’s a picture of one of her ladies’ suits. Even today people still wear styles like this when they want to look smart.</p><p>Young Paris designers all began to produce simple clothes, and skirts started to get shorter. The idea of special clothes for playing sports also became popular in the early 1920s. Things like long shorts and tennis clothes started to become fashionable. Soon factories produced these new styles more cheaply and then many more people were able to enjoy fashion. In 1947, after the Second World War Christian Dior used all the new materials available to produce a fashion which was known as the ‘New Look’. As you can see in this picture, he made skirt lengths longer again. Later, in the 60s, ‘flower power’ and student fashion were popular. In London, Mary Quant introduced short skirts. These were worn with boots that went up to the knee. Look at the white, shiny boots in this picture! And now we come to today’s exhibition. Some of the clothes you will see today will be very different from anything which you have seen before. The exhibition aims to take a look at the sort of clothes that we might wear in the next 50 years. Let’s go inside and have a look at the exciting clothes that are waiting for us ...</p><p><b>Talk 2 (Questions 26-30)</b></p><p>Right, everyone about the trip to the Jubilee Arts Centre next Wednesday. As you know, we have tickets for the Centre’s two theatres and the concert hall. Those of you with concert tickets will hear piano music by Chopin and Schumann. Those with tickets for the main theatre will see Shakespeare’s Twelfth Night while people going to the smaller theatre will see The Wild Duck by Ibsen. Although all the theatre and concert tickets have gone if anyone else would like to join us on the trip I can get tickets for the Arts Centre cinema to see the Australian comedy film Spider and Rose. The shows begin at half past seven, but we’ll leave early so you can spend time looking round the Arts Centre. The coach will leave here at 3.30 and arrive at the Arts Centre at about a quarter to five. Let me tell you what you can do there. The Centre has a lot for art-lovers. In the Art Gallery there’s an exhibition of the history of Russian ballet. It has dresses and shoes worn by famous dancers and photos of past performances. With your student card, you can get in very cheaply. There are also some interesting free exhibitions. On the ground floor you can see prize-winning paintings from a children’s competition, and gold jewellery made by Scottish artists. On the first floor there’s an exhibition of South American photographs, and there’s no charge for that either. I know some of you hope to do some shopping. The Centre has a bookshop on the first floor and there’s a souvenir shop by the ticket office. If you’re more interested in clothes and shoes there’s a large shopping centre five minutes’ walk from the Arts Centre. You’ll probably want to eat before the show. The Balcony Restaurant has a menu with a wide range of meals and waiter service, but it is rather expensive. Or there’s the Fountain Restaurant whose special three-course dinner is good value for money. There’s also Charlie’s coffee bar which serves coffee, sandwiches and cakes. You can get fruit juices and ice cream from the cinema kiosk. After the shows the coach will pick us up at the Bridge Street exit. Everyone should be there by twenty past ten. The two plays will finish at around 10.10 or 10.15. I’m afraid concert-goers will have to wait, as the concert finishes earlier, at ten to ten.</p><p><b>Talk 3 (Questions 31-35)</b></p><p>Well, good evening everyone. I’ve come along to talk to you about my painting. It was just a hobby but it’s really more than that now. I used to paint in the evenings after work but now I work four days a week instead of five. That means I spend Friday, Saturday and Sunday on my painting. I have pictures in local exhibitions at least once a month. I’d love to give up my job and spend all my time painting, but I work with computers and I earn more that way! I do make some money from selling my pictures enough to pay for all my paint, brushes and paper and a few art lessons. I’d love to go to art college full-time for three years but I’ve got all the rent on my flat to pay and a car to run. I first became interested in art when I was at primary school. I used to go out with some paper and a few pencils during break time and draw anything I saw: houses, gardens, people. Then at secondary school we had art classes twice a week and I learnt how to use chalk and then different kinds of paint: watercolours, oils and so on. Those classes were really useful for me, and ever since then I’ve had lessons of some kind. I’ve attended evening classes and been on what they call painting ‘holidays’, where you go out into the countryside and paint during the day and then sit and discuss your work with a teacher and the other artists after dinner. Those holidays are great; you learn so much talking to other people studying with you. I’ve enjoyed painting in lots of different countries. I’ve been to Morocco and painted desert scenes with beautiful sunrises. I’ve been to Greece and Spain and painted pictures of the local people working in the fields near their homes. My favourite place is still Scotland. I love walking in the Scottish mountains, and there are so many different birds to see, especially in spring. Well, I’m going to finish now by showing you a video of the places I’ve visited. After that there’ll be a chance to relax with a cup of coffee and then there’ll be time for some questions. Oh, and I’ve got some information about my next art exhibition for you. It’s going to be at the Queen’s Gallery. Now, if someone would turn off the lights ...</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "According to the speaker, who are interested in fashion?",
+              "options": [
+                "rich people.",
+                "young people.",
+                "old people.",
+                "most people."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "How were fashion clothes before the 1900s?",
+              "options": [
+                "they were individually made.",
+                "they were copied from pictures.",
+                "they were made of light material.",
+                "they were often loose-fitting."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What is true about Coco Chanel?",
+              "options": [
+                "She was born in 1908.",
+                "She changed people's ideas about fashion.",
+                "She liked wearing tight-fitting clothes.",
+                "Her designed clothes in the 1900s become out of fashion now."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "How was the fashion in the 1920s?",
+              "options": [
+                "white skirts were fashionable",
+                "clothes started to cost less.",
+                "women took up sports.",
+                "sport clothes were cheap."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "Which of these was part of the ‘New Look’?",
+              "options": [
+                "material with flowers",
+                "very short skirts",
+                "longer skirts",
+                "boots that went up to the knee."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Which tickets are still available?",
+              "options": [
+                "the piano concert.",
+                "Twelfth Night.",
+                "Spider and Rose.",
+                "The Wild Duck"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Which exhibition do visitors have to pay a fee?",
+              "options": [
+                "the Russian ballet exhibition.",
+                "the Scottish jewellery.",
+                "the South American photographs.",
+                "prize winning paintings from a children’s competition."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Where can you buy clothes?",
+              "options": [
+                "on the first floor.",
+                "in the souvenir shop.",
+                "close to the Arts Centre.",
+                "in the main theatre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Where can you enjoy cakes?",
+              "options": [
+                "the Fountain.",
+                "Charlie’s coffee.",
+                "the cinema kiosk.",
+                "The Balcony Restaurant"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What time does the concert end?",
+              "options": [
+                "10.10.",
+                "10.15.",
+                "10.20.",
+                "9.50."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "How often does Sarah paint now?",
+              "options": [
+                "two days a week.",
+                "three days a week.",
+                "five days a week.",
+                "every evening"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How does Sarah use money from her painting?",
+              "options": [
+                "to give up her computing job.",
+                "to pay for her flat and car.",
+                "to pay for her artist’s materials.",
+                "to pay for three-year full-time fee at Art College."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "When did she learn when she was at primary school?",
+              "options": [
+                "she painted pictures of people.",
+                "she learnt to use chalk.",
+                "she learnt to use different kinds of paint.",
+                "she drew scenes in pencil."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What pleased Sarah most about her painting holidays?",
+              "options": [
+                "meeting other artists",
+                "seeing beautiful scenery",
+                "receiving individual teaching",
+                "painting the countryside."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What will the audience NOT do after watching Sarah’s video?",
+              "options": [
+                "find out some information about the next exhibition.",
+                "look round an art exhibition.",
+                "have a break and a drink.",
+                "ask Sarah some questions."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Music Festivals Around the World",
+            "text": "<p>Music festivals bring large crowds of people together to enjoy live performances, often over several days rather than just one evening. Some festivals focus on a single music style, while others invite dozens of different bands and singers covering many genres at once. Almost every country now hosts at least one well-known festival, and the biggest events attract visitors from dozens of nations who travel specifically to attend. What began, in many cases, as small local gatherings decades ago has since grown into major international events with global audiences.</p><p>In the United Kingdom, Glastonbury Festival has run since the early 1970s and now welcomes well over one hundred thousand visitors across its five days. The festival features an enormous range of music, from rock and pop to folk and hip-hop, performed across dozens of stages spread over a huge farm in the English countryside. Tomorrowland, held each summer in Belgium, instead focuses almost entirely on electronic dance music and draws fans from more than two hundred countries, making it one of the most international festivals anywhere. Japan's Fuji Rock Festival, held in the mountains near Niigata, combines a similar mix of international and local artists with a strong focus on the surrounding natural scenery.</p><p>Attending a festival usually involves choosing between a day ticket, which allows entry for just one day, and a full festival pass, which often includes camping on site for the entire event. Many visitors bring their own tents and sleeping bags, while a smaller number pay extra for more comfortable options such as pre-set-up tents or nearby hotel rooms. Food stalls selling everything from simple sandwiches to more <strong>elaborate</strong> regional dishes are usually set up throughout the festival grounds. Bad weather, especially heavy rain, can turn campsites into mud and make walking between stages considerably more difficult, so experienced festival-goers often bring waterproof boots just in case.</p><p>For the towns and regions that host these events, festivals can bring a significant boost to the local economy. Hotels, restaurants, and shops nearby often see a <strong>sharp</strong> rise in business during festival weekends, and some smaller towns depend heavily on <strong>this</strong> yearly income. However, the same crowds that bring economic benefits can also create real problems, including heavy traffic on local roads, increased noise for nearby residents, and large amounts of rubbish left behind once the festival ends. Organizers in several countries have introduced stricter rules about cleaning up campsites, partly in response to complaints from local communities.</p><p>Despite these challenges, music festivals continue to grow in popularity across nearly every part of the world. New festivals appear almost every year, often built around a particular music genre or a specific region's culture. For many fans, the appeal lies not only in the music itself but also in the shared experience of camping, meeting new people, and spending several days away from ordinary daily life.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q2, R1Q3, R1Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R1Q2</b>, quét tên riêng \"Glastonbury Festival\" ở đoạn 2 để tìm số ngày diễn ra: kéo dài 5 ngày với hàng chục sân khấu trên trang trại (Five days, with dozens of stages across the farm).</li><li>Với <b>R1Q3</b>, quét tên riêng \"Tomorrowland\" ở đoạn 2 để xác định thể loại nhạc chính: dòng nhạc điện tử sôi động thu hút người hâm mộ từ nhiều quốc gia (Electronic dance music, drawing fans from many countries).</li><li>Với <b>R1Q4</b>, quét tên riêng \"Fuji Rock Festival\" ở đoạn 2 để định vị địa điểm tổ chức: vùng núi gần Niigata, Nhật Bản (In the mountains near Niigata, Japan).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể toàn bài: các lễ hội âm nhạc phát triển thành sự kiện lớn trên toàn thế giới bất chấp một số khó khăn tồn tại (Music festivals have grown worldwide into major events despite some problems).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q6, R1Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q6</b>, từ <strong>\"elaborate\"</strong> ở đoạn 3 mô tả các món ăn vùng miền được chế biến cầu kỳ, tỉ mỉ. Ngữ cảnh này đồng nghĩa với chi tiết, cầu kỳ (detailed).</li><li>Với <b>R1Q7</b>, từ <strong>\"sharp\"</strong> ở đoạn 4 mô tả sự gia tăng nhanh chóng và đáng kể về doanh thu (a sharp rise in business). Ngữ cảnh này đồng nghĩa với đột ngột và lớn (sudden and large).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q5):</b> Đối soát các hình thức tham dự lễ hội ở đoạn 3: vé ngày, vé trọn gói bao gồm cắm trại, trả thêm phí để ở lều dựng sẵn hoặc khách sạn. Chi tiết \"vé giảm giá đặc biệt chỉ dành cho cư dân địa phương\" (A special discount ticket only for local town residents) hoàn toàn không được đề cập.</li><li><b>Dạng câu hỏi Quy chiếu (R1Q8):</b> Từ quy chiếu <strong>\"this\"</strong> trong cụm \"this yearly income\" ở đoạn 4 chỉ trực tiếp sự tăng trưởng mạnh mẽ trong kinh doanh từ các dịp lễ hội (the sharp rise in business from festivals).</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Tổng hợp logic ở đoạn 1 & đoạn cuối về xu hướng lễ hội âm nhạc. Khi độ phổ biến tiếp tục tăng lên, các lễ hội mới nhiều khả năng sẽ tiếp tục xuất hiện (New festivals will likely keep appearing as popularity continues growing).</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái bài viết. Tác giả giữ góc nhìn khách quan, cân bằng giữa sức hút và những khó khăn/thách thức mà lễ hội âm nhạc mang lại (Balanced, presenting both the appeal and the challenges of festivals).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R1Q8) và <b>Từ vựng</b> (R1Q6, R1Q7). Tiếp theo, áp dụng kỹ thuật đọc quét để xử lý nhanh các câu <b>Chi tiết</b> (R1Q2, R1Q3, R1Q4) và <b>Loại trừ</b> (R1Q5). Cuối cùng, tổng hợp mạch logic toàn bài để hoàn thành chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R1Q9), <b>Ý chính toàn bài</b> (R1Q1) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Music festivals have grown worldwide into major events despite some problems.",
+                "Local economies always suffer more than they benefit from hosting festivals.",
+                "Only European countries host large, internationally famous music festivals.",
+                "Bad weather has stopped most music festivals from continuing worldwide."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, how many days does Glastonbury Festival usually run?</span>",
+              "options": [
+                "One day only, with a single main stage.",
+                "Ten days, similar to Tomorrowland's festival length.",
+                "Five days, with dozens of stages across the farm.",
+                "Two hundred days, since it runs nearly year-round."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what type of music does Tomorrowland mainly feature?</span>",
+              "options": [
+                "Electronic dance music, drawing fans from many countries.",
+                "Hip-hop and pop music from local British artists.",
+                "Traditional Japanese music performed near mountain scenery.",
+                "Rock and folk music performed across many stages."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, where is Fuji Rock Festival held?</span>",
+              "options": [
+                "On a large farm in the English countryside.",
+                "In a small town known mainly for its hotels.",
+                "In Belgium, alongside Tomorrowland's electronic music stages.",
+                "In the mountains near Niigata, Japan."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as an option for attending a festival?</span>",
+              "options": [
+                "Paying extra for a pre-set-up tent or nearby hotel.",
+                "A special discount ticket only for local town residents.",
+                "A full festival pass that often includes on-site camping.",
+                "A day ticket allowing entry for just one day."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"elaborate\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "elaborated",
+                "regional",
+                "cheap",
+                "detailed"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"sharp\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "sudden and large",
+                "gradual",
+                "noisy",
+                "sharpened"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"this\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "stricter cleanup rules for campsites",
+                "festival weekends",
+                "hotels, restaurants, and shops",
+                "the sharp rise in business from festivals"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the future of music festivals?</span>",
+              "options": [
+                "Only electronic dance music festivals will survive in the future.",
+                "Music festivals will certainly stop growing within the next few years.",
+                "New festivals will likely keep appearing as popularity continues growing.",
+                "All festivals will eventually ban camping to reduce environmental waste."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward music festivals?</span>",
+              "options": [
+                "Certain that festivals bring no economic benefit to host towns.",
+                "Strongly critical of the environmental damage festivals cause everywhere.",
+                "Purely focused on describing ticket prices and camping equipment.",
+                "Balanced, presenting both the appeal and the challenges of festivals."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Why Reaching Out to Old Friends Feels Harder Than It Should",
+            "text": "<p>Many adults report thinking fondly, from time to time, of friends they have lost touch with over the years, yet the vast majority never actually send the brief message that reconnecting would require. Researchers studying this gap between fond memory and inaction have proposed several explanations, though no single factor appears to account for the reluctance on its own.</p><p>One consistently replicated finding involves what psychologists call the liking gap: people who initiate a conversation, whether with a stranger or an old acquaintance, tend to underestimate how much the other person enjoyed the interaction and how favorably that person now regards them. Applied to reaching out to an old friend, this same bias suggests that people imagine their message landing far more awkwardly, or being received with far less warmth, than recipients actually report experiencing once contacted.</p><p>Fear of rejection <strong>compounds</strong> this miscalculation, since many people worry not simply that a message might go unanswered but that reaching out could reveal an unflattering truth — that the friendship mattered considerably more to them than it did to the other person. <strong>This asymmetry</strong> of investment, real or merely feared, appears to deter people even when they privately suspect, on reflection, that the old friend in question would likely welcome hearing from them again.</p><p>Unspoken social norms about who should reach out first add a further layer of hesitation, particularly once a long silence has already passed. Many people report a specific worry that too much time has elapsed for a message to seem anything but strange, even though the research on the liking gap suggests recipients rarely interpret a message this way regardless of how long the silence lasted beforehand. The longer the gap stretches, ironically, the more improbable reaching out can come to feel, precisely because the passage of time is mistakenly treated as evidence that the friendship has already ended rather than simply gone quiet.</p><p>Studies specifically examining unexpected reconnection messages complicate this picture further: recipients of a surprise message from a long-lost friend consistently report feeling more delighted, and rate the gesture as more thoughtful, than senders predict beforehand, a gap in expectation that mirrors the liking gap identified in first-time interactions rather than representing an entirely separate phenomenon. Senders, meanwhile, typically underestimate not only how positively the message will be received but also how quickly a comfortable <strong>rapport</strong> can be reestablished, often within the very first exchange of messages.</p><p>None of this evidence appears to meaningfully close the gap between what people believe about reconnecting and what actually tends to happen once they try, a discrepancy that persists across multiple studies conducted in different cultural contexts and communication formats — text messages, phone calls, and in-person encounters alike. Whether simply knowing about this research pattern in advance measurably increases how often people actually send that first message, however, is a question the existing studies have not yet directly tested.</p><p>Taken together, this pattern of reluctance around reconnecting reflects a broader, well-documented human tendency to underestimate the value others place on small social gestures, whether those gestures involve praise, apology, or, in this case, simply reaching out after a long silence. Understanding the research does not appear, on its own, to be sufficient to overcome the underlying hesitation, which suggests the gap between belief and behavior here may prove considerably more durable than the studies documenting it would initially suggest.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q2, R2Q3, R2Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R2Q2</b>, quét từ khóa \"liking gap\" ở đoạn 2 để định vị định nghĩa: con người thường đánh giá thấp mức độ đối phương thích/hài lòng khi tương tác với mình (People underestimate how much others enjoyed interacting with them).</li><li>Với <b>R2Q3</b>, quét cụm từ \"passage of time\" hoặc \"long silence\" ở đoạn 4 để thấy cách mọi người giải thích khoảng thời gian im lặng: họ coi đó là bằng chứng không thể chối cãi rằng mối quan hệ đã hoàn toàn kết thúc (As unmistakable evidence that the friendship has already fully ended).</li><li>Với <b>R2Q4</b>, định vị thông tin ở đoạn 5 để xem người gửi tin nhắn thường đánh giá thấp điều gì: mức độ tích cực khi nhận tin và sự nhanh chóng kết nối lại tình cảm (How positively the message will be received and how quickly rapport returns).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể nội dung bài viết: mọi người thường đánh giá thấp sự đón nhận ấm áp từ bạn bè cũ khi gửi tin nhắn kết nối lại (People underestimate how warmly old friends would receive a reconnecting message).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q6, R2Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q6</b>, từ <strong>\"compounds\"</strong> ở đoạn 3 mô tả việc sự lo lắng làm trầm trọng/tồi tệ thêm sự tính toán sai lầm. Ngữ cảnh này đồng nghĩa với làm tồi tệ hơn (worsens).</li><li>Với <b>R2Q7</b>, từ <strong>\"rapport\"</strong> ở đoạn 5 mô tả sự gắn kết, hòa hợp nhanh chóng giữa hai bạn cũ. Ngữ cảnh này đồng nghĩa với sự kết nối thoại thoải mái (a comfortable connection).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q5):</b> Đối soát các lý do khiến mọi người ngần ngại liên lạc: sợ lệch lệch về mức độ quan tâm đến mối quan hệ, sự không chắc chắn về quy chuẩn xã hội ai nên nhắn trước, và đánh giá thấp sự ấm áp của đối phương. Chi tiết \"tin rằng bạn cũ đã được nghiên cứu chứng minh là không thích bị liên lạc\" (Believing old friends have proven, through research, to dislike being contacted) hoàn toàn ngược lại với thực tế.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q8):</b> Cụm từ <strong>\"This asymmetry\"</strong> ở đoạn 3 quy chiếu trực tiếp đến sự bất bình đẳng/không đồng đều về mức độ đầu tư tình cảm giữa hai người bạn (unequal emotional investment between two friends).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp logic ở các đoạn cuối. Việc liệu nhận thức/biết trước về nghiên cứu này có làm thay đổi hành vi thực tế hay không vẫn chưa được thử nghiệm (Whether awareness of the research changes behavior remains untested by studies).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R2Q10):</b> Phân tích mục đích tổng thể của bài viết. Tác giả muốn giải thích khoảng cách giữa niềm tin/suy nghĩ và hành vi thực tế xung quanh việc kết nối lại với bạn cũ (To explain a documented gap between belief and behavior around reconnecting).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R2Q8) và <b>Từ vựng</b> (R2Q6, R2Q7). Kế tiếp, áp dụng kỹ thuật đọc quét để giải quyết gọn các câu <b>Chi tiết</b> (R2Q2, R2Q3, R2Q4) và <b>Loại trừ</b> (R2Q5). Cuối cùng, tổng hợp mạch logic toàn bài để chốt chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R2Q9), <b>Ý chính toàn bài</b> (R2Q1) và <b>Mục đích của tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "People underestimate how warmly old friends would receive a reconnecting message.",
+                "People avoid reaching out because old friendships never actually mattered.",
+                "Old friendships end permanently once contact has been lost completely.",
+                "People always successfully predict exactly how old friends will respond."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does the 'liking gap' specifically describe?</span>",
+              "options": [
+                "People overestimate how much they liked interacting with strangers.",
+                "People accurately predict how conversations with old friends will go.",
+                "People underestimate how much others enjoyed interacting with them.",
+                "People consistently dislike reconnecting with friends from their past."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do people typically interpret a long silence before reaching out?</span>",
+              "options": [
+                "As proof that the recipient will definitely respond with excitement.",
+                "As a signal that reconnecting will feel unusually comfortable immediately.",
+                "As unmistakable evidence that the friendship has already fully ended.",
+                "As confirmation that the liking gap does not apply after silence."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do senders of unexpected reconnection messages typically underestimate?</span>",
+              "options": [
+                "How positively the message will be received and how quickly rapport returns.",
+                "How difficult it is to find an old friend's contact information.",
+                "How much money reconnecting with an old friend typically costs.",
+                "How many old friends they currently have across social media."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a reason people hesitate to contact old friends?</span>",
+              "options": [
+                "Fear that reaching out reveals unequal investment in the friendship.",
+                "Uncertainty about unspoken norms for who should message first.",
+                "Believing old friends have proven, through research, to dislike being contacted.",
+                "Underestimating how warmly a reconnecting message would be received."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"compounds\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "compares",
+                "worsens",
+                "measures",
+                "resolves"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"rapport\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "a rapid reply",
+                "a comfortable connection",
+                "a research report",
+                "a formal agreement"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This asymmetry\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "the liking gap identified in strangers",
+                "unequal emotional investment between two friends",
+                "an unflattering truth about investment",
+                "an unanswered message"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about knowing this research in advance?</span>",
+              "options": [
+                "Awareness of the research was tested and found to have no effect at all.",
+                "Knowing the research has been proven to eliminate hesitation completely.",
+                "Knowing the research guarantees people will always send the first message.",
+                "Whether awareness of the research changes behavior remains untested by studies."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "To explain a documented gap between belief and behavior around reconnecting.",
+                "To prove that old friendships always end permanently over time.",
+                "To argue that reconnecting messages should always be sent immediately.",
+                "To criticize psychologists for studying trivial everyday social behavior."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Why Unstructured Play Matters for Child Development",
+            "text": "<p>Not all activity that looks like play qualifies, in developmental psychology, as the specific kind of play researchers have linked to positive outcomes in children; free, child-directed play — activity without an adult-imposed goal, rules, or outcome — is generally treated as distinct from structured games or supervised sports, even though all three fall under the everyday, looser use of the word 'play.'</p><p>Some of the strongest evidence for play's cognitive benefits comes from studies linking pretend play specifically to gains in problem-solving flexibility, since children improvising roles and scenarios must continuously adjust their thinking in ways structured tasks, with their fixed rules, rarely require. Whether this correlation reflects play actively building cognitive flexibility, however, or whether children who are already cognitively flexible simply <strong>gravitate</strong> toward more elaborate pretend play in the first place, remains a question longitudinal studies have not yet fully resolved, since establishing causation would require tracking children's flexibility before substantial pretend play has occurred.</p><p>Because negotiating who plays which role, whose turn comes next, and how a disagreement over rules should be settled arises constantly during unsupervised peer play, many developmental psychologists now regard this social friction, rather than the play's content itself, as the primary mechanism through which children practice conflict resolution and perspective-taking. Adult-refereed games, by contrast, remove much of this negotiation by supplying external rules and an authority figure to settle disputes, which may explain why some researchers report weaker gains in these specific social skills among children whose play is more heavily supervised.</p><p>Physical benefits follow a similarly qualified pattern: unstructured outdoor play correlates with improved gross motor coordination and, in several studies, with children's own risk-assessment abilities, since navigating genuinely uncertain physical challenges — climbing an unfamiliar structure, judging a jump's distance — appears to teach risk calibration in a way that standardized, safety-optimized playground equipment does not. <strong>This same unpredictability</strong>, however, is precisely why some parents and school administrators have grown more cautious about unsupervised physical play, a caution that child-development researchers largely regard as understandable but potentially <strong>counterproductive</strong> if it eliminates the very uncertainty from which the developmental benefit is thought to arise.</p><p>Time available for this kind of play has nonetheless declined measurably in many school systems over the past several decades, as recess periods have been shortened or eliminated to accommodate additional instructional time, a trend justified largely by academic-pressure concerns rather than by evidence that reduced play time improves academic outcomes. Screen-based entertainment has absorbed a further share of children's discretionary time outside school, though researchers caution against assuming screens have simply replaced play on an equal, one-to-one basis, since the specific activities screens have displaced vary considerably across households and are not always the free, imaginative play studied in the research described above.</p><p>In response to mounting concern about diminished playtime, some school districts have introduced mandatory minimum recess periods, while others have redesigned playgrounds specifically to include a wider range of physically and socially challenging equipment rather than the simplified, injury-minimized structures that became standard in previous decades. Evidence evaluating whether these specific policy interventions successfully restore the developmental benefits associated with play remains preliminary, since most such programs have been implemented too recently for the kind of long-term follow-up the underlying research would ideally require.</p><p>Considered together, the research on children's play suggests a genuine developmental role for free, unsupervised activity across cognitive, social, and physical domains, even as the precise causal mechanisms, and the practical question of how much play is sufficient, remain considerably less settled than most popular advocacy for 'more playtime' tends to acknowledge. Until longitudinal research designed specifically to isolate causation from mere correlation becomes more widely available, recommendations about restoring playtime will likely continue to outpace the certainty of the evidence supporting them.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q2, R3Q3, R3Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R3Q2</b>, quét các từ \"free, child-directed play\" ở đoạn 1 để xác định điểm khác biệt: trò chơi tự do thiếu các mục tiêu, quy tắc hoặc kết quả do người lớn áp đặt (Free play lacks an adult-imposed goal, rules, or outcome).</li><li>Với <b>R3Q3</b>, quét cụm từ \"primary mechanism\" ở đoạn 3 để định vị cơ chế luyện tập giải quyết xung đột: sự va chạm xã hội khi thương lượng về vai chơi, lượt chơi và quy tắc (The social friction of negotiating roles, turns, and rule disputes).</li><li>Với <b>R3Q4</b>, quét từ khóa \"screen time\" ở đoạn cuối để thấy quan điểm của nhà nghiên cứu: họ cảnh báo không nên coi đây là sự thay thế 1-1 đơn giản (They caution against assuming a simple, equal replacement occurred).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R3Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề các đoạn: vui chơi tự do mang lại lợi ích phát triển nhưng các cơ chế nguyên nhân-kết quả vẫn chưa hoàn toàn chắc chắn (Free play appears developmentally beneficial, though causal mechanisms remain unsettled).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q6, R3Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q6</b>, từ <strong>\"gravitate\"</strong> ở đoạn 2 mô tả việc trẻ em tự nhiên hướng/tìm đến các trò chơi đóng vai cầu kỳ hơn. Ngữ cảnh này đồng nghĩa với bị thu hút/hướng về (be drawn toward).</li><li>Với <b>R3Q7</b>, từ <strong>\"counterproductive\"</strong> ở đoạn 4 mô tả hành động ngăn cản trẻ tiếp xúc thách thức có thể gây phản tác dụng đối với việc phát triển kỹ năng. Ngữ cảnh này đồng nghĩa with chống lại/đi ngược mục tiêu (working against the goal).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Đối soát các lợi ích được nhắc đến trong bài: khả năng linh hoạt giải quyết vấn đề, vận động thô & đánh giá rủi ro, giải quyết xung đột. Chi tiết \"đảm bảo cải thiện điểm số trong các bài kiểm tra học thuật chuẩn hóa\" (Guaranteed improvement in standardized academic test scores) hoàn toàn không được đề cập.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q8):</b> Cụm từ <strong>\"This same unpredictability\"</strong> ở đoạn 4 quy chiếu trực tiếp đến tính không thể đoán trước từ những thử thách thể chất thực tế (the uncertainty of real physical challenges).</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Tổng hợp logic ở đoạn 2 & đoạn cuối. Những khẳng định chắc chắn rằng tăng thời gian chơi sẽ lập tức cải thiện sự phát triển thường vượt quá mức độ chắc chắn mà bằng chứng nghiên cứu dọc (longitudinal evidence) hiện tại hỗ trợ (Such claims often exceed the certainty currently supported by longitudinal evidence).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R3Q10):</b> Phân tích thái độ tổng thể của tác giả. Tác giả viết bài để trình bày vai trò phát triển của trò chơi đồng thời chỉ ra những giới hạn hiện tại của các bằng chứng khoa học (To present play's developmental role while noting the evidence's current limits).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R3Q8) và <b>Từ vựng</b> (R3Q6, R3Q7). Kế tiếp, áp dụng kỹ thuật đọc quét để xử lý nhanh các câu <b>Chi tiết</b> (R3Q2, R3Q3, R3Q4) và <b>Loại trừ</b> (R3Q5). Cuối cùng, kết nối mạch logic toàn bài để chốt chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R3Q9), <b>Ý chính toàn bài</b> (R3Q1) và <b>Mục đích của tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Recess elimination has been proven to improve every school's test scores.",
+                "Only pretend play offers any developmental benefit to children.",
+                "Free play appears developmentally beneficial, though causal mechanisms remain unsettled.",
+                "Research proves definitively that all forms of play boost every child's IQ."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what distinguishes free, child-directed play from structured games or supervised sports?</span>",
+              "options": [
+                "Structured games improve cognitive flexibility more than free play.",
+                "Free play lacks an adult-imposed goal, rules, or outcome.",
+                "Free play requires standardized, safety-optimized playground equipment.",
+                "Free play always involves organized teams and referees."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do many developmental psychologists consider the primary mechanism behind children practicing conflict resolution during peer play?</span>",
+              "options": [
+                "The social friction of negotiating roles, turns, and rule disputes.",
+                "Standardized playground equipment designed for safety.",
+                "The specific content or theme of the pretend play itself.",
+                "Adult referees supplying external rules to settle disputes."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do researchers regard the idea that screen time has simply replaced children's free play?</span>",
+              "options": [
+                "They caution against assuming a simple, equal replacement occurred.",
+                "They argue screens have had no measurable effect on children's time.",
+                "They confirm screens have entirely eliminated recess in all schools.",
+                "They regard it as a fully confirmed, one-to-one replacement."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a documented benefit associated with free, unsupervised play?</span>",
+              "options": [
+                "Improved gross motor coordination and risk-assessment abilities.",
+                "Guaranteed improvement in standardized academic test scores.",
+                "Gains in problem-solving flexibility linked to pretend play.",
+                "Practice in conflict resolution and perspective-taking through negotiation."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"gravitate\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "be measured by",
+                "gravity",
+                "be prevented from",
+                "be drawn toward"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"counterproductive\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "working against the goal",
+                "financially expensive",
+                "controversial",
+                "highly effective"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This same unpredictability\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "children's own risk-assessment abilities",
+                "parents' and administrators' growing caution",
+                "standardized playground equipment",
+                "the uncertainty of real physical challenges"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about claims that increasing playtime will improve children's development?</span>",
+              "options": [
+                "Reduced recess time was implemented specifically to boost test scores.",
+                "Such claims are proven false since play has no developmental benefit.",
+                "Such claims are entirely confirmed by every longitudinal study conducted.",
+                "Such claims often exceed the certainty currently supported by longitudinal evidence."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "To criticize parents specifically for restricting children's outdoor play.",
+                "To argue play research fully confirms every popular parenting claim.",
+                "To present play's developmental role while noting the evidence's current limits.",
+                "To prove decisively that all recess cuts have harmed children's grades."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Music: The Staff, Clef, and Notes",
+            "text": "<p>A musical staff consists of five horizontal lines and four intervening spaces, each line and space corresponding to a specific pitch; a note's vertical placement on this staff indicates which pitch is intended, while the notehead's shape — filled or open, with or without a stem — separately indicates how long that pitch should be held, a distinction beginning musicians frequently <strong>conflate</strong> until the two dimensions of notation are explicitly separated in instruction.</p><p>Because the same vertical position on an otherwise identical staff could represent entirely different pitches depending on context, a clef — a symbol placed at the beginning of the staff — fixes which specific pitch corresponds to a chosen reference line, from which every other line and space on that staff can then be determined by counting upward or downward in sequence. The treble clef, conventionally used for higher-pitched instruments and voices, and the bass clef, used for lower-pitched ones, remain the two most commonly encountered, though several other clefs, assigning the reference pitch to different lines entirely, persist in specialized use for particular instruments such as the viola or trombone.</p><p>Historical credit for the modern staff is most often assigned to the eleventh-century music theorist Guido of Arezzo, though music historians increasingly caution against treating this attribution as entirely settled, since neume-based notation systems already conveyed relative pitch contour, if not precise intervals, well before Guido's four-line innovation, and the exact sequence by which his four-line system evolved into today's standard five-line staff remains only partially documented in surviving manuscripts from the intervening centuries.</p><p>Notes falling above or below a staff's normal pitch range are notated using short ledger lines extending the staff as needed, a solution that works adequately for occasional excursions beyond the standard range but becomes progressively harder to read, most instructors agree, as the number of ledger lines required for a single note increases beyond two or three. <strong>This readability concern</strong> has motivated some educators to introduce simplified numbered or color-coded notation systems for young beginners, though whether such systems genuinely ease early learning without complicating the eventual transition to standard staff notation remains a question on which pedagogical research offers no firm consensus.</p><p>Standard staff notation is frequently credited with allowing musicians trained in entirely different countries and traditions to read and perform from an identical score without translation, a genuine practical advantage though one some music historians consider somewhat <strong>overstated</strong>, given that regional notational conventions still differ in details such as which clef certain instruments customarily use and how transposing instruments' written pitch relates to the pitch actually sounded, differences a musician trained in one convention must still learn to navigate when encountering the other.</p><p>Whether introducing young students to simplified or non-standard notation genuinely accelerates their eventual fluency with standard staff notation, or instead creates habits that must later be unlearned, remains a question existing pedagogical studies have not resolved with much confidence, since available comparisons typically involve small samples, inconsistent teaching methods across the compared groups, and follow-up periods too short to assess whether any early advantage persists once students reach more advanced repertoire.</p><p>Despite these open questions about its precise historical origin and the optimal method for teaching it, the five-line staff paired with a clef remains the dominant notation system across nearly every musical tradition that uses staff notation at all, a dominance owing considerably more to the practical weight of centuries of accumulated repertoire already written in this system than to any settled consensus that alternative notations would serve learners better if adopted instead.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q3, R4Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R4Q2</b>, quét tên riêng \"Guido of Arezzo\" ở đoạn 3 để thấy nhận định của giới sử học: họ cảnh báo không nên coi đây là sự gán ghép đã hoàn toàn rõ ràng do có các hệ thống nốt nhạc neume từ trước đó (They caution against treating it as entirely settled, given earlier neume systems).</li><li>Với <b>R4Q3</b>, quét từ khóa \"clef\" ở đoạn 2 để tìm chức năng cụ thể: khóa nhạc xác định cao độ nào tương ứng với đường kẻ tham chiếu được chọn (It fixes which pitch corresponds to a chosen reference line on the staff).</li><li>Với <b>R4Q4</b>, định vị thông tin về độ dài nốt nhạc ở đoạn 1: hình dáng của đầu nốt (đặc/rỗng, có/không có thân) thể hiện thời lượng ngân của nốt (The notehead's shape, filled or open, with or without a stem).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R4Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể toàn bài: ký âm khuôn nhạc vẫn giữ vai trò chủ đạo dù còn những câu hỏi chưa có lời giải về nguồn gốc và phương pháp giảng dạy (Staff notation remains dominant despite unresolved questions about origin and teaching method).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q6, R4Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q6</b>, từ <strong>\"conflate\"</strong> ở đoạn 1 mô tả việc người học hay nhầm lẫn/trộn lẫn hai khái niệm cao độ và trường độ. Ngữ cảnh này đồng nghĩa với nhầm lẫn/gộp làm một (confuse together).</li><li>Với <b>R4Q7</b>, từ <strong>\"overstated\"</strong> ở đoạn 5 mô tả tính phổ quát toàn cầu của ký âm tiêu chuẩn có thể đã bị nói quá. Ngữ cảnh này đồng nghĩa với cường điệu, phóng đại (exaggerated).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q5):</b> Đối soát các câu hỏi chưa được giải quyết ở các đoạn 3, 4, 5: quá trình phát triển từ 4 lên 5 dòng kẻ, việc hệ thống đơn giản hóa có giúp chuyển đổi sang hệ thống chuẩn hay không, và tính phổ quát toàn cầu. Chi tiết \"khóa Sol gán cao độ cho đường kẻ cao hơn khóa Fa\" (Whether the treble clef assigns pitch to a higher line than the bass clef) là một quy tắc cố định, không phải vấn đề đang tranh cãi.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q8):</b> Cụm từ <strong>\"This readability concern\"</strong> ở đoạn 4 quy chiếu trực tiếp đến việc các đường kẻ phụ (ledger lines) trở nên khó đọc hơn khi số lượng đường kẻ tăng lên (ledger lines becoming harder to read as their number increases).</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Tổng hợp logic ở đoạn 4 & 5 về phương pháp giảng dạy đơn giản hóa. Nghiên cứu hiện tại chưa đưa ra câu trả lời chắc chắn về tác động lâu dài của phương pháp này đối với độ trôi chảy khi đọc nốt (Existing research provides no confident answer on its long-term effect on fluency).</li><li><b>Dạng câu hỏi Cấu trúc lập luận (R4Q10):</b> Phân tích cách tác giả xây dựng bài viết. Tác giả giải thích cơ chế hoạt động của ký âm khuôn nhạc đồng thời liên tục nêu ra các câu hỏi mở về mặt lịch sử và sư phạm (By explaining staff notation's mechanics while consistently flagging open historical and pedagogical questions).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R4Q8) và <b>Từ vựng</b> (R4Q6, R4Q7). Kế tiếp, áp dụng kỹ thuật đọc quét để xử lý nhanh các câu <b>Chi tiết</b> (R4Q2, R4Q3, R4Q4) và <b>Loại trừ</b> (R4Q5). Cuối cùng, kết nối mạch logic toàn bài để chốt chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R4Q9), <b>Ý chính toàn bài</b> (R4Q1) và <b>Cấu trúc lập luận</b> (R4Q10).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Color-coded notation has been proven superior to standard staff notation for all learners.",
+                "Guido of Arezzo definitively invented every element of today's staff notation.",
+                "Staff notation remains dominant despite unresolved questions about origin and teaching method.",
+                "Ledger lines have completely replaced the need for clefs in modern notation."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do music historians regard the attribution of the modern staff to Guido of Arezzo?</span>",
+              "options": [
+                "They attribute the five-line staff entirely to neume-based notation instead.",
+                "They treat it as fully settled and beyond any scholarly dispute.",
+                "They regard it as entirely disproven by all surviving manuscripts.",
+                "They caution against treating it as entirely settled, given earlier neume systems."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is the specific function of a clef?</span>",
+              "options": [
+                "It indicates how long a given pitch should be held during performance.",
+                "It extends the staff's range using short additional ledger lines.",
+                "It determines a note's rhythm independent of its vertical position.",
+                "It fixes which pitch corresponds to a chosen reference line on the staff."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what specifically indicates how long a note's pitch should be held?</span>",
+              "options": [
+                "Which specific clef appears at the beginning of the staff.",
+                "The note's vertical position on the staff's lines and spaces.",
+                "The notehead's shape, filled or open, with or without a stem.",
+                "The number of ledger lines extending above or below the staff."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as an unresolved or debated question in music notation?</span>",
+              "options": [
+                "Whether standard notation's cross-cultural universality is somewhat overstated.",
+                "Whether the treble clef assigns pitch to a higher line than the bass clef.",
+                "Whether simplified notation eases early learning without complicating later transition.",
+                "The exact sequence by which the four-line staff became five lines."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"conflate\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "completely ignore",
+                "clearly separate",
+                "confuse together",
+                "conflict"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"overstated\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "overstaffed",
+                "understated",
+                "disproven",
+                "exaggerated"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This readability concern\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "simplified numbered or color-coded systems",
+                "the standard pitch range of a staff",
+                "ledger lines becoming harder to read as their number increases",
+                "occasional excursions beyond the standard range"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about teaching young students with simplified or non-standard notation?</span>",
+              "options": [
+                "Small-sample studies have conclusively ruled out any lasting effect either way.",
+                "It has been proven to permanently damage every student's ability to read staff notation.",
+                "Existing research provides no confident answer on its long-term effect on fluency.",
+                "It has been proven to accelerate every student's long-term note-reading fluency."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>How does the author primarily structure the argument in this passage?</span>",
+              "options": [
+                "By concluding decisively that simplified notation systems harm all young learners.",
+                "By explaining staff notation's mechanics while consistently flagging open historical and pedagogical questions.",
+                "By proving definitively that Guido of Arezzo invented all modern notation single-handedly.",
+                "By arguing that ledger lines should be eliminated from modern notation entirely."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You received an email from your English friend, David, who is planning to move to your city.</p> He is asking for your advice on buying a house in your area. Read part of his email below.",
+          "content": "<p class='mb-1'>I have finally decided to move to your city and I am looking to buy a house there.</p><ul><li>What important factors should I consider when buying a house in your area?</li><li>Are there any specific streets or neighborhoods that you would recommend for me?</li><li>What is the best time of year to start looking for a house?</li></ul>",
+          "description": "Write an email responding to David. You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li><strong>Dạng đề:</strong> Đây là Informal Email (Thư thân mật) gửi cho một người bạn tên David để đưa ra lời khuyên về việc mua nhà.</li><li><strong>Yêu cầu:</strong> Bạn cần trả lời 3 câu hỏi: các yếu tố cần xem xét khi mua nhà, gợi ý khu vực/con đường phù hợp, và thời điểm mua nhà tốt nhất.</li><li><strong>Độ dài:</strong> Tối thiểu 120 từ. Sử dụng ngôn ngữ tự nhiên, gần gũi.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi bằng tên riêng. Ví dụ: Hi David, / Dear David,</li><li><strong>Opening:</strong> Bày tỏ sự hào hứng khi bạn mình sắp chuyển đến. Ví dụ: It is wonderful news that you are moving to my city! I would be more than happy to give you some advice.</li><li><strong>Body Paragraph 1:</strong> Trả lời về các yếu tố cần xem xét (an ninh, giao thông, giá cả). Ví dụ: First of all, you should check the proximity to public transport.</li><li><strong>Body Paragraph 2:</strong> Gợi ý khu vực cụ thể và thời điểm mua. Ví dụ: Personally, I think the District 7 area would be perfect for you because it is very quiet.</li><li><strong>Closing:</strong> Chúc may mắn và đề nghị giúp đỡ thêm. Ví dụ: Let me know if you need any more help. Hope you find a great place!</li><li><strong>Sign-off:</strong> Best, / Warm regards, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các cấu trúc đưa ra lời khuyên như: \"If I were you, I would...\", \"You might want to consider...\", \"It is worth looking at...\".</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Residential area:</strong> Khu dân cư</li><li><strong>Amenities:</strong> Các tiện ích (siêu thị, bệnh viện...)</li><li><strong>Real estate market:</strong> Thị trường bất động sản</li><li><strong>Neighborhood:</strong> Khu vực lân cận</li><li><strong>Safe and secure:</strong> An toàn và an ninh</li><li><strong>Budget-friendly:</strong> Phù hợp túi tiền</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Regarding:</strong> Về vấn đề...</li><li><strong>In terms of:</strong> Xét về mặt...</li><li><strong>In addition:</strong> Ngoài ra</li><li><strong>Moreover:</strong> Hơn nữa</li><li><strong>Actually:</strong> Thực tế là</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I am thrilled to hear:</strong> Mình rất vui khi nghe tin...</li><li><strong>I am sure you will love:</strong> Mình chắc là bạn sẽ thích...</li><li><strong>Don't hesitate to ask:</strong> Đừng ngần ngại hỏi mình nhé.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Quên không trả lời một trong ba câu hỏi chính của đề bài.</li><li>Sử dụng giọng văn quá trang trọng như đang viết đơn xin việc.</li><li>Nhầm lẫn giữa động từ \"buy\" và danh từ \"purchase\".</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Kiểm tra xem đã chia đúng thì hiện tại đơn cho các lời khuyên chung chưa.</li><li>Đảm bảo các đại từ \"I\" và \"you\" được sử dụng nhất quán xuyên suốt thư.</li><li>Đếm số từ để chắc chắn đạt trên 120 từ.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tưởng tượng bạn đang giúp đỡ một người bạn thật sự. Sự nhiệt tình và thông tin chi tiết về địa phương sẽ giúp bài viết sinh động hơn.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "discussion",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>Learning to play a musical instrument is often encouraged for children as a means of personal development.</p><p class='mb-1'>However, some people argue that the time and noise involved can negatively affect family life and interfere with other important activities.</p><p class='mb-1'><strong>Discuss both views and give your own opinion.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss both views and give your own opinion about children learning musical instruments. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li><strong>Dạng bài:</strong> Discussion Essay (Thảo luận hai mặt và đưa ra ý kiến cá nhân).</li><li><strong>Chủ đề:</strong> Việc trẻ em học nhạc cụ - lợi ích phát triển đối lập với phiền toái cho gia đình và áp lực thời gian.</li><li><strong>Từ khóa:</strong> Musical instruments, children, family life, personal development, interference.</li><li><strong>Yêu cầu:</strong> Phải thảo luận cả hai phía trước khi đưa ra kết luận.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Paraphrase lại đề bài và nêu rõ bài viết sẽ thảo luận cả hai mặt. Ví dụ: While musical education offers cognitive benefits, some argue it disrupts daily routines and family harmony.</li><li><strong>Body 1 (Lợi ích):</strong> Tập trung vào phát triển trí não, tính kiên nhẫn và sự sáng tạo. Ví dụ: Firstly, mastering an instrument enhances a child's cognitive abilities and discipline.</li><li><strong>Body 2 (Bất lợi):</strong> Tập trung vào tiếng ồn, chi phí đắt đỏ và việc lấn chiếm thời gian học văn hóa. Ví dụ: On the other hand, the constant practice can be a source of stress and noise for other family members.</li><li><strong>Conclusion:</strong> Tổng kết lại và đưa ra quan điểm cá nhân (thường là ủng hộ việc học nhưng cần có sự cân bằng). Ví dụ: In conclusion, despite the potential disruptions, I believe the long-term benefits of music far outweigh the temporary inconveniences.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng câu phức để so sánh hai luồng ý kiến. Phát triển ý bằng cách nêu hậu quả/kết quả (result-oriented development).</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Cognitive development:</strong> Phát triển nhận thức</li><li><strong>Self-discipline:</strong> Kỷ luật tự giác</li><li><strong>Academic performance:</strong> Kết quả học tập</li><li><strong>Noise pollution:</strong> Ô nhiễm tiếng ồn</li><li><strong>Time-consuming:</strong> Tốn thời gian</li><li><strong>Well-rounded education:</strong> Giáo dục toàn diện</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>On the one hand / On the other hand:</strong> Mặt này / Mặt khác</li><li><strong>In contrast:</strong> Ngược lại</li><li><strong>Proponents argue that:</strong> Những người ủng hộ lập luận rằng</li><li><strong>Critics point out that:</strong> Những người chỉ trích chỉ ra rằng</li><li><strong>Furthermore:</strong> Hơn nữa</li><li><strong>Overall:</strong> Nhìn chung</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Playing a musical instrument:</strong> Thay bằng \"musical practice\" hoặc \"mastering a violin/piano\".</li><li><strong>Affect family life:</strong> Thay bằng \"impact domestic harmony\" hoặc \"disrupt household peace\".</li><li><strong>Children:</strong> Thay bằng \"youngsters\", \"offspring\" hoặc \"juveniles\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li><strong>From my perspective:</strong> Theo quan điểm của tôi...</li><li><strong>It is undeniable that:</strong> Không thể phủ nhận rằng...</li><li><strong>Striking a balance between:</strong> Tìm kiếm sự cân bằng giữa...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nói về lợi ích mà quên không nhắc đến những phiền toái (lỗi lạc đề Task Response).</li><li>Dùng từ vựng quá đơn giản (Good/Bad) thay vì dùng các tính từ học thuật hơn.</li><li>Thiếu câu chủ đề (Topic Sentence) ở mỗi đoạn thân bài.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra sự hòa hợp giữa chủ ngữ và động từ (S-V agreement).</li><li>Đảm bảo ý kiến cá nhân ở kết luận thống nhất với những gì đã viết ở mở bài.</li><li>Kiểm tra chính tả các từ chuyên ngành âm nhạc.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy giữ thái độ khách quan khi viết hai đoạn thân bài. Điểm cao nằm ở khả năng phân tích lý do tại sao người ta lại có những ý kiến trái chiều như vậy.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you enjoy going to parties?",
+            "What kind of parties do you usually attend or organize?",
+            "What do you think makes a party enjoyable?",
+            "What career are you planning to pursue in the future?",
+            "What factors do you consider important when choosing a career?",
+            "Do you think your current studies will help you achieve your career goals?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này có <strong>2 chủ đề nhỏ</strong>: <strong>Topic A (Parties)</strong> và <strong>Topic B (Career)</strong>.</li><li><strong>Topic A (Parties):</strong> Ba câu hỏi đầu kiểm tra khả năng nói về sở thích tham gia tiệc tùng, loại tiệc thường tham dự và quan điểm về yếu tố làm nên một bữa tiệc thú vị.</li><li><strong>Topic B (Career):</strong> Ba câu hỏi sau kiểm tra khả năng nói về định hướng nghề nghiệp, các yếu tố quan trọng khi chọn nghề và mối liên hệ giữa việc học hiện tại với mục tiêu nghề nghiệp.</li><li>Tiêu chí đánh giá gồm <strong>Fluency, Vocabulary, Grammar và Pronunciation</strong>.</li><li>Thời gian Part 1 là <strong>3 phút</strong>, nên dành khoảng 25–35 giây cho mỗi câu hỏi, cân bằng đều giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong> để trả lời đầy đủ và có chiều sâu.</li><li><strong>Ví dụ Topic A:</strong> \"Yes, I really enjoy going to parties, especially small gatherings with close friends, because they give me a chance to relax and catch up with everyone.\"</li><li><strong>Ví dụ Topic B:</strong> \"I'm planning to pursue a career in marketing because I enjoy being creative and communicating with people.\"</li><li>Luôn tự hỏi Why?/How? để mở rộng câu trả lời, tránh nói quá ngắn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển ý tự nhiên như \"Besides parties, I'd also like to share a bit about my career plans.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Duy trì tốc độ nói ổn định, dùng từ đệm để tránh khoảng lặng dài.</li><li>Dùng <strong>hiện tại đơn</strong> khi nói về thói quen tham gia tiệc tùng, dùng <strong>tương lai gần (going to)</strong> khi nói về dự định nghề nghiệp.</li><li>Nếu bí từ, hãy diễn đạt bằng từ đơn giản hơn thay vì im lặng.</li><li>Từ vựng cho Topic A: a lively atmosphere, socialize with people, throw a party, a memorable celebration.</li><li>Từ vựng cho Topic B: career prospects, job satisfaction, a stable income, pursue a career path.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a lively atmosphere</strong> (một không khí sôi động)</li><li><strong>socialize with people</strong> (giao lưu với mọi người)</li><li><strong>throw a party</strong> (tổ chức một bữa tiệc)</li><li><strong>career prospects</strong> (triển vọng nghề nghiệp)</li><li><strong>job satisfaction</strong> (sự hài lòng trong công việc)</li><li><strong>pursue a career path</strong> (theo đuổi con đường sự nghiệp)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Firstly</strong> - trước hết, dùng để mở đầu ý.</li><li><strong>Besides</strong> - bên cạnh đó, dùng để bổ sung ý.</li><li><strong>For example</strong> - ví dụ như, dùng khi minh họa.</li><li><strong>However</strong> - tuy nhiên, dùng khi đối chiếu ý kiến.</li><li><strong>That's why</strong> - đó là lý do vì sao, dùng để nêu kết quả.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>Personally, I think...</strong> Ví dụ: \"Personally, I think good music and good company are what make a party enjoyable.\"</li><li><strong>In my opinion...</strong> Ví dụ: \"In my opinion, job satisfaction is more important than salary in the long run.\"</li><li><strong>I would say that...</strong> Ví dụ: \"I would say that my current studies are giving me a solid foundation for my future career.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\"/\"No\" rồi im lặng mà không giải thích thêm - lỗi nghiêm trọng nhất.</li><li>Ở Topic A, chỉ nêu tên loại tiệc mà không mô tả cảm xúc hay trải nghiệm.</li><li>Ở Topic B, trả lời chung chung về nghề nghiệp mà không giải thích lý do lựa chọn.</li><li>Phát âm sai trọng âm từ: <strong>'party</strong>, <strong>ca'reer</strong>.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's an interesting question, let me think for a second.\"</li><li>Nếu quên từ, hãy mô tả khái niệm bằng từ đơn giản hơn.</li><li>Với Topic A, nếu bí ý, hãy kể về một bữa tiệc đáng nhớ gần đây.</li><li>Với Topic B, nếu bí ý, hãy kể về công việc mơ ước của một người bạn hoặc người thân.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Coi đây như một cuộc trò chuyện thân mật với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để bắt đầu câu chuyện mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố dùng từ vựng quá phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You want to improve your English speaking skills, but you can only commit to one activity.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Join an English speaking club</li><li>Option 2: Practice with a language exchange partner online</li><li>Option 3: Take a one-on-one course with a tutor</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Đây là dạng <strong>Solution Discussion</strong>. Bạn cần chọn một hoạt động phù hợp nhất để cải thiện kỹ năng nói tiếng Anh trong ba lựa chọn: tham gia câu lạc bộ nói tiếng Anh, luyện tập với bạn trao đổi ngôn ngữ trực tuyến, hoặc học một kèm một với gia sư.</li><li>Ba lựa chọn khác nhau về chi phí, tính linh hoạt và mức độ cá nhân hóa.</li><li>Thời gian là <strong>4 phút</strong>; cần phân tích cả ba phương án trước khi đưa ra kết luận.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction - Comparison/Body - End)</strong> để trình bày mạch lạc từng lựa chọn rồi kết luận.</li><li><strong>Option 1 (Câu lạc bộ nói tiếng Anh):</strong> \"Joining a speaking club would let me practice with many different people in a relaxed setting, but the sessions might not focus on my specific weaknesses.\"</li><li><strong>Option 2 (Bạn trao đổi ngôn ngữ online):</strong> \"Practicing with a language exchange partner is free and flexible, though it can be difficult to find a reliable and committed partner.\"</li><li><strong>Option 3 (Gia sư một kèm một):</strong> \"A one-on-one tutor would give me personalized feedback and a structured learning path, but it tends to be more expensive than the other options.\"</li><li>Nên neo lập luận vào bối cảnh thực tế của việc tự học ngoài giờ lên lớp.</li><li>Dùng từ nối tương phản như \"however\", \"whereas\" để chuyển giữa ưu và nhược điểm của từng lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ: \"Unlike a speaking club, which offers variety, a private tutor provides more targeted and personalized guidance.\"</li><li>Dùng modal verbs (would, could, should) khi giả định và đề xuất giải pháp.</li><li>Paraphrase \"improve speaking skills\" bằng \"enhance oral proficiency\" hoặc \"become more fluent\".</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>enhance oral proficiency</strong> (nâng cao khả năng nói)</li><li><strong>a relaxed setting</strong> (một môi trường thoải mái</li><li><strong>personalized feedback</strong> (phản hồi cá nhân hóa)</li><li><strong>a structured learning path</strong> (một lộ trình học có hệ thống)</li><li><strong>cost-effective</strong> (tiết kiệm chi phí)</li><li><strong>build confidence in speaking</strong> (xây dựng sự tự tin khi nói)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared with</strong> - so với, dùng khi so sánh hai lựa chọn.</li><li><strong>Whereas</strong> - trong khi đó, dùng để đối lập.</li><li><strong>Nevertheless</strong> - tuy nhiên, dùng để chuyển ý ngược lại.</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố, dùng trước kết luận.</li><li><strong>In terms of</strong> - xét về mặt, dùng khi so sánh theo tiêu chí cụ thể.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I had to choose, I would go with...</strong> Ví dụ: \"If I had to choose, I would go with the one-on-one tutor because personalized feedback would help me improve faster.\"</li><li><strong>I'm more inclined towards...</strong> Ví dụ: \"I'm more inclined towards something structured rather than casual conversation practice.\"</li><li><strong>All things considered...</strong> Ví dụ: \"All things considered, joining a speaking club seems like the most balanced option in terms of cost and practice opportunities.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của nó.</li><li>Lặp lại từ \"good\"/\"helpful\" quá nhiều thay vì dùng tính từ học thuật hơn.</li><li>Không có kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng liên quan đến một lựa chọn, chuyển hướng sang nói về chi phí hoặc thời gian cần đầu tư.</li><li>Dùng câu chờ ý: \"Let's evaluate this option from a different perspective.\"</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Đặt mình vào vị trí người học - phương án nào vừa hiệu quả vừa phù hợp với thời gian và ngân sách của bản thân?</li><li>Có thể đề xuất kết hợp, ví dụ tham gia câu lạc bộ để luyện phản xạ và học thêm với gia sư để sửa lỗi, để thể hiện tư duy linh hoạt.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn đã chọn để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The advantages and disadvantages of owning a pet",
+          "mindmap": {
+            "title": "Owning a Pet",
+            "ideas": [
+              "Reasons for keeping pets",
+              "Physical & mental benefits",
+              "Responsibilities & challenges",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Do you have a pet, or would you like to have one? Why?",
+            "What responsibilities come with owning a pet?",
+            "Do you think keeping a pet is suitable for people living in apartments? Why?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về lợi ích và hạn chế của việc nuôi thú cưng, dựa trên ba nhánh chính và một nhánh ý kiến cá nhân.</li><li>Ba nhánh chính gồm: lý do phổ biến khiến mọi người quyết định nuôi thú cưng, lợi ích của việc nuôi thú cưng đối với sức khỏe thể chất và tinh thần, và trách nhiệm cùng thách thức khi nuôi thú cưng.</li><li><strong>Gợi ý cho nhánh thứ 4 (ý kiến cá nhân):</strong> có thể phát triển theo hướng lựa chọn loại thú cưng phù hợp với điều kiện sống, ví dụ ở căn hộ nhỏ hay nhà có sân vườn.</li><li>Thời gian là <strong>5 phút</strong>: khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> để trình bày từng nhánh của sơ đồ tư duy.</li><li><strong>Ví dụ mở bài:</strong> \"Today, I'd like to talk about the advantages and disadvantages of owning a pet.\"</li><li><strong>Ví dụ cho nhánh ý kiến cá nhân:</strong> \"In my opinion, people living in small apartments should consider smaller pets, such as cats or fish, rather than large dogs that need more space.\"</li><li>Nên đưa ví dụ thực tế như nuôi chó, mèo để giảm căng thẳng, hoặc gặp khó khăn khi phải chăm sóc thú cưng lúc bận rộn.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lạc đề sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển ý mượt mà khi chuyển từ nhánh này sang nhánh khác của sơ đồ tư duy.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> cho sự thật chung, dùng <strong>hiện tại hoàn thành</strong> khi nói về kinh nghiệm nuôi thú cưng đã có.</li><li>Paraphrase \"owning a pet\" bằng \"keeping an animal at home\" hoặc \"having a companion animal\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a loyal companion</strong> (một người bạn đồng hành trung thành)</li><li><strong>relieve stress and loneliness</strong> (giảm căng thẳng và cô đơn)</li><li><strong>a great sense of responsibility</strong> (một tinh thần trách nhiệm lớn)</li><li><strong>veterinary expenses</strong> (chi phí thú y)</li><li><strong>form an emotional bond</strong> (hình thành sự gắn kết tình cảm)</li><li><strong>time-consuming to take care of</strong> (tốn thời gian để chăm sóc)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước hết, dùng để mở đầu nhánh đầu tiên.</li><li><strong>Moving on to</strong> - chuyển sang, dùng khi chuyển nhánh ý.</li><li><strong>Furthermore</strong> - hơn nữa, dùng để bổ sung ý.</li><li><strong>On the other hand</strong> - mặt khác, dùng khi nêu thách thức.</li><li><strong>To sum up</strong> - tóm lại, dùng khi kết luận.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>I firmly believe that...</strong> Ví dụ: \"I firmly believe that owning a pet can teach children valuable lessons about responsibility.\"</li><li><strong>It seems to me that...</strong> Ví dụ: \"It seems to me that more young people are choosing to own pets as a way to cope with stress.\"</li><li><strong>What strikes me most is...</strong> Ví dụ: \"What strikes me most is how much comfort a simple pet can bring to someone living alone.\"</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Do you have a pet, or would you like to have one?\"</strong> - Có thể chia sẻ trải nghiệm cá nhân hoặc mong muốn nuôi một loại thú cưng cụ thể và lý do lựa chọn.</li><li><strong>\"What responsibilities come with owning a pet?\"</strong> - Bao gồm việc cho ăn đúng giờ, đưa đi khám thú y định kỳ, và dành thời gian chơi cùng thú cưng mỗi ngày.</li><li><strong>\"Do you think keeping a pet is suitable for people living in apartments?\"</strong> - Có thể lập luận rằng điều này phụ thuộc vào loại thú cưng, ví dụ mèo hoặc cá phù hợp hơn chó lớn trong không gian nhỏ.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê lợi ích hoặc trách nhiệm mà không giải thích cụ thể - luôn cần đưa ví dụ minh họa.</li><li>Quên nhánh ý kiến cá nhân - nên chuẩn bị trước nhánh thứ tư này.</li><li>Nói quá dài ở phần mở đầu khiến không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào trải nghiệm cá nhân hoặc quan sát thực tế khi bí ý, ví dụ thú cưng của bản thân hoặc người thân.</li><li>Câu chờ ý học thuật: \"That is an interesting point. If we look at it from a lifestyle perspective...\"</li><li>Dùng từ đồng nghĩa hoặc mô tả đơn giản nếu quên từ vựng chuyên môn.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ thực tế và liên hệ với điều kiện sống của người trẻ hiện nay, đặc biệt ở khu vực thành thị.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố quyết định điểm số.</li><li>Luôn giữ giọng điệu tự nhiên, tránh đọc thuộc lòng như một bài văn mẫu.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

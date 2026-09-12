@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-14",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 14",
+  "duration": 172,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: Why is the speaker apologizing?</b></p><ul><li>Your attention, please. The library will be closing at 3 o'clock today in order to add new books and periodicals to its collection. Due to the need to take accurate inventory, we cannot allow books to be checked out today. We apologize for any inconvenience this may cause.</li></ul><p><b>Q2: Why would Daniel Jergens like to reschedule the meeting?</b></p><ul><li>Hello, Mr. Thompson, this is Daniel Jergens in the finance division. I am calling about the upcoming meeting with representatives of Shoal Barrier Associates. If you are free, we would like to move the meeting forward by one week. The main reason for this is that we need to wrap up the purchase as quickly as possible. Please get back to me about this as soon as you can.</li></ul><p><b>Q3: Why will the information technology division be relocating earlier?</b></p><ul><li>Beginning Wednesday, June 3, we will be temporarily relocating to the third floor of our Capital Cities branch downtown. Before the full relocation, the information technology section will be moving to the Capital Cities branch on May 20. This step will be necessary with the disruption of network service caused by the construction work.</li></ul><p><b>Q4: What is the message mainly about?</b></p><ul><li>Hello, Mrs. Hartman. This is Andy Synton with Premier Design Interiors. I have a few questions about your recent furniture order. A number of the items you requested are not in stock at the moment. However, we are able to offer you very similar products that can be shipped right away. Please let me know if you are interested in this.</li></ul><p><b>Q5: What is the purpose of the talk?</b></p><ul><li>OK, everyone. I asked you all to come today so that you know the schedule for the next 4 months. As I'm sure you all have heard, we recently received a major contract from Confederated Enterprises. However, we're really going to have to rush in order to meet the deadline in 4 months. So, I have broken down the tasks that need to be accomplished by each department and will be assigning them to you. After I give out your department's tasks, I'd like you to create a plan showing how you'll be able to complete the assignments by the deadline. I'll need those work plans e-mailed to me by this Friday.</li></ul><p><b>Q6: Who most likely is the speaker?</b></p><ul><li>Good evening. This message is for Marty from Clara Clayton. I'm just calling to let you know that I may have found an office space that might be exactly what you're looking for. It has 6 executive offices and a conference room. The only problem is that it isn't as close to the subway station as you wanted. However, it is in a waterfront building, so the view is quite spectacular. The rent is 8,000 dollars a month. So, if you're interested, give me a call and I can arrange for you to have a look at it today with the landlord. I might not be in the office, so please call me on my mobile. Thanks a lot, Marty. I'll speak with you soon.</li></ul><p><b>Q7: What will be provided for the travelers?</b></p><ul><li>May I have your attention, please? Due to severe weather conditions, all outgoing flights after 7 p.m. on Europeo Airlines to Milan have been cancelled. This includes the 7:30 flight as well. The next available flight to Milan Malpensa International will be tomorrow morning at 8 o'clock. We apologize for the inconvenience and will be offering hotel accommodations and shuttle bus service to those passengers who require them. For further information, please go to the Europeo Airlines counter. Thanks for your patience and understanding.</li></ul><p><b>Q8: What is the celebration for?</b></p><ul><li>It is my great privilege to welcome you all to this evening's anniversary celebration. In just over a decade, we have become one of the most reputable names in the American office supplies industry. It is largely because of your efforts that we have made such tremendous strides.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Why is the speaker apologizing?",
+              "options": [
+                "To schedule a checkup",
+                "To delay a meeting",
+                "To confirm an appointment",
+                "To announce an early closure"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Why would Daniel Jergens like to reschedule the meeting?",
+              "options": [
+                "To satisfy a request from Barrier Associates",
+                "To complete the purchase more quickly",
+                "To reconsider the contract",
+                "To avoid the severe weather condition"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Why will the information technology division be relocating earlier?",
+              "options": [
+                "Because of an increase in staff",
+                "Because of an interruption of network service",
+                "Because of the full relocation",
+                "Because of the high release costs"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the message mainly about?",
+              "options": [
+                "A question about substituting order items",
+                "A question about the number of the items",
+                "The list of items that will be delivered",
+                "The shipping service that will be used"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of the talk?",
+              "options": [
+                "To address customer complaints",
+                "To discuss a presentation",
+                "To celebrate a new contract",
+                "To hand out assignments"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Who most likely is the speaker?",
+              "options": [
+                "A landlord",
+                "A business executive",
+                "A real estate agent",
+                "A police officer"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What will be provided for the travelers?",
+              "options": [
+                "A free flight",
+                "Meal vouchers",
+                "Winter clothing",
+                "Hotel rooms"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is the celebration for?",
+              "options": [
+                "A merger",
+                "An anniversary",
+                "A new CEO",
+                "A stock offering"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> Did you find out when the plumber is going to be here to fix the broken pipe?</li><li><b>W:</b> Yes, I called at 1 o'clock, and he said he was tied up in another building and would be here by 2.</li><li><b>M:</b> Okay, it's ten minutes to 2 right now. Could you do me a favor and make sure the work goes smoothly when he gets here? I have to step out of the office to meet a client but should be back by 4 o'clock.</li><li><b>W:</b> Okay, I will see you later.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> John, are you planning to go to Chicago to attend the big conference tomorrow? I heard it's going to be great.</li><li><b>M:</b> Well, I really want to, but I can't. I just came back from a business trip in Europe, so I have so much work piled up on my desk.</li><li><b>W:</b> I'm sorry to hear that. Tell you what... I'll take my video camera with me, and I will film the speeches you'd like to see.</li><li><b>M:</b> Oh, that would be great. Thanks, Susan.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>JTx:</b> Have you sent out the shipment of computers to the electronics shop yet? The owner just called and said he needs them within the hour.</li><li><b>M:</b> The truck left ten minutes ago, so it should arrive at the store in the next fifteen minutes. Do you want me to check to see where the driver is now?</li><li><b>W:</b> That's okay. So long as it has left, it'll be fine. Now could you do me a favor and get those boxes loaded on to the truck parked over there?</li><li><b>M:</b> Okay, I will take care of that right away.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Where most likely is the plumber now?",
+              "options": [
+                "He is having lunch.",
+                "He is working somewhere else.",
+                "He is at home relaxing.",
+                "He is doing a favor for the man."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "When is the plumber expected to arrive?",
+              "options": [
+                "At one o'clock",
+                "At two o'clock",
+                "At three o'clock",
+                "At four o'clock"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "Where is the man going?",
+              "options": [
+                "To meet a client",
+                "To talk to the plumber",
+                "To fix the pipe",
+                "To have lunch"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "When will the man come back to his office?",
+              "options": [
+                "At one o'clock",
+                "At two o'clock",
+                "At three o'clock",
+                "At four o'clock"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "When is the conference scheduled to take place?",
+              "options": [
+                "Today",
+                "Tomorrow",
+                "Next week",
+                "Next month"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Why will John miss the conference?",
+              "options": [
+                "He is going on a business trip.",
+                "He is taking a vacation in Europe.",
+                "He has too much work.",
+                "He has to review the videos."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Where has the man just been to for a business trip?",
+              "options": [
+                "Chicago",
+                "Toronto",
+                "Europe",
+                "Asia"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Why is the man thanking the woman?",
+              "options": [
+                "She offered to give him a ride.",
+                "She will lend him her video recorder.",
+                "She will go to the seminar in his place.",
+                "She will record the sessions he wants to see."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Where is the conversation most likely taking place?",
+              "options": [
+                "In a truck",
+                "At the bus stop",
+                "In a warehouse",
+                "At an electronics store"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "When will the computers arrive at the store?",
+              "options": [
+                "In five minutes",
+                "In fifteen minutes",
+                "By this evening",
+                "By tomorrow morning"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Who most likely the man is?",
+              "options": [
+                "A manager",
+                "A director",
+                "A secretary",
+                "A blue worker"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What will the man do next?",
+              "options": [
+                "Call the electronics shop",
+                "Talk to the truck driver",
+                "Turn on the computer",
+                "Lift some boxes"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 / Lecture (Questions 21-25)</strong></p><p>OK class. I want to talk to you about the Cold War today. Now, the Cold War wasn't just one single war. It was actually a long time of aggression. It, um, lasted about fifty years! Anyway, the Cold War was mainly between the US and the USSR. That was Russia's old name. They had different opinions on just about everything. Oh, and Joseph Stalin, who we have talked about before, was the leader of the USSR at the start of the Cold War. Anyway! There was a lot of suspicion during the Cold War. But, the US and the USSR never actually fought each other. This is because both countries had nuclear weapons. So, they were afraid of each other. They didn't want to destroy the whole world. And that might have happened... if they'd fought each other. But, instead of fighting, they showed their different opinions by competing with each other. For example, they made their militaries bigger. And they raced each other to see who could get a person in space first. Stuff like that. But, a lot of the problems were political. The two countries were very different, and so they couldn't get along. This is what caused the Cold War.</p><p><strong>Conversation 2 (Questions 26-30)</strong></p><ul><li><b>M:</b> OK, yesterday we read about Georges Seurat. Now, many people would like to paint like Seurat. But, very few people can. He invented a very precise way of painting. It looks different and is hard to do because it is so exact. There were various styles of painting but Seurat decided to make a different one. The first difference was that Seurat took a lot of time to prepare before he painted. He planned his paintings very carefully. He made many drawings to decide on the best way to reproduce the scene. He worked for many hours before he started to paint. With this style, you have to have a clear purpose. With other styles at this time, they had very little time to prepare. Now, the second difference was that he used pure colors. He understood that the eye would blend the colors. He knew if he painted red next to yellow, the eye would see orange. OK?</li><li><b>W:</b> Why didn't he just mix the paints like other artists? Wouldn't that have been easier?</li><li><b>M:</b> Yes, but using pure colors made the painting very bright. These paintings don't look bright in books. But when you see them in person. Wow! They are great! Now, as you know the biggest difference was that Seurat didn't use brush strokes. He painted tiny dots. One at a time! Millions and millions of dots and some of his paintings were VERY big! Can you imagine how long this took? One painting took two years! Of course, that didn't mean that Seurat was a better painter. All the well-known painters back then were very good and made beautiful paintings. But, Seurat was very proud of his different way of painting. He felt that this new style represented people and nature very well.</li></ul><p><strong>Conversation 3 (Questions 31-35)</strong></p><ul><li><b>W:</b> Today, we're going to talk about snakes. Can you imagine eating a snake? Me neither. But there are creatures that do. This is a problem for snakes. So how do they solve this problem? They have to protect themselves. Let's look at three types of snakes, The rattlesnake, spitting cobra, and hognose snake. They all have unique ways of protecting themselves. The rattlesnake solves this problem in a unique way. You see, rattlesnakes are born with small beads on their tails. As an average snake gets older, it grows more beads. These beads rub together and make a rattling sound. OK, so when does the rattlesnake make this noise? When it thinks an animal might attack it. It cannot shield itself so it tries to scare the creature by rattling its tail. The spitting cobra has another way to protect itself. What does it do? It sprays poison from its mouth. OK? But this snake doesn't just spray it anywhere. No, it sprays it into the eyes of the creature that is attacking it. This is very effective because eyes are sensitive. The spray stops the creature from seeing. And the snake gets away. Next, we have the hognose snake. It's less aggressive. So what does it do? The hognose snake plays dead. That's right! It will twist and roll like it's dying. Then it will lie still on its back. The snake will even hang its tongue out of its mouth! Can you believe that? So, by playing dead, it actually survives.</li></ul>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the main topic in this lecture?",
+              "options": [
+                "Russian leaders",
+                "The Cold War",
+                "The wars between the USSR and the US",
+                "The impacts of the Cold War"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did the US and the USSR never actually fight each other?",
+              "options": [
+                "Because the USSR had nuclear weapons.",
+                "Because the US were afraid of Stalin.",
+                "Because they did not want to destroy the world.",
+                "Because nuclear power could destroy the US."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "According to the professor, how long did the Cold War last?",
+              "options": [
+                "Around 50 years",
+                "Around 60 years",
+                "Around 70 years",
+                "Around 80 years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What can be inferred from the lecture?",
+              "options": [
+                "The Cold War was caused by different opinions.",
+                "The Cold War was a long, violent war between the US and USSR.",
+                "The Cold War was an important time in history of the US and the USSR.",
+                "The Cold War changed the world dramatically."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How does the professor describe the main topic?",
+              "options": [
+                "By comparing and contrasting",
+                "By giving examples",
+                "By listing the events chronologically",
+                "By giving definitions"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The way the eye sees colors",
+                "The steps to paint in a Neo-Impressionism style",
+                "The artists who learned from Seurat",
+                "The difference between painting styles"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What is the professor's opinion of this style of painting?",
+              "options": [
+                "He thinks painting in brush strokes is a better way.",
+                "He is surprised that so many artists are good at it.",
+                "He thinks it is difficult to learn.",
+                "He doesn't like it."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "According to the professor, why did Seurat not blend his paints?",
+              "options": [
+                "He thought it would ruin the paints.",
+                "He thought mixed paints did not look real.",
+                "He thought blended paints made paintings look too divided.",
+                "He thought it would make the art bright."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about Georges Seurat?",
+              "options": [
+                "He was the best artist at his time.",
+                "He was proud of his painting style.",
+                "He used brush strokes to make the pictures brighter.",
+                "He didn't spend a lot of time finishing his paintings."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "How did the professor organize the information about this way of painting?",
+              "options": [
+                "By describing only Seurat's style",
+                "By describing only other styles",
+                "By comparing Seurat and other Neo-Impressionists",
+                "By comparing Neo-Impressionism and other styles"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the lecture about?",
+              "options": [
+                "The feeding habits of snakes",
+                "How certain snakes protect themselves",
+                "The most dangerous snakes in the world",
+                "The different uses of snake poison"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "Why does the professor discuss the beads on a rattlesnake's tail?",
+              "options": [
+                "To show how the rattlesnake is more dangerous than other snakes",
+                "To compare the rattlesnake to less scary animals",
+                "To explain how the rattlesnake scares off animals",
+                "To describe how the rattlesnake uses its tail to hunt"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "According to the professor, where does the spitting cobra spray its poison?",
+              "options": [
+                "At the animal it is hunting",
+                "At other snakes",
+                "At the tongue of an animal that is attacking it",
+                "At the eyes of an animal that is attacking it"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What is the professor's attitude towards the hognose snake?",
+              "options": [
+                "She is amazed by it.",
+                "She thinks that it is stupid.",
+                "She thinks that it is the best snake.",
+                "She thinks that it is the most dangerous."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What can be inferred from the lecture?",
+              "options": [
+                "The spitting cobra rattles its tail.",
+                "The hognose snake pretends to be sick.",
+                "Beads in a rattlesnake's tail make the sound.",
+                "There are no creatures that eat snakes."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Wraight Course: Learning to Speak with Confidence",
+            "text": "<p>Ten years ago, a former high school teacher named James Wraight noticed that many of his adult friends felt nervous whenever they had to speak in front of a group, even a small one at work. He decided to design a short course to help people <strong>overcome</strong> this fear, and he called it simply the Wraight Course. What began as a handful of evening classes in a community hall has since grown into a program used by hundreds of local businesses, and Wraight himself now travels to different cities several times a year to teach it in person. Word of the course spread mainly through recommendations from past students rather than any advertising.</p><p>The course itself lasts only six weeks, with one two-hour class each week, and it focuses almost entirely on practice rather than theory. In the first class, students simply introduce themselves in front of the group and are filmed doing so, a moment many describe as the hardest part of the whole course. Over the following weeks, they watch their own recordings, practice short talks on everyday topics, and slowly learn to notice habits such as speaking too quickly or avoiding eye contact. Wraight insists that reading a textbook about public speaking rarely helps as much as simply speaking in front of real people again and again.</p><p>According to Wraight, the course works mainly because it removes the fear of doing something for the first time. By the third or fourth class, most students have already given several short talks, so standing up to speak no longer feels unfamiliar. He also believes that watching the video recordings helps students separate how nervous they feel from how nervous they actually look, since many students are surprised to discover that they appear far calmer on screen than they felt while speaking. Some evidence for <strong>this claim</strong> comes from surveys the course now asks every student to complete.</p><p>Those surveys, collected after each class finishes, show that most students report feeling <strong>noticeably</strong> more confident by the final week, and many say the change surprised them. One recent graduate, a shop manager who had avoided speaking at staff meetings for years, said she volunteered to lead a meeting only two weeks after finishing the course. Not every student reports the same level of improvement, and Wraight admits the course works better for people who attend every session than for those who miss several classes, since much of the benefit comes from repeated practice rather than any single lesson.</p><p>Today, several local companies pay for new employees to attend the Wraight Course as part of their training, and a few schools have asked Wraight to design a shorter version for teenagers. Wraight himself says he has no plans to turn the course into a large online program, since he believes the small class size and face-to-face practice are what make it effective. For now, at least, anyone who wants to take the course must still sign up for one of his evening classes in person, usually held in a rented room above a local library.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q4, R1Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp trong bài đọc.<ul><li>Với <b>R1Q1</b>, quét cụm từ chỉ thời lượng \"lasts\" ở đầu đoạn 2 để xác định chính xác khóa học kéo dài 6 tuần, mỗi tuần có 1 buổi học kéo dài 2 giờ (lasts only six weeks, with one two-hour class each week).</li><li>Với <b>R1Q4</b>, định vị các từ khóa \"noticed\", \"friends\", \"nervous\" ở đoạn 1 để tìm lý do ban đầu: James Wraight nhận thấy nhiều người bạn trưởng thành của mình cảm thấy lo lắng khi phải phát biểu trước đám đông hay nhóm nhỏ tại nơi làm việc.</li><li>Với <b>R1Q7</b>, quét từ khóa \"shop manager\" ở đoạn 4 để xác định hành động sau khi hoàn thành khóa học: cô ấy đã tự nguyện đăng ký dẫn dắt một cuộc họp nhân viên chỉ 2 tuần sau khi học xong (volunteered to lead a meeting only two weeks after finishing the course).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn: đoạn 1 giới thiệu lý do ra đời và sự phát triển của Wraight Course; đoạn 2 và 3 mô tả nội dung thực hành và cơ chế giúp học viên tự tin hơn; đoạn 4 và 5 nêu kết quả tích cực cùng định hướng giữ vững mô hình lớp học trực tiếp quy mô nhỏ. Ý chính phải bao quát việc James Wraight đã tạo ra một khóa học mang tính thực tiễn cao giúp nhiều người vượt qua sự sợ hãi khi nói trước đám đông.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q3</b>, từ <strong>\"overcome\"</strong> ở đoạn 1 đi liền với cụm \"this fear\" (vượt qua nỗi sợ hãi này). Ngữ cảnh này thể hiện hành động vượt qua hay làm chủ một cảm giác tiêu cực, đồng nghĩa sát nhất với \"get past\".</li><li>Với <b>R1Q8</b>, từ <strong>\"noticeably\"</strong> ở đoạn 4 mô tả sự cải thiện về sự tự tin của học viên (\"feeling noticeably more confident\"). Ngữ cảnh này chỉ sự thay đổi rõ rệt, có thể nhận thấy dễ dàng, đồng nghĩa với \"clearly\".</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q5):</b> Rà soát danh sách các hoạt động thực tế được đề cập trong khóa học: quay video khi giới thiệu bản thân (đoạn 2), xem lại video ghi âm/ghi hình của mình (đoạn 2), và hoàn thành khảo sát sau mỗi buổi học (đoạn 3 & 4). Phương án đề cập đến việc \"nhận một cuốn sách giáo khoa để tự học tại nhà\" là chi tiết không được nhắc đến, thậm chí trái ngược với quan điểm ưu tiên thực hành của tác giả (Wraight khẳng định đọc sách hiếm khi giúp ích bằng việc thực hành nói).</li><li><b>Dạng câu hỏi Quy chiếu (R1Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"this claim\"</strong> ở cuối đoạn 3. Đọc lại mệnh đề ngay trước đó để tìm luận điểm được nhắc tới: câu trước đề cập đến niềm tin rằng việc xem lại video giúp học viên nhận ra họ trông bình tĩnh hơn rất nhiều so với cảm giác lo lắng thực sự bên trong. Vì vậy, \"this claim\" quy chiếu trực tiếp đến niềm tin này.</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Tổng hợp thông tin ở đoạn văn cuối cùng (đoạn 5) về lý do Wraight không chuyển khóa học sang nền tảng trực tuyến quy mô lớn. Tác giả nêu rõ Wraight tin rằng quy mô lớp học nhỏ và việc thực hành tương tác trực tiếp (face-to-face practice) mới là yếu tố quyết định tạo nên hiệu quả của khóa học, từ đó suy luận được rằng ông rất coi trọng giá trị của mô hình học trực tiếp quy mô nhỏ.</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt bài viết. Tác giả trình bày thông tin một cách khách quan, liệt kê các phương pháp giảng dạy, trích dẫn kết quả khảo sát tích cực nhưng cũng không quên đề cập đến hạn chế (như việc khóa học bớt hiệu quả nếu nghỉ học nhiều). Sắc thái này thể hiện thái độ tích cực vừa phải, mang tính mô tả thực tế và trung thực (Mildly positive, describing its methods and reported results factually).</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa thời gian bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R1Q6) và <b>Từ vựng</b> (R1Q3, R1Q8). Kế tiếp, sử dụng kỹ thuật đọc quét từ khóa nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R1Q1, R1Q4, R1Q7) và câu hỏi <b>Loại trừ</b> (R1Q5). Cuối cùng, tổng hợp mạch logic toàn bài để chốt đáp án chính xác cho các câu hỏi tổng hợp bao gồm <b>Suy luận</b> (R1Q9), <b>Ý chính toàn bài</b> (R1Q2) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, how long does the Wraight Course last?</span>",
+              "options": [
+                "Six weeks, with one two-hour class each week",
+                "Six weeks, with two-hour classes every day",
+                "Six months, with one class every two weeks",
+                "Ten weeks, with one two-hour class each week"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "James Wraight was a famous high school teacher before starting any course",
+                "Every company in the region now requires new staff to take the course",
+                "James Wraight created a practical course that has helped many nervous speakers",
+                "Reading textbooks is more useful than any speaking practice course"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"overcome\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "remember",
+                "avoid entirely",
+                "get past",
+                "become"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why did James Wraight originally decide to create the course?</span>",
+              "options": [
+                "He wanted to create an online business from home",
+                "He noticed friends felt nervous speaking in front of groups at work",
+                "He wanted to replace his job as a high school teacher",
+                "He noticed his own students struggled with reading skills"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as part of the Wraight Course?</span>",
+              "options": [
+                "Completing a survey after each class finishes",
+                "Watching recordings of your own short talks",
+                "Being filmed while introducing yourself to the group",
+                "Receiving a written textbook to study at home"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this claim\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "the belief that most companies now pay for the course",
+                "the belief that recordings show students looking calmer than they feel",
+                "the belief that six-week courses work better than year-long courses",
+                "the belief that reading textbooks is the best way to learn"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>What did the shop manager mentioned in the passage do after finishing the course?</span>",
+              "options": [
+                "She opened her own version of the Wraight Course",
+                "She immediately quit her job to teach public speaking",
+                "She missed several classes but still finished the course",
+                "She volunteered to lead a staff meeting two weeks later"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"noticeably\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "slightly",
+                "rarely",
+                "clearly",
+                "nervously"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about why Wraight has not turned the course into a large online program?</span>",
+              "options": [
+                "He has already tried an online version and it failed completely",
+                "He believes online courses always cost more to run than in-person ones",
+                "He has been legally prevented from offering any online courses",
+                "He values small, face-to-face classes for course effectiveness"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the Wraight Course?</span>",
+              "options": [
+                "Enthusiastic, insisting every student should take the course immediately",
+                "Strongly critical, warning readers the course rarely works",
+                "Mildly positive, describing its methods and reported results factually",
+                "Neutral to the point of expressing no information about outcomes"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Spread of Coffee: From Ethiopian Highlands to Global Habit",
+            "text": "<p>Coffee's origins are often traced to a folk tale involving an Ethiopian goat herder named Kaldi, who supposedly noticed his goats became unusually energetic after eating berries from a certain shrub. Whatever the truth behind this story, historians generally agree that the more reliably documented beginning of coffee drinking, as opposed to simply chewing coffee berries or leaves, took place several centuries later in the Yemeni region of Arabia, where Sufi monks reportedly used the drink to stay alert during long nights of prayer.</p><p>By the fifteenth century, coffee cultivation and trade had become firmly established around the Yemeni port city of Mocha, and the drink soon spread northward into the wider Ottoman Empire. Coffeehouses, known in Arabic as qahveh khaneh, began appearing across cities such as Cairo, Damascus, and Constantinople, quickly becoming centers not merely for drinking coffee but for conversation, music, and political discussion, so much so that several rulers, wary of the debate these gatherings encouraged, periodically attempted to ban them outright, generally without lasting success.</p><p>Coffee's arrival in Europe during the seventeenth century met with considerable suspicion at first, some of it religious in nature, since the drink was closely associated with the Ottoman world; one persistent, though probably <strong>apocryphal</strong>, story holds that Pope Clement VIII was asked to ban coffee as a 'Muslim drink' but instead tasted it, reportedly enjoyed it, and gave it his blessing instead. Whether or not this particular anecdote is accurate, coffeehouses spread rapidly through cities such as Venice, London, and Paris within a few decades, often functioning much as their Middle Eastern counterparts had.</p><p>As demand grew across Europe, colonial powers began cultivating coffee far from its Ethiopian origins, establishing plantations in territories including Java, the Caribbean, and later Brazil, which would eventually become the world's largest coffee producer by a considerable margin. This expansion, however, relied heavily on enslaved and forced labor in many regions, a history that modern accounts of coffee's global rise increasingly acknowledge rather than omit, since the crop's spread cannot be fully separated from the economic systems that made large-scale cultivation profitable at the time.</p><p>European coffeehouses developed their own distinct social role, particularly in London, where they became known as 'penny universities' because, for the price of a single cup, a visitor could join wide-ranging discussions on politics, science, and literature with strangers of varying social rank. Some historians argue that these spaces contributed meaningfully to the intellectual culture of the period, functioning as informal meeting points for merchants, scientists, and writers; others caution that <strong>their</strong> influence, while real, has likely been somewhat <strong>romanticized</strong> in later retellings of the era.</p><p>By the twentieth century, coffee had completed its transformation from a regional Arabian drink into one of the most widely traded agricultural commodities in the world, its production, processing, and consumption spanning nearly every continent. This long and often uneven history — spanning religious controversy, colonial exploitation, and genuine cultural exchange — helps explain why coffee occupies such an unusually prominent place in daily life today, one that few other agricultural products, regardless of their nutritional importance, have managed to achieve on a comparable global scale.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q4, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp trong bài đọc.<ul><li>Với <b>R2Q1</b>, quét các từ khóa \"reliably documented\", \"drinking\" ở đoạn 1 để tìm lịch sử ghi chép chính thức: việc uống cà phê bắt đầu tại khu vực Yemen thuộc bán đảo Ả Rập bởi các nhà sư Sufi (Yemeni region of Arabia, among Sufi monks).</li><li>Với <b>R2Q4</b>, định vị các từ khóa \"rulers\", \"Cairo\", \"Damascus\" ở đoạn 2 để xác định phản ứng của giới cầm quyền: họ thi thoảng cố gắng cấm các quán cà phê nhưng thường không thu được kết quả lâu dài (periodically attempted to ban them outright, generally without lasting success).</li><li>Với <b>R2Q7</b>, quét từ khóa \"Brazil\" ở đoạn 4 để xác định vai trò sản xuất: Brazil đã phát triển và trở thành nhà sản xuất cà phê lớn nhất thế giới với khoảng cách biệt lớn (world's largest coffee producer by a considerable margin).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q3):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc các câu chủ đề của từng đoạn: đoạn 1 & 2 nêu nguồn gốc từ Yemen và sự lan rộng ở Đế quốc Ottoman; đoạn 3 & 4 miêu tả việc du nhập sang Châu Âu và phát triển đồn điền toàn cầu; đoạn 5 & 6 tổng kết vai trò xã hội và hàng hóa thương mại thế giới. Ý chính toàn bài phải khái quát quá trình cà phê mở rộng từ Ả Rập để trở thành một sản phẩm thương mại trên toàn thế giới.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q2, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q2</b>, từ <strong>\"apocryphal\"</strong> ở đoạn 3 đi kèm câu chuyện Pope Clement VIII nếm cà phê (\"persistent, though probably apocryphal, story\"). Ngữ cảnh này miêu tả một giai thoại nổi tiếng nhưng có khả năng cao là do hư cấu/thêu dệt mà thành (probably invented).</li><li>Với <b>R2Q8</b>, từ <strong>\"romanticized\"</strong> ở đoạn 5 mô tả việc ảnh hưởng của các quán cà phê London bị lý tưởng hóa trong các câu chuyện kể lại sau này. Ngữ cảnh này đồng nghĩa với việc romantic hóa, lý tưởng hóa (idealized).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q5):</b> Đối soát danh sách các khu vực được các cường quốc thuộc địa lập đồn điền trồng cà phê ở đoạn 4 bao gồm: Java, vùng Caribe (the Caribbean) và Brazil. Tên quốc gia Úc (Australia) hoàn toàn không được nhắc đến trong bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Tập trung vào đại từ sở hữu <strong>\"their\"</strong> trong cụm \"their influence\" ở cuối đoạn 5. Đọc lại mệnh đề liền trước để tìm chủ từ logic: câu trước nhắc đến các quán cà phê ở London (these spaces / European coffeehouses). Do đó, \"their\" quy chiếu trực tiếp đến các quán cà phê ở London (London coffeehouses).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp thông tin ở đoạn 4 về việc trồng cà phê bóc lột sức lao động. Tác giả nhấn mạnh rằng các ghi chép lịch sử hiện đại ngày càng nhìn nhận và đề cập đến tác động của chế độ nô lệ và lao động cưỡng bức thay vì bỏ qua như trước đây (modern accounts... increasingly acknowledge rather than omit), từ đó suy luận được sự khác biệt là ghi chép hiện đại chú trọng đề cập đến tác động của lao động cưỡng bức hơn.</li><li><b>Dạng câu hỏi Thái độ / Tiếp cận của tác giả (R2Q10):</b> Phân tích cách trình bày của tác giả xuyên suốt bài viết: vừa nêu bật giá trị trao đổi văn hóa, tri thức của các quán cà phê (đoạn 2, đoạn 5), vừa không ngần ngại chỉ ra khía cạnh tối màu về bóc lột nô lệ (đoạn 4). Điều này thể hiện một tiếp cận cân bằng, nhìn nhận cả ý nghĩa văn hóa lẫn các khía cạnh tiêu cực/tối màu trong lịch sử phát triển của cà phê (Balanced, weighing both cultural significance and the darker aspects).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị thông tin nhanh như <b>Quy chiếu</b> (R2Q6) và <b>Từ vựng</b> (R2Q2, R2Q8). Tiếp theo, áp dụng kỹ thuật đọc quét nhanh để giải quyết các câu <b>Chi tiết</b> (R2Q1, R2Q4, R2Q7) và câu <b>Loại trừ</b> (R2Q5). Cuối cùng, kết nối thông tin toàn bài để chốt chính xác các câu hỏi tư duy tổng hợp gồm <b>Suy luận</b> (R2Q9), <b>Ý chính toàn bài</b> (R2Q3) và <b>Thái độ/Tiếp cận của tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, where does the more reliably documented history of coffee drinking, as opposed to folk tales, begin?</span>",
+              "options": [
+                "In the Ethiopian highlands, among goat herders",
+                "In the Ottoman city of Constantinople, among traders",
+                "In the Yemeni region of Arabia, among Sufi monks",
+                "In the Italian city of Venice, among merchants"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"apocryphal\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "widely translated",
+                "probably invented",
+                "officially confirmed",
+                "religiously forbidden"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Coffee expanded over time from Arabia to become a worldwide trade product",
+                "Pope Clement VIII single-handedly made coffee acceptable throughout Europe",
+                "Coffeehouses in London were more historically important than any other coffeehouses",
+                "Coffee cultivation has always relied primarily on voluntary, well-paid labor"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, how did some rulers respond to early coffeehouses in cities such as Cairo and Damascus?</span>",
+              "options": [
+                "They funded the construction of new coffeehouses citywide",
+                "They occasionally tried to ban them but rarely achieved lasting results",
+                "They required all coffeehouses to close permanently within a year",
+                "They taxed coffee heavily but never attempted to ban it"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a location where colonial powers established coffee plantations?</span>",
+              "options": [
+                "Java",
+                "Brazil",
+                "the Caribbean",
+                "Australia"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"their\"</strong> (in \"their influence, while real,\" paragraph 5) refers to _______.</span>",
+              "options": [
+                "the London coffeehouses",
+                "the scientific discussions held there",
+                "the merchants and writers who visited",
+                "the historians studying them"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does the passage say about Brazil regarding coffee production?</span>",
+              "options": [
+                "It grew to become the leading global producer of coffee by far",
+                "It was the first territory where coffee plantations were ever established",
+                "It produced coffee only for domestic consumption, not export",
+                "It banned coffee cultivation until the twentieth century"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"romanticized\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "documented",
+                "commercialized",
+                "criticized",
+                "idealized"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about how modern historical accounts of coffee's global spread differ from earlier ones?</span>",
+              "options": [
+                "They focus exclusively on Ethiopian folklore rather than any later history",
+                "They are more inclined to address the impact of forced labor practices",
+                "They argue that coffee spread only through peaceful trade with no exploitation involved",
+                "They completely deny that colonial powers were involved in coffee cultivation"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall approach in presenting coffee's history?</span>",
+              "options": [
+                "Balanced, weighing both cultural significance and the darker aspects of its spread",
+                "Dismissive, arguing coffee's cultural importance has been greatly exaggerated",
+                "Purely celebratory, focusing only on coffee's positive cultural contributions",
+                "Strictly chronological, listing dates without any interpretation or context"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "TikTok and the Adolescent Attention Economy",
+            "text": "<p>Few consumer technologies have generated as much anxious public commentary in as short a period as TikTok, the short-video platform whose algorithm-driven feed now occupies, according to some surveys, well over an hour of the average teenage user's day. Concern about the platform's effects on young people has <strong>coalesced</strong> around several distinct claims — that it shortens attention spans, that it worsens mental health, that it exposes minors to inappropriate content — each of which, on closer inspection, turns out to rest on a considerably thinner evidentiary foundation than the confidence of public debate would suggest.</p><p>Attention span, perhaps the most frequently invoked concern, has proven particularly difficult to study rigorously, largely because researchers disagree substantially about what the term should even measure — sustained focus on a single task, the ability to resist distraction, or something closer to a subjective sense of restlessness. Studies comparing heavy short-video users to light users do find modest differences on certain laboratory attention tasks, but these differences are small enough, and confounded by enough pre-existing factors, that few researchers in the field are willing to claim the platform itself is the cause rather than merely a correlate.</p><p>Mental health effects present an even murkier picture. Large-scale surveys do show a correlation between heavy social media use, TikTok included, and elevated rates of anxiety and depressive symptoms among teenagers, a finding replicated across enough studies that few researchers dispute the association itself. What remains genuinely contested is the direction of causality: some psychologists argue that heavy use worsens mental health directly, others that adolescents already struggling with anxiety or depression may simply be drawn toward heavy platform use as a coping mechanism, and a smaller group suggests both processes likely occur simultaneously, reinforcing each other over time in ways that current study designs struggle to <strong>disentangle</strong>.</p><p>None of this is to say the platform carries no risk. Researchers who study adolescent development broadly agree that algorithmic feeds optimized purely for engagement can, for a meaningful minority of users, amplify content related to disordered eating, self-harm, or extreme political views far more efficiently than earlier social platforms did, since the recommendation system has no inherent mechanism for distinguishing engaging content from harmful content. <strong>This risk</strong>, several researchers emphasize, appears concentrated disproportionately among already-vulnerable teenagers rather than distributed evenly across the entire teenage user base.</p><p>In response to these concerns, TikTok has introduced default screen-time limits for users under eighteen and expanded parental-control features, changes the company frames as evidence of responsible self-regulation. Independent researchers remain divided on how effective these measures actually are, since the limits are relatively easy for a determined teenager to bypass, and the platform's own data on how frequently users override the defaults has not been made available for independent verification, leaving outside assessments of the interventions' real-world impact largely speculative.</p><p>Some researchers argue that comparing TikTok in isolation, rather than as one platform within a broader adolescent media environment that also includes messaging apps, gaming, and other video platforms, risks overstating its individual contribution to the mental health trends described earlier; a teenager's overall screen time across multiple platforms, this view holds, may matter considerably more than time spent on any single application. Whether this reframing meaningfully changes policy recommendations, or simply redistributes responsibility across a wider set of companies, remains disputed among researchers who study platform design.</p><p>Taken together, the available evidence supports neither the alarmist narrative that TikTok is straightforwardly damaging an entire generation nor the dismissive view that concerns about the platform are merely moral panic detached from genuine risk. What it supports, more modestly, is a picture in which real, concentrated harms affect a meaningful minority of already-vulnerable users, while claims about broad, uniform damage to attention or mental health across the general teenage population remain considerably less settled than public conversation about the platform typically assumes.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q4, R3Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị chính xác dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R3Q1</b>, quét từ khóa \"attention span\" và \"difficult to study rigorously\" ở đoạn 2 để tìm lý do: các nhà nghiên cứu không thống nhất/bất đồng quan điểm về việc thuật ngữ này thực sự nên đo lường điều gì (researchers disagree substantially about what the term should even measure).</li><li>Với <b>R3Q4</b>, định vị các cụm từ \"mental health\" và \"genuinely contested\" ở đoạn 3 để xác định tranh cãi: câu hỏi chưa có lời giải đáp nằm ở chiều hướng nguyên nhân - kết quả giữa việc dùng mạng xã hội nhiều và các triệu chứng sức khỏe tinh thần diễn biến xấu hơn (the direction of causality).</li><li>Với <b>R3Q7</b>, quét từ khóa \"screen-time limits\" và \"divided\" ở đoạn 5 để tìm lý do sự bất đồng của các nhà nghiên cứu độc lập: giới hạn thời gian dễ bị qua mặt và dữ liệu sử dụng thực tế chưa được công khai kiểm chứng (easy to bypass and platform's data has not been made available).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R3Q3):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề và đoạn kết luận (đoạn 7): bài đọc chỉ ra các lo ngại về TikTok không hoàn toàn vô căn cứ nhưng cũng không hẳn thảm họa như dư luận thổi phồng, mà các tác động thực tế phức tạp và tập trung ở nhóm đối tượng nhạy cảm. Ý chính bài đọc khẳng định tác động của TikTok lên thanh thiếu niên mang tính hỗn hợp và phức tạp hơn nhiều so với những lời đồn đoán.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q2, R3Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q2</b>, từ <strong>\"coalesced\"</strong> ở đoạn 1 miêu tả các luồng dư luận lo ngại tụ họp lại xung quanh một số tuyên bố cụ thể (\"Concern... has coalesced around several distinct claims\"). Ngữ cảnh này chỉ sự hội tụ, tụ họp lại (come together).</li><li>Với <b>R3Q8</b>, từ <strong>\"disentangle\"</strong> ở đoạn 3 mô tả việc các thiết kế nghiên cứu hiện tại rất khó để gỡ rối, phân tách các mối quan hệ tác động qua lại lẫn nhau giữa hai yếu tố (reinforcing each other over time in ways that current study designs struggle to disentangle). Ngữ cảnh này đồng nghĩa với việc phân tách, gỡ rối (separate out).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Đối soát kỹ các yếu tố được thảo luận trong bài: định nghĩa về khả năng tập trung (đoạn 2), việc khuếch đại nội dung độc hại tới nhóm người dùng nhạy cảm (đoạn 4) và sự khó khăn khi kiểm chứng việc học sinh bypass giới hạn thời gian (đoạn 5). Phương án đề cập đến \"tổng số lượng nhân viên TikTok phụ trách kiểm duyệt nội dung\" hoàn toàn không được nhắc đến trong văn bản.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"This risk\"</strong> ở cuối đoạn 4. Phân tích câu liền trước để tìm nguy cơ được nhắc tới: câu trước giải thích thuật toán có thể khuếch đại các nội dung liên quan đến rối loạn ăn uống, tự hại hay quan điểm cực đoan. Do đó, \"This risk\" quy chiếu trực tiếp đến nguy cơ người dùng nhạy cảm bị tiếp xúc với các nội dung độc hại.</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Tổng hợp logic ở đoạn 6 về việc đánh giá TikTok một cách cô lập thay vì đặt trong môi trường truyền thông chung của giới trẻ. Tác giả chỉ ra rằng việc đánh giá riêng lẻ có thể dẫn đến rủi ro phóng đại vai trò đóng góp cá nhân của TikTok vào các xu hướng sức khỏe tinh thần chung (risks overstating its individual contribution), từ đó suy luận được rằng việc đánh giá tách biệt làm phóng đại mức độ ảnh hưởng của ứng dụng.</li><li><b>Dạng câu hỏi Mục đích của tác giả (R3Q10):</b> Phân tích sắc thái toàn bài, đặc biệt ở đoạn kết luận (đoạn 7). Tác giả bác bỏ cả quan điểm thổi phồng thảm họa lẫn thái độ coi thường rủi ro, nhằm đem lại một góc nhìn khách quan, đa chiều và cẩn trọng. Mục đích chính của bài viết là đưa ra một cái nhìn cân bằng, tránh các góc nhìn cực đoan về TikTok (To offer a balanced view that avoids extreme perspectives).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị thông tin nhanh như <b>Quy chiếu</b> (R3Q6) và <b>Từ vựng</b> (R3Q2, R3Q8). Tiếp theo, sử dụng kỹ thuật đọc quét thông tin để giải quyết các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q4, R3Q7) và câu hỏi <b>Loại trừ</b> (R3Q5). Cuối cùng, tổng hợp mạch logic toàn bài để hoàn thành chính xác các câu đòi hỏi tư duy cao gồm <b>Suy luận</b> (R3Q9), <b>Ý chính toàn bài</b> (R3Q3) và <b>Mục đích của tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, why has attention span been particularly difficult to study rigorously?</span>",
+              "options": [
+                "TikTok has refused to allow any independent researchers access to users",
+                "No teenager has ever agreed to participate in an attention study",
+                "Attention span cannot be measured using any laboratory task whatsoever",
+                "Researchers disagree about what the term itself should measure"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"coalesced\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "come together",
+                "dissolved",
+                "disappeared",
+                "multiplied"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "TikTok's screen-time limits have completely solved concerns about mental health",
+                "TikTok poses no meaningful risk to any teenage user whatsoever",
+                "TikTok has effects on teenagers that are far more mixed and complex than suggested",
+                "TikTok has been proven to shorten the attention span of most teenagers"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what remains genuinely contested among researchers studying mental health and heavy platform use?</span>",
+              "options": [
+                "Whether teenagers use TikTok more than any other social platform",
+                "The direction of causality between heavy use and worsening mental health",
+                "Whether any correlation between heavy use and anxiety exists at all",
+                "Whether depressive symptoms can be measured through surveys at all"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor discussed in relation to TikTok's effects on teenagers?</span>",
+              "options": [
+                "Amplification of harmful content toward an already-vulnerable minority of users",
+                "The total number of TikTok employees dedicated to content moderation",
+                "Disagreement over what attention span should measure",
+                "Difficulty verifying how often teenagers bypass the platform's screen-time limits"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this risk\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "the possibility that screen-time limits are easy to bypass",
+                "the exposure of vulnerable users to harmful content",
+                "the disagreement over causality in mental health research",
+                "the difficulty of measuring attention span in a laboratory"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, why do independent researchers remain divided on the effectiveness of TikTok's screen-time limits?</span>",
+              "options": [
+                "TikTok has refused to introduce any screen-time limits at all",
+                "The limits have been proven completely ineffective by every published study",
+                "The limits are relatively easy to bypass and usage data has not been made available",
+                "Parental-control features are only available in a small number of countries"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"disentangle\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "strengthen",
+                "separate out",
+                "entertain",
+                "simplify"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about comparing TikTok's effects in isolation from other platforms?</span>",
+              "options": [
+                "Doing so has been proven to be the only valid method for studying adolescent media use",
+                "Doing so shows that TikTok causes more harm than every other platform combined",
+                "Doing so may exaggerate TikTok's individual role in broader adolescent trends",
+                "Doing so has led most researchers to recommend banning the platform entirely"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in the passage?</span>",
+              "options": [
+                "To criticize parents for failing to monitor their children's platform use",
+                "To argue that TikTok's algorithm should be banned immediately by regulators",
+                "To prove that concerns about TikTok are entirely unfounded moral panic",
+                "To offer a balanced view that avoids extreme perspectives on TikTok"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Dyslexia Across Languages: Why Orthography Shapes the Disorder",
+            "text": "<p>Dyslexia, a neurodevelopmental condition characterized primarily by persistent difficulty in accurately and fluently decoding written words, was long assumed by much of the clinical literature to manifest in broadly similar ways regardless of the language in which a child was being taught to read. Not only has this assumption proven difficult to sustain under closer cross-linguistic scrutiny, but a growing body of comparative research now suggests that the specific reading difficulties associated with dyslexia — their severity, their detectability, and even the underlying cognitive profile most strongly implicated — vary considerably depending on how consistently a given writing system maps spoken sounds onto written symbols.</p><p>Orthographic depth, the technical term for how transparently a language's spelling represents its pronunciation, turns out to matter enormously in this respect. Languages such as Italian and Finnish, whose spelling systems map sound to symbol with relatively few exceptions, are frequently described as 'shallow' orthographies, while English, whose spelling retains historical irregularities across thousands of common words, is considered comparatively 'deep.' Children learning to read in shallow orthographies typically achieve accurate decoding within the first year or two of formal instruction, a pace substantially faster than children learning English, where accurate decoding frequently continues developing well into later primary school years even among typically developing readers.</p><p>This difference carries a significant, if somewhat counterintuitive, consequence for how dyslexia itself is identified and studied. In shallow orthographies, where most children achieve accurate decoding quickly regardless of underlying cognitive differences, dyslexia tends to manifest primarily as a persistent deficit in reading speed and fluency rather than accuracy, since even affected readers eventually learn to decode words correctly, just markedly more slowly than their peers. In deep orthographies such as English, by contrast, the same underlying cognitive deficit may instead manifest as persistent inaccuracy, since the irregular spelling system offers far more opportunity for decoding errors to persist uncorrected well beyond the point where a shallow-orthography reader would have resolved them.</p><p>This orthographic-dependence does not mean dyslexia is somehow a different disorder in different languages, most researchers are careful to clarify; the underlying phonological processing deficit — broadly, difficulty manipulating the sound structure of language — appears substantially consistent across writing systems, and brain-imaging studies report broadly similar patterns of atypical activation in reading-related brain regions regardless of the language being read. What differs, this research suggests, is not the underlying deficit itself but how visibly and how quickly that deficit translates into a measurable reading problem within any particular orthography's demands.</p><p>This distinction carries a practical implication that some clinicians consider <strong>underappreciated</strong>: a child being taught to read in a shallow orthography may show no obvious accuracy problems whatsoever, passing informal screening that focuses primarily on correct-versus-incorrect word reading, while nonetheless experiencing a genuine underlying phonological deficit that a fluency-focused or speed-based assessment would readily detect. Some researchers therefore argue that diagnostic criteria imported wholesale from deep-orthography research, particularly criteria weighted heavily toward accuracy errors, risk systematically underdiagnosing dyslexia in shallow-orthography populations, though <strong>this concern</strong> remains more strongly supported for certain shallow orthographies than for others, and comprehensive cross-national diagnostic data remain comparatively limited.</p><p>Whether current screening tools used in shallow-orthography countries have been adequately <strong>recalibrated</strong> to detect fluency-based rather than accuracy-based deficits, of the kind described earlier, remains disputed among specialists in educational assessment; some argue that adequate recalibration has already occurred in several major shallow-orthography education systems, while others maintain that accuracy-oriented assumptions imported from English-language research continue to shape screening instruments more than orthographic differences would justify.</p><p>None of this settles precisely how much of cross-national variation in reported dyslexia prevalence reflects genuine differences in underlying rates versus artifacts of orthography-mismatched diagnostic tools, a question current data cannot fully resolve. What the accumulated cross-linguistic evidence does suggest, cautiously, is that any account of dyslexia built exclusively around English-language reading development risks mistaking one orthography's particular symptom profile for a universal feature of the disorder itself, a risk that comparative research increasingly treats as more than merely theoretical.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q4, R4Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R4Q2</b>, quét các từ khóa \"shallow orthographies\" ở đoạn 2 để tìm thời gian trẻ học đọc: trẻ học các ngôn ngữ có hệ thống chính tả nông/minh bạch đạt khả năng giải mã chính xác trong 1-2 năm đầu học chính thức (within the first year or two of formal instruction), nhanh hơn nhiều so với tiếng Anh.</li><li>Với <b>R4Q4</b>, định vị thông tin so sánh ở đoạn 3 về biểu hiện của hội chứng khó đọc: ở hệ chính tả nông (shallow), dyslexia chủ yếu biểu hiện qua độ trôi chảy/tốc độ đọc kém (lower fluency); trong khi ở hệ chính tả sâu (deep) như tiếng Anh, nó lại biểu hiện qua các lỗi đọc sai dai dẳng (persistent inaccuracy).</li><li>Với <b>R4Q10</b>, quét từ khóa \"brain-imaging studies\" ở đoạn 4 để xác định kết quả chẩn đoán hình ảnh: các nghiên cứu ghi nhận mô hình kích hoạt bất thường tương tự nhau ở các vùng não liên quan đến việc đọc bất kể ngôn ngữ nào (broadly similar patterns of atypical activation in reading-related brain regions).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R4Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề ở đoạn 1 và đoạn 4: bài đọc giải thích rằng thiếu hụt nhận thức cốt lõi (phonological deficit) của bệnh khó đọc là nhất quán ở mọi ngôn ngữ, nhưng cách nó bộc lộ ra ngoài lại phụ thuộc mạnh mẽ vào độ sâu chính tả (orthographic depth) của từng hệ thống chữ viết. Phương án đúng phải bao quát được cả hai vế cốt lõi này.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q3</b>, từ <strong>\"underappreciated\"</strong> ở đoạn 5 mô tả một ý nghĩa thực tiễn chưa được đánh giá hay nhìn nhận đúng mức bởi các bác sĩ lâm sàng. Ngữ cảnh này chỉ sắc thái nghĩa chưa được công nhận đầy đủ (not fully recognized).</li><li>Với <b>R4Q8</b>, từ <strong>\"recalibrated\"</strong> ở đoạn 6 nói về việc điều chỉnh lại các công cụ tầm soát (screening tools) để đo lường độ trôi chảy thay vì độ chính xác. Ngữ cảnh này đồng nghĩa với việc tái điều chỉnh, thiết lập lại (readjusted).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q5):</b> Đối soát các yếu tố được thảo luận trong văn bản: ảnh hưởng của độ sâu chính tả tới tốc độ giải mã (đoạn 2), khiếm khuyết âm tiết nhất quán trên ảnh chụp brain-imaging (đoạn 4) và nguy cơ bỏ sót chẩn đoán ở các nước có hệ chính tả nông (đoạn 5). Chi tiết về \"độ tuổi trung bình bắt đầu đi học đọc chính thức trên toàn thế giới\" không hề được nhắc đến.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"this concern\"</strong> ở đoạn 5. Đọc lại câu liền trước để xác định mối lo ngại: câu trước cảnh báo việc áp dụng tiêu chuẩn chẩn đoán từ tiếng Anh (thiên về lỗi chính xác) có nguy cơ bỏ sót chẩn đoán hội chứng khó đọc ở các quần thể dùng hệ chính tả nông. Do đó, \"this concern\" quy chiếu trực tiếp đến nguy cơ bỏ sót chẩn đoán này.</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Kết hợp thông tin ở đoạn 3 và đoạn 5 về việc trẻ ở hệ chính tả nông bị mắc chứng khó đọc vẫn có thể đọc chính xác từ ngữ nhưng lại đọc rất chậm (fluency deficit). Từ đó suy luận được rằng một đứa trẻ vượt qua bài kiểm tra đọc chính xác (accuracy-based) vẫn có thể đang mang khiếm khuyết âm tiết ngầm mà chỉ bài đánh giá độ trôi chảy/tốc độ mới phát hiện ra.</li><li><b>Dạng câu hỏi Thái độ tác giả (R4Q9):</b> Phân tích lập trường của tác giả ở đoạn 1 và đoạn 7. Tác giả thể hiện sự hoài nghi (Skeptical) đối với giả định cho rằng chứng khó đọc bộc lộ giống hệt nhau ở mọi ngôn ngữ bằng cách dẫn chứng các bằng chứng đối so sánh ngôn ngữ, đồng thời vẫn khẳng định bản chất khiếm khuyết cốt lõi ban đầu là tương đồng.</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị thông tin nhanh như <b>Quy chiếu</b> (R4Q6) và <b>Từ vựng</b> (R4Q3, R4Q8). Tiếp theo, áp dụng kỹ thuật đọc quét nhanh để giải quyết các câu <b>Chi tiết</b> (R4Q2, R4Q4, R4Q10) và <b>Loại trừ</b> (R4Q5). Cuối cùng, tổng hợp logic toàn bài để hoàn thành chính xác các câu hỏi tư duy cao gồm <b>Suy luận</b> (R4Q7), <b>Ý chính toàn bài</b> (R4Q1) và <b>Thái độ tác giả</b> (R4Q9).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Dyslexia's underlying deficit is consistent, but its manifestation depends on orthographic depth",
+                "Dyslexia occurs only in languages with deep, irregular spelling systems such as English",
+                "Brain-imaging studies have proven dyslexia is a completely different disorder in every language",
+                "Shallow-orthography countries no longer need any dyslexia screening tools at all"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what distinguishes children learning to read in shallow orthographies from those learning English?</span>",
+              "options": [
+                "They achieve accurate decoding much sooner, usually within two years",
+                "They achieve accurate decoding at exactly the same pace as English learners",
+                "They never achieve accurate decoding regardless of how many years they study",
+                "They achieve accurate decoding only after several years longer than English learners"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"underappreciated\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "financially undervalued",
+                "not yet discovered",
+                "widely publicized",
+                "not fully recognized"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, how does dyslexia tend to manifest differently in shallow versus deep orthographies?</span>",
+              "options": [
+                "Only as a speech difficulty, never as a reading difficulty, in either orthography",
+                "As lower fluency in shallow orthographies and persistent inaccuracy in deep ones",
+                "As persistent inaccuracy in shallow orthographies but reduced fluency in deep ones",
+                "Identically in both types of orthography, with no measurable difference"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor discussed in relation to dyslexia across languages?</span>",
+              "options": [
+                "Orthographic depth affecting how quickly children achieve accurate decoding",
+                "The average age at which children begin formal reading instruction worldwide",
+                "Consistent phonological deficits shown across languages in brain-imaging studies",
+                "The risk of underdiagnosing dyslexia in shallow-orthography populations"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this concern\"</strong> in paragraph 5 refers to _______.</span>",
+              "options": [
+                "the risk of underdiagnosing dyslexia when using deep-orthography criteria in shallow ones",
+                "the risk that screening tools have already been fully recalibrated everywhere",
+                "the risk that brain-imaging studies cannot be replicated across languages",
+                "the risk that English spelling will become even more irregular over time"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about a child in a shallow-orthography country who passes an accuracy-based reading screening?</span>",
+              "options": [
+                "The child will certainly develop reading difficulties later in a deep orthography",
+                "The child may still have an underlying phonological deficit that a fluency-based assessment would detect",
+                "The child's brain-imaging results would necessarily differ from those of an English-speaking child with dyslexia",
+                "The child is guaranteed to have no phonological processing difficulties whatsoever"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"recalibrated\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "published",
+                "calculated",
+                "eliminated",
+                "readjusted"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward claims that dyslexia manifests identically across all languages?</span>",
+              "options": [
+                "Fully convinced that dyslexia is an entirely different disorder in each language",
+                "Skeptical, citing cross-linguistic evidence while affirming a shared core deficit",
+                "Dismissive of any research on orthographic depth as unreliable",
+                "Neutral, presenting no evaluation of the assumption at all"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do brain-imaging studies report about dyslexic readers across different languages?</span>",
+              "options": [
+                "Activation patterns that have never been studied in more than one language",
+                "Completely different patterns of brain activation depending on orthographic depth",
+                "No detectable brain activation differences between dyslexic and non-dyslexic readers in any language",
+                "Similar patterns of atypical activation in reading-related brain regions across languages"
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "formal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You recently applied for an assistant position at an international company.</p> The company has contacted you and asked for some additional information before arranging an interview.",
+          "content": "<p class='mb-1'>Read part of the email from the company below.</p><p class='mb-1'>Thank you for applying for the assistant position at our company. Before we continue the recruitment process, we would like to know more about your expectations and experience.</p><ul><li>Tell us about your expected salary.</li><li>Describe your previous working experience and responsibilities.</li><li>Explain when you can start working if you are accepted for the position.</li></ul>",
+          "description": "Write an email responding to the company. You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li>Đây là dạng <strong>Formal Email</strong> (email trang trọng) vì bạn đang giao tiếp với công ty tuyển dụng về vị trí trợ lý.</li><li>Giọng văn cần lịch sự, chuyên nghiệp và rõ ràng. Tránh sử dụng từ ngữ quá thân mật như khi viết cho bạn bè.</li><li>Đề bài yêu cầu bạn trả lời đầy đủ 3 ý chính: mức lương mong muốn, kinh nghiệm làm việc trước đây và thời gian có thể bắt đầu công việc.</li><li>Bạn cần viết tối thiểu 120 từ, tuy nhiên nên viết khoảng 140–170 từ để triển khai ý đầy đủ hơn.</li><li>Cần trả lời đúng trọng tâm từng gạch đầu dòng để tránh mất điểm Task Fulfillment.</li><li>Nên sử dụng thì quá khứ khi nói về kinh nghiệm cũ và thì tương lai hoặc hiện tại khi nói về kế hoạch làm việc.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Mở đầu lịch sự như: Dear Hiring Manager, hoặc Dear Sir/Madam,</li><li><strong>Opening:</strong> Cảm ơn công ty đã phản hồi hồ sơ. Ví dụ: Thank you for your email and for considering my application for the assistant position.</li><li><strong>Body paragraph 1:</strong> Trình bày mức lương mong muốn và giải thích ngắn gọn lý do phù hợp với kinh nghiệm.</li><li><strong>Body paragraph 2:</strong> Mô tả công việc cũ, nhiệm vụ chính và kỹ năng liên quan.</li><li><strong>Body paragraph 3:</strong> Nêu thời gian có thể bắt đầu làm việc. Ví dụ: I am available to start working from next month.</li><li><strong>Closing:</strong> Kết thúc lịch sự và thể hiện mong muốn được phỏng vấn. Ví dụ: I look forward to hearing from you soon.</li><li><strong>Sign-off:</strong> Dùng Best regards, hoặc Yours sincerely,</li><li>Mỗi đoạn nên có 2–3 câu để bài viết rõ ràng và dễ đọc.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng thì Quá khứ đơn để mô tả công việc trước đây và Hiện tại đơn để nói về kỹ năng hiện tại.</li><li>Dùng câu ghép với because, although, while để tăng độ đa dạng ngữ pháp.</li><li>Tránh lặp từ “job” hoặc “work” quá nhiều bằng cách thay thế bằng “position”, “role”, “employment”.</li><li>Sử dụng các cụm từ trang trọng như “I would like to”, “I would appreciate”, “I am writing to”.</li><li>Nên dùng các động từ hành động như managed, supported, organized để mô tả kinh nghiệm.</li><li>Đảm bảo email có sự liên kết logic giữa các ý bằng các từ nối phù hợp.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Expected salary:</strong> Mức lương mong muốn</li><li><strong>Previous experience:</strong> Kinh nghiệm trước đây</li><li><strong>Administrative tasks:</strong> Công việc hành chính</li><li><strong>Communication skills:</strong> Kỹ năng giao tiếp</li><li><strong>Full-time position:</strong> Vị trí toàn thời gian</li><li><strong>Recruitment process:</strong> Quy trình tuyển dụng</li><li><strong>Work environment:</strong> Môi trường làm việc</li><li><strong>Professional attitude:</strong> Thái độ chuyên nghiệp</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Firstly:</strong> Thứ nhất</li><li><strong>In addition:</strong> Thêm vào đó</li><li><strong>Moreover:</strong> Hơn nữa</li><li><strong>As a result:</strong> Kết quả là</li><li><strong>Therefore:</strong> Vì vậy</li><li><strong>Finally:</strong> Cuối cùng</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I am excited about this opportunity:</strong> Tôi rất hào hứng với cơ hội này</li><li><strong>I would be grateful for the opportunity:</strong> Tôi sẽ rất biết ơn nếu có cơ hội này</li><li><strong>I look forward to hearing from you:</strong> Tôi mong nhận được phản hồi từ bạn</li><li><strong>I appreciate your consideration:</strong> Tôi cảm kích vì sự cân nhắc của công ty</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Dùng văn phong quá thân mật như viết cho bạn bè.</li><li>Không trả lời đầy đủ cả 3 yêu cầu trong đề bài.</li><li>Viết quá ngắn dưới 120 từ.</li><li>Sử dụng sai thì khi nói về kinh nghiệm làm việc.</li><li>Quên lời chào đầu thư hoặc kết thúc thư.</li><li>Lặp từ vựng đơn giản quá nhiều như “good” hoặc “nice”.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Kiểm tra xem đã trả lời đủ 3 gạch đầu dòng chưa.</li><li>Đếm số từ để chắc chắn bài trên 120 từ.</li><li>Kiểm tra lỗi chia thì và chính tả.</li><li>Đảm bảo email có mở bài và kết bài rõ ràng.</li><li>Xem lại các từ nối để bài viết mạch lạc hơn.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tưởng tượng bạn thực sự đang ứng tuyển công việc để bài viết tự nhiên hơn.</li><li>Không cần sử dụng từ vựng quá khó; sự rõ ràng và chính xác quan trọng hơn.</li><li>Ưu tiên trả lời đầy đủ yêu cầu trước khi cố viết câu phức tạp.</li><li>Giữ giọng văn chuyên nghiệp nhưng vẫn thân thiện.</li><li>Một email logic, dễ hiểu và đúng mục tiêu sẽ giúp bạn đạt điểm tốt ở mức B1–B2.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "discussion",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>Natural disasters such as floods, earthquakes and storms can seriously affect people's lives and communities.</p><p class='mb-1'>Many people believe that strong connections among neighbors play an important role during these difficult situations.</p><p class='mb-1'><strong>Discuss the importance of people connection in neighborhoods during natural disasters and give your own opinion.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss both views and give your own opinion about the importance of people connection in neighborhoods during natural disasters. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li>Đây là dạng bài <strong>Discussion Essay</strong> kết hợp nêu quan điểm cá nhân.</li><li>Từ khóa quan trọng gồm: “people connection”, “neighborhoods”, “natural disasters”.</li><li>Bạn cần giải thích vì sao sự kết nối cộng đồng lại quan trọng trong thiên tai.</li><li>Ngoài việc phân tích lợi ích, bạn cần đưa ra ý kiến cá nhân rõ ràng trong mở bài hoặc kết bài.</li><li>Bài viết cần tối thiểu 250 từ, nhưng nên viết khoảng 270–320 từ để phát triển ý tốt hơn.</li><li>Không nên chỉ kể ví dụ mà phải phân tích nguyên nhân và tác động.</li><li>Hãy tập trung vào các ý như hỗ trợ lẫn nhau, chia sẻ thông tin, cứu hộ và ổn định tinh thần.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu chủ đề thiên tai và vai trò của cộng đồng. Ví dụ: Natural disasters can cause serious damage, so cooperation among neighbors is becoming increasingly important.</li><li><strong>Thesis statement:</strong> Nêu quan điểm tổng quát. Ví dụ: I believe strong neighborhood connections are essential during emergencies.</li><li><strong>Body paragraph 1:</strong> Trình bày lợi ích đầu tiên như hỗ trợ vật chất và cứu hộ nhanh chóng.</li><li><strong>Body paragraph 2:</strong> Phân tích lợi ích tinh thần, chia sẻ thông tin và tạo sự an toàn.</li><li><strong>Body paragraph 3:</strong> Có thể nêu thêm ví dụ thực tế hoặc hậu quả khi cộng đồng thiếu kết nối.</li><li><strong>Conclusion:</strong> Tóm tắt ý chính và khẳng định lại quan điểm.</li><li>Mỗi đoạn thân bài nên có cấu trúc: Topic sentence → Explanation → Example → Mini conclusion.</li><li>Ví dụ câu mở đoạn: Firstly, strong neighborhood relationships can help people receive immediate support during emergencies.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng thì Hiện tại đơn để trình bày sự thật chung và hiện tượng xã hội.</li><li>Dùng câu điều kiện để nói về hậu quả hoặc giải pháp. Ví dụ: If people cooperate well, communities can recover faster.</li><li>Tránh lặp lại từ “people” bằng các từ như residents, local citizens, community members.</li><li>Sử dụng từ nối hợp lý để tạo sự liên kết logic giữa các đoạn văn.</li><li>Nên đưa ví dụ thực tế như bão lũ hoặc động đất để tăng tính thuyết phục.</li><li>Đảm bảo có quan điểm cá nhân rõ ràng thay vì chỉ mô tả vấn đề.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Natural disaster:</strong> Thiên tai</li><li><strong>Community support:</strong> Sự hỗ trợ cộng đồng</li><li><strong>Emergency response:</strong> Phản ứng khẩn cấp</li><li><strong>Social connection:</strong> Mối liên kết xã hội</li><li><strong>Rescue operation:</strong> Hoạt động cứu hộ</li><li><strong>Food and medical supplies:</strong> Lương thực và vật tư y tế</li><li><strong>Mental support:</strong> Hỗ trợ tinh thần</li><li><strong>Sense of safety:</strong> Cảm giác an toàn</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Furthermore:</strong> Hơn nữa</li><li><strong>In addition:</strong> Thêm vào đó</li><li><strong>However:</strong> Tuy nhiên</li><li><strong>As a result:</strong> Kết quả là</li><li><strong>For example:</strong> Ví dụ</li><li><strong>Therefore:</strong> Vì vậy</li><li><strong>In conclusion:</strong> Kết luận lại</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Local residents:</strong> Cách thay thế cho “people in neighborhoods”</li><li><strong>Build strong community ties:</strong> Thay cho “have good connections”</li><li><strong>Extreme weather events:</strong> Thay cho “natural disasters”</li><li><strong>Mutual assistance:</strong> Thay cho “help each other”</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li><strong>In my opinion, community cooperation is extremely valuable during emergencies:</strong> Theo tôi, sự hợp tác cộng đồng rất quan trọng trong tình huống khẩn cấp</li><li><strong>Compared to isolated individuals, connected communities can recover more quickly:</strong> So với những cá nhân tách biệt, cộng đồng gắn kết có thể phục hồi nhanh hơn</li><li><strong>One possible solution is to organize local support groups:</strong> Một giải pháp là tổ chức các nhóm hỗ trợ địa phương</li><li><strong>It is essential for neighbors to communicate regularly:</strong> Điều cần thiết là hàng xóm nên giao tiếp thường xuyên</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Không nêu rõ quan điểm cá nhân.</li><li>Viết mở bài quá dài nhưng thân bài thiếu ý.</li><li>Dùng ví dụ không liên quan đến thiên tai.</li><li>Lặp từ “community” hoặc “people” quá nhiều.</li><li>Không có câu chủ đề rõ ràng trong mỗi đoạn.</li><li>Kết luận chỉ lặp lại mở bài mà không tổng kết ý.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem bài đã đủ ít nhất 250 từ chưa.</li><li>Đảm bảo mỗi đoạn có một ý chính rõ ràng.</li><li>Kiểm tra lỗi chia thì và số nhiều số ít.</li><li>Xem lại các từ nối để bài viết logic hơn.</li><li>Đảm bảo đã có ví dụ minh họa và quan điểm cá nhân.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Không cần đưa ra ý tưởng quá học thuật; điều quan trọng là lập luận rõ ràng.</li><li>Hãy tập trung vào việc giải thích “tại sao” và “như thế nào” thay vì chỉ liệt kê ý.</li><li>Bài viết mạch lạc và đúng trọng tâm thường đạt điểm cao hơn bài dùng từ quá phức tạp.</li><li>Luôn đảm bảo mọi đoạn văn đều liên kết với chủ đề chính.</li><li>Viết như đang thuyết phục người đọc rằng sự gắn kết cộng đồng là cần thiết trong cuộc sống hiện đại.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you enjoy reading books?",
+            "What kind of books do you usually read?",
+            "Do you prefer reading physical books or e-books? Why?",
+            "Can you describe the neighborhood where you live?",
+            "Do you know your neighbors well?",
+            "What do you like or dislike about living in your neighborhood?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này có <strong>2 chủ đề nhỏ</strong>: <strong>Topic A (Books)</strong> và <strong>Topic B (Neighborhood)</strong>.</li><li><strong>Topic A (Books):</strong> Ba câu hỏi đầu kiểm tra khả năng nói về sở thích đọc sách, thể loại sách yêu thích và quan điểm về sách giấy hay sách điện tử.</li><li><strong>Topic B (Neighborhood):</strong> Ba câu hỏi sau kiểm tra khả năng mô tả nơi ở, mức độ quen biết với hàng xóm và cảm nhận về khu vực sinh sống.</li><li>Tiêu chí đánh giá gồm <strong>Fluency, Vocabulary, Grammar và Pronunciation</strong>.</li><li>Thời gian Part 1 là <strong>3 phút</strong>, nên dành khoảng 25–35 giây cho mỗi câu hỏi, cân bằng đều giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong> để trả lời đầy đủ và có chiều sâu.</li><li><strong>Ví dụ Topic A:</strong> \"I mostly enjoy reading novels and biographies because they help me understand different perspectives on life.\"</li><li><strong>Ví dụ Topic B:</strong> \"I live in a quiet residential area where most of the houses have small gardens, and it feels very peaceful in the evenings.\"</li><li>Luôn tự hỏi Why?/How? để mở rộng câu trả lời, tránh nói quá ngắn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển ý tự nhiên như \"Besides reading, I'd also like to describe the neighborhood where I live.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Duy trì tốc độ nói ổn định, dùng từ đệm để tránh khoảng lặng dài.</li><li>Dùng <strong>hiện tại đơn</strong> khi nói về thói quen đọc sách và mô tả khu vực sinh sống, dùng <strong>so sánh</strong> khi đối chiếu sách giấy và sách điện tử.</li><li>Nếu bí từ, hãy diễn đạt bằng từ đơn giản hơn thay vì im lặng.</li><li>Từ vựng cho Topic A: get absorbed in a story, a page-turner, broaden one's perspective, flip through pages.</li><li>Từ vựng cho Topic B: a residential area, a close-knit community, a peaceful atmosphere, within walking distance.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>get absorbed in a story</strong> (đắm chìm vào một câu chuyện)</li><li><strong>a page-turner</strong> (một cuốn sách cuốn hút)</li><li><strong>broaden one's perspective</strong> (mở rộng góc nhìn)</li><li><strong>a residential area</strong> (một khu dân cư)</li><li><strong>a close-knit community</strong> (một cộng đồng gắn kết)</li><li><strong>within walking distance</strong> (trong khoảng cách đi bộ)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Firstly</strong> - trước hết, dùng để mở đầu ý.</li><li><strong>Besides</strong> - bên cạnh đó, dùng để bổ sung ý.</li><li><strong>For example</strong> - ví dụ như, dùng khi minh họa.</li><li><strong>However</strong> - tuy nhiên, dùng khi đối chiếu ý kiến.</li><li><strong>That's why</strong> - đó là lý do vì sao, dùng để nêu kết quả.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>Personally, I think...</strong> Ví dụ: \"Personally, I think physical books give a more immersive reading experience than e-books.\"</li><li><strong>In my opinion...</strong> Ví dụ: \"In my opinion, having friendly neighbors makes a neighborhood feel like home.\"</li><li><strong>I would say that...</strong> Ví dụ: \"I would say that my neighborhood is quite convenient since it's close to markets and public transport.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\"/\"No\" rồi im lặng mà không giải thích thêm - lỗi nghiêm trọng nhất.</li><li>Ở Topic A, chỉ nêu tên thể loại sách mà không giải thích lý do yêu thích.</li><li>Ở Topic B, mô tả quá chung chung mà không đưa ra ví dụ cụ thể về khu vực sinh sống.</li><li>Phát âm sai trọng âm từ: <strong>'neighborhood</strong>, <strong>'novel</strong>.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's an interesting question, let me think for a second.\"</li><li>Nếu quên từ, hãy mô tả khái niệm bằng từ đơn giản hơn.</li><li>Với Topic A, nếu bí ý, hãy kể tên một cuốn sách cụ thể và tóm tắt ngắn gọn nội dung.</li><li>Với Topic B, nếu bí ý, hãy mô tả một địa điểm quen thuộc gần nhà như công viên hay chợ.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Coi đây như một cuộc trò chuyện thân mật với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để bắt đầu câu chuyện mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố dùng từ vựng quá phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your community center is organizing an event for children, but you can only choose one activity to organize.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Organize a cooking activity</li><li>Option 2: Organize a series of games</li><li>Option 3: Organize a music or fashion performance show</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Đây là dạng <strong>Solution Discussion</strong>. Bạn cần chọn một hoạt động phù hợp nhất để tổ chức cho trẻ em trong ba lựa chọn: hoạt động nấu ăn, tổ chức các trò chơi, hoặc tổ chức buổi trình diễn ca nhạc/thời trang.</li><li>Ba lựa chọn khác nhau về tính giáo dục, mức độ tương tác và sự chuẩn bị cần thiết.</li><li>Thời gian là <strong>4 phút</strong>; cần phân tích cả ba phương án trước khi đưa ra kết luận.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction - Comparison/Body - End)</strong> để trình bày mạch lạc từng lựa chọn rồi kết luận.</li><li><strong>Option 1 (Nấu ăn):</strong> \"A cooking activity would teach children practical life skills and encourage teamwork, but it requires careful supervision to ensure safety.\"</li><li><strong>Option 2 (Trò chơi):</strong> \"Organizing games would keep the children active and entertained, though the educational value might be limited compared to other activities.\"</li><li><strong>Option 3 (Trình diễn ca nhạc/thời trang):</strong> \"A performance show would boost children's confidence and creativity on stage, but it requires more preparation time and rehearsal.\"</li><li>Nên neo lập luận vào bối cảnh thực tế của một sự kiện dành cho trẻ em tại khu dân cư.</li><li>Dùng từ nối tương phản như \"however\", \"whereas\" để chuyển giữa ưu và nhược điểm của từng lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ: \"Unlike games, which mainly focus on fun, cooking activities also teach children valuable practical skills.\"</li><li>Dùng modal verbs (would, could, should) khi giả định và đề xuất giải pháp.</li><li>Paraphrase \"activity\" bằng \"event\" hoặc \"program\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>practical life skills</strong> (kỹ năng sống thực tế)</li><li><strong>boost self-confidence</strong> (tăng sự tự tin)</li><li><strong>hands-on experience</strong> (trải nghiệm thực hành)</li><li><strong>require careful supervision</strong> (đòi hỏi sự giám sát cẩn thận)</li><li><strong>encourage creativity</strong> (khuyến khích sự sáng tạo)</li><li><strong>age-appropriate activities</strong> (hoạt động phù hợp với lứa tuổi)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared with</strong> - so với, dùng khi so sánh hai lựa chọn.</li><li><strong>Whereas</strong> - trong khi đó, dùng để đối lập.</li><li><strong>Nevertheless</strong> - tuy nhiên, dùng để chuyển ý ngược lại.</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố, dùng trước kết luận.</li><li><strong>In terms of</strong> - xét về mặt, dùng khi so sánh theo tiêu chí cụ thể.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I had to choose, I would go with...</strong> Ví dụ: \"If I had to choose, I would go with the cooking activity because it combines fun with useful life skills.\"</li><li><strong>I'm more inclined towards...</strong> Ví dụ: \"I'm more inclined towards something educational rather than purely entertaining.\"</li><li><strong>All things considered...</strong> Ví dụ: \"All things considered, the games seem like the most practical choice given the limited preparation time.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của nó.</li><li>Lặp lại từ \"fun\"/\"good\" quá nhiều thay vì dùng tính từ học thuật hơn.</li><li>Không có kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng liên quan đến một lựa chọn, chuyển hướng sang nói về chi phí tổ chức hoặc mức độ an toàn cho trẻ.</li><li>Dùng câu chờ ý: \"Let's evaluate this option from a different perspective.\"</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Đặt mình vào vị trí ban tổ chức - hoạt động nào vừa an toàn, vừa mang lại giá trị lâu dài cho trẻ em?</li><li>Có thể đề xuất kết hợp, ví dụ chơi trò chơi khởi động trước rồi tổ chức buổi trình diễn, để thể hiện tư duy linh hoạt.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn đã chọn để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The main reasons why many people lose their jobs",
+          "mindmap": {
+            "title": "Reasons for Job Loss",
+            "ideas": [
+              "Economic factors and recession",
+              "Poor performance or lack of skills",
+              "Workplace conflicts or management changes",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Have you or anyone you know ever experienced losing a job?",
+            "What can people do to reduce the risk of losing their jobs?",
+            "Do you think automation and technology will cause more people to lose their jobs in the future?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về những lý do chính khiến nhiều người mất việc làm, dựa trên ba nhánh chính và một nhánh ý kiến cá nhân.</li><li>Ba nhánh chính gồm: yếu tố kinh tế như cắt giảm nhân sự hay suy thoái, yếu tố cá nhân như hiệu suất kém hoặc thiếu kỹ năng, và yếu tố nơi làm việc như mâu thuẫn hoặc thay đổi quản lý.</li><li><strong>Gợi ý cho nhánh thứ 4 (ý kiến cá nhân):</strong> có thể phát triển theo hướng tác động của tự động hóa và công nghệ đến nguy cơ mất việc trong tương lai.</li><li>Thời gian là <strong>5 phút</strong>: khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> để trình bày từng nhánh của sơ đồ tư duy.</li><li><strong>Ví dụ mở bài:</strong> \"Today, I'd like to talk about the main reasons why many people lose their jobs.\"</li><li><strong>Ví dụ cho nhánh ý kiến cá nhân:</strong> \"In my opinion, the rise of automation and artificial intelligence is becoming an increasingly significant reason for job loss in many industries.\"</li><li>Nên đưa ví dụ thực tế như công ty cắt giảm nhân sự do khó khăn tài chính, hoặc nhân viên bị sa thải vì không đáp ứng được yêu cầu công việc.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lạc đề sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển ý mượt mà khi chuyển từ nhánh này sang nhánh khác của sơ đồ tư duy.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> cho sự thật chung, dùng <strong>hiện tại hoàn thành</strong> khi nói về xu hướng thị trường lao động đã thay đổi theo thời gian.</li><li>Paraphrase \"lose their jobs\" bằng \"become unemployed\" hoặc \"get laid off\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>company downsizing</strong> (cắt giảm nhân sự công ty)</li><li><strong>an economic downturn</strong> (một cuộc suy thoái kinh tế)</li><li><strong>underperform at work</strong> (làm việc kém hiệu quả)</li><li><strong>workplace conflicts</strong> (mâu thuẫn nơi làm việc)</li><li><strong>get laid off</strong> (bị sa thải)</li><li><strong>job insecurity</strong> (sự bất ổn trong công việc)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước hết, dùng để mở đầu nhánh đầu tiên.</li><li><strong>Moving on to</strong> - chuyển sang, dùng khi chuyển nhánh ý.</li><li><strong>Furthermore</strong> - hơn nữa, dùng để bổ sung ý.</li><li><strong>In addition to that</strong> - thêm vào đó, dùng để mở rộng ý.</li><li><strong>To sum up</strong> - tóm lại, dùng khi kết luận.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>I firmly believe that...</strong> Ví dụ: \"I firmly believe that continuously updating one's skills is essential to avoid job loss.\"</li><li><strong>It seems to me that...</strong> Ví dụ: \"It seems to me that economic downturns are one of the most unpredictable causes of job loss.\"</li><li><strong>What strikes me most is...</strong> Ví dụ: \"What strikes me most is how quickly technology can make certain jobs obsolete.\"</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Have you or anyone you know ever experienced losing a job?\"</strong> - Có thể chia sẻ trải nghiệm của bản thân hoặc người quen, cùng cách họ đã vượt qua giai đoạn khó khăn đó.</li><li><strong>\"What can people do to reduce the risk of losing their jobs?\"</strong> - Có thể đề cập đến việc không ngừng học hỏi kỹ năng mới, làm việc chăm chỉ và xây dựng mối quan hệ tốt với đồng nghiệp.</li><li><strong>\"Do you think automation and technology will cause more people to lose their jobs in the future?\"</strong> - Có thể lập luận rằng công nghệ vừa tạo ra thách thức vừa mở ra cơ hội việc làm mới nếu người lao động thích nghi kịp thời.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê nguyên nhân mà không giải thích cụ thể - luôn cần đưa ví dụ minh họa.</li><li>Quên nhánh ý kiến cá nhân - nên chuẩn bị trước nhánh thứ tư này.</li><li>Nói quá dài ở phần mở đầu khiến không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào trải nghiệm cá nhân hoặc quan sát thực tế khi bí ý, ví dụ câu chuyện của người quen từng mất việc.</li><li>Câu chờ ý học thuật: \"That is a complex issue. If we evaluate it from an economic perspective...\"</li><li>Dùng từ đồng nghĩa hoặc mô tả đơn giản nếu quên từ vựng chuyên môn.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ thực tế và liên hệ với thị trường lao động biến động hiện nay.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố quyết định điểm số.</li><li>Luôn giữ giọng điệu tự nhiên, tránh đọc thuộc lòng như một bài văn mẫu.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

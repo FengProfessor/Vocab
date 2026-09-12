@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-68",
+  "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 15 (Reading Part 3 - Test 15)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 3 - Test 15",
+            "text": "<p style=\"text-align:center; font-weight: bold; font-size: 18px;\">The Rise of Artificial Intelligence in Healthcare</p>\n\n<p style=\"text-align:justify;\">Artificial intelligence is transforming healthcare in ways that were once confined to science fiction. From diagnosing diseases to predicting patient outcomes, AI systems are becoming increasingly <strong>sophisticated</strong> and reliable. Medical professionals worldwide are embracing these technologies, recognizing their potential to improve patient care, reduce costs, and address the growing shortage of healthcare workers in many regions.</p>\n\n<p style=\"text-align:justify;\">One of the most promising applications of AI in medicine is medical imaging analysis. Machine learning algorithms can now examine X-rays, CT scans, and MRIs with remarkable accuracy, often detecting abnormalities that human radiologists might miss. Studies have shown that AI systems can identify early-stage cancers, fractures, and other conditions with precision rates that match or exceed those of experienced physicians. This capability is particularly valuable in areas with limited access to specialist doctors, where AI can serve as a powerful diagnostic tool.</p>\n\n<p style=\"text-align:justify;\">Beyond diagnostics, AI is revolutionizing drug discovery and development. Traditionally, bringing a new medication to market takes over a decade and costs billions of dollars. AI can <strong>accelerate</strong> this process by analyzing vast amounts of biological data to identify promising drug candidates and predict how they will interact with the human body. Some pharmaceutical companies have already used AI to discover new treatments for conditions ranging from cancer to rare genetic disorders, potentially saving years of research time.</p>\n\n<p style=\"text-align:justify;\">However, the integration of AI into healthcare raises important ethical and practical concerns. Privacy is a major issue, as AI systems require access to enormous amounts of sensitive patient data to function effectively. While data protection regulations exist, breaches and misuse remain risks. There's also the question of <strong>accountability</strong>: if an AI system makes a diagnostic error, who is responsible—the doctor, the software developer, or the healthcare institution? These legal and ethical frameworks are still being developed.</p>\n\n<p style=\"text-align:justify;\">Another concern is the potential for AI to <strong>exacerbate</strong> existing healthcare inequalities. If these technologies are only available in wealthy hospitals and regions, they could widen the gap between rich and poor patients. Additionally, AI systems are only as good as the data they're trained on. If training data predominantly comes from certain demographic groups, the AI may be less accurate when treating patients from underrepresented populations, potentially leading to biased or inadequate care.</p>\n\n<p style=\"text-align:justify;\">Despite these challenges, many experts believe AI will complement rather than replace human healthcare providers. While machines excel at processing large datasets and identifying patterns, they lack the empathy, judgment, and interpersonal skills that are central to patient care. The most effective approach may be a collaborative model where AI handles data-intensive tasks, freeing healthcare professionals to focus on the human aspects of medicine—listening to patients, explaining treatment options, and providing emotional support.</p>\n\n<p style=\"text-align:justify;\">As AI technology continues to advance, regulatory bodies, healthcare institutions, and technology companies must work together to establish guidelines that maximize benefits while protecting patient rights. Public education about AI's capabilities and limitations is also essential. The future of healthcare will likely involve a partnership between human expertise and artificial intelligence, combining the best of both to deliver more effective, accessible, and personalized medical care.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r68-q1",
+              "type": "mcq",
+              "question": "What is the main topic of this passage?",
+              "options": [
+                "How AI has completely replaced doctors",
+                "The impact and challenges of AI in healthcare",
+                "Why AI should be banned from medicine",
+                "The history of medical technology"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r68-q2",
+              "type": "mcq",
+              "question": "The word \"sophisticated\" in paragraph 1 is closest in meaning to:",
+              "options": [
+                "simple and basic",
+                "advanced and complex",
+                "old-fashioned",
+                "unreliable"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r68-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, AI medical imaging is especially useful in:",
+              "options": [
+                "wealthy urban hospitals",
+                "areas with few specialist doctors",
+                "research laboratories only",
+                "pharmaceutical companies"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r68-q4",
+              "type": "mcq",
+              "question": "The word \"accelerate\" in paragraph 3 most likely means:",
+              "options": [
+                "slow down or delay",
+                "speed up or quicken",
+                "cancel or stop",
+                "complicate or confuse"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r68-q5",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned as a concern about AI in healthcare?",
+              "options": [
+                "Patient data privacy",
+                "Questions of accountability",
+                "High cost of electricity",
+                "Potential inequality in access"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r68-q6",
+              "type": "mcq",
+              "question": "The word \"accountability\" in paragraph 4 refers to:",
+              "options": [
+                "financial responsibility",
+                "being held responsible for outcomes",
+                "accounting and bookkeeping",
+                "patient satisfaction"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r68-q7",
+              "type": "mcq",
+              "question": "The word \"exacerbate\" in paragraph 5 is closest in meaning to:",
+              "options": [
+                "reduce or improve",
+                "worsen or intensify",
+                "measure or assess",
+                "eliminate completely"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r68-q8",
+              "type": "mcq",
+              "question": "According to paragraph 5, what happens if AI is trained on limited demographic data?",
+              "options": [
+                "It becomes more accurate for all patients",
+                "It may provide biased or less accurate care for some groups",
+                "It automatically adjusts to all populations",
+                "It refuses to diagnose certain patients"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r68-q9",
+              "type": "mcq",
+              "question": "What does the author suggest about the future relationship between AI and doctors?",
+              "options": [
+                "AI will completely replace all human doctors",
+                "Doctors and AI will work together collaboratively",
+                "AI should be banned from healthcare",
+                "Doctors will refuse to use AI technology"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r68-q10",
+              "type": "mcq",
+              "question": "The author's attitude toward AI in healthcare can best be described as:",
+              "options": [
+                "completely opposed",
+                "unrealistically enthusiastic",
+                "balanced and thoughtful",
+                "confused and uncertain"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-69",
+  "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 14 (Reading Part 3 - Test 14)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 3 - Test 14",
+            "text": "<p style=\"text-align:center; font-weight: bold; font-size: 18px;\">Ocean Plastic Pollution Crisis</p>\n\n<p style=\"text-align:justify;\">Every year, approximately eight million metric tons of plastic waste enter the world's oceans, creating a crisis that threatens marine ecosystems, human health, and coastal economies. This <strong>staggering</strong> amount of pollution has accumulated over decades, forming massive garbage patches and contaminating even the most remote areas of the ocean. Scientists warn that without significant intervention, the amount of plastic in the ocean could triple by 2040, with devastating consequences for life on Earth.</p>\n\n<p style=\"text-align:justify;\">Plastic pollution affects marine life in numerous devastating ways. Sea turtles mistake plastic bags for jellyfish and die from intestinal blockages. Seabirds feed plastic fragments to their chicks, leading to starvation despite full stomachs. Fish and other marine animals become <strong>entangled</strong> in fishing nets and plastic debris, suffering injury or death. Moreover, as plastic breaks down into smaller pieces called microplastics, it enters the food chain. These tiny particles have been found in fish, shellfish, and even table salt, meaning humans are now consuming plastic regularly.</p>\n\n<p style=\"text-align:justify;\">The sources of ocean plastic are diverse and complex. Single-use plastics—bottles, bags, straws, and packaging—constitute a large portion of the problem. In many developing countries, inadequate waste management infrastructure means that plastic waste often ends up in rivers and eventually flows to the ocean. Fishing gear, including nets and lines, also contributes significantly to ocean pollution. Even well-meaning recycling efforts often fail, as much of the plastic collected for recycling is actually shipped to countries with poor waste management or simply burned, releasing toxic chemicals.</p>\n\n<p style=\"text-align:justify;\">Addressing this crisis requires action at multiple levels. Individual behavior changes—such as reducing single-use plastic consumption, properly disposing of waste, and participating in beach cleanups—are important but insufficient on their own. Governments must implement stronger regulations, including bans on certain single-use plastics, extended producer responsibility programs that make manufacturers accountable for their products' end-of-life disposal, and investments in waste management infrastructure. Some countries have already taken <strong>bold</strong> steps: Rwanda banned plastic bags in 2008, and the European Union has prohibited several single-use plastic items.</p>\n\n<p style=\"text-align:justify;\">Innovation offers additional hope. Scientists are developing new materials that biodegrade more readily than traditional plastics. Others are creating technologies to remove existing plastic from the ocean, though the scale of this challenge is enormous. <strong>Emerging</strong> chemical processes can break down certain plastics into their original components, allowing true recycling rather than the \"downcycling\" that currently occurs. Additionally, some companies are designing products and packaging systems that eliminate plastic entirely or make it easier to reuse and recycle.</p>\n\n<p style=\"text-align:justify;\">However, technological and regulatory solutions alone cannot solve this problem. Consumer behavior and corporate practices must fundamentally change. Many companies continue to produce excessive plastic packaging despite growing awareness of its impact. Fast-moving consumer goods companies, in particular, bear responsibility for much of the single-use plastic waste. Pressure from consumers, investors, and advocacy groups can push these corporations toward more sustainable practices.</p>\n\n<p style=\"text-align:justify;\">The ocean plastic crisis exemplifies the broader environmental challenges facing humanity. It demonstrates how individual actions accumulate into global problems and how solutions require cooperation across borders, sectors, and communities. While the scale of the challenge is daunting, the growing awareness and mobilization around this issue offer grounds for optimism. With sustained effort, innovation, and commitment from individuals, corporations, and governments, it is possible to reverse the tide of plastic pollution and protect our oceans for future generations.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r69-q1",
+              "type": "mcq",
+              "question": "What is the main idea of the passage?",
+              "options": [
+                "Ocean plastic pollution is a serious crisis requiring comprehensive solutions",
+                "Recycling programs have solved the plastic problem",
+                "Marine animals are not affected by plastic",
+                "Plastic production should increase to meet demand"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r69-q2",
+              "type": "mcq",
+              "question": "The word \"staggering\" in paragraph 1 is closest in meaning to:",
+              "options": [
+                "insignificant",
+                "shocking or overwhelming",
+                "beneficial",
+                "uncertain"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r69-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, how do microplastics affect humans?",
+              "options": [
+                "They have no effect on humans",
+                "They enter the food chain and are consumed by humans",
+                "They only affect people who swim in the ocean",
+                "They improve the quality of seafood"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r69-q4",
+              "type": "mcq",
+              "question": "The word \"entangled\" in paragraph 2 most likely means:",
+              "options": [
+                "freed or released",
+                "trapped or caught",
+                "fed or nourished",
+                "protected or sheltered"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r69-q5",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned as a source of ocean plastic?",
+              "options": [
+                "Single-use bottles and bags",
+                "Fishing equipment",
+                "Natural disasters",
+                "Poor waste management"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r69-q6",
+              "type": "mcq",
+              "question": "According to paragraph 3, what often happens to plastic collected for recycling?",
+              "options": [
+                "It is all successfully recycled",
+                "It is shipped to other countries or burned",
+                "It is immediately reused in manufacturing",
+                "It is stored safely underground"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r69-q7",
+              "type": "mcq",
+              "question": "The word \"bold\" in paragraph 4 suggests that the actions taken were:",
+              "options": [
+                "timid and cautious",
+                "courageous and decisive",
+                "ineffective",
+                "unnecessary"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r69-q8",
+              "type": "mcq",
+              "question": "The word \"Emerging\" in paragraph 5 is closest in meaning to:",
+              "options": [
+                "disappearing or vanishing",
+                "developing or appearing",
+                "old and outdated",
+                "completely proven"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r69-q9",
+              "type": "mcq",
+              "question": "According to paragraph 6, who bears significant responsibility for single-use plastic waste?",
+              "options": [
+                "Only individual consumers",
+                "Fast-moving consumer goods companies",
+                "Ocean conservation organizations",
+                "Scientists and researchers"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r69-q10",
+              "type": "mcq",
+              "question": "The author's tone in the final paragraph can best be described as:",
+              "options": [
+                "hopeless and defeated",
+                "angry and accusatory",
+                "cautiously hopeful",
+                "completely indifferent"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

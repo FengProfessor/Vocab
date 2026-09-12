@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-65",
+  "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 10 (Reading Part 2 - Test 10)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 2 - Test 10",
+            "text": "<p style=\"text-align:justify;\">Negotiation is a fundamental skill that people use throughout their lives, whether they are discussing a salary with an employer, deciding where to eat dinner with friends, or resolving conflicts in relationships. Despite its importance, many people approach negotiation with anxiety and misconceptions, viewing it as a competitive battle where one side must win and the other must lose. However, effective negotiation is actually about finding solutions that satisfy all parties involved—a concept known as \"win-win\" negotiation.</p>\n\n<p style=\"text-align:justify;\">The foundation of successful negotiation lies in thorough preparation. Before entering any negotiation, it is essential to understand your own priorities and limits. What do you absolutely need? What are you willing to <strong>compromise</strong> on? Equally important is understanding the other party's position and needs. <strong>This</strong> requires research and often some creativity in imagining what might be valuable to them. For instance, in a job negotiation, while you might prioritize salary, the employer might be more flexible on benefits, remote work options, or professional development opportunities. Identifying these differences in priorities creates opportunities for mutually beneficial agreements.</p>\n\n<p style=\"text-align:justify;\">During the negotiation itself, communication skills become <strong>paramount</strong>. Active listening—truly hearing and understanding the other person's concerns rather than just waiting for your turn to speak—is crucial. Asking open-ended questions helps uncover underlying interests that may not be immediately obvious. For example, if someone rejects your proposal, asking \"What concerns do you have about this approach?\" is more productive than simply making a different offer. Additionally, effective negotiators separate the people from the problem. <strong>This</strong> means addressing issues without making personal attacks, maintaining respect even during disagreement, and recognizing that you can be firm on objectives while remaining pleasant with people.</p>\n\n<p style=\"text-align:justify;\">One common mistake in negotiation is making the first offer too reasonable. While this might seem polite, it actually limits the potential for a favorable outcome. Starting with an ambitious but realistic position leaves room for compromise and often leads to better results. However, this must be balanced with maintaining credibility—extreme demands that have no basis in reality will damage trust and make agreement impossible. Another key principle is knowing when to walk away. Not every negotiation will succeed, and recognizing when an agreement doesn't serve your interests is as important as knowing how to reach one. With practice and attention to these principles, anyone can become a more skilled and confident negotiator, turning potentially stressful confrontations into opportunities for mutual benefit.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r65-q1",
+              "type": "mcq",
+              "question": "What is the main purpose of this passage?",
+              "options": [
+                "To explain principles of effective negotiation",
+                "To argue that negotiation is always competitive",
+                "To describe historical negotiations",
+                "To discourage people from negotiating"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r65-q2",
+              "type": "mcq",
+              "question": "According to paragraph 1, what is \"win-win\" negotiation?",
+              "options": [
+                "A situation where one side defeats the other",
+                "An outcome that satisfies all parties",
+                "A negotiation that takes a long time",
+                "A competitive battle"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r65-q3",
+              "type": "mcq",
+              "question": "The word \"compromise\" in paragraph 2 is closest in meaning to ____.",
+              "options": [
+                "refuse to change",
+                "give up everything",
+                "make mutual concessions",
+                "demand more"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r65-q4",
+              "type": "mcq",
+              "question": "The word \"This\" in the first instance in paragraph 2 refers to ____.",
+              "options": [
+                "thorough preparation",
+                "understanding your own priorities",
+                "understanding the other party's position",
+                "entering a negotiation"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r65-q5",
+              "type": "mcq",
+              "question": "According to the passage, why is understanding priorities important?",
+              "options": [
+                "It helps you win at all costs",
+                "It creates opportunities for mutually beneficial agreements",
+                "It makes negotiations shorter",
+                "It is unnecessary"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r65-q6",
+              "type": "mcq",
+              "question": "The word \"paramount\" in paragraph 3 most likely means ____.",
+              "options": [
+                "unimportant",
+                "extremely important",
+                "slightly helpful",
+                "completely useless"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r65-q7",
+              "type": "mcq",
+              "question": "What does \"separate the people from the problem\" mean according to paragraph 3?",
+              "options": [
+                "Avoid all personal interaction",
+                "Address issues without personal attacks",
+                "Only negotiate through email",
+                "Always agree with others"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r65-q8",
+              "type": "mcq",
+              "question": "According to paragraph 4, why shouldn't your first offer be too reasonable?",
+              "options": [
+                "It shows weakness",
+                "It limits room for compromise and favorable outcomes",
+                "It is always rejected",
+                "It is considered rude"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r65-q9",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that ____.",
+              "options": [
+                "all negotiations must end in agreement",
+                "negotiation skills can be learned and improved",
+                "aggressive tactics always work best",
+                "preparation is unnecessary"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r65-q10",
+              "type": "mcq",
+              "question": "The author's tone throughout the passage is ____.",
+              "options": [
+                "aggressive and competitive",
+                "instructive and encouraging",
+                "pessimistic and negative",
+                "humorous and entertaining"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

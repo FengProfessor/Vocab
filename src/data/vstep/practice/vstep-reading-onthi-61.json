@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-61",
+  "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 06 (Reading Part 2 - Test 06)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 2 - Test 06",
+            "text": "<p style=\"text-align:justify;\">Language learning has undergone a dramatic transformation over the past century. Traditional methods that focused heavily on grammar rules and vocabulary memorization have given way to more <strong>communicative</strong> approaches that emphasize practical language use. Understanding how these methods have evolved can help learners choose the most effective strategies for their language learning journey.</p>\n\n<p style=\"text-align:justify;\">In the early 20th century, the Grammar-Translation Method dominated language teaching. Students spent most of their time translating texts from the target language to their native language and vice versa, memorizing grammatical rules and vocabulary lists. While <strong>this</strong> approach helped learners develop reading skills and understand language structure, it did little to prepare them for actual conversations. Students could often write well in the foreign language but struggled to speak it fluently or understand native speakers.</p>\n\n<p style=\"text-align:justify;\">The mid-20th century saw the rise of the Audio-Lingual Method, which was influenced by behaviorist psychology. This method emphasized repetition and pattern drills, with students repeating phrases and sentences until they became automatic. The goal was to create habits through constant practice. Teachers would present dialogues, and students would <strong>mimic</strong> them repeatedly. However, critics pointed out that this approach produced learners who could repeat learned patterns but had difficulty creating new sentences or adapting to unexpected situations.</p>\n\n<p style=\"text-align:justify;\">Modern language teaching has largely adopted the Communicative Language Teaching (CLT) approach, which prioritizes meaningful interaction in the target language. Instead of focusing solely on grammar rules, CLT encourages learners to use language for real communication purposes from the beginning. Activities include role-plays, discussions, and problem-solving tasks that <strong>simulate</strong> real-life situations. Technology has also revolutionized language learning, with apps, online platforms, and artificial intelligence providing personalized learning experiences. Today's language learners have access to native speakers through video calls, authentic materials through streaming services, and instant feedback through AI-powered tools. This combination of communicative approaches and technology offers unprecedented opportunities for effective language acquisition.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r61-q1",
+              "type": "mcq",
+              "question": "What is the main purpose of this passage?",
+              "options": [
+                "To criticize traditional language teaching methods",
+                "To trace the development of language learning approaches",
+                "To prove that modern methods are worse than old ones",
+                "To teach readers how to learn a new language"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r61-q2",
+              "type": "mcq",
+              "question": "The word \"communicative\" in paragraph 1 suggests methods that focus on ____.",
+              "options": [
+                "memorizing grammar rules",
+                "using language for interaction",
+                "translating texts accurately",
+                "studying in isolation"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r61-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, what was a weakness of the Grammar-Translation Method?",
+              "options": [
+                "It didn't develop reading skills",
+                "It didn't help students speak fluently",
+                "It was too expensive",
+                "It required too many books"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r61-q4",
+              "type": "mcq",
+              "question": "The word \"this\" in paragraph 2 refers to ____.",
+              "options": [
+                "language learning",
+                "the Grammar-Translation Method",
+                "the 20th century",
+                "vocabulary memorization"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r61-q5",
+              "type": "mcq",
+              "question": "What was the main principle behind the Audio-Lingual Method?",
+              "options": [
+                "Learning through translation",
+                "Creating habits through repetition",
+                "Focusing on written communication",
+                "Avoiding pattern drills"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r61-q6",
+              "type": "mcq",
+              "question": "The word \"mimic\" in paragraph 3 is closest in meaning to ____.",
+              "options": [
+                "criticize severely",
+                "imitate or copy",
+                "create originally",
+                "ignore completely"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r61-q7",
+              "type": "mcq",
+              "question": "What criticism did the Audio-Lingual Method face?",
+              "options": [
+                "Students couldn't repeat patterns well",
+                "Students couldn't adapt to new situations",
+                "It was too focused on grammar",
+                "It required too much writing"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r61-q8",
+              "type": "mcq",
+              "question": "The word \"simulate\" in paragraph 4 most likely means ____.",
+              "options": [
+                "avoid or prevent",
+                "imitate or replicate",
+                "complicate or confuse",
+                "eliminate or remove"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r61-q9",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that modern language learners ____.",
+              "options": [
+                "have fewer resources than before",
+                "only study grammar rules",
+                "benefit from diverse learning tools and authentic materials",
+                "must travel abroad to learn effectively"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r61-q10",
+              "type": "mcq",
+              "question": "The author's view on the evolution of language teaching is ____.",
+              "options": [
+                "regretful of modern changes",
+                "positive about recent developments",
+                "confused about which method is best",
+                "critical of all teaching methods"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-12",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 12",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: What is the purpose of the message?</b></p><ul><li>Good afternoon. I'm calling for Julie Gibbs. This is Donald Carson from Doctor Kim's office. I just wanted to confirm your appointment for your annual physical checkup on Friday, June 27 at 3 o'clock. The checkup shouldn't last longer than an hour and a half. Since this is your first visit with Doctor Kim, we'd like you to come to the clinic about 20 minutes early so that we can create a file for you. If you cannot make the appointment, please contact the office and let us know at least a day in advance. Thanks.</li></ul><p><b>Q2: What is being advertised?</b></p><ul><li>Do you need a way to relieve your stress? Whether you're looking for a full-time membership or just a day of relaxation, Istanbul Spa has something for you! We have several different services for all your treatment needs. This week, we're offering a full-day service including a full-body massage, aromatherapy and a facial for just one low price. You can also enjoy our hospitality with a healthy and refreshing beverage at our tea lounge.</li></ul><p><b>Q3: According to the announcement, what will be built near Berryville?</b></p><ul><li>I am very pleased to announce that city leaders in Berryville have finally approved a proposal to enlarge the airport on Hathor Road. We have given the building contract to Heaton Construction. The new terminal will join our older, existing facilities. Berryville's population has been growing at a rapid rate over the past 15 years, due to the addition of a local university and the recent expansion of several businesses.</li></ul><p><b>Q4: Who is this announcement probably for?</b></p><ul><li>This announcement is for all assembly line employees. Please make sure to check your work schedule as soon as you arrive in the morning to see where you will be working for the day. You will need to sign in by putting your signature in the space by your name. After that, please check the announcement board next to the manager's office for any daily notices. Finally, don't forget to pick up your protective aprons and glasses from the safety area.</li></ul><p><b>Q5: What is the purpose of the message?</b></p><ul><li>Hi, Rose. This is Dorothy calling from the personnel department. I just wanted to know if you are free to join us for dinner tonight. A few of us will be leaving the office around 5:30 and going to the Thai restaurant. Our new colleague Sophia is coming as well. Anyway, if you'd like to join us, just meet us downstairs in front of the building at about 5. Sophia and I will be taking my car, and you are more than welcome to ride with us. Anyway, I hope to see you later. Bye.</li></ul><p><b>Q6: What is the purpose of the message?</b></p><ul><li>Hello, Mr. Nakamura. This is Eric Parkman, manager of the personnel department for Linderman Enterprises. We received your resume last week for the accounting position in our shipping department. I was very impressed with your experience and education. I would like to schedule an interview at our office on Friday, April 29 at 10 o'clock. Please give me a call and let me know if that time is good for you. Thank you.</li></ul><p><b>Q7: What is this message about?</b></p><ul><li>Thank you for calling the Tower Place security department. This office will be closing at 11:00 a.m. Wednesday morning as we relocate to the 10th floor. All security officers will be on duty during this time. The 10th floor office will be open at 9 a.m. Thursday. Please contact the security officer on duty, Roy Williams, at 555-7251 if you need to speak with security personnel after 11 on Wednesday. Thank you.</li></ul><p><b>Q8: Who is the speaker?</b></p><ul><li>Staff members of Winton Property Development, welcome to the 8th annual Top Achievers Awards Dinner. When I founded Winton Property Development 13 years ago, I knew that I alone could not make the company the success that it is today. I knew that it would take people like you to help me achieve that goal. The reason why I host this dinner every year is to express my deep appreciation to everyone for working so hard for the continued growth of this company.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To schedule a checkup",
+                "To delay a meeting",
+                "To confirm an appointment",
+                "To request some files"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What is being advertised?",
+              "options": [
+                "A city tour",
+                "A spa package",
+                "A hotel",
+                "A hospital"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "According to the announcement, what will be built near Berryville?",
+              "options": [
+                "A university",
+                "A high school",
+                "A new hospital wing",
+                "An airport terminal"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Who is this announcement probably for?",
+              "options": [
+                "Factory employees",
+                "Office managers",
+                "Safety supervisors",
+                "Hotel workers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To make a reservation at a restaurant",
+                "To ask about a new employee",
+                "To invite a co-worker for dinner",
+                "To offer a ride home"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To make an appointment",
+                "To offer a position",
+                "To cancel an interview",
+                "To confirm receipt of an application"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is this message about?",
+              "options": [
+                "A new security policy",
+                "The business hours",
+                "An office relocation",
+                "A permanent closure"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Who is the speaker?",
+              "options": [
+                "A new employee",
+                "The founder",
+                "The chairman of the board",
+                "The personnel director"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Mr. Stone, this is Susan White from the Speedy Medical Center. I am calling to remind you that you have an appointment with Dr. Johnson tomorrow at 11.</li><li><b>M:</b> Ah, yes, thank you for reminding me. You know, if you hadn't called, I would've completely forgotten all about it. I've been so busy lately.</li><li><b>W:</b> Well, we call all of our clients a day before their scheduled appointment. Anyway, please get here 10 minutes before your appointment since there are some forms that you have to fill out. Also, don't forget to bring your insurance information.</li><li><b>M:</b> Okay, I will remember to bring it with me. Thanks, and I will see you tomorrow then.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>M:</b> I just read an article in the paper about the medical conference being held in the city this weekend. I'm really looking forward to going there.</li><li><b>W:</b> Really? I am thinking of going as well. I really want to listen to the talk on that study about soybeans. A lot of my patients have been mentioning it to me lately.</li><li><b>M:</b> Yes, my patients have been asking me about it, too. Hey, do you want to go together this Saturday?</li><li><b>W:</b> All right. My in-laws are coming for a visit this Sunday, so Saturday will be perfect.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> I think the customer was quite satisfied with the service we provided.</li><li><b>M:</b> Yes, I think he was especially happy because he thought the warranty had expired. He managed to get the repair done at no cost.</li><li><b>W:</b> Well, I am glad that we were able to help a good customer. You know, it's customers like that who will continue to come back to our store.</li><li><b>M:</b> Yes, I agree with you. I think it's very important that we try to keep all of our customers happy.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why is the woman calling?",
+              "options": [
+                "To make an appointment",
+                "To speak with Dr. Johnson",
+                "To confirm an appointment",
+                "To receive some medical advice"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is probably true about the man?",
+              "options": [
+                "He is a doctor.",
+                "He is very busy these days.",
+                "He is the woman's friend.",
+                "He will be late for the appointment."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does the woman ask the man to do?",
+              "options": [
+                "Show up to his appointment a little early",
+                "Get more medical insurance",
+                "Wait 10 minutes in the waiting area",
+                "Always arrange his appointments a day early"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What will the man likely take to his appointment?",
+              "options": [
+                "His past medical records",
+                "Some insurance documents",
+                "His appointment book",
+                "An application form"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Who most likely are they?",
+              "options": [
+                "Journalists",
+                "Physicians",
+                "Lawyers",
+                "Restaurant owners"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Who has been mentioning the study to the woman?",
+              "options": [
+                "Her patients",
+                "Her mother-in-law",
+                "Her doctor",
+                "Her friends"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "When will they likely attend the conference?",
+              "options": [
+                "Today",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Who is going to visit the woman?",
+              "options": [
+                "Her friends",
+                "Her husband",
+                "Her mother-in-law",
+                "Her patients"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What are they talking about?",
+              "options": [
+                "A newly released product",
+                "The duration of the warranty",
+                "A customer they helped",
+                "A vehicle the man recently fixed"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "According to the man, what was the customer most satisfied with?",
+              "options": [
+                "The low cost of the repair work",
+                "The free service they provided",
+                "The competitive price of their products",
+                "The length of the warranty period"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What do the speakers feel makes customers happy?",
+              "options": [
+                "The low price",
+                "The great service",
+                "The free gifts",
+                "The store hours"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is true about the customer?",
+              "options": [
+                "He is a loyal one.",
+                "He thought the warranty had expired.",
+                "He will definitely come back to the store.",
+                "He will recommend the store to his friend."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 (Q.21-25)</strong></p><ul><li><b>W:</b> Hi, there. I was looking for information about becoming a political science major.</li><li><b>M:</b> Sure. We have some brochures right here.</li><li><b>W:</b> Thanks, but could I ask you a few questions?</li><li><b>M:</b> No problem. Fire away.</li><li><b>W:</b> Are there many requirements for Political Science?</li><li><b>M:</b> Uh, not really ... Just you must take Political Science 1 and 2, a general history class, and a writing seminar.</li><li><b>W:</b> I thought you had to take economics, too.</li><li><b>M:</b> Not for the general Political Science program. But there are a couple of specialized programs that have additional requirements.</li><li><b>W:</b> Oh, really? What are they?</li><li><b>M:</b> Well, there is the International Relations program. It is more interdisciplinary, so it requires economics and a second history credit; the two history credits have to be in different regions. There is also the honors Political Science program. To get into that, you need to take the same economics class as the International Relations program, and a special Political Science seminar. And you need to maintain over a \"B\" average in all those required courses.</li><li><b>W:</b> Wow, that sounds difficult.</li><li><b>M:</b> Yeah, not many people are qualified for the honors program. That's why it's considered more prestigious, I guess.</li><li><b>W:</b> Is that all?</li><li><b>M:</b> No. You also have to complete this form, listing all the Political Science and related credits you have already taken or plan to take, and get the department chair to sign off on it.</li><li><b>W:</b> Uggh. This is really a lot of work.</li><li><b>M:</b> Yeah, but everyone has to do it. It's not different from any other majors; the department wants to know that you've thought about your major carefully and thoroughly, and that all the students are being realistic in their expectations.</li></ul><p><strong>Conversation 2 (Q.26-30)</strong></p><ul><li><b>M:</b> Hey, Clara. Got a minute?</li><li><b>W:</b> Oh, hi, Will. Sure, I've got plenty of time. What's the matter?</li><li><b>M:</b> Did you see the poster saying that our debate club meeting tonight had been moved?</li><li><b>W:</b> Oh yes, you didn't get the email?</li><li><b>M:</b> My computer hasn't been working these few days, so I can't get access to my mailbox. Anyway, why has it been moved?</li><li><b>W:</b> That whole wing of the Student Union building is getting repainted today, so it's off-limits until the paint dries, vented properly and the workers clean everything up.</li><li><b>M:</b> It's about time. The club offices in the student building have been looking rundown for quite a while now. A new paint-job would do them a world of good.</li><li><b>W:</b> And the rooms are going to be repainted in a lighter color, too. That old paint was too dark and depressing.</li><li><b>M:</b> A lighter color would help everything look bigger, too. Our debate club could use that.</li><li><b>W:</b> Yeah, but we need more than just light paint. We've grown too big for that little room; we really need to move into a bigger place.</li><li><b>M:</b> Any chance of that happening?</li><li><b>W:</b> Not that I know of. Except for tonight, that is, just for this once, we'll be meeting downstairs in Turner Auditorium.</li><li><b>M:</b> That place is huge, way too big for us.</li><li><b>W:</b> I know, but it was the only place available tonight. And it was either there or else cancel the meeting altogether.</li><li><b>M:</b> I guess it's better than canceling. Although, to be honest, I could use another week to prepare for my speech, I've been really busy with my classes lately.</li></ul><p><strong>Conversation 3 (Q.31-35)</strong></p><p>Science fiction is very popular these days - in books, in movies, and on TV. Unfortunately, popular science fiction is often a lot more \"fiction\" and not so much \"science.\" One of the most common problems is science fiction’s fascination with faster-than-light travel. We know that is impossible, as it violates Einstein’s basic theory of space and time, but on Star Trek and other science fiction shows, spaceships jump from star to star and galaxy to galaxy like you or I might want to drive to another city. In truth, the closest star to Earth, Proxima Centauri, is over three light years away. That means traveling at the speed of light, the fastest speed anyone theoretically could travel, it would take three years to make it to our nearest neighbor. Other stars and galaxies are routinely thousands and millions of light years away, making intergalactic travel an impossibility. Even if we grant that such space travel somehow was possible, there is no shortage of other errors in popular science fiction. In Star Wars and other films, spaceships swoop across the screen, with their ... uh ... their engines emitting a great roar. However, since space is a void, sound waves cannot travel. There is no sound in space; it is utterly silent. Gravity is another mystery in these films. Gravity depends mostly on mass. Spaceships are tiny compared to the mass of earth. In space there should be practically no gravity. And yet people in science fiction routinely walk around on their spaceships in space as comfortably as they would on earth. That said, there have been a few, scarce films that bothered to portray the science of space flight somewhat realistically. In 2001: A Space Odyssey, the ship must rotate to create artificial gravity. Outside the spaceship, there is total silence. And the voyage from Earth to Jupiter takes many months. But such films are the exception, not the rule. While science fiction may be enjoyable, you should look elsewhere to learn about science.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "Why is the woman visiting this office?",
+              "options": [
+                "She wants to be a science major.",
+                "She wants to learn about politics.",
+                "She is interested in registering for a course.",
+                "She is interested in Political Science."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why are there few people in the honors program?",
+              "options": [
+                "It is not considered a prestigious program.",
+                "The requirements are difficult to meet.",
+                "No one likes the economics requirement.",
+                "It is an unpopular program."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What subject is NOT included, if the woman chooses Political Science?",
+              "options": [
+                "Political Science 1",
+                "Political Science 2",
+                "Writing seminar",
+                "Economics"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Which is one of the requirements, if the woman chooses International Relation program?",
+              "options": [
+                "Students have to maintain over a \"B\" average in all required courses.",
+                "Students have to study economics and a second history credit.",
+                "Students need to be realistic in their expectation.",
+                "A, B, and C are all correct."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is NOT a reason for the Political Science Department's elaborate registration process?",
+              "options": [
+                "To make students think carefully about what courses they will take",
+                "To have a similar system with other majors",
+                "To make students have a planned program",
+                "To ensure students have realistic expectations"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What happened to the debate club meeting?",
+              "options": [
+                "They painted instead of debating.",
+                "The club was disbanded.",
+                "The meeting was moved to another room.",
+                "The meeting was postponed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Why couldn't the man receive the email?",
+              "options": [
+                "He was too busy with his classes.",
+                "He was in a meeting.",
+                "His computer has been out of order.",
+                "His friend forgot to tell him."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is going to happen with the debate club's meeting room?",
+              "options": [
+                "It is going to be demolished.",
+                "It is going to be sold.",
+                "It is going to be repainted.",
+                "It is going to be closed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about the debate club's meeting room?",
+              "options": [
+                "It is too small for the group.",
+                "It is called \"Turner Auditorium\".",
+                "It will soon be enlarged to accommodate everyone.",
+                "It is the most run-down room in the student building."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can be inferred about the man?",
+              "options": [
+                "He does not enjoy the debate club.",
+                "He is not taking many classes.",
+                "He is a weak debater.",
+                "He is not ready for his debate yet."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the professor mainly talking about?",
+              "options": [
+                "The science of space travel",
+                "Scientific problems in Star Wars",
+                "The erroneous science in science fiction",
+                "Why science fiction is bad literature"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the lecture, what is wrong with space travel in most science fiction?",
+              "options": [
+                "There are no aliens in outer space.",
+                "There is no way to go faster than light speed.",
+                "There are many other stars and galaxies.",
+                "There is nowhere to go in outer space."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "According to the professor, how long does it take to travel to the closest star to Earth?",
+              "options": [
+                "Three light years",
+                "One hundred light years",
+                "Hundreds light years",
+                "A million light years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What does the professor NOT say about the movie 2001: A Space Odyssey?",
+              "options": [
+                "It is exceptionally good.",
+                "It portrays gravity correctly.",
+                "It does not have faster-than-light travel.",
+                "It does not depict sound in space."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What can be inferred about science fiction?",
+              "options": [
+                "Many people do not like watching science fiction.",
+                "It is costly to make science fiction.",
+                "Science fiction is not meant to teach us about science.",
+                "The film Space Odyssey is a famous science fiction."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

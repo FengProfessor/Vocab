@@ -1,0 +1,86 @@
+{
+  "id": "vstep-reading-onthi-04",
+  "title": "Luyện Đọc VSTEP: The Cambrian Explosion (VstepR4-Test 02)",
+  "duration": 10,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 4,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Cambrian Explosion",
+            "text": "<p style=\"text-align: justify;\">Many of the major phyla of animals arose during the Cambrian period, in what is called the Cambrian Explosion. Prior to the Cambrian period, simple one-celled organisms had slowly evolved into primitive multicellular creatures. Then, in a relatively rapid explosion during the period from 540 million years ago to 500 million years ago, there was a period of astonishing diversification in which quickly developing organisms became widely distributed and formed complex communities.</p>\n<p style=\"text-align: justify;\">One theoretical explanation for the rapid diversification that occurred during the Cambrian period is known as the theory of polar wander. According to this theory, the rapid diversification occurred because of an unusually rapid reorganization of the Earth’s crust during the Cambrian period. This rapid change in the Earth’s crust initiated evolutionary change inasmuch as change in the environment serves to trigger evolutionary change.<span> </span></p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r04-q1",
+              "type": "mcq",
+              "question": "<span style=\"text-align: justify;\">It can be inferred from paragraph 1 that</span>",
+              "options": [
+                "some major phyla developed during periods other than the Cambrian period",
+                "many other phyla of animals became extinct during the Cambrian Explosion",
+                "descriptions of various animal phyla were created during the Cambrian period",
+                "the major phyla of animals that came about during the Cambrian period died out in the Cambrian Explosion"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Câu hỏi yêu cầu tìm thông tin suy ra từ đoạn 1, do đó cần phải đọc hiểu toàn bộ đoạn 1.</p>\n<p><i>Rất nhiều hệ động vật đã xuất hiện trong kỉ Cambri, sự xuất hiện của các hệ động vật này được gọi là Bùng nổ kỉ Cambri. Trước kỉ Cambri, sinh vật đơn bào đơn giản đã tiến hóa thành những sinh vật đa bào đầu tiên. Sau đó, trong một cuộc bùng nổ khá nhanh từ 540 triệu đến 500 triệu năm trước, có một thời kì mà có sự đa dạng sinh học đáng ngạc nhiên,  mà ở thời kì này, những sinh vật đơn bào đã trở thành những quần thể phức tạp được phân bố và hình thành một cách rộng rãi. </i></p>\n<p>Đọc từng đáp án</p>\n<p>Đáp án A. <i>Một số hệ động vật chính đã phát triển trong những thời kì ngoài kỷ Cambri</i>. Câu đầu tiên của đoạn cung cấp thông tin rằng nhiều hệ động vật xuất hiện trong kỉ Cambri. Tuy nhiên, câu sau lại nói đến việc các sinh vật đơn bào đơn giản đã tiến hóa thành các sinh vật đa bào trong khoảng thời gian trước kỉ Cambri. Do đó, A có thể là đáp án đúng</p>\n<p>Đáp án B. <i>Rất nhiều hệ động vật bị tuyệt chủng trong kỉ Cambri</i>. Nội dung của đoạn 1 không nói đến việc các hệ động vật bị tuyệt chủng mà chỉ bàn đến xuất hiện và sự tiến hóa của các hệ động vật. -> B loại</p>\n<p>Đáp án C. <i>Miêu tả các hệ động vật được tạo ra trong kỉ Cambri</i>. Đoạn 1 chỉ đơn thuần nói đến việc xuất hiện của các hệ động vật mới mà không miêu tả đặc điểm của các hệ động vật này (nơi sinh sống, quá trình tiến hóa…). -> C loại</p>\n<p>Đáp án D. <i>Hệ động vật chính xuất hiện trong kỉ Cambri bị tuyệt chủng trong khoảng thời gian Bùng nổ kỉ Cambri.</i> Tương tự như đáp án B, việc tuyệt chủng của hệ động vật không hề được đề cập đến ở đoạn 1. -> D loại</p>\n<p>Sau khi dùng phương pháp loại trừ, ta có A là đáp án hợp lí nhất.</p>\n<p>=> A là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r04-q2",
+              "type": "mcq",
+              "question": "It can be determined from paragraph 1 that the Cambrian Explosion most likely lasted",
+              "options": [
+                "40 million years",
+                "450 million years",
+                "500 million years",
+                "540 million years"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Câu này yêu cầu xác định khoảng thời gian kéo dài của “Bùng nổ kỉ Cambri”. 540 triệu năm và 500 triệu năm là hai con số duy nhất xuất hiện trong đoạn này ở câu “<i>Sau đó, trong một cuộc bùng nổ khá nhanh từ 540 triệu đến 500 triệu năm trước, có một thời kì mà có sự đa dạng sinh học đáng ngạc nhiên, mà ở thời kì này, những sinh vật đơn bào đã trở thành những quần thể phức tạp được phân bố và hình thành một cách rộng rãi.” </i>Như vậy thời kì bùng nổ có thể được ước tính kéo dài trong khoảng 40 triệu năm.</p>\n<p>(Ngoài ra, với những trường hợp không hiểu được thông tin của câu thì có thể xem xét các đáp án, nếu đáp án là tổng hoặc hiệu của hai số xuất hiện trong câu thì rất có thể đó là đáp án đúng.)</p>\n<p>=> A là đáp án đúng </p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r04-q3",
+              "type": "mcq",
+              "question": "It is implied in paragraph 2 that",
+              "options": [
+                "only one theory to explain the rapid diversification has been proposed",
+                "the polar wander explanation is accepted by all scientists",
+                "the theory of polar wander tails to adequately explain the rapid diversification",
+                "the theory of polar wander is not the only theory to explain the rapid diversification"
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Câu hỏi yêu cầu tìm thông tin suy ra của đoạn 2 nên chúng ta cần đọc hiểu đoạn 2 trước:</p>\n<p><i>Một giả thiết cho sự đa dạng hóa nhanh chóng xảy ra trong suốt kỉ Cambri được biết đến như là giả thiết về sự “trôi nổi cực địa”. Theo giả thiết này, sự đa dạng hóa nhanh chóng diễn ra bởi vì sự tái cấu trúc nhanh chóng của bề mặt Trái Đất trong suốt kỉ Cambri. Sự biến đổi nhanh chóng này trên bề mặt Trái Đất tạo ra những thay đổi tiến hóa …</i></p>\n<p>=> Như vậy đoạn này nói đến một giả thiết giải thích sự đa dạng hóa trong kỉ Cambri. Giả thiết này cho rằng sự đa dạng hóa nhanh chóng của hệ động vật diễn ra do sự tái cấu trúc của bề mặt trái đất</p>\n<p>Đáp án A. <i>Chỉ một giả thiết giải thích sự đa dạng hóa nhanh chóng được đưa ra</i>. Trong đoạn 2 không đề cập đến có bao nhiêu giả thiết được đưa ra. -> A loại</p>\n<p>Đáp án B. <i>Giải thích về “trôi nổi cực địa” được chấp nhận bởi tất cả các nhà khoa học</i>. Theo nội dung đã đọc thì đoạn 2 chỉ đơn giản nêu ra sự giải thích về sự đa dạng hóa nhanh chóng, mà không nói đến ý kiến đánh giá của giới nghiên cứu về giả thiết này. -> B loại</p>\n<p>Đáp án C. <i>Giả thiết “trôi nổi cực địa” hướng tới giải thích một các đầy đủ sự đa dạng hóa nhanh chóng.</i> Tương tự câu hai, không có bất kì đánh giá hay bình luận nào được đưa ra về tính đúng đắn/ đầy đủ của giả thiết này. Vì thế không có cơ sở để suy ra là giả thiết “trôi nổi cực địa” có thể giải thích một cách đầy đủ sự đa dạng hóa nhanh chóng hay không. -> C loại</p>\n<p>Đáp án D. <i>Giả thiết “thả trôi cực địa” không phải là giả thiết duy nhất về sự đa dạng hóa nhanh chóng</i>. Dựa vào từ ngữ “one theoritical explaination for the rapid diversification is that…”, nếu giả thiết “thả trôi cực địa” là giả thiết duy nhất đươc đưa ra về sự đa dạng hóa nhanh chóng, tác giả phải dùng “the only theoritical explaination..” thì mới đúng ngữ pháp. Do đó, ngoài giả thiết “thả trôi cực địa” có thể còn có những giả thiết khác. -> D đúng.</p>\n<p>=> D là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r04-q4",
+              "type": "mcq",
+              "question": "It can be inferred from paragraph 2 that one basis of the theory of polar wander is that",
+              "options": [
+                "relatively little change in the Earth’s crust took place during the Cambrian period",
+                "rapid diversification was unable to take place because of the changes in the Earth’s crust",
+                "the Earth’s crust changed more slowly in other periods",
+                "evolutionary change is unrelated to changes in the environment"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Từ đoạn 2 có thể suy ra một cơ sở của giả thiết “thả trôi cực địa” là gì?</p>\n<p>Sau khi làm xong câu 7, chúng ta đã hiểu được thông tin của đoạn nên chỉ cần xem xét từng đáp án.</p>\n<p>Đáp án A. <i>Gần như không có sự thay đổi nào ở bề mặt Trái Đất xảy ra trong kỉ Cambri</i>. Đáp án này hoàn toàn không đúng với thông tin trong đoạn, bởi vì trong kỉ Cambri diễn ra “sự tái cấu trúc nhanh chóng của bề mặt Trái Đất”. -> A loại</p>\n<p>Đáp án B. <i>Sự đa dạng hóa nhanh chóng không thể diễn ra bởi vì những thay đổi ở bề mặt Trái Đất. </i>Đáp án này cũng không đúng với nội dung trong câu. Dựa vào đoạn văn, mặc dù có sự tái cấu trúc của bề mặt Trái Đất, sự đa dạng hóa nhanh chóng đã diễn ra trong kỉ Cambri. -> B loại</p>\n<p>Đáp án C. <i>Bề mặt Trái Đất thay đổi chậm hơn trong những thời kì khác</i>. Đọc câu văn số 2 của đoạn 2: “Theo giả thiết này, sự đa dạng hóa nhanh chóng diễn ra bởi vì sự tái cấu trúc nhanh chóng một cách bất thường của bề mặt Trái Đất trong suốt kỉ Cambri” ta thấy trạng từ “usually” (bất thường) bổ nghĩa cho cụm danh từ “rapid reorganization” (sự tái cấu trúc nhanh chóng), do đó, việc bề mặt Trái Đất biến đổi nhanh chóng là một điều bất thường. Nói cách khác, thông thường, bề mặt Trái Đất biến đổi chậm hơn. -> C đúng</p>\n<p>Đáp án D. Thay đổi mang tính tiến hóa không liên quan đến những thay đổi trong môi trường. Tuy nhiên, ở câu cuối cùng của đoạn 2, ta thấy rằng “change in the environment serves to trigger evolutionary change”(những thay đổi trong môi trường đã góp phần làm diễn ra những thay đổi mang tính tiến hóa). -> D loại</p>\n<p>=> C là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

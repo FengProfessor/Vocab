@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-40",
+  "title": "Luyện Đọc VSTEP: Climate Migration and the Future (VstepR4-Test 12 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Climate Migration and the Future",
+            "text": "<p style=\"text-align:justify;\">As climate change accelerates, millions of people around the world are being forced to abandon their homes due to rising sea levels, prolonged droughts, intensifying storms, and the collapse of agricultural systems. Small island nations such as Tuvalu and Kiribati face the prospect of complete submersion within decades, while vast regions of sub-Saharan Africa and South Asia are experiencing desertification and water scarcity that make sustained agriculture increasingly impossible. The World Bank estimates that by 2050, climate change could displace up to 216 million people within their own countries — a figure that does not account for those crossing international borders.</p>\n<p style=\"text-align:justify;\">Unlike conventional refugees fleeing war or political persecution, climate migrants occupy an ambiguous legal status under international law. The 1951 Refugee Convention, which established the legal framework for protecting refugees, does not recognize environmental displacement as a qualifying ground for asylum. This gap means that millions of people forced from their homes by climate impacts have no guaranteed right to protection, resettlement, or legal status in receiving countries. Some legal scholars and advocacy organizations are pushing for an expansion of international refugee law to include climate migrants, but achieving consensus among nations with different interests and vulnerability levels remains deeply challenging.</p>\n<p style=\"text-align:justify;\">The geopolitical implications of large-scale climate migration are profound. Countries that are relatively insulated from the worst effects of climate change may find themselves receiving large numbers of climate migrants, creating economic, social, and political pressures. History shows that mass migration events can trigger political backlash, heighten ethnic tensions, and destabilize governments. Proactive policies — including early investment in climate adaptation, development assistance for vulnerable regions, and the creation of legal pathways for climate migrants — are likely to be far less costly in the long run than the reactive management of a crisis that has been left too long unaddressed.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r40-q1",
+              "type": "mcq",
+              "question": "It can be inferred from paragraph 1 that small island nations like Tuvalu?",
+              "options": [
+                "have already been completely abandoned by their populations",
+                "have caused more climate change than larger industrialized nations",
+                "face existential threats despite contributing little to global emissions",
+                "are receiving large amounts of international financial support"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r40-q2",
+              "type": "mcq",
+              "question": "From the information in paragraph 2, it can be inferred that climate migrants currently?",
+              "options": [
+                "have full legal protection under the 1951 Refugee Convention",
+                "are in a vulnerable legal position with few internationally guaranteed rights",
+                "are already recognized as a special category under international law",
+                "have more legal rights than conventional war refugees"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r40-q3",
+              "type": "mcq",
+              "question": "From paragraph 2, it can be inferred that expanding the Refugee Convention to include climate migrants?",
+              "options": [
+                "has already been agreed to by most major nations",
+                "is politically straightforward but lacks public support",
+                "faces significant political obstacles due to conflicting national interests",
+                "would require abolishing the existing 1951 Refugee Convention entirely"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r40-q4",
+              "type": "mcq",
+              "question": "From paragraph 3, it can be inferred that the author believes proactive climate migration policies?",
+              "options": [
+                "are too expensive for most governments to afford",
+                "will eliminate the risk of climate migration entirely",
+                "are economically wiser than waiting for a crisis to occur",
+                "should focus exclusively on military border security"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r40-q5",
+              "type": "mcq",
+              "question": "What can be inferred about climate-receiving countries from paragraph 3?",
+              "options": [
+                "They are enthusiastically welcoming climate migrants.",
+                "They may experience social and political tensions as a result of migration pressure.",
+                "They are already fully prepared for large-scale climate migration.",
+                "They suffer more from climate change than smaller developing nations."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

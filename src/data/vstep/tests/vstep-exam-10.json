@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-10",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 10",
+  "duration": 172,
+  "date": "2026-03-23",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. How will Mary travel to Scotland?</b></p><ul><li><b>Speaker 1:</b> Are you taking the train to Scotland tomorrow, Mary?</li><li><b>Speaker 2:</b> No. I’m driving there. It’s cheaper.</li><li><b>Speaker 1:</b> Why don’t you go by coach?</li><li><b>Speaker 2:</b> Oh no. It takes 7 hours</li></ul><p><b>2. Where are the shoes?</b></p><ul><li><b>Speaker 1:</b> Mom. Have you seen my brown shoes?</li><li><b>Speaker 2:</b> Yes. They’re under the table.</li><li><b>Speaker 1:</b> No. They’re not. I left them on the chair this morning. But they’re not there now.</li><li><b>Speaker 2:</b> There they are, under the window.</li></ul><p><b>3. When will the football match start next week?</b></p><ul><li><b>Speaker 1:</b> Does the football match start at 12:15 every week?</li><li><b>Speaker 2:</b> No. It was early this week. It usually begins at 2 o’clock.</li><li><b>Speaker 1:</b> So it will be the usual time next week.</li><li><b>Speaker 2:</b> Yes.</li></ul><p><b>4. What is the man selling?</b></p><ul><li><b>Man:</b> And this? Is the latest model by MacPoint. You'll find it's even quicker at doing your washing up and needs less water. And it's very easy to use, as easy as turning on your shower.</li></ul><p><b>5. What is the weather forecast for tomorrow?</b></p><ul><li><b>Woman:</b> It's been typical spring weather today, sunshine and showers. The next 24 hours should be dry but cloudy. Things look better for the next week, with Monday being a fine sunny day and the following day mild but windy.</li></ul><p><b>6. Where will the woman go first after work?</b></p><ul><li><b>Speaker 1:</b> Are you and Sarah going straight to the restaurant from work tonight?</li><li><b>Speaker 2:</b> Actually I’m leaving work early because I need to do some shopping in the market and I’m going to meet Sarah after that outside the cinema. She doesn’t know where the restaurant is, you see. You’re playing tennis after work, aren’t you?</li><li><b>Speaker 1:</b> Yes. So see you at the restaurant.</li></ul><p><b>7. What can festival visitors see every day?</b></p><ul><li>The art centre in London is holding a festival of Irish culture from 4th to 12th of April. An exhibition of paintings is open daily and on some weekday evenings. The theatre has special events including plays and films. At the weekend, concert of Irish music will take place in the town hall</li></ul><p><b>8. What souvenir will the boy’s mother bring?</b></p><ul><li><b>Speaker 1:</b> What color of T-shirt shall I bring you from New York, Fred?</li><li><b>Speaker 2:</b> I prefer black but actually a baseball cap would be a good idea.</li><li><b>Speaker 1:</b> What about another model car for your collection. I can get you a New York taxi.</li><li><b>Speaker 2:</b> Great. I really like the sports car you bought me last time.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "How will Mary travel to Scotland?",
+              "options": [
+                "bus",
+                "car",
+                "train",
+                "plane"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Where are the shoes?",
+              "options": [
+                "under the window",
+                "under the table",
+                "on the chair",
+                "by the door"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "When will the football match start next week?",
+              "options": [
+                "11.45 a.m",
+                "12.15 p.m",
+                "02.00 p.m",
+                "04.25 p.m"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the man selling?",
+              "options": [
+                "A washing machine",
+                "A dishwasher",
+                "A shower",
+                "A water pump"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the weather forecast for tomorrow?",
+              "options": [
+                "Dry but cloudy",
+                "Sunshine and showers",
+                "Fine and sunny",
+                "Mild but windy"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Where will the woman go first after work?",
+              "options": [
+                "the restaurant",
+                "the market",
+                "the cinema",
+                "tennis court"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What can festival visitors see everyday?",
+              "options": [
+                "plays",
+                "paintings",
+                "films",
+                "concerts"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What souvenir will the boy’s mother bring?",
+              "options": [
+                "a T-shirt",
+                "a baseball cap",
+                "a taxi",
+                "a sports car"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Presenter:</b> In today’s programme, David Green has come along to tell us all about Waterside Shopping Center near Northport. Good morning, David.</li><li><b>David:</b> Good morning. Well, I visited Waterside last week and I think it has something for everyone and I would recommend it for a day out. It’s taken three years to build and (Q1) finally opened three weeks ago, two months later than planned. Firstly, getting there; there are (Q2) organized coach trips from most towns in the area but they leave early and come home late, so I drove. There are 12,000 free parking spaces, so parking is no problem. You can also get there by train, but the station is 15 minutes from Waterside by bus, and the buses are really crowded so you sometimes have a long wait.</li><li><b>Presenter:</b> And what about opening times?</li><li><b>David:</b> Well, one thing to remember is that the shops don’t open till 10.00 in the morning except on Saturday when they open at 9.00. So don’t get there too early on a weekday. (Q3) They close at 8 o’clock every day except Friday when they’re open until 9 pm.</li><li><b>Presenter:</b> Can you tell us some more about the facilities at the shopping center?</li><li><b>David:</b> Yes, it’s arranged on three levels. You’ll find all your favourites here. In fact if you want to buy a pair of shoes there are 15 different shops to choose from on level one and two. When you run out of money there are seven different banks, but collect your money before you get to the third level as there aren’t any banks up there. On that level, however, there are several restaurants as well as cinema with seven screens. And don’t get lost like I did, go to the information desk on the first level and get a map.</li><li><b>Presenter:</b> What else can you do at Waterside?</li><li><b>David:</b> Before you go back to your car or the bus – and (Q4) in fact it might be better to do this before you go shopping and have too much to carry – go and see the lake. Take a walk or have a go at fishing, sailing or wind surfing if you have time. Or you can rest your tired feet and watch the birds and ducks, but you are asked not to feed them.</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Interviewer:</b> OK, now I understand that the Park is involved in one or two projects at the moment.</li><li><b>Wildlife park representative:</b> That’s right. Since 1994, we’ve been working with various partners to raise money and help co-ordinate something called Project Life Lion. This project involves sending teams to villages which border the Serengeti National Park in East Africa to vaccinate domestic dogs against canine distemper virus (CDV) and rabies. In 1994 over one third of the Serengeti lions died (Q5) as a result of CDV, which had passed from domestic dogs to the wild animal population. In addition to that, we are currently taking part in the Atlantic Rainforest Project and supporting the Community Conservation Project.</li><li><b>Interviewer:</b> So you’re obviously concerned about environmental issues.</li><li><b>Wildlife park representative:</b> Yes, the Park continuously monitors its environmental impact. To do that, we have our own independently-written Environmental Management System, which is now being used as a model by other organizations across the UK so that they can establish their own.</li><li><b>Interviewer:</b> Now, apart from the day-to-day business of visitors to the Park, you also put on events, don’t you?</li><li><b>Wildlife park representative:</b> Yes, the Park is a venue for all manner of corporate events, such as (Q6) product launches, team-building, special events, barbecues - the list is endless. And we play host to many charity and fund-raising events each year. For them, (Q8) we are happy to help with discounted tickets and competition prizes.</li><li><b>Interviewer:</b> Now, tell me about the Center for Television and Radio Training. I gather you’re connected with that.</li><li><b>Wildlife park representative:</b> Yes, it’s our sister’s company. (Q7) If you’ve always dreamed of being a radio presenter, we offer you the opportunity to take the first steps.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Man:</b> Hello?</li><li><b>Woman:</b> Hi. It’s Laura Carlton here. We’ve just arrived at the holiday flat, but I can’t get the hot water and heating to work.</li><li><b>Man:</b> Oh right! That’s easy. Don’t worry. In the upstairs cupboard, you’ll find the water heater. (Q9) You’ll see three main controls on the left at the bottom of the heater. The first one – the round one on the far left – is the most important one for the heating and hot water. It’s the main control switch. Make sure it’s in the ‘on’ position. The switch itself doesn’t light up, but the little square below will be black if (Q10) the switch is ‘off’. That’s probably what’s happened – it’s got switched off by mistake. The middle one of these three controls – you’ll see it’s slightly larger than the first one – controls the radiators. If you feel cold while you’re there and need the radiators on, this needs to be turned to maximum. The last of the three controls – the one on the right – is usually on about a number four setting which for the water in the taps is usually quite hot enough. Below the heating controls in the middle is a small round plastic button. If there isn’t enough water in the pipes, (Q11) sometimes the heater goes out. If this happens you’ll need to press this button to reset the heater. Hold it in for about five seconds and the heater should come on again. Then there’s a little square indicator under the third knob that’s a kind of alarm light. It’ll flash if you need to reset the heater.</li><li><b>Woman:</b> (Q12) It sounds complicated</li><li><b>Man:</b> I’m sure you won’t have any problem with it. There should be some more instructions on the side of the heater. Call me back if you can’t make it work.</li><li><b>Woman:</b> Okay</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "When was the center first opened?",
+              "options": [
+                "three years ago",
+                "three weeks ago",
+                "two months ago",
+                "two weeks ago"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "How can you get to the center?",
+              "options": [
+                "by car and taxi",
+                "by train and taxi",
+                "by car, taxi and train",
+                "by car, train and coach"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What time do the shops close on Saturday?",
+              "options": [
+                "9:00 am",
+                "10:00 am",
+                "8:00 pm",
+                "9:00 pm"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What should people do before shopping in the center?",
+              "options": [
+                "collect money from the bank",
+                "Watch a movie",
+                "Rest by the lake",
+                "Buy a map"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why did Serengeti lions die?",
+              "options": [
+                "attacked by domestic dogs",
+                "infected with a disease from domestic dogs",
+                "killed by other wild animals",
+                "sent to villages"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What events are NOT organized in the park?",
+              "options": [
+                "product introduction",
+                "charity events",
+                "family camping",
+                "barbecue"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "You can try this when coming to the park",
+              "options": [
+                "introducing programs on the radio",
+                "deliver discounted tickets",
+                "organize competition",
+                "host an event"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which one is not a programme of the park?",
+              "options": [
+                "Project Life Lion",
+                "Atlantic Rainforest Project",
+                "Discounted Tickets",
+                "None of the above"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "How many main controls are there on the heater?",
+              "options": [
+                "two",
+                "three",
+                "four",
+                "none"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What is the reason for the problem of the heater?",
+              "options": [
+                "the switch doesn't light up",
+                "the little square is black",
+                "the switch is off",
+                "the switch is on"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "When does the woman have to restart the heater?",
+              "options": [
+                "when there isn't enough water",
+                "when the water is too hot",
+                "when the heater is switched off",
+                "when there is no light"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How does the woman feel after listening to the instruction?",
+              "options": [
+                "confused",
+                "motivated",
+                "interested",
+                "encouraged"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1:</b></p><p>Right, everyone- about the trip to the Jubilee Arts Centre next Wednesday. As you know, we have tickets for the Centre’s two theatres and the concert hall. Those of you with concert tickets will hear piano music by Chopin and Schumann. Those with tickets for the main theatre will see Shakespeare’s Twelfth Night, while people going to the smaller theatre will see The Wild Duck by Ibsen. Although all the theatre and concert tickets have gone, if anyone else would like to join us on the trip I can get tickets for the Arts Centre cinema to see the Australian comedy film, Spider and Rose.</p><p>The shows begin at half past seven, but we’ll leave early so you can spend time looking around the Arts Centre. The coach will leave here at 3:30 and arrive at the Arts Centre at about a quarter to five. Let me tell you what you can do there.</p><p>The Centre has a lot of art- lovers. In the Art Gallery there’s an exhibition of the history of Russian ballet. It has dresses and shoes worn by famous dancers and photos of past performances. With your student card, you can get in very cheaply. There are also some interesting free exhibitions. On the ground floor you can see prize- winning paintings from children’s competition, and gold jewellery made by Scottish artists. On the first floor there’s an exhibition of South American photographs, and there’s no charge for that either.</p><p>I know some of you hope to do some shopping. The Centre has a bookshop on the first floor and there’s a souvenir shop by the ticket office. If you’re more interested in clothes and shoes there’s a large shopping centre five minutes’ walk from the Arts Centre.</p><p>You’ll probably want to eat before the show. The Balcony Restaurant has a menu with a wide range of meals and waiter service, but it is rather expensive. Or there’s the Fountain Restaurant whose special three- course dinner is good value for money. There’s also Charlie’s coffee bar which serves coffee, sandwiches and cakes. You can get fruit juices and ice cream from the cinema kiosk.</p><p>After the shows the coach will pick us up at the Bridge Street exit. Everyone should be there by twenty past ten. The two plays will finish at around 10.10 or 10.15. I’m afraid concert- goers will have to wait, as the concert finishes earlier, at ten to ten.</p><p><b>Talk 2:</b></p><p>Announcer: And now for a few tips of you who are going to go walking this summer. Let’s look first of all at the type of bag that you should take with you. Rod Smith works in a shop that sells camping equipment and he feels he has a bag for every type of walking holiday. Rod, does it really make a difference what type of bag you use?</p><p>Rod: Yes, Jill, it certainly does. Bags come in every shape, colour and size now so it makes sense to pick one that is right for your needs. A backpack, for example, could quite rapidly ruin an otherwise good walking holiday if it doesn’t fit your back. In fact the fit is critical but the choice is so large now that it’s difficult to know how to make the right one. So- here are a few things to look for.</p><p>First of all size. A bag that holds thirty- five litres and has three outside pockets should be plenty big enough for a day- trip. For a four to five- day walking tour I would recommend a bag that holds seventy litres for a man and fifty to sixty litres for a woman. That’s along with a tent and a sleeping bag. An upright bag- that’s one that closes at the top- is better if you intend to climb a lot of hills.</p><p>What about the contents? Well, in order to really avoid the inconvenience of broken containers or crushed clothes, I suggest you go for a bag with a solid bottom. The best ones- but these are probably the most expensive have a leather base that is particularly resistant to wear and tear. A bag that has two compartments inside will allow you to find things more easily and separate out items such as creams that could leak in hot weather. Extra pockets on the outside of the bag are also useful if you want to carry any tools for climbing that are sharp or get dirty when you use them.</p><p>When you have to think about carrying your bag. If it’s a backpack, a wide cushioned belt will ease the strain on your back and hops and leave you with more energy for your walking activities. Shoulder straps also help lighten the load and these should be easy to adjust. There are many different types of strap on the market that can be adjusted in various different ways. Try several and compare them. It’s also a good idea to make sure there’s a horizontal bar that goes across your shoulders and stops the straps from falling off.</p><p>Well, if you choose your bag carefully and think about some of the things I’ve mentioned, you shouldn’t waste your money. Finally, make sure there are plenty of air holes in the padded part of your bag that touches your body. These are essential to allow sweat to escape and to make your walking or climbing holiday a comfortable one.</p><p><b>Talk 3:</b></p><p>Thank you all for coming to my talk this evening. It’s nice to see so many people in the audience. For those of you who don’t know very much about PS Camping let me start by giving some background information about the company.</p><p>The company started twenty-five years ago. It actually opened as a retail chain selling camping equipment, and then twenty years ago, it bought a small number of campsites in the UK, and began offering camping holidays. The company grew rapidly and has been providing holidays in continental Europe for the last fifteen years.</p><p>If you book a camping holiday with us, you’ll have a choice of over 300 sites. In Italy we now have some 64 sites that we either own, or have exclusive use of. France is where we have the majority of sites, and we currently have a project to expand into Switzerland. We also have a number of sites in northern Spain, particularly in the mountainous region of Picos de Europa. We’ve upgraded all these Spanish sites, and improved them considerably from their original three-star rating.</p><p>We believe holidays after superb facilities for the whole family. Parents who want their children to be fully occupied for all or part of the day can take advantage of our children’s activities. These are organized by our well-qualified and enthusiastic staff. Each day kicks off with a sports match, perhaps football, or volleyball, followed by an hour of drama for everyone. This may include singing or dancing, mime or other activities. In the afternoon, there’s a different art activity for each day of the week including a poster competition or modal making. What’s more, our sites are truly child-friendly, and, with this in mind, we operate a no-noise rule in the evenings. Children’s evening activities usually finished at 9:30, or occasionally 10, and from 10:30 holiday-makers are expected to be quiet in the areas where there are tents.</p><p>We want nothing to go wrong on a PS Camping holiday, but if it does, we also want all customers to be insured. If you haven’t organized an annual insurance policy of your own you’ll need to take out the low-cost cover we offer and we require that you arrange this when you make your holiday reservation.</p><p>There are many advantages to choosing PS Camping, and to recommending it to others. As a regular customer, you’ll be kept informed of special offers, and your friends can benefit from ten percent off their holidays, or book a luxury tent for the price of a standard one. In return, we’ll send you a thank-you present, which you can choose from a list of high-quality items.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "There are still tickets for .........",
+              "options": [
+                "The piano concert",
+                "The movie",
+                "Twelfth Night",
+                "Spider and Rose"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "The coach will leave at 3.30 because ..............",
+              "options": [
+                "It's the earliest",
+                "They don't want to miss the shows",
+                "They want free time at the Arts Centre",
+                "It's long journey to the Arts Centre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "You have to pay to see ..................",
+              "options": [
+                "The Russian ballet exhibition",
+                "The shoes store",
+                "The Scottish jewellery",
+                "The South American photographs"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "You can buy clothes ..............",
+              "options": [
+                "On the first floor",
+                "On the second floor",
+                "In the souvenir shop",
+                "Close to the Arts Centre"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "If you want a snack and a hot drink, try .......................",
+              "options": [
+                "The nearby café",
+                "The fountain",
+                "Charlie's",
+                "The cinema kiosk"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Rod’s shop sells bags and ...............",
+              "options": [
+                "Camping equipment",
+                "Hiking clothes",
+                "Walking holiday stuffs",
+                "No information"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "A 35- litre bag is good for .............................",
+              "options": [
+                "a day trip",
+                "four day trip",
+                "five day trip",
+                "six day trip"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The bag that allows you to separate your belongings .......................",
+              "options": [
+                "One with a solid bottom",
+                "One has a leather base",
+                "One has two compartments inside",
+                "One has pockets bags outside"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "It's important that shoulder straps are .......................",
+              "options": [
+                "Light",
+                "Flexible",
+                "Fashionable",
+                "Strong"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Another essential part of the bags includes .......................",
+              "options": [
+                "Straps",
+                "Air holes",
+                "Sweat absorption",
+                "Cooler tool"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "PS Camping has been organising holidays for .......................",
+              "options": [
+                "15 years",
+                "20 years",
+                "25 years",
+                "30 years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "The company has most camping sites in ...............",
+              "options": [
+                "France",
+                "Italy",
+                "Europe",
+                "Switzerland"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Which organized activity can children do every day of the week?",
+              "options": [
+                "Singing and dancing",
+                "Football",
+                "Drama",
+                "Model making"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Some areas of the sites have a “no- noise” rule after .......",
+              "options": [
+                "9.30 pm",
+                "10.00 pm",
+                "10.30 pm",
+                "11.30 pm"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Customers who recommend PS Camping to friends will receive ......",
+              "options": [
+                "a free gift",
+                "an upgrade to a luxury tent",
+                "a discount",
+                "an insurance"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Understanding Reading and Writing Difficulties",
+            "text": "<p>Many people can read a page of text quickly and without much effort, yet for a significant number of children and adults, the same task feels slow, confusing, and <strong>exhausting</strong>. This difficulty, most commonly known as dyslexia, is not caused by laziness or a lack of effort. It has nothing to do with how smart a person is either. Instead, dyslexia affects the way the brain processes written language, making it harder to connect letters with the sounds they represent. Millions of people around the world live with this condition, and many of them are never formally diagnosed, especially if their symptoms are mild.</p><p>The signs of dyslexia can appear quite early, often before a child starts formal schooling. A young child might struggle to learn the alphabet, confuse letters that look similar, such as 'b' and 'd', or find it hard to rhyme simple words. As children grow older, other signs tend to appear, including slow reading speed, frequent spelling mistakes, and difficulty putting thoughts into writing even when the person can explain those same thoughts clearly out loud. Some people with dyslexia also find it difficult to remember the correct order of letters in longer words, which can make handwriting tasks feel unusually tiring.</p><p>Researchers have found that dyslexia is linked to the way certain areas of the brain handle language, particularly the parts responsible for connecting written symbols to spoken sounds. Brain scans of people with dyslexia often show different patterns of activity in <strong>these areas</strong> compared to people without the condition. Scientists have also discovered that dyslexia tends to run in families, suggesting that genetics plays a <strong>meaningful</strong> role, although the exact genes involved are still being studied. Importantly, dyslexia is completely unrelated to general intelligence, and many people with the condition are highly capable in other subjects, including mathematics, art, and science.</p><p>Fortunately, there are many ways to help people with dyslexia succeed in school and at work. Specialized teaching methods that break reading into small, structured steps have proven especially effective, particularly when introduced early. Simple tools, such as audiobooks, spell-checking software, and text-to-speech programs, can also reduce daily frustration considerably. Teachers who understand dyslexia are often able to adjust how they present information, giving extra time for reading tasks or allowing spoken answers instead of written ones. Early identification matters a great deal, since children who receive support sooner generally build stronger confidence and stronger reading skills over time.</p><p>With the right support, most people with dyslexia go on to live full, successful lives, often finding creative ways to work around their difficulty. Understanding that reading struggles are not a sign of low intelligence can change how families, teachers, and workplaces treat the people affected, replacing frustration with patience and practical help.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị thông tin trực diện trong bài.<ul><li>Với <b>R1Q1</b>, tìm các từ khóa liên quan đến dấu hiệu sớm ở trẻ nhỏ (\"early\", \"young child\") ở đoạn 2 để đối soát với thông tin nhầm lẫn các chữ cái có hình dáng tương tự nhau như 'b' và 'd' (confuse letters that look similar, such as 'b' and 'd').</li><li>Với <b>R1Q5</b>, định vị các từ khóa liên quan đến gia đình (\"families\", \"genetics\") ở đoạn 3. Đoạn văn nêu rõ hội chứng có xu hướng di truyền trong gia đình (tends to run in families).</li><li>Với <b>R1Q7</b>, quét từ khóa công cụ hỗ trợ (\"tools\", \"reduce daily frustration\") ở đoạn 4 để tìm các giải pháp trợ giúp như công cụ đọc văn bản thành tiếng hay phần mềm kiểm tra chính tả (tools that read text aloud or check spelling automatically). Lưu ý tránh chọn các phương án có chứa từ mang tính tuyệt đối hạn chế như \"only\".</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn: đoạn 1 giới thiệu dyslexia ảnh hưởng đến cách não bộ xử lý ngôn ngữ đọc nhưng không liên quan đến trí thông minh; đoạn 2 liệt kê các biểu hiện; đoạn 3 giải thích cơ chế não bộ và di truyền; đoạn 4 và 5 nêu các biện pháp hỗ trợ và góc nhìn tích cực. Ý chính toàn bài phải thể hiện được thông điệp trọng tâm: chứng khó đọc ảnh hưởng đến khả năng đọc hiểu nhưng không đại diện hay làm ảnh hưởng đến trí thông minh tổng quát của một người.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q3</b>, từ <strong>\"exhausting\"</strong> nằm ở đoạn 1 miêu tả cảm giác làm việc chậm chạp, bối rối và mất rất nhiều năng lượng đối với người mắc chứng khó đọc. Ngữ cảnh này chỉ ra sắc thái nghĩa tương đương với sự mệt mỏi, kiệt sức (tiring).</li><li>Với <b>R1Q8</b>, từ <strong>\"meaningful\"</strong> ở đoạn 3 mô tả vai trò của yếu tố di truyền (genetics plays a meaningful role). Trong ngữ cảnh chỉ mức độ ảnh hưởng của gen, từ này mang nghĩa có tầm quan trọng đáng kể (significant).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q4):</b> Rà soát danh sách các dấu hiệu của dyslexia được nhắc đến trong đoạn 2 bao gồm: tốc độ đọc chậm (slow reading speed), viết khó khăn (difficulty putting thoughts into writing) và thường xuyên sai chính tả (frequent spelling mistakes). Tìm chi tiết không được đề cập đến trong bài liên quan đến khả năng nhận diện khuôn mặt người quen.</li><li><b>Dạng câu hỏi Quy chiếu (R1Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"these areas\"</strong> ở câu hai thuộc đoạn 3. Đọc ngược lại câu liền trước để xác định danh từ số nhiều được thay thế: câu trước đề cập đến các vùng não bộ xử lý ngôn ngữ và kết nối ký tự viết với âm thanh nói (certain areas of the brain handle language). Do đó, cụm từ này quy chiếu đến các vùng não bộ xử lý ngôn ngữ.</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Kết hợp thông tin ở đoạn 1 (many of them are never formally diagnosed, especially if their symptoms are mild) và đoạn 4. Rút ra suy luận logic về nguyên nhân nhiều người không được chẩn đoán chính thức là do các biểu hiện hoặc triệu chứng của họ ở mức độ nhẹ, khó phát hiện rõ ràng trong sinh hoạt hàng ngày.</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái ngôn từ xuyên suốt bài viết, đặc biệt ở đoạn 4 và đoạn 5. Tác giả nhấn mạnh việc hỗ trợ đúng cách, đồng cảm, thay thế sự bực bội bằng sự kiên nhẫn và giúp đỡ thực tế. Điều này thể hiện thái độ ủng hộ, mang tính động viên và hướng tới các giải pháp tích cực (Supportive and encouraging).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên giải quyết trước các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R1Q6) và <b>Từ vựng</b> (R1Q3, R1Q8). Sau đó, áp dụng kỹ thuật đọc quét thông tin để hoàn thành câu <b>Chi tiết</b> (R1Q1, R1Q5, R1Q7) và câu <b>Loại trừ</b> (R1Q4). Cuối cùng, dựa trên bức tranh tổng thể đã nắm chắc, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp và suy luận cao gồm <b>Suy luận</b> (R1Q9), <b>Ý chính</b> (R1Q2) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one early sign of dyslexia in young children?</span>",
+              "options": [
+                "Struggling to recognize numbers before starting school.",
+                "Losing interest in drawing pictures at a young age.",
+                "Confusing similar-looking letters such as b and d.",
+                "Refusing to speak in complete sentences at all."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Most people with dyslexia struggle in every school subject.",
+                "Dyslexia only affects how children learn the alphabet.",
+                "Every dyslexic child is formally diagnosed before school starts.",
+                "Dyslexia affects reading ability but not general intelligence."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"exhausting\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "tiring",
+                "annoying",
+                "exhaling",
+                "confusing"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a sign of dyslexia?</span>",
+              "options": [
+                "Frequent mistakes when spelling common words",
+                "Difficulty recognizing familiar human faces easily",
+                "Difficulty putting thoughts clearly into writing",
+                "Slow reading speed compared to other children"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what have researchers discovered about dyslexia and families?</span>",
+              "options": [
+                "Dyslexia tends to run in families genetically.",
+                "Dyslexia is caused entirely by family upbringing style.",
+                "Family income levels strongly predict dyslexia diagnosis rates.",
+                "Dyslexia skips every other generation in most families."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"these areas\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "written symbols",
+                "the brain scans themselves",
+                "the language-processing brain regions",
+                "spoken sounds"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what kind of tools can reduce daily frustration for people with dyslexia?</span>",
+              "options": [
+                "Audiobooks, spell-checking software, and text-to-speech programs only.",
+                "Extra homework assignments focused on repeated handwriting practice.",
+                "Private tutoring sessions held every single weekend.",
+                "Tools that read text aloud or check spelling automatically."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"meaningful\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "emotional",
+                "measurable",
+                "minor",
+                "significant"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about why many people with dyslexia go undiagnosed?</span>",
+              "options": [
+                "Doctors deliberately avoid diagnosing mild reading difficulties.",
+                "Dyslexia is linked to brain areas processing language.",
+                "Their symptoms may be too mild to notice.",
+                "Formal diagnosis causes symptoms to become milder."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's attitude toward people with dyslexia?</span>",
+              "options": [
+                "Supportive and encouraging, emphasizing practical help and understanding.",
+                "Pessimistic about the long-term outlook for most cases.",
+                "Neutral and purely clinical, without any encouragement.",
+                "Mildly critical of schools that fail to help."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Cognitive Effects of Short-Form Video Consumption",
+            "text": "<p>Before short-form video platforms became a fixture of daily life, most researchers studying attention focused on distractions measured in minutes rather than seconds. That assumption now looks outdated. Applications built around brief, rapidly looping clips — most famously TikTok, though competitors have since copied the format — have reorganized how hundreds of millions of people, particularly teenagers and young adults, spend unstructured time, delivering a continuous stream of content engineered, whether intentionally or not, to reward the viewer again within moments of the previous clip ending.</p><p>Much of the concern surrounding these platforms centers on a mechanism familiar to neuroscientists: each new video, however brief, appears to trigger a small release of dopamine, the brain chemical associated with anticipation and reward. Because the app supplies this reward almost instantly and repeatedly, some researchers argue that habitual use may gradually <strong>recalibrate</strong> what a person's brain experiences as sufficiently stimulating, potentially making slower-paced tasks — reading a book, sitting through a lecture — feel comparatively unrewarding by contrast. Whether <strong>this recalibration</strong> is permanent or reverses once usage decreases, however, remains an open question that current research has not conclusively settled.</p><p>It would be a mistake, though, to frame short-form video purely as a cognitive hazard. The same format has proven remarkably effective at spreading practical knowledge, from cooking techniques to language-learning tips to public health information, precisely because its brevity lowers the barrier to both creation and consumption. Independent creators, particularly from communities historically underrepresented in traditional media, have used the format to build audiences and, in some documented cases, entire small businesses. Dismissing the platform as simply harmful overlooks these documented benefits, even as it fails to fully answer the attention-related concerns raised elsewhere in the research.</p><p>A handful of studies attempting to measure this trade-off directly have compared habitual heavy users against occasional users on tasks requiring sustained attention, such as reading comprehension tests under time pressure. Heavy users, on average, performed modestly worse on tasks demanding several uninterrupted minutes of focus, a pattern that lines up with the dopamine-recalibration theory discussed earlier, though the studies involved were largely correlational, meaning heavy use could be a symptom of pre-existing attention difficulties rather than their cause. Researchers have been careful to note that this distinction — cause versus symptom — remains genuinely unresolved.</p><p>Sleep researchers have raised a related, somewhat more consistent concern: late-night scrolling sessions, often extending well past a user's intended stopping point, appear linked to delayed sleep onset and reduced total sleep time, particularly among adolescents. Some evidence suggests the platform's autoplay design, which removes the natural pause a person might otherwise take between videos, plays a meaningful role in this effect, though isolating autoplay from the broader appeal of the content itself has proven difficult to achieve cleanly in controlled studies.</p><p>Underlying much of this discussion is the platform's recommendation algorithm, which continuously refines its suggestions based on how long a viewer <strong>lingers</strong> on each clip before scrolling onward. This design, whatever its intent, produces a feed that grows more precisely tailored — and, critics argue, correspondingly more difficult to disengage from — the longer a person uses the app. Some platforms have introduced optional time-limit reminders in response to public criticism, though whether such voluntary tools meaningfully change behavior at scale remains, again, an unsettled empirical question.</p><p>Taken together, the evidence neither confirms the platform's harshest critics nor fully vindicates its defenders. What seems most defensible is a conditional conclusion: short-form video appears capable of measurable cognitive and behavioral effects, for better and worse, though the size, permanence, and precise mechanism of those effects remain considerably less settled than headlines on either side tend to suggest.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm thông tin trực diện từ các đoạn văn.<ul><li>Với <b>R2Q1</b>, quét từ khóa \"heavy users\" và \"occasional users\" ở đoạn 4. Bài đọc nêu rõ người dùng thường xuyên thể hiện kém hơn ở các bài kiểm tra tập trung, nhưng nhấn mạnh mối quan hệ nguyên nhân - kết quả vẫn chưa rõ ràng (correlational, cause vs symptom remains unresolved).</li><li>Với <b>R2Q5</b>, định vị các cụm từ \"autoplay design\" và \"sleep\" ở đoạn 5. Tác giả đề cập rằng autoplay đóng vai trò đáng kể làm trì hoãn giấc ngủ nhưng việc tách biệt yếu tố này với sức hút nội dung vẫn rất khó khăn (evidence suggests it plays a meaningful role, though isolating it is difficult).</li><li>Với <b>R2Q7</b>, quét từ khóa \"documented benefit\" ở đoạn 3 để tìm thông tin về lợi ích thực tế: định dạng video ngắn giúp nhà sáng tạo độc lập xây dựng cộng đồng và phát triển các doanh nghiệp nhỏ (build audiences and entire small businesses). Cần cảnh giác loại trừ các phương án chứa từ hạn chế tuyệt đối như \"only\".</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề và kết luận toàn bài: các đoạn văn vừa phân tích những lo ngại về khả năng tập trung, giấc ngủ vừa chỉ ra các lợi ích thực tế, đồng thời nhấn mạnh bằng chứng nghiên cứu hiện tại chưa hoàn toàn ngã ngũ. Do đó, phương án đúng phải thể hiện được thông điệp trọng tâm: tác động nhận thức của video ngắn là có thật nhưng chưa được chứng minh triệt để hay có kết luận cuối cùng.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q3, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q3</b>, từ <strong>\"recalibrate\"</strong> ở đoạn 2 mô tả việc bộ não điều chỉnh lại ngưỡng tiếp nhận kích thích (what a person's brain experiences as sufficiently stimulating). Ngữ cảnh này chỉ ra sắc thái nghĩa tương đương với sự điều chỉnh, thiết lập lại (readjust).</li><li>Với <b>R2Q8</b>, từ <strong>\"lingers\"</strong> ở đoạn 6 miêu tả hành vi của người dùng dừng lại quan sát một clip trước khi cuộn sang clip khác (lingers on each clip before scrolling onward). Ngữ cảnh này thể hiện hành động ở lại, dừng chân lâu hơn (stays).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q4):</b> Rà soát các mối lo ngại được nêu trong bài: giảm khả năng tập trung dài hạn (đoạn 4), trễ giấc ngủ ở thanh thiếu niên (đoạn 5) và khó thoát khỏi nguồn cấp tin tức được thiết kế riêng (đoạn 6). Phương án đề cập đến nguy cơ chấn thương mắt thể chất là chi tiết hoàn toàn không xuất hiện trong bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"this recalibration\"</strong> ở câu cuối đoạn 2. Phân tích câu liền trước để tìm danh từ hoặc mệnh đề được quy chiếu: câu trước giải thích việc thói quen xem video ngắn tái điều chỉnh những gì não bộ cho là đủ kích thích (recalibrate what a person's brain experiences as sufficiently stimulating). Do đó, cụm từ này quy chiếu chính xác đến sự thay đổi ngưỡng phần thưởng/kích thích của bộ não.</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp logic ở đoạn 4 về việc người dùng nặng có kết quả tập trung kém hơn. Tác giả lưu ý các nghiên cứu mới dừng lại ở tính tương quan (correlational), do đó chưa thể khẳng định xem việc nghiện xem video là nguyên nhân gây mất tập trung hay chỉ là biểu hiện của những khó khăn tập trung đã có từ trước (cause versus symptom remains unresolved). Chiều hướng nguyên nhân - kết quả vẫn chưa thực sự rõ ràng.</li><li><b>Dạng câu hỏi Thái độ tác giả (R2Q10):</b> Phân tích lập trường xuyên suốt toàn bài, đặc biệt ở đoạn kết luận (đoạn 7). Tác giả chỉ ra rằng bằng chứng không hoàn toàn ủng hộ bên chỉ trích gay gắt cũng không hoàn toàn minh oan cho bên bảo vệ, từ đó đưa ra một kết luận có điều kiện. Thái độ này thể hiện rõ sự cân bằng, cẩn trọng và khách quan khi xem xét cả rủi ro lẫn lợi ích (Balanced and cautious).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R2Q6) và <b>Từ vựng</b> (R2Q3, R28). Tiếp theo, sử dụng kỹ thuật đọc quét thông tin để xử lý các câu <b>Chi tiết</b> (R2Q1, R2Q5, R2Q7) và <b>Loại trừ</b> (R2Q4). Cuối cùng, tổng hợp logic toàn bài để dễ dàng chốt đáp án cho các câu hỏi tư duy cao gồm <b>Suy luận</b> (R2Q9), <b>Ý chính</b> (R2Q2) và <b>Thái độ tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what pattern did studies comparing heavy and occasional users find, and how should it be interpreted?</span>",
+              "options": [
+                "Heavy users showed no measurable difference in performance.",
+                "Heavy users focused worse, but causation remains unclear.",
+                "Occasional users performed worse on sustained attention tasks.",
+                "Heavy users focused worse, definitively proving the platform causes it."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Short-form video has been proven entirely harmless to users.",
+                "Short-form video's cognitive effects appear real but not fully settled.",
+                "Dopamine release alone explains all short-form video effects.",
+                "All heavy users develop permanent, irreversible attention problems."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"recalibrate\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "recalculate",
+                "release",
+                "readjust",
+                "destroy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a concern associated with short-form video?</span>",
+              "options": [
+                "Difficulty disengaging from precisely tailored feeds",
+                "Increased risk of physical eye injury",
+                "Delayed sleep onset among adolescent users",
+                "Reduced performance on sustained attention tasks"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>What does the passage suggest about the platform's autoplay design and sleep?</span>",
+              "options": [
+                "It has been shown to improve total sleep time.",
+                "It definitely causes delayed sleep in all users.",
+                "It was removed after adolescent sleep complaints increased.",
+                "It may contribute to delayed sleep onset somewhat."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this recalibration\"</strong> in paragraph 2 refers to _______.</span>",
+              "options": [
+                "slower-paced tasks",
+                "reading a book",
+                "the brain's changing reward threshold",
+                "a small release of dopamine"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one documented benefit of short-form video mentioned by the author?</span>",
+              "options": [
+                "It has helped some creators build small businesses only.",
+                "It has helped some creators build small businesses.",
+                "It has proven especially effective at increasing sleep quality.",
+                "It has eliminated the need for traditional media entirely."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"lingers\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "limits",
+                "rushes",
+                "scrolls",
+                "stays"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between heavy short-form video use and attention difficulties?</span>",
+              "options": [
+                "The direction of cause and effect remains unclear.",
+                "Heavy use has been proven to permanently damage attention.",
+                "Dopamine release is associated with anticipation and reward generally.",
+                "Attention difficulties always develop only after heavy use begins."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward claims about short-form video's effects?</span>",
+              "options": [
+                "Balanced and cautious, weighing both risks and benefits.",
+                "Strongly alarmed, viewing the platform as clearly dangerous.",
+                "Narrowly focused only on criticizing algorithm design.",
+                "Entirely dismissive of any possible negative effects."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Hidden Costs of Fast Fashion",
+            "text": "<p>While the average consumer today purchases roughly double the number of garments they did two decades ago, wearing each item for barely half as long before discarding it, the industry supplying this consumption has undergone a transformation few outside the trade fully appreciate. Fast fashion — a production model built around compressing the traditional months-long cycle from design to retail shelf into a matter of weeks — has not merely accelerated an existing system; it has restructured the underlying economics of clothing itself, making garments so inexpensive relative to wages that disposal, rather than repair, became the rational consumer choice.</p><p><strong>This restructuring</strong> rests on several interlocking mechanisms, chief among them a global labor market in which garment workers, concentrated overwhelmingly in a handful of manufacturing hubs, are paid wages that labor economists have repeatedly characterized as insufficient to meet even locally defined <strong>subsistence</strong> needs. Layered atop this labor arrangement is a shift toward synthetic fibers — polyester foremost among them — whose production costs have fallen steadily even as the environmental toll of manufacturing and eventually discarding them has climbed, since synthetic textiles derived from petroleum do not decompose on any timescale relevant to a single human lifetime.</p><p>Textile production's environmental footprint, difficult to convey in a single memorable statistic precisely because it accumulates across dyeing, transportation, washing, and disposal rather than concentrating at one visible point, has nonetheless prompted several international bodies to rank the fashion industry among the more significant contributors to global carbon emissions, water consumption, and microplastic pollution — though industry representatives note, not unreasonably, that attribution methods vary considerably across these studies and that comparisons with other sectors remain contested.</p><p>Given the wage structures and material costs discussed above, it should perhaps not surprise that the resulting retail prices have reshaped consumer psychology as thoroughly as they reshaped factory floors: when a garment costs less than a coffee and a pastry, the emotional and financial stakes of a poor purchasing decision shrink correspondingly, and surveys of shopping behavior suggest many consumers now regard certain categories of clothing as functionally disposable, a framing that would have seemed almost unthinkable to shoppers a generation earlier.</p><p>Several major retailers have responded to mounting criticism by introducing recycling programs, garment take-back schemes, and lines marketed under sustainability labels, initiatives that industry analysts view with a mixture of cautious approval and considerable skepticism. The skepticism stems partly from a documented gap between the modest volume of material these programs actually <strong>reprocess</strong> and the considerably larger volume of new garments the same companies continue to produce and market each season, a gap that critics argue functions less as genuine reform than as a reputational offset for consumers uneasy about their consumption habits.</p><p>That garment-sector labor conditions have improved only unevenly since the well-publicized factory disasters of the previous decade becomes clear once one examines inspection records rather than corporate sustainability reports: independent audits conducted in several manufacturing regions continue to document violations ranging from unsafe building conditions to systematic underpayment, even at facilities supplying brands that have publicly committed to stricter oversight, suggesting that voluntary corporate commitments, absent binding external enforcement, achieve only partial and inconsistent compliance.</p><p>Whether meaningful reform ultimately requires binding international regulation, sustained consumer pressure, or some combination the industry has not yet been forced to adopt remains genuinely unresolved, though the persistent gap between stated sustainability commitments and documented practice suggests that voluntary measures alone, whatever their sincerity, have not yet proven sufficient to alter the industry's underlying economic incentives.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5, R3Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R3Q1</b>, quét các từ khóa liên quan đến giá bán lẻ và tâm lý người tiêu dùng (\"retail prices\", \"psychology\") ở đoạn 4 để tìm lý do: giá rẻ do chi phí nhân công thấp làm cho quy mô thiệt hại về mặt cảm xúc lẫn tài chính thu hẹp lại, khiến việc mua sắm cảm giác ít rủi ro, không phải lo nghĩ nhiều (made purchases feel low-stakes).</li><li>Với <b>R3Q5</b>, định vị cụm từ \"environmental footprint\" hoặc \"single memorable statistic\" ở đoạn 3. Lý do khó tóm tắt là vì tác động môi trường tích tụ dần qua nhiều công đoạn sản xuất tách biệt (accumulates across dyeing, transportation, washing, and disposal). Cần cảnh giác loại trừ phương án bổ sung chi tiết sai lệch hạn chế như \"exclusively in developing countries\".</li><li>Với <b>R3Q7</b>, quét từ khóa liên quan đến phản hồi của giới phê bình (\"critics argue\", \"reputational offset\") ở đoạn 5 để tìm luận điểm: họ cho rằng các chương trình bền vững chủ yếu đóng vai trò xoa dịu cảm giác tội lỗi/bù đắp uy tín hơn là mang lại sự cải thiện hay cải cách thực chất (functions less as genuine reform than as a reputational offset).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R3Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt) để tổng hợp mạch nội dung chính qua từng đoạn: từ mô hình thời trang nhanh làm thay đổi cấu trúc kinh tế và tâm lý tiêu dùng, tác động môi trường và điều kiện lao động, cho đến tính kém hiệu quả của các giải pháp tự nguyện. Ý chính phải bao quát trọn vẹn hai vế: chi phí thấp tái định hình việc tiêu dùng nhưng các nỗ lực cải cách hiện tại vẫn còn nhiều bất cập và chưa hoàn thiện.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q3, R3Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q3</b>, từ <strong>\"reprocess\"</strong> ở đoạn 5 miêu tả khối lượng vật liệu thực tế được xử lý lại trong các chương trình tái chế. Trong ngữ cảnh này, từ này đồng nghĩa sát nhất với việc tái chế (recycle).</li><li>Với <b>R3Q8</b>, từ <strong>\"subsistence\"</strong> ở đoạn 2 mô tả mức lương không đủ đáp ứng nhu cầu tối thiểu để duy trì cuộc sống (\"meet even locally defined subsistence needs\"). Ngữ cảnh này chỉ ra sắc thái nghĩa gắn liền với sự tồn tại, mức sống tối thiểu (survival).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q4):</b> Đối soát kỹ các yếu tố đóng góp vào mô hình thời trang nhanh giá rẻ được đề cập trong đoạn 1 và đoạn 2: chu kỳ sản xuất bị nén từ vài tháng xuống vài tuần, mức lương công nhân quá thấp, và chi phí sản xuất sợi tổng hợp giảm liên tục. Chi tiết về \"trợ cấp của chính phủ cho xuất khẩu dệt may\" hoàn toàn không xuất hiện trong văn bản.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"This restructuring\"</strong> ở đầu đoạn 2. Phân tích câu cuối của đoạn 1 ngay trước đó để tìm danh từ hoặc mệnh đề được thay thế: đoạn 1 nhắc đến việc thời trang nhanh đã tái cấu trúc lại nền kinh tế nền tảng của ngành may mặc (restructured the underlying economics of clothing itself). Do đó, cụm từ này quy chiếu trực tiếp đến mô hình kinh tế đã biến đổi của thời trang nhanh.</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Tổng hợp lập luận ở đoạn cuối (đoạn 7) về khoảng cách giữa cam kết công khai và thực tế triển khai. Tác giả chỉ ra rằng các biện pháp tự nguyện không đủ để thay đổi các động lực kinh tế cốt lõi của ngành, từ đó suy luận được rằng bản thân các cam kết tự nguyện của doanh nghiệp khó có thể đơn độc tạo ra sự chuyển biến trong toàn bộ ngành.</li><li><b>Dạng câu hỏi Thái độ tác giả (R3Q10):</b> Phân tích sắc thái ngôn từ xuyên suốt các đoạn văn thảo luận về các chương trình bền vững (đoạn 5, 6 và 7). Tác giả thể hiện sự hoài nghi có cơ sở (skeptical), đánh giá các biện pháp cải cách tự nguyện hiện tại là chưa đủ (insufficient) chứ không phủ nhận hoàn toàn hay bác bỏ mọi nỗ lực.</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên giải quyết trước nhóm câu hỏi định vị nhanh như <b>Quy chiếu</b> (R3Q6) và <b>Từ vựng</b> (R3Q3, R3Q8). Tiếp theo, sử dụng kỹ thuật đọc quét thông tin để hoàn thành các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q5, R3Q7) và câu hỏi <b>Loại trừ</b> (R3Q4). Cuối cùng, kết nối bức tranh logic toàn bài để chốt chính xác các câu hỏi tổng hợp gồm <b>Suy luận</b> (R3Q9), <b>Ý chính toàn bài</b> (R3Q2) và <b>Thái độ tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what psychological effect did falling retail prices have on consumers, and what enabled those low prices?</span>",
+              "options": [
+                "Rising prices made consumers more careful about each purchase.",
+                "Cheap prices, driven by low wages, eliminated all purchasing regret entirely.",
+                "Cheap prices, driven by low wages, made purchases feel low-stakes.",
+                "Consumer psychology remained unaffected despite falling garment prices."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Low costs reshaped consumption, but reform remains incomplete.",
+                "Voluntary sustainability programs have already resolved the industry's core problems.",
+                "Synthetic fibers alone explain the fashion industry's problems.",
+                "Every major retailer has eliminated poor labor conditions completely."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"reprocess\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "reinvent",
+                "redesign",
+                "repossess",
+                "recycle"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as contributing to fast fashion's low-cost, high-turnover model?</span>",
+              "options": [
+                "A production cycle compressed from months into weeks",
+                "Government subsidies granted for textile exports",
+                "A steady decline in synthetic fiber production costs",
+                "Wages insufficient to meet basic subsistence needs"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, why is it difficult to summarize the fashion industry's environmental impact in one statistic?</span>",
+              "options": [
+                "Its impact builds up across several separate production stages.",
+                "The industry has refused to release any relevant data.",
+                "International bodies disagree entirely about whether any impact exists.",
+                "Its impact builds up across several separate production stages exclusively in developing countries."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This restructuring\"</strong> at the start of paragraph 2 refers to _______.</span>",
+              "options": [
+                "synthetic fiber production",
+                "fast fashion's transformed economic model",
+                "garment workers' wages",
+                "the months-long design cycle"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do critics argue about corporate recycling and sustainability programs?</span>",
+              "options": [
+                "They mainly offset guilt rather than reduce new garment production volume.",
+                "They have completely replaced traditional garment manufacturing methods.",
+                "They mainly offset guilt rather than achieve substantive reform.",
+                "They were introduced before public criticism of the industry began."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"subsistence\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "survival",
+                "comfort",
+                "employment",
+                "subsidence"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the likely effectiveness of voluntary corporate sustainability commitments alone?</span>",
+              "options": [
+                "Textile production contributes significantly to global carbon emissions.",
+                "They are unlikely, by themselves, to shift the industry's incentives.",
+                "They have already substantially reformed labor conditions industry-wide.",
+                "Binding regulation exists because voluntary commitments proved sufficient."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall stance toward the fashion industry's sustainability claims?</span>",
+              "options": [
+                "Skeptical, viewing current reforms as insufficient rather than illegitimate.",
+                "Neutral, offering no assessment of the industry's practices.",
+                "Dismissive, viewing all corporate sustainability effort as meaningless.",
+                "Fully convinced sustainability programs have solved the industry's problems."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Hippocampus and the Architecture of Memory",
+            "text": "<p>Not only does the hippocampus occupy a central position in the brain's medial temporal lobe, but its removal or severe damage — as demonstrated most famously in a single, extensively studied patient who underwent bilateral surgical resection in the 1950s to treat intractable epilepsy — produces a memory deficit so selective and so severe that it single-handedly reshaped how neuroscientists conceptualize memory itself, revealing that what had long been treated as a unitary faculty is instead a collection of at least partially separable systems, each apparently dependent on distinct neural architecture.</p><p>That patient, known for decades in the scientific literature only by his initials to protect his privacy, retained his pre-surgical memories largely intact, could hold a conversation and perform reasonably on tests of general intelligence, and yet proved unable to form any new lasting memory of events or facts encountered after the operation — a pattern that suggested, though it did not by itself prove, that the hippocampus is necessary for consolidating new experience into durable long-term storage rather than for storing memories once they have already been consolidated.</p><p>Subsequent research, drawing on cases of more <strong>circumscribed</strong> damage together with decades of animal experimentation, has generally supported and considerably refined this consolidation account, suggesting that the hippocampus functions not as a permanent repository but as a temporary staging structure, gradually and repeatedly reactivating newly formed memory traces — a process some researchers believe occurs preferentially during sleep — until those traces become sufficiently distributed across cortical regions to survive hippocampal damage entirely. Whether <strong>this transfer</strong> is ever fully complete, however, or whether even remote memories retain some residual hippocampal dependence, remains a matter of genuine and unresolved scientific disagreement.</p><p>A separate and, for a period, seemingly competing line of research emphasized the hippocampus's role not in general memory consolidation but specifically in spatial navigation, a view given considerable empirical weight by the discovery of so-called place cells — neurons that fire selectively when an animal occupies a particular location within its environment. Rather than treating these two research traditions as mutually exclusive, most contemporary theorists now argue that spatial mapping may represent one specific instance of a broader relational or associative memory function, the same underlying computational capacity that, applied to non-spatial information, supports the consolidation processes described above; even so, a minority of researchers continue to maintain that the spatial and episodic accounts describe genuinely distinct, if anatomically overlapping, systems.</p><p>Complicating this picture still further is evidence, still regarded by many specialists as <strong>provisional</strong>, that the adult hippocampus continues generating new neurons throughout life, primarily within a subregion known as the dentate gyrus, at a rate that appears to decline with age and that some studies — though not all, and the discrepancy itself remains actively debated — link to exercise, stress, and sleep quality. Whether this ongoing neurogenesis meaningfully contributes to memory formation in adult humans, as opposed to merely occurring alongside it without functional consequence, has proven exceptionally difficult to establish given the practical and ethical constraints on directly manipulating neurogenesis in living human brains.</p><p>These lines of research converge with particular urgency in the study of Alzheimer's disease, in which the hippocampus is typically among the earliest brain regions to show measurable structural deterioration, a pattern consistent with the prominent early symptom of difficulty forming new memories while older, presumably already-consolidated memories remain comparatively preserved. Some researchers have proposed that therapies designed to support hippocampal neurogenesis might, if the neurogenesis-memory link described above proves genuine, help delay this early symptomatic decline, though such proposals remain speculative pending far more direct evidence than currently exists.</p><p>Taken as a whole, more than half a century of research converging on this single structure has replaced an initially simple, almost mechanical account — a structure that either stores memories or does not — with a considerably more provisional picture in which consolidation, spatial mapping, and ongoing neurogenesis appear intertwined in ways not yet fully specified, a conclusion that, however unsatisfying to those seeking a tidy summary, appears to be where the evidence, read cautiously, actually leads.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5, R4Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R4Q1</b>, quét từ khóa \"suggested, though it did not by itself prove\" ở đoạn 2 để đối soát vai trò của đồi hải mã (hippocampus): dữ kiện chỉ ra đồi hải mã cần thiết cho việc củng cố các trải nghiệm mới thành trí nhớ dài hạn chứ không phải là nơi lưu trữ các ký ức đã được củng cố từ trước (necessary for consolidating new experience... rather than for storing memories once already consolidated).</li><li>Với <b>R4Q5</b>, định vị các từ khóa \"Alzheimer's disease\" và \"neurogenesis\" ở đoạn 6 để tìm tình trạng bằng chứng hiện tại: các đề xuất điều trị này vẫn mang tính đầu cơ, dự đoán và cần thêm nhiều bằng chứng trực tiếp hơn nữa (proposals remain speculative pending far more direct evidence).</li><li>Với <b>R4Q7</b>, quét từ khóa \"contemporary theorists\" ở đoạn 4 để xác định quan điểm hiện đại: các nhà lý thuyết cho rằng bản đồ không gian (spatial mapping) có thể đại diện cho một trường hợp cụ thể của chức năng nhớ liên tưởng/quan hệ rộng lớn hơn (one specific instance of a broader relational or associative memory function).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R4Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề và đoạn kết luận (đoạn 7): hơn nửa thế kỷ nghiên cứu đã thay thế một mô hình đơn giản ban đầu bằng một bức tranh phức tạp hơn, nơi các quá trình củng cố trí nhớ, định vị không gian và sự sản sinh tế bào thần kinh mới đan xen lẫn nhau nhưng chưa được xác định hoàn toàn. Ý chính bài đọc khẳng định nghiên cứu về đồi hải mã cho thấy một hệ thống đan xen, đa chiều và chưa có kết luận cố định hoàn toàn.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q3</b>, từ <strong>\"circumscribed\"</strong> ở đoạn 3 đi kèm với mô tả sự tổn thương não bộ (\"circumscribed damage\"). Trong ngữ cảnh đối sánh với tổn thương diện rộng trước đó, từ này mang nghĩa tổn thương có giới hạn, phạm vi hẹp (limited).</li><li>Với <b>R4Q8</b>, từ <strong>\"provisional\"</strong> ở đoạn 5 mô tả bằng chứng về sự sản sinh tế bào thần kinh mới ở người trưởng thành (\"evidence, still regarded... as provisional\"). Ngữ cảnh này thể hiện tính chất tạm thời, chưa chắc chắn hoàn toàn (tentative).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q4):</b> Rà soát các yếu tố liên quan đến tốc độ sản sinh tế bào thần kinh ở người trưởng thành (adult neurogenesis) được liệt kê trong đoạn 5 bao gồm: tập thể dục (exercise), căng thẳng (stress), và chất lượng giấc ngủ (sleep quality). Chi tiết về \"lượng vitamin tiêu thụ hàng ngày\" hoàn toàn không được đề cập đến trong bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"this transfer\"</strong> ở câu hai của đoạn 3. Đọc ngược lại câu trước để tìm hành động được chuyển giao: câu trước miêu tả quá trình kích hoạt lại các dấu vết trí nhớ cho đến khi chúng phân bố đủ rộng khắp các vùng vỏ não (distributed across cortical regions). Do đó, cụm từ này quy chiếu thẳng đến quá trình phân bố/chuyển giao dần dần các dấu vết trí nhớ lên vỏ não.</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Tổng hợp lập luận ở cuối đoạn 3 về câu hỏi liệu các ký ức xa xôi đã củng cố từ lâu có bao giờ hoàn toàn độc lập khỏi đồi hải mã hay không. Tác giả khẳng định đây vẫn là một vấn đề tranh cãi khoa học chưa có lời giải đáp chính thức (remains a matter of genuine and unresolved scientific disagreement), từ đó suy luận được rằng tính độc lập hoàn toàn của các ký ức cũ vẫn chưa được xác minh chắc chắn.</li><li><b>Dạng câu hỏi Phát triển luận điểm / Cấu trúc bài (R4Q10):</b> Phân tích tiến trình lập luận của tác giả từ đoạn 1 đến đoạn 7. Tác giả mở đầu bằng trường hợp bệnh nhân H.M. mang lại một góc nhìn đơn giản, cơ học ban đầu (a simple, almost mechanical account), sau đó lần lượt giới thiệu các nghiên cứu bổ sung về sự củng cố, định vị không gian, và sự tạo tế bào thần kinh mới để đi đến một góc nhìn đa tầng, chưa cố định và phức tạp hơn (a more provisional, layered view).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R4Q6) và <b>Từ vựng</b> (R4Q3, R4Q8). Kế tiếp, sử dụng kỹ thuật đọc quét thông tin để xử lý các câu <b>Chi tiết</b> (R4Q1, R4Q5, R4Q7) và câu <b>Loại trừ</b> (R4Q4). Cuối cùng, tổng hợp logic toàn bài để chốt chính xác các câu hỏi ở cấp độ tư duy cao gồm <b>Suy luận</b> (R4Q9), <b>Ý chính toàn bài</b> (R4Q2) và <b>Phát triển luận điểm</b> (R4Q10).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did the patient case suggest, but not prove, about the hippocampus's role in memory?</span>",
+              "options": [
+                "It was proven unnecessary for forming any new memories.",
+                "It may be needed to store all memories, old and new.",
+                "It is definitely required to consolidate new memories permanently.",
+                "It may be needed to consolidate new memories, not store old ones."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "The hippocampus functions solely to support spatial navigation ability.",
+                "Hippocampal research has definitively mapped memory's exact mechanisms.",
+                "Neurogenesis alone fully explains all hippocampal memory functions.",
+                "Hippocampal research reveals an intertwined, still incompletely specified system."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"circumscribed\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "circumvented",
+                "limited",
+                "eliminated",
+                "distributed"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor some studies link to the rate of adult neurogenesis?</span>",
+              "options": [
+                "Daily dietary vitamin intake levels",
+                "Regular physical exercise levels",
+                "Ongoing psychological stress exposure",
+                "Overall sleep quality patterns"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is the current state of evidence linking adult neurogenesis to memory-supporting therapies for Alzheimer's disease?</span>",
+              "options": [
+                "It has been conclusively confirmed as an effective treatment.",
+                "It applies only to patients already diagnosed with epilepsy.",
+                "It remains speculative, pending far more direct evidence.",
+                "It has been definitively disproven by clinical trials."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this transfer\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "the gradual redistribution of memory traces to cortex",
+                "hippocampal damage",
+                "cortical regions",
+                "newly formed memory traces"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do most contemporary theorists now understand the relationship between spatial and episodic memory research?</span>",
+              "options": [
+                "Place cells were discovered after the consolidation theory was disproven.",
+                "Spatial mapping may be one case of a broader associative capacity.",
+                "Spatial mapping definitely operates through a completely separate brain system.",
+                "Episodic memory research has been entirely replaced by spatial mapping studies."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"provisional\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "false",
+                "tentative",
+                "provincial",
+                "irrelevant"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about whether remote, long-consolidated memories ever become fully independent of the hippocampus?</span>",
+              "options": [
+                "Remote memories have been proven to depend entirely on the hippocampus forever.",
+                "Place cells fire when an animal occupies a specific location.",
+                "Cortical distribution occurs because hippocampal damage first destroys memories.",
+                "Whether they become fully independent remains genuinely unsettled."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>How does the author's argument regarding the hippocampus develop across the passage?</span>",
+              "options": [
+                "It argues consistently, from start to finish, that neurogenesis is irrelevant.",
+                "It moves from a simple account toward a more provisional, layered view.",
+                "It moves from complete uncertainty toward a single settled conclusion.",
+                "It focuses narrowly on refuting spatial-memory research throughout."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You want to invite your friend, Jack, to go to a sports centre with you.</p> Write an email to Jack about your plan.",
+          "content": "<p class='mb-1'>Include the following points in your email:</p><ul><li>Tell Jack about your interest in sports recently and invite him to the sports centre.</li><li>Ask whether he thinks you should choose yoga or a team sport, and explain your own preference.</li><li>Suggest where you could meet up before going to the sports centre.</li></ul>",
+          "description": "You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Informal Email</strong> (thư gửi bạn thân) mời bạn cùng tham gia hoạt động thể thao. Đề bài yêu cầu trả lời đủ <strong>3 ý chính</strong>: (1) chia sẻ về sở thích thể thao gần đây và mời Jack đến trung tâm thể thao, (2) hỏi ý kiến nên chọn yoga hay môn thể thao đồng đội, kèm quan điểm cá nhân, (3) đề xuất nơi hẹn gặp trước khi cùng đi. Bài viết cần tối thiểu <strong>120 từ</strong>, giọng văn thân mật, tự nhiên.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi thân mật. Ví dụ: Dear Jack,</li><li><strong>Opening:</strong> Dẫn dắt vào chủ đề. Ví dụ: I've recently gotten into sports and I thought it would be great if we could go to the sports centre together!</li><li><strong>Body 1 (mời tham gia):</strong> Ví dụ: There's a new sports centre near my house with great facilities, and I'd love for you to join me there.</li><li><strong>Body 2 (hỏi ý kiến yoga hay team sport):</strong> Ví dụ: I can't decide whether to try yoga or join a team sport like basketball — what do you think would suit me better? Personally, I'm leaning towards basketball since I enjoy being active with a group.</li><li><strong>Body 3 (đề xuất nơi gặp):</strong> Ví dụ: How about we meet at the bus stop near the park at 4 p.m. before heading over together?</li><li><strong>Closing:</strong> Ví dụ: Let me know what you think!</li><li><strong>Sign-off:</strong> Best wishes, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Dùng thì hiện tại đơn/hiện tại tiếp diễn khi nói về sở thích và kế hoạch gần đây, và câu hỏi trực tiếp (What do you think...?) khi xin ý kiến bạn. Nên đa dạng hóa cách diễn đạt lời mời để tránh lặp cấu trúc \"would you like to...\" quá nhiều lần.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>sports centre:</strong> trung tâm thể thao</li><li><strong>team sport:</strong> môn thể thao đồng đội</li><li><strong>stay active:</strong> giữ cho cơ thể năng động</li><li><strong>flexibility:</strong> sự dẻo dai</li><li><strong>work up a sweat:</strong> đổ mồ hôi khi tập luyện</li><li><strong>join a class:</strong> tham gia một lớp học</li><li><strong>facilities:</strong> cơ sở vật chất</li><li><strong>meet up:</strong> gặp mặt</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>By the way:</strong> Nhân tiện</li><li><strong>Personally:</strong> Theo cá nhân tôi</li><li><strong>Besides:</strong> Bên cạnh đó</li><li><strong>Actually:</strong> Thực ra</li><li><strong>How about...?:</strong> Còn việc... thì sao?</li></ul><p><strong>Cách diễn đạt cảm xúc:</strong></p><ul><li><strong>I'm really excited to try something new:</strong> Tôi thực sự rất hào hứng để thử điều mới</li><li><strong>It would be great if...:</strong> Sẽ thật tuyệt nếu...</li><li><strong>I can't wait to see you there:</strong> Tôi không thể chờ để gặp bạn ở đó</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Bỏ sót một trong ba ý chính, đặc biệt là câu hỏi xin ý kiến giữa yoga và team sport.</li><li>Không nêu quan điểm cá nhân khi hỏi ý kiến bạn.</li><li>Thiếu phần đề xuất cụ thể về nơi và giờ hẹn gặp.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã trả lời đủ cả 3 ý trong đề chưa.</li><li>Rà soát chính tả và cách chia thì động từ.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy viết như đang thực sự rủ rê một người bạn thân đi tập thể thao cùng. Thể hiện sự hào hứng, đưa ra quan điểm cá nhân rõ ràng sẽ giúp bài viết tự nhiên và thuyết phục hơn.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "adv_dis",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>With the rise of social media platforms, many people now have hundreds or even thousands of online friends, most of whom they have never met in person.</p><p class='mb-1'>While having a large online social circle can offer certain benefits, it also raises concerns about the quality and depth of these relationships.</p><p class='mb-1'><strong>Discuss the advantages and disadvantages of having lots of online friends.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the advantages and disadvantages of having lots of online friends. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Advantages & Disadvantages Essay</strong>. Bạn cần trình bày cân đối cả <strong>ưu điểm và nhược điểm</strong> của việc có nhiều bạn bè trên mạng xã hội, tránh thiên vị hoàn toàn về một phía. Có thể nêu quan điểm cá nhân ngắn gọn ở phần kết luận nếu phù hợp. Bài viết cần tối thiểu <strong>250 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu hiện tượng và nêu luận điểm chính. Ví dụ: As social media continues to expand, having a large number of online friends has become increasingly common, bringing both notable advantages and drawbacks.</li><li><strong>Body 1 (ưu điểm):</strong> Ví dụ: One clear advantage is the opportunity to connect with people from different cultures and backgrounds, broadening one's perspective and knowledge of the world.</li><li><strong>Body 2 (ưu điểm khác):</strong> Ví dụ: Moreover, online friendships can provide emotional support and a sense of community, especially for those who feel isolated in their daily lives.</li><li><strong>Body 3 (nhược điểm):</strong> Ví dụ: On the other hand, many online relationships tend to be superficial, lacking the depth and trust that come from face-to-face interaction, which can leave people feeling lonelier despite having many contacts.</li><li><strong>Conclusion:</strong> Tóm tắt hai mặt và đưa ra nhận định. Ví dụ: In conclusion, while online friendships offer valuable opportunities for connection, they should not replace the meaningful, in-person relationships that are essential to genuine well-being.</li></ul><p><strong>Mỗi đoạn thân bài nên theo cấu trúc:</strong> Topic sentence → Giải thích → Ví dụ minh họa → Kết mini-đoạn, giúp bài viết mạch lạc và cân đối.</p><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng cấu trúc đối lập (whereas, while, on the other hand) để làm rõ ranh giới giữa ưu điểm và nhược điểm, cùng thì hiện tại đơn khi trình bày sự thật chung. Cần có thesis statement rõ ràng ngay từ mở bài để định hướng bài viết.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>online friendship:</strong> tình bạn trực tuyến</li><li><strong>superficial relationship:</strong> mối quan hệ hời hợt</li><li><strong>sense of community:</strong> cảm giác thuộc về cộng đồng</li><li><strong>emotional support:</strong> sự hỗ trợ tinh thần</li><li><strong>face-to-face interaction:</strong> tương tác trực tiếp</li><li><strong>social isolation:</strong> sự cô lập xã hội</li><li><strong>broaden one's perspective:</strong> mở rộng tầm nhìn</li><li><strong>genuine connection:</strong> sự kết nối chân thực</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Moreover / In addition (Thêm ý):</strong> Hơn nữa</li><li><strong>On the other hand / However (Đối lập):</strong> Mặt khác / Tuy nhiên</li><li><strong>As a result / Therefore (Nguyên nhân-kết quả):</strong> Do đó</li><li><strong>For example / For instance (Ví dụ):</strong> Ví dụ như</li><li><strong>In conclusion / Overall (Kết luận):</strong> Tóm lại</li><li><strong>Despite / Although (Nhượng bộ):</strong> Mặc dù</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>lots of online friends:</strong> có thể thay bằng \"a large online social network\"</li><li><strong>advantages and disadvantages:</strong> có thể thay bằng \"benefits and drawbacks\"</li><li><strong>quality of relationships:</strong> có thể thay bằng \"depth of connection\"</li></ul><p><strong>Cách diễn đạt so sánh:</strong></p><ul><li><strong>Whereas online friends offer..., close friends provide...:</strong> Trong khi bạn bè trực tuyến mang lại..., thì bạn thân lại mang đến...</li><li><strong>Unlike traditional friendships,...:</strong> Không giống như tình bạn truyền thống,...</li><li><strong>Despite these benefits,...:</strong> Mặc dù có những lợi ích này,...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ tập trung vào ưu điểm hoặc nhược điểm mà bỏ qua mặt còn lại.</li><li>Thiếu ví dụ cụ thể để minh họa cho từng luận điểm.</li><li>Không có sự chuyển ý rõ ràng giữa phần ưu điểm và nhược điểm.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã đạt tối thiểu 250 từ chưa.</li><li>Đảm bảo bài viết trình bày cân đối cả ưu điểm và nhược điểm.</li><li>Xem lại phần kết luận đã tóm tắt hợp lý cả hai mặt chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy giữ thái độ khách quan, trình bày cả hai mặt một cách công bằng thay vì thiên vị. Sự cân đối và logic trong lập luận là yếu tố then chốt để đạt điểm cao ở dạng bài này.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you enjoy reading books in your free time?",
+            "What kind of books do you usually read?",
+            "How has reading benefited you in your life?",
+            "Do you enjoy traveling?",
+            "What kind of places do you like to visit when you travel?",
+            "What was the most memorable trip you have ever taken?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này gồm 6 câu hỏi trong 3 phút, đánh giá khả năng giao tiếp tự nhiên, phản xạ ngôn ngữ và khả năng kể lại trải nghiệm cá nhân.</li><li><strong>Topic A (Đọc sách):</strong> Câu 1–3 hỏi về sở thích đọc sách, thể loại yêu thích và lợi ích của việc đọc.</li><li><strong>Topic B (Du lịch):</strong> Câu 4–6 hỏi về sở thích du lịch, loại địa điểm yêu thích và chuyến đi đáng nhớ nhất.</li><li>Giám khảo đánh giá dựa trên độ trôi chảy, vốn từ vựng, ngữ pháp và phát âm.</li><li>Nên dành khoảng 25–35 giây cho mỗi câu và cân bằng thời gian giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc ARE: Answer → Reason → Example để trả lời đầy đủ và tự nhiên.</li><li><strong>Ví dụ Topic A:</strong> Yes, I really enjoy reading books, especially novels, because they help me relax and expand my imagination. For example, I recently finished a mystery novel that kept me hooked for days.</li><li><strong>Ví dụ Topic B:</strong> Yes, I really enjoy traveling, because it allows me to experience new cultures and relax from daily routines. For instance, I recently visited Da Lat and loved the cool weather there.</li><li>Luôn tự hỏi Why? hoặc Can you tell me more? để kéo dài câu trả lời một cách tự nhiên.</li><li>Dùng câu chuyển ý: Besides reading, I would also like to share my thoughts on traveling.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói ổn định, dùng từ đệm khi cần thời gian suy nghĩ thay vì im lặng kéo dài.</li><li>Dùng hiện tại đơn để nói về thói quen và quá khứ đơn khi kể lại một chuyến đi đáng nhớ.</li><li>Nếu quên từ vựng, hãy mô tả khái niệm bằng từ đơn giản hơn thay vì dừng lại.</li><li>Từ vựng Topic A: a bookworm (người mê đọc sách), broaden my knowledge (mở rộng kiến thức), get lost in a story (đắm chìm vào câu chuyện).</li><li>Từ vựng Topic B: explore new cultures (khám phá nền văn hóa mới), a breathtaking view (khung cảnh ngoạn mục), broaden my horizons (mở rộng tầm nhìn).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>a great source of knowledge – nguồn kiến thức quý giá</li><li>develop a reading habit – hình thành thói quen đọc sách</li><li>escape from daily stress – thoát khỏi căng thẳng hàng ngày</li><li>an unforgettable experience – một trải nghiệm khó quên</li><li>step out of my comfort zone – bước ra khỏi vùng an toàn</li><li>immerse myself in local culture – hòa mình vào văn hóa địa phương</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>First of all – trước hết</li><li>In addition – ngoài ra</li><li>For example – ví dụ</li><li>On top of that – hơn thế nữa</li><li>Therefore – vì vậy</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>In my opinion, reading is one of the most valuable habits a person can have. – Theo tôi, đọc sách là một trong những thói quen giá trị nhất.</li><li>I personally think books can teach us things we cannot learn elsewhere. – Cá nhân tôi nghĩ sách có thể dạy ta những điều không thể học ở nơi khác.</li><li>From my perspective, traveling is one of the best ways to learn about the world beyond textbooks. – Theo tôi, du lịch là một trong những cách tốt nhất để tìm hiểu thế giới ngoài sách vở.</li><li>As far as I am concerned, exploring new places helps me become more open-minded. – Theo tôi, khám phá những nơi mới giúp tôi cởi mở hơn.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời Yes hoặc No mà không giải thích thêm lý do – lỗi nghiêm trọng nhất.</li><li>Chỉ liệt kê tên sách mà không nói về lý do yêu thích hoặc lợi ích của việc đọc.</li><li>Nhầm lẫn giữa mô tả địa điểm và kể lại toàn bộ hành trình chuyến đi quá dài dòng.</li><li>Dùng sai thì khi kể kỷ niệm, nên dùng quá khứ đơn thay vì hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: That is an interesting question, let me think for a moment.</li><li>Mô tả khái niệm thay vì cố nhớ từ chính xác.</li><li>Nếu bí ý ở Topic A, hãy nói về cuốn sách gần đây nhất bạn đọc hoặc tác giả yêu thích.</li><li>Nếu bí ý ở Topic B, hãy chuyển sang mô tả một địa điểm bạn muốn đến trong tương lai.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy coi đây là cuộc trò chuyện tự nhiên với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy làm mới tư duy để tránh nhầm lẫn chủ đề.</li><li>Sự tự nhiên và mạch lạc quan trọng hơn việc cố dùng từ vựng khó.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You are planning to celebrate your upcoming birthday and need to decide where to hold the party.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Hold the party at home</li><li>Option 2: Hold the party at a restaurant</li><li>Option 3: Hold the party outdoors, such as at a park or beach</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống yêu cầu bạn lựa chọn địa điểm tổ chức tiệc sinh nhật phù hợp nhất cho bản thân.</li><li>Cần đánh giá đầy đủ cả ba phương án trước khi đưa ra quyết định cuối cùng.</li><li>Tiêu chí chấm điểm gồm lập luận, vốn từ vựng, ngữ pháp và độ trôi chảy.</li><li>Thời gian khoảng 4 phút, nên dành khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc I-C-E: Introduction → Comparison → End để trình bày mạch lạc.</li><li>Option 1: Tổ chức tại nhà tiết kiệm chi phí và tạo không khí ấm cúng nhưng có thể hạn chế về không gian nếu khách mời đông.</li><li>Option 2: Tổ chức tại nhà hàng thuận tiện, chuyên nghiệp và không cần lo dọn dẹp nhưng chi phí thường cao hơn.</li><li>Option 3: Tổ chức ngoài trời như công viên hoặc bãi biển mang lại không khí mới lạ và gần gũi thiên nhiên nhưng phụ thuộc nhiều vào thời tiết.</li><li>Liên hệ đến trải nghiệm thực tế khi từng tổ chức hoặc tham dự các bữa tiệc sinh nhật.</li><li>Dùng từ nối đối lập để so sánh ưu và nhược điểm giữa các lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các phương án với nhau thay vì phân tích tách biệt từng lựa chọn.</li><li>Dùng hiện tại đơn để mô tả đặc điểm từng địa điểm và câu điều kiện loại 1 khi dự đoán trải nghiệm nếu chọn phương án đó.</li><li>Nếu quên từ chuyên biệt, hãy mô tả cảm giác hoặc không khí thay vì từ chính xác.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>a cozy and intimate atmosphere – không khí ấm cúng và thân mật</li><li>hassle-free planning – lên kế hoạch không tốn nhiều công sức</li><li>within a reasonable budget – trong ngân sách hợp lý</li><li>a memorable celebration – một buổi lễ đáng nhớ</li><li>weather-dependent event – sự kiện phụ thuộc vào thời tiết</li><li>accommodate a large number of guests – tiếp đón được nhiều khách mời</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>On the one hand – một mặt</li><li>On the other hand – mặt khác</li><li>However – tuy nhiên</li><li>Moreover – hơn nữa</li><li>As a result – kết quả là</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I would choose to hold the party at a restaurant because it saves time and effort on preparation and cleaning. – Tôi sẽ chọn tổ chức tại nhà hàng vì tiết kiệm thời gian và công sức chuẩn bị, dọn dẹp.</li><li>Compared to an outdoor party, celebrating at home creates a warmer and more personal atmosphere. – So với tiệc ngoài trời, tổ chức tại nhà tạo không khí ấm áp và riêng tư hơn.</li><li>In my view, an outdoor party should only be considered if the weather forecast is favorable. – Theo tôi, tiệc ngoài trời chỉ nên được cân nhắc nếu dự báo thời tiết thuận lợi.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nói về lựa chọn yêu thích mà bỏ qua phân tích hai phương án còn lại.</li><li>Lặp lại từ good hoặc bad quá nhiều thay vì dùng tính từ đa dạng hơn.</li><li>Không đưa ra quyết định rõ ràng ở phần kết luận.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng, hãy chuyển sang nói về chi phí hoặc số lượng khách mời.</li><li>Dùng câu: Let's look at this option from a different angle.</li><li>Nếu bí ở một lựa chọn, hãy tạm chuyển sang lựa chọn khác rồi quay lại sau.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một người đang thực sự lên kế hoạch cho bữa tiệc sinh nhật của chính mình.</li><li>Đưa ra đề xuất linh hoạt, ví dụ tổ chức tại nhà cho nhóm bạn thân rồi ra ngoài ăn mừng cùng gia đình, để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits and challenges of learning a new language",
+          "mindmap": {
+            "title": "Learning a New Language",
+            "ideas": [
+              "Benefits for career and communication",
+              "Common challenges learners face",
+              "Effective methods to learn a new language",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Why do you think learning a new language is important nowadays?",
+            "What difficulties do people often face when learning a new language?",
+            "What advice would you give to someone who wants to learn a new language effectively?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề tập trung vào lợi ích và thách thức của việc học một ngôn ngữ mới trong xã hội hiện đại.</li><li>Ba nhánh chính gồm lợi ích cho sự nghiệp và giao tiếp, những khó khăn thường gặp, và phương pháp học hiệu quả.</li><li>Ý tưởng thứ tư có thể là lợi ích về mặt văn hóa hoặc sự phát triển tư duy khi học ngôn ngữ mới.</li><li>Tiêu chí chấm điểm gồm phát triển ý, tính mạch lạc, từ vựng và ngữ pháp.</li><li>Thời gian khoảng 5 phút, trong đó khoảng 3–3,5 phút cho bài nói chính và phần còn lại cho câu hỏi phụ.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc FEEL: Point → Explanation → Example → Link để phát triển từng nhánh ý.</li><li><strong>Ví dụ 1:</strong> Today, I would like to talk about the benefits and challenges of learning a new language.</li><li><strong>Ví dụ 2:</strong> Another aspect worth mentioning is how learning a new language can open the door to a new culture.</li><li>Đưa ví dụ thực tế về việc học tiếng Anh, tiếng Trung hoặc tiếng Nhật để phục vụ công việc hoặc du học.</li><li>Bám sát sơ đồ tư duy để tránh lan man và lặp ý.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng câu chuyển ý mượt mà giữa các nhánh để bài nói mạch lạc hơn.</li><li>Dùng hiện tại đơn cho sự thật chung và hiện tại hoàn thành khi nói về tiến bộ đã đạt được qua thời gian.</li><li>Có thể paraphrase learning a new language bằng acquiring a foreign language, mastering a second language hoặc picking up a new tongue.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>open up career opportunities – mở ra cơ hội nghề nghiệp</li><li>overcome a language barrier – vượt qua rào cản ngôn ngữ</li><li>immerse myself in a new culture – hòa mình vào nền văn hóa mới</li><li>a steep learning curve – quá trình học khó khăn ban đầu</li><li>practice consistently – luyện tập đều đặn</li><li>gain fluency – đạt được sự trôi chảy</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>To begin with – trước tiên</li><li>Furthermore – hơn nữa</li><li>Another important factor is – một yếu tố quan trọng khác là</li><li>For instance – chẳng hạn</li><li>In conclusion – tóm lại</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I strongly believe that learning a new language broadens one's career prospects significantly. – Tôi tin rằng học một ngôn ngữ mới mở rộng đáng kể triển vọng nghề nghiệp.</li><li>From my perspective, the biggest challenge in language learning is finding enough opportunities to practice speaking. – Theo tôi, thách thức lớn nhất khi học ngôn ngữ là tìm đủ cơ hội để luyện nói.</li><li>In my opinion, consistent daily practice is more effective than studying intensively once in a while. – Theo tôi, luyện tập đều đặn hàng ngày hiệu quả hơn học dồn dập thỉnh thoảng.</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li>Why do you think learning a new language is important nowadays? → It helps people communicate globally, access more job opportunities and better understand different cultures.</li><li>What difficulties do people often face when learning a new language? → Common difficulties include limited vocabulary, fear of making mistakes when speaking and lack of consistent practice.</li><li>What advice would you give to someone who wants to learn a new language effectively? → I would advise them to practice daily, immerse themselves in the language through media, and not be afraid of making mistakes while speaking.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê lợi ích mà không đưa ví dụ cụ thể minh họa.</li><li>Quên phát triển ý tưởng cá nhân ở nhánh thứ tư.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Khi bí ý, hãy liên hệ đến trải nghiệm học ngoại ngữ của bản thân mà không nêu chi tiết cá nhân nhạy cảm.</li><li>Dùng câu: That is a complex issue. If we evaluate it from a learner's perspective...</li><li>Nếu quên từ chuyên ngành, hãy dùng từ đơn giản hoặc mô tả khái niệm.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Hãy nhìn chủ đề từ góc độ cá nhân, nghề nghiệp và văn hóa để có cái nhìn toàn diện.</li><li>Tính logic và sự liên kết giữa các ý là yếu tố quan trọng nhất để đạt điểm cao.</li><li>Giữ giọng điệu tích cực, tập trung vào giải pháp thực tế thay vì chỉ liệt kê lý thuyết.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-12",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 12",
+  "duration": 172,
+  "date": "2026-03-25",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: What is the purpose of the message?</b></p><ul><li>Good afternoon. I'm calling for Julie Gibbs. This is Donald Carson from Doctor Kim's office. I just wanted to confirm your appointment for your annual physical checkup on Friday, June 27 at 3 o'clock. The checkup shouldn't last longer than an hour and a half. Since this is your first visit with Doctor Kim, we'd like you to come to the clinic about 20 minutes early so that we can create a file for you. If you cannot make the appointment, please contact the office and let us know at least a day in advance. Thanks.</li></ul><p><b>Q2: What is being advertised?</b></p><ul><li>Do you need a way to relieve your stress? Whether you're looking for a full-time membership or just a day of relaxation, Istanbul Spa has something for you! We have several different services for all your treatment needs. This week, we're offering a full-day service including a full-body massage, aromatherapy and a facial for just one low price. You can also enjoy our hospitality with a healthy and refreshing beverage at our tea lounge.</li></ul><p><b>Q3: According to the announcement, what will be built near Berryville?</b></p><ul><li>I am very pleased to announce that city leaders in Berryville have finally approved a proposal to enlarge the airport on Hathor Road. We have given the building contract to Heaton Construction. The new terminal will join our older, existing facilities. Berryville's population has been growing at a rapid rate over the past 15 years, due to the addition of a local university and the recent expansion of several businesses.</li></ul><p><b>Q4: Who is this announcement probably for?</b></p><ul><li>This announcement is for all assembly line employees. Please make sure to check your work schedule as soon as you arrive in the morning to see where you will be working for the day. You will need to sign in by putting your signature in the space by your name. After that, please check the announcement board next to the manager's office for any daily notices. Finally, don't forget to pick up your protective aprons and glasses from the safety area.</li></ul><p><b>Q5: What is the purpose of the message?</b></p><ul><li>Hi, Rose. This is Dorothy calling from the personnel department. I just wanted to know if you are free to join us for dinner tonight. A few of us will be leaving the office around 5:30 and going to the Thai restaurant. Our new colleague Sophia is coming as well. Anyway, if you'd like to join us, just meet us downstairs in front of the building at about 5. Sophia and I will be taking my car, and you are more than welcome to ride with us. Anyway, I hope to see you later. Bye.</li></ul><p><b>Q6: What is the purpose of the message?</b></p><ul><li>Hello, Mr. Nakamura. This is Eric Parkman, manager of the personnel department for Linderman Enterprises. We received your resume last week for the accounting position in our shipping department. I was very impressed with your experience and education. I would like to schedule an interview at our office on Friday, April 29 at 10 o'clock. Please give me a call and let me know if that time is good for you. Thank you.</li></ul><p><b>Q7: What is this message about?</b></p><ul><li>Thank you for calling the Tower Place security department. This office will be closing at 11:00 a.m. Wednesday morning as we relocate to the 10th floor. All security officers will be on duty during this time. The 10th floor office will be open at 9 a.m. Thursday. Please contact the security officer on duty, Roy Williams, at 555-7251 if you need to speak with security personnel after 11 on Wednesday. Thank you.</li></ul><p><b>Q8: Who is the speaker?</b></p><ul><li>Staff members of Winton Property Development, welcome to the 8th annual Top Achievers Awards Dinner. When I founded Winton Property Development 13 years ago, I knew that I alone could not make the company the success that it is today. I knew that it would take people like you to help me achieve that goal. The reason why I host this dinner every year is to express my deep appreciation to everyone for working so hard for the continued growth of this company.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To schedule a checkup",
+                "To delay a meeting",
+                "To confirm an appointment",
+                "To request some files"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What is being advertised?",
+              "options": [
+                "A city tour",
+                "A spa package",
+                "A hotel",
+                "A hospital"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "According to the announcement, what will be built near Berryville?",
+              "options": [
+                "A university",
+                "A high school",
+                "A new hospital wing",
+                "An airport terminal"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Who is this announcement probably for?",
+              "options": [
+                "Factory employees",
+                "Office managers",
+                "Safety supervisors",
+                "Hotel workers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To make a reservation at a restaurant",
+                "To ask about a new employee",
+                "To invite a co-worker for dinner",
+                "To offer a ride home"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To make an appointment",
+                "To offer a position",
+                "To cancel an interview",
+                "To confirm receipt of an application"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is this message about?",
+              "options": [
+                "A new security policy",
+                "The business hours",
+                "An office relocation",
+                "A permanent closure"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Who is the speaker?",
+              "options": [
+                "A new employee",
+                "The founder",
+                "The chairman of the board",
+                "The personnel director"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Mr. Stone, this is Susan White from the Speedy Medical Center. I am calling to remind you that you have an appointment with Dr. Johnson tomorrow at 11.</li><li><b>M:</b> Ah, yes, thank you for reminding me. You know, if you hadn't called, I would've completely forgotten all about it. I've been so busy lately.</li><li><b>W:</b> Well, we call all of our clients a day before their scheduled appointment. Anyway, please get here 10 minutes before your appointment since there are some forms that you have to fill out. Also, don't forget to bring your insurance information.</li><li><b>M:</b> Okay, I will remember to bring it with me. Thanks, and I will see you tomorrow then.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>M:</b> I just read an article in the paper about the medical conference being held in the city this weekend. I'm really looking forward to going there.</li><li><b>W:</b> Really? I am thinking of going as well. I really want to listen to the talk on that study about soybeans. A lot of my patients have been mentioning it to me lately.</li><li><b>M:</b> Yes, my patients have been asking me about it, too. Hey, do you want to go together this Saturday?</li><li><b>W:</b> All right. My in-laws are coming for a visit this Sunday, so Saturday will be perfect.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> I think the customer was quite satisfied with the service we provided.</li><li><b>M:</b> Yes, I think he was especially happy because he thought the warranty had expired. He managed to get the repair done at no cost.</li><li><b>W:</b> Well, I am glad that we were able to help a good customer. You know, it's customers like that who will continue to come back to our store.</li><li><b>M:</b> Yes, I agree with you. I think it's very important that we try to keep all of our customers happy.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why is the woman calling?",
+              "options": [
+                "To make an appointment",
+                "To speak with Dr. Johnson",
+                "To confirm an appointment",
+                "To receive some medical advice"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is probably true about the man?",
+              "options": [
+                "He is a doctor.",
+                "He is very busy these days.",
+                "He is the woman's friend.",
+                "He will be late for the appointment."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does the woman ask the man to do?",
+              "options": [
+                "Show up to his appointment a little early",
+                "Get more medical insurance",
+                "Wait 10 minutes in the waiting area",
+                "Always arrange his appointments a day early"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What will the man likely take to his appointment?",
+              "options": [
+                "His past medical records",
+                "Some insurance documents",
+                "His appointment book",
+                "An application form"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Who most likely are they?",
+              "options": [
+                "Journalists",
+                "Physicians",
+                "Lawyers",
+                "Restaurant owners"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Who has been mentioning the study to the woman?",
+              "options": [
+                "Her patients",
+                "Her mother-in-law",
+                "Her doctor",
+                "Her friends"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "When will they likely attend the conference?",
+              "options": [
+                "Today",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Who is going to visit the woman?",
+              "options": [
+                "Her friends",
+                "Her husband",
+                "Her mother-in-law",
+                "Her patients"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What are they talking about?",
+              "options": [
+                "A newly released product",
+                "The duration of the warranty",
+                "A customer they helped",
+                "A vehicle the man recently fixed"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "According to the man, what was the customer most satisfied with?",
+              "options": [
+                "The low cost of the repair work",
+                "The free service they provided",
+                "The competitive price of their products",
+                "The length of the warranty period"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What do the speakers feel makes customers happy?",
+              "options": [
+                "The low price",
+                "The great service",
+                "The free gifts",
+                "The store hours"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is true about the customer?",
+              "options": [
+                "He is a loyal one.",
+                "He thought the warranty had expired.",
+                "He will definitely come back to the store.",
+                "He will recommend the store to his friend."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 (Q.21-25)</strong></p><ul><li><b>W:</b> Hi, there. I was looking for information about becoming a political science major.</li><li><b>M:</b> Sure. We have some brochures right here.</li><li><b>W:</b> Thanks, but could I ask you a few questions?</li><li><b>M:</b> No problem. Fire away.</li><li><b>W:</b> Are there many requirements for Political Science?</li><li><b>M:</b> Uh, not really ... Just you must take Political Science 1 and 2, a general history class, and a writing seminar.</li><li><b>W:</b> I thought you had to take economics, too.</li><li><b>M:</b> Not for the general Political Science program. But there are a couple of specialized programs that have additional requirements.</li><li><b>W:</b> Oh, really? What are they?</li><li><b>M:</b> Well, there is the International Relations program. It is more interdisciplinary, so it requires economics and a second history credit; the two history credits have to be in different regions. There is also the honors Political Science program. To get into that, you need to take the same economics class as the International Relations program, and a special Political Science seminar. And you need to maintain over a \"B\" average in all those required courses.</li><li><b>W:</b> Wow, that sounds difficult.</li><li><b>M:</b> Yeah, not many people are qualified for the honors program. That's why it's considered more prestigious, I guess.</li><li><b>W:</b> Is that all?</li><li><b>M:</b> No. You also have to complete this form, listing all the Political Science and related credits you have already taken or plan to take, and get the department chair to sign off on it.</li><li><b>W:</b> Uggh. This is really a lot of work.</li><li><b>M:</b> Yeah, but everyone has to do it. It's not different from any other majors; the department wants to know that you've thought about your major carefully and thoroughly, and that all the students are being realistic in their expectations.</li></ul><p><strong>Conversation 2 (Q.26-30)</strong></p><ul><li><b>M:</b> Hey, Clara. Got a minute?</li><li><b>W:</b> Oh, hi, Will. Sure, I've got plenty of time. What's the matter?</li><li><b>M:</b> Did you see the poster saying that our debate club meeting tonight had been moved?</li><li><b>W:</b> Oh yes, you didn't get the email?</li><li><b>M:</b> My computer hasn't been working these few days, so I can't get access to my mailbox. Anyway, why has it been moved?</li><li><b>W:</b> That whole wing of the Student Union building is getting repainted today, so it's off-limits until the paint dries, vented properly and the workers clean everything up.</li><li><b>M:</b> It's about time. The club offices in the student building have been looking rundown for quite a while now. A new paint-job would do them a world of good.</li><li><b>W:</b> And the rooms are going to be repainted in a lighter color, too. That old paint was too dark and depressing.</li><li><b>M:</b> A lighter color would help everything look bigger, too. Our debate club could use that.</li><li><b>W:</b> Yeah, but we need more than just light paint. We've grown too big for that little room; we really need to move into a bigger place.</li><li><b>M:</b> Any chance of that happening?</li><li><b>W:</b> Not that I know of. Except for tonight, that is, just for this once, we'll be meeting downstairs in Turner Auditorium.</li><li><b>M:</b> That place is huge, way too big for us.</li><li><b>W:</b> I know, but it was the only place available tonight. And it was either there or else cancel the meeting altogether.</li><li><b>M:</b> I guess it's better than canceling. Although, to be honest, I could use another week to prepare for my speech, I've been really busy with my classes lately.</li></ul><p><strong>Conversation 3 (Q.31-35)</strong></p><p>Science fiction is very popular these days - in books, in movies, and on TV. Unfortunately, popular science fiction is often a lot more \"fiction\" and not so much \"science.\" One of the most common problems is science fiction’s fascination with faster-than-light travel. We know that is impossible, as it violates Einstein’s basic theory of space and time, but on Star Trek and other science fiction shows, spaceships jump from star to star and galaxy to galaxy like you or I might want to drive to another city. In truth, the closest star to Earth, Proxima Centauri, is over three light years away. That means traveling at the speed of light, the fastest speed anyone theoretically could travel, it would take three years to make it to our nearest neighbor. Other stars and galaxies are routinely thousands and millions of light years away, making intergalactic travel an impossibility. Even if we grant that such space travel somehow was possible, there is no shortage of other errors in popular science fiction. In Star Wars and other films, spaceships swoop across the screen, with their ... uh ... their engines emitting a great roar. However, since space is a void, sound waves cannot travel. There is no sound in space; it is utterly silent. Gravity is another mystery in these films. Gravity depends mostly on mass. Spaceships are tiny compared to the mass of earth. In space there should be practically no gravity. And yet people in science fiction routinely walk around on their spaceships in space as comfortably as they would on earth. That said, there have been a few, scarce films that bothered to portray the science of space flight somewhat realistically. In 2001: A Space Odyssey, the ship must rotate to create artificial gravity. Outside the spaceship, there is total silence. And the voyage from Earth to Jupiter takes many months. But such films are the exception, not the rule. While science fiction may be enjoyable, you should look elsewhere to learn about science.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "Why is the woman visiting this office?",
+              "options": [
+                "She wants to be a science major.",
+                "She wants to learn about politics.",
+                "She is interested in registering for a course.",
+                "She is interested in Political Science."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why are there few people in the honors program?",
+              "options": [
+                "It is not considered a prestigious program.",
+                "The requirements are difficult to meet.",
+                "No one likes the economics requirement.",
+                "It is an unpopular program."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What subject is NOT included, if the woman chooses Political Science?",
+              "options": [
+                "Political Science 1",
+                "Political Science 2",
+                "Writing seminar",
+                "Economics"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Which is one of the requirements, if the woman chooses International Relation program?",
+              "options": [
+                "Students have to maintain over a \"B\" average in all required courses.",
+                "Students have to study economics and a second history credit.",
+                "Students need to be realistic in their expectation.",
+                "A, B, and C are all correct."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is NOT a reason for the Political Science Department's elaborate registration process?",
+              "options": [
+                "To make students think carefully about what courses they will take",
+                "To have a similar system with other majors",
+                "To make students have a planned program",
+                "To ensure students have realistic expectations"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What happened to the debate club meeting?",
+              "options": [
+                "They painted instead of debating.",
+                "The club was disbanded.",
+                "The meeting was moved to another room.",
+                "The meeting was postponed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Why couldn't the man receive the email?",
+              "options": [
+                "He was too busy with his classes.",
+                "He was in a meeting.",
+                "His computer has been out of order.",
+                "His friend forgot to tell him."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is going to happen with the debate club's meeting room?",
+              "options": [
+                "It is going to be demolished.",
+                "It is going to be sold.",
+                "It is going to be repainted.",
+                "It is going to be closed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about the debate club's meeting room?",
+              "options": [
+                "It is too small for the group.",
+                "It is called \"Turner Auditorium\".",
+                "It will soon be enlarged to accommodate everyone.",
+                "It is the most run-down room in the student building."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can be inferred about the man?",
+              "options": [
+                "He does not enjoy the debate club.",
+                "He is not taking many classes.",
+                "He is a weak debater.",
+                "He is not ready for his debate yet."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the professor mainly talking about?",
+              "options": [
+                "The science of space travel",
+                "Scientific problems in Star Wars",
+                "The erroneous science in science fiction",
+                "Why science fiction is bad literature"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the lecture, what is wrong with space travel in most science fiction?",
+              "options": [
+                "There are no aliens in outer space.",
+                "There is no way to go faster than light speed.",
+                "There are many other stars and galaxies.",
+                "There is nowhere to go in outer space."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "According to the professor, how long does it take to travel to the closest star to Earth?",
+              "options": [
+                "Three light years",
+                "One hundred light years",
+                "Hundreds light years",
+                "A million light years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What does the professor NOT say about the movie 2001: A Space Odyssey?",
+              "options": [
+                "It is exceptionally good.",
+                "It portrays gravity correctly.",
+                "It does not have faster-than-light travel.",
+                "It does not depict sound in space."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What can be inferred about science fiction?",
+              "options": [
+                "Many people do not like watching science fiction.",
+                "It is costly to make science fiction.",
+                "Science fiction is not meant to teach us about science.",
+                "The film Space Odyssey is a famous science fiction."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Coming of Age: How Different Countries Celebrate Growing Up",
+            "text": "<p>Almost every culture has some kind of special event that marks the moment a young person is officially considered an adult. These events, often called coming-of-age ceremonies, can look very different from one country to another, yet they usually share the same basic purpose: to publicly <strong>recognize</strong> that a young person is ready to take on new responsibilities. Looking at a few examples from around the world shows both how creative these traditions can be and how much they still have in common.</p><p>In Japan, young people who turn twenty during the current year are invited to attend a ceremony called Seijin Shiki, usually held on the second Monday of January. Many young women wear a colorful kimono called a furisode, while young men often wear a formal suit or a traditional outfit, and local city halls organize speeches and small celebrations for everyone turning twenty that year. For many families, the day involves taking formal photographs that are kept for decades afterward.</p><p>In Mexico and several other Latin American countries, many families celebrate a girl's fifteenth birthday with a large party known as a quinceañera. The celebration usually begins with a religious ceremony at a church, followed by a reception with music, dancing, and a large meal for family and friends. Unlike the Japanese ceremony, which treats an entire age group together on the same public day, a quinceañera is planned individually by each family and can range from a small home gathering to an elaborate event with dozens of guests.</p><p>In parts of southern Africa, some communities still practice initiation ceremonies that separate young men from their families for a period of weeks, during which older members of the community teach <b>them</b> skills and traditions considered necessary for adult life. These ceremonies vary considerably between different ethnic groups and regions, and some have become the subject of public debate in recent years, particularly concerning safety during certain physical parts of the tradition. Community leaders in several areas have introduced new health and safety rules while trying to keep the ceremony's deeper cultural meaning <b>intact</b>.</p><p>Although these ceremonies take very different forms, most experts who study them point to a similar underlying idea: young people generally feel more prepared for adult responsibilities when their community formally acknowledges the change happening in their lives. Whether through a shared public ceremony, a family celebration, or a period of teaching and preparation, these traditions give young people a clear sense that childhood has ended and a new stage of life has begun.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q4, R1Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị thông tin trực tiếp trong bài đọc.<ul><li>Với <b>R1Q1</b>, quét từ khóa \"Seijin Shiki\" ở đoạn 2 để tìm thời gian tổ chức: lễ trưởng thành của Nhật Bản thường diễn ra vào ngày thứ Hai tuần thứ hai của tháng 1 (the second Monday of January).</li><li>Với <b>R1Q4</b>, định vị các từ khóa \"quinceañera\" và \"Unlike the Japanese ceremony\" ở đoạn 3 để xác định điểm khác biệt: lễ quinceañera được tổ chức riêng lẻ theo quy mô gia đình thay vì là sự kiện chung cấp chính quyền toàn dân.</li><li>Với <b>R1Q7</b>, quét từ khóa \"quinceañera\" và \"birthday\" ở đoạn 3 để tìm độ tuổi: lễ kỷ niệm này được tổ chức cho các cô gái khi tròn 15 tuổi (fifteenth birthday).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề ở đoạn 1 và đoạn kết luận (đoạn 5): các nghi lễ trưởng thành có hình thức rất khác nhau trên toàn thế giới nhưng đều chia sẻ chung một mục đích cốt lõi là công nhận người trẻ chính thức bước vào đời sống trưởng thành.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q3</b>, từ <strong>\"recognize\"</strong> ở đoạn 1 miêu tả việc công nhận/thừa nhận công khai người trẻ đã sẵn sàng gánh vác trách nhiệm mới. Ngữ cảnh này đồng nghĩa sát nhất với thừa nhận, công nhận (acknowledge).</li><li>Với <b>R1Q8</b>, từ <strong>\"intact\"</strong> ở đoạn 4 nói về việc duy trì ý nghĩa văn hóa sâu sắc của lễ nghi không bị rạn nứt hay mất đi dù áp dụng quy định an toàn mới. Ngữ cảnh này mang nghĩa nguyên vẹn, không bị tổn hại (unbroken).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q5):</b> Đối soát các hoạt động truyền thống được đề cập trong bài: mặc kimono furisode (đoạn 2), nghi lễ tôn giáo và tiệc nhảy (đoạn 3), và khoảng thời gian vài tuần học kỹ năng sống (đoạn 4). Chi tiết về \"kỳ thi viết kiểm tra kiến thức lịch sử địa phương\" hoàn toàn không xuất hiện trong văn bản.</li><li><b>Dạng câu hỏi Quy chiếu (R1Q6):</b> Tập trung vào đại từ <strong>\"them\"</strong> trong cụm \"teach them skills\" ở đoạn 4. Phân tích câu liền trước để xác định danh từ chỉ người số nhiều được nhắc tới: các nghi lễ tách các chàng trai trẻ (young men) khỏi gia đình để các trưởng bối dạy cho họ những kỹ năng cần thiết. Do đó, \"them\" quy chiếu trực tiếp đến các chàng trai trẻ trong cộng đồng.</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Tổng hợp thông tin ở cuối đoạn 4 về việc các thủ lĩnh cộng đồng ở miền nam châu Phi áp dụng các quy định y tế và an toàn mới nhưng vẫn cố gắng giữ gìn ý nghĩa văn hóa cốt lõi. Từ đó suy luận được rằng mục đích của họ là nâng cao tính an toàn mà không làm mất đi giá trị văn hóa của truyền thống.</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái toàn bài. Tác giả trình bày thông tin về các nét văn hóa trưởng thành ở các quốc gia khác nhau một cách tôn trọng, tôn vinh sự đa dạng và không đưa ra bất kỳ nhận xét mang tính định kiến hay chỉ trích gay gắt nào. Thái độ này thể hiện sự khách quan và tôn trọng nét đẹp văn hóa (Objective and respectful).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin nhanh như <b>Quy chiếu</b> (R1Q6) và <b>Từ vựng</b> (R1Q3, R1Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để giải quyết các câu hỏi <b>Chi tiết</b> (R1Q1, R1Q4, R1Q7) và <b>Loại trừ</b> (R1Q5). Cuối cùng, kết nối ý chính toàn bài để chọn đáp án cho các câu hỏi tổng hợp bao gồm <b>Suy luận</b> (R1Q9), <b>Ý chính toàn bài</b> (R1Q2) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, when is Seijin Shiki usually held in Japan?</span>",
+              "options": [
+                "On the last day of the school year",
+                "On the second Monday of January",
+                "On the first Sunday of December",
+                "On a person's exact twentieth birthday"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Japan's Seijin Shiki is the oldest coming-of-age ceremony in the world",
+                "Every country now requires the same official coming-of-age ceremony",
+                "Quinceañera celebrations are always larger than any other coming-of-age event",
+                "Coming-of-age ceremonies look different worldwide but share a similar underlying purpose"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"recognize\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "forget",
+                "acknowledge",
+                "criticize",
+                "postpone"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, how does a quinceañera differ from Japan's Seijin Shiki?</span>",
+              "options": [
+                "It is celebrated only by boys turning fifteen",
+                "It never includes any kind of religious ceremony",
+                "It only takes place inside a government building",
+                "It is a private family party rather than a public event"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as part of a coming-of-age tradition described in the passage?</span>",
+              "options": [
+                "A period of weeks spent learning traditional skills",
+                "A written exam testing knowledge of local history",
+                "Wearing a colorful kimono called a furisode",
+                "A religious ceremony followed by a reception with dancing"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> (in \"teach them skills,\" paragraph 4) refers to _______.</span>",
+              "options": [
+                "older community members",
+                "families celebrating a quinceañera",
+                "the entire ethnic group",
+                "young men in the community"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, at what age do many Latin American families celebrate a quinceañera?</span>",
+              "options": [
+                "Fifteen",
+                "Thirteen",
+                "Eighteen",
+                "Twenty"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"intact\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "hidden",
+                "outdated",
+                "expensive",
+                "unbroken"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about why some community leaders in southern Africa introduced new rules for initiation ceremonies?</span>",
+              "options": [
+                "They wanted to replace the ceremony with a Japanese-style public event",
+                "They sought to improve safety without losing cultural value",
+                "They wanted to completely end the tradition of initiation ceremonies",
+                "They wanted to shorten the ceremony to a single afternoon"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the different coming-of-age ceremonies described in the passage?</span>",
+              "options": [
+                "Strongly critical of ceremonies that involve any physical challenge",
+                "Biased, presenting the Japanese ceremony as clearly superior to the others",
+                "Objective and respectful toward each cultural tradition",
+                "Dismissive, suggesting these traditions no longer matter to young people"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Why Learning a Language as an Adult Is Different, Not Impossible",
+            "text": "<p>A common belief holds that children learn new languages easily while adults struggle, often citing the fact that young children raised in bilingual homes seem to absorb two languages without visible effort. Not only does this belief oversimplify what actually happens during language acquisition at different ages, but it has also discouraged many adults from attempting to learn a new language at all, on the mistaken assumption that their efforts are largely doomed from the start.</p><p>Adults, in fact, often outperform children in several specific areas of language learning, particularly in the early stages. Because adult learners already possess a fully developed first language and years of experience analyzing grammar, patterns, and meaning, they can often learn vocabulary and grammatical rules more efficiently than young children, who acquire language gradually through years of constant exposure rather than deliberate study. Where children genuinely tend to have an advantage is in eventually achieving native-like pronunciation, a skill that becomes measurably harder to fully master after a certain age.</p><p>This pronunciation gap, researchers studying second-language acquisition suggest, likely stems from how the brain's ability to distinguish unfamiliar speech sounds gradually <b>narrows</b> during early childhood, becoming tuned specifically to the sounds of a person's native language. An adult learner's brain has already specialized in this way, making certain foreign sounds genuinely harder to perceive accurately, let alone reproduce, though <b>this difficulty</b> applies mainly to pronunciation rather than to grammar, vocabulary, or overall fluency, where adults frequently continue improving throughout their lives.</p><p>Motivation and consistent practice, several long-term studies now suggest, may matter considerably more for adult language learning outcomes than age itself. Adults who practice regularly, even in relatively short daily sessions, and who create genuine opportunities to use the language in real conversation, tend to reach conversational fluency within a few years, a pace not dramatically different from many child learners once the difference in available free time is accounted for. Adults who study only occasionally, by contrast, often <b>plateau</b> at a much lower level regardless of how many years technically pass.</p><p>Some language schools have begun designing adult courses specifically around this research, prioritizing early conversational practice over lengthy grammar drills and encouraging students to make mistakes confidently rather than waiting until they feel fully prepared to speak. Early results from several such programs suggest that adult students who begin speaking sooner, even imperfectly, tend to build practical fluency faster than those who spend months studying grammar before attempting real conversation.</p><p>Taken together, this research suggests that the popular belief in children's overwhelming advantage rests on a narrower truth than commonly assumed, limited mainly to pronunciation rather than language learning as a whole. Adults who approach language learning with realistic expectations, consistent practice, and genuine opportunities for conversation appear entirely capable of reaching strong fluency, even if a small accent may remain as one of the few lasting signs of when they began.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q4, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R2Q1</b>, quét từ khóa \"outperform children\" ở đoạn 2 để xác định điểm mạnh của người lớn: người lớn học từ vựng và các quy tắc ngữ pháp hiệu quả hơn trẻ em (learning vocabulary and grammatical rules more efficiently).</li><li>Với <b>R2Q4</b>, định vị các từ khóa \"long-term studies\" và \"more than age\" ở đoạn 4 để tìm yếu tố quan trọng: động lực và việc luyện tập thường xuyên (Motivation and consistent practice) có ảnh hưởng lớn hơn cả độ tuổi.</li><li>Với <b>R2Q7</b>, quét từ khóa \"language schools\" ở các đoạn cuối để xác định phương pháp được ưu tiên: thực hành giao tiếp sớm và tự tin mắc lỗi (Early conversational practice and confident mistake-making).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q3):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của từng đoạn: đoạn 2-3 nêu rõ trẻ em có lợi thế vượt trội về phát âm, trong khi người lớn lại vượt trội về ngữ pháp, từ vựng và hoàn toàn có thể đạt được độ trôi chảy tổng thể. Ý chính toàn bài phản ánh sự so sánh cân bằng này.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q2, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q2</b>, từ <strong>\"narrows\"</strong> ở đoạn 3 mô tả khả năng phân biệt các âm thanh xa lạ của bộ não dần bị thu hẹp/giới hạn lại khi lớn lên (brain's ability to distinguish unfamiliar speech sounds gradually narrows). Ngữ cảnh này đồng nghĩa với trở nên hạn chế hơn (becomes more limited).</li><li>Với <b>R2Q8</b>, từ <strong>\"plateau\"</strong> ở đoạn 4 mô tả tình trạng người học chỉ thỉnh thoảng mới học sẽ bị chững lại, không thể tiến bộ thêm ở mức độ thấp (plateau at a much lower level). Ngữ cảnh này mang nghĩa ngừng cải thiện/dừng tiến bộ (stop improving).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q5):</b> Đối soát các yếu tố dẫn đến thành công của người lớn được nhắc đến trong đoạn 4 và 5: luyện tập hàng ngày (regular daily practice), cơ hội giao tiếp thực tế (real conversation), và sẵn sàng mắc lỗi. Chi tiết \"đăng ký học một chương trình bằng cấp đại học\" (Enrollment in a university degree program) hoàn toàn không được nhắc tới.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Tập trung vào cụm từ <strong>\"this difficulty\"</strong> ở đoạn 3. Đọc lại câu liền trước để xác định khó khăn được mô tả: bộ não người lớn đã chuyên biệt hóa với tiếng mẹ đẻ nên khó nhận biết và phát âm chính xác các âm nước ngoài. Do đó, \"this difficulty\" quy chiếu trực tiếp đến thử thách trong việc nhận thức và phát âm lại các âm thanh xa lạ (perceiving and reproducing unfamiliar sounds).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp logic ở đoạn 4 và 5 về tầm quan trọng của việc thực hành giao tiếp sớm. Việc chỉ tập trung học ngữ pháp trong nhiều tháng mà không chịu nói sẽ làm chậm quá trình đạt độ trôi chảy so với những người bắt đầu nói sớm hơn.</li><li><b>Dạng câu hỏi Thái độ tác giả (R2Q10):</b> Phân tích sắc thái toàn bài. Tác giả đưa ra các bằng chứng khoa học để bác bỏ quan niệm sai lầm rằng người lớn không thể học ngoại ngữ, qua đó thể hiện thái độ khuyến khích, dựa trên căn cứ khoa học và tin tưởng người lớn hoàn toàn có thể đạt độ trôi chảy cao (Encouraging and evidence-based).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R2Q6) và <b>Từ vựng</b> (R2Q2, R2Q8). Tiếp theo, sử dụng kỹ thuật đọc quét thông tin để giải quyết các câu <b>Chi tiết</b> (R2Q1, R2Q4, R2Q7) và <b>Loại trừ</b> (R2Q5). Cuối cùng, tổng hợp mạch lập luận toàn bài để chốt chính xác các câu đòi hỏi tư duy cao gồm <b>Suy luận</b> (R2Q9), <b>Ý chính toàn bài</b> (R2Q3) và <b>Thái độ tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, in what area do adults often outperform children during early language learning?</span>",
+              "options": [
+                "Distinguishing unfamiliar speech sounds accurately",
+                "Learning vocabulary and grammatical rules more efficiently",
+                "Absorbing language purely through years of exposure",
+                "Achieving completely native-like pronunciation"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"narrows\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "becomes more limited",
+                "becomes more flexible",
+                "becomes more accurate",
+                "disappears completely"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Children excel mainly in pronunciation, while adults can achieve overall fluency",
+                "Children learn languages entirely through formal grammar instruction",
+                "Motivation has no measurable effect on adult language learning outcomes",
+                "Adults can never achieve strong fluency in a second language"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do several long-term studies suggest matters more than age for adult learning outcomes?</span>",
+              "options": [
+                "The learner's country of birth",
+                "The total number of grammar rules memorized",
+                "The specific language being studied",
+                "Motivation and consistent practice"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor in adult language-learning success?</span>",
+              "options": [
+                "Willingness to make mistakes while speaking",
+                "Regular daily practice sessions",
+                "Genuine opportunities for real conversation",
+                "Enrollment in a university degree program"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"this difficulty\"</strong> (paragraph 3) refers to _______.</span>",
+              "options": [
+                "the challenge of perceiving and reproducing unfamiliar sounds",
+                "the challenge of learning grammar rules as an adult",
+                "the challenge of enrolling in a language course",
+                "the challenge of finding time to study regularly"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what approach have some language schools begun prioritizing for adult courses?</span>",
+              "options": [
+                "Individual study with no group conversation at all",
+                "Written exams as the primary measure of progress",
+                "Early conversational practice and confident mistake-making",
+                "Lengthy grammar drills completed before any speaking practice"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"plateau\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "improve rapidly",
+                "start over",
+                "stop improving",
+                "become fluent"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about adult students who spend months studying grammar before speaking?</span>",
+              "options": [
+                "They develop fluency slower than early speakers",
+                "They no longer need any conversational practice at all",
+                "They always outperform students who begin speaking immediately",
+                "They are guaranteed to achieve perfect native-like pronunciation"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward adults learning a new language?</span>",
+              "options": [
+                "Overly confident, claiming adults always learn faster than children",
+                "Encouraging and evidence-based, arguing adults are capable of strong fluency",
+                "Discouraging, arguing adults should not attempt to learn new languages",
+                "Neutral, offering no view on whether adults can succeed"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Contested Case for Mandatory Helmet Laws",
+            "text": "<p>Few pieces of public-health legislation generate as much recurring debate as mandatory helmet laws for cyclists, a policy now in place, in some form, across dozens of countries. At the level of an individual collision, the protective value of a helmet is not seriously disputed within the medical literature: helmeted cyclists involved in crashes consistently sustain fewer serious head injuries than unhelmeted cyclists in comparable accidents. What remains considerably more contested, and considerably less intuitive, is whether requiring helmets by law actually reduces head injuries at the population level once the policy takes effect.</p><p>Several jurisdictions that introduced mandatory helmet laws have reported a curious pattern: overall cycling rates dropped noticeably in the months following the law's introduction, even as helmet-wearing rates among remaining cyclists rose sharply. Public health researchers studying this pattern generally agree that at least part of the drop reflects cyclists who simply stopped riding rather than complying with the new requirement, though the size of this effect varies considerably between the studies that have attempted to measure it, and researchers disagree about how much weight the finding should carry in evaluating the law's overall public-health impact.</p><p>This decline in ridership complicates the interpretation of injury statistics considerably. Because cycling itself carries substantial public-health benefits — improved cardiovascular fitness, reduced traffic congestion, lower emissions — a policy that reduces head injuries per cyclist but also reduces the overall number of cyclists may, depending on the relative size of each effect, produce a net public-health outcome that is difficult to characterize simply as positive or negative. Some economists modeling this trade-off argue that in cities where cycling rates were already low, the health costs of reduced ridership likely outweigh the injury-prevention benefits, while in cities with already-high ridership, the calculation may run the other way.</p><p>A separate, more behavioral explanation for mixed injury statistics involves what researchers term risk compensation: the tendency of some cyclists, once wearing a helmet, to take <strong>marginally</strong> greater risks than they otherwise would, such as riding somewhat faster or leaving less space from passing vehicles. Whether <b>this effect</b> is large enough to meaningfully offset a helmet's direct protective benefit remains genuinely disputed, with some studies finding a measurable behavioral shift and others finding none, a disagreement that may partly reflect differences in how each study measured risk-taking behavior rather than a genuine difference in cyclist behavior itself.</p><p>Some researchers have proposed an additional, less commonly discussed factor: that drivers may unconsciously give helmeted cyclists less passing distance than unhelmeted cyclists, on the assumption that a helmeted rider appears more experienced or predictable. A small number of controlled studies using instrumented bicycles have found evidence consistent with this pattern, though the studies involved relatively few participants and a limited range of road conditions, leaving open the question of how broadly the finding <strong>generalizes</strong> to typical urban cycling environments.</p><p>Taken together, these competing effects — reduced ridership, possible risk compensation, and possible changes in driver behavior — help explain why population-level studies of mandatory helmet laws have produced considerably less consistent results than the individual-level injury data described earlier would predict on its own. A policy that appears unambiguously protective when studied crash by crash can, once scaled to an entire population responding to the law in various indirect ways, produce outcomes considerably harder to characterize with confidence.</p><p>None of this settles whether mandatory helmet laws represent good public-health policy overall, a judgment that depends heavily on local cycling rates, road conditions, and how heavily policymakers weigh the diffuse benefits of cycling against the concentrated risk of head injury. What the accumulated research does suggest, cautiously, is that a policy justified primarily by individual-level injury data may produce population-level outcomes that individual-level data alone cannot reliably predict.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q4, R3Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R3Q1</b>, quét từ khóa \"not seriously disputed\" ở đoạn 1 để xác định điều không bị tranh cãi: người đi xe đạp đội mũ bảo hiểm khi gặp tai nạn có tỷ lệ chấn thương đầu nghiêm trọng ít hơn hẳn (helmeted cyclists sustain fewer serious head injuries in comparable crashes).</li><li>Với <b>R3Q4</b>, định vị các từ khóa \"reported a curious pattern\" ở đoạn 2 để tìm mô hình: tỷ lệ người đi xe đạp giảm (ridership declined) trong khi tỷ lệ tuân thủ đội mũ bảo hiểm ở những người tiếp tục đạp xe lại tăng mạnh (helmet compliance increased).</li><li>Với <b>R3Q7</b>, quét từ khóa \"instrumented bicycles\" ở đoạn 4-5 để tìm kết quả nghiên cứu: bằng chứng cho thấy tài xế ô tô có xu hướng giữ khoảng cách vượt hẹp hơn đối với người đi xe đạp có đội mũ bảo hiểm (drivers giving helmeted cyclists less passing distance).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R3Q3):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề đoạn 1 và đoạn kết luận: luật bắt buộc đội mũ bảo hiểm bảo vệ tốt cho cá nhân khi có va chạm, nhưng tác động ở quy mô toàn dân số (population-level) lại gây nhiều tranh cãi do ảnh hưởng từ tỷ lệ đạp xe giảm và sự thay đổi hành vi. Phương án đúng phải thể hiện sự đối lập giữa hai cấp độ này.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q2, R3Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q2</b>, từ <strong>\"marginally\"</strong> ở đoạn 4 miêu tả xu hướng chấp nhận rủi ro lớn hơn một chút/nhẹ của người đội mũ (take marginally greater risks). Ngữ cảnh này đồng nghĩa với ở mức độ nhỏ, nhẹ (slightly).</li><li>Với <b>R3Q8</b>, từ <strong>\"generalizes\"</strong> ở đoạn 5 đề cập đến việc liệu kết quả từ một nghiên cứu nhỏ có áp dụng rộng rãi được cho mọi điều kiện giao thực tế hay không. Ngữ cảnh này mang nghĩa áp dụng rộng rãi (applies broadly).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Đối soát các yếu tố phức tạp được liệt kê trong bài: sự giảm tỷ lệ người đạp xe làm giảm lợi ích sức khỏe cộng đồng (đoạn 3), hiện tượng bù trừ rủi ro - risk compensation (đoạn 4), và khoảng cách vượt xe của tài xế (đoạn 4). Chi tiết về \"chi phí trung bình để mua một chiếc mũ bảo hiểm đạt chuẩn\" không hề xuất hiện trong bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"this effect\"</strong> ở đoạn 4. Đọc lại câu liền trước để xác định hiệu ứng/hiện tượng được mô tả: câu trước giải thích hiện tượng bù trừ rủi ro (risk compensation), tức xu hướng người đội mũ bảo hiểm có thể vô tình chấp nhận rủi ro cao hơn một chút. Do đó, \"this effect\" quy chiếu trực tiếp đến xu hướng chấp nhận rủi ro cao hơn này.</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Tổng hợp logic ở đoạn 3, 4 và 5 về lý do tại sao nghiên cứu quy mô dân số lại không đồng nhất. Các yếu tố gián tiếp như tỷ lệ người đi xe đạp giảm làm mất đi lợi ích vận động chung, kết hợp với sự thay đổi hành vi người lái xe/người đạp xe làm bức tranh tác động trở nên phức tạp hơn nhiều so với dữ liệu chấn thương cá nhân.</li><li><b>Dạng câu hỏi Mục đích của tác giả (R3Q10):</b> Phân tích sắc thái toàn bài. Tác giả không kêu gọi bãi bỏ luật cũng không chỉ trích người đạp xe, mà tập trung giải thích các nguyên nhân khiến kết quả tác động của luật mũ bảo hiểm ở cấp độ dân số lại phức tạp và gây nhiều tranh cãi (To explain why population outcomes of helmet laws are complex and contested).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R3Q6) và <b>Từ vựng</b> (R3Q2, R3Q8). Tiếp theo, sử dụng kỹ thuật đọc quét nhanh để giải quyết các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q4, R3Q7) và <b>Loại trừ</b> (R3Q5). Cuối cùng, tổng hợp mạch lập luận toàn bài để chốt đáp án cho các câu đòi hỏi tư duy cao gồm <b>Suy luận</b> (R3Q9), <b>Ý chính toàn bài</b> (R3Q3) và <b>Mục đích của tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is not seriously disputed within the medical literature?</span>",
+              "options": [
+                "That helmeted cyclists sustain fewer serious head injuries in comparable crashes",
+                "That unhelmeted cyclists ride faster than helmeted ones on average",
+                "That mandatory helmet laws always reduce injuries at the population level",
+                "That cycling rates always increase after helmet laws are introduced"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"marginally\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "dramatically",
+                "financially",
+                "excluded",
+                "slightly"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Mandatory helmet laws clearly reduce head injuries at both the individual and population level",
+                "Cycling rates always rise sharply once mandatory helmet laws are introduced",
+                "Risk compensation alone fully explains why helmet laws fail to reduce population-level injuries",
+                "Helmet laws protect individuals, but population-level effects remain debated"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what pattern have several jurisdictions with mandatory helmet laws reported?</span>",
+              "options": [
+                "Ridership declined while helmet compliance among active cyclists increased",
+                "Both cycling rates and helmet-wearing rates dropped together",
+                "Cycling rates rose sharply while helmet-wearing rates stayed the same",
+                "Cycling rates and injury rates remained completely unchanged after the law"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor complicating the evaluation of mandatory helmet laws?</span>",
+              "options": [
+                "Reduced cycling ridership offsetting the public-health benefits of cycling",
+                "Drivers giving helmeted cyclists less passing distance",
+                "Risk compensation among cyclists who begin wearing helmets",
+                "The average cost of purchasing a certified helmet"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this effect\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "the tendency of cycling rates to drop after a new law",
+                "the tendency of helmeted cyclists to take marginally greater risks",
+                "the tendency of economists to disagree about net public-health outcomes",
+                "the tendency of drivers to give less passing distance"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did a small number of controlled studies using instrumented bicycles find?</span>",
+              "options": [
+                "Evidence consistent with drivers giving helmeted cyclists less passing distance",
+                "Conclusive proof that all drivers treat helmeted cyclists identically",
+                "No measurable difference in passing distance based on helmet use",
+                "That helmeted cyclists always ride closer to moving traffic voluntarily"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"generalizes\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "improves",
+                "applies broadly",
+                "becomes outdated",
+                "generates income"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about why population-level studies of helmet laws show less consistent results than individual-level injury data?</span>",
+              "options": [
+                "Population-level studies have been proven completely unreliable and should be discarded",
+                "Individual-level injury data has been shown to be inaccurate in most countries",
+                "Indirect factors like lower ridership and behavioral shifts complicate results",
+                "Helmet laws have been found to cause more injuries than they prevent in every country"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in the passage?</span>",
+              "options": [
+                "To prove that risk compensation is the only factor affecting helmet law outcomes",
+                "To explain why population outcomes of helmet laws are complex and contested",
+                "To criticize cyclists for failing to comply with helmet laws",
+                "To argue that mandatory helmet laws should be repealed in every country"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Breaking the Silence: Samsung Electronics and the Politics of Its First Major Strikes",
+            "text": "<p>For decades, Samsung Electronics maintained a distinctive labor relations profile among major South Korean conglomerates: despite employing hundreds of thousands of workers globally, the company had no independently recognized labor union representing a significant share of its domestic workforce, a position company leadership long attributed to a preference for direct communication between management and staff rather than any active suppression of organizing efforts. Independent labor researchers and former employees have offered a considerably less flattering account of this history, though verifying competing claims about decades-old internal practices remains inherently difficult from outside the company.</p><p>This long-standing arrangement began shifting meaningfully only within the past decade, as changes to South Korean labor law made it somewhat easier for workers at large firms to organize formally, and as a new generation of employees, less inclined to defer automatically to management, began pushing for independent representation. Union membership at Samsung Electronics grew steadily rather than suddenly, and for several years the resulting unions functioned largely without triggering the kind of large-scale, production-halting strikes that had occurred periodically at some other major Korean manufacturers, a pattern some labor economists attribute to management's continued preference for negotiation over confrontation, at least publicly.</p><p><b>That pattern</b> changed when wage negotiations, complicated by disagreements over how annual bonuses should be calculated relative to company profit, broke down repeatedly enough that a portion of the unionized workforce eventually voted to strike, marking what several labor researchers described, with some caution given how difficult comparisons across decades are, as among the most significant work stoppages in the company's modern history. Whether the strike meaningfully disrupted production at Samsung's semiconductor facilities, as some union representatives claimed, or affected output only marginally, as company statements suggested, remains genuinely disputed, since neither side's figures have been independently verified by outside auditors.</p><p>Company representatives characterized the dispute as fundamentally a disagreement over compensation formulas rather than a broader <strong>indictment</strong> of working conditions, while union representatives argued that the strike reflected deeper frustrations accumulated over years of limited formal bargaining power, frustrations that a single wage settlement was unlikely to fully resolve regardless of its specific terms. Some outside labor analysts caution against accepting either framing uncritically, noting that both compensation disputes and broader institutional frustration frequently coexist within the same labor conflict, and that emphasizing one explanation over the other often serves each side's negotiating position as much as it describes the underlying reality.</p><p>Some industry observers have suggested that the strike's significance extends beyond Samsung itself, potentially signaling a broader shift in labor relations across South Korea's traditionally hierarchical corporate culture, particularly within the semiconductor sector, where global supply-chain pressures have simultaneously increased worker leverage and heightened the cost, to employers, of prolonged disruption. Other analysts remain more cautious about generalizing from a single company's experience, arguing that Samsung's scale and symbolic prominence make it an unusually poor case from which to infer broader industry-wide trends with any confidence.</p><p>Whether the strike ultimately strengthens or weakens the unions' longer-term bargaining position, of the kind described earlier as historically limited, remains genuinely uncertain; a favorable settlement could <strong>embolden</strong> further organizing, while a settlement perceived internally as insufficient could instead discourage participation in future collective action, particularly among employees wary of jeopardizing job security at a company that continues to offer among the most competitive compensation packages in Korean manufacturing.</p><p>None of this settles definitively what the strike will ultimately mean for labor relations at Samsung or across the wider industry, a question that will likely only become clearer with the outcome of subsequent negotiating cycles. What the available evidence does suggest, cautiously, is that a company long characterized by unusually limited formal labor organizing has entered a period of genuine, if still uncertain, transition, one whose eventual significance current observers can describe only provisionally.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q4, R4Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị chính xác dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R4Q2</b>, quét các từ khóa \"Samsung's leadership\", \"absence of a significant independent union\" ở đoạn 1 để tìm câu trả lời: ban lãnh đạo công ty cho rằng việc không có công đoàn độc lập là do định hướng ưu tiên giao tiếp trực tiếp giữa quản lý và nhân viên (preference for direct communication between management and staff).</li><li>Với <b>R4Q4</b>, định vị các từ khóa \"disputed\" và \"semiconductor facilities\" ở đoạn 3 để xác định tranh cãi về mức độ ảnh hưởng của cuộc đình công: liệu sản lượng bán dẫn bị gián đoạn nghiêm trọng hay chỉ ảnh hưởng nhẹ do chưa được kiểm chứng độc lập (Whether semiconductor output was severely or mildly affected without independent verification).</li><li>Với <b>R4Q10</b>, quét từ khóa \"company representatives\" và \"contrast\" ở đoạn 4 để so sánh góc nhìn của công ty: đại diện công ty coi đây chỉ là bất đồng về công thức tính lương/thưởng thay vì sự bất mãn sâu sắc về điều kiện làm việc (a pay formula dispute rather than deep working-condition discontent).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R4Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn và đoạn kết luận: bài đọc tập trung phân tích cuộc đình công quy mô lớn gần đây của Samsung thể hiện sự chuyển dịch đáng chú ý trong môi trường lao động của tập đoàn này (signals a notable transition in its labor environment), thay thế cho mô hình truyền thống kéo dài hàng thập kỷ.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q3</b>, từ <strong>\"indictment\"</strong> ở đoạn 4 mô tả góc nhìn của công đoàn, xem cuộc đình công như một lời lên án/cáo buộc nghiêm trọng đối với văn hóa doanh nghiệp. Ngữ cảnh này đồng nghĩa sát nhất với sự lên án, quy kết (condemnation).</li><li>Với <b>R4Q8</b>, từ <strong>\"embolden\"</strong> ở đoạn 6 mô tả việc kết quả cuộc đình công có thể tiếp thêm động lực/khuyến khích cho các nỗ lực công đoàn tương lai. Ngữ cảnh này mang nghĩa khuyến khích, tiếp thêm sức mạnh (encourage).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q5):</b> Đối soát các chi tiết được thảo luận trong bài: tranh cãi về cách tính thưởng (đoạn 3), sự khác biệt trong cách giải thích nguyên nhân từ công ty và công đoàn (đoạn 4), và sự chưa rõ ràng về tác động tương lai đối với phong trào công đoàn (đoạn 6). Chi tiết về \"con số chính xác số lượng nhân viên tham gia đình công\" hoàn toàn không được nhắc đến trong văn bản.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"That pattern\"</strong> ở đầu đoạn 3. Áp dụng quy tắc đọc ngược lại đoạn 2 để tìm mô hình được nhắc tới: các công đoàn thành lập nhưng duy trì hoạt động nhiều năm mà không xảy ra các cuộc đình công lớn làm ngừng sản xuất. Do đó, \"That pattern\" quy chiếu trực tiếp đến những năm các công đoàn tránh kích hoạt các cuộc đình công quy mô lớn (the years in which unions avoided triggering large-scale, production-halting strikes).</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Tổng hợp logic ở đoạn 6 về tác động của cuộc đình công tới tương lai phong trào công đoàn tại Samsung. Tác giả lưu ý rằng ảnh hưởng tương lai phụ thuộc vào nhận thức nội bộ của người lao động đối với thỏa thuận cuối cùng đạt được (hinges on internal perception of the final settlement).</li><li><b>Dạng câu hỏi Thái độ tác giả (R4Q9):</b> Phân tích lập trường của tác giả ở đoạn 3 và 4. Tác giả chỉ ra rằng cả số liệu lẫn lập luận của hai bên (công ty và công đoàn) đều chưa được kiểm toán độc lập xác minh, thể hiện thái độ cẩn trọng và hoài nghi đối với việc tiếp nhận thông tin từ một phía mà thiếu sự kiểm chứng (Cautious and skeptical of accepting either side's framing uncritically).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị thông tin nhanh như <b>Quy chiếu</b> (R4Q6) và <b>Từ vựng</b> (R4Q3, R4Q8). Kế tiếp, áp dụng kỹ thuật đọc quét nhanh để giải quyết các câu hỏi <b>Chi tiết</b> (R4Q2, R4Q4, R4Q10) và <b>Loại trừ</b> (R4Q5). Cuối cùng, tổng hợp lập luận toàn bài để chốt chính xác các câu đòi hỏi tư duy phân tích cao gồm <b>Suy luận</b> (R4Q7), <b>Ý chính toàn bài</b> (R4Q1) và <b>Thái độ tác giả</b> (R4Q9).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "The strike has been proven to permanently weaken Samsung's global competitiveness",
+                "Union membership at Samsung grew suddenly within a single year rather than gradually",
+                "Samsung Electronics has never had any unionized employees at any point in its history",
+                "Samsung's major strike signals a notable transition in its labor environment"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, how did Samsung's leadership traditionally characterize the absence of a significant independent union?</span>",
+              "options": [
+                "As a preference for direct communication between management and staff",
+                "As a temporary situation the company always intended to change",
+                "As a legal requirement imposed by South Korean labor law",
+                "As a decision made jointly with early employee representatives"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"indictment\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "indication",
+                "condemnation",
+                "investment",
+                "improvement"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what remains genuinely disputed about the strike's effect on production?</span>",
+              "options": [
+                "Whether outside auditors have already confirmed the union's production figures as accurate",
+                "Whether any strike actually occurred at Samsung's facilities at all",
+                "Whether semiconductor output was severely or mildly affected without independent verification",
+                "Whether the strike affected only Samsung's overseas facilities, not domestic ones"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor discussed in relation to the Samsung strike?</span>",
+              "options": [
+                "Differing company and union framings of the dispute's underlying cause",
+                "Uncertainty about whether the strike will strengthen or weaken future organizing",
+                "The exact number of employees who participated in the strike",
+                "Disagreement over how bonuses should be calculated relative to profit"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"That pattern\"</strong> at the start of paragraph 3 refers to _______.</span>",
+              "options": [
+                "the pattern of outside analysts disagreeing about industry-wide trends",
+                "the pattern of South Korean labor law changing over the past decade",
+                "the pattern of Samsung offering competitive compensation packages",
+                "the years in which unions avoided triggering large-scale, production-halting strikes"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the strike's effect on future labor organizing at Samsung?</span>",
+              "options": [
+                "The strike has already been shown to have no effect on any other Korean company",
+                "The strike is guaranteed to strengthen union organizing at Samsung regardless of outcome",
+                "Its future impact hinges on internal perception of the final settlement",
+                "The strike is guaranteed to end all future organizing efforts at Samsung"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"embolden\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "finance",
+                "encourage",
+                "embarrass",
+                "discourage"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward competing explanations for the strike offered by company and union representatives?</span>",
+              "options": [
+                "Cautious and skeptical of accepting either side's framing uncritically",
+                "Fully persuaded that the union's framing is entirely accurate",
+                "Fully persuaded that the company's framing is entirely accurate",
+                "Indifferent, presenting no view on either framing's plausibility"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, how did company representatives characterize the dispute, in contrast to union representatives?</span>",
+              "options": [
+                "As entirely unrelated to any wage or bonus disagreement",
+                "As a conflict that had already been fully resolved before it began",
+                "As a pay formula dispute rather than deep working-condition discontent",
+                "As a dispute caused primarily by outside labor analysts"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You received an email from your friend, Kay.</p> She wants to know how to buy things online as she has never done it before. Read part of her email below.",
+          "content": "<p class='mb-1'>I really want to try shopping online but I am a bit worried because I don't know how it works.</p><ul><li>What kinds of things should I buy online?</li><li>How do I pay for the items? Do I have to send money through the post office?</li><li>What should I do if the goods are not what I expected or the box is damaged?</li></ul>",
+          "description": "Write an email responding to Kay. You should write at least 120 words. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li>Đây là dạng thư thân mật (Informal Email) gửi cho bạn bè để cung cấp thông tin và hướng dẫn.</li><li>Nội dung chính: Tư vấn mặt hàng nên mua, cách thanh toán (đính chính về việc gửi tiền bưu điện), và cách xử lý sự cố hàng hóa.</li><li>Yêu cầu: Viết tối thiểu 120 từ, giọng văn tự nhiên, gần gũi.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li>Greeting: Dear Kay, / Hi Kay,</li><li>Opening: Hỏi thăm sức khỏe và dẫn dắt vào chủ đề mua sắm trực tuyến. Ví dụ: It's great to hear that you're interested in online shopping! It's actually very convenient.</li><li>Body 1: Tư vấn đồ nên mua (quần áo, sách, đồ điện tử nhỏ).</li><li>Body 2: Giải thích cách thanh toán (Thẻ tín dụng, ví điện tử, hoặc COD - trả tiền khi nhận hàng). Nhấn mạnh không cần gửi tiền qua bưu điện.</li><li>Body 3: Hướng dẫn xử lý khi hàng lỗi/hỏng (Liên hệ shop, chụp ảnh bằng chứng, yêu cầu hoàn tiền/đổi trả).</li><li>Closing: Chúc bạn mua sắm vui vẻ. Ví dụ: I hope these tips help you have a great first experience!</li><li>Sign-off: Best, / Warm regards, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng câu mệnh lệnh hoặc cấu trúc đưa ra lời khuyên (You should, Why don't you, I suggest...).</li><li>Sử dụng thì hiện tại đơn cho các quy trình và hiện tại tiếp diễn cho các xu hướng.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li>E-commerce platforms: Các sàn thương mại điện tử</li><li>Add to cart: Thêm vào giỏ hàng</li><li>Cash on delivery (COD): Thanh toán khi nhận hàng</li><li>Digital wallet: Ví điện tử</li><li>Return policy: Chính sách đổi trả</li><li>Refund: Hoàn tiền</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li>First of all: Trước hết</li><li>Regarding payment: Liên quan đến việc thanh toán</li><li>In case of: Trong trường hợp</li><li>Furthermore: Hơn nữa</li><li>Instead of: Thay vì</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li>Don't worry too much about it! (Đừng quá lo lắng về điều đó!)</li><li>It's a piece of cake once you get used to it. (Nó rất dễ dàng khi cậu đã quen.)</li><li>Feel free to ask me if you need more help. (Cứ tự nhiên hỏi tớ nếu cậu cần giúp thêm.)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Không giải thích rõ việc \"không cần gửi tiền qua bưu điện\" (đây là ý quan trọng trong đề).</li><li>Dùng từ vựng quá trang trọng không phù hợp với quan hệ bạn bè.</li><li>Thiếu các từ nối khiến bài viết giống như một danh sách liệt kê.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đã trả lời đủ 3 câu hỏi của Kay chưa?</li><li>Đã kiểm tra lỗi chính tả của các thuật ngữ công nghệ/mua sắm chưa?</li><li>Số lượng từ đã đạt mức 120-150 từ chưa?</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tưởng tượng bạn đang thực sự chỉ dẫn cho một người bạn mù công nghệ. Sự chi tiết và kiên nhẫn trong cách viết sẽ giúp bài làm thuyết phục hơn.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "adv_dis",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>Social networking sites such as Facebook, TikTok, and Instagram have become an integral part of modern life.</p><p class='mb-1'>While these platforms offer numerous benefits to users, they also bring about several significant drawbacks that need to be considered.</p><p class='mb-1'><strong>Write an essay to discuss the advantages and disadvantages of social networking sites.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the advantages and disadvantages of social networking sites. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li>Dạng bài: Advantages and Disadvantages Essay.</li><li>Chủ đề: Mạng xã hội (Social networking sites).</li><li>Yêu cầu: Phân tích cả mặt lợi và mặt hại một cách khách quan.</li><li>Số lượng từ: Tối thiểu 250 từ.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li>Introduction: Dẫn dắt về sự bùng nổ của mạng xã hội và nêu mục đích bài viết. Ví dụ: Although social media platforms provide various opportunities for communication, they also present several challenges.</li><li>Body 1: Ưu điểm (Kết nối toàn cầu, cập nhật tin tức nhanh, giải trí, hỗ trợ kinh doanh/học tập).</li><li>Body 2: Nhược điểm (Nguy cơ rò rỉ thông tin, bắt nạt qua mạng, gây nghiện, ảnh hưởng đến sức khỏe tâm thần).</li><li>Conclusion: Tóm tắt lại hai mặt và đưa ra lời khuyên về việc sử dụng mạng xã hội thông minh.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các cấu trúc tương phản (While, Despite, On the other hand).</li><li>Dùng các danh từ ghép và cụm từ chuyên ngành về công nghệ/xã hội.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li>Instant communication: Liên lạc tức thời</li><li>Broaden horizons: Mở rộng tầm hiểu biết</li><li>Cyberbullying: Bắt nạt qua mạng</li><li>Privacy breach: Vi phạm quyền riêng tư</li><li>Sedentary lifestyle: Lối sống ít vận động</li><li>Information overload: Quá tải thông tin</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li>On the positive side: Về mặt tích cực</li><li>Adversely: Một cách tiêu cực</li><li>Moreover: Thêm vào đó</li><li>For instance: Ví dụ</li><li>In conclusion: Kết luận lại</li><li>Nevertheless: Tuy nhiên</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li>Digital platforms: Thay cho \"social networking sites\".</li><li>Virtual interaction: Thay cho \"online communication\".</li><li>Potential risks: Thay cho \"disadvantages\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li>It is undeniable that social media has revolutionized how we interact. (Không thể phủ nhận rằng mạng xã hội đã cách mạng hóa cách chúng ta tương tác.)</li><li>The benefits of global connectivity often outweigh the risks if used wisely. (Lợi ích của kết nối toàn cầu thường lớn hơn rủi ro nếu được sử dụng khôn ngoan.)</li><li>Users should be mindful of the content they share online. (Người dùng nên lưu tâm đến nội dung họ chia sẻ trực tuyến.)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê các ý mà không có ví dụ minh họa cụ thể.</li><li>Bố cục không cân đối (ví dụ viết ưu điểm quá dài nhưng nhược điểm quá ngắn).</li><li>Sử dụng từ vựng quá lặp lại (ví dụ dùng đi dùng lại từ \"good\" và \"bad\").</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Đã có đủ phần mở bài, 2 đoạn thân bài và kết bài chưa?</li><li>Kiểm tra sự thống nhất giữa các chủ ngữ và động từ.</li><li>Các ý tưởng có được liên kết chặt chẽ bằng từ nối không?</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Đừng chỉ nhìn mạng xã hội ở góc độ cá nhân (chat với bạn), hãy nhìn rộng ra góc độ xã hội (giáo dục, kinh tế, tâm lý học) để bài viết có tính học thuật cao hơn.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you often use the internet to study English?",
+            "What websites or apps do you find most useful for learning English online?",
+            "Do you think learning English online is more effective than learning in a traditional classroom?",
+            "What do you usually do in your free time?",
+            "How did you become interested in this hobby?",
+            "Do you think having a hobby is important for a person's life? Why?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này gồm 6 câu hỏi trong 3 phút, đánh giá khả năng giao tiếp tự nhiên, phản xạ ngôn ngữ và khả năng đưa ra lý do thuyết phục.</li><li><strong>Topic A (Học tiếng Anh qua Internet):</strong> Câu 1–3 hỏi về thói quen dùng Internet để học tiếng Anh, các công cụ hữu ích và so sánh với cách học truyền thống.</li><li><strong>Topic B (Sở thích):</strong> Câu 4–6 hỏi về hoạt động yêu thích trong thời gian rảnh, nguồn gốc của sở thích đó và tầm quan trọng của sở thích trong cuộc sống.</li><li>Giám khảo đánh giá dựa trên độ trôi chảy, vốn từ vựng, ngữ pháp và phát âm.</li><li>Nên dành khoảng 25–35 giây cho mỗi câu và cân bằng thời gian giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc ARE: Answer → Reason → Example để trả lời đầy đủ và tự nhiên.</li><li><strong>Ví dụ Topic A:</strong> Yes, I often use the internet to study English, because it gives me access to countless free resources. For example, I watch YouTube videos and use apps like Duolingo every day.</li><li><strong>Ví dụ Topic B:</strong> In my free time, I enjoy playing badminton, because it helps me stay fit and relieve stress after work. For instance, I play with my colleagues every weekend.</li><li>Luôn tự hỏi Why? hoặc How did it start? để kéo dài câu trả lời một cách tự nhiên.</li><li>Dùng câu chuyển ý: Besides talking about learning English, I would also like to share a bit about my hobby.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói ổn định, dùng từ đệm khi cần thời gian suy nghĩ thay vì im lặng kéo dài.</li><li>Dùng hiện tại đơn để nói về thói quen và quá khứ đơn khi kể lại lúc sở thích bắt đầu.</li><li>Nếu quên từ vựng, hãy mô tả khái niệm bằng từ đơn giản hơn thay vì dừng lại.</li><li>Từ vựng Topic A: improve my pronunciation (cải thiện phát âm), interactive learning apps (ứng dụng học tương tác), self-study skills (kỹ năng tự học).</li><li>Từ vựng Topic B: relieve stress (giải tỏa căng thẳng), a great way to unwind (cách tuyệt vời để thư giãn), pick up a hobby (bắt đầu một sở thích).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>at my own pace – theo tốc độ của riêng mình</li><li>immerse myself in the language – đắm mình trong ngôn ngữ</li><li>flexible learning schedule – lịch học linh hoạt</li><li>a form of relaxation – một hình thức thư giãn</li><li>broaden my horizons – mở rộng tầm nhìn</li><li>develop new skills – phát triển kỹ năng mới</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>First of all – trước hết</li><li>In addition – ngoài ra</li><li>For example – ví dụ</li><li>On top of that – hơn thế nữa</li><li>Therefore – vì vậy</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>In my opinion, learning English online offers more flexibility than traditional classes. – Theo tôi, học tiếng Anh trực tuyến linh hoạt hơn so với học truyền thống.</li><li>I personally think online resources make it easier to practice listening and speaking skills. – Cá nhân tôi nghĩ tài nguyên trực tuyến giúp luyện nghe nói dễ dàng hơn.</li><li>From my perspective, having a hobby helps people balance work and life more effectively. – Theo tôi, có một sở thích giúp cân bằng công việc và cuộc sống hiệu quả hơn.</li><li>As far as I am concerned, hobbies play an essential role in maintaining mental well-being. – Theo tôi, sở thích đóng vai trò thiết yếu trong việc duy trì sức khỏe tinh thần.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời Yes hoặc No mà không giải thích thêm lý do – lỗi nghiêm trọng nhất.</li><li>Chỉ liệt kê tên ứng dụng học tiếng Anh mà không nói rõ lý do sử dụng.</li><li>Nhầm lẫn giữa mô tả sở thích và kể chuyện quá dài dòng không liên quan đến câu hỏi.</li><li>Dùng sai thì khi kể lại nguồn gốc sở thích, nên dùng quá khứ đơn thay vì hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: That is an interesting question, let me think for a moment.</li><li>Mô tả khái niệm thay vì cố nhớ từ chính xác.</li><li>Nếu bí ý ở Topic A, hãy nói về một ứng dụng hoặc kênh học tiếng Anh cụ thể bạn từng dùng.</li><li>Nếu bí ý ở Topic B, hãy chuyển sang kể về một kỷ niệm gắn với sở thích đó.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy coi đây là cuộc trò chuyện tự nhiên với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy làm mới tư duy để tránh nhầm lẫn chủ đề.</li><li>Sự tự nhiên và mạch lạc quan trọng hơn việc cố dùng từ vựng khó.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You and your former classmates want to organize a class reunion after many years apart.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Hold the reunion at a restaurant in the city</li><li>Option 2: Hold the reunion at a classmate's house</li><li>Option 3: Combine the reunion with a weekend trip to a nearby destination</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống yêu cầu bạn lựa chọn cách tổ chức buổi họp lớp phù hợp nhất cho các bạn cùng lớp cũ.</li><li>Cần đánh giá đầy đủ cả ba phương án trước khi đưa ra quyết định cuối cùng.</li><li>Tiêu chí chấm điểm gồm lập luận, vốn từ vựng, ngữ pháp và độ trôi chảy.</li><li>Thời gian khoảng 4 phút, nên dành khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc I-C-E: Introduction → Comparison → End để trình bày mạch lạc.</li><li>Option 1: Tổ chức tại nhà hàng thuận tiện và chuyên nghiệp nhưng chi phí có thể cao và không khí kém thân mật.</li><li>Option 2: Tổ chức tại nhà một người bạn tiết kiệm chi phí và gần gũi hơn nhưng có thể hạn chế về không gian nếu số lượng người tham dự đông.</li><li>Option 3: Kết hợp họp lớp với một chuyến đi cuối tuần tạo trải nghiệm đáng nhớ nhưng đòi hỏi nhiều thời gian và công sức chuẩn bị.</li><li>Liên hệ đến trải nghiệm thực tế khi tổ chức các buổi gặp mặt bạn bè.</li><li>Dùng từ nối đối lập để so sánh ưu và nhược điểm giữa các lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các phương án với nhau thay vì phân tích tách biệt từng lựa chọn.</li><li>Dùng hiện tại đơn để mô tả đặc điểm từng lựa chọn và câu điều kiện loại 1 khi dự đoán kết quả của mỗi phương án.</li><li>Nếu quên từ chuyên biệt, hãy mô tả tình huống hoặc cảm giác thay vì từ chính xác.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>catch up with old friends – gặp lại và trò chuyện cùng bạn cũ</li><li>a cozy atmosphere – không khí ấm cúng</li><li>split the cost evenly – chia đều chi phí</li><li>reminisce about old memories – ôn lại những kỷ niệm cũ</li><li>logistics and preparation – công tác hậu cần và chuẩn bị</li><li>strengthen the bond between classmates – thắt chặt tình bạn giữa các bạn cùng lớp</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>On the one hand – một mặt</li><li>On the other hand – mặt khác</li><li>However – tuy nhiên</li><li>Moreover – hơn nữa</li><li>As a result – kết quả là</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I would choose to hold the reunion at a classmate's house because it creates a warmer and more relaxed atmosphere. – Tôi sẽ chọn tổ chức tại nhà một người bạn vì tạo không khí ấm áp và thoải mái hơn.</li><li>Compared to a restaurant, a weekend trip allows classmates to spend more quality time together. – So với nhà hàng, chuyến đi cuối tuần giúp các bạn có nhiều thời gian chất lượng bên nhau hơn.</li><li>In my view, the restaurant option is the most practical choice if most classmates have busy schedules. – Theo tôi, tổ chức tại nhà hàng là lựa chọn thực tế nhất nếu phần lớn các bạn đều bận rộn.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nói về lựa chọn yêu thích mà bỏ qua phân tích hai phương án còn lại.</li><li>Lặp lại từ good hoặc bad quá nhiều thay vì dùng tính từ đa dạng hơn.</li><li>Không đưa ra quyết định rõ ràng ở phần kết luận.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng, hãy chuyển sang nói về chi phí hoặc số lượng người tham dự.</li><li>Dùng câu: Let's look at this option from a different angle.</li><li>Nếu bí ở một lựa chọn, hãy tạm chuyển sang lựa chọn khác rồi quay lại sau.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một người đang thực sự đứng ra tổ chức buổi họp lớp cho bạn bè.</li><li>Đưa ra đề xuất linh hoạt, ví dụ tổ chức tại nhà hàng trước rồi lên kế hoạch cho chuyến đi vào lần sau, để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "Effective ways to lose weight",
+          "mindmap": {
+            "title": "Ways to Lose Weight",
+            "ideas": [
+              "Healthy eating habits",
+              "Regular physical exercise",
+              "Professional guidance and support",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Why do many people struggle to lose weight?",
+            "Do you think diet is more important than exercise for losing weight?",
+            "What advice would you give to someone who wants to lose weight?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề tập trung vào các phương pháp giảm cân hiệu quả trong cuộc sống hiện đại.</li><li>Ba nhánh chính gồm thói quen ăn uống lành mạnh, tập luyện thể chất đều đặn, và sự hỗ trợ từ chuyên gia.</li><li>Ý tưởng thứ tư có thể là vai trò của giấc ngủ hoặc yếu tố tâm lý trong quá trình giảm cân.</li><li>Tiêu chí chấm điểm gồm phát triển ý, tính mạch lạc, từ vựng và ngữ pháp.</li><li>Thời gian khoảng 5 phút, trong đó khoảng 3–3,5 phút cho bài nói chính và phần còn lại cho câu hỏi phụ.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc FEEL: Point → Explanation → Example → Link để phát triển từng nhánh ý.</li><li><strong>Ví dụ 1:</strong> Today, I would like to discuss some effective ways for people to lose weight.</li><li><strong>Ví dụ 2:</strong> Another aspect worth mentioning is the importance of getting enough sleep during a weight-loss journey.</li><li>Đưa ví dụ thực tế về việc kiểm soát khẩu phần ăn, tập thể dục đều đặn hoặc tham khảo ý kiến chuyên gia dinh dưỡng.</li><li>Bám sát sơ đồ tư duy để tránh lan man và lặp ý.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng câu chuyển ý mượt mà giữa các nhánh để bài nói mạch lạc hơn.</li><li>Dùng hiện tại đơn cho sự thật chung và hiện tại hoàn thành khi nói về kết quả đã đạt được qua thời gian.</li><li>Có thể paraphrase lose weight bằng shed excess pounds, cut down on body fat hoặc get in shape.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>a balanced diet – chế độ ăn cân bằng</li><li>portion control – kiểm soát khẩu phần ăn</li><li>burn calories – đốt cháy calo</li><li>a sustainable weight-loss plan – kế hoạch giảm cân bền vững</li><li>consult a nutritionist – tham khảo ý kiến chuyên gia dinh dưỡng</li><li>build a consistent routine – xây dựng thói quen đều đặn</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>To begin with – trước tiên</li><li>Furthermore – hơn nữa</li><li>Another important factor is – một yếu tố quan trọng khác là</li><li>For instance – chẳng hạn</li><li>In conclusion – tóm lại</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I strongly believe that a combination of healthy eating and exercise is the most effective way to lose weight. – Tôi tin rằng kết hợp ăn uống lành mạnh và tập luyện là cách giảm cân hiệu quả nhất.</li><li>From my perspective, quick-fix diets rarely lead to long-term success. – Theo tôi, các chế độ ăn kiêng cấp tốc hiếm khi mang lại thành công lâu dài.</li><li>In my opinion, professional guidance can help people avoid unhealthy or unsafe weight-loss methods. – Theo tôi, sự hướng dẫn từ chuyên gia giúp mọi người tránh các phương pháp giảm cân không an toàn.</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li>Why do many people struggle to lose weight? → They often lack motivation, follow unrealistic diets, or fail to maintain consistent exercise habits.</li><li>Do you think diet is more important than exercise for losing weight? → Diet often has a greater impact on weight loss, but combining it with regular exercise produces the best and most lasting results.</li><li>What advice would you give to someone who wants to lose weight? → I would advise them to set realistic goals, eat a balanced diet, exercise regularly and be patient with the process.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê phương pháp mà không đưa ví dụ cụ thể minh họa.</li><li>Quên phát triển ý tưởng cá nhân ở nhánh thứ tư.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Khi bí ý, hãy liên hệ đến trải nghiệm giảm cân của bản thân hoặc người quen mà không nêu chi tiết cá nhân nhạy cảm.</li><li>Dùng câu: That is a complex issue. If we evaluate it from a health perspective...</li><li>Nếu quên từ chuyên ngành, hãy dùng từ đơn giản hoặc mô tả khái niệm.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Hãy nhìn chủ đề từ góc độ sức khỏe thể chất và tinh thần để có cái nhìn toàn diện.</li><li>Tính logic và sự liên kết giữa các ý là yếu tố quan trọng nhất để đạt điểm cao.</li><li>Giữ giọng điệu tích cực, tập trung vào giải pháp thực tế thay vì chỉ trích ngoại hình.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

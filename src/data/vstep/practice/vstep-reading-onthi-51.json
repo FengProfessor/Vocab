@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-51",
+  "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 06 (Reading Part 1 - Test 06)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 1 - Test 06",
+            "text": "<p style=\"text-align:center; font-size: 20px;\"><strong>Living Green: Simple Steps to a Sustainable Lifestyle</strong></p>\n<p style=\"text-align:justify;\">Adopting a more <strong>sustainable</strong> lifestyle doesn't have to be difficult or expensive. Small changes in your daily routine can have a <strong>significant</strong> impact on the environment. Many people feel <strong>overwhelmed</strong> when they think about climate change, but taking action at home is both <strong>practical</strong> and rewarding.</p>\n<p style=\"text-align:justify;\">Start with reducing waste. Instead of buying single-use plastic bottles, invest in a <strong>reusable</strong> water bottle. Bring cloth bags when shopping to avoid plastic bags. These simple switches are easy to <strong>maintain</strong> and save money over time. Composting food scraps is another <strong>effective</strong> way to reduce household waste while creating <strong>nutrient</strong>-rich soil for gardens.</p>\n<p style=\"text-align:justify;\">Energy conservation at home is equally important. Turn off lights and electronics when not in use. Consider switching to LED bulbs, which are more <strong>efficient</strong> than traditional bulbs. Many utility companies offer free energy audits to help identify ways to reduce consumption. Every small effort contributes to a larger positive change for our planet.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r51-q1",
+              "type": "mcq",
+              "question": "What does \"sustainable\" mean in this context?",
+              "options": [
+                "expensive and luxurious",
+                "able to be maintained without harming the environment",
+                "temporary and short-term",
+                "complicated and difficult"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r51-q2",
+              "type": "mcq",
+              "question": "The word \"significant\" is closest in meaning to?",
+              "options": [
+                "minor or small",
+                "important or considerable",
+                "negative",
+                "immediate"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r51-q3",
+              "type": "mcq",
+              "question": "What does \"overwhelmed\" mean?",
+              "options": [
+                "excited and energetic",
+                "confident and prepared",
+                "feeling too much pressure or difficulty to cope",
+                "indifferent"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r51-q4",
+              "type": "mcq",
+              "question": "The word \"practical\" in the text means?",
+              "options": [
+                "theoretical",
+                "realistic and useful in everyday life",
+                "impossible",
+                "expensive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r51-q5",
+              "type": "mcq",
+              "question": "What does \"reusable\" mean?",
+              "options": [
+                "disposable after one use",
+                "able to be used again multiple times",
+                "recyclable only",
+                "biodegradable"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r51-q6",
+              "type": "mcq",
+              "question": "The word \"maintain\" is closest in meaning to?",
+              "options": [
+                "abandon or give up",
+                "keep up or continue",
+                "start",
+                "change"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r51-q7",
+              "type": "mcq",
+              "question": "What does \"effective\" mean in this context?",
+              "options": [
+                "unsuccessful",
+                "producing the desired result",
+                "complicated",
+                "expensive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r51-q8",
+              "type": "mcq",
+              "question": "The word \"nutrient\" refers to?",
+              "options": [
+                "waste materials",
+                "substances that provide nourishment",
+                "chemicals",
+                "water"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r51-q9",
+              "type": "mcq",
+              "question": "What does \"efficient\" mean?",
+              "options": [
+                "wasteful",
+                "achieving maximum productivity with minimum effort",
+                "slow",
+                "colorful"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r51-q10",
+              "type": "mcq",
+              "question": "According to the text, what is the main message?",
+              "options": [
+                "Sustainable living is impossible for most people",
+                "Small daily changes can make a positive environmental impact",
+                "Only governments can solve environmental problems",
+                "Green living requires expensive investments"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

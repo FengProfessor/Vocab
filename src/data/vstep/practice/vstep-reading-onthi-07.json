@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-07",
+  "title": "Luyện Đọc VSTEP: VstepR4-Test 05 (VstepR4-Test 05)",
+  "duration": 10,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "VstepR4-Test 05",
+            "text": "<p class=\"Bodytext70\">Although dinosaurs roamed virtually the whole earth for 160 million years, dinosaur skeletons are relatively scarce. Many dinosaurs are known only from a single tooth or bone chip. The reason is that it takes very special conditions to make a fossil and a lot of luck to find one.</p>\n<p class=\"Bodytext70\">For many years, information about Tyrannosaurus rex was sketchy at best. However, in the summer of 1990, the first nearly complete Tyrannosaurus rex skeleton ever found was excavated in the Montana badlands. That same year a second, even more complete, skeleton was found in South Dakota. Together these skeletons yielded surprising new insights into the most famous of the dinosaurs, about the anatomy and behavior of T. rex and the world in which it lived.</p>\n<p>Among the surprising discoveries were that T. rex was a far sleeker, but more powerful, carnivore than previously thought, perhaps weighing less than 6<sup>1/2</sup> tons, no more than a bull elephant, and that T. Rex<sup>’</sup> s habitat was forest, not swamp or plain as previously believed. Moreover, there appears to have been two forms of T. rex, the male quite different from the female. Scientists hope that future fossil discoveries and increasingly more sophisticated techniques will provide more accurate and complete information about not only T. rex but all the dinosaurs, giving us a window on the world so man millions of years into the past.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r07-q1",
+              "type": "mcq",
+              "question": "It can be inferred from the passage thatmuch of what scientists know about T. rex",
+              "options": [
+                "Has been known for many years",
+                "Has not come from fossil discoveries",
+                "Has been derived from the most sophisticated techniques",
+                "Has been recently discovered"
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Từ khóa trong câu hỏi này đó là “much of what scientists know about T.rex” (rất nhiều thông tin mà các nhà khoa học biết về khủng long bạo chúa). Trong đoạn 1, Tyrannosaurus rex chưa được đề cập đến nên chúng ta bắt đầu từ đoạn thứ 2. Ở ngay câu 1 đoạn 2, ta đã thấy cụm từ “information about Tyrannosaurus rex” (thông tin về khủng long bạo chúa) tương đương với yêu cầu của đề bài nên ta đọc câu này trước. Ngoài ra, trong các đáp án còn có các từ khóa “fossil discoveries” và “sophisticated techniques” đều có trong câu 3 đoạn 3, nên chúng ta cũng đọc luôn câu này.</p>\n<p><i>Thậm chí trong nhiều năm, thông tin rõ ràng nhất về khủng long bạo chúa cũng rất sơ sài</i>.</p>\n<p><i>Các nhà khoa học hi vọng rằng những khám phá về hóa thạch trong tương lai, cũng như những kỹ thuật ngày càng tinh vi sẽ mang lại nhiều thông tin chính xác và toàn diện hơn không chỉ về khủng long bạo chúa mà toàn bộ các loài khủng long, mang đến hiểu biết về thế giới không có loài người hàng ngàn năm trước </i>…</p>\n<p>Quay lại câu hỏi và xem xét từng đáp án “<i>rất nhiều thông tin mà các nhà khoa học có được về khủng long bạo chúa</i>”:</p>\n<p>Đáp án A. <i>đã được biết đến trong nhiều năm</i>. Điều này ngược với thông tin trong bài. -> A loại</p>\n<p>Đáp án B. <i>Không bắt nguồn từ những khám phá về hóa thạch</i>. Câu 3 đoạn 3 có đề cập rằng các khám phá hóa thạch sẽ giúp có thêm nhiều thông tin chính xác và toàn diện hơn về khủng long bạo chúa. Cho nên khám phá hóa thạch cũng là một nguồn thông tin về khủng long bạo chúa cho các nhà khoa học. -> B loại</p>\n<p>Đáp án C. <i>Bắt nguồn từ những kĩ thuật tinh vi nhất</i>. Theo thông tin trong bài, kỹ thuật càng tinh vi thì càng đảm bảo độ tin cậy của các khám phá về T.rex nhưng không nói rằng các nhà khoa học hiện nay chủ yếu dùng các kĩ thuật tinh vi nhất để đạt được thông tin về T.rex. -> C loại</p>\n<p>Đáp án D. <i>Mới được phát hiện gần đây</i>. Ở câu 1 đoạn 2, ta có thể thấy rằng, trong một thời gian dài, con người đã có ít hiểu biết về khủng long bạo chúa. Tuy nhiên thực trạng này không còn tiếp diễn ở hiện tại (dựa vào thì Quá khứ đơn của câu). Do vậy hoàn toàn có thể suy ra là hiện nay các nhà khoa học đã biết nhiều hơn về khủng long bạo chúa, và như câu 1 đoạn 2 thì trong quá khứ người ta gần như không biết nhiều về khủng long bạo chúa => kiến thức về khủng long bạo chúa mới được loài người khám phá ra. -> D đúng</p>\n<p>=> D là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r07-q2",
+              "type": "mcq",
+              "question": "The passage implies that fossils",
+              "options": [
+                "Are usually found in the Midwest",
+                "Are usually found in beds containing complete skeletons",
+                "Are few in comparison to the number of dinosaurs that roamed the earth",
+                "Are easy to discover but difficult to excavate"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Câu này hỏi thông tin suy ra suy ra về “fossils”, trong khi đó, từ khóa này chỉ xuất hiện duy nhất trong câu 3 đoạn 3 (dịch ở câu 20). Do đó chúng ta xem xét từng đáp án trước.  </p>\n<p>Đáp án A. <i>thường được tìm thấy ở Trung Đông</i>. Toàn bộ bài không hề nhắc đến <i>Midwest</i>. Hai địa danh được nhắc đến là Montana và South Dakota đều nằm ở Hoa Kỳ cho nên không có thông tin để suy ra đáp án A. -> A loại</p>\n<p>Đáp án B.</p>\n<p>Đáp án C. <i>Là ít khi so sánh với số lượng khủng long từng sống trên Trái đất</i>. Đoạn 1 của bài có thông tin này: “<i>Mặc dù khủng long thống trị gần như toàn bộ Trái đất trong hơn 160 triệu năm, xương khủng long gần như là không có. Nhiều loài khủng long được biết đến chỉ qua một chiếc răng duy nhất hay một mảnh xương. Nguyên nhân dẫn đến điều này là bởi cần phải có điều kiện đặc biệt để tạo nên hóa thạch, và cần phải thật may mắn mới tìm thấy một hóa thạch</i>.” Ta có thể thấy rằng không có nhiều hóa thạch về khủng long trong khi loài khủng long từng tồn tại với số lượng rất lớn trên Trái đất. -> C đúng</p>\n<p>Đáp án D. <i>Phát hiện thì dễ nhưng khai quật thì khó</i>. Không có thông tin nói về mức độ phức tạp của việc khai quật các hóa thạch khủng long. Hơn nữa, việc phát hiện ra hóa thạch khủng long không hề dễ dàng vì gần như không có xương của khủng long. -> D loại</p>\n<p>=> C là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r07-q3",
+              "type": "mcq",
+              "question": "Which of the following can be inferred fromthe passage?",
+              "options": [
+                "Interest in fossils is relatively recent.",
+                "It takes advanced techniques to find fossils.",
+                "The search for fossils has been going on for many years.",
+                "Dinosaurs were continued to a relatively small area."
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Câu này hỏi thông tin suy ra từ cả bài nên ta đọc từng đáp án trước.</p>\n<p>Đáp án A. <i>Người ta mới quan tâm đến hóa thạch</i>. Qua những câu đã đọc về hóa thạch ở câu 20 và 21 ta không nhắc đến lịch sử nghiên cứu hóa thạch nói chung nên không có cơ sở đưa ra đáp án này. -> A loại</p>\n<p>Đáp án B. <i>Cần có kỹ thuật hiện đại để tìm hóa thạch</i>. Trong bài chỉ nói rằng hóa thạch và các kỹ thuật tiên tiến sẽ góp phần cung cấp thêm nhiều thông tin về khủng long bạo chúa nhưng không nói đến kỹ thuật yêu cầu để tìm được hóa thạch. -> B loại</p>\n<p>Đáp án C. <i>Việc tìm kiếm hóa thạch đã diễn ra trong nhiều năm</i>. Dựa vào câu 2, đoạn 2 “<i>Tuy nhiên, vào mùa hè năm 1990, một bộ xương gần như hoàn chỉnh trong các bộ xương từng được tìm thấy của khủng long bạo chúa được khai quật ở vùng đất khô cằn Montana</i>.” ta thấy rằng trước năm 1990, việc tìm kiếm hóa thạch khủng long đã diễn ra. Hơn nữa, qua câu cuối đoạn 3 thấy rằng việc tìm kiếm hóa thạch khủng long bạo chúa sẽ được tiếp diễn “<i>Các nhà khoa học hi vọng rằng những khám phá về hóa thạch trong tương lai, cũng như những kỹ thuật ngày càng tinh vi </i>…” Do vậy, việc tìm kiếm hóa thạch đã diễn ra trong thời gian dài. -> C đúng</p>\n<p>Đáp án D. <i>Khủng long đã tiếp tục sống ở một khu vực khá nhỏ</i>. Cả đoạn 1, 2 và 3 đều không có thông tin liên quan đến việc khủng long có tiếp tục tồn tại hay không. -> D loại</p>\n<p>=> C là đáp án đúng </p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r07-q4",
+              "type": "mcq",
+              "question": "Which of the following can be inferredabout T. rex?",
+              "options": [
+                "It was a small but powerful dinosaur.",
+                "It was a strong, meat-eating dinosaur.",
+                "It was a fast, plains-dwelling dinosaur.",
+                "It was a gigantic, forest-dwelling dinosaur."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Câu này hỏi thông tin suy ra về khủng long bạo chúa, và đọc qua 4 đáp án được đưa ra, ta thấy câu thông tin suy ra sẽ liên quan đến đặc tính của khủng long bạo chúa. Do vậy ta đọc câu 1 đoạn 3:</p>\n<p><i>Một trong số những khám phá đáng ngạc nhiên về khủng long bạo chúa đó là khủng long bạo chúa có vẻ ngoài đẹp hơn và có sức mạnh lớn hơn những gì người ta nghĩ trước đó, có lẽ nặng dưới 6,5 tấn, không nặng hơn một con voi đực là mấy, và nơi sinh sống của khủng long bạo chúa là rừng chứ không phải ở đầm lầy hay đồng bằng như người ta từng tin. </i></p>\n<p>Đáp án A. <i>Một loài khủng long nhỏ nhưng mạnh</i>. Mặc dù câu trên có nói đến cân nặng của khủng long bạo chúa “có lẽ nặng dưới 6,5 tấn, không nặng hơn một con voi đực là mấy”, tuy nhiên lại không có đánh giá trọng lượng này là lớn hay nhỏ. Do đó nói khủng long bạo chúa nhỏ là không hợp lý. -> A loại</p>\n<p>Đáp án B. <i>là một loài động vật mạnh và ăn thịt</i>. Thông tin này có trong câu trên; “strong” đồng nghĩa với “powerful” và “carnivore” bằng với “meat-eating animal”. -> B đúng</p>\n<p>Đáp án C. <i>Là loài khủng long nhanh nhẹn và sống ở đồng bằng</i>. Khủng long bạo chúa sống ở rừng chứ không phải đồng bằng. -> C loại</p>\n<p>Đáp án D. Là một loài khủng long khổng lồ, sống ở rừng. Tương tự như đáp án A, không có đánh giá nào nói là khủng long bạo chúa là to hay nhỏ. -> D loại</p>\n<p>=> B là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r07-q5",
+              "type": "mcq",
+              "question": "The passage implies which of thefollowing?",
+              "options": [
+                "Not all the conclusions scientists make are accurate.",
+                "We have all the information we need about life millions of years ago.",
+                "New discoveries are confirming old theories.",
+                "A whole skeleton is required for information about a dinosaur."
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Câu hỏi này không có từ khóa cụ thể nên chúng ta xem xét từng đáp án.</p>\n<p>Đáp án A. <i>Không phải tất cả các kết luận của các nhà khoa học đưa ra đều chính xác</i>. Theo câu 1 và câu 3 đoạn 3 (như đã dịch ở câu hỏi số 20 và 23), thực tế về trọng lượng và nơi sinh sống của khủng long bạo chúa (câu 1) khác với những gì các nhà khoa học đã đưa ra, chú ý vào các cụm từ, và các nhà khoa học không chắc chắn vào các nhận định của họ (câu 3: <i>Các nhà khoa học hi vọng rằng những khám phá về hóa thạch trong tương lai, cũng như những kỹ thuật ngày càng tinh vi sẽ mang lại nhiều thông tin chính xác và toàn diện hơn…</i>). -> A đúng</p>\n<p>Đáp án B. <i>Chúng ta có tất cả những thông tin chúng ta cần về cuộc sống hàng ngàn năm trước đây.</i> Theo như câu 3 đoạn 3, các nhà khoa học vẫn hi vọng có thêm nhiều thông tin toàn diện về khủng long để có thể hiểu về thế giới hàng ngàn năm trước, cho nên việc chúng ta đã có đầy đủ thông tin về Trái đất hàng ngàn năm trước đây là không hợp lý. -> B loại</p>\n<p>Đáp án C. <i>Những phát hiện mới đang xác nhận lại những giả thiết cũ</i>. Trong câu 1 đoạn 3, ta thấy rằng những điều mà con người nghĩ hay tin về khủng long bạo chúa là không chính xác. Do đó các phát hiện mới về khủng long bạo chúa đang bác bỏ các giả thiết cũ. -> C loại</p>\n<p>Đáp án D. <i>Cần một bộ xương hoàn chỉnh để có được thông tin về một con khủng long</i>. Sau khi trả lời các câu hỏi trước và đọc cả 3 đoạn của bài, không có câu nào đề cập đến thông tin trong đáp án A. Hơn nữa, các nhà khoa học vẫn xác định được cân nặng và nơi sinh sống của khủng long bạo chúa với một bộ xương chưa hoàn chỉnh bởi động vật này. -> D loại</p>\n<p>=> A là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

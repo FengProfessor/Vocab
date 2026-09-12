@@ -1,0 +1,56 @@
+{
+  "id": "vstep-reading-onthi-02",
+  "title": "Luyện Đọc VSTEP: VstepR3-Test 01 (VstepR3-Test 01)",
+  "duration": 10,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "VstepR3-Test 01",
+            "text": "<p>One identifying characteristic of minerals is their relative hardness, which can be determined by scratching one mineral with another. In this type of test, a harder mineral can scratch a softer one, but a softer mineral is unable to scratch the harder one. The Mohs' hardness scale is used to rank minerals according to hardness. Ten minerals are listed in this scale, ranging from talc with a hardness of 1 to diamond with a hardness of 10. On this scale, quartz (number 7) is harder than feldspar (number 6) and is therefore able to scratch it; however, feldspar is unable to make a mark on quartz.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r02-q1",
+              "type": "mcq",
+              "question": "Which of the following best states the subject of this passage?",
+              "options": [
+                "The hardness of diamonds",
+                "Identifying minerals by means of a scratch test",
+                "Feldspar on the Mohs' scale",
+                "Recognizing minerals in their natural state"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>“<i>Một đặc điểm nhận dạng khoáng vật là dựa vào độ cứng tương đối của nó (1). Độ cứng này có thể được xác định bằng cách cọ xát một loại khoáng vật này với loại khoáng vật khác (2). Với cách kiểm tra này thì một khoáng vật có thể làm trầy xước bề mặt của một khoáng vật khác mềm hơn nó nhưng một khoáng vật mềm hơn thì không thể nào làm trầy xước bề mặt của các khoáng vật cứng hơn nó (3). Thang đo độ cứng Moh được dùng để xếp loại khoáng vật theo độ cứng của nó (4). Có mười loại khoáng vật được liệt kê trong danh sách này gồm có Tan với độ cứng nhỏ nhất là 1 cho đến Kim cương với độ cứng là 10(5). Trong thang này thì thạch anh (số 7) cứng hơn felspat (số 6) cho nên thạch anh có thể làm trầy xước bề mặt của felspat trong khi felspat lại không thể tạo ra một vết xước nào trên thạch anh (6).</i>”</p>\n<p>Đáp án A. “The hardness of diamonds”, ta thấy “diamonds” chỉ xuất hiện 1 lần duy nhất trong bài ở câu số 4. Kim cương trong câu này chỉ được coi là 1 ví dụ trong 10 loại khoáng vật nên nó không thể là chủ đề chính của bài.</p>\n<p>Đáp án C. “Felspar on the Moh’s scale” (Felspar trong thang Moh). Tương tự, Felspat xuất hiện trong câu 6 cũng chỉ là một ví dụ minh hoạ cho việc khoáng vật nào mềm hơn thì sẽ bị khoáng vật cứng hơn làm trầy xước khi cọ xát.</p>\n<p>Đáp án D. “Recognizing minerals in their natural state” “Nhận dạng khoáng vật ở trạng thái tự nhiên của chúng”. Ngay từ câu đầu tiên trong đoạn đã đề cập đến một cách nhận biết khoáng vật đó là dựa vào “độ cứng” của chúng, chứ không đề cập đến “trạng thái tự nhiên” của chúng.  </p>\n<p>Đáp án B. “Identifying minerals by means of a scratch test.” “Xác định khoáng vật bằng phương pháp cọ xát”. Ta có thể thấy “mineral” và “scratch” xuất hiện rất nhiều lần trong bài do đó chúng là hai từ khóa của đoạn văn. Hơn nữa, nội dung của câu số 1 đến câu số 3, và câu số 6, phương pháp cọ xát được nhắc đi nhắc lại trong khi so sánh các khoáng vật. => B là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r02-q2",
+              "type": "mcq",
+              "question": "The main idea of this passage is that",
+              "options": [
+                "the hardness of a mineral can be determined by its ability to make a mark on other minerals",
+                "diamonds, with a hardness of 10 on the Mohs' scale, can scratch all other minerals",
+                "a softer mineral cannot be scratched by a harder mineral",
+                "talc is the first mineral listed on the Mohs' scale"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án C và D là thông tin chỉ nằm trong 1 câu của đoạn. Trong khi đó đáp án B lại là một thông tin suy ra. Đáp án A. “Độ cứng của một khoáng vật có thể được xác định qua khả năng làm trầy xước bề mặt của các khoáng vật khác” là câu tóm tắt thông tin chính của cả đoạn</p>\n<p>=> A là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

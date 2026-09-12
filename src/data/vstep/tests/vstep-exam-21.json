@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-21",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 21",
+  "duration": 172,
+  "date": "2026-03-19",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-21/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Hi there It’s Paul. I’ve been to the gallery to get some ideas for my latest project and I got some good ones you know, for shapes and so on now I need to think about using colours, and patterns. I might go back another day and look at paintings. There are some on the first floor of indoor scenes with vases and bowls in them like the ones I looked at on display today. Oh, and there’s a new sculpture exhibition on, but I didn’t get a chance to see it.</li></ul><p><b>Question 2.</b></p><ul><li>There’s a new service available at Jeff Dean’s Gym from today. Consultant Jenny Law will offer gym members complete dietary analysis and fitness assessment. If you book before 5th November you will get a 33% discount and pay only 20 instead of the usual 30 pounds. Make sure you’re fit enough for the next century Consult the experts at Jeff Dean’s Gym. Join today!</li></ul><p><b>Question 3.</b></p><ul><li>You have reached the Gas Hotline. If you have a complaint concerning our service you may speak to our customer care line by dialling 3 after the tone. If you would like to arrange for regular servicing to any of your gas appliances you may speak to our service engineers by dialling 4 after the tone. Our emergency service can be contacted by dialling 5 after the tone.</li></ul><p><b>Question 4.</b></p><ul><li>Just one last word, ladies and gentlemen. You probably know how dangerous rabies can be. Just one bite from an affected animal can kill if medical help is not available immediately. We’ve been free from rabies in Britain for over 75 years but it is still quite common here. So don’t be tempted to take animals home with you. They may be infected, and you can be sent to prison for illegally importing animals. Okay, now I need to tell you…</li></ul><p><b>Question 5.</b></p><ul><li>And now for the week’s weather The week will start out very wet. Indeed, with thunder and lightning in some areas. This will last through to Wednesday. Thursday will be dry but dull, but the clouds will clear during the night, bringing us a bright end to the week - something to make up for all that bad weather…</li></ul><p><b>Question 6.</b></p><ul><li>...and yes, I would agree that computers have made a dramatic difference in the workplace. However, computers in the home have their disadvantages especially for children. In a school setting they’re fine, I think, but letting them spend too much time with computer games certainly doesn’t help children learn to communicate. As to whether children have to think while they’re playing on the computer. I’d say they do.</li></ul><p><b>Question 7.</b></p><ul><li>And finally, on a lighter note. When college lecturer, Chris Pearse, told Jamie his pet bloodhound to fetch his slippers, he expected the dog to go upstairs for the new pair he had got for Christmas. In fact, the dog disappeared for two hours. The legendary nose of the bloodhound had led it four miles across town to the Council tip where Jamie retrieved his master’s old slippers, which had been thrown away and brought them home. Mr Pearse said, \"I didn’t expect it, but I can’t complain when he’s only done exactly what I asked…\"</li></ul><p><b>Question 8.</b></p><ul><li>We are sorry to announce that both the 9.15 from Crewe and the 10:30 to London Euston have been cancelled due to staff shortages. Passengers for Birmingham International and Oxford should cross the bridge to platform four where a relief train will shortly arrive. Passengers for Reading can also take this train but must change at Oxford. Passengers for London and Heathrow airport should go immediately to the booking hall on platform one where a coach has been arranged.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which part of the gallery did the man visit?",
+              "options": [
+                "paintings",
+                "vases and bowls",
+                "a sculpture exhibition",
+                "photographs"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "How much will a dietary and fitness assessment cost you?",
+              "options": [
+                "£20",
+                "£30",
+                "£33",
+                "£5"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Who do you contact when dialing number 4?",
+              "options": [
+                "customer care department",
+                "service engineering department",
+                "emergency service department",
+                "HR department"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Who is the message intended for?",
+              "options": [
+                "people in Britain",
+                "people leaving Britain",
+                "people returning to Britain",
+                "people visiting Britain"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What will the weather be like on Friday?",
+              "options": [
+                "cloudy and dull",
+                "sunny",
+                "very wet",
+                "cloudy"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Why should children not use computers?",
+              "options": [
+                "They don’t encourage children to think.",
+                "They keep children from doing their schoolwork.",
+                "They stop children developing social skills.",
+                "They are harmful to children’s eyes"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What did the dog do?",
+              "options": [
+                "annoyed its master",
+                "disobeyed its master",
+                "obeyed its master",
+                "fetched a thing its master didn’t ask"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What should passengers for London do?",
+              "options": [
+                "take the train on platform four",
+                "take the coach from the booking hall",
+                "take the train on platform one",
+                "change the train at Oxford"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-21/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> Today we have with us in the studio Lucy Rainbow, who earns her living as a painter. Good morning, Lucy. Can you tell us about your job?</li><li><b>W:</b> Well, I don’t paint pretty pictures you can hang on your walls at home. Mainly I work in the theatre painting the background scenery for plays I’ve also done a couple of CD covers. That was great, because I got to meet my favourite pop stars.</li><li><b>M:</b> So how did all this start?</li><li><b>W:</b> Well, I always intended to become a proper artist. But I couldn’t sell any of my paintings, and anyway I got bored working alone! I was offered a job in an advertising agency but the idea of working in a theatre attracted me more. I get the chance to paint something different every day. I get paid reasonably well, and I work with a team of wonderful people.</li><li><b>M:</b> So you enjoy your work, but doesn’t it have any disadvantages?</li><li><b>W:</b> Mostly, I love it. The only thing that causes me stress is that often I have too many things to do at the same time while at other times I have nothing to do. It’s difficult to organise my time, but I always make sure I stop for lunch.</li><li><b>M:</b> How many hours do you work on an average day?</li><li><b>W:</b> There’s no such thing as an average day! But generally, I start work at eight in the morning, and go through until seven. That makes it an eleven-hour day, which is much longer than the eight hours that most people work.</li><li><b>M:</b> Is your journey to work difficult?</li><li><b>W:</b> Not really. My dream job would be one where I could walk to work but that hasn’t happened yet. I could drive to the theatre, but that makes me tired and I get a lot of my best ideas when I’m on my way to work, on the bus or train.</li><li><b>M:</b> Do you have time for any hobbies?</li><li><b>W:</b> Not as much as I’d like. I used to play a lot of tennis until I hurt my ankle and I was a regular visitor to an art gallery near my home until it closed down. In the little spare time I have, I’m doing a course in computer graphics. I hope what I learn will help me in my job.</li><li><b>M:</b> Well, thank you, Lucy. It’s been interesting talking to you.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> My guest today is Tim Jones, who organizes an international summer course for young musicians. Tim tell us all about it.</li><li><b>M:</b> Well, I’m lucky to have such a great job. Basically, young musicians come from all over the world and learn to play together as an orchestra. By the end of the six-week course, they’re really good and hearing them play is what gives me most pleasure. Unfortunately, I don’t get to know them all that well, as organizing every single detail of the course keeps me busy.</li><li><b>W:</b> So, how do you find the young musicians?</li><li><b>M:</b> We advertise on the Internet. Anyone between the ages of sixteen and twenty can complete the application form and email it to us along with a short recording of their playing. We’re not looking for perfect performances or the stars of tomorrow just people good enough to play in an orchestra. The course is in English but only a basic level of spoken language is necessary.</li><li><b>W:</b> And the teachers?</li><li><b>M:</b> The teachers are well-known musicians. Because they want to help young people, they do this work for a very low salary which is very kind of them. But it’s my job to take care of them and make sure they’re happy with their accommodation and so on. They generally have a great time, but some of them can be a bit difficult and sometimes complain about things.</li><li><b>W:</b> So where is the course held?</li><li><b>M:</b> In different places each year, actually, but it’s usually a university during the summer holidays. They have large halls for practicing, plus plenty of bedrooms and dining-rooms. Most importantly, though, the place has to have good rail, road and air connections so somewhere in the middle of the countryside’s no good.</li><li><b>W:</b> Do the students bring their own instruments?</li><li><b>M:</b> Mostly, yes. So, another thing to consider is security. Storing instruments in a locked room when they’re not being used is essential. Can you imagine a hundred or more musical instruments lying around violins, trumpets, flutes, cellos - all worth a lot of money. It would be terrible if one got damaged, or even worse stolen!</li><li><b>W:</b> And at the end of the course, there’s a concert tour.</li><li><b>M:</b> That’s right. I book concert halls and work out the programmes months in advance. It’s important to get it right. Ticket prices aren’t high, because we’re not a professional orchestra but lots of people buy them. We don’t make a profit, but take enough money to pay for the students’ travel and living expenses. It’s a fantastic experience for them.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Today, I’m talking to Marta Stanston, who runs her own ‘mobile’ restaurant. Marta, How did you get into the restaurant business?</li><li><b>W:</b> Well, I learnt to cook at college. I always wanted to open my own restaurant but had no money so I got a job as a chef. I had all sorts of ideas for new dishes, which the staff thought would sell but the guy who owned the place wasn’t interested. That’s when a friend told me about the ‘mobile restaurant’ idea. It sounded great.</li><li><b>M:</b> Tell us about it.</li><li><b>W:</b> Well, it works like this: you decide on a menu obviously you have to be able to cook then you advertise it so people can book a meal. The most amazing thing is all the advertising is done through social-networking websites. People set up tables in their sitting-room, or in a City car park, an empty factory - anywhere in fact. And because you know how many people you’re cooking for, food doesn’t get wasted.</li><li><b>M:</b> So why was it good for you?</li><li><b>W:</b> Well, various reasons. Like, I could buy all the ingredients without risk because you make customers pay in advance. The greatest advantage, though, is by having a maximum of ten customers. I didn’t need to hire a waiter. Then, of course, I could prepare everything at home just take a camping gas cooker with me, plus some plates, glasses, knives and forks.</li><li><b>M:</b> Do you never run into problems?</li><li><b>W:</b> The whole experience is fun. People watch you cook and the atmosphere’s relaxed. I did one meal on a beach which almost went wrong because I didn’t think about the wind blowing sand into people’s food. Fortunately, I’d brought a large umbrella to protect myself from the sun so I put it around their table instead!</li><li><b>M:</b> And you sometimes use your own flat?</li><li><b>W:</b> If the weather’s bad, people come to my home instead, but it gets very crowded. Even though I’ve actually got enough chairs and a big table, it’s not ideal. I was worried we might disturb the neighbours but they’ve been alright about it. I love the temporary feel of the mobile idea, so home’s not really what it’s about.</li><li><b>M:</b> So, what’s the future of mobile restaurants?</li><li><b>W:</b> Well, it’s rather uncertain. Lots of new ones are popping up because it’s become fashionable. I think health inspectors will want to check them out. That doesn’t worry me, because I’m a trained chef. But if someone got ill in a less serious one, we might all get a bad name. So I guess inspections are a good thing.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What does Lucy usually paint?",
+              "options": [
+                "scenery for stage plays",
+                "pictures of pop stars",
+                "the walls in people’s homes",
+                "pictures on people’s homes"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does Lucy say about her present job?",
+              "options": [
+                "she enjoys working by herself.",
+                "she chose it because she couldn’t get a job in advertising.",
+                "She earns a good salary.",
+                "It does not need any special skills."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Lucy find difficult about her work?",
+              "options": [
+                "She sometimes misses lunch.",
+                "Some days are too busy.",
+                "She always has too much work to do.",
+                "She feel bored because she doesn’t have much to do."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "How does Lucy get to work?",
+              "options": [
+                "by bus or train",
+                "by car",
+                "on foot",
+                "by bike"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What does Tim enjoy most about his job?",
+              "options": [
+                "sorting out all the details",
+                "getting to know the musicians",
+                "listening to lots of good music",
+                "meeting some famous musicians"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Tim say about the teachers on the course?",
+              "options": [
+                "usually enjoy themselves.",
+                "are always complaining.",
+                "are extremely well-paid.",
+                "They are difficult."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Where is the course held?",
+              "options": [
+                "a place which is specially designed for musicians.",
+                "is convenient for public transport.",
+                "is a long way from a big City.",
+                "in the middle of the countryside."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What does Tim say about the concert tour after the course?",
+              "options": [
+                "It has to make a lot of money",
+                "It needs to be carefully planned",
+                "It’s difficult to sell tickets",
+                "It’s a good experience for both students and Tim."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What did Marta dislike about her first job?",
+              "options": [
+                "It was really badly paid.",
+                "The boss didn’t listen to her.",
+                "She found the staff unfriendly.",
+                "The restaurant was mobile."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "At first, what did Marta find most surprising about mobile restaurants?",
+              "options": [
+                "They are only advertised online.",
+                "Food never gets thrown away.",
+                "Menus can be easily changed.",
+                "People enjoy their meals in any place."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What made Marta have difficulty serving food on a beach?",
+              "options": [
+                "the sun.",
+                "the rain.",
+                "the wind.",
+                "not being allowed to eat on the beach."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What worries Marta about the future?",
+              "options": [
+                "mobile restaurants going out of fashion",
+                "the wrong people opening restaurants like hers",
+                "health inspectors coming to her restaurant",
+                "people getting ill because of bad food."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-06/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1 / Lecture 1:</b></p><p>Welcome everybody to this presentation about creating a corporate image for your company. I wonder if, when you came in today, you thought, 'Hey, this guy hasn't got a suit on. This could be an interesting day!' You see, I believe that the way you dress is very important. I decided to come here rather casually dressed not because I wanted to make a fashion statement but because I wanted to let you know that this is not going to be a formal presentation. On the other hand, I want you to work hard and get something out of the day. I'm not wearing shorts and a T-shirt, for instance. So how would you describe the way I'm dressed?</p><p><b>Smart but casual.</b></p><p>Exactly. But I also believe there are particular occasions when you need to wear a suit such as meeting a client – especially if you expect the client to be wearing one. Which brings me to a recent trend which we've picked up from the Americans: 'Dress down Friday'. How many of you are dressing more informally on a Friday? Quite a lot of you. How many of you go as far as wearing jeans? Not so many. Probably many of that small group work in the IT sector? I thought so.</p><p>So you see it's not just the day of the week or what clients may expect of you, it's the business you're in. If, for example, you work in a bank you're probably going to be in a dark suit every day of the week. And then there are those of us who are expected to wear a uniform. What you are doing here is projecting a very specific image of your company or service. Usually it's to do with reliability, expertise and efficiency. Customers and the general public feel reassured about someone in a recognisable uniform. Dress down Friday is a long way off for this group of employees. Now let's have a look at other ways in which a company projects its image...</p><p><b>Talk 2 / Lecture 2:</b></p><p>Do you get enough sleep at night? Do you ever feel tired during school? You may not be the only one. According to the National Sleep Foundation, kids aren't getting enough sleep. And it's affecting how they do in school.</p><p>Experts say that kids need about ten hours of sleep each night. Your body needs sleep so it can rest for the next day. Animals need sleep to stay healthy. Cats and dogs sleep for about fifteen hours each day!</p><p>Sleep is also important for your brain. Just like your body, your brain needs a little vacation every night. Without enough sleep, students can't learn as well. They cannot pay attention, follow directions, or solve problems as well. Also, tired kids act in ways that they usually don't. They can easily get angry with their friends or get in trouble in class.</p><p>Scientists at the National Sleep Foundation talked to 1,400 kids. They asked them about their sleeping habits. They found that about seventy percent of kids were not getting enough sleep. The scientists think that soda and television are part of the reason. Drinks like cola, coffee, and tea have caffeine in them. Caffeine makes people stay awake. Kids who had drinks with caffeine got less sleep than other kids. Television is also a problem. When kids watch too much TV, they have to stay up later to finish their homework. Scientists also found that many kids had a TV in their room. These kids often stayed up late to watch a show.</p><p>So what can you do to make sure that you get enough sleep? Try not to drink anything with caffeine, especially at night. Sleep experts suggest that you try to go to bed at the same time every night. Don't do anything exciting before you go to bed. For instance, don't watch a scary movie or exercise. Try to do something relaxing, like reading a book or listening to quiet music.</p><p><b>Talk 3 / Lecture 3:</b></p><p>If you have ever seen the northern lights, you know that they are one of most beautiful sights. People often seeing a faint glow appear on the horizon in the night sky. Then they may see wonderful colors such as green, red, blue, or purple stretch the sky. The shape of the northern lights can be straight lines, or it may be curved like the letter S, or round, just like a wheel. The colored lights and shapes move across the night sky, like ocean waves. No matter what the color or shape is, the northern lights are truly an amazing sight.</p><p>Many people know them by their common name \"the northern lights.\" But do you know the meaning of the real name? The scientific name for the northern lights from Latin. It is <b>aurora borealis</b>. In English, the Latin word <b>aurora</b> translates to \"dawn,\" which means \"early morning.\" The Latin word <b>borealis</b> means \"northern.\" So <b>aurora borealis</b> can be translated as \"northern dawn,\" which describes the look of the northern sky in the very early morning.</p><p>If you have never seen <b>aurora borealis</b>, you are not alone. This natural phenomenon is not common in most parts of the world. In fact, many people travel or go on tours to places where they can see the northern lights. Where are these places? The best place to see <b>aurora borealis</b> is near the North Pole – the northernmost point of Earth – especially in areas such as northern Greenland, Scandinavia, and Alaska.</p><p>Many years ago, before modern science, people developed stories, myths, and legends to explain natural phenomena such as <b>aurora borealis</b>. Finnish people called them \"fox fires,\" and believed the lights were caused when foxes made fires to keep warm. The Inuit people of northern Canada and Greenland believed that the <b>aurora</b> was the dance of animal spirits such as deer, seals, and whales.</p><p>The way the northern lights work is similar to a neon sign. Gas travels along magnetic lines. The lights occur when electric particles – electrons – collide with gas atoms, causing the atoms to give off light. The result is the amazing sweeps and waves of color that you can see. It's a wonderful sight if you happen to be in the right place at the right time.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The presenter doesn't wear a suit because",
+              "options": [
+                "He is not an important person.",
+                "He wants to talk about different fashion trend.",
+                "The presentation is not formal.",
+                "He works for a fashion company."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "According to the speaker, which statement is TRUE?",
+              "options": [
+                "It's important to look casually-dressed in public.",
+                "A suit is necessary when meeting clients.",
+                "Wearing shorts is OK, sometimes.",
+                "Nobody can describe the way he's dressed."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does the phrase 'Dress-down Fridays' mean?",
+              "options": [
+                "Employees must wear fashionable clothes on Fridays.",
+                "Employees can wear anything they want on Fridays.",
+                "Employees are allowed to wear informally on Fridays.",
+                "Employees are required to wear special clothes on Fridays."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "According to the speaker, who may be the most informal dressers?",
+              "options": [
+                "People working in IT",
+                "People working in banks.",
+                "People working in customer services.",
+                "People working with clients."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does a customer feel about a man in uniform?",
+              "options": [
+                "reliable",
+                "recognized",
+                "expertised",
+                "reassured"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How many hours of sleep do experts suggest for kids?",
+              "options": [
+                "Ten",
+                "About fifteen",
+                "1,400",
+                "70"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "According to the speaker, why is sleep important for the brain?",
+              "options": [
+                "Sleep generates dreams so brain can relax.",
+                "Brain can rest in a sleep.",
+                "Sleep can save energy for the brain.",
+                "Sleep improves the effectiveness of the brain."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Why don't the students learn well when they are tired?",
+              "options": [
+                "They can't finish their homework.",
+                "They can't deal with troubles in class.",
+                "They get very excited.",
+                "They can't pay attention very well"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Which is NOT a reason for poor sleep?",
+              "options": [
+                "drinking soda",
+                "playing computer games",
+                "staying up late",
+                "exercising before sleep"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should students try to do each night?",
+              "options": [
+                "Watch a scary movie",
+                "Drink some hot tea",
+                "Go to bed at a regular time",
+                "relax with a TV show"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Which is NOT the shape of the northern lights?",
+              "options": [
+                "a straight line",
+                "a curved line",
+                "a round shape",
+                "an oval shape"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What does 'aurora borealis' exactly mean?",
+              "options": [
+                "northern lights",
+                "northern dawn",
+                "northern sky",
+                "early morning lights"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Where is the best place to see the northern lights?",
+              "options": [
+                "The northernmost point of Earth",
+                "The north of Poland",
+                "Scandinavian countries",
+                "Most parts of the world"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What is one of the stories developed by people before modern science?",
+              "options": [
+                "The lights were caused by volcanic eruptions.",
+                "The lights were the dance of animal spirits.",
+                "The lights appeared when people moved north.",
+                "The lights came from fires of northern gods."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned in this talk?",
+              "options": [
+                "A description of the lights",
+                "The scientific explanation for the lights",
+                "The discovery of the lights",
+                "Beliefs about the light"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Role of Genetics in Choosing a Partner",
+            "text": "<p>For many years, people have believed that falling in love is mostly about shared interests, personality, and simple luck. However, a growing number of scientists suggest that our bodies may also send out biological signals that shape who we find attractive. One area of interest involves a group of genes known as the major histocompatibility complex, or MHC, which helps the immune system recognize and fight off harmful <strong>invaders</strong>. Researchers have discovered that these genes may influence body scent in ways that people cannot consciously detect, yet the smell still appears to guide romantic preference. This idea, once considered unusual, has now become a serious topic of study in the field of human attraction.</p><p>In a well-known experiment carried out in Switzerland, male volunteers wore the same cotton T-shirt for two nights without using soap, cologne, or deodorant. Afterward, female participants were asked to smell the shirts and rate how pleasant each scent was. Most women, without knowing anything about the men who wore the shirts, tended to prefer the scent of men whose MHC genes were noticeably different from their own. Interestingly, when the same women were later given birth control pills to take, their scent preferences shifted, and several began favoring men with genes more similar to theirs. This unexpected shift suggested that hormones, not just personal taste, may quietly <strong>steer</strong> whom we find appealing.</p><p>Scientists offer a straightforward explanation for this pattern: choosing a partner with different immune genes could give future children a wider range of natural defenses against disease. A child who inherits two different sets of MHC genes may be better equipped to recognize a broader variety of infections than a child whose parents share nearly identical genes. Separate research involving twins raised apart has added further support to <strong>this theory</strong>, showing that some romantic preferences appear even without any shared environment or upbringing. Even so, the researchers were careful to note that biology alone rarely, if ever, determines who a person falls in love with.</p><p>Despite these findings, most experts agree that genetics plays only a supporting role, not the leading one, in human attraction. Culture, upbringing, shared values, and simple daily familiarity still appear to matter far more than smell or hidden biology. Some critics of the T-shirt studies also point out that the sample sizes were often small, and that later attempts to repeat the results did not always succeed. For this reason, many scientists now describe genetic attraction as one thread among many, rather than a hidden master switch controlling romance.</p><p>Taken together, this research does not replace the everyday explanations people give for falling in love. Instead, it adds a quiet biological layer beneath the more familiar social one. As more studies are carried out, scientists hope to learn exactly how much influence, however small, our genes truly have on the partners we eventually choose.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn đúc kết ở cuối: bài đọc giới thiệu các tín hiệu sinh học/gen có ảnh hưởng đến sức hút tình cảm nhưng luôn nhấn mạnh ở cuối rằng yếu tố sinh học hiếm khi tự mình quyết định hoàn toàn. Do đó, phương án đúng phải thể hiện rõ bản chất tín hiệu gen chỉ đóng vai trò hỗ trợ, bổ trợ tinh tế chứ không kiểm soát hay quyết định độc lập (Genetic signals subtly support, but do not control, attraction).</li><li><b>Dạng câu hỏi Chi tiết (R1Q1, R3Q3, R1Q6):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R1Q1</b>, quét từ khóa \"cotton T-shirt\" hoặc \"Switzerland\" ở đoạn 2: bài đọc ghi nhận các tình nguyện viên nam đã mặc áo thun trong 2 đêm và không sử dụng xà phòng, nước hoa hay lăn khử mùi (Two nights, without soap, cologne, or deodorant).</li><li>Với <b>R1Q3</b>, quét từ khóa \"benefit\" hoặc \"immune genes\" ở đoạn 3: bài đọc giải thích trẻ em có bố mẹ sở hữu bộ gen MHC khác nhau sẽ thừa hưởng khả năng phòng thủ miễn dịch đa dạng hơn (inherit a wider range of immune defenses).</li><li>Với <b>R1Q6</b>, quét từ khóa \"birth control pills\" ở đoạn 2: khi phụ nữ bắt đầu dùng thuốc tránh thai, sở thích mùi hương của họ thay đổi và một số người bắt đầu thích nam giới có gen tương đồng hơn với mình (Some began favoring men with more similar genes).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q5):</b> Đối soát kỹ danh sách các yếu tố ảnh hưởng đến sức hút được liệt kê ở đoạn cuối: nền tảng văn hóa (cultural background), sự gắn bó/hoóc-môn, và các giá trị chung (shared values). Phương án đề cập đến \"mức thu nhập hàng năm của gia đình (yearly household income level)\" là chi tiết hoàn toàn không xuất hiện trong bài đọc.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q4, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q4</b>, từ <strong>\"steer\"</strong> ở đoạn 2 đi với \"whom we find appealing\", mang nghĩa điều hướng/dẫn dắt cảm xúc thu hút, do đó đồng nghĩa với hướng dẫn, dẫn dắt (guide).</li><li>Với <b>R1Q8</b>, từ <strong>\"invaders\"</strong> ở đoạn 1 mô tả các tác nhân gây hại mà hệ miễn dịch chiến đấu chống lại, do đó sát nghĩa nhất với mầm bệnh/vi trùng (germs).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q7):</b> Tập trung vào cụm từ chỉ định <strong>\"this theory\"</strong> ở đoạn 3. Áp dụng quy tắc đọc ngược lại câu trước: câu trước vừa giải thích lý thuyết rằng việc chọn bạn đời có bộ gen miễn dịch khác biệt sẽ giúp thế hệ sau có khả năng chống lại bệnh tật tốt hơn (the diverse-gene explanation). Vì vậy, \"this theory\" quy chiếu thẳng đến lời giải thích về sự đa dạng gen này.</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Kết hợp logic thông tin ở đoạn 4 về mức độ tin cậy của nghiên cứu áo thun. Bài đọc lưu ý rằng các nghiên cứu sau này không phải lúc nào cũng tái hiện lại được kết quả tương tự một cách nhất quán (results have not always been replicated successfully).</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt bài viết. Tác giả trình bày các bằng chứng sinh học một cách khách quan nhưng liên tục đưa ra lưu ý thận trọng rằng yếu tố gen chỉ đóng vai trò hỗ trợ chứ không quyết định hoàn toàn. Điều này thể hiện thái độ cởi mở nhưng thận trọng (Cautiously open), coi gen là một trong những yếu tố đóng góp.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Từ vựng</b> (R1Q4, R1Q8) và <b>Quy chiếu</b> (R1Q7). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R1Q1, R1Q3, R1Q6) và câu hỏi <b>Loại trừ</b> (R1Q5). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm vững, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư tư duy tổng hợp cao gồm <b>Suy luận</b> (R1Q9), <b>Thái độ tác giả</b> (R1Q10) và <b>Ý chính toàn bài</b> (R1Q2).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, how long did the men wear the T-shirt during the experiment, and what did they avoid using?</span>",
+              "options": [
+                "Two weeks, without changing their daily clothing.",
+                "One night, without soap, cologne, or deodorant.",
+                "Two nights, while wearing strong cologne only.",
+                "Two nights, without soap, cologne, or deodorant."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "MHC genes are the main cause of romantic attraction.",
+                "Genetic signals subtly support, but do not control, attraction.",
+                "Birth control pills permanently reverse a person's genetic preferences.",
+                "Cultural factors have completely replaced biology in attraction."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>Why might children benefit from parents with different MHC genes, according to the passage?</span>",
+              "options": [
+                "They may inherit their parents' identical scent preferences.",
+                "They may develop unusually strong physical strength overall.",
+                "They may inherit a wider range of immune defenses.",
+                "They may avoid essentially all hereditary illnesses entirely."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"steer\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "smell",
+                "guide",
+                "stir",
+                "force"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor affecting attraction?</span>",
+              "options": [
+                "The importance of shared personal values",
+                "A person's yearly household income level",
+                "The influence of a person's cultural background",
+                "Sudden changes in hormone levels during studies"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>What happened when the women in the study began taking birth control pills?</span>",
+              "options": [
+                "Every participant stopped noticing any scent differences immediately.",
+                "Their hormone levels returned to pre-teenage childhood patterns.",
+                "Some began favoring men with more similar genes.",
+                "Their preference for different genes grew noticeably stronger."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this theory\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "twins raised apart",
+                "the diverse-gene explanation",
+                "the birth control effect",
+                "natural defenses only"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"invaders\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "scents",
+                "enemies",
+                "invitees",
+                "germs"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the reliability of the T-shirt study's findings?</span>",
+              "options": [
+                "The Swiss study focused only on twin siblings.",
+                "Small sample sizes caused unexpectedly stronger overall results.",
+                "Its findings have since been completely disproven scientifically.",
+                "Its results have not always been replicated successfully."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the idea that genetics influences attraction?</span>",
+              "options": [
+                "Skeptical, doubting the validity of all cited studies.",
+                "Fully convinced that genetics determines romantic partner choice.",
+                "Dismissive, viewing biology as irrelevant to attraction.",
+                "Cautiously open, treating genetics as one contributing factor."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "E-Commerce and Economic Development After the Pandemic",
+            "text": "<p>When national governments began closing non-essential shops in early 2020, few observers expected the shift that would follow. What started as an emergency workaround for shuttered retailers gradually <strong>hardened</strong> into a lasting change in how goods and services reach consumers. Online marketplaces, once seen mainly as a convenient alternative for busy professionals, suddenly became the primary channel through which millions of households obtained groceries, medicine, and everyday necessities. This abrupt transition, forced rather than chosen, nonetheless revealed consumer habits that many analysts now believe are unlikely to fully reverse.</p><p>Global e-commerce sales, according to several trade organizations, rose by roughly thirty percent within the first eighteen months of the pandemic, though growth rates varied sharply across regions and income groups. Small retailers, many of whom had previously resisted moving online, were often forced to build a digital storefront within weeks rather than years. Some succeeded, occasionally reaching customers far beyond their original neighborhoods; others, lacking the technical skill or capital to compete, closed permanently. Whether this rapid digitization ultimately strengthened or weakened local economies remains a question researchers continue to debate, since the answer appears to depend heavily on local infrastructure.</p><p>Traditional brick-and-mortar retail did not simply vanish, however, despite predictions to the contrary made early in the pandemic. Physical stores, particularly those offering experiences that screens cannot replicate, gradually recovered a portion of the customers they had lost. What emerged instead, in many markets, was a hybrid model in which shoppers research products online yet still prefer to complete certain purchases in person. This blending complicates any simple narrative of digital replacing physical retail entirely, and suggests instead that consumer behavior settled somewhere between the two extremes rather than at either one.</p><p>Beneath these visible shifts in shopping behavior lies a less discussed layer of economic development. Countries that had already invested in digital payment systems and reliable delivery networks before the pandemic were, unsurprisingly, better positioned to absorb the sudden surge in online demand. In several developing economies, mobile payment platforms that had struggled for years to gain widespread adoption saw usage climb sharply once physical alternatives became inconvenient or unavailable. Some economists argue that this crisis-driven adoption may have <strong>compressed</strong> a decade of digital infrastructure growth into a matter of months, though <strong>such claims</strong> remain difficult to verify with precision.</p><p>Not every region benefited equally, of course. Rural communities with limited internet access and unreliable postal services frequently found themselves unable to participate meaningfully in the new digital marketplace, even when demand for online shopping existed. This uneven access, often layered on top of existing income inequality, has led some researchers to warn that e-commerce growth risks widening rather than narrowing regional economic gaps unless deliberate policy intervention accompanies it.</p><p>In response, several governments introduced incentives intended to extend broadband access and support small business digitization, while simultaneously tightening regulations around consumer data protection and online fraud. Critics argue that such measures often arrive years after the underlying problems became obvious, and that regulatory frameworks continue to lag behind the pace of technological change. Supporters counter that even delayed intervention is preferable to none, particularly as online commerce becomes further embedded in everyday economic life.</p><p>Whether the pandemic-era surge in e-commerce ultimately represents a temporary disruption or a permanent restructuring of economic activity remains genuinely uncertain. What does seem clear, based on the evidence so far, is that the digital and physical economies are unlikely to separate cleanly again, however the balance between them continues to evolve.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R2Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn kết luận tổng kết của bài: bài viết phân tích sự bùng nổ của thương mại điện tử trong đại dịch đã tái hình thành thói quen tiêu dùng nhưng cửa hàng truyền thống không hoàn toàn biến mất mà phục hồi dưới dạng mô hình kết hợp (hybrid model). Do đó, phương án đúng phải phản ánh bức tranh toàn cảnh: thương mại điện tử tái định hình ngành bán lẻ nhưng không thay thế hoàn toàn các cửa hàng vật lý (E-commerce growth reshaped retail without fully replacing physical stores).</li><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R2Q1</b>, quét từ khóa \"better able to handle\" ở đoạn 4: bài đọc giải thích các quốc gia ứng phó tốt hơn với sự gia tăng đột biến của mua sắm trực tuyến nhờ đã có sẵn hạ tầng thanh toán kỹ thuật số và mạng lưới giao hàng tin cậy (had already built strong digital payment infrastructure).</li><li>Với <b>R2Q5</b>, định vị cụm từ \"developing economies\" hoặc \"long-term impact\": bài đọc nhận định việc áp dụng kỹ thuật số có thể đã đẩy nhanh tiến trình phát triển hạ tầng kéo dài nhiều năm (may have sped up years of infrastructure growth).</li><li>Với <b>R2Q7</b>, quét từ khóa \"rural communities\" ở đoạn 4 hoặc đoạn 5: bài đọc nêu rõ một số cộng đồng nông thôn gặp khó khăn khi tiếp cận lợi ích của thương mại điện tử do thiếu kết nối internet tin cậy và dịch vụ bưu chính/vận chuyển (lacked reliable internet access and postal services).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q4):</b> Đối soát kỹ các phản ứng/chính sách của chính phủ được liệt kê ở đoạn 6: mở rộng băng thông rộng vùng nông thôn, chương trình hỗ trợ doanh nghiệp nhỏ chuyển đổi số, và thắt chặt quy định bảo vệ dữ liệu người tiêu dùng. Phương án đề cập đến \"phát tiền mặt trực tiếp cho người mua sắm trực tuyến (Direct cash payments issued to online shoppers)\" là chi tiết hoàn toàn không xuất hiện trong văn bản.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q3, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q3</b>, từ <strong>\"hardened\"</strong> ở đoạn 1 mô tả sự thay đổi tạm thời trong đại dịch đã củng cố, trở thành một thay đổi lâu dài (hardened into a lasting change), do đó đồng nghĩa với củng cố, làm cho vững chắc (solidified).</li><li>Với <b>R2Q8</b>, từ <strong>\"compressed\"</strong> ở đoạn 4 đi với lập luận \"nén 10 năm phát triển vào vài tháng\", do đó mang nghĩa sát nhất với cô đọng, rút ngắn lại (condensed).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Tập trung vào cụm từ chỉ định <strong>\"such claims\"</strong> ở đầu đoạn 4. Áp dụng quy tắc đọc ngược lại đoạn 3 trước đó: câu trước đề cập đến lập luận cho rằng đại dịch đã \"nén\" một thập kỷ phát triển thương mại điện tử vào vài tháng (the decade-compression argument). Vì vậy, \"such claims\" quy chiếu thẳng đến lập luận về sự cô đọng thập kỷ này.</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Kết hợp logic thông tin ở đoạn 3 về mô hình bán lẻ kết hợp (hybrid model). Bài đọc chỉ ra rằng người tiêu dùng thường tìm kiếm thông tin trực tuyến nhưng vẫn thích hoàn tất một số giao dịch trực tiếp, từ đó suy luận được rằng thương mại điện tử và cửa hàng vật lý sẽ tiếp tục đan xen và đồng hành cùng nhau trong tương lai (likely to remain intertwined going forward).</li><li><b>Dạng câu hỏi Thái độ tác giả (R2Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt văn bản và đoạn kết luận. Tác giả đánh giá sự thay đổi là rõ rệt nhưng liên tục đưa ra các nhận định thận trọng, thừa nhận còn nhiều tranh cãi và câu hỏi chưa có lời giải đáp về tính bền vững. Đây là minh chứng rõ nét cho thái độ thận trọng, chưa khẳng định tuyệt đối (Cautiously uncertain, acknowledging both permanence and unresolved questions).</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R2Q6) và <b>Từ vựng</b> (R2Q3, R2Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R2Q1, R2Q5, R2Q7) và câu hỏi <b>Loại trừ</b> (R2Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R2Q9), <b>Thái độ tác giả</b> (R2Q10) và <b>Ý chính toàn bài</b> (R2Q2).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, why were some countries better able to handle the surge in online shopping during the pandemic?</span>",
+              "options": [
+                "They had already built strong digital payment infrastructure.",
+                "They restricted physical stores earlier than other nations.",
+                "They received emergency loans from international trade organizations.",
+                "They had larger populations than other countries."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Traditional retail recovered fully and now dominates once again.",
+                "Government regulation was the primary driver of this growth.",
+                "Developing nations fully matched wealthy countries' digital infrastructure.",
+                "E-commerce growth reshaped retail without fully replacing physical stores."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"hardened\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "toughened",
+                "solidified",
+                "hindered",
+                "expanded"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a government response to e-commerce growth?</span>",
+              "options": [
+                "Direct cash payments issued to online shoppers",
+                "Tighter regulations covering consumer data protection",
+                "New incentives to expand rural broadband access",
+                "Support programs aimed at small business digitization"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>What does the passage suggest about the long-term impact of pandemic-driven digital adoption in developing economies?</span>",
+              "options": [
+                "It may have sped up years of infrastructure growth.",
+                "It had no measurable effect on payment systems.",
+                "It definitely compressed a decade of growth into months.",
+                "It slowed infrastructure investment in most developing regions."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"such claims\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "mobile payment platforms",
+                "the decade-compression argument",
+                "physical alternatives unavailable",
+                "digital payment systems"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>Why did some rural communities struggle to benefit from e-commerce growth, according to the passage?</span>",
+              "options": [
+                "They received lower government subsidies than urban areas.",
+                "They lacked reliable internet access and postal services.",
+                "They lacked interest in online shopping generally.",
+                "They faced stricter regulations on digital payments."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"compressed\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "crushed",
+                "compensated",
+                "delayed",
+                "condensed"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the future relationship between digital and physical retail?</span>",
+              "options": [
+                "Global e-commerce sales rose by about thirty percent early on.",
+                "The two are likely to remain intertwined going forward.",
+                "Digital retail will keep growing until physical stores disappear.",
+                "Physical stores caused the rise of online shopping platforms."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's attitude toward the long-term effects of pandemic-driven e-commerce growth?</span>",
+              "options": [
+                "Fully confident that all changes are permanent worldwide.",
+                "Dismissive of any lasting impact on retail.",
+                "Strongly critical of governments' regulatory responses.",
+                "Cautiously uncertain, acknowledging both permanence and unresolved questions."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Genetic Research into Human Longevity",
+            "text": "<p>Although longevity has often been attributed to lifestyle choices such as diet and exercise, a growing body of genetic research suggests that inherited variation may account for a meaningful share of the difference between those who die in their sixties and those who remain vigorous past a hundred. Twin studies, which compare identical and fraternal siblings raised in similar environments, have repeatedly estimated that genetics explains somewhere between twenty and thirty percent of variation in lifespan — a figure that, while modest, is far from negligible when multiplied across an entire population.</p><p>Much of the recent excitement centers on a single gene, FOXO3, first linked to unusually long life in a study of Japanese men living on the island of Okinawa, a region long celebrated for its unusually high concentration of centenarians. Carriers of a particular variant of this gene appeared, across several independent population studies conducted afterward in Europe and North America, to enjoy not merely a longer lifespan but a compressed period of illness near the end of it — meaning that disease and disability, when they did arrive, tended to arrive later and progress more briefly than in non-carriers.</p><p>That FOXO3 alone determines who reaches extreme old age would, however, be a considerable overstatement of what the evidence actually supports. The gene appears to interact with dozens of other genetic variants, environmental exposures, and even chance cellular events in ways researchers have only begun to map. Some scientists suspect that FOXO3's true contribution lies not in adding years directly but in improving the body's <strong>resilience</strong> to stress — a subtler and harder-to-measure effect that may explain why its influence shows up more reliably in population statistics than in any single individual's medical history.</p><p>A separate line of inquiry has focused on telomeres, the protective caps at the ends of chromosomes that shorten slightly with each cell division. Because shortened telomeres have been correlated with age-related disease in numerous studies, some researchers proposed that telomere length might serve as a biological clock capable of predicting remaining lifespan. Subsequent research has complicated this tidy picture considerably: telomere length varies enormously even among people of identical chronological age, and attempts to extend life by artificially lengthening telomeres in laboratory animals have produced inconsistent, occasionally even harmful, results, undermining the notion that telomeres are a simple countdown mechanism.</p><p>Interestingly, the same Okinawan population that first drew attention to FOXO3 also shares an environment markedly different from that of most industrialized nations — a traditional diet low in calories relative to activity level, strong social integration among the elderly, and continuous physical labor well into old age. <strong>This overlap</strong> has made it exceptionally difficult for researchers to <b>disentangle</b> genetic advantage from environmental circumstance, since a population selected partly for its unusual genetics also happens to live in unusually favorable conditions for longevity.</p><p>Epigenetics — the study of chemical modifications that switch genes on or off without altering the underlying DNA sequence — has further complicated any straightforward genetic account of aging. These modifications, which can be influenced by diet, stress, and even a parent's own experiences before conception, appear capable of accelerating or delaying age-related decline independently of which gene variants a person happens to carry. Researchers now increasingly describe longevity not as a fixed genetic inheritance but as an ongoing negotiation between fixed sequence and changeable expression.</p><p>Taken together, these findings suggest that no single gene, however promising, is likely to explain extreme longevity on its own. What genetic research has offered instead is a partial map of resilience mechanisms — one that, when combined with favorable environment and considerable luck, may help explain why some individuals thrive well beyond the age most people can expect to reach.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R3Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn đúc kết ở cuối: bài viết mở đầu bằng việc ghi nhận nghiên cứu di truyền (như biến thể FOXO3) nhưng nhấn mạnh rằng tuổi thọ chịu sự chi phối của nhiều yếu tố tương tác phức tạp chứ không do một nguyên nhân đơn lẻ. Do đó, phương án đúng phải bao quát trọn vẹn việc nghiên cứu tuổi thọ di truyền hé lộ các yếu tố khả năng phục hồi (resilience), chứ không phải một nguyên nhân đơn giản (Genetic longevity research reveals resilience factors, not a simple cause).</li><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q3, R3Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R3Q1</b>, quét từ khóa \"Okinawan longevity\" hoặc \"complicates\" ở đoạn 2: việc đánh giá gen FOXO3 gặp khó khăn do cộng đồng này đồng thời duy trì các điều kiện lối sống vô cùng thuận lợi (The population also shares unusually favorable lifestyle conditions).</li><li>With <b>R3Q3</b>, quét từ khóa \"FOXO3's true contribution\" ở đoạn 3: tác giả chỉ ra đóng góp thực sự của gen này có thể là cải thiện khả năng chống chịu căng thẳng/khả năng phục hồi (resilience) thay vì trực tiếp cộng thêm năm tuổi.</li><li>Với <b>R3Q4</b>, quét từ khóa \"telomeres artificially in laboratory animals\" ở đoạn 4: các thí nghiệm kéo dài telomere nhân tạo trên động vật cho kết quả không nhất quán và đôi khi mang tính có hại (Results were inconsistent and sometimes even harmful).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Đối soát kỹ các yếu tố ảnh hưởng đến tuổi thọ được nhắc đến trong bài: ước tính tính di truyền từ nghiên cứu sinh đôi (đoạn 1), chế độ ăn truyền thống và sự gắn kết xã hội (đoạn 2), và tác động biểu sinh gắn liền với trải nghiệm của cha mẹ (đoạn cuối). Phương án đề cập đến \"ghép telomere thực hiện giữa các cặp sinh đôi cùng trứng (Telomere transplantation)\" là chi tiết hoàn toàn không xuất hiện trong văn bản.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q6, R3Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q6</b>, từ <strong>\"disentangle\"</strong> ở đoạn 5 đi với việc tách bạch giữa yếu tố gen và môi trường, do đó đồng nghĩa với tách rời, làm rõ (separate).</li><li>Với <b>R3Q7</b>, từ <strong>\"resilience\"</strong> ở đoạn 3 bổ nghĩa cho khả năng chống chịu trước áp lực của cơ thể, do đó sát nghĩa nhất với sự bền bỉ, khả năng chịu đựng (hardiness).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q8):</b> Tập trung vào cụm từ chỉ định <strong>\"This overlap\"</strong> ở đầu đoạn 5. Áp dụng quy tắc đọc ngược lại đoạn trước: đoạn 4 và đầu đoạn 5 nhắc đến việc cư dân Okinawan vừa sở hữu lợi thế di truyền đặc biệt vừa có chung các điều kiện lối sống, môi trường thuận lợi. Vì vậy, cụm từ này quy chiếu thẳng đến sự kết hợp đồng thời của lợi thế di truyền và môi trường (genetic and environmental advantage together).</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Kết hợp logic thông tin ở đoạn 4 về chiều dài telomere. Bài đọc chỉ ra rằng telomere biến động rất lớn ngay cả ở những người cùng độ tuổi và việc kéo dài chúng nhân tạo cho kết quả phức tạp, từ đó suy luận được rằng chiều dài telomere kém tin cậy hơn nhiều so với giả định ban đầu của các nhà nghiên cứu.</li><li><b>Dạng câu hỏi Thái độ tác giả (R3Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt bài viết. Tác giả chỉ ra rằng việc quy kết tuổi thọ cho một gen duy nhất là sự phóng đại (overstatement), từ đó thể hiện thái độ hoài nghi trước các giải thích đơn giản hóa và nhìn nhận tuổi thọ là hiện tượng phức tạp do nhiều yếu tố quyết định (Skeptical, viewing longevity as multiply determined and complex).</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Từ vựng</b> (R3Q6, R3Q7) và <b>Quy chiếu</b> (R3Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q3, R3Q4) và câu hỏi <b>Loại trừ</b> (R3Q5). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R3Q9), <b>Thái độ tác giả</b> (R3Q10) và <b>Ý chính toàn bài</b> (R3Q2).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what complicates researchers' ability to credit FOXO3 alone for Okinawan longevity?</span>",
+              "options": [
+                "FOXO3 carriers in Okinawa show shorter lifespans overall.",
+                "The gene has never been found outside Okinawa.",
+                "The population also shares unusually favorable lifestyle conditions.",
+                "Telomere length in the population remains unusually short."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "FOXO3 alone fully explains why some people live longest.",
+                "Telomere length reliably predicts every individual's exact remaining lifespan.",
+                "Environmental factors have been proven irrelevant to human longevity.",
+                "Genetic longevity research reveals resilience factors, not a simple cause."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>What does the passage suggest FOXO3's true contribution to longevity might be?</span>",
+              "options": [
+                "It definitively adds extra years directly to lifespan.",
+                "It primarily prevents telomeres from shortening over time.",
+                "It may improve resilience rather than directly add years.",
+                "It guarantees a compressed period of illness for everyone."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what happened when researchers attempted to lengthen telomeres artificially in laboratory animals?</span>",
+              "options": [
+                "Results consistently extended lifespan without any side effects.",
+                "Results were inconsistent and sometimes even harmful.",
+                "The experiments were abandoned before producing any results.",
+                "Telomere length increased but chronological age stayed identical."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor influencing longevity?</span>",
+              "options": [
+                "Telomere transplantation performed between identical twins",
+                "Epigenetic effects linked to a parent's experiences",
+                "Traditional diet and strong social integration",
+                "Heritability estimates derived from twin studies"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"disentangle\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "combine",
+                "separate",
+                "entangle",
+                "destroy"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"resilience\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "flexibility",
+                "invincibility",
+                "hardiness",
+                "residence"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This overlap\"</strong> in paragraph 5 refers to _______.</span>",
+              "options": [
+                "the FOXO3 gene variant",
+                "genetic and environmental advantage together",
+                "traditional low-calorie diet only",
+                "continuous physical labor alone"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the reliability of telomere length as a predictor of lifespan?</span>",
+              "options": [
+                "FOXO3 carriers show a compressed period of late-life illness.",
+                "Shorter telomeres are caused by age-related disease onset.",
+                "It is far less reliable than early researchers assumed.",
+                "It reliably predicts lifespan once other factors are excluded."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's attitude toward the idea that a single gene could fully explain human longevity?</span>",
+              "options": [
+                "Fully persuaded that FOXO3 alone explains extreme longevity.",
+                "Mildly critical only of twin-study research methods.",
+                "Dismissive of any genetic contribution to human lifespan.",
+                "Skeptical, viewing longevity as multiply determined and complex."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Rethinking the Science of Body Language",
+            "text": "<p>Few claims about human communication have spread as widely, or been distorted as thoroughly, as the assertion that the overwhelming majority of meaning in a conversation comes not from words but from body language. Traced back to a set of narrow laboratory experiments conducted in the late 1960s — studies that measured how strongly facial expression and tone influenced listeners' judgments of a speaker's feelings on a single, isolated word — this figure has since been stretched far beyond what the original research ever claimed, applied <strong>indiscriminately</strong> to job interviews, first dates, and courtroom testimony alike.</p><p>What the original studies actually demonstrated was considerably narrower: when the emotional content of a spoken word conflicted with the speaker's tone and facial expression, listeners tended to trust the nonverbal signal more than the word itself. Extending this finding to ordinary conversation, in which words and body language rarely contradict one another so starkly, requires an inferential leap the original researchers themselves never endorsed. Nevertheless, corporate training programs and popular psychology books continued, for decades, to cite the figure as though it applied to communication in general.</p><p>More recent research into deception detection has proven similarly <strong>humbling</strong> for anyone hoping that body language offers a reliable shortcut to the truth. Trained investigators, when tested under controlled conditions, generally perform little better than chance at distinguishing truthful statements from lies based on posture, gesture, or eye contact alone — a finding that undercuts decades of interrogation training built around supposed nonverbal 'tells.' Some researchers now argue that confident belief in one's own lie-detection ability may itself increase the likelihood of wrongly accusing an innocent, nervous person, since nervousness and dishonesty produce overlapping physical signals.</p><p>Microexpressions — extremely brief facial movements, lasting a fraction of a second, that some researchers argue reveal concealed emotion — have attracted particular attention since being popularized in the early 2000s. Whether these fleeting expressions can be reliably read outside laboratory conditions remains genuinely contested; while some studies suggest trained observers can identify them slightly above chance level, other researchers argue that real-world noise, cultural variation, and the sheer speed of the movements make consistent field application doubtful at best, and that any operational use in security or legal settings would demand far stronger evidence than currently exists.</p><p>Cultural variation complicates the picture still further. <strong>[1]</strong> Gestures considered warm and encouraging in one society may register as intrusive or even offensive in another, and the physical distance people consider comfortable during conversation shifts noticeably across regions. <strong>[2]</strong> Even something as apparently universal as eye contact carries different social weight depending on context — read in some settings as a sign of confidence and honesty, and in others as a sign of disrespect toward an elder or authority figure. <strong>[3]</strong> Researchers caution against treating any single nonverbal signal as a fixed, universal code. <strong>[4]</strong></p><p><strong>None of this</strong> implies that body language carries no communicative value whatsoever; rather, the accumulating evidence suggests its influence is real but considerably more context-dependent, and considerably less quantifiable, than the popular narrative allows. A raised eyebrow may indeed shift how a listener interprets a sentence, but whether it does so, and how strongly, appears to depend heavily on the relationship between speaker and listener, the surrounding words, and the situation — variables that resist the kind of tidy percentage figure that made the original claim so appealing to repeat.</p><p>Taken as a whole, the research suggests that body language matters, but not in the sweeping, precisely quantified way often claimed. What remains most defensible is a considerably more modest position: nonverbal signals shape communication meaningfully, yet almost always in combination with, rather than instead of, the words that accompany them.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R4Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn kết luận tổng kết của bài: bài viết mở đầu bằng việc phủ định quan niệm sai lầm phổ biến cho rằng phần lớn ý nghĩa giao tiếp đến từ ngôn ngữ cơ thể, và kết luận rằng ngôn ngữ cơ thể vẫn quan trọng nhưng ở mức độ hạn chế và ít tuyệt đối hơn rất nhiều so với lời đồn thổi. Do đó, phương án đúng phải phản ánh chính xác sự thật này (Body language matters, but far less absolutely than popularly claimed).</li><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q3):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R4Q2</b>, quét từ khóa \"1960s research\" ở đoạn 1 và 2: bài đọc chỉ ra rằng các tuyên bố phổ biến đã phóng đại và mở rộng một phát hiện rất hẹp từ các thí nghiệm trong phòng thí nghiệm sang mọi bối cảnh đời thực (It extends a narrow finding far beyond its original scope).</li><li>Với <b>R4Q3</b>, định vị cụm từ \"confident belief in one's own lie-detection skill\" ở đoạn 3: bài đọc cảnh báo niềm tin quá mức vào khả năng phát hiện nói dối có thể làm tăng nguy cơ vô tình buộc tội oan cho người vô tội (may increase the chance of wrongly accusing innocent people).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q4):</b> Đối soát kỹ các yếu tố gây khó khăn/phức tạp trong việc giải mã ngôn ngữ cơ thể được liệt kê trong văn bản: sự khác biệt văn hóa trong cử chỉ và ánh mắt, các tín hiệu vật lý chồng chéo giữa căng thẳng và sự không trung thực, cùng với mối quan hệ giữa người nói và người nghe. Phương án đề cập đến \"trình độ học vấn của người nói (The speaker's level of formal education)\" là chi tiết hoàn toàn không xuất hiện trong văn bản.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q5, R4Q6):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q5</b>, từ <strong>\"indiscriminately\"</strong> ở đoạn 1 mô tả việc áp dụng các kết quả nghiên cứu một cách bừa bãi, không chọn lọc vào phỏng vấn xin việc, hẹn hò, hay lời khai trước tòa, do đó đồng nghĩa với không chọn lọc, áp dụng tràn lan (unselectively).</li><li>Với <b>R4Q6</b>, từ <strong>\"humbling\"</strong> ở đoạn 3 mô tả cảm giác khi nhận ra các nhà điều tra được đào tạo chuyên sâu cũng chỉ đoán ngang ngửa với xác suất tung đồng xu, mang ý nghĩa làm cho bẽ mặt, kiềm chế sự tự phụ, do đó sát nghĩa nhất với tính chất chấn chỉnh, làm khiêm nhường lại (chastening).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q7):</b> Tập trung vào cụm từ chỉ định <strong>\"None of this\"</strong> ở đầu đoạn 6. Áp dụng quy tắc đọc ngược lại nội dung các đoạn trước: các đoạn trước đã tổng hợp một loạt các giới hạn, sự mâu thuẫn và bằng chứng chưa được kiểm chứng của việc đọc ngôn ngữ cơ thể và vi biểu cảm (microexpressions). Vì vậy, cụm từ này quy chiếu thẳng đến những hạn chế tổng thể của các nghiên cứu tích lũy (accumulated research limitations overall).</li><li><b>Dạng câu hỏi Suy luận (R4Q8):</b> Kết hợp logic thông tin ở đoạn 4 về việc đọc biểu cảm vi mô (microexpressions). Bài đọc chỉ ra rằng liệu các biểu cảm thoáng qua này có thể đọc được một cách đáng tin cậy bên ngoài phòng thí nghiệm hay không vẫn còn là điều gây tranh cãi gay gắt, từ đó suy luận được rằng các bằng chứng hiện tại vẫn quá hạn chế để biện minh cho việc sử dụng tự tin trong thực tế (Current evidence is too limited to justify confident real-world use).</li><li><b>Dạng câu hỏi Thái độ tác giả (R4Q9):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt văn bản. Tác giả không hề phủ nhận hoàn toàn giá trị của giao tiếp phi ngôn ngữ, nhưng liên tục đưa ra các dẫn chứng khoa học để bác bỏ các tuyên bố phóng đại và sự tự tin mù quáng. Đây là minh chứng rõ nét cho thái độ hoài nghi các tuyên bố phóng đại nhưng không bác bỏ hoàn toàn giá trị phi ngôn ngữ (Skeptical of exaggerated claims, while not dismissing all nonverbal value).</li><li><b>Dạng câu hỏi Chèn câu vào đoạn văn (R4Q10):</b> Phân tích mối liên hệ logic của câu cần chèn: \"This variation makes it risky to assume that a gesture perceived as friendly at home will be read the same way abroad.\" (Sự biến đổi này khiến việc giả định rằng một cử chỉ được coi là thân thiện ở quê nhà sẽ được hiểu theo cách tương tự ở nước ngoài trở nên rủi ro). Tìm vị trí bàn về sự khác biệt văn hóa của các cử chỉ: đoạn văn nhắc đến việc các cử chỉ tay mang ý nghĩa khác nhau hoàn toàn giữa các nền văn hóa khác nhau. Việc đặt câu chèn ở vị trí [2] (ngay sau câu phân tích sự khác biệt ý nghĩa cử chỉ theo địa lý văn hóa) giúp giải thích trực tiếp hệ quả của sự biến đổi văn hóa này. Do đó, vị trí [2] là lựa chọn duy nhất đảm bảo tính liên kết từ vựng và logic.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Từ vựng</b> (R4Q5, R4Q6), <b>Quy chiếu</b> (R4Q7) và <b>Chèn câu</b> (R4Q10). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R4Q2, R4Q3) và câu hỏi <b>Loại trừ</b> (R4Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R4Q8), <b>Thái độ tác giả</b> (R4Q9) và <b>Ý chính toàn bài</b> (R4Q1).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Body language matters, but far less absolutely than popularly claimed.",
+                "Nonverbal signals carry no real communicative value whatsoever.",
+                "Cultural differences make all nonverbal signals entirely meaningless.",
+                "Body language conveys nearly all meaning in any conversation."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, how does the popular claim about nonverbal communication relate to the original 1960s research?</span>",
+              "options": [
+                "It extends a narrow finding far beyond its original scope.",
+                "It applies only to conflicting words and tone, as intended.",
+                "It was first proposed by corporate training programs themselves.",
+                "It accurately summarizes what the original researchers concluded."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>What does the passage suggest is a risk of confident belief in one's own lie-detection skill?</span>",
+              "options": [
+                "It may increase the chance of wrongly accusing innocent people.",
+                "It always guarantees more accurate detection of dishonest people.",
+                "It reduces reliance on posture and gesture during interrogation.",
+                "It has been proven to eliminate nervousness in suspects."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor complicating reliable interpretation of body language?</span>",
+              "options": [
+                "Cultural differences in gesture and eye contact",
+                "The relationship between speaker and listener",
+                "The speaker's level of formal education",
+                "Real-world background noise affecting microexpression accuracy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"indiscriminately\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "carelessly",
+                "indiscreetly",
+                "unselectively",
+                "confidently"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"humbling\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "reassuring",
+                "embarrassing",
+                "humorous",
+                "chastening"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"None of this\"</strong> in paragraph 6 refers to _______.</span>",
+              "options": [
+                "the 1960s experiments only",
+                "the eyebrow example alone",
+                "accumulated research limitations overall",
+                "cultural gesture differences only"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the reliability of microexpression reading in real-world settings, such as security screening?</span>",
+              "options": [
+                "Microexpressions were first popularized in the early 2000s.",
+                "Trained observers can reliably read microexpressions in any setting.",
+                "Current evidence is too limited to justify confident real-world use.",
+                "Real-world noise improves the accuracy of microexpression detection."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward popular claims about body language?</span>",
+              "options": [
+                "Entirely dismissive of any usefulness in nonverbal communication.",
+                "Fully convinced that body language communicates almost everything.",
+                "Narrowly critical only of 1960s laboratory methodology.",
+                "Skeptical of exaggerated claims, while not dismissing all nonverbal value."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'This variation makes it risky to assume that a gesture perceived as friendly at home will be read the same way abroad.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You received an email from your English friend, David, who is planning to visit your city with a group of friends.</p> He is asking for some advice regarding their upcoming trip. Read part of his email below.",
+          "content": "<p class='mb-1'>I am so excited about visiting your city next month with my group! Since you live there, could you give us some recommendations?</p><ul><li>Which hotel should we stay at?</li><li>What are the best things or places to go shopping?</li><li>What kind of sports or physical activities can we do there?</li></ul>",
+          "description": "Write an email responding to David. You should write at least 120 words. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li>Đây là dạng thư thân mật (Informal Email) gửi cho một người bạn tên David.</li><li>Người viết cần thực hiện 3 yêu cầu: Gợi ý khách sạn, tư vấn địa điểm mua sắm và đề xuất môn thể thao/hoạt động thể chất.</li><li>Văn phong cần tự nhiên, gần gũi nhưng vẫn đảm bảo cấu trúc rõ ràng.</li><li>Yêu cầu độ dài tối thiểu là 120 từ để đạt điểm Task Fulfillment.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Dear David, hoặc Hi David,</li><li><strong>Opening:</strong> Cảm ơn lời mời hoặc bày tỏ sự hào hứng về chuyến thăm của bạn mình. Ví dụ: It is great to hear that you and your group are visiting my city!</li><li><strong>Body Paragraph 1:</strong> Giới thiệu một khách sạn cụ thể (giá cả, vị trí, dịch vụ). Ví dụ: Regarding accommodation, I highly recommend staying at the Green Hotel.</li><li><strong>Body Paragraph 2:</strong> Tư vấn về mua sắm (chợ truyền thống, trung tâm thương mại). Ví dụ: For shopping, you should definitely check out the central market.</li><li><strong>Body Paragraph 3:</strong> Đề xuất hoạt động thể thao (đạp xe, bơi lội, leo núi). Ví dụ: If you like sports, there are many parks where you can go jogging.</li><li><strong>Closing & Sign-off:</strong> Chúc chuyến đi vui vẻ và ký tên. Ví dụ: I look forward to seeing you soon! Best, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các cấu trúc gợi ý như \"I suggest...\", \"How about...\", \"You should...\".</li><li>Sử dụng các tính từ miêu tả để làm bài viết sinh động hơn.</li><li>Kết hợp linh hoạt giữa câu đơn và câu phức để thể hiện trình độ ngữ pháp B1-B2.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Accommodation:</strong> Chỗ ở</li><li><strong>Budget-friendly:</strong> Phù hợp túi tiền</li><li><strong>Souvenir:</strong> Quà lưu niệm</li><li><strong>Outdoor activities:</strong> Hoạt động ngoài trời</li><li><strong>Central location:</strong> Vị trí trung tâm</li><li><strong>Specialty:</strong> Đặc sản</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>To begin with:</strong> Đầu tiên là</li><li><strong>Additionally:</strong> Thêm vào đó</li><li><strong>Speaking of:</strong> Nói về (vấn đề gì đó)</li><li><strong>In terms of:</strong> Xét về khía cạnh</li><li><strong>Last but not least:</strong> Cuối cùng nhưng không kém phần quan trọng</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I am thrilled to hear:</strong> Tôi rất hào hứng khi nghe tin</li><li><strong>You will love it:</strong> Bạn sẽ thích nó thôi</li><li><strong>I cannot wait to:</strong> Tôi không thể chờ đợi để</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Sử dụng đại từ không thống nhất (lúc trang trọng, lúc thân mật).</li><li>Quên trả lời một trong ba câu hỏi chính của đề bài.</li><li>Viết quá ngắn (dưới 120 từ) dẫn đến bị trừ điểm nặng phần hoàn thành nhiệm vụ.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Kiểm tra xem đã có đủ phần chào đầu và kết thúc chưa.</li><li>Đếm số lượng từ để đảm bảo đạt yêu cầu.</li><li>Rà soát lỗi chia động từ ở thì hiện tại và tương lai.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tưởng tượng mình là một hướng dẫn viên du lịch địa phương đang giúp đỡ một người bạn thân.</li><li>Tập trung vào tính hữu ích của các lời khuyên thay vì cố gắng dùng từ quá cao siêu.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "discussion",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>In modern society, an increasing number of individuals choose to remain single throughout their lives instead of getting married and starting a family.</p><p class='mb-1'>While some people believe that this trend offers more freedom and personal growth, others argue that it leads to loneliness and social instability.</p><p class='mb-1'><strong>Discuss both views and give your own opinion.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss both views and give your own opinion about staying single. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li>Dạng bài: Discussion Essay (Thảo luận hai mặt của vấn đề và đưa ra ý kiến cá nhân).</li><li>Chủ đề: Xu hướng sống độc thân (Staying single).</li><li>Từ khóa quan trọng: Modern society, remaining single, freedom, loneliness.</li><li>Yêu cầu: Phân tích lý do tại sao nhiều người chọn độc thân và những hệ lụy/quan điểm trái chiều, sau đó khẳng định quan điểm bản thân.</li><li>Độ dài: Tối thiểu 250 từ.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu xu hướng sống độc thân trong xã hội hiện đại và nêu Thesis Statement (tổng quan hai mặt và ý kiến cá nhân). Ví dụ: While remaining single offers autonomy, I believe marriage provides long-term emotional stability.</li><li><strong>Body 1:</strong> Thảo luận về lợi ích của việc sống độc thân. Tập trung vào sự tự do, phát triển sự nghiệp và tài chính cá nhân. Ví dụ: On the one hand, a single life allows individuals to focus entirely on their professional goals.</li><li><strong>Body 2:</strong> Thảo luận về mặt hạn chế hoặc quan điểm ủng hộ hôn nhân. Tập trung vào sự cô đơn, thiếu hụt hỗ trợ cảm xúc và gánh nặng khi về già. Ví dụ: On the other hand, the absence of a life partner can lead to profound feelings of isolation.</li><li><strong>Conclusion:</strong> Tóm tắt lại các ý chính và khẳng định lại quan điểm cá nhân một cách dứt khoát.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng cấu trúc câu điều kiện (If/Unless) và câu bị động để tăng tính khách quan.</li><li>Phát triển ý tưởng bằng phương pháp P.E.E.L (Point - Evidence - Explanation - Link).</li><li>Cân bằng giữa hai quan điểm trước khi đưa ra kết luận.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Independence:</strong> Sự độc lập</li><li><strong>Emotional support:</strong> Sự hỗ trợ về cảm xúc</li><li><strong>Life companion:</strong> Người bạn đời</li><li><strong>Career advancement:</strong> Sự thăng tiến trong sự nghiệp</li><li><strong>Social norms:</strong> Các chuẩn mực xã hội</li><li><strong>Isolation:</strong> Sự cô lập/cô đơn</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>From one perspective:</strong> Từ một góc nhìn</li><li><strong>Conversely:</strong> Ngược lại</li><li><strong>In contrast:</strong> Đối lập với đó</li><li><strong>Furthermore:</strong> Hơn nữa</li><li><strong>As a consequence:</strong> Hệ quả là</li><li><strong>In conclusion:</strong> Tóm lại là</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Leading a solo life:</strong> Thay cho \"staying single\".</li><li><strong>Matrimony:</strong> Thay cho \"marriage\".</li><li><strong>Personal autonomy:</strong> Thay cho \"freedom\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li><strong>I am of the opinion that:</strong> Tôi có quan điểm rằng</li><li><strong>The benefits of X outweigh the drawbacks:</strong> Lợi ích của X vượt xa những hạn chế</li><li><strong>It is often argued that:</strong> Người ta thường tranh luận rằng</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ tập trung viết về một phía (quên thảo luận phía còn lại).</li><li>Sử dụng ngôn ngữ quá thân mật (slang, viết tắt).</li><li>Lặp từ \"single\" quá nhiều lần mà không dùng từ đồng nghĩa.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra sự thống nhất giữa Thesis Statement ở mở bài và Conclusion.</li><li>Soát lỗi chính tả và dấu câu.</li><li>Đảm bảo các đoạn văn có độ dài tương đương nhau để bài viết cân đối.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Cần có cái nhìn khách quan về một vấn đề xã hội thay đổi theo thời đại.</li><li>Tránh đưa quá nhiều cảm xúc cá nhân vào bài, hãy sử dụng các lập luận logic và ví dụ thực tế.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Can you tell me a little about your family?",
+            "Who are you closest to in your family? Why?",
+            "How often do you spend time together as a family?",
+            "What outdoor activities do you enjoy doing in your free time?",
+            "Do you prefer doing outdoor activities alone or with other people? Why?",
+            "How do outdoor activities benefit your physical and mental health?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này có <strong>2 chủ đề nhỏ</strong>: <strong>Topic A (Family)</strong> và <strong>Topic B (Outdoor Activities)</strong>.</li><li><strong>Topic A (Family):</strong> Ba câu hỏi đầu kiểm tra khả năng mô tả các thành viên trong gia đình, mối quan hệ thân thiết và tần suất sinh hoạt chung.</li><li><strong>Topic B (Outdoor Activities):</strong> Ba câu hỏi sau kiểm tra khả năng nói về sở thích hoạt động ngoài trời, thói quen đi cùng ai và lợi ích sức khỏe.</li><li>Tiêu chí đánh giá gồm <strong>Fluency, Vocabulary, Grammar và Pronunciation</strong>.</li><li>Thời gian Part 1 là <strong>3 phút</strong>, nên dành khoảng 25–35 giây cho mỗi câu hỏi, cân bằng đều giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong> để trả lời đầy đủ và có chiều sâu.</li><li><strong>Ví dụ Topic A:</strong> \"There are four people in my family - my parents, my younger sister and me, and I'd say we're a pretty close-knit family who eat dinner together almost every day.\"</li><li><strong>Ví dụ Topic B:</strong> \"I really enjoy cycling and hiking on weekends because being outdoors helps me clear my mind after a stressful week.\"</li><li>Luôn tự hỏi Why?/How? để mở rộng câu trả lời, tránh nói quá ngắn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển ý tự nhiên như \"Now, moving away from family, I'd like to talk a bit about what I enjoy doing outdoors.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Duy trì tốc độ nói ổn định, dùng từ đệm để tránh khoảng lặng dài.</li><li>Dùng <strong>hiện tại đơn</strong> khi nói về thói quen gia đình và sở thích ngoài trời, dùng <strong>hiện tại hoàn thành</strong> khi nói về những thay đổi theo thời gian.</li><li>Nếu bí từ, hãy diễn đạt bằng từ đơn giản hơn thay vì im lặng.</li><li>Từ vựng cho Topic A: a close-knit family, get along well with, spend quality time, a family gathering.</li><li>Từ vựng cho Topic B: get some fresh air, stay active, recharge my energy, a physically demanding activity.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a close-knit family</strong> (một gia đình gắn kết)</li><li><strong>get along well with someone</strong> (hòa hợp tốt với ai đó)</li><li><strong>spend quality time together</strong> (dành thời gian chất lượng bên nhau)</li><li><strong>get some fresh air</strong> (hít thở không khí trong lành)</li><li><strong>recharge my energy</strong> (nạp lại năng lượng)</li><li><strong>a physically demanding activity</strong> (một hoạt động đòi hỏi thể lực)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Firstly</strong> - trước hết, dùng để mở đầu ý.</li><li><strong>Besides</strong> - bên cạnh đó, dùng để bổ sung ý.</li><li><strong>For instance</strong> - ví dụ như, dùng khi minh họa.</li><li><strong>On top of that</strong> - hơn nữa, dùng để nhấn mạnh thêm ý.</li><li><strong>That's why</strong> - đó là lý do vì sao, dùng để nêu kết quả.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>Personally, I think...</strong> Ví dụ: \"Personally, I think family time is essential because it strengthens our emotional bond.\"</li><li><strong>What I appreciate most is...</strong> Ví dụ: \"What I appreciate most is how my parents always support my decisions.\"</li><li><strong>I would say that...</strong> Ví dụ: \"I would say that hiking is my favorite outdoor activity because it combines exercise with beautiful scenery.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\"/\"No\" rồi im lặng mà không giải thích thêm - lỗi nghiêm trọng nhất.</li><li>Ở Topic A, chỉ liệt kê tên các thành viên mà không mô tả mối quan hệ hay cảm xúc.</li><li>Ở Topic B, chỉ nêu tên hoạt động mà không giải thích lý do yêu thích hay lợi ích.</li><li>Phát âm sai trọng âm từ: <strong>'family</strong>, <strong>out'door</strong>.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's a nice question, let me think about that for a moment.\"</li><li>Nếu quên từ, hãy mô tả khái niệm bằng từ đơn giản hơn.</li><li>Với Topic A, nếu bí ý, hãy kể một kỷ niệm cụ thể với một thành viên trong gia đình.</li><li>Với Topic B, nếu bí ý, hãy kể về một chuyến đi dã ngoại hoặc buổi tập thể thao gần đây.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Coi đây như một cuộc trò chuyện thân mật với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để bắt đầu câu chuyện mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố dùng từ vựng quá phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You want to give a graduation gift to your close friend, but you can only afford one item.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: A personalized photo album</li><li>Option 2: A wristwatch</li><li>Option 3: A weekend trip together</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Đây là dạng <strong>Solution Discussion</strong>. Bạn cần chọn một món quà tốt nghiệp phù hợp nhất cho bạn thân trong ba lựa chọn: album ảnh cá nhân hóa, đồng hồ đeo tay, hoặc chuyến đi cuối tuần cùng nhau.</li><li>Ba lựa chọn khác nhau về tính kỷ niệm, tính thực dụng và chi phí/thời gian.</li><li>Thời gian là <strong>4 phút</strong>; cần phân tích cả ba phương án trước khi đưa ra kết luận.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction - Comparison/Body - End)</strong> để trình bày mạch lạc từng lựa chọn rồi kết luận.</li><li><strong>Option 1 (Album ảnh):</strong> \"A personalized photo album would capture all our memories from school, but it takes time and effort to put together properly.\"</li><li><strong>Option 2 (Đồng hồ):</strong> \"A wristwatch is a practical and lasting gift, though it may not feel as personal or emotional as other options.\"</li><li><strong>Option 3 (Chuyến đi):</strong> \"A weekend trip together would create a brand-new memory before we go our separate ways, but it requires more money and free time from both sides.\"</li><li>Nên neo lập luận vào bối cảnh thực tế của việc chia tay bạn bè sau khi tốt nghiệp.</li><li>Dùng từ nối tương phản như \"however\", \"whereas\" để chuyển giữa ưu và nhược điểm của từng lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ: \"Unlike a wristwatch, which is a one-time purchase, a trip together offers a shared experience that we can look back on for years.\"</li><li>Dùng modal verbs (would, could, should) khi giả định và đề xuất giải pháp.</li><li>Paraphrase \"graduation gift\" bằng \"a farewell present\" hoặc \"a token of friendship\".</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a token of friendship</strong> (một biểu tượng của tình bạn)</li><li><strong>hold sentimental value</strong> (mang giá trị tình cảm)</li><li><strong>a lasting memory</strong> (một kỷ niệm lâu bền)</li><li><strong>go our separate ways</strong> (mỗi người một ngả)</li><li><strong>a practical present</strong> (một món quà thực dụng)</li><li><strong>strengthen a friendship</strong> (thắt chặt tình bạn)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared with</strong> - so với, dùng khi so sánh hai lựa chọn.</li><li><strong>Whereas</strong> - trong khi đó, dùng để đối lập.</li><li><strong>Nevertheless</strong> - tuy nhiên, dùng để chuyển ý ngược lại.</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố, dùng trước kết luận.</li><li><strong>In terms of</strong> - xét về mặt, dùng khi so sánh theo tiêu chí cụ thể.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I had to choose, I would go with...</strong> Ví dụ: \"If I had to choose, I would go with the weekend trip because it gives us one last unforgettable memory together.\"</li><li><strong>I'm more inclined towards...</strong> Ví dụ: \"I'm more inclined towards something experiential rather than a physical object.\"</li><li><strong>All things considered...</strong> Ví dụ: \"All things considered, the trip seems like the most meaningful farewell gift for a close friend.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của nó.</li><li>Lặp lại từ \"good\"/\"nice\" quá nhiều thay vì dùng tính từ học thuật hơn.</li><li>Không có kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng liên quan đến một lựa chọn, chuyển hướng sang nói về chi phí hoặc giá trị tình cảm của món quà.</li><li>Dùng câu chờ ý: \"Let's evaluate this option from a different perspective.\"</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Đặt mình vào vị trí người tặng quà - món quà nào vừa thể hiện được tình cảm vừa để lại dấu ấn lâu dài?</li><li>Có thể đề xuất kết hợp thêm một yếu tố nhỏ, ví dụ kèm theo một tấm thiệp viết tay, để thể hiện tư duy chu đáo.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn đã chọn để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits of eating out at restaurants",
+          "mindmap": {
+            "title": "Benefits of Eating Out",
+            "ideas": [
+              "Reasons for eating out",
+              "Advantages over home cooking",
+              "Drawbacks of frequent eating out",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "How often do you eat out with your family or friends?",
+            "What are the main differences between eating out and cooking at home?",
+            "Do you think eating out is becoming more popular in your country? Why?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về lợi ích của việc ăn ngoài (ăn tại nhà hàng), dựa trên ba nhánh chính và một nhánh ý kiến cá nhân.</li><li>Ba nhánh chính gồm: lý do phổ biến khiến mọi người chọn ăn ngoài, ưu điểm của việc ăn ngoài so với nấu ăn tại nhà, và những hạn chế có thể xảy ra khi ăn ngoài quá thường xuyên.</li><li><strong>Gợi ý cho nhánh thứ 4 (ý kiến cá nhân):</strong> có thể phát triển theo hướng tác động của ăn ngoài đến sức khỏe tài chính hoặc thói quen ăn uống của giới trẻ hiện nay.</li><li>Thời gian là <strong>5 phút</strong>: khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> để trình bày từng nhánh của sơ đồ tư duy.</li><li><strong>Ví dụ mở bài:</strong> \"Today, I'd like to talk about the benefits of eating out at restaurants.\"</li><li><strong>Ví dụ cho nhánh ý kiến cá nhân:</strong> \"In my opinion, eating out too frequently can also put a strain on one's monthly budget, which is something young people should be mindful of.\"</li><li>Nên đưa ví dụ thực tế như ăn ngoài dịp cuối tuần, gặp gỡ bạn bè tại nhà hàng, hoặc đặt đồ ăn qua ứng dụng.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lạc đề sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển ý mượt mà khi chuyển từ nhánh này sang nhánh khác của sơ đồ tư duy.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> cho sự thật chung, dùng <strong>hiện tại hoàn thành</strong> khi nói về xu hướng ăn uống đã thay đổi theo thời gian.</li><li>Paraphrase \"eating out\" bằng \"dining at a restaurant\" hoặc \"having a meal outside the home\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a wide variety of cuisines</strong> (sự đa dạng các món ăn)</li><li><strong>save time and effort</strong> (tiết kiệm thời gian và công sức)</li><li><strong>a social occasion</strong> (một dịp giao lưu xã hội)</li><li><strong>strain one's budget</strong> (gây áp lực lên ngân sách)</li><li><strong>a balanced diet</strong> (một chế độ ăn cân bằng)</li><li><strong>convenience food</strong> (thức ăn tiện lợi)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước hết, dùng để mở đầu nhánh đầu tiên.</li><li><strong>Moving on to</strong> - chuyển sang, dùng khi chuyển nhánh ý.</li><li><strong>Furthermore</strong> - hơn nữa, dùng để bổ sung ý.</li><li><strong>On the other hand</strong> - mặt khác, dùng khi nêu hạn chế.</li><li><strong>To sum up</strong> - tóm lại, dùng khi kết luận.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>I firmly believe that...</strong> Ví dụ: \"I firmly believe that eating out occasionally can improve one's quality of life.\"</li><li><strong>It seems to me that...</strong> Ví dụ: \"It seems to me that more people are eating out nowadays because of their busy schedules.\"</li><li><strong>What strikes me most is...</strong> Ví dụ: \"What strikes me most is how eating out has become a common way for friends to stay connected.\"</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"How often do you eat out with your family or friends?\"</strong> - Có thể chia sẻ tần suất cụ thể, ví dụ mỗi tuần một lần vào cuối tuần, và lý do lựa chọn thời điểm đó.</li><li><strong>\"What are the main differences between eating out and cooking at home?\"</strong> - Ăn ngoài thường nhanh và đa dạng món hơn nhưng tốn kém, trong khi nấu ăn tại nhà tiết kiệm và kiểm soát được dinh dưỡng tốt hơn.</li><li><strong>\"Do you think eating out is becoming more popular in your country?\"</strong> - Có thể liên hệ đến sự phát triển của các ứng dụng giao đồ ăn và lối sống bận rộn của người trẻ hiện nay.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê lý do hoặc lợi ích mà không giải thích cụ thể - luôn cần đưa ví dụ minh họa.</li><li>Quên nhánh ý kiến cá nhân - nên chuẩn bị trước nhánh thứ tư này.</li><li>Nói quá dài ở phần mở đầu khiến không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào trải nghiệm cá nhân hoặc quan sát thực tế khi bí ý, ví dụ thói quen ăn uống của bản thân hoặc gia đình.</li><li>Câu chờ ý học thuật: \"That is a complex issue. If we look at it from a lifestyle perspective...\"</li><li>Dùng từ đồng nghĩa hoặc mô tả đơn giản nếu quên từ vựng chuyên môn.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ thực tế và liên hệ với lối sống hiện đại, bận rộn của người trẻ ngày nay.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố quyết định điểm số.</li><li>Luôn giữ giọng điệu tự nhiên, tránh đọc thuộc lòng như một bài văn mẫu.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

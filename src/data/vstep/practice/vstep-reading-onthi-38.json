@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-38",
+  "title": "Luyện Đọc VSTEP: The Psychology of Color (VstepR3-Test 6 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Psychology of Color",
+            "text": "<p style=\"text-align:justify;\">Color is far more than a visual experience — it profoundly shapes human emotion, behavior, and decision-making. Researchers in environmental psychology have documented consistent associations between specific colors and psychological states across different cultures. Red, for example, is broadly associated with urgency, passion, and danger, which is why it is used for stop signs and warning labels worldwide. Blue, in contrast, is linked to calmness and trust, making it a dominant choice in banking, healthcare, and technology branding.</p>\n<p style=\"text-align:justify;\">The business world has long exploited these associations. Marketing research shows that color accounts for up to 85% of the reason consumers choose one product over another. Fast food chains typically use red and yellow, colors shown in studies to stimulate appetite and prompt quick decisions. Luxury brands often favor black, white, and gold to evoke exclusivity and sophistication. Even the color of a hospital room or office can influence patient recovery rates and employee productivity, respectively.</p>\n<p style=\"text-align:justify;\">However, the relationship between color and psychology is not entirely universal. Cultural context plays a significant role: white is associated with purity and weddings in Western cultures, but with mourning and funerals in many East Asian traditions. Green represents environmental consciousness in North America and Europe, while in some Middle Eastern contexts it carries primarily religious significance. These cultural variations caution against assuming that any single color carries a fixed psychological meaning for all audiences.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r38-q1",
+              "type": "mcq",
+              "question": "What is the best title for this passage?",
+              "options": [
+                "How to Choose Colors for Your Brand",
+                "Color Perception and the Human Eye",
+                "Color, Psychology, and Cultural Context",
+                "The History of Color in Art and Design"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r38-q2",
+              "type": "mcq",
+              "question": "What is the main idea of paragraph 1?",
+              "options": [
+                "Red and blue are the most important colors in the world.",
+                "Different colors are consistently associated with different psychological states.",
+                "Color preferences differ significantly between men and women.",
+                "Cultural differences make it impossible to study color psychology scientifically."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r38-q3",
+              "type": "mcq",
+              "question": "What is the main purpose of paragraph 2?",
+              "options": [
+                "To question whether color psychology is scientifically valid",
+                "To explain how color associations are applied in business and marketing",
+                "To describe how consumers make emotional decisions",
+                "To compare the color strategies of fast food and luxury brands"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r38-q4",
+              "type": "mcq",
+              "question": "What is the main idea of paragraph 3?",
+              "options": [
+                "Color associations are universal and apply equally to all cultures.",
+                "Cultural background significantly influences the meaning of colors.",
+                "East Asian cultures have more complex color symbolism than Western cultures.",
+                "Green is the most culturally variable color in the world."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r38-q5",
+              "type": "mcq",
+              "question": "Which sentence best summarizes the overall message of the passage?",
+              "options": [
+                "Color choice in marketing is more important than product quality.",
+                "Color influences psychology, but its meaning is shaped by both biology and culture.",
+                "Scientists have fully mapped the relationship between every color and human emotion.",
+                "Only business professionals need to understand the psychology of color."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

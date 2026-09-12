@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-36",
+  "title": "Luyện Đọc VSTEP: The Amazon Rainforest (VstepR2-Test 14 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Amazon Rainforest",
+            "text": "<p style=\"text-align:justify;\">The Amazon Rainforest, spanning approximately 5.5 million square kilometers across nine South American countries, is the world's largest tropical rainforest and one of Earth's most critical ecosystems. It produces roughly 20% of the world's oxygen through photosynthesis and stores an estimated 150 to 200 billion tons of carbon, making it a vital buffer against climate change. The Amazon basin also generates about half of its own rainfall through a process called transpiration, in which trees release water vapor that forms clouds and precipitation — effectively creating its own weather system.</p>\n<p style=\"text-align:justify;\">Biodiversity in the Amazon is staggering. The forest is home to an estimated 40,000 plant species, 1,300 bird species, 3,000 types of fish, 430 species of mammals, and more than 2.5 million species of insects. Scientists estimate that a single hectare of Amazon rainforest may contain more tree species than all of temperate North America. Many of the region's species remain undiscovered, and researchers continue to identify hundreds of new organisms each year.</p>\n<p style=\"text-align:justify;\">Despite its ecological importance, the Amazon faces severe threats. Deforestation — primarily driven by cattle ranching, soybean farming, illegal logging, and road construction — has destroyed approximately 17% of the original forest since the 1970s. Scientists warn that if deforestation reaches 20–25%, the forest could reach a \"tipping point\" at which it begins to release carbon rather than absorb it, transitioning from a carbon sink to a carbon source. This would significantly accelerate global warming and trigger large-scale regional drought.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r36-q1",
+              "type": "mcq",
+              "question": "According to paragraph 1, how much of the world's oxygen does the Amazon produce?",
+              "options": [
+                "About 10%",
+                "About 20%",
+                "About 50%",
+                "About 75%"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r36-q2",
+              "type": "mcq",
+              "question": "According to paragraph 1, what is \"transpiration\"?",
+              "options": [
+                "The process by which trees absorb carbon dioxide from the air",
+                "The process by which rivers carry water to the ocean",
+                "The process by which trees release water vapor that forms clouds and rain",
+                "The process by which trees convert sunlight into food"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r36-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, how many bird species are found in the Amazon?",
+              "options": [
+                "430",
+                "3,000",
+                "1,300",
+                "40,000"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r36-q4",
+              "type": "mcq",
+              "question": "According to paragraph 3, what percentage of the Amazon has already been destroyed?",
+              "options": [
+                "About 5%",
+                "About 10%",
+                "About 17%",
+                "About 25%"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r36-q5",
+              "type": "mcq",
+              "question": "According to paragraph 3, what would happen if deforestation reached the \"tipping point\"?",
+              "options": [
+                "The forest would begin producing more oxygen than before.",
+                "The forest would start releasing carbon instead of absorbing it.",
+                "Rainfall in the region would significantly increase.",
+                "New species of plants would evolve to replace lost ones."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

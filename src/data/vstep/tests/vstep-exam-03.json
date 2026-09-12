@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-03",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 03",
+  "duration": 172,
+  "date": "2026-03-16",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-03/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. When is the man’s appointment?</b></p><ul><li><b>A:</b> Good morning. I’d like someone to cut my hair, please. Can I make an appointment?</li><li><b>B:</b> Certainly. Wednesday or Thursday morning or Friday afternoon?</li><li><b>A:</b> On Friday I’m going to go to France. What about <b>Thursday afternoon</b>? I’m afraid I have a meeting all day Wednesday.</li><li><b>B:</b> Well. It’s a little bit difficult but that’s the only afternoon you can come. So we’ll see you then.</li></ul><p><b>2. Which is the aunt’s postcard?</b></p><ul><li><b>A:</b> Look, Sandra. I’ve got this really nice postcard for my aunt.</li><li><b>B:</b> Oh what a pretty village. And it’s right by a <b>river</b>. Isn’t it in the mountain?</li><li><b>A:</b> Yes. But you can’t see them in the picture.</li><li><b>B:</b> Perhaps, they’re behind those <b>tall trees</b>.</li></ul><p><b>3. What time will the plane to Milan leave?</b></p><ul><li><b>A:</b> Excuse me. What time is the next plane to Milan?</li><li><b>B:</b> It should leave at 7:15 but an hour late today.</li><li><b>A:</b> Oh. That’s a problem. If it doesn’t leave until <b>8:15</b>, I’ll be one hour late for my meeting.</li><li><b>B:</b> I’m sorry, Sir. There’s nothing I can do.</li></ul><p><b>4. Which present has the girl bought her mother?</b></p><ul><li><b>Jane:</b> Hi. It’s me, Jane. I’ve got Mom’s birthday present. I think she’ll like it. ...yes, that’s right, a <b>gold colored one</b>. She’s always <b>writing letters</b> so she’ll find it useful. I thought about a CD but I’m never really sure what music she likes and dad bought her a new pair of earrings for her birthday anyway. I’m sure she’ll like what I’ve got her.</li></ul><p><b>5. What time will the pie be ready?</b></p><ul><li><b>A:</b> What time is it Mom? Do you think the apple pie will be ready yet?</li><li><b>B:</b> It’s 4:35</li><li><b>A:</b> And the pie went into the oven at 4:15</li><li><b>B:</b> That’s right. You could check it at 5:00. And turn the heat down a bit but don’t take out until <b>20 past</b>. That’s 45 minutes to go.</li><li><b>A:</b> OK. I’m hungry already.</li></ul><p><b>6. What time is the swimming lesson today?</b></p><ul><li><b>A:</b> Hi Chidy. Do you want to play tennis after school? Say about 4:30</li><li><b>B:</b> That’s would be fun but I’ve got a swimming lesson. It’s usually at 5:15 but it’s half an hour earlier this evening, at <b>4:45</b>. It takes me ages to cycle to the swimming pool so I really don’t think I have time today. Let’s try it tomorrow</li><li><b>A:</b> OK</li></ul><p><b>7. Which subject does the boy like best?</b></p><ul><li><b>Boy:</b> I really like the new IT teacher. Our project for this term is to design a new website. I’ve always wanted to know how to do that. The sports teacher is much more serious. But <b>that’s still my favorite subject</b>. Last year, I usually like geography but the teacher we have now gives us so much homework.</li></ul><p><b>8. Which T-shirt does the boy decide to buy?</b></p><ul><li><b>A:</b> I’d like a buy a black T-shirt with short sleeves, please, large size.</li><li><b>B:</b> I’m afraid the black one has long sleeves. But we’ve got <b>short sleeves in a lighter color</b>. Do you want a round neck or a V-neck?</li><li><b>A:</b> It must be <b>round neck</b>. Let me think ...OK, I’ll take one of the short sleeve ones. The color’s not so important, really.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "When is the man’s appointment?",
+              "options": [
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Tuesday"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Which is the aunt’s postcard?",
+              "options": [
+                "a pretty village right by the sea",
+                "big trees",
+                "a pretty village behind the tall trees",
+                "a pretty village on the hills"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What time will the plane to Milan leave?",
+              "options": [
+                "01:00",
+                "07:15",
+                "08:15",
+                "06:15"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which present has the girl bought her mother?",
+              "options": [
+                "earrings",
+                "music",
+                "pen",
+                "notebook"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What time will the pie be ready?",
+              "options": [
+                "four fifteen",
+                "five o’clock",
+                "twenty past five",
+                "fifty past four"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What time is the swimming lesson today?",
+              "options": [
+                "half past four",
+                "fifteen to five",
+                "fifteen past five",
+                "four thirty"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which subject does the boy like best?",
+              "options": [
+                "information technology",
+                "geography",
+                "sports",
+                "design"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Which T-shirt does the boy decide to buy?",
+              "options": [
+                "a short-sleeved T-shirt with round neck",
+                "a V-neck black T-shirt",
+                "a long-sleeved T-shirt",
+                "a sleeveless white T-shirt"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-03/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Kate:</b> I don’t remember much of that lecture. The doctor gave me this medicine for my cough, but I don’t like it; it seems to make me awfully sleepy and I can’t follow my lectures.</li><li><b>George:</b> Well, if you don’t take it, none of us will be able to follow our lectures; all we’ll hear is you coughing!</li><li><b>Kate:</b> Oh dear, do you think I’ll annoy everybody?</li><li><b>George:</b> Yes. You could study at home for a couple of days; you know, have some time off until it gets better.</li><li><b>Kate:</b> Oh, I couldn’t do that! I’d miss too much and I get really uncomfortable when I have a lot of catching up to do. Last year I missed a whole week when I fell off my bike and had that enormous bandage on my hand. It took me ages to do all the work when I came back.</li><li><b>George:</b> Oh, you worry too much. You can work at home. Just get Mr. Gray to tell you which parts of the course-book we’ll be covering and read it yourself at home. All he does is go through the book anyway; you might as well do it yourself.</li><li><b>Kate:</b> Oh, that’s a bit unfair! I think Mr. Gray’s really nice. He’s always willing to stay behind after class if you don’t understand something.</li><li><b>George:</b> Being ‘really nice’ and never in a hurry doesn’t make him a good lecturer. Anyway, I think you should look after your health first and ours! If we sit in that small, hot room with you for the next three days, we’ll all have your cough by the end of it.</li><li><b>Kate:</b> Mm, perhaps you’re right. I don’t care about myself, but I wouldn’t like other people to blame me for their illnesses. I have got a bit of a temperature now, too; so maybe I’ll go and see Mr. Gray after lunch and tell him I won’t be at this afternoon’s lecture.</li><li><b>George:</b> Or the next two ... come on, you’ve got to get better.</li><li><b>Kate:</b> I suppose you’re right.</li><li><b>George:</b> Then we can all go out as we planned at the weekend.</li><li><b>Kate:</b> OK then, I don’t want to miss that... and I do feel ill...</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Man:</b> What shall we do tonight? Shall we go out somewhere?</li><li><b>Woman:</b> No, I’m tired. I’ve had a really hard day.</li><li><b>Man:</b> That’s a bit boring! Come on, let’s go to a cinema or see that new play at the theatre.</li><li><b>Woman:</b> Not tonight. Why don’t we rent a video and stay in?</li><li><b>Man:</b> Well, I’d rather go out... but if you’re tired ... OK. So what shall we have? How about that new Italian film?</li><li><b>Woman:</b> No, far too serious for me. I’d fall asleep! Why can’t we get something funny, a film with Rik Moranis or someone like that.</li><li><b>Man:</b> A comedy? No thanks. I’m not wasting my money.</li><li><b>Woman:</b> Well, I’ll pay, if you’re going to be difficult about it.</li><li><b>Man:</b> I’m not being difficult; I just don’t want to see a comedy.</li><li><b>Woman:</b> Fine. What else do you suggest then?</li><li><b>Man:</b> How about a Robert de Niro?</li><li><b>Woman:</b> We’ve seen them all.</li><li><b>Man:</b> Maybe, but they’re great films. Let’s watch one again.</li><li><b>Woman:</b> Now you’re suggesting something that’s a real waste of money! And I hate seeing films twice, you know that.</li><li><b>Man:</b> OK, OK. What, then?</li><li><b>Woman:</b> Oh, forget it. We’re obviously not going to agree anyway!</li><li><b>Man:</b> No, I tell you what, you go down to the video shop and choose a film. Whatever it is, I’ll watch it.</li><li><b>Woman:</b> Really? And you won’t be difficult or make me feel guilty?</li><li><b>Man:</b> No. Go on, off you go. I’ll make something to eat while you’re out.</li><li><b>Woman:</b> Great. See you in a few minutes then.</li><li><b>Man:</b> Bye.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Girl:</b> Hi, Ben! Only one more week at college, and then the summer holidays begin. Great, isn’t it!</li><li><b>Boy:</b> I don’t know. It might get a bit boring. I don’t think I’ve got enough money to go anywhere nice for a holiday this year.</li><li><b>Girl:</b> It would be nice to have lots of money to spend, but a good holiday doesn’t have to be expensive!</li><li><b>Boy:</b> Oh yes it does! The best holiday I ever had was a few years ago when I went to Greece. I want to fly off somewhere hot, and lie on the beach and go swimming.</li><li><b>Girl:</b> Yes. Well, I can’t afford to do that, either.</li><li><b>Boy:</b> So, what are you doing this summer?</li><li><b>Girl:</b> I’m going on a walking holiday in Scotland with some friends. We went last year. We really enjoyed it. We walked all day and spent the nights in Youth Hostels. Why don’t you come with us? We’re going for two weeks. It won’t cost much, and you’ll come home feeling really relaxed and fit.</li><li><b>Boy:</b> I’m not sure. Walking all day sounds like hard work to me. And surely you’re not hoping for lots of sunshine in Scotland?</li><li><b>Girl:</b> It did rain a bit last year, but most of the time it was sunny. Anyway, it’s not good walking in the heat. You have to stop all the time to rest and have drinks.</li><li><b>Boy:</b> Well, I like the sun, and I like to stay in comfortable hotels, not Youth Hostels!</li><li><b>Girl:</b> But they are comfortable. They’re basic, and the food’s often not very good, but they’re very clean and cheap. In fact, I prefer them to hotels because the people are always so friendly.</li><li><b>Boy:</b> Maybe. Look Lisa, thanks a lot for asking me, but I think I’ll just stay home and get bored!</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is Kate’s health problem?",
+              "options": [
+                "She has coughs",
+                "She has headache",
+                "She has toothache",
+                "She has stomach ache"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does Kate’s problem affect her classmates?",
+              "options": [
+                "It makes them funny.",
+                "It makes them annoyed.",
+                "It makes them happy.",
+                "It makes them excited."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What did Kate have last year?",
+              "options": [
+                "She had coughs",
+                "She had headache",
+                "She had a fall off her bike",
+                "She had stomach ache"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Kate have now, too?",
+              "options": [
+                "She has backache",
+                "She has headache",
+                "She has toothache",
+                "She has temperature"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why does the man want to go out?",
+              "options": [
+                "Because he feels bored staying at home.",
+                "Because he feels safe staying at home.",
+                "Because he feels cold staying at home.",
+                "Because he feels hot staying at home."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Why does the woman want to stay at home?",
+              "options": [
+                "Because she has coughs.",
+                "Because she feels tired.",
+                "Because she has toothache.",
+                "Because she has stomach ache."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Why doesn’t the woman want to watch an Italian film?",
+              "options": [
+                "Because she is short of money.",
+                "Because she is serious about it.",
+                "Because she’s afraid she will fall asleep watching it.",
+                "Because she has stomach ache"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Why doesn’t the woman want to watch a Robert de Niro?",
+              "options": [
+                "Because she feels too busy to watch it.",
+                "Because she feels too serious to watch it.",
+                "Because she doesn’t want to watch it the third time.",
+                "Because she doesn’t want to watch it the second time."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does the girl think about a good holiday?",
+              "options": [
+                "It may be cheap.",
+                "It may be very cheap.",
+                "It may be expensive.",
+                "It may be very expensive"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Why doesn’t the boy want to walk?",
+              "options": [
+                "Because he feels too hot to do it.",
+                "Because he finds it hard to do it.",
+                "Because he doesn’t like hard work.",
+                "Because she doesn’t like the sounds of people walking"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What does the girl think about the food in Youth Hostels?",
+              "options": [
+                "It is comfortable.",
+                "It is good.",
+                "It is not good.",
+                "It is clean and cheap"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does the boy decide to do in the end?",
+              "options": [
+                "go home",
+                "leave home",
+                "sell his home",
+                "enjoy his holiday home"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-03/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>I was a small child when I left <b>Vietnam</b> and moved with my family to live in <b>America</b>. For me and my little brother, it didn't take long before we felt American, but for my parents and two older sisters, it was a different story. The biggest problem for my mother was the <b>language</b>. We were living in New York and although there were quite a lot of Vietnamese families near us they didn't work in the stores. This meant my mother had to take me with her when she went shopping and I was usually at school.</p><p>For my father the most important thing when we arrived was to find a <b>job</b>. Luckily he had friends who knew us in Vietnam and they helped him get a job in a factory. It was hard for him to do that sort of work. In Saigon he had been a <b>doctor</b>.</p><p>My two older sisters went to high school. They worked hard and did well and the school gave them extra English lessons. Even now, though, they speak with Vietnamese accents. My brother and I are lucky. We may look Vietnamese but we speak with <b>American accents</b>!</p><p>My family found the way of life very different. In Vietnam my mother used to spend a lot of time visiting her sisters and brothers and looking after her mother and father. She feels quite lonely now. She says that in America you live inside your house but in Vietnam you take your house outside onto the street and share your life with everybody. I don't remember that but I do find the <b>winters</b> are quite hard to put up with in New York. It's very cold and snows a lot.</p><p>My mother still wears traditional Vietnamese clothes at home and always cooks us rice and noodles. I must admit I prefer <b>burgers and chips</b>! Although my friends like to visit us I often feel a bit embarrassed by my parents' way of life. They do not understand Americans and I think I am more <b>American than Vietnamese</b> now. I suppose it is sad for them to have such a strange daughter.</p><p><b>Talk/Lecture 2:</b></p><p>In American schools, almost every classroom is a mix of boys and girls. However, it was not always this way. In the past, schools did not teach girls subjects like science and math. In 1972, a law called <b>Title IX</b> was made in America. It gave girls an equal chance at education. Since then, boys and girls have been taught together.</p><p>Recently, though, some schools are reconsidering <b>separating classes</b>. This is different than in the past, however. Girls still learn the same subjects as boys. They just study without boys in the classroom. Why? Well, scientists know that boys and girls <b>learn differently</b>.</p><p>They also behave differently in the classroom. <b>Boys are louder</b> and more confident. They like to talk and show what they know. In general, <b>girls are quieter</b>. They prefer to listen and think carefully before they give their answers. When boys and girls are together, the boys can be too dominant. Also, boys and girls can bother each other. Instead of thinking about the lesson, they think about each other. In a separated classroom, they behave better and can focus on studying.</p><p>Another reason for separated classes is that boys and girls often like different things. For instance, boys prefer stories with <b>action and adventure</b>. In an all-boys English class, the teacher can choose books that will be interesting to boys. This way, they will be more excited about the stories.</p><p>Not all the classes are separated - just the main subjects like English, math, science, and social studies. Still, some teachers think that <b>separate education</b> is not good. They worry that boys and girls will not learn how to work well together. Right now, less than six hundred schools are trying separate classrooms. Time will show if it is a good idea or something that should be left in the past.</p><p><b>Talk/Lecture 3:</b></p><p>Hi! I'd like to welcome all of you to the <b>international student orientation</b> at Norwalk College. I hope that your travels from your home country have been easy and that you all are settling in well. I believe I've met everyone, but just in case, I'm the <b>director for international student affairs</b> - the person you can come to if you are having problems with your classes, your housing, visas... You are always welcome to stop by my office.</p><p>We'll have several short workshops today and will be talking about some common issues that international students face. The first one that I want to deal with is about communication, and in particular, <b>non-verbal communication</b>.</p><p>Now all of you have been studying English for some time. You have a good vocabulary, and you probably know all about verb tenses and modals, and can ask directions, and order from a menu. But communication is not only verbal. That is, talking is not the only language we use to communicate. Another way we communicate is through non-verbal communication, or <b>body language</b>.</p><p>The term body language means the movements we use and the <b>facial expressions</b> we have (like smiling or frowning), the way we sit or stand, the way we touch or look at someone, the distance we stand from another person. Some psychologists say that more than 60% of our communication is actually done through body language. We do it without thinking, or without ever having been specifically taught what the gestures or expressions mean. The problem is that body language is a <b>little bit different</b> in each culture and this can often cause some problems with communication.</p><p>Here's an example. In many places it may be a little rude or disrespectful to <b>look at another person directly in their eyes</b> as you talk with them, so many international students will avoid this eye contact. But in America, we expect it. We think of <b>eye contact</b> as a sign of honesty and straightforwardness. American parents actually encourage their children to look people in the eye when speaking. Just imagine a conversation where an international student was trying to be respectful by not looking into the eyes of her American classmate. The American might wonder why her classmate wouldn't look directly at her, and the international classmate would be wondering why she was being stared at. The end result is an awkward and frustrating interaction.</p><p>Here's another one. Americans <b>shake hands firmly</b> when they greet each other because to Americans, a firm handshake signifies strength and power. But a soft or limp handshake is considered a sign of weakness. In some cultures, handshakes are less common, or a gentle, soft handshake is acceptable. So students need to know that when shaking hands, it's important to be <b>firm</b>.</p><p>In America, a \"thumbs up\" sign - a thumb...</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "Why did the speaker have to help her mother with the shopping?",
+              "options": [
+                "There were no Vietnamese people living near her.",
+                "There were no Vietnamese working in the stores.",
+                "There wasn't always someone to go shopping with her.",
+                "Her mother could speak a little English"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did her father find working in a factory difficult?",
+              "options": [
+                "He couldn't speak any English.",
+                "He didn't have many friends there.",
+                "He had had a much better job in Vietnam.",
+                "He couldn’t get used to the working style."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "Why are the speaker and her brother more fortunate than their sisters?",
+              "options": [
+                "They did not need extra English lessons.",
+                "They look more American.",
+                "They speak with American accents.",
+                "They quickly adopted the way of life."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What has the speaker forgotten about life in Vietnam?",
+              "options": [
+                "Living close to other people",
+                "The warm weather",
+                "Wearing traditional clothes",
+                "Traditional food"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "Why does she find it difficult to invite friends to her home?",
+              "options": [
+                "Her parents do not have much money.",
+                "Her parents haven’t adopted an American way of life.",
+                "Her parents only know how to cook Vietnamese food.",
+                "Her parents do not speak English well"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What happened in American schools before 1972?",
+              "options": [
+                "Girls didn’t go to school.",
+                "Every classroom was a mix of boys and girls.",
+                "Boys could learn what they wanted.",
+                "They didn’t teach girls some subjects."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What is the reason that most American schools have mixed classes?",
+              "options": [
+                "Scientists said that it was the best thing.",
+                "Teachers did not want to teach single-gender classes.",
+                "A law gave girls an equal chance to learn.",
+                "Boys and girls behave better in such classes"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Why might girls not get a chance to talk much in a class with boys?",
+              "options": [
+                "Because the teacher doesn’t ask them questions",
+                "Because boys are louder and often talk first",
+                "Because boys know the correct answers",
+                "Because girls are often shy"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is NOT the reason that some schools are reconsidering separating classes?",
+              "options": [
+                "They prefer the old teaching styles.",
+                "Boys learn differently than girls.",
+                "Boys and girls can bother each other.",
+                "Boys and girls like different things."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Which is one class that is not mentioned as being separated?",
+              "options": [
+                "Math",
+                "Social Studies",
+                "Science",
+                "Physical Education"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Who is listening to the orientation talk?",
+              "options": [
+                "the director of international students",
+                "new international students",
+                "the teachers of international department",
+                "all first-year students in the college"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What is the purpose of this talk?",
+              "options": [
+                "to introduce the director for international student affairs",
+                "to deal with all international students’ problems.",
+                "to inform the importance of using English in class.",
+                "to introduce common problems in non-verbal communication."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "According to the speaker, what is body language?",
+              "options": [
+                "It’s the use of verb tenses and modals.",
+                "It’s the way to ask for directions",
+                "It’s the language used in class only.",
+                "It’s the language of movements and facial expressions."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "In American culture, …",
+              "options": [
+                "Eye contact is the same as most cultures.",
+                "making eye contact is a sign of disrespect.",
+                "people don’t look in others’ eyes while talking.",
+                "eye contact is considered as a sign of honesty."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "According to the speaker, what is TRUE about handshakes in American Culture?",
+              "options": [
+                "A handshake shouldn’t be too strong.",
+                "Handshakes are not common.",
+                "Handshakes need to be firm.",
+                "Shaking hands is not important."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The History of the Coffeehouse",
+            "text": "<p>Coffee is believed to have first been discovered in Ethiopia, where local legend says a goat herder noticed his goats becoming energetic after eating berries from a certain bush. From there, the practice of brewing coffee spread across the Red Sea into Yemen, where people began drinking it regularly by the fifteenth century. As the drink grew popular, small shops selling coffee started to appear, giving people a new place to meet and talk. Traders carried the habit further along established routes, introducing coffee to new regions one city at a time.</p><p>These early coffeehouses spread quickly through major cities of the Ottoman world, including Mecca, Cairo, and Istanbul. Unlike taverns, which served alcohol, coffeehouses offered a place where people could gather without the effects of drinking, so conversations tended to stay clearer and often lasted for hours. Customers came to hear music, play games, discuss local news, and sometimes debate religion and politics. Some rulers grew nervous about these gatherings and tried, without much success, to shut coffeehouses down, worried that open discussion might encourage unwanted criticism of their rule.</p><p>Coffee eventually reached Europe through trade routes, arriving first in Venice before spreading north to cities such as London and Paris. In London, coffeehouses became known as penny universities, since a customer could pay just one penny for a cup of coffee and spend hours listening to educated discussions on science, business, and current events. Many important institutions, including early insurance companies and stock exchanges, actually began inside these busy, crowded coffeehouses. In Paris, cafes became closely linked with writers and philosophers, who used <strong>them</strong> as informal meeting places to share new ideas, some of which later shaped major political movements.</p><p>By the twentieth century, coffee culture had spread across the globe, and coffee itself had become one of the most widely traded goods in the world. Large coffee chains opened in cities everywhere, making the drink more convenient but, according to some critics, less <strong>distinctive</strong> than the coffeehouses of earlier centuries. In response, a newer movement focused on specialty and locally roasted coffee has grown steadily, emphasizing quality and the story behind each cup rather than speed alone. Small independent cafes in many cities now compete directly with these larger chains for <strong>loyal</strong> customers.</p><p>Today, cafes serve many different purposes beyond simply selling coffee. Many people use them as informal offices, meeting friends, studying, or working on laptops for hours at a time. Despite all these changes, the basic idea behind the coffeehouse has stayed remarkably consistent since its earliest days: a shared space where people can gather, talk, and exchange ideas over a warm drink. Whatever form the modern cafe takes, this social function appears likely to continue for generations to come.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R1Q1</b>, quét các từ khóa \"goat herder\" ở đoạn 1 để xác định điều anh ta nhận ra (dê trở nên năng động hơn sau khi ăn một loại quả mọng).</li><li>Với <b>R1Q5</b>, quét từ khóa \"penny universities\" ở đoạn 3 để xác định mức chi phí và thời gian (khách hàng chỉ trả 1 xu cho nhiều giờ thảo luận trí tuệ).</li><li>Với <b>R1Q10</b>, quét cụm từ \"specialty coffee movement\" ở đoạn 4 để tìm yếu tố được nhấn mạnh (chất lượng và câu chuyện đằng sau mỗi tách cà phê).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q2, R1Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R1Q2</b>, đọc ngữ cảnh đoạn 4 mô tả các chuỗi cà phê tuy tiện lợi nhưng ít có nét độc đáo/riêng biệt (<strong>\"distinctive\"</strong>) để chọn từ đồng nghĩa phù hợp (unique).</li><li>Với <b>R1Q8</b>, xét ngữ cảnh đoạn 4 nói về những khách hàng trung thành/gắn bó (<strong>\"loyal\"</strong>) để tìm từ đồng nghĩa thích hợp (faithful).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q4):</b> Đọc ngược lại câu trước ở đoạn 3 để xác định danh từ số nhiều chỉ địa điểm (quán quán cà phê / cafes) mà các nhà văn và triết gia sử dụng làm nơi gặp mặt.</li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q6):</b> Tổng hợp các hoạt động ở quán cà phê thời Ottoman trong đoạn 2 (nghe nhạc, chơi trò chơi, bàn tin tức và tranh luận), đối soát 4 phương án để chọn chi tiết không được đề cập (xem kịch do diễn viên lưu diễn biểu diễn).</li><li><b>Dạng câu hỏi Suy luận (R1Q7):</b> Kết hợp thông tin ở cuối đoạn 2 về việc các nhà cầm quyền lo ngại những buổi tụ họp có thể kích động sự chỉ trích đối với chính quyền họ để chọn đáp án suy luận chính xác.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R1Q3, R1Q9):</b> Phân tích lập luận toàn cục của bài đọc:<ul><li>Với <b>R1Q3</b>, tổng hợp nội dung xuyên suốt từ nguồn gốc lịch sử đến hiện tại để chọn ý chính bao quát (quán cà phê từ lâu đã đóng vai trò là không gian giao lưu xã hội).</li><li>Với <b>R1Q9</b>, nhận diện mục đích chính của tác giả là mô tả quá trình phát triển của quán cà phê và vai trò xã hội lâu dài của chúng.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R1Q4) và <b>Từ vựng</b> (R1Q2, R1Q8). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R1Q1, R1Q5, R1Q10) và câu <b>Loại trừ</b> (R1Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R1Q7), <b>Ý chính toàn bài</b> (R1Q3) và <b>Mục đích của tác giả</b> (R1Q9).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did the goat herder notice?</span>",
+              "options": [
+                "His goats became energetic after eating certain berries.",
+                "His camels became energetic after eating certain berries.",
+                "His goats became energetic after drinking a certain tea.",
+                "His goats became sleepy after eating certain berries."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"distinctive\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "expensive",
+                "distant",
+                "unique",
+                "popular"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Coffee is now less popular worldwide than in earlier centuries.",
+                "Only European coffeehouses mattered in the history of coffee culture.",
+                "Modern coffee chains have completely replaced independent local cafes.",
+                "Coffeehouses have long served as social gathering places, from origins to today."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "new ideas",
+                "cafes",
+                "writers",
+                "philosophers"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about London's penny universities?</span>",
+              "options": [
+                "Customers in Paris paid one penny for hours of discussion.",
+                "Customers paid one pound for hours of educated discussion.",
+                "Customers paid one penny for a few minutes of discussion.",
+                "Customers paid one penny for hours of educated discussion."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as an activity in Ottoman coffeehouses?</span>",
+              "options": [
+                "Hearing music played by local performers during the evening.",
+                "Watching theatrical stage performances put on by traveling actors.",
+                "Discussing local news and debating religion and politics.",
+                "Playing games with friends while drinking coffee together."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred about why some rulers tried to shut coffeehouses down?</span>",
+              "options": [
+                "They were following orders from European trading partners.",
+                "They wanted to increase tax revenue from coffee sales.",
+                "They believed coffee itself was harmful to people's health.",
+                "They may have worried open talk could invite criticism."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"loyal\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "royal",
+                "wealthy",
+                "convenient",
+                "faithful"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To argue that Ethiopia deserves sole credit for coffee culture.",
+                "To convince readers to stop visiting large coffee chains.",
+                "To provide a detailed guide for opening a coffee shop.",
+                "To describe how coffeehouses developed and their lasting social role."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does the specialty coffee movement emphasize?</span>",
+              "options": [
+                "Quality, while ignoring where each cup of coffee comes from.",
+                "Lower prices rather than quality or story.",
+                "Speed and convenience over quality and story.",
+                "Quality and the story behind each cup of coffee."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Weaving Silk From Lotus Stems in Hanoi",
+            "text": "<p>Among Vietnam's many traditional crafts, few are as unusual or as labor-intensive as weaving fabric from lotus stems. Unlike ordinary silk, which comes from the cocoons of silkworms, lotus silk is drawn from thin fibers hidden inside the stem of the lotus plant, a flower already deeply associated with Vietnamese culture and Buddhist symbolism. Turning these fragile threads into wearable cloth requires patience that few other textile techniques demand.</p><p>The process begins the moment a lotus stem is cut, since the fibers inside begin to dry and lose their usefulness within just a few hours. Artisans must snap each stem carefully, then pull and twist the exposed threads by hand to draw out delicate strands of fiber. These strands are rolled together on a flat surface to form a single continuous thread, a step that demands a steady hand and considerable practice to avoid breaking the fragile material.</p><p>The craft owes much of its modern revival to Phan Thi Thuan, a weaver from Phung Xa village on the outskirts of Hanoi, who spent years experimenting with lotus fibers after decades of working with traditional silkworm silk. Her persistence eventually produced a reliable method for turning lotus stems into workable thread, a technical achievement that had <strong>eluded</strong> many earlier attempts by other artisans in the region.</p><p>The scale of labor involved is difficult to overstate. Producing just one meter of lotus silk fabric can require several thousand lotus stems, each processed almost entirely by hand within a narrow window of time after harvesting. Because of this intensity, a single skilled weaver can typically complete only a very limited length of fabric per month, which keeps overall production small no matter how much demand might exist.</p><p>This scarcity, combined with the fabric's soft texture and natural, faintly herbal scent, has helped lotus silk attract attention well beyond Vietnam. Some international fashion houses have expressed interest in the material, drawn partly by its novelty and partly by its environmentally friendly production process, which avoids the synthetic dyes and chemical treatments common in much of the textile industry. Prices for finished lotus silk products remain correspondingly high, reflecting the sheer number of hours embedded in every piece, a cost few casual buyers are willing to cover, though collectors continue to seek <strong>them</strong> out.</p><p>Despite this growing recognition, the craft faces real challenges in surviving into the next generation. Very few artisans currently possess the specialized skill needed to extract and weave lotus fiber reliably, and the physically demanding, low-yield nature of the work makes it a difficult sell to younger workers who might otherwise pursue faster-paying trades. Training programs have begun in some villages, though it remains unclear whether enough new weavers will commit to mastering such a <strong>painstaking</strong> craft.</p><p>Whether lotus silk weaving expands into a larger, sustainable industry or remains a rare specialty practiced by only a handful of artisans will likely depend on finding buyers willing to pay for its labor rather than its speed of production. For now, the craft persists mainly through the dedication of individuals determined not to let a distinctly Vietnamese tradition disappear.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp trong đoạn văn:<ul><li>Với <b>R2Q1</b>, quét từ khóa \"harvesting\" hoặc \"narrow window of time\" ở đoạn 4 để tìm quy định thời gian xử lý tơ sen (phải xử lý trong vòng vài giờ sau khi cắt cọng sen).</li><li>Với <b>R2Q5</b>, quét cụm từ \"one meter of lotus silk fabric\" ở đoạn 4 để xác định lượng nguyên liệu cần thiết (cần tới hàng nghìn cọng sen cho 1 mét vải).</li><li>Với <b>R2Q10</b>, quét tên riêng \"Phan Thi Thuan\" ở đoạn 3 để tìm thông tin về nền tảng kinh nghiệm (bà đã làm việc với lụa tơ tằm nhiều thập kỷ trước khi thử nghiệm với tơ sen).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q2, R2Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R2Q2</b>, xét ngữ cảnh đoạn 3 nói về một thành tựu kỹ thuật từng làm vướng mắc/mới lẩn tránh (<strong>\"eluded\"</strong>) nỗ lực của nhiều nghệ nhân trước đó để tìm từ đồng nghĩa (escaped).</li><li>Với <b>R2Q8</b>, xét ngữ cảnh đoạn 6 mô tả nghề dệt tơ sen đòi hỏi sự tỉ mỉ, cẩn trọng và công phu rất lớn (<strong>\"painstaking\"</strong>) để chọn từ đồng nghĩa phù hợp (meticulous).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q4):</b> Đọc ngược lại câu liền trước ở đoạn 5 để tìm danh từ số nhiều chỉ đối tượng (các sản phẩm lụa sen / lotus silk products) mà những nhà sưu tầm tiếp tục tìm kiếm.</li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q6):</b> Tổng hợp các lý do lụa sen thu hút sự chú ý quốc tế ở đoạn 5 (kết cấu mềm mại, hương thơm tự nhiên, quy trình thân thiện với môi trường, tính khan hiếm), đối soát 4 phương án để chọn chi tiết không hề được đề cập (khả năng chống phai màu dưới ánh nắng).</li><li><b>Dạng câu hỏi Suy luận (R2Q7):</b> Kết hợp các dữ kiện ở đoạn cuối về tương lai của nghề dệt tơ sen để suy luận rằng sự tồn tại của nó phụ thuộc vào việc tìm kiếm những người mua sẵn sàng trả giá tương xứng cho công sức lao động.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R2Q3, R2Q9):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R2Q3</b>, tổng hợp nội dung toàn bài nói về một làng nghề truyền thống quý hiếm, tốn nhiều công sức nhưng đang đứng trước tương lai không chắc chắn để chọn ý chính bao quát.</li><li>Với <b>R2Q9</b>, nhận diện mục đích viết chính của tác giả nhằm mô tả một nghề thủ công hiếm có của Việt Nam cùng những thách thức thực tế mà nó đang phải đối mặt.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R2Q4) và <b>Từ vựng</b> (R2Q2, R2Q8). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R2Q1, R2Q5, R2Q10) và câu <b>Loại trừ</b> (R2Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã ráp nối, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R2Q7), <b>Ý chính toàn bài</b> (R2Q3) và <b>Mục đích của tác giả</b> (R2Q9).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about processing lotus fibers?</span>",
+              "options": [
+                "They must be processed within a few hours after the stem is cut.",
+                "They must be processed before the stem is cut, not after.",
+                "They must be processed within a few days after the stem is cut.",
+                "They can be processed at any time without any time pressure."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"eluded\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "funded",
+                "alluded",
+                "impressed",
+                "escaped"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "International fashion houses now mass-produce garments using lotus silk.",
+                "Silkworm silk has been entirely replaced by lotus silk in Vietnam.",
+                "Lotus silk weaving is a rare, labor-intensive craft with an uncertain future.",
+                "Lotus silk weaving has become a large, fully industrialized sector."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 5 refers to _______.</span>",
+              "options": [
+                "collectors",
+                "lotus silk products",
+                "casual buyers",
+                "hours"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about producing lotus silk fabric?</span>",
+              "options": [
+                "Several meters of fabric require just one thousand stems total.",
+                "One meter of fabric can require only a few dozen stems.",
+                "One meter of silkworm silk requires several thousand lotus stems.",
+                "One meter of fabric can require several thousand lotus stems."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a reason lotus silk attracts international attention?</span>",
+              "options": [
+                "Its soft texture and natural, faintly herbal scent overall.",
+                "Its scarcity, since production of the fabric remains small.",
+                "Its resistance to fading when exposed to direct sunlight.",
+                "Its environmentally friendly production process without synthetic dyes."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the future of lotus silk weaving?</span>",
+              "options": [
+                "Phan Thi Thuan developed a reliable method for the thread.",
+                "It will certainly disappear completely within the next few years.",
+                "It may depend on finding buyers who value the labor involved.",
+                "Rising buyer demand has caused fewer artisans to learn it."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"painstaking\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "painless",
+                "boring",
+                "meticulous",
+                "expensive"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To describe a rare Vietnamese craft and the challenges it faces.",
+                "To promote a specific fashion brand that uses lotus silk.",
+                "To argue that lotus silk should fully replace silkworm silk.",
+                "To criticize young workers for abandoning traditional crafts."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about Phan Thi Thuan's background?</span>",
+              "options": [
+                "She began working with silkworm silk only after mastering lotus silk.",
+                "She worked with silkworm silk for decades before trying lotus fiber.",
+                "She worked with lotus silk for decades before trying silkworm silk.",
+                "She had no prior experience with any form of silk weaving."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Left-Handedness: Weighing the Pros and Cons",
+            "text": "<p>Roughly one in ten people worldwide is left-handed, a proportion that has stayed remarkably stable across cultures and historical periods studied so far. For centuries, left-handedness carried a social stigma, often linked in folklore and language to clumsiness, dishonesty, or even bad luck. Modern science treats the trait far more neutrally, viewing it as one ordinary outcome of how the brain organizes motor control, rather than as a defect requiring correction.</p><p>The biological basis of handedness remains only partly understood, despite decades of scientific attention. Researchers have identified a modest genetic component, since handedness tends to run in families, though no single gene determines it outright. Brain lateralization, the tendency for each hemisphere to specialize in different functions, appears closely tied to hand preference, but scientists still debate exactly how prenatal development settles on one dominant hand rather than the other.</p><p>Left-handedness carries certain situational advantages, particularly in combat-style sports such as fencing, boxing, and tennis. Right-handed opponents, who train mostly against other right-handers, often find a left-handed opponent's angles and timing unfamiliar, giving left-handed athletes a disproportionate presence at elite levels of these sports. Some researchers have also proposed that left-handed individuals show slightly greater cognitive flexibility on certain tasks, though this finding remains contested and the effect, if real, appears small. Sports scientists sometimes call this the fighting-left-hander hypothesis.</p><p>Everyday life, by contrast, often works against left-handed people, since most common tools and environments were designed with right-handed users in mind. Scissors, school desks, and even some kitchen equipment can feel awkward or genuinely difficult for a left-handed user to operate comfortably. These frictions are minor individually but can accumulate into a persistent, low-level inconvenience that right-handed people rarely have to think about, though many left-handed adults report noticing <strong>it</strong> daily nonetheless.</p><p>Older research once suggested more serious risks, including claims that left-handed people had shorter average lifespans and faced higher rates of certain health problems. Much of this research has since been seriously questioned on methodological grounds. A key issue was a cohort effect: many older left-handed adults in these studies had been forcibly switched to right-handed writing as children. This common practice from decades ago likely <strong>confounded</strong> whatever the original data seemed to show.</p><p>Social attitudes toward left-handedness have shifted considerably since the mid-twentieth century, and the practice of forcing left-handed children to switch hands has become far less common in most countries. Manufacturers now sell specialized left-handed scissors, desks, and other tools far more widely than before, gradually reducing the everyday friction earlier generations of left-handers simply had to tolerate without complaint. Schools in many countries have also grown noticeably more <strong>accommodating</strong> of left-handed students in recent decades.</p><p>Taken together, the evidence suggests that being left-handed is neither a hidden advantage nor a meaningful disadvantage in any general sense. Whatever benefits or drawbacks exist appear to depend heavily on specific context, from the sport being played to the tools available in a given kitchen. Framing handedness as inherently good or bad, the current research suggests, misses just how situational its effects actually are.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5, R3Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp trong bài đọc:<ul><li>Với <b>R3Q1</b>, quét từ khóa \"combat-style sports\" ở đoạn 3 để tìm nguyên nhân vận động viên thuận tay trái có lợi thế (đối thủ thuận tay phải chưa quen với góc đánh và nhịp độ của họ).</li><li>Với <b>R3Q5</b>, quét các từ khóa liên quan đến \"older left-handed adults\" ở đoạn 5 để xác định thực trạng (nhiều người thời thơ ấu từng bị ép đổi sang viết tay phải).</li><li>Với <b>R3Q10</b>, quét thuật ngữ \"Brain lateralization\" ở đoạn 2 để tìm định nghĩa chính xác (xu hướng mỗi bán cầu não đảm nhận/chuyên môn hóa các chức năng khác nhau).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q2, R3Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R3Q2</b>, đọc ngữ cảnh đoạn 5 nói về các nghiên cứu cũ bị làm sai lệch/gây nhiễu (<strong>\"confounded\"</strong>) do chọn mẫu không chuẩn để tìm từ đồng nghĩa thích hợp (distorted).</li><li>Với <b>R3Q8</b>, xét ngữ cảnh đoạn 6 mô tả thái độ xã hội ngày nay cởi mở/thích ứng tốt hơn (<strong>\"accommodating\"</strong>) đối với người thuận tay trái để chọn từ đồng nghĩa (adaptable).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q4):</b> Đọc ngược lại câu trước ở đoạn 4 để xác định danh từ chỉ sự phiền ngoái/bất tiện nhỏ (the inconvenience) mà người thuận tay trái nhận thấy hàng ngày.</li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q6):</b> Tổng hợp danh sách vật dụng được đề cập ở đoạn 4 (kéo, bàn học, dụng cụ bếp), đối soát 4 phương án để chọn chi tiết không được nhắc đến (bàn phím máy tính / computer keyboards).</li><li><b>Dạng câu hỏi Suy luận (R3Q7):</b> Kết hợp các dữ kiện ở đoạn 5 về sai lệch trong phương pháp chọn mẫu của các nghiên cứu cũ để suy ra kết luận về độ tin cậy của các rủi ro sức khỏe được đưa ra trước đó.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R3Q3, R3Q9):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R3Q3</b>, tổng hợp nội dung xuyên suốt bài viết từ lợi thế thể thao đến những bất tiện sinh hoạt để chọn ý chính bao quát (việc thuận tay trái mang lại cả ưu điểm lẫn nhược điểm tùy ngữ cảnh).</li><li>Với <b>R3Q9</b>, nhận diện mục đích chính của tác giả là đưa ra cái nhìn cân bằng, tổng quan về các khía cạnh tích cực và tiêu cực của người thuận tay trái.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R3Q4) và <b>Từ vựng</b> (R3Q2, R3Q8). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q5, R3Q10) và câu <b>Loại trừ</b> (R3Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã ráp nối, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R3Q7), <b>Ý chính toàn bài</b> (R3Q3) và <b>Mục đích của tác giả</b> (R3Q9).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, why do left-handed athletes often have an advantage in combat sports?</span>",
+              "options": [
+                "Left-handed athletes are often physically stronger than right-handed athletes.",
+                "Left-handed opponents often find right-handed angles and timing unfamiliar.",
+                "Right-handed opponents often find left-handed angles and timing unfamiliar.",
+                "Left-handed athletes often train more hours than right-handed athletes."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"confounded\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "confirmed",
+                "funded",
+                "distorted",
+                "compounded"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Being left-handed is a serious health risk, current research shows.",
+                "Left-handed people are naturally more intelligent than right-handed people.",
+                "Left-handedness brings minor advantages and disadvantages depending on context.",
+                "No everyday tools are still designed for right-handed users today."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "the inconvenience",
+                "right-handed people",
+                "left-handed adults",
+                "kitchen equipment"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about older left-handed adults in early health studies?</span>",
+              "options": [
+                "Many right-handed adults had been forced to switch hands as children.",
+                "Many younger left-handed adults had been forced to switch hands.",
+                "Many had been forced to switch to right-handed writing as children.",
+                "Many had refused to switch to right-handed writing as children."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as an everyday item that can be difficult for left-handed people?</span>",
+              "options": [
+                "Some kitchen equipment designed for right-handed use.",
+                "School desks built for right-handed students.",
+                "Scissors that are shaped for right-handed use.",
+                "Computer keyboards designed mainly for right-handed typing."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about older studies linking left-handedness to health risks?</span>",
+              "options": [
+                "Their conclusions proved left-handedness causes no health risks whatsoever.",
+                "Their conclusions may have resulted from a flaw in participant selection.",
+                "Being forced to switch hands as a child caused left-handedness.",
+                "Left-handedness carries situational advantages in combat-style sports today."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"accommodating\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "expensive",
+                "strict",
+                "adaptable",
+                "accompanying"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To promote a specific brand of left-handed scissors and desks.",
+                "To give a balanced overview of the pros and cons of left-handedness.",
+                "To argue all historical research on left-handedness was fraudulent.",
+                "To convince left-handed readers to switch to their right hand."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does brain lateralization refer to?</span>",
+              "options": [
+                "How each brain hemisphere specializes in different functions.",
+                "How each brain hemisphere performs identical functions overall.",
+                "How the left hemisphere alone controls all body movement.",
+                "How the right hemisphere controls only left-handed people."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "When Penguins Were Giants",
+            "text": "<p>The largest living penguin, the emperor penguin, stands at just over a meter tall, a size that already seems impressive to anyone watching one waddle across Antarctic ice. Fossil evidence, however, suggests that penguins were once considerably larger, with some ancient species reaching heights that would have brought them roughly level with an adult human. These giant penguins vanished long before humans existed, known to us only through fragments of bone recovered from ancient coastal rock.</p><p>Among the most striking fossil finds is Kumimanu biceae, a species described from bones discovered in New Zealand and estimated to have lived between fifty-five and sixty million years ago. Researchers calculated that this penguin likely stood around one and a half meters tall and weighed close to eighty kilograms, <strong>dwarfing</strong> any penguin alive today. Several other giant species have since been identified from similar fossil beds, suggesting that unusually large penguins were not a single evolutionary fluke but a recurring pattern in early penguin history.</p><p>Estimating the size of an animal known only from scattered bones is inherently uncertain work. Paleontologists typically rely on the dimensions of preserved limb bones, comparing them against scaling relationships observed in living penguins, to infer overall body size and mass. Because complete skeletons are rare, these estimates carry meaningful margins of error, and researchers are generally careful to describe such figures as best approximations rather than settled fact. A single new, more complete fossil can sometimes shift <strong>it</strong> considerably.</p><p>Why penguins grew so large in this early period remains a matter of ongoing debate, though one hypothesis has attracted particular attention. Shortly after the mass extinction that ended the age of dinosaurs, marine ecosystems lacked many of the large predators, such as seals and toothed whales, that dominate today's oceans. With fewer competitors and predators pursuing similar prey in coastal waters, some researchers argue, penguins may have been free to evolve toward considerably larger body sizes than would otherwise have been sustainable.</p><p>That relatively open ecological niche did not last indefinitely. As millions of years passed, marine mammals diversified substantially, and seals and early whales began competing directly with penguins for fish and squid in the same coastal waters. Many researchers suspect that this rising competition, combined with new predation pressure, gradually favored smaller, more maneuverable penguins over their giant ancestors. Pinning down the exact pace and mechanism of this shift, however, remains genuinely difficult using fossils alone.</p><p>Other explanations have also been proposed alongside the competition hypothesis, and the field has not settled on a single, agreed-upon account. Some researchers point to possible thermoregulation advantages tied to large body size in cold Southern Ocean waters. Others emphasize physical constraints on diving depth and swimming efficiency that may have limited how large a penguin could practically become while remaining an effective underwater hunter. Most specialists now treat these explanations as complementary rather than competing, since several pressures likely acted together rather than in isolation.</p><p>The <strong>fragmentary</strong> fossil record of giant penguins continues to be reshaped by new discoveries that refine scientists' understanding of the timeline involved. Each newly described species adds another data point to a picture that is still, by most paleontologists' own admission, more suggestive than definitive. What does seem clear is that today's comparatively modest penguins represent only one chapter in a much longer, and considerably larger-scaled, evolutionary story that fossil hunters are still piecing together.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5, R4Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R4Q1</b>, quét từ khóa tên riêng \"Kumimanu biceae\" ở đoạn 1 để xác định thời gian và địa điểm sinh sống (New Zealand, khoảng 55 đến 60 triệu năm trước).</li><li>Với <b>R4Q5</b>, quét cụm từ \"estimate ancient penguin size\" ở đoạn 3 để tìm cách thức ước tính kích thước (so sánh kích thước xương với tỷ lệ tương quan từ chim cánh cụt hiện đại).</li><li>Với <b>R4Q10</b>, quét cụm từ \"shortly after the mass extinction\" ở đoạn 4 để tìm đặc điểm của hệ sinh thái biển (ban đầu thiếu vắng nhiều loài săn mồi lớn như hải cẩu và cá voi có răng).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q2, R4Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R4Q2</b>, đọc ngữ cảnh đoạn 2 mô tả vóc dáng to lớn của chim cánh cụt cổ đại làm lu mờ/vượt trội hoàn toàn (<strong>\"dwarfing\"</strong>) so với các loài chim cánh cụt hiện đại để chọn từ đồng nghĩa thích hợp (overshadowing).</li><li>Với <b>R4Q8</b>, xét ngữ cảnh đoạn 7 nói về hồ sơ hóa thạch còn chưa hoàn chỉnh/mảnh vỡ (<strong>\"fragmentary\"</strong>) của chim cánh cụt khổng lồ để tìm từ đồng nghĩa phù hợp (incomplete).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q4):</b> Đọc ngược lại câu trước ở đoạn 3 để xác định danh từ số ít chỉ đối tượng (kết quả ước tính kích thước / the size estimate) mà đại từ <strong>\"it\"</strong> đang thế chỗ.</li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q6):</b> Tổng hợp các nguyên nhân được đề cập ở đoạn 5 và 6 giải thích cho sự suy giảm kích thước (sự cạnh tranh từ động vật biển, áp lực săn mồi mới, giới hạn thể chất khi lặn), đối soát 4 phương án để chọn chi tiết không được nhắc tới (sự giảm nhiệt độ nước biển đột ngột).</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Kết hợp các dữ kiện ở đoạn 6 về việc nhiều yếu tố tác động đồng thời (cạnh tranh, áp lực sinh học, giới hạn lặn) để suy luận rằng sự suy giảm kích thước là do sự kết hợp của nhiều áp lực khác nhau.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R4Q3, R4Q9):</b> Phân tích lập luận toàn cục của bài đọc:<ul><li>Với <b>R4Q3</b>, tổng hợp nội dung xuyên suốt bài viết về việc hóa thạch cho thấy chim cánh cụt cổ đại lớn hơn nhiều so với hiện nay vì những lý do vẫn đang tiếp tục được tranh luận.</li><li>Với <b>R4Q9</b>, nhận diện mục đích viết chính của tác giả nhằm giải thích những gì hóa thạch tiết lộ về loài chim cánh cụt khổng lồ.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R4Q4) và <b>Từ vựng</b> (R4Q2, R4Q8). Tiếp theo, thực hiện đọc quét dữ kiện cho các câu <b>Chi tiết</b> (R4Q1, R4Q5, R4Q10) và câu <b>Loại trừ</b> (R4Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R4Q7), <b>Ý chính toàn bài</b> (R4Q3) và <b>Mục đích của tác giả</b> (R4Q9).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, when and where did Kumimanu biceae live?</span>",
+              "options": [
+                "In Antarctica, between about fifty-five and sixty million years ago.",
+                "In New Zealand, between about fifty-five and sixty million years ago.",
+                "In New Zealand, more than one hundred million years ago.",
+                "In New Zealand, between about five and ten million years ago."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"dwarfing\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "protecting",
+                "resembling",
+                "dwelling",
+                "overshadowing"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Modern penguins are larger than any ancient penguin species ever was.",
+                "Fossils show ancient penguins were far larger, for reasons still debated.",
+                "Kumimanu biceae is the only giant penguin species ever found.",
+                "Scientists have fully confirmed why ancient penguins were so large."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "limb bones",
+                "living penguins",
+                "the size estimate",
+                "a fossil"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do paleontologists typically estimate ancient penguin size?</span>",
+              "options": [
+                "By comparing complete skeletons only, since partial bones are unusable.",
+                "By comparing bone dimensions with scaling relationships from living penguins.",
+                "By comparing bone dimensions with scaling relationships from living whales.",
+                "By comparing preserved feather patterns with coloring seen today."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a possible reason for the decline in penguin size over time?</span>",
+              "options": [
+                "Rising competition from diversifying marine mammals over time.",
+                "New predation pressure from seals and early whales.",
+                "A sudden, dramatic drop in ocean water temperature.",
+                "Physical constraints on diving depth and swimming efficiency."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred about scientists' current understanding of the decline in giant penguin size?</span>",
+              "options": [
+                "Smaller penguin size caused marine mammals to diversify faster.",
+                "It likely resulted from several overlapping pressures, not one cause.",
+                "It has now been completely and definitively explained by fossils.",
+                "Kumimanu biceae weighed close to eighty kilograms when grown."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"fragmentary\"</strong> in paragraph 7 is closest in meaning to _______.</span>",
+              "options": [
+                "worthless",
+                "expensive",
+                "fragrant",
+                "incomplete"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To argue that modern penguins should be considered endangered.",
+                "To prove definitively why giant penguins went extinct.",
+                "To provide a step-by-step guide to excavating penguin fossils.",
+                "To explain what fossils reveal about giant penguins."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what was true of marine ecosystems shortly after the dinosaur extinction?</span>",
+              "options": [
+                "They were already full of large predators like seals and whales.",
+                "They lacked small fish that giant penguins needed to eat.",
+                "They lacked large predators, but penguins were also absent then.",
+                "They initially lacked many large predators like seals and toothed whales."
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You have received an email from your friend, Sarah, about organising an anniversary celebration for her parents.</p> Read part of her email below.",
+          "content": "<p class='mb-1'>I'm planning a surprise anniversary party for my parents, but please keep it a secret! I could really use your help with the planning.</p><ul><li>Who do you think I should invite?</li><li>Should I book a restaurant or hold the party at home?</li><li>Would you be able to come a few days early to help me prepare?</li></ul>",
+          "description": "You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Informal Email</strong> (thư gửi bạn thân) trả lời một người bạn đang cần lời khuyên và sự giúp đỡ. Đề bài yêu cầu trả lời đủ <strong>3 câu hỏi chính</strong> mà Sarah đặt ra: (1) nên mời những ai, (2) nên thuê nhà hàng hay tổ chức tại nhà, (3) có thể đến sớm vài ngày để phụ giúp chuẩn bị không. Đồng thời cần thể hiện rõ việc bạn đồng ý giữ bí mật cho Sarah. Bài viết cần tối thiểu <strong>120 từ</strong>, giọng văn thân mật, chân thành.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi thân mật. Ví dụ: Dear Sarah,</li><li><strong>Opening:</strong> Bày tỏ sự hào hứng và cam kết giữ bí mật. Ví dụ: What a lovely idea! Don't worry, I won't say a word to your parents.</li><li><strong>Body 1 (khách mời):</strong> Ví dụ: I think you should invite close relatives and your parents' old friends, as they would love to celebrate this special day together.</li><li><strong>Body 2 (địa điểm):</strong> Ví dụ: As for the venue, I'd suggest booking a small restaurant, since it would save you the trouble of cleaning up afterwards.</li><li><strong>Body 3 (đến sớm giúp):</strong> Ví dụ: Of course, I'd be more than happy to come a few days early to help you with the preparations.</li><li><strong>Closing:</strong> Ví dụ: Let me know if there's anything else I can do to help.</li><li><strong>Sign-off:</strong> Best wishes, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Dùng động từ khuyết thiếu (should/could/would) khi đưa ra lời khuyên và đề nghị giúp đỡ, thì hiện tại đơn/tương lai đơn khi nói về kế hoạch. Nên đa dạng hóa cách diễn đạt lời khuyên để tránh lặp cấu trúc \"I think you should...\" quá nhiều lần.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>anniversary celebration:</strong> lễ kỷ niệm</li><li><strong>keep it a secret:</strong> giữ bí mật</li><li><strong>guest list:</strong> danh sách khách mời</li><li><strong>book a venue:</strong> đặt địa điểm</li><li><strong>surprise party:</strong> tiệc bất ngờ</li><li><strong>decoration:</strong> trang trí</li><li><strong>close relatives:</strong> họ hàng thân thiết</li><li><strong>lend a hand:</strong> giúp một tay</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>As for...:</strong> Còn về...</li><li><strong>Of course:</strong> Tất nhiên</li><li><strong>Besides:</strong> Bên cạnh đó</li><li><strong>In that case:</strong> Trong trường hợp đó</li><li><strong>Also:</strong> Ngoài ra</li></ul><p><strong>Cách diễn đạt cảm xúc:</strong></p><ul><li><strong>What a lovely idea!:</strong> Ý tưởng thật tuyệt vời!</li><li><strong>I'd be more than happy to help:</strong> Tôi rất vui lòng được giúp đỡ</li><li><strong>I'm sure it will be a memorable day:</strong> Tôi chắc chắn đó sẽ là một ngày đáng nhớ</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Bỏ sót một trong ba câu hỏi Sarah đặt ra, đặc biệt là câu hỏi về việc đến sớm giúp đỡ.</li><li>Quên nhắc đến việc cam kết giữ bí mật cho bữa tiệc.</li><li>Đưa ra lời khuyên quá chung chung mà không giải thích lý do.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã trả lời đủ cả 3 câu hỏi trong đề chưa.</li><li>Rà soát chính tả và cách chia thì động từ.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy đặt mình vào vị trí một người bạn thân đang thực sự muốn giúp đỡ Sarah tổ chức một bữa tiệc thật ý nghĩa. Đưa ra lời khuyên cụ thể, có lý do đi kèm sẽ giúp bài viết thuyết phục và tự nhiên hơn.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "problem_solution",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>A recent scientific article reported that people, especially young people, are reading books far less often than they used to, as screens and digital entertainment increasingly dominate their free time.</p><p class='mb-1'>This declining reading habit may have significant effects on people's knowledge, imagination and ability to concentrate.</p><p class='mb-1'><strong>Discuss the possible effects of this declining reading habit on people's lives and suggest solutions to address this issue.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the problems caused by the declining habit of reading books and suggest possible solutions. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Problem–Solution Essay</strong>, được xây dựng dựa trên một trích dẫn từ bài báo khoa học. Bạn cần phân tích những <strong>ảnh hưởng (effects)</strong> có thể có của việc giảm thói quen đọc sách lên cuộc sống con người, sau đó đề xuất <strong>giải pháp</strong> để khắc phục tình trạng này. Lưu ý đọc kỹ phần trích dẫn để hiểu đúng bối cảnh trước khi triển khai ý. Bài viết cần tối thiểu <strong>250 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Diễn giải lại ý chính của trích dẫn và nêu luận điểm. Ví dụ: As digital entertainment becomes more accessible, the decline in reading habits is raising concerns about its long-term effects on society.</li><li><strong>Body 1 (ảnh hưởng):</strong> Ví dụ: One significant effect is the gradual decline in people's ability to concentrate for extended periods, as reading requires sustained focus that scrolling through short content does not.</li><li><strong>Body 2 (ảnh hưởng khác):</strong> Ví dụ: Furthermore, reduced reading can limit people's vocabulary, critical thinking and imagination, since books expose readers to complex ideas and varied perspectives.</li><li><strong>Body 3 (giải pháp):</strong> Ví dụ: To reverse this trend, schools could incorporate more engaging reading programmes, while parents should set an example by reading regularly at home.</li><li><strong>Conclusion:</strong> Tóm tắt ảnh hưởng và giải pháp. Ví dụ: In conclusion, reviving the habit of reading requires combined efforts from families, schools and society as a whole.</li></ul><p><strong>Mỗi đoạn thân bài nên theo cấu trúc:</strong> Topic sentence → Giải thích → Ví dụ minh họa → Kết mini-đoạn, giúp bài viết chặt chẽ và có chiều sâu.</p><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng cấu trúc nguyên nhân-kết quả (this results in, which leads to) khi trình bày ảnh hưởng, và modal verbs (should/could) khi đề xuất giải pháp. Cần diễn giải lại trích dẫn bằng ngôn từ của riêng mình thay vì chép lại nguyên văn đề bài.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>declining reading habit:</strong> thói quen đọc sách suy giảm</li><li><strong>concentration span:</strong> khả năng tập trung</li><li><strong>critical thinking:</strong> tư duy phản biện</li><li><strong>digital distraction:</strong> sự xao nhãng từ thiết bị số</li><li><strong>vocabulary range:</strong> vốn từ vựng</li><li><strong>imagination:</strong> trí tưởng tượng</li><li><strong>literacy rate:</strong> tỷ lệ biết đọc, biết viết</li><li><strong>reading culture:</strong> văn hóa đọc</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Furthermore / In addition (Thêm ý):</strong> Hơn nữa</li><li><strong>However / Nevertheless (Đối lập):</strong> Tuy nhiên</li><li><strong>As a result / This leads to (Nguyên nhân-kết quả):</strong> Do đó / Dẫn đến</li><li><strong>For instance / Such as (Ví dụ):</strong> Ví dụ như</li><li><strong>In conclusion / To sum up (Kết luận):</strong> Tóm lại</li><li><strong>Notably / In particular (Nhấn mạnh):</strong> Đáng chú ý là</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>declining reading habit:</strong> có thể thay bằng \"the diminishing tendency to read\"</li><li><strong>effects on people's lives:</strong> có thể thay bằng \"impacts on daily life\"</li><li><strong>solutions:</strong> có thể thay bằng \"remedies\" hoặc \"measures\"</li></ul><p><strong>Cách diễn đạt giải pháp:</strong></p><ul><li><strong>One possible solution would be to...:</strong> Một giải pháp khả thi sẽ là...</li><li><strong>Schools/Parents should encourage...:</strong> Nhà trường/Cha mẹ nên khuyến khích...</li><li><strong>It is crucial that...:</strong> Điều quan trọng là...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chép lại nguyên văn câu trích dẫn trong đề thay vì diễn giải bằng ý của mình.</li><li>Chỉ nêu ảnh hưởng mà không đề xuất giải pháp tương ứng.</li><li>Thiếu ví dụ cụ thể để minh họa cho luận điểm.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã đạt tối thiểu 250 từ chưa.</li><li>Đảm bảo bài viết có cả phần ảnh hưởng và phần giải pháp rõ ràng.</li><li>Xem lại phần mở bài đã diễn giải trích dẫn bằng ngôn từ riêng chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Khi gặp dạng đề trích dẫn từ bài báo khoa học, hãy bình tĩnh đọc kỹ để nắm đúng chủ đề trước khi triển khai. Cân bằng giữa phần ảnh hưởng và giải pháp sẽ giúp bài viết toàn diện và thuyết phục hơn.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Which day of the week do you like best? Why?",
+            "Which day of the week are you busiest?",
+            "What do you usually do to relax during the week after school and work?",
+            "What is your favorite number?",
+            "What characteristics do you think make a number easy to remember?",
+            "Does your favorite number have any special meaning in your country?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này kéo dài <strong>3 phút</strong> với <strong>6 câu hỏi</strong>, được giám khảo hỏi trực tiếp theo hình thức hội thoại tự nhiên.</li><li><strong>Chủ đề A (Ngày trong tuần):</strong> Ba câu hỏi đầu xoay quanh ngày yêu thích, ngày bận rộn nhất và cách thư giãn sau một tuần học tập/làm việc.</li><li><strong>Chủ đề B (Con số yêu thích):</strong> Ba câu hỏi sau khai thác con số yêu thích, đặc điểm khiến một con số dễ nhớ và ý nghĩa văn hóa của con số đó.</li><li>Tiêu chí chấm điểm gồm: <strong>Độ trôi chảy (Fluency)</strong>, <strong>Từ vựng (Vocabulary)</strong>, <strong>Ngữ pháp (Grammar)</strong> và <strong>Phát âm (Pronunciation)</strong>.</li><li>Nên phân bổ khoảng <strong>25–30 giây</strong> cho mỗi câu hỏi, tránh dồn quá nhiều thời gian cho một chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Áp dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong>: trả lời trực tiếp, đưa lý do, sau đó minh họa bằng ví dụ cụ thể.</li><li><strong>Ví dụ Chủ đề A:</strong> \"I like Sundays the most because it's the only day I don't have any classes or work, so I can fully relax.\"</li><li><strong>Ví dụ Chủ đề B:</strong> \"My favorite number is seven because it's considered lucky in many cultures, and it's also my birth date.\"</li><li>Luôn tự hỏi <strong>Why?/How?</strong> sau mỗi câu trả lời ngắn để mở rộng ý (bắt buộc).</li><li>Dùng một câu chuyển ý ngắn gọn khi chuyển từ Chủ đề A sang B, ví dụ: \"Now, on a completely different note, let's talk about numbers...\" (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói đều, sử dụng các từ đệm tự nhiên như \"well\", \"actually\" để tránh im lặng kéo dài.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> khi nói về ngày yêu thích và con số yêu thích (\"I usually...\", \"I always...\"), dùng <strong>hiện tại hoàn thành</strong> nếu nhắc đến trải nghiệm gắn với con số đó (\"This number has been meaningful to me since childhood\").</li><li>Nếu quên từ, hãy diễn giải bằng cách mô tả (paraphrase) thay vì dừng lại.</li><li>Từ vựng Chủ đề A: <strong>hectic schedule</strong> (lịch trình bận rộn), <strong>unwind</strong> (thư giãn), <strong>day off</strong> (ngày nghỉ), <strong>recharge</strong> (nạp lại năng lượng).</li><li>Từ vựng Chủ đề B: <strong>a lucky number</strong> (con số may mắn), <strong>memorable</strong> (dễ nhớ), <strong>symbolic meaning</strong> (ý nghĩa biểu tượng), <strong>associated with</strong> (gắn liền với).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>look forward to something</strong> (mong chờ điều gì đó) — Chủ đề A.</li><li><strong>a well-deserved break</strong> (một kỳ nghỉ xứng đáng) — Chủ đề A.</li><li><strong>packed with activities</strong> (dày đặc hoạt động) — Chủ đề A.</li><li><strong>bring good luck</strong> (mang lại may mắn) — Chủ đề B.</li><li><strong>stick in one's mind</strong> (in sâu vào tâm trí) — Chủ đề B.</li><li><strong>hold cultural significance</strong> (mang ý nghĩa văn hóa) — Chủ đề B.</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Actually,</strong> – mở đầu ý kiến cá nhân tự nhiên (thực ra thì).</li><li><strong>In terms of...</strong> – giới hạn phạm vi câu trả lời (về mặt...).</li><li><strong>Apart from that,</strong> – bổ sung ý (bên cạnh đó).</li><li><strong>The main reason is that...</strong> – nêu lý do chính.</li><li><strong>Speaking of...</strong> – chuyển chủ đề mượt mà (nói đến...).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"Personally, I think weekends are essential for maintaining a good work-life balance.\" (Cá nhân tôi nghĩ...) — Chủ đề A.</li><li>\"From my point of view, having a fixed relaxation routine helps reduce stress.\" (Theo quan điểm của tôi...) — Chủ đề A.</li><li>\"As far as I'm concerned, numbers that are short and easy to pronounce are more memorable.\" (Theo tôi thì...) — Chủ đề B.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời cụt lủn kiểu \"Sunday\" hoặc \"Seven\" mà không giải thích thêm — đây là lỗi nghiêm trọng nhất.</li><li>Với Chủ đề A: chỉ liệt kê các hoạt động trong tuần mà không nêu rõ ngày nào bận nhất và tại sao.</li><li>Với Chủ đề B: không giải thích được lý do con số đó có ý nghĩa, chỉ nói \"I just like it\".</li><li>Dùng sai thì, ví dụ dùng thì tương lai khi mô tả thói quen hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu chêm: \"That's an interesting question, let me think for a moment\" để có thêm thời gian.</li><li>Nếu quên từ vựng cụ thể, hãy mô tả bằng từ đơn giản hơn, ví dụ thay vì \"superstition\" có thể nói \"a traditional belief that something brings good or bad luck\".</li><li>Với Chủ đề A, nếu không nhớ chi tiết, có thể nói chung chung về \"a day when I have free time to relax\" rồi phát triển thêm.</li><li>Với Chủ đề B, nếu bí ý tưởng, hãy liên hệ đến một kỷ niệm cá nhân gắn với con số đó để kéo dài câu trả lời.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy xem đây như một cuộc trò chuyện thân mật, không phải một bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Chủ đề A sang B, hãy \"reset\" tâm lý và coi đó là một câu hỏi hoàn toàn mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố gắng dùng từ vựng học thuật phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>A group of students wants to buy new clothes and is asking for your advice on the best way to shop.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Shopping at a shopping mall</li><li>Option 2: Shopping at a local market</li><li>Option 3: Shopping online</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống: một nhóm học sinh muốn mua quần áo mới và cần lời khuyên về cách mua sắm tốt nhất.</li><li>Ba lựa chọn: <strong>mua sắm trong trung tâm thương mại (mall)</strong>, <strong>mua sắm ngoài chợ</strong>, và <strong>mua hàng online</strong>.</li><li>Tiêu chí chấm điểm: khả năng phân tích, so sánh và đưa ra kết luận thuyết phục, cùng với Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>4 phút</strong> — khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction – Comparison/Body – End)</strong>: giới thiệu tình huống, phân tích lần lượt ba lựa chọn, sau đó kết luận và đưa ra lý do.</li><li><strong>Option 1 (mall):</strong> \"Shopping at a mall offers good quality and a comfortable environment, but the prices are usually higher than other options.\"</li><li><strong>Option 2 (chợ):</strong> \"Shopping at a local market allows for bargaining and lower prices, though the quality of clothes can be inconsistent.\"</li><li><strong>Option 3 (online):</strong> \"Online shopping is convenient and offers a wide range of choices, but students can't try on clothes before buying, which increases the risk of a poor fit.\"</li><li>Mẹo: luôn neo lập luận vào bối cảnh thực tế của học sinh có ngân sách hạn chế (bắt buộc).</li><li>Mẹo: dùng từ nối tương phản như \"however\", \"on the other hand\" để chuyển giữa ưu và nhược điểm (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết ba lựa chọn với nhau thay vì nói tách biệt, ví dụ: \"Compared to Option 1, Option 3 is much more time-saving.\"</li><li>Về thì: dùng <strong>câu điều kiện loại 1</strong> khi dự đoán hệ quả (\"If they shop online, they might receive clothes that don't fit properly\") và <strong>hiện tại đơn</strong> khi mô tả đặc điểm từng lựa chọn.</li><li>Paraphrase cụm \"buy clothes\" thành \"purchase outfits\" hoặc \"shop for clothing\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a wide range of choices</strong> (nhiều sự lựa chọn).</li><li><strong>bargain for a better price</strong> (mặc cả để có giá tốt hơn).</li><li><strong>try on clothes</strong> (thử đồ).</li><li><strong>convenient and time-saving</strong> (tiện lợi và tiết kiệm thời gian).</li><li><strong>inconsistent quality</strong> (chất lượng không đồng đều).</li><li><strong>a risk of a poor fit</strong> (rủi ro không vừa vặn).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>On the other hand,</strong> – nêu quan điểm đối lập (mặt khác).</li><li><strong>Compared to...,</strong> – so sánh giữa các lựa chọn.</li><li><strong>Taking everything into account,</strong> – tổng kết trước khi kết luận (xét tổng thể).</li><li><strong>Nevertheless,</strong> – nhấn mạnh điểm trái ngược (tuy nhiên).</li><li><strong>As a result,</strong> – nêu hệ quả (kết quả là).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"If I were advising them, I would suggest shopping at the local market for its affordable prices.\" (Nếu tôi là người tư vấn...)</li><li>\"I would strongly recommend online shopping for its convenience and variety.\" (Tôi sẽ khuyên...)</li><li>\"In my opinion, the mall offers the best balance between quality and shopping experience.\" (Theo ý kiến của tôi...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không chỉ ra nhược điểm của các lựa chọn còn lại.</li><li>Lặp đi lặp lại từ \"cheap\"/\"good\" thay vì dùng tính từ học thuật hơn như \"affordable\", \"reliable\".</li><li>Không đưa ra kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng chuyên ngành, chuyển hướng sang yếu tố giá cả hoặc thời gian để tiếp tục lập luận.</li><li>Dùng câu chêm: \"Let's evaluate this option from a different perspective\" để có thêm thời gian suy nghĩ.</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một người thực sự đang tư vấn cho nhóm học sinh — điều gì thực sự phù hợp với ngân sách và nhu cầu của họ.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả cho lựa chọn được chọn để thể hiện tư duy phản biện.</li><li>Sự mạch lạc và logic trong lập luận quan trọng hơn việc dùng từ vựng phức tạp.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The most important factors on a job interview day",
+          "mindmap": {
+            "title": "Job Interview Success Factors",
+            "ideas": [
+              "Personal appearance and presentation",
+              "Confidence and communication skills",
+              "A good sense of humor and pleasant personality",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Do you think appearance is important during a job interview?",
+            "Between appearance and personality, which do you think matters more?",
+            "How can someone know whether their appearance makes a good impression on others?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề: <strong>Những yếu tố quan trọng nhất trong ngày phỏng vấn xin việc</strong>, với 3 nhánh ý chính và 1 nhánh ý cá nhân (gợi ý nhánh thứ 4: sự chuẩn bị kỹ lưỡng trước buổi phỏng vấn).</li><li>Tiêu chí chấm điểm: khả năng phát triển ý mạch lạc theo sơ đồ tư duy, cùng Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>5 phút</strong>; khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> vì chủ đề mang tính thực tiễn nghề nghiệp, cần cả lý lẽ lẫn ví dụ cụ thể.</li><li><strong>Ví dụ 1 (mở bài):</strong> \"On a job interview day, several factors can determine whether a candidate leaves a strong impression on the interviewer.\"</li><li><strong>Ví dụ 2 (nhánh cá nhân):</strong> \"Personally, I believe that thorough preparation, such as researching the company beforehand, is just as crucial as how a candidate presents themselves.\"</li><li>Mẹo: khi nói về ngoại hình và tính cách, hãy đưa ra ví dụ cụ thể để tránh nói chung chung.</li><li>Mẹo: bám sát sơ đồ tư duy để tránh lan man, không lặp lại ý đã nói (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng cụm từ chuyển tiếp mượt mà giữa các nhánh ý, ví dụ \"Another factor that plays a role is...\".</li><li>Về thì: dùng <strong>hiện tại đơn</strong> để nêu sự thật/quan điểm chung (\"First impressions often depend on appearance\") và <strong>hiện tại hoàn thành</strong> để nói về trải nghiệm tích lũy (\"I have attended a few interviews myself\").</li><li>Paraphrase \"job interview\" bằng \"interview process\" hoặc \"hiring interview\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a professional appearance</strong> (ngoại hình chuyên nghiệp).</li><li><strong>make a good first impression</strong> (tạo ấn tượng đầu tốt).</li><li><strong>confident body language</strong> (ngôn ngữ cơ thể tự tin).</li><li><strong>a good sense of humor</strong> (khiếu hài hước).</li><li><strong>strong interpersonal skills</strong> (kỹ năng giao tiếp tốt).</li><li><strong>well-prepared for the interview</strong> (chuẩn bị kỹ lưỡng cho buổi phỏng vấn).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with,</strong> – mở đầu nhánh ý đầu tiên (trước hết).</li><li><strong>Moreover,</strong> – bổ sung ý (hơn nữa).</li><li><strong>Another point worth noting is...</strong> – chuyển sang nhánh ý mới.</li><li><strong>In addition to that,</strong> – mở rộng ý (thêm vào đó).</li><li><strong>To sum up,</strong> – kết luận (tóm lại).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"I would say that a neat, professional appearance is often the first thing an interviewer notices.\" (Tôi cho rằng...)</li><li>\"From what I've observed, candidates with good communication skills tend to leave a stronger impression than those who only look good.\" (Theo những gì tôi quan sát được...)</li><li>\"It seems to me that a friendly personality can sometimes outweigh a slightly imperfect appearance.\" (Đối với tôi thì có vẻ như...)</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Do you think appearance is important during a job interview?\"</strong> – Yes, a neat and professional appearance helps create a positive first impression, though it's not the only factor.</li><li><strong>\"Between appearance and personality, which do you think matters more?\"</strong> – Personality tends to matter more in the long run, since it reflects how someone will actually work and communicate with colleagues.</li><li><strong>\"How can someone know whether their appearance makes a good impression on others?\"</strong> – By asking for honest feedback from friends or mentors, and by dressing appropriately according to the company's culture.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê ý mà không giải thích hoặc cho ví dụ cụ thể.</li><li>Quên nhánh ý cá nhân — nên chuẩn bị trước một quan điểm riêng liên quan đến phỏng vấn xin việc.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào một trải nghiệm phỏng vấn thực tế của bản thân hoặc người quen khi bí ý.</li><li>Câu chêm học thuật: \"That is a complex issue. If we evaluate it from a societal viewpoint...\"</li><li>Nếu quên từ vựng chuyên ngành, dùng mô tả đơn giản, ví dụ thay vì \"recruiter\" có thể nói \"the person who interviews and hires candidates\".</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ từ góc nhìn của cả ứng viên lẫn nhà tuyển dụng để có lập luận cân bằng.</li><li>Sự mạch lạc và logic trong luồng ý là yếu tố then chốt để đạt điểm cao.</li><li>Đừng cố nhồi nhét từ vựng khó, hãy ưu tiên truyền tải ý tưởng rõ ràng và tự nhiên.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

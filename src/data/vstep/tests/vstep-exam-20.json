@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-20",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 20",
+  "duration": 172,
+  "date": "2026-03-18",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-20/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Hi everyone, and welcome to City Wildlife Park. I’ll explain where things are and then you’re free to go wherever you want. In front of us are some empty cages where the rabbits live. They’re free to run about in the long grass, but come back to their cages when they’re hungry! If you’re interested in ducks, surprisingly they’re not right here in the pond, but over there in one of their favourite places, near the dustbins. And we keep goats in the field here, together with some sheep.</li></ul><p><b>Question 2.</b></p><ul><li>And now for the weather forecast for this Saturday and Sunday. People heading to the music festival starting on Saturday on the South coast should be prepared for different conditions over the next two days. Saturday will bring bright sunshine but cool temperatures for this time of year. Overnight, however, clouds are expected to move in and Sunday will see dull skies bringing a further drop in temperatures, and there will be a good chance of rain later on.</li></ul><p><b>Question 3.</b></p><ul><li>Hello. My name’s John Masters. This is a message for the person I spoke to yesterday in Customer Services. You asked me to return the iron I bought from you in its box. I’ve done this, although as I mentioned to you the box was badly damaged when it arrived. Anyway, that’s not the problem and the iron didn’t look damaged at all. But when I switched it on, it didn’t heat up. My order reference is 01376XB. I hope you’ll replace the iron as soon as possible. Thank you.</li></ul><p><b>Question 4.</b></p><ul><li>In the heart of the City the Arts Centre includes a concert hall, cinema and an art gallery. The cinema is presenting a programme of films by younger film-makers and is attracting larger audiences than ever. The open-air concert area is the new home to the City Orchestra with an exciting concert programme of new composers and guest performers, while the City Art Gallery has a major programme of exhibitions all summer. Guests can enjoy dinner in the popular restaurant and enjoy the wonderful views of the City and river.</li></ul><p><b>Question 5.</b></p><ul><li>On today’s student Cookery programme, I’m going to show you how to make some really cheap and healthy meals. Forget about opening tins and think fresh! You can do wonderful things with tomatoes, potatoes - and I don’t mean chips or fries! even cabbage, yes cabbage rolls, tilled with tasty rice and herbs. And the essential vegetable in all my recipes is the ordinary onion, red or white or brown colour doesn’t matter. First of all, you need a Sharp knife. So, watch carefully and off we go.</li></ul><p><b>Question 6.</b></p><ul><li>You’d think that paying a bill would be easy. On tonight’s Money Today, I’m looking at some of the difficulties there can be. The story starts with my own experience. Thinking it’d be simpler, I made the mistake of trying to pay a hotel bill in cash. Well, amazingly they insisted on me using a credit card. I didn’t have one with me, so had to get onto my internet banking site using my mobile phone to try and get my card details. Nothing’s easy.</li></ul><p><b>Question 7.</b></p><ul><li>Hello, this is Sarah Wright. I arranged to collect a guitar I ordered. I was meant to come this afternoon, but there’s a problem. I had to get a book from the library and I’ve just missed the bus so I won’t be able to get out to the shop before you close. I’ve got an appointment in the town centre to choose some new glasses tomorrow so I could come in and pick it up then. I hope that’s ok.</li></ul><p><b>Question 8.</b></p><ul><li>... and now for the weather. What’s it going to be like for the big race tomorrow morning, Mike? -Well, it’s been clear and sunny all week, but it looks as if it’s going to turn really cold tonight, and with ice on the track, conditions for racing could be difficult. It doesn’t look like there’ll be any rain until the weekend though, and later in the afternoon there’ll be a bit of sun coming out from behind the clouds.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Where can visitors see the ducks?",
+              "options": [
+                "in the cages",
+                "in the pond",
+                "near the wastebaskets",
+                "in the field"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What will the weather be like when the festival starts?",
+              "options": [
+                "sunny",
+                "cloudy",
+                "rainy",
+                "rainy and cloudy"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What has the man sent back to the company?",
+              "options": [
+                "an iron in a damaged box",
+                "a damaged iron in a good-condition box",
+                "a damaged iron in a damaged box",
+                "an iron in a good-condition box"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which part of the Arts Centre only opened recently?",
+              "options": [
+                "an open-air concert area",
+                "a cinema",
+                "an art gallery",
+                "a restaurant"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which vegetable is used in all today's recipes?",
+              "options": [
+                "tomatoes",
+                "potatoes",
+                "cabbage",
+                "onion"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "How did the man want to pay?",
+              "options": [
+                "in cash",
+                "by credit card",
+                "by cheque",
+                "bank transfer"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the woman phoning about?",
+              "options": [
+                "a guitar",
+                "a book",
+                "glasses",
+                "the library"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What will the weather be like for the race?",
+              "options": [
+                "sunny",
+                "snowy",
+                "rainy",
+                "cloudy"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-20/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Today I’m with Robin Marshall, who has just written a book about travelling in Argentina. Robin, tell us about yourself...</li><li><b>M:</b> Well, I’ve travelled to South America a lot for my work and I know Argentina well now. So well that I could be a tour guide if I wanted! I speak fluent Spanish, so I don’t need anyone to translate for me. My job involves travelling around selling products for my company. I meet a lot of people doing that, and I wanted to share those experiences with others, so I decided to try writing.</li><li><b>W:</b> So, tell us about your last visit to Argentina. What was the weather like?</li><li><b>M:</b> Well, it was winter there, so mornings were cold, but I’d expected that. Every day they said on the radio that it would be sunny later and sure enough, it was! I wanted to go sightseeing, and the weather was perfect for that.</li><li><b>W:</b> And where did you go when you went sightseeing?</li><li><b>M:</b> Well, I went to a wonderful market that sold everything from modern art to old recordings of traditional music, which I collect. I came home with a beautiful painting of the area I also saw a wonderful antique chair, but unfortunately it was too big to bring back.</li><li><b>W:</b> Now, Argentina is famous for its dancing. Did you see any performances during your trip?</li><li><b>M:</b> I did, yes. It reminded me of when I used to attend dance classes. I enjoyed them although I was never very good. I’m sure my teacher was pleased when I said I wasn’t going to continue! But these dancers made it look so easy that at that moment I felt like joining in and dancing with them.</li><li><b>W:</b> It sounds wonderful! And what else did you do?</li><li><b>M:</b> Well, I went to a small village on the coast. I took the bus there, and got a room in a small hotel. The hotel owner was very friendly. He took me down the river in his boat. It was very beautiful - you could see the forest in the distance.</li><li><b>W:</b> Do you have a favourite place in Argentina?</li><li><b>M:</b> Definitely. It’s a mountain near Buenos Aires. It’s famous for its spectacular scenery. But when I went there it was very misty and the sun was just rising. You couldn’t see much. There were no birds or animals about. It was totally quiet, and I loved that. I shall go back one day.</li><li><b>W:</b> We look forward to reading your book. Thank you, Robin.</li><li><b>M:</b> Thank you.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Harry Park, you run a travel company which organizes adventure holidays in some difficult places? How did you first become interested in Adventure travel?</li><li><b>M:</b> Well, my father worked in an insurance company once he had a family but before that he’d spent several years traveling the world and he never stopped telling us about it. His stories were much more exciting than the books I read and they make me want to travel and have adventures of my own.</li><li><b>W:</b> And what made you decide to start an adventure travel company?</li><li><b>M:</b> Well, when I was in my twenties, I traveled a lot in different countries I went exploring and climbing in mountains and deserts. I wanted to show other people how wonderful these things were. The business has been very successful but when I started it I didn’t know if I’d make any money.</li><li><b>W:</b> Your company is called Far and wide. How did you choose the name?</li><li><b>M:</b> Well, I just called it Park Travel at first. But everyone thought that was terribly boring! My wife kept suggesting different things but in the end it was a customer who gave me the idea. Far and wide is also the title of a book that a friend wrote so it reminds me of him too.</li><li><b>W:</b> Great... The places you visit are usually very unspoilt, Harry. Some people think it’s not a good idea to take tourists there. What would you say to them?</li><li><b>M:</b> Well, most of the places we visit have no inhabitants, so we aren’t going to spoil people’s way of life or bring in things like television and fridges! And I make sure that we always take care of the environment. We are careful not to cause pollution, so we take all our rubbish away.</li><li><b>W:</b> Some of the things you do are also dangerous. Do you enjoy danger?</li><li><b>M:</b> Well, it’s not a question of enjoying it. It’s just that you can’t do what I do without thinking about the possible dangers. I’m never frightened though. If I’m taking a group up a mountain or something like that. I just concentrate on what I have to do and get on with it.</li><li><b>W:</b> You’ve been to some fascinating places, Harry. What’s your favourite?</li><li><b>M:</b> It’s in India. You travel along a river through spectacular scenery and up into the mountains in Madhya Pradesh. In the valley on the other side there’s a wonderful old castle. It’s magical. The mountains hide it, so few people know it’s there ...</li><li><b>W:</b> Thanks for talking to us, Harry ...</li><li><b>M:</b> Thank you.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Now Linda, let’s talk about your first job.</li><li><b>W:</b> Well, I was an assistant in an expensive cake shop in the small town where I lived. It was my last year at school, before I went to college. I wanted to earn extra money for myself because I come from a family of seven and my parents couldn’t afford to give us much pocket money.</li><li><b>M:</b> Did you like your first boss?</li><li><b>W:</b> He was always polite, never shouted at us, even when we dropped thing and that was good for a young girl like me who wasn’t very confident. He knew everything about the business. I had no proper training, but it was good experience working for someone with so much knowledge. He didn’t pay us well, but I didn’t expect to earn much in my first job.</li><li><b>M:</b> And what about the shop? Was it a nice place to work?</li><li><b>W:</b> As I say, it was an expensive shop, and the cakes were beautiful. Then in the morning there was this wonderful smell of bread baking. The first week was difficult because I just wanted to eat the cakes which wasn’t allowed but then I lost interest in them. We had to keep everything clean, and that was hard work.</li><li><b>M:</b> Did you do any of the baking yourself?</li><li><b>W:</b> There were two chefs who were specialists in making cakes for celebrations and creating new bread recipes I loved watching them at work, but I wasn’t allowed to touch the ones on display in the windows. We sold sandwiches at lunchtime again, very luxurious ones and the shop assistants had to make those I learn to put in really generous fillings, much more than I used at home.</li><li><b>M:</b> How did you get on with the other shop assistants?</li><li><b>W:</b> One of them was my best friend, which was great, but the full-time staff some treated us like silly schoolgirls because we couldn’t cook. But I was surprised because the full-time assistants couldn’t add up in their head. I was good at it, but they used calculators if there was anything difficult to work out.</li><li><b>M:</b> Did you enjoy serving customers in the shop?</li><li><b>W:</b> The best part of the day was lunchtime, when we were busy. Time just flew. Then it was interesting when people came in to plan a party or a wedding. One of the chefs would come through to discuss the design of the cake. Some customers thought the prices were too high, but usually ended up buying the cakes anyway.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What was Robin's job in Argentina?",
+              "options": [
+                "translator",
+                "tour guide",
+                "salesman",
+                "tourist"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What did Robin buy from the market he visited?",
+              "options": [
+                "a picture",
+                "a chair",
+                "a record",
+                "a CD"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "How did Robin feel during the dance performance he saw?",
+              "options": [
+                "He wanted to get up and dance.",
+                "He wished he had continued his dance classes.",
+                "He was sad he didn't dance well.",
+                "He thought Argentinean dancing was much easier than his country's dancing."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What did Robin like about his favourite place?",
+              "options": [
+                "the wildlife",
+                "the views",
+                "the peace",
+                "the weather"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why did Harry decide to start an adventure travel company?",
+              "options": [
+                "He wanted to share his experience with others.",
+                "He thought he could make a lot of money.",
+                "his father encouraged him to do it.",
+                "He hoped to do more travelling himself."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Who suggested the name for Harry's company?",
+              "options": [
+                "a friend",
+                "a customer",
+                "his wife",
+                "his parents"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does Harry say about doing dangerous things?",
+              "options": [
+                "It's part of his job.",
+                "He always thinks of how to avoid possible dangers.",
+                "It's frightening.",
+                "It's enjoyable."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is Harry's favourite place?",
+              "options": [
+                "a mountain",
+                "a building",
+                "a river",
+                "valley"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why did Linda like her first boss?",
+              "options": [
+                "paid her well.",
+                "was kind to her.",
+                "sent her on a training course.",
+                "made her become confident."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did Linda enjoy about working in the shop?",
+              "options": [
+                "eating the cakes",
+                "the smell of baking",
+                "the clean workplace",
+                "friendly co-workers."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "In the shop, what did Linda help with?",
+              "options": [
+                "baking bread.",
+                "displaying cakes.",
+                "making sandwiches.",
+                "creating new bread recipes."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does Linda say about the full-time shop assistants?",
+              "options": [
+                "were friendly to her.",
+                "hadn't got the same skills as her.",
+                "helped her a lot with her work.",
+                "didn't work as hard as her."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-20/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talks/Lectures 1 (Q.21-25)</b></p><p>Welcome to all of you . . . can everybody see and hear me? . . . . Good . . . . I’m Sally, your guide for this tour of the Bicentennial Park I hope that you’re all wearing your most comfortable shoes and that you can keep up the pace. So let’s get under way on our tour around this wonderful park. I’ll start today with some general background information. There used to be a lot of factories in this area until the 1960s. Creating the park required the demolition of lots of derelict buildings on the site so most of the exciting park space all around you was originally warehouses and storehouses. The idea of building a high-rise park here was first discussed when a property developer proposed a high-rise housing development, but the local community wasn’t happy. If the land was to be cleaned up they wanted to use the site for recreation. Residents wanted open space for outdoor activities rather than housing or even an indoor sports complex. Now to the Bicentennial Park itself. It has two areas, a nature reserve and a formal park with man-made features and gardens. The tall blue-and-white building in front of us is called The Tower and it is the centre point for the formal gardens. It stands twelve metres high so follow me up the stairs to where we can take advantage of the fantastic views. well here we are at the top of The Tower, and we’re going to look at the view from each direction. Out to the east, the large buildings about a kilometre away are on the Olympic site. There’s an indoor arena for gymnastics, a stadium for track and field and a swimming pool for races and synchronised swimming and also diving. If you look carefully down there, you can see the train lines. The Olympic site has its own station to encourage the use of public transport. There is also a car park, but it only holds a limited number of cars. The formal park has some specially-created water features. If you look out here to the south you can see a circular ornamental pond. And around to the west, you can relax and sit on a bench to smell the flowers in the rose garden and finally up to the north, if you look in front of you now there’s a lake with a small island in the centre you can hire rowing boats at the boat shed which you can’t see from here but if you look through the trees, you can see the café, which has lovely views across the water. Okay, let’s climb down now</p><p><b>Talks/Lectures 2 (Q.26-30)</b></p><p>Welcome to Green Vale Agricultural Park As you know, we have only been open a week so you are amongst our first visitors. We have lots of fascinating indoor and outdoor exhibits on our huge complex, spreading hundreds of hectares. Our remit is to give educational opportunities to the wider public as well as to offer research sites for a wide variety of agriculturists and other scientists. Let’s start by seeing what there is to do. As you can see here on our giant wall plan, we are now situated in the Reception block ... here. As you walk out of the main door into the park there is a path you can follow. If you follow this route you will immediately come into the Rare Breeds section where we keep a wide variety of animals which I shall be telling you a little more about later. Next to this ... moving east... is the large grazing area for the rare breeds. Then further east... in the largest section of our Park is the Forest Area. South of the grazing area and in fact just next to the Reception block is our Experimental Crop Area. In the middle of the Park ... this circular area is our lake These two small rectangular shapes here are the Fish Farms area we rear fish for sale. To the east of those is the marsh area which attracts a great many migrant birds. In the south-eastern corner, beyond the marsh, is our Market Garden area, growing vegetables and flowers. All these areas can be visited by the general public for almost all the year... although please take note of the large signs at the entrance to each area which tell which tell you when certain areas are being used for particular controlled experiments and are therefore temporarily out of bounds to the public. You can see for yourself what a huge area the park covers and a key question is always, how can we move around? Well you have a choice of means all environmentally friendly Cars are banned in the park. We have bicycles which you can hire behind the reception block here the healthy ones of you can go on foot and finally there’s our electric tram, powered from solar cells. You can find more information about this at the front entrance. A good place to start on your tour is the Rare Breeds section. We keep goats, sheep and hens and other kinds of poultry. We are also thinking of bringing in cows and horses but we do not, as yet, have facilities for these bigger animals. The animals are fed in public twice a day and a short lecture given on their feeding habits and nutritional needs. These are very popular with the public but of course we mustn’t lose sight of the main purpose of having this section not as such to preserve rare animals but to maintain the diversity of breeds to broaden the gene pool for agricultural development.</b></p><p><b>Talks/Lectures 3 (Q.31-35)</b></p><p>Hello I’m delighted to welcome you to our Wildlife Club and very pleased that you’re interested in the countryside and the plants and creatures of this area. I think you’ll be surprised at the variety we have here, even though we’re not far from London. I’ll start by telling you about some of the parks and open spaces nearby. One very pleasant place is Halland Common. This has been public land for hundreds of years and what you’ll find interesting is that the River Ouse which flows into the sea eighty kilometres away has its source in the Common. There’s an information board about the plants and animals you can see here and by the way, the Common is accessible 24 hours a day. Then there’s Holt Island which is noted for its great range of trees. In the past willows were grown here commercially for basket-making and this ancient craft has recently been reintroduced The Island is only open to the public from Friday to Sunday, because it’s quite small and if there were people around every day much of the wildlife would keep away. From there it’s just a short walk across the bridge to Longfield Country Park Longfield has a modern replica of a farm from over two thousand years ago Children’s activities are often arranged there like bread-making and face-painting. The park is only open during daylight hours so bear that in mind if you decide to go there. Longfield Park has a programme of activities throughout the year and to give you a sample this is what’s happening in the next few days</p><p>On Monday you can learn about herbs and how they’ve been used over the centuries. You’ll start with a tour of our herb garden, practise the technique of using them as colour dyes for cloth and listen to an illustrated talk about their use in cooking and medicine. Then on Wednesday you can join local experts to discover the variety of insects and birds that appear in the evening. We keep to a small number of people in the group so if you want to go you’ll need to phone the park ranger a few days ahead. There’s a small charge which you should pay when you turn up. I’m sure you’re all keen to help with the practical task of looking after the park so on Saturday you can join a working party. You’ll have a choice of all sorts of activities from planting hedges to picking up litter so you’ll be able to change from one to another when you feel like it The rangers will be hard at work all day, but do come and join in, even for just a short while. One thing, though, is to make sure you’re wearing something that you don’t mind getting dirty or torn.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What kind of tour is Sally leading?",
+              "options": [
+                "a bus tour",
+                "a train tour",
+                "a walking tour",
+                "a cruise"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What kind of buildings was it before the Park was made?",
+              "options": [
+                "houses.",
+                "industrial buildings.",
+                "shops.",
+                "a school."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What did the local residents want to use the site for?",
+              "options": [
+                "leisure.",
+                "apartment blocks.",
+                "a sports centre.",
+                "office buildings"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does the speaker say about the Tower?",
+              "options": [
+                "It is located in the centre of the nature reserve.",
+                "It's a blue and black building.",
+                "It's 20 meters high.",
+                "It offers tourists wonderful views."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "In which direction from the top of the Tower can the tourists see the Olympic site?",
+              "options": [
+                "to the North.",
+                "to the South.",
+                "to the East.",
+                "to the West."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "According to the speaker, what are the main purposes of the park?",
+              "options": [
+                "education and entertainment.",
+                "research and education.",
+                "research and entertainment.",
+                "education and agriculture"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Which is the biggest part of the Park?",
+              "options": [
+                "the Forest area",
+                "the Market Garden area",
+                "the Rare Breed section",
+                "Experimental Crop Area"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "How can you move around the park?",
+              "options": [
+                "by tram, walking or bicycle",
+                "by solar car or bicycle",
+                "by bicycle, walking or bus",
+                "by bus or bicycle"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What rare breed animals are kept in the park?",
+              "options": [
+                "hens and horses.",
+                "goats and cows.",
+                "goats and hens.",
+                "cows and horses"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What is the main purpose of having the Rare Breeds Section?",
+              "options": [
+                "to save unusual animals",
+                "to keep a variety of breeds",
+                "to educate the public",
+                "to save injured animals"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is NOT true about Halland Common?",
+              "options": [
+                "It has been open for a hundred years.",
+                "It's open all day long.",
+                "Information about plants and animals are available to the public.",
+                "River Ouse has its source in it."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What does the speaker say about Holt Island?",
+              "options": [
+                "It has been famous for handicraft.",
+                "It's commercially developed.",
+                "It's rather large.",
+                "People come there every day."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What will visitors do on Monday in the Longfield Park?",
+              "options": [
+                "prepare food with herbs.",
+                "meet a well-known herbalist.",
+                "dye cloth with herbs.",
+                "Painting their faces with herb dyes."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What does the speaker say about the activity on Wednesday?",
+              "options": [
+                "only group bookings are accepted.",
+                "visitors should book in advance.",
+                "attendance is free.",
+                "Visitors will listen to experts talking about insects and birds."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What should visitors do for the activity on Saturday?",
+              "options": [
+                "work hard on the activities.",
+                "make sure they are able to stay for the whole day.",
+                "tell the rangers before the event what they wish to do.",
+                "come in suitable clothing."
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Cyclo: A Vanishing Icon of Vietnamese Streets",
+            "text": "<p>The cyclo, a three-wheeled bicycle taxi with a wide passenger seat mounted at the front, has long been one of the most recognizable sights on Vietnamese streets. Unlike a rickshaw, which a driver pulls from in front, the cyclo is pedaled from behind, allowing the rider to sit forward and enjoy an unobstructed view. The vehicle first appeared in Vietnam during the 1930s, introduced under French colonial rule, and it quickly spread through the country's growing cities. Hanoi and Saigon, now known as Ho Chi Minh City, became the two places where cyclos were most common, weaving through narrow streets that cars could not easily enter.</p><p>For much of the twentieth century, the cyclo served as an essential part of everyday urban life rather than simply a <strong>novelty</strong>. It was cheap, and its small size let it slip down alleys that buses and cars found impossible to navigate. Many families relied on a single cyclo to carry not only passengers but also market goods, furniture, and even livestock strapped <strong>precariously</strong> to the frame. Drivers typically owned their own vehicles and worked long hours, often from early morning until well after sunset, since fares were modest and a full day's pedaling was needed to earn a reasonable income.</p><p>That central role began to fade after the economic reforms of the late 1980s opened the country to faster growth. Motorbikes became affordable to ordinary households, and they could carry passengers more quickly across distances that once took a cyclo driver considerable effort to cover. City authorities in Hanoi restricted cyclos from a growing number of central streets in the early 2000s, citing traffic congestion, and similar rules soon followed in Ho Chi Minh City. Within a decade, the number of registered cyclos in both cities had fallen by more than half, and many former drivers switched to driving motorbike taxis instead.</p><p>Cyclos have not disappeared entirely, however. In tourist districts such as Hanoi's Old Quarter and the ancient town of Hoi An, they now function chiefly as a way for visitors to see the sights at a gentle pace, with drivers doubling as informal tour guides who point out temples, markets, and colonial buildings along the route. <strong>This</strong> shift toward tourism has kept a small fleet of cyclos in business, though the drivers themselves are ageing, and few young workers are willing to take up a trade that pays little and demands considerable physical stamina.</p><p>Recognizing what would be lost if the cyclo vanished altogether, several municipal tourism boards have begun small programs to register drivers, standardize fares, and promote cyclo tours as part of the local heritage experience. Whether these measures will be enough to keep the tradition alive remains uncertain, but for now the cyclo continues to occupy a modest, if shrinking, place in the rhythm of Vietnamese city life.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q2, R1Q3, R1Q9):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R1Q2</b>, quét các từ khóa \"first appeared\" ở đoạn 1 để xác định thời gian xuất hiện của xích lô: vào thập niên 1930 dưới thời thuộc địa Pháp (During the 1930s, under French colonial administration).</li><li>Với <b>R1Q3</b>, định vị các vật dụng ngoài hành khách được chở ở đoạn 2: hàng hóa ngoài chợ, đồ nội thất và gia súc buộc vào khung xe (Market goods, furniture, and livestock tied to the frame).</li><li>Với <b>R1Q9</b>, quét từ khóa \"mainly operate today\" ở đoạn 4 để tìm địa điểm hoạt động chính hiện nay: các khu vực du lịch như Phố cổ Hà Nội và Hội An (In tourist districts such as Hanoi's Old Quarter and Hoi An).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn: bài viết mô tả sự chuyển đổi vai trò của xích lô từ phương tiện giao thông công cộng thiết yếu hàng ngày thành phương tiện chủ yếu phục vụ du lịch (The cyclo shifted from everyday transport into a tourist role).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q5, R1Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q5</b>, từ <strong>\"precariously\"</strong> ở đoạn 2 mô tả cách buộc gia súc lên khung xe xích lô một cách bấp bênh, không chắc chắn. Ngữ cảnh này đồng nghĩa với không vững chãi (unsteadily).</li><li>Với <b>R1Q7</b>, từ <strong>\"novelty\"</strong> ở đoạn 2 mô tả xích lô là một phần thiết yếu của cuộc sống đô thị chứ không chỉ đơn thuần là một thứ mới lạ/bất thường (rather than simply a novelty). Ngữ cảnh này đồng nghĩa với điều gì đó mới lạ, khác thường (something unusual).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q4):</b> Đối soát các nguyên nhân dẫn đến sự thoái trào của xích lô được nêu ở đoạn 3: xe máy trở nên giá rẻ hơn, chính quyền hạn chế xích lô ở các tuyến phố trung tâm, và tài xế chuyển sang chạy xe ôm. Chi tiết \"thiếu phụ tùng thay thế khiến việc sửa chữa ngày càng khó khăn\" (A shortage of spare parts made repairs increasingly difficult) hoàn toàn không được nhắc tới.</li><li><b>Dạng câu hỏi Quy chiếu (R1Q6):</b> Tập trung vào đại từ chỉ định <strong>\"This\"</strong> (hoặc \"This shift\") ở đoạn 4. Áp dụng quy tắc đọc ngược lại câu trước đó để xác định đối tượng: câu trước mô tả sự chuyển hướng của xích lô sang phục vụ du lịch. Do đó, \"This\" quy chiếu trực tiếp đến vai trò du lịch của xích lô (cyclos' tourist role).</li><li><b>Dạng câu hỏi Suy luận (R1Q8):</b> Tổng hợp logic ở đoạn 4 và đoạn kết về tài xế ngày càng lớn tuổi và sự cần thiết của các nỗ lực bảo tồn. Tương lai tồn tại của xe xích lô phụ thuộc vào sự thành công của các nỗ lực bảo tồn hiện tại (Whether cyclos survive depends on current preservation efforts succeeding).</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái bài viết. Tác giả thể hiện sự đồng cảm, coi xích lô là một nét di sản văn hóa giá trị cần được giữ gìn và bảo tồn (Sympathetic, viewing the cyclo as valuable heritage worth preserving).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R1Q6) và <b>Từ vựng</b> (R1Q5, R1Q7). Kế tiếp, áp dụng kỹ thuật đọc quét nhanh để hoàn thành các câu <b>Chi tiết</b> (R1Q2, R1Q3, R1Q9) và <b>Loại trừ</b> (R1Q4). Cuối cùng, tổng hợp lập luận toàn bài để chốt chính xác các câu <b>Suy luận</b> (R1Q8), <b>Ý chính toàn bài</b> (R1Q1) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "The cyclo shifted from everyday transport into a tourist role.",
+                "The cyclo has vanished entirely because of modern motorized transport.",
+                "Cyclos declined mainly because motorbikes became cheaper and faster.",
+                "Tourism created the cyclo, replacing its original transport function entirely."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, when did the cyclo first appear in Vietnam?</span>",
+              "options": [
+                "Sometime after Hanoi and Saigon grew into major cities.",
+                "During the 1930s, under French colonial administration.",
+                "In the early 2000s, when traffic rules changed.",
+                "During the 1980s, following the country's economic reforms."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, besides passengers, what did families sometimes transport by cyclo?</span>",
+              "options": [
+                "Building materials, farm tools, and small motorbikes for repair.",
+                "Market goods, furniture, and other passengers riding for free.",
+                "Livestock, furniture, and drivers' personal belongings for trips.",
+                "Market goods, furniture, and livestock tied to the frame."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor in the cyclo's decline?</span>",
+              "options": [
+                "City authorities restricted cyclos from many central streets.",
+                "Many drivers switched to driving motorbike taxis instead.",
+                "A shortage of spare parts made repairs increasingly difficult.",
+                "Motorbikes became affordable to ordinary households across Vietnam."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"precariously\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "commercially",
+                "unsteadily",
+                "securely",
+                "previously"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"This\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "temples and markets",
+                "informal tour guides",
+                "colonial buildings",
+                "cyclos' tourist role"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"novelty\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "a business",
+                "a novel",
+                "something unusual",
+                "a luxury"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the future of the cyclo?</span>",
+              "options": [
+                "Preservation programs began because ageing drivers reduced tourist interest.",
+                "Whether cyclos survive depends on current preservation efforts succeeding.",
+                "Cyclos will certainly disappear once tourism programs end soon.",
+                "Cyclos have already vanished from everyday urban commuting entirely."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>According to the passage, where do cyclos mainly operate today?</span>",
+              "options": [
+                "In Hanoi's traffic-restricted streets near the city's main markets.",
+                "In rural villages where motorbikes are still too expensive.",
+                "In tourist districts such as Hanoi's Old Quarter and Hoi An.",
+                "In central Ho Chi Minh City's newly built business district."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the cyclo's changing role?</span>",
+              "options": [
+                "Confident that cyclos will remain common for many years.",
+                "Sympathetic, viewing the cyclo as valuable heritage worth preserving.",
+                "Strongly critical of government traffic policies in past decades.",
+                "Purely technical, focused only on how cyclos are built."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Teaching Young Children to Brush Their Teeth",
+            "text": "<p>Although a child's first teeth are eventually replaced, the habits formed while caring for them may shape oral health for decades to come. Dental researchers have increasingly turned their attention to early childhood, once considered a lower priority than adult dental care, because the habits established before age six appear to persist, for better or worse, well into adulthood. Some evidence suggests that children who begin supervised brushing before their second birthday develop fewer cavities in their permanent teeth later on, though the causal mechanism remains only partially understood.</p><p>Most dental associations recommend that a parent or caregiver handle the brushing directly until a child is about three years old, then gradually shift to supervised self-brushing rather than switching abruptly to full independence. This gradual approach — often overlooked by busy families — reflects the fact that fine motor skills needed to angle a brush against the gumline develop only slowly, typically not maturing until around age six or seven. Even children who insist they can brush <strong>unaided</strong> often miss the inner surfaces of the back teeth, the very spot where cavities most commonly form.</p><p>Fluoride toothpaste is generally advised from the appearance of the first tooth, though the amount matters more than many parents assume. A smear no larger than a grain of rice is typically recommended for children under three, expanding only to a pea-sized amount once a child reliably spits rather than swallows. Swallowing excess fluoride during the years when adult teeth are still forming underneath the gums can, in some cases, lead to faint white markings on the teeth later, a condition dentists call fluorosis, though most cases are mild and largely cosmetic.</p><p>Because resistance at the sink is one of the most common obstacles caregivers report, many pediatric dentists now argue that the emotional tone of brushing time matters as much as the technique itself. Songs, timers shaped like sand-glasses, and letting a child brush a stuffed animal's teeth first have each been shown, in small studies, to reduce the daily struggle, even though none of these strategies improves the mechanical thoroughness of the brushing on its own.</p><p>When <strong>these</strong> early habits fail to take hold, the consequences extend well beyond the baby teeth themselves. Early childhood caries, a rapid and severe form of decay linked to <strong>prolonged</strong> bottle use and inconsistent brushing, can cause pain intense enough to interfere with eating and, in turn, with a child's growth. Because the underlying permanent teeth sit so close beneath the baby teeth, untreated infection can occasionally damage the enamel of teeth that have not yet even emerged, connecting the neglect of a temporary tooth to a lifelong mark on a permanent one.</p><p>Pediatric dentists generally recommend a first dental visit by a child's first birthday, a schedule that surprises many parents who assume visits should wait until several teeth, or all of them, have emerged. This early visit is intended less to treat existing problems than to let a dentist check technique, discuss fluoride use, and catch the earliest signs of decay before they progress into the more serious complications described above.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q2, R2Q3, R2Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R2Q2</b>, quét từ khóa \"under three\" và \"amount\" ở đoạn 3 để xác định lượng kem đánh răng: một lượng nhỏ không lớn hơn hạt gạo (A smear no bigger than a single grain of rice).</li><li>Với <b>R2Q3</b>, quét các từ khóa \"first dental visit\" để xác định thời điểm khám răng đầu tiên: khi trẻ tròn 1 tuổi (By the time a child turns one year old).</li><li>Với <b>R2Q4</b>, định vị cụm từ \"fine motor skills\" ở đoạn 2 để tìm độ tuổi phát triển kỹ năng vận động tinh: khoảng 6 hoặc 7 tuổi (Around six or seven years old).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề đoạn 1 và các đoạn tiếp theo: bài đọc tập trung giải thích làm thế nào thói quen đánh răng sớm và sự hướng dẫn của cha mẹ ảnh hưởng lâu dài tới sức khỏe răng miệng của trẻ (Early brushing habits and parental guidance influence lifelong dental health).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q6, R2Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q6</b>, từ <strong>\"unaided\"</strong> ở đoạn 2 mô tả việc trẻ tự đánh răng mà không cần sự trợ giúp. Ngữ cảnh này đồng nghĩa với tự mình thực hiện (on their own).</li><li>Với <b>R2Q7</b>, từ <strong>\"prolonged\"</strong> ở đoạn 5 miêu tả việc tiếp xúc hoặc kéo dài thời gian (như bú bình kéo dài). Ngữ cảnh này đồng nghĩa sát nhất với được kéo dài (extended).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q5):</b> Đối soát các mẹo/chiến lược giúp việc đánh răng dễ dàng hơn được liệt kê ở đoạn 4: hát các bài hát, dùng đồng hồ cát, cho trẻ chải răng cho gấu bông trước. Chi tiết \"thưởng đồ ngọt cho trẻ sau mỗi lần đánh răng\" (Rewarding children with sugary treats after brushing sessions) hoàn toàn không được nhắc đến.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q8):</b> Tập trung vào đại từ chỉ định <strong>\"these\"</strong> ở đoạn 5. Đọc lại mạch logic ở các đoạn trước để xác định đối tượng quy chiếu: từ này thay thế cho các thói quen vệ sinh răng miệng từ sớm (early oral hygiene routines).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp logic ở đoạn 1 và đoạn 5 về mối liên hệ giữa răng sữa và răng vĩnh viễn. Nhiễm trùng hoặc sâu răng nghiêm trọng ở răng sữa có thể ảnh hưởng tiêu cực và làm hỏng Mầm răng vĩnh viễn đang phát triển bên dưới (Infections in baby teeth can sometimes damage developing permanent teeth).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R2Q10):</b> Phân tích sắc thái ngôn từ toàn bài. Tác giả không trích dẫn để trách phạt hay chỉ trích cha mẹ mà nhằm cung cấp thông tin, hướng dẫn các phương pháp vệ sinh răng miệng dựa trên bằng chứng khoa học cho trẻ em (To inform parents about evidence-based hygiene practices for children).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin nhanh như <b>Quy chiếu</b> (R2Q8) và <b>Từ vựng</b> (R2Q6, R2Q7). Kế tiếp, áp dụng kỹ thuật đọc quét thông tin để hoàn thành các câu <b>Chi tiết</b> (R2Q2, R2Q3, R2Q4) và <b>Loại trừ</b> (R2Q5). Cuối cùng, kết nối ý chính toàn bài để chốt chính xác các câu đòi hỏi tư duy phân tích gồm <b>Suy luận</b> (R2Q9), <b>Ý chính toàn bài</b> (R2Q1) và <b>Mục đích của tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Dental visits before age one prevent all future tooth decay.",
+                "Fluoride toothpaste alone determines whether children develop healthy teeth.",
+                "Early brushing habits and parental guidance influence lifelong dental health.",
+                "Parents alone determine whether a child avoids tooth decay."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, how much toothpaste is typically recommended for a child under three?</span>",
+              "options": [
+                "No toothpaste at all until the child turns three.",
+                "A smear no bigger than a single grain of rice.",
+                "A full toothbrush head of paste for effective cleaning.",
+                "A pea-sized amount, once the child can spit reliably."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, when do pediatric dentists generally recommend a child's first dental visit?</span>",
+              "options": [
+                "After several teeth or all of them have emerged.",
+                "Only once a child begins showing signs of decay.",
+                "By the time a child turns one year old.",
+                "Around age six or seven, when motor skills mature."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, at what age do children typically develop the fine motor skills needed to brush effectively on their own?</span>",
+              "options": [
+                "Around two years old, their second birthday.",
+                "Around three years old, when caregivers stop brushing.",
+                "Around six or seven years old.",
+                "Around one year old, at the first dental visit."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a strategy to make brushing time easier for children?</span>",
+              "options": [
+                "Using an hourglass-shaped timer for absolutely every session.",
+                "Letting a child brush a stuffed animal's teeth first.",
+                "Singing songs during a child's brushing time.",
+                "Rewarding children with sugary treats after brushing sessions."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"unaided\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "unaware",
+                "on their own",
+                "carelessly",
+                "without fluoride"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"prolonged\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "reduced",
+                "prolific",
+                "flavored",
+                "extended"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"these\"</strong> in paragraph 5 refers to _______.</span>",
+              "options": [
+                "sand-glass timers",
+                "bottle use",
+                "early oral hygiene routines",
+                "stuffed animals"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between baby teeth and permanent teeth?</span>",
+              "options": [
+                "Untreated decay always causes permanent teeth to fall out.",
+                "Infections in baby teeth can sometimes damage developing permanent teeth.",
+                "Problems in developing permanent teeth cause decay in baby teeth.",
+                "Baby teeth are always eventually replaced by permanent teeth."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "To inform parents about evidence-based hygiene practices for children.",
+                "To warn parents specifically about the dangers of fluorosis.",
+                "To criticize parents who let children brush without help.",
+                "To argue dental visits matter more than daily brushing."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reality Television and the Regulation of Children's Programming in Australia",
+            "text": "<p>Long before Australian streaming platforms existed, free-to-air broadcasters were required to reserve a proportion of daytime programming for content classified specifically for children, a system that shaped, for nearly half a century, what an entire generation watched during weekday afternoons. Introduced in the 1970s, the so-called C-classification imposed quotas on locally produced drama and limited how much imported material commercial networks could substitute for local production, a <b>compromise</b> between protecting children's interests and satisfying broadcasters' commercial pressures. Whether this arrangement actually improved what children watched, rather than merely determining who produced it, remains a question the system's original architects seem never to have fully resolved.</p><p>Reality television, largely absent from children's schedules through most of the classification system's history, entered this protected space only once producers realized that unscripted formats could be made cheaply enough to satisfy local-content quotas without matching the production costs of drama. Family-oriented competition formats, some borrowed from adult prime-time franchises and simply reformatted with younger contestants, began appearing on children's timeslots from the early 2000s onward. Because these formats technically qualified as local content despite requiring far less scripting and rehearsal than traditional children's drama, networks found in them an economically convenient way of meeting their quota obligations while quietly reducing what critics call genuine investment in children's programming.</p><p>Researchers who have examined the shift are divided on what it means for young viewers. Some studies suggest that competition-based formats may model persistence and teamwork in ways conventional drama rarely does explicitly, since contestants' setbacks and recoveries are shown in real time rather than compressed into a scripted resolution. Other researchers argue that the same real-time exposure, stripped of a drama's narrative safeguards, risks presenting elimination and public judgment as ordinary features of childhood achievement, a framing that some hold responsible — though the evidence here remains <b>preliminary</b> — for the modest rise in appearance-related anxiety researchers have recorded among frequent child viewers of <b>these formats</b>.</p><p>Because regulators have historically classified content by production origin and format rather than by psychological impact, reality formats featuring child contestants have continued to satisfy local-content requirements even as concerns about their effects have grown. The regulator responsible for content classification reviewed its guidelines in the mid-2010s, yet ultimately concluded that existing quotas, designed for an era of scripted drama, required no formal amendment to accommodate a genre its original drafters had never anticipated.</p><p>In the absence of stronger regulation, several networks have introduced their own safeguards, including delayed broadcast times that allow parents to preview episodes and voluntary limits on the number of elimination-style formats broadcast within any single season. Whether these voluntary measures substitute adequately for the regulatory oversight applied to scripted children's drama is a question industry executives answer more confidently than the researchers who study the programming's effects.</p><p>Australia's approach differs from that of several comparable broadcasting markets, where reality formats aimed at children face additional restrictions specifically tied to competitive elimination rather than to local-content origin, restrictions Australian regulators have so far declined to adopt on the grounds that they would apply unevenly across formats that resemble competition television only superficially.</p><p>What emerges from this history is less a settled verdict than an unresolved tension between a quota system built to protect local production and a genre whose psychological effects the system was never designed to evaluate. Until Australian regulators revisit the classification framework itself, rather than simply the formats it happens to admit, the debate over reality television's place in children's programming seems likely to continue without clear resolution.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q2, R3Q3, R3Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R3Q2</b>, quét các từ khóa \"C-classification system\" và \"introduced\" ở đoạn 1 để xác định mốc thời gian: vào thập niên 1970, hàng thập kỷ trước khi truyền hình thực tế xuất hiện (In the 1970s, decades before reality formats appeared).</li><li>Với <b>R3Q3</b>, quét từ khóa \"local-content quotas\" để tìm lý do truyền hình thực tế vẫn đáp ứng được hạn ngạch: do cơ quan quản lý phân loại nội dung dựa trên nguồn gốc và định dạng sản xuất chứ không dựa trên tác động tâm lý (Because regulators classified content by origin and format, not psychological effect).</li><li>Với <b>R3Q4</b>, định vị cụm từ \"voluntary safeguard\" ở đoạn cuối để xác định biện pháp tự nguyện của các đài: lùi giờ phát sóng muộn hơn để cha mẹ có thể xem trước tập phim (Delayed broadcast times that let parents preview episodes beforehand).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R3Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể mạch bài: bài viết nhấn mạnh hệ thống phân loại của Úc vẫn chưa thích ứng hay điều chỉnh để giải quyết triệt để các lo ngại xung quanh định dạng truyền hình thực tế cho trẻ em (Australia's classification system has not adapted to address reality format concerns).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q6, R3Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q6</b>, từ <strong>\"compromise\"</strong> ở đoạn 1 mô tả sự dung hòa giữa việc bảo vệ lợi ích trẻ em và đáp ứng áp lực thương mại. Ngữ cảnh này đồng nghĩa với sự thỏa hiệp, đánh đổi (a trade-off).</li><li>Với <b>R3Q7</b>, từ <strong>\"preliminary\"</strong> ở đoạn 3 mô tả bằng chứng nghiên cứu mới ở mức sơ bộ, chưa có kết luận cuối cùng. Ngữ cảnh này mang nghĩa chưa hoàn toàn ngã ngũ/sơ bộ (not yet conclusive).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Đối soát các đặc điểm của hệ thống hạn ngạch được nêu trong bài: hạn chế phim nhập khẩu, áp đặt tiêu chuẩn cho phim truyền hình nội địa, và có lịch sử từ những năm 1970. Chi tiết \"hệ thống đã được xem xét và sửa đổi cụ thể để quản lý tác động của truyền hình thực tế\" (The system was reviewed and revised specifically to regulate reality formats' effects) hoàn toàn sai so với nội dung bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q8):</b> Cụm từ <strong>\"these formats\"</strong> ở đoạn 3 quy chiếu trực tiếp đến các chương trình thực tế dạng thi đấu (competition-based formats) vừa được thảo luận ở các câu trước.</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Tổng hợp logic về đợt đánh giá quy định vào giữa những năm 2010. Cơ quan quản lý đã giữ nguyên các quy định hạn ngạch mặc dù đã xem xét lại hướng dẫn cho một thể loại chương trình ngoài dự tính ban đầu (The regulator left quotas unchanged despite reviewing guidelines for an unanticipated genre).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R3Q10):</b> Phân tích sắc thái ngôn từ toàn bài. Tác giả không lên án gay gắt hay bênh vực bên nào mà nhằm trình bày một mâu thuẫn/căng thẳng chưa được giải quyết giữa quy định hạn ngạch và tác động thực tế của các chương trình truyền hình thực tế (To present an unresolved tension between quota rules and reality formats' effects).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R3Q8) và <b>Từ vựng</b> (R3Q6, R3Q7). Kế tiếp, áp dụng kỹ thuật đọc quét thông tin để hoàn thành các câu <b>Chi tiết</b> (R3Q2, R3Q3, R3Q4) và <b>Loại trừ</b> (R3Q5). Cuối cùng, kết nối ý chính toàn bài để chốt chính xác các câu hỏi tổng hợp gồm <b>Suy luận</b> (R3Q9), <b>Ý chính toàn bài</b> (R3Q1) và <b>Mục đích của tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Australia's classification system rewards drama financially over unscripted formats.",
+                "Australia's classification system was designed to eliminate reality programming entirely.",
+                "Australia's classification system already resolved concerns about reality programming's effects.",
+                "Australia's classification system has not adapted to address reality format concerns."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, when was the C-classification system introduced?</span>",
+              "options": [
+                "In the early 2000s, when reality formats began appearing.",
+                "In the mid-2010s, when regulators reviewed their guidelines.",
+                "Sometime after streaming platforms became widely available in Australia.",
+                "In the 1970s, decades before reality formats appeared."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, why were reality formats able to satisfy local-content quotas despite concerns about their effects?</span>",
+              "options": [
+                "Because international broadcasters pressured Australian regulators to loosen the quotas.",
+                "Because parents voluntarily requested more competition-based programming for children.",
+                "Because researchers found no evidence that reality formats affected children at all.",
+                "Because regulators classified content by origin and format, not psychological effect."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what voluntary safeguard have some networks introduced?</span>",
+              "options": [
+                "Mandatory psychological screening for all child contestants before filming.",
+                "Delayed broadcast times that let parents preview episodes beforehand.",
+                "A complete ban on elimination-style formats for young audiences.",
+                "Government-mandated limits on the number of reality formats broadcast."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a feature of the local-content quota system?</span>",
+              "options": [
+                "Quotas limited how much imported material could replace local production.",
+                "The system was reviewed and revised specifically to regulate reality formats' effects.",
+                "The system dates back to before reality television existed on children's schedules.",
+                "The classification imposed requirements on locally produced drama content."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"compromise\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "a trade-off",
+                "a promise",
+                "a failure",
+                "a broadcast schedule"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"preliminary\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "financially limited",
+                "completely false",
+                "not yet conclusive",
+                "primary"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"these formats\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "scripted resolutions",
+                "competition-based formats",
+                "conventional drama",
+                "narrative safeguards"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the mid-2010s regulatory review?</span>",
+              "options": [
+                "Regulators avoided any review because reality formats caused no measurable harm.",
+                "The regulator left quotas unchanged despite reviewing guidelines for an unanticipated genre.",
+                "The review concluded reality formats needed no changes since they caused no harm.",
+                "The classification system was introduced in the 1970s to regulate drama."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "To present an unresolved tension between quota rules and reality formats' effects.",
+                "To strongly condemn regulators for negligence in protecting children.",
+                "To criticize Australian networks specifically for cutting production costs.",
+                "To argue that reality formats are more educational than scripted drama."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Giant Penguins of the Distant Past: What the Fossil Record Can and Cannot Tell Us",
+            "text": "<p>Not until the early twenty-first century did paleontologists fully appreciate how large some of the earliest penguins actually grew, despite fossil fragments having been catalogued in New Zealand collections for decades beforehand. Renewed analysis of bones long dismissed as belonging to marine reptiles revealed instead an extinct penguin lineage whose largest members may have stood as tall as an adult human and weighed considerably more than any living species, findings that prompted a broader reassessment of just how quickly penguins, following the extinction of large marine reptiles, expanded into the ecological space those predators had vacated.</p><p>Because the fossils in question date to within roughly ten million years of the mass extinction event that eliminated marine reptiles and non-avian dinosaurs alike, some researchers argue that penguins may have exploited a newly emptied predatory niche with unusual speed, though others caution that the fossil record from this period remains too <b>sparse</b> to distinguish rapid opportunistic expansion from a slower diversification that merely appears compressed given how few specimens have survived. Comparable uncertainty affects related debates about how quickly other post-extinction lineages diversified, since preservation bias — the tendency for larger, more robust bones to survive intact more often than delicate skeletal elements — can itself distort apparent patterns of early size and abundance.</p><p>Whatever pace of expansion eventually proves accurate, the skeletal evidence itself is comparatively unambiguous: these giant penguins possessed proportionally longer and more <b>robust</b> flipper bones than their modern relatives, a structural difference researchers interpret as evidence of adaptation for sustained deep diving rather than merely fast, shallow pursuit of prey near the surface.</p><p><b>This inference</b> concerning diving capacity is not derived directly from soft-tissue evidence, which fossilizes only under exceptional circumstances, but rather from comparative analysis of bone density and flipper proportion against living diving birds; such comparative reasoning, while broadly accepted within the field, necessarily carries greater uncertainty than a direct anatomical observation would, since it depends on the assumption that equivalent skeletal structures serve equivalent functions across tens of millions of years of separate evolution.</p><p>Later fossil penguins, appearing in deposits tens of millions of years younger than the giant early forms, show a consistent reduction in average body size, a pattern some paleontologists tentatively attribute to the emergence of large marine mammals as competing or predatory pressures, though this explanation remains one of several competing hypotheses rather than an established consensus, since the timing of marine mammal diversification does not align precisely with the size decline in every regional fossil sequence examined so far.</p><p>Any claim linking penguin body size directly to a single environmental cause should therefore be read with some caution, not because the underlying skeletal measurements are in dispute, but because attributing a multi-million-year trend to any one factor risks understating how many overlapping pressures — climatic, competitive, and nutritional — could plausibly have acted on these populations simultaneously, several of which leave no distinguishable trace in the fossil record at all. Some of the strongest published claims in this area rely on statistical inference from small sample sizes, a limitation the original researchers themselves generally acknowledge more explicitly than subsequent popular summaries of their work tend to.</p><p>What the fossil evidence permits, at present, is a reasonably confident account of what these early penguins looked like and roughly how they moved through water, paired with a far less certain account of why their descendants grew smaller — a gap between descriptive confidence and causal explanation that is likely to persist until substantially more specimens, ideally from a wider range of geological periods and locations, are recovered and analyzed.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q3, R4Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp trong bài đọc.<ul><li>Với <b>R4Q2</b>, quét cụm \"renewed analysis\" ở đoạn 1 để xác định nhận định ban đầu: các hóa thạch từng bị nhầm là xương của bò sát biển (Bones belonging to marine reptiles).</li><li>Với <b>R4Q3</b>, quét từ khóa \"deep-diving ability\" ở đoạn 4 để tìm lý do giải thích: nhận định này thiếu chắc chắn hơn quan sát giải phẫu trực tiếp vì nó phụ thuộc vào việc so sánh cấu trúc xương qua hàng chục triệu năm tiến hóa độc lập (Because it depends on comparing skeletal structures across tens of millions of years of separate evolution).</li><li>Với <b>R4Q4</b>, định vị các lý do suy giảm kích thước ở đoạn cuối để thấy giải thích được đưa ra: sự xuất hiện của các loài động vật biển có vú lớn tạo ra áp lực cạnh tranh hoặc săn mồi (The emergence of large marine mammals as competing or predatory pressures).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R4Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể mạch bài: bằng chứng hóa thạch mô tả rất rõ về các loài chim cánh cụt khổng lồ, tuy nhiên nguyên nhân chính xác vì sao chúng bị suy giảm kích thước vẫn còn chưa chắc chắn (Fossil evidence describes giant penguins well, though why they shrank stays uncertain).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q6, R4Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q6</b>, từ <strong>\"sparse\"</strong> ở đoạn 2 miêu tả nguồn hóa thạch còn lại rất ít/thưa thớt. Ngữ cảnh này đồng nghĩa với khan hiếm, thưa thớt (scarce).</li><li>Với <b>R4Q7</b>, từ <strong>\"robust\"</strong> ở đoạn 3 mô tả xương cánh khỏe/chắc chắn của chim cánh cụt. Ngữ cảnh này đồng nghĩa với vững chắc, khỏe mạnh (sturdy).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q5):</b> Đối soát các yếu tố ảnh hưởng đến kích thước chim cánh cụt được nhắc tới trong bài: áp lực khí hậu, áp lực cạnh tranh từ các loài biển khác và áp lực dinh dưỡng. Chi tiết \"sự cố núi lửa đột ngột xóa sổ hoàn toàn nơi làm tổ của chim cánh cụt\" (A sudden volcanic event eliminating penguin nesting sites entirely) không được đề cập tới.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q8):</b> Cụm từ <strong>\"This inference\"</strong> ở đầu đoạn 4 quy chiếu trực tiếp đến giả thuyết/suy luận về khả năng thích nghi lặn sâu được đưa ra ở cuối đoạn 3 trước đó (the claim about deep-diving adaptation).</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Tổng hợp lập luận ở đoạn 2 về hiện tượng lệch bảo tồn (preservation bias). Thiên kiến bảo tồn hóa thạch có thể làm bóp méo/sai lệch các mô hình ghi nhận về kích thước và số lượng ban đầu của chim cánh cụt (Preservation bias may distort apparent patterns of early penguin size and abundance).</li><li><b>Dạng câu hỏi Cấu trúc lập luận (R4Q10):</b> Phân tích cách tác giả xây dựng bài viết. Tác giả trình bày các phát hiện giải phẫu một cách tự tin, đồng thời sử dụng các phát biểu cẩn trọng/dè dặt khi đưa ra các nguyên nhân mang tính giả thuyết (By presenting confident anatomical findings alongside increasingly hedged causal claims).</li></ul><p><b>Lời khuyên:</b> Ưu tiên giải quyết nhanh các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R4Q8) và <b>Từ vựng</b> (R4Q6, R4Q7). Tiếp theo, sử dụng kỹ thuật đọc quét để hoàn thành các câu <b>Chi tiết</b> (R4Q2, R4Q3, R4Q4) và <b>Loại trừ</b> (R4Q5). Cuối cùng, tổng hợp logic toàn bài để chốt các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R4Q9), <b>Ý chính toàn bài</b> (R4Q1) và <b>Cấu trúc lập luận</b> (R4Q10).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Fossil evidence describes giant penguins well, though why they shrank stays uncertain.",
+                "Fossil evidence confirms marine reptiles directly caused early penguins to grow larger.",
+                "Fossil evidence indicates climate change alone caused early penguins to shrink.",
+                "Fossil evidence proves conclusively that marine mammals caused penguins to shrink."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what had these giant penguin fossils originally been believed to be, before renewed analysis?</span>",
+              "options": [
+                "Bones belonging to non-avian dinosaurs.",
+                "Bones belonging to a separate, smaller penguin species.",
+                "Bones belonging to marine reptiles.",
+                "Bones belonging to large marine mammals."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, why is the claim about deep-diving ability considered less certain than a direct anatomical observation would be?</span>",
+              "options": [
+                "Because living diving birds evolved their flippers independently of any penguin lineage.",
+                "Because soft-tissue evidence directly contradicts the bone density measurements taken.",
+                "Because it depends on comparing skeletal structures across tens of millions of years of separate evolution.",
+                "Because researchers have found no flipper bones preserved in the fossil record."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what explanation do some paleontologists tentatively offer for the later size decline in penguins?</span>",
+              "options": [
+                "A confirmed shift in ocean temperature during the same geological period.",
+                "A well-established increase in marine reptile populations during this era.",
+                "A definitively proven decline in available prey across all regions studied.",
+                "The emergence of large marine mammals as competing or predatory pressures."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a factor potentially contributing to changes in penguin body size over time?</span>",
+              "options": [
+                "Climatic pressures acting on penguin populations over millions of years.",
+                "A sudden volcanic event eliminating penguin nesting sites entirely.",
+                "Competitive pressures from other marine species.",
+                "Nutritional pressures affecting penguin populations over time."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"sparse\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "sparing",
+                "scarce",
+                "expensive",
+                "outdated"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"robust\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "flexible",
+                "robotic",
+                "sturdy",
+                "buoyant"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This inference\"</strong> at the beginning of paragraph 4 refers to _______.</span>",
+              "options": [
+                "shallow pursuit of prey",
+                "modern penguin relatives",
+                "the claim about deep-diving adaptation",
+                "flipper bone fossilization rates"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between preservation bias and scientific conclusions about early penguins?</span>",
+              "options": [
+                "Preservation bias proves that all giant penguin fossils are misclassified marine reptiles.",
+                "Preservation bias has no effect on conclusions since only bones are studied.",
+                "Preservation bias makes it certain that early penguins were smaller than currently believed.",
+                "Preservation bias may distort apparent patterns of early penguin size and abundance."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>How does the author primarily structure the argument in this passage?</span>",
+              "options": [
+                "By refuting all previous research on early penguin evolution entirely.",
+                "By arguing definitively that marine mammals caused the size decline in penguins.",
+                "By presenting confident anatomical findings alongside increasingly hedged causal claims.",
+                "By treating the size-decline explanation as equally certain as the anatomical findings."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You recently invited your English friend, David, to your housewarming party.</p> He has sent you an email accepting your invitation. Read part of his email below.",
+          "content": "<p class='mb-1'>Thanks so much for the invitation! I would love to come to your housewarming party next Saturday. Since I haven't been to your new place yet, could you give me some directions? Also, is there anything special I should bring?</p><ul><li>Express your happiness that he can come.</li><li>Give directions to your new house.</li><li>Suggest what he should bring or wear for the party.</li></ul>",
+          "description": "Write an email responding to David. You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li>Đây là dạng <strong>Informal Email</strong> (Thư thân mật) gửi cho bạn bè để phản hồi việc họ đồng ý dự tiệc.</li><li>Người viết cần trả lời 3 ý chính: Bày tỏ sự vui mừng, chỉ đường đến nhà mới và dặn dò đồ cần mang theo.</li><li>Độ dài tối thiểu 120 từ, giọng văn hào hứng và thân thiện.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Hi David, / Dear David,</li><li><strong>Opening:</strong> Cảm ơn vì David đã nhận lời. Ví dụ: I'm so glad to hear that you can make it to my housewarming party! It wouldn't be the same without you.</li><li><strong>Body 1:</strong> Chỉ đường (Directions). Có thể giả định nhà gần một địa danh quen thuộc. Ví dụ: My new apartment is near the Central Park. From the main gate, you just need to...</li><li><strong>Body 2:</strong> Dặn dò chuẩn bị (Bring/Wear). Ví dụ: You don't need to bring any gifts, just some cold drinks would be great. We're having a casual BBQ, so wear something comfortable.</li><li><strong>Closing:</strong> Mong sớm gặp lại. Ví dụ: I can't wait to show you around my new place. See you on Saturday!</li><li><strong>Sign-off:</strong> Best, / Warm regards,</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các cụm từ chỉ phương hướng (turn left, go straight, opposite to).</li><li>Sử dụng câu cảm thán để thể hiện cảm xúc (How wonderful!, I'm so thrilled!).</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Housewarming party:</strong> Tiệc tân gia</li><li><strong>Directions:</strong> Chỉ đường</li><li><strong>Landmark:</strong> Địa danh, điểm mốc</li><li><strong>Commemorate:</strong> Kỷ niệm (dịp nào đó)</li><li><strong>Casual attire:</strong> Trang phục bình thường</li><li><strong>Grateful:</strong> Biết ơn/Vui mừng</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Anyway:</strong> Dù sao thì</li><li><strong>First of all:</strong> Trước hết</li><li><strong>By the way:</strong> Nhân tiện</li><li><strong>In case:</strong> Trong trường hợp</li><li><strong>Looking forward to:</strong> Mong đợi</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I'm over the moon:</strong> Mình cực kỳ vui sướng</li><li><strong>It means a lot to me:</strong> Điều đó có ý nghĩa lớn với mình</li><li><strong>I'm really looking forward to catching up:</strong> Mình rất mong được gặp để hàn huyên</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Viết quá ngắn, không đủ 120 từ.</li><li>Chỉ đường quá sơ sài hoặc khó hiểu.</li><li>Dùng ngôn ngữ quá trang trọng (Formal) cho một người bạn thân.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Kiểm tra xem đã trả lời đủ 3 yêu cầu trong các gạch đầu dòng chưa.</li><li>Rà soát lỗi chính tả các từ chỉ vị trí.</li><li>Đảm bảo có lời chào và lời kết phù hợp.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tưởng tượng đây là một bức thư thực tế gửi cho bạn mình để tạo cảm giác tự nhiên nhất.</li><li>Có thể thêm một vài chi tiết nhỏ về căn nhà mới để bài viết thêm sinh động.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "mixed",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>In many countries, instead of using a single unified textbook, educational authorities now allow the use of multiple sets of textbooks for teaching and learning.</p><p class='mb-1'>It is argued that this trend provides more creative space and professional development opportunities for teachers.</p><p class='mb-1'><strong>Write an essay to an educated reader to discuss the benefits of using multiple sets of textbooks in education.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the benefits of using multiple sets of textbooks in education. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li>Đây là dạng bài <strong>Discussion / Benefit Essay</strong> (Thảo luận về lợi ích).</li><li>Trọng tâm là việc sử dụng nhiều bộ sách giáo khoa (multiple textbooks) giúp tăng tính sáng tạo và phát triển chuyên môn cho giáo viên.</li><li>Yêu cầu: Giải thích lý do tại sao nó là lợi ích và đưa ra các suy nghĩ bổ trợ.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Nêu bối cảnh về sự thay đổi từ một bộ sách sang nhiều bộ sách. Khẳng định đây là bước tiến tích cực cho giáo dục.</li><li><strong>Body 1:</strong> Lợi ích về tính sáng tạo (Creative space). Giáo viên không bị gò bó vào một khuôn mẫu, họ có thể chọn lọc tài liệu tốt nhất từ nhiều nguồn để thiết kế bài giảng sinh động hơn.</li><li><strong>Body 2:</strong> Lợi ích về phát triển chuyên môn (Professional development). Việc nghiên cứu nhiều bộ sách buộc giáo viên phải nâng cao trình độ, kỹ năng phân tích và thích nghi với nhiều phương pháp tiếp cận khác nhau.</li><li><strong>Conclusion:</strong> Tóm tắt các lợi ích và nhấn mạnh tầm quan trọng của việc trao quyền cho giáo viên trong kỷ nguyên mới.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các từ vựng học thuật thuộc chủ đề giáo dục.</li><li>Phát triển ý bằng cách đặt câu hỏi: \"Tại sao điều này lại giúp giáo viên sáng tạo hơn?\" hoặc \"Hệ quả của việc này đối với học sinh là gì?\".</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Educational autonomy:</strong> Quyền tự chủ trong giáo dục</li><li><strong>Curriculum flexibility:</strong> Sự linh hoạt của chương trình học</li><li><strong>Pedagogical methods:</strong> Các phương pháp sư phạm</li><li><strong>Diverse perspectives:</strong> Các góc nhìn đa dạng</li><li><strong>Critical thinking skills:</strong> Kỹ năng tư duy phản biện</li><li><strong>Tailor-made lessons:</strong> Bài giảng được thiết kế riêng biệt</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Furthermore / In addition:</strong> Thêm vào đó</li><li><strong>This leads to / This results in:</strong> Điều này dẫn đến</li><li><strong>Specifically:</strong> Một cách cụ thể</li><li><strong>In light of this:</strong> Dưới góc độ này</li><li><strong>Therefore / Consequently:</strong> Do đó</li><li><strong>To illustrate:</strong> Để minh họa</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>A variety of instructional materials:</strong> Thay cho \"multiple sets of textbooks\".</li><li><strong>Standardized teaching resources:</strong> Thay cho \"single textbook\".</li><li><strong>Enhance teaching proficiency:</strong> Thay cho \"professional development\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li><strong>This approach empowers educators to...:</strong> Cách tiếp cận này trao quyền cho giáo viên để...</li><li><strong>By synthesizing various sources, teachers can...:</strong> Bằng cách tổng hợp nhiều nguồn, giáo viên có thể...</li><li><strong>It is evident that...:</strong> Rõ ràng là...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Viết quá chung chung mà không xoáy sâu vào khía cạnh \"giáo viên\" (đề bài nhấn mạnh vào giáo viên).</li><li>Thiếu sự liên kết giữa việc \"có nhiều sách\" và \"phát triển chuyên môn\".</li><li>Lỗi lặp từ \"textbook\" quá nhiều.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã có đủ ví dụ minh họa chưa.</li><li>Đảm bảo các luận điểm trong thân bài không bị trùng lặp ý.</li><li>Kiểm tra các cấu trúc câu phức để nâng điểm Grammar.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy nghĩ về giáo dục như một môi trường cần sự đổi mới liên tục; việc có nhiều nguồn tài liệu chính là chìa khóa để thoát khỏi sự rập khuôn.</li><li>Cần nhấn mạnh rằng lợi ích cho giáo viên cuối cùng cũng sẽ mang lại kết quả tốt cho học sinh.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you enjoy shopping?",
+            "What kind of things do you usually buy when you go shopping?",
+            "Do you prefer shopping online or at physical stores? Why?",
+            "What do you usually do on your favorite weekend?",
+            "Who do you usually spend your weekends with?",
+            "How do you feel when the weekend is over and a new week begins?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này có <strong>2 chủ đề nhỏ</strong>: <strong>Topic A (Shopping)</strong> và <strong>Topic B (Favorite Weekend)</strong>.</li><li><strong>Topic A (Shopping):</strong> Ba câu hỏi đầu kiểm tra khả năng nói về sở thích mua sắm, các mặt hàng thường mua và quan điểm về mua sắm trực tuyến hay tại cửa hàng.</li><li><strong>Topic B (Favorite Weekend):</strong> Ba câu hỏi sau kiểm tra khả năng mô tả hoạt động cuối tuần yêu thích, người đồng hành và cảm xúc khi kết thúc kỳ nghỉ cuối tuần.</li><li>Tiêu chí đánh giá gồm <strong>Fluency, Vocabulary, Grammar và Pronunciation</strong>.</li><li>Thời gian Part 1 là <strong>3 phút</strong>, nên dành khoảng 25–35 giây cho mỗi câu hỏi, cân bằng đều giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong> để trả lời đầy đủ và có chiều sâu.</li><li><strong>Ví dụ Topic A:</strong> \"Yes, I really enjoy shopping, especially for clothes and accessories, because trying on new outfits makes me feel more confident.\"</li><li><strong>Ví dụ Topic B:</strong> \"My favorite weekend usually involves sleeping in, meeting friends for coffee, and watching a movie in the evening.\"</li><li>Luôn tự hỏi Why?/How? để mở rộng câu trả lời, tránh nói quá ngắn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển ý tự nhiên như \"Besides shopping, I'd also like to share what I usually do on my favorite weekends.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Duy trì tốc độ nói ổn định, dùng từ đệm để tránh khoảng lặng dài.</li><li>Dùng <strong>hiện tại đơn</strong> khi nói về thói quen mua sắm và cuối tuần, dùng <strong>would</strong> khi nói về sở thích giả định.</li><li>Nếu bí từ, hãy diễn đạt bằng từ đơn giản hơn thay vì im lặng.</li><li>Từ vựng cho Topic A: window shopping, a great bargain, browse through items, compare prices.</li><li>Từ vựng cho Topic B: unwind after a busy week, catch up with friends, a well-deserved break, recharge my batteries.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>window shopping</strong> (đi ngắm hàng mà không mua)</li><li><strong>a great bargain</strong> (một món hời)</li><li><strong>compare prices</strong> (so sánh giá cả)</li><li><strong>unwind after a busy week</strong> (thư giãn sau một tuần bận rộn)</li><li><strong>catch up with friends</strong> (gặp gỡ, trò chuyện cùng bạn bè)</li><li><strong>a well-deserved break</strong> (một kỳ nghỉ xứng đáng)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Firstly</strong> - trước hết, dùng để mở đầu ý.</li><li><strong>Besides</strong> - bên cạnh đó, dùng để bổ sung ý.</li><li><strong>For example</strong> - ví dụ như, dùng khi minh họa.</li><li><strong>However</strong> - tuy nhiên, dùng khi đối chiếu ý kiến.</li><li><strong>That's why</strong> - đó là lý do vì sao, dùng để nêu kết quả.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>Personally, I think...</strong> Ví dụ: \"Personally, I think online shopping is more convenient since I can compare prices easily.\"</li><li><strong>In my opinion...</strong> Ví dụ: \"In my opinion, weekends are essential for recovering from a stressful workweek.\"</li><li><strong>I would say that...</strong> Ví dụ: \"I would say that spending time with friends is the best part of my weekend.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\"/\"No\" rồi im lặng mà không giải thích thêm - lỗi nghiêm trọng nhất.</li><li>Ở Topic A, chỉ nêu tên món đồ mà không giải thích lý do mua.</li><li>Ở Topic B, liệt kê hoạt động mà không mô tả cảm xúc hay lý do yêu thích.</li><li>Phát âm sai trọng âm từ: <strong>'shopping</strong>, <strong>'weekend</strong>.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's an interesting question, let me think for a second.\"</li><li>Nếu quên từ, hãy mô tả khái niệm bằng từ đơn giản hơn.</li><li>Với Topic A, nếu bí ý, hãy kể về một lần mua sắm đáng nhớ gần đây.</li><li>Với Topic B, nếu bí ý, hãy kể về một hoạt động cuối tuần của bạn bè hoặc người thân.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Coi đây như một cuộc trò chuyện thân mật với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để bắt đầu câu chuyện mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố dùng từ vựng quá phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You are planning how to spend your upcoming holiday, but you can only choose one option.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Stay at home and relax</li><li>Option 2: Travel to a new place</li><li>Option 3: Visit relatives in the countryside</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Đây là dạng <strong>Solution Discussion</strong>. Bạn cần chọn cách nghỉ lễ phù hợp nhất trong ba lựa chọn: ở nhà nghỉ ngơi, đi du lịch đến một nơi mới, hoặc về thăm họ hàng ở quê.</li><li>Ba lựa chọn khác nhau về mức độ nghỉ ngơi, trải nghiệm mới mẻ và chi phí/công sức.</li><li>Thời gian là <strong>4 phút</strong>; cần phân tích cả ba phương án trước khi đưa ra kết luận.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>State opinion – Give reason – Compare – Conclude</strong> để trình bày mạch lạc.</li><li><strong>Option 1 (Ở nhà):</strong> \"Staying at home allows me to fully rest and recover from a tiring semester, but it might not offer much excitement or new experiences.\"</li><li><strong>Option 2 (Đi du lịch):</strong> \"Traveling to a new place would give me fresh experiences and memorable moments, though it can be quite costly and tiring to plan.\"</li><li><strong>Option 3 (Về quê):</strong> \"Visiting relatives in the countryside lets me reconnect with family and enjoy a peaceful environment, but it may feel repetitive if I do it every holiday.\"</li><li>Nên neo lập luận vào bối cảnh thực tế của một kỳ nghỉ lễ sau một học kỳ bận rộn.</li><li>Dùng từ nối tương phản như \"however\", \"whereas\" để chuyển giữa ưu và nhược điểm của từng lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ: \"Unlike staying at home, which offers rest but little novelty, traveling provides both a change of scenery and new memories.\"</li><li>Dùng modal verbs (would, could, should) khi giả định và đề xuất giải pháp.</li><li>Paraphrase \"holiday\" bằng \"time off\" hoặc \"a break from studying\".</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>recharge my batteries</strong> (nạp lại năng lượng)</li><li><strong>a change of scenery</strong> (một sự thay đổi khung cảnh)</li><li><strong>reconnect with family</strong> (kết nối lại với gia đình)</li><li><strong>a peaceful getaway</strong> (một chuyến đi yên bình)</li><li><strong>broaden one's horizons</strong> (mở mang tầm mắt)</li><li><strong>a tight budget</strong> (một ngân sách eo hẹp)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared with</strong> - so với, dùng khi so sánh hai lựa chọn.</li><li><strong>Whereas</strong> - trong khi đó, dùng để đối lập.</li><li><strong>Nevertheless</strong> - tuy nhiên, dùng để chuyển ý ngược lại.</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố, dùng trước kết luận.</li><li><strong>In terms of</strong> - xét về mặt, dùng khi so sánh theo tiêu chí cụ thể.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I had to choose, I would go with...</strong> Ví dụ: \"If I had to choose, I would go with traveling because I rarely get the chance to explore new places.\"</li><li><strong>I'm more inclined towards...</strong> Ví dụ: \"I'm more inclined towards something relaxing rather than an exhausting trip.\"</li><li><strong>All things considered...</strong> Ví dụ: \"All things considered, visiting relatives seems like the most balanced option between rest and connection.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của nó.</li><li>Lặp lại từ \"good\"/\"nice\" quá nhiều thay vì dùng tính từ học thuật hơn.</li><li>Không có kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng liên quan đến một lựa chọn, chuyển hướng sang nói về chi phí hoặc thời gian cần thiết.</li><li>Dùng câu chờ ý: \"Let's evaluate this option from a different perspective.\"</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Đặt mình vào vị trí người lên kế hoạch nghỉ lễ - phương án nào cân bằng tốt nhất giữa nghỉ ngơi và trải nghiệm?</li><li>Có thể đề xuất kết hợp, ví dụ nghỉ vài ngày ở nhà rồi đi thăm họ hàng, để thể hiện tư duy linh hoạt.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn đã chọn để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "Whether students should be allowed to bring smartphones to class",
+          "mindmap": {
+            "title": "Smartphones in Class",
+            "ideas": [
+              "Reasons for bringing smartphones",
+              "Learning benefits",
+              "Distractions and drawbacks",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Do you think smartphones help or distract students during lessons?",
+            "What rules should schools set regarding smartphone use in class?",
+            "How has the use of smartphones changed the way students learn nowadays?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về việc học sinh có nên được phép mang điện thoại thông minh vào lớp học hay không, dựa trên ba nhánh chính và một nhánh ý kiến cá nhân.</li><li>Ba nhánh chính gồm: lý do khiến học sinh muốn mang điện thoại vào lớp, lợi ích của việc cho phép sử dụng điện thoại phục vụ học tập, và những hạn chế hay sự xao nhãng mà điện thoại gây ra trong lớp học.</li><li><strong>Gợi ý cho nhánh thứ 4 (ý kiến cá nhân):</strong> có thể phát triển theo hướng đề xuất quy định cụ thể của nhà trường, ví dụ chỉ cho phép dùng điện thoại trong một số tiết học nhất định.</li><li>Thời gian là <strong>5 phút</strong>: khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>FEEL (Point – Explanation – Example – Link)</strong> để trình bày từng nhánh của sơ đồ tư duy.</li><li><strong>Ví dụ mở bài:</strong> \"Today, I'd like to talk about whether students should be allowed to bring smartphones to class.\"</li><li><strong>Ví dụ cho nhánh ý kiến cá nhân:</strong> \"In my opinion, schools should adopt a balanced policy that allows smartphone use for specific learning activities while restricting it during lectures.\"</li><li>Nên đưa ví dụ thực tế như học sinh dùng điện thoại để tra từ điển, chụp lại bài giảng, hoặc bị xao nhãng bởi mạng xã hội.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lạc đề sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển ý mượt mà khi chuyển từ nhánh này sang nhánh khác của sơ đồ tư duy.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> cho sự thật chung, dùng <strong>câu điều kiện loại 1</strong> khi đề xuất chính sách (if schools allow..., students will...).</li><li>Paraphrase \"smartphone\" bằng \"mobile device\" hoặc \"personal device\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a learning aid</strong> (một công cụ hỗ trợ học tập)</li><li><strong>a source of distraction</strong> (một nguồn gây xao nhãng)</li><li><strong>stay focused in class</strong> (tập trung trong giờ học)</li><li><strong>access information instantly</strong> (truy cập thông tin ngay lập tức)</li><li><strong>strike a balance</strong> (tìm sự cân bằng)</li><li><strong>enforce strict rules</strong> (thực thi các quy định nghiêm ngặt)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước hết, dùng để mở đầu nhánh đầu tiên.</li><li><strong>Moving on to</strong> - chuyển sang, dùng khi chuyển nhánh ý.</li><li><strong>On the other hand</strong> - mặt khác, dùng khi nêu hạn chế.</li><li><strong>In addition to that</strong> - thêm vào đó, dùng để mở rộng ý.</li><li><strong>To sum up</strong> - tóm lại, dùng khi kết luận.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>I firmly believe that...</strong> Ví dụ: \"I firmly believe that smartphones can be a powerful learning tool if used responsibly.\"</li><li><strong>It seems to me that...</strong> Ví dụ: \"It seems to me that most students struggle to resist checking social media during class.\"</li><li><strong>What strikes me most is...</strong> Ví dụ: \"What strikes me most is how differently smartphones affect students depending on their self-discipline.\"</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Do you think smartphones help or distract students during lessons?\"</strong> - Có thể lập luận rằng điện thoại vừa có thể hỗ trợ tra cứu thông tin nhanh, vừa dễ khiến học sinh mất tập trung nếu không kiểm soát tốt.</li><li><strong>\"What rules should schools set regarding smartphone use in class?\"</strong> - Có thể đề xuất chỉ cho phép sử dụng điện thoại trong các hoạt động học tập cụ thể, còn lại phải để ở chế độ im lặng hoặc cất đi.</li><li><strong>\"How has the use of smartphones changed the way students learn nowadays?\"</strong> - Có thể liên hệ đến việc học sinh hiện nay có thể học online, tra cứu tài liệu và trao đổi bài nhanh chóng hơn nhờ điện thoại thông minh.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê lý do hoặc lợi ích mà không giải thích cụ thể - luôn cần đưa ví dụ minh họa.</li><li>Quên nhánh ý kiến cá nhân - nên chuẩn bị trước nhánh thứ tư này.</li><li>Nói quá dài ở phần mở đầu khiến không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào trải nghiệm cá nhân hoặc quan sát thực tế khi bí ý, ví dụ thói quen sử dụng điện thoại của bản thân trong lớp học.</li><li>Câu chờ ý học thuật: \"That is a debatable issue. If we consider it from an educational perspective...\"</li><li>Dùng từ đồng nghĩa hoặc mô tả đơn giản nếu quên từ vựng chuyên môn.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ thực tế và liên hệ với môi trường học đường hiện đại, nơi công nghệ ngày càng phổ biến.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố quyết định điểm số.</li><li>Luôn giữ giọng điệu tự nhiên, tránh đọc thuộc lòng như một bài văn mẫu.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

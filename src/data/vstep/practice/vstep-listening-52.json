@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-52",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 52",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-01/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. Where did the man leave his camera?</b></p><ul><li><b>Man:</b> Oh no! I haven’t got my camera!</li><li><b>Woman:</b> But you used it just now to take a photograph of the fountain.</li><li><b>Man:</b> Oh, I remember, I put it down on the <b>steps</b> while I put my coat on.</li><li><b>Woman:</b> Well, let’s drive back quickly – it might still be there.</li></ul><p><b>2. What is the woman’s first memory?</b></p><ul><li><b>Woman:</b> The first thing I remember is when I was about five my father took me to the <b>seaside</b>. My brother stayed at home with my mother because he was too young. We couldn’t go in the sea because it was too rough, but we spent hours <b>playing on the sand</b>.</li></ul><p><b>3. Which train will the woman catch?</b></p><ul><li><b>Woman:</b> What time’s the next train to Manchester please?</li><li><b>Man:</b> You’ve just missed the 8.15. The next one’s not until <b>10.15</b>. There isn’t one at 9.15.</li><li><b>Woman:</b> But that’s a two hour wait! and I’ll be late for my appointment at 10.30. But I suppose I haven’t any choice – I’ll go for a coffee while I’m waiting.</li></ul><p><b>4. What should the students take with them tomorrow?</b></p><ul><li><b>Teacher:</b> Now, about the school picnic – it’ll be hot so leave your sweaters behind but make sure you’ve got <b>something to keep the sun off your head</b>, and a <b>drink</b> in case you get thirsty … oh, and <b>something to write on</b> – that’s for a game we’re going to play. And don’t be late!</li></ul><p><b>5. What will they do at the weekend?</b></p><ul><li><b>Woman:</b> What shall we do at the weekend, Tony? The Browns are coming up with their children. I was wondering about a visit to the zoo, or a river trip … or just going down to the sea again …</li><li><b>Man:</b> Let’s do something different. The weather should be good, so we could take a <b>picnic to the castle</b> instead. The children will enjoy it and it’ll be a nice change from the beach.</li><li><b>Woman:</b> Right then, we’ll do that.</li></ul><p><b>6. What does the woman need to buy?</b></p><ul><li><b>Woman:</b> Let me see, eggs – I’ve got lots of those; butter – I don’t need that. I’ll get some <b>milk</b>, <b>bread</b>, and I’ve nearly finished the toothpaste … oh, there’s a new one in the cupboard. But I do need some <b>apples</b>. Now, where’s my purse?</li></ul><p><b>7. How will the boy get to school?</b></p><ul><li><b>Woman:</b> Get up, Martin. It’s snowed during the night. The school bus won’t be able to go, so you’ll have to walk.</li><li><b>Boy:</b> Oh, I’ll go by bike.</li><li><b>Woman:</b> Don’t be silly. The snow’s far too deep for that.</li><li><b>Boy:</b> Then I’ll <b>ski</b>. That’ll be quicker than walking and I can save the bus fare! But I’ll have some breakfast first.</li></ul><p><b>8. What is the job of Tanya’s boyfriend now?</b></p><ul><li><b>Woman 1:</b> Look – this is the band on the television now, Tanya’s boyfriend is the <b>singer</b>.</li><li><b>Woman 2:</b> She told me he played the guitar.</li><li><b>Woman 1:</b> He does sometimes, but not tonight, and you know he used to be the keyboard player in that other band. He’s so brilliant. Don’t you think she’s lucky?</li><li><b>Woman 2:</b> Oh, I don’t know. I think I prefer the drummer myself, actually.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Where did the man leave his camera?",
+              "options": [
+                "On the steps",
+                "Next to the fountain",
+                "In the coat pocket",
+                "On the boat"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What is the woman’s first memory?",
+              "options": [
+                "She went to the sea with her family.",
+                "She went to the sea with her father.",
+                "She went to the sea with her younger brother.",
+                "She went to the sea with her mother."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Which train will the woman catch?",
+              "options": [
+                "8.15",
+                "10.15",
+                "9.15",
+                "10.30"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What should the students take with them tomorrow?",
+              "options": [
+                "Sweater, hat and drink",
+                "Sweater, notebook and drink",
+                "Drink, hat and notebook",
+                "Drink, hat, notebook and sweater"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What will they do at the weekend?",
+              "options": [
+                "Visit the zoo",
+                "Take a picnic to the castle",
+                "Go to the beach",
+                "Go on a river trip"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What does the woman need to buy?",
+              "options": [
+                "Milk, apple and bread",
+                "Milk, apple, and toothpaste",
+                "Milk, bread and apples",
+                "Milk, bread and toothpaste"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "How will the boy get to school?",
+              "options": [
+                "By bike",
+                "By school bus",
+                "By skiing",
+                "On foot"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is Tanya’s boyfriend doing on the television now?",
+              "options": [
+                "He is playing the keyboard.",
+                "He is playing the guitar.",
+                "He is playing the drum.",
+                "He is singing."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-03/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Kate:</b> I don’t remember much of that lecture. The doctor gave me this medicine for my cough, but I don’t like it; it seems to make me awfully sleepy and I can’t follow my lectures.</li><li><b>George:</b> Well, if you don’t take it, none of us will be able to follow our lectures; all we’ll hear is you coughing!</li><li><b>Kate:</b> Oh dear, do you think I’ll annoy everybody?</li><li><b>George:</b> Yes. You could study at home for a couple of days; you know, have some time off until it gets better.</li><li><b>Kate:</b> Oh, I couldn’t do that! I’d miss too much and I get really uncomfortable when I have a lot of catching up to do. Last year I missed a whole week when I fell off my bike and had that enormous bandage on my hand. It took me ages to do all the work when I came back.</li><li><b>George:</b> Oh, you worry too much. You can work at home. Just get Mr. Gray to tell you which parts of the course-book we’ll be covering and read it yourself at home. All he does is go through the book anyway; you might as well do it yourself.</li><li><b>Kate:</b> Oh, that’s a bit unfair! I think Mr. Gray’s really nice. He’s always willing to stay behind after class if you don’t understand something.</li><li><b>George:</b> Being ‘really nice’ and never in a hurry doesn’t make him a good lecturer. Anyway, I think you should look after your health first and ours! If we sit in that small, hot room with you for the next three days, we’ll all have your cough by the end of it.</li><li><b>Kate:</b> Mm, perhaps you’re right. I don’t care about myself, but I wouldn’t like other people to blame me for their illnesses. I have got a bit of a temperature now, too; so maybe I’ll go and see Mr. Gray after lunch and tell him I won’t be at this afternoon’s lecture.</li><li><b>George:</b> Or the next two ... come on, you’ve got to get better.</li><li><b>Kate:</b> I suppose you’re right.</li><li><b>George:</b> Then we can all go out as we planned at the weekend.</li><li><b>Kate:</b> OK then, I don’t want to miss that... and I do feel ill...</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Man:</b> What shall we do tonight? Shall we go out somewhere?</li><li><b>Woman:</b> No, I’m tired. I’ve had a really hard day.</li><li><b>Man:</b> That’s a bit boring! Come on, let’s go to a cinema or see that new play at the theatre.</li><li><b>Woman:</b> Not tonight. Why don’t we rent a video and stay in?</li><li><b>Man:</b> Well, I’d rather go out... but if you’re tired ... OK. So what shall we have? How about that new Italian film?</li><li><b>Woman:</b> No, far too serious for me. I’d fall asleep! Why can’t we get something funny, a film with Rik Moranis or someone like that.</li><li><b>Man:</b> A comedy? No thanks. I’m not wasting my money.</li><li><b>Woman:</b> Well, I’ll pay, if you’re going to be difficult about it.</li><li><b>Man:</b> I’m not being difficult; I just don’t want to see a comedy.</li><li><b>Woman:</b> Fine. What else do you suggest then?</li><li><b>Man:</b> How about a Robert de Niro?</li><li><b>Woman:</b> We’ve seen them all.</li><li><b>Man:</b> Maybe, but they’re great films. Let’s watch one again.</li><li><b>Woman:</b> Now you’re suggesting something that’s a real waste of money! And I hate seeing films twice, you know that.</li><li><b>Man:</b> OK, OK. What, then?</li><li><b>Woman:</b> Oh, forget it. We’re obviously not going to agree anyway!</li><li><b>Man:</b> No, I tell you what, you go down to the video shop and choose a film. Whatever it is, I’ll watch it.</li><li><b>Woman:</b> Really? And you won’t be difficult or make me feel guilty?</li><li><b>Man:</b> No. Go on, off you go. I’ll make something to eat while you’re out.</li><li><b>Woman:</b> Great. See you in a few minutes then.</li><li><b>Man:</b> Bye.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Girl:</b> Hi, Ben! Only one more week at college, and then the summer holidays begin. Great, isn’t it!</li><li><b>Boy:</b> I don’t know. It might get a bit boring. I don’t think I’ve got enough money to go anywhere nice for a holiday this year.</li><li><b>Girl:</b> It would be nice to have lots of money to spend, but a good holiday doesn’t have to be expensive!</li><li><b>Boy:</b> Oh yes it does! The best holiday I ever had was a few years ago when I went to Greece. I want to fly off somewhere hot, and lie on the beach and go swimming.</li><li><b>Girl:</b> Yes. Well, I can’t afford to do that, either.</li><li><b>Boy:</b> So, what are you doing this summer?</li><li><b>Girl:</b> I’m going on a walking holiday in Scotland with some friends. We went last year. We really enjoyed it. We walked all day and spent the nights in Youth Hostels. Why don’t you come with us? We’re going for two weeks. It won’t cost much, and you’ll come home feeling really relaxed and fit.</li><li><b>Boy:</b> I’m not sure. Walking all day sounds like hard work to me. And surely you’re not hoping for lots of sunshine in Scotland?</li><li><b>Girl:</b> It did rain a bit last year, but most of the time it was sunny. Anyway, it’s not good walking in the heat. You have to stop all the time to rest and have drinks.</li><li><b>Boy:</b> Well, I like the sun, and I like to stay in comfortable hotels, not Youth Hostels!</li><li><b>Girl:</b> But they are comfortable. They’re basic, and the food’s often not very good, but they’re very clean and cheap. In fact, I prefer them to hotels because the people are always so friendly.</li><li><b>Boy:</b> Maybe. Look Lisa, thanks a lot for asking me, but I think I’ll just stay home and get bored!</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is Kate’s health problem?",
+              "options": [
+                "She has coughs",
+                "She has headache",
+                "She has toothache",
+                "She has stomach ache"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does Kate’s problem affect her classmates?",
+              "options": [
+                "It makes them funny.",
+                "It makes them annoyed.",
+                "It makes them happy.",
+                "It makes them excited."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What did Kate have last year?",
+              "options": [
+                "She had coughs",
+                "She had headache",
+                "She had a fall off her bike",
+                "She had stomach ache"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Kate have now, too?",
+              "options": [
+                "She has backache",
+                "She has headache",
+                "She has toothache",
+                "She has temperature"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why does the man want to go out?",
+              "options": [
+                "Because he feels bored staying at home.",
+                "Because he feels safe staying at home.",
+                "Because he feels cold staying at home.",
+                "Because he feels hot staying at home."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Why does the woman want to stay at home?",
+              "options": [
+                "Because she has coughs.",
+                "Because she feels tired.",
+                "Because she has toothache.",
+                "Because she has stomach ache."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Why doesn’t the woman want to watch an Italian film?",
+              "options": [
+                "Because she is short of money.",
+                "Because she is serious about it.",
+                "Because she’s afraid she will fall asleep watching it.",
+                "Because she has stomach ache"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Why doesn’t the woman want to watch a Robert de Niro?",
+              "options": [
+                "Because she feels too busy to watch it.",
+                "Because she feels too serious to watch it.",
+                "Because she doesn’t want to watch it the third time.",
+                "Because she doesn’t want to watch it the second time."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does the girl think about a good holiday?",
+              "options": [
+                "It may be cheap.",
+                "It may be very cheap.",
+                "It may be expensive.",
+                "It may be very expensive"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Why doesn’t the boy want to walk?",
+              "options": [
+                "Because he feels too hot to do it.",
+                "Because he finds it hard to do it.",
+                "Because he doesn’t like hard work.",
+                "Because she doesn’t like the sounds of people walking"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What does the girl think about the food in Youth Hostels?",
+              "options": [
+                "It is comfortable.",
+                "It is good.",
+                "It is not good.",
+                "It is clean and cheap"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does the boy decide to do in the end?",
+              "options": [
+                "go home",
+                "leave home",
+                "sell his home",
+                "enjoy his holiday home"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Lecture 1 (Questions 21-25)</strong></p><p>All right. Today's lecture is about heat. Actually, we will talk about the ways heat moves. They are called heat transfer. Now, there are three types of heat transfer. They are called [slowly] convection..., conduction..., and... radiation. OK? OK! Convection happens when heat moves through gases and liquids. When air or water heat up, they get lighter. Then they move away from the heat. They rise. When they get cooler, they change direction. They come back down to the heat again. In convection, this repeats over and over. For example, a hot-air balloon. Fire heats the air. The hot air becomes lighter. The balloon rises up. But, as the air cools, it gets heavier. So, the balloon goes down. Convection is how hot-air balloons fly. Now, next is conduction. This happens when heat moves through solids. First, a solid object is put on heat. Eventually the solid object takes this heat and it gets hot. Some materials are very good at conduction. Metals, for example. This is why many cooking pans are made of metal. They heat up quickly. But don’t touch them. Ouch! Conduction causes many burns. Finally, heat also moves by radiation. If you can feel heat from an object without touching it then it is radiating heat. Remember you can’t see this heat. The sun, a toaster, a dryer. All these things use radiation. Have you ever warmed your hands by a fire? Even this is radiation. OK? Do we understand?</p><p><strong>Lecture 2 (Questions 26-30)</strong></p><p>OK. So, Impressionism was a new way of painting. It went against old art standards. It changed what was seen as good art. Before it, art was considered good if it was exact. Artists tried to reproduce what they saw on the canvas. They aimed to make the painting look just like what they could see. Impressionist painters were different. The first thing you will notice in an Impressionist painting is the use of color. These artists didn’t mix colors. They put two colors side by side. They knew the eyes would blend the colors for them. The purpose was to create bright and bold colors. Movement was also important. Painters often worked outdoors. This was not normal at the time. Most painters had someone pose for them inside. But the Impressionist went outside. First, they wanted to capture life as it was happening. Their subjects were doing something. They were not posing. Blurred lines showed movement. They paid attention to lighting. Working outside allowed artists to use natural light. This is always changing. The change comes through in the painting. Different times of year are represented with the change in seasons. Impressionist Art changed art. It broke the rules. Many people did not like it for this reason. If you ask me, that’s what makes it so great. And over time, many people agreed.</p><p><strong>Conversation (Questions 31-35)</strong></p><ul><li><b>W:</b> The book Watership Down... let’s talk about it today. It has sold more than 50 million copies. This book’s themes are people and politics. This book looks at how people treat each other and criticizes governments. It uses a story about rabbits. A group of rabbits leave home to find a new place to live. They can’t remain in their old home because it’s going to be destroyed. So, they escape. After a while, the group finds a safe new home. But, they start fighting with other rabbit towns nearby. The rabbits in these towns are very different. And because of this, no one gets on. This shows how people in real life can’t accept each other’s differences. One group of rabbits is called Efrafa. The leader is an adult male rabbit. He controls his town. He tells everyone what to do. No child, teenager, or adult has freedom to learn or experience anything there. The other group of rabbits is the Tharn Warren. It is also very bad. Things are too easy there. Growing up in a place like that means you learn very little. Some people think that the two rabbit towns are like different kinds of governments in the world. And that no government is perfect.</li><li><b>M:</b> Oh, I see! Having a really easy life is bad for you. This is like, uh, the Tharn Warren. The rabbits don’t have to work to find food there. And Efrafa is a place where there is no real freedom. So, it is bad too.</li><li><b>W:</b> Yes, exactly. Watership Down may seem like a simple story about rabbits. But it asks real questions about how we live. This is why it is so popular.</li></ul>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "What heat is",
+                "How heat transfers",
+                "The properties of heat",
+                "Heat in hot air balloons"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What happens to a hot air balloon because of convection?",
+              "options": [
+                "The balloon's air is heated.",
+                "The balloon becomes filled with gas.",
+                "The balloon goes up and goes down.",
+                "The balloon's flame gets hotter and hotter."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What is the professor's opinion of the conduction?",
+              "options": [
+                "He finds it easiest to teach by cooking.",
+                "He feels that it is good for making buildings.",
+                "He believes that it is useful for heating buildings.",
+                "He thinks many people get hurt from it."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Why does the professor mention a toaster?",
+              "options": [
+                "To explain how toast is made by convection",
+                "To discuss how conduction makes toasters hot",
+                "To give an example of something that burns people",
+                "To give an example of heat radiation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What can be inferred from the lecturer?",
+              "options": [
+                "Heat moving through solid materials is convection.",
+                "Convection is not a pattern that repeats.",
+                "Heat cannot move through solid materials.",
+                "Some materials are better at conducting heat than others."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The Impressionist painters and their work",
+                "Why people didn't like Impressionism",
+                "How people posed in Impressionist paintings",
+                "The key features of Impressionist painting"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "How did Impressionist art differ from previous art?",
+              "options": [
+                "It featured people instead of landscapes.",
+                "It used new and different blends of colors.",
+                "It created a three-dimensional effect.",
+                "It was created outside using natural light."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is the speaker's opinion of Impressionism?",
+              "options": [
+                "She likes it because it is different.",
+                "She likes it because the colors blend so well.",
+                "She thinks it's difficult because it uses natural light.",
+                "She doesn't like it because it's blurry."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "How are the points in the lecture organized?",
+              "options": [
+                "In the order that the painters painted",
+                "From most difficult to least difficult",
+                "In the order the textbook mentions them",
+                "By describing the most important points"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Why does the professor say this?",
+              "options": [
+                "To show why older styles of art were better",
+                "To show how older styles of art were different",
+                "To explain how the students should paint",
+                "To describe a famous canvas"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The writer of Watership Down",
+                "The main characters of Watership Down",
+                "The themes of Watership Down",
+                "The political ideas behind Watership Down"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What is the reason the rabbits leave home?",
+              "options": [
+                "They do not have any freedom.",
+                "Their home is going to be destroyed.",
+                "They want to have an adventure.",
+                "They want a new government."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Why does the professor mention the leader of Efrafa?",
+              "options": [
+                "To show the government style of Efrafa",
+                "To compare Efrafa and the Tharn Warren",
+                "To describe how the rabbits typically acted",
+                "To show that the rabbits lived peacefully with others"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "How is the professor's lecture organized?",
+              "options": [
+                "The themes of the story and how they are shown.",
+                "The characters and then what the themes aren't.",
+                "The character comparisons followed by the contrasts.",
+                "The steps the author took in writing the book"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What is the professor's attitude towards Watership Down?",
+              "options": [
+                "She thinks that it shows real life very well.",
+                "She believes that Watership Down is a very simple book.",
+                "She thinks that the book is just about rabbits.",
+                "She thinks that it is hard to understand."
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

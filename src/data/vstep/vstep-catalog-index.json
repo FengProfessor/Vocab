@@ -1,0 +1,3751 @@
+{
+  "version": "2026-09-12",
+  "totalExams": 24,
+  "totalPracticeSets": 166,
+  "categories": [
+    {
+      "id": "full_mock",
+      "titleVi": "Đề Thi Mô Phỏng Toàn Diện (4 Kỹ Năng)",
+      "descriptionVi": "Mô phỏng 100% định dạng phòng thi máy tính VSTEP: Listening, Reading, Writing và Speaking (172 phút).",
+      "badge": "Full Test"
+    },
+    {
+      "id": "listening",
+      "titleVi": "Luyện Chuyên Sâu Listening (Nghe Hiểu)",
+      "descriptionVi": "3 phần nghe hiểu (Part 1: 8 câu; Part 2: 12 câu; Part 3: 15 câu) kèm audio streaming CDN.",
+      "badge": "Listening"
+    },
+    {
+      "id": "reading",
+      "titleVi": "Luyện Chuyên Sâu Reading (Đọc Hiểu)",
+      "descriptionVi": "4 bài đọc dài (40 câu) với các dạng câu hỏi: Main Idea, Details, Inference, Vocabulary in Context.",
+      "badge": "Reading"
+    },
+    {
+      "id": "writing",
+      "titleVi": "Luyện Viết Writing (Thư & Luận)",
+      "descriptionVi": "Task 1 (Email/Thư tín >= 120 từ) & Task 2 (Luận học thuật >= 250 từ) kèm bộ đếm từ trực quan.",
+      "badge": "Writing"
+    },
+    {
+      "id": "speaking",
+      "titleVi": "Luyện Nói Speaking (3 Phần)",
+      "descriptionVi": "Tương tác xã hội, thảo luận giải pháp và phát triển chủ đề nâng cao theo tiêu chuẩn B1-B2-C1.",
+      "badge": "Speaking"
+    }
+  ],
+  "sources": [
+    {
+      "id": "vstepowl",
+      "name": "Vstep Owl",
+      "descriptionVi": "Kho đề thi chuẩn hóa có bản quyền từ VSTEP Owl với audio streaming Cloudflare R2",
+      "badge": "VSTEP Owl",
+      "totalItems": 99
+    },
+    {
+      "id": "onthivstep",
+      "name": "OnThiVSTEP",
+      "descriptionVi": "Kho bài luyện đọc chuyên sâu 75 đề kèm lời giải chi tiết tiếng Việt và chiến thuật làm bài",
+      "badge": "OnThiVSTEP",
+      "totalItems": 75
+    },
+    {
+      "id": "englishteststore",
+      "name": "EnglishTestStore",
+      "descriptionVi": "Ngân hàng đề thi iSpring phong phú với bài đọc hiểu dài và luyện nghe tương tác",
+      "badge": "EnglishTestStore",
+      "totalItems": 15
+    },
+    {
+      "id": "vnu",
+      "name": "VNU Official",
+      "descriptionVi": "Đề mẫu chuẩn định dạng Bộ GD&ĐT từ Đại học Quốc gia Hà Nội",
+      "badge": "VNU ĐHQG",
+      "totalItems": 1
+    }
+  ],
+  "items": [
+    {
+      "id": "vstep-mock-01",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 01",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Khảo Thí Chuẩn Format",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": true,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 01"
+    },
+    {
+      "id": "vstep-mock-02",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 02",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mới Nhất",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": true,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 02"
+    },
+    {
+      "id": "vstep-mock-03",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 03",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mới Nhất",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": true,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 03"
+    },
+    {
+      "id": "vstep-mock-04",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 04",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mới Nhất",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 04"
+    },
+    {
+      "id": "vstep-mock-05",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 05",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mới Nhất",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 05"
+    },
+    {
+      "id": "vstep-mock-06",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 06",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 06"
+    },
+    {
+      "id": "vstep-mock-07",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 07",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 07"
+    },
+    {
+      "id": "vstep-mock-08",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 08",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 08"
+    },
+    {
+      "id": "vstep-mock-09",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 09",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 09"
+    },
+    {
+      "id": "vstep-mock-10",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 10",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 10"
+    },
+    {
+      "id": "vstep-mock-11",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 11",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 11"
+    },
+    {
+      "id": "vstep-mock-12",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 12",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 12"
+    },
+    {
+      "id": "vstep-mock-13",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 13",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 13"
+    },
+    {
+      "id": "vstep-mock-14",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 14",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 14"
+    },
+    {
+      "id": "vstep-mock-15",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 15",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 15"
+    },
+    {
+      "id": "vstep-mock-16",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 16",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 16"
+    },
+    {
+      "id": "vstep-mock-17",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 17",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 17"
+    },
+    {
+      "id": "vstep-mock-18",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 18",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 18"
+    },
+    {
+      "id": "vstep-mock-19",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 19",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 19"
+    },
+    {
+      "id": "vstep-mock-20",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 20",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 20"
+    },
+    {
+      "id": "vstep-mock-21",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 21",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 21"
+    },
+    {
+      "id": "vstep-mock-22",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 22",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 22"
+    },
+    {
+      "id": "vstep-mock-23",
+      "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 23",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Đề Thi Mô Phỏng",
+      "description": "Đề thi tổng hợp đầy đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": false,
+      "category": "full_mock",
+      "source": "vstepowl",
+      "skill": "full_mock",
+      "cefrLevel": "B2",
+      "titleVi": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 23"
+    },
+    {
+      "id": "vstep-listening-01",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 01",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": true,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 01"
+    },
+    {
+      "id": "vstep-listening-02",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 02",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": true,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 02"
+    },
+    {
+      "id": "vstep-listening-03",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 03",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": true,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 03"
+    },
+    {
+      "id": "vstep-listening-04",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 04",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": true,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 04"
+    },
+    {
+      "id": "vstep-listening-05",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 05",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": true,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 05"
+    },
+    {
+      "id": "vstep-listening-06",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 06",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 06"
+    },
+    {
+      "id": "vstep-listening-07",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 07",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 07"
+    },
+    {
+      "id": "vstep-listening-08",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 08",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 08"
+    },
+    {
+      "id": "vstep-listening-09",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 09",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 09"
+    },
+    {
+      "id": "vstep-listening-10",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 10",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 10"
+    },
+    {
+      "id": "vstep-listening-11",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 11",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 11"
+    },
+    {
+      "id": "vstep-listening-12",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 12",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 12"
+    },
+    {
+      "id": "vstep-listening-13",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 13",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 13"
+    },
+    {
+      "id": "vstep-listening-14",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 14",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 14"
+    },
+    {
+      "id": "vstep-listening-15",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 15",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 15"
+    },
+    {
+      "id": "vstep-listening-16",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 16",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 16"
+    },
+    {
+      "id": "vstep-listening-17",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 17",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 17"
+    },
+    {
+      "id": "vstep-listening-18",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 18",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 18"
+    },
+    {
+      "id": "vstep-listening-19",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 19",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 19"
+    },
+    {
+      "id": "vstep-listening-20",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 20",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 20"
+    },
+    {
+      "id": "vstep-listening-21",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 21",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 21"
+    },
+    {
+      "id": "vstep-listening-22",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 22",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 22"
+    },
+    {
+      "id": "vstep-listening-23",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 23",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 23"
+    },
+    {
+      "id": "vstep-listening-24",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 24",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 24"
+    },
+    {
+      "id": "vstep-listening-25",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 25",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 25"
+    },
+    {
+      "id": "vstep-listening-26",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 26",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 26"
+    },
+    {
+      "id": "vstep-listening-27",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 27",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 27"
+    },
+    {
+      "id": "vstep-listening-28",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 28",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 28"
+    },
+    {
+      "id": "vstep-listening-29",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 29",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 29"
+    },
+    {
+      "id": "vstep-listening-30",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 30",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 30"
+    },
+    {
+      "id": "vstep-listening-31",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 31",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 31"
+    },
+    {
+      "id": "vstep-listening-32",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 32",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 32"
+    },
+    {
+      "id": "vstep-listening-33",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 33",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 33"
+    },
+    {
+      "id": "vstep-listening-34",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 34",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 34"
+    },
+    {
+      "id": "vstep-listening-35",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 35",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 35"
+    },
+    {
+      "id": "vstep-listening-36",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 36",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 36"
+    },
+    {
+      "id": "vstep-listening-37",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 37",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 37"
+    },
+    {
+      "id": "vstep-listening-38",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 38",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 38"
+    },
+    {
+      "id": "vstep-listening-39",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 39",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 39"
+    },
+    {
+      "id": "vstep-listening-40",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 40",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 40"
+    },
+    {
+      "id": "vstep-listening-41",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 41",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 41"
+    },
+    {
+      "id": "vstep-listening-42",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 42",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 42"
+    },
+    {
+      "id": "vstep-listening-43",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 43",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 43"
+    },
+    {
+      "id": "vstep-listening-44",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 44",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 44"
+    },
+    {
+      "id": "vstep-listening-45",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 45",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 45"
+    },
+    {
+      "id": "vstep-listening-46",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 46",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 46"
+    },
+    {
+      "id": "vstep-listening-47",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 47",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 47"
+    },
+    {
+      "id": "vstep-listening-48",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 48",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 48"
+    },
+    {
+      "id": "vstep-listening-49",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 49",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 49"
+    },
+    {
+      "id": "vstep-listening-50",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 50",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 50"
+    },
+    {
+      "id": "vstep-listening-51",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 51",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 51"
+    },
+    {
+      "id": "vstep-listening-52",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 52",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 52"
+    },
+    {
+      "id": "vstep-listening-53",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 53",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 53"
+    },
+    {
+      "id": "vstep-listening-54",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 54",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 54"
+    },
+    {
+      "id": "vstep-listening-55",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 55",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 55"
+    },
+    {
+      "id": "vstep-listening-56",
+      "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 56",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 35,
+      "totalTasks": 3,
+      "badge": "Chuyên Sâu Nghe",
+      "description": "Luyện tập toàn bộ 35 câu nghe hiểu với giọng đọc chuẩn bản xứ và tapescript chi tiết.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "vstepowl",
+      "skill": "listening",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 56"
+    },
+    {
+      "id": "vstep-reading-01",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 01",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": true,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 01"
+    },
+    {
+      "id": "vstep-reading-02",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 02",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": true,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 02"
+    },
+    {
+      "id": "vstep-reading-03",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 03",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": true,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 03"
+    },
+    {
+      "id": "vstep-reading-04",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 04",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 04"
+    },
+    {
+      "id": "vstep-reading-05",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 05",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 05"
+    },
+    {
+      "id": "vstep-reading-06",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 06",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 06"
+    },
+    {
+      "id": "vstep-reading-07",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 07",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 07"
+    },
+    {
+      "id": "vstep-reading-08",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 08",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 08"
+    },
+    {
+      "id": "vstep-reading-09",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 09",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 09"
+    },
+    {
+      "id": "vstep-reading-10",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 10",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 10"
+    },
+    {
+      "id": "vstep-reading-11",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 11",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 11"
+    },
+    {
+      "id": "vstep-reading-12",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 12",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 12"
+    },
+    {
+      "id": "vstep-reading-13",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 13",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 13"
+    },
+    {
+      "id": "vstep-reading-14",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 14",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 14"
+    },
+    {
+      "id": "vstep-reading-15",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 15",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 15"
+    },
+    {
+      "id": "vstep-reading-16",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 16",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 16"
+    },
+    {
+      "id": "vstep-reading-17",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 17",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 17"
+    },
+    {
+      "id": "vstep-reading-18",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 18",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 18"
+    },
+    {
+      "id": "vstep-reading-19",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 19",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 19"
+    },
+    {
+      "id": "vstep-reading-20",
+      "title": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 20",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "targetLevel": "B2",
+      "totalQuestions": 40,
+      "totalTasks": 4,
+      "badge": "Chuyên Sâu Đọc",
+      "description": "4 bài đọc dài (40 câu) rèn luyện kỹ năng Skimming, Scanning và suy luận theo chuẩn VSTEP B1-B2-C1.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "vstepowl",
+      "skill": "reading",
+      "cefrLevel": "B2",
+      "titleVi": "Luyện Đọc Hiểu VSTEP 4 Passages — Đề Số 20"
+    },
+    {
+      "id": "vstep-reading-onthi-01",
+      "title": "Luyện Đọc VSTEP: Lake Baikal (VstepR2-Test 01)",
+      "titleVi": "Luyện Đọc VSTEP: Lake Baikal (VstepR2-Test 01)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-02",
+      "title": "Luyện Đọc VSTEP: VstepR3-Test 01 (VstepR3-Test 01)",
+      "titleVi": "Luyện Đọc VSTEP: VstepR3-Test 01 (VstepR3-Test 01)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 2,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-03",
+      "title": "Luyện Đọc VSTEP: Tiger Moths (VstepR4-Test 01)",
+      "titleVi": "Luyện Đọc VSTEP: Tiger Moths (VstepR4-Test 01)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 4,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-04",
+      "title": "Luyện Đọc VSTEP: The Cambrian Explosion (VstepR4-Test 02)",
+      "titleVi": "Luyện Đọc VSTEP: The Cambrian Explosion (VstepR4-Test 02)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 4,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-05",
+      "title": "Luyện Đọc VSTEP: The Golden Age of Comics (VstepR4-Test 03)",
+      "titleVi": "Luyện Đọc VSTEP: The Golden Age of Comics (VstepR4-Test 03)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-06",
+      "title": "Luyện Đọc VSTEP: The Filibuster (VstepR4-Test 04)",
+      "titleVi": "Luyện Đọc VSTEP: The Filibuster (VstepR4-Test 04)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 6,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-07",
+      "title": "Luyện Đọc VSTEP: VstepR4-Test 05 (VstepR4-Test 05)",
+      "titleVi": "Luyện Đọc VSTEP: VstepR4-Test 05 (VstepR4-Test 05)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-08",
+      "title": "Luyện Đọc VSTEP: VstepR4-Test 06 (VstepR4-Test 06)",
+      "titleVi": "Luyện Đọc VSTEP: VstepR4-Test 06 (VstepR4-Test 06)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 3,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-09",
+      "title": "Luyện Đọc VSTEP: VstepR4-Test 07 (VstepR4-Test 07)",
+      "titleVi": "Luyện Đọc VSTEP: VstepR4-Test 07 (VstepR4-Test 07)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-10",
+      "title": "Luyện Đọc VSTEP: VstepR4-Test 08 (VstepR4-Test 08)",
+      "titleVi": "Luyện Đọc VSTEP: VstepR4-Test 08 (VstepR4-Test 08)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 4,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-11",
+      "title": "Luyện Đọc VSTEP: VstepR4-Test 09 (VstepR4-Test 09)",
+      "titleVi": "Luyện Đọc VSTEP: VstepR4-Test 09 (VstepR4-Test 09)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 4,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-12",
+      "title": "Luyện Đọc VSTEP: VstepR4-Test 10 (VstepR4-Test 10)",
+      "titleVi": "Luyện Đọc VSTEP: VstepR4-Test 10 (VstepR4-Test 10)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 4,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-13",
+      "title": "Luyện Đọc VSTEP: VstepR4-Test 11 (VstepR4-Test 11)",
+      "titleVi": "Luyện Đọc VSTEP: VstepR4-Test 11 (VstepR4-Test 11)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 3,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-14",
+      "title": "Luyện Đọc VSTEP: Camouflage (VstepR5-Test 01)",
+      "titleVi": "Luyện Đọc VSTEP: Camouflage (VstepR5-Test 01)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 2,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-15",
+      "title": "Luyện Đọc VSTEP: Post-it® Notes (VstepR5-Test 02)",
+      "titleVi": "Luyện Đọc VSTEP: Post-it® Notes (VstepR5-Test 02)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 4,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-16",
+      "title": "Luyện Đọc VSTEP: The Pulitzer Prize (VstepR5-Test 03)",
+      "titleVi": "Luyện Đọc VSTEP: The Pulitzer Prize (VstepR5-Test 03)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 4,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-17",
+      "title": "Luyện Đọc VSTEP: Competition and Cooperation (VstepR5-Test 04)",
+      "titleVi": "Luyện Đọc VSTEP: Competition and Cooperation (VstepR5-Test 04)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 4,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-18",
+      "title": "Luyện Đọc VSTEP: Map Legends (VstepRd Test 01)",
+      "titleVi": "Luyện Đọc VSTEP: Map Legends (VstepRd Test 01)",
+      "duration": 14,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 9,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-19",
+      "title": "Luyện Đọc VSTEP: Marketing (VstepRd Test 02)",
+      "titleVi": "Luyện Đọc VSTEP: Marketing (VstepRd Test 02)",
+      "duration": 12,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 8,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-20",
+      "title": "Luyện Đọc VSTEP: VstepRd Test 03* (VstepRd Test 03*)",
+      "titleVi": "Luyện Đọc VSTEP: VstepRd Test 03* (VstepRd Test 03*)",
+      "duration": 12,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 8,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-21",
+      "title": "Luyện Đọc VSTEP: VstepRd Test 04* (VstepRd Test 04*)",
+      "titleVi": "Luyện Đọc VSTEP: VstepRd Test 04* (VstepRd Test 04*)",
+      "duration": 14,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 9,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-22",
+      "title": "Luyện Đọc VSTEP: VstepRd Test 05 (VstepRd Test 05)",
+      "titleVi": "Luyện Đọc VSTEP: VstepRd Test 05 (VstepRd Test 05)",
+      "duration": 17,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 11,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-23",
+      "title": "Luyện Đọc VSTEP: VstepRd Test 06* (VstepRd Test 06*)",
+      "titleVi": "Luyện Đọc VSTEP: VstepRd Test 06* (VstepRd Test 06*)",
+      "duration": 17,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 11,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-24",
+      "title": "Luyện Đọc VSTEP: VstepRd Test 07* (VstepRd Test 07*)",
+      "titleVi": "Luyện Đọc VSTEP: VstepRd Test 07* (VstepRd Test 07*)",
+      "duration": 18,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 12,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-25",
+      "title": "Luyện Đọc VSTEP: VstepRd Test 08* (VstepRd Test 08*)",
+      "titleVi": "Luyện Đọc VSTEP: VstepRd Test 08* (VstepRd Test 08*)",
+      "duration": 18,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 12,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-26",
+      "title": "Luyện Đọc VSTEP: VstepRd Test 09* (VstepRd Test 09*)",
+      "titleVi": "Luyện Đọc VSTEP: VstepRd Test 09* (VstepRd Test 09*)",
+      "duration": 18,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 12,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-27",
+      "title": "Luyện Đọc VSTEP: The Industrial Revolution (VstepR6-Test 01)",
+      "titleVi": "Luyện Đọc VSTEP: The Industrial Revolution (VstepR6-Test 01)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-28",
+      "title": "Luyện Đọc VSTEP: Renewable Energy: Promise and Challenges (VstepR6-Test 02)",
+      "titleVi": "Luyện Đọc VSTEP: Renewable Energy: Promise and Challenges (VstepR6-Test 02)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-29",
+      "title": "Luyện Đọc VSTEP: Oceans and Climate Change (VstepR6-Test 03)",
+      "titleVi": "Luyện Đọc VSTEP: Oceans and Climate Change (VstepR6-Test 03)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-30",
+      "title": "Luyện Đọc VSTEP: Technology and Education (VstepR6-Test 04)",
+      "titleVi": "Luyện Đọc VSTEP: Technology and Education (VstepR6-Test 04)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-31",
+      "title": "Luyện Đọc VSTEP: Cultural Heritage: Preservation and Challenges (VstepR6-Test 05)",
+      "titleVi": "Luyện Đọc VSTEP: Cultural Heritage: Preservation and Challenges (VstepR6-Test 05)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-32",
+      "title": "Luyện Đọc VSTEP: Sleep and Human Health (VstepR3-Test 02)",
+      "titleVi": "Luyện Đọc VSTEP: Sleep and Human Health (VstepR3-Test 02)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-33",
+      "title": "Luyện Đọc VSTEP: Biodiversity: Our Natural Wealth (VstepR3-Test 03)",
+      "titleVi": "Luyện Đọc VSTEP: Biodiversity: Our Natural Wealth (VstepR3-Test 03)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-34",
+      "title": "Luyện Đọc VSTEP: Privacy in the Digital Age (VstepR3-Test 04)",
+      "titleVi": "Luyện Đọc VSTEP: Privacy in the Digital Age (VstepR3-Test 04)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-35",
+      "title": "Luyện Đọc VSTEP: Advertising and Society (VstepR3-Test 5)",
+      "titleVi": "Luyện Đọc VSTEP: Advertising and Society (VstepR3-Test 5)",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-36",
+      "title": "Luyện Đọc VSTEP: The Amazon Rainforest (VstepR2-Test 14 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: The Amazon Rainforest (VstepR2-Test 14 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-37",
+      "title": "Luyện Đọc VSTEP: The History of Writing Systems (VstepR2-Test 15 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: The History of Writing Systems (VstepR2-Test 15 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-38",
+      "title": "Luyện Đọc VSTEP: The Psychology of Color (VstepR3-Test 6 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: The Psychology of Color (VstepR3-Test 6 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-39",
+      "title": "Luyện Đọc VSTEP: The Rise of Plant-Based Diets (VstepR3-Test 7 (01-04-2026))",
+      "titleVi": "Luyện Đọc VSTEP: The Rise of Plant-Based Diets (VstepR3-Test 7 (01-04-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-40",
+      "title": "Luyện Đọc VSTEP: Climate Migration and the Future (VstepR4-Test 12 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: Climate Migration and the Future (VstepR4-Test 12 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-41",
+      "title": "Luyện Đọc VSTEP: Social Media and Adolescent Well-being (VstepR4-Test 13 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: Social Media and Adolescent Well-being (VstepR4-Test 13 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-42",
+      "title": "Luyện Đọc VSTEP: The Gut Microbiome and Human Health (VstepR5-Test 14 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: The Gut Microbiome and Human Health (VstepR5-Test 14 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-43",
+      "title": "Luyện Đọc VSTEP: Urban Farming: Feeding the Cities of Tomorrow (VstepR5-Test 15 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: Urban Farming: Feeding the Cities of Tomorrow (VstepR5-Test 15 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-44",
+      "title": "Luyện Đọc VSTEP: Quantum Computing: Promise and Reality (VstepR6-Test 06 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: Quantum Computing: Promise and Reality (VstepR6-Test 06 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-45",
+      "title": "Luyện Đọc VSTEP: The History and Global Journey of Coffee (VstepR6-Test 07 (27-03-2026))",
+      "titleVi": "Luyện Đọc VSTEP: The History and Global Journey of Coffee (VstepR6-Test 07 (27-03-2026))",
+      "duration": 10,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 5,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP C1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-46",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 01 (Reading Part 1 - Test 01)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 01 (Reading Part 1 - Test 01)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-47",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 02 (Reading Part 1 - Test 02)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 02 (Reading Part 1 - Test 02)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-48",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 03 (Reading Part 1 - Test 03)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 03 (Reading Part 1 - Test 03)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-49",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 04 (Reading Part 1 - Test 04)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 04 (Reading Part 1 - Test 04)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-50",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 05 (Reading Part 1 - Test 05)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 05 (Reading Part 1 - Test 05)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-51",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 06 (Reading Part 1 - Test 06)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 06 (Reading Part 1 - Test 06)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-52",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 07 (Reading Part 1 - Test 07)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 07 (Reading Part 1 - Test 07)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-53",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 08 (Reading Part 1 - Test 08)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 08 (Reading Part 1 - Test 08)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-54",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 09 (Reading Part 1 - Test 09)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 09 (Reading Part 1 - Test 09)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-55",
+      "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 10 (Reading Part 1 - Test 10)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 1 - Test 10 (Reading Part 1 - Test 10)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B1",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-56",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 01 (Reading Part 2 - Test 01)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 01 (Reading Part 2 - Test 01)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-57",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 02 (Reading Part 2 - Test 02)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 02 (Reading Part 2 - Test 02)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-58",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 03 (Reading Part 2 - Test 03)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 03 (Reading Part 2 - Test 03)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-59",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 04 (Reading Part 2 - Test 04)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 04 (Reading Part 2 - Test 04)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-60",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 05 (Reading Part 2 - Test 05)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 05 (Reading Part 2 - Test 05)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-61",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 06 (Reading Part 2 - Test 06)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 06 (Reading Part 2 - Test 06)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-62",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 07 (Reading Part 2 - Test 07)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 07 (Reading Part 2 - Test 07)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-63",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 08 (Reading Part 2 - Test 08)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 08 (Reading Part 2 - Test 08)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-64",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 09 (Reading Part 2 - Test 09)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 09 (Reading Part 2 - Test 09)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-65",
+      "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 10 (Reading Part 2 - Test 10)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 2 - Test 10 (Reading Part 2 - Test 10)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-66",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 17 (Reading Part 3 - Test 17)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 17 (Reading Part 3 - Test 17)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-67",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 16 (Reading Part 3 - Test 16)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 16 (Reading Part 3 - Test 16)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-68",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 15 (Reading Part 3 - Test 15)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 15 (Reading Part 3 - Test 15)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-69",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 14 (Reading Part 3 - Test 14)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 14 (Reading Part 3 - Test 14)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-70",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 13 (Reading Part 3 - Test 13)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 13 (Reading Part 3 - Test 13)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-71",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 12 (Reading Part 3 - Test 12)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 12 (Reading Part 3 - Test 12)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-72",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 11 (Reading Part 3 - Test 11)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 11 (Reading Part 3 - Test 11)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-73",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 08 (Reading Part 3 - Test 08)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 08 (Reading Part 3 - Test 08)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-74",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 09 (Reading Part 3 - Test 09)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 09 (Reading Part 3 - Test 09)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-onthi-75",
+      "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 10 (Reading Part 3 - Test 10)",
+      "titleVi": "Luyện Đọc VSTEP: Reading Part 3 - Test 10 (Reading Part 3 - Test 10)",
+      "duration": 15,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 10,
+      "totalTasks": 1,
+      "badge": "OnThiVSTEP B2",
+      "description": "Bộ đề luyện đọc hiểu VSTEP thực chiến từ OnThiVSTEP, bao gồm bài đọc chuyên sâu kèm hệ thống lời giải chi tiết tiếng Việt.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "onthivstep"
+    },
+    {
+      "id": "vstep-reading-ets-01",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 001 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 001 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 36,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 36 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-02",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 002 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 002 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 36,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 36 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-03",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 003 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 003 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 32,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 32 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-04",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 004 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 004 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 31,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 31 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-05",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 005 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 005 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 36,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 36 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-06",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 006 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 006 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 28,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 28 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-07",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 007 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 007 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 30,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 30 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-08",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 008 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 008 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 32,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 32 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-09",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 009 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 009 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 32,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 32 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-reading-ets-10",
+      "title": "VSTEP B1, B2, C1 Reading - Full Test 010 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Reading - Full Test 010 (EnglishTestStore Practice)",
+      "duration": 60,
+      "skills": [
+        "reading"
+      ],
+      "skill": "reading",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 36,
+      "totalTasks": 4,
+      "badge": "ETS Reading",
+      "description": "Bộ luyện đọc chuyên sâu VSTEP B1-B2-C1 gồm 4 bài đọc dài và 36 câu hỏi trắc nghiệm từ kho đề EnglishTestStore.",
+      "isPopular": false,
+      "category": "reading",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-listening-ets-01",
+      "title": "VSTEP B1, B2, C1 Listening - Full Test 001 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Listening - Full Test 001 (EnglishTestStore Practice)",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "skill": "listening",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 30,
+      "totalTasks": 14,
+      "badge": "ETS Listening",
+      "description": "Bài luyện nghe tương tác iSpring từ EnglishTestStore với audio streaming và câu hỏi trắc nghiệm.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-listening-ets-02",
+      "title": "VSTEP B1, B2, C1 Listening - Full Test 002 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Listening - Full Test 002 (EnglishTestStore Practice)",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "skill": "listening",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 34,
+      "totalTasks": 14,
+      "badge": "ETS Listening",
+      "description": "Bài luyện nghe tương tác iSpring từ EnglishTestStore với audio streaming và câu hỏi trắc nghiệm.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-listening-ets-03",
+      "title": "VSTEP B1, B2, C1 Listening - Full Test 003 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Listening - Full Test 003 (EnglishTestStore Practice)",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "skill": "listening",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 34,
+      "totalTasks": 14,
+      "badge": "ETS Listening",
+      "description": "Bài luyện nghe tương tác iSpring từ EnglishTestStore với audio streaming và câu hỏi trắc nghiệm.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-listening-ets-04",
+      "title": "VSTEP B1, B2, C1 Listening - Full Test 004 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Listening - Full Test 004 (EnglishTestStore Practice)",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "skill": "listening",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 31,
+      "totalTasks": 14,
+      "badge": "ETS Listening",
+      "description": "Bài luyện nghe tương tác iSpring từ EnglishTestStore với audio streaming và câu hỏi trắc nghiệm.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-listening-ets-05",
+      "title": "VSTEP B1, B2, C1 Listening - Full Test 005 (EnglishTestStore Practice)",
+      "titleVi": "VSTEP B1, B2, C1 Listening - Full Test 005 (EnglishTestStore Practice)",
+      "duration": 40,
+      "skills": [
+        "listening"
+      ],
+      "skill": "listening",
+      "targetLevel": "B1",
+      "cefrLevel": "B1",
+      "totalQuestions": 31,
+      "totalTasks": 14,
+      "badge": "ETS Listening",
+      "description": "Bài luyện nghe tương tác iSpring từ EnglishTestStore với audio streaming và câu hỏi trắc nghiệm.",
+      "isPopular": false,
+      "category": "listening",
+      "source": "englishteststore"
+    },
+    {
+      "id": "vstep-exam-vnu-01",
+      "title": "Đề Thi Mẫu Chuẩn VSTEP 3-5 — Đại Học Quốc Gia Hà Nội",
+      "titleVi": "Đề Thi Mẫu Chuẩn VSTEP 3-5 — Đại Học Quốc Gia Hà Nội",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "skill": "full_mock",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Chuẩn ĐHQG",
+      "description": "Đề thi mô phỏng chính thức chuẩn định dạng Bộ GD&ĐT do Trường ĐH Ngoại ngữ - ĐHQGHN ban hành, đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": true,
+      "category": "full_mock",
+      "source": "vnu"
+    }
+  ]
+}

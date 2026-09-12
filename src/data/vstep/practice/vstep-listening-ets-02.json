@@ -1,0 +1,666 @@
+{
+  "id": "vstep-listening-ets-02",
+  "title": "VSTEP B1, B2, C1 Listening - Full Test 002 (EnglishTestStore Practice)",
+  "duration": 40,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 34,
+      "tasks": [
+        {
+          "id": "ets-l02-task-1",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 1 to 1.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q01",
+              "type": "mcq",
+              "question": "What should the listeners do before they skate?",
+              "options": [
+                "Get permission from the safety coordinator",
+                "Wear the proper safety equipment",
+                "Pay a nominal fee",
+                "Have membership cards"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 1",
+              "orderNumber": 1
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-2",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 2 to 2.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q02",
+              "type": "mcq",
+              "question": "What should a person hearing this message do?",
+              "options": [
+                "He should record his name and phone number at the beep.",
+                "He should call back later when someone arrives.",
+                "He should disconnect the line and try again.",
+                "He should page the wanted person at work."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 2",
+              "orderNumber": 2
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-3",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 3 to 3.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q03",
+              "type": "mcq",
+              "question": "When did Dr. Schuler leave his office?",
+              "options": [
+                "Four to five minutes ago.",
+                "Forty minutes ago.",
+                "Three quarters of an hour ago.",
+                "Not so long ago."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 3",
+              "orderNumber": 3
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-4",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 4 to 4.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q04",
+              "type": "mcq",
+              "question": "What will cause temperatures to drop?",
+              "options": [
+                "The increase of travelers.",
+                "A late winter storm.",
+                "A wind from the north.",
+                "The start of summer."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 4",
+              "orderNumber": 4
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-5",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 5 to 5.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q05",
+              "type": "mcq",
+              "question": "Why does the reporter say more deaths are expected?",
+              "options": [
+                "The situation is getting worse.",
+                "There are not enough rescuers.",
+                "Many people are missing.",
+                "Shelters are insufficient protection."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 5",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-6",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 6 to 6.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q06",
+              "type": "mcq",
+              "question": "Which part of the Arts Centre only opened recently?",
+              "options": [
+                "An open-air concert area",
+                "A cinema",
+                "An art gallery",
+                "A restaurant"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 6",
+              "orderNumber": 6
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-7",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 7 to 7.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q07",
+              "type": "mcq",
+              "question": "What is compared to listening to the radio?",
+              "options": [
+                "Sending emails.",
+                "Watching TV.",
+                "Talking to friends.",
+                "Sitting down to chat."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 7",
+              "orderNumber": 7
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-8",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 8 to 8.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q08",
+              "type": "mcq",
+              "question": "What should drivers to Bridgend do?",
+              "options": [
+                "Drive down Lodge Lane",
+                "Turn off at junction 32",
+                "Drive down Smith Street",
+                "Cancel the drive"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 8",
+              "orderNumber": 8
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-9",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 9 to 11.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q09",
+              "type": "mcq",
+              "question": "What is the man’s problem?",
+              "options": [
+                "He doesn’t like math",
+                "He is not very good at basketball",
+                "He hates school",
+                "He needs help with English"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-l02-q10",
+              "type": "mcq",
+              "question": "What is the woman’s main point?",
+              "options": [
+                "Math is difficult",
+                "School is easy",
+                "Try something new to make math easier",
+                "Change your English class"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-l02-q11",
+              "type": "mcq",
+              "question": "What does the woman advise the man to do?",
+              "options": [
+                "Imagine something abstract as real",
+                "Picture something entertaining in his mind",
+                "Give up writing down every word in class",
+                "Use pictures to represent words"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 11
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-10",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 12 to 15.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q12",
+              "type": "mcq",
+              "question": "Where is Angela working at the moment?",
+              "options": [
+                "Britain",
+                "The USA",
+                "Asia",
+                "Argentina"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-l02-q13",
+              "type": "mcq",
+              "question": "Why does Angela like her job?",
+              "options": [
+                "Because she loves being in dangerous situations",
+                "Because she never knows where she’ll go next",
+                "Because she has a chance to meet new people",
+                "Because she enjoys watching important events happen"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-l02-q14",
+              "type": "mcq",
+              "question": "What did Angela bring home from Hong Kong?",
+              "options": [
+                "Pictures",
+                "Carpets",
+                "Bits of art",
+                "Furniture"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-l02-q15",
+              "type": "mcq",
+              "question": "What time does Angela’s working day begin?",
+              "options": [
+                "8.30 a.m",
+                "6.30 pm",
+                "10.00 a.m",
+                "8 a.m"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 15
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-11",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 16 to 19.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q16",
+              "type": "mcq",
+              "question": "What is the relationship between the speakers?",
+              "options": [
+                "They're classmates",
+                "They're roommates",
+                "They're cousins",
+                "They're lab partners"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 16
+            },
+            {
+              "id": "ets-l02-q17",
+              "type": "mcq",
+              "question": "Why was a man worried at first?",
+              "options": [
+                "He couldn't decide on a topic for his paper",
+                "He thought his paper was late.",
+                "He hadn't heard from his family in a while",
+                "He thought the woman had been ill"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-l02-q18",
+              "type": "mcq",
+              "question": "According to the man. How do some bees use their sense of smell?",
+              "options": [
+                "To find their way back to the nest.",
+                "To locate plant fibers.",
+                "To identify kinds of honey.",
+                "To identify relatives"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-l02-q19",
+              "type": "mcq",
+              "question": "What will the man probably do over the weekend?",
+              "options": [
+                "Visit his parents",
+                "Write a paper.",
+                "Observe how bees build nests",
+                "Plan a family reunion."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 19
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-12",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 20 to 24.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q20",
+              "type": "mcq",
+              "question": "Why did Paul choose the part of Africa he visited?",
+              "options": [
+                "It is good for walking",
+                "It will soon change",
+                "He had been there before",
+                "It was easiest route to go"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-l02-q21",
+              "type": "mcq",
+              "question": "What made the team’s journey slow?",
+              "options": [
+                "clearing paths through the forest",
+                "finding somewhere safe to camp",
+                "carrying heavy equipment",
+                "finding something to eat"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-l02-q22",
+              "type": "mcq",
+              "question": "What did Paul worry about during the trip?",
+              "options": [
+                "the number of dangerous animals",
+                "getting the information he needed",
+                "being responsible for a team of people",
+                "asking the team to help him"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-l02-q23",
+              "type": "mcq",
+              "question": "Paul says that the team didn’t have enough food because",
+              "options": [
+                "some people ate more than they should",
+                "the walk took longer than expected",
+                "some of the food went bad too quickly",
+                "They underestimated the amount of food to bring"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-l02-q24",
+              "type": "mcq",
+              "question": "How does Paul feel now he is back home?",
+              "options": [
+                "He is planning to do another trip",
+                "He misses the people in the team",
+                "He thinks the trip was a valuable experience",
+                "He wouldn’t mind travelling to Australia"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 24
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-13",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 25 to 29.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q25",
+              "type": "mcq",
+              "question": "The Clavie is ...",
+              "options": [
+                "A whisky container",
+                "A wooden cross",
+                "A bonfire made of things people don’t need",
+                "A kind of whisky"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-l02-q26",
+              "type": "mcq",
+              "question": "In the Up Hellyaa festival, they burn ...",
+              "options": [
+                "A wooden man",
+                "A Viking boat",
+                "A line in the grass",
+                "Some old boats"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-l02-q27",
+              "type": "mcq",
+              "question": "During a pancake race, you have to ...",
+              "options": [
+                "Eat as many pancakes as possible",
+                "Run as fast as possible while tossing a pancake in a pan",
+                "Run and jump over the ropes without dropping the pancake",
+                "Run while eating pancake"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-l02-q28",
+              "type": "mcq",
+              "question": "Nowadays, the people who win the cheese rolling competition are usually ...",
+              "options": [
+                "Top athletes",
+                "People from the village",
+                "Visitors from all over the world",
+                "People from other villages"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-l02-q29",
+              "type": "mcq",
+              "question": "The fastest snail in the Snail Racing is ...",
+              "options": [
+                "Cooked with garlic and butter",
+                "Rescued from the barbecue",
+                "Given a prize of extra lettuce",
+                "Prized a cup"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 29
+            }
+          ]
+        },
+        {
+          "id": "ets-l02-task-14",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 30 to 34.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test02/data/audios/snd-15b25c75ca8e10c90dd8b3c30c42d2763b63982d.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l02-q30",
+              "type": "mcq",
+              "question": "How many students have been dislodged for their fault?",
+              "options": [
+                "10",
+                "14",
+                "600",
+                "60"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-l02-q31",
+              "type": "mcq",
+              "question": "What has happened to the videos and photos of this incident?",
+              "options": [
+                "They have gone viral.",
+                "They have disappeared.",
+                "They were stolen.",
+                "They have been made into a movie."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 31
+            },
+            {
+              "id": "ets-l02-q32",
+              "type": "mcq",
+              "question": "Who is P.K Shahi?",
+              "options": [
+                "A student",
+                "The school’s head teacher",
+                "A parent’s leader",
+                "The minister of education"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 32
+            },
+            {
+              "id": "ets-l02-q33",
+              "type": "mcq",
+              "question": "What has been done to improve the situation?",
+              "options": [
+                "They’ve sent mail to parents via post office.",
+                "They’ve posted notice to each school.",
+                "They’ve used the police.",
+                "They’ve used cars to drive them away."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 33
+            },
+            {
+              "id": "ets-l02-q34",
+              "type": "mcq",
+              "question": "What can schools not use to stop parents?",
+              "options": [
+                "Legal prosecutions",
+                "Shock tactics",
+                "Electric fences",
+                "Force"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 34
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

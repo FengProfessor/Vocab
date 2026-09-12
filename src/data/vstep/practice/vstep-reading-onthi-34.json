@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-34",
+  "title": "Luyện Đọc VSTEP: Privacy in the Digital Age (VstepR3-Test 04)",
+  "duration": 10,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Privacy in the Digital Age",
+            "text": "<p style=\"text-align:justify;\">The digital revolution has brought extraordinary benefits — instant communication, access to vast stores of information, and new economic opportunities — but it has also created unprecedented challenges to personal privacy. As we go about our daily lives, vast quantities of data about our habits, preferences, locations, and relationships are collected by smartphones, computers, and the countless sensors embedded in modern infrastructure. Much of this data collection occurs without the explicit knowledge or meaningful consent of the individuals involved.</p>\n<p style=\"text-align:justify;\">Large technology companies have built their business models around the collection, analysis, and sale of personal data. This information is used primarily for targeted advertising, but it is also valuable for credit scoring, insurance risk assessment, and political campaigning. The accumulation of detailed personal profiles by private corporations raises serious questions about power, autonomy, and the potential for discrimination. When algorithms make decisions about who receives a loan or who is flagged by law enforcement, the stakes of data privacy become very high.</p>\n<p style=\"text-align:justify;\">Governments face the challenge of regulating data collection without stifling the innovation that has made the technology sector one of the most dynamic parts of the global economy. The European Union's General Data Protection Regulation (GDPR) is one of the most comprehensive attempts to address this challenge, requiring companies to obtain explicit consent before collecting certain types of data and giving individuals the right to access and delete their personal information. Critics argue that such regulations impose compliance costs on businesses and are difficult to enforce internationally.</p>\n<p style=\"text-align:justify;\">Finding the right balance between privacy and innovation will be one of the defining policy challenges of the twenty-first century. As artificial intelligence systems become more sophisticated and data more central to economic and social life, the decisions societies make about who owns personal data and how it can be used will shape the kind of society we live in.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r34-q1",
+              "type": "mcq",
+              "question": "What is the best title for this passage?",
+              "options": [
+                "How to Protect Your Device from Hackers",
+                "Personal Data Privacy in the Digital Age: Challenges and Responses",
+                "Why Technology Companies Are Successful",
+                "The Benefits of Artificial Intelligence"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r34-q2",
+              "type": "mcq",
+              "question": "The main idea of paragraph 2 is?",
+              "options": [
+                "Technology companies are engaging in illegal activities",
+                "The collection and use of personal data by corporations raises serious social and ethical concerns",
+                "Targeted advertising is the only purpose of technology companies",
+                "Credit companies should not use personal data in their decisions"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r34-q3",
+              "type": "mcq",
+              "question": "What is the central concern of paragraph 3?",
+              "options": [
+                "The need to ban all large technology companies",
+                "The difficulty of balancing data regulation with the need for technological innovation",
+                "Why the GDPR has completely failed to protect privacy",
+                "The role of artificial intelligence in data regulation"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r34-q4",
+              "type": "mcq",
+              "question": "Which best describes the overall structure of this passage?",
+              "options": [
+                "It presents a problem, then argues that regulation is unnecessary",
+                "It describes only the benefits of the digital revolution",
+                "It identifies a challenge, discusses its dimensions, and considers policy responses",
+                "It compares privacy laws across two specific countries"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r34-q5",
+              "type": "mcq",
+              "question": "Which statement best summarizes the main message of the passage?",
+              "options": [
+                "Personal data will soon be much less valuable to technology companies",
+                "The issue of data privacy is complex and will become more important in the future",
+                "Governments will eventually stop regulating technology companies",
+                "Individual users already have sufficient tools to protect their own privacy"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

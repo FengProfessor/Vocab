@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-05",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 05",
+  "duration": 172,
+  "date": "2026-03-18",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-05/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. Which job does the woman do now?</b></p><ul><li><b>Woman:</b> All the time I was at school I wanted to be a nurse, but my mother worked in a shop and said it wasn’t good to be on your feet all day. She wanted me to be a secretary. I did that for a while after I left college, but I wasn’t very keen on it, so I retrained and now I’m doing <b>what I always wanted to</b>.</li></ul><p><b>2. Where will they meet?</b></p><ul><li><b>Girl:</b> Hi Pip. It’s Angie. I’ll see you outside the café tonight at seven thirty.</li><li><b>Boy:</b> Oh, but I don’t know where it is.</li><li><b>Girl:</b> It’s easy to find. It’s opposite that new supermarket that’s just opened.</li><li><b>Boy:</b> I’m not sure where that is either. I’ll <b>wait for you by the bus station</b>, then we can go to the café together. I’ll know where the new supermarket is then too.</li></ul><p><b>3. What was the boy doing when the phone rang?</b></p><ul><li><b>Girl:</b> What did you do yesterday evening?</li><li><b>Boy:</b> Well, I was supposed to look after my four-year-old cousin while my aunt went to the theatre. But I wanted to <b>watch the match on television</b>, so she found someone else. The annoying thing was that the <b>phone rang halfway through</b>, and I missed the best goal. I’d finished all my homework early, too.</li></ul><p><b>4. Which date is Brian’s birthday?</b></p><ul><li><b>Man 1:</b> John, did you know it’s Brian’s birthday next week, his 20th? It’s on the <b>15th</b>.</li><li><b>Man 2:</b> That’s Wednesday, isn’t it? Is he having a party?</li><li><b>Man 1:</b> Yes, on the 17th at about eight.</li><li><b>Man 2:</b> Oh, next Friday. I hope I get asked.</li></ul><p><b>5. Where is the man?</b></p><ul><li><b>Man:</b> Hello Mary. The train arrived much earlier than I expected. I’m on the <b>platform</b> at the moment. Shall I get a taxi? There shouldn’t be a long queue at this time of day ... OK ... I’ll go and have a drink in the café while I wait for you.</li></ul><p><b>6. Which is the boy’s teacher?</b></p><ul><li><b>Boy:</b> I’ve just started learning the piano. I’ve got a really nice teacher. He’s called Mr Hall.</li><li><b>Girl:</b> Oh, I know, he taught me when I was quite young. He’s got a beard and lots of black hair, hasn’t he? I used to be quite frightened of him.</li><li><b>Boy:</b> Well, the Mr Hall who teaches me <b>hasn't got much hair and it's grey</b>, but he does have a <b>beard</b>. And <b>wears glasses</b>.</li><li><b>Girl:</b> But it is the same man, I’m sure. I was only little when he was teaching me.</li></ul><p><b>7. What did the man receive in the post?</b></p><ul><li><b>Man:</b> Was there any post for me this morning?</li><li><b>Woman:</b> Yes, there was. <b>Two letters and a postcard</b>. Here you are.</li><li><b>Man:</b> One of the letters is for you. I’m expecting a <b>parcel</b>. Did it come?</li><li><b>Woman:</b> Oh yes. I put it over there, look.</li></ul><p><b>8. What time is the flight from New York expected?</b></p><ul><li><b>Woman:</b> Excuse me, I’m waiting for flight 712 from New York. It was supposed to arrive at nine twenty. It’s nine thirty-five now and there’s been no announcement of a delay or anything.</li><li><b>Man:</b> I’m sorry, Madam. We’ve just had a message to say it took off an hour and a half late. Arrival time is now <b>ten fifty-five</b>.</li><li><b>Woman:</b> That’s too bad. I’ve been here since half past eight and it probably won’t arrive when you say. I expect I’ll be here till midday. That’s a whole morning wasted.</li><li><b>Man:</b> I can only apologise, Madam.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which job does the woman do now?",
+              "options": [
+                "A nurse",
+                "A secretary",
+                "A teacher",
+                "A doctor"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Where will they meet?",
+              "options": [
+                "By bus station",
+                "Outside the café",
+                "Opposite to the supermarket",
+                "At the cinema"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What was the boy doing when the phone rang?",
+              "options": [
+                "Looking after his four-year-old cousin",
+                "Doing his homework",
+                "Watching a football match",
+                "Playing football"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which date is Brian’s birthday?",
+              "options": [
+                "Wednesday, 20th",
+                "Friday, 17th",
+                "Friday, 15th",
+                "Wednesday, 15th"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Where is the man?",
+              "options": [
+                "In the café",
+                "In the restaurant",
+                "On the platform",
+                "In a taxi"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Which is the boy’s teacher?",
+              "options": [
+                "The man with lots of black hair and a beard",
+                "The man with a beard and wears glasses",
+                "The man with grey hair but doesn’t wear glasses",
+                "The man with lots of hair but doesn’t have a beard"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What did the man receive in the post?",
+              "options": [
+                "A parcel, a letter and a postcard",
+                "A parcel and two letters",
+                "Two letters and a postcard",
+                "A postcard and a parcel"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What time is the flight from New York expected?",
+              "options": [
+                "8.30",
+                "10.55",
+                "9.30",
+                "9.20"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-05/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Interview with Andy Wells regarding Theme Parks</b></p><ul><li><b>Interviewer:</b> Good morning. Today we’re going to talk about theme parks and we’re going to hear from <b>Andy Wells</b> who has written a guide to theme parks around the world. Welcome to the programme, Andy.</li><li><b>Andy:</b> Hi, it’s good to be here.</li><li><b>Interviewer:</b> You really have a dream job, don’t you, Andy? Flying round the world all the time, visiting adventure parks ...</li><li><b>Andy:</b> Well, yes, it’s pretty exciting. But it’s really hard work too, you know.</li><li><b>Interviewer:</b> I bet. So, what’s the <b>number one theme park</b> in the world?</li><li><b>Andy:</b> That all depends what you’re looking for. In terms of numbers, it has to be <b>Magic Kingdom at Disney World</b> in Florida, the most famous theme park. But the most popular park for people who like adventure rides is <b>Cedar Point</b> in Ohio, USA. It has the biggest number of rollercoasters in one park, <b>17</b>, and three water rides. There are lots of other attractions too. Last year they introduced 50 animatronic dinosaurs. You know, life-size models that move and look real.</li><li><b>Interviewer:</b> Cool! Have they got anything lined up for this year?</li><li><b>Andy:</b> Yeah, there’s a new rollercoaster called the <b>Gatekeeper</b>. Well, actually it’s not a rollercoaster, it’s a <b>wingcoaster</b>. It’ll be the biggest in the world.</li><li><b>Interviewer:</b> What’s a wingcoaster?</li><li><b>Andy:</b> With a normal rollercoaster you are sitting on a seat with the track under you. With a wingcoaster the seats kind of stick out at the side so the passengers have nothing below or above them. You feel as if you’re flying.</li><li><b>Interviewer:</b> So it’s more frightening?</li><li><b>Andy:</b> More exciting! Way more exciting.</li><li><b>Interviewer:</b> What other attractions have you seen recently?</li><li><b>Andy:</b> I’ve just been to <b>The Wizarding World of Harry Potter</b> at the Islands of Adventure in Orlando, Florida. It’s great! You know those shops that sell magic sweets and things in the Harry Potter books? Well, they have those, just like you’ve imagined. There’s a fantastic tour of Hogwarts School where you meet characters from the books. It’s so well done.</li><li><b>Interviewer:</b> Right, sounds interesting. In your book you have a lot of theme parks in <b>Asia</b> too. Can you tell us about them?</li><li><b>Andy:</b> Sure. Tokyo has had a <b>Disneyland</b> for quite a long time, which attracts a lot of people. <b>Ocean Park</b> in Hong Kong has also been going for a long time – that has a lot of marine animals as well as rides. <b>Lotte World</b>, a huge park in South Korea, has the world’s biggest indoor theme park. And then there’s <b>Universal Studios</b> in Singapore. That’s expanding with additions to its New York street section. There’s going to be a Sesame Street dark ride. A dark ride’s a ride inside a building.</li><li><b>Interviewer:</b> I see. New York in Singapore?</li><li><b>Andy:</b> Yeah, it’s weird, but it works. But the place to watch at the moment is <b>China</b> – they’re really expanding. Lots more parks will open in China in the next few years, including another one with dinosaurs in the north, and <b>Ocean Kingdom</b> in the south. That will have the world’s longest roller coaster and tallest Ferris wheel, as well as boat rides and a night-time zoo.</li><li><b>Interviewer:</b> Wow, so that’s opening soon?</li><li><b>Andy:</b> Yes, this year. I’ll be there!</li><li><b>Interviewer:</b> Have a ride for me, then.</li></ul><p><b>Conversation 2: Interview with Geoff, World Heavyweight Champion</b></p><ul><li><b>Journalist:</b> Good evening, <b>Geoff</b>.</li><li><b>Geoff:</b> Hi.</li><li><b>Journalist:</b> Perhaps you could tell me a bit about your background. Where are you from exactly?</li><li><b>Geoff:</b> Well, I was actually born in <b>1958</b>, up in the north of England. My parents came to live in Britain after the war.</li><li><b>Journalist:</b> It sounds great.</li><li><b>Geoff:</b> We moved south to <b>London</b> after that. We were completely broke and I did all sorts of odd jobs to try and make money.</li><li><b>Journalist:</b> Goodness, how dramatic! But?...</li><li><b>Geoff:</b> But I was lucky – I discovered <b>karate</b>.</li><li><b>Journalist:</b> Ah! How, exactly?</li><li><b>Geoff:</b> There was a school trip – nothing special really – but we went to this sports center and I just thought “That’s for me!”.</li><li><b>Journalist:</b> Just like that?</li><li><b>Geoff:</b> Yup. Anyway, I started training. I found myself a Japanese coach and things just happened. I found it came naturally to me and I worked my way up till I found myself in <b>Taiwan</b> for the World Championships. That was in <b>1982</b>.</li><li><b>Journalist:</b> And you won?</li><li><b>Geoff:</b> Yeah, suddenly I was <b>World Heavyweight Champion</b>. It was great.</li><li><b>Journalist:</b> And you were world champion at that weight <b>five times</b> in all?</li><li><b>Geoff:</b> Yeah, that’s right.</li><li><b>Journalist:</b> And then you retired?</li><li><b>Geoff:</b> Well, I didn’t have much choice.</li><li><b>Journalist:</b> And now you’ve got others projects on the go all around the country and even abroad?</li><li><b>Geoff:</b> Mm...yeah...we’re going from strength to strength.</li></ul><p><b>Conversation 3: Marek and Tanya discussing holiday plans</b></p><ul><li><b>T:</b> Hi, <b>Marek</b>. Are you looking forward to your holiday?</li><li><b>M:</b> Oh <b>Tanya</b>, I can’t wait!</li><li><b>T:</b> Where is it you’re going? Is it camping on an island somewhere or am I thinking of someone else?</li><li><b>M:</b> Well, we were going camping, but my Dad’s just bought a <b>camper van</b>, so we’re going in that instead. It means you can go to other countries without having to get a flight which is good in a way, but actually I always used to enjoy sleeping in a tent.</li><li><b>T:</b> Yeah, I know what you mean, but it must be nice getting to see all the scenery along the way. I have to say the <b>flight</b> is my least favourite part of going abroad on holiday.</li><li><b>M:</b> Oh I never mind it actually – and the airport can be quite fun sometimes.</li><li><b>T:</b> You must be joking! All those people and nothing to do except look round expensive shops. I mean, you always end up buying something you don’t really want, just because there’s nothing else to do.</li><li><b>M:</b> Oh, I don’t. Anyway, where you are off to this year? Florida again?</li><li><b>T:</b> Well, I’m getting a bit old for <b>Disneyland</b>, Marek, though my little brother would still like it. We’re actually going somewhere new. It’s like a <b>sports camp</b> where you stay with lots of other kids and learn how to do different activities.</li><li><b>M:</b> You mean you’re going without your parents?</li><li><b>T:</b> Not exactly. I mean they’re there too doing whatever they want – golf in my dad’s case – but you only actually see them at mealtimes.</li><li><b>M:</b> Sounds cool. But will you have to look after your little brother?</li><li><b>T:</b> No way. They divide you up according to <b>age</b>. He’ll be doing football and swimming and all that, whereas I get to go to <b>water skiing</b>.</li><li><b>M:</b> Wow! Doesn’t that cost a fortune?</li><li><b>T:</b> Well, quite a bit so I’m just doing it on one of the days. But there’s <b>windsurfing</b> and <b>water polo</b> too.</li><li><b>M:</b> I see.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is Magic Kingdom at Disney World in Florida famous for?",
+              "options": [
+                "The largest area",
+                "The most rides",
+                "The biggest number of visitors",
+                "The most beautiful theme park"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is Cedar Point in Ohio introducing this year?",
+              "options": [
+                "A new roller coaster",
+                "Three new water rides",
+                "Animatronic dinosaurs",
+                "Two new roller coasters"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Andy think about a wingcoaster?",
+              "options": [
+                "More relaxing than a roller coaster",
+                "More frightening than a roller coaster",
+                "More exciting than a roller coaster",
+                "More dangerous than a roller coaster"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does China soon have?",
+              "options": [
+                "The world's longest dinosaur tour",
+                "The world's biggest zoo",
+                "The world's tallest Ferris wheel",
+                "The world's biggest theme park"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What happened to Geoff’s family when they moved to London?",
+              "options": [
+                "They couldn’t find a place to live",
+                "They ran out of money",
+                "His parents couldn’t find a job",
+                "He couldn’t help his parents earn money"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "When did Geoff become interested in karate?",
+              "options": [
+                "When he joined a school trip",
+                "When he joined a karate club at school",
+                "When his family went to a sports center",
+                "When he watched karate on television"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "When did he become the World Heavyweight champion?",
+              "options": [
+                "1980",
+                "1981",
+                "1982",
+                "1983"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How many times was he the world champion?",
+              "options": [
+                "2 times",
+                "3 times",
+                "4 times",
+                "5 times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why doesn't Tanya enjoy spending time at the airport?",
+              "options": [
+                "She prefers enjoying the scenery during the journey.",
+                "She finds it crowded and the shops too expensive.",
+                "She would rather spend time at the sports camp.",
+                "She wants to join more water sports instead."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Where is Tanya going for her holiday this year?",
+              "options": [
+                "A campsite on a small island.",
+                "Disneyland in Florida with her family.",
+                "A sports camp with different activities.",
+                "A camper van trip across different countries."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Who is Marek going on holiday with?",
+              "options": [
+                "His school friends",
+                "His father and younger brother",
+                "His extended family",
+                "His family"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is Marek's feeling about his next holiday?",
+              "options": [
+                "Excited",
+                "Indifferent",
+                "Anxious",
+                "Relieved"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-05/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p><b>Japan has resumed commercial whaling</b> after a hiatus of over three decades. Commercial whaling was <b>banned in 1986</b> by an International Whaling Commission (IWC) moratorium. However, Japan withdrew from the IWC in December. Japan's government has promised all whalers will stay within <b>320 kilometers from its coast</b>. The Japanese fisheries agency set a <b>quota for killing 227 whales</b> every six months. In the first days of resumed whaling, whalers caught two minke whales, which were taken to the northern port of Kushiro. The whale meat was auctioned in Tokyo and sold for <b>record prices</b>. Eager restaurant owners snapped up the meat at prices of up to <b>$140 per kilo</b>.</p><p>Japan has engaged in the practice of whaling for centuries. Whale restaurant chef <b>Mitsuo Tani</b> summed up why he thought the return of commercial whaling was important. He said: \"A country that does not <b>preserve its food culture</b> has no future.\" He also promoted the <b>health benefits of whale meat</b>. He said: \"It is five times lower in calories than beef, 10 times lower in cholesterol, two times less fat than chicken and it's packed with iron. But abroad, people do not know this.\" However, Japan's return to whaling has brought <b>international outcry</b>. The Humane Society accused Japan of starting a \"new and shocking era of <b>pirate whaling</b>\". It added: \"This is a sad day for <b>whale protection globally</b>.\"</p><p><b>Talk/Lecture 2</b></p><p>The United Kingdom has said it is playing its part in striving for a <b>cleaner and greener planet</b>. For the first time since the Industrial Revolution in the 18th and 19th centuries, the UK is being powered more by <b>zero-carbon fuels than fossil fuels</b>. In each of the first five months of 2019, fossil fuels have produced less than half of the UK's electricity. Analysts say a \"<b>tipping point</b>\" has been reached and the trend of zero-carbon energy sources providing more power than fossil fuels will continue. Power from <b>wind, solar, nuclear and hydro sources</b> outstripped coal and gas-fired generation. A decade ago, three quarters (<b>75.6 per cent</b>) of the UK's electricity came from coal and gas, and only 22.3 per cent was zero carbon.</p><p>The switch to more zero-carbon power was described by the UK's energy chief executive as a \"<b>key milestone on the journey towards net zero</b>\". CEO John Pettigrew said the zero-carbon share should increase to <b>90 per cent by the 2030s</b>. The UK's Prime Minister Theresa May has made a commitment to reach <b>net zero carbon emissions by 2050</b>. This would make the UK the <b>first major economy</b> to do so. Energy analyst Tom Burke told the BBC: \"Today's landmark is a real tribute to technologists. We have cracked technical problems of dealing with <b>climate change</b>.\" He added: \"As we move towards net zero, <b>jobs will be lost in fossil fuel industries and created in low-carbon industries</b>.\"</p><p><b>Talk/Lecture 3</b></p><p>Astronomers have promoted <b>Saturn</b> as the planet with the <b>most moons</b>. Saturn has overtaken the solar system's largest planet Jupiter as the \"<b>king of the moons</b>\". The astronomers recently discovered <b>20 new moons</b> orbiting Saturn, which brings the planet's total number to <b>82</b>. This edges out Jupiter, with 79 celestial bodies, into second place. Each of the newly-discovered moons is at least <b>5km in diameter</b>. Seventeen of them orbit Saturn <b>backwards</b> and take more than three years to complete one orbit of Saturn. The astronomers found the moons using the powerful <b>Subaru telescope</b>, located on Hawaii. The research team will now look for moons that are around a kilometer in diameter.</p><p>Lead astronomer <b>Dr Scott Sheppard</b> commented on the perceived origins of the new moons. He said: \"We don't think they formed with the planet. We think they were <b>captured by the planet in the past</b>.\" He posited that Saturn sucked in a swirling mixture of gas and dust to form the moons. Dr Sheppard added: \"We think these moons interacted with that gas and dust. These were <b>comets or asteroids</b> that happened to be passing by....They were captured into orbits around the planet rather than falling into the planet. We think these are the <b>last remnants of what formed Saturn</b>.\" The moons will be named in a competition after giants from <b>Gallic, Inuit and Norse mythology</b>.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "For how long has Japan stopped commercial whaling?",
+              "options": [
+                "Exactly thirty years",
+                "Over thirty years",
+                "Just under thirty years",
+                "About thirty years"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "How many minke whales were caught in the first week?",
+              "options": [
+                "One",
+                "Three",
+                "Two",
+                "27"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "Who is Mitsuo Tani?",
+              "options": [
+                "A chef",
+                "A whaler",
+                "The International Whaling Commission boss",
+                "A Greenpeace activist"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What did a country have to protect?",
+              "options": [
+                "Its coastal waters",
+                "Its fish",
+                "Its food culture",
+                "Whales"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is whale meat packed with?",
+              "options": [
+                "Iron",
+                "Fat",
+                "Protein",
+                "Goodness"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "When did the UK last use more carbon zero fuels than fossil fuels?",
+              "options": [
+                "The nineteenth century",
+                "1932",
+                "1391",
+                "The fourteenth century"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What would happen to the zero-carbon trend in the UK?",
+              "options": [
+                "It would stall",
+                "It would stop",
+                "It would reverse",
+                "It would continue"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "How much of the UK's electricity came from coal and gas a decade ago?",
+              "options": [
+                "60%",
+                "Three fifths",
+                "Three quarters",
+                "Two thirds"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "When will the UK's zero-carbon share increase to 90% in the UK?",
+              "options": [
+                "By 2020",
+                "2025",
+                "2030",
+                "By the 2030s"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What problems did an analyst say technologists had cracked?",
+              "options": [
+                "Climate protestor problems",
+                "Climate change problems",
+                "Pollution problems",
+                "Nuclear reactor problems"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the diameter of each of the newly-found moons?",
+              "options": [
+                "At least 5km",
+                "Around 50km",
+                "Just less than 5km",
+                "Just under 3km"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What will the research team now look for?",
+              "options": [
+                "Asteroids and comets",
+                "Moons of 1km in diameter",
+                "New planets",
+                "More moons on Jupiter"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What did Saturn suck in a swirling mixture of?",
+              "options": [
+                "Light waves and dust",
+                "Hydrogen and helium",
+                "Gas and dust",
+                "Gas and light waves"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What was sucked in as they were passing by?",
+              "options": [
+                "Asteroids and comets",
+                "Satellites and space dust",
+                "Space dust and helium",
+                "Smaller planets"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "How will the names of the new moons be decided?",
+              "options": [
+                "By an ordered list",
+                "Randomly by a computer",
+                "By the head of NASA",
+                "By a competition"
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Why Failure Can Fuel Motivation",
+            "text": "<p>Most people see failure as something to avoid, a clear sign that a plan has gone wrong. Yet across sports, business, and education, many psychologists argue that setbacks often push people to work harder rather than quietly give up, because the disappointment itself creates a strong desire to fix whatever went wrong. This kind of response is not automatic for everyone. For many, though, failure becomes a starting point rather than a final ending, and understanding why this happens can help students, workers, and athletes turn frustrating moments into genuinely useful lessons.</p><p>Consider a young runner who fails to qualify for a regional competition after months of steady training. Instead of quitting the sport, she studies her race times closely and notices that her final lap is consistently the slowest part of every race she runs. She begins ending each practice with a short, demanding sprint, deliberately training the exact weakness her failure had revealed. Within a few months her overall time improves noticeably. Her coach later remarks that the missed qualification taught her more than any earlier victory had, because it pointed directly to one fixable problem rather than a vague sense of not being good enough.</p><p>Researchers who study motivation say failure works because it gives clear, specific feedback. Winning a race or acing a test mainly confirms that current habits are working, so there is little obvious reason to change anything at all. Losing, on the other hand, forces a person to ask exactly what went wrong, and that question can <strong>sharpen</strong> effort in ways vague encouragement simply cannot match. Some experts describe this shift as turning a broad goal, such as 'get better,' into a narrow, specific one, such as 'improve my final lap by three seconds.'</p><p>Failure does not motivate everyone in the same way, however. If a person interprets a setback as proof that they simply lack talent, that same experience can lead to giving up rather than trying again. Supportive teachers, coaches, and parents often shape which of these two responses a student develops, since without steady guidance many young people never learn to reinterpret a setback as useful information. When mistakes are treated as private embarrassments to hide, students tend to avoid future risks, but when adults discuss <strong>them</strong> openly and calmly, students grow far more willing to attempt difficult tasks again.</p><p>Because of this, some schools and companies have begun <strong>redesigning</strong> how they respond to failure. Instead of only rewarding final results, several workplaces now recognize employees who took a reasonable risk and learned something valuable from an unsuccessful project. Teachers in a handful of schools ask students to write short reflections on what a wrong answer revealed about their own thinking. These small changes will not turn every failure into progress, but they create the kind of environment in which setbacks are far more likely to become genuinely useful.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R1Q1</b>, quét các từ khóa \"young runner\" và \"weakest\" ở đoạn 2 để xác định phát hiện của cô gái (chặng cuối/vòng cuối của mỗi chặng đua là điểm yếu nhất).</li><li>Với <b>R1Q5</b>, quét từ khóa \"coach\" ở cuối đoạn 2 để tìm nhận xét của huấn luyện viên (thất bại này dạy cô ấy nhiều điều hơn bất kỳ chiến thắng nào trước đó).</li><li>Với <b>R1Q10</b>, quét cụm từ \"teachers, coaches, and parents\" ở đoạn 4 để xác định yếu tố quyết định phản ứng của học sinh trước thất bại (sự hướng dẫn và hỗ trợ từ thầy cô, HLV và cha mẹ).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q2, R1Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R1Q2</b>, đọc ngữ cảnh đoạn 3 mô tả việc câu hỏi giúp tập trung/gia tăng cường độ nỗ lực (<strong>\"sharpen\"</strong>) để chọn từ đồng nghĩa phù hợp (intensify).</li><li>Với <b>R1Q8</b>, xét ngữ cảnh đoạn 5 nói về việc các trường học hay công ty tái cấu trúc/thiết kế lại (<strong>\"redesigning\"</strong>) cách phản ứng với thất bại để tìm từ đồng nghĩa thích hợp (restructuring).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q4):</b> Đọc ngược lại câu trước ở đoạn 4 để xác định danh từ số nhiều chỉ đối tượng (những sai lầm / mistakes) mà khi bàn luận công khai sẽ giúp học sinh bớt e ngại.</li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q6):</b> Tổng hợp các hoạt động được nhắc tới ở đoạn 5 (yêu cầu học sinh viết phản hồi về đáp án sai, ghi nhận nhân viên học được bài học từ dự án thất bại), đối soát 4 phương án để chọn chi tiết không hề được đề cập (tăng lương cho nhân viên hoàn thành dự án rủi ro).</li><li><b>Dạng câu hỏi Suy luận (R1Q7):</b> Kết hợp thông tin ở đoạn 4 về việc học sinh giấu giếm sai lầm thường có xu hướng né tránh rủi ro trong tương lai để suy luận rằng họ sẽ ít nhận các nhiệm vụ thử thách hơn sau này.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R1Q3, R1Q9):</b> Phân tích lập luận toàn cục của bài đọc:<ul><li>Với <b>R1Q3</b>, tổng hợp nội dung xuyên suốt bài viết để xác định ý chính (thất bại có thể tạo ra động lực, nhưng chủ yếu cần đi kèm với sự hướng dẫn, hỗ trợ đúng đắn).</li><li>Với <b>R1Q9</b>, nhận diện mục đích viết chính của tác giả nhằm giải thích cách thức những trở ngại, thất bại có thể biến thành nguồn động lực tích cực.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R1Q4) và <b>Từ vựng</b> (R1Q2, R1Q8). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R1Q1, R1Q5, R1Q10) và câu <b>Loại trừ</b> (R1Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R1Q7), <b>Ý chính toàn bài</b> (R1Q3) và <b>Mục đích của tác giả</b> (R1Q9).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did the young runner discover about her races?</span>",
+              "options": [
+                "The closing stretch of each race was her weakest point.",
+                "The closing stretch of last year's race was her weakest point.",
+                "The closing stretch of every practice was her weakest point.",
+                "The opening stretch of each race was her weakest point."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"sharpen\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "intensify",
+                "adjust",
+                "reward",
+                "clarify"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Athletes benefit from failure more consistently than students or workers do.",
+                "Failure always motivates people more strongly than any earlier success could.",
+                "Failure can build motivation, but mainly with supportive guidance around it.",
+                "Modern workplaces have replaced final results with reflection as their main measure."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "teachers",
+                "risks",
+                "students",
+                "mistakes"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did the coach say about the missed qualification?</span>",
+              "options": [
+                "It taught the runner more than any previous victory had.",
+                "It taught the runner less than any previous victory had.",
+                "It taught the runner more than the following season's victory had.",
+                "It taught the whole team more than any previous victory had."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as something schools or companies have done?</span>",
+              "options": [
+                "Asked students to write reflections on a wrong answer.",
+                "Increased the salaries of employees who complete risky projects.",
+                "Redesigned how they respond to failure in general.",
+                "Recognized employees who learned something from a failed project."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about students who hide their mistakes?</span>",
+              "options": [
+                "They will likely take on fewer challenging tasks later on.",
+                "They eventually stop attending class after one disappointing grade.",
+                "They usually outperform classmates who discuss mistakes with others openly.",
+                "They fail mainly because teachers never explained the material clearly."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"redesigning\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "restructuring",
+                "redefining",
+                "rewarding",
+                "adjusting"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To argue that talent matters more than effort in competitions.",
+                "To describe the training schedule of one successful young runner.",
+                "To criticize schools that punish students for making honest mistakes.",
+                "To explain how setbacks can become a source of motivation."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what often determines how a student reacts to a setback?</span>",
+              "options": [
+                "The support offered by classmates during group competitions.",
+                "The number of setbacks faced within a single school term.",
+                "The support offered by teachers during the student's final year.",
+                "The support offered by teachers, coaches, and parents."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Firstborns and Later-Borns: Testing an Old Idea",
+            "text": "<p>For more than a century, popular wisdom has insisted that birth order quietly shapes character: firstborns supposedly grow into cautious, responsible leaders, while younger siblings become the rebellious, creative risk-takers of the family. This idea shows up constantly in parenting advice and casual conversation, treated almost as settled fact rather than as a hypothesis. Only in recent decades, however, has the claim been tested with large, carefully controlled studies that could confirm or dismantle it.</p><p>The theory traces back largely to Alfred Adler, an early twentieth-century psychologist who argued that a child's position among siblings creates a distinct psychological environment. According to Adler, firstborns briefly enjoy undivided parental attention before being 'dethroned' by a younger sibling, an experience he believed could produce either heightened responsibility or lasting insecurity. Later-born children never experience this loss of exclusive attention, and Adler suggested this made them more inclined to seek <strong>novelty</strong> and recognition.</p><p>When researchers finally gathered data from tens of thousands of families rather than small convenience samples, the picture that emerged was far less tidy than Adler's framework implied. A widely cited 2015 analysis found a real but exceptionally small difference in IQ favoring firstborns. Yet the same analysis found almost no reliable birth-order effect on personality traits such as extraversion once family size and social background were taken into account. In other words, whatever influence birth order has appears far narrower than popular stereotypes suggest.</p><p>One explanation for the modest IQ difference draws on what psychologists call resource dilution: parents generally have more time and attention to give a single child than they later have to divide among several. A firstborn, for a period, effectively receives an only child's share of parental conversation before that attention must be split. Because early verbal interaction is closely tied to later vocabulary scores, even a small early advantage can persist, faintly, into adulthood.</p><p>Family size complicates this picture, since it is tangled up with birth order in ways that are easy to overlook. Families with many children tend, on average, to have different resources than smaller families. Simply comparing firstborns to later-borns across a population therefore risks confusing the effect of birth order with the effect of household size. Researchers who fail to separate these two variables risk attributing to birth order what is really a difference in family circumstances.</p><p>To address this problem, more rigorous studies now compare siblings within the very same family rather than firstborns from one household against later-borns from another. This within-family approach removes shared factors like household income, since siblings raised in one home share both. What these studies repeatedly show is that siblings often differ substantially in personality, but that birth order itself explains only a <strong>sliver</strong> of that difference. Far more of <strong>it</strong> comes from each child's own friendships and experiences, factors psychologists group under the label 'non-shared environment.'</p><p>None of this means birth order is entirely meaningless, since the small, well-documented IQ effect does appear real. It does suggest, though, that the sweeping personality claims dominating popular culture rest on far shakier evidence than their confidence implies. A younger sibling's future personality, it turns out, is shaped far more by individual experience than by a fixed place in the family lineup.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp trong bài đọc:<ul><li>Với <b>R2Q1</b>, quét tên riêng \"Adler\" ở đoạn 2 để xác định quan niệm về con cả (họ đánh mất sự quan tâm duy nhất từ cha mẹ mà họ từng được hưởng khi đứa em ra đời).</li><li>Với <b>R2Q5</b>, quét từ khóa \"2015 analysis\" ở đoạn 3 để xác định kết quả phân tích (lợi thế nhỏ về IQ cho con cả nhưng hầu như không có ảnh hưởng đến tính cách).</li><li>Với <b>R2Q10</b>, quét thuật ngữ \"resource dilution\" ở đoạn 4 để tìm định nghĩa/giải thích về cha mẹ (họ thường dành nhiều thời gian và sự chú ý cho một đứa con hơn là khi phải chia sẻ cho nhiều con).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q2, R2Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R2Q2</b>, đọc ngữ cảnh đoạn 6 nói về một phần rất nhỏ/phần nhỏ (<strong>\"sliver\"</strong>) để chọn từ đồng nghĩa phù hợp (fraction).</li><li>Với <b>R2Q8</b>, đọc ngữ cảnh đoạn 2 mô tả xu hướng tìm kiếm điều mới lạ (<strong>\"novelty\"</strong>) ở trẻ sinh sau để tìm từ đồng nghĩa thích hợp (newness).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q4):</b> Đọc ngược lại câu trước ở đoạn 6 để xác định danh từ số nhiều/hiện tượng (những sự khác biệt về tính cách / personality differences) mà đại từ <strong>\"it\"</strong> đại diện.</li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q6):</b> Tổng hợp các lý do giải thích cho sự chênh lệch IQ ở đoạn 4 (sự chú ý ngôn ngữ sớm, tương tác trò chuyện, điểm từ vựng), đối soát 4 phương án để chọn chi tiết không được đề cập (lợi thế di truyền dành riêng cho con cả).</li><li><b>Dạng câu hỏi Suy luận (R2Q7):</b> Kết hợp thông tin ở đoạn 5 và 6 về việc nghiên cứu trong cùng gia đình giúp kiểm soát các yếu tố nhiễu (như thu nhập, môi trường sống) để suy luận rằng dạng nghiên cứu này đưa ra bằng chứng đáng tin cậy hơn so với việc so sánh các hộ gia đình khác nhau.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R2Q3, R2Q9):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R2Q3</b>, tổng hợp nội dung xuyên suốt bài viết để xác định ý chính (thứ tự sinh chỉ cho thấy ảnh hưởng nhỏ đến IQ nhưng bằng chứng tác động đến tính cách rất yếu).</li><li>Với <b>R2Q9</b>, nhận diện mục đích chính của tác giả nhằm chứng minh rằng những quan điểm phổ biến lâu nay về thứ tự sinh đang thiếu các bằng chứng khoa học mạnh mẽ.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R2Q4) và <b>Từ vựng</b> (R2Q2, R2Q8). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R2Q1, R2Q5, R2Q10) và câu <b>Loại trừ</b> (R2Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng chọn phương án chính xác cho các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R2Q7), <b>Ý chính toàn bài</b> (R2Q3) và <b>Mục đích của tác giả</b> (R2Q9).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did Adler believe happened to firstborns once a younger sibling was born?</span>",
+              "options": [
+                "They gained additional parental attention once a sibling arrived.",
+                "They lost the exclusive parental attention they once enjoyed.",
+                "Later-born children lost the exclusive attention they once enjoyed.",
+                "They lost the exclusive attention of their teachers and coaches."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"sliver\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "majority",
+                "silver",
+                "resource",
+                "fraction"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Family size affects intelligence more than birth order or parenting ever could.",
+                "Birth order shows a small IQ effect but weak evidence for shaping personality.",
+                "Birth order strongly determines both intelligence and personality throughout adulthood.",
+                "Alfred Adler's original theory of birth order has now been fully confirmed."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 6 refers to _______.</span>",
+              "options": [
+                "household income",
+                "birth order",
+                "family size",
+                "personality differences"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did the 2015 analysis find?</span>",
+              "options": [
+                "A small IQ advantage for firstborns but little personality effect.",
+                "A small IQ advantage for firstborns and a strong personality effect.",
+                "A small IQ advantage for later-borns but little personality effect.",
+                "A large IQ advantage for firstborns but little personality effect."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a reason for the modest IQ difference favoring firstborns?</span>",
+              "options": [
+                "A link between early verbal interaction and later vocabulary scores.",
+                "Undivided conversation and teaching before attention is split.",
+                "A genetic advantage inherited specifically by firstborn children.",
+                "More parental verbal attention available early in life."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about within-family studies?</span>",
+              "options": [
+                "They remove shared factors such as household income between families.",
+                "They offer more reliable evidence than studies comparing separate households.",
+                "They prove that birth order has no effect on personality whatsoever.",
+                "They show that personality differences cause siblings to be raised differently."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"novelty\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "newness",
+                "novel",
+                "excitement",
+                "resources"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To convince parents to have only one child for better outcomes.",
+                "To show that popular claims about birth order lack strong evidence.",
+                "To celebrate the discovery of a strong new personality trait test.",
+                "To criticize Alfred Adler's theory as scientifically fraudulent and dishonest."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does resource dilution suggest about parents?</span>",
+              "options": [
+                "They generally have more attention for a single child than for several.",
+                "Teachers generally have more attention for a single child than for several.",
+                "They generally have more attention for several children than for one.",
+                "They generally have more money for a single child than several children have."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Economics and Engineering of Solar Power",
+            "text": "<p>Barely fifteen years ago, solar power was widely dismissed as a marginal technology, too costly and unreliable to matter beyond niche applications such as remote sensors. That dismissal now looks badly outdated. In many regions, newly built solar installations already generate electricity more cheaply than newly built coal or gas plants, a reversal few analysts predicted a decade ago. What changed was not a single breakthrough but a steady accumulation of manufacturing and engineering improvements.</p><p>Much of the price collapse traces to what economists call a learning curve: for every doubling of cumulative panel production, manufacturing costs have tended to fall by a fairly consistent percentage. This pattern was first documented in industries as different as aircraft assembly and semiconductors. Larger factories, more automated production lines, and steady gains in silicon efficiency all fed into this curve simultaneously, without any single company or government engineering the outcome deliberately.</p><p>Falling costs alone, however, have not solved solar power's central technical problem. The sun does not shine on demand, and electricity, unlike most commodities, must generally be consumed at nearly the same instant it is produced. Grid operators in regions with heavy solar adoption have grown familiar with what is informally called the duck curve, in which demand stays roughly stable through the day while solar output surges at midday. It then plunges toward evening, precisely when household electricity use rises sharply, and meeting that steep ramp with other sources has proven disruptive to grid planning.</p><p>Battery storage is often presented as the obvious fix, and its costs have fallen almost as dramatically as solar panels themselves. Yet deploying batteries at a scale large enough to smooth an entire regional grid remains slower and more capital-intensive than installing panels alone. Some utilities have turned instead to demand response programs, which pay customers to shift electricity use away from peak hours, or to older technologies such as pumped hydro storage.</p><p>Critics of rapid solar expansion raise concerns that go beyond intermittency. Mining the lithium, cobalt, and rare-earth elements used in panels and batteries carries its own environmental costs, and large solar farms can require substantial land, occasionally displacing agricultural use or natural habitat. Some economists further argue that government subsidies have <strong>distorted</strong> investment decisions, channeling capital toward projects that would not be competitive on cost alone without public support, though supporters counter that fossil fuels long received comparable subsidies with far less scrutiny.</p><p>Despite these unresolved debates, investment in solar generation has continued to climb year after year, driven partly by climate policy targets and partly by the economics described earlier. Financial analysts increasingly treat intermittency not as a fatal flaw but as an engineering challenge to be solved alongside falling storage costs and more flexible demand. Whether that optimism proves justified will depend less on the panels themselves than on the <strong>unglamorous</strong> infrastructure built to support them.</p><p>Solar power, in short, has already won the argument over cost, but not yet the argument over reliability at full grid scale. Treating <strong>it</strong> as a simple substitute for fossil fuel plants misunderstands the transition underway. A more accurate picture presents solar as one component within a broader system, whose ultimate success depends on parallel progress in storage, transmission, and the flexibility of electricity demand itself.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5, R3Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R3Q1</b>, quét các từ khóa ở đoạn 1 và 2 liên quan đến chi phí pin mặt trời giảm (nguyên nhân do sự tích lũy liên tục những cải tiến sản xuất từ nhiều công ty riêng biệt).</li><li>Với <b>R3Q5</b>, quét thuật ngữ \"duck curve\" ở đoạn 3 để xác định đặc điểm biểu đồ (sản lượng điện mặt trời đạt đỉnh vào giữa ngày trong khi nhu cầu điện lại đạt đỉnh muộn hơn vào buổi tối).</li><li>Với <b>R3Q10</b>, quét từ khóa \"battery storage\" ở đoạn 4 để tìm thông tin về chi phí và việc triển khai (chi phí giảm mạnh, nhưng việc triển khai ở quy mô lớn vẫn còn chậm và tốn kém vốn).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q2, R3Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R3Q2</b>, đọc ngữ cảnh đoạn 6 mô tả công việc thầm lặng/bình thường (<strong>\"unglamorous\"</strong>) để tìm từ đồng nghĩa phù hợp (mundane).</li><li>Với <b>R3Q8</b>, xét ngữ cảnh đoạn 5 nói về việc chính sách trợ cấp làm sai lệch/bóp méo (<strong>\"distorted\"</strong>) quyết định đầu tư để chọn từ đồng nghĩa (skewed).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q4):</b> Đọc ngược lại câu trước ở đoạn 7 để xác định danh từ số ít chỉ đối tượng (năng lượng mặt trời / solar power) mà đại từ <strong>\"it\"</strong> đang thay thế.</li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q6):</b> Tổng hợp các lo ngại, chỉ trích được đề cập ở các đoạn 5 và 6 (chế biến khoáng sản ảnh hưởng môi trường, chiếm dụng đất nông nghiệp/môi trường sống, trợ cấp bóp méo thị trường), đối soát 4 phương án để chọn chi tiết không được nhắc tới (làm tăng đáng kể giá điện của người tiêu dùng).</li><li><b>Dạng câu hỏi Suy luận (R3Q7):</b> Kết hợp các dữ kiện ở đoạn 4 về việc triển khai hệ thống lưu trữ pin dung lượng lớn diễn ra chậm để suy luận rằng các công ty điện lực xem quản lý nhu cầu (demand response) như một giải pháp thay thế nhanh hơn.</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R3Q3, R3Q9):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R3Q3</b>, tổng hợp nội dung xuyên suốt bài viết để xác định ý chính (điện mặt trời đã trở nên cạnh tranh về giá, nhưng việc tích hợp vào lưới điện một cách đáng tin cậy vẫn chưa được giải quyết triệt để).</li><li>Với <b>R3Q9</b>, nhận diện mục đích chính của tác giả là đưa ra cái nhìn cân bằng, thận trọng nhưng lạc quan về triển vọng của năng lượng mặt trời.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R3Q4) và <b>Từ vựng</b> (R3Q2, R3Q8). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q5, R3Q10) và câu <b>Loại trừ</b> (R3Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã ráp nối, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R3Q7), <b>Ý chính toàn bài</b> (R3Q3) và <b>Mục đích của tác giả</b> (R3Q9).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what mainly explains the fall in solar panel prices?</span>",
+              "options": [
+                "A steady accumulation of manufacturing gains directed by one national government.",
+                "A one-time subsidy program that lowered costs across the whole industry.",
+                "A steady accumulation of manufacturing gains across many separate companies.",
+                "A single major technological breakthrough achieved by one leading manufacturer."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"unglamorous\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "glamorous",
+                "unproven",
+                "expensive",
+                "mundane"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Falling manufacturing costs are the only reason solar power has grown worldwide.",
+                "Renewable energy subsidies are the primary force driving global energy markets.",
+                "Solar power has become cost-competitive, but reliable grid integration remains unresolved.",
+                "Grid reliability problems have prevented solar power from becoming cost-competitive."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 7 refers to _______.</span>",
+              "options": [
+                "reliability",
+                "grid scale",
+                "solar power",
+                "cost"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what pattern do grid operators observe with the duck curve?</span>",
+              "options": [
+                "Solar output peaks at midday while gas demand peaks later in the day.",
+                "Solar output peaks in the evening while electricity demand peaks at midday.",
+                "Solar output peaks at midday while electricity demand peaks later in the day.",
+                "Solar output peaks at midday while electricity demand stays flat all day."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a criticism of rapid solar expansion?</span>",
+              "options": [
+                "It significantly increases electricity prices paid by ordinary consumers.",
+                "It requires mining materials that carry their own environmental costs.",
+                "It relies on subsidies that may distort investment decisions.",
+                "It can displace agricultural use or natural habitat through land use."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred about the relationship between demand response and battery storage?</span>",
+              "options": [
+                "Utilities may treat demand response as a faster alternative to large battery deployment.",
+                "Utilities prefer demand response because batteries cannot meet grid-scale needs at all.",
+                "Pumped hydro storage works by pumping water uphill and releasing it later.",
+                "Battery storage costs have fallen because utilities rely on demand response programs."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"distorted\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "distributed",
+                "reduced",
+                "skewed",
+                "destroyed"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To warn readers that solar power is likely to fail without reform.",
+                "To dismiss all criticism of solar expansion as economically unfounded.",
+                "To detail exactly how the duck curve disrupts grid planning schedules.",
+                "To present a balanced, cautiously optimistic view of solar power's prospects."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true of battery storage costs and deployment?</span>",
+              "options": [
+                "Panel costs, not battery costs, have fallen sharply in recent years.",
+                "Costs have risen sharply, but large-scale deployment remains slow and costly.",
+                "Costs have fallen sharply, but large-scale deployment remains slow and costly.",
+                "Costs have fallen sharply, and large-scale deployment has become fast and cheap."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Efficiency, the Rebound Effect, and the Limits of Green Technology",
+            "text": "<p>It seems intuitively obvious that making something more efficient should reduce its environmental footprint: a car that burns less fuel per mile, a bulb that uses less electricity per lumen, ought straightforwardly to lower total energy consumption. This assumption quietly underpins much environmental policy, from fuel-economy standards to appliance labeling schemes. Rarely questioned in public debate, it turns out to rest on shakier ground than most policymakers acknowledge.</p><p>Economists have in fact been skeptical of this assumption for well over a century. In 1865, the economist William Stanley Jevons observed that Britain's coal consumption rose, rather than fell, after steam engines became dramatically more fuel-efficient, since cheaper operation made coal-powered machinery viable for a far wider range of uses. What later became known as the rebound effect suggests that efficiency gains do not always translate into proportional reductions in total resource use, because they simultaneously make consumption cheaper and therefore more attractive.</p><p>Contemporary research paints a genuinely mixed picture rather than confirming Jevons at every turn. Some sectors, such as residential heating in wealthy countries, show only modest rebound: households that upgrade insulation tend to save a meaningful share of the energy that improved efficiency would predict. Other sectors show something closer to what researchers term backfire, in which efficiency gains are more than fully offset by increased use, leaving total consumption higher than before the improvement. Which pattern applies in a given case appears to depend heavily on how price-sensitive that particular form of consumption is.</p><p>Two distinct mechanisms are usually distinguished within this broader phenomenon. Direct rebound occurs when a good becomes cheaper to use and people simply use more of it, driving a fuel-efficient car further, for instance, precisely because each mile now costs less. Indirect rebound is subtler: money saved through efficiency in one domain often gets <strong>redirected</strong> toward other, sometimes equally resource-intensive, purchases elsewhere, so that overall environmental savings may not materialize even where direct use does not increase. Isolating this indirect channel empirically remains notoriously difficult.</p><p>None of this necessarily implies that efficiency standards are pointless, though some commentators have drawn precisely that conclusion. What the evidence more cautiously suggests is that efficiency alone, unaccompanied by mechanisms that keep the price of resource use from falling, may fail to deliver the reductions its advocates expect. Many economists therefore argue that efficiency regulation works best paired with a price signal, such as a carbon tax, that prevents savings from simply being spent on additional consumption.</p><p>Critics of rebound-effect skepticism push back on several fronts. They argue the effect has often been overstated in wealthy economies where demand for basic energy services is largely <strong>saturated</strong>, so that further efficiency gains genuinely do reduce consumption rather than unlocking new demand. The same critics tend to concede, however, that rebound may matter considerably more in rapidly developing economies, where rising incomes and previously unmet demand leave far more room for cheaper energy to unlock consumption that would not otherwise have occurred.</p><p>Read carefully, the rebound literature does not argue that efficiency improvements are worthless, nor does it hand critics of environmental policy an easy dismissal of such measures. <strong>It</strong> argues something narrower and more demanding: that efficiency should be treated as a necessary but not sufficient condition for reducing environmental harm, one whose benefits depend on the economic context surrounding it rather than on the technology alone.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5, R4Q10):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực tiếp có sẵn trong bài đọc:<ul><li>Với <b>R4Q1</b>, quét tên riêng \"Jevons\" ở đoạn 2 để tìm quan sát của ông (tiêu thụ than gia tăng sau khi động cơ hơi nước trở nên tiết kiệm nhiên liệu hơn, trái với dự đoán).</li><li>Với <b>R4Q5</b>, quét các từ khóa \"Direct rebound\" và \"Indirect rebound\" ở đoạn 4 để phân biệt điểm khác nhau (trực tiếp là dùng hàng hóa nhiều hơn; gián tiếp là tái sử dụng khoản tiền tiết kiệm được cho tiêu dùng khác).</li><li>Với <b>R4Q10</b>, quét cụm từ \"carbon tax\" ở các đoạn cuối để tìm quan điểm của nhiều nhà kinh tế (quy định hiệu suất hoạt động tốt nhất khi được kết hợp với tín hiệu giá cả như thuế carbon).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q2, R4Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R4Q2</b>, xét ngữ cảnh ở đoạn 6 mô tả nền kinh tế giàu có có nhu cầu đã bão hòa / đáp ứng đầy đủ (<strong>\"saturated\"</strong>) để chọn từ đồng nghĩa thích hợp (fully met).</li><li>Với <b>R4Q8</b>, đọc ngữ cảnh đoạn 4 nói về tiền tiết kiệm được chuyển hướng / phân bổ lại (<strong>\"redirected\"</strong>) sang chi tiêu khác để tìm từ đồng nghĩa phù hợp (reallocated).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q4):</b> Đọc ngược lại câu trước ở đoạn 7 để xác định danh từ chỉ tài liệu / mảng nghiên cứu (mảng nghiên cứu về hiệu ứng bật nảy / the rebound literature) mà đại từ <strong>\"it\"</strong> đại diện.</li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q6):</b> Tổng hợp các nhận định của giới phê bình ở đoạn 6 (hiệu ứng bật nảy bị thổi phồng ở nền kinh tế bão hòa, cải tiến làm giảm tiêu thụ thật sự, hiệu ứng có ý nghĩa hơn ở nước đang phát triển), đối soát 4 phương án để chọn chi tiết không được nhắc tới (hiệu ứng bị bác bỏ bằng thực nghiệm phòng thí nghiệm).</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Kết hợp các dữ kiện về cơ chế bật nảy và vai trò của giá cả ở các đoạn cuối để suy luận rằng hiệu suất chỉ giảm tác hại môi trường khi giá tài nguyên không bị giảm sâu (hoặc được giữ mức hợp lý qua công cụ thuế/giá).</li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R4Q3, R4Q9):</b> Phân tích lập luận toàn cục của bài đọc:<ul><li>Với <b>R4Q3</b>, tổng hợp thông tin toàn bài để xác định ý chính (các cải tiến hiệu suất có thể bị triệt tiêu một phần do sự gia tăng tiêu dùng ở các khía cạnh khác).</li><li>Với <b>R4Q9</b>, nhận diện mục đích viết chính của tác giả nhằm lập luận rằng tăng hiệu suất là điều cần thiết nhưng chưa đủ nếu chỉ đứng một mình.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R4Q4) và <b>Từ vựng</b> (R4Q2, R4Q8). Tiếp theo, thực hiện đọc quét dữ kiện cho các câu <b>Chi tiết</b> (R4Q1, R4Q5, R4Q10) và câu <b>Loại trừ</b> (R4Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R4Q7), <b>Ý chính toàn bài</b> (R4Q3) và <b>Mục đích của tác giả</b> (R4Q9).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did Jevons observe about coal consumption in Britain?</span>",
+              "options": [
+                "It increased after engines became widely available, regardless of fuel efficiency.",
+                "It increased slightly after engines improved, though only in select industries.",
+                "It decreased after steam engines became more fuel-efficient, confirming expectations.",
+                "It increased after steam engines became more fuel-efficient, not as expected."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"saturated\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "soaked",
+                "fully met",
+                "partly met",
+                "regulated"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Efficiency gains reliably guarantee major cuts in overall resource use.",
+                "Efficiency gains never reduce use because increased use always cancels them.",
+                "Carbon taxes are the only policy tool that solves the rebound effect.",
+                "Efficiency gains may be partly offset by increased consumption elsewhere."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 7 refers to _______.</span>",
+              "options": [
+                "efficiency improvements",
+                "critics of policy",
+                "the rebound literature",
+                "environmental policy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do direct and indirect rebound differ?</span>",
+              "options": [
+                "Direct rebound means using a good more; indirect means spending savings elsewhere.",
+                "Direct rebound means using a good less; indirect means saving money permanently.",
+                "Indirect rebound means using a good more; direct means spending savings elsewhere.",
+                "Direct rebound means spending savings elsewhere; indirect means using a good more."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a claim made by critics of rebound-effect skepticism?</span>",
+              "options": [
+                "Rebound may matter more in rapidly developing economies with rising incomes.",
+                "Efficiency gains in wealthy economies genuinely reduce consumption, not unlock demand.",
+                "Rebound effects have been mathematically disproven by controlled laboratory experiments.",
+                "The rebound effect is often overstated in wealthy, demand-saturated economies."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred about the overall relationship between efficiency and environmental harm?</span>",
+              "options": [
+                "Price signals fail to work unless efficiency standards are removed first.",
+                "Rebound effects were first described by economist Jevons back in 1865.",
+                "Efficiency reduces harm mainly when resource prices are kept from falling.",
+                "Efficiency reduces harm only once rebound spending is banned by law."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"redirected\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "restricted",
+                "wasted",
+                "invested",
+                "reallocated"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's main purpose in the passage?</span>",
+              "options": [
+                "To celebrate recent breakthroughs in carbon tax legislation worldwide.",
+                "To argue that efficiency is necessary but not sufficient alone.",
+                "To prove all environmental efficiency policy has failed and should end.",
+                "To summarize the biography and career of economist William Jevons."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do many economists argue about efficiency regulation?</span>",
+              "options": [
+                "Few economists believe it works best paired with a carbon tax.",
+                "Price signals work best only once efficiency regulation is removed.",
+                "It should be replaced entirely by a carbon tax, not paired with one.",
+                "It works best when paired with a price signal like a carbon tax."
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "formal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You work at a hotel, and a customer has emailed asking about booking a room.</p> Read part of the customer's email below.",
+          "content": "<p class='mb-1'>I'm planning to stay at your hotel next month and would like some more information before I book.</p><ul><li>What is the room rate, and what rooms are currently available?</li><li>What facilities does the hotel offer?</li><li>Could you recommend some activities I could do during my stay?</li></ul>",
+          "description": "You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Formal/Semi-formal Email</strong> (thư trả lời khách hàng trong môi trường kinh doanh), vì người viết đóng vai nhân viên khách sạn trả lời khách hàng tiềm năng. Đề bài yêu cầu trả lời đủ <strong>3 ý chính</strong>: (1) giá phòng và phòng hiện có, (2) các tiện nghi của khách sạn, (3) đề xuất hoạt động cho khách trong thời gian lưu trú. Giọng văn cần lịch sự, chuyên nghiệp nhưng vẫn thân thiện. Bài viết cần tối thiểu <strong>120 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi lịch sự. Ví dụ: Dear Mr./Ms. [Name],</li><li><strong>Opening:</strong> Cảm ơn khách hàng đã quan tâm. Ví dụ: Thank you for your interest in staying with us. I'm happy to provide the information you requested.</li><li><strong>Body 1 (giá và phòng hiện có):</strong> Ví dụ: We currently have deluxe double rooms available at $80 per night, as well as family suites at $120 per night.</li><li><strong>Body 2 (tiện nghi):</strong> Ví dụ: Our hotel offers a range of facilities, including a swimming pool, a fitness centre, free Wi-Fi, and complimentary breakfast.</li><li><strong>Body 3 (đề xuất hoạt động):</strong> Ví dụ: During your stay, I'd highly recommend visiting the nearby night market and taking a guided tour of the old town.</li><li><strong>Closing:</strong> Ví dụ: Please let us know if you would like to proceed with a booking or if you have any further questions.</li><li><strong>Sign-off:</strong> Best regards, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Dùng thì hiện tại đơn để mô tả thông tin cố định (giá, tiện nghi), và cấu trúc lịch sự (I'd recommend, We currently offer) phù hợp với văn phong kinh doanh. Tránh dùng ngôn ngữ quá suồng sã, và nên trình bày thông tin theo trình tự rõ ràng, dễ theo dõi.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>room rate:</strong> giá phòng</li><li><strong>availability:</strong> tình trạng còn phòng</li><li><strong>facilities:</strong> tiện nghi</li><li><strong>complimentary breakfast:</strong> bữa sáng miễn phí</li><li><strong>fitness centre:</strong> phòng tập gym</li><li><strong>guided tour:</strong> tour có hướng dẫn viên</li><li><strong>booking confirmation:</strong> xác nhận đặt phòng</li><li><strong>scenic spot:</strong> địa điểm ngắm cảnh</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>In addition:</strong> Ngoài ra</li><li><strong>Furthermore:</strong> Hơn nữa</li><li><strong>As for...:</strong> Còn về...</li><li><strong>Should you have any questions:</strong> Nếu bạn có bất kỳ câu hỏi nào</li><li><strong>Regarding...:</strong> Về việc...</li></ul><p><strong>Cách diễn đạt cảm xúc:</strong></p><ul><li><strong>We would be delighted to welcome you:</strong> Chúng tôi rất vui được chào đón bạn</li><li><strong>I'm confident you will enjoy your stay:</strong> Tôi tin rằng bạn sẽ có một kỳ nghỉ thú vị</li><li><strong>Thank you for considering our hotel:</strong> Cảm ơn bạn đã cân nhắc khách sạn của chúng tôi</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Bỏ sót một trong ba yêu cầu, đặc biệt là phần đề xuất hoạt động.</li><li>Dùng văn phong quá thân mật, không phù hợp với bối cảnh kinh doanh.</li><li>Đưa thông tin giá cả và tiện nghi thiếu cụ thể, chung chung.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã trả lời đủ cả 3 ý trong đề chưa.</li><li>Rà soát giọng văn đã đủ chuyên nghiệp, lịch sự chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy hình dung mình đang thực sự là nhân viên khách sạn muốn thuyết phục khách hàng đặt phòng, vì vậy thông tin cần rõ ràng, cụ thể và giọng văn cần chuyên nghiệp, nhiệt tình.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "discussion",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>The use of mobile phones while driving has become a common practice for many people, allowing them to make calls, send messages or use navigation apps on the go.</p><p class='mb-1'>While some argue that phones can be useful tools for drivers, others believe that using them behind the wheel poses serious safety risks.</p><p class='mb-1'><strong>Discuss both views and give your own opinion.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss both views and give your own opinion about using mobile phones while driving. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Discussion Essay</strong>. Bạn cần thảo luận <strong>cả hai mặt</strong> của việc sử dụng điện thoại khi lái xe — mặt hữu ích và mặt nguy hiểm — trước khi đưa ra <strong>quan điểm cá nhân</strong> ở phần kết luận. Lưu ý không chỉ tập trung vào một phía ngay từ đầu. Bài viết cần tối thiểu <strong>250 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu vấn đề và nêu định hướng bài viết. Ví dụ: While mobile phones can offer convenience for drivers, their use behind the wheel also raises significant safety concerns.</li><li><strong>Body 1 (mặt tích cực):</strong> Ví dụ: On the one hand, phones can be helpful for navigation and emergency communication, allowing drivers to find their way or seek help quickly if needed.</li><li><strong>Body 2 (mặt tiêu cực):</strong> Ví dụ: On the other hand, using a phone while driving significantly increases the risk of accidents, as it distracts drivers from the road and slows their reaction time.</li><li><strong>Body 3 (quan điểm cá nhân):</strong> Ví dụ: In my opinion, although phones can be useful in certain situations, their potential to cause accidents outweighs their benefits, especially when used for texting or calling.</li><li><strong>Conclusion:</strong> Tóm tắt hai mặt và khẳng định lại quan điểm. Ví dụ: In conclusion, while mobile phones offer certain conveniences, I believe stricter regulations on their use while driving are necessary to ensure road safety.</li></ul><p><strong>Mỗi đoạn thân bài nên theo cấu trúc:</strong> Topic sentence → Giải thích → Ví dụ minh họa → Kết mini-đoạn, giúp bài viết cân đối và có chiều sâu.</p><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng cấu trúc đối lập (on the one hand... on the other hand) để phân chia rõ hai mặt của vấn đề, và các cụm từ thể hiện quan điểm cá nhân (in my opinion, I believe) ở phần cuối. Cần có thesis statement nêu rõ định hướng bài viết ngay từ mở bài.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>distracted driving:</strong> lái xe mất tập trung</li><li><strong>reaction time:</strong> thời gian phản xạ</li><li><strong>navigation app:</strong> ứng dụng dẫn đường</li><li><strong>road safety:</strong> an toàn giao thông</li><li><strong>hands-free device:</strong> thiết bị rảnh tay</li><li><strong>traffic accident:</strong> tai nạn giao thông</li><li><strong>strict regulation:</strong> quy định nghiêm ngặt</li><li><strong>emergency situation:</strong> tình huống khẩn cấp</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>On the one hand / On the other hand (Đối lập hai mặt):</strong> Một mặt / Mặt khác</li><li><strong>In addition / Moreover (Thêm ý):</strong> Hơn nữa</li><li><strong>However / Nevertheless (Đối lập):</strong> Tuy nhiên</li><li><strong>For example / For instance (Ví dụ):</strong> Ví dụ như</li><li><strong>As a result / Consequently (Nguyên nhân-kết quả):</strong> Do đó</li><li><strong>In conclusion / Overall (Kết luận):</strong> Tóm lại</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>using mobile phones while driving:</strong> có thể thay bằng \"phone use behind the wheel\"</li><li><strong>safety risks:</strong> có thể thay bằng \"potential hazards\"</li><li><strong>convenience:</strong> có thể thay bằng \"practicality\" hoặc \"usefulness\"</li></ul><p><strong>Cách diễn đạt ý kiến:</strong></p><ul><li><strong>In my opinion / From my perspective:</strong> Theo quan điểm của tôi</li><li><strong>I would argue that...:</strong> Tôi cho rằng...</li><li><strong>Taking everything into account,...:</strong> Xét trên mọi khía cạnh,...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ tập trung vào một mặt của vấn đề mà bỏ qua mặt còn lại (lỗi nghiêm trọng nhất trong bài Discussion).</li><li>Không đưa ra quan điểm cá nhân rõ ràng ở phần kết luận.</li><li>Thiếu ví dụ cụ thể để minh họa cho từng luận điểm.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã đạt tối thiểu 250 từ chưa.</li><li>Đảm bảo đã thảo luận cả hai mặt của vấn đề.</li><li>Xem lại phần kết luận đã nêu rõ quan điểm cá nhân chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy trình bày cả hai mặt một cách công bằng trước khi đưa ra quan điểm cá nhân. Sự cân đối và logic trong lập luận là yếu tố then chốt để đạt điểm cao ở dạng bài Discussion.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you often eat out?",
+            "Do you usually eat alone or with other people? Why?",
+            "What type of restaurant do you prefer when eating out?",
+            "Which season do you like most in your country?",
+            "Has your country ever experienced unusual or extreme weather changes?",
+            "How does the weather usually affect your daily activities or mood?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này kéo dài <strong>3 phút</strong> với <strong>6 câu hỏi</strong>, được giám khảo hỏi trực tiếp theo hình thức hội thoại tự nhiên.</li><li><strong>Chủ đề A (Ăn ngoài):</strong> Ba câu hỏi đầu xoay quanh tần suất ăn ngoài, thói quen ăn cùng ai và loại nhà hàng yêu thích, kiểm tra khả năng mô tả thói quen cá nhân.</li><li><strong>Chủ đề B (Mùa và thời tiết):</strong> Ba câu hỏi sau khai thác mùa yêu thích, những thay đổi thời tiết bất thường và ảnh hưởng của thời tiết đến sinh hoạt hằng ngày.</li><li>Tiêu chí chấm điểm gồm: <strong>Độ trôi chảy (Fluency)</strong>, <strong>Từ vựng (Vocabulary)</strong>, <strong>Ngữ pháp (Grammar)</strong> và <strong>Phát âm (Pronunciation)</strong>.</li><li>Nên phân bổ khoảng <strong>25–30 giây</strong> cho mỗi câu hỏi, tránh dồn quá nhiều thời gian cho một chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Áp dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong>: trả lời trực tiếp, đưa lý do, sau đó minh họa bằng ví dụ cụ thể.</li><li><strong>Ví dụ Chủ đề A:</strong> \"I eat out about twice a week, usually with my friends after class because it's a good way to relax and catch up.\"</li><li><strong>Ví dụ Chủ đề B:</strong> \"My favorite season is autumn because the weather is cool and pleasant, perfect for outdoor activities.\"</li><li>Luôn tự hỏi <strong>Why?/How?</strong> sau mỗi câu trả lời ngắn để mở rộng ý (bắt buộc).</li><li>Dùng một câu chuyển ý ngắn gọn khi chuyển từ Chủ đề A sang B, ví dụ: \"Now, moving on to something related to the weather...\" (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói đều, sử dụng các từ đệm tự nhiên như \"well\", \"actually\" để tránh im lặng kéo dài.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> khi nói về thói quen ăn uống và mùa yêu thích (\"I usually...\", \"I prefer...\"), dùng <strong>hiện tại hoàn thành</strong> khi nhắc đến trải nghiệm thời tiết bất thường (\"We have experienced some unusually heavy rain recently\").</li><li>Nếu quên từ, hãy diễn giải bằng cách mô tả (paraphrase) thay vì dừng lại.</li><li>Từ vựng Chủ đề A: <strong>eat out</strong> (ăn ngoài), <strong>cozy restaurant</strong> (nhà hàng ấm cúng), <strong>catch up with</strong> (gặp gỡ trò chuyện), <strong>affordable price</strong> (giá cả phải chăng).</li><li>Từ vựng Chủ đề B: <strong>mild weather</strong> (thời tiết ôn hòa), <strong>extreme heat</strong> (nắng nóng gay gắt), <strong>unpredictable</strong> (khó lường), <strong>seasonal change</strong> (sự thay đổi theo mùa).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a home-cooked meal</strong> (bữa ăn tự nấu tại nhà) — Chủ đề A.</li><li><strong>dine out</strong> (dùng bữa bên ngoài) — Chủ đề A.</li><li><strong>a wide selection of dishes</strong> (đa dạng món ăn) — Chủ đề A.</li><li><strong>pleasant climate</strong> (khí hậu dễ chịu) — Chủ đề B.</li><li><strong>a sudden change in weather</strong> (sự thay đổi thời tiết đột ngột) — Chủ đề B.</li><li><strong>affect one's mood</strong> (ảnh hưởng đến tâm trạng) — Chủ đề B.</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Actually,</strong> – mở đầu ý kiến cá nhân tự nhiên (thực ra thì).</li><li><strong>In terms of...</strong> – giới hạn phạm vi câu trả lời (về mặt...).</li><li><strong>Apart from that,</strong> – bổ sung ý (bên cạnh đó).</li><li><strong>The main reason is that...</strong> – nêu lý do chính.</li><li><strong>Speaking of...</strong> – chuyển chủ đề mượt mà (nói đến...).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"Personally, I prefer eating with friends because meals feel more enjoyable when shared.\" (Cá nhân tôi thích...) — Chủ đề A.</li><li>\"From my point of view, street food restaurants offer the best value for money.\" (Theo quan điểm của tôi...) — Chủ đề A.</li><li>\"As far as I'm concerned, extreme weather has become more frequent in recent years.\" (Theo tôi thì...) — Chủ đề B.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời cụt lủn kiểu \"Yes\" hoặc \"Summer\" mà không giải thích thêm — đây là lỗi nghiêm trọng nhất.</li><li>Với Chủ đề A: nhầm lẫn giữa \"eat out\" và \"eat outside\", hoặc chỉ liệt kê món ăn mà không nêu lý do thích nhà hàng đó.</li><li>Với Chủ đề B: nói chung chung về thời tiết mà không đưa ra ví dụ cụ thể về hiện tượng bất thường.</li><li>Dùng sai thì, ví dụ dùng thì tương lai khi mô tả thói quen hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu chêm: \"That's an interesting question, let me think for a moment\" để có thêm thời gian.</li><li>Nếu quên từ vựng cụ thể, hãy mô tả bằng từ đơn giản hơn, ví dụ thay vì \"typhoon\" có thể nói \"a very strong storm with heavy rain and wind\".</li><li>Với Chủ đề A, nếu không nhớ chi tiết, có thể nói chung chung về \"a cozy little restaurant near my house\" rồi phát triển thêm.</li><li>Với Chủ đề B, nếu bí ý tưởng, hãy liên hệ đến cách thời tiết ảnh hưởng đến việc đi lại hoặc trang phục hằng ngày.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy xem đây như một cuộc trò chuyện thân mật, không phải một bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Chủ đề A sang B, hãy \"reset\" tâm lý và coi đó là một câu hỏi hoàn toàn mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố gắng dùng từ vựng học thuật phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your family is planning a party to celebrate an important occasion.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Hold the party at a resort</li><li>Option 2: Hold the party at a family member's house</li><li>Option 3: Hold the party at a restaurant</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống: gia đình bạn đang lên kế hoạch tổ chức một buổi tiệc để kỷ niệm một dịp quan trọng.</li><li>Ba lựa chọn: <strong>tổ chức tại khu nghỉ dưỡng (resort)</strong>, <strong>tại nhà một thành viên trong gia đình</strong>, và <strong>tại nhà hàng</strong>.</li><li>Tiêu chí chấm điểm: khả năng phân tích, so sánh và đưa ra kết luận thuyết phục, cùng với Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>4 phút</strong> — khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction – Comparison/Body – End)</strong>: giới thiệu tình huống, phân tích lần lượt ba lựa chọn, sau đó kết luận và đưa ra lý do.</li><li><strong>Option 1 (resort):</strong> \"Holding the party at a resort would create a relaxing atmosphere, but it might be quite expensive and less convenient for elderly family members.\"</li><li><strong>Option 2 (nhà thành viên gia đình):</strong> \"Celebrating at a family member's house feels warm and intimate, and it saves money, though space might be limited for a large gathering.\"</li><li><strong>Option 3 (nhà hàng):</strong> \"A restaurant offers convenience and a wide variety of food, but it may lack the personal touch of a home celebration.\"</li><li>Mẹo: luôn neo lập luận vào bối cảnh thực tế của một buổi tụ họp gia đình (bắt buộc).</li><li>Mẹo: dùng từ nối tương phản như \"however\", \"on the other hand\" để chuyển giữa ưu và nhược điểm (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết ba lựa chọn với nhau thay vì nói tách biệt, ví dụ: \"Compared to Option 1, Option 2 feels much more personal and cost-effective.\"</li><li>Về thì: dùng <strong>câu điều kiện loại 1</strong> khi dự đoán hệ quả (\"If we choose the resort, we will need a bigger budget\") và <strong>hiện tại đơn</strong> khi mô tả đặc điểm từng lựa chọn.</li><li>Paraphrase cụm \"celebrate\" thành \"mark the occasion\" hoặc \"commemorate\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a memorable gathering</strong> (buổi tụ họp đáng nhớ).</li><li><strong>intimate atmosphere</strong> (không khí ấm cúng, thân mật).</li><li><strong>cost-effective</strong> (tiết kiệm chi phí).</li><li><strong>convenient location</strong> (địa điểm thuận tiện).</li><li><strong>personal touch</strong> (dấu ấn cá nhân).</li><li><strong>catering service</strong> (dịch vụ ăn uống).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>On the other hand,</strong> – nêu quan điểm đối lập (mặt khác).</li><li><strong>Compared to...,</strong> – so sánh giữa các lựa chọn.</li><li><strong>Taking everything into account,</strong> – tổng kết trước khi kết luận (xét tổng thể).</li><li><strong>Nevertheless,</strong> – nhấn mạnh điểm trái ngược (tuy nhiên).</li><li><strong>As a result,</strong> – nêu hệ quả (kết quả là).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"If it were up to me, I would choose to celebrate at a family member's house because it feels more meaningful.\" (Nếu là tôi...)</li><li>\"I would strongly recommend the restaurant option for its convenience and variety of food.\" (Tôi sẽ khuyên...)</li><li>\"In my opinion, the emotional value of a home celebration outweighs the comfort of a resort.\" (Theo ý kiến của tôi...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không chỉ ra nhược điểm của các lựa chọn còn lại.</li><li>Lặp đi lặp lại từ \"good\"/\"nice\" thay vì dùng tính từ học thuật hơn như \"convenient\", \"memorable\".</li><li>Không đưa ra kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng chuyên ngành, chuyển hướng sang yếu tố chi phí hoặc không gian để tiếp tục lập luận.</li><li>Dùng câu chêm: \"Let's evaluate this option from a different perspective\" để có thêm thời gian suy nghĩ.</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một thành viên thực sự đang lên kế hoạch cho gia đình mình — điều gì thực sự ý nghĩa và khả thi.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả cho lựa chọn được chọn để thể hiện tư duy phản biện.</li><li>Sự mạch lạc và logic trong lập luận quan trọng hơn việc dùng từ vựng phức tạp.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits of traveling",
+          "mindmap": {
+            "title": "Benefits of Traveling",
+            "ideas": [
+              "Experiencing new cultures",
+              "Learning new skills",
+              "Gaining more life experience",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "What is the most memorable trip you have ever taken?",
+            "If you travel, would you rather go with friends or your family? Why?",
+            "When you travel, would you choose a luxury tour or a standard tour?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề: <strong>Lợi ích của việc đi du lịch</strong>, với 3 nhánh ý chính và 1 nhánh ý cá nhân (gợi ý nhánh thứ 4: giảm căng thẳng, thư giãn tinh thần).</li><li>Tiêu chí chấm điểm: khả năng phát triển ý mạch lạc theo sơ đồ tư duy, cùng Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>5 phút</strong>; khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> vì chủ đề mang tính trải nghiệm cá nhân, cần cả lý lẽ lẫn ví dụ thực tế.</li><li><strong>Ví dụ 1 (mở bài):</strong> \"Traveling brings countless benefits, from broadening our understanding of the world to enriching our personal growth.\"</li><li><strong>Ví dụ 2 (nhánh cá nhân):</strong> \"Personally, I find that traveling helps me reduce stress and clear my mind after a busy semester.\"</li><li>Mẹo: khi nói về từng nhánh ý, hãy đưa ra một ví dụ chuyến đi cụ thể để minh họa thay vì chỉ nói lý thuyết.</li><li>Mẹo: bám sát sơ đồ tư duy để tránh lan man, không lặp lại ý đã nói (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng cụm từ chuyển tiếp mượt mà giữa các nhánh ý, ví dụ \"Another benefit worth mentioning is...\".</li><li>Về thì: dùng <strong>hiện tại đơn</strong> để nêu sự thật/quan điểm chung (\"Traveling exposes people to different cultures\") và <strong>hiện tại hoàn thành</strong> để nói về trải nghiệm tích lũy (\"I have visited several countries in Southeast Asia\").</li><li>Paraphrase \"traveling\" bằng \"exploring new places\" hoặc \"going on trips\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>broaden one's horizons</strong> (mở mang tầm nhìn).</li><li><strong>immerse oneself in a new culture</strong> (hòa mình vào nền văn hóa mới).</li><li><strong>step out of one's comfort zone</strong> (bước ra khỏi vùng an toàn).</li><li><strong>hands-on experience</strong> (kinh nghiệm thực tế).</li><li><strong>unwind and relax</strong> (thư giãn và giải tỏa căng thẳng).</li><li><strong>a once-in-a-lifetime experience</strong> (trải nghiệm có một không hai).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with,</strong> – mở đầu nhánh ý đầu tiên (trước hết).</li><li><strong>Moreover,</strong> – bổ sung ý (hơn nữa).</li><li><strong>Another point worth noting is...</strong> – chuyển sang nhánh ý mới.</li><li><strong>In addition to that,</strong> – mở rộng ý (thêm vào đó).</li><li><strong>To sum up,</strong> – kết luận (tóm lại).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"I would say that traveling is one of the most effective ways to learn about the world.\" (Tôi cho rằng...)</li><li>\"From what I've experienced, exploring new places always teaches me something valuable about myself.\" (Theo những gì tôi trải nghiệm được...)</li><li>\"It seems to me that traveling with family creates deeper emotional connections than traveling with friends.\" (Đối với tôi thì có vẻ như...)</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"What is the most memorable trip you have ever taken?\"</strong> – Share a short story about a trip that left a strong impression, focusing on what made it special.</li><li><strong>\"If you travel, would you rather go with friends or your family? Why?\"</strong> – Explain that traveling with family feels more relaxing and meaningful, while trips with friends are more adventurous and fun.</li><li><strong>\"When you travel, would you choose a luxury tour or a standard tour?\"</strong> – Mention that a standard tour is more budget-friendly and authentic, while a luxury tour offers more comfort.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê ý mà không giải thích hoặc cho ví dụ cụ thể.</li><li>Quên nhánh ý cá nhân — nên chuẩn bị trước một trải nghiệm du lịch thực tế của bản thân.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào một chuyến đi thực tế của bản thân hoặc gia đình khi bí ý.</li><li>Câu chêm học thuật: \"That is a complex issue. If we evaluate it from a societal viewpoint...\"</li><li>Nếu quên từ vựng chuyên ngành du lịch, dùng mô tả đơn giản, ví dụ thay vì \"itinerary\" có thể nói \"a plan of places to visit during a trip\".</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ từ góc nhìn thực tế của một người trẻ muốn khám phá thế giới và phát triển bản thân.</li><li>Sự mạch lạc và logic trong luồng ý là yếu tố then chốt để đạt điểm cao.</li><li>Đừng cố nhồi nhét từ vựng khó, hãy ưu tiên truyền tải ý tưởng rõ ràng và tự nhiên.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

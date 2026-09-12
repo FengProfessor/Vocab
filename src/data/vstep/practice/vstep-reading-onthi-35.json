@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-35",
+  "title": "Luyện Đọc VSTEP: Advertising and Society (VstepR3-Test 5)",
+  "duration": 10,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Advertising and Society",
+            "text": "<p style=\"text-align:justify;\">Advertising is one of the most pervasive features of modern life. From television commercials and roadside billboards to targeted online ads and branded social media posts, consumers are exposed to thousands of advertising messages every day. While advertising plays an important economic role by connecting buyers with products and funding much of the media we consume, its psychological effects and social implications are increasingly the subject of debate.</p>\n<p style=\"text-align:justify;\">The primary goal of advertising is to persuade. Advertisers use a range of psychological techniques to influence consumer behavior, including the creation of desire for products, the association of brands with positive emotions or social status, and the exploitation of fears or insecurities. Research has shown that advertising is particularly effective when it operates below the level of conscious awareness — embedding positive associations with a brand through repetition and emotional imagery rather than explicit factual claims. Children are considered especially <strong>vulnerable</strong> to these techniques because they are still developing the critical thinking skills needed to recognize persuasive messages.</p>\n<p style=\"text-align:justify;\">Critics of advertising argue that it contributes to a culture of materialism, encouraging people to define their identity and measure their success through consumption. This culture of consumerism drives overproduction, waste, and environmental degradation while leaving many people feeling inadequate because they cannot afford the products advertised to them. Supporters counter that advertising simply reflects existing consumer preferences and that people retain the agency to make their own choices regardless of advertising pressure.</p>\n<p style=\"text-align:justify;\">Whatever one's view on these debates, it is clear that advertising shapes culture in profound ways. The images, values, and aspirations promoted by advertising — idealized bodies, expensive lifestyles, the promise that consuming a product will bring happiness — become part of the cultural landscape that individuals navigate as they form their identities and make decisions about how to live.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r35-q1",
+              "type": "mcq",
+              "question": "What is the main topic of the passage?",
+              "options": [
+                "The history of television advertising",
+                "The role, techniques, and social impact of advertising",
+                "How children are educated about advertising messages",
+                "Why advertising budgets have been increasing"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r35-q2",
+              "type": "mcq",
+              "question": "The main idea of paragraph 2 is that?",
+              "options": [
+                "Advertising always tells the truth about products",
+                "Advertisers deliberately use psychological techniques to influence consumer decisions",
+                "Children watch too much television advertising",
+                "Online advertising is always more effective than television advertising"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r35-q3",
+              "type": "mcq",
+              "question": "What is the main disagreement described in paragraph 3?",
+              "options": [
+                "Whether advertising should be taxed by governments",
+                "Whether advertising causes materialism or simply reflects consumer preferences",
+                "Whether advertising helps the overall economy grow",
+                "Whether children should be allowed to watch advertisements"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r35-q4",
+              "type": "mcq",
+              "question": "What is the purpose of the final paragraph?",
+              "options": [
+                "To conclude that advertising is entirely harmful to society",
+                "To suggest that the cultural influence of advertising is undeniable, regardless of one's perspective",
+                "To argue that people should buy fewer products",
+                "To recommend legal restrictions on luxury goods advertising"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r35-q5",
+              "type": "mcq",
+              "question": "Which statement best represents the author's overall approach in this passage?",
+              "options": [
+                "Advertising is clearly and entirely positive for society",
+                "Advertising is clearly and entirely negative for society",
+                "Advertising has significant psychological and cultural effects that deserve serious attention",
+                "The debate about advertising has already been fully resolved by researchers"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-39",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 39",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-21/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Hi there It’s Paul. I’ve been to the gallery to get some ideas for my latest project and I got some good ones you know, for shapes and so on now I need to think about using colours, and patterns. I might go back another day and look at paintings. There are some on the first floor of indoor scenes with vases and bowls in them like the ones I looked at on display today. Oh, and there’s a new sculpture exhibition on, but I didn’t get a chance to see it.</li></ul><p><b>Question 2.</b></p><ul><li>There’s a new service available at Jeff Dean’s Gym from today. Consultant Jenny Law will offer gym members complete dietary analysis and fitness assessment. If you book before 5th November you will get a 33% discount and pay only 20 instead of the usual 30 pounds. Make sure you’re fit enough for the next century Consult the experts at Jeff Dean’s Gym. Join today!</li></ul><p><b>Question 3.</b></p><ul><li>You have reached the Gas Hotline. If you have a complaint concerning our service you may speak to our customer care line by dialling 3 after the tone. If you would like to arrange for regular servicing to any of your gas appliances you may speak to our service engineers by dialling 4 after the tone. Our emergency service can be contacted by dialling 5 after the tone.</li></ul><p><b>Question 4.</b></p><ul><li>Just one last word, ladies and gentlemen. You probably know how dangerous rabies can be. Just one bite from an affected animal can kill if medical help is not available immediately. We’ve been free from rabies in Britain for over 75 years but it is still quite common here. So don’t be tempted to take animals home with you. They may be infected, and you can be sent to prison for illegally importing animals. Okay, now I need to tell you…</li></ul><p><b>Question 5.</b></p><ul><li>And now for the week’s weather The week will start out very wet. Indeed, with thunder and lightning in some areas. This will last through to Wednesday. Thursday will be dry but dull, but the clouds will clear during the night, bringing us a bright end to the week - something to make up for all that bad weather…</li></ul><p><b>Question 6.</b></p><ul><li>...and yes, I would agree that computers have made a dramatic difference in the workplace. However, computers in the home have their disadvantages especially for children. In a school setting they’re fine, I think, but letting them spend too much time with computer games certainly doesn’t help children learn to communicate. As to whether children have to think while they’re playing on the computer. I’d say they do.</li></ul><p><b>Question 7.</b></p><ul><li>And finally, on a lighter note. When college lecturer, Chris Pearse, told Jamie his pet bloodhound to fetch his slippers, he expected the dog to go upstairs for the new pair he had got for Christmas. In fact, the dog disappeared for two hours. The legendary nose of the bloodhound had led it four miles across town to the Council tip where Jamie retrieved his master’s old slippers, which had been thrown away and brought them home. Mr Pearse said, \"I didn’t expect it, but I can’t complain when he’s only done exactly what I asked…\"</li></ul><p><b>Question 8.</b></p><ul><li>We are sorry to announce that both the 9.15 from Crewe and the 10:30 to London Euston have been cancelled due to staff shortages. Passengers for Birmingham International and Oxford should cross the bridge to platform four where a relief train will shortly arrive. Passengers for Reading can also take this train but must change at Oxford. Passengers for London and Heathrow airport should go immediately to the booking hall on platform one where a coach has been arranged.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which part of the gallery did the man visit?",
+              "options": [
+                "paintings",
+                "vases and bowls",
+                "a sculpture exhibition",
+                "photographs"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "How much will a dietary and fitness assessment cost you?",
+              "options": [
+                "£20",
+                "£30",
+                "£33",
+                "£5"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Who do you contact when dialing number 4?",
+              "options": [
+                "customer care department",
+                "service engineering department",
+                "emergency service department",
+                "HR department"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Who is the message intended for?",
+              "options": [
+                "people in Britain",
+                "people leaving Britain",
+                "people returning to Britain",
+                "people visiting Britain"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What will the weather be like on Friday?",
+              "options": [
+                "cloudy and dull",
+                "sunny",
+                "very wet",
+                "cloudy"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Why should children not use computers?",
+              "options": [
+                "They don’t encourage children to think.",
+                "They keep children from doing their schoolwork.",
+                "They stop children developing social skills.",
+                "They are harmful to children’s eyes"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What did the dog do?",
+              "options": [
+                "annoyed its master",
+                "disobeyed its master",
+                "obeyed its master",
+                "fetched a thing its master didn’t ask"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What should passengers for London do?",
+              "options": [
+                "take the train on platform four",
+                "take the coach from the booking hall",
+                "take the train on platform one",
+                "change the train at Oxford"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> Did you find out when the plumber is going to be here to fix the broken pipe?</li><li><b>W:</b> Yes, I called at 1 o'clock, and he said he was tied up in another building and would be here by 2.</li><li><b>M:</b> Okay, it's ten minutes to 2 right now. Could you do me a favor and make sure the work goes smoothly when he gets here? I have to step out of the office to meet a client but should be back by 4 o'clock.</li><li><b>W:</b> Okay, I will see you later.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> John, are you planning to go to Chicago to attend the big conference tomorrow? I heard it's going to be great.</li><li><b>M:</b> Well, I really want to, but I can't. I just came back from a business trip in Europe, so I have so much work piled up on my desk.</li><li><b>W:</b> I'm sorry to hear that. Tell you what... I'll take my video camera with me, and I will film the speeches you'd like to see.</li><li><b>M:</b> Oh, that would be great. Thanks, Susan.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>JTx:</b> Have you sent out the shipment of computers to the electronics shop yet? The owner just called and said he needs them within the hour.</li><li><b>M:</b> The truck left ten minutes ago, so it should arrive at the store in the next fifteen minutes. Do you want me to check to see where the driver is now?</li><li><b>W:</b> That's okay. So long as it has left, it'll be fine. Now could you do me a favor and get those boxes loaded on to the truck parked over there?</li><li><b>M:</b> Okay, I will take care of that right away.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Where most likely is the plumber now?",
+              "options": [
+                "He is having lunch.",
+                "He is working somewhere else.",
+                "He is at home relaxing.",
+                "He is doing a favor for the man."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "When is the plumber expected to arrive?",
+              "options": [
+                "At one o'clock",
+                "At two o'clock",
+                "At three o'clock",
+                "At four o'clock"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "Where is the man going?",
+              "options": [
+                "To meet a client",
+                "To talk to the plumber",
+                "To fix the pipe",
+                "To have lunch"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "When will the man come back to his office?",
+              "options": [
+                "At one o'clock",
+                "At two o'clock",
+                "At three o'clock",
+                "At four o'clock"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "When is the conference scheduled to take place?",
+              "options": [
+                "Today",
+                "Tomorrow",
+                "Next week",
+                "Next month"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Why will John miss the conference?",
+              "options": [
+                "He is going on a business trip.",
+                "He is taking a vacation in Europe.",
+                "He has too much work.",
+                "He has to review the videos."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Where has the man just been to for a business trip?",
+              "options": [
+                "Chicago",
+                "Toronto",
+                "Europe",
+                "Asia"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Why is the man thanking the woman?",
+              "options": [
+                "She offered to give him a ride.",
+                "She will lend him her video recorder.",
+                "She will go to the seminar in his place.",
+                "She will record the sessions he wants to see."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Where is the conversation most likely taking place?",
+              "options": [
+                "In a truck",
+                "At the bus stop",
+                "In a warehouse",
+                "At an electronics store"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "When will the computers arrive at the store?",
+              "options": [
+                "In five minutes",
+                "In fifteen minutes",
+                "By this evening",
+                "By tomorrow morning"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Who most likely the man is?",
+              "options": [
+                "A manager",
+                "A director",
+                "A secretary",
+                "A blue worker"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What will the man do next?",
+              "options": [
+                "Call the electronics shop",
+                "Talk to the truck driver",
+                "Turn on the computer",
+                "Lift some boxes"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-05/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p><b>Japan has resumed commercial whaling</b> after a hiatus of over three decades. Commercial whaling was <b>banned in 1986</b> by an International Whaling Commission (IWC) moratorium. However, Japan withdrew from the IWC in December. Japan's government has promised all whalers will stay within <b>320 kilometers from its coast</b>. The Japanese fisheries agency set a <b>quota for killing 227 whales</b> every six months. In the first days of resumed whaling, whalers caught two minke whales, which were taken to the northern port of Kushiro. The whale meat was auctioned in Tokyo and sold for <b>record prices</b>. Eager restaurant owners snapped up the meat at prices of up to <b>$140 per kilo</b>.</p><p>Japan has engaged in the practice of whaling for centuries. Whale restaurant chef <b>Mitsuo Tani</b> summed up why he thought the return of commercial whaling was important. He said: \"A country that does not <b>preserve its food culture</b> has no future.\" He also promoted the <b>health benefits of whale meat</b>. He said: \"It is five times lower in calories than beef, 10 times lower in cholesterol, two times less fat than chicken and it's packed with iron. But abroad, people do not know this.\" However, Japan's return to whaling has brought <b>international outcry</b>. The Humane Society accused Japan of starting a \"new and shocking era of <b>pirate whaling</b>\". It added: \"This is a sad day for <b>whale protection globally</b>.\"</p><p><b>Talk/Lecture 2</b></p><p>The United Kingdom has said it is playing its part in striving for a <b>cleaner and greener planet</b>. For the first time since the Industrial Revolution in the 18th and 19th centuries, the UK is being powered more by <b>zero-carbon fuels than fossil fuels</b>. In each of the first five months of 2019, fossil fuels have produced less than half of the UK's electricity. Analysts say a \"<b>tipping point</b>\" has been reached and the trend of zero-carbon energy sources providing more power than fossil fuels will continue. Power from <b>wind, solar, nuclear and hydro sources</b> outstripped coal and gas-fired generation. A decade ago, three quarters (<b>75.6 per cent</b>) of the UK's electricity came from coal and gas, and only 22.3 per cent was zero carbon.</p><p>The switch to more zero-carbon power was described by the UK's energy chief executive as a \"<b>key milestone on the journey towards net zero</b>\". CEO John Pettigrew said the zero-carbon share should increase to <b>90 per cent by the 2030s</b>. The UK's Prime Minister Theresa May has made a commitment to reach <b>net zero carbon emissions by 2050</b>. This would make the UK the <b>first major economy</b> to do so. Energy analyst Tom Burke told the BBC: \"Today's landmark is a real tribute to technologists. We have cracked technical problems of dealing with <b>climate change</b>.\" He added: \"As we move towards net zero, <b>jobs will be lost in fossil fuel industries and created in low-carbon industries</b>.\"</p><p><b>Talk/Lecture 3</b></p><p>Astronomers have promoted <b>Saturn</b> as the planet with the <b>most moons</b>. Saturn has overtaken the solar system's largest planet Jupiter as the \"<b>king of the moons</b>\". The astronomers recently discovered <b>20 new moons</b> orbiting Saturn, which brings the planet's total number to <b>82</b>. This edges out Jupiter, with 79 celestial bodies, into second place. Each of the newly-discovered moons is at least <b>5km in diameter</b>. Seventeen of them orbit Saturn <b>backwards</b> and take more than three years to complete one orbit of Saturn. The astronomers found the moons using the powerful <b>Subaru telescope</b>, located on Hawaii. The research team will now look for moons that are around a kilometer in diameter.</p><p>Lead astronomer <b>Dr Scott Sheppard</b> commented on the perceived origins of the new moons. He said: \"We don't think they formed with the planet. We think they were <b>captured by the planet in the past</b>.\" He posited that Saturn sucked in a swirling mixture of gas and dust to form the moons. Dr Sheppard added: \"We think these moons interacted with that gas and dust. These were <b>comets or asteroids</b> that happened to be passing by....They were captured into orbits around the planet rather than falling into the planet. We think these are the <b>last remnants of what formed Saturn</b>.\" The moons will be named in a competition after giants from <b>Gallic, Inuit and Norse mythology</b>.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "For how long has Japan stopped commercial whaling?",
+              "options": [
+                "Exactly thirty years",
+                "Over thirty years",
+                "Just under thirty years",
+                "About thirty years"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "How many minke whales were caught in the first week?",
+              "options": [
+                "One",
+                "Three",
+                "Two",
+                "27"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "Who is Mitsuo Tani?",
+              "options": [
+                "A chef",
+                "A whaler",
+                "The International Whaling Commission boss",
+                "A Greenpeace activist"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What did a country have to protect?",
+              "options": [
+                "Its coastal waters",
+                "Its fish",
+                "Its food culture",
+                "Whales"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is whale meat packed with?",
+              "options": [
+                "Iron",
+                "Fat",
+                "Protein",
+                "Goodness"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "When did the UK last use more carbon zero fuels than fossil fuels?",
+              "options": [
+                "The nineteenth century",
+                "1932",
+                "1391",
+                "The fourteenth century"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What would happen to the zero-carbon trend in the UK?",
+              "options": [
+                "It would stall",
+                "It would stop",
+                "It would reverse",
+                "It would continue"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "How much of the UK's electricity came from coal and gas a decade ago?",
+              "options": [
+                "60%",
+                "Three fifths",
+                "Three quarters",
+                "Two thirds"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "When will the UK's zero-carbon share increase to 90% in the UK?",
+              "options": [
+                "By 2020",
+                "2025",
+                "2030",
+                "By the 2030s"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What problems did an analyst say technologists had cracked?",
+              "options": [
+                "Climate protestor problems",
+                "Climate change problems",
+                "Pollution problems",
+                "Nuclear reactor problems"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the diameter of each of the newly-found moons?",
+              "options": [
+                "At least 5km",
+                "Around 50km",
+                "Just less than 5km",
+                "Just under 3km"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What will the research team now look for?",
+              "options": [
+                "Asteroids and comets",
+                "Moons of 1km in diameter",
+                "New planets",
+                "More moons on Jupiter"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What did Saturn suck in a swirling mixture of?",
+              "options": [
+                "Light waves and dust",
+                "Hydrogen and helium",
+                "Gas and dust",
+                "Gas and light waves"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What was sucked in as they were passing by?",
+              "options": [
+                "Asteroids and comets",
+                "Satellites and space dust",
+                "Space dust and helium",
+                "Smaller planets"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "How will the names of the new moons be decided?",
+              "options": [
+                "By an ordered list",
+                "Randomly by a computer",
+                "By the head of NASA",
+                "By a competition"
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

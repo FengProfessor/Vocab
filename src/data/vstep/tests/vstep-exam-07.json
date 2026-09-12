@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-07",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 07",
+  "duration": 172,
+  "date": "2026-03-20",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What have they forgotten?</b></p><ul><li><b>Speaker 1:</b> I've got the passports here.</li><li><b>Speaker 2:</b> And the tickets are in my bag.</li><li><b>Speaker 1:</b> What about the camera?</li><li><b>Speaker 2:</b> Oh no. I have left it at home. And I really want to take some holiday photos.</li></ul><p><b>2. What time does the train go?</b></p><ul><li><b>Speaker 1:</b> Hurry up! we'll be late</li><li><b>Speaker 2:</b> what time does the train go?</li><li><b>Speaker 1:</b> At six fifteen. We've got to leave in ten minutes.</li><li><b>Speaker 1:</b> I’m nearly ready</li></ul><p><b>3. How did the woman get to work?</b></p><ul><li><b>Speaker 1:</b> The traffic is terrible today.</li><li><b>Speaker 2:</b> Yes it took me forty minutes by bus</li><li><b>Speaker 1:</b> Well I drove and it took me an hour</li><li><b>Speaker 2:</b> An hour? it's probably quicker by bicycle.</li></ul><p><b>4. Where are the man's shoes?</b></p><ul><li><b>Speaker 1:</b> Have you seen my old shoes? I thought they were under the chair by the television</li><li><b>Speaker 2:</b> Not any more. They’re by the door with the other rubbish, inside the flat.</li><li><b>Speaker 1:</b> Well the living room looks very nice but you’re not throwing my old shoes away all the same.</li></ul><p><b>5. What will Paul get at the shop?</b></p><ul><li>Right. Now.. what do we need for the sauce so Paul can get for me ... let me see.. onions, tomatoes, one red pepper, mushrooms and two carrots. So what I’ve got. Onions? I’ve got those. Tomatoes ,yes ,red pepper ,no, I need one of those. I’ve got mushrooms, oh dear, no carrots. Paul. Could you go to the shop for me, please?</li></ul><p><b>6. How were they told to do their homework?</b></p><ul><li><b>Speaker 1:</b> Wow your homework looks great</li><li><b>Speaker 2:</b> Thanks. I typed it on my dad’s computer.</li><li><b>Speaker 1:</b> But did Mrs Smith tell us we have to write in our books?</li><li><b>Speaker 2:</b> Oh, No. You’re right. What am I going to do now?</li></ul><p><b>7. What did Helen buy?</b></p><ul><li><b>Speaker 1:</b> Look. Roger I’ve been shopping. They’ve got some great things in Star Right</li><li><b>Speaker 2:</b> That’s brilliant, lovely colors and it’ll keep you warm in the winter</li><li><b>Speaker 1:</b> Yes, but are the sleeves too short for me?</li><li><b>Speaker 2:</b> No. they look fine.</li></ul><p><b>8. How did the woman get to work today?</b></p><ul><li>Oh I’m so sorry I’m late. I missed the bus and I was trying to decide whether to walk or go back and get my bike when I saw my neighbor. Luckily he offered me a lift because he works near here.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What have they forgotten?",
+              "options": [
+                "ticket",
+                "camera",
+                "passport",
+                "bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What time does the train go?",
+              "options": [
+                "06.15",
+                "07.40",
+                "06.10",
+                "07.10"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How did the woman get to work?",
+              "options": [
+                "by bicycle",
+                "by bus",
+                "by car",
+                "by train"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Where are the man's shoes?",
+              "options": [
+                "under the chair",
+                "by the television",
+                "by the door with the other rubbish",
+                "under the table"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What will Paul get at the shop?",
+              "options": [
+                "mushrooms",
+                "onions",
+                "carrots",
+                "red pepper"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "How were they told to do their homework?",
+              "options": [
+                "write it in the books",
+                "write it on paper",
+                "type it",
+                "email it"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What did Helen buy?",
+              "options": [
+                "gloves",
+                "sweater",
+                "socks",
+                "hat"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "How did the woman get to work today?",
+              "options": [
+                "by bus",
+                "a neighbour offered her a lift",
+                "by bike",
+                "walk"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><p><b>My daily schedule as a dental hygienist</b> is a little complicated. That's because it's different every day.</p><p>Monday, I don't go into work until late in the afternoon. So I have time to spend, most of the day, doing washing of clothes, shopping, and my banking. I leave for work around four o'clock in the afternoon, I work from five to nine p.m. Tuesday, I wake up at six thirty a.m. and leave for work, at seven thirty. My first patient is scheduled for eight fifteen. Each patient, is allotted forty-five minutes. Lunch break is twelve-thirty to one-thirty. I finish up at five p.m. and get home, at around six p.m. Wednesday starts an hour earlier. I wake up at five-thirty a.m., leave for work at six-thirty, and see my first patient at seven a.m., I also finish early on Wednesday, at twelve-noon. Thursday is the same schedule as Tuesday... getting up at six-thirty a.m., leaving for work at seven-thirty, and seeing my first patient at eight-fifteen. I get home about six p.m. in the evening. Friday is another early start. I wake up at five-thirty a.m., leave the house at six thirty and finish up my last patient at three o'clock in the afternoon. I like to get finished early on Friday. That is a typical work week for me.</p><p><b>Conversation 2:</b></p><ul><li><b>Man:</b> Hi, Sis. I just came over to drop off the DVDs you wanted, and . . . Hey, wow!? Where did you get all of this stuff?</li><li><b>Woman:</b> I bought it. So, what do you think of my new entertainment center? And the widescreen TV..</li><li><b>Man:</b> Bought it?</li><li><b>Woman:</b> . . . and my new DVD player. Here, let me show you my stereo. You can really rock the house with this one.</li><li><b>Man:</b> But where did you get the dough to buy all this? You didn't borrow money from mom and dad again, did you?</li><li><b>Woman:</b> Of course not. I got it with this!</li><li><b>Man:</b> This? Let me see that . . . Have you been using Dad's credit card again?</li><li><b>Woman:</b> No, silly. It's mine. It's student credit card.</li><li><b>Man:</b> A student credit card? How in the world did you get one of these?</li><li><b>Woman:</b> I got an application in the mail.</li><li><b>Man:</b> Well, why did you get one in the first place?</li><li><b>Woman:</b> Listen. Times are changing, and having a credit card helps you build a credit rating, control spending, and even buy things that you can't pay with cash . . . like the plane ticket I got recently.</li><li><b>Man:</b> What plane ticket?</li><li><b>Woman:</b> Oh yeah, my roommate and I are going to Hawaii over the school break, and course, I needed some new clothes for that so . . .</li><li><b>Man:</b> I don't want to hear it. How does having a student credit card control spending? It sounds you've spent yourself in a hole. Anyway, student credit cards just lead to impulse spending . . . as I can see here. And the interest rates of student credit cards are usually sky-high, and if you miss a payment, the rates, well, just jump!</li><li><b>Woman:</b> Ah. The credit card has a credit limit . . .</li><li><b>Man:</b> . . . of $20,000?</li><li><b>Woman:</b> No, no quite that high. Anyway, . . .</li><li><b>Man:</b> I've heard enough.</li><li><b>Woman:</b> Did I tell you we now get digital cable with over 100 channels? Oh, and here's your birthday present. A new MP3 player . . .</li><li><b>Man:</b> Yeah. Oh, don't tell me. Charged on the credit card. Listen. Hey, I don't think having a student credit card is a bad idea, but this is ridiculous. And how in the world are you going to pay off your credit card bill?</li><li><b>Woman:</b> Um, with my birthday money? It's coming up in a week.</li><li><b>Man:</b> Hey, let's sit down and talk about how you're going to pay things back, and maybe we can come up with a budget that will help you get out of this mess. That's the least I can do.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Server:</b> Hi. Welcome to Joe's Hamburger Restaurant. [Hi] Home of the one-pound super deluxe hot and spicy cheeseburger. Will this be for here or to go?</li><li><b>Customer:</b> Uh, to go.</li><li><b>Server:</b> Okay. What would you like today? Would you like to try the one-pound super hot and spicy cheeseburger?</li><li><b>Customer:</b> Uh. I don't think so. I'd probably have heartburn for a week after downing that monster.</li><li><b>Server:</b> Well. It's our house special this week, and it comes with fries, and a large specialty drink called \"Everything-but-the-kitchen-sink.\"</li><li><b>Customer:</b> A what? \"Everything-but-the-kitchen-sink\"? What in the world is that?</li><li><b>Server:</b> Well, it's a little mix of everything in a large cup: Pepsi, Sprite, Fanta Orange, and lemonade with crushed ice and a scoop of ice cream.</li><li><b>Customer:</b> Ah, that sounds disgusting.</li><li><b>Server:</b> Hey, it'll grow on you.</li><li><b>Customer:</b> Nay, I think I'll just order a hamburger with some mustard and lettuce and a glass of water.</li><li><b>Server:</b> Boring. Hey. Would you care for anything else like a side order of amazing cheesy onion rings?</li><li><b>Customer:</b> No thank you. Onion rings usually don't agree with me.</li><li><b>Server:</b> Hmm. Okay. Your total comes to ten ninety ($10.90).</li><li><b>Customer:</b> Ten ninety? For just a hamburger?! You've got to be kidding</li><li><b>Server:</b> Well, the one-pound super deluxe hamburger is nine dollars.</li><li><b>Customer:</b> Hey, I didn't order a one-pound burger. I just wanted a simple burger. That's all.</li><li><b>Server:</b> Well, sir. Joe's Hamburger Restaurant only serves one-pound burgers. [Man!] The one-pound super hot and spicy, the one-pound barbecue burger, the one-pound bacon cheese burger, the one-pound . . .</li><li><b>Customer:</b> No, no. Those are all huge.</li><li><b>Server:</b> Well, sir. If you really want something smaller [Yeah], you should order from the kids' menu: The half-pound super hot and spicy burger, the half-pound barbecue burger, the half-pound bacon cheese burger, the half-pound . . .</li><li><b>Customer:</b> No. Those are still giant burgers.</li><li><b>Server:</b> Well, in these parts, we are hearty eaters.</li><li><b>Customer:</b> Okay, but you said my total was ten ninety, but the burger only comes to ten bucks. What about the other ninety cents?</li><li><b>Server:</b> Well, sir. We only serve natural spring water from yonder hills, and . . .</li><li><b>Customer:</b> Okay, okay. I'll take the giant burger and a bottle of your spring water. The sandwich should feed me for a week.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What hours does the speaker work on Monday?",
+              "options": [
+                "Noon to 6 PM",
+                "8:15 AM to 5 PM",
+                "7 AM to 12 PM",
+                "5 PM to 9 PM"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "On which two days does the speaker have the same schedule?",
+              "options": [
+                "Monday and Tuesday",
+                "Wednesday and Thursday",
+                "Tuesday and Thursday",
+                "Thursday and Friday"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What is the main purpose of the speaker's talk?",
+              "options": [
+                "To discuss the importance of the job",
+                "To compare the work of doctors and dentists",
+                "To describe a typical week at work",
+                "To explain the details of a day at work"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does the speaker think of her work?",
+              "options": [
+                "She enjoys sleeping late every morning",
+                "It is difficult to describe her schedule",
+                "She enjoys helping the patients",
+                "It is too complicated to remember"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "According to the conversation, which item did the woman NOT purchase with her credit card?",
+              "options": [
+                "a digital camera",
+                "a DVD player",
+                "a TV",
+                "a stereo"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What is one reason to explain why the woman obtained a student credit card?",
+              "options": [
+                "She wants to buy things at a discount using the card",
+                "She hopes to establish a good credit rating",
+                "She doesn't want to borrow from her parents",
+                "She can be financially independent"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the woman imply about how she plans on resolving her credit card problems?",
+              "options": [
+                "She hopes that someone will give her the money",
+                "She plans on getting rid of her student credit cards",
+                "She'll get a part-time job",
+                "She is going to return the items she purchased on the card"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is the man going to do for the woman to help her manage her money?",
+              "options": [
+                "help her find a better paying job to cover her expenses",
+                "teach her how to prepare a financial management plan",
+                "show her how she can apply for low-interest student credit cards",
+                "teach her how to shop wisely"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why does the customer not buy the recommended sandwich at the beginning of the conversation?",
+              "options": [
+                "It is too expensive",
+                "He is not interested in ordering a burger",
+                "It is not tasty",
+                "He fears the food will make him sick"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "How does the specialty drink get its name?",
+              "options": [
+                "It contains a wide range of ingredients",
+                "It is prepared in the kitchen sink",
+                "It contains chicken soup",
+                "It comes in a very large cup"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Why was the man surprised by the price of his meal?",
+              "options": [
+                "He thought the drink should have been included",
+                "He felt the meal was way overpriced",
+                "He was charged for two sandwiches instead of one",
+                "It was lower than he had expected"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does the customer decide to do at the end of the conversation?",
+              "options": [
+                "He orders something from the restaurant menu",
+                "He plans to come back at weekend",
+                "He decides to look for another place to eat",
+                "He plans to come in a week when the prices are lower"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Hello everyone, My name’s Sandy Duffy and I’m here to tell you about my career as a video game writer.</p><p>I work with game developers and designers to think of good stories, and I write all the dialogue in the game.</p><p>When I was in secondary school, I never imagined that I would do this job. I played guitar that’s what I planned to do as my job. But I had an accident when I was playing basketball and hurt my hand, so I had to think of another career. My mother wanted me to be a journalist, but I didn’t think it was for me.</p><p>I didn’t know what to study at university. I was good at lots of science subjects, including physics and math, but I also loved entertaining people and I was good at Art. In the end, I went to film school where I studied lighting, special effects, how to use camera...all that! It was there that I started to think about working in the video game industry.</p><p>Now, a question that every always asks me is “How did you get your first job?” Well, I had a friend whose job was organizing conferences, at one of the conferences, she met a man who owned a company that made video games. I wrote to him and sent my CV. He obviously liked what he read because he gave me an interview and offered me a job as a junior.</p><p>People also ask me what I like best about being a video game writer. Well, the money is good and it’s quite exciting, just last night, for example, I was at a big dinner where they were giving prizes for new games. But what I love is the fact that I get on well with everyone in the business. That’s what makes my job so much fun.</p><p>Obviously, no job is perfect though, and there are things I don’t like. I’ve just started a new job and I have to spend a lot of time on the road or at the airport, which I find very hard. I’d really like to be able to spend more time at home.</p><p><b>Talk/Lecture 2</b></p><p>Do you want to take part in a trip of a lifetime? Then join Go4Health India. This amazing five – day trek will take you through one of the world’s most beautiful mountain ranges, the Indian Himalayas.</p><p>You will also be helping raise vital funds for our charity which aims to promote health care all over the world.</p><p>The trip starts in the city of Delhi where you will have the chance to see one of the charity’s health care projects in action. The following day we set off on our incredible journey into the mountains.</p><p>During the trek you will pass colourful towns and villages and enjoy the most magnificent mountain views. You will experience all this before you even reach the peak of our trek to see the stunning DhaulaDahr mountain range. Once at the top you can climb even higher if you want to and experience walking on a glacier to each Lakes cave. You will soon know what it feels like to be on top of the world. And on the way down you will be able to admire the wonderful views across the valley.</p><p>To join Go4Health India all you need to do is pay an entry fee of 250 pounds. You also need to promise to raise a minimum of 2500 pounds before the start of the trip. Fundraising is part of the challenge, but don’t worry our fundraising team is on hand to help you. Once you have signed up you will receive an information pack. This includes details of the trek as well as the work of the charity. It also contains useful tips and advice on fundraising. And you will also get a charity cap to wear with pride. You will also receive a full training guide which will help you reach a reasonable level of fitness. Our top training tips will definitely improve your physical ability so that you can get the most out of the trek!</p><p>The cost of the trip includes your flights, accommodation, food, tour guides and medical support. However, please note that airport and tax is not included. You will have to meet this additional cost yourself.</p><p>Dates for this year’s Go4Health India are 3rd to 13th November. Visit our website www.Go4Health.uk and sign up today!</p><p><b>Talk/Lecture 3</b></p><p>Last year in India, people bought around 1.5 million new cars. This will probably go up to three million a year in the next few years. That’s how the India economy is changing. Many Indians in the big cities are richer than ever and they want to spend money on new products. However, most of the money is still in the big cities. There is still a lot of poverty in the villages and countryside.</p><p>Now the government hopes a new road in India can help to change India’s economy. The golden Quadrilateral road or GQ connects the country’s four biggest cities. Delhi, Mumbai, Chennai and Kolkata. Hopefully, the road will carry business from the giant cities to the smaller and poorer villages and the other half of the India’s population.</p><p>The GQ is nearly 6,000 kilometre long and the most hi – tech high way in the world. At the administration headquarters in Delhi, you can watch thousands of vehicles moving around the country on a computer screen. If there is a problem anywhere with the road, electronic sensors tell the headquarters and engineers instantly drive there.</p><p>When you drive on the high way, there is every kind of transport. There are animals pulling cars, motorcycles, lines of old trucks and fast moving modern cars. Sometimes the road goes right through middle of a city. So there are often traffic jams and pedestrians trying to cross the six lanes. Industry is also growing along the new highway.</p><p>When a large company opens a factory, lots of other smaller factories and offices also open. Trucks then drive and deliver all over India along the new high way. For India, all this is a symbol of the country’s future.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What did Sandy Duffy want to be when she was at school?",
+              "options": [
+                "a journalist",
+                "a musician",
+                "A director",
+                "A basketball player"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did Sandy study at university?",
+              "options": [
+                "Math and Physics",
+                "film making",
+                "Technology",
+                "Art"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How did Sandy get her first job as a video game writer?",
+              "options": [
+                "She answered a job advertisement",
+                "She met someone at a conference",
+                "She sent some information about herself to a company",
+                "She was invited by a friend"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does Sandy like best about being a video game writer?",
+              "options": [
+                "the prizes she has won",
+                "the high salary",
+                "the people she works with",
+                "the great working condition"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does Sandy dislike about being a video game writer?",
+              "options": [
+                "She has to travel a lot",
+                "She has to work long hours",
+                "She often has to change her job",
+                "She has to live far from home"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How long does the trek last?",
+              "options": [
+                "a day",
+                "three days",
+                "five days",
+                "a week"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "The trek aims to raise money for .............",
+              "options": [
+                "health care",
+                "school education",
+                "hospital",
+                "the old people"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The cost of the trek includes .............",
+              "options": [
+                "flight and airport taxes",
+                "medical provision and taxes",
+                "Foods",
+                "Food and accommodation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Participants must .............",
+              "options": [
+                "walk across a glacier",
+                "complete a fitness course",
+                "agree to raise funds for the charity",
+                "pay amount of money"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "The trip starts on .............",
+              "options": [
+                "1st of November",
+                "3rd of November",
+                "13th of November",
+                "23th of November"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Where do many of the rich people live?",
+              "options": [
+                "next to the new road",
+                "in the cities",
+                "in the countryside",
+                "in isolated places"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How long is the road?",
+              "options": [
+                "600 kilometres",
+                "6,000 kilometers",
+                "60,000 kilometres",
+                "60 miles"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What can you see on the computers at the road's headquarters in Delhi?",
+              "options": [
+                "small vehicles on the road",
+                "any vehicle and problems on the road",
+                "big vehicles on the road",
+                "serious problems on the road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What types of transport can you see on the road?",
+              "options": [
+                "all types",
+                "mostly cars",
+                "mostly motorbikes",
+                "the presenter doesn't say"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the presenter describe the new road as a symbol of India's future?",
+              "options": [
+                "because it's the same shape as the country of India",
+                "because it is modern, it is helping the economy grow",
+                "Because India has big population",
+                "Because India has lots of transport"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Plastic Problem",
+            "text": "<p>Plastic has become one of the most common materials in modern life. It is cheap to produce, light to carry, and easy to shape into almost any form, so factories use it to make everything from food containers and toys to medical tools and car parts. Global plastic production has grown enormously since the middle of the twentieth century. In 1950, factories worldwide made about two million tons of plastic; today that figure has climbed past four hundred million tons a year, and it continues to rise as more industries switch to plastic parts.</p><p>A large share of this plastic does not stay in use for long. Packaging, bags, and bottles are often thrown away within days or even minutes of purchase, yet the material itself is remarkably <strong>durable</strong> and can survive in the environment for centuries. Scientists estimate that around eight million tons of plastic waste enter the world's oceans every year, carried by rivers, wind, and careless disposal near coastlines. Food residue left inside packaging before it is thrown away also makes the material more difficult to recycle once it reaches a processing plant. Once in the water, larger pieces slowly break apart into microplastics — fragments smaller than five millimetres — which fish and seabirds frequently mistake for food.</p><p>Recycling is often presented as the main answer to plastic waste, but the process is harder than it sounds. Studies suggest that only about nine percent of all the plastic ever produced has actually been recycled; most of the rest has been burned, buried in landfills, or discarded directly into nature. One major <strong>obstacle</strong> is that many products combine several different types of plastic, and these types cannot be melted down together without weakening the final material. Because of this, workers must sort plastic carefully by type before it can be processed at all.</p><p>In response to these problems, governments and companies have begun exploring alternatives. Some countries have banned single-use plastic bags and straws, forcing shops to offer paper or cloth options instead. Even though customers sometimes complain about the change, most environmental groups argue that <strong>this</strong> represents real progress toward reducing overall waste. The sorting equipment needed to separate different types of plastic is also expensive, and many local governments simply cannot afford to install it, so some communities send their collected plastic abroad instead, where it may still end up in open dumps. Scientists are also developing bioplastics made from corn starch or seaweed, which break down naturally within months rather than centuries.</p><p>Plastic is unlikely to disappear from everyday life anytime soon, since it remains cheaper and more useful than most substitutes available today. However, small changes — from carrying reusable bags to supporting stronger recycling programs — can significantly slow the flow of waste into rivers and oceans, giving both wildlife and future generations a cleaner environment to live in.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q2, R1Q3, R1Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa).<ul><li>Với <b>R1Q2</b>, quét từ khóa \"oceans\" ở đoạn 2 để đối chiếu con số rác thải nhựa đi vào đại dương mỗi năm (chú ý phân biệt đơn vị số lượng \"eight million\" và tần suất \"yearly\" hay \"monthly\").</li><li>Với <b>R1Q3</b>, quét từ khóa \"recycled\" ở đoạn 3 để xác định tỷ lệ phần trăm thực tế đã được tái chế (chú ý con số \"nine percent\").</li><li>Với <b>R1Q4</b>, quét cụm từ \"melted down together\" ở đoạn 3 để tìm lý do kỹ thuật khiến nhiều sản phẩm nhựa không thể nấu chảy cùng nhau (do được kết hợp từ nhiều loại nhựa khác nhau - different plastic types).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q6, R1Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q6</b>, từ <strong>\"durable\"</strong> ở đoạn 2 mô tả đặc tính có thể tồn tại nhiều thế kỷ trong môi trường của chất liệu nhựa. Ngữ cảnh này thể hiện sự bền bỉ, lâu dài (long-lasting).</li><li>Với <b>R1Q7</b>, từ <strong>\"obstacle\"</strong> ở đoạn 3 mô tả việc kết hợp nhiều loại nhựa gây cản trở cho quá trình tái chế. Từ này đồng nghĩa với khó khăn, trở ngại (difficulty).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R1Q1, R1Q10):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt câu chủ đề các đoạn).<ul><li>Với <b>R1Q1</b>, tổng hợp ý từ đoạn 1 đến đoạn 3: sự hữu ích của nhựa khiến sản lượng tăng vọt, tạo nên vấn đề rác thải khổng lồ mà riêng tái chế chưa thể xử lý dứt điểm.</li><li>Với <b>R1Q10</b>, nhận diện sắc thái ở đoạn cuối: tác giả thẳng thắn thừa nhận nhựa khó biến mất ngay nhưng tin rằng những thay đổi nhỏ sẽ mang lại môi trường sạch hơn, thể hiện sự hy vọng có cơ sở/thận trọng (cautiously hopeful).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q8):</b> Đọc ngược lại câu trước đại từ chỉ định <strong>\"this\"</strong> ở đoạn 4 để tìm đối tượng số ít/hành động được đại diện cho tiến trình giảm rác thải (chỉ việc cấm các sản phẩm nhựa dùng một lần - plastic bans).</li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q5):</b> Đối soát các lý do khiến tỷ lệ tái chế thấp được đề cập trong bài (dư lượng thực phẩm ở đoạn 2, phối hợp nhiều loại nhựa và chi phí thiết bị đắt đỏ ở đoạn 3 và 4). Chi tiết không xuất hiện trong bài (như việc có quá ít nhà máy tái chế) là phương án cần chọn.</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Kết hợp thông tin ở đoạn cuối về tính rẻ, tiện lợi của nhựa cùng với thực tế các sản phẩm thay thế chưa thể thế chỗ hoàn toàn để suy luận rằng nhựa vẫn sẽ tiếp tục được sử dụng rộng rãi.</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi quy chiếu (R1Q8) và từ vựng (R1Q6, R1Q7) để tiết kiệm thời gian. Tiếp theo, áp dụng đọc quét định vị từ khóa cho các câu hỏi chi tiết (R1Q2, R1Q3, R1Q4) và loại trừ (R1Q5). Cuối cùng, tổng hợp bức tranh toàn cảnh để chọn chính xác đáp án cho các câu hỏi tổng hợp như suy luận (R1Q9), ý chính (R1Q1) và thái độ tác giả (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Most countries have now completely banned all single-use plastic products.",
+                "Recycling programs have already solved most of the world's plastic waste.",
+                "Plastic's usefulness has created a waste problem recycling alone cannot solve.",
+                "Food and drink packaging is the main cause of ocean pollution."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, roughly how much plastic waste enters the world's oceans each year?</span>",
+              "options": [
+                "Around eight million tons of plastic reach the ocean monthly.",
+                "Around eighty million tons of plastic reach the ocean yearly.",
+                "Around eight million tons of plastic reach the ocean yearly.",
+                "Around eight thousand tons of plastic reach the ocean yearly."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what percentage of all plastic ever produced has actually been recycled?</span>",
+              "options": [
+                "Most of it has been burned or buried instead.",
+                "About nine percent has actually been recycled so far.",
+                "About nine percent is recycled only in developed regions.",
+                "About ninety percent has actually been recycled so far."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why can many plastic products not be melted down together during recycling?</span>",
+              "options": [
+                "They are usually contaminated with dangerous industrial chemicals.",
+                "They still contain food residue from their packaging.",
+                "The equipment needed to sort them is too costly.",
+                "They are made of several different plastic types."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a reason plastic recycling rates remain low?</span>",
+              "options": [
+                "Many products combine several different types of plastic.",
+                "Packaging often still contains leftover food residue.",
+                "Sorting equipment is too expensive for many governments.",
+                "There are too few recycling plants worldwide."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"durable\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "recyclable",
+                "flexible",
+                "indestructible",
+                "long-lasting"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"obstacle\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "disaster",
+                "difficulty",
+                "objective",
+                "requirement"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"this\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "the cloth options",
+                "customer complaints",
+                "environmental groups",
+                "the plastic bans"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the future of plastic use?</span>",
+              "options": [
+                "Plastic will likely remain widely used despite growing efforts to reduce waste.",
+                "Governments have banned single-use plastic bags in some countries.",
+                "Lower recycling costs caused plastic production to increase rapidly since 1950.",
+                "Bioplastics will completely replace traditional plastic within a few years."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the future of plastic waste reduction?</span>",
+              "options": [
+                "Entirely focused on explaining recycling statistics.",
+                "Confident that plastic waste will disappear soon.",
+                "Cautiously hopeful that gradual changes can help.",
+                "Alarmed and pessimistic about ocean pollution."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Rise of Solar Power",
+            "text": "<p>Although coal and natural gas still generate most of the world's electricity, solar power has expanded faster than any other energy source over the past decade. The price of photovoltaic panels has fallen by more than eighty percent since 2010, a decline driven largely by manufacturing scale and steady technological refinement. In many regions, these lower costs now allow solar installations to compete directly with fossil fuel plants even without government subsidies, a shift that would have seemed unlikely to most energy analysts only fifteen years ago.</p><p>Solar panels generate electricity through a process called the photovoltaic effect, in which sunlight striking a semiconductor material knocks electrons loose and creates an electrical current. Roughly ninety percent of panels sold today rely on silicon, valued for its reliability and low production cost. A newer material called perovskite has drawn strong research interest, since laboratory tests suggest it may eventually push efficiency well beyond silicon's limits; whether perovskite panels can hold <strong>that performance</strong> after years of outdoor heat and moisture, however, remains uncertain.</p><p>Global installed solar capacity passed one thousand gigawatts in 2022, and annual additions have continued to grow at double-digit rates ever since. China alone accounts for roughly a third of new installations worldwide, having invested heavily in both domestic solar farms and the manufacturing plants that supply panels to other countries. India and several Southeast Asian nations have followed a similar path more recently, expanding capacity quickly as equipment costs continue to decline.</p><p>A basic limitation of solar power is that panels only generate electricity while the sun is shining, and output shifts considerably with weather and season. Grid operators must therefore pair solar farms with battery storage or keep other power sources available to cover gaps in production. Battery prices have fallen alongside panel costs, yet storage large enough to support a regional grid still adds substantial expense, a burden smaller utilities often find difficult to absorb.</p><p>Utility-scale solar farms require considerable land, and in some agricultural regions this has put developers and farmers in competition for the same fields. Rooftop installations avoid the problem entirely, since they occupy space that already serves another purpose. Floating arrays, mounted on reservoirs and other bodies of water, offer a related solution: they generate power without converting additional land, and the water beneath can even help keep panels cooler and slightly more efficient.</p><p>Manufacturing photovoltaic panels is itself energy- and resource-intensive, drawing on raw materials, including rare minerals whose extraction has raised environmental and labor concerns in mining regions. Critics argue the solar industry cannot be called fully sustainable until it addresses these <strong>upstream</strong> impacts directly. Supporters counter that panels generate far more clean energy over their lifetime than manufacturing consumes, keeping the net effect on carbon emissions strongly positive.</p><p>Industry forecasts suggest that solar could become the leading source of new electricity generation capacity worldwide within the next decade, provided that storage technology and grid infrastructure continue to improve at their current pace. Some analysts caution, however, that this <strong>trajectory</strong> depends heavily on sustained government policy support and on international cooperation to secure stable supply chains for raw materials, and that either could slow progress considerably if it falters.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q2, R2Q3, R2Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa).<ul><li>Với <b>R2Q2</b>, quét mốc thời gian \"2010\" ở đoạn 1 để đối chiếu con số phần trăm giá tấm pin quang điện (photovoltaic panels) đã giảm (chú ý phân biệt con số \"eighty percent\" và mốc năm \"2010\").</li><li>Với <b>R2Q3</b>, quét từ khóa \"China\" ở đoạn 3 để định vị thị phần lắp đặt mới (\"new installations worldwide\") mà Trung Quốc chiếm giữ (chú ý tỷ lệ \"roughly a third\").</li><li>Với <b>R2Q4</b>, quét cụm từ \"floating solar arrays\" (hệ thống điện mặt trời nổi) ở các đoạn sau để tìm ưu điểm được nhắc đến (giúp tránh việc phải chuyển đổi thêm diện tích đất đai).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q6, R2Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q6</b>, từ <strong>\"trajectory\"</strong> ở đoạn 7 mô tả hướng phát triển, lộ trình hay con đường tiến trình của năng lượng mặt trời. Ngữ cảnh này sát nghĩa nhất với lộ trình, hướng đi (course).</li><li>Với <b>R2Q7</b>, từ <strong>\"upstream\"</strong> ở đoạn 6 chỉ các công đoạn đầu nguồn/tiền đề trong chuỗi cung ứng sản xuất. Từ này tương đương về nghĩa với các công đoạn đi trước (preceding).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R2Q1, R2Q10):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt câu chủ đề các đoạn).<ul><li>Với <b>R2Q1</b>, tổng hợp mạch bài đọc từ sự phát triển nhanh chóng của năng lượng mặt trời đến các thách thức thực tế về lưu trữ, đất đai và sản xuất mà ngành này đang gặp phải.</li><li>Với <b>R2Q10</b>, nhận diện thái độ xuyên suốt của tác giả: tích cực, lạc quan trước tiềm năng nhưng vẫn nhìn nhận rõ ràng các giới hạn thực tế (optimistic but aware of real limitations).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q8):</b> Đọc ngược lại câu trước cụm từ <strong>\"that performance\"</strong> ở đoạn 2 để xác định danh từ/khái niệm được thay thế (chỉ hiệu suất vượt trội của vật liệu perovskite trong các thử nghiệm phòng thí nghiệm).</li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q5):</b> Đối soát các thách thức được liệt kê trong bài (sự biến động theo thời tiết/mùa ở đoạn 4, nhu cầu đất đai ở đoạn 5, mối lo về môi trường/lao động ở đoạn 6). Chi tiết không được đề cập (như việc tấm pin suy giảm chất lượng nhanh chóng chỉ sau vài năm) là đáp án cần chọn.</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Kết hợp thông tin về chi phí ở đoạn 1 và đoạn 4: dù giá tấm pin giảm mạnh nhưng các chi phí liên quan như hệ thống lưu trữ pin vẫn rất đắt đỏ, từ đó suy luận rằng giá pin giảm không đồng nghĩa với việc toàn bộ dự án quy mô lớn sẽ tự động trở nên rẻ.</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi quy chiếu (R2Q8) và từ vựng (R2Q6, R2Q7) để tích lũy điểm nhanh. Tiếp theo, áp dụng kỹ thuật đọc quét định vị từ khóa cho các câu hỏi chi tiết (R2Q2, R2Q3, R2Q4) và loại trừ (R2Q5). Cuối cùng, tổng hợp logic toàn bài đọc để xử lý chính xác câu hỏi suy luận (R2Q9), ý chính (R2Q1) và thái độ tác giả (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Solar power will completely replace fossil fuels within ten years.",
+                "Solar power is growing quickly but still faces real challenges.",
+                "Manufacturing problems make solar panels environmentally worse than fossil fuels.",
+                "Falling panel prices have made solar cheaper than coal everywhere."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, by how much has the price of photovoltaic panels fallen since 2010?</span>",
+              "options": [
+                "By more than eighty percent since 2010.",
+                "By more than eighty percent since 2020.",
+                "Because it expanded faster than other energy sources.",
+                "By more than eighteen percent since 2010."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, roughly what share of new solar installations worldwide does China account for?</span>",
+              "options": [
+                "Roughly one third of new installations.",
+                "Roughly one third of total electricity worldwide.",
+                "Roughly one half of new installations.",
+                "It has invested heavily in solar manufacturing plants."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one advantage of floating solar arrays mentioned in the passage?</span>",
+              "options": [
+                "They avoid converting additional land for power.",
+                "They completely eliminate the need for battery storage.",
+                "They require far less maintenance than rooftop panels.",
+                "The water beneath the panels keeps them cooler."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a challenge facing solar power?</span>",
+              "options": [
+                "Panels degrade rapidly after only a few years.",
+                "All utility-scale solar farms need enormous amounts of land.",
+                "Manufacturing panels raises environmental and labor concerns.",
+                "Panel output varies with weather and season."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"trajectory\"</strong> in paragraph 7 is closest in meaning to _______.</span>",
+              "options": [
+                "territory",
+                "course",
+                "investment",
+                "acceleration"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"upstream\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "unstable",
+                "preceding",
+                "underground",
+                "downstream"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"that performance\"</strong> in paragraph 2 refers to _______.</span>",
+              "options": [
+                "silicon's low cost",
+                "perovskite's higher efficiency",
+                "the laboratory tests",
+                "outdoor heat and moisture"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred about the overall affordability of large-scale solar projects?</span>",
+              "options": [
+                "Overall project costs have fallen at the same pace.",
+                "Rising battery costs caused solar panel prices to fall.",
+                "Falling panel prices alone do not guarantee cheap large-scale projects.",
+                "China accounts for roughly a third of all installations."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the future of solar power?</span>",
+              "options": [
+                "Optimistic but aware of real limitations.",
+                "Fully confident that solar will dominate energy.",
+                "Strongly critical of the solar industry's practices.",
+                "Focused only on explaining panel manufacturing costs."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Traffic and Mobility: Vietnam in Comparative Perspective",
+            "text": "<p>While many rapidly urbanizing countries eventually shift the bulk of their commuting from two wheels to four, Vietnam's cities have followed a markedly different path, in which motorbikes remain the dominant means of daily transport even as incomes rise. Motorbikes account for a large majority of registered vehicles in Hanoi and Ho Chi Minh City, <strong>a pattern</strong> that sets Vietnam apart from most regional neighbors, where car ownership has expanded far more quickly relative to population growth.</p><p>This <strong>divergence</strong> is rooted partly in history and partly in economics. Motorbikes became affordable in Vietnam decades before cars did, and the narrow streets of many older urban districts were never designed for heavy four-wheeled traffic. Even as household incomes have climbed, the relative cost of owning a car — including import tariffs considerably higher than in several neighboring economies — has kept ownership out of reach for many urban households.</p><p>Other countries facing similar space constraints have pursued different solutions. The Netherlands invested heavily in cycling infrastructure decades ago, so that bicycles now account for a substantial share of urban trips in cities such as Amsterdam. Singapore addressed congestion primarily through pricing, requiring drivers to bid for a certificate before registering a car, while expanding a rail network extensive enough to make private ownership unnecessary for most journeys. Tokyo built one of the world's densest commuter rail systems, around which the city's later growth was organized.</p><p>Vietnam's reliance on motorbikes carries costs of its own. Motorbike accidents account for a disproportionate share of road fatalities nationwide, and rush-hour congestion has worsened even as motorbike ownership itself begins to <strong>plateau</strong>, largely because car numbers have started rising from a low base. Air quality monitors in central Hanoi frequently record pollution among the worst of any capital in the region, a problem researchers attribute partly to the sheer density of small engines operating at street level rather than to any single dominant source.</p><p>In response, both major cities have invested in urban rail intended to shift trips away from private vehicles. Hanoi's first metro line opened after years of delay, and ridership, while growing, remains modest relative to designed capacity. Ho Chi Minh City has similar ambitions for its own network, though planners caution that rail alone is unlikely to change commuting habits unless paired with restrictions on motorbike use — a step that has proven politically difficult.</p><p>Proposals to restrict motorbikes from central districts have circulated for years, and while some officials argue such measures would reduce congestion and pollution, others caution that removing the primary transport for low-income commuters before adequate transit exists could deepen mobility problems instead. Whether restriction would do more good than harm appears to depend heavily on how quickly rail and bus networks can be expanded.</p><p>Vietnam's traffic patterns therefore reflect a transitional moment rather than a fixed arrangement. Whether the country eventually converges toward a transit-oriented model, some hybrid arrangement, or a continued motorbike-centered status quo will likely depend less on any single project than on how policymakers balance affordability, convenience, and the costs of congestion.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q2, R3Q3, R3Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa).<ul><li>Với <b>R3Q2</b>, quét từ khóa \"Singapore\" ở đoạn 3 để xác định giải pháp chính chống ùn tắc (yêu cầu đấu thầu mua quyền đăng ký xe - Certificate of Entitlement / competitive bidding).</li><li>Với <b>R3Q3</b>, quét cụm từ \"Hanoi's metro\" và \"ridership\" ở đoạn 5 để tìm tình trạng lượng khách đi tàu điện (tăng trưởng nhưng vẫn chưa đạt công suất thiết kế - grown but remains below designed capacity).</li><li>Với <b>R3Q4</b>, quét từ khóa \"air quality\" ở đoạn 4 để tìm nguyên nhân chất lượng không khí kém (do mật độ cao của các động cơ nhỏ ở tầm thấp - high density of small engines at street level).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q6, R3Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q6</b>, từ <strong>\"divergence\"</strong> ở đoạn 2 mô tả sự khác biệt giữa con đường phát triển giao thông của Việt Nam so với các quốc gia khác. Từ này sát nghĩa nhất với sự khác biệt (difference).</li><li>Với <b>R3Q7</b>, từ <strong>\"plateau\"</strong> ở đoạn 4 mô tả tình trạng việc sử dụng xe máy chững lại, không tăng thêm nữa sau một giai đoạn. Từ này đồng nghĩa với giai đoạn chững lại/đi ngang (level off).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R3Q1, R3Q10):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt câu chủ đề các đoạn).<ul><li>Với <b>R3Q1</b>, tổng hợp ý toàn bài: văn hóa xe máy tại Việt Nam bắt nguồn từ các yếu tố lịch sử và kinh tế, hiện đang đứng trước nhiều thách thức về hạ tầng và ô nhiễm.</li><li>Với <b>R3Q10</b>, nhận diện thái độ xuyên suốt của tác giả: khách quan, mang tính phân tích và đưa ra góc nhìn đa chiều về một bài toán giao thông chưa có lời giải dứt điểm (neutral and analytical).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q8):</b> Đọc ngược lại câu trước cụm từ <strong>\"a pattern\"</strong> ở đoạn 1 để xác định xu hướng/mô hình được nhắc đến (xu hướng tiếp tục thống trị của xe máy ngay cả khi thu nhập tăng).</li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Đối soát các giải pháp được đề cập ở phần cuối bài đọc (xây dựng hệ thống đường sắt đô thị, hạn chế xe máy ở khu trung tâm, thay thế xe máy bằng xe buýt và tàu điện). Phương án không được đề cập (như việc tăng thuế nhiên liệu) chính là đáp án cần chọn.</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Kết hợp thông tin ở các đoạn cuối: đầu tư tàu điện ngầm là chưa đủ nếu không đi kèm các chính sách hạn chế phương tiện cá nhân phù hợp để thay đổi thói quen di chuyển của người dân.</li></ul><p><b>Lời khuyên:</b> Hãy bắt đầu bằng cách giải quyết các câu hỏi quy chiếu (R3Q8) và từ vựng (R3Q6, R3Q7) để hoàn thành nhanh các câu dễ. Tiếp theo, sử dụng kỹ thuật đọc quét định vị từ khóa cho nhóm câu hỏi chi tiết (R3Q2, R3Q3, R3Q4) và loại trừ (R3Q5). Cuối cùng, tổng hợp mạch lập luận của toàn bài đọc để xử lý chính xác câu hỏi suy luận (R3Q9), ý chính (R3Q1) và thái độ tác giả (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Vietnam's motorbike-based traffic reflects historical and economic factors now being challenged.",
+                "Import tariffs alone explain why Vietnamese households prefer motorbikes.",
+                "Vietnam has already shifted decisively toward a car-dominated transport system.",
+                "Every rapidly urbanizing country eventually replaces motorbikes with private cars."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, how did Singapore primarily address traffic congestion?</span>",
+              "options": [
+                "By banning private car ownership within the city entirely.",
+                "By investing heavily in dedicated cycling infrastructure citywide.",
+                "By building one of the world's densest rail networks.",
+                "By requiring competitive bidding for vehicle registration rights."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what has happened to Hanoi's metro ridership since the line opened?</span>",
+              "options": [
+                "It has declined steadily since opening despite promotion.",
+                "It has already exceeded its full designed capacity.",
+                "The line opened after years of delay and overruns.",
+                "It has grown but remains below designed capacity."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do transport researchers partly attribute Hanoi's poor air quality to?</span>",
+              "options": [
+                "Traffic accidents involving motorbikes account for many fatalities.",
+                "A single large factory located near the city center.",
+                "The high density of small engines at street level.",
+                "The large number of private cars now on roads."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a strategy for reducing Vietnam's traffic problems?</span>",
+              "options": [
+                "Restricting motorbike use in central districts.",
+                "Eventually replacing motorbikes entirely with buses and rail.",
+                "Building urban rail systems in all major cities.",
+                "Raising fuel taxes on private vehicles."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"divergence\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "diversity",
+                "conflict",
+                "expansion",
+                "difference"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"plateau\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "collapse",
+                "accelerate",
+                "peak",
+                "level off"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"a pattern\"</strong> in paragraph 1 refers to _______.</span>",
+              "options": [
+                "registered vehicle numbers",
+                "the two major cities",
+                "continued motorbike dominance",
+                "rising household incomes"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred about the likely effectiveness of Vietnam's metro investments, according to the passage?</span>",
+              "options": [
+                "Rail investment alone will probably not transform commuting without complementary restrictions on motorbikes.",
+                "Modest ridership caused planners to abandon further metro expansion plans.",
+                "Hanoi's metro line opened after years of delay and cost overruns.",
+                "Rail investment alone will fully replace motorbikes as the primary mode within years."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall stance on Vietnam's transport future, as conveyed in the passage?</span>",
+              "options": [
+                "Strongly pessimistic about the success of Hanoi's metro.",
+                "Neutral and analytical, presenting the situation as still unresolved.",
+                "Focused narrowly on criticizing import tariff policies.",
+                "Confident that Vietnam will soon resemble Singapore's transport system."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "A Walk Through Cúc Phương: What an Old-Growth Forest Still Has to Teach",
+            "text": "<p>Not until a visitor has walked beneath the thousand-year-old trees of Cúc Phương does the sheer scale of Vietnam's oldest national park become fully apparent. Established in 1962 as the country's first protected forest, the park spans roughly twenty-two thousand hectares of limestone terrain across three provinces, sheltering an ecosystem that has, by most scientific accounts, remained largely undisturbed for centuries longer than the park itself has formally existed.</p><p>The park's biological richness is difficult to overstate, though quantifying it precisely has proven resistant to consensus among researchers. Estimates of recorded plant species range from just under two thousand to well over twenty-two hundred, a <strong>discrepancy</strong> that likely reflects differences in survey methodology as much as any genuine change in the forest itself. What is less disputed is the park's role as a refuge for the Delacour's langur, a critically endangered primate found almost nowhere else on Earth in meaningful numbers.</p><p>That the park has become a center of last resort for several endangered species owes as much to deliberate intervention as to accident of geography. The Endangered Primate Rescue Center, established within Cúc Phương in the 1990s, now houses individuals <strong>confiscated</strong> from illegal wildlife trade alongside animals bred in captivity for eventual, though rarely realized, reintroduction. Conservationists at the center are, by their own admission, cautious about overstating its success; breeding programs have proven far easier to sustain than releasing captive-born primates into habitats capable of supporting them long-term.</p><p>For visitors, the park's appeal lies as much in its accessibility as in its remoteness. A network of marked trails allows travelers with only modest hiking experience to reach striking features, including a botanical garden of rare native species and, several kilometers deeper, a cave once inhabited by prehistoric humans whose remains were uncovered there in the 1960s. Guides note that visitors expecting a brief afternoon excursion are often surprised by how demanding the longer trails toward the ancient trees can become, particularly during the humid summer months.</p><p>Chief among the park's attractions is a cluster of trees, some reputedly over a thousand years old, reached only after a trek of several hours each way. Whether the oldest specimens truly predate the founding of the Vietnamese state by several centuries, as some guides claim, remains difficult to verify, since reliable dating of living tropical trees this size is notoriously challenging; even so, their girth and height leave little doubt that they have stood through a substantial portion of the region's recorded history.</p><p>Growing visitor numbers have brought the park financial sustainability that many protected areas in the region lack, <strong>[1]</strong> yet managers increasingly acknowledge that this popularity carries its own risks. <strong>[2]</strong> Erosion along the most heavily trafficked trails has accelerated in recent years, <strong>[3]</strong> and some ecologists worry, without yet having conclusive evidence, that disturbance near busy paths may be altering the behavior of wildlife that would otherwise avoid human activity. <strong>[4]</strong> Balancing continued access against these pressures has become, officials suggest, the defining management challenge of the coming decades.</p><p>Cúc Phương therefore occupies an uneasy but instructive position: a forest old enough to have outlasted centuries of change, now dependent for its survival on decisions made within a single generation. Whether current management proves equal to <strong>that task</strong> will likely become clear only gradually, as the coming years reveal whether conservation and tourism can be sustained together rather than at each other's expense.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q3):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa).<ul><li>Với <b>R4Q2</b>, quét các từ khóa \"estimates\", \"plant species\", \"discrepancy\" ở đoạn 2 để định vị nguyên nhân chênh lệch số liệu (do sự khác biệt trong phương pháp khảo sát - differences in survey methodology).</li><li>Với <b>R4Q3</b>, quét cụm từ \"cautious about overstating its success\" ở đoạn 3 để xác định lý do các nhà bảo tồn thận trọng (việc thả linh trưởng sinh sản trong nuôi nhốt về lại tự nhiên vẫn gặp nhiều khó khăn).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q5, R4Q6):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q5</b>, từ <strong>\"discrepancy\"</strong> ở đoạn 2 mô tả sự chênh lệch giữa các con số ước tính loài thực vật (từ dưới 2,000 đến hơn 2,200). Từ này đồng nghĩa với sự không thống nhất/sự chênh lệch (inconsistency).</li><li>Với <b>R4Q6</b>, từ <strong>\"confiscated\"</strong> ở đoạn 3 mô tả hành động đối với các động vật bị buôn bán trái phép được thu hồi/tịch thu đưa về trung tâm cứu hộ. Từ này sát nghĩa nhất với việc tịch thu (seized).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R4Q1, R4Q10):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt câu chủ đề các đoạn).<ul><li>Với <b>R4Q1</b>, tổng hợp thông tin bài đọc về ý nghĩa sinh thái của Cúc Phương, từ thành tựu bảo tồn đến những thách thức thực tế. Ý chính tập trung vào việc tầm quan trọng sinh thái của công viên phụ thuộc vào sự quản lý cẩn trọng nhưng còn nhiều yếu tố chưa chắc chắn.</li><li>Với <b>R4Q10</b>, nhận diện thái độ của tác giả ở đoạn kết: vừa ghi nhận nỗ lực bảo tồn vừa nhìn nhận những thách thức phía trước, thể hiện thái độ lạc quan có thận trọng/dè chừng (cautiously optimistic).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu & Chèn câu (R4Q7, R4Q8):</b><ul><li>Với <b>R4Q7</b>, đọc ngược câu trước cụm từ <strong>\"that task\"</strong> ở đoạn 7 để tìm nhiệm vụ/mục tiêu được nhắc đến (việc đảm bảo sự tồn tại lâu dài của khu rừng - ensuring the forest's survival).</li><li>Với <b>R4Q8</b>, phân tích câu cần chèn liên quan đến phản ứng của kiểm lâm đối với áp lực du khách (\"limiting daily visitors\"). Vị trí <strong>[4]</strong> (thường nằm sau đoạn thảo luận về áp lực từ du lịch trên các tuyến đường đi bộ) là vị trí phù hợp nhất về mặt logic liên kết.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q4):</b> Đối soát thông tin trong bài về các đặc điểm của Cúc Phương. Chi tiết \"Vườn quốc gia Cúc Phương là di sản thế giới UNESCO đầu tiên của Việt Nam\" không được đề cập (bài chỉ nêu đây là rừng cấm/vườn quốc gia đầu tiên được thành lập năm 1962).</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Tìm chi tiết đề cập đến độ tuổi của các cây cổ thụ hàng ngàn năm ở đoạn 1 và đoạn 5. Bài viết ngụ ý rằng mặc dù thông tin này rất phổ biến và hợp lý nhưng chưa có bằng chứng xác minh khoa học tuyệt đối chính xác.</li></ul><p><b>Lời khuyên:</b> Hãy bắt đầu bằng việc xử lý nhanh các câu hỏi từ vựng (R4Q5, R4Q6) và câu hỏi quy chiếu (R4Q7). Tiếp theo, áp dụng kỹ thuật đọc quét từ khóa cho nhóm câu hỏi chi tiết (R4Q2, R4Q3), câu hỏi loại trừ (R4Q4) và câu chèn vị trí (R4Q8). Cuối cùng, dựa trên bức tranh tổng thể và mạch lập luận của toàn bài đọc để giải quyết chính xác câu hỏi suy luận (R4Q9), ý chính (R4Q1) và thái độ tác giả (R4Q10).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "All of Vietnam's national parks face identical conservation challenges.",
+                "Cúc Phương's ecological significance now depends on careful, uncertain management.",
+                "Tourism pressures have already outweighed the park's conservation achievements.",
+                "The park is significant mainly because of its ancient trees' age."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what explains the range in estimates of the park's plant species?</span>",
+              "options": [
+                "Differences in how the plant surveys were conducted.",
+                "The park spans roughly twenty-two thousand hectares of terrain.",
+                "The park was established as a protected forest in 1962.",
+                "Significant habitat loss caused by ongoing deforestation nearby."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, why are conservationists at the rescue center cautious about claiming success?</span>",
+              "options": [
+                "Wild primate populations have grown too large to manage.",
+                "Breeding programs have consistently failed to produce offspring.",
+                "The center houses animals confiscated from illegal wildlife trade.",
+                "Releasing captive-born primates back into the wild remains difficult."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a feature or challenge associated with Cúc Phương?</span>",
+              "options": [
+                "Increased tourism has already caused irreversible ecological damage.",
+                "Estimates of plant species vary depending on survey methods.",
+                "The park was Vietnam's first UNESCO World Heritage site.",
+                "Every trail in the park leads to a prehistoric cave."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"discrepancy\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "discretion",
+                "improvement",
+                "contradiction",
+                "inconsistency"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"confiscated\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "confided",
+                "donated",
+                "destroyed",
+                "seized"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"that task\"</strong> in paragraph 7 refers to _______.</span>",
+              "options": [
+                "ensuring the forest's survival",
+                "a single generation",
+                "current park management",
+                "centuries of change"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'Park rangers have responded by limiting the number of daily visitors permitted on the most sensitive trails.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred about the reliability of claims regarding the age of Cúc Phương's oldest trees?</span>",
+              "options": [
+                "Their age is plausible but not precisely confirmed by reliable evidence.",
+                "Scientific dating has confirmed the trees predate the Vietnamese state.",
+                "Difficulty verifying tree age caused local guides to invent their claims.",
+                "The park was established in 1962 as Vietnam's first protected forest."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward Cúc Phương's future, as conveyed in the passage?</span>",
+              "options": [
+                "Firmly confident that conservation will fully succeed.",
+                "Cautiously optimistic, though uncertain about long-term outcomes.",
+                "Full of certainty about the langur's recovery.",
+                "Focused solely on criticizing rising visitor numbers."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. Your friend, Rosian, and her family live in a beautiful house near the beach. She has invited you to come and enjoy the summer holiday with them.</p> Read part of her email below.",
+          "content": "<p class='mb-1'>My parents would love for you to come and stay with us this summer — the weather here has been amazing! You can choose one of the following places to stay: Elder Lusan's studio near the front door, staying with my parents, or a small guesthouse just down the street.</p><ul><li>Would you like to come and join us for the summer holiday?</li><li>Which of the three accommodation options would you prefer, and why?</li><li>Is there anything else you'd like to know before you come?</li></ul>",
+          "description": "You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Informal Email</strong> (thư gửi bạn thân) trả lời lời mời đi nghỉ hè cùng gia đình bạn. Đề bài yêu cầu trả lời đủ <strong>3 ý chính</strong>: (1) có muốn đến tham gia kỳ nghỉ hè hay không, (2) chọn một trong ba lựa chọn chỗ ở (studio của Elder Lusan gần cửa ra vào, ở cùng bố mẹ Rosian, hoặc nhà khách gần đó) và giải thích lý do, (3) hỏi thêm điều gì đó trước khi đến. Bài viết cần tối thiểu <strong>120 từ</strong>, giọng văn thân mật, vui vẻ.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi thân mật. Ví dụ: Dear Rosian,</li><li><strong>Opening:</strong> Bày tỏ sự vui mừng khi nhận lời mời. Ví dụ: Thank you so much for inviting me — I'd absolutely love to join you and your family this summer!</li><li><strong>Body 1 (đồng ý tham gia):</strong> Ví dụ: I've been looking forward to a beach holiday all year, so this couldn't have come at a better time.</li><li><strong>Body 2 (chọn chỗ ở và lý do):</strong> Ví dụ: Out of the three options, I think I'd prefer staying at the small guesthouse, as it would give me a bit more privacy while still being close to everyone.</li><li><strong>Body 3 (hỏi thêm):</strong> Ví dụ: By the way, could you let me know what the weather is usually like in the evenings, so I can pack accordingly?</li><li><strong>Closing:</strong> Ví dụ: I can't wait to see you and enjoy the beach together!</li><li><strong>Sign-off:</strong> Best wishes, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Dùng thì hiện tại đơn/tương lai gần khi nói về kế hoạch, và cấu trúc so sánh nhẹ (I'd prefer... rather than...) khi lựa chọn giữa các phương án. Nên giải thích rõ lý do lựa chọn để bài viết thuyết phục hơn, tránh chỉ nêu lựa chọn mà không giải thích.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>summer holiday:</strong> kỳ nghỉ hè</li><li><strong>accommodation:</strong> chỗ ở</li><li><strong>guesthouse:</strong> nhà khách</li><li><strong>privacy:</strong> sự riêng tư</li><li><strong>pack accordingly:</strong> chuẩn bị hành lý phù hợp</li><li><strong>coastal area:</strong> khu vực ven biển</li><li><strong>look forward to:</strong> mong chờ</li><li><strong>make the most of:</strong> tận dụng tối đa</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>By the way:</strong> Nhân tiện</li><li><strong>Out of the three options:</strong> Trong ba lựa chọn</li><li><strong>Besides:</strong> Bên cạnh đó</li><li><strong>Actually:</strong> Thực ra</li><li><strong>So that:</strong> Để mà</li></ul><p><strong>Cách diễn đạt cảm xúc:</strong></p><ul><li><strong>I'd absolutely love to...:</strong> Tôi thực sự rất muốn...</li><li><strong>This couldn't have come at a better time:</strong> Không có lúc nào hợp lý hơn lúc này</li><li><strong>I can't wait to...:</strong> Tôi không thể chờ để...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Bỏ sót một trong ba ý chính, đặc biệt là việc giải thích lý do chọn chỗ ở.</li><li>Chọn chỗ ở mà không nêu lý do rõ ràng.</li><li>Quên đặt câu hỏi thêm ở phần cuối thư.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã trả lời đủ cả 3 ý trong đề chưa.</li><li>Rà soát chính tả và cách chia thì động từ.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy viết như đang thực sự háo hức trả lời lời mời của một người bạn thân. Đưa ra lựa chọn rõ ràng kèm lý do cụ thể sẽ giúp bài viết tự nhiên và thuyết phục hơn.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "discussion",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>The workplace of the 21st century has changed dramatically, with many companies now offering flexible or remote working arrangements instead of the traditional office environment.</p><p class='mb-1'>While some people believe that this shift towards flexible working is the future of employment, others argue that a traditional office setting is still essential for productivity and collaboration.</p><p class='mb-1'><strong>Discuss both views and give your own opinion.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss both views and give your own opinion about the workplace of the 21st century. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Discussion Essay</strong>. Bạn cần thảo luận <strong>cả hai mặt</strong> của vấn đề nơi làm việc trong thế kỷ 21 — quan điểm ủng hộ làm việc linh hoạt/từ xa và quan điểm ủng hộ văn phòng truyền thống — trước khi đưa ra <strong>quan điểm cá nhân</strong> ở phần kết luận. Bài viết cần tối thiểu <strong>250 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu sự thay đổi trong môi trường làm việc hiện đại và nêu định hướng bài viết. Ví dụ: As technology continues to reshape how we work, the traditional office is being challenged by more flexible working models.</li><li><strong>Body 1 (quan điểm ủng hộ làm việc linh hoạt):</strong> Ví dụ: On the one hand, proponents of flexible working argue that it allows employees to achieve a better work-life balance and often boosts overall productivity.</li><li><strong>Body 2 (quan điểm ủng hộ văn phòng truyền thống):</strong> Ví dụ: On the other hand, supporters of the traditional office maintain that face-to-face interaction fosters stronger teamwork, quicker communication and a greater sense of company culture.</li><li><strong>Body 3 (quan điểm cá nhân):</strong> Ví dụ: In my opinion, a hybrid model that combines the flexibility of remote work with occasional in-person collaboration offers the most balanced solution for modern workplaces.</li><li><strong>Conclusion:</strong> Tóm tắt hai mặt và khẳng định lại quan điểm. Ví dụ: In conclusion, while both working models have their merits, I believe a flexible, hybrid approach best reflects the evolving needs of the 21st-century workplace.</li></ul><p><strong>Mỗi đoạn thân bài nên theo cấu trúc:</strong> Topic sentence → Giải thích → Ví dụ minh họa → Kết mini-đoạn, giúp bài viết cân đối và có chiều sâu.</p><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng cấu trúc đối lập (on the one hand... on the other hand) để phân chia rõ hai luồng quan điểm, và các cụm từ thể hiện ý kiến cá nhân (in my opinion, I believe) ở phần cuối. Cần có thesis statement nêu rõ định hướng bài viết ngay từ mở bài.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>remote working:</strong> làm việc từ xa</li><li><strong>work-life balance:</strong> cân bằng công việc-cuộc sống</li><li><strong>productivity:</strong> năng suất</li><li><strong>company culture:</strong> văn hóa công ty</li><li><strong>hybrid model:</strong> mô hình kết hợp</li><li><strong>collaboration:</strong> sự hợp tác</li><li><strong>flexible schedule:</strong> lịch trình linh hoạt</li><li><strong>face-to-face interaction:</strong> tương tác trực tiếp</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>On the one hand / On the other hand (Đối lập hai mặt):</strong> Một mặt / Mặt khác</li><li><strong>In addition / Moreover (Thêm ý):</strong> Hơn nữa</li><li><strong>However / Nevertheless (Đối lập):</strong> Tuy nhiên</li><li><strong>For example / For instance (Ví dụ):</strong> Ví dụ như</li><li><strong>As a result / Consequently (Nguyên nhân-kết quả):</strong> Do đó</li><li><strong>In conclusion / Overall (Kết luận):</strong> Tóm lại</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>workplace of the 21st century:</strong> có thể thay bằng \"the modern working environment\"</li><li><strong>flexible working:</strong> có thể thay bằng \"remote/adaptable work arrangements\"</li><li><strong>traditional office:</strong> có thể thay bằng \"conventional office setting\"</li></ul><p><strong>Cách diễn đạt ý kiến:</strong></p><ul><li><strong>In my opinion / From my perspective:</strong> Theo quan điểm của tôi</li><li><strong>I would argue that...:</strong> Tôi cho rằng...</li><li><strong>Taking both views into account,...:</strong> Xét trên cả hai quan điểm,...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ tập trung vào một mặt của vấn đề mà bỏ qua mặt còn lại (lỗi nghiêm trọng nhất trong bài Discussion).</li><li>Không đưa ra quan điểm cá nhân rõ ràng ở phần kết luận.</li><li>Thiếu ví dụ cụ thể để minh họa cho từng luận điểm.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã đạt tối thiểu 250 từ chưa.</li><li>Đảm bảo đã thảo luận cả hai mặt của vấn đề.</li><li>Xem lại phần kết luận đã nêu rõ quan điểm cá nhân chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy trình bày cả hai mặt một cách công bằng trước khi đưa ra quan điểm cá nhân. Sự cân đối và logic trong lập luận là yếu tố then chốt để đạt điểm cao ở dạng bài Discussion.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "How many people are there in your family?",
+            "What does your family usually do together on weekends?",
+            "Who is the main decision-maker in your family?",
+            "Do you often take part in outdoor activities?",
+            "What is your favorite outdoor activity?",
+            "Do you usually do outdoor activities alone or with others?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này kéo dài <strong>3 phút</strong> với <strong>6 câu hỏi</strong>, được giám khảo hỏi trực tiếp theo hình thức hội thoại tự nhiên.</li><li><strong>Chủ đề A (Gia đình):</strong> Ba câu hỏi đầu xoay quanh số lượng thành viên, hoạt động cuối tuần và người ra quyết định chính trong gia đình, kiểm tra khả năng mô tả và giải thích vai trò các thành viên.</li><li><strong>Chủ đề B (Hoạt động ngoài trời):</strong> Ba câu hỏi sau khai thác sở thích cá nhân về hoạt động ngoài trời, mức độ tham gia và thói quen đi cùng ai, kiểm tra vốn từ vựng về sở thích và thể thao.</li><li>Tiêu chí chấm điểm gồm: <strong>Độ trôi chảy (Fluency)</strong>, <strong>Từ vựng (Vocabulary)</strong>, <strong>Ngữ pháp (Grammar)</strong> và <strong>Phát âm (Pronunciation)</strong>.</li><li>Nên phân bổ khoảng <strong>25–30 giây</strong> cho mỗi câu hỏi, tránh dồn quá nhiều thời gian cho một chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Áp dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong>: trả lời trực tiếp, đưa lý do, sau đó minh họa bằng ví dụ cụ thể.</li><li><strong>Ví dụ Chủ đề A:</strong> \"There are four people in my family — my parents, my younger sister and me. On weekends, we usually have a family meal together and sometimes visit my grandparents.\"</li><li><strong>Ví dụ Chủ đề B:</strong> \"Yes, I take part in outdoor activities quite often. My favorite one is cycling because it helps me stay fit and clear my mind after a stressful week.\"</li><li>Luôn tự hỏi <strong>Why?/How?</strong> sau mỗi câu trả lời ngắn để mở rộng ý (bắt buộc).</li><li>Dùng một câu chuyển ý ngắn gọn khi chuyển từ Chủ đề A sang B, ví dụ: \"Now, speaking of my personal interests outside the family...\" (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói đều, sử dụng các từ đệm tự nhiên như \"well\", \"actually\" để tránh im lặng kéo dài.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> khi nói về thói quen gia đình và sở thích (\"We usually...\", \"I often...\"), dùng <strong>hiện tại hoàn thành</strong> nếu nhắc đến trải nghiệm đã tích lũy (\"I have joined several hiking trips\").</li><li>Nếu quên từ, hãy diễn giải bằng cách mô tả (paraphrase) thay vì dừng lại.</li><li>Từ vựng Chủ đề A: <strong>nuclear family</strong> (gia đình hạt nhân), <strong>household chores</strong> (việc nhà), <strong>bond with</strong> (gắn kết với), <strong>make decisions</strong> (đưa ra quyết định).</li><li>Từ vựng Chủ đề B: <strong>get some fresh air</strong> (hít thở không khí trong lành), <strong>stay active</strong> (năng động), <strong>team sport</strong> (môn thể thao đồng đội), <strong>on my own</strong> (một mình).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>the breadwinner of the family</strong> (trụ cột gia đình) — Chủ đề A.</li><li><strong>have a say in something</strong> (có tiếng nói/quyền quyết định) — Chủ đề A.</li><li><strong>spend quality time together</strong> (dành thời gian chất lượng bên nhau) — Chủ đề A.</li><li><strong>recharge my batteries</strong> (nạp lại năng lượng) — Chủ đề B.</li><li><strong>a breath of fresh air</strong> (một làn gió mới/thư giãn) — Chủ đề B.</li><li><strong>go hand in hand with</strong> (đi đôi với) — Chủ đề B.</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Actually,</strong> – mở đầu ý kiến cá nhân tự nhiên (thực ra thì).</li><li><strong>In terms of...</strong> – giới hạn phạm vi câu trả lời (về mặt...).</li><li><strong>Apart from that,</strong> – bổ sung ý (bên cạnh đó).</li><li><strong>The main reason is that...</strong> – nêu lý do chính.</li><li><strong>Speaking of...</strong> – chuyển chủ đề mượt mà (nói đến...).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"Personally, I think my father is the main decision-maker since he has more life experience.\" (Cá nhân tôi nghĩ...) — Chủ đề A.</li><li>\"From my point of view, weekends are for reconnecting with family.\" (Theo quan điểm của tôi...) — Chủ đề A.</li><li>\"As far as I'm concerned, outdoor activities are essential for a balanced lifestyle.\" (Theo tôi thì...) — Chủ đề B.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời cụt lủn kiểu \"Yes\" hoặc \"Four people\" mà không giải thích thêm — đây là lỗi nghiêm trọng nhất.</li><li>Với Chủ đề A: nhầm lẫn giữa \"decide\" và \"decision\", hoặc dùng sai cấu trúc sở hữu khi nói về thành viên gia đình.</li><li>Với Chủ đề B: liệt kê nhiều hoạt động cùng lúc mà không đi sâu vào một hoạt động cụ thể, khiến câu trả lời thiếu trọng tâm.</li><li>Dùng sai thì, ví dụ dùng thì tương lai khi mô tả thói quen hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu chêm: \"That's an interesting question, let me think for a moment\" để có thêm thời gian.</li><li>Nếu quên từ vựng cụ thể, hãy mô tả bằng từ đơn giản hơn, ví dụ thay vì \"badminton\" có thể nói \"a sport played with a racket and a small ball\".</li><li>Với Chủ đề A, nếu không nhớ chi tiết, có thể nói chung chung về \"a close-knit family\" rồi phát triển thêm.</li><li>Với Chủ đề B, nếu bí ý tưởng, hãy liên hệ đến lợi ích sức khỏe của hoạt động ngoài trời để kéo dài câu trả lời.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy xem đây như một cuộc trò chuyện thân mật, không phải một bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Chủ đề A sang B, hãy \"reset\" tâm lý và coi đó là một câu hỏi hoàn toàn mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố gắng dùng từ vựng học thuật phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your friend has just received three job offers and is asking for your advice on which one to choose.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: A job with a high salary but long working hours</li><li>Option 2: A job with good opportunities for career growth and training</li><li>Option 3: A job with a flexible working schedule but a lower salary</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống: bạn của bạn nhận được ba lời mời làm việc và cần lời khuyên nên chọn công việc nào.</li><li>Ba lựa chọn: <strong>lương cao nhưng giờ làm dài</strong>, <strong>cơ hội thăng tiến và đào tạo tốt</strong>, và <strong>lịch làm việc linh hoạt nhưng lương thấp hơn</strong>.</li><li>Tiêu chí chấm điểm: khả năng phân tích, so sánh và đưa ra kết luận thuyết phục, cùng với Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>4 phút</strong> — khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction – Comparison/Body – End)</strong>: giới thiệu tình huống, phân tích lần lượt ba lựa chọn, sau đó kết luận và đưa ra lý do.</li><li><strong>Option 1 (lương cao, giờ làm dài):</strong> \"While a high salary is tempting, working long hours could lead to burnout and leave little time for personal life.\"</li><li><strong>Option 2 (cơ hội thăng tiến):</strong> \"This option may not offer the highest salary at first, but it invests in long-term career development, which I believe is more valuable.\"</li><li><strong>Option 3 (lịch linh hoạt, lương thấp hơn):</strong> \"A flexible schedule allows for better work-life balance, though the lower salary might be a concern for someone with financial responsibilities.\"</li><li>Mẹo: luôn neo lập luận vào bối cảnh thực tế của người mới đi làm (bắt buộc).</li><li>Mẹo: dùng từ nối tương phản như \"however\", \"on the other hand\" để chuyển giữa ưu và nhược điểm (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết ba lựa chọn với nhau thay vì nói tách biệt, ví dụ: \"Compared to Option 1, Option 2 offers more sustainable benefits.\"</li><li>Về thì: dùng <strong>câu điều kiện loại 1</strong> khi dự đoán hệ quả (\"If she chooses Option 1, she might feel exhausted quickly\") và <strong>hiện tại đơn</strong> khi mô tả đặc điểm từng lựa chọn.</li><li>Paraphrase cụm \"career growth\" thành \"professional development\" hoặc \"long-term prospects\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>work-life balance</strong> (cân bằng công việc và cuộc sống).</li><li><strong>burn out</strong> (kiệt sức vì công việc).</li><li><strong>career advancement</strong> (thăng tiến sự nghiệp).</li><li><strong>job security</strong> (sự ổn định công việc).</li><li><strong>financial stability</strong> (ổn định tài chính).</li><li><strong>long-term prospects</strong> (triển vọng dài hạn).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>On the other hand,</strong> – nêu quan điểm đối lập (mặt khác).</li><li><strong>Compared to...,</strong> – so sánh giữa các lựa chọn.</li><li><strong>Taking everything into account,</strong> – tổng kết trước khi kết luận (xét tổng thể).</li><li><strong>Nevertheless,</strong> – nhấn mạnh điểm trái ngược (tuy nhiên).</li><li><strong>As a result,</strong> – nêu hệ quả (kết quả là).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"If I were in her position, I would go for Option 2 because career growth matters more in the long run.\" (Nếu tôi ở vị trí đó...)</li><li>\"I would strongly recommend Option 3 for someone who values flexibility over income.\" (Tôi sẽ khuyên...)</li><li>\"In my opinion, financial stability shouldn't come at the cost of one's well-being.\" (Theo ý kiến của tôi...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không chỉ ra nhược điểm của các lựa chọn còn lại.</li><li>Lặp đi lặp lại từ \"good\"/\"bad\" thay vì dùng tính từ học thuật hơn như \"beneficial\", \"unfavorable\".</li><li>Không đưa ra kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng chuyên ngành, chuyển hướng sang yếu tố thời gian hoặc tài chính để tiếp tục lập luận.</li><li>Dùng câu chêm: \"Let's evaluate this option from a different perspective\" để có thêm thời gian suy nghĩ.</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một người đang thực sự đưa ra lời khuyên cho bạn thân — điều gì thực sự bền vững và phù hợp.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả cho lựa chọn được chọn để thể hiện tư duy phản biện.</li><li>Sự mạch lạc và logic trong lập luận quan trọng hơn việc dùng từ vựng phức tạp.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The trend of eating out among young people today",
+          "mindmap": {
+            "title": "Eating Out Among Young People",
+            "ideas": [
+              "Popularity of eating out among young people today",
+              "Reasons why young people prefer eating out",
+              "Criteria for choosing a good restaurant",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Do young people nowadays eat out often?",
+            "Why do many young people enjoy eating out rather than cooking at home?",
+            "What should people consider when choosing a place to eat?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề: <strong>Xu hướng ăn ngoài của giới trẻ hiện nay</strong>, với 3 nhánh ý chính và 1 nhánh ý cá nhân (gợi ý nhánh thứ 4: trải nghiệm ăn ngoài đáng nhớ của bản thân).</li><li>Tiêu chí chấm điểm: khả năng phát triển ý mạch lạc theo sơ đồ tư duy, cùng Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>5 phút</strong>; khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> vì chủ đề mang tính xã hội, cần cả số liệu thực tế lẫn ví dụ cá nhân.</li><li><strong>Ví dụ 1 (mở bài):</strong> \"Eating out has become an increasingly common habit among young people in Vietnam today.\"</li><li><strong>Ví dụ 2 (nhánh cá nhân):</strong> \"Personally, I remember celebrating my friend's birthday at a hotpot restaurant, which is one of my most memorable dining experiences.\"</li><li>Mẹo: khi nói về lý do thích ăn ngoài, hãy tách rõ giữa yếu tố \"sự đa dạng món ăn\" và \"gắn kết bạn bè\" để tránh gộp ý.</li><li>Mẹo: bám sát sơ đồ tư duy để tránh lan man, không lặp lại ý đã nói (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng cụm từ chuyển tiếp mượt mà giữa các nhánh ý, ví dụ \"Another reason worth mentioning is...\".</li><li>Về thì: dùng <strong>hiện tại đơn</strong> để nêu sự thật/xu hướng (\"Many young people eat out several times a week\") và <strong>hiện tại hoàn thành</strong> để nói về trải nghiệm tích lũy (\"I have tried many different restaurants\").</li><li>Paraphrase \"eating out\" bằng \"dining out\" hoặc \"having meals outside home\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a wide variety of cuisines</strong> (sự đa dạng ẩm thực).</li><li><strong>bond with friends</strong> (gắn kết với bạn bè).</li><li><strong>fast-paced lifestyle</strong> (lối sống bận rộn).</li><li><strong>hygiene standards</strong> (tiêu chuẩn vệ sinh).</li><li><strong>value for money</strong> (đáng đồng tiền bát gạo).</li><li><strong>word-of-mouth recommendation</strong> (giới thiệu truyền miệng).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with,</strong> – mở đầu nhánh ý đầu tiên (trước hết).</li><li><strong>Moreover,</strong> – bổ sung ý (hơn nữa).</li><li><strong>Another point worth noting is...</strong> – chuyển sang nhánh ý mới.</li><li><strong>In addition to that,</strong> – mở rộng ý (thêm vào đó).</li><li><strong>To sum up,</strong> – kết luận (tóm lại).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"I would say that eating out has become part of many young people's daily routine.\" (Tôi cho rằng...)</li><li>\"From what I've observed, convenience plays a huge role in this trend.\" (Theo những gì tôi quan sát được...)</li><li>\"It seems to me that choosing a good restaurant depends heavily on hygiene and price.\" (Đối với tôi thì có vẻ như...)</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Do young people nowadays eat out often?\"</strong> – Yes, especially in urban areas, due to busy schedules and a wide range of affordable options.</li><li><strong>\"Why do many young people enjoy eating out rather than cooking at home?\"</strong> – It offers more variety, saves time, and creates opportunities to bond with friends.</li><li><strong>\"What should people consider when choosing a place to eat?\"</strong> – Factors such as hygiene, price, location, and reviews from other customers.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê ý mà không giải thích hoặc cho ví dụ cụ thể.</li><li>Quên nhánh ý cá nhân — nên chuẩn bị trước một trải nghiệm thực tế liên quan đến ăn ngoài.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào trải nghiệm ăn uống thực tế của bản thân hoặc bạn bè khi bí ý.</li><li>Câu chêm học thuật: \"That is a complex issue. If we evaluate it from a societal viewpoint...\"</li><li>Nếu quên từ vựng chuyên ngành ẩm thực, dùng mô tả đơn giản, ví dụ thay vì \"street food\" có thể nói \"food sold outdoors at an affordable price\".</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ từ góc nhìn của người tiêu dùng thực tế — điều gì khiến việc ăn ngoài trở nên hấp dẫn hoặc bất tiện.</li><li>Sự mạch lạc và logic trong luồng ý là yếu tố then chốt để đạt điểm cao.</li><li>Đừng cố nhồi nhét từ vựng khó, hãy ưu tiên truyền tải ý tưởng rõ ràng và tự nhiên.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

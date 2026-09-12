@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-71",
+  "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 12 (Reading Part 3 - Test 12)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 3 - Test 12",
+            "text": "<p style=\"text-align:center; font-weight: bold; font-size: 18px;\">Urban Agriculture and Food Security</p>\n\n<p style=\"text-align:justify;\">As cities worldwide continue to expand, urban agriculture—the practice of cultivating, processing, and distributing food in or around urban areas—has emerged as a promising solution to multiple challenges. From vacant lot gardens to rooftop farms and vertical growing systems, urban agriculture takes many forms, all aimed at bringing food production closer to consumers. Advocates argue that this movement can enhance food security, improve nutrition, strengthen communities, and reduce environmental impact.</p>\n\n<p style=\"text-align:justify;\">Food security, the reliable access to sufficient, safe, and nutritious food, remains a significant concern even in wealthy nations. Urban food deserts—neighborhoods lacking access to fresh, healthy food—affect millions of people, particularly low-income communities and communities of color. Residents of these areas often rely on convenience stores and fast food restaurants rather than supermarkets offering fresh produce. Urban farms and community gardens can help address this gap by producing fresh vegetables and fruits locally, making healthy food more accessible and affordable.</p>\n\n<p style=\"text-align:justify;\">Beyond food access, urban agriculture offers environmental benefits. Traditional agriculture requires transporting food over long distances, contributing significantly to greenhouse gas emissions. Urban farms eliminate much of this \"food miles\" problem by producing food where it's consumed. Additionally, urban gardens can transform <strong>derelict</strong> spaces into green areas that absorb rainwater, reduce urban heat island effects, and provide habitat for beneficial insects and birds. Some systems even incorporate innovative technologies like hydroponics and aquaponics, which use significantly less water than conventional farming.</p>\n\n<p style=\"text-align:justify;\">The social impacts of urban agriculture are equally important. Community gardens serve as gathering spaces that strengthen neighborhood bonds and provide opportunities for people of different backgrounds to work together toward common goals. For children, these spaces offer hands-on learning about where food comes from and how it grows—knowledge that many urban children lack. Studies have shown that youth involved in urban gardening programs develop healthier eating habits, improved academic performance, and stronger connections to their communities.</p>\n\n<p style=\"text-align:justify;\">However, urban agriculture faces significant challenges. Land access is a primary obstacle, as urban property is expensive and often <strong>scarce</strong>. Many urban farms operate on temporarily available land, creating uncertainty that discourages long-term investment. Soil contamination from previous industrial use poses health risks and requires expensive remediation. Zoning regulations in many cities restrict agricultural activities, though some municipalities are beginning to update these policies to support urban farming.</p>\n\n<p style=\"text-align:justify;\">Economic viability presents another challenge. While community gardens operated by volunteers can succeed with minimal funding, commercial urban farms must compete with industrial agriculture that benefits from economies of scale. Labor costs in cities are high, and urban farms typically cannot match the low prices of conventionally grown food. This raises questions about whether urban agriculture can truly address food security or if it remains primarily a lifestyle choice for more affluent communities.</p>\n\n<p style=\"text-align:justify;\">Despite these obstacles, successful models are emerging. Some cities have implemented supportive policies, including tax incentives for urban farmers, programs that connect farms with unused land, and procurement policies that prioritize locally grown food for schools and public institutions. Non-profit organizations have created networks that provide training, resources, and market connections for urban farmers. Technology companies are developing automated growing systems that could make urban agriculture more economically <strong>feasible</strong>.</p>\n\n<p style=\"text-align:justify;\">The future of urban agriculture likely lies in viewing it as one component of a broader food system transformation rather than a complete solution. Urban farms cannot replace rural agriculture, but they can complement it, providing fresh produce locally while rural areas focus on staple crops. As cities continue growing and climate change affects traditional agriculture, urban food production may become not just beneficial but necessary. With appropriate support, innovation, and realistic expectations, urban agriculture can contribute meaningfully to creating more sustainable, equitable, and resilient food systems.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r71-q1",
+              "type": "mcq",
+              "question": "What is the main idea of this passage?",
+              "options": [
+                "Urban agriculture can completely replace traditional farming",
+                "Urban agriculture offers benefits but faces significant challenges",
+                "Cities should ban all forms of agriculture",
+                "Food security is not a real problem"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r71-q2",
+              "type": "mcq",
+              "question": "According to paragraph 2, what are urban food deserts?",
+              "options": [
+                "Areas with too many supermarkets",
+                "Neighborhoods lacking access to fresh, healthy food",
+                "Desert regions near cities",
+                "Abandoned agricultural land"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r71-q3",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned as a benefit of urban agriculture?",
+              "options": [
+                "Reduced food transportation emissions",
+                "Improved community bonds",
+                "Increased property values",
+                "Better access to fresh produce"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r71-q4",
+              "type": "mcq",
+              "question": "The word \"derelict\" in paragraph 3 is closest in meaning to:",
+              "options": [
+                "well-maintained and beautiful",
+                "abandoned and neglected",
+                "expensive and luxurious",
+                "newly constructed"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r71-q5",
+              "type": "mcq",
+              "question": "According to paragraph 4, how does urban gardening affect children?",
+              "options": [
+                "It has no impact on children",
+                "It leads to healthier eating habits and better academic performance",
+                "It makes them dislike vegetables",
+                "It only benefits adults"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r71-q6",
+              "type": "mcq",
+              "question": "The word \"scarce\" in paragraph 5 most likely means:",
+              "options": [
+                "abundant and plentiful",
+                "limited or in short supply",
+                "free and available",
+                "contaminated"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r71-q7",
+              "type": "mcq",
+              "question": "According to paragraph 6, what is a challenge for commercial urban farms?",
+              "options": [
+                "They produce too much food",
+                "They struggle to compete economically with industrial agriculture",
+                "They have unlimited funding",
+                "They are illegal in all cities"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r71-q8",
+              "type": "mcq",
+              "question": "The word \"feasible\" in paragraph 7 is closest in meaning to:",
+              "options": [
+                "impossible",
+                "practical or achievable",
+                "expensive",
+                "dangerous"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r71-q9",
+              "type": "mcq",
+              "question": "What does the author suggest about the role of urban agriculture in the food system?",
+              "options": [
+                "It should completely replace rural farming",
+                "It should complement traditional agriculture as one component",
+                "It is completely unnecessary",
+                "It should only focus on flowers"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r71-q10",
+              "type": "mcq",
+              "question": "The author's tone toward urban agriculture can best be described as:",
+              "options": [
+                "extremely critical",
+                "unrealistically optimistic",
+                "balanced and realistic",
+                "dismissive and negative"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

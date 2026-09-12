@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-50",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 50",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: What does the caller ask Ms. Cook to do?</b></p><ul><li>Hi, Ms. Cook. This is the Village Clinic calling to remind you about your appointment on Thursday at 4 o'clock. Please remember to bring your medical insurance card when you come for your appointment.</li></ul><p><b>Q2: Who is Sachiko Suzuki?</b></p><ul><li>Hello, Mr. Forrester. This is Sachiko Suzuki calling from human resources at Kitano Electronics. If you are available, we would like you to come in for an interview on Friday at 9 o'clock. Please give me a call and let me know if you can come at this time.</li></ul><p><b>Q3: What is the listener asked to do?</b></p><ul><li>Hello, this is Jenny Jones from Jones Mobile Repairs. I'm calling to give you an update on the repair of your mobile phone. Unfortunately, we will have to replace the speaker in your phone. Please call me back at 555-1947 to let me know if you want me to order a new speaker.</li></ul><p><b>Q4: What is the purpose of this message?</b></p><ul><li>Good morning, this is Maria Gray calling from Dilbert Furniture. This message is for Rebecca Rhodes. I need to speak with her about the number of desks she requested, and want to confirm her order before we ship her purchases.</li></ul><p><b>Q5: What is the main purpose of the call?</b></p><ul><li>This is Julie calling from the Stylista Hair Salon. I'm trying to reach Mr. Andrews concerning the interview we scheduled for this afternoon. I'm not feeling well today, so I'm afraid I have to cancel our meeting. However, we are very interested in your application for our hairstylist position. I hope to be back in the office tomorrow, so please call my secretary and let her know if you are available to meet me tomorrow.</li></ul><p><b>Q6: What is Ms. Kim asked to do?</b></p><ul><li>Hello, Ms. Kim. This is Joe Wang from Romy Office Rentals. I'm calling because we won't be able to meet the delivery date. Our salesperson made a mistake and ordered a different photocopier from what you requested. If we rush, we could deliver it to you by Friday night. Can you please call and let me know if someone will be there in your office? Thanks.</li></ul><p><b>Q7: What is the decreasing percentage of domestic sales?</b></p><ul><li>Unfortunately, I must report that domestic sales have dropped by 17 percent over the last two quarters. Although the sluggish domestic economy is a factor, the primary cause of this worrying development is increasing competition in the retail clothing sector.</li></ul><p><b>Q8: What does the speaker say about Rea?</b></p><ul><li>This weekend is the first outing of the in-line skating club for this season. Remember, you are not allowed to skate with the club unless you wear an approved safety helmet. You can ask Rea, the safety coordinator, if you are unsure about your gear.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What does the caller ask Ms. Cook to do?",
+              "options": [
+                "Take along her medical insurance card",
+                "Make an appointment",
+                "Call the receptionist",
+                "Drive his car to the clinic"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Who is Sachiko Suzuki?",
+              "options": [
+                "A job applicant",
+                "A receptionist",
+                "A client",
+                "A personnel officer"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is the listener asked to do?",
+              "options": [
+                "Order a new phone",
+                "Call back",
+                "Go to the office",
+                "Contact the speaker"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the purpose of this message?",
+              "options": [
+                "To confirm an order",
+                "To order some furniture",
+                "To ask for order information",
+                "To inform a change"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the main purpose of the call?",
+              "options": [
+                "To reschedule an interview",
+                "To arrange a class",
+                "To postpone an exhibition",
+                "To request an application"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is Ms. Kim asked to do?",
+              "options": [
+                "Return a phone call",
+                "Deliver a printer",
+                "Meet him on Friday",
+                "Change the order"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the decreasing percentage of domestic sales?",
+              "options": [
+                "7 percent",
+                "11 percent",
+                "17 percent",
+                "70 percent"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What does the speaker say about Rea?",
+              "options": [
+                "She can answer questions about safety equipment.",
+                "She can teach people how to skate.",
+                "She can provide safety helmet.",
+                "She can stake with others."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-05/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Interview with Andy Wells regarding Theme Parks</b></p><ul><li><b>Interviewer:</b> Good morning. Today we’re going to talk about theme parks and we’re going to hear from <b>Andy Wells</b> who has written a guide to theme parks around the world. Welcome to the programme, Andy.</li><li><b>Andy:</b> Hi, it’s good to be here.</li><li><b>Interviewer:</b> You really have a dream job, don’t you, Andy? Flying round the world all the time, visiting adventure parks ...</li><li><b>Andy:</b> Well, yes, it’s pretty exciting. But it’s really hard work too, you know.</li><li><b>Interviewer:</b> I bet. So, what’s the <b>number one theme park</b> in the world?</li><li><b>Andy:</b> That all depends what you’re looking for. In terms of numbers, it has to be <b>Magic Kingdom at Disney World</b> in Florida, the most famous theme park. But the most popular park for people who like adventure rides is <b>Cedar Point</b> in Ohio, USA. It has the biggest number of rollercoasters in one park, <b>17</b>, and three water rides. There are lots of other attractions too. Last year they introduced 50 animatronic dinosaurs. You know, life-size models that move and look real.</li><li><b>Interviewer:</b> Cool! Have they got anything lined up for this year?</li><li><b>Andy:</b> Yeah, there’s a new rollercoaster called the <b>Gatekeeper</b>. Well, actually it’s not a rollercoaster, it’s a <b>wingcoaster</b>. It’ll be the biggest in the world.</li><li><b>Interviewer:</b> What’s a wingcoaster?</li><li><b>Andy:</b> With a normal rollercoaster you are sitting on a seat with the track under you. With a wingcoaster the seats kind of stick out at the side so the passengers have nothing below or above them. You feel as if you’re flying.</li><li><b>Interviewer:</b> So it’s more frightening?</li><li><b>Andy:</b> More exciting! Way more exciting.</li><li><b>Interviewer:</b> What other attractions have you seen recently?</li><li><b>Andy:</b> I’ve just been to <b>The Wizarding World of Harry Potter</b> at the Islands of Adventure in Orlando, Florida. It’s great! You know those shops that sell magic sweets and things in the Harry Potter books? Well, they have those, just like you’ve imagined. There’s a fantastic tour of Hogwarts School where you meet characters from the books. It’s so well done.</li><li><b>Interviewer:</b> Right, sounds interesting. In your book you have a lot of theme parks in <b>Asia</b> too. Can you tell us about them?</li><li><b>Andy:</b> Sure. Tokyo has had a <b>Disneyland</b> for quite a long time, which attracts a lot of people. <b>Ocean Park</b> in Hong Kong has also been going for a long time – that has a lot of marine animals as well as rides. <b>Lotte World</b>, a huge park in South Korea, has the world’s biggest indoor theme park. And then there’s <b>Universal Studios</b> in Singapore. That’s expanding with additions to its New York street section. There’s going to be a Sesame Street dark ride. A dark ride’s a ride inside a building.</li><li><b>Interviewer:</b> I see. New York in Singapore?</li><li><b>Andy:</b> Yeah, it’s weird, but it works. But the place to watch at the moment is <b>China</b> – they’re really expanding. Lots more parks will open in China in the next few years, including another one with dinosaurs in the north, and <b>Ocean Kingdom</b> in the south. That will have the world’s longest roller coaster and tallest Ferris wheel, as well as boat rides and a night-time zoo.</li><li><b>Interviewer:</b> Wow, so that’s opening soon?</li><li><b>Andy:</b> Yes, this year. I’ll be there!</li><li><b>Interviewer:</b> Have a ride for me, then.</li></ul><p><b>Conversation 2: Interview with Geoff, World Heavyweight Champion</b></p><ul><li><b>Journalist:</b> Good evening, <b>Geoff</b>.</li><li><b>Geoff:</b> Hi.</li><li><b>Journalist:</b> Perhaps you could tell me a bit about your background. Where are you from exactly?</li><li><b>Geoff:</b> Well, I was actually born in <b>1958</b>, up in the north of England. My parents came to live in Britain after the war.</li><li><b>Journalist:</b> It sounds great.</li><li><b>Geoff:</b> We moved south to <b>London</b> after that. We were completely broke and I did all sorts of odd jobs to try and make money.</li><li><b>Journalist:</b> Goodness, how dramatic! But?...</li><li><b>Geoff:</b> But I was lucky – I discovered <b>karate</b>.</li><li><b>Journalist:</b> Ah! How, exactly?</li><li><b>Geoff:</b> There was a school trip – nothing special really – but we went to this sports center and I just thought “That’s for me!”.</li><li><b>Journalist:</b> Just like that?</li><li><b>Geoff:</b> Yup. Anyway, I started training. I found myself a Japanese coach and things just happened. I found it came naturally to me and I worked my way up till I found myself in <b>Taiwan</b> for the World Championships. That was in <b>1982</b>.</li><li><b>Journalist:</b> And you won?</li><li><b>Geoff:</b> Yeah, suddenly I was <b>World Heavyweight Champion</b>. It was great.</li><li><b>Journalist:</b> And you were world champion at that weight <b>five times</b> in all?</li><li><b>Geoff:</b> Yeah, that’s right.</li><li><b>Journalist:</b> And then you retired?</li><li><b>Geoff:</b> Well, I didn’t have much choice.</li><li><b>Journalist:</b> And now you’ve got others projects on the go all around the country and even abroad?</li><li><b>Geoff:</b> Mm...yeah...we’re going from strength to strength.</li></ul><p><b>Conversation 3: Marek and Tanya discussing holiday plans</b></p><ul><li><b>T:</b> Hi, <b>Marek</b>. Are you looking forward to your holiday?</li><li><b>M:</b> Oh <b>Tanya</b>, I can’t wait!</li><li><b>T:</b> Where is it you’re going? Is it camping on an island somewhere or am I thinking of someone else?</li><li><b>M:</b> Well, we were going camping, but my Dad’s just bought a <b>camper van</b>, so we’re going in that instead. It means you can go to other countries without having to get a flight which is good in a way, but actually I always used to enjoy sleeping in a tent.</li><li><b>T:</b> Yeah, I know what you mean, but it must be nice getting to see all the scenery along the way. I have to say the <b>flight</b> is my least favourite part of going abroad on holiday.</li><li><b>M:</b> Oh I never mind it actually – and the airport can be quite fun sometimes.</li><li><b>T:</b> You must be joking! All those people and nothing to do except look round expensive shops. I mean, you always end up buying something you don’t really want, just because there’s nothing else to do.</li><li><b>M:</b> Oh, I don’t. Anyway, where you are off to this year? Florida again?</li><li><b>T:</b> Well, I’m getting a bit old for <b>Disneyland</b>, Marek, though my little brother would still like it. We’re actually going somewhere new. It’s like a <b>sports camp</b> where you stay with lots of other kids and learn how to do different activities.</li><li><b>M:</b> You mean you’re going without your parents?</li><li><b>T:</b> Not exactly. I mean they’re there too doing whatever they want – golf in my dad’s case – but you only actually see them at mealtimes.</li><li><b>M:</b> Sounds cool. But will you have to look after your little brother?</li><li><b>T:</b> No way. They divide you up according to <b>age</b>. He’ll be doing football and swimming and all that, whereas I get to go to <b>water skiing</b>.</li><li><b>M:</b> Wow! Doesn’t that cost a fortune?</li><li><b>T:</b> Well, quite a bit so I’m just doing it on one of the days. But there’s <b>windsurfing</b> and <b>water polo</b> too.</li><li><b>M:</b> I see.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is Magic Kingdom at Disney World in Florida famous for?",
+              "options": [
+                "The largest area",
+                "The most rides",
+                "The biggest number of visitors",
+                "The most beautiful theme park"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is Cedar Point in Ohio introducing this year?",
+              "options": [
+                "A new roller coaster",
+                "Three new water rides",
+                "Animatronic dinosaurs",
+                "Two new roller coasters"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Andy think about a wingcoaster?",
+              "options": [
+                "More relaxing than a roller coaster",
+                "More frightening than a roller coaster",
+                "More exciting than a roller coaster",
+                "More dangerous than a roller coaster"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does China soon have?",
+              "options": [
+                "The world's longest dinosaur tour",
+                "The world's biggest zoo",
+                "The world's tallest Ferris wheel",
+                "The world's biggest theme park"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What happened to Geoff’s family when they moved to London?",
+              "options": [
+                "They couldn’t find a place to live",
+                "They ran out of money",
+                "His parents couldn’t find a job",
+                "He couldn’t help his parents earn money"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "When did Geoff become interested in karate?",
+              "options": [
+                "When he joined a school trip",
+                "When he joined a karate club at school",
+                "When his family went to a sports center",
+                "When he watched karate on television"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "When did he become the World Heavyweight champion?",
+              "options": [
+                "1980",
+                "1981",
+                "1982",
+                "1983"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How many times was he the world champion?",
+              "options": [
+                "2 times",
+                "3 times",
+                "4 times",
+                "5 times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why doesn't Tanya enjoy spending time at the airport?",
+              "options": [
+                "She prefers enjoying the scenery during the journey.",
+                "She finds it crowded and the shops too expensive.",
+                "She would rather spend time at the sports camp.",
+                "She wants to join more water sports instead."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Where is Tanya going for her holiday this year?",
+              "options": [
+                "A campsite on a small island.",
+                "Disneyland in Florida with her family.",
+                "A sports camp with different activities.",
+                "A camper van trip across different countries."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Who is Marek going on holiday with?",
+              "options": [
+                "His school friends",
+                "His father and younger brother",
+                "His extended family",
+                "His family"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is Marek's feeling about his next holiday?",
+              "options": [
+                "Excited",
+                "Indifferent",
+                "Anxious",
+                "Relieved"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1</b></p><p>Well, there’s nothing quite like finding your first old ship – it was 300 years old. Well, there’s nothing quite like finding your first Ok just lying at the bottom of the sea, so it wasn’t difficult to find. Most are covered in sand and rocks – but this one wasn’t.</p><p>I’m actually a teacher, not a full time diver – I dive in my free time but I often get to them before the professional divers, because I have good up-to-date equipment. Another thing that helps is talking to fish-men who tell me about their local area. I’ve even written a book about some of their experiences.</p><p>At the moment, I’m looking for the gold from a ship called The Sea Bird. It was an enormous well-built ship and it was coming from Australia on a winter night in 1859. Everything was going fine until the ship reached the English coast, when it crashed into some rocks in a very strong wind and sank to the bottom of the sea. It was carrying gold from Australia, and most of it is still at the bottom of the sea.</p><p>My wedding ring is actually made from gold which I found on an eighteenth – century sailing ship. A friend of mine, another diver, has already found 88,000 pounds worth of gold from different ship. He’s now decided to give up his job and become a full – time diver.</p><p>My house is full of things like coins, bottles and old guns. My wife is always complaining about the number of objects around the house – she says I should open an antiques shop – but I love all these old things. Anyway, in the end, I gave some things from my collection to museums, because I didn’t want to sell them. But my wife still wasn’t very pleased, I’m afraid.</p><p>As diving is a dangerous hobby, It’s not a good idea to try to teach yourself. I’d advise anyone interested to do what I did. There are some excellent diving clubs like the one I joined, which run courses for beginners. It is best to do one of these before you go on a diving holiday...</p><p><b>Talk 2</b></p><p>Are you interested in history? Well, I’d like to tell you about some of the historical places open to visitors in this part of the country.</p><p>Let’s start with the oldest first, Black Rock Caves have been here for over two million years. And, for half a million year, they were home to people and various animals, particularly tigers. You can explore these ancient homes and imagine what life was like for the people who lived there. The caves are open daily from April to October. A special attraction on evenings in August is a walk by candle light. Don’t take this tour if you are afraid of the dark.</p><p>Next I recommend a visit to Salter house. This was built by Sir Joshua Salter and dates back to seventeen sixty – five. The Salter family are still living these today. The house became famous in nineteen eighty two when the television series Aunt Dorothy was filmed there. The furniture and paintings are well worth seeing, but the attraction nobody wants to miss is the kitchen. This is where Aunt Dorothy cooked her enormous meals and gave advice to anyone who passed through this part of the house.</p><p>And don’t forget to visit the Old Port. You will need several hours to see everything there, especially if you take a trip along the riverside in an old tram as far as the fishing village. The guides there all wear traditional costume and you too get the chance to try on clothes from hundred years ago. You can buy gifts in the old village stores and eat delicious snacks in the Tea Shop. If you visit the village factory, you can see how sweets were made a hundred years ago, and taste them, too.</p><p>So, you see there’s plenty of...</p><p><b>Talk 3</b></p><p>This lecture is going to introduce you to traditional Chinese philosophy. First, you will learn about, uh, the yin and yang philosophy. Secondly, we will look at the five elements of this philosophy. It is important that you remember these five elements as we will be discussing them throughout the lecture. The five elements of yin and yang are: water, wood, fire, earth, and umm, metal. Ok, so those are the five elements. Umm, let’s begin with the definition of yin and yang. Yin and yang should be considered as opposite forces like, uhh, like land and ocean, for example. These are opposite. Now, these opposites do not compete with each other. They are complementary. When you think of yin and yang, think complementary opposites.</p><p>So, moving from complementary opposites, let’s return to the five elements we mentioned earlier. If you recall, we said they were water, wood, fire, earth and metal. The Chinese divided yin and yang into five elements to gain an understanding of how the body, mind and spirit work. According to the Chinese, every person’s physical and mental health relies on a balance of the five elements.</p><p>Individuals may have more of one element than another. Of course, ideally, all elements are in balance or harmony. What does this mean? Uh, it means that a person’s body contains equal amounts of each element.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The first old ship which Frank found was ..........",
+              "options": [
+                "covered by rocks",
+                "older than he first thought",
+                "easy to find",
+                "had a lot of gold"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did Frank find the ships so quickly?",
+              "options": [
+                "reads history books",
+                "is a professional driver",
+                "his friends helped him",
+                "uses the latest equipment"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does Frank say about the ship called The Sea Bird?",
+              "options": [
+                "It was so expensive",
+                "It was built in 1859",
+                "It sank in a storm",
+                "It was badly made"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What did Frank say about his wedding ring?",
+              "options": [
+                "was made from gold he found himself",
+                "it was given by someone",
+                "is worth 88,000 pounds",
+                "was found by a friend"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How did Frank learn to dive?",
+              "options": [
+                "by joining a diving club",
+                "by asking the dive tutor",
+                "by teaching himself",
+                "by going on a diving holiday"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "The Black Rock Caves have been home for....",
+              "options": [
+                "Two million years",
+                "A million year",
+                "A half a million year",
+                "centuries"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "When can the cave attract the tourists?",
+              "options": [
+                "from April to October",
+                "April",
+                "October",
+                "August"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Salter house was built in ............",
+              "options": [
+                "1765s",
+                "1756s",
+                "1928s",
+                "1982s"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "The things that are worth to visit in Salter house is ............",
+              "options": [
+                "the furniture",
+                "the paintings",
+                "the enormous meals",
+                "the kitchen"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should tourists do as visiting The Old Port?",
+              "options": [
+                "take an old trek to visit the riverside",
+                "buy different traditional costumes",
+                "try sweets made in the Tea Shop",
+                "visit the village factory"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What does the professor say about the elements in the body?",
+              "options": [
+                "Ideally, these should be different amounts of each",
+                "The amount of each in the body is not very important",
+                "They can be out of balance",
+                "Different people have different elements"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the professor, what are yin and yang?",
+              "options": [
+                "They are opposite forces",
+                "They are what make a person healthy",
+                "They are four different elements",
+                "They are the land and the ocean"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What does the professor say about yin and yang?",
+              "options": [
+                "They represent opposing forces that complement each other.",
+                "They are constantly changing to maintain harmony.",
+                "They must remain equal in order to maintain good health.",
+                "They are divided into five elements that compete with one another."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "According to the Chinese, five elements of Yin and Yang are studied for the work of",
+              "options": [
+                "the body and spirit",
+                "body, mind and spirit work",
+                "balance and harmony",
+                "medicine and health"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the professor says “Yin and Yang should be considered as opposite forces like, uhh, like land and ocean, for example”?",
+              "options": [
+                "To correct something she said earlier",
+                "To explain a term she just introduced",
+                "To explain what is wrong with a particular theory",
+                "To remind the students of something discussed earlier"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

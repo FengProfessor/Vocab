@@ -1,0 +1,71 @@
+{
+  "id": "vstep-reading-onthi-08",
+  "title": "Luyện Đọc VSTEP: VstepR4-Test 06 (VstepR4-Test 06)",
+  "duration": 10,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 3,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "VstepR4-Test 06",
+            "text": "<p class=\"Bodytext70\">A major revolution for the automated office is electronic mail. The customary postal System requires messages written on paper to be transmitted physically from one location to another. With electronic mail, messages are converted into electronic signals, transmitted anywhere in the world, and then changed back into the original written form, all in several seconds or minutes at most.</p>\n<p class=\"Bodytext70\">Through the use of video screens in company offices, a single document can be transmitted to hundreds of people in dozens of branch offices at the same time. Thus, electronic mail, along with databases, can be an important asset in teleconferences. Furthermore, the use of electronic mail in the form of a “mailbox” attached to a telephone is also of great value. Since in offices many telephone calls go uncompleted on the first attempt, with electronic mail, two-way conversion is not essential, so it reduces telephone use and saves time.</p>\n<p class=\"Bodytext70\">Electronic mail is far more expensive than the postal system, as it must compete for transmission space on satellite, telephone, and cable links. But planned increases in satellite communications should lower the price and assist in the spread of electronic mail.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r08-q1",
+              "type": "mcq",
+              "question": "<span>It can be inferred from the passage that the advantages of electronic mail are</span>",
+              "options": [
+                "Its low cost and efficiency",
+                "Its use of the postal system and telephone “mailboxes\"",
+                "Its role in satellite communications and teleconferencing",
+                "Its speed and utility"
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Câu này hỏi thông tin suy ra về lợi ích của thư điện tử.</p>\n<p>Đáp án A. Giá thấp và có hiệu quả. Theo câu 1 của đoạn 3: “Thư điện tử đắt hơn nhiều so với hệ thống bưu điện...”. Hơn nữa trong câu cuối cũng đề cập: “Tuy nhiên việc đẩy mạnh việc tiếp nhận thông tin từ vệ tinh theo kế hoạch nên giúp hạ giá và giúp thư điện tử trở nên phổ biến hơn.” Như vậy có thể thấy rằng giá cả của thư điện tử hiện nay chưa phù hợp. -> A loại</p>\n<p>Đáp án B. Việc sử dụng hệ thống bưu điện và “hộp thư điện tử” trên điện thoại. Câu 3 đoạn 1: “Với thư điện tử, tin nhắn được chuyển thành các tín hiệu điện tử, truyền đi bất cứ nơi nào trên thế giới, và sau đó lại đổi về dạng văn bản viết như ban đầu,.” Thư điện tử truyền tin nhắn qua các tín hiệu điện tử. Do đó nó không hề dùng hệ thống bưu điện. -> B loại</p>\n<p>Đáp án C. Vai trò của thư điện tử trong việc trao đổi thông tin từ vệ tinh và hội nghị qua điện thoại. Câu 2 đoạn 2: “Thêm vào đó, việc sử dụng thư điện tử, cùng với các dữ liệu, là một công cụ quan trọng trong các hội nghị qua điện thoại” nhấn mạnh vai trò của thư điện tử trong các cuộc hội nghị qua điện thoại. Tuy nhiên, theo câu 1 đoạn  3 dịch ở đáp án A, việc trao đổi thông tin từ vệ tinh được ứng dụng vào việc truyền thư điện tử, mà không nói đến vai trò của thư điện tử trong việc trao đổi thông tin từ vệ tinh. -> C loại</p>\n<p>Đáp án D. Tốc độ và sự tiện lợi của nó. Theo như phần dịch câu 3 ở đoạn 1, tốc độ mã hóa và chuyển đổi thông tin của thư điện tử chỉ “trong vài giây hay cùng lắm là vài phút”, chứng tỏ thư điện tử rất nhanh. Hơn thế nữa, câu một đoạn 2 có thông tin “Qua việc sử dụng màn hình video ở các văn phòng công ty, một bản tài liệu có thể được chuyển tới hàng trăm người ở nhiều văn phòng chi nhánh cùng một lúc.” Như vậy không chỉ nhanh mà thư điện tử có thể được chuyển tới nhiều người, trong cùng một thời gian rất tiện lợi.</p>\n<p>-> D đúng</p>\n<p>-> D là đáp án đúng </p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r08-q2",
+              "type": "mcq",
+              "question": "<span>The passage implies that electronic mail</span>",
+              "options": [
+                "Will be used more often in the future",
+                "Will soon outlive its usefulness",
+                "Is too costly for most offices",
+                "Could never take the place of the current postal System"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Thông tin suy ra về thư điện tử:</p>\n<p>Đáp án A. Thư điện tử sẽ được sử dụng nhiều hơn trong tương lai. Trong câu 4 đoạn 2 “Bởi vì ở các văn phòng, nhiều cuộc gọi điện có thể không được thực hiện trong cùng một lúc, với thư điện tử, một cuộc hội thoại hai chiều là không cần thiết, cho nên thư điện tử làm giảm việc sử dụng điện thoại và tiết kiệm thời gian” có thể suy ra rằng thư điện tử có thể được dùng nhiều hơn thay thế cho điện thoại, do đó nó sẽ phổ biến hơn. -> A đúng</p>\n<p>Đáp án B. Sẽ sớm trở nên không còn hữu dụng. Theo như giải thích ở đáp án A, trong tương lai thư điện tử sẽ được sử dụng nhiều hơn nên đương nhiên nó sẽ vẫn còn hữu dụng. -> B đúng</p>\n<p>Đáp án C. Quá đắt cho một số văn phòng. Thông tin duy nhất trong bài về giá cả của thư điện tử là “Thư điện tử đắt hơn nhiều so với hệ thống bưu điện...” mà không đề cập rằng các công ty có khả năng chi trả tiện ích này không. -> C loại</p>\n<p>Đáp án D. Sẽ không bao giờ có thể thay thế hệ thống bưu điện hiện nay. Mặc dù giá cả của thư điện tử cao hơn nhiều so với hệ thống bưu điện, hệ thống bưu điện cũng có bất lợi về thời gian và thủ tục truyền tin. (câu 2 đoạn 1). Vì không có thêm thông tin trong bài đề cập đến việc người dùng ưa chuộng thư điện tử hay hệ thống bưu điện hơn nên không có cơ sở suy ra đáp án D. -> D loại</p>\n<p>-> D là đáp án đúng.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r08-q3",
+              "type": "mcq",
+              "question": "<span>Which of the following can be inferred from the passage?</span>",
+              "options": [
+                "Electronic mail saves money but not time.",
+                "Electronic mail has more than one use in the office setting.",
+                "Electronic mail will eventually replace the telephone.",
+                "Electronic mail is not a new phenomenon."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án A. Thư điện tử tiết kiệm tiền nhưng không tiết kiệm thời gian. Đáp án này hoàn toàn ngược lại với những thông tin mà chúng ta có sau khi làm câu 25, 26 là: thư điện tử đắt nhưng có tốc độ rất nhanh. -> A loại</p>\n<p>Đáp án B. Thư điện tử có nhiều hơn một chức năng sử dụng trong hệ thống văn phòng. Tác dụng đầu tiên của thư điện tử là ở trong các cuộc hội nghị qua điện thoại, nó giúp chuyển tài liệu cho các thành viên ở các chi nhánh văn phòng khác nhau cùng một lúc. (câu 1, 2 đoạn 2). Thứ hai, thư điện tử giúp tiết kiệm thời gian và gửi thông tin một chiều cho người khác trong trường hợp không thực hiện được nhiều cuộc gọi cùng một lúc. (Câu 4 đoạn 2). Rõ ràng, hai tác dụng của thư điện tử đã được đưa ra. -> B đúng</p>\n<p>Đáp án C. Thư điện tử cuối cùng sẽ thay thế điện thoại. Mặc dù có thể suy ra rằng thư điện tử sẽ được sử dụng phổ biến hơn thay vì điện thoại (xem lại giải thích đáp án A, câu 26), nhưng không chắc chắn rằng trong tương lại điện thoại không còn được sử dụng nữa vì không có thông tin nói về việc sử dụng điện thoại trong tương lại trong bài. -> C loại</p>\n<p>Đáp án D. Thư điện tử không phải là một hiện tượng mới. Văn bản này không nói đến thời gian thư điện tử xuất hiện và thời gian thư điện tử trở nên phổ biến. Do đó, không có cơ sở suy ra thông tin này. -> D loại</p>\n<p>-> B là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

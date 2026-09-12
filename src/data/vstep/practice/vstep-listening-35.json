@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-35",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 35",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-22/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>There’s a lorry on fire in Smith street in Bridgend town centre. A lot of people have stopped to watch and delays are building up. You’re advised to take Lodge lane instead. On the westbound carriageway of the M4, an overturned car is blocking two lanes of traffic before junction 32, that’s the turning for Bridgend. Police advise drivers to turn off at junction 31 for an alternative route to avoid delays…</li></ul><p><b>Question 2.</b></p><ul><li>Hi David. It’s Susan here. It’s about meeting later on. I know we said eight o’clock at the Crown, but it looks like I’m stuck in the office for a while we’ve got a bit of a problem so if I don’t ring again do you think you could come and get me at about nine?</li></ul><p><b>Question 3.</b></p><ul><li>This is a customer announcement. We have a range of special offers in several departments. In our fashion department on the first floor we have a sale in men’s’ designer shirts. On the second floor in household goods, there are special offers in kitchenware and small appliances. And in our food hall on the ground floor some outstanding discounts on cuts of beef…</li></ul><p><b>Question 4.</b></p><ul><li>Residents of Newbury upon Thames whose homes were bought by the government to make way for a planned by pass are to be offered their houses back again. Eleven families were moved out in 1991, but now the scheme has been put on hold following government spending cuts. Under a new law the former residents are allowed to buy back their former houses at the price they were given on leaving.</li></ul><p><b>Question 5.</b></p><ul><li>Hello, this is the claims manager from Royal Solihull Insurance. I’m ringing concerning your claim. I was hoping to arrange for one of our representatives to call and discuss your recent burglary with you. Um… We can’t arrange a payment until we’ve had this discussion. Would you like to call one of our secretaries on 01214285976 and we can fix up a time? Please don’t forget to quote the burglary reference number…</li></ul><p><b>Question 6.</b></p><ul><li>Police are asking old age pensioners to be on the look out for a thief who is posing as a gas board official. The thief, who is a well-dressed young man, calls at pensioners’ homes and tells them he is checking for gas leaks. While in the house, he steals any money he can find. Police have issued a special message for pensioners today advising them that gas board officials always wear a uniform and carry an official identity card.</li></ul><p><b>Question 7.</b></p><ul><li>Thank you for calling the Putney museum. I’m afraid all our telephonists are busy at the moment. If you want to wait you should press 3 after the short tone and your call will be stacked. If you have an enquiry about opening times, you can hear a recorded message by pressing 2 after the short tone. If you want to speak to a member of staff and you know their extension, you can dial their number after the short tone. If you want to leave a message, please speak after the long tone.</li></ul><p><b>Question 8.</b></p><ul><li>If you want to buy a house in the London area and you’re on a limited budget, where’s the best place to look? Of course a central location is what many of us want, but houses in the centre are no bargain. If you want to move out to the leafy suburbs you’ll also have to have a lot of money in the bank. To my mind, the best place to start is in the established or shall we say former suburbs. That’s where you’ll find the real bargains.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What should drivers to Bridgend do?",
+              "options": [
+                "drive down Lodge Lane",
+                "turn off at junction 32",
+                "drive down Smith Street",
+                "cancel the drive"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What is David supposed to do?",
+              "options": [
+                "pick Susan up at the office",
+                "meet Susan at 9 o'clock",
+                "ring Susan at the office",
+                "meet Susan at 8 o'clock"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Which is NOT on special offers?",
+              "options": [
+                "men's designer shirts",
+                "fruits",
+                "kitchenware",
+                "beef"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Why was the construction of the bypass cancelled?",
+              "options": [
+                "the residents did not want to move their homes",
+                "there was another plan to build houses there",
+                "the government reduced spending",
+                "the bypass was of no use at all"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Who is the caller?",
+              "options": [
+                "the claims director of an insurance firm",
+                "a representative of an insurance firm",
+                "a secretary of an insurance firm",
+                "a burglar"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Who are the police searching for?",
+              "options": [
+                "a gas board official",
+                "a well-dressed man",
+                "an old age pensioner",
+                "a witness"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What should you do if you want to speak to a member of staff?",
+              "options": [
+                "press 3",
+                "press 2",
+                "speak after the tone",
+                "dial his extension"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Where are the cheapest houses to be found?",
+              "options": [
+                "in the new suburbs",
+                "in the old suburbs",
+                "in the City centre",
+                "out of town"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-03/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Kate:</b> I don’t remember much of that lecture. The doctor gave me this medicine for my cough, but I don’t like it; it seems to make me awfully sleepy and I can’t follow my lectures.</li><li><b>George:</b> Well, if you don’t take it, none of us will be able to follow our lectures; all we’ll hear is you coughing!</li><li><b>Kate:</b> Oh dear, do you think I’ll annoy everybody?</li><li><b>George:</b> Yes. You could study at home for a couple of days; you know, have some time off until it gets better.</li><li><b>Kate:</b> Oh, I couldn’t do that! I’d miss too much and I get really uncomfortable when I have a lot of catching up to do. Last year I missed a whole week when I fell off my bike and had that enormous bandage on my hand. It took me ages to do all the work when I came back.</li><li><b>George:</b> Oh, you worry too much. You can work at home. Just get Mr. Gray to tell you which parts of the course-book we’ll be covering and read it yourself at home. All he does is go through the book anyway; you might as well do it yourself.</li><li><b>Kate:</b> Oh, that’s a bit unfair! I think Mr. Gray’s really nice. He’s always willing to stay behind after class if you don’t understand something.</li><li><b>George:</b> Being ‘really nice’ and never in a hurry doesn’t make him a good lecturer. Anyway, I think you should look after your health first and ours! If we sit in that small, hot room with you for the next three days, we’ll all have your cough by the end of it.</li><li><b>Kate:</b> Mm, perhaps you’re right. I don’t care about myself, but I wouldn’t like other people to blame me for their illnesses. I have got a bit of a temperature now, too; so maybe I’ll go and see Mr. Gray after lunch and tell him I won’t be at this afternoon’s lecture.</li><li><b>George:</b> Or the next two ... come on, you’ve got to get better.</li><li><b>Kate:</b> I suppose you’re right.</li><li><b>George:</b> Then we can all go out as we planned at the weekend.</li><li><b>Kate:</b> OK then, I don’t want to miss that... and I do feel ill...</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Man:</b> What shall we do tonight? Shall we go out somewhere?</li><li><b>Woman:</b> No, I’m tired. I’ve had a really hard day.</li><li><b>Man:</b> That’s a bit boring! Come on, let’s go to a cinema or see that new play at the theatre.</li><li><b>Woman:</b> Not tonight. Why don’t we rent a video and stay in?</li><li><b>Man:</b> Well, I’d rather go out... but if you’re tired ... OK. So what shall we have? How about that new Italian film?</li><li><b>Woman:</b> No, far too serious for me. I’d fall asleep! Why can’t we get something funny, a film with Rik Moranis or someone like that.</li><li><b>Man:</b> A comedy? No thanks. I’m not wasting my money.</li><li><b>Woman:</b> Well, I’ll pay, if you’re going to be difficult about it.</li><li><b>Man:</b> I’m not being difficult; I just don’t want to see a comedy.</li><li><b>Woman:</b> Fine. What else do you suggest then?</li><li><b>Man:</b> How about a Robert de Niro?</li><li><b>Woman:</b> We’ve seen them all.</li><li><b>Man:</b> Maybe, but they’re great films. Let’s watch one again.</li><li><b>Woman:</b> Now you’re suggesting something that’s a real waste of money! And I hate seeing films twice, you know that.</li><li><b>Man:</b> OK, OK. What, then?</li><li><b>Woman:</b> Oh, forget it. We’re obviously not going to agree anyway!</li><li><b>Man:</b> No, I tell you what, you go down to the video shop and choose a film. Whatever it is, I’ll watch it.</li><li><b>Woman:</b> Really? And you won’t be difficult or make me feel guilty?</li><li><b>Man:</b> No. Go on, off you go. I’ll make something to eat while you’re out.</li><li><b>Woman:</b> Great. See you in a few minutes then.</li><li><b>Man:</b> Bye.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Girl:</b> Hi, Ben! Only one more week at college, and then the summer holidays begin. Great, isn’t it!</li><li><b>Boy:</b> I don’t know. It might get a bit boring. I don’t think I’ve got enough money to go anywhere nice for a holiday this year.</li><li><b>Girl:</b> It would be nice to have lots of money to spend, but a good holiday doesn’t have to be expensive!</li><li><b>Boy:</b> Oh yes it does! The best holiday I ever had was a few years ago when I went to Greece. I want to fly off somewhere hot, and lie on the beach and go swimming.</li><li><b>Girl:</b> Yes. Well, I can’t afford to do that, either.</li><li><b>Boy:</b> So, what are you doing this summer?</li><li><b>Girl:</b> I’m going on a walking holiday in Scotland with some friends. We went last year. We really enjoyed it. We walked all day and spent the nights in Youth Hostels. Why don’t you come with us? We’re going for two weeks. It won’t cost much, and you’ll come home feeling really relaxed and fit.</li><li><b>Boy:</b> I’m not sure. Walking all day sounds like hard work to me. And surely you’re not hoping for lots of sunshine in Scotland?</li><li><b>Girl:</b> It did rain a bit last year, but most of the time it was sunny. Anyway, it’s not good walking in the heat. You have to stop all the time to rest and have drinks.</li><li><b>Boy:</b> Well, I like the sun, and I like to stay in comfortable hotels, not Youth Hostels!</li><li><b>Girl:</b> But they are comfortable. They’re basic, and the food’s often not very good, but they’re very clean and cheap. In fact, I prefer them to hotels because the people are always so friendly.</li><li><b>Boy:</b> Maybe. Look Lisa, thanks a lot for asking me, but I think I’ll just stay home and get bored!</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is Kate’s health problem?",
+              "options": [
+                "She has coughs",
+                "She has headache",
+                "She has toothache",
+                "She has stomach ache"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does Kate’s problem affect her classmates?",
+              "options": [
+                "It makes them funny.",
+                "It makes them annoyed.",
+                "It makes them happy.",
+                "It makes them excited."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What did Kate have last year?",
+              "options": [
+                "She had coughs",
+                "She had headache",
+                "She had a fall off her bike",
+                "She had stomach ache"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Kate have now, too?",
+              "options": [
+                "She has backache",
+                "She has headache",
+                "She has toothache",
+                "She has temperature"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why does the man want to go out?",
+              "options": [
+                "Because he feels bored staying at home.",
+                "Because he feels safe staying at home.",
+                "Because he feels cold staying at home.",
+                "Because he feels hot staying at home."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Why does the woman want to stay at home?",
+              "options": [
+                "Because she has coughs.",
+                "Because she feels tired.",
+                "Because she has toothache.",
+                "Because she has stomach ache."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Why doesn’t the woman want to watch an Italian film?",
+              "options": [
+                "Because she is short of money.",
+                "Because she is serious about it.",
+                "Because she’s afraid she will fall asleep watching it.",
+                "Because she has stomach ache"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Why doesn’t the woman want to watch a Robert de Niro?",
+              "options": [
+                "Because she feels too busy to watch it.",
+                "Because she feels too serious to watch it.",
+                "Because she doesn’t want to watch it the third time.",
+                "Because she doesn’t want to watch it the second time."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does the girl think about a good holiday?",
+              "options": [
+                "It may be cheap.",
+                "It may be very cheap.",
+                "It may be expensive.",
+                "It may be very expensive"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Why doesn’t the boy want to walk?",
+              "options": [
+                "Because he feels too hot to do it.",
+                "Because he finds it hard to do it.",
+                "Because he doesn’t like hard work.",
+                "Because she doesn’t like the sounds of people walking"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What does the girl think about the food in Youth Hostels?",
+              "options": [
+                "It is comfortable.",
+                "It is good.",
+                "It is not good.",
+                "It is clean and cheap"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does the boy decide to do in the end?",
+              "options": [
+                "go home",
+                "leave home",
+                "sell his home",
+                "enjoy his holiday home"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1:</b></p><p>Dolls have always fascinated me, and that’s why, five years ago, I was delighted to be offered the job of running a doll museum.</p><p>Dolls have existed for thousands of years, and the earliest dolls we know about we found in graves in ancient Egypt. I only wish we could get one or two for our museum. But we haven’t unfortunately got anything as old as that in the museum. All the same, we have got examples from Europe from the twelfth century, but my favorite early dolls are actually from the seventeenth century. They interest me not just because they are early, or fairly early, but also because of the clothes they are wearing. They have their original clothes, and from them we know what the owners wore, since dolls in those days were always dressed like their owners. They were made of the only material readily available for things like this at the time: solid wood and they were painted in great detail. In fact, on the best examples, like the ones in the museum, the detail includes the seventeenth-century make-up.</p><p>Dolls like these were very expensive then, and only the very rich could afford them. These days, they’re popular with collectors and if you want one today, you have to pay anything up to ten thousand pounds for a doll in perfect condition from this time! By the way, what makes them so valuable is that, as far as a collector is concerned, a doll is only worth collecting if it is in perfect condition, and that means having the original clothes.</p><p>Doll collecting has become very fashionable since the museum opened, with people interested in dolls from every period, including later dolls. There’s great interest in nineteenth-century examples, when dolls were no longer made of wood, but began to have soft bodies and real hair. They were very delicate and few have survived, meaning such a doll would be worth about two thousand pounds, perhaps a bit more. Later, in the nineteenth century, you could often take off the doll’s hair. If you can, you can often see the maker’s name underneath, and of course the right one increases a doll’s value.</p><p>There was a really big change in dolls at the beginning of the twentieth century. In the museum we have one of the earliest examples, from about 1909, of a doll that’s a model of a baby. Previously all dolls, the earliest ones, were little adults.</p><p><b>Talk/Lecture 2</b></p><p>Hello. I’m Stephen Mills. I will travel with you to the Tiger Tour in India, but I’m not your guide. I work as an artist and I’m going to take some photographs of tigers so that I can use them when I paint some pictures later. An expert guide will join the group when we arrive in India, but I’m leading the group until then.</p><p>We leave London on the 6th of November, arriving in India the following day. It’s a good time of year to visit the wildlife park where the tigers live. The rainy season finishes in October. And later in the year, the park gets more crowded and the tigers become shy.</p><p>We’ll spend ten days in the wildlife park. There are twenty other types of animals and three hundred types of bird to see as well as tigers. There are eighteen of us altogether and everything is organized for your comfort by the tour company. For example, although we’re in the jungle, we won’t have to sleep in tents! The hotels where we’ll stay are all very comfortable.</p><p>To be sure of seeing tigers, we’ll stay in two different parts of the wildlife park. We’ll spend three days in the north, where we’ll travel around in an open truck, and the rest of the time in the south, where we’ll travel around on elephants. That should be fun!</p><p>On the way back to London, we have dinner and one night’s bed and breakfast in the Indian capital, Delhi. There you can either go sightseeing or go shopping, whichever you prefer. But please note that lunch is not provided on our day of departure, as the plane leaves at two in the afternoon.</p><p>Now, if there are any questions ....</p><p><b>Talk/Lecture 3:</b></p><p>Announcer: For the second in our series about locally-run businesses, we meet Simon Winridge, co-founder of the hugely-successfully Winridge Forest Railway Park. Welcome, Simon. Now, perhaps you can begin by telling us a little bit about how it all started.</p><p>Man: Well, during the 1970s, my wife, Liz and I had just acquired 80 acres of sheep-farming land, and we decided to settle down and have children. Pretty soon we had a daughter, Sarah, and a son, Duncan. The place was wonderful for the kids: they particularly loved trains and gradually built up an enormous network of miniature railway track. I began to develop larger-scale models of locomotives but we didn’t think anything more of it until I went on a trip to a theme park near Birmingham and decided we could do a much better job! So we set up a small one ourselves based on the miniature railway and we opened to the public for just a month that year, 1984- in July- our driest month- because our children said they didn’t want our guests to have a miserable, wet visit. I dealt with Park business and Liz carried on with the farm work.</p><p>It soon became clear that we were onto a winner. We began to extend the railway track and lay it among more interesting landscape by planting trees, which in turn attracted more wildlife, and by making cuttings through the rock.</p><p>Nowadays, we’re open all year round and we’re pleased to say that Winridge is one of the most popular visitor attractions in the area- with 50.000 visitors a year- a million and a half people have been through our doors since we opened.</p>",
+          "questions": [
+            {
+              "id": "L2Q21",
+              "type": "mcq",
+              "question": "What is the main purpose of the talk?",
+              "options": [
+                "To describe how the man's favorite dolls look like",
+                "To explain how dolls used to look like in the twelfth century",
+                "To compare the differences in all doll examples in the museum",
+                "To explain how dolls were made differently in times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q22",
+              "type": "mcq",
+              "question": "The dolls that the man interested in .........",
+              "options": [
+                "Existed from the twentieth century",
+                "Existed from the seventeenth century",
+                "Existed from the eighteenth century",
+                "Existed from the nineteenth century"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q23",
+              "type": "mcq",
+              "question": "At the beginning of the twentieth century, dolls were .................",
+              "options": [
+                "Babies",
+                "Adults",
+                "Elderly",
+                "Males"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q24",
+              "type": "mcq",
+              "question": "What makes the dolls in the seventeenth century special?",
+              "options": [
+                "They existed fairly early",
+                "They were made from solid wood",
+                "They are very expensive today",
+                "Their decorations are original"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q25",
+              "type": "mcq",
+              "question": "What can you do with the nineteen- century dolls?",
+              "options": [
+                "Buy them with thousands of pounds",
+                "Take off their hair",
+                "Replace their hair with real hair",
+                "See the maker's name on the body"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "When is the best time to see the tigers?",
+              "options": [
+                "November",
+                "October",
+                "September",
+                "The following day"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "How long will they be in the park?",
+              "options": [
+                "Twenty days",
+                "Eighteen days",
+                "Ten days",
+                "No information"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is arranged to make sure the visitors are comfortable?",
+              "options": [
+                "Meals",
+                "Transportation",
+                "Accommodation",
+                "Schedule"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is Stephen Mill's profession?",
+              "options": [
+                "Photographer",
+                "Tour guide",
+                "Traveller",
+                "Artist"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What is not included in the program?",
+              "options": [
+                "Going sightseeing in Delhi",
+                "Going shopping in Delhi",
+                "Breakfast on the last day",
+                "Lunch on the last day"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Simon's idea for a theme park came from ..............",
+              "options": [
+                "his childhood hobby",
+                "his interest in landscape design",
+                "his visit to another park",
+                "his wife's idea"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "When they started, the family decided to open the park only when ..................",
+              "options": [
+                "The weather was expected to be good",
+                "There were not many people in the neighborhood",
+                "The children weren't at school",
+                "There were fewer farming commitments"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Since opening the park has had ..................",
+              "options": [
+                "50,000 visitors",
+                "1,000,000 visitors",
+                "5,000 visitors",
+                "1,500,000 visitors"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What did their children love?",
+              "options": [
+                "Trains",
+                "Theme park",
+                "Farm work",
+                "We weather"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "The park today is ..................",
+              "options": [
+                "Closed on holidays",
+                "Opened all year",
+                "Closed every two months",
+                "Opened on weekdays"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

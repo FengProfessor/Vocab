@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-37",
+  "title": "Luyện Đọc VSTEP: The History of Writing Systems (VstepR2-Test 15 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The History of Writing Systems",
+            "text": "<p style=\"text-align:justify;\">Writing is one of humanity's most transformative inventions, enabling the accumulation and transmission of knowledge across generations. The earliest known writing system, cuneiform, was developed by the Sumerians of Mesopotamia around 3200 BCE. Initially used for bookkeeping and administrative records, it consisted of wedge-shaped marks pressed into clay tablets. Over centuries, cuneiform evolved to represent syllables and words and was adapted by many subsequent civilizations, including the Akkadians, Babylonians, and Assyrians.</p>\n<p style=\"text-align:justify;\">Independently, the ancient Egyptians developed hieroglyphics — a system combining logographic, syllabic, and alphabetic elements — around 3100 BCE. Hieroglyphics were used primarily for religious and monumental inscriptions and were carved into stone or painted on papyrus scrolls. A simpler cursive form, known as hieratic script, was developed for everyday use. The Rosetta Stone, discovered in 1799 and inscribed with the same decree in Greek, hieroglyphic, and demotic scripts, was the key that allowed scholars to finally decipher Egyptian hieroglyphics in the 19th century.</p>\n<p style=\"text-align:justify;\">The most widely used writing system today — the Latin alphabet — has its roots in the Phoenician alphabet, developed around 1050 BCE. The Phoenicians were seafaring merchants who needed a simple, portable script for commerce. Their 22-character consonant-based alphabet was adopted and modified by the ancient Greeks, who added vowels, creating the basis for Latin and eventually most modern Western scripts. Today, the Latin alphabet is used by approximately 70% of the world's population and forms the foundation of hundreds of languages.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r37-q1",
+              "type": "mcq",
+              "question": "According to paragraph 1, what was cuneiform initially used for?",
+              "options": [
+                "Religious ceremonies and prayers",
+                "Bookkeeping and administrative records",
+                "Carving inscriptions on stone monuments",
+                "Teaching children to read and write"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r37-q2",
+              "type": "mcq",
+              "question": "According to paragraph 1, which of the following civilizations ALSO used cuneiform?",
+              "options": [
+                "The ancient Egyptians",
+                "The Phoenicians",
+                "The Babylonians",
+                "The ancient Greeks"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r37-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, when was the Rosetta Stone discovered?",
+              "options": [
+                "3100 BCE",
+                "1050 BCE",
+                "In the 19th century",
+                "In 1799"
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Đáp án chính xác là <b>D</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r37-q4",
+              "type": "mcq",
+              "question": "According to paragraph 2, what was the hieratic script used for?",
+              "options": [
+                "Religious and monumental inscriptions",
+                "Everyday writing purposes",
+                "Diplomatic correspondence with other nations",
+                "Scientific and astronomical records"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r37-q5",
+              "type": "mcq",
+              "question": "According to paragraph 3, what important change did the Greeks make to the Phoenician alphabet?",
+              "options": [
+                "They reduced the number of characters from 22 to 10.",
+                "They added vowels to the alphabet.",
+                "They replaced clay tablets with papyrus scrolls.",
+                "They introduced punctuation marks for the first time."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

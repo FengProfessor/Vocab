@@ -1,0 +1,85 @@
+{
+  "id": "vstep-reading-onthi-03",
+  "title": "Luyện Đọc VSTEP: Tiger Moths (VstepR4-Test 01)",
+  "duration": 10,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 4,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Tiger Moths",
+            "text": "<p style=\"text-align: justify;\">One of the most beautiful of the more than 100,000 known species in the order Lepidoptera are the tiger moths, moths known for the striking appeal of their distinctive coloration. This type of moth is covered with highly conspicuous orange-and-black or yellow-and-black patterns of spots and stripes. Such boldly patterned color combinations are commonplace in the animal world, serving the function of forewarning potential predators of unpleasant tastes and smells. This is unquestionably the function served by the striking coloration of the garden tiger moth, which is quite visually attractive but is also poisonous to predators. Certain glands in the garden tiger moth produce strong toxins that circulate throughout the insect’s bloodstream, while other glands secrete bubbles that produce a noxious warning smell. The tiger moth, indeed, is a clear example of a concept that many predators intuitively understand, that creatures with the brightest coloration are often the least suitable to eat.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r03-q1",
+              "type": "mcq",
+              "question": "<span style=\"text-align: justify;\">It is implied in the passage about the order Lepidoptera that</span>",
+              "options": [
+                "all members of the order are moths",
+                "there may be more than 100,000 species in this order",
+                "all members of the order are brightly colored",
+                "there are most likely fewer than 100,000 species in this order"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Câu hỏi yêu cầu tìm thông tin suy ra về “the order Lepidoptera”. Từ khóa này xuất hiện ở dòng thứ 2. Trong các đáp án đưa ra, các từ/ cụm từ khóa xuất hiện là moths, more than 100000 species, brightly colored, fewer than 100000 species. Những từ/ cụm từ khóa này có trong 7 dòng đầu tiên của đoạn văn.</p>\n<p>Quay lại đọc hiểu thông tin trong bài:</p>\n<p><i>Một trong những loài đẹp nhất trong số hơn 100.000 loài thuộc Bộ Lepidoptera là loài bướm đêm hổ (1). Loài bướm này được biết đến với màu sắc ấn tượng và khác biệt trên đôi cánh của chúng (2). Loài bướm này dễ dàng được nhận biết với những đốm và đường kẻ sọc màu cam và đen hoặc vàng và đen trên đôi cánh (3). </i></p>\n<p>Đáp án A: <i>Tất cả các loài thuộc Bộ này đều là bướm đêm.</i> ->Theo câu (1) thì thông tin này không có cơ sở -> Loại A</p>\n<p>Đáp án B: <i>Có hơn 100.000 loài thuộc Bộ này.</i> -> Theo câu (1) thì thông tin này có cơ sở do “<i>Một trong những loài đẹp nhất trong số hơn 100.000 loài thuộc Bộ Lepidoptera</i>” -> B đúng</p>\n<p>Đáp án C: <i>Tất cả các loài thuộc Bộ này đều có màu sắc rực rỡ.</i> -> Không có thông tin, ở câu (2) và (3) chỉ đề cập đến màu sắc của loài bướm đêm hổ chứ không nói gì đến những loài còn lại. -> Loại C</p>\n<p>Đáp án D: <i>Có ít hơn 100.000 loài thuộc Bộ này.</i> -> Theo câu (1) thì thông tin này sai.</p>\n<p>-> Loại D</p>\n<p>Vậy đáp án đúng là B</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r03-q2",
+              "type": "mcq",
+              "question": "It can be interred from the passage that the tiger moth was so named because",
+              "options": [
+                "its coloration resembles that of a tiger",
+                "it is a ferocious predator, like the tiger",
+                "its habitat is the same as the tiger’s",
+                "it is a member of the same scientific classification as the tiger"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Câu hỏi yêu cầu tìm thông tin tại sao loài bướm đêm này được đặt tên là “bướm đêm hổ”. Xem xét 4 đáp án được đưa ra, các từ khóa cần lưu tâm ở từng đáp án đó là “coloration” (Đáp án A), “predator” (đáp án B), “habitat” (đáp án C) và “scientific classification” (đáp án D). Đọc lướt cả bài, ta thấy rằng không có câu nào đề cập đến “habitat” (<i>môi trường sống)</i> (hoặc từ đồng nghĩa với nó như “home); tương tự, không có thông tin liên quan đến “<i>science</i>” hay “<i>scientific classification</i>” (sự phân loại có tính khoa học). Do đó, C và D không phù hợp.</p>\n<p>Đáp án A. <i>Màu sắc của loài bướm này giống với màu sắc của hổ. </i>Theo như đã đọc và hiểu ở câu <i>(3) Loài bướm này dễ dàng được nhận biết với những đốm và đường kẻ sọc màu cam và đen hoặc vàng và đen trên đôi cánh, </i>trên thực tế, ta thấy da hổ cũng có những đốm và kẻ sọc màu cam và đen/ hoặc vàng đen => Có sự tương đồng về màu sắc giữa cánh của loài bướm này và da hổ. -> A đúng</p>\n<p>Đáp án B. <i>Nó là một loài động vật ăn thịt hung ác giống như hổ</i>. Đọc thông tin ở các câu có chứa từ “predator”.</p>\n<p><i>(4)</i> <i>Kiểu kết hợp màu sắc theo hình thức nổi bật như vậy là điều thông thường trong thế giới động vật, có vai trò cảnh báo những loài động vật ăn thịt rằng chúng có vị và mùi khó chịu. </i></p>\n<p><i>(5) Đây là chức năng hiển nhiên được mang lại bởi màu sắc nổi bật của loài bướm đêm hổ trong vườn, loài vật nhìn thì khá bắt mắt nhưng lại có độc cho kẻ săn mồi. </i></p>\n<p><i>(7) Bướm đêm hổ quả thực là một ví dụ rõ ràng nhất cho quan điểm rằng nhiều động vật ăn thịt hiểu là những sinh vật có màu sắc tươi sáng nhất thường là những loài không phù hợp nhất để ăn. </i></p>\n<p>Các thông tin này chỉ đề cập đến những loài động vật có ý định ăn thịt bướm đêm hổ mà không nhắc đến bướm đêm hổ với vai trò làm kẻ săn mồi hay động vật ăn thịt. -> B loại</p>\n<p>=> A là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r03-q3",
+              "type": "mcq",
+              "question": "What would most likely happen to a predator that wanted to eat a tiger moth?",
+              "options": [
+                "The predator would be unable to catch it.",
+                "The predator would capture it by poisoning it.",
+                "The predator would be unable to find it.",
+                "The predator would back away from it."
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Câu này hỏi về điều gì rất có thể xảy ra cho một động vật ăn thịt nếu nó có ý định ăn thịt bướm đêm hổ.</p>\n<p>Sau khi đọc hiểu câu (4), (5) và (7), có thể suy ra rằng loài bướm hổ có độc và chúng dùng màu sắc nổi bật của mình để đối phó với kẻ săn mồi, khiến cho những động vật ăn thịt nhận ra rằng chúng không nên ăn thịt động vật có màu sắc nổi bật.</p>\n<p>Đáp án A. <i>Động vật ăn thịt không thể bắt được bướm đêm hổ</i>. Nội dung bài không đề cập đến việc động vật ăn thịt có thể bắt được bướm đêm hổ hay không. -> A loại</p>\n<p>Đáp án B. <i>Động vật ăn thịt sẽ bắt loài bướm đêm hổ bằng cách đầu độc chúng</i>. Không đúng với nội dung trong bài. Thông tin đúng trong bài là loài bướm đêm hổ mới có khả năng đầu độc loài khác. -> B loại</p>\n<p>Đáp án C. <i>Động vật ăn thịt sẽ không thể tìm được loài bướm đêm hổ này</i>. Tương tự như đáp án A, thông tin này không có trong bài. -> C loại</p>\n<p>Đáp án D. <i>Động vật ăn thịt sẽ tránh xa loài bướm đêm hổ</i>. Dựa vào câu (7), thông tin được rút ra là động vật ăn thịt biết rằng bướm đêm hổ không phải là loài phù hợp để ăn thịt. Và câu (3), loài bướm hổ dùng màu sắc để cảnh báo động vật ăn thịt. Suy ra rằng động vật ăn thịt sẽ không lại gần loài bướm hổ này. -> D đúng</p>\n<p>=> D là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r03-q4",
+              "type": "mcq",
+              "question": "Which of the following would a predator be most likely to attack successfully?",
+              "options": [
+                "A purple and orange moth",
+                "A green and blue moth",
+                "a brown and grey moth"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Câu này hỏi là: <i>Động vật ăn thịt có thể tóm gọn thành công loại bướm đêm hổ nào dưới đây nhất?</i></p>\n<p>Sau khi làm câu 1, 2, và 3 ta có thể kết luận rằng chính màu sắc nổi bật đã giúp cho loài bướm hổ tránh bị tấn công bởi động vật ăn thịt. Thêm đó, dựa vào câu (4) “<i>Kiểu kết hợp màu sắc theo hình thức nổi bật như vậy là điều thông thường trong thế giới động vật, có vai trò cảnh báo những loài động vật ăn thịt rằng chúng có vị và mùi khó chịu.” </i>có thể thấy rằng trong tự nhiên, các loài vật thường dùng màu sắc của chúng như là một cách để phòng thủ. Suy ra, loài nào có màu sắc càng nổi bật sẽ có khả năng cao có thể tránh được động vật ăn thịt.</p>\n<p>Đáp án A. <i>Bướm đêm màu tím-cam</i>. Hai màu này là màu tương phản, hai màu này kết hợp sẽ khiến cho cánh của loài bướm trở nên nổi bật</p>\n<p>Đáp án B. <i>Bướm đêm màu xanh lá-xanh dương</i>. Xanh dương và xanh lá là hai màu tươi sáng.</p>\n<p>Đáp án C. <i>Bướm đêm màu nâu-xám</i>. Màu nâu và màu xám là hai màu trầm, sẽ không nổi bật nếu bám ở gốc cây/ trong lúc trời mờ tối.</p>\n<p>Do đó, loài bướm có cánh màu nâu-xám là ít nổi bật nhất. Vì thế động vật ăn thịt thường tấn công bướm đêm màu nâu-xám nhất.</p>\n<p>=> C là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

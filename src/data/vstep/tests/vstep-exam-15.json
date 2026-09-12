@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-15",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 15",
+  "duration": 172,
+  "date": "2026-03-28",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: What does the caller ask Ms. Cook to do?</b></p><ul><li>Hi, Ms. Cook. This is the Village Clinic calling to remind you about your appointment on Thursday at 4 o'clock. Please remember to bring your medical insurance card when you come for your appointment.</li></ul><p><b>Q2: Who is Sachiko Suzuki?</b></p><ul><li>Hello, Mr. Forrester. This is Sachiko Suzuki calling from human resources at Kitano Electronics. If you are available, we would like you to come in for an interview on Friday at 9 o'clock. Please give me a call and let me know if you can come at this time.</li></ul><p><b>Q3: What is the listener asked to do?</b></p><ul><li>Hello, this is Jenny Jones from Jones Mobile Repairs. I'm calling to give you an update on the repair of your mobile phone. Unfortunately, we will have to replace the speaker in your phone. Please call me back at 555-1947 to let me know if you want me to order a new speaker.</li></ul><p><b>Q4: What is the purpose of this message?</b></p><ul><li>Good morning, this is Maria Gray calling from Dilbert Furniture. This message is for Rebecca Rhodes. I need to speak with her about the number of desks she requested, and want to confirm her order before we ship her purchases.</li></ul><p><b>Q5: What is the main purpose of the call?</b></p><ul><li>This is Julie calling from the Stylista Hair Salon. I'm trying to reach Mr. Andrews concerning the interview we scheduled for this afternoon. I'm not feeling well today, so I'm afraid I have to cancel our meeting. However, we are very interested in your application for our hairstylist position. I hope to be back in the office tomorrow, so please call my secretary and let her know if you are available to meet me tomorrow.</li></ul><p><b>Q6: What is Ms. Kim asked to do?</b></p><ul><li>Hello, Ms. Kim. This is Joe Wang from Romy Office Rentals. I'm calling because we won't be able to meet the delivery date. Our salesperson made a mistake and ordered a different photocopier from what you requested. If we rush, we could deliver it to you by Friday night. Can you please call and let me know if someone will be there in your office? Thanks.</li></ul><p><b>Q7: What is the decreasing percentage of domestic sales?</b></p><ul><li>Unfortunately, I must report that domestic sales have dropped by 17 percent over the last two quarters. Although the sluggish domestic economy is a factor, the primary cause of this worrying development is increasing competition in the retail clothing sector.</li></ul><p><b>Q8: What does the speaker say about Rea?</b></p><ul><li>This weekend is the first outing of the in-line skating club for this season. Remember, you are not allowed to skate with the club unless you wear an approved safety helmet. You can ask Rea, the safety coordinator, if you are unsure about your gear.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What does the caller ask Ms. Cook to do?",
+              "options": [
+                "Take along her medical insurance card",
+                "Make an appointment",
+                "Call the receptionist",
+                "Drive his car to the clinic"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Who is Sachiko Suzuki?",
+              "options": [
+                "A job applicant",
+                "A receptionist",
+                "A client",
+                "A personnel officer"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is the listener asked to do?",
+              "options": [
+                "Order a new phone",
+                "Call back",
+                "Go to the office",
+                "Contact the speaker"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the purpose of this message?",
+              "options": [
+                "To confirm an order",
+                "To order some furniture",
+                "To ask for order information",
+                "To inform a change"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the main purpose of the call?",
+              "options": [
+                "To reschedule an interview",
+                "To arrange a class",
+                "To postpone an exhibition",
+                "To request an application"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is Ms. Kim asked to do?",
+              "options": [
+                "Return a phone call",
+                "Deliver a printer",
+                "Meet him on Friday",
+                "Change the order"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the decreasing percentage of domestic sales?",
+              "options": [
+                "7 percent",
+                "11 percent",
+                "17 percent",
+                "70 percent"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What does the speaker say about Rea?",
+              "options": [
+                "She can answer questions about safety equipment.",
+                "She can teach people how to skate.",
+                "She can provide safety helmet.",
+                "She can stake with others."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Hi, Professor Johnson. Can I talk to you?</li><li><b>M:</b> Why, yes, Carrie.</li><li><b>W:</b> Oh, great! I need some help with my essay. I'm having problems finding good information other than the things from the lessons. And I'm not very good at taking notes.</li><li><b>M:</b> Hmm... OK. Let's talk about finding good information first. Books are the best. But, these days, you can look online too.</li><li><b>W:</b> OK. How do I decide what websites and books to use?</li><li><b>M:</b> Well, with the Internet, you type in a subject and you'll get a list of websites. With books, do a search on the library computer. It will give a list of useful books. It's very easy.</li><li><b>W:</b> Wow. That is easy. OK, then what?</li><li><b>M:</b> Take notes. Don't copy everything. You only need a summary of the information. Don 7 sometimes reading the introduction and conclusion first will help you to decide if it is useful.</li><li><b>W:</b> Yeah, I've been reading a lot. And I always copy down too much.</li><li><b>M:</b> Just take notes that will give you the evidence you need for your essay paragraphs. Oh, and the organization of your notes is important too. You will have to find your information again easily.</li><li><b>W:</b> Right. Of course. Thanks so much for your help!</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi, Mr. Baker. Could you help me with something?</li><li><b>M:</b> Sure. What can I do for you?</li><li><b>W:</b> Well, I'd like to check out some library books. I have to do some research for an essay.</li><li><b>M:</b> I see. Well, you've got two choices. You can either use the self-service machine, or you can take the books to the front desk.</li><li><b>W:</b> Could you explain them both, please?</li><li><b>M:</b> OK, sure. See that machine that looks like a computer?</li><li><b>W:</b> Yeah.</li><li><b>M:</b> Well, that's the self-service machine. You'll have to scan your student ID card. Wait a second; did you set up a student library account yet?</li><li><b>W:</b> Yes.</li><li><b>M:</b> OK, good. Anyway, then you scan the books, and the machine will print you a receipt. The receipt tells you when the books are due back.</li><li><b>W:</b> Oh, that's great. I always forget when my books are due back.</li><li><b>M:</b> Yeah. Just be sure to press your ID and the books on the scanner; it's sensitive sometimes.</li><li><b>W:</b> OK, so what's my other checkout choice?</li><li><b>M:</b> You can take your books over to the front desk, where the librarian will help you.</li><li><b>W:</b> Oh, that's it? That's easy. Thanks for the help.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> Hello. Do you need help?</li><li><b>M:</b> Hi. I'm doing research for my history essay and I'm trying to find a book, but I'm not sure where to begin.</li><li><b>W:</b> No problem. Let's see... there are two ways to find books here. You can either use the computer system, or you can use the book lists.</li><li><b>M:</b> How do the book lists work?</li><li><b>W:</b> Well, the lists organize the books by their subjects. You're looking for a book on history. So, first you look under \"History\" on the list. Then you look at the title. Each book is in alphabetical order.</li><li><b>M:</b> OK, I see.</li><li><b>W:</b> Good. Each book has a number next to it, and those numbers tell you where to find that book.</li><li><b>M:</b> I see. And did you mention something about a computer?</li><li><b>W:</b> Oh yeah, I almost forgot. The computer is just as easy. Do a search for your book, and it will tell you where to find it.</li><li><b>M:</b> Great! I should be able to find what I need. Thanks!</li><li><b>W:</b> Oh, and remember if you want to check out any books you need to scan your ID card at the self-service machine. If you have any books due on your account, you won't be able to check out anymore.</li><li><b>M:</b> OK, got it.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the conversation mainly about?",
+              "options": [
+                "Giving a presentation",
+                "Organizing an essay in a clear way",
+                "Finding a partner for a class project",
+                "Finding information and taking notes"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does the professor recommend doing when taking notes?",
+              "options": [
+                "Writing as quickly as possible",
+                "Making a summary",
+                "Checking the information",
+                "Getting lots of information"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does the professor suggest the woman do?",
+              "options": [
+                "She only needs to read the summary.",
+                "She should use computers to search for information.",
+                "She should go to the library to find information.",
+                "She should organize her notes."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What is the likely outcome of using both books and computers as sources?",
+              "options": [
+                "The student will need help doing the research.",
+                "The student will not be able to finish her project.",
+                "The student will have plenty of information.",
+                "The student will like books more than the computer."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "The different sections of the library",
+                "How to check out library books",
+                "How to return the due books",
+                "The use of computer in the library"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Who is Mr. Baker likely be?",
+              "options": [
+                "A librarian",
+                "A janitor",
+                "A shopkeeper",
+                "A student"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the woman need if she wants to use the self-service machine?",
+              "options": [
+                "Librarian's permission",
+                "Library account",
+                "Money",
+                "A receipt"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How does the man explain the solution?",
+              "options": [
+                "By mentioning the ways to check out books",
+                "By describing which books to check out",
+                "By giving information about the self-service machine",
+                "By explaining the procedure of borrowing books"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why is the student looking for help?",
+              "options": [
+                "He is supposed to meet with one of his friends.",
+                "He is looking for a part-time job.",
+                "He wants to know how to find a book.",
+                "He is struggling with his job."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What kind of books is the man looking for?",
+              "options": [
+                "Economics",
+                "Poetry",
+                "Geography",
+                "History"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How does the book listing organize the books?",
+              "options": [
+                "Alphabetically",
+                "By the author's name",
+                "By the subject and then title",
+                "By the subject and then the author's name"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is implied about the student's opinion of finding a book?",
+              "options": [
+                "He thinks it will be easier than he expected.",
+                "He doesn't think that he can do it.",
+                "He is not looking forward to trying to find a book.",
+                "He thinks that the librarian should find it for him."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Lecture 1 (Questions 21-25)</strong></p><p>All right. Today's lecture is about heat. Actually, we will talk about the ways heat moves. They are called heat transfer. Now, there are three types of heat transfer. They are called [slowly] convection..., conduction..., and... radiation. OK? OK! Convection happens when heat moves through gases and liquids. When air or water heat up, they get lighter. Then they move away from the heat. They rise. When they get cooler, they change direction. They come back down to the heat again. In convection, this repeats over and over. For example, a hot-air balloon. Fire heats the air. The hot air becomes lighter. The balloon rises up. But, as the air cools, it gets heavier. So, the balloon goes down. Convection is how hot-air balloons fly. Now, next is conduction. This happens when heat moves through solids. First, a solid object is put on heat. Eventually the solid object takes this heat and it gets hot. Some materials are very good at conduction. Metals, for example. This is why many cooking pans are made of metal. They heat up quickly. But don’t touch them. Ouch! Conduction causes many burns. Finally, heat also moves by radiation. If you can feel heat from an object without touching it then it is radiating heat. Remember you can’t see this heat. The sun, a toaster, a dryer. All these things use radiation. Have you ever warmed your hands by a fire? Even this is radiation. OK? Do we understand?</p><p><strong>Lecture 2 (Questions 26-30)</strong></p><p>OK. So, Impressionism was a new way of painting. It went against old art standards. It changed what was seen as good art. Before it, art was considered good if it was exact. Artists tried to reproduce what they saw on the canvas. They aimed to make the painting look just like what they could see. Impressionist painters were different. The first thing you will notice in an Impressionist painting is the use of color. These artists didn’t mix colors. They put two colors side by side. They knew the eyes would blend the colors for them. The purpose was to create bright and bold colors. Movement was also important. Painters often worked outdoors. This was not normal at the time. Most painters had someone pose for them inside. But the Impressionist went outside. First, they wanted to capture life as it was happening. Their subjects were doing something. They were not posing. Blurred lines showed movement. They paid attention to lighting. Working outside allowed artists to use natural light. This is always changing. The change comes through in the painting. Different times of year are represented with the change in seasons. Impressionist Art changed art. It broke the rules. Many people did not like it for this reason. If you ask me, that’s what makes it so great. And over time, many people agreed.</p><p><strong>Conversation (Questions 31-35)</strong></p><ul><li><b>W:</b> The book Watership Down... let’s talk about it today. It has sold more than 50 million copies. This book’s themes are people and politics. This book looks at how people treat each other and criticizes governments. It uses a story about rabbits. A group of rabbits leave home to find a new place to live. They can’t remain in their old home because it’s going to be destroyed. So, they escape. After a while, the group finds a safe new home. But, they start fighting with other rabbit towns nearby. The rabbits in these towns are very different. And because of this, no one gets on. This shows how people in real life can’t accept each other’s differences. One group of rabbits is called Efrafa. The leader is an adult male rabbit. He controls his town. He tells everyone what to do. No child, teenager, or adult has freedom to learn or experience anything there. The other group of rabbits is the Tharn Warren. It is also very bad. Things are too easy there. Growing up in a place like that means you learn very little. Some people think that the two rabbit towns are like different kinds of governments in the world. And that no government is perfect.</li><li><b>M:</b> Oh, I see! Having a really easy life is bad for you. This is like, uh, the Tharn Warren. The rabbits don’t have to work to find food there. And Efrafa is a place where there is no real freedom. So, it is bad too.</li><li><b>W:</b> Yes, exactly. Watership Down may seem like a simple story about rabbits. But it asks real questions about how we live. This is why it is so popular.</li></ul>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "What heat is",
+                "How heat transfers",
+                "The properties of heat",
+                "Heat in hot air balloons"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What happens to a hot air balloon because of convection?",
+              "options": [
+                "The balloon's air is heated.",
+                "The balloon becomes filled with gas.",
+                "The balloon goes up and goes down.",
+                "The balloon's flame gets hotter and hotter."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What is the professor's opinion of the conduction?",
+              "options": [
+                "He finds it easiest to teach by cooking.",
+                "He feels that it is good for making buildings.",
+                "He believes that it is useful for heating buildings.",
+                "He thinks many people get hurt from it."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Why does the professor mention a toaster?",
+              "options": [
+                "To explain how toast is made by convection",
+                "To discuss how conduction makes toasters hot",
+                "To give an example of something that burns people",
+                "To give an example of heat radiation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What can be inferred from the lecturer?",
+              "options": [
+                "Heat moving through solid materials is convection.",
+                "Convection is not a pattern that repeats.",
+                "Heat cannot move through solid materials.",
+                "Some materials are better at conducting heat than others."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The Impressionist painters and their work",
+                "Why people didn't like Impressionism",
+                "How people posed in Impressionist paintings",
+                "The key features of Impressionist painting"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "How did Impressionist art differ from previous art?",
+              "options": [
+                "It featured people instead of landscapes.",
+                "It used new and different blends of colors.",
+                "It created a three-dimensional effect.",
+                "It was created outside using natural light."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is the speaker's opinion of Impressionism?",
+              "options": [
+                "She likes it because it is different.",
+                "She likes it because the colors blend so well.",
+                "She thinks it's difficult because it uses natural light.",
+                "She doesn't like it because it's blurry."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "How are the points in the lecture organized?",
+              "options": [
+                "In the order that the painters painted",
+                "From most difficult to least difficult",
+                "In the order the textbook mentions them",
+                "By describing the most important points"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Why does the professor say this?",
+              "options": [
+                "To show why older styles of art were better",
+                "To show how older styles of art were different",
+                "To explain how the students should paint",
+                "To describe a famous canvas"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The writer of Watership Down",
+                "The main characters of Watership Down",
+                "The themes of Watership Down",
+                "The political ideas behind Watership Down"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What is the reason the rabbits leave home?",
+              "options": [
+                "They do not have any freedom.",
+                "Their home is going to be destroyed.",
+                "They want to have an adventure.",
+                "They want a new government."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Why does the professor mention the leader of Efrafa?",
+              "options": [
+                "To show the government style of Efrafa",
+                "To compare Efrafa and the Tharn Warren",
+                "To describe how the rabbits typically acted",
+                "To show that the rabbits lived peacefully with others"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "How is the professor's lecture organized?",
+              "options": [
+                "The themes of the story and how they are shown.",
+                "The characters and then what the themes aren't.",
+                "The character comparisons followed by the contrasts.",
+                "The steps the author took in writing the book"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What is the professor's attitude towards Watership Down?",
+              "options": [
+                "She thinks that it shows real life very well.",
+                "She believes that Watership Down is a very simple book.",
+                "She thinks that the book is just about rabbits.",
+                "She thinks that it is hard to understand."
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Food Trends: Why What We Eat Keeps Changing",
+            "text": "<p>Walk into almost any supermarket today and you will notice foods that barely existed on the shelves ten years ago — plant-based burgers, oat milk, and brightly colored energy drinks. Food trends, the popular tastes and habits that spread quickly among large groups of people, change faster now than they once did. Three forces mainly drive this constant change: growing health awareness, greater convenience, and the powerful reach of social media, where a single video can turn an unfamiliar dish into a nationwide <strong>craving</strong> within weeks. Understanding why these trends appear, and why they fade, says as much about modern life as it does about food itself.</p><p>Health awareness is probably the clearest driver. As more people learn about the links between diet and long-term illness, many shoppers now read nutrition labels carefully before buying anything. This shift explains why plant-based meat substitutes, once found only in specialty stores, now sit beside traditional meat in most supermarkets. Sales of these products have grown quickly in the past five years, even though many consumers admit the taste still does not fully match real meat. For <strong>them</strong>, the potential health benefit is worth the <strong>trade-off</strong> in flavor.</p><p>Convenience plays an equally important role, especially among people with busy work schedules. Meal-kit services, which deliver pre-measured ingredients and simple recipes to a customer's door, grew rapidly during the past decade because they promise a home-cooked meal without the usual planning or grocery shopping. Frozen and ready-to-eat meals have also improved in quality, no longer carrying the poor reputation they once had. Many young professionals now choose these options several times a week, saving time on both shopping and cooking without giving up the feeling of a proper dinner.</p><p>Social media, however, may now be the single fastest way a food trend spreads. A short video showing an unusual snack or a colorful drink can reach millions of viewers within days, and restaurants sometimes see long lines form outside their doors the very next morning. Some food trends started this way disappear almost as quickly as they arrived, once viewers move on to the next viral clip. Restaurant owners increasingly say they must watch social media closely, not just to follow trends but to react to them within days, since waiting even a single week can mean missing a trend entirely.</p><p>Taken together, these three forces suggest that food trends are unlikely to slow down anytime soon. Whether a new trend reflects a genuine shift in how people think about health, a simple demand for convenience, or nothing more than a passing moment of online attention, it now spreads faster and disappears faster than trends of previous decades. For food companies, this means constantly watching what people are eating and talking about, ready to adjust their products at a pace that would have seemed unusual only twenty years ago.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q4, R1Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị thông tin trực tiếp trong bài đọc.<ul><li>Với <b>R1Q1</b>, quét câu thứ ba ở đoạn 1: ba động lực chính gồm nhận thức sức khỏe, sự tiện lợi và mạng xã hội (Health awareness, convenience, and social media).</li><li>Với <b>R1Q4</b>, quét cụm từ \"meal-kit services\" ở đoạn 3: dịch vụ giao nguyên liệu đã được định lượng cùng công thức giúp tiết kiệm công sức lên kế hoạch (They deliver pre-measured ingredients and recipes without usual planning).</li><li>Với <b>R1Q7</b>, quét từ khóa \"video\" hoặc \"long lines\" ở đoạn 4: hàng dài người có thể xếp hàng trước nhà hàng ngay sáng hôm sau (Long lines can form outside restaurants the next morning).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể toàn bài: nhận thức sức khỏe, sự tiện lợi và mạng xã hội cùng nhau thúc đẩy sự biến đổi nhanh chóng của xu hướng thực phẩm (Health, convenience, and social media together speed up food trends).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q3</b>, từ <strong>\"craving\"</strong> ở đoạn 1 mô tả sự thèm muốn/khao khát món ăn trên phạm vi toàn quốc. Ngữ cảnh này đồng nghĩa với sự khao khát/mơ ước mãnh liệt (strong desire).</li><li>Với <b>R1Q8</b>, từ <strong>\"trade-off\"</strong> ở đoạn 2 mô tả sự đánh đổi giữa lợi ích sức khỏe và hương vị. Ngữ cảnh này đồng nghĩa với sự thỏa hiệp/đánh đổi (compromise).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q5):</b> Đối soát các yếu tố được nhắc tới trong bài: mối liên hệ giữa chế độ ăn và bệnh tật, lịch trình bận rộn, video ngắn truyền tải nhanh. Chi tiết \"trợ cấp chính phủ giúp giảm giá một số loại thực phẩm\" (Government subsidies lowering the price of certain foods) hoàn toàn không được đề cập.</li><li><b>Dạng câu hỏi Quy chiếu (R1Q6):</b> Từ quy chiếu <strong>\"them\"</strong> trong cụm \"For them, the potential health benefit\" ở đoạn 2 chỉ trực tiếp nhiều người tiêu dùng (many consumers).</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Tổng hợp logic ở đoạn 4. Các chủ nhà hàng ngày càng cảm thấy áp lực phải phản ứng với các xu hướng chỉ trong vòng vài ngày nếu không muốn bỏ lỡ hoàn toàn (They increasingly feel pressure to respond to trends within days).</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích thái độ tác giả. Tác giả giữ thái độ quan sát, mô tả các động lực đằng sau xu hướng một cách khách quan không đưa ra phán xét gay gắt (Observational, describing forces behind trends without strong judgment).</li></ul><p><b>Lời khuyên:</b> Ưu tiên giải quyết trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R1Q6) và <b>Từ vựng</b> (R1Q3, R1Q8). Tiếp theo, sử dụng kỹ thuật đọc quét để xử lý nhanh các câu <b>Chi tiết</b> (R1Q1, R1Q4, R1Q7) và <b>Loại trừ</b> (R1Q5). Cuối cùng, tổng hợp logic toàn bài để hoàn thành chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R1Q9), <b>Ý chính toàn bài</b> (R1Q2) và <b>Thái độ của tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what are the three main forces driving changes in food trends?</span>",
+              "options": [
+                "Health awareness, convenience, and traditional advertising",
+                "Convenience, social media, and restaurant advertising",
+                "Health awareness, convenience, and social media",
+                "Health awareness, government policy, and price"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Health, convenience, and social media together speed up food trends",
+                "Plant-based meat substitutes have completely replaced real meat sales",
+                "Social media matters far more than health or convenience combined",
+                "Food trends have remained mostly unchanged over the past decade"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"craving\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "health benefit",
+                "crafting",
+                "strong desire",
+                "mild interest"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why did meal-kit services grow rapidly?</span>",
+              "options": [
+                "They deliver pre-measured ingredients and recipes without usual planning",
+                "They replaced the need for any home cooking entirely",
+                "They were mainly promoted through television advertising campaigns",
+                "They cost significantly less than any other grocery option"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a reason food trends spread quickly?</span>",
+              "options": [
+                "Government subsidies lowering the price of certain foods",
+                "Busy work schedules increasing demand for convenience",
+                "Growing awareness of links between diet and illness",
+                "Short videos reaching millions of viewers quickly"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> (in \"For them, the potential health benefit,\" paragraph 2) refers to _______.</span>",
+              "options": [
+                "specialty stores",
+                "plant-based substitutes",
+                "many consumers",
+                "nutrition labels"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>What does the passage say can happen after a food video becomes popular online?</span>",
+              "options": [
+                "Restaurants usually close down within the same week",
+                "Prices for the featured food always double overnight",
+                "Governments often step in to regulate the trend",
+                "Long lines can form outside restaurants the next morning"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"trade-off\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "discount",
+                "tradition",
+                "compromise",
+                "delay"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about restaurant owners' attitude toward social media?</span>",
+              "options": [
+                "They increasingly feel pressure to respond to trends within days",
+                "They think waiting several weeks to respond causes no real harm",
+                "They believe social media trends have no effect on their sales",
+                "They report that only television advertising still matters for business"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the pace of change in food trends?</span>",
+              "options": [
+                "Dismissive, suggesting food trends are unimportant and rarely noticed",
+                "Enthusiastic, urging readers to try every new food trend immediately",
+                "Observational, describing forces behind trends without strong judgment",
+                "Alarmed, warning readers about serious dangers of new food products"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Rethinking What It Means to Grow Older",
+            "text": "<p>For much of the twentieth century, popular culture treated aging almost exclusively as a story of decline — a period defined by loss rather than gain. In recent years, however, a small but growing body of psychological research has begun to challenge that narrative directly, suggesting that many aspects of well-being do not simply decrease with age but, for a significant number of people, actually improve well into later life.</p><p>Emotional regulation, several long-term studies now indicate, tends to improve steadily from early adulthood into a person's seventies, even as memory and processing speed decline over the same period. Older adults, according to this research, generally report fewer negative emotions and recover from stressful events more quickly than younger adults tested under comparable conditions. Researchers describe this pattern as <strong>counterintuitive</strong> precisely because it runs against the assumption that overall psychological functioning simply worsens with age; instead, different capacities appear to follow entirely different trajectories, some declining while others continue to strengthen.</p><p>One explanation, proposed by psychologist Laura Carstensen and now widely cited, holds that as people become more aware of limited remaining time, they tend to prioritize emotionally meaningful relationships and experiences over the pursuit of new information or social expansion. This shift, sometimes called socioemotional selectivity, may account for why older adults often report smaller but more satisfying social circles than they had in their twenties, even though the underlying mechanism remains debated among researchers who study motivation more broadly.</p><p>None of this is meant to suggest that aging carries no real physical or cognitive costs. Rates of certain chronic illnesses do rise substantially with age, and some cognitive functions, particularly the speed of processing new information, decline measurably over time. What the newer research challenges is not the existence of these costs but the assumption that they define the overall experience of growing older, rather than existing alongside genuine psychological gains that popular narratives have historically overlooked.</p><p>This shift in scientific understanding has coincided with, though not necessarily caused, a broader cultural movement toward what some writers now call age-positive marketing and media — advertising campaigns featuring older models, television shows centered on characters in their sixties and seventies, and public celebrations of milestone birthdays that once might have been treated as occasions for quiet reflection rather than celebration. Critics argue that some of this messaging remains <strong>superficial</strong>, celebrating age mainly through the appearance of vitality rather than engaging with its genuine complexity.</p><p><strong>This</strong> cultural shift, whether it reflects or merely coincides with the psychological findings described earlier, remains an open question that current research cannot fully settle, particularly since most studies on emotional well-being in later life have drawn heavily on relatively affluent, healthy populations rather than the full range of people who experience aging under more difficult economic or health circumstances.</p><p>Taken together, these findings suggest that growing older is neither the uniform decline nor the uniformly celebrated experience that competing popular narratives often present. Rather, aging appears to involve real losses in some domains occurring alongside genuine gains in others, a more complicated picture than either the old story of decline or the newer, more celebratory one fully captures. Recognizing this complexity, several researchers argue, may matter more for public policy and personal expectations than settling on either narrative as complete.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q4, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị thông tin trực tiếp trong bài đọc.<ul><li>Với <b>R2Q1</b>, quét cụm từ \"chronic illness rates\" ở đoạn 4: tỷ lệ mắc bệnh mãn tính tăng đáng kể theo tuổi tác, nhưng tồn tại song song với những lợi ích tâm lý thực sự (They rise substantially with age, alongside genuine psychological gains).</li><li>Với <b>R2Q4</b>, quét cụm từ \"emotional regulation\" ở đoạn 2: điều chỉnh cảm xúc có xu hướng cải thiện đều đặn ngay cả khi trí nhớ và tốc độ xử lý giảm (It tends to improve steadily even as memory and processing speed decline).</li><li>Với <b>R2Q7</b>, quét tên lý thuyết \"socioemotional selectivity\" ở đoạn 3: người lớn tuổi ưu tiên các mối quan hệ có ý nghĩa hơn là việc mở rộng mạng lưới xã hội (They tend to prioritize meaningful relationships over expanding their social circle).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q3):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề đoạn 1 và kết cấu toàn bài: sự lão hóa bao gồm những mất mát thực tế đi kèm với những lợi ích tâm lý thực sự mà thường bị bỏ qua (Aging involves real losses alongside genuine, often overlooked psychological gains).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q2, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q2</b>, từ <strong>\"counterintuitive\"</strong> ở đoạn 2 mô tả sự việc đi ngược lại với suy đoán thông thường. Ngữ cảnh này đồng nghĩa với bất ngờ, gây ngạc nhiên (surprising).</li><li>Với <b>R2Q8</b>, từ <strong>\"superficial\"</strong> ở đoạn 5 mô tả sự hời hợt, không sâu sắc. Ngữ cảnh này đồng nghĩa với nông choẹt, hời hợt (shallow).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q5):</b> Đối soát các biểu hiện của phong trào văn hóa tích cực về tuổi tác: chiến dịch quảng cáo có người mẫu lớn tuổi, chương trình truyền hình, lễ kỷ niệm sinh nhật. Chi tiết \"nguồn kinh phí chính phủ dành cho nghiên cứu chăm sóc người cao tuổi\" (Government funding directed at elder-care research) không hề được nhắc đến.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Cụm từ quy chiếu <strong>\"This cultural shift\"</strong> chỉ trực tiếp đến phong trào tiếp thị/văn hóa tích cực về tuổi tác (the age-positive marketing movement).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp logic từ các đoạn nghiên cứu. Các đối tượng tham gia nghiên cứu chủ yếu là những người tương đối khá giả và khỏe mạnh, làm hạn chế khả năng áp dụng rộng rãi của kết quả (They have mainly been relatively affluent and healthy, limiting how broadly findings apply).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R2Q10):</b> Phân tích mục đích tổng thể của bài viết. Tác giả trình bày một góc nhìn toàn diện, phức hợp hơn về sự lão hóa thay vì chỉ nghiêng về một thông điệp đơn nhất (To present a more complex picture of aging than either narrative alone).</li></ul><p><b>Lời khuyên:</b> Ưu tiên làm trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R2Q6) và <b>Từ vựng</b> (R2Q2, R2Q8). Tiếp theo, sử dụng kỹ thuật đọc quét để xử lý nhanh các câu <b>Chi tiết</b> (R2Q1, R2Q4, R2Q7) và <b>Loại trừ</b> (R2Q5). Cuối cùng, tổng hợp logic toàn bài để hoàn thành chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R2Q9), <b>Ý chính toàn bài</b> (R2Q3) và <b>Mục đích của tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does the passage say about chronic illness rates and aging?</span>",
+              "options": [
+                "They rise substantially with age, alongside genuine psychological gains",
+                "They rise only among people who reject age-positive cultural messaging",
+                "They remain identical across all age groups studied",
+                "They decrease significantly once emotional regulation improves with age"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"counterintuitive\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "predictable",
+                "emotional",
+                "surprising",
+                "controversial"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Cultural celebrations of aging have fully replaced negative stereotypes about age",
+                "Scientific research proves that aging is now a purely positive experience",
+                "Emotional regulation is the only ability that changes as people age",
+                "Aging involves real losses alongside genuine, often overlooked psychological gains"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what pattern do long-term studies report about emotional regulation and age?</span>",
+              "options": [
+                "It declines at exactly the same rate as memory and processing speed",
+                "It tends to improve steadily even as memory and processing speed decline",
+                "It remains completely unchanged throughout adulthood regardless of age",
+                "It improves only among adults who have professional psychological training"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as part of the age-positive cultural movement?</span>",
+              "options": [
+                "Government funding directed at elder-care research",
+                "Public celebrations of milestone birthdays",
+                "Television shows centered on older characters",
+                "Advertising campaigns featuring older models"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"This\"</strong> (in \"This cultural shift,\" paragraph 6) refers to _______.</span>",
+              "options": [
+                "the chronic-illness increase",
+                "the processing-speed decline",
+                "the age-positive marketing movement",
+                "the motivation researchers' debate"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does socioemotional selectivity theory suggest about older adults?</span>",
+              "options": [
+                "They tend to prioritize meaningful relationships over expanding their social circle",
+                "They generally lose interest in emotionally meaningful relationships altogether",
+                "They actively seek out unfamiliar information rather than close relationships",
+                "They tend to avoid close relationships in favor of new social contacts"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"superficial\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "artificial",
+                "shallow",
+                "supportive",
+                "temporary"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the populations most studied in emotional well-being research on aging?</span>",
+              "options": [
+                "They have included equal numbers of people across all income levels",
+                "They have mainly been relatively affluent and healthy, limiting how broadly findings apply",
+                "They have been studied mainly in countries without any healthcare systems",
+                "They have focused exclusively on people experiencing serious chronic illness"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "To criticize researchers for ignoring the physical costs of aging",
+                "To present a more complex picture of aging than either narrative alone",
+                "To argue that aging should always be celebrated without qualification",
+                "To prove that cultural marketing has caused psychological changes in aging"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Quiet Exodus: Why Young People Leave Their Hometowns",
+            "text": "<p>Across much of the world, small towns and rural regions share a demographic pattern that has become increasingly difficult to reverse: a steady, cumulative departure of young adults toward larger cities, leaving behind populations that skew progressively older with each passing decade. The conventional explanation, that young people simply follow better-paying jobs, captures part of the story but obscures a more complicated set of motivations that recent sociological research has begun to untangle, motivations that persist even in regions where local wages have kept pace with those in nearby cities.</p><p>Economic opportunity alone, it turns out, predicts emigration far less reliably than researchers once assumed. Towns offering comparable wages to those in nearby metropolitan areas often still lose a disproportionate share of their young residents, while some lower-wage towns retain them at surprisingly high rates. What appears to matter more, several longitudinal studies now suggest, is not the absolute wage a young person could earn locally, but the perceived range of life paths available to them — whether staying open a plausible route toward the kind of adulthood they envision, or whether it appears to <strong>foreclose</strong> it.</p><p>This perception, researchers argue, is shaped less by economic statistics than by a young person's exposure to visible models of adult life within their own community. In towns where most successful adults left and returned only occasionally, or where the most visible career paths are concentrated in a narrow set of industries, adolescents may come to associate staying with limited horizons long before they enter the labor market themselves. Whether this effect is strongest during adolescence or persists into early adulthood remains disputed, though several studies point to the years immediately preceding a person's first major career decision as particularly influential.</p><p>None of <b>this</b> suggests that wages are irrelevant. Where local employment genuinely disappears — following a factory closure, for instance, or the decline of an agricultural sector — outmigration accelerates sharply regardless of how residents perceive their prospects, and no amount of community narrative appears able to offset the absence of viable work entirely. The perception-based account, in other words, seems to operate most powerfully in the broad middle range of local economies: those neither collapsing outright nor obviously thriving, where the decision to stay or leave is genuinely open to interpretation.</p><p>Some regional governments have responded by investing not in wage subsidies but in what researchers term 'visibility interventions' — mentorship programs, local business showcases, and return-migrant networks designed to make a wider range of adult life paths locally visible to adolescents well before they leave for higher education. Early evaluations of these programs report modestly higher return rates among young adults who leave temporarily for study, though the studies acknowledge that isolating the intervention's effect from other regional changes occurring simultaneously remains methodologically difficult.</p><p>Critics of the visibility-intervention approach note that such programs cannot, on their own, replace employment in regions where the underlying economic base has genuinely <strong>deteriorated</strong>, of the kind described earlier; a mentorship program offers little practical value to a young adult in a town with no available jobs regardless of local career narratives. Whether visibility interventions meaningfully complement, rather than merely supplement, more traditional economic development efforts remains an open empirical question that current program evaluations have not yet resolved.</p><p>Taken together, these findings suggest that reversing youth outmigration requires more than matching urban wages, though wages remain a necessary floor beneath any other intervention. Communities hoping to retain young residents may need to address not only what work is locally available but also what that work appears to represent about the range of futures still open to someone who chooses to stay — a more difficult, and more gradual, undertaking than any single wage incentive can accomplish on its own.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi Reading Part 3 này, bạn nên áp dụng các chiến thuật và phương pháp phân tích sau:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q4, R3Q7):</b> Sử dụng kỹ năng <b>Scanning</b> để định vị thông tin chính xác theo từ khóa trong bài.<ul><li>Với <b>R3Q1</b>, quét cụm từ <i>\"comparable wages\"</i> ở đoạn 2 để kiểm tra thực trạng của các thị trấn này. Hãy chú ý đến mệnh đề mô tả tỷ lệ mất đi người trẻ dù mức lương tương đương với đô thị lớn.</li><li>Với <b>R3Q4</b>, tìm kiếm từ khóa <i>\"perception\"</i> và <i>\"before they enter the labor market\"</i> ở đoạn 3. Tập trung vào các yếu tố về hình mẫu người lớn (models of adult life) mà thanh thiếu niên tiếp xúc trong cộng đồng.</li><li>Với <b>R3Q7</b>, định vị cụm từ <i>\"Early evaluations\"</i> ở đoạn 5 để tìm kết quả ghi nhận được về tỷ lệ quay trở lại (return rates) của nhóm thanh niên đi học xa.</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q2, R3Q8):</b> Sử dụng phương pháp <b>Context Clues</b> (đoán nghĩa qua ngữ cảnh xung quanh).<ul><li>Với <b>R3Q2</b>, phân tích từ <strong>\"foreclose\"</strong> ở đoạn 2 trong cấu trúc đối lập: <i>\"whether staying open a plausible route... or whether it appears to foreclose it\"</i>. Từ mang ý nghĩa đóng lại hoặc loại bỏ cơ hội/con đường sống.</li><li>Với <b>R3Q8</b>, xét từ <strong>\"deteriorated\"</strong> ở đoạn 6 khi nói về cơ sở kinh tế (economic base) liên hệ với ví dụ mất việc làm ở đoạn 4 (factory closure, decline), mang nghĩa suy giảm hoặc trở nên tồi tệ hơn.</li></ul></li><li><b>Dạng câu hỏi Ý chính & Mục đích của tác giả (R3Q3, R3Q10):</b> Đọc lướt (<b>Skimming</b>) câu mở đầu và câu kết thúc của từng đoạn.<ul><li>Với <b>R3Q3</b> (Ý chính), tổng hợp mạch lập luận từ đoạn 1 đến đoạn 7: bài viết chỉ ra mức lương không phải là yếu tố duy nhất, mà góc nhìn/nhận thức về triển vọng tương lai (perceived life paths) mới đóng vai trò then chốt trong quyết định di cư của giới trẻ.</li><li>Với <b>R3Q10</b> (Mục đích tác giả), nhận diện thái độ phân tích đa chiều (nuanced view) của tác giả: kết hợp cả yếu tố nhận thức lẫn thực trạng kinh tế mà không phiến diện nghiêng về một cực.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Rà soát danh sách các yếu tố được đề cập xuyên suốt bài đọc: sự suy giảm kinh tế/mất việc (đoạn 4), hình mẫu người lớn trong cộng đồng (đoạn 3), các chương trình kết nối/mạng lưới quay về (đoạn 5). Tìm ra yếu tố về khoảng cách di chuyển hàng ngày (commuting distance) hoàn toàn không xuất hiện trong bài.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q6):</b> Định vị từ <strong>\"this\"</strong> trong câu <i>\"None of this suggests that wages are irrelevant\"</i> ở đầu đoạn 4. Áp dụng quy tắc đọc ngược lại nội dung đoạn 2 và đoạn 3 – nơi vừa giải thích về lý thuyết nhận thức và triển vọng sống (perception-based account) để xác định đối tượng quy chiếu.</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Đọc kỹ lập luận phản biện ở đoạn 6 về hiệu quả của các chương trình can thiệp hình ảnh (visibility interventions). Phân tích nhận định của tác giả về giá trị thực tế của các chương trình hướng nghiệp/mentor tại những nơi hoàn toàn không có việc làm.</li></ul><p><b>Lời khuyên chiến thuật:</b> Nên ưu tiên làm trước các câu hỏi định vị từ vựng và quy chiếu rõ ràng (R3Q2, R3Q6, R3Q8) để tích lũy điểm nhanh chóng. Sau đó xử lý các câu chi tiết (R3Q1, R3Q4, R3Q7) và câu loại trừ (R3Q5) thông qua đọc quét. Cuối cùng, tổng hợp góc nhìn toàn cục để hoàn thành chính xác các câu hỏi tổng hợp về ý chính, suy luận và mục đích tác giả (R3Q3, R3Q9, R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what have longitudinal studies found about towns offering wages comparable to nearby cities?</span>",
+              "options": [
+                "They consistently retain more young residents than lower-wage towns do",
+                "They retain young residents whenever visibility programs are introduced",
+                "They often still lose many young residents",
+                "They lose residents only when local factories or farms close down"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"foreclose\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "rule out",
+                "delay",
+                "announce",
+                "finance"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Perceived life paths, not wages alone, largely explain youth outmigration",
+                "Wage subsidies are the only effective solution to rural outmigration",
+                "Young people leave hometowns solely because of factory closures",
+                "Visibility interventions have fully solved youth outmigration in most regions"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what may shape a young person's perception of local opportunity before they even enter the labor market?</span>",
+              "options": [
+                "Their exposure to visible models of adult life within the community",
+                "The number of universities located within the immediate region",
+                "The specific wage levels published in regional government reports",
+                "Formal career counseling sessions provided during adolescence"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor influencing youth outmigration?</span>",
+              "options": [
+                "Genuine local job loss following a factory or agricultural decline",
+                "Visible models of adult life within the community",
+                "The average commuting distance to the nearest large city",
+                "Participation in mentorship or return-migrant network programs"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"this\"</strong> (in \"None of this suggests,\" paragraph 4) refers to _______.</span>",
+              "options": [
+                "the wage subsidy programs mentioned in paragraph 5",
+                "the perception-based explanation described in paragraphs 2 and 3",
+                "the factory closures described in paragraph 4 itself",
+                "the visibility-intervention programs described in paragraph 5"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do early evaluations of visibility interventions report?</span>",
+              "options": [
+                "Slightly higher return rates for student movers",
+                "A complete reversal of outmigration trends within two years",
+                "No measurable effect on return rates among young adults",
+                "Higher return rates only among adults who never left at all"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"deteriorated\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "regulated",
+                "relocated",
+                "diversified",
+                "worsened"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the effectiveness of visibility interventions in regions with no available jobs?</span>",
+              "options": [
+                "They have been shown to eliminate youth outmigration entirely",
+                "They are proven to fully replace the need for local employment",
+                "They likely offer little practical value",
+                "They mainly benefit towns that have already lost their agricultural sector"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in the passage?</span>",
+              "options": [
+                "To prove that visibility interventions are more effective than any wage-based policy",
+                "To offer a nuanced, perception-based view of youth outmigration",
+                "To criticize regional governments for failing to fund mentorship programs",
+                "To argue that wage increases are irrelevant to solving youth outmigration"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Complementary Medicine and the Limits of the Evidence Hierarchy",
+            "text": "<p>Complementary and alternative medicine — a broad category encompassing practices ranging from acupuncture and herbal remedies to meditation-based stress reduction — occupies an increasingly uneasy position within contemporary healthcare systems. Not only have surveys consistently found that a substantial minority of patients in wealthy countries use some form of complementary treatment alongside conventional care, but many report doing so without informing their physicians, a pattern that complicates any straightforward assessment of how widely, and how safely, these practices are actually integrated into routine medical decision-making.</p><p>Whether this integration should be encouraged, tolerated, or actively discouraged remains a matter of considerable disagreement among clinicians and researchers, and the disagreement, on close examination, turns out to hinge less on whether any given complementary practice works than on how rigorously 'working' must be demonstrated before a treatment earns a place in mainstream care. Randomized controlled trials, long treated as the evidentiary gold standard in conventional medicine, have produced genuinely mixed results when applied to complementary practices — strongly positive for some interventions, such as certain uses of acupuncture for chronic pain, and essentially null for others.</p><p>Proponents of a more permissive evidentiary standard argue that the randomized controlled trial, however well suited to evaluating a single pharmaceutical compound, may systematically undervalue interventions whose effects depend heavily on context — the relationship between practitioner and patient, ritual and expectation, or a treatment's fit within a patient's broader belief system — variables that trials are typically designed to control away rather than measure. This argument does not claim that such context effects make a treatment equally effective for every condition, only that conventional trial design may be poorly suited to detecting benefits that arise primarily through mechanisms trials were never built to capture in the first place.</p><p>Critics of this position counter that context effects, whatever their genuine influence on a patient's subjective experience, rarely translate into measurable improvement in objective clinical outcomes — tumor size, blood markers, mortality — and that treatments justified primarily by reference to context risk becoming, in practice, <strong>unfalsifiable</strong>: any failure to demonstrate benefit can always be attributed to insufficiently attentive delivery rather than to the treatment's actual inefficacy. Whether <b>this concern</b> applies equally to all complementary practices, or mainly to those making the strongest causal claims about physiological mechanisms, remains a point on which even skeptical researchers do not fully agree.</p><p>Acupuncture, again, illustrates the resulting uncertainty particularly well. Meta-analyses examining acupuncture for chronic pain report a small but statistically significant benefit over no treatment, yet the same analyses frequently find little difference between genuine acupuncture and sham acupuncture, in which needles are inserted at non-therapeutic points or fail to penetrate the skin at all. Some researchers interpret this pattern as evidence that acupuncture's benefit is substantially, though perhaps not entirely, <strong>attributable</strong> to placebo-adjacent mechanisms rather than the specific anatomical points targeted by traditional theory, a conclusion that practitioners of acupuncture frequently dispute on methodological grounds.</p><p>Whether a treatment that outperforms no intervention, but not sham intervention, deserves a place in mainstream care depends heavily on how one resolves the evidentiary disagreement described earlier: a strict outcomes-only standard would tend to deprioritize such treatments, while a standard more sympathetic to context effects might still endorse them, provided the treatment carries minimal risk and its use does not displace more effective conventional care for serious conditions requiring it.</p><p>None of this resolves the underlying disagreement about how complementary medicine should be evaluated, nor does it settle whether patients who use these treatments alongside conventional care are, on balance, well served by doing so. What the accumulated evidence does suggest, cautiously, is that blanket judgments — dismissing complementary medicine wholesale as pure placebo, or embracing it wholesale as equivalent to conventional treatment — both overstate the certainty that current research can actually support, regardless of which direction that overstatement happens to run.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi Reading Part 4 này, bạn nên áp dụng các chiến thuật và phương pháp phân tích chi tiết sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q4, R4Q10):</b> Sử dụng kỹ năng <b>Scanning</b> để tìm dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R4Q2</b>, quét cụm từ <i>\"Randomized controlled trials\"</i> ở đoạn 2 để kiểm tra kết quả chung: bài viết chỉ ra kết quả thực sự đan xen (genuinely mixed results) tùy theo từng phương pháp điều trị.</li><li>Với <b>R4Q4</b>, định vị cụm từ <i>\"Proponents of a more permissive evidentiary standard\"</i> ở đoạn 3 để xem lập luận của nhóm này: các thử nghiệm truyền thống thường bỏ sót các lợi ích xuất phát từ yếu tố ngữ cảnh (context-dependent mechanisms).</li><li>Với <b>R4Q10</b>, tìm từ khóa <i>\"Meta-analyses\"</i> và <i>\"acupuncture\"</i> ở đoạn 5 để xem kết quả thực nghiệm: ghi nhận hiệu quả nhỏ so với việc không điều trị, nhưng không có nhiều khác biệt so with châm cứu giả (sham acupuncture).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q8):</b> Áp dụng kỹ thuật <b>Context Clues</b> để suy đoán nghĩa.<ul><li>Với <b>R4Q3</b>, từ <strong>\"unfalsifiable\"</strong> ở đoạn 4 được giải thích ngay ở mệnh đề phía sau: <i>\"any failure... can always be attributed to... rather than to inefficacy\"</i> (bất kỳ thất bại nào cũng có thể đổ lỗi cho cách thực hiện chứ không phải do phương pháp kém), nghĩa là không thể chứng minh là sai/không thể bác bỏ (impossible to disprove).</li><li>Với <b>R4Q8</b>, từ <strong>\"attributable\"</strong> ở đoạn 5 nằm trong ngữ cảnh giải thích nguồn gốc tác dụng của châm cứu (attributable to placebo-adjacent mechanisms), mang nghĩa có thể quy cho/truy xuất nguồn gốc từ (traceable).</li></ul></li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R4Q1, R4Q9):</b> Đọc lướt (<b>Skimming</b>) đoạn mở đầu, đoạn kết và giọng văn xuyên suốt bài.<ul><li>Với <b>R4Q1</b> (Ý chính), chú ý câu kết bài ở đoạn 7: tác giả nhấn mạnh việc đưa ra các nhận định phiến diện/tuyệt đối (blanket judgments) đều vượt quá những gì bằng chứng khoa học hiện tại có thể hỗ trợ.</li><li>Với <b>R4Q9</b> (Thái độ tác giả), phân tích sắc thái phân tích đa chiều ở đoạn cuối: tác giả giữ thái độ cân bằng, cẩn trọng (balanced and cautious), trình bày cả hai luồng ý kiến mà không nghiêng hẳn về bên nào.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q5):</b> Kiểm tra kỹ các yếu tố tranh luận được liệt kê trong bài: tiêu chuẩn đánh giá 'hiệu quả' (đoạn 2), việc tác động ngữ cảnh có chuyển hóa thành kết quả lâm sàng khách quan không (đoạn 4), và nguy cơ thay thế các liệu pháp truyền thống hiệu quả (đoạn 6). Yếu tố tổng chi phí điều trị (total cost) hoàn toàn không được nhắc tới.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q6):</b> Định vị cụm từ <strong>\"this concern\"</strong> ở cuối đoạn 4. Đọc ngược lại câu ngay trước đó để xác định mối lo ngại vừa được chỉ ra: nguy cơ các liệu pháp y học bổ sung trở thành không thể bác bỏ (unfalsifiable).</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Phân tích logic ở đoạn 6 về phương pháp tốt hơn \"không điều trị\" nhưng không vượt trội hơn \"can thiệp giả\". Việc chấp nhận liệu pháp này vào hệ thống y tế chính thống hay không phụ thuộc hoàn toàn vào tiêu chuẩn bằng chứng (evidentiary standard) được lựa chọn (nghiêm ngặt chỉ dựa trên kết quả hay cởi mở với hiệu ứng ngữ cảnh).</li></ul><p><b>Lời khuyên chiến thuật:</b> Hãy ưu tiên hoàn thành trước các câu hỏi từ vựng (R4Q3, R4Q8) và câu hỏi quy chiếu (R4Q6) để tích lũy điểm nhanh. Tiếp theo, quét nhanh thông tin cho các câu hỏi chi tiết (R4Q2, R4Q4, R4Q10) và câu loại trừ (R4Q5). Cuối cùng, kết hợp thông tin toàn bài để trả lời chính xác câu hỏi suy luận (R4Q7), ý chính (R4Q1) và thái độ tác giả (R4Q9).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Blanket judgments about complementary medicine likely overstate what current evidence can support",
+                "Randomized controlled trials are the only valid way to evaluate any medical treatment",
+                "Acupuncture has been proven to work through purely psychological mechanisms",
+                "Complementary medicine should never be integrated into mainstream healthcare systems"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what has been the general pattern in randomized controlled trial results for complementary practices?</span>",
+              "options": [
+                "Genuinely mixed across different interventions",
+                "Uniformly negative, showing no benefit for any practice studied",
+                "Too limited in number to draw any conclusions at all",
+                "Uniformly positive across nearly every complementary practice tested"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"unfalsifiable\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "difficult to standardize",
+                "impossible to disprove",
+                "difficult to translate",
+                "impossible to afford"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do proponents of a more permissive evidentiary standard argue trials may fail to detect?</span>",
+              "options": [
+                "Benefits that depend entirely on a patient's genetic profile",
+                "Benefits that occur only when a treatment is combined with medication",
+                "Benefits that are visible exclusively in long-term mortality data",
+                "Benefits from context-dependent mechanisms"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor in the disagreement over evaluating complementary medicine?</span>",
+              "options": [
+                "Whether a treatment's use displaces more effective conventional care",
+                "The total cost of complementary treatments compared to conventional care",
+                "Whether context effects translate into measurable objective clinical outcomes",
+                "How rigorously 'working' must be demonstrated before a treatment is accepted"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this concern\"</strong> (paragraph 4) refers to _______.</span>",
+              "options": [
+                "the risk that complementary treatments become impossible to disprove",
+                "the risk that acupuncture harms patients physically",
+                "the risk that randomized trials are too expensive to conduct",
+                "the risk that patients hide treatment use from physicians"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about a treatment that outperforms no intervention but not sham intervention?</span>",
+              "options": [
+                "Its inclusion depends on the chosen evidentiary standard",
+                "It is guaranteed to be included in mainstream care regardless of risk",
+                "It has already been proven equivalent to conventional treatment for serious illness",
+                "It is guaranteed to be excluded from mainstream care under any evidentiary standard"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"attributable\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "avoidable",
+                "comparable",
+                "traceable",
+                "curable"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the debate over complementary medicine's evidentiary standards?</span>",
+              "options": [
+                "Balanced and cautious, presenting both sides without endorsing either fully",
+                "Dismissive, treating complementary medicine as entirely without merit",
+                "Strongly supportive of abandoning randomized controlled trials entirely",
+                "Uncritically accepting, treating all complementary claims as already proven"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>What do meta-analyses on acupuncture for chronic pain generally find?</span>",
+              "options": [
+                "A large benefit over no treatment and an equally large difference from sham acupuncture",
+                "Consistent results only when the patient is unaware of receiving acupuncture",
+                "No benefit over no treatment but a strong difference from sham acupuncture",
+                "A small benefit over no treatment but little difference from sham acupuncture"
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You are organizing a class reunion party and want to invite your old friend, Frank.</p> Write an email to Frank to invite him to the party and provide the necessary details.",
+          "content": "<p class='mb-1'>You have decided to host a reunion for your former classmates to catch up after a long time.</p><ul><li>Who is invited to the party?</li><li>What are the planned activities, and what is the date and location?</li><li>What food or drinks should he bring to the event?</li></ul>",
+          "description": "Write an email to Frank. You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li>Đây là dạng <strong>Informal Email</strong> (Thư thân mật) gửi cho một người bạn cũ tên là Frank.</li><li>Mục đích: Mời tham dự tiệc họp lớp và cung cấp thông tin chi tiết.</li><li>Yêu cầu: Trả lời đủ 3 ý (người tham dự, hoạt động/thời gian/địa điểm, yêu cầu về đồ ăn uống) và viết ít nhất <strong>120 từ</strong>.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi thân mật. Ví dụ: Hi Frank, hoặc Dear Frank,</li><li><strong>Opening:</strong> Dẫn dắt và đưa ra lời mời. Ví dụ: I hope you are doing well. I am writing to invite you to a class reunion party I am organizing next month.</li><li><strong>Body Paragraph 1:</strong> Trả lời câu hỏi về đối tượng tham dự và các hoạt động. Ví dụ: Most of our old classmates from high school are coming, and even Mr. Tan, our homeroom teacher, might join us. We plan to look at old photos and share what we have been up to.</li><li><strong>Body Paragraph 2:</strong> Cung cấp thông tin thời gian, địa điểm và yêu cầu mang theo đồ. Ví dụ: The party will be at 6 PM on Saturday at the Sunshine Cafe. Since it is a potluck-style party, could you bring some soft drinks and your favorite snacks?</li><li><strong>Closing:</strong> Thể hiện sự mong chờ. Ví dụ: It would be wonderful to see you again. Please let me know if you can make it!</li><li><strong>Sign-off:</strong> Best, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng ngôn ngữ tự nhiên, gần gũi. Sử dụng thì tương lai để nói về kế hoạch và hiện tại hoàn thành để nói về việc đã lâu không gặp.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Class reunion:</strong> Họp lớp</li><li><strong>Get-together:</strong> Buổi tụ họp</li><li><strong>Catch up:</strong> Hàn huyên, cập nhật tin tức</li><li><strong>Former classmates:</strong> Bạn học cũ</li><li><strong>Venue:</strong> Địa điểm tổ chức</li><li><strong>Potluck party:</strong> Tiệc mà mỗi người mang một món ăn đến đóng góp</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>First of all:</strong> Trước hết</li><li><strong>Moreover:</strong> Hơn nữa</li><li><strong>As for the location:</strong> Về địa điểm</li><li><strong>By the way:</strong> Nhân tiện</li><li><strong>In addition:</strong> Ngoài ra</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I am so excited about this event:</strong> Mình rất hào hứng về sự kiện này.</li><li><strong>It would be great to see everyone again:</strong> Sẽ thật tuyệt khi được gặp lại mọi người.</li><li><strong>I really hope you can make it:</strong> Mình rất hy vọng bạn có thể tham gia được.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Quên không nhắc đến thời gian và địa điểm cụ thể.</li><li>Sử dụng cấu trúc quá trang trọng (như trong thư xin việc) không phù hợp với bạn bè.</li><li>Viết dưới 120 từ dẫn đến bị trừ điểm Task Fulfillment.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đã ghi rõ tên người nhận là Frank chưa?</li><li>Đã có đầy đủ thông tin về đồ ăn và đồ uống (food and drinks) chưa?</li><li>Kiểm tra lỗi chính tả các từ như 'reunion' hay 'location'.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tưởng tượng bạn đang thực sự viết thư cho một người bạn. Điều này giúp giọng văn trở nên tự nhiên và truyền cảm hơn. Đừng quá cứng nhắc vào các cấu trúc ngữ pháp phức tạp nếu nó làm mất đi tính thân mật của bức thư.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "problem_solution",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>The use of electronic devices such as smartphones and tablets has become increasingly common among children today.</p><p class='mb-1'>While these gadgets offer certain benefits, many people are concerned about the negative impacts they have on young users.</p><p class='mb-1'><strong>Discuss the problems caused by the excessive use of electronic devices among children and suggest some possible solutions to address this issue.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the problems caused by the use of electronic devices among children and suggest possible solutions. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li>Đây là dạng bài <strong>Problem and Solution Essay</strong> (Vấn đề và Giải pháp).</li><li>Chủ đề: Tác hại của thiết bị điện tử đối với trẻ em và cách khắc phục.</li><li>Yêu cầu: Phân tích ít nhất 2 vấn đề và đưa ra các giải pháp tương ứng. Viết tối thiểu <strong>250 từ</strong>.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Dẫn dắt vấn đề (Sự phổ biến của thiết bị điện tử) và nêu mục đích bài viết (nêu vấn đề và giải pháp). Ví dụ: While electronic devices are useful, their overuse among children has led to serious concerns. This essay will examine the primary problems and propose some effective solutions.</li><li><strong>Body Paragraph 1 (Problems):</strong> Nêu các vấn đề như sức khỏe (béo phì, cận thị) và kỹ năng xã hội (cô lập, thiếu tương tác). Ví dụ: The first major issue is the decline in physical health. Many children lead a sedentary lifestyle, leading to obesity.</li><li><strong>Body Paragraph 2 (Solutions):</strong> Nêu các giải pháp như sự giám sát của cha mẹ và khuyến khích hoạt động ngoài trời. Ví dụ: To tackle these problems, parents should set strict time limits on screen usage and encourage their children to play outdoors.</li><li><strong>Conclusion:</strong> Tóm tắt lại các ý chính và đưa ra lời khuyên cuối cùng. Ví dụ: In conclusion, although electronic devices pose several risks to children, these can be mitigated through proper parental guidance and a balanced lifestyle.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng các cấu trúc câu phức và từ vựng mang tính học thuật liên quan đến giáo dục và sức khỏe.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Sedentary lifestyle:</strong> Lối sống ít vận động</li><li><strong>Digital addiction:</strong> Nghiện kỹ thuật số</li><li><strong>Cognitive development:</strong> Phát triển nhận thức</li><li><strong>Parental supervision:</strong> Sự giám sát của cha mẹ</li><li><strong>Social isolation:</strong> Sự cô lập về mặt xã hội</li><li><strong>Physical ailments:</strong> Các bệnh lý về thể chất</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>To begin with / Firstly:</strong> Để bắt đầu / Thứ nhất là</li><li><strong>Consequently / As a result:</strong> Hệ quả là / Kết quả là</li><li><strong>Furthermore / In addition:</strong> Hơn nữa</li><li><strong>On the other hand:</strong> Mặt khác</li><li><strong>To address this issue:</strong> Để giải quyết vấn đề này</li><li><strong>In conclusion / To sum up:</strong> Tóm lại</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Electronic devices:</strong> Thay bằng digital gadgets hoặc technological tools.</li><li><strong>Children:</strong> Thay bằng young users, the younger generation hoặc offspring.</li><li><strong>Excessive use:</strong> Thay bằng overreliance on hoặc spending an inordinate amount of time on.</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li><strong>One of the most pressing issues is...:</strong> Một trong những vấn đề cấp bách nhất là...</li><li><strong>A viable solution would be to...:</strong> Một giải pháp khả thi sẽ là...</li><li><strong>It is imperative that parents...:</strong> Điều cấp thiết là cha mẹ phải...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nêu vấn đề mà quên nêu giải pháp (hoặc ngược lại).</li><li>Sử dụng ngôn ngữ quá thân mật (ví dụ dùng 'kids' thay vì 'children').</li><li>Các giải pháp không liên quan trực tiếp đến vấn đề đã nêu ở trên.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra sự thống nhất giữa vấn đề và giải pháp (mỗi vấn đề nên có giải pháp đi kèm).</li><li>Đảm bảo đã có Thesis Statement rõ ràng ở mở bài.</li><li>Rà soát lỗi chia động từ ở thì hiện tại đơn.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tập trung vào tính logic. Nếu bạn nói trẻ em bị cận thị (vấn đề), giải pháp phải liên quan đến việc bảo vệ mắt hoặc giới hạn thời gian nhìn màn hình. Tránh đưa ra các giải pháp chung chung không giải quyết được vấn đề cụ thể đã nêu.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you enjoy listening to music?",
+            "What kind of music do you usually listen to?",
+            "Do you think music can affect a person's mood? How?",
+            "How much time do you spend on social media every day?",
+            "What do you mainly use social media for?",
+            "Do you think social media has more positive or negative effects on young people?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này có <strong>2 chủ đề nhỏ</strong>: <strong>Topic A (Music)</strong> và <strong>Topic B (Social Media)</strong>.</li><li><strong>Topic A (Music):</strong> Ba câu hỏi đầu kiểm tra khả năng nói về sở thích âm nhạc, thể loại nhạc yêu thích và quan điểm về ảnh hưởng của âm nhạc đến tâm trạng.</li><li><strong>Topic B (Social Media):</strong> Ba câu hỏi sau kiểm tra khả năng nói về thời gian sử dụng mạng xã hội, mục đích sử dụng và quan điểm về tác động của nó đến giới trẻ.</li><li>Tiêu chí đánh giá gồm <strong>Fluency, Vocabulary, Grammar và Pronunciation</strong>.</li><li>Thời gian Part 1 là <strong>3 phút</strong>, nên dành khoảng 25–35 giây cho mỗi câu hỏi, cân bằng đều giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong> để trả lời đầy đủ và có chiều sâu.</li><li><strong>Ví dụ Topic A:</strong> \"Yes, I really enjoy listening to music, especially pop and acoustic songs, because they help me relax after a long day of studying.\"</li><li><strong>Ví dụ Topic B:</strong> \"I probably spend around two hours a day on social media, mostly chatting with friends and watching short videos.\"</li><li>Luôn tự hỏi Why?/How? để mở rộng câu trả lời, tránh nói quá ngắn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển ý tự nhiên như \"Besides listening to music, I'd also like to share a bit about my social media habits.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Duy trì tốc độ nói ổn định, dùng từ đệm để tránh khoảng lặng dài.</li><li>Dùng <strong>hiện tại đơn</strong> khi nói về thói quen nghe nhạc và dùng mạng xã hội, dùng <strong>hiện tại hoàn thành</strong> khi nói về sự thay đổi thói quen theo thời gian.</li><li>Nếu bí từ, hãy diễn đạt bằng từ đơn giản hơn thay vì im lặng.</li><li>Từ vựng cho Topic A: lift my spirits, a soothing melody, be in the mood for something, unwind to music.</li><li>Từ vựng cho Topic B: stay connected, scroll through feeds, an addictive habit, a double-edged sword.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>lift my spirits</strong> (nâng cao tinh thần)</li><li><strong>a soothing melody</strong> (một giai điệu êm dịu)</li><li><strong>unwind to music</strong> (thư giãn nhờ âm nhạc)</li><li><strong>stay connected</strong> (duy trì kết nối)</li><li><strong>scroll through feeds</strong> (lướt xem bảng tin)</li><li><strong>a double-edged sword</strong> (con dao hai lưỡi)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Firstly</strong> - trước hết, dùng để mở đầu ý.</li><li><strong>Besides</strong> - bên cạnh đó, dùng để bổ sung ý.</li><li><strong>For example</strong> - ví dụ như, dùng khi minh họa.</li><li><strong>However</strong> - tuy nhiên, dùng khi đối chiếu ý kiến.</li><li><strong>That's why</strong> - đó là lý do vì sao, dùng để nêu kết quả.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>Personally, I think...</strong> Ví dụ: \"Personally, I think upbeat music can instantly improve my mood when I'm feeling down.\"</li><li><strong>In my opinion...</strong> Ví dụ: \"In my opinion, social media has both positive and negative effects depending on how it's used.\"</li><li><strong>I would say that...</strong> Ví dụ: \"I would say that I mainly use social media to keep in touch with friends who live far away.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\"/\"No\" rồi im lặng mà không giải thích thêm - lỗi nghiêm trọng nhất.</li><li>Ở Topic A, chỉ nêu tên thể loại nhạc mà không giải thích lý do yêu thích.</li><li>Ở Topic B, chỉ nói chung chung mà không đưa ra ví dụ cụ thể về cách sử dụng.</li><li>Phát âm sai trọng âm từ: <strong>'music</strong>, <strong>so'cial</strong>.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's an interesting question, let me think for a second.\"</li><li>Nếu quên từ, hãy mô tả khái niệm bằng từ đơn giản hơn.</li><li>Với Topic A, nếu bí ý, hãy kể tên một bài hát hoặc ca sĩ cụ thể mà bạn yêu thích.</li><li>Với Topic B, nếu bí ý, hãy kể về một ứng dụng mạng xã hội cụ thể mà bạn hay dùng.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Coi đây như một cuộc trò chuyện thân mật với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để bắt đầu câu chuyện mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố dùng từ vựng quá phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You need to find a suitable place to study for your upcoming exams, but you can only choose one place.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Study at the library</li><li>Option 2: Study at home</li><li>Option 3: Study at a quiet coffee shop</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Đây là dạng <strong>Solution Discussion</strong>. Bạn cần chọn một địa điểm học bài phù hợp nhất cho kỳ thi sắp tới trong ba lựa chọn: thư viện, ở nhà, hoặc quán cà phê yên tĩnh.</li><li>Ba lựa chọn khác nhau về mức độ yên tĩnh, sự tiện lợi và khả năng tập trung.</li><li>Thời gian là <strong>4 phút</strong>; cần phân tích cả ba phương án trước khi đưa ra kết luận.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction - Comparison/Body - End)</strong> để trình bày mạch lạc từng lựa chọn rồi kết luận.</li><li><strong>Option 1 (Thư viện):</strong> \"Studying at the library offers a quiet and academic environment with access to reference materials, but it can get crowded during exam season.\"</li><li><strong>Option 2 (Ở nhà):</strong> \"Studying at home is convenient and saves commuting time, though it's easy to get distracted by family members or household chores.\"</li><li><strong>Option 3 (Quán cà phê):</strong> \"Studying at a quiet coffee shop provides a relaxed atmosphere with some background noise that helps me focus, but it can be costly if I go there every day.\"</li><li>Nên neo lập luận vào bối cảnh thực tế của việc ôn thi trong giai đoạn cao điểm.</li><li>Dùng từ nối tương phản như \"however\", \"whereas\" để chuyển giữa ưu và nhược điểm của từng lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ: \"Unlike studying at home, where distractions are common, the library offers a more disciplined environment.\"</li><li>Dùng modal verbs (would, could, should) khi giả định và đề xuất giải pháp.</li><li>Paraphrase \"study\" bằng \"revise\" hoặc \"prepare for exams\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a distraction-free environment</strong> (một môi trường không bị xao nhãng)</li><li><strong>stay focused</strong> (giữ sự tập trung)</li><li><strong>access to reference materials</strong> (tiếp cận tài liệu tham khảo)</li><li><strong>a productive study session</strong> (một buổi học hiệu quả)</li><li><strong>commuting time</strong> (thời gian di chuyển)</li><li><strong>an academic atmosphere</strong> (một không khí học thuật)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared with</strong> - so với, dùng khi so sánh hai lựa chọn.</li><li><strong>Whereas</strong> - trong khi đó, dùng để đối lập.</li><li><strong>Nevertheless</strong> - tuy nhiên, dùng để chuyển ý ngược lại.</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố, dùng trước kết luận.</li><li><strong>In terms of</strong> - xét về mặt, dùng khi so sánh theo tiêu chí cụ thể.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I had to choose, I would go with...</strong> Ví dụ: \"If I had to choose, I would go with the library because the quiet environment helps me concentrate better.\"</li><li><strong>I'm more inclined towards...</strong> Ví dụ: \"I'm more inclined towards a place with minimal distractions rather than the comfort of home.\"</li><li><strong>All things considered...</strong> Ví dụ: \"All things considered, a quiet coffee shop seems like a good balance between comfort and focus.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của nó.</li><li>Lặp lại từ \"quiet\"/\"good\" quá nhiều thay vì dùng tính từ học thuật hơn.</li><li>Không có kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng liên quan đến một lựa chọn, chuyển hướng sang nói về sự tiện lợi hoặc chi phí của địa điểm đó.</li><li>Dùng câu chờ ý: \"Let's evaluate this option from a different perspective.\"</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Đặt mình vào vị trí người chuẩn bị thi - địa điểm nào giúp bạn tập trung và đạt hiệu quả học tập cao nhất?</li><li>Có thể đề xuất kết hợp, ví dụ học ở thư viện vào ban ngày và ôn lại ở nhà vào buổi tối, để thể hiện tư duy linh hoạt.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn đã chọn để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The importance of balancing work and saving money for young people",
+          "mindmap": {
+            "title": "Work and Saving Money",
+            "ideas": [
+              "Saving challenges",
+              "Benefits of early saving",
+              "Ways to save",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Do you think it's important for young people to save part of their income?",
+            "What are some common mistakes young people make when managing their money?",
+            "How can a stable job help someone build financial security in the future?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về tầm quan trọng của việc cân bằng giữa công việc và tiết kiệm tiền đối với người trẻ, dựa trên ba nhánh chính và một nhánh ý kiến cá nhân.</li><li>Ba nhánh chính gồm: lý do khiến người trẻ khó tiết kiệm tiền khi đi làm, lợi ích của việc hình thành thói quen tiết kiệm sớm, và những cách thực tế để tiết kiệm tiền trong khi làm việc.</li><li><strong>Gợi ý cho nhánh thứ 4 (ý kiến cá nhân):</strong> có thể phát triển theo hướng vai trò của việc lập ngân sách cá nhân hoặc đầu tư nhỏ trong việc đạt được sự ổn định tài chính.</li><li>Thời gian là <strong>5 phút</strong>: khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> để trình bày từng nhánh của sơ đồ tư duy.</li><li><strong>Ví dụ mở bài:</strong> \"Today, I'd like to talk about the importance of balancing work and saving money for young people.\"</li><li><strong>Ví dụ cho nhánh ý kiến cá nhân:</strong> \"In my opinion, creating a monthly budget is one of the most effective ways for young workers to keep track of their spending and saving.\"</li><li>Nên đưa ví dụ thực tế như chi tiêu không kiểm soát khi mới đi làm, hoặc lập kế hoạch tiết kiệm cho mục tiêu dài hạn như mua nhà.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lạc đề sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển ý mượt mà khi chuyển từ nhánh này sang nhánh khác của sơ đồ tư duy.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> cho sự thật chung, dùng <strong>tương lai đơn</strong> khi nói về mục tiêu tài chính trong tương lai.</li><li>Paraphrase \"saving money\" bằng \"setting money aside\" hoặc \"building up savings\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>financial security</strong> (sự ổn định tài chính)</li><li><strong>live within one's means</strong> (sống trong khả năng tài chính của mình)</li><li><strong>a monthly budget</strong> (một ngân sách hàng tháng)</li><li><strong>impulsive spending</strong> (chi tiêu bốc đồng)</li><li><strong>an emergency fund</strong> (một quỹ dự phòng khẩn cấp)</li><li><strong>set financial goals</strong> (đặt mục tiêu tài chính)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước hết, dùng để mở đầu nhánh đầu tiên.</li><li><strong>Moving on to</strong> - chuyển sang, dùng khi chuyển nhánh ý.</li><li><strong>Furthermore</strong> - hơn nữa, dùng để bổ sung ý.</li><li><strong>In addition to that</strong> - thêm vào đó, dùng để mở rộng ý.</li><li><strong>To sum up</strong> - tóm lại, dùng khi kết luận.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>I firmly believe that...</strong> Ví dụ: \"I firmly believe that developing a saving habit early can prevent a lot of financial stress later in life.\"</li><li><strong>It seems to me that...</strong> Ví dụ: \"It seems to me that many young workers spend their first paychecks without any clear plan.\"</li><li><strong>What strikes me most is...</strong> Ví dụ: \"What strikes me most is how a small monthly saving habit can grow into significant financial security over time.\"</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Do you think it's important for young people to save part of their income?\"</strong> - Có thể nhấn mạnh rằng tiết kiệm giúp chuẩn bị cho các tình huống bất ngờ và mục tiêu tài chính dài hạn.</li><li><strong>\"What are some common mistakes young people make when managing their money?\"</strong> - Có thể đề cập đến việc chi tiêu bốc đồng, không lập ngân sách, hoặc vay mượn quá khả năng chi trả.</li><li><strong>\"How can a stable job help someone build financial security in the future?\"</strong> - Có thể liên hệ đến thu nhập ổn định giúp lập kế hoạch tiết kiệm và đầu tư dài hạn dễ dàng hơn.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê lý do hoặc lợi ích mà không giải thích cụ thể - luôn cần đưa ví dụ minh họa.</li><li>Quên nhánh ý kiến cá nhân - nên chuẩn bị trước nhánh thứ tư này.</li><li>Nói quá dài ở phần mở đầu khiến không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào trải nghiệm cá nhân hoặc quan sát thực tế khi bí ý, ví dụ thói quen chi tiêu của bản thân hoặc bạn bè.</li><li>Câu chờ ý học thuật: \"That is a complex issue. If we evaluate it from a financial perspective...\"</li><li>Dùng từ đồng nghĩa hoặc mô tả đơn giản nếu quên từ vựng chuyên môn.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ thực tế và liên hệ với áp lực tài chính mà người trẻ mới đi làm thường gặp phải.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố quyết định điểm số.</li><li>Luôn giữ giọng điệu tự nhiên, tránh đọc thuộc lòng như một bài văn mẫu.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

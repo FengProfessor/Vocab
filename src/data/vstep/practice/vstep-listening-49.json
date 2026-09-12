@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-49",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 49",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-26/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Thank you for coming to tonight’s performance of The Miracle Maker. The play will start shortly, and we’d like to remind you that copies of the script are available for sale in the lobby for $15. For tonight only, if you buy a script you will also receive a special poster signed by the entire cast. Also, don’t forget to pick up a schedule of events for our other performances this year. Thanks for listening and enjoy the show.</li></ul><p><b>Question 2.</b></p><ul><li>Are you worried about the safety of your home? Whether you’re looking for a new security plan or an update of your current security system Power Security has the solution for you. We offer state-of-the-art technology and speedy service. Our security team is on duty 24 hours a day to provide you with expert protection. We also offer special rates for office buildings or complexes. So give us a call today at 555-243. and request a free brochure and consultation.</li></ul><p><b>Question 3.</b></p><ul><li>This is the KGBS traffic report. Traffic on Highway 6 headed west is heavy due to some flooding caused by last night’s storm If you are going west, we suggest taking Highway 15 instead, as the roads are clear in that area. Also, don’t forget that Lakefront Road will be closed starting tomorrow because of the new bridge construction. You may want to take Valleyview Drive as an alternate route.</li></ul><p><b>Question 4.</b></p><ul><li>Welcome to the Temasek Bird Park. Today, we’re going to see birds that have been collected from all over the world Because it’s hot outside, you should bring a bottle of water with you. The tour will be 3 hours, including a short break.</li></ul><p><b>Question 5.</b></p><ul><li>Thanks for calling Vista Telecom. We are currently experiencing problems with the downtown telephone lines. Technicians are working on the problem and hope to restore full service by this afternoon. Please call back each hour to hear an updated recording of this message.</li></ul><p><b>Question 6.</b></p><ul><li>May I have your attention, please? Our new parking facilities will open and be ready for use starting Monday morning. All staff members who wish to leave their vehicles in the parking area should register for a parking pass. All requests must be submitted to the personnel office by Thursday. Don’t forget to bring your parking pass with you every day as it is needed to enter the parking area.</li></ul><p><b>Question 7.</b></p><ul><li>May I have your attention, please? As you were told last week, our office windows were supposed to be replaced tomorrow. But, the installers have been delayed and are still working on the lobby. It looks like we’ll have to wait until Wednesday to have our windows replaced. Sorry for the delay. Finally, I just want to remind you to have the offices ready for the installers on Wednesday. Put away any fragile items on your desks before you leave the office Tuesday night.</li></ul><p><b>Question 8.</b></p><ul><li>You’re listening to WKPN and I’m your host, Marion Cunningham. On today’s program, we’ll be talking to Tom Bosley who is an environmental researcher at Ross University. We’re going to be discussing Mr. Bosley’s recent study of local rivers and what we can do to keep our lakes and rivers safe. Following Mr. Bosley we’ll be joined by Henry Howard with a report on new environmental protection laws passed by the government last week. He’ll explain the new laws and how they will affect local industries All this is coming up in 10 minutes, right after the weather report.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What is offered for free with a purchase?",
+              "options": [
+                "A music CD",
+                "A poster",
+                "A script",
+                "A ticket"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What does the advertisement offer for office buildings?",
+              "options": [
+                "Construction plans",
+                "Free delivery",
+                "Special prices",
+                "Full installation"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "According to the speaker, what will happen tomorrow?",
+              "options": [
+                "A street will open.",
+                "Bridge construction will begin.",
+                "Traffic will be heavy.",
+                "Weather conditions will be foggy."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is true about the tour?",
+              "options": [
+                "People can see birds from all over the world",
+                "It's possible to cycle in the park",
+                "It lasts two hours",
+                "People are provided with water on the tour"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "When will the service be restored full?",
+              "options": [
+                "in an hour",
+                "this afternoon at the latest",
+                "in half an hour",
+                "no information"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "When will the new system go into effect?",
+              "options": [
+                "On Monday",
+                "On Tuesday",
+                "On Wednesday",
+                "On Thursday"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the purpose of this announcement?",
+              "options": [
+                "To give moving instructions",
+                "To offer free installation",
+                "To cancel a meeting",
+                "To inform employees of a delay"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What will Mr. Howard's report be about?",
+              "options": [
+                "Research results",
+                "Industrial pollution",
+                "Local news",
+                "New laws"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-19/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> And today in the studio we have a familiar face on television, Angela Bond the news reporter. Angela, your job has taken you all over the world, hasn’t it?</li><li><b>W:</b> Yes. I’ve reported from a number of countries in Asia and I’ve just returned from the United States. I must say, it’s good to be able to unpack my suitcase now that the job has brought me to Britain for at least six months.</li><li><b>M:</b> Is the travelling what you enjoy about the job?</li><li><b>W:</b> It’s certainly interesting, but it can be annoying never knowing where I’m going to be next week! For me, the really exciting thing is being somewhere when a big news story is taking place and seeing it develop. Sometimes that can be quite dangerous, but all jobs have their disadvantages! And travelling gives me the chance to collect souvenirs.</li><li><b>M:</b> What kind of things?</li><li><b>W:</b> Mostly things for my flat. I’m mad about anything Chinese and so when I was in Hong Kong, I got a really nice table and some chairs and in Turkey I spend a lot of money on carpets. Then I’ve got pictures and other bits of art from Thailand and India. The flat’s getting a bit crowded!</li><li><b>M:</b> It sounds colourful! Do you have a regular working day?</li><li><b>W:</b> Not really. At the moment, I’m one of the team that reads the evening news so sometimes I’m on at six thirty, and sometimes at ten o’clock. But that’s at the end of the day. It all starts in the morning at eight thirty when I phone the office to see what has happened and what they want me to go and report on.</li><li><b>M:</b> So you don’t have much time for a social life?</li><li><b>W:</b> It’s better now I’m in London and can see my boyfriend more often. My sister introduced us. He came round for dinner when I was staying with her a year ago. We have a lot in common. He’s a lawyer and I studied law at university. Also we’ve found that we lived in Hong Kong at the same time, although we never met.</li><li><b>M:</b> What do you like to do in your free time?</li><li><b>W:</b> Well, cooking is something new I’m trying because I can’t do it when I’m travelling. But I’m not very good at it yet so I find it a bit stressful. One of the best things I’ve bought recently was a boat and when I want to feel calm and peaceful I go for a sail on the river. It never fails!</li><li><b>M:</b> Angela - thanks.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Oh, what a wonderful view! I’m here with Jack Williams, who’s telling me about his home town of Swanton.</li><li><b>M:</b> Yes, the top of this hill is the best place to see the area. Swanton is on the coast you can see the harbour from here but in fact the town is built along the river Dean. This river comes from a lake in the mountains, over there in the distance then flows down to the flat land below us where the town is built.</li><li><b>W:</b> What do you most like about living here?</li><li><b>M:</b> About Swanton? Oh, it’s an important industrial town and a port so there’s lots of activity. And there’s a forest behind the town with interesting wildlife. But the most exciting thing for me is the mountains. I go climbing whenever I get the chance.</li><li><b>W:</b> What about entertainment?</li><li><b>M:</b> There’s plenty of entertainment. A big centre was built last year to encourage the arts - very modern. It’s got a cinema, a theatre and an art gallery. And there’s football. The local team hasn’t done so well lately. A few years ago we nearly won the Cup. And our area is famous for music not in Swanton itself but there’s a well-known music festival in the next town.</li><li><b>W:</b> But there are problems with the environment.</li><li><b>M:</b> We’re working on that. The river was a great place for fish but the water got so polluted by the factories that most of the fish disappeared. Well, we’ve cleaned the river up now, and the fish are starting to come back. But I’m unhappy about Swanton woods. The trees are quite healthy but if you look, there are no birds there, and that’s because pollution has reduced the number of insects.</li><li><b>W:</b> Swanton’s growing fast. Are you pleased about the way it’s changed?</li><li><b>M:</b> You’ve got to move with the times. It was completely different when I was a boy. In those days everybody worked in the factories, and the families all knew each other. Maybe it was a little boring. Today there are hundreds of different companies and so many new houses that some people don’t even know their neighbours. There are disadvantages, but it’s impossible to be bored with all the things going on.</li><li><b>W:</b> And what about Swanton’s future?</li><li><b>M:</b> Education is important to us. We have a fine university which specialises in advanced technology. And a huge shopping centre, just built, which is bringing in double the number of visitors - good news for us. And last year we improved our airport, so more planes can come in.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> My guest today is the star of the London Ballet Company, twenty-two-year-old Elena Karpov. Elena you were born in Bulgaria. Did you always want to be a dancer?</li><li><b>W:</b> Well, I was a very lively little girl, so at the age of seven my mother sent me to gymnastics classes. When I was nine, I went on to ballet lessons and from that moment I knew that I wanted to spend my life dancing. Two years later, when I was eleven, I won a place at the New York Ballet School.</li><li><b>M:</b> So you had to move to the United States. Did you miss your family?</li><li><b>W:</b> Oh yes. At first it was difficult being away from home and not knowing a lot of English. But it taught me how to look after myself and not to depend on others. There were other Bulgarian students there and we actually found it quite easy to learn enough English to take part in the lessons with the other students.</li><li><b>M:</b> Tell us about your latest role with the London Ballet Company.</li><li><b>W:</b> I’m going to dance the part of Cinderella. It’s a story about a poor girl who marries a handsome prince. My parents used to read it to me when I was little. I’d never seen the ballet before, but I already knew the music really well. I’m sure children will love the ballet.</li><li><b>M:</b> What do you do when you’re not practising or performing?</li><li><b>W:</b> Before I joined this company I spent two weeks going round London as a tourist. I don’t have time for sightseeing now, but I love trying on the latest fashions with my friends. I’m always buying new jeans and trainers! I’m not too keen on discos and nightclubs I dance enough during the day!</li><li><b>M:</b> You must have lots of fans?</li><li><b>W:</b> Quite a few! They always ask for a photograph of me, but unfortunately I don’t have many to give away. I sometimes sign their programmes instead and if I can I give them one of the flowers I’ve received from the audience. They always ask for tickets, but of course that’s not possible.</li><li><b>M:</b> What’s been the best thing that’s happened in your career so far?</li><li><b>W:</b> Well, I’ve been a guest dancer with ballet companies in Moscow and Vienna and I appeared twice on television in Bulgaria and met the president! I shall never forget that! But the most satisfying thing for me is that I’m paid for doing what I really enjoy - dancing!</li><li><b>M:</b> Elena, thank you for talking to us.</li><li><b>W:</b> Thank you.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Where is Angela working at the moment?",
+              "options": [
+                "Britain",
+                "the USA",
+                "Thailand",
+                "India"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does Angela like about her job?",
+              "options": [
+                "She loves being in dangerous situations.",
+                "She never knows where she’ll go next.",
+                "She enjoys watching important events happen.",
+                "She likes collecting souvenirs."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What did Angela bring home from Hong Kong?",
+              "options": [
+                "pictures",
+                "carpets",
+                "furniture",
+                "postcards"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "Where did Angela meet her boyfriend?",
+              "options": [
+                "at her sister’s house",
+                "at university",
+                "in Hong",
+                "in a law firm"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Where is the town of Swanton located?",
+              "options": [
+                "near the sea",
+                "by a lake",
+                "on a hill",
+                "in the mountains"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Jack say about entertainment in Swanton?",
+              "options": [
+                "A music festival takes place in the town.",
+                "Its football club has done well this year.",
+                "An arts centre consists of a cinema, a theatre and an art gallery.",
+                "The arts centre is old."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Why is Jack worried about the environment of Swanton?",
+              "options": [
+                "the water in the river is dirty.",
+                "there are few wild birds around today.",
+                "pollution has destroyed the plants in one area.",
+                "There are no fish in the river."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What does Jack say about the way Swanton has changed?",
+              "options": [
+                "He preferred the town when it was smaller.",
+                "He thinks it is a more interesting place.",
+                "He is sorry that there are fewer jobs available.",
+                "He thinks it’s impossible to change people’s way of life."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "How old was Elena when she decided to become a dancer?",
+              "options": [
+                "seven.",
+                "nine.",
+                "ten.",
+                "eleven."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What does Elena say about the ballet called Cinderella?",
+              "options": [
+                "It will attract both adults and children.",
+                "The music was unfamiliar to her.",
+                "She saw it when she was a child.",
+                "She will play one role in it."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What does Elena like to do in her free time?",
+              "options": [
+                "go sightseeing.",
+                "go to clubs.",
+                "go dancing",
+                "go shopping."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does Elena like best about her job?",
+              "options": [
+                "appearing on television",
+                "doing something she loves",
+                "travelling to different countries",
+                "meeting the president"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 (Q.21-25)</strong></p><ul><li><b>W:</b> Hi, there. I was looking for information about becoming a political science major.</li><li><b>M:</b> Sure. We have some brochures right here.</li><li><b>W:</b> Thanks, but could I ask you a few questions?</li><li><b>M:</b> No problem. Fire away.</li><li><b>W:</b> Are there many requirements for Political Science?</li><li><b>M:</b> Uh, not really ... Just you must take Political Science 1 and 2, a general history class, and a writing seminar.</li><li><b>W:</b> I thought you had to take economics, too.</li><li><b>M:</b> Not for the general Political Science program. But there are a couple of specialized programs that have additional requirements.</li><li><b>W:</b> Oh, really? What are they?</li><li><b>M:</b> Well, there is the International Relations program. It is more interdisciplinary, so it requires economics and a second history credit; the two history credits have to be in different regions. There is also the honors Political Science program. To get into that, you need to take the same economics class as the International Relations program, and a special Political Science seminar. And you need to maintain over a \"B\" average in all those required courses.</li><li><b>W:</b> Wow, that sounds difficult.</li><li><b>M:</b> Yeah, not many people are qualified for the honors program. That's why it's considered more prestigious, I guess.</li><li><b>W:</b> Is that all?</li><li><b>M:</b> No. You also have to complete this form, listing all the Political Science and related credits you have already taken or plan to take, and get the department chair to sign off on it.</li><li><b>W:</b> Uggh. This is really a lot of work.</li><li><b>M:</b> Yeah, but everyone has to do it. It's not different from any other majors; the department wants to know that you've thought about your major carefully and thoroughly, and that all the students are being realistic in their expectations.</li></ul><p><strong>Conversation 2 (Q.26-30)</strong></p><ul><li><b>M:</b> Hey, Clara. Got a minute?</li><li><b>W:</b> Oh, hi, Will. Sure, I've got plenty of time. What's the matter?</li><li><b>M:</b> Did you see the poster saying that our debate club meeting tonight had been moved?</li><li><b>W:</b> Oh yes, you didn't get the email?</li><li><b>M:</b> My computer hasn't been working these few days, so I can't get access to my mailbox. Anyway, why has it been moved?</li><li><b>W:</b> That whole wing of the Student Union building is getting repainted today, so it's off-limits until the paint dries, vented properly and the workers clean everything up.</li><li><b>M:</b> It's about time. The club offices in the student building have been looking rundown for quite a while now. A new paint-job would do them a world of good.</li><li><b>W:</b> And the rooms are going to be repainted in a lighter color, too. That old paint was too dark and depressing.</li><li><b>M:</b> A lighter color would help everything look bigger, too. Our debate club could use that.</li><li><b>W:</b> Yeah, but we need more than just light paint. We've grown too big for that little room; we really need to move into a bigger place.</li><li><b>M:</b> Any chance of that happening?</li><li><b>W:</b> Not that I know of. Except for tonight, that is, just for this once, we'll be meeting downstairs in Turner Auditorium.</li><li><b>M:</b> That place is huge, way too big for us.</li><li><b>W:</b> I know, but it was the only place available tonight. And it was either there or else cancel the meeting altogether.</li><li><b>M:</b> I guess it's better than canceling. Although, to be honest, I could use another week to prepare for my speech, I've been really busy with my classes lately.</li></ul><p><strong>Conversation 3 (Q.31-35)</strong></p><p>Science fiction is very popular these days - in books, in movies, and on TV. Unfortunately, popular science fiction is often a lot more \"fiction\" and not so much \"science.\" One of the most common problems is science fiction’s fascination with faster-than-light travel. We know that is impossible, as it violates Einstein’s basic theory of space and time, but on Star Trek and other science fiction shows, spaceships jump from star to star and galaxy to galaxy like you or I might want to drive to another city. In truth, the closest star to Earth, Proxima Centauri, is over three light years away. That means traveling at the speed of light, the fastest speed anyone theoretically could travel, it would take three years to make it to our nearest neighbor. Other stars and galaxies are routinely thousands and millions of light years away, making intergalactic travel an impossibility. Even if we grant that such space travel somehow was possible, there is no shortage of other errors in popular science fiction. In Star Wars and other films, spaceships swoop across the screen, with their ... uh ... their engines emitting a great roar. However, since space is a void, sound waves cannot travel. There is no sound in space; it is utterly silent. Gravity is another mystery in these films. Gravity depends mostly on mass. Spaceships are tiny compared to the mass of earth. In space there should be practically no gravity. And yet people in science fiction routinely walk around on their spaceships in space as comfortably as they would on earth. That said, there have been a few, scarce films that bothered to portray the science of space flight somewhat realistically. In 2001: A Space Odyssey, the ship must rotate to create artificial gravity. Outside the spaceship, there is total silence. And the voyage from Earth to Jupiter takes many months. But such films are the exception, not the rule. While science fiction may be enjoyable, you should look elsewhere to learn about science.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "Why is the woman visiting this office?",
+              "options": [
+                "She wants to be a science major.",
+                "She wants to learn about politics.",
+                "She is interested in registering for a course.",
+                "She is interested in Political Science."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why are there few people in the honors program?",
+              "options": [
+                "It is not considered a prestigious program.",
+                "The requirements are difficult to meet.",
+                "No one likes the economics requirement.",
+                "It is an unpopular program."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What subject is NOT included, if the woman chooses Political Science?",
+              "options": [
+                "Political Science 1",
+                "Political Science 2",
+                "Writing seminar",
+                "Economics"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Which is one of the requirements, if the woman chooses International Relation program?",
+              "options": [
+                "Students have to maintain over a \"B\" average in all required courses.",
+                "Students have to study economics and a second history credit.",
+                "Students need to be realistic in their expectation.",
+                "A, B, and C are all correct."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is NOT a reason for the Political Science Department's elaborate registration process?",
+              "options": [
+                "To make students think carefully about what courses they will take",
+                "To have a similar system with other majors",
+                "To make students have a planned program",
+                "To ensure students have realistic expectations"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What happened to the debate club meeting?",
+              "options": [
+                "They painted instead of debating.",
+                "The club was disbanded.",
+                "The meeting was moved to another room.",
+                "The meeting was postponed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Why couldn't the man receive the email?",
+              "options": [
+                "He was too busy with his classes.",
+                "He was in a meeting.",
+                "His computer has been out of order.",
+                "His friend forgot to tell him."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is going to happen with the debate club's meeting room?",
+              "options": [
+                "It is going to be demolished.",
+                "It is going to be sold.",
+                "It is going to be repainted.",
+                "It is going to be closed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about the debate club's meeting room?",
+              "options": [
+                "It is too small for the group.",
+                "It is called \"Turner Auditorium\".",
+                "It will soon be enlarged to accommodate everyone.",
+                "It is the most run-down room in the student building."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can be inferred about the man?",
+              "options": [
+                "He does not enjoy the debate club.",
+                "He is not taking many classes.",
+                "He is a weak debater.",
+                "He is not ready for his debate yet."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the professor mainly talking about?",
+              "options": [
+                "The science of space travel",
+                "Scientific problems in Star Wars",
+                "The erroneous science in science fiction",
+                "Why science fiction is bad literature"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the lecture, what is wrong with space travel in most science fiction?",
+              "options": [
+                "There are no aliens in outer space.",
+                "There is no way to go faster than light speed.",
+                "There are many other stars and galaxies.",
+                "There is nowhere to go in outer space."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "According to the professor, how long does it take to travel to the closest star to Earth?",
+              "options": [
+                "Three light years",
+                "One hundred light years",
+                "Hundreds light years",
+                "A million light years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What does the professor NOT say about the movie 2001: A Space Odyssey?",
+              "options": [
+                "It is exceptionally good.",
+                "It portrays gravity correctly.",
+                "It does not have faster-than-light travel.",
+                "It does not depict sound in space."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What can be inferred about science fiction?",
+              "options": [
+                "Many people do not like watching science fiction.",
+                "It is costly to make science fiction.",
+                "Science fiction is not meant to teach us about science.",
+                "The film Space Odyssey is a famous science fiction."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

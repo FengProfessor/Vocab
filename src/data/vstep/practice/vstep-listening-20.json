@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-20",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 20",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-20/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Hi everyone, and welcome to City Wildlife Park. I’ll explain where things are and then you’re free to go wherever you want. In front of us are some empty cages where the rabbits live. They’re free to run about in the long grass, but come back to their cages when they’re hungry! If you’re interested in ducks, surprisingly they’re not right here in the pond, but over there in one of their favourite places, near the dustbins. And we keep goats in the field here, together with some sheep.</li></ul><p><b>Question 2.</b></p><ul><li>And now for the weather forecast for this Saturday and Sunday. People heading to the music festival starting on Saturday on the South coast should be prepared for different conditions over the next two days. Saturday will bring bright sunshine but cool temperatures for this time of year. Overnight, however, clouds are expected to move in and Sunday will see dull skies bringing a further drop in temperatures, and there will be a good chance of rain later on.</li></ul><p><b>Question 3.</b></p><ul><li>Hello. My name’s John Masters. This is a message for the person I spoke to yesterday in Customer Services. You asked me to return the iron I bought from you in its box. I’ve done this, although as I mentioned to you the box was badly damaged when it arrived. Anyway, that’s not the problem and the iron didn’t look damaged at all. But when I switched it on, it didn’t heat up. My order reference is 01376XB. I hope you’ll replace the iron as soon as possible. Thank you.</li></ul><p><b>Question 4.</b></p><ul><li>In the heart of the City the Arts Centre includes a concert hall, cinema and an art gallery. The cinema is presenting a programme of films by younger film-makers and is attracting larger audiences than ever. The open-air concert area is the new home to the City Orchestra with an exciting concert programme of new composers and guest performers, while the City Art Gallery has a major programme of exhibitions all summer. Guests can enjoy dinner in the popular restaurant and enjoy the wonderful views of the City and river.</li></ul><p><b>Question 5.</b></p><ul><li>On today’s student Cookery programme, I’m going to show you how to make some really cheap and healthy meals. Forget about opening tins and think fresh! You can do wonderful things with tomatoes, potatoes - and I don’t mean chips or fries! even cabbage, yes cabbage rolls, tilled with tasty rice and herbs. And the essential vegetable in all my recipes is the ordinary onion, red or white or brown colour doesn’t matter. First of all, you need a Sharp knife. So, watch carefully and off we go.</li></ul><p><b>Question 6.</b></p><ul><li>You’d think that paying a bill would be easy. On tonight’s Money Today, I’m looking at some of the difficulties there can be. The story starts with my own experience. Thinking it’d be simpler, I made the mistake of trying to pay a hotel bill in cash. Well, amazingly they insisted on me using a credit card. I didn’t have one with me, so had to get onto my internet banking site using my mobile phone to try and get my card details. Nothing’s easy.</li></ul><p><b>Question 7.</b></p><ul><li>Hello, this is Sarah Wright. I arranged to collect a guitar I ordered. I was meant to come this afternoon, but there’s a problem. I had to get a book from the library and I’ve just missed the bus so I won’t be able to get out to the shop before you close. I’ve got an appointment in the town centre to choose some new glasses tomorrow so I could come in and pick it up then. I hope that’s ok.</li></ul><p><b>Question 8.</b></p><ul><li>... and now for the weather. What’s it going to be like for the big race tomorrow morning, Mike? -Well, it’s been clear and sunny all week, but it looks as if it’s going to turn really cold tonight, and with ice on the track, conditions for racing could be difficult. It doesn’t look like there’ll be any rain until the weekend though, and later in the afternoon there’ll be a bit of sun coming out from behind the clouds.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Where can visitors see the ducks?",
+              "options": [
+                "in the cages",
+                "in the pond",
+                "near the wastebaskets",
+                "in the field"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What will the weather be like when the festival starts?",
+              "options": [
+                "sunny",
+                "cloudy",
+                "rainy",
+                "rainy and cloudy"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What has the man sent back to the company?",
+              "options": [
+                "an iron in a damaged box",
+                "a damaged iron in a good-condition box",
+                "a damaged iron in a damaged box",
+                "an iron in a good-condition box"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which part of the Arts Centre only opened recently?",
+              "options": [
+                "an open-air concert area",
+                "a cinema",
+                "an art gallery",
+                "a restaurant"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which vegetable is used in all today's recipes?",
+              "options": [
+                "tomatoes",
+                "potatoes",
+                "cabbage",
+                "onion"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "How did the man want to pay?",
+              "options": [
+                "in cash",
+                "by credit card",
+                "by cheque",
+                "bank transfer"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the woman phoning about?",
+              "options": [
+                "a guitar",
+                "a book",
+                "glasses",
+                "the library"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What will the weather be like for the race?",
+              "options": [
+                "sunny",
+                "snowy",
+                "rainy",
+                "cloudy"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-20/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Today I’m with Robin Marshall, who has just written a book about travelling in Argentina. Robin, tell us about yourself...</li><li><b>M:</b> Well, I’ve travelled to South America a lot for my work and I know Argentina well now. So well that I could be a tour guide if I wanted! I speak fluent Spanish, so I don’t need anyone to translate for me. My job involves travelling around selling products for my company. I meet a lot of people doing that, and I wanted to share those experiences with others, so I decided to try writing.</li><li><b>W:</b> So, tell us about your last visit to Argentina. What was the weather like?</li><li><b>M:</b> Well, it was winter there, so mornings were cold, but I’d expected that. Every day they said on the radio that it would be sunny later and sure enough, it was! I wanted to go sightseeing, and the weather was perfect for that.</li><li><b>W:</b> And where did you go when you went sightseeing?</li><li><b>M:</b> Well, I went to a wonderful market that sold everything from modern art to old recordings of traditional music, which I collect. I came home with a beautiful painting of the area I also saw a wonderful antique chair, but unfortunately it was too big to bring back.</li><li><b>W:</b> Now, Argentina is famous for its dancing. Did you see any performances during your trip?</li><li><b>M:</b> I did, yes. It reminded me of when I used to attend dance classes. I enjoyed them although I was never very good. I’m sure my teacher was pleased when I said I wasn’t going to continue! But these dancers made it look so easy that at that moment I felt like joining in and dancing with them.</li><li><b>W:</b> It sounds wonderful! And what else did you do?</li><li><b>M:</b> Well, I went to a small village on the coast. I took the bus there, and got a room in a small hotel. The hotel owner was very friendly. He took me down the river in his boat. It was very beautiful - you could see the forest in the distance.</li><li><b>W:</b> Do you have a favourite place in Argentina?</li><li><b>M:</b> Definitely. It’s a mountain near Buenos Aires. It’s famous for its spectacular scenery. But when I went there it was very misty and the sun was just rising. You couldn’t see much. There were no birds or animals about. It was totally quiet, and I loved that. I shall go back one day.</li><li><b>W:</b> We look forward to reading your book. Thank you, Robin.</li><li><b>M:</b> Thank you.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Harry Park, you run a travel company which organizes adventure holidays in some difficult places? How did you first become interested in Adventure travel?</li><li><b>M:</b> Well, my father worked in an insurance company once he had a family but before that he’d spent several years traveling the world and he never stopped telling us about it. His stories were much more exciting than the books I read and they make me want to travel and have adventures of my own.</li><li><b>W:</b> And what made you decide to start an adventure travel company?</li><li><b>M:</b> Well, when I was in my twenties, I traveled a lot in different countries I went exploring and climbing in mountains and deserts. I wanted to show other people how wonderful these things were. The business has been very successful but when I started it I didn’t know if I’d make any money.</li><li><b>W:</b> Your company is called Far and wide. How did you choose the name?</li><li><b>M:</b> Well, I just called it Park Travel at first. But everyone thought that was terribly boring! My wife kept suggesting different things but in the end it was a customer who gave me the idea. Far and wide is also the title of a book that a friend wrote so it reminds me of him too.</li><li><b>W:</b> Great... The places you visit are usually very unspoilt, Harry. Some people think it’s not a good idea to take tourists there. What would you say to them?</li><li><b>M:</b> Well, most of the places we visit have no inhabitants, so we aren’t going to spoil people’s way of life or bring in things like television and fridges! And I make sure that we always take care of the environment. We are careful not to cause pollution, so we take all our rubbish away.</li><li><b>W:</b> Some of the things you do are also dangerous. Do you enjoy danger?</li><li><b>M:</b> Well, it’s not a question of enjoying it. It’s just that you can’t do what I do without thinking about the possible dangers. I’m never frightened though. If I’m taking a group up a mountain or something like that. I just concentrate on what I have to do and get on with it.</li><li><b>W:</b> You’ve been to some fascinating places, Harry. What’s your favourite?</li><li><b>M:</b> It’s in India. You travel along a river through spectacular scenery and up into the mountains in Madhya Pradesh. In the valley on the other side there’s a wonderful old castle. It’s magical. The mountains hide it, so few people know it’s there ...</li><li><b>W:</b> Thanks for talking to us, Harry ...</li><li><b>M:</b> Thank you.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Now Linda, let’s talk about your first job.</li><li><b>W:</b> Well, I was an assistant in an expensive cake shop in the small town where I lived. It was my last year at school, before I went to college. I wanted to earn extra money for myself because I come from a family of seven and my parents couldn’t afford to give us much pocket money.</li><li><b>M:</b> Did you like your first boss?</li><li><b>W:</b> He was always polite, never shouted at us, even when we dropped thing and that was good for a young girl like me who wasn’t very confident. He knew everything about the business. I had no proper training, but it was good experience working for someone with so much knowledge. He didn’t pay us well, but I didn’t expect to earn much in my first job.</li><li><b>M:</b> And what about the shop? Was it a nice place to work?</li><li><b>W:</b> As I say, it was an expensive shop, and the cakes were beautiful. Then in the morning there was this wonderful smell of bread baking. The first week was difficult because I just wanted to eat the cakes which wasn’t allowed but then I lost interest in them. We had to keep everything clean, and that was hard work.</li><li><b>M:</b> Did you do any of the baking yourself?</li><li><b>W:</b> There were two chefs who were specialists in making cakes for celebrations and creating new bread recipes I loved watching them at work, but I wasn’t allowed to touch the ones on display in the windows. We sold sandwiches at lunchtime again, very luxurious ones and the shop assistants had to make those I learn to put in really generous fillings, much more than I used at home.</li><li><b>M:</b> How did you get on with the other shop assistants?</li><li><b>W:</b> One of them was my best friend, which was great, but the full-time staff some treated us like silly schoolgirls because we couldn’t cook. But I was surprised because the full-time assistants couldn’t add up in their head. I was good at it, but they used calculators if there was anything difficult to work out.</li><li><b>M:</b> Did you enjoy serving customers in the shop?</li><li><b>W:</b> The best part of the day was lunchtime, when we were busy. Time just flew. Then it was interesting when people came in to plan a party or a wedding. One of the chefs would come through to discuss the design of the cake. Some customers thought the prices were too high, but usually ended up buying the cakes anyway.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What was Robin's job in Argentina?",
+              "options": [
+                "translator",
+                "tour guide",
+                "salesman",
+                "tourist"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What did Robin buy from the market he visited?",
+              "options": [
+                "a picture",
+                "a chair",
+                "a record",
+                "a CD"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "How did Robin feel during the dance performance he saw?",
+              "options": [
+                "He wanted to get up and dance.",
+                "He wished he had continued his dance classes.",
+                "He was sad he didn't dance well.",
+                "He thought Argentinean dancing was much easier than his country's dancing."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What did Robin like about his favourite place?",
+              "options": [
+                "the wildlife",
+                "the views",
+                "the peace",
+                "the weather"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why did Harry decide to start an adventure travel company?",
+              "options": [
+                "He wanted to share his experience with others.",
+                "He thought he could make a lot of money.",
+                "his father encouraged him to do it.",
+                "He hoped to do more travelling himself."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Who suggested the name for Harry's company?",
+              "options": [
+                "a friend",
+                "a customer",
+                "his wife",
+                "his parents"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does Harry say about doing dangerous things?",
+              "options": [
+                "It's part of his job.",
+                "He always thinks of how to avoid possible dangers.",
+                "It's frightening.",
+                "It's enjoyable."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is Harry's favourite place?",
+              "options": [
+                "a mountain",
+                "a building",
+                "a river",
+                "valley"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why did Linda like her first boss?",
+              "options": [
+                "paid her well.",
+                "was kind to her.",
+                "sent her on a training course.",
+                "made her become confident."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did Linda enjoy about working in the shop?",
+              "options": [
+                "eating the cakes",
+                "the smell of baking",
+                "the clean workplace",
+                "friendly co-workers."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "In the shop, what did Linda help with?",
+              "options": [
+                "baking bread.",
+                "displaying cakes.",
+                "making sandwiches.",
+                "creating new bread recipes."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does Linda say about the full-time shop assistants?",
+              "options": [
+                "were friendly to her.",
+                "hadn't got the same skills as her.",
+                "helped her a lot with her work.",
+                "didn't work as hard as her."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-20/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talks/Lectures 1 (Q.21-25)</b></p><p>Welcome to all of you . . . can everybody see and hear me? . . . . Good . . . . I’m Sally, your guide for this tour of the Bicentennial Park I hope that you’re all wearing your most comfortable shoes and that you can keep up the pace. So let’s get under way on our tour around this wonderful park. I’ll start today with some general background information. There used to be a lot of factories in this area until the 1960s. Creating the park required the demolition of lots of derelict buildings on the site so most of the exciting park space all around you was originally warehouses and storehouses. The idea of building a high-rise park here was first discussed when a property developer proposed a high-rise housing development, but the local community wasn’t happy. If the land was to be cleaned up they wanted to use the site for recreation. Residents wanted open space for outdoor activities rather than housing or even an indoor sports complex. Now to the Bicentennial Park itself. It has two areas, a nature reserve and a formal park with man-made features and gardens. The tall blue-and-white building in front of us is called The Tower and it is the centre point for the formal gardens. It stands twelve metres high so follow me up the stairs to where we can take advantage of the fantastic views. well here we are at the top of The Tower, and we’re going to look at the view from each direction. Out to the east, the large buildings about a kilometre away are on the Olympic site. There’s an indoor arena for gymnastics, a stadium for track and field and a swimming pool for races and synchronised swimming and also diving. If you look carefully down there, you can see the train lines. The Olympic site has its own station to encourage the use of public transport. There is also a car park, but it only holds a limited number of cars. The formal park has some specially-created water features. If you look out here to the south you can see a circular ornamental pond. And around to the west, you can relax and sit on a bench to smell the flowers in the rose garden and finally up to the north, if you look in front of you now there’s a lake with a small island in the centre you can hire rowing boats at the boat shed which you can’t see from here but if you look through the trees, you can see the café, which has lovely views across the water. Okay, let’s climb down now</p><p><b>Talks/Lectures 2 (Q.26-30)</b></p><p>Welcome to Green Vale Agricultural Park As you know, we have only been open a week so you are amongst our first visitors. We have lots of fascinating indoor and outdoor exhibits on our huge complex, spreading hundreds of hectares. Our remit is to give educational opportunities to the wider public as well as to offer research sites for a wide variety of agriculturists and other scientists. Let’s start by seeing what there is to do. As you can see here on our giant wall plan, we are now situated in the Reception block ... here. As you walk out of the main door into the park there is a path you can follow. If you follow this route you will immediately come into the Rare Breeds section where we keep a wide variety of animals which I shall be telling you a little more about later. Next to this ... moving east... is the large grazing area for the rare breeds. Then further east... in the largest section of our Park is the Forest Area. South of the grazing area and in fact just next to the Reception block is our Experimental Crop Area. In the middle of the Park ... this circular area is our lake These two small rectangular shapes here are the Fish Farms area we rear fish for sale. To the east of those is the marsh area which attracts a great many migrant birds. In the south-eastern corner, beyond the marsh, is our Market Garden area, growing vegetables and flowers. All these areas can be visited by the general public for almost all the year... although please take note of the large signs at the entrance to each area which tell which tell you when certain areas are being used for particular controlled experiments and are therefore temporarily out of bounds to the public. You can see for yourself what a huge area the park covers and a key question is always, how can we move around? Well you have a choice of means all environmentally friendly Cars are banned in the park. We have bicycles which you can hire behind the reception block here the healthy ones of you can go on foot and finally there’s our electric tram, powered from solar cells. You can find more information about this at the front entrance. A good place to start on your tour is the Rare Breeds section. We keep goats, sheep and hens and other kinds of poultry. We are also thinking of bringing in cows and horses but we do not, as yet, have facilities for these bigger animals. The animals are fed in public twice a day and a short lecture given on their feeding habits and nutritional needs. These are very popular with the public but of course we mustn’t lose sight of the main purpose of having this section not as such to preserve rare animals but to maintain the diversity of breeds to broaden the gene pool for agricultural development.</b></p><p><b>Talks/Lectures 3 (Q.31-35)</b></p><p>Hello I’m delighted to welcome you to our Wildlife Club and very pleased that you’re interested in the countryside and the plants and creatures of this area. I think you’ll be surprised at the variety we have here, even though we’re not far from London. I’ll start by telling you about some of the parks and open spaces nearby. One very pleasant place is Halland Common. This has been public land for hundreds of years and what you’ll find interesting is that the River Ouse which flows into the sea eighty kilometres away has its source in the Common. There’s an information board about the plants and animals you can see here and by the way, the Common is accessible 24 hours a day. Then there’s Holt Island which is noted for its great range of trees. In the past willows were grown here commercially for basket-making and this ancient craft has recently been reintroduced The Island is only open to the public from Friday to Sunday, because it’s quite small and if there were people around every day much of the wildlife would keep away. From there it’s just a short walk across the bridge to Longfield Country Park Longfield has a modern replica of a farm from over two thousand years ago Children’s activities are often arranged there like bread-making and face-painting. The park is only open during daylight hours so bear that in mind if you decide to go there. Longfield Park has a programme of activities throughout the year and to give you a sample this is what’s happening in the next few days</p><p>On Monday you can learn about herbs and how they’ve been used over the centuries. You’ll start with a tour of our herb garden, practise the technique of using them as colour dyes for cloth and listen to an illustrated talk about their use in cooking and medicine. Then on Wednesday you can join local experts to discover the variety of insects and birds that appear in the evening. We keep to a small number of people in the group so if you want to go you’ll need to phone the park ranger a few days ahead. There’s a small charge which you should pay when you turn up. I’m sure you’re all keen to help with the practical task of looking after the park so on Saturday you can join a working party. You’ll have a choice of all sorts of activities from planting hedges to picking up litter so you’ll be able to change from one to another when you feel like it The rangers will be hard at work all day, but do come and join in, even for just a short while. One thing, though, is to make sure you’re wearing something that you don’t mind getting dirty or torn.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What kind of tour is Sally leading?",
+              "options": [
+                "a bus tour",
+                "a train tour",
+                "a walking tour",
+                "a cruise"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What kind of buildings was it before the Park was made?",
+              "options": [
+                "houses.",
+                "industrial buildings.",
+                "shops.",
+                "a school."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What did the local residents want to use the site for?",
+              "options": [
+                "leisure.",
+                "apartment blocks.",
+                "a sports centre.",
+                "office buildings"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does the speaker say about the Tower?",
+              "options": [
+                "It is located in the centre of the nature reserve.",
+                "It's a blue and black building.",
+                "It's 20 meters high.",
+                "It offers tourists wonderful views."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "In which direction from the top of the Tower can the tourists see the Olympic site?",
+              "options": [
+                "to the North.",
+                "to the South.",
+                "to the East.",
+                "to the West."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "According to the speaker, what are the main purposes of the park?",
+              "options": [
+                "education and entertainment.",
+                "research and education.",
+                "research and entertainment.",
+                "education and agriculture"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Which is the biggest part of the Park?",
+              "options": [
+                "the Forest area",
+                "the Market Garden area",
+                "the Rare Breed section",
+                "Experimental Crop Area"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "How can you move around the park?",
+              "options": [
+                "by tram, walking or bicycle",
+                "by solar car or bicycle",
+                "by bicycle, walking or bus",
+                "by bus or bicycle"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What rare breed animals are kept in the park?",
+              "options": [
+                "hens and horses.",
+                "goats and cows.",
+                "goats and hens.",
+                "cows and horses"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What is the main purpose of having the Rare Breeds Section?",
+              "options": [
+                "to save unusual animals",
+                "to keep a variety of breeds",
+                "to educate the public",
+                "to save injured animals"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is NOT true about Halland Common?",
+              "options": [
+                "It has been open for a hundred years.",
+                "It's open all day long.",
+                "Information about plants and animals are available to the public.",
+                "River Ouse has its source in it."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What does the speaker say about Holt Island?",
+              "options": [
+                "It has been famous for handicraft.",
+                "It's commercially developed.",
+                "It's rather large.",
+                "People come there every day."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What will visitors do on Monday in the Longfield Park?",
+              "options": [
+                "prepare food with herbs.",
+                "meet a well-known herbalist.",
+                "dye cloth with herbs.",
+                "Painting their faces with herb dyes."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What does the speaker say about the activity on Wednesday?",
+              "options": [
+                "only group bookings are accepted.",
+                "visitors should book in advance.",
+                "attendance is free.",
+                "Visitors will listen to experts talking about insects and birds."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What should visitors do for the activity on Saturday?",
+              "options": [
+                "work hard on the activities.",
+                "make sure they are able to stay for the whole day.",
+                "tell the rangers before the event what they wish to do.",
+                "come in suitable clothing."
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

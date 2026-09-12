@@ -1,0 +1,600 @@
+{
+  "id": "vstep-reading-ets-10",
+  "title": "VSTEP B1, B2, C1 Reading - Full Test 010 (EnglishTestStore Practice)",
+  "duration": 60,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 36,
+      "tasks": [
+        {
+          "id": "ets-r10-task-1",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 5.",
+          "passage": {
+            "title": "Passage 1",
+            "text": "The Nobel prizes, awarded annually for distinguished work in chemistry, physics, physiology or medicine, literature, and international peace, were made available by a fund bequeathed for that purpose by Swedish philanthropist, Alfred Bernhard Nobel.\n          The prizes, awarded since 1901, are administered by the Nobel Foundation in Stockholm. In 1969, a prize for economics endowed by the Central Bank of Sweden was added. Candidates for the prizes must be nominated in writing by a qualified authority in the field of competition. Candidates are judged by Swedish and Norwegian academies and institutes on the basic of their contribution to making. The awards are usually presented in Stockholm on December 10, with the king of Sweden officiating, an appropriate tribute to Alfred Nobel on the anniversary of his death. Each prize includes a gold medal, a diploma, and a cash award of about one million dollars."
+          },
+          "questions": [
+            {
+              "id": "ets-r10-q01",
+              "type": "mcq",
+              "question": "What does this passage mainly discuss?",
+              "options": [
+                "Alfred Bernhard Nobel?",
+                "The Nobel prizes.",
+                "Great contributions to mankind.",
+                "Swedish philanthropy."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "ets-r10-q02",
+              "type": "mcq",
+              "question": "How often are the Nobel prizes awarded?",
+              "options": [
+                "Five times a year.",
+                "Twice a year.",
+                "Once a year.",
+                "Once every two year."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "ets-r10-q03",
+              "type": "mcq",
+              "question": "A Nobel prize would not be given to",
+              "options": [
+                "an author who wrote a novel.",
+                "a doctor who discovered a vaccine.",
+                "a write who plagiarized most of his works from the other writers.",
+                "a diplomat who negotiated a piece settlement."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "ets-r10-q04",
+              "type": "mcq",
+              "question": "Why were the prizes name after Alfred Bernhard Nobel?",
+              "options": [
+                "He left money in his will to establish a fund for prizes.",
+                "He won the first Nobel prize for the prizes for his work in philanthropy.",
+                "He's now the first living in Sweden.",
+                "He serves as judge of the Nobel Foundation."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "ets-r10-q05",
+              "type": "mcq",
+              "question": "Why are the awards presented on December 10?",
+              "options": [
+                "Because it is a tribute to the king of Sweden.",
+                "Because Alfred Bernhard died on that day.",
+                "Because that day was suggested by Nobel's will.",
+                "Because the Central Bank of Sweden administers the trust."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-r10-task-2",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 6 to 15.",
+          "passage": {
+            "title": "PASSAGE 2",
+            "text": "Since water is the basis of life, composing the greater part of the tissues of all living things, the crucial problem of desert animals is to survive in a world where sources of flowing water are rare. And since man's inexorable necessity is to absorb large quantities of water at frequent intervals, he can scarcely comprehend that many creatures of the desert pass their entire lives without a single drop.\n    Uncompromising as it is, the desert has not eliminated life but only those forms unable to withstand its desiccating effects. No moist-skinned, water-loving animals can exist there. Few large animals are found. The giants of the North American desert are the deer, the coyote, and the bobcat. Since desert country is open, it holds more swift-footed running and leaping creatures than the tangled forest. Its population is largely nocturnal, silent, filled with reticence, and ruled by stealth. Yet they are not emaciated.\n     Having adapted to their austere environment, they are as healthy as animals anywhere else in the world. The secret of their adjustment lies in the combination of behavior and physiology. None could survive if, like mad dogs and Englishmen, they went out in the midday sun; many would die in a matter of minutes. So most of them pass the burning hours asleep in cool, humid burrows underneath the ground, emerging to hunt only by night. The surface of the sun-baked desert averages around 150 degrees, but 18 inches down the temperature is only 60 degrees."
+          },
+          "questions": [
+            {
+              "id": "ets-r10-q06",
+              "type": "mcq",
+              "question": "The title for this passage could be______.",
+              "options": [
+                "\"Desert Plants\"",
+                "\"Life Underground\"",
+                "\"Animal Life in a Desert Environment\"",
+                "\"Man's Life in a Desert Environment\""
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 6
+            },
+            {
+              "id": "ets-r10-q07",
+              "type": "mcq",
+              "question": "The word \"tissues\" in the passage mostly means______.",
+              "options": [
+                "\"the smallest units of living matter that can exist on their own\"",
+                "\"collections of cells that form the different parts of humans, animals and plants\"",
+                "\"very small living things that cause infectious disease in people, animals and plants\"",
+                "\"the simplest forms of life that exist in air, water, living and dead creatures and plants\""
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 7
+            },
+            {
+              "id": "ets-r10-q08",
+              "type": "mcq",
+              "question": "Man can hardly understand why many animals live their whole life in the desert, as______.",
+              "options": [
+                "sources of flowing water are rare in a desert",
+                "water is an essential part of his existence",
+                "water composes the greater part of the tissues of living things",
+                "very few large animals are found in the desert"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 8
+            },
+            {
+              "id": "ets-r10-q09",
+              "type": "mcq",
+              "question": "The phrase \"those forms\" in the passage refers to all of the following EXCEPT______.",
+              "options": [
+                "water-loving animals",
+                "the coyote and the bobcat",
+                "moist-skinned animals",
+                "many large animals"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-r10-q10",
+              "type": "mcq",
+              "question": "According to the passage, creatures in the desert______.",
+              "options": [
+                "run and leap faster than those in the tangled forest",
+                "run and leap more slowly than those in the tangled forest",
+                "are more active during the day than those in the tangled forest",
+                "are not as healthy as those anywhere else in the world"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-r10-q11",
+              "type": "mcq",
+              "question": "The author mentions all the following as examples of the behavior of desert animals EXCEPT______.",
+              "options": [
+                "they sleep during the day",
+                "they dig home underground",
+                "they are noisy and aggressive",
+                "they are watchful and quiet"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-r10-q12",
+              "type": "mcq",
+              "question": "The word \"emaciated\"  in the passage mostly means",
+              "options": [
+                "\"living or growing in natural conditions, not kept in a house or on a farm\"",
+                "\"able to get what one wants in a clever way, especially by tricking or cheating\"",
+                "\"large and strong, difficult to control or deal with\"",
+                "\"thin and weak because of lack of food and water\""
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-r10-q13",
+              "type": "mcq",
+              "question": "According to the passage, one characteristic of animals living in the desert is that______.",
+              "options": [
+                "they are smaller and fleeter than forest animals",
+                "they are less healthy than animals living in other places",
+                "they can hunt in temperature of 150 degrees",
+                "they live in an accommodating environment"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-r10-q14",
+              "type": "mcq",
+              "question": "The word \"burrows\" in the passage mostly means______.",
+              "options": [
+                "\"places where insects or other small creatures live and produce their young\"",
+                "\"holes or tunnels in the ground made by animals for them to live in\"",
+                "\"structures made of metal bars in which animals or birds are kept\"",
+                "\"places where a particular type of animal or plant is normally found\""
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-r10-q15",
+              "type": "mcq",
+              "question": "We can infer from the passage that______.",
+              "options": [
+                "living things adjust to their environment",
+                "water is the basis of desert life",
+                "desert life is colorful and diverse",
+                "healthy animals live longer lives"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 15
+            }
+          ]
+        },
+        {
+          "id": "ets-r10-task-3",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 16 to 25.",
+          "passage": {
+            "title": "PASSAGE 3",
+            "text": "In the United States in the early 1800's, individual state governments had more effect on the economy than did the federal government. States chartered manufacturing, banking, mining, and transportation firms and participated in the construction of various internal improvements such as canals, turnpikes, and railroads. The states encouraged internal improvements in two distinct ways; first, by actually establishing state companies to build such improvement; second, by providing part of the capital for mixed public-private companies setting out to make a profit.\nIn the early nineteenth century, state governments also engaged in a surprisingly large amount of direct regulatory activity, including extensive licensing and inspection programs. Licensing targets reflected both similarities in and differences between the economy of the nineteenth century and that of today: in the nineteenth century, state regulation through licensing fell especially on peddlers, innkeepers, and retail merchants of various kinds. The perishable commodities of trade generally came understate inspection, and such important frontier staples as lumber and gunpowder were also subject to state control. Finally, state governments experimented with direct labor and business regulation designed to help the individual laborer or consumer, including setting maximum limits on hours of work and restrictions on price-fixing by businesses.\nAlthough the states dominated economic activity during this period, the federal government was not inactive. Its goals were the facilitation of western settlement and the development of native industries. Toward these ends the federal government pursued several courses of action. It established a national bank to stabilize banking activities in the country and, in part, to provide a supply of relatively easy money to the frontier, where it was greatly needed for settlement. It permitted access to public western lands on increasingly easy terms, culminating in the Homestead Act of 1862, by which title to land could be claimed on the basis of residence alone. Finally, it set up a system of tariffs that was basically protectionist in effect, although maneuvering for position by various regional interests produced frequent changes in tariff rates throughout the nineteenth century."
+          },
+          "questions": [
+            {
+              "id": "ets-r10-q16",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "State's rights versus federal rights",
+                "The participation of state governments in railroad, canal, and turnpike construction",
+                "The roles of state and federal governments in the economy of the nineteenth century",
+                "Regulatory activity by state governments"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 16
+            },
+            {
+              "id": "ets-r10-q17",
+              "type": "mcq",
+              "question": "The word “effect” is closest in meaning to",
+              "options": [
+                "Value",
+                "Argument",
+                "Influence",
+                "Restraint"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-r10-q18",
+              "type": "mcq",
+              "question": "All of the following are mentioned in the passage as areas that involved state governments in the nineteenth century EXCEPT",
+              "options": [
+                "Mining",
+                "Banking",
+                "Manufacturing",
+                "Higher education"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-r10-q19",
+              "type": "mcq",
+              "question": "The word “distinct” is closest in meaning to",
+              "options": [
+                "Separate",
+                "Innovative",
+                "Alarming",
+                "Provocative"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 19
+            },
+            {
+              "id": "ets-r10-q20",
+              "type": "mcq",
+              "question": "It can be inferred from the first paragraph that in the nineteenth century canals and railroads were",
+              "options": [
+                "Built with money that came from the federal government",
+                "Much more expensive to build than they had been previously",
+                "Built predominantly in the western part of the country",
+                "Sometimes built in part by state companies"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-r10-q21",
+              "type": "mcq",
+              "question": "The regulatory activities of state governments included all of the following EXCEPT",
+              "options": [
+                "Licensing of retail merchants",
+                "Inspecting materials used in turnpike maintenance",
+                "Imposing limits on price-fixing",
+                "Control of lumber"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-r10-q22",
+              "type": "mcq",
+              "question": "The word “setting” is closest in meaning to",
+              "options": [
+                "Discussing",
+                "Analyzing",
+                "Establishing",
+                "Avoiding"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-r10-q23",
+              "type": "mcq",
+              "question": "The word “ends” is closest in meaning to",
+              "options": [
+                "Benefits",
+                "Decisions",
+                "Services",
+                "Goals"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-r10-q24",
+              "type": "mcq",
+              "question": "According to the passage, which of the following is true of the Homestead Act of 1862?",
+              "options": [
+                "It made it increasingly possible for settlers to obtain land in the West.",
+                "It was a law first passed by state governments in the West.",
+                "It increased the money supply in the West.",
+                "It established tariffs in a number of regions."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-r10-q25",
+              "type": "mcq",
+              "question": "Which of the following activities was the responsibility of the federal government in the nineteenth century?",
+              "options": [
+                "Control of the manufacture of gunpowder",
+                "Determining the conditions under which individuals worked",
+                "Regulation of the supply of money",
+                "Inspection of new homes built on western lands"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 25
+            }
+          ]
+        },
+        {
+          "id": "ets-r10-task-4",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 26 to 36.",
+          "passage": {
+            "title": "Passage 4",
+            "text": "Birds that feed in flocks commonly retire together into roosts. The reasons for roosting communally are not always obvious, but there are some likely benefits. In winter especially, it is important for birds to keep warm at night and conserve precious food reserves. One way to do this is to find a sheltered roost. Solitary roosters shelter in dense vegetation or enter a cavity - horned larks dig holes in the ground and ptarmigan burrow into snow banks - but the effect of sheltering is magnified by several birds huddling together in the roosts, as wrens, swifts, brown creepers, bluebirds, and anis do. Body contact reduces the surface area exposed to the cold air, so the birds keep each other warm. Two kinglets huddling together were found to reduce their heat losses by a quarter and three together saved a third of their heat.\n          The second possible benefit of communal roosts is that they act as \"information centers.\" During the day, parties of birds will have spread out to forage over a very large area. When they return in the evening some will have fed well, but others may have found little to eat. Some investigators have observed that when the birds set out again next morning, those birds that did not feed well on the previous day appear to follow those that did. The behavior of common and lesser kestrels may illustrate different feeding behaviors of similar birds with different roosting habits. The common kestrel hunts vertebrate animals in a small, familiar hunting ground, whereas the very similar lesser kestrel feeds on insects over a large area. The common kestrel roosts and hunts alone, but the lesser kestrel roosts and hunts in flocks, possibly so one bird can learn from others where to find insect swarms.\n          Finally, there is safety in numbers at communal roosts since there will always be a few birds awake at any given moment to give the alarm. But this increased protection is partially counteracted by the fact that mass roosts attract predators and are especially vulnerable if they are on the ground. Even those in trees can be attacked by birds of prey. The birds on the edge are at greatest risk since predators find it easier to catch small birds perching at the margins of the roost."
+          },
+          "questions": [
+            {
+              "id": "ets-r10-q26",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "How birds find and store food.",
+                "How birds maintain body heat in the winter.",
+                "Why birds need to establish territory.",
+                "Why some species of birds nest together."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-r10-q27",
+              "type": "mcq",
+              "question": "The word \"conserve\" is closest in meaning to",
+              "options": [
+                "retain",
+                "watch",
+                "locate",
+                "share"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-r10-q28",
+              "type": "mcq",
+              "question": "Ptarmigan keep warm in the winter by",
+              "options": [
+                "huddling together on the ground with other birds.",
+                "Building nests in trees.",
+                "Burrowing into dense patches of vegetation",
+                "Digging tunnels into the snow."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-r10-q29",
+              "type": "mcq",
+              "question": "The word \"magnified\" is closest in meaning to",
+              "options": [
+                "caused",
+                "modified",
+                "intensified",
+                "combined"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-r10-q30",
+              "type": "mcq",
+              "question": "The author mentions kinglets as an example of birds that",
+              "options": [
+                "protect themselves by nesting in holes.",
+                "Nest with other species of birds",
+                "Nest together for warmth",
+                "Usually feed and nest in pairs"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-r10-q31",
+              "type": "mcq",
+              "question": "The word \"forage\" is closest in meaning to",
+              "options": [
+                "fly",
+                "assemble",
+                "feed",
+                "rest"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 31
+            },
+            {
+              "id": "ets-r10-q32",
+              "type": "mcq",
+              "question": "Which of the following statements about lesser and common kestrels is true?",
+              "options": [
+                "The lesser kestrel and the common kestrel have similar diets.",
+                "The lesser kestrel feeds sociably but the common kestrel does not.",
+                "The common kestrel nests in larger flocks than does the lesser kestrel.",
+                "The common kestrel nests in trees, the lesser kestrel nests on the ground."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 32
+            },
+            {
+              "id": "ets-r10-q33",
+              "type": "mcq",
+              "question": "The word \"counteracted\" is closest in meaning to",
+              "options": [
+                "suggested",
+                "negated",
+                "measured",
+                "shielded"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 33
+            },
+            {
+              "id": "ets-r10-q34",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned in the passage as an advantage derived by birds that huddle together while sleeping?",
+              "options": [
+                "Some members of the flock warm others of impending dangers.",
+                "Staying together provides a greater amount of heat for the whole flock.",
+                "Some birds in the flock function as information centers for others who are looking for food.",
+                "Several members of the flock care for the young."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 34
+            },
+            {
+              "id": "ets-r10-q35",
+              "type": "mcq",
+              "question": "Which of the following is a disadvantage of communal roosts that is mentioned in the passage?",
+              "options": [
+                "Diseases easily spread among the birds.",
+                "Groups are more attractive to predators than individual birds.",
+                "Food supplies are quickly depleted",
+                "Some birds in the group will attack the others."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 35
+            },
+            {
+              "id": "ets-r10-q36",
+              "type": "mcq",
+              "question": "The word \"they\" refers to",
+              "options": [
+                "a few birds",
+                "mass roosts",
+                "predators",
+                "trees."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

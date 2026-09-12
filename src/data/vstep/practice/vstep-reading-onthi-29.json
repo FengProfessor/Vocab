@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-29",
+  "title": "Luyện Đọc VSTEP: Oceans and Climate Change (VstepR6-Test 03)",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Oceans and Climate Change",
+            "text": "<p style=\"text-align:justify;\">The world's oceans play a crucial role in regulating Earth's climate. Covering more than 70 percent of the planet's surface, the oceans absorb approximately 30 percent of the carbon dioxide released by human activities, acting as a massive carbon sink. They also absorb over 90 percent of the excess heat trapped by greenhouse gases. Without this enormous <strong>buffering</strong> capacity, global temperatures would have already risen far beyond current levels.</p>\n<p style=\"text-align:justify;\">However, this absorption comes at a significant cost. As oceans absorb more carbon dioxide, they become increasingly acidic through a process called ocean acidification. Since the Industrial Revolution, ocean pH has dropped by approximately 0.1 units — a seemingly small change that represents a 26 percent increase in acidity. This acidification threatens marine organisms that rely on calcium carbonate to build their shells and skeletons, including corals, mollusks, and many species of plankton that form the foundation of the marine food web.</p>\n<p style=\"text-align:justify;\">Warming ocean temperatures also have profound effects on marine ecosystems. Coral reefs, which support approximately 25 percent of all marine species despite covering less than 1 percent of the ocean floor, are especially vulnerable. When ocean temperatures rise beyond a certain threshold, corals expel the <strong>symbiotic</strong> algae that provide them with nutrients and color — a phenomenon known as bleaching. Repeated bleaching events can kill entire reef systems, with devastating consequences for thousands of species that depend on them.</p>\n<p style=\"text-align:justify;\">Beyond their ecological role, oceans are the primary source of protein for over 3 billion people and support the livelihoods of hundreds of millions. The degradation of ocean ecosystems therefore has direct consequences for global food security and economic stability, particularly in developing nations that depend heavily on fishing. International agreements and coordinated policies are urgently needed to reduce carbon emissions and protect these vital marine environments.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r29-q1",
+              "type": "mcq",
+              "question": "What is the main purpose of this passage?",
+              "options": [
+                "To argue that humans should stop eating fish",
+                "To describe the importance of oceans and the threats they face due to climate change",
+                "To explain how corals reproduce",
+                "To compare ocean temperatures over different centuries"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r29-q2",
+              "type": "mcq",
+              "question": "According to the passage, what happens during coral bleaching?",
+              "options": [
+                "Corals release carbon dioxide into the water",
+                "Corals absorb too much calcium carbonate",
+                "Corals expel the algae that supply them with nutrients",
+                "Corals migrate to cooler water"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r29-q3",
+              "type": "mcq",
+              "question": "The word \"buffering\" in paragraph 1 is closest in meaning to?",
+              "options": [
+                "heating",
+                "absorbing",
+                "moderating or reducing the impact of",
+                "producing"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r29-q4",
+              "type": "mcq",
+              "question": "The word \"symbiotic\" in paragraph 3 is closest in meaning to?",
+              "options": [
+                "colorful",
+                "living together in a mutually beneficial relationship",
+                "harmful to the host organism",
+                "invisible to the naked eye"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r29-q5",
+              "type": "mcq",
+              "question": "What can be inferred from the passage about the relationship between ocean acidification and plankton?",
+              "options": [
+                "Plankton are unaffected by changes in ocean chemistry",
+                "Plankton are the primary cause of ocean acidification",
+                "A decline in plankton could threaten the entire marine food web",
+                "Plankton help reduce the acidity of the ocean"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-18",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 18",
+  "duration": 172,
+  "date": "2026-03-16",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-18/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Attention all passengers on flight KI 162 from Spain to Ireland. This flight has been delayed due to bad weather. The flight will now be leaving at 7:15 p.m. from gate 22A. We apologize for any inconvenience.</li></ul><p><b>Question 2.</b></p><ul><li>Attention, shoppers. For the next fifteen minutes we will have a sale on sweaters in the children's department. Every sweater will be 50% off. Yes, that's right. For just a quarter of an hour you can buy any child's sweater at just half the original price. Now there is a bargain you can't afford to miss. Hurry now. The clock is ticking.</li></ul><p><b>Question 3.</b></p><ul><li>The next stop is Main Street. The exit doors are on the left side. You can transfer to the white line, line number 4 to Seoul soccer stadium. Please be careful as you leave the train.</li></ul><p><b>Question 4.</b></p><ul><li>A small dog was lost in the City center two days ago. It is brown with white paws and answers to the name Sam. It was wearing a brown collar. A reward of fifty dollars will be given for help in finding him. Please contact Brian at 655-7951.</li></ul><p><b>Question 5.</b></p><ul><li>Monday will be warm in most areas with some rain in the north of the country. Temperatures will reach up to 25 degrees in the South and around 20 degrees in the north. Tuesday will also have similar conditions with slightly higher temperatures of about 23 degrees in the north.</li></ul><p><b>Question 6.</b></p><ul><li>Attention all students. Due to a burst in the gas pipes as well as the extremely cold weather today's classes will be canceled. The school buses will be arriving in twenty minutes to take everyone home. Tomorrow's classes will most likely be canceled also but the local radio station will make an announcement in the morning.</li></ul><p><b>Question 7.</b></p><ul><li>Ladies and Gentlemen, we are experiencing some bad weather so all passengers must return to their seats and fasten their seatbelts. I would like to remind you that this is a non-smoking flight so smoking will not be permitted. We should pass through the bad weather within thirty minutes at which time lunch will be served.</li></ul><p><b>Question 8.</b></p><ul><li>Could the owner of a green and red Daesung Santa Lucia registration number ST 4571 please come to the parking lot immediately. Your car is blocking the entrance. A delivery truck is unable to enter and this is causing a traffic jam in the street outside the store.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What time will the flight now be leaving at?",
+              "options": [
+                "At 6:00",
+                "At 7:00",
+                "At 7:15",
+                "At 7:50"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "How much will a $50 sweater cost now?",
+              "options": [
+                "$50",
+                "$5",
+                "$15",
+                "$25"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What number is the white line?",
+              "options": [
+                "6",
+                "4",
+                "7",
+                "3"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What color is the dog?",
+              "options": [
+                "White with brown paws",
+                "Brown with white paws",
+                "Brown with black paws",
+                "Black with brown paws"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What difference will be seen between Monday and Tuesday?",
+              "options": [
+                "Monday will be far hotter.",
+                "Tuesday will have more rain.",
+                "There will be some higher temperatures on Tuesday.",
+                "There will be some extra rain showers on Monday."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Why are the students being sent home?",
+              "options": [
+                "It is a school holiday.",
+                "There is a problem with the heating system.",
+                "Some of the teachers are absent.",
+                "The water pipes burst"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What will happen in thirty minutes?",
+              "options": [
+                "They will land.",
+                "Dinner will be served.",
+                "They will enter into some bad weather.",
+                "Lunch will be served."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is the problem?",
+              "options": [
+                "A car has a flat tire.",
+                "A car has been stolen.",
+                "A car has broken down.",
+                "A car is blocking the entrance."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-18/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> And today, I’m talking to Angela Morgan. Angela, what made you decide to fly round the world in a helicopter?</li><li><b>W:</b> People often ask me why I decided to do it but I’m surprised they don’t ask ‘Why did you wait so long?’ because I’m 57 now. I’m sorry I didn’t do it years ago, because it was such a wonderful experience. But the main purpose for going was to collect £500,000 for sick children by getting different companies to pay us money for each kilometre that we flew.</li><li><b>M:</b> And now everyone calls you the flying grandmother!</li><li><b>W:</b> Yes, the thing about growing older is that you don’t feel any different inside so you have to do as much as you can while you can. I’m healthy, and my own children are grown up, so I was free to go.</li><li><b>M:</b> And what about preparing for the trip?</li><li><b>W:</b> Well, it took five months to plan. I was going to go with my husband but he couldn’t take time off work. Instead, I made the trip with my flying teacher who became a great friend while she was teaching me to fly three years ago. I passed my flying test after two weeks; found it quite easy.</li><li><b>M:</b> And what was the trip like?</li><li><b>W:</b> It was really exciting flying over so many different countries. The only thing was that we weren’t able to spend much time sightseeing because we only stopped to get water and to camp. We took very little with us but we did have tents and cooking things to use at night. We had to spend two days in Thailand because of an engine problem but that was the longest we spent anywhere. Fortunately nothing else went wrong, so we just kept on going after that.</li><li><b>M:</b> What did you enjoy most about the trip?</li><li><b>W:</b> The most wonderful thing about flying was seeing the differences in the countryside as we flew across 26 countries in 97 days. We flew over oceans and close to mountains; sometimes it was quite frightening, but we didn’t travel when it was dark. We spent several nights camping in the desert and the sky was just full of stars. I made a video of the trip; you’ll see it in a minute.</li><li><b>M:</b> Was there anything that you missed while you were away?</li><li><b>W:</b> Well, to my surprise I didn’t miss going to work or going out to restaurants or films. The most difficult thing was sitting still all the time. I normally play tennis and swim several times a week, so I started to feel very unfit. I missed hot water and proper showers sometimes too, but not as much as I thought I would!</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>M:</b> Britta, you’re English, but you live in Berlin. Have you lived here for a long time?</li><li><b>W:</b> Well, I was born in England, but I’ve lived in Germany for the past twenty years. I arrived in Berlin about four years ago. Before that, I lived in Bonn for six years, but I work as a journalist and when the newspaper moved to Berlin, I moved with them.</li><li><b>M:</b> Were you pleased to come to Berlin?</li><li><b>W:</b> Yes, I was. I was looking forward to being in a big city like Berlin. Bonn was quite a lot smaller, so I love the busy atmosphere and all the cultural entertainments here museums, theatres and so on. The only thing I don’t like is the traffic it’s a bit noisy in the mornings. It wakes me up about 6.30, but most days I have to get up early anyway!</li><li><b>M:</b> Where do you live in Berlin?</li><li><b>W:</b> I have a flat in the old part of the city. It’s right in the centre and it’s not too expensive. It costs me about £500 a month. My street is becoming very popular. There are lots of new art galleries, and small cafés and friendly restaurants everywhere. Eating out in Berlin is fun, and it’s cheap, so it’s something I do quite often.</li><li><b>M:</b> How do you find transport in Berlin?</li><li><b>W:</b> Well, the transport system here is very good, so I have a tram and bus ticket but in fact, most of the time I cycle. Travel here is much cheaper than in other countries I know perhaps that’s why people don’t walk very much!</li><li><b>M:</b> What do you like to do in Berlin at the weekends?</li><li><b>W:</b> Well, I like art, so sometimes I go to one of the galleries. I have a nephew called Philippe. He’s only three but he likes coming with me. He likes the café best, I think. And it’s a change from going to the park that’s something he does very often. He usually comes out with me while his parents go shopping.</li><li><b>M:</b> Do you miss your friends and family in England?</li><li><b>W:</b> I work colleagues socially but I’ve got some very good friends who live in the same street as me. I enjoy meeting people, and I find Berlin is a very friendly city.</li><li><b>M:</b> Thank you for talking to us, Britta.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Rachel, tell us how your shows for children started. You studied art at college, didn’t you?</li><li><b>W:</b> That’s right. But I gave up my career as an artist when my twin daughters were born. Painting took up too much time when I was looking after them. I thought about teaching art classes part-time, but instead I started making dolls for my daughters. I love acting, so I often invented little plays for the dolls, doing the voices myself.</li><li><b>M:</b> And when did you start doing shows for other people?</li><li><b>W:</b> When our daughters were five, my husband suggested using the dolls to entertain the children at their birthday party. I wrote a little show and he built a dolls’ theatre. My daughters and their friends loved it. As a result, other parents asked me to come and do the show at their children’s parties. That’s how it all began.</li><li><b>M:</b> It must be a lot of work for you?</li><li><b>W:</b> Yes. I love making the dolls, but I decided that I needed someone to help me with the shows. Luckily my neighbour, Lena, was keen to perform with me. Her husband records the music to go with the shows. It would be impossible to do everything on my own.</li><li><b>M:</b> Have you ever had any problems?</li><li><b>W:</b> Only once. I did a show for a group of three-year-olds, and I’d written a story about a lion. Unfortunately, the children were really afraid of the lion and started crying. I was worried the parents might complain but luckily they were all able to laugh about it afterwards.</li><li><b>M:</b> And what did you learn from that?</li><li><b>W:</b> The experience taught me that I had to find out beforehand just what children enjoy. Like me, Lena has two daughters, so whenever we’ve invented a new story we show it to our four girls first. They always tell us exactly what they think of it. And sometimes I take new dolls to the local primary school to check that children like them.</li><li><b>M:</b> And the shows continue to be successful?</li><li><b>W:</b> They do. I have a range of different shows for five to nine-year-olds. In fact, the shows have become so successful I could do one every day, but I don’t want to do that. The reason the shows have become popular, I think, is because I love every minute of every show and so other people love them too. I certainly didn’t realise when I organised that birthday party for my daughters all those years ago that it would change my life so much!</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What does Angela say about her life now?",
+              "options": [
+                "She feels much older.",
+                "She likes to be active and busy.",
+                "She is lonely without her children.",
+                "Her children don't like people to call her “flying grandmother”"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is true about Angela’s flying lessons?",
+              "options": [
+                "Her course lasted five months.",
+                "Her husband took lessons as well.",
+                "She got to know her teacher well.",
+                "She found it a bit difficult to fly at her old age."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What did Angela enjoy most about the trip?",
+              "options": [
+                "flying at night",
+                "walking in the desert",
+                "watching the changes in the scenery",
+                "seeing stars at night."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What did Angela miss most while she was away?",
+              "options": [
+                "going to restaurants",
+                "modern bathrooms",
+                "regular exercise",
+                "interesting entertainment"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "How long has Britta lived in Berlin?",
+              "options": [
+                "four years",
+                "six years",
+                "twenty years",
+                "twelve years."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Britta say about living in Berlin?",
+              "options": [
+                "She can’t sleep at night because of the traffic noise.",
+                "She misses the museums and theatres in Bonn.",
+                "She likes living in a big, busy city.",
+                "She prefers living in Bonn to living in Berlin."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How does Britta usually travel around in Berlin?",
+              "options": [
+                "She walks.",
+                "She uses her bicycle.",
+                "She uses the tram or bus.",
+                "She drives her car."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is true about Britta’s friends?",
+              "options": [
+                "live near her.",
+                "work with her.",
+                "are still in England.",
+                "are from her hometown."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What did Rachel do before her children were born?",
+              "options": [
+                "an art teacher.",
+                "a painter.",
+                "an actor.",
+                "a doll maker"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Who first thought of doing a show at a party?",
+              "options": [
+                "Rachel’s husband",
+                "Rachel’s children",
+                "Rachel’s parents",
+                "friends of Rachel’s daughter"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How does Rachel’s neighbour, Lena, help?",
+              "options": [
+                "makes some dolls for the shows.",
+                "performs in the shows.",
+                "writes the music for the shows.",
+                "records music for the show"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How do Rachel’s daughters help her?",
+              "options": [
+                "They show new dolls to their school friends.",
+                "They think of ideas for new stories.",
+                "They give her their opinions on her new plays.",
+                "They help her make new dolls."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-18/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talks/Lectures 1 (Q.21-25)</b></p><p><b>Transcript</b></p><p>Welcome to this week’s book programme. We’ve got lots of great new books to tell you about. My life, by Joe Wrigley, will keep all fans of Joe’s stories happy for hours. It explains a lot about where his ideas come from and gives a picture of what was happening in his life when he was working on his most successful books. I must say, though, that some of it is difficult to understand if you haven’t read his other books. Now, for those of you who like a good cry Goodbye to the fields, by Susan Marks tells the sad story of John, a small boy who has to leave the countryside he loves when the family move to London because of his father’s job. John and his mother would prefer to stay where they are. It’s a long time before the family begins to feel comfortable living in the big city. There are plenty of books with helpful advice this week. First, the A-Z of photography would make a great present for anyone just starting out with a camera. It has everything you need to know to take really good photos, and learn about cameras, film, lighting and so on. This is not one for the experienced photographer, though there’s not much advanced information here. Turning to the kitchen Cooking for one, by Adrian White, says on its cover that even people who hate cooking will find it useful. A month ago, I couldn’t even boil an egg but now I’m producing all sorts of dishes, some quite difficult and, yes, they taste quite good, too. I’m actually enjoying cooking now I’m now going to try a new book about cooking Italian food. The last book this week is Holidays in Europe, by Mary Curtis. This is an enjoyable read, which will start your imagination working as you plan for next year’s holiday. It doesn’t matter that the writer doesn’t talk about the famous places everyone visits but describes lots of small places away from the main tourist areas. The maps are too small to be useful but the book is still good value for money. That’s it for this week, then. Next week, there’s a special report on giving books as presents, so if you’ve saved up your money and you’re wondering what to get for a friend or relation for their birthdays, you might get some good ideas … I’ll look forward to talking to you then …</p><p><b>Talks/Lectures 2 (Q.26-30)</b></p><p><b>Transcript</b></p><p>People always ask me why I only travel the hard way! A lot of television travel programmes are about relaxing holidays on the beach but I’ve only ever made documentaries about really long trips. The last trip I did was a 50,000-mile journey around the Pacific Ocean and it took 12 months. But then my very first trip was a ‘round the world’ journey, and the most difficult one was probably a car journey from the North Pole to the South Pole! As you can imagine, I’ve seen a lot of the world! I’m lucky to be in really excellent health, but life is very short and I’ve done so much travelling that I want a change. Travelling long distances makes you extremely tired, and although it’s still a great pleasure for me I want to do something more relaxing now. I think my next travel series might be made nearer England. There’s some really interesting work going on in Wales where they’ve just found what remains of a 2,000-year-old town. Or I might do something about farms in France or even cycling in Holland. There’s always something to film if you look hard enough! But I hope the programmes I’ve made about the really long trips will encourage other people to get on a plane and have some adventures. Some people seem to be afraid of going to a strange country and perhaps being ill there but maybe they realise now that if I can do these trips, so can they. I’m only a very ordinary person. Obviously, you don’t have to travel on your own as I always have. I must say that until recently I hadn’t ever worried about being so far from home even when the children were very small. But while I was filming in Borneo last year my wife had to have an emergency operation and it really frightened me because I couldn’t get back to England. Everything was fine in the end but I wouldn’t want to be so far away if anything like that happened to my family again. Perhaps if I spend more time at home I can do more writing. I’ve done two books so far. I write about places I’ve seen and my feelings about them. I don’t think I’ll ever write fiction or poetry but I’d be interested in writing newspaper articles. My family says I’m very difficult to live with when I’m writing at home … perhaps that’s why they’ve never complained about me travelling!</p><p><b>Talks/Lectures 3 (Q.31-35)</b></p><p><b>Transcript</b></p><p>With us today, to tell us about his trip across Africa is the biologist Paul Hart. We started on the east coast and travelled on foot across Africa to Gabon in the west collecting plants and flowers along the way. It wasn’t easy, but my route crossed a region rich in plants and I chose it because it won’t stay that way for long when more roads are built. It was my only chance to get important information about the natural life of the area. I had a team of eleven scientists. We walked from six in the morning but the forest was so thick it took hours to cut our way through and some days we only walked one kilometre before dark. Fortunately, we carried special equipment that was very light and we took as little food as possible. But we were always tired when we put the tents up at night. Sometimes we saw elephants or lions. They were amazing to watch and never attacked us. Every day, I collected plants and added to my notes. There was so much new information to write down. There were, of course, some low points, especially when I got anxious about the team. It was my job to make sure everyone got home safely. Towards the end of the trip, I suddenly discovered one day that the food had nearly all gone. It was strange because we brought enough dried food with us to last the trip food that wouldn’t ever go bad and we’d stopped at villages for fresh food too. But then I found that some of the team had eaten much more than they were supposed to. I was angry with them because it was a silly thing to do. Then we started walking again. There were no maps for the area, but we had a local guide. Then one of the team got sick and we couldn’t go any further. We let him rest, but he got much worse. Thankfully his life was saved by a fisherman who came along the river in a boat and took him to a doctor in the nearest village. Finally, I returned home and I’m back with my family and friends. I really missed them while I was away. But I learnt so much on the trip and I’m really glad I went. I was asked to go on another trip this time to Australia but I said that I couldn’t because I’m busy here in London. And I think I’ve done enough travelling.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What should readers do to really understand My life?",
+              "options": [
+                "read it very slowly.",
+                "know about the writer’s life.",
+                "read it with a picture.",
+                "read the writer’s other books."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why does John go to London in Goodbye to the fields?",
+              "options": [
+                "his parents do not like the country.",
+                "his father has to be close to his work",
+                "his parents both come from the city.",
+                "His parents want him to have better education."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What information is NOT included in the A-Z of photography?",
+              "options": [
+                "Basic equipment in photography",
+                "how to take good pictures",
+                "Basic information about taking pictures.",
+                "advanced information about photography."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What information does readers get from Holidays in Europe?",
+              "options": [
+                "a small map.",
+                "famous places.",
+                "the main tourist areas.",
+                "less common places."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "For whom are next week’s programme useful?",
+              "options": [
+                "those who enjoy reading reports.",
+                "those who are trying to save money.",
+                "those who are planning to buy gifts.",
+                "those who enjoy making friends."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What did John do for his most recent television programme?",
+              "options": [
+                "drove from the North to the South Pole.",
+                "filmed relaxing beach holidays.",
+                "went to the Pacific Ocean for a year.",
+                "traveled round the world."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Why is John giving up very long trips?",
+              "options": [
+                "because he’s too old now.",
+                "because he’s been everywhere.",
+                "because they’re too tiring.",
+                "because his family want him to spend more time with them."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is John’s next television series probably about?",
+              "options": [
+                "farms in Scotland.",
+                "old ruins in Wales.",
+                "cycling tours in France.",
+                "cycling tours in England."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Why does John want to spend more time near home?",
+              "options": [
+                "His family might need him.",
+                "His wife misses him.",
+                "He has very young children.",
+                "His wife is ill."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What has John written so far?",
+              "options": [
+                "newspaper articles.",
+                "travel books.",
+                "poems.",
+                "fictions."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Why did Paul choose the part of Africa he visited?",
+              "options": [
+                "It is good for walking.",
+                "It will soon change.",
+                "He had been there before.",
+                "It was the easiest route to go"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What made the team’s journey slow?",
+              "options": [
+                "clearing paths through the forest",
+                "finding somewhere safe to camp",
+                "carrying heavy equipment",
+                "finding something to eat."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What did Paul worry about during the trip?",
+              "options": [
+                "the number of dangerous animals",
+                "getting the information he needed",
+                "being responsible for a team of people",
+                "asking the team to help him."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Paul says that the team didn’t have enough food because",
+              "options": [
+                "some people ate more than they should.",
+                "the walk took longer than expected.",
+                "some of the food went bad too quickly.",
+                "They underestimated the amount of food to bring"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "How does Paul feel now he is back home?",
+              "options": [
+                "He is planning to do another trip.",
+                "He misses the people in the team",
+                "He thinks the trip was a valuable experience.",
+                "He wouldn’t mind travelling to Australia."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Working From Home: The Rise of Remote Work",
+            "text": "<p>Remote work means doing a job from home, a co-working space, or anywhere other than a traditional office, using the internet and various software tools to stay connected with colleagues. Job titles that once required a physical presence — customer service, software development, marketing — proved, in many cases, adaptable to a remote format once the right tools were in place. Although some people worked remotely before, the practice became far more common after 2020, when many companies were forced to send employees home for health reasons. Once workers and managers discovered that many tasks could be completed just as well outside the office, some companies decided to keep the arrangement permanently rather than return fully to their previous routines.</p><p>Supporters of remote work point to several clear benefits for employees. Workers save time and money by skipping the daily commute, and they often report feeling less stressed without the noise and interruptions of a busy office. A number of surveys report that most employees who have tried remote work would prefer never to return to a full-time office schedule. Parents in particular value the flexibility to arrange their work schedule around school pickups or other family responsibilities. Some studies even suggest that remote workers complete tasks faster, since they face fewer unplanned interruptions from colleagues walking past their desk.</p><p>However, working from home also creates real challenges. Many employees say they feel <strong>isolated</strong> without daily face-to-face contact with coworkers, and small misunderstandings can grow larger when communication happens only through text messages or video calls. Video calls, while useful, cannot fully replace the small, informal conversations that once happened naturally in hallways or break rooms. It can also be difficult to separate work time from personal time when the same room serves as both an office and a living space. New employees, in particular, often struggle to learn company culture and unwritten workplace rules without watching how experienced colleagues behave in person.</p><p>Because of these mixed effects, many companies have chosen a middle path called hybrid work, where employees come to the office on certain days and work from home on others. Other companies, especially large technology firms, have announced stricter rules requiring staff to return to the office most of the week, arguing that in-person collaboration produces better creative results. Employees who live far from the office often feel these return-to-office rules most strongly, since the change adds hours of commuting back into their week. <strong>These</strong> differing policies have sometimes caused tension between managers, who often prefer employees nearby, and workers, who have grown used to the flexibility remote work provided.</p><p>Whatever policy a company eventually settles on, few experts expect remote work to disappear completely. Even companies that have called employees back to the office usually allow some remote days, suggesting that a fully <strong>rigid</strong>, five-day office schedule may belong mostly to the past. Surveys conducted among both managers and employees suggest that most now expect some form of remote or hybrid arrangement to remain standard practice indefinitely. The exact balance between office and home work will likely keep changing for years to come, as companies continue testing what actually works best for their teams.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q2, R1Q3, R1Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R1Q2</b>, quét từ khóa \"2020\" ở đoạn 1 để xác định nguyên nhân: các công ty buộc phải cho nhân viên làm việc tại nhà vì lý do sức khỏe (Because many companies sent employees home for health reasons in 2020).</li><li>Với <b>R1Q3</b>, quét từ khóa \"benefits\" ở đoạn 2 để tìm lợi ích cho nhân viên: tiết kiệm thời gian và giảm căng thẳng do không bị ảnh hưởng bởi tiếng ồn văn phòng (Workers save time and feel less stressed without office noise).</li><li>Với <b>R1Q4</b>, định vị cụm từ \"new employees\" ở đoạn 3 để thấy thách thức của nhân viên mới: gặp khó khăn trong việc học hỏi văn hóa doanh nghiệp nếu thiếu tiếp xúc trực tiếp (New employees struggle to learn workplace culture without in-person contact).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể mạch bài: bài viết phân tích cả lợi ích lẫn thách thức của làm việc từ xa và dự báo mô hình kết hợp (hybrid) sẽ tiếp tục kéo dài (Remote work brings both benefits and challenges, and hybrid models will likely continue).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q6, R1Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q6</b>, từ <strong>\"isolated\"</strong> ở đoạn 3 mô tả cảm giác cô đơn/cô lập của nhân viên khi thiếu tương tác trực tiếp. Ngữ cảnh này đồng nghĩa với đơn độc (alone).</li><li>Với <b>R1Q7</b>, từ <strong>\"rigid\"</strong> ở đoạn 5 mô tả các quy định cứng nhắc, không linh hoạt. Ngữ cảnh này đồng nghĩa với cố định/cứng nhắc (fixed).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q5):</b> Đối soát các thách thức được liệt kê ở đoạn 3 & 4: cảm giác cô đơn, khó rạch ròi giữa công việc và đời sống, mâu thuẫn giữa quản lý và nhân viên. Chi tiết \"nhân viên làm việc từ xa nhận mức lương thấp hơn đáng kể so với nhân viên văn phòng\" (Remote employees earn significantly lower salaries than office workers) hoàn toàn không được nhắc đến.</li><li><b>Dạng câu hỏi Quy chiếu (R1Q8):</b> Tập trung vào từ quy chiếu <strong>\"These\"</strong> ở đoạn 4 để xác định đối tượng được nhắc đến trước đó: các chính sách làm việc khác nhau giữa các công ty (differing work policies).</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Tổng hợp logic ở đoạn 4 & 5 về tương lai của làm việc từ xa. Hầu hết các công ty sẽ vẫn duy trì một hình thức làm việc từ xa hoặc mô hình kết hợp linh hoạt (Most companies will likely keep some remote or hybrid arrangement).</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái ngôn từ toàn bài. Tác giả giữ góc nhìn khách quan, cân bằng giữa lợi ích và thách thức mà làm việc từ xa mang lại (Balanced, presenting both benefits and challenges of remote work fairly).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R1Q8) và <b>Từ vựng</b> (R1Q6, R1Q7). Tiếp theo, áp dụng kỹ thuật đọc quét thông tin để hoàn thành các câu <b>Chi tiết</b> (R1Q2, R1Q3, R1Q4) và <b>Loại trừ</b> (R1Q5). Cuối cùng, kết nối ý chính toàn bài để chốt chính xác các câu hỏi đòi hỏi phân tích gồm <b>Suy luận</b> (R1Q9), <b>Ý chính toàn bài</b> (R1Q1) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Remote work brings both benefits and challenges, and hybrid models will likely continue.",
+                "Hybrid work policies caused all remote work benefits to disappear.",
+                "Only large technology companies benefit from remote work arrangements.",
+                "Remote work will completely disappear once offices fully reopen."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, why did remote work become far more common after 2020?</span>",
+              "options": [
+                "Because employees demanded better salaries starting in 2020.",
+                "Because many companies sent employees home for health reasons in 2020.",
+                "Because offices became too expensive for companies to maintain.",
+                "Because internet speeds finally became fast enough worldwide in 2020."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one benefit remote work offers employees?</span>",
+              "options": [
+                "Workers save time and feel less stressed without office noise.",
+                "Workers receive extra vacation days for working remotely.",
+                "Workers spend more time commuting when working from home.",
+                "Workers earn higher salaries when working from home permanently."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what challenge do new employees often face with remote work?</span>",
+              "options": [
+                "New employees struggle to learn workplace culture without in-person contact.",
+                "New employees always quit within their first year of remote work.",
+                "New employees earn less money than experienced remote workers.",
+                "New employees prefer remote work more than experienced staff do."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a challenge of remote work?</span>",
+              "options": [
+                "Tension between managers and workers over office policies.",
+                "Feeling isolated without daily face-to-face contact with coworkers.",
+                "Remote employees earn significantly lower salaries than office workers.",
+                "Difficulty separating work time from personal time at home."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"isolated\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "unemployed",
+                "insulated",
+                "excited",
+                "alone"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"rigid\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "fixed",
+                "expensive",
+                "flexible",
+                "rigged"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"These\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "in-person collaboration",
+                "differing work policies",
+                "large technology firms",
+                "creative results"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the future of remote work?</span>",
+              "options": [
+                "Some large technology firms have required stricter office attendance.",
+                "Remote work will certainly end completely within the next year.",
+                "Companies deciding hybrid caused remote work to end entirely.",
+                "Most companies will likely keep some remote or hybrid arrangement."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward remote work?</span>",
+              "options": [
+                "Strongly against companies allowing any remote work at all.",
+                "Focused only on criticizing large technology companies' policies.",
+                "Certain that hybrid work is the only correct policy.",
+                "Balanced, presenting both benefits and challenges of remote work fairly."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "TikTok's Numbers: Growth, Revenue, and the Risk of Misreading Statistics",
+            "text": "<p>TikTok's predecessor, a Shanghai-based app called Douyin, launched domestically in China in September 2016, while the international version debuted the following year and merged in 2018 with Musical.ly, a lip-syncing app already popular among younger users in the United States and Europe. <strong>That merger</strong>, rather than TikTok's original 2016 launch, is what most analysts credit with triggering the platform's rapid global expansion, since it inherited Musical.ly's existing user base rather than building an international audience from nothing. By 2021, the platform had surpassed one billion monthly active users worldwide, a milestone it reportedly reached faster than any social media platform before it.</p><p>Average daily usage figures vary considerably depending on which market and which year's data is cited, a distinction that matters more than casual comparisons often suggest. Global surveys conducted in 2022 placed average daily use at approximately 95 minutes per user, notably higher than the roughly 50 minutes reported for a leading rival short-video feature launched by a competing platform that same year. Usage in certain Southeast Asian markets, however, has been reported at closer to 125 minutes daily, a figure sometimes mistakenly cited as the platform's global average rather than as a regional <strong>outlier</strong>.</p><p>Advertising revenue grew from an estimated 4 billion US dollars in 2020 to roughly 18 billion US dollars by 2022, a near fourfold increase within just two years, before growth <strong>moderated</strong> somewhat as the advertising market matured and competition for the same advertising budgets intensified. Some industry estimates for 2023 place revenue closer to 20 billion US dollars, a figure that represents continued growth but at a considerably slower rate than the near fourfold jump recorded between 2020 and 2022.</p><p>The platform's age demographics have shifted noticeably since its early years. In 2019, users under 18 were estimated to make up roughly 40 percent of the platform's user base in several Western markets, a proportion that had declined to closer to 25 percent by 2023 as older age groups joined in increasing numbers. This shift complicates any claim that TikTok remains primarily a platform for teenagers, even though that early reputation, formed during the 2019 period, continues to shape public perception well after the underlying demographic reality changed.</p><p>The recommendation algorithm's ability to infer user preferences from viewing behavior alone, without requiring users to follow accounts or specify interests explicitly, is frequently cited as central to the platform's engagement levels. Internal research reportedly shared with regulators suggested the algorithm could produce a reasonably tailored recommendation feed after as few as eight to ten videos watched, a claim that, if accurate, would represent a substantially faster personalization process than the hundreds of interactions typically required by earlier recommendation systems built around follower networks and explicit likes.</p><p>Regulatory scrutiny intensified from 2020 onward, beginning with a since-reversed ban attempt in India in mid-2020 and followed by security reviews in several Western countries concerned about data access by a foreign-owned company. A more sustained ban targeting government devices specifically, rather than the general public, took effect in several countries beginning in early 2023, a more limited measure than the outright national bans some commentators mistakenly assumed had already been implemented nationwide by that point.</p><p>Given how rapidly both the platform's user numbers and its regulatory environment have shifted within a single decade, projections about where TikTok's global reach or revenue will stand even five years from now remain, industry analysts generally concede, considerably less reliable than the platform's already-documented growth over its first several years might suggest.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q2, R2Q3, R2Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R2Q2</b>, quét mốc thời gian \"surpassed one billion\" ở đoạn 1: TikTok đạt mốc 1 tỷ người dùng vào năm 2021, nhanh hơn bất kỳ nền tảng mạng xã hội nào trước đó (By 2021, faster than any social platform before it).</li><li>Với <b>R2Q3</b>, quét con số \"125 minutes\" ở đoạn 2 để xác định ý nghĩa: đây là con số trung bình theo khu vực tại một số thị trường Đông Nam Á chứ không phải trung bình toàn cầu (A regional figure from certain Southeast Asian markets, not the global average).</li><li>Với <b>R2Q4</b>, định vị thông tin doanh thu năm 2023 ở đoạn 3: tốc độ tăng trưởng doanh thu quảng cáo năm 2023 đã chậm lại đáng kể so với mức tăng gần gấp 4 lần giai đoạn 2020–2022 (It represents growth at a considerably slower rate than the 2020–2022 jump).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể mạch bài: sự tăng trưởng nhanh chóng của TikTok đi kèm với các con số thống kê thường bị hiểu sai khi tách khỏi ngữ cảnh cụ thể (TikTok's rapid growth involves figures often misread outside their specific context).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q6, R2Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q6</b>, từ <strong>\"moderated\"</strong> ở đoạn 3 mô tả sự dịu lại/chậm lại của tốc độ tăng trưởng doanh thu. Ngữ cảnh này đồng nghĩa với chậm lại (slowed down).</li><li>Với <b>R2Q7</b>, từ <strong>\"outlier\"</strong> ở đoạn 2 mô tả một giá trị khác biệt hẳn so với mặt bằng chung. Ngữ cảnh này đồng nghĩa với ngoại lệ bất thường (an unusual exception).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q5):</b> Đối soát các yếu tố giám sát pháp lý được đề cập trong bài: lệnh cấm ở Ấn Độ năm 2020, cấm trên thiết bị chính phủ ở một số nước, và các đánh giá an ninh dữ liệu. Chi tiết \"lệnh cấm hoàn toàn trên toàn thế giới đối với việc sử dụng công cộng vào năm 2023\" (A complete worldwide ban on public use enacted in every country by 2023) hoàn toàn sai so với thực tế bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q8):</b> Cụm từ <strong>\"That merger\"</strong> ở đoạn 1 quy chiếu trực tiếp đến sự kiện hợp nhất với ứng dụng Musical.ly vào năm 2018 (the 2018 merger).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp logic ở đoạn 2 & 4 về việc trích dẫn số liệu. Các con số như thời lượng sử dụng hay cơ cấu độ tuổi có thể gây hiểu nhầm nếu không đặt trong ngữ cảnh cụ thể (Figures like usage minutes or demographics can mislead without their specific context).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R2Q10):</b> Phân tích thái độ và mục đích của tác giả. Tác giả muốn nhắc nhở người đọc rằng các số liệu thống kê về TikTok thường bị trích dẫn thiếu ngữ cảnh cần thiết (To caution readers that TikTok statistics are often cited without needed context).</li></ul><p><b>Lời khuyên:</b> Ưu tiên làm trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R2Q8) và <b>Từ vựng</b> (R2Q6, R2Q7). Kế tiếp, áp dụng kỹ thuật đọc quét để giải quyết nhanh các câu <b>Chi tiết</b> (R2Q2, R2Q3, R2Q4) và <b>Loại trừ</b> (R2Q5). Cuối cùng, kết nối logic toàn bài để hoàn thành chính xác các câu đòi hỏi phân tích gồm <b>Suy luận</b> (R2Q9), <b>Ý chính toàn bài</b> (R2Q1) và <b>Mục đích của tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "TikTok's rapid growth involves figures often misread outside their specific context.",
+                "TikTok remains, according to the passage, primarily used by teenagers today.",
+                "TikTok's revenue has grown at the exact same rate every year.",
+                "TikTok's daily usage figures are identical across every global market."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, when did TikTok surpass one billion monthly active users worldwide?</span>",
+              "options": [
+                "By 2022, alongside its 18 billion dollar revenue milestone.",
+                "By 2023, when its teen user share fell to 25 percent.",
+                "By 2021, faster than any social platform before it.",
+                "By 2018, immediately after merging with Musical.ly."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does the 125-minutes-per-day figure specifically represent?</span>",
+              "options": [
+                "The global average daily usage figure reported in 2022.",
+                "The projected global average usage figure for the year 2023.",
+                "The average usage time for a competing platform's short-video feature.",
+                "A regional figure from certain Southeast Asian markets, not the global average."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, how does 2023's estimated revenue growth compare to the growth recorded between 2020 and 2022?</span>",
+              "options": [
+                "It represents a complete decline in advertising revenue for TikTok.",
+                "It represents an even faster nearly fourfold increase than before.",
+                "It represents growth at a considerably slower rate than the 2020–2022 jump.",
+                "It represents growth identical in rate to the 2020–2022 period."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a factor in regulatory scrutiny of TikTok?</span>",
+              "options": [
+                "Security reviews concerned about data access by a foreign-owned company.",
+                "Bans targeting government devices specifically in several countries.",
+                "A since-reversed ban attempt in India in mid-2020.",
+                "A complete worldwide ban on public use enacted in every country by 2023."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"moderated\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "advertised",
+                "mediated",
+                "increased sharply",
+                "slowed down"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"outlier\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "a competing platform",
+                "an outline",
+                "the typical average",
+                "an unusual exception"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"That merger\"</strong> in paragraph 1 refers to _______.</span>",
+              "options": [
+                "TikTok's original domestic launch",
+                "surpassing one billion users",
+                "the 2018 merger",
+                "the international version's debut"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about interpreting statistics cited about TikTok?</span>",
+              "options": [
+                "Every statistic about TikTok applies equally to all countries and years.",
+                "Regional usage figures are always higher than global figures for every platform.",
+                "Figures like usage minutes or demographics can mislead without their specific context.",
+                "TikTok's revenue figures are the only statistics ever miscited by commentators."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "To caution readers that TikTok statistics are often cited without needed context.",
+                "To prove that TikTok's regulatory challenges have completely ended.",
+                "To promote TikTok as the fastest-growing platform in history uncritically.",
+                "To argue that TikTok should be banned in every country immediately."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Exercise Before Sleep: Reassessing an Old Warning",
+            "text": "<p>For decades, sleep hygiene guidelines have cautioned against exercising within several hours of bedtime, a recommendation so consistently repeated across public health materials that few people questioned whether the underlying evidence justified quite so blanket a warning. Only once researchers began systematically comparing exercise timing against objectively measured sleep outcomes, rather than relying on general assumptions about arousal and rest, did the picture begin to look considerably more complicated than the original advice suggested.</p><p>The physiological reasoning behind the traditional caution is not <strong>unfounded</strong>: vigorous exercise raises core body temperature, and because falling body temperature is one of the physiological signals the brain uses to initiate sleep, exercising too close to bedtime could plausibly delay the temperature drop needed for sleep onset. Exercise also triggers a temporary surge in adrenaline and, to a lesser extent, cortisol, both of which promote alertness rather than the physiological winding-down that precedes sleep, which is precisely the combination of effects the original guidelines were designed to avoid.</p><p>Systematic reviews published over the past decade, however, have found the actual effect on sleep to be considerably smaller and less consistent than the traditional warning implied. Several meta-analyses report that evening exercise, on average, produces no significant delay in sleep onset and may even modestly improve total sleep time, a finding that directly contradicts the blanket caution still printed in many public health brochures. Whether <strong>this discrepancy</strong> reflects genuine physiological reality or simply methodological differences between older observational studies and newer controlled trials remains a point some sleep researchers continue to debate.</p><p>Much of the apparent contradiction dissolves once timing and intensity are considered separately rather than treated as a single undifferentiated variable. Exercise completed within roughly one hour of bedtime, particularly at high intensity, does appear to delay sleep onset modestly in a meaningful share of study participants, whereas moderate-intensity exercise completed two or more hours before bedtime shows little consistent disruption and, in several studies, correlates with improved sleep quality rather than impaired sleep. This distinction, largely absent from older public health guidance, may explain why so many people report personal experiences that contradict the traditional advice without those experiences necessarily disproving the underlying physiological mechanism.</p><p>Individual variation complicates the picture further, since habitual exercisers appear to tolerate evening workouts with considerably less sleep disruption than occasional exercisers attempting a similarly vigorous session, a difference some researchers attribute to physiological adaptation built up through regular training rather than any difference in the exercise itself. Chronotype — whether a person's natural tendency runs toward earlier or later sleep and wake times — also appears to <strong>modulate</strong> how strongly evening exercise affects sleep onset, though the mechanism connecting chronotype to this sensitivity remains only partially understood.</p><p>Sleep specialists have responded to this accumulating evidence by shifting away from the blanket avoidance once universally recommended, instead offering more individualized guidance that accounts for exercise intensity, proximity to bedtime, and a person's own exercise habits and observed sleep response. Some clinicians now recommend that patients experiment cautiously with evening exercise timing rather than assuming, on the basis of decades-old general advice, that any evening exertion will necessarily undermine that night's sleep.</p><p>None of this evidence suggests the original caution was entirely mistaken so much as insufficiently specific, since a genuine effect on sleep onset does appear to exist for high-intensity exercise performed very close to bedtime, even as the broader prohibition against any evening exercise whatsoever now looks considerably less justified than it once did. Precisely where the practical threshold lies — how close to bedtime, at what intensity, for which individuals — remains a question researchers are still working to answer with the specificity that clinical guidance ultimately requires.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q2, R3Q3, R3Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R3Q2</b>, quét từ khóa \"traditional physiological reasoning\" ở đoạn 2 để tìm lý do: tập thể dục sát giờ ngủ làm tăng nhiệt độ cơ thể và kích hoạt adrenaline, cortisol (Because it raises body temperature and triggers adrenaline and cortisol).</li><li>Với <b>R3Q3</b>, quét các từ khóa \"timing\" và \"intensity\" ở đoạn 4 để xác định quy luật: tập luyện cường độ cao trong vòng một giờ trước khi ngủ có thể làm chậm thời gian bắt đầu ngủ một cách nhẹ (High-intensity exercise within an hour of bedtime may modestly delay sleep onset).</li><li>Với <b>R3Q4</b>, định vị cụm từ \"habitual exercisers\" ở đoạn 5 để giải thích lý do họ chịu đựng tốt hơn: nhờ sự thích nghi sinh lý tích lũy qua quá trình rèn luyện thường xuyên (Because of physiological adaptation built up through regular training).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R3Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn: nghiên cứu mới hơn chỉ ra ảnh hưởng của tập thể dục buổi tối đến giấc ngủ phụ thuộc vào nhiều yếu tố tinh vi/sắc thái khác nhau (Newer research shows evening exercise's sleep effects depend on several nuanced factors).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q6, R3Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q6</b>, từ <strong>\"unfounded\"</strong> ở đoạn 2 (\"is not unfounded\") mang nghĩa không phải là vô căn cứ. Do đó, từ \"unfounded\" đơn lẻ đồng nghĩa với không có cơ sở (without basis).</li><li>Với <b>R3Q7</b>, từ <strong>\"modulate\"</strong> ở đoạn 5 mô tả sự điều chỉnh hay ảnh hưởng đến mức độ tác động của tập thể dục. Ngữ cảnh này đồng nghĩa với ảnh hưởng đến mức độ/điều tiết (influence the degree of).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Đối soát các yếu tố ảnh hưởng được liệt kê trong bài: cường độ tập, thời điểm tập sát giờ ngủ, nhịp sinh học (chronotype) và thói quen tập luyện. Chi tiết \"loại nệm cụ thể mà một người sử dụng\" (The specific type of mattress a person sleeps on) hoàn toàn không được đề cập.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q8):</b> Cụm từ <strong>\"this discrepancy\"</strong> ở đoạn 3 quy chiếu trực tiếp đến sự khác biệt/khoảng cách giữa lời cảnh báo truyền thống và các phát hiện mới cho thấy không có sự hoãn lại giấc ngủ đáng kể (the gap between traditional warnings and findings of no sleep delay).</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Tổng hợp logic toàn bài về lời khuyên truyền thống. Dựa trên bằng chứng hiện tại, lời khuyên cũ mang tính thiếu chính xác/quá khái quát hóa hơn là hoàn toàn sai (The advice was imprecise rather than entirely wrong, given current evidence).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R3Q10):</b> Phân tích mục đích tổng thể của tác giả. Tác giả viết bài để chỉ ra cách các bằng chứng mới đã làm rõ/tinh chỉnh lại một lời cảnh báo mang tính khái quát trước đây (To show how newer evidence refines a once-blanket sleep warning).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R3Q8) và <b>Từ vựng</b> (R3Q6, R3Q7). Tiếp theo, áp dụng kỹ thuật đọc quét thông tin để giải quyết nhanh các câu <b>Chi tiết</b> (R3Q2, R3Q3, R3Q4) và <b>Loại trừ</b> (R3Q5). Cuối cùng, kết nối mạch logic toàn bài để hoàn thành chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R3Q9), <b>Ý chính toàn bài</b> (R3Q1) và <b>Mục đích của tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Evening exercise has now been proven completely safe for everyone.",
+                "Newer research shows evening exercise's sleep effects depend on several nuanced factors.",
+                "Only chronotype determines whether evening exercise disrupts a person's sleep.",
+                "Traditional sleep guidelines were entirely correct and remain unchanged today."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, why might exercising close to bedtime delay sleep onset, according to traditional physiological reasoning?</span>",
+              "options": [
+                "Because it improves total sleep time according to newer research.",
+                "Because it raises body temperature and triggers adrenaline and cortisol.",
+                "Because it lowers core body temperature too rapidly before sleep.",
+                "Because it strengthens chronotype's natural tendency toward later sleep."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what pattern do studies show regarding exercise timing and intensity?</span>",
+              "options": [
+                "All exercise regardless of timing improves total sleep time equally.",
+                "High-intensity exercise two hours before bedtime consistently disrupts sleep.",
+                "High-intensity exercise within an hour of bedtime may modestly delay sleep onset.",
+                "Moderate exercise close to bedtime always improves sleep quality substantially."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why do habitual exercisers reportedly tolerate evening workouts with less sleep disruption than occasional exercisers?</span>",
+              "options": [
+                "Because of physiological adaptation built up through regular training.",
+                "Because habitual exercisers exercise at lower intensity than occasional exercisers.",
+                "Because sleep specialists specifically recommend habitual exercisers avoid evenings.",
+                "Because habitual exercisers have a naturally later chronotype than others."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a factor influencing how evening exercise affects sleep?</span>",
+              "options": [
+                "The intensity of the exercise performed.",
+                "How close to bedtime the exercise occurs.",
+                "A person's chronotype and habitual exercise patterns.",
+                "The specific type of mattress a person sleeps on."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"unfounded\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "without basis",
+                "medically dangerous",
+                "unfamiliar",
+                "well documented"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"modulate\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "measure precisely",
+                "modernize",
+                "influence the degree of",
+                "completely eliminate"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this discrepancy\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "the gap between traditional warnings and findings of no sleep delay",
+                "the temperature drop needed for sleep onset",
+                "differences between older and newer study designs",
+                "the surge in adrenaline and cortisol after exercise"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the traditional advice against evening exercise?</span>",
+              "options": [
+                "The advice was imprecise rather than entirely wrong, given current evidence.",
+                "The traditional advice was entirely wrong and should be completely disregarded.",
+                "The traditional advice was invented specifically to sell sleep aid products.",
+                "Meta-analyses found evening exercise may modestly improve total sleep time."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "To show how newer evidence refines a once-blanket sleep warning.",
+                "To prove sleep specialists have always been correct about exercise.",
+                "To criticize meta-analyses for contradicting traditional sleep guidelines.",
+                "To argue evening exercise should be mandatory for better sleep."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Homeschooling: Motivations, Evidence, and Regulatory Variation",
+            "text": "<p>Homeschooling — the practice of educating children primarily at home rather than enrolling them in a public or private school — occupies a peculiar legal position across jurisdictions, tolerated with minimal oversight in some regions while subject to standardized testing requirements, curriculum approval, or periodic assessment in others, a regulatory patchwork that itself complicates any attempt to generalize about homeschooling's effects across the population as a whole.</p><p>Parental motivations for choosing homeschooling have diversified considerably since the practice's modern resurgence in the 1970s and 1980s, when religious conviction and dissatisfaction with secular curricula dominated survey responses; more recent motivations increasingly cite dissatisfaction with school safety, a desire to accommodate a child's particular learning needs, or simply a preference for greater flexibility in scheduling and curriculum pacing, though <strong>disentangling</strong> which motivation predominates in any given period remains complicated by how survey questions themselves have changed over the decades.</p><p>Claims that homeschooled children achieve academic outcomes superior to their conventionally schooled peers rest, almost entirely, on studies whose samples are not randomly drawn but instead consist of families who volunteered to participate, a self-selection problem that likely inflates apparent achievement gaps, since families willing to complete standardized assessments and share results with researchers are plausibly more academically engaged, on average, than homeschooling families who decline to participate. Whether homeschooled children genuinely outperform their peers once <strong>this</strong> selection bias is adequately accounted for remains, several methodologists have noted, a question the existing research base is simply not designed to answer with confidence.</p><p>A comparable methodological problem complicates the long-running debate over socialization, in which critics have argued that homeschooled children lack sufficient peer interaction while advocates counter that co-ops, sports leagues, and community activities provide socialization opportunities at least comparable to those a conventional school offers. Existing studies measuring homeschooled children's social skills and emotional adjustment report results that vary considerably depending on which measure of socialization researchers select, which population of homeschoolers they sample, and which comparison group of conventionally schooled peers is used, a degree of methodological inconsistency that makes any confident, generalizable conclusion about socialization outcomes considerably harder to reach than either side of the public debate typically acknowledges.</p><p>Enrollment figures suggest homeschooling grew modestly but steadily through the two decades preceding 2020, before rising sharply during the initial phase of the COVID-19 pandemic, when school closures prompted many families to try homeschooling out of immediate necessity rather than considered preference. Whether this pandemic-era surge represents a <strong>durable</strong> shift in how families approach education, or merely a temporary spike that will substantially recede once families judge conventional schooling to have fully normalized again, is a question enrollment data collected several years after the pandemic's peak has only begun, tentatively, to address.</p><p>Regulatory approaches to homeschooling vary considerably even within single countries, let alone across them: some jurisdictions require only a simple notification of intent to homeschool, others mandate periodic standardized testing or portfolio review, and a smaller number require homeschooling parents to hold specific educational qualifications before they may legally teach their own children. Advocates for lighter regulation argue that testing requirements disproportionately burden families without meaningfully identifying the small minority of cases where a child's education is genuinely inadequate, whereas proponents of stronger oversight counter that the absence of any assessment mechanism risks leaving inadequately educated children entirely undetected until, in the most severe documented cases, serious harm has already occurred.</p><p>Considered together, the research literature on homeschooling supports far fewer confident generalizations than either side of the public debate typically claims, constrained as it is by self-selected samples, inconsistent measurement approaches, and a regulatory landscape too varied to support any single, universally applicable conclusion about outcomes. Whether future research employing more rigorous sampling methods will resolve these persistent uncertainties, or whether the practice's sheer diversity of motivation and implementation will continue to resist any single explanatory framework, remains a question current researchers answer with considerably more caution than the confidence found in most popular commentary on the subject.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q3, R4Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R4Q2</b>, quét từ khóa \"academic outcomes\" ở đoạn 3 để tìm nguyên nhân: do mẫu nghiên cứu phụ thuộc vào các gia đình tự nguyện tham gia và có mức độ gắn kết học thuật cao hơn (Because study samples rely on self-selected, more academically engaged families).</li><li>Với <b>R4Q3</b>, quét cụm từ \"pandemic-era rise\" ở đoạn 5 để xác định điểm chưa chắc chắn: liệu sự gia tăng này đại diện cho sự thay đổi bền vững hay chỉ là sự bùng phát tạm thời (Whether the rise represents a durable shift or a temporary spike).</li><li>Với <b>R4Q4</b>, định vị lập luận của bên ủng hộ nới lỏng quy định ở đoạn 6: các yêu cầu kiểm tra gây gánh nặng cho gia đình mà không giúp nhận diện hiệu quả các trường hợp giáo dục yếu kém (Testing requirements burden families without meaningfully identifying inadequate education cases).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R4Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn: thiên vị tự chọn (selection bias) và các thước đo không đồng nhất hạn chế đưa ra kết luận chắc chắn về kết quả của giáo dục tại nhà (Selection bias and inconsistent measures limit confident conclusions about homeschooling outcomes).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q6, R4Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q6</b>, từ <strong>\"disentangling\"</strong> ở đoạn 2 mô tả việc tách bạch/bóc tách các động lực khác nhau. Ngữ cảnh này đồng nghĩa với phân tách, gỡ rối (separating out).</li><li>Với <b>R4Q7</b>, từ <strong>\"durable\"</strong> ở đoạn 5 mô tả một sự thay đổi mang tính bền vững/lâu dài. Ngữ cảnh này đồng nghĩa với lâu dài, bền vững (lasting).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q5):</b> Đối soát các động cơ học tại nhà ở đoạn 2: niềm tin tôn giáo, sự không hài lòng với an toàn trường học, nhu cầu học tập riêng, và sự linh hoạt về thời gian. Chi tiết \"đảm bảo điểm thi chuẩn hóa cao hơn các trường truyền thống\" (A guarantee of higher standardized test scores than conventional schools) hoàn toàn không được đề cập.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q8):</b> Từ quy chiếu <strong>\"this\"</strong> trong cụm \"this selection bias\" ở đoạn 3 chỉ trực tiếp hiện tượng thiên vị mẫu do phụ thuộc vào các gia đình tự nguyện tham gia (self-selected volunteer families).</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Tổng hợp logic toàn bài về các tuyên bố chắc chắn. Những tuyên bố quả quyết thường vượt quá những gì mà nền tảng nghiên cứu bị hạn chế về phương pháp luận hiện tại có thể chứng minh (Such claims often exceed what the current, methodologically limited research supports).</li><li><b>Dạng câu hỏi Cấu trúc lập luận (R4Q10):</b> Phân tích cách tác giả xây dựng bài viết. Tác giả trình bày cơ sở nghiên cứu về giáo dục tại nhà đồng thời liên tục làm nổi bật những hạn chế về mặt phương pháp luận của nó (By presenting homeschooling's research base while consistently highlighting its methodological limitations).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên làm trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R4Q8) và <b>Từ vựng</b> (R4Q6, R4Q7). Tiếp theo, áp dụng kỹ thuật đọc quét để xử lý nhanh các câu <b>Chi tiết</b> (R4Q2, R4Q3, R4Q4) và <b>Loại trừ</b> (R4Q5). Cuối cùng, kết nối mạch logic toàn bài để chốt chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R4Q9), <b>Ý chính toàn bài</b> (R4Q1) và <b>Cấu trúc lập luận</b> (R4Q10).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Homeschooling research has fully resolved the socialization debate conclusively.",
+                "Research proves definitively that homeschooled children always outperform peers.",
+                "Regulatory variation is the only factor affecting homeschooling research quality.",
+                "Selection bias and inconsistent measures limit confident conclusions about homeschooling outcomes."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, why might claims of homeschooled children's superior academic outcomes be overstated?</span>",
+              "options": [
+                "Because homeschooling motivations have remained identical since the 1970s.",
+                "Because study samples rely on self-selected, more academically engaged families.",
+                "Because standardized tests are banned for homeschooled children entirely.",
+                "Because homeschooled children are proven to perform worse than peers."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what remains uncertain about the pandemic-era rise in homeschooling enrollment?</span>",
+              "options": [
+                "Whether enrollment figures were recorded accurately before 2020.",
+                "Whether the rise represents a durable shift or a temporary spike.",
+                "Whether school closures were caused by rising homeschooling rates.",
+                "Whether homeschooling existed at all before the pandemic began."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do advocates for lighter homeschooling regulation argue?</span>",
+              "options": [
+                "Testing requirements burden families without meaningfully identifying inadequate education cases.",
+                "Educational qualifications should be mandatory for all homeschooling parents.",
+                "Standardized testing always identifies every case of inadequate education successfully.",
+                "No jurisdiction currently requires any notification of homeschooling intent."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a documented motivation for choosing homeschooling?</span>",
+              "options": [
+                "A desire for greater flexibility in scheduling and pacing.",
+                "A guarantee of higher standardized test scores than conventional schools.",
+                "Dissatisfaction with school safety or a child's particular learning needs.",
+                "Religious conviction and dissatisfaction with secular curricula."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"disentangling\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "financially supporting",
+                "completely ignoring",
+                "entangling",
+                "separating out"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"durable\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "temporary",
+                "financially costly",
+                "durability",
+                "lasting"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"this\"</strong> in paragraph 3 (\"this selection bias\") refers to _______.</span>",
+              "options": [
+                "self-selected volunteer families",
+                "achievement gap size",
+                "standardized test results",
+                "academic engagement levels"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about confident claims regarding homeschooling's effects on children?</span>",
+              "options": [
+                "Such claims often exceed what the current, methodologically limited research supports.",
+                "Homeschooled children definitely receive better socialization than schooled peers.",
+                "Selection bias caused researchers to invent the socialization debate entirely.",
+                "Such claims are entirely fabricated and have no basis in any research."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>How does the author primarily structure the argument in this passage?</span>",
+              "options": [
+                "By arguing that all homeschooling regulation should be abolished immediately.",
+                "By concluding decisively that pandemic-era homeschooling growth will fully reverse.",
+                "By proving conclusively that homeschooling produces superior educational outcomes.",
+                "By presenting homeschooling's research base while consistently highlighting its methodological limitations."
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You received an email from your friend, Jack, who is planning a trip to Vietnam from April 1st to April 7th.</p> He is asking for your advice on travel arrangements and sightseeing. Read part of his email below.",
+          "content": "<p class='mb-1'>I'm so excited about my upcoming trip to Vietnam in early April!</p><ul><li>What is the best way to get around the city and between different regions?</li><li>Which specific places should I visit during my week-long stay?</li><li>Are there any interesting museums or exhibitions you recommend?</li></ul>",
+          "description": "Write an email responding to Jack. You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li><strong>Dạng đề:</strong> Informal Email (Thư thân mật).</li><li><strong>Yêu cầu:</strong> Trả lời 3 ý chính: phương tiện di chuyển, địa điểm tham quan, và các bảo tàng/triển lãm đặc sắc.</li><li><strong>Bối cảnh:</strong> Chuyến đi diễn ra từ 1/4 đến 7/4 (thời tiết khá đẹp ở cả 2 miền).</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Dear Jack, / Hi Jack,</li><li><strong>Opening:</strong> Cảm ơn và bày tỏ sự hào hứng. Ví dụ: I'm thrilled to hear you're visiting Vietnam this April!</li><li><strong>Body Paragraph 1:</strong> Trả lời về phương tiện. Ví dụ: For getting around, I suggest using ride-hailing apps like Grab for convenience.</li><li><strong>Body Paragraph 2:</strong> Gợi ý địa điểm và bảo tàng. Ví dụ: You definitely shouldn't miss the War Remnants Museum if you're interested in history.</li><li><strong>Closing:</strong> Chúc chuyến đi tốt đẹp. Ví dụ: I'm sure you'll have an amazing time here.</li><li><strong>Sign-off:</strong> Best wishes, / Take care, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng câu điều kiện và cấu trúc gợi ý: \"If I were you...\", \"I highly recommend...\", \"You might want to check out...\".</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Ride-hailing apps:</strong> Ứng dụng đặt xe</li><li><strong>Must-see attractions:</strong> Những điểm tham quan nhất định phải xem</li><li><strong>Historical artifacts:</strong> Các hiện vật lịch sử</li><li><strong>Cultural heritage:</strong> Di sản văn hóa</li><li><strong>Breathtaking scenery:</strong> Phong cảnh ngoạn mục</li><li><strong>Local cuisine:</strong> Ẩm thực địa phương</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>First and foremost:</strong> Đầu tiên và quan trọng nhất</li><li><strong>In addition:</strong> Thêm vào đó</li><li><strong>Regarding:</strong> Về việc...</li><li><strong>Alternatively:</strong> Hoặc là (lựa chọn khác)</li><li><strong>In short:</strong> Tóm lại</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I'm so glad:</strong> Mình rất vui...</li><li><strong>It's a great choice:</strong> Đó là một lựa chọn tuyệt vời.</li><li><strong>You'll be amazed by:</strong> Bạn sẽ ngạc nhiên bởi...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Quên không nhắc đến mốc thời gian (1/4 - 7/4) khiến lời khuyên thiếu thực tế.</li><li>Sử dụng quá nhiều từ ngữ trang trọng (formal) không phù hợp với bạn bè.</li><li>Viết quá ngắn hoặc không chia đoạn rõ ràng.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Kiểm tra các động từ khuyết thiếu (should/can/could).</li><li>Đảm bảo tên các địa danh tại Việt Nam được viết hoa đúng.</li><li>Đếm số từ (mục tiêu 140-160 từ để an toàn).</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy chọn một thành phố cụ thể (Hà Nội hoặc TP.HCM) để lời khuyên về bảo tàng và phương tiện trở nên chi tiết và thuyết phục hơn.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "adv_dis",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>Online learning has become an integral part of modern education, especially with the rapid development of technology.</p><p class='mb-1'>While many students and teachers embrace this new method, others remain concerned about its effectiveness compared to traditional classrooms.</p><p class='mb-1'><strong>Discuss the advantages and disadvantages of online learning.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the advantages and disadvantages of online learning. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li><strong>Dạng bài:</strong> Advantages and Disadvantages Essay.</li><li><strong>Chủ đề:</strong> Học trực tuyến (Online learning/E-learning).</li><li><strong>Yêu cầu:</strong> Phân tích cả mặt lợi và mặt hại, không nhất thiết phải nêu quan điểm cá nhân trừ khi đề bài yêu cầu thêm, nhưng nên có sự đánh giá khách quan.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu xu hướng học online và nêu rằng nó có cả ưu điểm lẫn nhược điểm. Ví dụ: While online education offers flexibility, it also presents several challenges for learners.</li><li><strong>Body 1 (Advantages):</strong> Sự linh hoạt, tiết kiệm chi phí, nguồn tài liệu phong phú. Ví dụ: The most significant advantage is the flexibility of time and location.</li><li><strong>Body 2 (Disadvantages):</strong> Thiếu tương tác trực tiếp, vấn đề kỹ thuật, yêu cầu tính tự giác cao. Ví dụ: On the other hand, a major drawback is the lack of face-to-face interaction between teachers and students.</li><li><strong>Conclusion:</strong> Tóm tắt lại các ý chính và đưa ra nhận định chung về tương lai của giáo dục trực tuyến.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các cấu trúc đối lập (In spite of, However) và các từ vựng chuyên ngành giáo dục/công nghệ.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Virtual classroom:</strong> Lớp học ảo</li><li><strong>Self-paced learning:</strong> Tự học theo tốc độ cá nhân</li><li><strong>Geographical barriers:</strong> Rào cản địa lý</li><li><strong>Technical glitches:</strong> Lỗi kỹ thuật</li><li><strong>Digital literacy:</strong> Kiến thức về kỹ thuật số</li><li><strong>Sense of isolation:</strong> Cảm giác bị cô lập</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>On the positive side:</strong> Về mặt tích cực</li><li><strong>Conversely:</strong> Ngược lại</li><li><strong>Furthermore:</strong> Hơn nữa</li><li><strong>As a consequence:</strong> Kết quả là</li><li><strong>Despite these drawbacks:</strong> Mặc dù có những nhược điểm này</li><li><strong>To sum up:</strong> Tóm lại</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Online learning:</strong> Thay bằng \"distance education\", \"web-based learning\" hoặc \"e-learning platforms\".</li><li><strong>Traditional classes:</strong> Thay bằng \"conventional classrooms\" hoặc \"physical educational settings\".</li><li><strong>Advantages:</strong> Thay bằng \"merits\", \"benefits\" hoặc \"strengths\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li><strong>It is widely argued that:</strong> Nhiều người cho rằng...</li><li><strong>Another point to consider is:</strong> Một điểm khác cần xem xét là...</li><li><strong>The pros outweigh the cons:</strong> Lợi ích vượt trội hơn tác hại.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê ưu điểm mà bỏ qua nhược điểm (hoặc ngược lại).</li><li>Viết đoạn văn quá dài mà không có câu chủ đề rõ ràng.</li><li>Dùng ví dụ quá cá nhân (không mang tính học thuật).</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra tính nhất quán của quan điểm.</li><li>Rà soát lỗi mạo từ (a, an, the) và danh từ không đếm được (information, knowledge).</li><li>Đảm bảo đã đủ số lượng từ quy định (250 từ).</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy cố gắng cân bằng độ dài giữa hai đoạn thân bài để bài viết trông chuyên nghiệp và khách quan hơn.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "What kind of books do you like to read?",
+            "What kind of books do you think children should read?",
+            "Why do you think reading is important, especially for children?",
+            "Do you get along well with your neighbors?",
+            "What do you like most about your neighbors?",
+            "Is there anything about your neighbors that you don't really like?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này có <strong>2 chủ đề nhỏ</strong>: <strong>Topic A (Books)</strong> và <strong>Topic B (Neighbors)</strong>.</li><li><strong>Topic A (Books):</strong> Ba câu hỏi đầu kiểm tra khả năng nói về sở thích đọc sách, loại sách phù hợp cho trẻ em và tầm quan trọng của việc đọc sách.</li><li><strong>Topic B (Neighbors):</strong> Ba câu hỏi sau kiểm tra khả năng mô tả mối quan hệ với hàng xóm, những điểm thích và không thích ở họ.</li><li>Tiêu chí đánh giá gồm <strong>Fluency, Vocabulary, Grammar và Pronunciation</strong>.</li><li>Thời gian Part 1 là <strong>3 phút</strong>, nên dành khoảng 25–35 giây cho mỗi câu hỏi, cân bằng đều giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong> để trả lời đầy đủ và có chiều sâu.</li><li><strong>Ví dụ Topic A:</strong> \"I mostly enjoy reading self-help books and novels because they give me new perspectives and help me relax after a long day.\"</li><li><strong>Ví dụ Topic B:</strong> \"I'd say I get along quite well with my neighbors, especially the elderly couple next door who are always friendly and willing to help.\"</li><li>Luôn tự hỏi Why?/How? để mở rộng câu trả lời, tránh nói quá ngắn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển ý tự nhiên như \"Besides reading, I'd also like to share a bit about my relationship with my neighbors.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Duy trì tốc độ nói ổn định, dùng từ đệm để tránh khoảng lặng dài.</li><li>Dùng <strong>hiện tại đơn</strong> khi nói về thói quen đọc sách và quan hệ hàng xóm, dùng <strong>should</strong> khi đưa ra đề xuất về sách cho trẻ em.</li><li>Nếu bí từ, hãy diễn đạt bằng từ đơn giản hơn thay vì im lặng.</li><li>Từ vựng cho Topic A: broaden one's knowledge, age-appropriate content, foster a love of reading, an educational story.</li><li>Từ vựng cho Topic B: a friendly neighborhood, lend a helping hand, respect one's privacy, a noisy household.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>broaden one's knowledge</strong> (mở rộng kiến thức)</li><li><strong>age-appropriate content</strong> (nội dung phù hợp với lứa tuổi)</li><li><strong>foster a love of reading</strong> (nuôi dưỡng tình yêu đọc sách)</li><li><strong>a friendly neighborhood</strong> (một khu xóm thân thiện)</li><li><strong>lend a helping hand</strong> (giúp đỡ ai đó)</li><li><strong>respect one's privacy</strong> (tôn trọng sự riêng tư của ai đó)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Firstly</strong> - trước hết, dùng để mở đầu ý.</li><li><strong>Besides</strong> - bên cạnh đó, dùng để bổ sung ý.</li><li><strong>For example</strong> - ví dụ như, dùng khi minh họa.</li><li><strong>However</strong> - tuy nhiên, dùng khi đối chiếu ý kiến.</li><li><strong>That's why</strong> - đó là lý do vì sao, dùng để nêu kết quả.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>Personally, I think...</strong> Ví dụ: \"Personally, I think children should read stories that teach moral lessons in a fun way.\"</li><li><strong>In my opinion...</strong> Ví dụ: \"In my opinion, having good neighbors makes a huge difference in daily life.\"</li><li><strong>I would say that...</strong> Ví dụ: \"I would say that my neighbors are generally considerate, though sometimes their kids can be a bit noisy.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\"/\"No\" rồi im lặng mà không giải thích thêm - lỗi nghiêm trọng nhất.</li><li>Ở Topic A, chỉ nêu tên thể loại sách mà không giải thích lý do phù hợp với trẻ em.</li><li>Ở Topic B, chỉ nói chung chung \"good\"/\"bad\" mà không đưa ra ví dụ cụ thể.</li><li>Phát âm sai trọng âm từ: <strong>'neighbor</strong>, <strong>edu'cational</strong>.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's an interesting question, let me think for a second.\"</li><li>Nếu quên từ, hãy mô tả khái niệm bằng từ đơn giản hơn.</li><li>Với Topic A, nếu bí ý, hãy kể tên một cuốn sách cụ thể và tóm tắt ngắn gọn nội dung.</li><li>Với Topic B, nếu bí ý, hãy kể về một kỷ niệm cụ thể với hàng xóm.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Coi đây như một cuộc trò chuyện thân mật với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để bắt đầu câu chuyện mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố dùng từ vựng quá phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your community center is planning an event for children, but you can only choose one activity to organize.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: Organize mini games</li><li>Option 2: Organize a self-cooking meal with their child</li><li>Option 3: Organize a music festival night</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Đây là dạng <strong>Solution Discussion</strong>. Bạn cần chọn một hoạt động phù hợp nhất để tổ chức sự kiện cho trẻ em trong ba lựa chọn: các trò chơi nhỏ, buổi nấu ăn cùng con, hoặc đêm nhạc hội.</li><li>Ba lựa chọn khác nhau về tính giáo dục, sự gắn kết gia đình và mức độ giải trí.</li><li>Thời gian là <strong>4 phút</strong>; cần phân tích cả ba phương án trước khi đưa ra kết luận.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction - Comparison/Body - End)</strong> để trình bày mạch lạc từng lựa chọn rồi kết luận.</li><li><strong>Option 1 (Mini games):</strong> \"Organizing mini games would keep the children entertained and help them develop teamwork skills, but it might not involve the parents very much.\"</li><li><strong>Option 2 (Nấu ăn cùng con):</strong> \"A self-cooking activity with their child would strengthen the bond between parents and children, though it requires more preparation and supervision.\"</li><li><strong>Option 3 (Đêm nhạc hội):</strong> \"A music festival night would create a fun and lively atmosphere for the whole family, but it may be too overwhelming or too late for younger children.\"</li><li>Nên neo lập luận vào bối cảnh thực tế của một sự kiện cộng đồng dành cho gia đình có trẻ nhỏ.</li><li>Dùng từ nối tương phản như \"however\", \"whereas\" để chuyển giữa ưu và nhược điểm của từng lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ: \"Unlike mini games, which mainly involve the children, the cooking activity brings parents and children together.\"</li><li>Dùng modal verbs (would, could, should) khi giả định và đề xuất giải pháp.</li><li>Paraphrase \"event\" bằng \"activity\" hoặc \"gathering\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>strengthen family bonds</strong> (thắt chặt tình cảm gia đình)</li><li><strong>develop teamwork skills</strong> (phát triển kỹ năng làm việc nhóm)</li><li><strong>a lively atmosphere</strong> (một không khí sôi động)</li><li><strong>hands-on experience</strong> (trải nghiệm thực hành)</li><li><strong>require careful supervision</strong> (đòi hỏi sự giám sát cẩn thận)</li><li><strong>age-appropriate activities</strong> (hoạt động phù hợp với lứa tuổi)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared with</strong> - so với, dùng khi so sánh hai lựa chọn.</li><li><strong>Whereas</strong> - trong khi đó, dùng để đối lập.</li><li><strong>Nevertheless</strong> - tuy nhiên, dùng để chuyển ý ngược lại.</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố, dùng trước kết luận.</li><li><strong>In terms of</strong> - xét về mặt, dùng khi so sánh theo tiêu chí cụ thể.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I had to choose, I would go with...</strong> Ví dụ: \"If I had to choose, I would go with the cooking activity because it creates a meaningful bonding experience for families.\"</li><li><strong>I'm more inclined towards...</strong> Ví dụ: \"I'm more inclined towards something that involves both parents and children rather than just entertainment.\"</li><li><strong>All things considered...</strong> Ví dụ: \"All things considered, the mini games seem like the most practical choice given the limited budget.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của nó.</li><li>Lặp lại từ \"fun\"/\"good\" quá nhiều thay vì dùng tính từ học thuật hơn.</li><li>Không có kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng liên quan đến một lựa chọn, chuyển hướng sang nói về chi phí tổ chức hoặc độ an toàn cho trẻ.</li><li>Dùng câu chờ ý: \"Let's evaluate this option from a different perspective.\"</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Đặt mình vào vị trí ban tổ chức - hoạt động nào vừa an toàn, vừa mang lại giá trị lâu dài cho trẻ em và gia đình?</li><li>Có thể đề xuất kết hợp, ví dụ chơi mini games trước rồi cùng nấu ăn, để thể hiện tư duy linh hoạt.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn đã chọn để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "Reasons for job loss among young people",
+          "mindmap": {
+            "title": "Job Loss Among Youth",
+            "ideas": [
+              "Workplace conflicts",
+              "Health issues that are not guaranteed",
+              "Lack of necessary skills",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "What do young people need to do to get a good job?",
+            "How can workplace conflicts be avoided or resolved?",
+            "Do you think schools prepare students well enough for the job market?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về các nguyên nhân khiến người trẻ mất việc làm, dựa trên ba nhánh chính và một nhánh ý kiến cá nhân.</li><li>Ba nhánh chính gồm: xung đột nơi làm việc, vấn đề sức khỏe không đảm bảo, và thiếu kỹ năng cần thiết dẫn đến mất việc.</li><li><strong>Gợi ý cho nhánh thứ 4 (ý kiến cá nhân):</strong> có thể phát triển theo hướng ảnh hưởng của sự thay đổi công nghệ hoặc tự động hóa đến cơ hội việc làm của người trẻ.</li><li>Thời gian là <strong>5 phút</strong>: khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> để trình bày từng nhánh của sơ đồ tư duy.</li><li><strong>Ví dụ mở bài:</strong> \"Today, I'd like to talk about the main reasons why young people often lose their jobs.\"</li><li><strong>Ví dụ cho nhánh ý kiến cá nhân:</strong> \"In my opinion, the rapid pace of technological change has also made it harder for young employees to keep up, which can eventually lead to job loss.\"</li><li>Nên đưa ví dụ thực tế như mâu thuẫn với đồng nghiệp, nghỉ việc do sức khỏe kém, hoặc thiếu kỹ năng chuyên môn khi mới ra trường.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lạc đề sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển ý mượt mà khi chuyển từ nhánh này sang nhánh khác của sơ đồ tư duy.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> cho sự thật chung, dùng <strong>hiện tại hoàn thành</strong> khi nói về xu hướng thị trường lao động đã thay đổi theo thời gian.</li><li>Paraphrase \"job loss\" bằng \"unemployment\" hoặc \"losing one's position\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>workplace conflicts</strong> (mâu thuẫn nơi làm việc)</li><li><strong>a lack of relevant skills</strong> (thiếu kỹ năng liên quan)</li><li><strong>health complications</strong> (các vấn đề sức khỏe phức tạp)</li><li><strong>fall behind in the job market</strong> (tụt hậu trong thị trường việc làm)</li><li><strong>professional development</strong> (phát triển chuyên môn)</li><li><strong>job security</strong> (sự đảm bảo việc làm)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước hết, dùng để mở đầu nhánh đầu tiên.</li><li><strong>Moving on to</strong> - chuyển sang, dùng khi chuyển nhánh ý.</li><li><strong>Furthermore</strong> - hơn nữa, dùng để bổ sung ý.</li><li><strong>In addition to that</strong> - thêm vào đó, dùng để mở rộng ý.</li><li><strong>To sum up</strong> - tóm lại, dùng khi kết luận.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>I firmly believe that...</strong> Ví dụ: \"I firmly believe that developing soft skills is just as important as technical knowledge for keeping a job.\"</li><li><strong>It seems to me that...</strong> Ví dụ: \"It seems to me that many young employees underestimate the importance of good communication at work.\"</li><li><strong>What strikes me most is...</strong> Ví dụ: \"What strikes me most is how a single health issue can disrupt an entire career path.\"</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"What do young people need to do to get a good job?\"</strong> - Có thể đề cập đến việc trau dồi kỹ năng chuyên môn, rèn luyện kỹ năng mềm và chủ động tích lũy kinh nghiệm thực tế qua thực tập.</li><li><strong>\"How can workplace conflicts be avoided or resolved?\"</strong> - Có thể nhấn mạnh vào giao tiếp cởi mở, lắng nghe đồng nghiệp và tìm kiếm sự hỗ trợ từ cấp quản lý khi cần.</li><li><strong>\"Do you think schools prepare students well enough for the job market?\"</strong> - Có thể so sánh giữa kiến thức lý thuyết được dạy ở trường và những kỹ năng thực tế mà nhà tuyển dụng yêu cầu.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê nguyên nhân mà không giải thích cụ thể - luôn cần đưa ví dụ minh họa.</li><li>Quên nhánh ý kiến cá nhân - nên chuẩn bị trước nhánh thứ tư này.</li><li>Nói quá dài ở phần mở đầu khiến không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào trải nghiệm cá nhân hoặc quan sát thực tế khi bí ý, ví dụ câu chuyện của bạn bè hoặc người quen đã từng mất việc.</li><li>Câu chờ ý học thuật: \"That is a complex issue. If we evaluate it from an economic perspective...\"</li><li>Dùng từ đồng nghĩa hoặc mô tả đơn giản nếu quên từ vựng chuyên môn.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ thực tế và liên hệ với thị trường lao động cạnh tranh hiện nay.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố quyết định điểm số.</li><li>Luôn giữ giọng điệu tự nhiên, tránh đọc thuộc lòng như một bài văn mẫu.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

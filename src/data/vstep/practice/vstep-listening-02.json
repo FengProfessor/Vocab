@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-02",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 02",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What will the weather be like tomorrow?</b></p><ul><li><b>Announcer:</b> Here is the weather forecast. Today will be very cloudy, although it won’t rain until the evening. The weather tomorrow will be the same as yesterday – <b>sunshine and showers</b>. But the weekend looks good – plenty of sunshine and very little rain.</li></ul><p><b>2. What will the man do first?</b></p><ul><li><b>Woman:</b> Steve, what are you going to do today?</li><li><b>Man:</b> Mmm ... well, I’ve got to have my hair cut, but before I do anything I need to <b>ring Peter</b> and see if he wants to play golf.</li><li><b>Woman:</b> That’s a good idea, you haven’t played for a while, have you?</li></ul><p><b>3. Where is the knife?</b></p><ul><li><b>Woman:</b> I’m glad we decided to stop here for our picnic. Can you find the knife for me, and I’ll cut up the cucumber? I packed it in the bag with the bread ... oh, but I used it to peel some oranges when we stopped in the <b>petrol station</b> so it’ll be <b>with them</b>. I hope it’s big enough to cut up this pie.</li></ul><p><b>4. What happened to the girl this afternoon?</b></p><ul><li><b>Girl:</b> You’ll never guess what happened to me this afternoon! I was cycling over the bridge in town, when there was this really strong wind, and I <b>fell off my bike</b>. I didn’t hurt myself, but my books were thrown onto the pavement and went everywhere. This really nice boy picked them up for me! It’s lucky there were no cars around to drive over my bike, which was still in the road. I thanked the boy, then I picked up my bike and cycled away. I was ...</li></ul><p><b>5. Which man is waiting at the bus stop?</b></p><ul><li><b>Boy:</b> Oh look, that’s my new English teacher over there, see – he’s waiting at the bus stop.</li><li><b>Girl:</b> The <b>young one with sunglasses and blond hair</b>? You always told me your teacher was bald and really old and got angry because he kept losing his glasses.</li><li><b>Boy:</b> That was the teacher I had before. This one is really nice.</li></ul><p><b>6. What time does the television programme end?</b></p><ul><li><b>Mum:</b> Go to bed, Luke. It’s already twenty to eleven and you’ve got to be up early in the morning.</li><li><b>Boy:</b> Aw, mum, just another few minutes. I’m watching this brilliant TV programme about American football. It’ll be <b>over at 10 to</b> and I can be in bed by 10 past. Nobody in my class has to go to bed before 11 o’clock. It’s not fair.</li></ul><p><b>7. Which postcard will they send to Mark?</b></p><ul><li><b>Man:</b> I’m getting this postcard of that bridge in the old city for my parents. And this church looks nice – shall we send it to Mark? He likes old buildings.</li><li><b>Woman:</b> But we haven’t actually been there – we should send him a card of something we’ve actually seen. Here’s the beach we went to yesterday.</li><li><b>Man:</b> But it looks horrible and crowded in that picture.</li><li><b>Woman:</b> Oh, just <b>get him the same one as you’re sending to your parents</b>.</li></ul><p><b>8. Which present will the girl take?</b></p><ul><li><b>Girl:</b> I really don’t know what to give Mrs Allemano when I go and stay with her in New York. Do you think she’d like some <b>perfume</b>?</li><li><b>Man:</b> Well, you don’t know her very well, do you, so I’d choose something like a scarf, or just a box of chocolates.</li><li><b>Girl:</b> Umm ... I like your <b>first idea best</b> – it’ll be much easier to carry.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What will the weather be like tomorrow?",
+              "options": [
+                "Sunny and rainy",
+                "Cloudy",
+                "Cloudy and windy",
+                "Sunny"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What will the man do first?",
+              "options": [
+                "Play golf",
+                "Have his hair cut",
+                "Ring Peter",
+                "Play baseball"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Where is the knife?",
+              "options": [
+                "In the bag with the bread",
+                "In the orange pack",
+                "In the cucumber pack",
+                "In the petrol station"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What happened to the girl this afternoon?",
+              "options": [
+                "She cycled in the strong wind",
+                "Her bike was broken",
+                "She fell off her bike",
+                "She met a boy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which man is waiting at the bus stop?",
+              "options": [
+                "An old bald man with glasses",
+                "An old man with glasses and blond hair",
+                "A young bald man with sunglasses",
+                "A young man with sunglasses and blond hair"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What time does the television programme end?",
+              "options": [
+                "10.50 P.m",
+                "10.10 P.m",
+                "11 P.m",
+                "9.50 P.m"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which postcard will they send to Mark?",
+              "options": [
+                "The bridge of the old city",
+                "The church",
+                "The beach",
+                "The sea"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Which present will the girl take?",
+              "options": [
+                "Some perfume",
+                "A scarf",
+                "A box of chocolate",
+                "A purse"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-2.mp3"
+          },
+          "tapescript": "<div><p><b>Conversation 1</b></p><ul><li><b>Man:</b> Good morning. Tauber Insurance Company. How can I help you?</li><li><b>Woman:</b> Good morning. I want to alter my insurance policy.</li><li><b>Man:</b> Is that for your house, contents or vehicle?</li><li><b>Woman:</b> <b>My vehicle (1).</b></li><li><b>Man:</b> Can you give me the number of the policy please?</li><li><b>Woman:</b> Certainly, I have it here in front of me. It’s <b>ZQW5009 (2).</b></li><li><b>Man:</b> And what make and model of car is it?</li><li><b>Woman:</b> It’s Mazda...a Mazda Marvel.</li><li><b>Man:</b> And what is the cc rating?</li><li><b>Woman:</b> Sorry? What do you mean?</li><li><b>Man:</b> <b>How big is the engine (3)?</b> Is it 1500 or 1800cc, for example?</li><li><b>Woman:</b> Oh that... it’s actually much bigger than that. It’s 2500 cc.</li><li><b>Man:</b> Thank you. Now I just have to ask you a few questions to verify your identity. What name is the policy under?</li><li><b>Woman:</b> Heathcoat.</li><li><b>Man:</b> Let me just bring that up on the computer. Yes, can I just confirm your first name, please?</li><li><b>Woman:</b> Well, my first name is Lisa but I’m known by my middle name – Marie.</li><li><b>Man:</b> Right. I see both here but <b>Lisa is the one I want for ID purposes (4).</b> And your date of birth, Lisa? ... I mean Marie.</li><li><b>Woman:</b> The twenty second of August, 1955.</li></ul><p><b>Conversation 2</b></p><ul><li><b>Woman:</b> Good morning, Travel Link. How can I help you?</li><li><b>Man:</b> Good morning. I live in Bayswater and I’d like to get to <b>Harbour City tomorrow (1) before 11.am.</b></li><li><b>Woman:</b> Well, to get to Bayswater....</li><li><b>Man:</b> No, no. I live in Bayswater – <b>my destination is Harbour City (1).</b></li><li><b>Woman:</b> Sorry. Right; so that’s Bayswater to Harbour City. Are you planning to travel by bus or by train?</li><li><b>Man:</b> I don’t mind really. Whichever option is faster, I suppose.</li><li><b>Woman:</b> Well, if you catch a railway express, that’ll get you there in under an hour ... Let’s see – yes, if you can make the 9.30 am express, I’d recommend you do that.</li><li><b>Man:</b> Great. <b>Which station does that leave from (2)?</b></li><li><b>Woman:</b> Helendale is the nearest train station to you.</li><li><b>Man:</b> Did you say Helensvale?</li><li><b>Woman:</b> No, Helendale – that’s H-E-L-E-N-D-A-L-E</li><li><b>Man:</b> What’s the best way to get to the Helendale station then?</li><li><b>Woman:</b> Well, hang on a minute while I look into that ... Now, it seems to me that you have two options. Option one would be to take the 706 bus from the Bayswater Shopping Centre to Central Street. When you get there, you transfer to another bus <b>which will take you to the station (3).</b> Or, the second option, if you don’t mind walking a couple of kilometres, is to go directly to Central Street and get straight on the bus going to the train station.</li><li><b>Man:</b> Okay. Which bus is that?</li><li><b>Woman:</b> The 792 will take you to the station.</li><li><b>Man:</b> I guess <b>the walk will be good for me so that might be the better option (4).</b></li></ul><p><b>Conversation 3</b></p><ul><li><b>Interviewer:</b> Elena, before we talk about how a sixteen-year-old can write, direct and star in her own film, tell me a bit about the character of Susie, the girl you played in your film, Stolen Dream.</li><li><b>Elena:</b> She’s artistic and doesn’t really care what people think or say about her, or get upset about how people behave. <b>I’m a lot like that too (Q1).</b> I don’t worry too much about other people's opinions of me.</li><li><b>Interviewer:</b> So is being free of worry a message you wanted to communicate to your audience?</li><li><b>Elena:</b> In a way. You need to be free. You shouldn’t be tied to your background, where you were born or anything you haven't chosen for yourself. People have dreams and <b>I guess I’m saying that (Q2) they should have belief in themselves</b>, that they can make those dreams come real.</li><li><b>Interviewer:</b> It must have been an exciting atmosphere to work in. Was making the film like your own dream coming true?</li><li><b>Elena:</b> Definitely, although it wasn’t easy. <b>(Q3) I had very little time or money.</b> People told me to relax but I knew I couldn’t - if I didn’t work, no one else would! But after a week or so because everyone on the film was facing the same challenge we came together. When we all left at the end it was sad because it was like a family breaking up.</li><li><b>Interviewer:</b> Tell me about a typical day's filming.</li><li><b>Elena:</b> I don’t think there was a typical day really. Each day <b>I got up at 5 to start at 6. (Q4)</b> I’d film two or three scenes in the morning and the same again after lunch. That way I had a goal and I knew how much I was achieving each day. Sometimes, if we needed to we'd work on until late, till 3 a.m. one time! I really enjoyed my Sundays off!</li></ul></div>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the policy number?",
+              "options": [
+                "ZQW5009",
+                "XQW5009",
+                "ZYW5009",
+                "ZYY5009"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is the cc rating?",
+              "options": [
+                "The engine’s size",
+                "The engine’s shape",
+                "The engine’s price",
+                "The engine’s power"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What’s the name the man wants for ID purposes?",
+              "options": [
+                "Her first name",
+                "Her middle name",
+                "Her family name",
+                "All of them"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "When is her birthday?",
+              "options": [
+                "2nd, August 1955",
+                "12th, August 1950",
+                "22nd August 1955",
+                "22nd August 1950"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Where does the man want to get to?",
+              "options": [
+                "Helenvale",
+                "Helendale",
+                "Bayswater",
+                "Harbour City"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Which station is the nearest?",
+              "options": [
+                "Helenvale",
+                "Helendale",
+                "Hedenvale",
+                "Hevendale"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How many bus routes does the man have to take to the nearest station?",
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which option does the man choose finally?",
+              "options": [
+                "Walk and then take a bus",
+                "Take a bus and then walk",
+                "Go there on foot",
+                "Take the bus for two routes"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does Elena think about Susie?",
+              "options": [
+                "She is artistic and cares about other people.",
+                "She is an optimistic girl.",
+                "She is different from Elena.",
+                "She is artistic but doesn’t care about people around."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did Elena think about making film?",
+              "options": [
+                "It was easy for her.",
+                "It was quite relaxing.",
+                "It was demanding for her.",
+                "It was beyond her ability."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How many scenes did she have to film in the afternoon?",
+              "options": [
+                "5-6 scenes",
+                "2-3 scenes",
+                "3-4 scenes",
+                "1-2 scenes"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "Which days was she off?",
+              "options": [
+                "Saturdays",
+                "Mondays",
+                "Sundays",
+                "None of these above"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1: Ecotourism</b></p><p>Ecotourism is a booming business that many tour operators cite as being <b>helpful to nature</b>. Every year, millions of people descend on protected and pristine natural areas to observe rare species. However, a new report casts doubt on the value of this form of tourism. In fact, it suggests that ecotourism is <b>more damaging than helpful</b> to nature. Details are in a report published in the journal 'Trends in Ecology and Evolution'. Researchers believe tourists are <b>disrupting animals</b> in their natural habitat. They pointed to a recent event where sea turtles in Costa Rica had problems laying their eggs because of the hordes of tourists who had congregated to watch the turtles' nesting habits.</p><p>The report says that ecotourism is making animals <b>bolder</b> and that this could endanger the animals. A regular human presence might make animals tamer and less cautious about other animals around them, and this could put them at risk of being attacked by their <b>natural threats</b>. \"Then they will suffer <b>higher mortality</b> when they encounter real predators,\" the report says. It added: \"When animals interact in 'benign' ways with humans, they may let down their guard.\" The report said it was essential, \"to develop a more comprehensive understanding of how different species in different situations respond to human visitation and under what precise conditions human exposure might put them at risk.\"</p><p><b>Talk 2: Skin-lightening Creams</b></p><p>An association of local governments in the UK, called the LGA, has warned consumers about the use of some <b>skin-lightening creams</b>. The LGA discovered that some of the whitening cosmetics they tested contained <b>banned ingredients</b> and were thus illegal. However, they were available for purchase in UK stores. An LGA spokesperson said these ingredients could pose a <b>serious threat</b> to consumers' health. He said there has been an increase in the number of users experiencing health problems after using the creams. These include <b>seizures, rashes and scarring</b>. The spokesperson said the creams could increase the risk of skin cancer, and liver and kidney damage.</p><p>The global skin-lightening industry is booming. In 2017, it was valued at an estimated $4.8 billion and is forecast to nearly double to around $8.9 billion in the next decade. Many people use it to reduce the darkness of the color of their skin. The LGA warned that <b>\"rogue retailers\"</b> were selling illegal skin-lightening lotions on which the label incorrectly listed the ingredients and omitted the illegal substances. The LGA said some illegal ingredients acted like <b>paint stripper</b> and could burn off the top layer of skin. It said: \"Skin creams containing banned ingredients are very dangerous and could seriously damage your health, scar you for life and <b>even kill you</b>, so they should be avoided at all costs.\"</p><p><b>Talk 3: Parental Happiness</b></p><p>Many of us believe that having children is the <b>key to happiness</b> and a perfect family life. Naturally, this idealistic image is true for some, but researchers say that in reality, children make us happiest when they <b>fly the nest</b> - when they have grown up and left home. Researchers in Germany looked at data from a survey of 55,000 over 50-year-olds living in Europe. The survey respondents were quizzed about their emotional wellbeing. The researchers discovered that most parents were <b>happier with life</b> after their offspring had left home and started making their own way in life. Researchers say this could be because raising children creates <b>financial worry, stress, fatigue and anxiety</b>.</p><p>The research was led by Christoph Becker at Heidelberg University. He concluded that a big reason for parents being happiest when their children leave home is that the tables are turned and the <b>children provide more support</b> to their parents. He said parents whose children no longer live with them suffer from fewer symptoms of depression and have a <b>more positive outlook</b> on life. Regarding the role reversal in providing support, Mr Becker said: \"Children's roles as caregivers, providers of financial support or simply as a means of social contact might outweigh the negative aspects of parenthood.\" He added that maintaining family relationships may <b>stave off loneliness</b> in ageing parents.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the main idea of Talk 1?",
+              "options": [
+                "Ecotourism benefits local economies",
+                "Ecotourism may harm the environment",
+                "Tourists prefer natural destinations",
+                "Animals adapt well to tourists"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why are sea turtles mentioned?",
+              "options": [
+                "They attract many tourists",
+                "They are endangered species",
+                "They were disturbed while nesting",
+                "They live in Costa Rica"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How does human presence affect animals?",
+              "options": [
+                "It makes them more aggressive",
+                "It makes them less cautious",
+                "It improves their survival skills",
+                "It helps them find food"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What risk do animals face when they become bolder?",
+              "options": [
+                "They may lose their habitat",
+                "They may get lost easily",
+                "They may be attacked by predators",
+                "They may stop reproducing"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What do researchers suggest?",
+              "options": [
+                "Stop all tourism activities",
+                "Increase tourism marketing",
+                "Study animal responses more carefully",
+                "Build more protected areas"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What warning did the LGA give?",
+              "options": [
+                "Skin creams are too expensive",
+                "Some creams contain illegal ingredients",
+                "Skin care products are ineffective",
+                "Cosmetics are not regulated"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What health problems are mentioned?",
+              "options": [
+                "Headaches and fever",
+                "Hair loss and blindness",
+                "Seizures, rashes, and scarring",
+                "Coughing and fatigue"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is said about the skin-lightening industry?",
+              "options": [
+                "It is declining rapidly",
+                "It is highly regulated",
+                "It is growing quickly",
+                "It is only popular in Asia"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What problem exists with product labeling?",
+              "options": [
+                "Labels are too detailed",
+                "Ingredients are incorrectly listed",
+                "Labels are written in foreign languages",
+                "Products have no labels"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can illegal ingredients do?",
+              "options": [
+                "Improve skin quality",
+                "Act like paint stripper on skin",
+                "Protect against sunlight",
+                "Make skin healthier"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What belief about children is mentioned?",
+              "options": [
+                "They always bring happiness",
+                "They reduce stress completely",
+                "They are the key to happiness",
+                "They improve financial stability"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "When are parents reported to be happiest?",
+              "options": [
+                "When children are young",
+                "When children start school",
+                "When children leave home",
+                "When children get married"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Why can raising children be stressful?",
+              "options": [
+                "It limits social life",
+                "It causes financial and emotional pressure",
+                "It requires moving house",
+                "It reduces career opportunities"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What happens when children grow up?",
+              "options": [
+                "They depend more on parents",
+                "They provide support to parents",
+                "They move abroad permanently",
+                "They lose contact with parents"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What benefit does maintaining family relationships bring?",
+              "options": [
+                "Better financial status",
+                "Improved physical strength",
+                "Reduced loneliness",
+                "Higher social status"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

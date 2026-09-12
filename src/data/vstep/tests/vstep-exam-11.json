@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-11",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 11",
+  "duration": 172,
+  "date": "2026-03-24",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-11/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. Which box of chocolates do they buy?</b></p><ul><li><b>Speaker 1:</b> Which box of chocolate should we get Mom for her birthday?</li><li><b>Speaker 2:</b> Those round boxes with the flowers are nice.</li><li><b>Speaker 1:</b> yes. But that square box is cheaper.</li><li><b>Speaker 2:</b> But it’s mom’s birthday. Let’s get the big round one. We’ve got enough money.</li><li><b>Speaker 1:</b> Ok</li></ul><p><b>2. When is Wendy’s birthday?</b></p><ul><li><b>Speaker 1:</b> Wendy, You’re 21 on Saturday, aren’t you?</li><li><b>Speaker 2:</b> No. My birthday is on May 18th</li><li><b>Speaker 1:</b> Well, Saturday isn’t 18th?</li><li><b>Speaker 2:</b> No, it’s not. It’s the 16th</li></ul><p><b>3. How much petrol does the woman want?</b></p><ul><li><b>Speaker 1:</b> Could you put 30 litres of petrol in my car please?</li><li><b>Speaker 2:</b> Did you say 13 litres?</li><li><b>Speaker 1:</b> No, 30 litres. Filling up please.</li></ul><p><b>4. What time is the woman’s hair appointment?</b></p><ul><li><b>Speaker 1:</b> I’d like to make an appointment to have my hair cut, please. This Friday or Saturday in the morning if you manage it.</li><li><b>Speaker 2:</b> Let me see. We can do Friday. At 10 or 11:30 then on Saturday, there’s 9:30 or 12 o’clock</li><li><b>Speaker 1:</b> I’ll take the earlier one on Saturday, please.</li></ul><p><b>5. Where is the TV guide?</b></p><ul><li><b>Speaker 1:</b> Have you seen the TV guide?</li><li><b>Speaker 2:</b> Isn’t it on the top of the television? I had it while I was watching a film last night.</li><li><b>Speaker 1:</b> I expect to have left by the chair then. Here it is, under the cushion when nobody can find it. You should put it back in its place by the telephone then we all know where it is</li></ul><p><b>6. What does the man decide to take Tracy?</b></p><ul><li><b>Speaker 1:</b> I’m going to see Tracy in hospital. But I can’t think of what to take her. People always take flowers.</li><li><b>Speaker 2:</b> So she has lots already for sure. I always think it’s nice to have something to read myself but as Tracy got her Walkman with her. What about something to listen to?</li><li><b>Speaker 1:</b> What a good idea. It’s better than taking sweets certainly because I know she’s on special diet while she’s in hospital.</li></ul><p><b>7. Which sport has the man just started?</b></p><ul><li><b>Speaker 1:</b> Hi. How was your holiday?</li><li><b>Speaker 2:</b> Great. Really good windsurfing and sailing. You know how much I enjoy them and horse riding. I really want to go again. Now I’ve tried it. And the swimming pool was wonderful, too, much warmer than the one I usually swim in. Holidays are just too short.</li></ul><p><b>8. What was damaged in the storm?</b></p><ul><li><b>Speaker 1:</b> Was the roof of your house alright after the storm, Anna? I saw a workman there with a ladder today.</li><li><b>Speaker 2:</b> I had the roof repaired recently so that wasn’t a problem. The workman was putting some new glass in an upstairs window. I think a branch from a tree broke it when it fell off in the wind. I was quite lucky it didn’t damage my car which was parked right under the tree.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which box of chocolates do they buy?",
+              "options": [
+                "the small round one",
+                "the big round one",
+                "the square one",
+                "the oval one"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "When's Wendy's birthday?",
+              "options": [
+                "16th May",
+                "18th May",
+                "21st May",
+                "26th May"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How much petrol does the woman want?",
+              "options": [
+                "13 litres",
+                "30 litres",
+                "33 litres",
+                "43 litres"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What time is the woman's hair appointment?",
+              "options": [
+                "Saturday at 9.30 am",
+                "Saturday at 12.00",
+                "Friday at 10.00",
+                "Friday at 11.30"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Where's the TV guide?",
+              "options": [
+                "top of the TV",
+                "by the chair",
+                "under the cushion",
+                "by the telephone"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What does the man decide to take Tracy?",
+              "options": [
+                "flowers",
+                "a CD",
+                "sweets",
+                "fruit"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which sport has the man just started?",
+              "options": [
+                "windsurfing",
+                "sailing",
+                "horse-riding",
+                "swimming"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What was damaged in the storm?",
+              "options": [
+                "the house roof",
+                "window glass",
+                "a car",
+                "a tree"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-11/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Louise:</b> John</li><li><b>John:</b> Oh Louise. Hi.</li><li><b>Louise:</b> I’ve just arrived for my singing lesson with Mrs Thompson. What are you doing here?</li><li><b>John:</b> (Q1) I’ve come for a singing lesson too.</li><li><b>Louise:</b> Well, if it’s a secret I won’t tell anyone</li><li><b>John:</b> It’s OK, Louise. I’m going to be in a musical show, so everyone will know soon.</li><li><b>Louise:</b> Really! But can you actually sing then?</li><li><b>John:</b> Well, I was taught to sing at school you know, but now I’m in the show I thought I’d better have a few more lessons.</li><li><b>Louise:</b> Good idea. What do you think of Mrs Thompson? She’s really strict, isn’t she?</li><li><b>John:</b> She is, but I think if you want to sing properly, then (Q2) she’s the best teacher. You don’t have to like her to see that she’s really brilliant.</li><li><b>Louise:</b> Oh, I suppose so, it’s just that she makes me feel so nervous. How did you get chosen for the show?</li><li><b>John:</b> Well, I went to see a few musical shows before Christmas. I don’t know why, because I’d never really liked them before, and I thought I’d like to do that so I tried for a part in the show at The Regent Theatre and got it.</li><li><b>Louise:</b> Well done ... so have you actually done a show yet?</li><li><b>John:</b> Yes, (Q3) we’ve done a practice show just for family and friends.</li><li><b>Louise:</b> So, how did you feel?</li><li><b>John:</b> Well, when we’d finished I wanted to cry because I was so delighted that I’d actually got through it without making any big mistakes.</li><li><b>Louise:</b> But did people like it?</li><li><b>John:</b> Yes they did, and it was great to have an audience.</li><li><b>Louise:</b> I would love to be able to sing and have everybody listen and clap</li><li><b>John:</b> It’s quite hard to do a musical show, actually. You have to dance as well as sing. It’s hard work to get it right.</li><li><b>Louise:</b> Oh, (Q4) I wouldn’t be keen on that. I’m only a singer really. When does the show open?</li><li><b>John:</b> On the 9th of October. Would you like a couple of free tickets?</li><li><b>Louise:</b> Oh yes! Thanks!</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Interviewer:</b> I’m talking to Jackie Gould, who’s a very proud mother. Both of her daughters – Olivia, aged 12, and Alicia, seven – are currently appearing on the stage of the world-famous London Palladium theatre, in the musical The Sound of Music. Olivia and Alicia survived six auditions to be (Q5) picked from 1,000 hopefuls for the group of seven children playing the Von Trapp family in the show. So how did it all come about?</li><li><b>Jackie:</b> Well, until last year, the idea of them appearing at the London Palladium would have been unthinkable for our family. Things started to happen when Olivia auditioned for a production of the show Annie at the local theatre. She auditioned for the chorus and, (Q6) by chance, got the leading role instead.</li><li><b>Interviewer:</b> That’s a very big role, the leading one in Annie, isn’t it?</li><li><b>Jackie:</b> Yes, for Annie, Olivia had to learn more than 200 lines. She was on stage for most the two-hour show. It was a big script, and (Q7) I decided that we’d do ten pages a night. After memorizing it, I gave her a random line. She would have to tell me what the next line was. She picked it all up even better than her homework.</li><li><b>Interviewer:</b> And she did well in the part, presumably?</li><li><b>Jackie:</b> She was great in the part. (Q8) Everyone was astonished by her performance, including us. She had always been very shy, and she suddenly came out of her shell. We found that she could really sing. A member of the stage management team for the show was taking over a local agency and asked her to sign up. So then she had an agent to represent her and try to get roles for her.</li><li><b>Interviewer:</b> OK, so what happened next?</li><li><b>Jackie:</b> Well, Olivia was turned down for a part in the musical Mary Poppins. She reached the last ten for the role of Jane Banks. She didn’t get the part and was distraught. But she quickly picked herself up and then we took both children to the Palladium auditions for The Sound of Music.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Paul:</b> Hello, Kira, how are you?</li><li><b>Kira:</b> Fine thanks, Paul, how are you?</li><li><b>Paul:</b> Well, thanks. It’s good to see you. It must be twelve months since you did our course?</li><li><b>Kira:</b> That’s right. It’s nice to come back and say hello.</li><li><b>Paul:</b> What course did you enroll in?</li><li><b>Kira:</b> Actually, (Q9) I went straight into third year Pharmacy. They credited me with two years, which probably (Q10) made it more difficult for me.</li><li><b>Paul:</b> On the one hand, you were lucky to be granted credits. Is that why you chose the course?</li><li><b>Kira:</b> Yes. And, as I’d already finished a course in it in my country. I thought it would be easier if I studied something I already knew.</li><li><b>Paul:</b> I didn’t realise you went into third year. I thought you started in first year. No wonder it was so hard! And what do you think is one of the big differences between studying at a university here and studying in your country?</li><li><b>Kira:</b> Well, I’ve found it very difficult to write assignments, because I wasn’t familiar with that aspect of the system here. (Q11) The main problem is that the lecturers expect you to be critical. That made me feel really terrible. I thought ‘How can I possibly do it? How can I comment on someone else’s research when they probably spent five years doing it?’ I think a lot of people who come from overseas countries have similar problems. But after a while it became easier for me. People expect you to have problems with the process of reading and writing but, in fact, it is more a question of altering your viewpoint towards academic study.</li><li><b>Paul:</b> how was the content of the lectures? Was it easy for you?</li><li><b>Kira:</b> I didn’t really have many problems understanding lectures. The content was very similar to what I’d studied before.</li><li><b>Paul:</b> And what about the lecturers themselves? Are they essentially the same as lecturers in your country?</li><li><b>Kira:</b> (Q12) Well actually, no. Here, they’re much easier to approach. After every lecture you can go and ask them something you didn’t understand. Or you can make an appointment and talk to them about anything in the course.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What are they both doing here?",
+              "options": [
+                "to meet Mrs Thompson",
+                "to listen to John singing",
+                "to attend singing class",
+                "to dance in a musical show"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does John think of Mrs Thompson?",
+              "options": [
+                "she isn't strict",
+                "she can sing well",
+                "she is a good teacher",
+                "she makes him nervous"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does John imply about his performance?",
+              "options": [
+                "He does well in a real show",
+                "He practices it well",
+                "He really likes it",
+                "He makes some big mistakes"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Louise think of a musical show?",
+              "options": [
+                "she is not interested",
+                "she is keen on that",
+                "she thinks she will try it",
+                "she would love it"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "How many children competed for roles in the show?",
+              "options": [
+                "6",
+                "1.000",
+                "7",
+                "a few hundreds"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What was the first success of Olivia?",
+              "options": [
+                "When they came to London",
+                "When they visit Palladium",
+                "When she got the leading role",
+                "After she visited the local theatre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How did Olivia practice for the role in Annie?",
+              "options": [
+                "Learned 200 pages",
+                "Practiced two hours a day",
+                "Her mother helped her",
+                "Learned it with her homework"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What did Jackie feel about her daughter’s performance?",
+              "options": [
+                "She was ashamed",
+                "She was amazed",
+                "She didn't like it much",
+                "She couldn't sing"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is true about Kira?",
+              "options": [
+                "She went home last year",
+                "She started a course in Pharmacy over again",
+                "She is a third year student",
+                "She will finish her course in 12 months"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What does she think about her course now?",
+              "options": [
+                "it is difficult",
+                "it is similar to the course she did",
+                "it is easier",
+                "she doesn't like it"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Why does she say her assignment is difficult?",
+              "options": [
+                "she is not familiar with it",
+                "she is expected to be critical",
+                "she feels terrible",
+                "her lecturer is terrible"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does she mean about lecturers in her country?",
+              "options": [
+                "They are horrible",
+                "You can talk to them easily",
+                "They are knowledgeable",
+                "It's hard to discuss with them"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-11/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1:</b></p><p>If you want to take an undergraduate course of study, you require a letter of recommendation from your principle and copies of your school records and exam results. You must of course demonstrate ability to communicate effectively in English. Different majors require different abilities in English. Undergraduate courses in science often require you to do a foundation year before you start the course so that you achieve the requisite knowledge before you begin the courses. Degrees generally last three years, though the first year doesn’t count towards your final marks. Application is always via UCAS, an organization that handles all undergraduate students. Postgraduate application is via direct application to universities. They will require a minimum pass in your degree, certainly above average and as with undergraduate courses require a minimum level in your English ability. Most Master courses take one year, but some take two, so be sure to take this into account when choosing. There are two systems of ranking: for universities overall achievement and for each of their separate departments. Other kinds of information are available, like graduate employment statistics. Generally British universities are generally respected globally and there is an international ranking system that lists all the top universities in the world for you to check where your university places.</p><p><b>Talk 2:</b></p><p>My name is Dan Pearman and I’d like to talk about the work of Pedal Power, a small charity based mainly in the UK. I’ll be giving our contact details at the end, if anyone would like to find out more about how to support us.</p><p>But first, how the charity began. I got the idea of exporting bicycles to developing countries while I was in Ecuador. I went there in 1993 just after graduating from university. After 3 years of studying, I wanted adventure. I loved travelling, so I decided to join a voluntary organization and was sent to Ecuador to carry out land surveys. The project came to an end after 5 years and when I returned to the UK in 1998, I started planning Pedal Power.</p><p>Where I lived in Ecuador was a very rural area. My neighbor had the only bicycle in the village, whereas everyone else walked everywhere. My neighbour’s business was unusually successful, and for years I couldn’t understand why. Then I realized having a bike means he could get where he wanted to go without much trouble. Other local carpenters could only accept jobs in a three-kilometre radius, so no matter how skilled they were, they could never do as many jobs as my neighbour.</p><p>At Pedal Power, we collect second-hand bikes in the UK and send them to some of the poorest regions in the world. When we distribute bikes overseas we don’t give them away for free. We’d like to, but long term that doesn’t really help the local economy. The demand for bikes is enormous which makes them very expensive locally. So we sell them for 5% of the normal price. But in order to continue operating we need to have a constant supply of bikes which we send out every six months.</p><p>One example of a town that’s received bicycles from Pedal Power is Rivas. It was the first place I sent a full container of bicycles to. Most people there now own a bicycle. The local economy has developed so much, you couldn’t recognize it as the same place. In fact, there are more bikes than on the streets of Amsterdam, if you’ve ever been there.</p><p>But Pedal Power still needs your help. You may have read about some of our recent problems in the British media. In August 2000 we simple ran out of money. We had containers of bikes ready to send, but no money to pay the bills. It was a terrible situation. We managed to ensure the bikes went out on time, but the other problems carried on for several months.</p><p><b>Talk 3:</b></p><p>ANNOUNCER: Today’s Health Counsel is presented by Paula Clayburg, who is the chief Counsellor at Liverpool’s famous pain clinic. The Wilton Clinic Paula....</p><p>PAULA CLAYBURG: Do you know what Prince Charles, Steve Ballesteros and Elizabeth Taylor have in common? They all suffer from chronic back pain. In fact, bad backs are one of the most common health problems today, affecting people in all walks of life. The most recent available figures show that about a quarter of a million people are incapacitated with back pain every day.</p><p>And many sufferers don’t know the cause of the solution to their problem. The majority of our patients at the clinic tend to be women. They are especially vulnerable because of pregnancy but also because of osteoporosis, which I personally believe to be the major cause of problems for women. I have many women patients who say they have completely given up exercise because the pain makes them so miserable. But of course that starts up a vicious circle. Bed rest, giving up exercise and pain killers are traditional responses to back pain but, although there are many excellent drugs on the market, at our clinic we are beginning to realise the unique benefits of relaxation therapy. Other specialists in the field make a strong case for certain types of exercise, but in our experience they are easily mishandled and can lead to more harm than good.</p><p>Now, let’s look at some of the reasons why back pain is developing into such a unique menace. In general, the body is pretty good at self-repaired. A strain or a blow to a limb, though painful at the time, generally resolves itself. But the body’s response to back injury can be very counter-productive. When pain strikes, we attempt to keep the back as immobile as possible, which makes the muscles tense up. Research shows that they often go into spasm, which causes further twisting of the spine. A vicious circle is underway. The second mistake we often make when stricken with extreme back pain is to go to bed and stay there. Although at the clinic we recognise that a short rest in bed can be helpful...up to two days ... any longer makes our back muscles become weaker and unable to hold up our spine. The pain therefore becomes worse.</p><p>Another problem is being overweight. Anyone a stone or more over-weight who already has back pain is not doing himself any favor though it won’t actually set it off in the first place, the weight will increase the strain and make things worse. The British diet could be partially to blame for the increase in back pain ....</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "You do not have to provide...",
+              "options": [
+                "a letter of recommendation",
+                "school records",
+                "exam results",
+                "health certificate"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Your required English level depends on........",
+              "options": [
+                "your age",
+                "your chosen course",
+                "your grades",
+                "your nationality"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "Some science courses require you to.................",
+              "options": [
+                "take an exam",
+                "complete a foundation year",
+                "do extra personal study",
+                "have a higher level of English"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Application for undergraduate courses is..................",
+              "options": [
+                "always via UCAS",
+                "direct with universities",
+                "either via UCAS or direct with universities",
+                "via a placement agency"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "British universities.......",
+              "options": [
+                "are the best in the world",
+                "rank among the top universities in the world",
+                "are all well respected",
+                "are generally well respected"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "In 1993 Dan Pearman went to Ecuador .............",
+              "options": [
+                "as a tour guide",
+                "as part of his studies",
+                "as a voluntary worker",
+                "as a student"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Dan’s neighbour was successful in business because he .............",
+              "options": [
+                "employed carpenters from the area",
+                "was the most skilled craftsman in the town",
+                "found it easy to reach customers",
+                "worked very hard"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Dan says the charity relies on ..................",
+              "options": [
+                "getting enough bicycles to send regularly",
+                "finding new areas which need the bicycles",
+                "charging for the bicycles it sends abroad",
+                "getting the second-hand bikes from the rich"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What does Dan say about the town of Rivas?",
+              "options": [
+                "It has received the greatest number of bikes",
+                "It has almost as many bikes as Amsterdam",
+                "Its economy has been totally transformed",
+                "Everyone there owns a bicycle"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What problem did the charity face in August 2000?",
+              "options": [
+                "It couldn’t meet its overheads",
+                "It had to delay sending the bikes",
+                "It was criticized in British media",
+                "It didn’t get enough bikes ready to send"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "According to the speaker, the main cause of back pain in women is .............",
+              "options": [
+                "pregnancy",
+                "osteoporosis",
+                "lack of exercise",
+                "too much exercise"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "As treatment for back pain the Clinic mainly recommends .................",
+              "options": [
+                "pain killers",
+                "relaxation therapy",
+                "exercise routines",
+                "bed rest"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "The back is different from other parts of the body because .................",
+              "options": [
+                "it is usually better at self-repair",
+                "a back injury is usually more painful",
+                "its response to injury often results in more damage",
+                "it is worse if we keep the back as immobile as possible"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Bed rest is advised .................",
+              "options": [
+                "for a maximum of two days",
+                "for less than two days",
+                "for pain lasting more than two days",
+                "for extreme pain only"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Being overweight .................",
+              "options": [
+                "is a major source of back pain",
+                "worsens existing back pain",
+                "reduces the effectiveness of exercise",
+                "is the only cause of back pain"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Understanding Obesity and Its Causes",
+            "text": "<p>Obesity has become one of the most common health concerns in many countries around the world, affecting both children and adults. Doctors typically define obesity using a simple measurement called the body mass index, or BMI, which compares a person's weight to their height. A person is generally considered obese when their BMI reaches a certain level that suggests they are carrying an unhealthy amount of body fat. Over the past several decades, the number of people classified as obese has risen sharply, and many health organizations now describe <strong>this rise</strong> as one of the most serious public health challenges of our time.</p><p>Several everyday factors contribute to the rise in obesity, and most experts agree that no single cause fully explains it. Modern diets, which often include large amounts of sugar, fat, and processed food, provide far more calories than earlier generations typically consumed. At the same time, many jobs today involve sitting for long hours rather than physical labor, and free time is increasingly spent watching screens instead of moving around outdoors. Poor sleep and ongoing stress can also affect appetite and energy levels, making healthy choices harder to maintain, especially for people <strong>juggling</strong> busy work schedules and family responsibilities.</p><p>Carrying excess body fat over a long period can place serious strain on the body. Obesity is closely linked to a higher risk of heart disease, high blood pressure, and type 2 diabetes, a condition in which the body struggles to control blood sugar levels properly. Extra weight can also put pressure on joints, particularly the knees and hips, sometimes leading to pain and reduced mobility as people grow older. Beyond physical health, obesity can affect a person's mental wellbeing too, since social <strong>stigma</strong> and low self-esteem often accompany the condition, making it harder for some people to seek help.</p><p>Fortunately, there are practical steps that can help people manage or prevent obesity. Eating a balanced diet with plenty of vegetables, fruit, and whole grains, while reducing sugary drinks and fast food, remains one of the most effective long-term strategies. Regular physical activity, even something as simple as walking for thirty minutes a day, can make a noticeable difference over time. Getting enough sleep and finding healthy ways to manage stress also play an important supporting role. Community programs, workplace wellness initiatives, and support from family members can further encourage people to build habits that last.</p><p>It is important to remember that obesity is rarely just a matter of willpower. Genetics, environment, and access to healthy food and safe places to exercise all play a part. With the right combination of support, information, and patience, most people can make meaningful progress toward better health.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp trong bài đọc.<ul><li>Với <b>R1Q1</b>, quét các từ khóa \"rising obesity rates\" ở đoạn 2 để xác định yếu tố đóng góp: công việc hiện đại yêu cầu ngồi nhiều giờ thay vì lao động chân tay (Many jobs now involve sitting for long hours).</li><li>Với <b>R1Q5</b>, định vị cụm từ \"closely linked to\" ở đoạn 3 để xác định căn bệnh liên quan: béo phì gắn liền với nguy cơ cao mắc bệnh tiểu đường tuýp 2 (higher risk of type 2 diabetes).</li><li>Với <b>R1Q7</b>, quét từ khóa \"long-term strategies\" ở đoạn 4 để tìm giải pháp hiệu quả: ăn nhiều rau, hoa quả và ngũ cốc nguyên hạt (Eating more vegetables, fruit, and whole grains).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn: bài viết phân tích béo phì do nhiều nguyên nhân phức tạp gây ra (chế độ ăn, ít vận động, căng thẳng) và có thể được quản lý thông qua các biện pháp cải thiện lối sống và hỗ trợ thích hợp.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q3</b>, từ <strong>\"juggling\"</strong> ở đoạn 2 mô tả việc xử lý/sắp xếp đồng thời lịch trình công việc bận rộn và trách nhiệm gia đình (juggling busy work schedules and family responsibilities). Ngữ cảnh này đồng nghĩa sát nhất với quản lý, xoay xở (managing).</li><li>Với <b>R1Q8</b>, từ <strong>\"stigma\"</strong> ở đoạn 3 nói về định kiến xã hội gắn liền với béo phì gây ảnh hưởng tâm lý (social stigma and low self-esteem). Ngữ cảnh này mang nghĩa vết nhơ, sự xấu hổ/định kiến (shame).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q4):</b> Đối soát các giải pháp được liệt kê ở đoạn 4: ăn uống cân bằng với nhiều rau củ, tập thể dục thường xuyên như đi bộ 30 phút, và ngủ đủ giấc cũng như quản lý căng thẳng tốt. Chi tiết \"uống thuốc giảm cân theo đơn hàng ngày\" (Taking prescribed weight-loss medication daily) hoàn toàn không xuất hiện trong bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R1Q6):</b> Tập trung vào cụm đại từ chỉ định <strong>\"this rise\"</strong> ở đoạn 1. Phân tích câu liền trước để xác định sự gia tăng được nhắc đến: câu trước đề cập đến việc số lượng người được phân loại là béo phì đã tăng nhanh chóng trong vài thập kỷ qua. Do đó, \"this rise\" quy chiếu trực tiếp đến sự gia tăng mạnh mẽ của số người béo phì (the sharp increase in obesity numbers).</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Tổng hợp logic ở đoạn 2 về các yếu tố môi trường, công việc ngồi nhiều, căng thẳng và chế độ ăn uống hiện đại. Tác giả nhấn mạnh không có nguyên nhân đơn lẻ nào giải thích hoàn toàn tình trạng này, từ đó suy luận rằng chỉ riêng ý chí/ý thức cá nhân (willpower alone) khó có thể giải thích trọn vẹn vấn đề béo phì.</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái ngôn từ toàn bài. Tác giả thể hiện sự thấu hiểu các rào cản tâm lý và sức khỏe mà người bệnh gặp phải, đồng thời đưa ra các giải pháp thực tế không mang tính chỉ trích hay đổ lỗi. Thái độ này thể hiện sự thấu hiểu và mang tính hỗ trợ, động viên (Understanding and supportive, avoiding blame or judgment).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R1Q6) và <b>Từ vựng</b> (R1Q3, R1Q8). Kế tiếp, sử dụng kỹ thuật đọc quét thông tin để giải quyết các câu hỏi <b>Chi tiết</b> (R1Q1, R1Q5, R1Q7) và <b>Loại trừ</b> (R1Q4). Cuối cùng, kết nối ý chính toàn bài để chọn đáp án cho các câu tổng hợp bao gồm <b>Suy luận</b> (R1Q9), <b>Ý chính toàn bài</b> (R1Q2) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one factor contributing to rising obesity rates?</span>",
+              "options": [
+                "Free time is now mostly spent on outdoor sports.",
+                "Modern medicine has made healthy food less available.",
+                "Most people today eat significantly less than before.",
+                "Many jobs now involve long hours of sitting."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Exercise alone has been proven to prevent all obesity.",
+                "Every obese person suffers from severe long-term health damage.",
+                "Obesity has complex causes and can be managed with support.",
+                "Obesity is caused only by eating too much sugar."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"juggling\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "jogging",
+                "scheduling",
+                "managing",
+                "avoiding"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a way to help manage obesity?</span>",
+              "options": [
+                "Eating a balanced diet with more vegetables",
+                "Taking prescribed weight-loss medication daily",
+                "Getting regular physical activity such as walking",
+                "Getting enough sleep and managing stress well"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what health problem is obesity closely linked to?</span>",
+              "options": [
+                "A guaranteed diagnosis of type 1 diabetes.",
+                "A higher risk of type 2 diabetes.",
+                "A lower risk of high blood pressure.",
+                "A complete loss of joint mobility in childhood."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this rise\"</strong> in paragraph 1 refers to _______.</span>",
+              "options": [
+                "public health challenges",
+                "the body mass index",
+                "the sharp increase in obesity numbers",
+                "several decades"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one effective long-term strategy for managing obesity?</span>",
+              "options": [
+                "Avoiding all forms of physical activity indoors.",
+                "Eating more vegetables, fruit, and whole grains.",
+                "Eating more vegetables, fruit, and whole grains exclusively.",
+                "Replacing all meals with sugary drinks temporarily."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"stigma\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "punishment",
+                "shame",
+                "sickness",
+                "stigmata"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the role of willpower in obesity?</span>",
+              "options": [
+                "Genetics and environment both influence body weight.",
+                "Willpower alone is unlikely to fully explain obesity.",
+                "Willpower has been proven completely irrelevant to obesity.",
+                "People with strong willpower never develop obesity."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's attitude toward people who struggle with obesity?</span>",
+              "options": [
+                "Dismissive of the seriousness of the condition.",
+                "Understanding and supportive, avoiding blame or judgment.",
+                "Neutral and purely clinical, without any encouragement.",
+                "Mildly critical of their lack of daily exercise."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Australia's Remarkable Parrot Diversity",
+            "text": "<p>Despite occupying only a modest fraction of the planet's total land area, Australia is home to a disproportionately large share of the world's parrot species — more than fifty, by most counts, ranging from tiny budgerigars weighing barely thirty grams to the powerful, crest-raising palm cockatoo. That such diversity concentrated on a single, largely arid continent, rather than spreading more evenly across the tropics generally associated with parrot abundance, has <strong>puzzled</strong> naturalists since well before modern evolutionary theory offered any satisfying explanation.</p><p>Much of this concentration traces back to Australia's long geological isolation. After separating from the ancient supercontinent Gondwana roughly forty million years ago, the landmass drifted largely alone, allowing parrot lineages already present to diversify into an unusually wide range of ecological niches without the competitive pressure that continental connection to Asia or the Americas might otherwise have imposed. Whether isolation alone fully accounts for the resulting diversity, or whether Australia's unusually varied climate zones — desert interior, tropical north, temperate south — played an equally decisive role, remains a question evolutionary biologists continue to debate rather than one they consider settled.</p><p>Beyond their striking plumage, several Australian parrot species have drawn particular scientific attention for their cognitive sophistication. Palm cockatoos, for instance, have been observed fashioning drumsticks from broken branches and using them to produce rhythmic sounds during courtship displays — behavior some researchers argue qualifies as a form of tool use rarely documented outside primates. Other species, including several cockatoo varieties kept widely as pets, demonstrate vocal mimicry and problem-solving abilities that some comparative psychologists rank alongside those of corvids and great apes, though such cross-species comparisons remain inherently difficult to standardize and are treated cautiously even by researchers sympathetic to the claim.</p><p><strong>This behavioral sophistication</strong> did not develop in a vacuum; several researchers connect it directly to the habitat diversity discussed earlier, arguing that species occupying the continent's more unpredictable, resource-scarce interior regions faced stronger selective pressure toward flexible problem-solving than close relatives confined to more stable coastal forests. Comparative studies across related species occupying different climate zones have found some support for this pattern, though sample sizes remain small enough that researchers describe the connection as suggestive rather than conclusively established.</p><p>Despite this remarkable diversity, close to a third of Australia's parrot species are now considered threatened to some degree, primarily due to habitat clearing for agriculture, ongoing illegal trapping for the international pet trade, and the increasing frequency of severe bushfires linked to a changing climate. The orange-bellied parrot, among the most critically endangered, now numbers only a few dozen individuals in the wild, its remaining habitat reduced to a narrow coastal strip vulnerable to a single catastrophic weather event.</p><p>Conservation responses have included expanded protected reserves, captive breeding programs designed to <strong>bolster</strong> critically low wild populations, and stricter enforcement against illegal trapping, though the effectiveness of these measures varies considerably by species and region. Captive-bred birds released into degraded or shrinking habitat, some conservationists caution, may simply face the same pressures that endangered their wild predecessors in the first place, meaning breeding programs alone, however well-funded, cannot substitute for habitat protection.</p><p>Whether Australia's remarkable parrot diversity persists through the coming decades likely depends less on any single intervention than on the combined success of habitat protection, climate mitigation, and continued enforcement — a combination that current trends suggest remains, at best, only partially within reach.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị chính xác dữ kiện trong bài.<ul><li>Với <b>R2Q1</b>, quét các từ khóa \"habitat diversity\" và \"cognitive sophistication\" ở đoạn 4 để tìm mối liên hệ: môi trường sống không đoán trước được có thể đã thúc đẩy khả năng giải quyết vấn đề linh hoạt (Unpredictable habitats may have favored flexible problem-solving).</li><li>Với <b>R2Q5</b>, định vị các mối đe dọa được liệt kê ở các đoạn cuối để xác định yếu tố đe dọa: nạn bẫy bắt trái phép phục vụ buôn bán thú cưng quốc tế (Illegal trapping for the international pet trade).</li><li>Với <b>R2Q7</b>, tìm từ khóa \"captive breeding programs\" ở đoạn cuối để thấy nhận định của bài đọc: chỉ riêng chương trình nhân giống nuôi nhốt có thể là chưa đủ nếu không bảo vệ môi trường sống (They may not be enough without habitat protection).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể mạch bài đọc: Sự cách ly địa lý tạo nên sự đa dạng và trí thông minh độc đáo của loài vẹt Úc, nhưng hiện nay chúng đang phải đối mặt với nhiều mối đe dọa sinh tồn (Isolation produced diverse, intelligent parrots now facing threats).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q3, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q3</b>, từ <strong>\"puzzled\"</strong> ở đoạn 1 miêu tả việc sự đa dạng của vẹt Úc làm các nhà tự nhiên học bối rối/trăn trở. Ngữ cảnh này đồng nghĩa với hoang mang, bối rối (confused).</li><li>Với <b>R2Q8</b>, từ <strong>\"bolster\"</strong> ở đoạn 6 mô tả các nỗ lực nhân giống nhằm củng cố/tăng cường quần thể loài. Ngữ cảnh này mang nghĩa củng cố, làm mạnh thêm (strengthen).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q4):</b> Đối soát các mối đe dọa được nhắc đến trong bài: phát quang môi trường sống cho nông nghiệp, bẫy bắt trái phép, và cháy rừng nghiêm trọng. Chi tiết \"cạnh tranh từ các loài săn mồi mới du nhập\" (Competition from newly introduced predator species) không được đề cập đến trong bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Cụm từ <strong>\"This behavioral sophistication\"</strong> ở đầu đoạn 4 dùng để quy chiếu về các biểu hiện trí tuệ và kỹ năng đã mô tả chi tiết ở đoạn 3 trước đó (the cognitive abilities described earlier).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp logic ở đoạn cuối về sự phối hợp giữa bảo tồn môi trường sống, kiểm soát cháy rừng và chương trình nhân giống. Tương lai của loài vẹt phụ thuộc vào sự kết hợp của nhiều giải pháp bảo tồn đồng bộ (Its future depends on several combined conservation efforts).</li><li><b>Dạng câu hỏi Thái độ tác giả (R2Q10):</b> Phân tích sắc thái bài viết. Tác giả ghi nhận các nỗ lực bảo tồn tích cực nhưng vẫn nhấn mạnh những rào cản thách thức lớn phía trước, thể hiện thái độ hy vọng có chừng mực/thận trọng nhưng vẫn trăn trở về kết quả tương lai (Cautiously hopeful, though genuinely uncertain about the outcome).</li></ul><p><b>Lời khuyên:</b> Ưu tiên xử lý nhanh các câu hỏi <b>Quy chiếu</b> (R2Q6) và <b>Từ vựng</b> (R2Q3, R2Q8). Sau đó, dùng kỹ thuật đọc quét để giải quyết các câu <b>Chi tiết</b> (R2Q1, R2Q5, R2Q7) và <b>Loại trừ</b> (R2Q4). Cuối cùng, tổng hợp nội dung toàn bài để chọn đáp án cho các câu <b>Suy luận</b> (R2Q9), <b>Ý chính toàn bài</b> (R2Q2) và <b>Thái độ tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do some researchers suggest links habitat diversity to cognitive sophistication in Australian parrots?</span>",
+              "options": [
+                "Unpredictable habitats definitely caused all parrot intelligence.",
+                "Isolation from Asia eliminated all competitive pressure entirely.",
+                "Unpredictable habitats may have favored flexible problem-solving.",
+                "Stable coastal forests produced the most flexible problem-solvers."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Isolation produced diverse, intelligent parrots now facing threats.",
+                "Every Australian parrot species is now critically endangered.",
+                "Habitat loss has already eliminated most parrot diversity entirely.",
+                "Tool use alone explains all Australian parrot diversity."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"puzzled\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "isolated",
+                "confused",
+                "amazed",
+                "puddled"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a threat to Australia's parrot species?</span>",
+              "options": [
+                "Habitat clearing carried out for agriculture",
+                "Increasingly frequent and severe bushfires",
+                "Competition from newly introduced predator species",
+                "Illegal trapping for the international pet trade"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one factor threatening Australia's parrot species?</span>",
+              "options": [
+                "Illegal trapping for the international pet trade only.",
+                "Overpopulation among orange-bellied parrot communities.",
+                "A sharp decline in international pet trade demand.",
+                "Illegal trapping for the international pet trade."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This behavioral sophistication\"</strong> at the start of paragraph 4 refers to _______.</span>",
+              "options": [
+                "the cognitive abilities described earlier",
+                "close relatives in coastal forests",
+                "resource-scarce interior regions",
+                "climate zone comparisons"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>What does the passage suggest about captive breeding programs alone?</span>",
+              "options": [
+                "They have definitely solved every species' population decline.",
+                "They were discontinued due to public funding shortages.",
+                "They may not be enough without habitat protection.",
+                "They have been proven more effective than habitat protection."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"bolster\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "strengthen",
+                "replace",
+                "boulder",
+                "release"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the future of Australia's parrot diversity?</span>",
+              "options": [
+                "Its future is now fully guaranteed by current protections.",
+                "Its future depends on several combined conservation efforts.",
+                "Palm cockatoos use branches to create rhythmic sounds.",
+                "Conservation programs caused the original decline in parrot numbers."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward Australia's parrot conservation prospects?</span>",
+              "options": [
+                "Fully confident that current conservation efforts will succeed.",
+                "Entirely pessimistic, viewing extinction as unavoidable.",
+                "Cautiously hopeful, though genuinely uncertain about the outcome.",
+                "Narrowly critical only of captive breeding programs."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Blue Light, LEDs, and the Reach of Light Pollution",
+            "text": "<p>The global shift toward light-emitting diode technology, driven substantially by dramatic gains in energy efficiency, has proceeded with remarkably little public scrutiny of a less-publicized consequence: the spectral composition of the light itself. Unlike the warmer, more diffuse glow of incandescent or older sodium-vapor fixtures, many standard LED bulbs emit a <strong>disproportionately</strong> large share of their output in the blue wavelength range — a shift that, while largely invisible to casual observation, appears to interact with human and animal biology in ways researchers are still working to fully characterize.</p><p>Central to this interaction is the eye's discovery, relatively recent in the history of vision science, of specialized retinal cells that respond specifically to blue wavelengths and feed directly into the brain's circadian clock rather than into image-forming vision. Exposure to blue-heavy light in the hours before sleep appears, according to a substantial body of laboratory research, to suppress the release of melatonin, the hormone most directly associated with signaling the onset of sleep, more effectively than equivalent exposure to warmer-toned light. Whether <strong>this suppression</strong> translates reliably into measurable sleep disruption outside controlled laboratory settings, however, remains somewhat less firmly established than the underlying mechanism itself.</p><p>That individual light sources matter to human physiology is, in a sense, only half the story; collectively, artificial lighting has transformed the night sky itself. Satellite measurements compiled over the past two decades indicate that the artificially brightened portion of the sky — commonly termed skyglow — has expanded at a pace <strong>outstripping</strong> population growth in many regions, meaning the issue cannot be attributed to human population increase alone. Some researchers attribute part of this disproportionate growth to LED adoption specifically, since the same energy savings that make LED lighting attractive have, somewhat paradoxically, encouraged more extensive and less carefully controlled installation than the fixtures they replaced.</p><p>Ecological consequences extend well beyond human sleep patterns. Migratory birds, many of which navigate partly by starlight, are documented disoriented by brightly lit urban corridors, occasionally circling illuminated structures until exhausted. <strong>[1]</strong> Sea turtle hatchlings, which instinctively move toward the brightest visible horizon after emerging from nests, are frequently drawn toward artificial coastal lighting rather than the reflective ocean surface, with fatal consequences documented across numerous monitored nesting beaches. <strong>[2]</strong> Insect populations, too, appear affected, with some entomologists linking localized declines partly to light-induced disruption of nocturnal feeding and mating behavior. <strong>[3]</strong> Isolating lighting's contribution from concurrent habitat loss and pesticide use, however, has proven difficult to achieve with precision. <strong>[4]</strong></p><p>Building on the melatonin-suppression mechanism described earlier, epidemiological studies attempting to connect nighttime light exposure to broader health outcomes — disrupted metabolic function, elevated rates of certain conditions among shift workers, mood disturbance — have produced a considerably less consistent picture than the underlying laboratory mechanism would predict. Some large population studies report modest associations; others, examining similar exposure levels, find none, a discrepancy some researchers attribute to the practical difficulty of accurately measuring an individual's cumulative real-world light exposure outside a controlled laboratory setting, rather than to the absence of any genuine underlying effect.</p><p>Several relatively straightforward mitigation measures have gained traction among lighting designers and municipal planners alike: fully shielded fixtures that direct light downward rather than outward and upward, warmer color-temperature bulbs that reduce blue-wavelength output without sacrificing much brightness, and motion-activated or timed lighting that limits illumination to periods of actual use. A growing number of municipalities have adopted formal dark-sky ordinances restricting fixture design and permitted brightness, though enforcement and public compliance vary considerably, and retrofitting existing infrastructure remains costly enough to slow adoption in many jurisdictions.</p><p>Taken together, the evidence suggests that LED-driven light pollution carries measurable costs for both human physiology and surrounding ecosystems, even as considerable uncertainty remains about the precise scale of those costs outside controlled settings. What seems clearest is that efficiency gains, however genuine, have not been cost-free in ways early adopters of the technology rarely anticipated.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R3Q1</b>, quét từ khóa \"skyglow\" và \"outstripping population growth\" ở đoạn 3 để xác định lý do: sự hiệu quả về mặt năng lượng của đèn LED đã khuyến khích việc lắp đặt hệ thống chiếu sáng rộng rãi hơn (LED efficiency may have encouraged more extensive lighting installation).</li><li>Với <b>R3Q5</b>, định vị các ví dụ sinh thái ở đoạn 4 để tìm tác động thực tế: rùa biển con bị thu hút bởi ánh sáng nhân tạo ở vùng ven biển (Sea turtle hatchlings are drawn toward artificial coastal lighting).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R3Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề đoạn 1 và đoạn kết luận: ô nhiễm ánh sáng do đèn LED gây ra mang lại những tác hại thực sự đối với con người và hệ sinh thái, nhưng quy mô và mức độ vẫn còn một số điểm chưa chắc chắn (LED-driven light pollution carries real but uncertain costs).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q3, R3Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q3</b>, từ <strong>\"disproportionately\"</strong> ở đoạn 1 mô tả tỷ lệ phát ra ánh sáng xanh lớn hơn bình thường/quá mức của bóng đèn LED. Ngữ cảnh này đồng nghĩa với quá mức, không cân xứng (excessively).</li><li>Với <b>R3Q8</b>, từ <strong>\"outstripping\"</strong> ở đoạn 3 miêu tả tốc độ gia tăng ô nhiễm ánh sáng vượt qua tốc độ tăng trưởng dân số. Ngữ cảnh này mang nghĩa vượt xa, vượt qua (exceeding).</li></ul></li><li><b>Dạng câu hỏi Chèn câu (R3Q7):</b> Phân tích câu cần chèn và từ nối quy chiếu: câu <i>\"Even relatively short exposure to artificial light at the wrong time can disrupt these instinctive behaviors.\"</i> có cụm <strong>\"these instinctive behaviors\"</strong> quy chiếu đến hành vi bản năng của động vật (như chim di cư, rùa biển con) vừa được mô tả ở đoạn 4. Vị trí <b>[2]</b> là phù hợp nhất để nối tiếp ý giải thích về sự gián đoạn bản năng này.</li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q4):</b> Đối soát các giải pháp giảm thiểu ở đoạn cuối: đèn có chao che chắn hướng xuống, bóng đèn có tông màu ấm hơn, và hệ thống chiếu sáng cảm ứng/hẹn giờ. Chi tiết \"cấm hoàn toàn ánh sáng ngoài trời trên toàn quốc\" (A nationwide ban on all outdoor lighting) hoàn toàn không được nhắc đến.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q6):</b> Cụm từ <strong>\"this suppression\"</strong> ở đoạn 2 quy chiếu trực tiếp đến hiện tượng hooc-môn melatonin bị ức chế do tiếp xúc với ánh sáng xanh trước khi ngủ đã đề cập ở câu trước (melatonin being suppressed by blue-heavy light).</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Tổng hợp logic ở đoạn 2 và đoạn 5 về các nghiên cứu dịch tễ học. Khó khăn trong việc đo lường lượng ánh sáng tiếp xúc chính xác trong thực tế có thể giải thích lý do tại sao kết quả nghiên cứu không đồng nhất, chứ không phải vì tác hại đó không tồn tại (Measurement difficulty may explain the inconsistent findings, not absence of an effect).</li><li><b>Dạng câu hỏi Thái độ tác giả (R3Q10):</b> Phân tích sắc thái ngôn từ bài viết. Tác giả thể hiện sự lo ngại trước các tác động tiêu cực của ánh sáng LED nhưng vẫn duy trì thái độ khách quan, khoa học, thừa nhận những điểm chưa hoàn toàn chắc chắn (Concerned but measured, acknowledging genuine scientific uncertainty).</li></ul><p><b>Lời khuyên:</b> Ưu tiên xử lý nhanh các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R3Q6) và <b>Từ vựng</b> (R3Q3, R3Q8). Tiếp theo, dùng kỹ thuật đọc quét để giải quyết các câu <b>Chi tiết</b> (R3Q1, R3Q5) và <b>Loại trừ</b> (R3Q4). Cuối cùng, phân tích tính liên kết ngữ nghĩa cho câu <b>Chèn câu</b> (R3Q7) và tổng hợp toàn bài để chọn chính xác câu <b>Suy luận</b> (R3Q9), <b>Ý chính</b> (R3Q2) và <b>Thái độ tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, why does skyglow appear to be expanding faster than population growth in many regions?</span>",
+              "options": [
+                "LED efficiency may have encouraged more extensive lighting installation.",
+                "Population growth alone fully explains the expansion of skyglow.",
+                "Satellite measurement technology became less accurate over the past decade.",
+                "Warmer color-temperature bulbs increased the brightness of the night sky."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "LED-driven light pollution carries real but uncertain costs.",
+                "Every LED bulb causes severe harm to nearby wildlife.",
+                "Melatonin suppression alone explains all of LED lighting's problems.",
+                "Energy efficiency gains have eliminated all lighting-related health concerns."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"disproportionately\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "slightly",
+                "excessively",
+                "efficiently",
+                "proportionally"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a mitigation measure for light pollution?</span>",
+              "options": [
+                "Warmer color-temperature bulbs reducing blue output",
+                "Fully shielded fixtures directing light downward",
+                "Motion-activated or timed lighting systems",
+                "A nationwide ban on all outdoor lighting"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one documented ecological effect of artificial lighting?</span>",
+              "options": [
+                "Insect populations have fully recovered due to LED adoption.",
+                "Sea turtle hatchlings are drawn toward artificial coastal lighting exclusively.",
+                "Migratory birds have stopped navigating by starlight entirely.",
+                "Sea turtle hatchlings are drawn toward artificial coastal lighting."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this suppression\"</strong> in paragraph 2 refers to _______.</span>",
+              "options": [
+                "warmer-toned light",
+                "the underlying mechanism itself",
+                "specialized retinal cells",
+                "melatonin being suppressed by blue-heavy light"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'Even relatively short exposure to artificial light at the wrong time can disrupt these instinctive behaviors.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"outstripping\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "stripping",
+                "exceeding",
+                "measuring",
+                "matching"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the inconsistency in epidemiological studies on light exposure and health?</span>",
+              "options": [
+                "The underlying biological mechanism has therefore been fully disproven.",
+                "Blue-heavy light suppresses melatonin more than warm-toned light.",
+                "Measurement difficulty may explain the inconsistent findings, not absence of an effect.",
+                "Inconsistent findings proved that measurement methods are highly accurate."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the risks posed by LED lighting?</span>",
+              "options": [
+                "Narrowly focused only on criticizing municipal lighting policy.",
+                "Dismissive, viewing light pollution concerns as largely exaggerated.",
+                "Concerned but measured, acknowledging genuine scientific uncertainty.",
+                "Alarmed, viewing LED lighting as an urgent global crisis."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Artificial Intelligence: Capability, Economy, and the Governance Gap",
+            "text": "<p>Not since the early days of the internet, many technologists now argue, has a single technological development generated simultaneously as much genuine capability, exaggerated marketing, and unresolved uncertainty as the recent acceleration in large-scale artificial intelligence systems, particularly large language models trained on vast quantities of text. Whether this acceleration represents a fundamental <strong>discontinuity</strong> in machine capability or simply a dramatic, if ultimately bounded, extension of decades-old statistical techniques remains a question on which even leading researchers within the same institutions frequently, and sometimes publicly, disagree — a disagreement that complicates any confident forecast of what comes next.</p><p>Economically, the picture that emerges from early empirical studies is considerably more qualified than either the most enthusiastic corporate projections or the most alarmist labor-market warnings would suggest. Productivity gains, where measured rigorously rather than assumed, appear concentrated disproportionately among workers already skilled in the relevant domain, complicating any simple narrative in which the technology straightforwardly displaces low-skilled labor while elevating everyone else; some economists go further, suggesting that the technology may, at least in its current form, widen rather than narrow existing gaps in productivity between the most and least capable practitioners within a given field.</p><p>Beneath these economic debates lies a more technical, and in some respects more stubborn, limitation: current systems remain prone to generating confident-sounding output that is, on close inspection, factually incorrect — a failure mode researchers term hallucination. <strong>[1]</strong> This occurs, researchers explain, because the system's internal architecture provides no reliable mechanism for distinguishing between genuinely retrieved knowledge and plausible-sounding fabrication. <strong>[2]</strong> Some argue this reflects a solvable engineering problem, addressable through better training methods and external verification tools. <strong>[3]</strong> Others maintain it reflects a more fundamental constraint inherent to the current statistical approach, a divide that roughly echoes the discontinuity debate mentioned earlier. <strong>[4]</strong></p><p>Separately, and considerably more contentiously, a subset of researchers has argued that sufficiently capable future systems could pose risks extending well beyond economic disruption or factual unreliability, potentially including scenarios in which systems pursue goals misaligned with human intentions in ways difficult to detect or correct before consequential harm occurs. Critics of this framing counter that such scenarios, while not strictly impossible, remain sufficiently speculative and distant that emphasizing them risks diverting regulatory attention and public concern away from more immediate, better-documented harms — biased decision-making, privacy erosion, concentrated corporate power — that current systems demonstrably already produce.</p><p>Governance frameworks, meanwhile, have struggled to keep pace with either concern. Regulatory approaches vary considerably by jurisdiction, ranging from comprehensive, risk-tiered legislation in some regions to considerably lighter-touch, innovation-prioritizing approaches elsewhere, producing a <strong>patchwork</strong> that companies operating across borders must navigate rather than a coherent global standard. Some policy analysts argue this fragmentation itself constitutes a meaningful risk, since companies retain some latitude to develop and deploy systems in whichever jurisdiction imposes the fewest constraints, a dynamic not unlike patterns observed in other historically under-regulated technology sectors.</p><p><strong>This regulatory fragmentation</strong> compounds the economic concerns raised earlier in a specific, underappreciated way: if productivity gains genuinely do concentrate among already-advantaged workers and firms, and if regulatory environments genuinely do vary enough to let capital flow toward the least-constrained jurisdictions, the two dynamics together could plausibly accelerate economic inequality along multiple axes simultaneously — between skilled and unskilled workers, and between firms operating in permissive versus restrictive regulatory environments — though testing this compounding hypothesis empirically remains difficult given how recently large-scale deployment began and how few longitudinal datasets currently exist to examine it.</p><p>Taken together, the available evidence supports neither the most utopian nor the most catastrophic narratives currently circulating in public discourse. What seems most defensible, however tentatively, is that artificial intelligence's ultimate economic and societal impact will likely depend less on the technology's raw capability than on the governance choices made, or deferred, over the next several years.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R4Q1</b>, quét từ khóa \"productivity concentration\" và \"regulatory fragmentation\" ở các đoạn sau để tìm tác động đến bất bình đẳng: hai động lực này có khả năng làm trầm trọng thêm tình trạng bất bình đẳng, mặc dù điều này vẫn chưa được kiểm chứng qua thực nghiệm (might plausibly worsen inequality, though this remains empirically untested).</li><li>Với <b>R4Q5</b>, định vị cụm từ \"early empirical studies\" ở đoạn 2 để xác định phát hiện về mức tăng năng suất: chúng tập trung chủ yếu ở những người lao động đã có kỹ năng cao (concentrated among already highly skilled workers).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R4Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc tổng thể mạch bài: tác động cuối cùng của Trí tuệ nhân tạo (AI) đối với xã hội và kinh tế phụ thuộc nhiều vào cách quản trị/quy định pháp lý hơn là chỉ dựa vào năng lực kỹ thuật thuần túy của nó (AI's impact will likely hinge more on governance than raw capability).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q3</b>, từ <strong>\"discontinuity\"</strong> ở đoạn 1 mô tả sự đứt gãy/bước ngoặt đột phá trong năng lực máy tính. Ngữ cảnh này đồng nghĩa với sự đứt gãy, gián đoạn (break).</li><li>Với <b>R4Q8</b>, từ <strong>\"patchwork\"</strong> ở đoạn 5 mô tả sự bức khảm/hỗn hợp không đồng nhất giữa các quy định pháp lý ở từng quốc gia khác nhau. Ngữ cảnh này đồng nghĩa sát nhất với sự kết hợp, hỗn hợp (mixture).</li></ul></li><li><b>Dạng câu hỏi Chèn câu (R4Q7):</b> Phân tích câu cần chèn và từ nối quy chiếu: câu <i>\"This distinction matters considerably, since an engineering fix implies a fundamentally different long-term trajectory than a structural limitation would.\"</i> có cụm <strong>\"This distinction\"</strong> quy chiếu trực tiếp đến hai luồng ý kiến đối lập vừa được nêu ở trước vị trí <b>[4]</b> (một bên coi là sự cố kỹ thuật có thể sửa được [2], bên kia coi là giới hạn cấu trúc cố hữu [3]). Do đó, vị trí <b>[4]</b> là thích hợp nhất.</li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q4):</b> Đối soát các tác hại của AI được liệt kê trong bài: sự định kiến trong quyết định tự động, xâm phạm quyền riêng tư và sự tích tụ quyền lực doanh nghiệp. Chi tiết \"nạn thất nghiệp diện rộng trên tất cả các ngành nghề\" (Widespread unemployment across all industries) không được đề cập đến trong bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q6):</b> Cụm từ <strong>\"This regulatory fragmentation\"</strong> ở đầu đoạn 6 quy chiếu trực tiếp đến sự phân mảnh và không đồng nhất trong chính sách quản lý giữa các quốc gia đã được mô tả ở đoạn 5 trước đó (the jurisdictional patchwork described earlier).</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Tổng hợp lập luận toàn bài về năng lực kỹ thuật và quản trị. Năng lực kỹ thuật thuần túy của AI không phải là yếu tố duy nhất quyết định tác động xã hội cuối cùng, mà phải thông qua khung pháp lý và sự điều tiết (Capability alone is unlikely to determine the ultimate impact).</li><li><b>Dạng câu hỏi Thái độ tác giả (R4Q10):</b> Phân tích sắc thái bài viết. Tác giả giữ thái độ cẩn trọng, hoài nghi cả hai kịch bản cực đoan (lạc quan thái quá của doanh nghiệp hoặc thảm họa diệt vong) và hướng tới một góc nhìn cân bằng, khách quan hơn (Skeptical of both extremes, favoring a more measured view).</li></ul><p><b>Lời khuyên:</b> Ưu tiên xử lý nhanh các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R4Q6) và <b>Từ vựng</b> (R4Q3, R4Q8). Tiếp theo, áp dụng kỹ thuật đọc quét để hoàn thành các câu <b>Chi tiết</b> (R4Q1, R4Q5) và <b>Loại trừ</b> (R4Q4). Cuối cùng, phân tích mạch logic ngữ nghĩa cho câu <b>Chèn câu</b> (R4Q7) và tổng hợp toàn bài để chốt chính xác các câu <b>Suy luận</b> (R4Q9), <b>Ý chính toàn bài</b> (R4Q2) và <b>Thái độ tác giả</b> (R4Q10).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does the compounding of productivity concentration and regulatory fragmentation suggest about inequality?</span>",
+              "options": [
+                "Only skilled workers, not firms, could plausibly see inequality effects.",
+                "The two dynamics might plausibly worsen inequality, though this remains empirically untested.",
+                "Regulatory fragmentation alone, without productivity gains, already worsened inequality.",
+                "The two dynamics have been proven to definitely worsen inequality significantly."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Existential risk concerns have been conclusively proven unfounded.",
+                "Every jurisdiction has already adopted identical AI regulations.",
+                "AI's impact will likely hinge more on governance than raw capability.",
+                "Hallucination alone will determine AI's ultimate economic impact."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"discontinuity\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "discontent",
+                "extension",
+                "pause",
+                "break"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a harm current AI systems already demonstrably produce?</span>",
+              "options": [
+                "Biased decision-making in automated systems",
+                "Erosion of personal privacy protections",
+                "Concentration of corporate power and influence",
+                "Widespread unemployment across all industries"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did early empirical studies find about productivity gains from AI?</span>",
+              "options": [
+                "They appear concentrated among already highly skilled workers.",
+                "They appear concentrated among already highly skilled workers exclusively.",
+                "They were measured only among unskilled entry-level workers.",
+                "They were distributed equally across all skill levels."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This regulatory fragmentation\"</strong> at the start of paragraph 6 refers to _______.</span>",
+              "options": [
+                "under-regulated technology sectors",
+                "capital flow toward lenient jurisdictions",
+                "the jurisdictional patchwork described earlier",
+                "innovation-prioritizing regulatory approaches"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'This distinction matters considerably, since an engineering fix implies a fundamentally different long-term trajectory than a structural limitation would.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"patchwork\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "patch",
+                "chaos",
+                "innovation",
+                "mixture"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between AI's raw technical capability and its ultimate societal impact?</span>",
+              "options": [
+                "Hallucination occurs because systems cannot verify retrieved knowledge.",
+                "Governance choices are entirely caused by technical capability levels.",
+                "Capability alone is unlikely to determine the ultimate impact.",
+                "Capability alone will certainly determine every future societal outcome."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the most extreme narratives — utopian or catastrophic — surrounding AI?</span>",
+              "options": [
+                "Fully persuaded by the most catastrophic existential-risk scenarios.",
+                "Narrowly focused only on criticizing regulatory fragmentation.",
+                "Skeptical of both extremes, favoring a more measured view.",
+                "Fully persuaded by the most optimistic corporate projections."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "formal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You saw an advertisement for a part-time job at an international company.</p> You decided to apply for the position and need to write a formal application letter.",
+          "content": "<p class='mb-1'>Write a letter to the manager of the company to apply for the job.</p><ul><li>Introduce yourself and explain why you are interested in the position.</li><li>Describe your skills, qualifications or previous experience.</li><li>Explain why you are suitable for the job and mention your availability for an interview.</li></ul>",
+          "description": "Write a formal application letter for the job. You should write at least 120 words. You do not need to include your real name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li>Đây là dạng <strong>Formal Letter</strong>, cụ thể là thư xin việc (job application letter).</li><li>Giọng văn cần lịch sự, trang trọng và chuyên nghiệp.</li><li>Bạn cần giới thiệu bản thân, trình bày kỹ năng và giải thích vì sao phù hợp với công việc.</li><li>Đề bài cũng yêu cầu đề cập đến khả năng tham gia phỏng vấn hoặc thời gian làm việc.</li><li>Không nên sử dụng cách viết quá thân mật như thư cho bạn bè.</li><li>Bài viết cần ít nhất 120 từ nhưng nên viết khoảng 150–180 từ để phát triển ý tốt hơn.</li><li>Hãy đảm bảo trả lời đầy đủ tất cả gợi ý trong đề để đạt điểm cao Task Fulfillment.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Dùng cách chào trang trọng. Ví dụ: Dear Sir or Madam, hoặc Dear Hiring Manager,</li><li><strong>Opening:</strong> Nêu mục đích viết thư. Ví dụ: I am writing to apply for the part-time position advertised on your website.</li><li><strong>Body paragraph 1:</strong> Giới thiệu học vấn, kỹ năng hoặc kinh nghiệm. Ví dụ: I am currently a university student with good communication skills.</li><li><strong>Body paragraph 2:</strong> Giải thích lý do phù hợp với công việc. Ví dụ: I believe I am suitable for this position because I am hardworking and responsible.</li><li><strong>Closing:</strong> Thể hiện mong muốn được phản hồi. Ví dụ: I look forward to hearing from you soon.</li><li><strong>Sign-off:</strong> Kết thúc trang trọng. Ví dụ: Yours faithfully, hoặc Yours sincerely,</li><li>Mỗi đoạn nên tập trung vào một ý chính để bài viết rõ ràng và chuyên nghiệp.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng thì Hiện tại đơn để giới thiệu bản thân và kỹ năng.</li><li>Dùng các cấu trúc trang trọng như: I would like to…, I believe that…, I am confident that…</li><li>Kết hợp câu đơn và câu phức để tăng điểm Grammar.</li><li>Tránh lặp từ “job” bằng các từ như “position”, “role” hoặc “opportunity”.</li><li>Sử dụng ngôn ngữ tích cực và chuyên nghiệp.</li><li>Dùng từ nối để bài viết mạch lạc hơn.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Work experience:</strong> Kinh nghiệm làm việc</li><li><strong>Communication skills:</strong> Kỹ năng giao tiếp</li><li><strong>Responsible:</strong> Có trách nhiệm</li><li><strong>Hardworking:</strong> Chăm chỉ</li><li><strong>Customer service:</strong> Dịch vụ khách hàng</li><li><strong>Teamwork skills:</strong> Kỹ năng làm việc nhóm</li><li><strong>Professional attitude:</strong> Thái độ chuyên nghiệp</li><li><strong>Flexible schedule:</strong> Lịch trình linh hoạt</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Firstly:</strong> Thứ nhất</li><li><strong>In addition:</strong> Thêm vào đó</li><li><strong>Furthermore:</strong> Hơn nữa</li><li><strong>As a result:</strong> Kết quả là</li><li><strong>Therefore:</strong> Vì vậy</li><li><strong>Finally:</strong> Cuối cùng</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I would be grateful for the opportunity:</strong> Tôi sẽ rất biết ơn nếu có cơ hội</li><li><strong>I am eager to contribute to your company:</strong> Tôi mong muốn đóng góp cho công ty của bạn</li><li><strong>I would appreciate your consideration:</strong> Tôi rất cảm kích nếu được xem xét</li><li><strong>I look forward to hearing from you:</strong> Tôi mong nhận được phản hồi từ quý công ty</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Dùng giọng văn quá thân mật hoặc không chuyên nghiệp.</li><li>Không nêu rõ lý do phù hợp với công việc.</li><li>Viết quá ngắn và thiếu thông tin.</li><li>Dùng sai cách chào hỏi hoặc kết thúc thư.</li><li>Lặp từ vựng quá nhiều.</li><li>Sai thì động từ hoặc thiếu chủ ngữ.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Kiểm tra xem bài đã đủ trên 120 từ chưa.</li><li>Đảm bảo đã trả lời đủ tất cả yêu cầu của đề bài.</li><li>Kiểm tra lỗi chính tả và chia động từ.</li><li>Đọc lại xem giọng văn đã đủ trang trọng chưa.</li><li>Đảm bảo có mở đầu và kết thúc thư phù hợp.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy tưởng tượng bạn đang thật sự gửi thư xin việc cho một công ty.</li><li>Ưu tiên sự rõ ràng và chuyên nghiệp hơn việc dùng từ quá khó.</li><li>Một bài viết ngắn gọn nhưng logic và đúng trọng tâm sẽ hiệu quả hơn bài lan man.</li><li>Luôn thể hiện thái độ tích cực và tự tin.</li><li>Bám sát yêu cầu đề bài để tránh mất điểm không cần thiết.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "adv_dis",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>Nowadays, many people prefer working in public places such as coffee shops, libraries and co-working spaces instead of working at home or in traditional offices.</p><p class='mb-1'>Some people think this working style brings many benefits, while others believe it can create several disadvantages.</p><p class='mb-1'><strong>Discuss the advantages and disadvantages of working in public places.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the advantages and disadvantages of working in public places. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li>Đây là dạng bài <strong>Advantages and Disadvantages Essay</strong>.</li><li>Đề bài yêu cầu phân tích cả lợi ích và hạn chế của việc làm việc ở nơi công cộng.</li><li>Từ khóa quan trọng gồm: “working in public places”, “advantages”, “disadvantages”.</li><li>Bạn cần trình bày quan điểm cân bằng thay vì chỉ tập trung vào một phía.</li><li>Lợi ích có thể liên quan đến sự linh hoạt, sáng tạo và cơ hội giao tiếp.</li><li>Hạn chế có thể bao gồm tiếng ồn, mất tập trung hoặc thiếu riêng tư.</li><li>Bài viết nên dài khoảng 280–320 từ để phát triển ý rõ ràng.</li><li>Không nên chỉ liệt kê ý mà cần giải thích và đưa ví dụ cụ thể.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu chủ đề và nêu định hướng bài viết. Ví dụ: In recent years, working in public places has become increasingly popular.</li><li><strong>Body paragraph 1:</strong> Trình bày lợi ích đầu tiên. Ví dụ: Working in coffee shops can help people feel more creative and motivated.</li><li><strong>Body paragraph 2:</strong> Phát triển thêm các lợi ích khác như cơ hội gặp gỡ hoặc môi trường linh hoạt.</li><li><strong>Body paragraph 3:</strong> Trình bày hạn chế. Ví dụ: Public places are often noisy, which may reduce concentration.</li><li><strong>Conclusion:</strong> Tóm tắt và đưa quan điểm cá nhân. Ví dụ: In my opinion, working in public places can be beneficial if people choose a suitable environment.</li><li>Mỗi đoạn thân bài nên theo cấu trúc: Topic sentence → Explanation → Example → Mini-conclusion.</li><li>Nên dùng ví dụ thực tế như quán cà phê hoặc thư viện để bài viết sinh động hơn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng thì Hiện tại đơn để nói về xu hướng và sự thật.</li><li>Kết hợp câu phức với because, although, while để tăng điểm Grammar.</li><li>Dùng cohesive devices để liên kết ý logic hơn.</li><li>Tránh lặp lại từ “public places” bằng “shared spaces” hoặc “co-working environments”.</li><li>Phát triển ý bằng giải thích và ví dụ thay vì liệt kê ngắn gọn.</li><li>Luôn có câu chủ đề rõ ràng ở đầu đoạn thân bài.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Co-working space:</strong> Không gian làm việc chung</li><li><strong>Flexible environment:</strong> Môi trường linh hoạt</li><li><strong>Productivity:</strong> Năng suất làm việc</li><li><strong>Distraction:</strong> Sự mất tập trung</li><li><strong>Work efficiency:</strong> Hiệu quả công việc</li><li><strong>Social interaction:</strong> Tương tác xã hội</li><li><strong>Creative atmosphere:</strong> Bầu không khí sáng tạo</li><li><strong>Background noise:</strong> Tiếng ồn xung quanh</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Firstly:</strong> Thứ nhất</li><li><strong>Moreover:</strong> Hơn nữa</li><li><strong>However:</strong> Tuy nhiên</li><li><strong>As a result:</strong> Kết quả là</li><li><strong>For example:</strong> Ví dụ</li><li><strong>On the other hand:</strong> Mặt khác</li><li><strong>In conclusion:</strong> Kết luận lại</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Shared working environments:</strong> Cách diễn đạt khác của “public places for working”</li><li><strong>Remote working locations:</strong> Địa điểm làm việc từ xa</li><li><strong>Open working areas:</strong> Khu vực làm việc mở</li><li><strong>Public working spaces:</strong> Không gian làm việc công cộng</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li><strong>In my opinion, this working style is suitable for creative jobs:</strong> Theo tôi, cách làm việc này phù hợp với công việc sáng tạo</li><li><strong>The benefits may outweigh the drawbacks in some situations:</strong> Lợi ích có thể lớn hơn hạn chế trong một số trường hợp</li><li><strong>People should choose quiet places to improve concentration:</strong> Mọi người nên chọn nơi yên tĩnh để tăng sự tập trung</li><li><strong>Compared to traditional offices, public places offer more flexibility:</strong> So với văn phòng truyền thống, nơi công cộng linh hoạt hơn</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ viết về lợi ích mà quên đề cập bất lợi.</li><li>Ví dụ quá chung chung và thiếu giải thích.</li><li>Lặp từ “work” hoặc “public places” quá nhiều.</li><li>Không chia đoạn rõ ràng.</li><li>Dùng từ vựng khó nhưng sai ngữ cảnh.</li><li>Sai ngữ pháp ở câu phức.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem bài đã đủ ít nhất 250 từ chưa.</li><li>Đảm bảo có mở bài, thân bài và kết luận.</li><li>Kiểm tra xem đã trình bày cả ưu điểm và nhược điểm chưa.</li><li>Đọc lại để sửa lỗi chính tả và chia động từ.</li><li>Kiểm tra các từ nối để bài viết logic hơn.</li><li>Đảm bảo mỗi đoạn đều có câu chủ đề rõ ràng.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Không cần dùng từ quá phức tạp nếu chưa chắc cách dùng.</li><li>Ưu tiên sự mạch lạc và phát triển ý hợp lý.</li><li>Một bài viết có ví dụ thực tế và cấu trúc tốt sẽ dễ đạt điểm cao hơn.</li><li>Hãy giữ quan điểm khách quan và cân bằng.</li><li>Luôn bám sát yêu cầu đề bài và tránh lan man.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Can you describe the neighborhood where you live?",
+            "What do you like most about living in your neighborhood?",
+            "Is there anything you would like to change about your neighborhood?",
+            "What do you usually do on weekends?",
+            "Do you prefer spending weekends at home or going out?",
+            "How do you feel after a relaxing weekend?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này gồm 6 câu hỏi trong 3 phút, đánh giá khả năng giao tiếp tự nhiên, phản xạ ngôn ngữ và khả năng mô tả cuộc sống thường ngày.</li><li><strong>Topic A (Khu phố sinh sống):</strong> Câu 1–3 hỏi về đặc điểm khu phố, điều bạn thích và điều bạn muốn thay đổi.</li><li><strong>Topic B (Hoạt động cuối tuần):</strong> Câu 4–6 hỏi về thói quen cuối tuần, sở thích ở nhà hay đi ra ngoài và cảm giác sau khi nghỉ ngơi.</li><li>Giám khảo đánh giá dựa trên độ trôi chảy, vốn từ vựng, ngữ pháp và phát âm.</li><li>Nên dành khoảng 25–35 giây cho mỗi câu và cân bằng thời gian giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc ARE: Answer → Reason → Example để trả lời đầy đủ và tự nhiên.</li><li><strong>Ví dụ Topic A:</strong> I live in a quiet residential area on the outskirts of the city, and I really enjoy it because it is peaceful and green. For example, there is a small park near my house where I often take walks.</li><li><strong>Ví dụ Topic B:</strong> On weekends, I usually stay home and catch up on rest, because my weekdays are quite hectic. For instance, I like reading books or watching movies on Saturday afternoons.</li><li>Luôn tự hỏi Why? hoặc Can you give an example? để kéo dài câu trả lời một cách tự nhiên.</li><li>Dùng câu chuyển ý: Besides talking about my neighborhood, I would also like to share what I usually do on weekends.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói ổn định, dùng từ đệm khi cần thời gian suy nghĩ thay vì im lặng kéo dài.</li><li>Dùng hiện tại đơn để mô tả đặc điểm nơi ở và thói quen lặp lại hằng tuần.</li><li>Nếu quên từ vựng, hãy mô tả khái niệm bằng từ đơn giản hơn thay vì dừng lại.</li><li>Từ vựng Topic A: a peaceful residential area (khu dân cư yên tĩnh), friendly neighbors (hàng xóm thân thiện), lack of green spaces (thiếu không gian xanh).</li><li>Từ vựng Topic B: unwind after a busy week (thư giãn sau tuần bận rộn), recharge my energy (nạp lại năng lượng), spend quality time with family (dành thời gian chất lượng bên gia đình).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>a close-knit community – cộng đồng gắn kết</li><li>well-maintained streets – đường phố được bảo trì tốt</li><li>noise pollution – ô nhiễm tiếng ồn</li><li>run errands – làm các việc vặt</li><li>a change of scenery – thay đổi không khí</li><li>catch up on sleep – ngủ bù</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>First of all – trước hết</li><li>In addition – ngoài ra</li><li>For example – ví dụ</li><li>On top of that – hơn thế nữa</li><li>Therefore – vì vậy</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>In my opinion, living in a safe and friendly neighborhood greatly affects one's quality of life. – Theo tôi, sống trong khu phố an toàn và thân thiện ảnh hưởng lớn đến chất lượng cuộc sống.</li><li>I personally think a good community should have more public spaces for residents to interact. – Cá nhân tôi nghĩ một cộng đồng tốt nên có nhiều không gian công cộng hơn để cư dân giao lưu.</li><li>From my perspective, spending weekends relaxing at home helps me recover from a stressful week. – Theo tôi, dành cuối tuần thư giãn ở nhà giúp tôi hồi phục sau một tuần căng thẳng.</li><li>As far as I am concerned, going out with friends on weekends makes life more enjoyable. – Theo tôi, đi chơi cùng bạn bè vào cuối tuần khiến cuộc sống thú vị hơn.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời Yes hoặc No mà không giải thích thêm lý do – lỗi nghiêm trọng nhất.</li><li>Chỉ liệt kê đặc điểm khu phố mà không nói rõ cảm nhận cá nhân.</li><li>Nhầm lẫn giữa hoạt động cuối tuần và hoạt động ngày thường khi trả lời.</li><li>Dùng sai thì khi mô tả thói quen, nên dùng hiện tại đơn thay vì quá khứ.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: That is an interesting question, let me think for a moment.</li><li>Mô tả khái niệm thay vì cố nhớ từ chính xác.</li><li>Nếu bí ý ở Topic A, hãy nói về một địa điểm cụ thể gần nhà như công viên hoặc chợ.</li><li>Nếu bí ý ở Topic B, hãy chuyển sang kể về một hoạt động cuối tuần gần đây nhất.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy coi đây là cuộc trò chuyện tự nhiên với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy làm mới tư duy để tránh nhầm lẫn chủ đề.</li><li>Sự tự nhiên và mạch lạc quan trọng hơn việc cố dùng từ vựng khó.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You are planning your next holiday and need to choose a hotel to stay at.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: A hotel with a convenient location near tourist attractions</li><li>Option 2: A hotel with a lower price to save money</li><li>Option 3: A hotel with better comfort and facilities, though more expensive</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống yêu cầu bạn chọn loại khách sạn phù hợp nhất cho kỳ nghỉ sắp tới dựa trên ba tiêu chí khác nhau.</li><li>Cần đánh giá đầy đủ cả ba phương án trước khi đưa ra quyết định cuối cùng.</li><li>Tiêu chí chấm điểm gồm lập luận, vốn từ vựng, ngữ pháp và độ trôi chảy.</li><li>Thời gian khoảng 4 phút, nên dành khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc I-C-E: Introduction → Comparison → End để trình bày mạch lạc.</li><li>Option 1: Khách sạn gần các điểm tham quan giúp tiết kiệm thời gian di chuyển nhưng thường có giá cao hơn.</li><li>Option 2: Khách sạn giá rẻ giúp tiết kiệm chi phí nhưng có thể thiếu tiện nghi hoặc nằm xa trung tâm.</li><li>Option 3: Khách sạn thoải mái với đầy đủ tiện nghi mang lại trải nghiệm nghỉ dưỡng tốt nhưng chi phí cao hơn đáng kể.</li><li>Liên hệ đến trải nghiệm thực tế khi lựa chọn nơi lưu trú cho các chuyến du lịch trước đây.</li><li>Dùng từ nối đối lập để so sánh ưu và nhược điểm giữa các lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các phương án với nhau thay vì phân tích tách biệt từng lựa chọn.</li><li>Dùng hiện tại đơn để mô tả đặc điểm từng loại khách sạn và câu điều kiện loại 1 khi dự đoán trải nghiệm nếu chọn phương án đó.</li><li>Nếu quên từ chuyên biệt, hãy mô tả cảm giác hoặc trải nghiệm thay vì từ chính xác.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>within walking distance – trong khoảng cách đi bộ</li><li>stick to a budget – bám sát ngân sách</li><li>value for money – xứng đáng với số tiền bỏ ra</li><li>modern amenities – tiện nghi hiện đại</li><li>a relaxing stay – kỳ nghỉ thư giãn</li><li>book in advance – đặt trước</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>On the one hand – một mặt</li><li>On the other hand – mặt khác</li><li>However – tuy nhiên</li><li>Moreover – hơn nữa</li><li>As a result – kết quả là</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I would choose the hotel near tourist attractions because it saves a lot of time during the trip. – Tôi sẽ chọn khách sạn gần điểm tham quan vì tiết kiệm nhiều thời gian trong chuyến đi.</li><li>Compared to the cheaper hotel, the more comfortable one offers a much more relaxing experience. – So với khách sạn giá rẻ, khách sạn thoải mái hơn mang lại trải nghiệm thư giãn hơn nhiều.</li><li>In my view, price should only be the deciding factor if the budget is very limited. – Theo tôi, giá cả chỉ nên là yếu tố quyết định nếu ngân sách rất hạn hẹp.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nói về lựa chọn yêu thích mà bỏ qua phân tích hai phương án còn lại.</li><li>Lặp lại từ good hoặc bad quá nhiều thay vì dùng tính từ đa dạng hơn.</li><li>Không đưa ra quyết định rõ ràng ở phần kết luận.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng, hãy chuyển sang nói về ngân sách hoặc khoảng cách đến các điểm tham quan.</li><li>Dùng câu: Let's look at this option from a different angle.</li><li>Nếu bí ở một lựa chọn, hãy tạm chuyển sang lựa chọn khác rồi quay lại sau.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một người đang thực sự lên kế hoạch cho kỳ nghỉ của chính mình.</li><li>Đưa ra đề xuất linh hoạt, ví dụ ưu tiên vị trí nếu chuyến đi ngắn ngày nhưng ưu tiên sự thoải mái nếu nghỉ dài ngày, để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "Ways to lead a healthy lifestyle",
+          "mindmap": {
+            "title": "Ways to a Healthy Lifestyle",
+            "ideas": [
+              "Eating healthy food",
+              "Doing regular exercise",
+              "Staying optimistic",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Why do you think many people find it hard to maintain a healthy lifestyle?",
+            "Do you think mental health is as important as physical health?",
+            "What advice would you give to someone who wants to live a healthier life?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề tập trung vào các cách để duy trì lối sống lành mạnh trong cuộc sống hiện đại.</li><li>Ba nhánh chính gồm ăn uống lành mạnh, tập thể dục đều đặn và giữ tinh thần lạc quan.</li><li>Ý tưởng thứ tư có thể là ngủ đủ giấc hoặc hạn chế các thói quen xấu như thức khuya, hút thuốc.</li><li>Tiêu chí chấm điểm gồm phát triển ý, tính mạch lạc, từ vựng và ngữ pháp.</li><li>Thời gian khoảng 5 phút, trong đó khoảng 3–3,5 phút cho bài nói chính và phần còn lại cho câu hỏi phụ.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc FEEL: Point → Explanation → Example → Link để phát triển từng nhánh ý.</li><li><strong>Ví dụ 1:</strong> Today, I would like to talk about some effective ways to lead a healthy lifestyle.</li><li><strong>Ví dụ 2:</strong> Another aspect worth mentioning is the importance of getting enough sleep every night.</li><li>Đưa ví dụ thực tế về việc ăn nhiều rau xanh, tập thể dục buổi sáng hoặc giữ thái độ tích cực trước khó khăn.</li><li>Bám sát sơ đồ tư duy để tránh lan man và lặp ý.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng câu chuyển ý mượt mà giữa các nhánh để bài nói mạch lạc hơn.</li><li>Dùng hiện tại đơn cho sự thật chung và hiện tại hoàn thành khi nói về những thay đổi tích cực đã đạt được.</li><li>Có thể paraphrase healthy lifestyle bằng a wholesome way of living, physical and mental well-being hoặc a balanced life.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>a nutritious diet – chế độ ăn giàu dinh dưỡng</li><li>stay physically active – duy trì vận động thể chất</li><li>a positive mindset – tư duy tích cực</li><li>reduce the risk of illness – giảm nguy cơ mắc bệnh</li><li>maintain a work-life balance – duy trì cân bằng công việc và cuộc sống</li><li>build healthy habits – xây dựng thói quen lành mạnh</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>To begin with – trước tiên</li><li>Furthermore – hơn nữa</li><li>Another important factor is – một yếu tố quan trọng khác là</li><li>For instance – chẳng hạn</li><li>In conclusion – tóm lại</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I strongly believe that a balanced diet is the foundation of a healthy lifestyle. – Tôi tin rằng chế độ ăn cân bằng là nền tảng của một lối sống lành mạnh.</li><li>From my perspective, staying optimistic can improve both mental and physical health. – Theo tôi, giữ tinh thần lạc quan có thể cải thiện cả sức khỏe tinh thần lẫn thể chất.</li><li>In my opinion, regular exercise should be a daily habit rather than an occasional activity. – Theo tôi, tập thể dục đều đặn nên là thói quen hằng ngày thay vì hoạt động thỉnh thoảng.</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li>Why do you think many people find it hard to maintain a healthy lifestyle? → Busy schedules, lack of motivation and easy access to unhealthy food often make it difficult for people to stick to healthy habits.</li><li>Do you think mental health is as important as physical health? → Yes, mental health greatly affects how people cope with stress and maintain overall well-being, so it deserves equal attention.</li><li>What advice would you give to someone who wants to live a healthier life? → I would advise them to start with small changes, such as eating more vegetables, exercising regularly and getting enough sleep each night.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê các cách sống lành mạnh mà không đưa ví dụ cụ thể minh họa.</li><li>Quên phát triển ý tưởng cá nhân ở nhánh thứ tư.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Khi bí ý, hãy liên hệ đến thói quen sinh hoạt hằng ngày của bản thân mà không nêu chi tiết cá nhân nhạy cảm.</li><li>Dùng câu: That is a complex issue. If we evaluate it from a health perspective...</li><li>Nếu quên từ chuyên ngành, hãy dùng từ đơn giản hoặc mô tả khái niệm.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Hãy nhìn chủ đề từ góc độ thể chất, tinh thần và thói quen sinh hoạt để có cái nhìn toàn diện.</li><li>Tính logic và sự liên kết giữa các ý là yếu tố quan trọng nhất để đạt điểm cao.</li><li>Giữ giọng điệu tích cực, tập trung vào giải pháp thực tế thay vì chỉ liệt kê lý thuyết.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

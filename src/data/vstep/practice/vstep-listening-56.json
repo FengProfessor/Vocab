@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-56",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 56",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-05/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. Which job does the woman do now?</b></p><ul><li><b>Woman:</b> All the time I was at school I wanted to be a nurse, but my mother worked in a shop and said it wasn’t good to be on your feet all day. She wanted me to be a secretary. I did that for a while after I left college, but I wasn’t very keen on it, so I retrained and now I’m doing <b>what I always wanted to</b>.</li></ul><p><b>2. Where will they meet?</b></p><ul><li><b>Girl:</b> Hi Pip. It’s Angie. I’ll see you outside the café tonight at seven thirty.</li><li><b>Boy:</b> Oh, but I don’t know where it is.</li><li><b>Girl:</b> It’s easy to find. It’s opposite that new supermarket that’s just opened.</li><li><b>Boy:</b> I’m not sure where that is either. I’ll <b>wait for you by the bus station</b>, then we can go to the café together. I’ll know where the new supermarket is then too.</li></ul><p><b>3. What was the boy doing when the phone rang?</b></p><ul><li><b>Girl:</b> What did you do yesterday evening?</li><li><b>Boy:</b> Well, I was supposed to look after my four-year-old cousin while my aunt went to the theatre. But I wanted to <b>watch the match on television</b>, so she found someone else. The annoying thing was that the <b>phone rang halfway through</b>, and I missed the best goal. I’d finished all my homework early, too.</li></ul><p><b>4. Which date is Brian’s birthday?</b></p><ul><li><b>Man 1:</b> John, did you know it’s Brian’s birthday next week, his 20th? It’s on the <b>15th</b>.</li><li><b>Man 2:</b> That’s Wednesday, isn’t it? Is he having a party?</li><li><b>Man 1:</b> Yes, on the 17th at about eight.</li><li><b>Man 2:</b> Oh, next Friday. I hope I get asked.</li></ul><p><b>5. Where is the man?</b></p><ul><li><b>Man:</b> Hello Mary. The train arrived much earlier than I expected. I’m on the <b>platform</b> at the moment. Shall I get a taxi? There shouldn’t be a long queue at this time of day ... OK ... I’ll go and have a drink in the café while I wait for you.</li></ul><p><b>6. Which is the boy’s teacher?</b></p><ul><li><b>Boy:</b> I’ve just started learning the piano. I’ve got a really nice teacher. He’s called Mr Hall.</li><li><b>Girl:</b> Oh, I know, he taught me when I was quite young. He’s got a beard and lots of black hair, hasn’t he? I used to be quite frightened of him.</li><li><b>Boy:</b> Well, the Mr Hall who teaches me <b>hasn't got much hair and it's grey</b>, but he does have a <b>beard</b>. And <b>wears glasses</b>.</li><li><b>Girl:</b> But it is the same man, I’m sure. I was only little when he was teaching me.</li></ul><p><b>7. What did the man receive in the post?</b></p><ul><li><b>Man:</b> Was there any post for me this morning?</li><li><b>Woman:</b> Yes, there was. <b>Two letters and a postcard</b>. Here you are.</li><li><b>Man:</b> One of the letters is for you. I’m expecting a <b>parcel</b>. Did it come?</li><li><b>Woman:</b> Oh yes. I put it over there, look.</li></ul><p><b>8. What time is the flight from New York expected?</b></p><ul><li><b>Woman:</b> Excuse me, I’m waiting for flight 712 from New York. It was supposed to arrive at nine twenty. It’s nine thirty-five now and there’s been no announcement of a delay or anything.</li><li><b>Man:</b> I’m sorry, Madam. We’ve just had a message to say it took off an hour and a half late. Arrival time is now <b>ten fifty-five</b>.</li><li><b>Woman:</b> That’s too bad. I’ve been here since half past eight and it probably won’t arrive when you say. I expect I’ll be here till midday. That’s a whole morning wasted.</li><li><b>Man:</b> I can only apologise, Madam.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which job does the woman do now?",
+              "options": [
+                "A nurse",
+                "A secretary",
+                "A teacher",
+                "A doctor"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Where will they meet?",
+              "options": [
+                "By bus station",
+                "Outside the café",
+                "Opposite to the supermarket",
+                "At the cinema"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What was the boy doing when the phone rang?",
+              "options": [
+                "Looking after his four-year-old cousin",
+                "Doing his homework",
+                "Watching a football match",
+                "Playing football"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which date is Brian’s birthday?",
+              "options": [
+                "Wednesday, 20th",
+                "Friday, 17th",
+                "Friday, 15th",
+                "Wednesday, 15th"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Where is the man?",
+              "options": [
+                "In the café",
+                "In the restaurant",
+                "On the platform",
+                "In a taxi"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Which is the boy’s teacher?",
+              "options": [
+                "The man with lots of black hair and a beard",
+                "The man with a beard and wears glasses",
+                "The man with grey hair but doesn’t wear glasses",
+                "The man with lots of hair but doesn’t have a beard"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What did the man receive in the post?",
+              "options": [
+                "A parcel, a letter and a postcard",
+                "A parcel and two letters",
+                "Two letters and a postcard",
+                "A postcard and a parcel"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What time is the flight from New York expected?",
+              "options": [
+                "8.30",
+                "10.55",
+                "9.30",
+                "9.20"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Presenter:</b> In today’s programme, David Green has come along to tell us all about Waterside Shopping Center near Northport. Good morning, David.</li><li><b>David:</b> Good morning. Well, I visited Waterside last week and I think it has something for everyone and I would recommend it for a day out. It’s taken three years to build and (Q1) finally opened three weeks ago, two months later than planned. Firstly, getting there; there are (Q2) organized coach trips from most towns in the area but they leave early and come home late, so I drove. There are 12,000 free parking spaces, so parking is no problem. You can also get there by train, but the station is 15 minutes from Waterside by bus, and the buses are really crowded so you sometimes have a long wait.</li><li><b>Presenter:</b> And what about opening times?</li><li><b>David:</b> Well, one thing to remember is that the shops don’t open till 10.00 in the morning except on Saturday when they open at 9.00. So don’t get there too early on a weekday. (Q3) They close at 8 o’clock every day except Friday when they’re open until 9 pm.</li><li><b>Presenter:</b> Can you tell us some more about the facilities at the shopping center?</li><li><b>David:</b> Yes, it’s arranged on three levels. You’ll find all your favourites here. In fact if you want to buy a pair of shoes there are 15 different shops to choose from on level one and two. When you run out of money there are seven different banks, but collect your money before you get to the third level as there aren’t any banks up there. On that level, however, there are several restaurants as well as cinema with seven screens. And don’t get lost like I did, go to the information desk on the first level and get a map.</li><li><b>Presenter:</b> What else can you do at Waterside?</li><li><b>David:</b> Before you go back to your car or the bus – and (Q4) in fact it might be better to do this before you go shopping and have too much to carry – go and see the lake. Take a walk or have a go at fishing, sailing or wind surfing if you have time. Or you can rest your tired feet and watch the birds and ducks, but you are asked not to feed them.</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Interviewer:</b> OK, now I understand that the Park is involved in one or two projects at the moment.</li><li><b>Wildlife park representative:</b> That’s right. Since 1994, we’ve been working with various partners to raise money and help co-ordinate something called Project Life Lion. This project involves sending teams to villages which border the Serengeti National Park in East Africa to vaccinate domestic dogs against canine distemper virus (CDV) and rabies. In 1994 over one third of the Serengeti lions died (Q5) as a result of CDV, which had passed from domestic dogs to the wild animal population. In addition to that, we are currently taking part in the Atlantic Rainforest Project and supporting the Community Conservation Project.</li><li><b>Interviewer:</b> So you’re obviously concerned about environmental issues.</li><li><b>Wildlife park representative:</b> Yes, the Park continuously monitors its environmental impact. To do that, we have our own independently-written Environmental Management System, which is now being used as a model by other organizations across the UK so that they can establish their own.</li><li><b>Interviewer:</b> Now, apart from the day-to-day business of visitors to the Park, you also put on events, don’t you?</li><li><b>Wildlife park representative:</b> Yes, the Park is a venue for all manner of corporate events, such as (Q6) product launches, team-building, special events, barbecues - the list is endless. And we play host to many charity and fund-raising events each year. For them, (Q8) we are happy to help with discounted tickets and competition prizes.</li><li><b>Interviewer:</b> Now, tell me about the Center for Television and Radio Training. I gather you’re connected with that.</li><li><b>Wildlife park representative:</b> Yes, it’s our sister’s company. (Q7) If you’ve always dreamed of being a radio presenter, we offer you the opportunity to take the first steps.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Man:</b> Hello?</li><li><b>Woman:</b> Hi. It’s Laura Carlton here. We’ve just arrived at the holiday flat, but I can’t get the hot water and heating to work.</li><li><b>Man:</b> Oh right! That’s easy. Don’t worry. In the upstairs cupboard, you’ll find the water heater. (Q9) You’ll see three main controls on the left at the bottom of the heater. The first one – the round one on the far left – is the most important one for the heating and hot water. It’s the main control switch. Make sure it’s in the ‘on’ position. The switch itself doesn’t light up, but the little square below will be black if (Q10) the switch is ‘off’. That’s probably what’s happened – it’s got switched off by mistake. The middle one of these three controls – you’ll see it’s slightly larger than the first one – controls the radiators. If you feel cold while you’re there and need the radiators on, this needs to be turned to maximum. The last of the three controls – the one on the right – is usually on about a number four setting which for the water in the taps is usually quite hot enough. Below the heating controls in the middle is a small round plastic button. If there isn’t enough water in the pipes, (Q11) sometimes the heater goes out. If this happens you’ll need to press this button to reset the heater. Hold it in for about five seconds and the heater should come on again. Then there’s a little square indicator under the third knob that’s a kind of alarm light. It’ll flash if you need to reset the heater.</li><li><b>Woman:</b> (Q12) It sounds complicated</li><li><b>Man:</b> I’m sure you won’t have any problem with it. There should be some more instructions on the side of the heater. Call me back if you can’t make it work.</li><li><b>Woman:</b> Okay</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "When was the center first opened?",
+              "options": [
+                "three years ago",
+                "three weeks ago",
+                "two months ago",
+                "two weeks ago"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "How can you get to the center?",
+              "options": [
+                "by car and taxi",
+                "by train and taxi",
+                "by car, taxi and train",
+                "by car, train and coach"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What time do the shops close on Saturday?",
+              "options": [
+                "9:00 am",
+                "10:00 am",
+                "8:00 pm",
+                "9:00 pm"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What should people do before shopping in the center?",
+              "options": [
+                "collect money from the bank",
+                "Watch a movie",
+                "Rest by the lake",
+                "Buy a map"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why did Serengeti lions die?",
+              "options": [
+                "attacked by domestic dogs",
+                "infected with a disease from domestic dogs",
+                "killed by other wild animals",
+                "sent to villages"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What events are NOT organized in the park?",
+              "options": [
+                "product introduction",
+                "charity events",
+                "family camping",
+                "barbecue"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "You can try this when coming to the park",
+              "options": [
+                "introducing programs on the radio",
+                "deliver discounted tickets",
+                "organize competition",
+                "host an event"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which one is not a programme of the park?",
+              "options": [
+                "Project Life Lion",
+                "Atlantic Rainforest Project",
+                "Discounted Tickets",
+                "None of the above"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "How many main controls are there on the heater?",
+              "options": [
+                "two",
+                "three",
+                "four",
+                "none"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What is the reason for the problem of the heater?",
+              "options": [
+                "the switch doesn't light up",
+                "the little square is black",
+                "the switch is off",
+                "the switch is on"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "When does the woman have to restart the heater?",
+              "options": [
+                "when there isn't enough water",
+                "when the water is too hot",
+                "when the heater is switched off",
+                "when there is no light"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How does the woman feel after listening to the instruction?",
+              "options": [
+                "confused",
+                "motivated",
+                "interested",
+                "encouraged"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-17/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1 (Questions 21-25)</b></p><p>Welcome, ladies and gentlemen, to the Morecambe Museum of Fashion. Before we go up to the fashion exhibition ‘Clothes of the Future’ I would like to show you some slides on the screen, and say a few words about the history of fashion.</p><p>I will also mention some of the important people in fashion. This will provide an introduction for you and will prepare you for the clothes that we’re going to see in the exhibition. As I’m sure you know nowadays fashion is something that almost everybody enjoys. People of all age groups and all incomes usually have an interest in what they wear. But this has only recently happened, and I will tell you why. Until the beginning of this century, it was only the rich who could afford to follow fashion. There were no factories to make many copies of the same article, as there are today. Rich men and women wore trousers, jackets and dresses which were made especially for them. This picture here shows a young lady being measured for a dress that she will have made by hand, exactly how she wants it to be. Ladies’ clothes in those days were long and usually tight-fitting and made of heavy material. However, the new century – the 1900s – brought new ideas.</p><p>The important person at this time was Coco Chanel who started making clothes in 1908, in Paris. Many people think she was the 20th century’s most important influence on fashion. Chanel loved to wear loose-fitting clothes and produced jackets and skirts which everyone admired. Here’s a picture of one of her ladies’ suits. Even today people still wear styles like this when they want to look smart.</p><p>Young Paris designers all began to produce simple clothes, and skirts started to get shorter. The idea of special clothes for playing sports also became popular in the early 1920s. Things like long shorts and tennis clothes started to become fashionable. Soon factories produced these new styles more cheaply and then many more people were able to enjoy fashion. In 1947, after the Second World War Christian Dior used all the new materials available to produce a fashion which was known as the ‘New Look’. As you can see in this picture, he made skirt lengths longer again. Later, in the 60s, ‘flower power’ and student fashion were popular. In London, Mary Quant introduced short skirts. These were worn with boots that went up to the knee. Look at the white, shiny boots in this picture! And now we come to today’s exhibition. Some of the clothes you will see today will be very different from anything which you have seen before. The exhibition aims to take a look at the sort of clothes that we might wear in the next 50 years. Let’s go inside and have a look at the exciting clothes that are waiting for us ...</p><p><b>Talk 2 (Questions 26-30)</b></p><p>Right, everyone about the trip to the Jubilee Arts Centre next Wednesday. As you know, we have tickets for the Centre’s two theatres and the concert hall. Those of you with concert tickets will hear piano music by Chopin and Schumann. Those with tickets for the main theatre will see Shakespeare’s Twelfth Night while people going to the smaller theatre will see The Wild Duck by Ibsen. Although all the theatre and concert tickets have gone if anyone else would like to join us on the trip I can get tickets for the Arts Centre cinema to see the Australian comedy film Spider and Rose. The shows begin at half past seven, but we’ll leave early so you can spend time looking round the Arts Centre. The coach will leave here at 3.30 and arrive at the Arts Centre at about a quarter to five. Let me tell you what you can do there. The Centre has a lot for art-lovers. In the Art Gallery there’s an exhibition of the history of Russian ballet. It has dresses and shoes worn by famous dancers and photos of past performances. With your student card, you can get in very cheaply. There are also some interesting free exhibitions. On the ground floor you can see prize-winning paintings from a children’s competition, and gold jewellery made by Scottish artists. On the first floor there’s an exhibition of South American photographs, and there’s no charge for that either. I know some of you hope to do some shopping. The Centre has a bookshop on the first floor and there’s a souvenir shop by the ticket office. If you’re more interested in clothes and shoes there’s a large shopping centre five minutes’ walk from the Arts Centre. You’ll probably want to eat before the show. The Balcony Restaurant has a menu with a wide range of meals and waiter service, but it is rather expensive. Or there’s the Fountain Restaurant whose special three-course dinner is good value for money. There’s also Charlie’s coffee bar which serves coffee, sandwiches and cakes. You can get fruit juices and ice cream from the cinema kiosk. After the shows the coach will pick us up at the Bridge Street exit. Everyone should be there by twenty past ten. The two plays will finish at around 10.10 or 10.15. I’m afraid concert-goers will have to wait, as the concert finishes earlier, at ten to ten.</p><p><b>Talk 3 (Questions 31-35)</b></p><p>Well, good evening everyone. I’ve come along to talk to you about my painting. It was just a hobby but it’s really more than that now. I used to paint in the evenings after work but now I work four days a week instead of five. That means I spend Friday, Saturday and Sunday on my painting. I have pictures in local exhibitions at least once a month. I’d love to give up my job and spend all my time painting, but I work with computers and I earn more that way! I do make some money from selling my pictures enough to pay for all my paint, brushes and paper and a few art lessons. I’d love to go to art college full-time for three years but I’ve got all the rent on my flat to pay and a car to run. I first became interested in art when I was at primary school. I used to go out with some paper and a few pencils during break time and draw anything I saw: houses, gardens, people. Then at secondary school we had art classes twice a week and I learnt how to use chalk and then different kinds of paint: watercolours, oils and so on. Those classes were really useful for me, and ever since then I’ve had lessons of some kind. I’ve attended evening classes and been on what they call painting ‘holidays’, where you go out into the countryside and paint during the day and then sit and discuss your work with a teacher and the other artists after dinner. Those holidays are great; you learn so much talking to other people studying with you. I’ve enjoyed painting in lots of different countries. I’ve been to Morocco and painted desert scenes with beautiful sunrises. I’ve been to Greece and Spain and painted pictures of the local people working in the fields near their homes. My favourite place is still Scotland. I love walking in the Scottish mountains, and there are so many different birds to see, especially in spring. Well, I’m going to finish now by showing you a video of the places I’ve visited. After that there’ll be a chance to relax with a cup of coffee and then there’ll be time for some questions. Oh, and I’ve got some information about my next art exhibition for you. It’s going to be at the Queen’s Gallery. Now, if someone would turn off the lights ...</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "According to the speaker, who are interested in fashion?",
+              "options": [
+                "rich people.",
+                "young people.",
+                "old people.",
+                "most people."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "How were fashion clothes before the 1900s?",
+              "options": [
+                "they were individually made.",
+                "they were copied from pictures.",
+                "they were made of light material.",
+                "they were often loose-fitting."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What is true about Coco Chanel?",
+              "options": [
+                "She was born in 1908.",
+                "She changed people's ideas about fashion.",
+                "She liked wearing tight-fitting clothes.",
+                "Her designed clothes in the 1900s become out of fashion now."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "How was the fashion in the 1920s?",
+              "options": [
+                "white skirts were fashionable",
+                "clothes started to cost less.",
+                "women took up sports.",
+                "sport clothes were cheap."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "Which of these was part of the ‘New Look’?",
+              "options": [
+                "material with flowers",
+                "very short skirts",
+                "longer skirts",
+                "boots that went up to the knee."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Which tickets are still available?",
+              "options": [
+                "the piano concert.",
+                "Twelfth Night.",
+                "Spider and Rose.",
+                "The Wild Duck"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Which exhibition do visitors have to pay a fee?",
+              "options": [
+                "the Russian ballet exhibition.",
+                "the Scottish jewellery.",
+                "the South American photographs.",
+                "prize winning paintings from a children’s competition."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Where can you buy clothes?",
+              "options": [
+                "on the first floor.",
+                "in the souvenir shop.",
+                "close to the Arts Centre.",
+                "in the main theatre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Where can you enjoy cakes?",
+              "options": [
+                "the Fountain.",
+                "Charlie’s coffee.",
+                "the cinema kiosk.",
+                "The Balcony Restaurant"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What time does the concert end?",
+              "options": [
+                "10.10.",
+                "10.15.",
+                "10.20.",
+                "9.50."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "How often does Sarah paint now?",
+              "options": [
+                "two days a week.",
+                "three days a week.",
+                "five days a week.",
+                "every evening"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How does Sarah use money from her painting?",
+              "options": [
+                "to give up her computing job.",
+                "to pay for her flat and car.",
+                "to pay for her artist’s materials.",
+                "to pay for three-year full-time fee at Art College."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "When did she learn when she was at primary school?",
+              "options": [
+                "she painted pictures of people.",
+                "she learnt to use chalk.",
+                "she learnt to use different kinds of paint.",
+                "she drew scenes in pencil."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What pleased Sarah most about her painting holidays?",
+              "options": [
+                "meeting other artists",
+                "seeing beautiful scenery",
+                "receiving individual teaching",
+                "painting the countryside."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What will the audience NOT do after watching Sarah’s video?",
+              "options": [
+                "find out some information about the next exhibition.",
+                "look round an art exhibition.",
+                "have a break and a drink.",
+                "ask Sarah some questions."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

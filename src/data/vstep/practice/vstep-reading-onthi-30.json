@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-30",
+  "title": "Luyện Đọc VSTEP: Technology and Education (VstepR6-Test 04)",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Technology and Education",
+            "text": "<p style=\"text-align:justify;\">Technology has transformed education in fundamental ways over the past two decades. The <strong>proliferation</strong> of computers, tablets, and smartphones in schools has opened new possibilities for how students learn and how teachers instruct. Online platforms, interactive simulations, and digital libraries give students access to resources that were previously unavailable or prohibitively expensive. In many parts of the world, technology helps to bridge the gap between students in well-resourced urban schools and those in under-resourced rural communities.</p>\n<p style=\"text-align:justify;\">One of the most significant developments has been the rise of online learning. Platforms such as Coursera, edX, and Khan Academy offer thousands of courses to learners around the world, often for free or at low cost. During the COVID-19 pandemic, many schools were forced to shift entirely to online instruction, accelerating adoption of digital tools and revealing both their potential and their limitations. While online learning offers flexibility and accessibility, it requires reliable internet access and digital devices, which remain unavailable for many students in low-income households.</p>\n<p style=\"text-align:justify;\">Research on the effectiveness of educational technology has produced mixed results. Some studies show that well-designed digital tools can improve student engagement, help learners work at their own pace, and provide immediate feedback. Other studies suggest that heavy use of screens can reduce attention spans, decrease social interaction, and even <strong>impair</strong> academic performance when technology is used without clear pedagogical goals.</p>\n<p style=\"text-align:justify;\">The challenge for educators and policymakers is to integrate technology thoughtfully into the learning environment. Rather than treating technology as a replacement for skilled teachers, the most successful approaches use digital tools to enhance and support effective instruction. Building digital literacy — the ability to critically evaluate and use information from digital sources — is also increasingly seen as an essential component of modern education.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r30-q1",
+              "type": "mcq",
+              "question": "What is the best title for this passage?",
+              "options": [
+                "Why Technology Harms Students",
+                "Technology in Education: Opportunities and Challenges",
+                "How Online Platforms Are Replacing Schools",
+                "The History of Computers in Classrooms"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r30-q2",
+              "type": "mcq",
+              "question": "The word \"proliferation\" in paragraph 1 is closest in meaning to?",
+              "options": [
+                "restriction",
+                "rapid increase and spread",
+                "replacement of older versions",
+                "shortage"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r30-q3",
+              "type": "mcq",
+              "question": "According to the passage, what was revealed by the COVID-19 pandemic regarding online learning?",
+              "options": [
+                "Online learning is superior to traditional classroom teaching",
+                "All students have access to reliable internet and digital devices",
+                "Online learning has both potential benefits and significant limitations",
+                "Online learning eliminates the need for teachers entirely"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r30-q4",
+              "type": "mcq",
+              "question": "The word \"impair\" in paragraph 3 is closest in meaning to?",
+              "options": [
+                "improve",
+                "measure",
+                "damage or weaken",
+                "replace"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r30-q5",
+              "type": "mcq",
+              "question": "What does the author suggest as the most effective approach to integrating technology in education?",
+              "options": [
+                "Replacing teachers with digital tools",
+                "Using technology to support and enhance good teaching",
+                "Limiting technology use to only university-level students",
+                "Requiring all students to have personal devices before attending school"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

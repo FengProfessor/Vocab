@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-23",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 23",
+  "duration": 172,
+  "date": "2026-03-21",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-23/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Great Midland Railway would like to apologize to passengers as we will not be providing the advertised buffet service with tea, coffee cold drinks and full English and continental breakfasts on this journey. This is due to fire in the locomotive shed before departure. A trolley service is available, however which will be visiting all coaches with a selection of cold drinks and sandwiches. Passengers are requested to remain in their seats for this service.</li></ul><p><b>Question 2.</b></p><ul><li>Well, I was afraid you’d have to wait till Thursday but I just talked to the engineer and er today’s Tuesday, isn’t it he said you could pick it up tomorrow Is that all right for you?</li></ul><p><b>Question 3.</b></p><ul><li>Motorists travelling to Bury are notified of a serious fire in the town. The traffic isn’t moving at all and there are hold ups in all directions. Avoid Bury if you can. In Birmingham there’s already heavy traffic around Edgbaston as the crowds arrive for the cricket final. There are a number of minor roads closed around the cricket ground so if you’ve got a ticket for the final make sure you give yourself plenty of time to get there On the M11 to Cambridge there’s been.</li></ul><p><b>Question 4.</b></p><ul><li>It’s 7.30 and now we have a choice of our viewers here in Wales. On HTV we have Bill Barnard and Ian Fall in The Sport in Question. On TSW we have a documentary on the 400th anniversary of Sir Francis Drake’s death which examines Drake’s last voyage to the Caribbean and on Channel 4 Wales there’s an adaptation of Johns McShene’s novel about modern university life. A Place in History.</li></ul><p><b>Question 5.</b></p><ul><li>I’ve got instructions for getting to Dad’s new house here, Ken Turn off at junction 28 and take the first turning signposted to the City centre and Barnstable. After that, drive for about 200 yards and there’s another left turn. There’s no signpost but he says it leads to Matlock village and it’s called Gate Lane. The new house is 150 yards along on the right. It’s an old brick building with a lovely…</li></ul><p><b>Question 6.</b></p><ul><li>ideal for a weekend break. We have indoor heated swimming pools Jacuzzis and saunas three gymnasia with qualified fitness instructors all freely available to guests. There are three top class restaurants to cater for every taste. And even a crèche so the busy mum and dad are free to enjoy the facilities. Double and single rooms can be booked only through.</li></ul><p><b>Question 7.</b></p><ul><li>...and all passengers should disembark while the plane is being refuelled. This should take about 45 minutes. Passengers to London should follow the signs to the luggage collection points and the exits. Passengers continuing their journeys to destinations in Europe should proceed to terminal B. There is a bus to take you there. Passengers continuing their flight to the USA should wait in the departure lounge. We will call you as soon as it is safe for you to reboard the plane. On behalf of Air Midland, I would like to thank you for choosing.</li></ul><p><b>Question 8.</b></p><ul><li>A woman whose life was saved by an emergency operation while on a flight from Cape Town to Jakarta will take another flight to Jakarta tomorrow this time on her honeymoon. Georgina Curry survived thanks to quick thinking from two doctors on board the plane who performed an emergency appendix operation at 30,000 feet. But today only love is in the air Miss Curry marries her fiancé David Hume.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What can you get on the train?",
+              "options": [
+                "full English breakfast",
+                "full continental breakfast",
+                "tea and coffee",
+                "sandwiches"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "When will the television be ready for collection?",
+              "options": [
+                "on Tuesday",
+                "on Wednesday",
+                "on Thursday",
+                "on Friday"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What should people going to Birmingham do?",
+              "options": [
+                "cancel the trip",
+                "leave early",
+                "use minor roads",
+                "use Bury road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which channel broadcasts about history?",
+              "options": [
+                "HTV",
+                "Channel 4 Wales",
+                "TSW",
+                "no channel at all"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Where does Ken’s father live?",
+              "options": [
+                "in the City centre",
+                "in Matlock village",
+                "in Gate Lane",
+                "near a motorway"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is being advertised?",
+              "options": [
+                "a luxury hotel",
+                "a fitness centre",
+                "a summer camp",
+                "a restaurant"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "You are flying to New York. Where should passengers to New York go?",
+              "options": [
+                "to terminal B",
+                "to the departure lounge",
+                "to luggage collection",
+                "to the exits"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is it true about Georgina Curry?",
+              "options": [
+                "She went to Jakarta for an appendix operation.",
+                "She is going to Jakarta for an appendix operation.",
+                "She went to Jakarta on her honeymoon.",
+                "She is going to Jakarta on her honeymoon"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-23/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> I’ve been reading your personal statement, Paul. First, let’s talk about your work experience in South America. What took you there? Was it to gain more fluency in Spanish?</li><li><b>M:</b> Well, as I’m combining Spanish with Latin American studies, my main idea was to find out more about the way people lived there. My spoken Spanish was already pretty good in fact.</li><li><b>W:</b> So you weren’t too worried about language barriers?</li><li><b>M:</b> No. In fact, I ended up teaching English there, although that wasn’t my original choice of work.</li><li><b>W:</b> How did you find out about all this?</li><li><b>M:</b> I found an agency that runs all kinds of voluntary projects in South America.</li><li><b>W:</b> What kind of work?</li><li><b>M:</b> Well, there were several possibilities.</li><li><b>W:</b> You mean construction? Engineering work?</li><li><b>M:</b> Yes, getting involved in building projects was an option. Then there was tourism, taking tourists for walks around the volcanoes which I actually chose to do and then there was work with local farmers.</li><li><b>W:</b> But you didn’t continue with that project. Why not?</li><li><b>M:</b> Because I never really knew whether I’d be needed or not. I’d thought it might be difficult physically, but I was certainly fit enough ... no, I wanted to do something that had more of a proper structure to it, I suppose. I get de-motivated otherwise.</li><li><b>W:</b> What do you think you learned from your experience? It must have been a great opportunity to examine community life.</li><li><b>M:</b> Yes, but it was difficult at first to be accepted by the locals. It was a very remote village and some of them were reluctant to speak to me although they were always interested in my clothes and how much I’d had to pay for them.</li><li><b>W:</b> Well, that’s understandable.</li><li><b>M:</b> Yes, but things soon improved. What struck me was that when people became more comfortable with me and less suspicious, we really connected with each other in a meaningful way.</li><li><b>W:</b> You made good friends?</li><li><b>M:</b> Yes, with two of the families in particular.</li><li><b>W:</b> Good. What about management. Did you have a project manager?</li><li><b>M:</b> Yes and he gave me lots of advice and guidance.</li><li><b>W:</b> And was he good at managing too?</li><li><b>M:</b> That wasn’t his strong point! I think he was often more interested in the academic side of things than filing reports. He was a bit of a dreamer.</li><li><b>W:</b> And did you have a contract?</li><li><b>M:</b> I had to stay for a minimum of three months. My parents were surprised when I asked to stay longer - six months in the end. I was so happy there.</li><li><b>W:</b> And did anything on the administration side of things surprise you? What was the food and lodging like?</li><li><b>M:</b> Simple ... but there was plenty to eat and I only paid seven dollars a day for that which was amazing really. And they gave me all the equipment I needed ... even a laptop.</li><li><b>W:</b> You didn’t expect that then?</li><li><b>M:</b> No</li><li><b>W:</b> Well, I’ll look forward to hearing more.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi Jun. As you know, I’ve asked you here today to discuss the future of our Self-Access Centre. We have to decide what we want to do about this very important resource for our English language students. So, can you tell me what the students think about this?</li><li><b>M:</b> Well, from the students’ point of view, we would like to keep it. The majority of students say they enjoy using it because it provides a variation on the classroom routine and they see it as a pretty major component of their course, but we would like to see some improvements to the equipment, particularly the computers; there aren’t enough for one each at the moment and we always have to share.</li><li><b>W:</b> Well yes, the teachers agree that it is a very valuable resource but one thing we have noticed is that a lot of the students are using it to check their personal emails. We don’t want to stop you students using it, but we think the computers should be used as a learning resource, not for emails. Some of us also think that we could benefit a lot more by relocating the Self-Access Centre to the main University library building. How do you think the students would feel about that, Jun?</li><li><b>M:</b> Well, the library is big enough to incorporate the Self-Access Centre, but it wouldn’t be like a class activity anymore. Our main worry would not be being able to go to a teacher for advice. I’m sure there would be plenty of things to do but we really need teachers to help us choose the best activities.</li><li><b>W:</b> Well, there would still be a teacher present and he or she would guide the activities of the students. We wouldn’t just leave him to get on with it.</li><li><b>M:</b> Yes, but I think the students would be much happier keeping the existing set-up; they really like going to the Self-Access Centre with their teacher and staying together as a group to do activities. If we could just improve the resources and facilities, I think it would be fine. Is the cost going to be a problem?</li><li><b>W:</b> It’s not so much the expense that I’m worried about, and we’ve certainly got room to do it, but it’s the problem of timetabling a teacher to be in there outside class hours. If we’re going to spend a lot of money on equipment and resources, we really need to make sure that everything is looked after properly. Anyway, let’s make some notes to see just what needs doing to improve the Centre.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> For the second in our series about locally-run businesses, we meet Simon Winridge, co-founder of the hugely-successful Winridge Forest Railway Park. Welcome, Simon. Now, perhaps you can begin by telling us a little bit about how it all started.</li><li><b>M:</b> Well, during the 1970s, my wife, Liz and I had just acquired 80 acres of sheep-farming land, and we decided to settle down and have children. Pretty soon we had a daughter, Sarah, and a son, Duncan. The place was wonderful for the kids: they particularly loved trains and gradually built up an enormous network of miniature railway track. I began to develop larger-scale models of locomotives but we didn’t think anything more of it until I went on a trip to a theme park near Birmingham and decided we could do a much better job! So we set up a small one ourselves based on the miniature railway and we opened to the public for just a month that year. 1984 - in July - our driest month because our children said they didn’t want our guests to have a miserable, wet visit. I dealt with Park business and Liz carried on with the farm work. It soon became clear that we were onto a winner. We began to extend the railway track and lay it among more interesting landscape by planting trees, which in turn attracted more wildlife, and by making cuttings through the rock. Nowadays, we’re open all year round and we’re pleased to say that Winridge is one of the most popular visitor attractions in the area with 50,000 visitors a year - a million and a half people have been through our doors since we opened. All these visitors mean we have had to expand our operation and it’s now a truly family concern I’m near to retirement age so I only concern myself with looking after the mechanical side of things - keeping the trains going. Liz now devotes all her energies to recruiting and supporting the large squadron of workers, which keep the place running smoothly. We're really pleased that after some years away teaching, Sarah has now returned to the park and makes sure the visitors are kept fed and watered, which keeps her pretty busy as you can imagine. Our son Duncan has been a stalwart of the park for the last 10 years, taking over from me and the area of construction and I'll say a little bit more about that in the moment. And his new wife Judith has also joined the team in charge of retail. That’s becoming a tremendous growth area for us a lot of people want to buy souvenirs.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Paul decided to get work experience in South America?",
+              "options": [
+                "to teach English there.",
+                "to improve his Spanish.",
+                "to learn about Latin American life.",
+                "to earn a good salary."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What project work did Paul originally intend to get involved in?",
+              "options": [
+                "construction",
+                "agriculture",
+                "tourism",
+                "education"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Paul say about his project manager?",
+              "options": [
+                "He let Paul do most of the work.",
+                "His plans were too ambitious.",
+                "He was very supportive of Paul.",
+                "He was skilled at managing."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What surprised Paul most?",
+              "options": [
+                "he had to stay in the community at least for three months.",
+                "he was given a computer to use.",
+                "he had too much to eat",
+                "He spent only a small sum of money for plenty of food."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why do students want to keep the Self-Access Centre?",
+              "options": [
+                "they enjoy the variety of equipment.",
+                "they like being able to work on their own.",
+                "it is an important part of their studies.",
+                "they can share learning materials there."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What do some teachers think of the Self-Access Centre?",
+              "options": [
+                "it should be closed.",
+                "it should be moved elsewhere.",
+                "Restricted access should be given.",
+                "it should be used for both personal and study purposes."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What are students mainly concerned about using the library?",
+              "options": [
+                "the size of the library.",
+                "difficulty in getting help.",
+                "the lack of materials.",
+                "choosing a class activity."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is the Director of Studies concerned about?",
+              "options": [
+                "the cost of upgrading the centre.",
+                "the lack of space in the centre.",
+                "the difficulty in supervising the centre.",
+                "students’ using the centre for personal emails."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What prompted Simon to launch his own theme park venture?",
+              "options": [
+                "A desire to improve upon a commercial park he had visited.",
+                "An inspiration drawn from his children’s miniature train setup.",
+                "A passion for restoring full-sized vintage model locomotives.",
+                "A plan to convert their sheep farm into a scenic tourist spot."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Why was July selected as the initial opening period for the park?",
+              "options": [
+                "It coincided with the time their kids finished their school term.",
+                "It was recommended by family members to avoid rainy weather.",
+                "It allowed them to take a break from heavy farm work duties.",
+                "It gave them enough time to secure capital for basic setup."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What total attendance figure has the park reached overall?",
+              "options": [
+                "50,000 visitors in total.",
+                "500,000 visitors in total.",
+                "1,000,000 visitors in total.",
+                "1,500,000 visitors in total."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "Who currently oversees the catering operations for visitors at the site?",
+              "options": [
+                "The co-founder responsible for maintenance tasks.",
+                "The former teacher who rejoined the family business.",
+                "The person handling recruitment and staff management.",
+                "The team member supervising construction projects."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1</b></p><p>Well, there’s nothing quite like finding your first old ship – it was 300 years old. Well, there’s nothing quite like finding your first Ok just lying at the bottom of the sea, so it wasn’t difficult to find. Most are covered in sand and rocks – but this one wasn’t.</p><p>I’m actually a teacher, not a full time diver – I dive in my free time but I often get to them before the professional divers, because I have good up-to-date equipment. Another thing that helps is talking to fish-men who tell me about their local area. I’ve even written a book about some of their experiences.</p><p>At the moment, I’m looking for the gold from a ship called The Sea Bird. It was an enormous well-built ship and it was coming from Australia on a winter night in 1859. Everything was going fine until the ship reached the English coast, when it crashed into some rocks in a very strong wind and sank to the bottom of the sea. It was carrying gold from Australia, and most of it is still at the bottom of the sea.</p><p>My wedding ring is actually made from gold which I found on an eighteenth – century sailing ship. A friend of mine, another diver, has already found 88,000 pounds worth of gold from different ship. He’s now decided to give up his job and become a full – time diver.</p><p>My house is full of things like coins, bottles and old guns. My wife is always complaining about the number of objects around the house – she says I should open an antiques shop – but I love all these old things. Anyway, in the end, I gave some things from my collection to museums, because I didn’t want to sell them. But my wife still wasn’t very pleased, I’m afraid.</p><p>As diving is a dangerous hobby, It’s not a good idea to try to teach yourself. I’d advise anyone interested to do what I did. There are some excellent diving clubs like the one I joined, which run courses for beginners. It is best to do one of these before you go on a diving holiday...</p><p><b>Talk 2</b></p><p>Are you interested in history? Well, I’d like to tell you about some of the historical places open to visitors in this part of the country.</p><p>Let’s start with the oldest first, Black Rock Caves have been here for over two million years. And, for half a million year, they were home to people and various animals, particularly tigers. You can explore these ancient homes and imagine what life was like for the people who lived there. The caves are open daily from April to October. A special attraction on evenings in August is a walk by candle light. Don’t take this tour if you are afraid of the dark.</p><p>Next I recommend a visit to Salter house. This was built by Sir Joshua Salter and dates back to seventeen sixty – five. The Salter family are still living these today. The house became famous in nineteen eighty two when the television series Aunt Dorothy was filmed there. The furniture and paintings are well worth seeing, but the attraction nobody wants to miss is the kitchen. This is where Aunt Dorothy cooked her enormous meals and gave advice to anyone who passed through this part of the house.</p><p>And don’t forget to visit the Old Port. You will need several hours to see everything there, especially if you take a trip along the riverside in an old tram as far as the fishing village. The guides there all wear traditional costume and you too get the chance to try on clothes from hundred years ago. You can buy gifts in the old village stores and eat delicious snacks in the Tea Shop. If you visit the village factory, you can see how sweets were made a hundred years ago, and taste them, too.</p><p>So, you see there’s plenty of...</p><p><b>Talk 3</b></p><p>This lecture is going to introduce you to traditional Chinese philosophy. First, you will learn about, uh, the yin and yang philosophy. Secondly, we will look at the five elements of this philosophy. It is important that you remember these five elements as we will be discussing them throughout the lecture. The five elements of yin and yang are: water, wood, fire, earth, and umm, metal. Ok, so those are the five elements. Umm, let’s begin with the definition of yin and yang. Yin and yang should be considered as opposite forces like, uhh, like land and ocean, for example. These are opposite. Now, these opposites do not compete with each other. They are complementary. When you think of yin and yang, think complementary opposites.</p><p>So, moving from complementary opposites, let’s return to the five elements we mentioned earlier. If you recall, we said they were water, wood, fire, earth and metal. The Chinese divided yin and yang into five elements to gain an understanding of how the body, mind and spirit work. According to the Chinese, every person’s physical and mental health relies on a balance of the five elements.</p><p>Individuals may have more of one element than another. Of course, ideally, all elements are in balance or harmony. What does this mean? Uh, it means that a person’s body contains equal amounts of each element.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The first old ship which Frank found was ..........",
+              "options": [
+                "covered by rocks",
+                "older than he first thought",
+                "easy to find",
+                "had a lot of gold"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did Frank find the ships so quickly?",
+              "options": [
+                "reads history books",
+                "is a professional driver",
+                "his friends helped him",
+                "uses the latest equipment"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does Frank say about the ship called The Sea Bird?",
+              "options": [
+                "It was so expensive",
+                "It was built in 1859",
+                "It sank in a storm",
+                "It was badly made"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What did Frank say about his wedding ring?",
+              "options": [
+                "was made from gold he found himself",
+                "it was given by someone",
+                "is worth 88,000 pounds",
+                "was found by a friend"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How did Frank learn to dive?",
+              "options": [
+                "by joining a diving club",
+                "by asking the dive tutor",
+                "by teaching himself",
+                "by going on a diving holiday"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "The Black Rock Caves have been home for....",
+              "options": [
+                "Two million years",
+                "A million year",
+                "A half a million year",
+                "centuries"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "When can the cave attract the tourists?",
+              "options": [
+                "from April to October",
+                "April",
+                "October",
+                "August"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Salter house was built in ............",
+              "options": [
+                "1765s",
+                "1756s",
+                "1928s",
+                "1982s"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "The things that are worth to visit in Salter house is ............",
+              "options": [
+                "the furniture",
+                "the paintings",
+                "the enormous meals",
+                "the kitchen"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should tourists do as visiting The Old Port?",
+              "options": [
+                "take an old trek to visit the riverside",
+                "buy different traditional costumes",
+                "try sweets made in the Tea Shop",
+                "visit the village factory"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What does the professor say about the elements in the body?",
+              "options": [
+                "Ideally, these should be different amounts of each",
+                "The amount of each in the body is not very important",
+                "They can be out of balance",
+                "Different people have different elements"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the professor, what are yin and yang?",
+              "options": [
+                "They are opposite forces",
+                "They are what make a person healthy",
+                "They are four different elements",
+                "They are the land and the ocean"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What does the professor say about yin and yang?",
+              "options": [
+                "They represent opposing forces that complement each other.",
+                "They are constantly changing to maintain harmony.",
+                "They must remain equal in order to maintain good health.",
+                "They are divided into five elements that compete with one another."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "According to the Chinese, five elements of Yin and Yang are studied for the work of",
+              "options": [
+                "the body and spirit",
+                "body, mind and spirit work",
+                "balance and harmony",
+                "medicine and health"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the professor says “Yin and Yang should be considered as opposite forces like, uhh, like land and ocean, for example”?",
+              "options": [
+                "To correct something she said earlier",
+                "To explain a term she just introduced",
+                "To explain what is wrong with a particular theory",
+                "To remind the students of something discussed earlier"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Chè: A Traditional Vietnamese Sweet Soup",
+            "text": "<p>Among the many desserts enjoyed across Vietnam, few are as varied or as widely loved as chè, a broad category of sweet soups and puddings served either warm or over crushed ice. Unlike many desserts found in Western countries, chè is rarely a single fixed recipe; instead, the name covers dozens of different combinations of beans, fruit, coconut milk, and sugar, each with its own texture and flavor. Some versions are thick and creamy, while others are light and watery, closer to a sweet drink than a solid dessert. <strong>This flexibility</strong>, along with its <strong>affordability</strong>, has helped chè remain a favorite treat for people of every age and background.</p><p>The exact origins of chè are difficult to trace with certainty, since recipes were passed down orally from grandmother to mother to daughter long before they were ever written in cookbooks. Most food historians agree that chè developed gradually over centuries, shaped by whatever ingredients were locally available in each region. In the north, chè recipes often rely on mung beans and lotus seeds, reflecting the cooler climate and different farming traditions. Further south, tropical fruits such as jackfruit and durian appear more frequently, along with generous amounts of coconut milk, giving southern chè a noticeably richer and sweeter taste overall.</p><p>Preparing chè usually begins with cooking the main ingredient, whether beans, taro, or tapioca pearls, until soft, then sweetening it with sugar and often flavoring it with pandan leaves for a mild, grassy aroma. Coconut milk is commonly poured over the finished dish just before serving, adding richness without <strong>overpowering</strong> the other flavors. Some varieties include unusual textures, such as chewy tapioca balls or soft, jelly-like pieces made from agar. Because chè can be served either hot during cooler months or cold over ice in the summer heat, the same basic dish can feel completely different depending on when and how it is prepared.</p><p>Chè holds a special place at Vietnamese family gatherings, religious ceremonies, and important life events such as weddings and death anniversaries, where a particular type of chè is often prepared to honor ancestors or celebrate good fortune. Street vendors selling chè from small carts or simple stalls remain a common sight in cities, offering an inexpensive treat that students and workers can enjoy between meals. For many overseas Vietnamese communities, learning to make chè from an older relative has also become a way of staying connected to family traditions and cultural identity while living far from home.</p><p>Today, chè continues to evolve, with modern cafes experimenting with new flavors such as matcha, chocolate, and even cheese foam poured over traditional bean mixtures. Despite these changes, most Vietnamese people still consider chè an essential comfort food, one that connects them to childhood memories and family recipes passed down through generations.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu tổng quan ở đoạn 1 và câu chủ đề các đoạn tiếp theo: bài đọc mở đầu bằng giới thiệu chè là món ăn tráng miệng đa dạng, giá cả hợp lý; các đoạn sau phát triển về lịch sử truyền miệng, đặc trưng nguyên liệu miền Bắc - Nam, cách chế biến và ý nghĩa văn hóa trong các dịp lễ tết, đời sống. Do đó, phương án đúng phải bao quát trọn vẹn bản chất đa dạng, giá thành bình dân và gốc rễ văn hóa sâu sắc của chè, tránh chọn các phương án quá hẹp hoặc sai lệch so với bài viết.</li><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R1Q1</b>, quét từ khóa \"In the north\" ở đoạn 2 để tìm thông tin nguyên liệu: các công thức chè miền Bắc thường dựa vào đậu xanh và hạt sen (mung beans and lotus seeds) do ảnh hưởng từ khí hậu mát mẻ và truyền thống trồng trọt.</li><li>Với <b>R1Q5</b>, quét từ khóa \"pandan leaves\" ở đoạn 3: lá dứa thường được dùng trong quá trình nấu để tạo hương thơm dịu nhẹ như mùi cỏ (mild, grassy aroma) cho món chè.</li><li>Với <b>R1Q7</b>, định vị các từ khóa chỉ dịp lễ ở đoạn 4 như \"family gatherings\", \"weddings\", \"death anniversaries\": bài viết nêu rõ một loại chè cụ thể thường được chuẩn bị vào các ngày giỗ (death anniversaries) để cúng tổ tiên hoặc cầu may.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q4):</b> Đối soát kỹ danh sách các nguyên liệu làm chè thực tế được tác giả đề cập trong bài: đậu xanh (mung beans - đoạn 1 & 3), nước cốt dừa (coconut milk - đoạn 3), và hạt bột báng/trân châu dai (chewy tapioca balls - đoạn 3). Phương án khẳng định \"bún/mì rơm (rice noodles)\" là chi tiết hoàn toàn không xuất hiện và không thuộc thành phần của chè truyền thống trong văn bản.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q3</b>, từ <strong>\"affordability\"</strong> xuất hiện ở cuối đoạn 1 cùng với tính linh hoạt (flexibility) để giải thích lý do chè phổ biến với mọi tầng lớp xã hội. Ngữ cảnh này chỉ ra đặc tính giá thành rẻ, bình dân, do đó đồng nghĩa với khả năng chi trả/giá rẻ (cheapness).</li><li>Với <b>R1Q8</b>, từ <strong>\"overpowering\"</strong> ở đoạn 3 mô tả việc chan nước cốt dừa lên chè giúp tăng độ béo ngậy mà không làm lấn át hay át vía các hương vị khác, do đó mang sắc thái nghĩa sát nhất với sự lấn át, áp đảo (dominating).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q6):</b> Tập trung vào cụm từ chỉ định <strong>\"This flexibility\"</strong> ở câu cuối đoạn 1. Áp dụng quy tắc đọc ngược lại câu trước: câu liền trước đề cập chè không có một công thức cố định mà bao gồm hàng chục sự kết hợp khác nhau giữa đậu, trái cây, nước cốt dừa và đường với nhiều độ đặc - lỏng khác nhau. Vì vậy, cụm từ này quy chiếu thẳng đến sự đa dạng trong các cách kết hợp nguyên liệu chè (the many different chè combinations).</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Kết hợp logic thông tin ở đoạn 2 về nguồn gốc của chè. Tác giả chỉ ra rằng các công thức chè rất khó xác định thời điểm ra đời chính xác vì chúng được truyền miệng (passed down orally) từ bà sang mẹ rồi đến con gái trước khi xuất hiện trong sách nấu ăn. Từ đó suy luận được rằng phương thức di truyền công thức chế biến chè truyền thống chủ yếu là thông qua truyền miệng giữa các thành viên trong gia đình.</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt văn bản. Tác giả miêu tả chè là món ăn gắn liền với kỷ niệm tuổi thơ, kết nối gia đình, gìn giữ bản sắc văn hóa và là \"essential comfort food\" (món ăn tinh thần thiết yếu). Đây là minh chứng rõ nét cho thái độ trân trọng, đánh giá cao và có thiện cảm sâu sắc (Appreciative) đối với vai trò của chè trong văn hóa Việt Nam.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R1Q6) và <b>Từ vựng</b> (R1Q3, R1Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R1Q1, R1Q5, R1Q7) và câu hỏi <b>Loại trừ</b> (R1Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R1Q9), <b>Thái độ tác giả</b> (R1Q10) và <b>Ý chính toàn bài</b> (R1Q2).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what ingredients are commonly used in northern chè recipes?</span>",
+              "options": [
+                "Jackfruit and durian are the most common ingredients.",
+                "Tapioca pearls replaced beans in most northern recipes.",
+                "Coconut milk is used exclusively, without any beans.",
+                "Mung beans and lotus seeds are commonly used."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Every Vietnamese chè recipe has now been written in cookbooks.",
+                "Northern chè has completely replaced southern chè recipes today.",
+                "Chè is a varied, affordable dessert with strong cultural roots.",
+                "Chè is only made using mung beans and coconut milk."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"affordability\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "affability",
+                "popularity",
+                "cheapness",
+                "worthlessness"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as part of chè?</span>",
+              "options": [
+                "Chewy tapioca balls used for texture",
+                "Coconut milk poured over finished chè",
+                "Mung beans used in many chè recipes",
+                "Rice noodles included in traditional chè"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is pandan leaf typically used for when preparing chè?</span>",
+              "options": [
+                "It replaces sugar as the main sweetening ingredient.",
+                "It is used to thicken the coconut milk topping.",
+                "It adds a mild, grassy aroma to the dish.",
+                "It adds a mild, grassy aroma to the dish only."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This flexibility\"</strong> in paragraph 1 refers to _______.</span>",
+              "options": [
+                "affordability",
+                "the many different chè combinations",
+                "watery texture",
+                "sugar"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, when is a particular type of chè often prepared?</span>",
+              "options": [
+                "During school exams to bring good luck.",
+                "During death anniversaries to honor ancestors.",
+                "During ordinary weekday breakfasts at home.",
+                "Only when overseas relatives visit briefly."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"overpowering\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "touching",
+                "sweetening",
+                "overflowing",
+                "dominating"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about how chè recipes have traditionally been passed down?</span>",
+              "options": [
+                "Cookbooks caused families to begin cooking chè.",
+                "They were fully documented before ever being cooked.",
+                "They were mainly shared orally within families.",
+                "Southern chè tends to taste richer and sweeter."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's attitude toward chè's role in Vietnamese culture?</span>",
+              "options": [
+                "Appreciative, viewing chè as a meaningful cultural tradition.",
+                "Mildly critical of chè's modern flavor experiments.",
+                "Nostalgic only for northern-style chè recipes specifically.",
+                "Neutral, offering no view on its cultural importance."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Understanding Picky Eating in Young Children",
+            "text": "<p>Long before most parents encounter a name for it, they encounter the phenomenon itself: a toddler who happily ate a food last month suddenly refuses it outright, sometimes for no reason a parent can identify. What pediatric researchers now call food neophobia — a wariness toward unfamiliar foods that peaks somewhere between the ages of two and six — turns out to be neither rare nor, in most cases, a sign that something has gone developmentally wrong, however alarming it may feel to a parent watching a plate go untouched.</p><p>Several overlapping explanations have been proposed for why this wariness emerges when it does. Some researchers frame it as an evolutionary holdover from a period in human development when a newly mobile toddler, no longer confined to breast milk, benefited from caution toward unfamiliar and potentially toxic plants. Others point instead to heightened sensory sensitivity during this developmental window, noting that many picky eaters report specific textures — sliminess, unexpected crunch, foods that mix multiple textures within a single bite — as more <strong>objectionable</strong> than the taste itself. Both explanations, researchers increasingly suspect, may be capturing different facets of a single underlying phenomenon rather than competing accounts.</p><p>Parental response to this behavior, several studies suggest, matters considerably more than parents often assume, though not always in the direction intuition would predict. Pressuring a child to finish a disliked food, whether through direct insistence or through less obvious tactics such as offering dessert as a reward for eating vegetables, appears associated in multiple studies with reduced long-term acceptance of that food rather than increased acceptance, possibly because the pressure itself becomes associated with the disliked item and heightens rather than reduces the underlying wariness.</p><p><strong>This dynamic</strong> appears especially pronounced among children already identified as having heightened sensory sensitivity, the same subgroup discussed earlier in connection with texture aversion: several researchers have found that pressure-based feeding strategies correlate with particularly poor long-term outcomes specifically within this subgroup, suggesting that a child's underlying sensory profile may determine not just which foods are initially rejected but also how that child responds to parental pressure regarding them. The correlational nature of this research, however, makes it difficult to rule out the possibility that more sensitive children simply provoke more parental pressure in the first place, rather than pressure causing the poorer outcome directly.</p><p>Despite understandable parental anxiety, actual nutritional deficiency among picky eaters appears less common than the anxiety itself would suggest; most picky eaters, when their overall diet is measured carefully rather than assumed from a single unfinished meal, obtain adequate calories and nutrients from a narrower-than-typical but still functional range of accepted foods. Pediatricians generally <strong>reserve</strong> serious concern for cases involving weight loss, extremely restricted food ranges numbering fewer than a handful of accepted items, or clear signs of physical distress during mealtimes.</p><p>Strategies that researchers now recommend over pressure tend to emphasize repeated, low-stakes exposure: placing a new food on a child's plate without insistence that it be eaten, modeling enjoyment of that food as a parent, and allowing many separate exposures, sometimes a dozen or more, before a child accepts even a small taste. Family meals in which children observe others eating a variety of foods without comment on their own plate appear, in several studies, to modestly increase eventual acceptance.</p><p>Most children, the evidence suggests, gradually outgrow the sharpest edges of food neophobia as they approach school age, though the pace and completeness of this shift varies considerably from child to child. What seems most defensible, given the current state of research, is a posture of patient, low-pressure consistency rather than either anxious intervention or complete indifference.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R2Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn để phác thảo mạch nội dung: đoạn 1 giới thiệu kén ăn (food neophobia) là hiện tượng phổ biến ở trẻ nhỏ; các đoạn tiếp theo giải thích nguyên nhân tiến hóa và vị giác, tác động ngược của áp lực từ cha mẹ, thực trạng dinh dưỡng thực tế và giải pháp kiên nhẫn tích cực; đoạn cuối đúc kết trẻ sẽ dần vượt qua giai đoạn này. Do đó, phương án đúng phải bao quát trọn vẹn thông điệp kén ăn là giai đoạn tự nhiên phổ biến và cách tiếp cận tốt nhất là sự kiên nhẫn, tránh chọn các phương án quá phiến diện hoặc cực đoan.</li><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R2Q1</b>, quét từ khóa \"heightened sensory sensitivity\" ở đoạn 4 để tìm mối liên hệ: bài đọc ghi nhận chiến lược ép ăn có sự tương quan (correlate) với kết quả dài hạn đặc biệt kém ở nhóm trẻ này, tức thể hiện sự liên kết giữa áp lực và kết quả tiêu cực chứ không khẳng định tuyệt đối mối quan hệ nguyên nhân - kết quả trực tiếp.</li><li>Với <b>R2Q5</b>, định vị cụm từ \"nutritional deficiency\" ở đoạn 5 để tìm thông tin: thiếu hụt dinh dưỡng thực tế ít phổ biến hơn nhiều so với sự lo lắng của cha mẹ (less common than the anxiety itself would suggest).</li><li>Với <b>R2Q7</b>, quét từ khóa \"objectionable\" hoặc \"textures\" ở đoạn 2 để tìm yếu tố nhạy cảm: nhiều trẻ kén ăn phản ánh các kết cấu thức ăn cụ thể (đặc tính về cấu trúc/kết cấu) khiến chúng cảm thấy khó chịu hơn cả chính hương vị của món ăn.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q4):</b> Đối soát kỹ các chiến thuật cho trẻ ăn được đề xuất ở đoạn 6: đặt thức ăn mới lên đĩa mà không bắt buộc ăn (low-stakes exposure), cha mẹ làm gương thưởng thức món ăn (modeling enjoyment), và bữa ăn gia đình không bình phẩm về đĩa của trẻ (family meals without comment). Phương án đề cập đến \"thưởng tiền khi ăn xong (monetary rewards)\" là chi tiết hoàn toàn không được nhắc tới trong bài.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q3, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q3</b>, từ <strong>\"objectionable\"</strong> xuất hiện ở đoạn 2 miêu tả cảm giác của trẻ đối với các kết cấu thức ăn khó chịu như nhớt hay giòn bất ngờ. Ngữ cảnh này chỉ ra sắc thái nghĩa của từ sát nhất với sự gây khó chịu, không hài lòng (unpleasant).</li><li>Với <b>R2Q8</b>, từ <strong>\"reserve\"</strong> ở đoạn 5 đi với \"serious concern\" để nói về việc bác sĩ nhi khoa chỉ giữ/dành riêng sự lo ngại nghiêm trọng cho các trường hợp đặc biệt nguy hiểm (sút cân, thực đơn quá hẹp). Ngữ cảnh này thể hiện sự giới hạn mức độ lo ngại (limit).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Tập trung vào cụm từ chỉ định <strong>\"This dynamic\"</strong> ở đầu đoạn 4. Áp dụng quy tắc đọc ngược lại đoạn 3 trước đó: đoạn 3 phân tích quy luật áp lực ép ăn của cha mẹ lại dẫn đến việc trẻ giảm mức độ chấp nhận món ăn đó về lâu dài (pressure-reduces-acceptance). Vì vậy, \"This dynamic\" quy chiếu thẳng đến mô hình/quy luật ép ăn làm giảm sự chấp nhận này.</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Kết hợp logic thông tin ở cuối đoạn 4. Tác giả nhấn mạnh tính chất tương quan (correlational nature) của nghiên cứu khiến việc xác định liệu áp lực gây ra kết quả kém hay trẻ nhạy cảm tự kích thích thêm áp lực từ cha mẹ là rất khó phân định. Từ đó suy luận được rằng chiều hướng nguyên nhân - kết quả thực sự giữa áp lực và độ nhạy cảm giác vẫn chưa thực sự rõ ràng.</li><li><b>Dạng câu hỏi Thái độ tác giả (R2Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt văn bản. Tác giả trấn an rằng tình trạng thiếu dinh dưỡng thực tế ít hơn sự lo âu của phụ huynh, đa số trẻ sẽ tự vượt qua khi đến tuổi đi học, và đưa ra lời khuyên giữ thái độ kiên nhẫn. Đây là minh chứng rõ nét cho thái độ trấn an, xoa dịu (Reassuring), giúp cha mẹ nhận ra mối lo của họ thường cao hơn nguy cơ thực tế.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R2Q6) và <b>Từ vựng</b> (R2Q3, R2Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R2Q1, R2Q5, R2Q7) và câu hỏi <b>Loại trừ</b> (R2Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R2Q9), <b>Thái độ tác giả</b> (R2Q10) và <b>Ý chính toàn bài</b> (R2Q2).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did researchers find about children with heightened sensory sensitivity and parental pressure?</span>",
+              "options": [
+                "Pressure-based feeding definitely causes worse outcomes in this group.",
+                "This group responds better to pressure than other children.",
+                "This group shows no measurable response to parental feeding style.",
+                "Pressure-based feeding seems linked to worse outcomes in this group."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Parental pressure has been proven the most effective solution.",
+                "Picky eating is a common phase best met with patience.",
+                "Picky eating is caused only by evolutionary food caution.",
+                "All picky eaters suffer from serious nutritional deficiencies."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"objectionable\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "objective",
+                "unpleasant",
+                "unfamiliar",
+                "unbearable"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a recommended feeding strategy?</span>",
+              "options": [
+                "Offering monetary rewards for finishing meals",
+                "Repeated, low-stakes exposure to new foods",
+                "Modeling enjoyment of the food as a parent",
+                "Family meals without comment on a child's plate"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>What does the passage suggest about nutritional deficiency among picky eaters?</span>",
+              "options": [
+                "It appears less common than parental anxiety suggests.",
+                "It is more severe than parents typically realize.",
+                "It only affects children who eat family meals together.",
+                "It is entirely absent among all picky eaters."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This dynamic\"</strong> at the start of paragraph 4 refers to _______.</span>",
+              "options": [
+                "texture aversion",
+                "sensory sensitivity",
+                "the pressure-reduces-acceptance pattern",
+                "this subgroup"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what sensory quality do many picky eaters find especially objectionable?</span>",
+              "options": [
+                "Specific textures, more than taste itself, exclusively.",
+                "Specific textures, more than taste itself.",
+                "Extremely sweet tastes more than any texture.",
+                "Bright colors more than any taste or texture."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"reserve\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "limit",
+                "schedule",
+                "reverse",
+                "eliminate"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about whether parental pressure or a child's sensory sensitivity is the true cause of poor feeding outcomes in sensitive children?</span>",
+              "options": [
+                "Pressure has been definitively proven to cause the poor outcomes.",
+                "Poor outcomes always cause parents to reduce feeding pressure.",
+                "The direction of causation remains genuinely unclear.",
+                "Most children outgrow food neophobia by school age."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward parental anxiety about picky eating?</span>",
+              "options": [
+                "Alarmed, viewing picky eating as a serious medical crisis.",
+                "Dismissive of any parental concern about children's diets.",
+                "Critical only of pediatricians' feeding recommendations.",
+                "Reassuring, suggesting most concern exceeds the actual risk."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Cloud Seeding and the Limits of Weather Modification",
+            "text": "<p>That humans might induce rainfall on demand has tempted policymakers since at least the mid-twentieth century, when early cloud-seeding experiments — dispersing silver iodide or similar particles into existing clouds to encourage ice crystal formation — generated enough optimistic press coverage that several governments quietly began funding programs before the underlying science had been rigorously <b>validated</b>, a sequencing that continues to complicate the field's credibility even as measurement techniques have substantially improved.</p><p>The basic physical premise is sound enough: introducing particles that serve as nuclei around which ice crystals or water droplets can form may, under the right atmospheric conditions, accelerate precipitation that would otherwise have occurred more slowly or not at all. <strong>This premise</strong>, however, depends on a cloud already containing sufficient moisture and instability to produce precipitation given the right nucleation trigger — meaning cloud seeding cannot, as popular accounts sometimes imply, generate rain from a clear or moisture-poor sky, however sophisticated the delivery technology becomes.</p><p>Establishing exactly how much additional precipitation a given seeding operation produced has proven considerably more difficult than the underlying chemistry might suggest, precisely because the central counterfactual question — how much rain would have fallen absent intervention — can never be directly observed, only statistically estimated through comparison with similar unseeded storm systems. <strong>[1]</strong> Randomized field trials, considered the methodological gold standard, remain comparatively rare given the practical and ethical complications of deliberately withholding intervention from a control region during a drought emergency. <strong>[2]</strong> Where such trials have been conducted, reported precipitation increases have ranged from negligible to perhaps ten or fifteen percent above what similar unseeded clouds produced, a modest effect that nonetheless carries meaningful economic significance across a large agricultural region. <strong>[3]</strong> This variability itself has become a point of contention among researchers debating how confidently the technique's benefits can be generalized beyond the specific conditions tested. <strong>[4]</strong></p><p>Complicating the economic case further is a persistent question that has drawn less public attention than the technique's effectiveness: whether precipitation induced over one region simply relocates moisture that would otherwise have fallen somewhat later over a neighboring region, rather than genuinely increasing the total moisture available within the broader weather system. Some atmospheric scientists argue available modeling suggests this <b>displacement</b> effect, if it exists at all, is likely modest relative to the moisture redistributed naturally by prevailing wind patterns; others maintain the question has not been investigated with anything approaching the rigor its political sensitivity — particularly across international river basins shared by multiple countries — would seem to warrant.</p><p>Government interest in cloud seeding has, notwithstanding these unresolved questions, expanded considerably in recent years, driven substantially by mounting drought pressure in agriculturally significant regions and, in several documented cases, by the perceived need to reduce airborne pollution ahead of major international events through induced rainfall. This expansion has occurred, critics note, at a pace that has generally outstripped the accompanying growth in rigorous, independently verified evaluation of program effectiveness, leaving public investment decisions resting on a thinner evidentiary foundation than the scale of funding might suggest.</p><p>Environmental objections have also surfaced, centering primarily on the long-term ecological effects of repeated silver iodide dispersal into watersheds and agricultural soil, though the available toxicological evidence to date suggests these concentrations, at current operational scales, remain considerably below levels associated with measurable ecological harm — a finding some environmental scientists regard as reassuring and others regard as merely reflecting the field's still-limited long-term monitoring rather than genuine safety.</p><p>Taken together, cloud seeding occupies an uncomfortable middle ground between demonstrated physical plausibility and unresolved practical uncertainty: capable, evidence suggests, of modestly enhancing precipitation under favorable atmospheric conditions, yet still lacking the rigorously quantified track record that would justify either the most enthusiastic government investment or the most dismissive skepticism currently circulating in public discussion.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R3Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn kết luận tổng kết của bài: bài viết mở đầu bằng việc nêu rõ công nghệ gieo mây (cloud seeding) được tài trợ trước khi khoa học kiểm chứng đầy đủ và kết thúc ở đoạn 7 bằng việc đánh giá công nghệ này nằm ở vị trí trung gian giữa \"khả thi về mặt vật lý\" và \"chưa rõ ràng về hiệu quả thực tế\". Do đó, phương án đúng phải bao quát trọn vẹn sự hứa hẹn khiêm tốn nhưng vẫn thiếu chứng cứ thực nghiệm nghiêm ngặt của công nghệ gieo mây, tránh chọn các phương án quá cực đoan hoặc khẳng định sai lệch.</li><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R3Q1</b>, quét từ khóa \"economic case\" hoặc \"unresolved question\" ở đoạn 4 để tìm yếu tố phức tạp: bài đọc chỉ ra câu hỏi chưa có lời giải là liệu mưa tạo ra có phải chỉ đơn thuần là làm dịch chuyển độ ẩm từ nơi này sang nơi khác (displaces moisture from elsewhere) chứ không làm tăng tổng lượng mưa thực tế.</li><li>Với <b>R3Q5</b>, quét cụm từ \"randomized field trials\" ở đoạn 3: kết quả từ các thử nghiệm ngẫu nhiên báo cáo mức tăng lượng mưa dao động từ không đáng kể đến khoảng 10-15% (negligible to perhaps ten or fifteen percent).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q4):</b> Đối soát kỹ các lý do khiến chính phủ gia tăng sự quan tâm đến gieo mây ở đoạn 5: áp lực hạn hán gia tăng ở khu vực nông nghiệp (drought pressure), nhu cầu giảm ô nhiễm không khí trước các sự kiện quốc tế lớn (reducing airborne pollution), và nhu cầu thực tế đã được ghi nhận ở nhiều quốc gia. Phương án đề cập đến \"ứng dụng kiểm soát thời tiết trong quân sự khi có xung đột (military weather-control applications)\" là chi tiết hoàn toàn không xuất hiện trong văn bản.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q3, R3Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q3</b>, từ <strong>\"validated\"</strong> ở đoạn 1 xuất hiện trong ngữ cảnh chính phủ cấp vốn trước khi khoa học nền tảng được xác minh/kiểm chứng nghiêm ngặt, do đó đồng nghĩa với việc được xác nhận/kiểm chứng (confirmed).</li><li>Với <b>R3Q8</b>, từ <strong>\"displacement\"</strong> ở đoạn 4 mô tả hiện tượng lượng mưa bị chuyển dời vị trí rơi từ khu vực này sang khu vực lân cận, do đó mang nghĩa sát nhất với sự di chuyển/dịch chuyển vị trí (relocation).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q6):</b> Tập trung vào cụm từ chỉ định <strong>\"This premise\"</strong> ở đầu đoạn 2. Áp dụng quy tắc đọc ngược lại câu đầu tiên của đoạn 2: câu trước giải thích giả định vật lý cơ bản là việc đưa các hạt nhân vào mây có thể thúc đẩy quá trình tạo mưa nhanh hơn. Vì vậy, \"This premise\" quy chiếu thẳng đến ý tưởng cho rằng các hạt nhân gieo mây có thể đẩy nhanh lượng mưa hiện có (the idea that seeding nuclei can accelerate existing precipitation).</li><li><b>Dạng câu hỏi Chèn câu vào đoạn văn (R3Q7):</b> Phân tích mối liên hệ logic của câu cần chèn: \"This reliance on indirect comparison...\" (Sự phụ thuộc vào so sánh gián tiếp này...). Tìm vị trí nhắc đến phương pháp so sánh gián tiếp ngay trước đó: câu cuối cùng của đoạn 3 [1] giải thích việc không thể quan sát trực tiếp mưa nếu không can thiệp, mà chỉ có thể ước tính thống kê qua so sánh với các hệ thống bão không gieo mây tương tự. Do đó, vị trí [1] (sau câu 1 đoạn 3) là vị trí duy nhất đảm bảo tính liên kết từ vựng và logic.</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Kết hợp logic thông tin ở đoạn 6 về độc tính của bạc iodide (silver iodide). Bài đọc đưa ra hai góc nhìn của các nhà khoa học môi trường: một bên an tâm, nhưng một bên cho rằng kết quả an toàn hiện tại có thể chỉ phản ánh việc giám sát dài hạn còn hạn chế chứ chưa thể khẳng định an toàn tuyệt đối. Từ đó suy luận được rằng các phát hiện độc tính hiện tại có thể chỉ do thiếu dữ liệu theo dõi lâu dài (reflect limited monitoring rather than confirmed safety).</li><li><b>Dạng câu hỏi Thái độ tác giả (R3Q10):</b> Phân tích sắc thái ngôn từ vĩ mô ở đoạn cuối cùng (đoạn 7). Tác giả nhận định gieo mây nằm ở \"khoảng giữa không mấy dễ chịu\" khi vừa có tính khả thi về vật lý nhưng vừa thiếu bằng chứng định lượng rõ ràng, đồng thời không đồng tình với cả sự đầu tư quá đà lẫn sự hoài nghi bác bỏ tuyệt đối. Đây là minh chứng rõ nét cho thái độ khách quan, cân bằng (Balanced), thừa nhận tính khả thi đi kèm với những nghi vấn chưa giải quyết.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R3Q6), <b>Chèn câu</b> (R3Q7) và <b>Từ vựng</b> (R3Q3, R3Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R3Q1, R3Q5) và câu hỏi <b>Loại trừ</b> (R3Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R3Q9), <b>Thái độ tác giả</b> (R3Q10) và <b>Ý chính toàn bài</b> (R3Q2).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what unresolved question complicates the economic case for cloud seeding beyond its basic effectiveness?</span>",
+              "options": [
+                "Whether government funding for seeding has decreased recently.",
+                "Whether silver iodide is more expensive than alternative chemicals.",
+                "Whether induced rain simply displaces moisture from elsewhere.",
+                "Whether randomized field trials have become too common."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Cloud seeding has been proven both safe and highly effective.",
+                "Silver iodide has been proven to cause serious ecological harm.",
+                "Cloud seeding can generate rain even from a clear sky.",
+                "Cloud seeding shows modest promise but lacks rigorous evidence."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"validated\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "confirmed",
+                "invalidated",
+                "funded",
+                "publicized"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a reason for expanded government interest in cloud seeding?</span>",
+              "options": [
+                "Perceived need documented in several countries",
+                "Reducing airborne pollution before major events",
+                "Mounting drought pressure in agricultural regions",
+                "Military weather-control applications during conflict"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what range of precipitation increase have randomized field trials reported?</span>",
+              "options": [
+                "Exactly zero percent in all documented trials.",
+                "Consistently above fifty percent in every trial conducted.",
+                "Roughly negligible to about ten or fifteen percent, always confirmed.",
+                "Roughly negligible to about ten or fifteen percent."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This premise\"</strong> in paragraph 2 refers to _______.</span>",
+              "options": [
+                "silver iodide dispersal only",
+                "the idea that seeding nuclei can accelerate existing precipitation",
+                "measurement technique improvements",
+                "government funding patterns"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'This reliance on indirect comparison is itself a significant source of the field's ongoing measurement difficulty.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"displacement\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "enlargement",
+                "relocation",
+                "placement",
+                "destruction"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about current toxicological findings on silver iodide safety?</span>",
+              "options": [
+                "They have been fully replaced by newer, untested chemicals.",
+                "They may reflect limited monitoring rather than confirmed safety.",
+                "They confirm silver iodide causes significant measurable harm now.",
+                "They conclusively prove long-term ecological safety in all conditions."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward cloud seeding's current status?</span>",
+              "options": [
+                "Balanced, acknowledging plausibility alongside unresolved uncertainty.",
+                "Dismissive, viewing the entire technique as scientifically baseless.",
+                "Enthusiastically supportive of expanded government investment.",
+                "Narrowly focused only on criticizing environmental objections."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Sustainable Building Design: Beyond the Marketing Narrative",
+            "text": "<p>Not only has sustainable building design moved from an architectural niche to a mainstream expectation among developers and regulators alike, but the term itself has, in the process, absorbed such a broad range of practices — from passive solar orientation to recycled structural materials to elaborate certification schemes — that determining what genuinely reduces a building's environmental footprint, as opposed to what merely signals environmental concern to prospective tenants, has become a substantive research question in its own right rather than a settled matter of professional consensus.</p><p>Certification systems, of which several internationally recognized frameworks now compete for market dominance, award points across categories ranging from energy efficiency to water conservation to indoor air quality, <b>aggregating</b> them into a single rating that developers can market prominently. Whether these aggregate ratings reliably predict actual operational performance once a building is occupied, however, remains considerably more contested than the certificates' prominent display on building facades would suggest; several post-occupancy studies have found that certified buildings sometimes perform little better, and occasionally worse, than comparable uncertified structures, a discrepancy some researchers attribute to a persistent gap between design-stage modeling assumptions and how occupants actually operate a building's systems day to day.</p><p>This design-versus-operation gap, researchers increasingly argue, deserves considerably more attention than it has historically received, since even a building engineered with genuinely sophisticated passive cooling, natural lighting, and high-efficiency mechanical systems can underperform substantially if occupants override automated systems, block designed ventilation pathways with furniture, or operate the building in ways the original energy model never anticipated. <strong>[1]</strong> Some architects have responded by designing systems deliberately resistant to occupant override, though critics counter that removing occupant control entirely tends to generate its own dissatisfaction and, in some documented cases, prompts occupants to disable systems altogether rather than adapt to them. <strong>[2]</strong> Others argue the more durable solution lies not in resistant design but in better occupant education and feedback, giving building users real-time information about the energy consequences of their choices. <strong>[3]</strong> Which approach ultimately proves more effective at closing the performance gap remains, at this stage, an open empirical question rather than a matter of settled professional opinion. <strong>[4]</strong></p><p><strong>This gap</strong> between intended and realized performance compounds a separate, less visible concern: the carbon emitted during construction itself, sometimes termed <b>embodied</b> carbon, which some researchers argue has received disproportionately less regulatory attention than operational energy use, despite representing, for certain building types, a comparable or even larger share of a structure's total lifetime carbon footprint. Materials such as concrete and steel, indispensable to most large-scale construction, carry substantial embodied carbon costs from their manufacturing processes alone, costs that a building's subsequent decades of efficient operation cannot fully offset within any timeframe relevant to near-term climate targets.</p><p>Retrofitting existing buildings, rather than constructing new ones, has consequently gained traction among some researchers as a comparatively underappreciated strategy, since it avoids much of the embodied-carbon cost associated with new construction while still capturing meaningful operational efficiency gains, though retrofitting older structures presents its own technical constraints — outdated structural systems, historical preservation requirements, asbestos or other hazardous materials — that can make comprehensive upgrades considerably more expensive than a straightforward reading of the carbon savings might suggest.</p><p>Economically, the persistent claim that sustainable buildings command a meaningful rent or resale premium finds mixed support across the available research: premiums appear most consistently documented in prime commercial markets with sophisticated corporate tenants explicitly prioritizing sustainability credentials, while evidence for a comparable premium in residential markets or smaller regional commercial markets remains considerably thinner and, in several studies, statistically indistinguishable from no premium at all.</p><p>Taken together, the evidence suggests sustainable building design delivers genuine environmental benefit under the right conditions, yet considerably less uniformly, and considerably less automatically from certification alone, than the marketing surrounding the field frequently implies — a conclusion that argues less against the underlying goal than for considerably more rigorous, occupancy-informed evaluation of whether specific design choices actually achieve it.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R4Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu mở đầu và đoạn kết luận tổng kết của bài: bài viết mở đầu bằng việc đặt nghi vấn về hiệu quả thực tế của thiết kế bền vững so với những tuyên bố tiếp thị và kết thúc ở đoạn 7 bằng khẳng định rằng thiết kế bền vững mang lại lợi ích môi trường thực sự nhưng kém đồng đều và ít tự động có được từ chứng nhận hơn so với quảng cáo. Do đó, phương án đúng phải bao quát trọn vẹn thông điệp thiết kế bền vững có hiệu quả nhưng ít đồng đều hơn so với quảng cáo, tránh chọn các phương án khẳng định tuyệt đối hoặc cực đoan.</li><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu) để tìm kiếm dữ kiện trực diện có sẵn trong bài đọc.<ul><li>Với <b>R4Q1</b>, quét từ khóa \"underperform\" hoặc \"occupants\" ở đoạn 3 để tìm nguyên nhân: bài đọc chỉ ra các tòa nhà đạt chứng nhận vẫn có thể hoạt động kém nếu người sử dụng can thiệp/ghi đè hệ thống tự động (occupants override automated systems) theo những cách mà mô hình thiết kế chưa từng tính đến.</li><li>Với <b>R4Q5</b>, định vị cụm từ \"rent or resale premium\" ở đoạn 6 để tìm vị trí: khoản phụ phí/giá trị tăng thêm được ghi nhận nhất quán nhất ở các thị trường thương mại cao cấp với các người thuê doanh nghiệp lớn ưu tiên tiêu chuẩn bền vững (prime commercial markets with sophisticated corporate tenants).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q4):</b> Đối soát kỹ các rào cản kỹ thuật khi cải tạo tòa nhà cũ được liệt kê ở đoạn 5: hệ thống kết cấu lạc hậu (outdated structural systems), yêu cầu bảo tồn lịch sử (historical preservation requirements), và sự xuất hiện của amidt hoặc vật liệu nguy hại (asbestos or hazardous materials). Phương án đề cập đến \"phí bảo hiểm tài sản cao hơn đối với tòa nhà cũ (higher property insurance premiums)\" là chi tiết hoàn toàn không xuất hiện trong bài đọc.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q3</b>, từ <strong>\"aggregating\"</strong> ở đoạn 2 mô tả việc các hệ thống chứng nhận thu thập điểm số từ nhiều danh mục khác nhau rồi gộp chúng lại thành một điểm đánh giá chung duy nhất, do đó đồng nghĩa với việc tổng hợp/kết hợp (combining).</li><li>Với <b>R4Q8</b>, từ <strong>\"embodied\"</strong> ở đoạn 4 đi với \"carbon\" để chỉ lượng phát thải tích tụ/gắn liền ngay trong quá trình sản xuất vật liệu và xây dựng tòa nhà, do đó sát nghĩa nhất với tính chất tích tụ, tích hợp vào bên trong (incorporated).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q6):</b> Tập trung vào cụm từ chỉ định <strong>\"This gap\"</strong> ở đầu đoạn 4. Áp dụng quy tắc đọc ngược lại đoạn 3 trước đó: đoạn 3 phân tích sự chênh lệch giữa hiệu suất thiết kế trên lý thuyết và hiệu suất vận hành thực tế (design-versus-operation gap / intended and realized performance). Vì vậy, \"This gap\" quy chiếu thẳng đến khoảng cách giữa hiệu suất dự kiến và hiệu suất đạt được thực tế của tòa nhà.</li><li><b>Dạng câu hỏi Chèn câu vào đoạn văn (R4Q7):</b> Phân tích mối liên hệ logic của câu cần chèn: \"A well-modeled ventilation system, for example, may be rendered useless simply by furniture blocking its intended airflow.\" (Ví dụ, một hệ thống thông gió được mô hình hóa tốt có thể trở nên vô dụng chỉ vì đồ nội thất chặn luồng không khí dự kiến). Tìm vị trí đưa ra ví dụ minh họa trực tiếp cho câu liền trước: câu đầu đoạn 3 đề cập đến việc người sử dụng làm giảm hiệu suất tòa nhà do chặn các đường thông gió bằng đồ nội thất. Do đó, vị trí [1] (ngay sau câu đầu đoạn 3) là vị trí duy nhất đảm bảo tính liên kết ví dụ minh họa logic.</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Kết hợp logic thông tin ở đoạn 6 về thị trường nhà ở (residential markets). Bài đọc chỉ ra rằng trong khi thị trường thương mại cao cấp có minh chứng rõ ràng về giá trị tăng thêm, bằng chứng ở thị trường nhà ở lại mỏng hơn nhiều và không thể phân biệt về mặt thống kê với mức 0%. Từ đó suy luận được rằng bằng chứng về giá trị tăng thêm ở thị trường nhà ở yếu hơn đáng kể so với thị trường thương mại cao cấp.</li><li><b>Dạng câu hỏi Cấu trúc/Mạch luận điểm (R4Q10):</b> Phân tích sự phát triển lập luận xuyên suốt văn bản. Tác giả bắt đầu bằng việc nghi vấn các tuyên bố tiếp thị về chứng nhận bền vững, phân tích các rào cản từ người sử dụng, phát thải ẩn, chi phí cải tạo, và kết thúc ở đoạn 7 bằng việc kêu gọi cần có sự đánh giá nghiêm ngặt, dựa trên thực tế sử dụng thay vì chỉ tin vào quảng cáo. Đây là minh chứng rõ nét cho tiến trình từ việc đặt nghi vấn các tuyên bố tiếp thị tiến tới kêu gọi đánh giá thực chứng nghiêm ngặt.</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu hóa tốc độ làm bài bằng cách xử lý trước nhóm câu hỏi có vị trí định vị rõ ràng như <b>Quy chiếu</b> (R4Q6), <b>Chèn câu</b> (R4Q7) và <b>Từ vựng</b> (R4Q3, R4Q8). Kế tiếp, sử dụng kỹ thuật đọc quét nhanh để hoàn thành các câu hỏi <b>Chi tiết</b> (R4Q1, R4Q5) và câu hỏi <b>Loại trừ</b> (R4Q4). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã được ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R4Q9), <b>Mạch luận điểm</b> (R4Q10) và <b>Ý chính toàn bài</b> (R4Q2).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, why might certified buildings sometimes underperform despite sophisticated design?</span>",
+              "options": [
+                "Embodied carbon always exceeds operational carbon in every case.",
+                "Occupants may override systems in ways the design never anticipated.",
+                "Retrofitted buildings always underperform new construction significantly.",
+                "Certification schemes have been proven entirely fraudulent."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Certification ratings always accurately predict building performance.",
+                "Embodied carbon has no meaningful impact on total emissions.",
+                "Residential and commercial sustainability premiums are identical everywhere.",
+                "Sustainable design helps, but less uniformly than marketing suggests."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"aggregating\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "separating",
+                "aggravating",
+                "combining",
+                "publicizing"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a technical constraint on retrofitting older buildings?</span>",
+              "options": [
+                "Historical preservation requirements limiting changes",
+                "Outdated structural systems requiring upgrades",
+                "Presence of asbestos or hazardous materials",
+                "Higher property insurance premiums on older buildings"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, where do sustainability rent or resale premiums appear most consistently documented?</span>",
+              "options": [
+                "In prime commercial markets, proven true without exception.",
+                "Only in smaller regional residential markets specifically.",
+                "Equally across residential and commercial markets everywhere.",
+                "In prime commercial markets with sustainability-focused tenants."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This gap\"</strong> at the start of paragraph 4 refers to _______.</span>",
+              "options": [
+                "certification point categories",
+                "embodied carbon in concrete and steel",
+                "occupant education programs",
+                "the difference between intended and realized building performance"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'A well-modeled ventilation system, for example, may be rendered useless simply by furniture blocking its intended airflow.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"embodied\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "incorporated",
+                "operational",
+                "imagined",
+                "embellished"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about sustainability premiums in residential real estate markets?</span>",
+              "options": [
+                "They have been definitively proven nonexistent everywhere.",
+                "Embodied carbon costs are always fully offset by them.",
+                "Evidence for them is considerably weaker than in prime commercial markets.",
+                "They exceed commercial market premiums in every study."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>How does the author's argument develop across the passage?</span>",
+              "options": [
+                "It focuses solely on praising embodied-carbon reduction strategies.",
+                "It moves from questioning marketing claims toward calling for rigorous evaluation.",
+                "It moves from technical detail toward dismissing sustainability goals entirely.",
+                "It argues consistently that certification schemes are entirely fraudulent."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You received an email from your English friend, Sarah, who has been invited to attend a charity gala with you next month.</p> She is unsure about the event's requirements. Read part of her email below.",
+          "content": "<p class='mb-1'>I am really looking forward to the charity gala next month! However, I have never been to such a formal event before.</p><ul><li>What is the dress code for the gala? What should I wear?</li><li>We are supposed to bring a small gift for the charity auction. What kind of gift would you suggest I prepare?</li><li>Where and what time should we meet before the event starts?</li></ul>",
+          "description": "Write an email responding to Sarah. You should write at least 120 words. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li>Dạng đề: Thư thân mật (Informal Email).</li><li>Yêu cầu: Trả lời 3 câu hỏi của Sarah về trang phục (dress code), gợi ý quà tặng cho buổi đấu giá từ thiện và thời gian/địa điểm gặp mặt.</li><li>Độ dài: Tối thiểu 120 từ.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li>Greeting: Dear Sarah, / Hi Sarah,</li><li>Opening: Phản hồi lại sự hào hứng của bạn mình. Ví dụ: I'm so glad you can make it to the gala!</li><li>Body Paragraph 1: Tư vấn trang phục. Vì là gala từ thiện nên thường là trang trọng (formal/black-tie).</li><li>Body Paragraph 2: Gợi ý quà tặng. Nên chọn những thứ dễ đấu giá như đồ thủ công, voucher hoặc đặc sản.</li><li>Body Paragraph 3: Chốt thời gian và địa điểm gặp mặt.</li><li>Closing: Mong sớm gặp lại. Ví dụ: Can't wait to see you there!</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng ngôn ngữ tư vấn: \"I would highly recommend...\", \"It's best to wear...\", \"How about bringing...?\".</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li>Charity gala: Dạ tiệc từ thiện</li><li>Dress code: Quy định về trang phục</li><li>Formal attire: Trang phục trang trọng</li><li>Charity auction: Buổi đấu giá từ thiện</li><li>Handmade items: Đồ thủ công</li><li>Generous donation: Sự quyên góp hào phóng</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li>First of all: Đầu tiên</li><li>As for the gift: Về phần món quà</li><li>In addition: Ngoài ra</li><li>To be honest: Thú thật là</li><li>Therefore: Vì vậy</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li>I'm thrilled that...: Mình rất phấn khích rằng...</li><li>Don't worry too much about...: Đừng lo lắng quá về...</li><li>It will be a night to remember: Đó sẽ là một đêm đáng nhớ.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Dùng sai văn phong (quá trang trọng hoặc quá suồng sã).</li><li>Không gợi ý món quà cụ thể mà chỉ nói chung chung.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Kiểm tra các mạo từ (a, an, the) trước danh từ.</li><li>Đảm bảo các câu hỏi trong email gốc đều được trả lời đầy đủ.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy đóng vai một người bạn chu đáo, đưa ra lời khuyên chi tiết để bạn mình bớt lo lắng.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "problem_solution",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>The rapid development of technology has led to a significant increase in cybercrimes, such as hacking, identity theft, and online scams.</p><p class='mb-1'>These crimes pose a serious threat to individuals and organizations worldwide.</p><p class='mb-1'><strong>Discuss the problems caused by cybercrimes and suggest some effective solutions to prevent them.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the problems caused by cybercrimes and suggest possible solutions. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li>Dạng đề: Problem - Solution (Vấn đề và Giải pháp).</li><li>Nhiệm vụ: Phân tích các tác hại của tội phạm mạng và đề xuất cách phòng chống.</li><li>Độ dài: Tối thiểu 250 từ.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li>Introduction: Giới thiệu bối cảnh kỷ nguyên số và sự bùng nổ của tội phạm mạng. Nêu khái quát nội dung bài viết.</li><li>Body 1 (Problems): Nêu 2-3 tác hại chính (mất mát tài chính, lộ thông tin cá nhân, ảnh hưởng tâm lý/uy tín).</li><li>Body 2 (Solutions): Đề xuất giải pháp tương ứng (nâng cao nhận thức người dùng, sử dụng công nghệ bảo mật, sự can thiệp của pháp luật).</li><li>Conclusion: Tóm tắt lại tầm quan trọng của việc phối hợp các giải pháp để bảo vệ không gian mạng.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các cấu trúc chỉ nguyên nhân - kết quả (Due to, As a result, Lead to).</li><li>Sử dụng câu bị động để tăng tính khách quan cho bài viết academic.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li>Identity theft: Đánh cắp danh tính</li><li>Online scams: Lừa đảo trực tuyến</li><li>Cybersecurity: An ninh mạng</li><li>Data breach: Vi phạm dữ liệu</li><li>Two-factor authentication: Xác thực hai yếu tố</li><li>Criminal activities: Hoạt động tội phạm</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li>Currently / Nowadays: Hiện nay</li><li>One major issue is: Một vấn đề lớn là</li><li>Another point to consider is: Một điểm khác cần xem xét là</li><li>To tackle this problem: Để giải quyết vấn đề này</li><li>From a legal perspective: Từ góc độ pháp lý</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li>Illegal online activities: Thay cho \"cybercrimes\"</li><li>Virtual environment: Thay cho \"online world\"</li><li>Sensitive information: Thay cho \"personal data\"</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li>The most effective measure is...: Biện pháp hiệu quả nhất là...</li><li>It is essential for individuals to...: Việc cá nhân làm gì đó là rất cần thiết...</li><li>Governments should implement...: Chính phủ nên thực hiện...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nêu vấn đề mà không có giải pháp (hoặc ngược lại).</li><li>Giải pháp không liên quan trực tiếp đến vấn đề đã nêu ở đoạn trước.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra sự nhất quán của các luận điểm.</li><li>Rà soát lỗi chính tả các từ chuyên ngành (cybersecurity, authentication...).</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Cần có cái nhìn đa chiều: tội phạm mạng không chỉ là lỗi của công nghệ mà còn là do ý thức con người và sự thiếu hụt khung pháp lý.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you have any daily habits that you think are good for you?",
+            "Is there a bad habit you would like to change? Why?",
+            "How do your habits affect your daily life?",
+            "Do you enjoy traveling?",
+            "What kind of places do you like to travel to?",
+            "What was the most memorable trip you have ever taken?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này gồm 6 câu hỏi trong 3 phút, đánh giá khả năng giao tiếp tự nhiên và phản xạ ngôn ngữ của bạn.</li><li><strong>Topic A (Thói quen):</strong> Câu 1–3 hỏi về thói quen tốt hàng ngày, thói quen muốn thay đổi và ảnh hưởng của thói quen đến cuộc sống.</li><li><strong>Topic B (Du lịch):</strong> Câu 4–6 hỏi về sở thích du lịch, loại địa điểm yêu thích và chuyến đi đáng nhớ nhất.</li><li>Giám khảo đánh giá dựa trên độ trôi chảy, vốn từ vựng, ngữ pháp và phát âm.</li><li>Nên dành khoảng 25–35 giây cho mỗi câu và cân bằng thời gian giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc ARE: Answer → Reason → Example để trả lời đầy đủ và tự nhiên.</li><li><strong>Ví dụ Topic A:</strong> Yes, I try to wake up early every day because it helps me stay productive throughout the day. For example, I usually go for a short run before breakfast.</li><li><strong>Ví dụ Topic B:</strong> Yes, I love traveling because it gives me a chance to explore new cultures. For instance, I once visited a coastal town and it left a lasting impression on me.</li><li>Luôn tự hỏi Why? hoặc Can you tell me more? để kéo dài câu trả lời một cách tự nhiên.</li><li>Dùng câu chuyển ý: Besides my daily habits, I would also like to share my experiences with traveling.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói ổn định, dùng từ đệm khi cần thời gian suy nghĩ thay vì im lặng kéo dài.</li><li>Dùng hiện tại đơn để nói về thói quen và quá khứ đơn khi kể về chuyến đi đã qua.</li><li>Nếu quên từ vựng, hãy mô tả khái niệm bằng từ đơn giản hơn thay vì dừng lại.</li><li>Từ vựng Topic A: a daily routine (thói quen hàng ngày), break a bad habit (từ bỏ thói quen xấu), stay disciplined (giữ kỷ luật).</li><li>Từ vựng Topic B: explore new places (khám phá địa điểm mới), a breathtaking view (khung cảnh ngoạn mục), an unforgettable experience (trải nghiệm khó quên).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>improve my productivity – nâng cao năng suất</li><li>a healthy lifestyle – lối sống lành mạnh</li><li>gradually change a habit – dần dần thay đổi một thói quen</li><li>broaden my horizons – mở rộng tầm nhìn</li><li>immerse myself in a new culture – hòa mình vào văn hóa mới</li><li>a once-in-a-lifetime experience – trải nghiệm có một không hai</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>First of all – trước hết</li><li>In addition – ngoài ra</li><li>For example – ví dụ</li><li>On top of that – hơn thế nữa</li><li>Therefore – vì vậy</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>In my opinion, good habits are the foundation of a successful life. – Theo tôi, thói quen tốt là nền tảng của một cuộc sống thành công.</li><li>I personally think it takes time and patience to change a bad habit. – Cá nhân tôi nghĩ cần thời gian và kiên nhẫn để thay đổi một thói quen xấu.</li><li>From my perspective, small daily habits can lead to big changes over time. – Theo tôi, những thói quen nhỏ hàng ngày có thể dẫn đến thay đổi lớn theo thời gian.</li><li>I believe that traveling helps us understand different ways of life. – Tôi tin rằng du lịch giúp ta hiểu được những cách sống khác nhau.</li><li>As far as I am concerned, exploring nature is more relaxing than visiting crowded cities. – Theo tôi, khám phá thiên nhiên thư giãn hơn là đến những thành phố đông đúc.</li><li>Personally, I would choose a quiet countryside trip over a busy city tour. – Cá nhân tôi thích một chuyến đi về vùng quê yên tĩnh hơn là tham quan thành phố ồn ào.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời Yes hoặc No mà không giải thích thêm lý do – lỗi nghiêm trọng nhất.</li><li>Chỉ liệt kê thói quen mà không giải thích lý do hình thành hoặc ảnh hưởng của nó.</li><li>Nhầm lẫn thì khi kể về chuyến đi đã qua, nên dùng quá khứ đơn thay vì hiện tại đơn.</li><li>Chỉ nói tên địa điểm mà không mô tả cảm xúc hoặc trải nghiệm cụ thể.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: That is an interesting question, let me think for a moment.</li><li>Mô tả khái niệm thay vì cố nhớ từ chính xác.</li><li>Nếu bí ý ở Topic A, hãy nói về thói quen của một người thân trong gia đình.</li><li>Nếu bí ý ở Topic B, hãy chuyển sang nói về một chuyến đi ngắn ngày gần nhà.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy coi đây là cuộc trò chuyện tự nhiên với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy làm mới tư duy để tránh nhầm lẫn chủ đề.</li><li>Sự tự nhiên và mạch lạc quan trọng hơn việc cố dùng từ vựng khó.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your friend wants to buy a meaningful birthday gift for their mother but is unsure what to choose.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: A book</li><li>Option 2: A dress</li><li>Option 3: A short trip together</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống yêu cầu bạn tư vấn món quà sinh nhật phù hợp nhất cho mẹ của bạn mình.</li><li>Cần đánh giá đầy đủ cả ba phương án trước khi đưa ra lựa chọn cuối cùng.</li><li>Tiêu chí chấm điểm gồm lập luận, vốn từ vựng, ngữ pháp và độ trôi chảy.</li><li>Thời gian khoảng 4 phút, nên dành khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc I-C-E: Introduction → Comparison → End để trình bày mạch lạc.</li><li>Option 1: Tặng sách thể hiện sự tinh tế nhưng có thể không phù hợp nếu mẹ không thích đọc sách.</li><li>Option 2: Tặng váy mang tính cá nhân nhưng rủi ro về kích cỡ hoặc sở thích thời trang.</li><li>Option 3: Một chuyến đi chơi cùng nhau mang lại giá trị tinh thần và kỷ niệm đáng nhớ hơn.</li><li>Liên hệ đến việc món quà ý nghĩa nhất thường không phải là vật chất mà là thời gian bên nhau.</li><li>Dùng từ nối đối lập để so sánh ưu và nhược điểm giữa các lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các phương án với nhau thay vì phân tích tách biệt từng lựa chọn.</li><li>Dùng hiện tại đơn để mô tả sở thích chung và câu điều kiện loại 1 khi dự đoán phản ứng của người mẹ.</li><li>Nếu quên từ chuyên biệt, hãy mô tả cảm xúc hoặc ý nghĩa của món quà thay vì từ chính xác.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>a thoughtful gift – món quà chu đáo</li><li>show appreciation – thể hiện sự trân trọng</li><li>create lasting memories – tạo ra những kỷ niệm lâu dài</li><li>a sentimental value – giá trị tinh thần</li><li>quality time together – thời gian chất lượng bên nhau</li><li>a personal touch – sự cá nhân hóa trong món quà</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>On the one hand – một mặt</li><li>On the other hand – mặt khác</li><li>However – tuy nhiên</li><li>Moreover – hơn nữa</li><li>As a result – kết quả là</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I would suggest a short trip together because it creates memories that last much longer than a physical gift. – Tôi sẽ đề xuất một chuyến đi chơi cùng nhau vì nó tạo ra những kỷ niệm lâu dài hơn nhiều so với món quà vật chất.</li><li>Compared to a dress, a book is a safer choice if you are not sure about her taste in fashion. – So với váy, sách là lựa chọn an toàn hơn nếu không chắc về sở thích thời trang của mẹ.</li><li>In my view, spending time together shows more appreciation than any material gift. – Theo tôi, dành thời gian bên nhau thể hiện sự trân trọng hơn bất kỳ món quà vật chất nào.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nói về lựa chọn yêu thích mà bỏ qua phân tích hai phương án còn lại.</li><li>Lặp lại từ good hoặc nice quá nhiều thay vì dùng tính từ đa dạng hơn.</li><li>Không đưa ra quyết định rõ ràng ở phần kết luận.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng, hãy chuyển sang nói về cảm xúc của người mẹ khi nhận quà.</li><li>Dùng câu: Let's look at this option from a different angle.</li><li>Nếu bí ở một lựa chọn, hãy tạm chuyển sang lựa chọn khác rồi quay lại sau.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một người con đang thực sự muốn làm mẹ mình hạnh phúc trong ngày sinh nhật.</li><li>Đưa ra đề xuất kết hợp, ví dụ tặng sách kèm theo một chuyến đi ngắn ngày, để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits of developing soft skills",
+          "mindmap": {
+            "title": "Benefits of Soft Skills",
+            "ideas": [
+              "Effective time management",
+              "Making use of information sources",
+              "Problem-solving abilities",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Do you think soft skills are more important than academic knowledge?",
+            "How can students improve their soft skills while still at school?",
+            "Which soft skill do you think is the most important for young people today?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề tập trung vào lợi ích của việc phát triển kỹ năng mềm đối với học sinh, sinh viên.</li><li>Ba nhánh chính gồm quản lý thời gian hiệu quả, sử dụng nguồn thông tin và giải quyết vấn đề.</li><li>Ý tưởng thứ tư có thể là kỹ năng giao tiếp hoặc khả năng làm việc nhóm.</li><li>Tiêu chí chấm điểm gồm phát triển ý, tính mạch lạc, từ vựng và ngữ pháp.</li><li>Thời gian khoảng 5 phút, trong đó khoảng 3–3,5 phút cho bài nói chính và phần còn lại cho câu hỏi phụ.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc FEEL: Point → Explanation → Example → Link để phát triển từng nhánh ý.</li><li><strong>Ví dụ 1:</strong> Today, I would like to talk about the benefits of developing soft skills for students.</li><li><strong>Ví dụ 2:</strong> Another important idea is the ability to work well with others, which is closely linked to problem-solving.</li><li>Đưa ví dụ thực tế về việc lập kế hoạch học tập hoặc tìm kiếm tài liệu tham khảo đáng tin cậy.</li><li>Bám sát sơ đồ tư duy để tránh lan man và lặp ý.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng câu chuyển ý mượt mà giữa các nhánh để bài nói mạch lạc hơn.</li><li>Dùng hiện tại đơn cho sự thật chung và hiện tại hoàn thành khi nói về kỹ năng đã tích lũy qua thời gian.</li><li>Có thể paraphrase soft skills bằng interpersonal skills, life skills hoặc practical skills.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li>manage time effectively – quản lý thời gian hiệu quả</li><li>prioritize tasks – sắp xếp thứ tự ưu tiên công việc</li><li>evaluate information critically – đánh giá thông tin một cách phản biện</li><li>reliable sources – nguồn thông tin đáng tin cậy</li><li>tackle challenges – đối mặt và giải quyết thử thách</li><li>a practical solution – một giải pháp thực tế</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li>To begin with – trước tiên</li><li>Furthermore – hơn nữa</li><li>Another important benefit is – một lợi ích quan trọng khác là</li><li>For instance – chẳng hạn</li><li>In conclusion – tóm lại</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>I strongly believe that time management is one of the most valuable soft skills a student can have. – Tôi tin rằng quản lý thời gian là một trong những kỹ năng mềm quý giá nhất mà học sinh có thể có.</li><li>From my perspective, knowing how to find and evaluate information is essential in the digital age. – Theo tôi, biết cách tìm kiếm và đánh giá thông tin là điều cần thiết trong thời đại số.</li><li>In my opinion, problem-solving skills help students handle real-life challenges more confidently. – Theo tôi, kỹ năng giải quyết vấn đề giúp học sinh đối mặt với thử thách thực tế tự tin hơn.</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li>Do you think soft skills are more important than academic knowledge? → Both are important, but soft skills often determine how well someone applies their knowledge in real situations.</li><li>How can students improve their soft skills while still at school? → By joining clubs, participating in group projects and taking on leadership roles.</li><li>Which soft skill do you think is the most important for young people today? → Communication skills, since they are the foundation for teamwork and building relationships.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê tên kỹ năng mà không giải thích lợi ích cụ thể.</li><li>Quên phát triển ý tưởng cá nhân ở nhánh thứ tư.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Khi bí ý, hãy liên hệ đến trải nghiệm cá nhân khi lập kế hoạch học tập hoặc làm việc nhóm.</li><li>Dùng câu: That is a complex issue. If we evaluate it from a practical perspective...</li><li>Nếu quên từ chuyên ngành, hãy dùng từ đơn giản hoặc mô tả khái niệm.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Hãy nhìn chủ đề từ góc độ học sinh, nhà tuyển dụng và xã hội để có cái nhìn toàn diện.</li><li>Tính logic và sự liên kết giữa các ý là yếu tố quan trọng nhất để đạt điểm cao.</li><li>Nhấn mạnh rằng kỹ năng mềm bổ trợ cho kiến thức chuyên môn chứ không thay thế hoàn toàn.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

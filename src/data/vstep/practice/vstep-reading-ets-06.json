@@ -1,0 +1,480 @@
+{
+  "id": "vstep-reading-ets-06",
+  "title": "VSTEP B1, B2, C1 Reading - Full Test 006 (EnglishTestStore Practice)",
+  "duration": 60,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 28,
+      "tasks": [
+        {
+          "id": "ets-r06-task-1",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 5.",
+          "passage": {
+            "title": "Passage 1",
+            "text": "The body of primitive man, a faraway and primitive man called Homo sapiens, so far as we can reconstruct from the fragmentary evidence we have, was exactly like our own, and his brain was as big as that of modern man and quite as complicated in structure. His intelligence and his ability to learn were probably as great as that of the average man today, but he had a very meager inheritance of knowledge.\n        The use of tools and weapons of a primitive sort was probably passed on from the subhuman creatures, who had learned how to break stones and use the sharp-edged pieces for cutting and scraping, and how to use a short, heavy stick for a club and a long, pointed one for a spear. The subhuman creatures knew how to make use of fire when they found it, but they did not know how to make it.\n        They had probably also discovered the advantages of social living; that several families living together in a tribe could offer each other help and protection, and that hunters killed more game if they banded together and had a leader to direct the hunt.\n        The discovery that social living increased the odds in favor of survival was, perhaps, primitive man's greatest discovery - greater than either the discovery of fire or the invention of the wheel."
+          },
+          "questions": [
+            {
+              "id": "ets-r06-q01",
+              "type": "mcq",
+              "question": "What we know of primitive man is based upon",
+              "options": [
+                "pieces of evidence",
+                "a great deal of evidence",
+                "no evidence",
+                "pictures in caves"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "ets-r06-q02",
+              "type": "mcq",
+              "question": "The first real man",
+              "options": [
+                "was unintelligent",
+                "was incapable of learning",
+                "received very little knowledge from his ancestors",
+                "received a great store of knowledge from his ancestors"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "ets-r06-q03",
+              "type": "mcq",
+              "question": "According to the author, man became a social being because",
+              "options": [
+                "co-operation was necessary for survival",
+                "in prehistoric times only the strongest survived",
+                "by nature he is a social being",
+                "none of these"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "ets-r06-q04",
+              "type": "mcq",
+              "question": "A direct result of primitive man's discovery of the advantages of social living was a",
+              "options": [
+                "family",
+                "tribe",
+                "city",
+                "nation"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "ets-r06-q05",
+              "type": "mcq",
+              "question": "The author believes that man's discovery of the advantages of social living is",
+              "options": [
+                "significant",
+                "of great significance",
+                "insignificant",
+                "well-known"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-r06-task-2",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 6 to 10.",
+          "passage": {
+            "title": "PASSAGE 2",
+            "text": "On Monday, May 12, 2008 a violent earthquake, measuring 8.0 on the Richter scale, happened in southwestern China's Sichuan Province. Hundreds of aftershocks followed in the area. The earthquake destroyed thousands buildings, roads, schools and hospitals, as well as infrastructure like communication networks and electrical towers. Thousands of people died or are missing, and more than 45 million people were affected by the earthquake, which has been the worst natural disaster to hit China for 30 years.\nThe American Red Cross has contributed 20 million to support the relief and recovery efforts of the Red Cross Society of China. These funds will be used to assist survivors through the purchase and distribution of relief supplies, coordination of logistics and transportation of disaster workers to the hardest hit areas. The American Red Cross has also sent relief experts to the affected area to help monitor and coordinate the response efforts. On June 6, the American Red Cross co-hosted a forum to address the U.S. response and recovery efforts following the earthquake. More than 30 representatives from humanitarian organizations, the business companies and the government participated in the event.\nMore than 35,000 staff and volunteers with the Red Cross Society of China responded to the disaster by distributing food, water, tents and other essential items. The International Federation of Red Cross and Red Crescent Societies are providing 100,000 tents to help those in need.\nThe Red Cross Society of China is a very strong organization with extensive experience responding to disasters. The American Red Cross has long history of working with the Red Cross Society of China, going to back to famines in 1906 and including severe storms earlier this year. There has been a close contact between the Red Cross Society of China and the International Federation of Red Cross and Red Crescent Societies, arid they have been ready to provide additional support such as disaster workers, relief supplies or financial assistance. \nConcerned family and friends in the United States may have difficulty contacting their loved ones because telecommunication has been out of work by this disaster. If they are trying to reach relatives living in China or those who are citizens of China, the American Red Cross suggests them keep calling or try contacting other family members who live nearby."
+          },
+          "questions": [
+            {
+              "id": "ets-r06-q06",
+              "type": "mcq",
+              "question": "The earthquake on May 12, 2008 in China _________.",
+              "options": [
+                "left no aftershocks",
+                "destroyed everything except communication networks",
+                "caused no human loss",
+                "had effects on more than 45 million people"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 6
+            },
+            {
+              "id": "ets-r06-q07",
+              "type": "mcq",
+              "question": "According to the second paragraph, ___________.",
+              "options": [
+                "the American Red Cross helped the Red Cross Society of China to recover from the earthquake",
+                "the American Red Cross owed the Red Cross Society of China 20 million",
+                "the victims of the earthquake were not helped to buy necessary things",
+                "disaster workers were not sent to the hardest hit areas because of the aftershocks"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 7
+            },
+            {
+              "id": "ets-r06-q08",
+              "type": "mcq",
+              "question": "Which sentence is not true?",
+              "options": [
+                "There are more than 30 representatives from humanitarian organizations, the business companies and the government in the US helping the Chinese earthquake victims.",
+                "The American government did not do anything to help the earthquake victims in China.",
+                "The American Red Cross has contributed 20 million to help the earthquake victims in China.",
+                "The American Red Cross has also sent relief experts to help the earthquake victims in China."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 8
+            },
+            {
+              "id": "ets-r06-q09",
+              "type": "mcq",
+              "question": "Which is not mentioned about the Red Cross Society of China?",
+              "options": [
+                "It is a strong organization.",
+                "It gets on well with the American Red Cross.",
+                "It supplied the earthquake victims a lot of things except tents.",
+                "It has extensive experience responding to disasters."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-r06-q10",
+              "type": "mcq",
+              "question": "After the earthquakes ___________.",
+              "options": [
+                "it has been difficult to contact with the resident in the ,attacked area",
+                "the American Red Cross advised people not to keep contact with the victims",
+                "contacting with the victims was not a problem",
+                "everything has been in order soon"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 10
+            }
+          ]
+        },
+        {
+          "id": "ets-r06-task-3",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 11 to 16.",
+          "passage": {
+            "title": "PASSAGE 3",
+            "text": "The first two decades of this century were dominated by the microbe hunters. These hunters had tracked down one after another of the microbes responsible for the most dreaded scourges of many centuries; tuberculosis, cholera, diphtheria. But there remained some terrible diseases for which no microbe could be in criminated: scurvy, pellagra, rickets, beriberi. Then it was discovered that these diseases were caused by the lack of vitamins, a trace substance in the diet. The diseases could be prevented or cured by consuming foods that contained the vitamins. And so in the decades of the 1920's and 1930's, nutrition became a science and the vitamin hunters replaced the microbe hunters.  In the 1940's and 1950's, biochemists strived to learn why each of the vitamins was essential for health. They discovered that key enzymes in metabolism depend on one or another of the vitamins as coenzymes to perform the chemistry that provides cells with energy for growth and function. Now, these enzymes hunters occupied center stage. You are aware that the enzyme hunters have been replaced by a new breed of hunters who are tracking genes ― the blueprints for each of the enzymes ― and are discovering the defective genes that cause inherited diseases ― diabetes, cystic fibrosis. These gene hunters, or genetic engineers, use recombinant DNA technology to identify and clone genes and introduce them into bacterial cells and plants to create factories for the massive of hormones and vaccines for medicine and for better crops for agriculture. Biotechnology has become a multibillion-dollar industry.  In view of the inexorable progress in science, we can expect that the gene hunters will be replaced in the spotlight. When and by whom? Which kind of hunter will dominate the scene in the last decade of our waning century and in the early decades of the next? I wonder whether the hunters who will occupy the spotlight will be neurobiologists who apply the techniques of the enzyme and gene hunters to the functions of the brain. What to call them? The head hunters. I will return to them later."
+          },
+          "questions": [
+            {
+              "id": "ets-r06-q11",
+              "type": "mcq",
+              "question": "What is the main topic of the passage?",
+              "options": [
+                "The microbe hunters",
+                "The potential of genetic engineering",
+                "The progress of modern medical research",
+                "The discovery of enzymes"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-r06-q12",
+              "type": "mcq",
+              "question": "Which of the following can be cured by a change in diet?",
+              "options": [
+                "Tuberculosis",
+                "Cholera",
+                "Cystic fibrosis",
+                "Pellagra"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-r06-q13",
+              "type": "mcq",
+              "question": "How do vitamins influence health?",
+              "options": [
+                "They are necessary for some enzymes to function.",
+                "They protect the body from microbes.",
+                "They keep food from spoiling.",
+                "They are broken down by cells to produce energy."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-r06-q14",
+              "type": "mcq",
+              "question": "In the third paragraph, the author compares cells that have been genetically altered by biotechnicians to",
+              "options": [
+                "gardens",
+                "factories",
+                "hunters",
+                "spotlights"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-r06-q15",
+              "type": "mcq",
+              "question": "The phrase “occupy the spotlight” is closest in meaning to",
+              "options": [
+                "receive the most attention",
+                "go the furthest",
+                "conquer territory",
+                "lighten the load"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 15
+            },
+            {
+              "id": "ets-r06-q16",
+              "type": "mcq",
+              "question": "The author implies that the most important medical research topic of the future will be",
+              "options": [
+                "the functions of the brain",
+                "inherited diseases",
+                "the operation of vitamins",
+                "the structure of genes"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 16
+            }
+          ]
+        },
+        {
+          "id": "ets-r06-task-4",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 17 to 28.",
+          "passage": {
+            "title": "Passage 4",
+            "text": "Basic to any understanding of Canada in 20 years after the Second World War is the country's impressive population growth. For every three Canadians in 1945, there were over five in 1996. In September 1966 Canada's population passed the 20 million mark. Most of this surging growth came from natural increase. The depression of the 1930's and the war had held back marriages and the catching – up process began after 1945. The baby boom continued through the decade of the 1950's, producing a population increase of nearly fifteen percent in the five years from 1951 to 1956. This rate of increase had been exceeded only once before in Canada's history, in the decade before 1911, when the prairies were being settled. Undoubtedly, the good economic conditions of the 1950's supported a growth in the population, but the expansion also derived from a trend toward earlier marriages and an increase in the average size of families. In 1957 the Canadian birth rate stood at 28 per thousand, one of the highest in the world.\n          After the peak year of 1957, the birth rate in Canada began to decline. It continued falling until in 1966 it stood at the lowest level in 25 years. Partly this decline reflected the low level of births during the depression and the war, but it was also caused by changes in Canadian society. Young people were staying at school longer, more women were working, young married couples were buying automobiles or houses before starting families, rising living standards were cutting down the size of families. It appeared that Canada was once more falling in step with the trend toward smaller families that had occurred all through the Western world since the time of the Industrial Revolution.\n          Although the growth in Canada's population has slowed down by 1966(the increase in the first half of the 1960's was only nine percent). Another large population wave was coming over the horizon. It would be composed of the children of the children who were born during the period of the high birth rate prior to 1957."
+          },
+          "questions": [
+            {
+              "id": "ets-r06-q17",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "Educational changes in Canadian society.",
+                "Canada during the Second World War",
+                "Population trends in postwar Canada",
+                "Standards of living in Canada"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-r06-q18",
+              "type": "mcq",
+              "question": "According to the passage, when did Canada's baby boom begin?",
+              "options": [
+                "In the decade after 1911",
+                "After 1945",
+                "During the depression of the 1930's",
+                "In 1966"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-r06-q19",
+              "type": "mcq",
+              "question": "The word \"five\" refers to",
+              "options": [
+                "Canadians",
+                "Years",
+                "Decades",
+                "Marriages"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 19
+            },
+            {
+              "id": "ets-r06-q20",
+              "type": "mcq",
+              "question": "The word \"surging\" is closest in meaning to",
+              "options": [
+                "new",
+                "extra",
+                "accelerating",
+                "surprising"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-r06-q21",
+              "type": "mcq",
+              "question": "The author suggests that in Canada during the 1950's",
+              "options": [
+                "the urban population decreased rapidly",
+                "fewer people married",
+                "economic conditions were poor",
+                "the birth rate was very high"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-r06-q22",
+              "type": "mcq",
+              "question": "The word \"trend\" is closest in meaning to",
+              "options": [
+                "tendency",
+                "aim",
+                "growth",
+                "directive"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-r06-q23",
+              "type": "mcq",
+              "question": "The word \"peak\" is closest in meaning to",
+              "options": [
+                "pointed",
+                "dismal",
+                "mountain",
+                "maximum"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-r06-q24",
+              "type": "mcq",
+              "question": "When was the birth rate in Canada at its lowest postwar level?",
+              "options": [
+                "1966",
+                "1957",
+                "1956",
+                "1951"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-r06-q25",
+              "type": "mcq",
+              "question": "The author mentions all of the following as causes of declines in population growth after 1957 EXCEPT",
+              "options": [
+                "people being better educated",
+                "people getting married earlier",
+                "better standards of living",
+                "couples buying houses"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-r06-q26",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that before the industrial Revolution",
+              "options": [
+                "families were larger",
+                "population statistic were unreliable",
+                "the population grew steadily",
+                "economic conditions were bad"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-r06-q27",
+              "type": "mcq",
+              "question": "The word \"It\" refers to",
+              "options": [
+                "horizon",
+                "population wave",
+                "nine percent",
+                "first half"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-r06-q28",
+              "type": "mcq",
+              "question": "The phrase \"prior to\" is closest in meaning to",
+              "options": [
+                "behind",
+                "Since",
+                "During",
+                "Preceding"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

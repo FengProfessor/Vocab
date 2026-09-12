@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-04",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 04",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What will the boy take back to the shop?</b></p><ul><li><b>Girl:</b> Did you get everything you wanted?</li><li><b>Boy:</b> I did. In fact I only needed to go into one shop. I'd seen a T-shirt in the window and I got the last one in the sale. And some shorts to match. I bought this jacket too but I'm not sure if I like it.</li><li><b>Girl:</b> Oh, it looks great. I'd keep it. But those <b>shorts</b> are a horrible colour. I should change them.</li><li><b>Boy:</b> You're right. They looked different in the shop.</li></ul><p><b>2. What time does Paula pick Julie up?</b></p><ul><li><b>Woman:</b> Hi Julie. This is Paula. I'm ringing to remind you that I'll pick you up tonight. The film doesn't start until eight fifteen, so we can go a bit later than I thought. I'll leave here at about twenty past seven so I'll be at your house at <b>twenty to eight</b>. We need to allow time to park the car and I want to get good seats. See you later then. Give me a ring if there's a problem.</li></ul><p><b>3. What will they get first?</b></p><ul><li><b>Girl:</b> The most important thing I need is new trainers. I know exactly which ones I want. They're in the shop by the library. Let's go straight there.</li><li><b>Woman:</b> Just a minute. That's the opposite end of town. I want to get a film for my camera in this shop while we're here.</li><li><b>Girl:</b> Don't forget we need some fruit.</li><li><b>Woman:</b> We'll get that last, after we've bought your <b>trainers</b>, because it'll be heavy.</li></ul><p><b>4. What time did the woman leave the keys?</b></p><ul><li><b>Woman:</b> Oh, I'm in a hurry and I can't find my keys. I always leave them on the hall table.</li><li><b>Man:</b> Let's see. You didn't leave them in the car, did you? That's what I did last week.</li><li><b>Woman:</b> I'll go and look.</li><li><b>Man:</b> There are some keys in the <b>kitchen</b> but I don't think they're yours. I'll get them.</li><li><b>Woman:</b> Those are mine. Thanks.</li></ul><p><b>5. What does the man decide to eat?</b></p><ul><li><b>Woman:</b> What will you have? How about fish and chips? It's really good here.</li><li><b>Man:</b> Actually I think I'll just have a drink.</li><li><b>Woman:</b> You must have more than that. It's hours since we had lunch. What about chicken then or a chicken sandwich?</li><li><b>Man:</b> If they have <b>salad</b>, I'll have some with a <b>roll</b>.</li></ul><p><b>6. What time is the woman’s new appointment?</b></p><ul><li><b>Woman 1:</b> Good morning. Dr Clarke's surgery.</li><li><b>Woman 2:</b> Hello. Could I change the appointment I have for tomorrow, please? It's in the morning and I can't come till the afternoon. The name's Joanna Saunders.</li><li><b>Woman 1:</b> Certainly. I'll have a look and see if Dr Clarke is free. ... So you can't come at a quarter past ten. Erm ... quarter to three is available or a quarter past four.</li><li><b>Woman 2:</b> I'll take the <b>later one</b>, thank you. Goodbye.</li></ul><p><b>7. What was cancelled?</b></p><ul><li><b>Woman:</b> We missed the first day of our holiday because of the bad weather.</li><li><b>Man:</b> Oh! Was your plane cancelled?</li><li><b>Woman:</b> That wasn't the problem. And the coach was waiting to take us to the port, but the sea was so rough we had to wait till the next day and take a helicopter to the island. It was much more expensive and I was looking forward to the <b>ferry crossing</b>.</li></ul><p><b>8. What did Jason enjoy doing on Saturday?</b></p><ul><li><b>Girl:</b> Hi, Jason. Did you have a good day yesterday? Did you have a football match?</li><li><b>Boy:</b> Yes, but we lost, so we all felt a bit miserable. The score was 5-0.</li><li><b>Girl:</b> I went shopping with Sally. We really enjoyed ourselves. But I know you don't like shopping.</li><li><b>Boy:</b> Well, actually I spent Saturday afternoon looking for a birthday present for my sister, and I had a <b>great time in the bookshops and music shops</b>. I got her a book and a CD. Then I went to the cinema to see <i>Road to the Stars</i>. I was really looking forward to it, but it wasn't as good as I expected.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What will the boy take back to the shop?",
+              "options": [
+                "A T-shirt",
+                "Some shorts",
+                "A jacket",
+                "A coat"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What time does Paula pick Julie up?",
+              "options": [
+                "8.15",
+                "7.20",
+                "7.40",
+                "8.20"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What will they get first?",
+              "options": [
+                "New trainers",
+                "A film",
+                "Some fruit",
+                "A camera"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Where did the woman leave the keys?",
+              "options": [
+                "In the kitchen",
+                "On the hall table",
+                "In the car",
+                "On the chair"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What does the man decide to eat?",
+              "options": [
+                "Fish and chips",
+                "Chicken",
+                "Chicken sandwich",
+                "Salad and a roll"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What time is the woman’s new appointment?",
+              "options": [
+                "10.15",
+                "2.45",
+                "4.15",
+                "4.50"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What was cancelled?",
+              "options": [
+                "The ferry",
+                "The plane",
+                "The train",
+                "The coach"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What did Jason enjoy doing on Saturday?",
+              "options": [
+                "Played football",
+                "Bought a birthday present",
+                "Went to the cinema",
+                "Listened to music"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Interview with Harry Park</b></p><ul><li><b>Interviewer:</b> Harry Park, you run a travel company which organises adventure holidays in some difficult places. How did you first become interested in ‘adventure travel’?</li><li><b>Harry:</b> Well, my father worked in an insurance company once he had a family. But before that he’d spent several years travelling the world, and he never stopped telling us about it. His stories were much more exciting than the books I read, and they made me want to travel and have adventures of my own (5).</li><li><b>Interviewer:</b> And what made you decide to start an adventure travel company?</li><li><b>Harry:</b> Well, when I was in my twenties, I travelled a lot in different countries. I went exploring and climbing in mountains and deserts. I wanted to show other people how wonderful these things were (6). The business has been very successful, but when I started it I didn’t know if I’d make any money.</li><li><b>Interviewer:</b> Your company’s called <b>Far and Wide</b>. How did you choose the name?</li><li><b>Harry:</b> Well, I just called it <b>Park Travel</b> at first. But everyone thought that was terribly boring! My wife kept suggesting different things, but in the end it was a customer who gave me the idea (7). <b>Far and Wide</b> is also the title of a book that a friend wrote, so it reminds me of him, too.</li><li><b>Interviewer:</b> Great... The places you visit are usually very unspoilt, Harry. Some people think it’s not a good idea to take tourists there. What would you say to them?</li><li><b>Harry:</b> Well, most of the places we visit have no inhabitants, so we aren’t going to spoil people’s way of life, or bring in things like television and fridges! And I make sure that we always take care of the environment (8). We are careful not to cause pollution, so we take all our rubbish away.</li><li><b>Interviewer:</b> Some of the things you do are also dangerous. Do you enjoy danger?</li><li><b>Harry:</b> Well, it’s not a question of enjoying it - it’s just that you can’t do what I do without thinking about the possible dangers. I’m never frightened though. If I’m taking a group up a mountain or something like that, I just concentrate on what I have to do and get on with it.</li><li><b>Interviewer:</b> You’ve been to some fascinating places, Harry.....</li></ul><p><b>Conversation 2: The Human Body Facts</b></p><ul><li><b>A:</b> Hey, I’m reading this really interesting article about the human body.</li><li><b>B:</b> Yeah? Well, we know all about that from biology lessons.</li><li><b>A:</b> No, we didn’t learn much at all at school! They’re discovering loads more things all the time. Really amazing things! Did you know that only about one tenth of the cells in your body are really you? The rest are bacteria.</li><li><b>B:</b> What? I’m not really me?</li><li><b>A:</b> No, of course you are you, but you also have millions, or trillions, of bacteria in you.</li><li><b>B:</b> Eeeeuuugh!</li><li><b>A:</b> No, they’re mostly really helpful. Someone did an experiment to see if animals can live without bacteria, and he found that a lot of them died or had to have a special diet. Animals need bacteria to digest food, you see. So we’re better off with bacteria.</li><li><b>B:</b> Unless the bacteria are bad.</li><li><b>A:</b> Unless they are bad, but they’re nearly all good. Oh yeah, and going back to cells, do you know how many cells you have in your body?</li><li><b>B:</b> Quite a lot, I’d say. A good few.</li><li><b>A:</b> Yeah, but how many?</li><li><b>B:</b> I don’t know. I’m not mathematical.</li><li><b>A:</b> <b>7 octillion!</b> That’s 7 plus 27 noughts.</li><li><b>B:</b> I knew it was a lot.</li><li><b>A:</b> OK, that’s an amazingly huge number, almost impossible to imagine. But the really weird thing is that most of the atoms are empty space, just air or nothingness. And if you took out the empty space, you could fit your body inside a tiny cube which measures one 500th of a centimetre on either side. That’s a box measuring 0.002 of a centimetre on each side. You’d be much too small to see.</li><li><b>B:</b> Mmm, I can imagine that. It sounds like something that would happen in a really bad Hollywood movie. You know, a mad scientist goes: (funny voice) ‘I’m going to extract all the air from your body’. OK, enough facts for one day.</li><li><b>A:</b> Don’t go! One last thing, did you know …</li><li><b>B:</b> No.</li><li><b>A:</b> Did you know that you probably have <b>mites in your eyelashes</b>?</li><li><b>B:</b> Mites in my eyelashes? What are mites exactly anyway?</li><li><b>A:</b> Yeah, they’re very small creatures, like insects, only not insects. They’re about a third of a millimetre long, so you can’t really see them. These particular mites live in eyelashes and eyebrows.</li><li><b>B:</b> But in mine?</li><li><b>A:</b> Well, maybe not. Only about 50% of people have them, and more older people. So you might not have any. Anyway, they’re completely harmless, they just eat dead skin.</li><li><b>B:</b> Yeah, right, harmless. I really would have preferred not to know that.</li><li><b>A:</b> Sorry.</li><li><b>B:</b> I mean, really!</li></ul><p><b>Conversation 3: Weekend Plans</b></p><ul><li><b>Girl:</b> So, have you got any plans for the weekend?</li><li><b>Boy:</b> Yeah, me and my mates are going to this activity centre in the mountains.</li><li><b>Girl:</b> Oh, yeah?</li><li><b>Boy:</b> You can do all kinds of things. It’s a new centre; it sounds great. We’re going to go <b>dirtboarding</b> …</li><li><b>Girl:</b> What’s that?</li><li><b>Boy:</b> It’s like skateboarding or snowboarding. You have a board, or deck, to stand on and wheels. They’re pretty strong because you go down rough mountain tracks on them. Steep, rough mountain tracks.</li><li><b>Girl:</b> Sounds a bit risky. Have you done it before?</li><li><b>Boy:</b> No, but I’ve done similar things. Anyway, we’re also going to go <b>canyoning</b>. Before you ask, that’s when you jump and swim down a river canyon. You have to use ropes and special equipment. And maybe we’ll go white water rafting too.</li><li><b>Girl:</b> Phew. It sounds far too difficult to me.</li><li><b>Boy:</b> They have lots of things that you could do too. Like <b>zip-wiring</b>, you know when you go along a wire through the trees or down a mountain.</li><li><b>Girl:</b> Go down a mountain on a wire!</li><li><b>Boy:</b> It’s really easy, and exciting too. You just have to hold on and enjoy the ride. Or there’s bungee jumping.</li><li><b>Girl:</b> Jump off a bridge on a long elastic band! Me? You’ve got to be joking! Anyway, I’m going away this weekend too, thank you for asking.</li><li><b>Boy:</b> I was going to ask. So where are you going?</li><li><b>Girl:</b> <b>Paris!</b> I’m so excited!</li><li><b>Boy:</b> Paris, wow!</li><li><b>Girl:</b> Yeah, it’ll be brilliant! We’re going to do all the sights, like go up the Eiffel Tower and take a boat along the River Seine and see the old parts of the city. It looks so beautiful in the photos. And then there are all the art galleries. You know how much I like art. I can’t wait to go round the Louvre and see all those famous paintings.</li><li><b>Boy:</b> I think the famous Impressionist paintings are somewhere else.</li><li><b>Girl:</b> Yeah, I know, they’re in the Musée d’Orsay. We’re going there too. And then I want to go to the Rodin Museum and see that famous statue, you know, The Thinker. And of course, if we’re in Paris, we’ll have to go shopping. Or look at the shops, at least. And then there’s the restaurants. Just think, French food!</li><li><b>Boy:</b> You’ve got a lot planned for one weekend.</li><li><b>Girl:</b> Oh, we’re going for four days, actually.</li><li><b>Boy:</b> Oh, four days, very nice. And who are you going with?</li><li><b>Girl:</b> Oh, just a friend.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Harry decide to start an adventure travel company?",
+              "options": [
+                "Because he wanted to share his experience with others",
+                "Because he thought he could make a lot of money",
+                "Because he hoped to have more travelling himself",
+                "Because he wanted to become a successful person"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "Who suggested the name for Harry’s company?",
+              "options": [
+                "A friend",
+                "A customer",
+                "His wife",
+                "His father"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Harry try to do when he visits a place?",
+              "options": [
+                "Gives the local people jobs",
+                "Takes modern equipment",
+                "Avoid damaging the area",
+                "Takes as many photos as possible"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Harry say about doing dangerous things?",
+              "options": [
+                "It’s frightening",
+                "It’s enjoyable",
+                "It’s a tiring job",
+                "It’s part of his job"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What do animals need bacteria for?",
+              "options": [
+                "Fighting diseases",
+                "Providing energy",
+                "Digesting food",
+                "Preventing diseases"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "How many cells are there in your body?",
+              "options": [
+                "7 million",
+                "7 trillion",
+                "17 trillion",
+                "7 octillion"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How long are the mites?",
+              "options": [
+                "3 millimetres",
+                "A third of a millimetre long",
+                "0.03 millimetres long",
+                "Two thirds of a millimetre long"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What do mites eat?",
+              "options": [
+                "Dead skin",
+                "Your eyelashes",
+                "Tiny insects",
+                "Harmful insects"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is a dirt board?",
+              "options": [
+                "A board with wheels that you stand on",
+                "A board with no wheels that you stand on",
+                "A board with wheels that you sit on",
+                "A board with no wheels that you sit on"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did you need to go canyoning?",
+              "options": [
+                "Ropes and a helmet",
+                "A guide and special equipment",
+                "Ropes and special equipment",
+                "Special equipment and a helmet"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "When does Paris look so beautiful?",
+              "options": [
+                "At night",
+                "On television",
+                "In the photos",
+                "In the movies"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How long will the girl stay in Paris?",
+              "options": [
+                "The weekend",
+                "4 days",
+                "5 days",
+                "A week"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Young people in Great Britain are watching <b>less and less news on television</b>. This is according to <b>Ofcom</b>, a regulatory body that oversees broadcasting practices in the UK. This comes as no surprise as young people become increasingly <b>addicted to their smartphones</b>. Youth are opting for <b>online distractions</b> like YouTube videos, social media and games rather than switch on a TV and watch a news programme. Britain's Guardian newspaper reported that: \"The youth of the nation are more likely to get their day's news about the world from <b>social media</b> or by reading graffiti in bus stations than seeing it on the telly, with the average 16-24-year-old watching just <b>two minutes' worth of live TV news per day</b>.\"</p><p>Ofcom commissioned research into the news-viewing habits of people around the country. The report is called \"<b>News Consumption in the UK: 2019</b>\". The research suggests that young people are increasingly using <b>social media as their primary news source</b>. Researchers wrote: \"There is evidence that UK adults are consuming news more actively via social media.\" They reported an <b>increase in posts and comments</b> on Facebook and Twitter about the news compared to last year. Ofcom suggested <b>presenting news stories in a less complicated, more accessible way</b> to attract young people's attention. Some people suggested this would be \"<b>dumbing down content</b> for young audiences\".</p><p><b>Talk/Lecture 2</b></p><p>There has been a <b>dramatic increase in the popularity of veganism</b> around the world in the past decade. Many people are becoming vegans in an attempt to lead a <b>lifestyle that is more conducive to helping the planet</b>. Giving up eating meat, dairy and other food from animals constitutes the bulk of changes vegans make to their lives. However, an increasing number of vegans are now <b>extending their beliefs to fashion</b>. There is a considerable increase in the <b>sales of vegan clothing, footwear and accessories</b>. Retailers are marketing products that are <b>free from cow skin and other animal products</b>. Shops are full of synthetic fur coats, plastic belts, and shoes made from <b>tree bark, recycled plastic bottles, rubber and coconut fibre</b>.</p><p>Research in the United Kingdom revealed that <b>42 per cent of shoppers considered animal welfare</b> before buying clothes. The researchers discovered that people of all ages would consider purchasing <b>vegan footwear</b>. The trend in vegan fashion has also reached <b>luxury brands</b>. Designer <b>Stella McCartney</b> has designed a new range of fashion that is free from leather and makes use of <b>recycled products</b>. Her new collection is based on a theme of the iconic sixties pop group the Beatles. Ms McCartney's father, Paul, was lead singer of the group. She has designed <b>leather-free Yellow Submarine sneakers</b> and colourful fake fur coats. Ms McCartney is a committed <b>animal rights activist</b>.</p><p><b>Talk/Lecture 3</b></p><p><b>Alan Turing</b>, the man widely recognised as being the <b>father of modern computer science</b>, has been honored by being selected to appear on a United Kingdom banknote. Mr Turing was chosen ahead of a wealth of notable British historical figures and luminaries to be the face of the <b>new £50 note</b>. Turing was instrumental in helping Britain and its allies <b>win World War II</b>. He led a team of codebreakers to <b>crack the Enigma code</b> the Nazis used to send messages to warships and military commanders. He invented the now famous <b>British Bombe</b> to do this. This was a giant computer, which ushered in the <b>birth of modern computing and the beginnings of artificial intelligence</b>.</p><p>Alan Turing was a <b>mathematical genius</b> who also excelled in the sciences. He was born in London in 1912. He graduated from <b>Cambridge University</b> and then outlined his vision for creating an <b>algorithm-based computing machine</b>. He said of his invention: \"This is only a foretaste of what is to come, and only the shadow of what is going to be.\" His idea is <b>central to the computers we use today</b>. His brilliance led to his being asked to join the WWII code-breaking team. Despite his pivotal role in ending that war, he was <b>persecuted in the post-war years for being homosexual</b>. Being gay was illegal in the UK until 1967. He chose to be <b>chemically castrated</b> rather than go to prison. Turing died in 1954, aged 41, in an apparent <b>suicide</b>.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What are young people becoming ever more addicted to?",
+              "options": [
+                "The 20th century",
+                "News",
+                "Alcohol",
+                "Their smartphones"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did the speaker call things like Youtube and videos?",
+              "options": [
+                "Online distractions",
+                "Rubbish",
+                "Eye candy",
+                "Harmful"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "On average, how much live TV news do young British people watch?",
+              "options": [
+                "30 minutes a day",
+                "2 minutes a day",
+                "Three hours a week",
+                "An hour a day"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What was the primary source of news for young people?",
+              "options": [
+                "Radio",
+                "TV",
+                "Social media",
+                "Newspapers"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "Why did Ofcom suggest making news less complicated?",
+              "options": [
+                "To attract young people",
+                "To make it happier",
+                "For advertising",
+                "People’s brains are shrinking"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What was veganism conductive to?",
+              "options": [
+                "Lowering cholesterol",
+                "Gardening",
+                "Good cooking",
+                "Helping the planet"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What are vegans extending their beliefs to?",
+              "options": [
+                "Religion",
+                "Politics",
+                "Fashion",
+                "Philosophy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What kind of fibre is being used to make vegan shoes?",
+              "options": [
+                "High speed fibre",
+                "Coconut fibre",
+                "Hemp fibre",
+                "Silk fibre"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "How old are the people who would buy vegan clothes?",
+              "options": [
+                "12-20",
+                "Aged",
+                "All ages",
+                "People in their 30s"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What did Stella McCartney design that had a yellow submarine theme?",
+              "options": [
+                "A boat",
+                "Underwear",
+                "A popcorn holder",
+                "Sneakers"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What denomination of banknote will Mr Turing appear on?",
+              "options": [
+                "The £5 note",
+                "The £10 note",
+                "The £100 note",
+                "The £50 note"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What is the name of the computer that Alan Turing made?",
+              "options": [
+                "Apple",
+                "IBM",
+                "The British Bombe",
+                "The English Rose"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What was Mr Turing’s vision of computers based on?",
+              "options": [
+                "Egyptian hieroglyphics",
+                "Plasma",
+                "Quantum physics",
+                "An algorithm"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What was his vision only the shadow of?",
+              "options": [
+                "What is going to be",
+                "What always was",
+                "What could be",
+                "What was to be"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "In what year did Alan die?",
+              "options": [
+                "1952",
+                "1954",
+                "1953",
+                "1951"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

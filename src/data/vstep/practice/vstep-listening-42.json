@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-42",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 42",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-20/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Hi everyone, and welcome to City Wildlife Park. I’ll explain where things are and then you’re free to go wherever you want. In front of us are some empty cages where the rabbits live. They’re free to run about in the long grass, but come back to their cages when they’re hungry! If you’re interested in ducks, surprisingly they’re not right here in the pond, but over there in one of their favourite places, near the dustbins. And we keep goats in the field here, together with some sheep.</li></ul><p><b>Question 2.</b></p><ul><li>And now for the weather forecast for this Saturday and Sunday. People heading to the music festival starting on Saturday on the South coast should be prepared for different conditions over the next two days. Saturday will bring bright sunshine but cool temperatures for this time of year. Overnight, however, clouds are expected to move in and Sunday will see dull skies bringing a further drop in temperatures, and there will be a good chance of rain later on.</li></ul><p><b>Question 3.</b></p><ul><li>Hello. My name’s John Masters. This is a message for the person I spoke to yesterday in Customer Services. You asked me to return the iron I bought from you in its box. I’ve done this, although as I mentioned to you the box was badly damaged when it arrived. Anyway, that’s not the problem and the iron didn’t look damaged at all. But when I switched it on, it didn’t heat up. My order reference is 01376XB. I hope you’ll replace the iron as soon as possible. Thank you.</li></ul><p><b>Question 4.</b></p><ul><li>In the heart of the City the Arts Centre includes a concert hall, cinema and an art gallery. The cinema is presenting a programme of films by younger film-makers and is attracting larger audiences than ever. The open-air concert area is the new home to the City Orchestra with an exciting concert programme of new composers and guest performers, while the City Art Gallery has a major programme of exhibitions all summer. Guests can enjoy dinner in the popular restaurant and enjoy the wonderful views of the City and river.</li></ul><p><b>Question 5.</b></p><ul><li>On today’s student Cookery programme, I’m going to show you how to make some really cheap and healthy meals. Forget about opening tins and think fresh! You can do wonderful things with tomatoes, potatoes - and I don’t mean chips or fries! even cabbage, yes cabbage rolls, tilled with tasty rice and herbs. And the essential vegetable in all my recipes is the ordinary onion, red or white or brown colour doesn’t matter. First of all, you need a Sharp knife. So, watch carefully and off we go.</li></ul><p><b>Question 6.</b></p><ul><li>You’d think that paying a bill would be easy. On tonight’s Money Today, I’m looking at some of the difficulties there can be. The story starts with my own experience. Thinking it’d be simpler, I made the mistake of trying to pay a hotel bill in cash. Well, amazingly they insisted on me using a credit card. I didn’t have one with me, so had to get onto my internet banking site using my mobile phone to try and get my card details. Nothing’s easy.</li></ul><p><b>Question 7.</b></p><ul><li>Hello, this is Sarah Wright. I arranged to collect a guitar I ordered. I was meant to come this afternoon, but there’s a problem. I had to get a book from the library and I’ve just missed the bus so I won’t be able to get out to the shop before you close. I’ve got an appointment in the town centre to choose some new glasses tomorrow so I could come in and pick it up then. I hope that’s ok.</li></ul><p><b>Question 8.</b></p><ul><li>... and now for the weather. What’s it going to be like for the big race tomorrow morning, Mike? -Well, it’s been clear and sunny all week, but it looks as if it’s going to turn really cold tonight, and with ice on the track, conditions for racing could be difficult. It doesn’t look like there’ll be any rain until the weekend though, and later in the afternoon there’ll be a bit of sun coming out from behind the clouds.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Where can visitors see the ducks?",
+              "options": [
+                "in the cages",
+                "in the pond",
+                "near the wastebaskets",
+                "in the field"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What will the weather be like when the festival starts?",
+              "options": [
+                "sunny",
+                "cloudy",
+                "rainy",
+                "rainy and cloudy"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What has the man sent back to the company?",
+              "options": [
+                "an iron in a damaged box",
+                "a damaged iron in a good-condition box",
+                "a damaged iron in a damaged box",
+                "an iron in a good-condition box"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which part of the Arts Centre only opened recently?",
+              "options": [
+                "an open-air concert area",
+                "a cinema",
+                "an art gallery",
+                "a restaurant"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which vegetable is used in all today's recipes?",
+              "options": [
+                "tomatoes",
+                "potatoes",
+                "cabbage",
+                "onion"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "How did the man want to pay?",
+              "options": [
+                "in cash",
+                "by credit card",
+                "by cheque",
+                "bank transfer"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the woman phoning about?",
+              "options": [
+                "a guitar",
+                "a book",
+                "glasses",
+                "the library"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What will the weather be like for the race?",
+              "options": [
+                "sunny",
+                "snowy",
+                "rainy",
+                "cloudy"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-06/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1. You will hear a journalist interviewing Geoff Thompson, a British sportsman.</b></p><ul><li><b>Journalist:</b> Good evening, Geoff.</li><li><b>Geoff:</b> Hi.</li><li><b>Journalist:</b> Perhaps you could tell me a bit about your background. Where are you from exactly?</li><li><b>Geoff:</b> Well, I was actually born in <b>1958</b>, up in the north of England. My parents came to live in Britain after the war.</li><li><b>Journalist:</b> It sounds great.</li><li><b>Geoff:</b> We moved south to <b>London</b> after that. We were completely broke and I did all sorts of odd jobs to try and make money.</li><li><b>Journalist:</b> Goodness, how dramatic! But?...</li><li><b>Geoff:</b> But I was lucky – I discovered <b>karate</b>.</li><li><b>Journalist:</b> Ah! How, exactly?</li><li><b>Geoff:</b> There was a school trip – nothing special really – but we went to this sports center and I just thought “That’s for me!”.</li><li><b>Journalist:</b> Just like that?</li><li><b>Geoff:</b> Yup. Anyway, I started training. I found myself a Japanese coach and things just happened. I found it came naturally to me and I worked my way up till I found myself in <b>Taiwan</b> for the World Championships. That was in <b>1982</b>.</li><li><b>Journalist:</b> And you won?</li><li><b>Geoff:</b> Yeah, suddenly I was <b>World Heavyweight Champion</b>. It was great.</li><li><b>Journalist:</b> And you were world champion at that weight <b>five times</b> in all?</li><li><b>Geoff:</b> Yeah, that’s right.</li><li><b>Journalist:</b> And then you retired?</li><li><b>Geoff:</b> Well, I didn’t have much choice.</li><li><b>Journalist:</b> And now you’ve got others projects on the go all around the country and even abroad?</li><li><b>Geoff:</b> Mm...yeah...we’re going from strength to strength.</li></ul><p><b>Conversation 2. You will hear a man telephoning to talk about the job in a hotel.</b></p><ul><li><b>Woman:</b> Hello, <b>West Bay Hotel</b>. Can I help you?</li><li><b>Man:</b> Oh, good morning. I’m ringing about your advertisement in the Evening Gazette.</li><li><b>Woman:</b> Is that the one for temporary staff?</li><li><b>Man:</b> That’s right. Could you tell me what kind of staff you are looking for?</li><li><b>Woman:</b> We’re looking for <b>waiters</b> at the moment.</li><li><b>Man:</b> Right. Erm, what are the hours of work?</li><li><b>Woman:</b> There are two different shifts – there’s a <b>day shift from 7 to 2</b> and a <b>late shift from 4 till 11</b>.</li><li><b>Man:</b> What about time off?</li><li><b>Woman:</b> You get <b>one day off</b>.</li><li><b>Man:</b> Do you know what the rates of pay are?</li><li><b>Woman:</b> Yes, I’ve got them here. You get <b>£5.50 an hour</b>, and that includes a break.</li><li><b>Man:</b> Oh good. Yes, so let’s see. I’d get er, two hundred and twenty one, no, <b>two hundred and thirty one pounds</b> a week?</li><li><b>Woman:</b> You’d also get tips – our guests tend to be quite generous.</li><li><b>Man:</b> Erm, is there a uniform? What about clothes?</li><li><b>Woman:</b> Yes, I forgot to mention that. You need to wear a <b>white shirt</b>, just a plain one, and <b>dark trousers</b>.</li><li><b>Man:</b> Erm, one last thing – I don’t know what the starting date is.</li><li><b>Woman:</b> Just a minute. I think it’s some time around the end of June. Yes, the <b>28th</b> in time for the summer.</li><li><b>Man:</b> That’s great. I’m available from the 10th. Well, thanks very much for your help.</li><li><b>Woman:</b> You’re welcome. Bye.</li><li><b>Man:</b> Bye.</li></ul><p><b>Conversation 3. Listen to part of a conversation at a university library</b></p><ul><li><b>Man:</b> Hi. May I speak to the...uh, the <b>archives librarian</b>?</li><li><b>Woman:</b> I’m the archives librarian. What can I help you with?</li><li><b>Man:</b> Well, actually, I’m not a student here.</li><li><b>Woman:</b> Are you the...sorry. I don’t remember your name, but the librarian over there asked me about giving someone access to the <b>Jacobson collection</b>. Is that you?</li><li><b>Man:</b> Yes, that’s right. See, my paper is on the development of the <b>coal – mining industry</b>.</li><li><b>Woman:</b> Did your librarian explain what our system is here?</li><li><b>Man:</b> A little. She told me to make sure I brought my <b>college ID</b> so I could get in the door.</li><li><b>Woman:</b> Yes, well, I’ll need to take a <b>copy</b> of it too. Even our own students who look at items from our archive collections have to leave a copy of their ID with us. You’ll also have to <b>sign into</b> the archives room whenever you enter and <b>sign out</b> whenever you leave. There’s a desk. You know, for security.</li><li><b>Man:</b> I’ll be careful.</li><li><b>Woman:</b> Thank you. The other thing is, the things in the Jacobson collection are over <b>100 years old</b>, so I’ll have to ask you to wear <b>special gloves</b> while handling the books. Also, I’m afraid you <b>won’t be able to photography</b> anything.</li><li><b>Man:</b> I figured that. Can I...I don’t know, take a picture, or something?</li><li><b>Woman:</b> Well, I can’t let you take a picture. But we have <b>scans images</b> of all the pages in the collection.</li><li><b>Man:</b> Well, I guess given how rare these things are...Okay so you want a copy of my ID, and then can you tell me how to get to the archives room so I can get started?</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Where was Geoff Thompson born?",
+              "options": [
+                "In London.",
+                "In the North of England.",
+                "In the South of London.",
+                "In Britain."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "How did he know about karate?",
+              "options": [
+                "He discovered karate by himself.",
+                "He's interested in karate owning to a sports center during a school visit.",
+                "His friend introduced it to him.",
+                "He knew it when moving to London."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "When did he take part in the World Championships in Taiwan?",
+              "options": [
+                "In 1972.",
+                "In 1980.",
+                "In 1982.",
+                "After starting training with a British coach."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "How many times has he got the World Champion?",
+              "options": [
+                "Two times.",
+                "Three times.",
+                "Four times.",
+                "Five times."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Which position does this hotel need?",
+              "options": [
+                "A temporary staff.",
+                "A stable staff.",
+                "A part-time receptionist.",
+                "A full-time waiter."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What about the hour of work?",
+              "options": [
+                "There are two shifts and two days off.",
+                "There are two shifts and one day off.",
+                "There's a day shift from 7 to 2 and a late shift from 4 till 11.",
+                "There is only afternoon shift"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the woman mention about the uniform?",
+              "options": [
+                "It's prepared by the hotel.",
+                "He needs to wear dark clothes.",
+                "He needs a white shirt and dark trousers.",
+                "He needs wear uniform five days a week."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "When does he start his job?",
+              "options": [
+                "At the end of May.",
+                "On the 10th of May.",
+                "On the 10th of June.",
+                "On the 28th of June."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does the man plan to write his paper on?",
+              "options": [
+                "The preservation of old books.",
+                "The local coal industry.",
+                "The famous archives librarian.",
+                "The collection of rare books"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What security procedures does the librarian tell the man he must follow?",
+              "options": [
+                "Show her his note cards before leaving.",
+                "Show her his ID card.",
+                "Pay a fee.",
+                "Allow his ID card to be copied; sign in and out of the archives room."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Why did the librarian mention the age of the books?",
+              "options": [
+                "They need to be handled with gloves.",
+                "The man can only look at photographs of them.",
+                "They were added to the collection recently.",
+                "They are value books."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How did the man collect his needed information about his paper?",
+              "options": [
+                "He took a picture.",
+                "He scanned these images.",
+                "He could just look them.",
+                "He photocopied these books."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 / Lecture (Questions 21-25)</strong></p><p>OK class. I want to talk to you about the Cold War today. Now, the Cold War wasn't just one single war. It was actually a long time of aggression. It, um, lasted about fifty years! Anyway, the Cold War was mainly between the US and the USSR. That was Russia's old name. They had different opinions on just about everything. Oh, and Joseph Stalin, who we have talked about before, was the leader of the USSR at the start of the Cold War. Anyway! There was a lot of suspicion during the Cold War. But, the US and the USSR never actually fought each other. This is because both countries had nuclear weapons. So, they were afraid of each other. They didn't want to destroy the whole world. And that might have happened... if they'd fought each other. But, instead of fighting, they showed their different opinions by competing with each other. For example, they made their militaries bigger. And they raced each other to see who could get a person in space first. Stuff like that. But, a lot of the problems were political. The two countries were very different, and so they couldn't get along. This is what caused the Cold War.</p><p><strong>Conversation 2 (Questions 26-30)</strong></p><ul><li><b>M:</b> OK, yesterday we read about Georges Seurat. Now, many people would like to paint like Seurat. But, very few people can. He invented a very precise way of painting. It looks different and is hard to do because it is so exact. There were various styles of painting but Seurat decided to make a different one. The first difference was that Seurat took a lot of time to prepare before he painted. He planned his paintings very carefully. He made many drawings to decide on the best way to reproduce the scene. He worked for many hours before he started to paint. With this style, you have to have a clear purpose. With other styles at this time, they had very little time to prepare. Now, the second difference was that he used pure colors. He understood that the eye would blend the colors. He knew if he painted red next to yellow, the eye would see orange. OK?</li><li><b>W:</b> Why didn't he just mix the paints like other artists? Wouldn't that have been easier?</li><li><b>M:</b> Yes, but using pure colors made the painting very bright. These paintings don't look bright in books. But when you see them in person. Wow! They are great! Now, as you know the biggest difference was that Seurat didn't use brush strokes. He painted tiny dots. One at a time! Millions and millions of dots and some of his paintings were VERY big! Can you imagine how long this took? One painting took two years! Of course, that didn't mean that Seurat was a better painter. All the well-known painters back then were very good and made beautiful paintings. But, Seurat was very proud of his different way of painting. He felt that this new style represented people and nature very well.</li></ul><p><strong>Conversation 3 (Questions 31-35)</strong></p><ul><li><b>W:</b> Today, we're going to talk about snakes. Can you imagine eating a snake? Me neither. But there are creatures that do. This is a problem for snakes. So how do they solve this problem? They have to protect themselves. Let's look at three types of snakes, The rattlesnake, spitting cobra, and hognose snake. They all have unique ways of protecting themselves. The rattlesnake solves this problem in a unique way. You see, rattlesnakes are born with small beads on their tails. As an average snake gets older, it grows more beads. These beads rub together and make a rattling sound. OK, so when does the rattlesnake make this noise? When it thinks an animal might attack it. It cannot shield itself so it tries to scare the creature by rattling its tail. The spitting cobra has another way to protect itself. What does it do? It sprays poison from its mouth. OK? But this snake doesn't just spray it anywhere. No, it sprays it into the eyes of the creature that is attacking it. This is very effective because eyes are sensitive. The spray stops the creature from seeing. And the snake gets away. Next, we have the hognose snake. It's less aggressive. So what does it do? The hognose snake plays dead. That's right! It will twist and roll like it's dying. Then it will lie still on its back. The snake will even hang its tongue out of its mouth! Can you believe that? So, by playing dead, it actually survives.</li></ul>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the main topic in this lecture?",
+              "options": [
+                "Russian leaders",
+                "The Cold War",
+                "The wars between the USSR and the US",
+                "The impacts of the Cold War"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did the US and the USSR never actually fight each other?",
+              "options": [
+                "Because the USSR had nuclear weapons.",
+                "Because the US were afraid of Stalin.",
+                "Because they did not want to destroy the world.",
+                "Because nuclear power could destroy the US."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "According to the professor, how long did the Cold War last?",
+              "options": [
+                "Around 50 years",
+                "Around 60 years",
+                "Around 70 years",
+                "Around 80 years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What can be inferred from the lecture?",
+              "options": [
+                "The Cold War was caused by different opinions.",
+                "The Cold War was a long, violent war between the US and USSR.",
+                "The Cold War was an important time in history of the US and the USSR.",
+                "The Cold War changed the world dramatically."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How does the professor describe the main topic?",
+              "options": [
+                "By comparing and contrasting",
+                "By giving examples",
+                "By listing the events chronologically",
+                "By giving definitions"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The way the eye sees colors",
+                "The steps to paint in a Neo-Impressionism style",
+                "The artists who learned from Seurat",
+                "The difference between painting styles"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What is the professor's opinion of this style of painting?",
+              "options": [
+                "He thinks painting in brush strokes is a better way.",
+                "He is surprised that so many artists are good at it.",
+                "He thinks it is difficult to learn.",
+                "He doesn't like it."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "According to the professor, why did Seurat not blend his paints?",
+              "options": [
+                "He thought it would ruin the paints.",
+                "He thought mixed paints did not look real.",
+                "He thought blended paints made paintings look too divided.",
+                "He thought it would make the art bright."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about Georges Seurat?",
+              "options": [
+                "He was the best artist at his time.",
+                "He was proud of his painting style.",
+                "He used brush strokes to make the pictures brighter.",
+                "He didn't spend a lot of time finishing his paintings."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "How did the professor organize the information about this way of painting?",
+              "options": [
+                "By describing only Seurat's style",
+                "By describing only other styles",
+                "By comparing Seurat and other Neo-Impressionists",
+                "By comparing Neo-Impressionism and other styles"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the lecture about?",
+              "options": [
+                "The feeding habits of snakes",
+                "How certain snakes protect themselves",
+                "The most dangerous snakes in the world",
+                "The different uses of snake poison"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "Why does the professor discuss the beads on a rattlesnake's tail?",
+              "options": [
+                "To show how the rattlesnake is more dangerous than other snakes",
+                "To compare the rattlesnake to less scary animals",
+                "To explain how the rattlesnake scares off animals",
+                "To describe how the rattlesnake uses its tail to hunt"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "According to the professor, where does the spitting cobra spray its poison?",
+              "options": [
+                "At the animal it is hunting",
+                "At other snakes",
+                "At the tongue of an animal that is attacking it",
+                "At the eyes of an animal that is attacking it"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What is the professor's attitude towards the hognose snake?",
+              "options": [
+                "She is amazed by it.",
+                "She thinks that it is stupid.",
+                "She thinks that it is the best snake.",
+                "She thinks that it is the most dangerous."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What can be inferred from the lecture?",
+              "options": [
+                "The spitting cobra rattles its tail.",
+                "The hognose snake pretends to be sick.",
+                "Beads in a rattlesnake's tail make the sound.",
+                "There are no creatures that eat snakes."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

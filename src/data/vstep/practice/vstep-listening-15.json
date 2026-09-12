@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-15",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 15",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: What does the caller ask Ms. Cook to do?</b></p><ul><li>Hi, Ms. Cook. This is the Village Clinic calling to remind you about your appointment on Thursday at 4 o'clock. Please remember to bring your medical insurance card when you come for your appointment.</li></ul><p><b>Q2: Who is Sachiko Suzuki?</b></p><ul><li>Hello, Mr. Forrester. This is Sachiko Suzuki calling from human resources at Kitano Electronics. If you are available, we would like you to come in for an interview on Friday at 9 o'clock. Please give me a call and let me know if you can come at this time.</li></ul><p><b>Q3: What is the listener asked to do?</b></p><ul><li>Hello, this is Jenny Jones from Jones Mobile Repairs. I'm calling to give you an update on the repair of your mobile phone. Unfortunately, we will have to replace the speaker in your phone. Please call me back at 555-1947 to let me know if you want me to order a new speaker.</li></ul><p><b>Q4: What is the purpose of this message?</b></p><ul><li>Good morning, this is Maria Gray calling from Dilbert Furniture. This message is for Rebecca Rhodes. I need to speak with her about the number of desks she requested, and want to confirm her order before we ship her purchases.</li></ul><p><b>Q5: What is the main purpose of the call?</b></p><ul><li>This is Julie calling from the Stylista Hair Salon. I'm trying to reach Mr. Andrews concerning the interview we scheduled for this afternoon. I'm not feeling well today, so I'm afraid I have to cancel our meeting. However, we are very interested in your application for our hairstylist position. I hope to be back in the office tomorrow, so please call my secretary and let her know if you are available to meet me tomorrow.</li></ul><p><b>Q6: What is Ms. Kim asked to do?</b></p><ul><li>Hello, Ms. Kim. This is Joe Wang from Romy Office Rentals. I'm calling because we won't be able to meet the delivery date. Our salesperson made a mistake and ordered a different photocopier from what you requested. If we rush, we could deliver it to you by Friday night. Can you please call and let me know if someone will be there in your office? Thanks.</li></ul><p><b>Q7: What is the decreasing percentage of domestic sales?</b></p><ul><li>Unfortunately, I must report that domestic sales have dropped by 17 percent over the last two quarters. Although the sluggish domestic economy is a factor, the primary cause of this worrying development is increasing competition in the retail clothing sector.</li></ul><p><b>Q8: What does the speaker say about Rea?</b></p><ul><li>This weekend is the first outing of the in-line skating club for this season. Remember, you are not allowed to skate with the club unless you wear an approved safety helmet. You can ask Rea, the safety coordinator, if you are unsure about your gear.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What does the caller ask Ms. Cook to do?",
+              "options": [
+                "Take along her medical insurance card",
+                "Make an appointment",
+                "Call the receptionist",
+                "Drive his car to the clinic"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Who is Sachiko Suzuki?",
+              "options": [
+                "A job applicant",
+                "A receptionist",
+                "A client",
+                "A personnel officer"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is the listener asked to do?",
+              "options": [
+                "Order a new phone",
+                "Call back",
+                "Go to the office",
+                "Contact the speaker"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the purpose of this message?",
+              "options": [
+                "To confirm an order",
+                "To order some furniture",
+                "To ask for order information",
+                "To inform a change"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the main purpose of the call?",
+              "options": [
+                "To reschedule an interview",
+                "To arrange a class",
+                "To postpone an exhibition",
+                "To request an application"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is Ms. Kim asked to do?",
+              "options": [
+                "Return a phone call",
+                "Deliver a printer",
+                "Meet him on Friday",
+                "Change the order"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the decreasing percentage of domestic sales?",
+              "options": [
+                "7 percent",
+                "11 percent",
+                "17 percent",
+                "70 percent"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What does the speaker say about Rea?",
+              "options": [
+                "She can answer questions about safety equipment.",
+                "She can teach people how to skate.",
+                "She can provide safety helmet.",
+                "She can stake with others."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Hi, Professor Johnson. Can I talk to you?</li><li><b>M:</b> Why, yes, Carrie.</li><li><b>W:</b> Oh, great! I need some help with my essay. I'm having problems finding good information other than the things from the lessons. And I'm not very good at taking notes.</li><li><b>M:</b> Hmm... OK. Let's talk about finding good information first. Books are the best. But, these days, you can look online too.</li><li><b>W:</b> OK. How do I decide what websites and books to use?</li><li><b>M:</b> Well, with the Internet, you type in a subject and you'll get a list of websites. With books, do a search on the library computer. It will give a list of useful books. It's very easy.</li><li><b>W:</b> Wow. That is easy. OK, then what?</li><li><b>M:</b> Take notes. Don't copy everything. You only need a summary of the information. Don 7 sometimes reading the introduction and conclusion first will help you to decide if it is useful.</li><li><b>W:</b> Yeah, I've been reading a lot. And I always copy down too much.</li><li><b>M:</b> Just take notes that will give you the evidence you need for your essay paragraphs. Oh, and the organization of your notes is important too. You will have to find your information again easily.</li><li><b>W:</b> Right. Of course. Thanks so much for your help!</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi, Mr. Baker. Could you help me with something?</li><li><b>M:</b> Sure. What can I do for you?</li><li><b>W:</b> Well, I'd like to check out some library books. I have to do some research for an essay.</li><li><b>M:</b> I see. Well, you've got two choices. You can either use the self-service machine, or you can take the books to the front desk.</li><li><b>W:</b> Could you explain them both, please?</li><li><b>M:</b> OK, sure. See that machine that looks like a computer?</li><li><b>W:</b> Yeah.</li><li><b>M:</b> Well, that's the self-service machine. You'll have to scan your student ID card. Wait a second; did you set up a student library account yet?</li><li><b>W:</b> Yes.</li><li><b>M:</b> OK, good. Anyway, then you scan the books, and the machine will print you a receipt. The receipt tells you when the books are due back.</li><li><b>W:</b> Oh, that's great. I always forget when my books are due back.</li><li><b>M:</b> Yeah. Just be sure to press your ID and the books on the scanner; it's sensitive sometimes.</li><li><b>W:</b> OK, so what's my other checkout choice?</li><li><b>M:</b> You can take your books over to the front desk, where the librarian will help you.</li><li><b>W:</b> Oh, that's it? That's easy. Thanks for the help.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> Hello. Do you need help?</li><li><b>M:</b> Hi. I'm doing research for my history essay and I'm trying to find a book, but I'm not sure where to begin.</li><li><b>W:</b> No problem. Let's see... there are two ways to find books here. You can either use the computer system, or you can use the book lists.</li><li><b>M:</b> How do the book lists work?</li><li><b>W:</b> Well, the lists organize the books by their subjects. You're looking for a book on history. So, first you look under \"History\" on the list. Then you look at the title. Each book is in alphabetical order.</li><li><b>M:</b> OK, I see.</li><li><b>W:</b> Good. Each book has a number next to it, and those numbers tell you where to find that book.</li><li><b>M:</b> I see. And did you mention something about a computer?</li><li><b>W:</b> Oh yeah, I almost forgot. The computer is just as easy. Do a search for your book, and it will tell you where to find it.</li><li><b>M:</b> Great! I should be able to find what I need. Thanks!</li><li><b>W:</b> Oh, and remember if you want to check out any books you need to scan your ID card at the self-service machine. If you have any books due on your account, you won't be able to check out anymore.</li><li><b>M:</b> OK, got it.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the conversation mainly about?",
+              "options": [
+                "Giving a presentation",
+                "Organizing an essay in a clear way",
+                "Finding a partner for a class project",
+                "Finding information and taking notes"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does the professor recommend doing when taking notes?",
+              "options": [
+                "Writing as quickly as possible",
+                "Making a summary",
+                "Checking the information",
+                "Getting lots of information"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does the professor suggest the woman do?",
+              "options": [
+                "She only needs to read the summary.",
+                "She should use computers to search for information.",
+                "She should go to the library to find information.",
+                "She should organize her notes."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What is the likely outcome of using both books and computers as sources?",
+              "options": [
+                "The student will need help doing the research.",
+                "The student will not be able to finish her project.",
+                "The student will have plenty of information.",
+                "The student will like books more than the computer."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "The different sections of the library",
+                "How to check out library books",
+                "How to return the due books",
+                "The use of computer in the library"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Who is Mr. Baker likely be?",
+              "options": [
+                "A librarian",
+                "A janitor",
+                "A shopkeeper",
+                "A student"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the woman need if she wants to use the self-service machine?",
+              "options": [
+                "Librarian's permission",
+                "Library account",
+                "Money",
+                "A receipt"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How does the man explain the solution?",
+              "options": [
+                "By mentioning the ways to check out books",
+                "By describing which books to check out",
+                "By giving information about the self-service machine",
+                "By explaining the procedure of borrowing books"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why is the student looking for help?",
+              "options": [
+                "He is supposed to meet with one of his friends.",
+                "He is looking for a part-time job.",
+                "He wants to know how to find a book.",
+                "He is struggling with his job."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What kind of books is the man looking for?",
+              "options": [
+                "Economics",
+                "Poetry",
+                "Geography",
+                "History"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How does the book listing organize the books?",
+              "options": [
+                "Alphabetically",
+                "By the author's name",
+                "By the subject and then title",
+                "By the subject and then the author's name"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is implied about the student's opinion of finding a book?",
+              "options": [
+                "He thinks it will be easier than he expected.",
+                "He doesn't think that he can do it.",
+                "He is not looking forward to trying to find a book.",
+                "He thinks that the librarian should find it for him."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Lecture 1 (Questions 21-25)</strong></p><p>All right. Today's lecture is about heat. Actually, we will talk about the ways heat moves. They are called heat transfer. Now, there are three types of heat transfer. They are called [slowly] convection..., conduction..., and... radiation. OK? OK! Convection happens when heat moves through gases and liquids. When air or water heat up, they get lighter. Then they move away from the heat. They rise. When they get cooler, they change direction. They come back down to the heat again. In convection, this repeats over and over. For example, a hot-air balloon. Fire heats the air. The hot air becomes lighter. The balloon rises up. But, as the air cools, it gets heavier. So, the balloon goes down. Convection is how hot-air balloons fly. Now, next is conduction. This happens when heat moves through solids. First, a solid object is put on heat. Eventually the solid object takes this heat and it gets hot. Some materials are very good at conduction. Metals, for example. This is why many cooking pans are made of metal. They heat up quickly. But don’t touch them. Ouch! Conduction causes many burns. Finally, heat also moves by radiation. If you can feel heat from an object without touching it then it is radiating heat. Remember you can’t see this heat. The sun, a toaster, a dryer. All these things use radiation. Have you ever warmed your hands by a fire? Even this is radiation. OK? Do we understand?</p><p><strong>Lecture 2 (Questions 26-30)</strong></p><p>OK. So, Impressionism was a new way of painting. It went against old art standards. It changed what was seen as good art. Before it, art was considered good if it was exact. Artists tried to reproduce what they saw on the canvas. They aimed to make the painting look just like what they could see. Impressionist painters were different. The first thing you will notice in an Impressionist painting is the use of color. These artists didn’t mix colors. They put two colors side by side. They knew the eyes would blend the colors for them. The purpose was to create bright and bold colors. Movement was also important. Painters often worked outdoors. This was not normal at the time. Most painters had someone pose for them inside. But the Impressionist went outside. First, they wanted to capture life as it was happening. Their subjects were doing something. They were not posing. Blurred lines showed movement. They paid attention to lighting. Working outside allowed artists to use natural light. This is always changing. The change comes through in the painting. Different times of year are represented with the change in seasons. Impressionist Art changed art. It broke the rules. Many people did not like it for this reason. If you ask me, that’s what makes it so great. And over time, many people agreed.</p><p><strong>Conversation (Questions 31-35)</strong></p><ul><li><b>W:</b> The book Watership Down... let’s talk about it today. It has sold more than 50 million copies. This book’s themes are people and politics. This book looks at how people treat each other and criticizes governments. It uses a story about rabbits. A group of rabbits leave home to find a new place to live. They can’t remain in their old home because it’s going to be destroyed. So, they escape. After a while, the group finds a safe new home. But, they start fighting with other rabbit towns nearby. The rabbits in these towns are very different. And because of this, no one gets on. This shows how people in real life can’t accept each other’s differences. One group of rabbits is called Efrafa. The leader is an adult male rabbit. He controls his town. He tells everyone what to do. No child, teenager, or adult has freedom to learn or experience anything there. The other group of rabbits is the Tharn Warren. It is also very bad. Things are too easy there. Growing up in a place like that means you learn very little. Some people think that the two rabbit towns are like different kinds of governments in the world. And that no government is perfect.</li><li><b>M:</b> Oh, I see! Having a really easy life is bad for you. This is like, uh, the Tharn Warren. The rabbits don’t have to work to find food there. And Efrafa is a place where there is no real freedom. So, it is bad too.</li><li><b>W:</b> Yes, exactly. Watership Down may seem like a simple story about rabbits. But it asks real questions about how we live. This is why it is so popular.</li></ul>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "What heat is",
+                "How heat transfers",
+                "The properties of heat",
+                "Heat in hot air balloons"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What happens to a hot air balloon because of convection?",
+              "options": [
+                "The balloon's air is heated.",
+                "The balloon becomes filled with gas.",
+                "The balloon goes up and goes down.",
+                "The balloon's flame gets hotter and hotter."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What is the professor's opinion of the conduction?",
+              "options": [
+                "He finds it easiest to teach by cooking.",
+                "He feels that it is good for making buildings.",
+                "He believes that it is useful for heating buildings.",
+                "He thinks many people get hurt from it."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Why does the professor mention a toaster?",
+              "options": [
+                "To explain how toast is made by convection",
+                "To discuss how conduction makes toasters hot",
+                "To give an example of something that burns people",
+                "To give an example of heat radiation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What can be inferred from the lecturer?",
+              "options": [
+                "Heat moving through solid materials is convection.",
+                "Convection is not a pattern that repeats.",
+                "Heat cannot move through solid materials.",
+                "Some materials are better at conducting heat than others."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The Impressionist painters and their work",
+                "Why people didn't like Impressionism",
+                "How people posed in Impressionist paintings",
+                "The key features of Impressionist painting"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "How did Impressionist art differ from previous art?",
+              "options": [
+                "It featured people instead of landscapes.",
+                "It used new and different blends of colors.",
+                "It created a three-dimensional effect.",
+                "It was created outside using natural light."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is the speaker's opinion of Impressionism?",
+              "options": [
+                "She likes it because it is different.",
+                "She likes it because the colors blend so well.",
+                "She thinks it's difficult because it uses natural light.",
+                "She doesn't like it because it's blurry."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "How are the points in the lecture organized?",
+              "options": [
+                "In the order that the painters painted",
+                "From most difficult to least difficult",
+                "In the order the textbook mentions them",
+                "By describing the most important points"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Why does the professor say this?",
+              "options": [
+                "To show why older styles of art were better",
+                "To show how older styles of art were different",
+                "To explain how the students should paint",
+                "To describe a famous canvas"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The writer of Watership Down",
+                "The main characters of Watership Down",
+                "The themes of Watership Down",
+                "The political ideas behind Watership Down"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What is the reason the rabbits leave home?",
+              "options": [
+                "They do not have any freedom.",
+                "Their home is going to be destroyed.",
+                "They want to have an adventure.",
+                "They want a new government."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Why does the professor mention the leader of Efrafa?",
+              "options": [
+                "To show the government style of Efrafa",
+                "To compare Efrafa and the Tharn Warren",
+                "To describe how the rabbits typically acted",
+                "To show that the rabbits lived peacefully with others"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "How is the professor's lecture organized?",
+              "options": [
+                "The themes of the story and how they are shown.",
+                "The characters and then what the themes aren't.",
+                "The character comparisons followed by the contrasts.",
+                "The steps the author took in writing the book"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What is the professor's attitude towards Watership Down?",
+              "options": [
+                "She thinks that it shows real life very well.",
+                "She believes that Watership Down is a very simple book.",
+                "She thinks that the book is just about rabbits.",
+                "She thinks that it is hard to understand."
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

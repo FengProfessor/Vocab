@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-09",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 09",
+  "duration": 172,
+  "date": "2026-03-22",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What time is it?</b></p><ul><li><b>Speaker 1:</b> Have you got the right time? I think my watch is wrong.</li><li><b>Speaker 2:</b> Ah it’s half past two.</li><li><b>Speaker 1:</b> My watch is 20 past</li><li><b>Speaker 2:</b> well, it’s 10 minute slow then</li></ul><p><b>2. What’s Michelle going to read?</b></p><ul><li><b>Speaker 1:</b> Can I read your newspaper, Michelle?</li><li><b>Speaker 2:</b> Didn’t you bring a book with you?</li><li><b>Speaker 1:</b> Yes, but it’s not very interesting</li><li><b>Speaker 2:</b> Oh. Here you are. I’ll read a letter from John.</li></ul><p><b>3. How much did the tickets cost?</b></p><ul><li><b>Speaker 1:</b> Oh hi. Did you have a good time at the theatre last night?</li><li><b>Speaker 2:</b> Well. The play was excellent but the tickets cost 90 dollars each.</li><li><b>Speaker 1:</b> That’s not too bad if the play was good.</li><li><b>Speaker 2:</b> No. Perhaps you’re right.</li></ul><p><b>4. What is the man going to buy?</b></p><ul><li><b>Speaker 1:</b> Is everything ready for the holiday?</li><li><b>Speaker 2:</b> I’m just going shopping. I must get those pills I take when I feel travel sick. Do we need anything else from the chemist? We forgot the toothpaste last time.</li><li><b>Speaker 1:</b> I’ve got that. I haven’t got any sunglasses but I can borrow yours, can’t I. And I get something to read at the airport.</li><li><b>Speaker 2:</b> Right</li></ul><p><b>5. Which dress is Kate talking about?</b></p><ul><li><b>Speaker 1:</b> Oh mom. This dress is still dirty.</li><li><b>Speaker 2:</b> It can’t be, Kate. I have washed it.</li><li><b>Speaker 1:</b> But it is. The mark on the collar has gone but it’s still a small one here. Look. It’s in front, just below the button. It’s where I spilled some coke last week.</li></ul><p><b>6. When will Jane meet them?</b></p><ul><li>Hi. It’s Pete here. John left you a message to say he can’t meet you at 8 o’clock as plan because her bus doesn’t get into late 15. And it will take 30 minutes to get from the center of town. I told to the tables actually book at 8:45 so that would be fine. And we’ll see her then.</li></ul><p><b>7. Which morning activity is for beginners?</b></p><ul><li>At 10am tomorrow morning, there will be swimming lessons at both intermediate and beginner levels. Then there will be volleyball practice at 11:30 for all those of you who are already in one of the teams. Also in the morning, for those of you who already know how to sail, there’s a chance to do some practice on your own. There will be lessons in both sailing and windsurfing for beginners after lunch.</li></ul><p><b>8. Which painting does the woman decide to buy?</b></p><ul><li>They’re all nice but you see a lot flowers everywhere these days, don’t you? So that wouldn’t be my choice. The thing with animals actually although I did quite like the one with horses so it looks like it has to be the one with the boat. It will be a change from that bowl of food I have had on the wall all these years anyway.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What time is it?",
+              "options": [
+                "02.10",
+                "02.20",
+                "02.30",
+                "03.20"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What's Michelle going to read?",
+              "options": [
+                "book",
+                "letter",
+                "newspaper",
+                "magazine"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How much did the tickets cost?",
+              "options": [
+                "$19",
+                "$90",
+                "$99",
+                "$9"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the man going to buy?",
+              "options": [
+                "sunglasses",
+                "something to read",
+                "pills",
+                "food"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which dress is Kate talking about?",
+              "options": [
+                "a dress with no button",
+                "a dress with many buttons",
+                "a dress with collar",
+                "a dress with no collar"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "When will Jane meet them?",
+              "options": [
+                "08:00",
+                "08:30",
+                "08:45",
+                "03:15"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which morning activity is for beginners?",
+              "options": [
+                "windsurfing",
+                "swimming",
+                "sailing",
+                "running"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Which painting does the woman decide to buy?",
+              "options": [
+                "a painting with boats",
+                "a painting with flowers",
+                "a painting with horses",
+                "a painting with white clouds"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Matthew:</b> ... Bye, Mum, see you later.</li><li><b>Mother:</b> How are you getting to college? It’s already five to nine. You’ve missed the bus. Are you going to walk?</li><li><b>Matthew:</b> No, I’m borrowing your car, remember?</li><li><b>Mother:</b> Oh, Matthew. (Q1) I need it today. If you want to borrow the car you need to ask me several days before. Sorry, you’re going to have to walk. It just isn’t convenient today.</li><li><b>Matthew:</b> But I did ask you. We talked about it last week. Don’t you remember? (Q2) I’ve promised to help Alan move all his books and things after my lecture today. He’s moving to a new flat and his car’s broken down. I’ve got to help him move his things. He can’t stay in the old flat after today. I promised him.</li><li><b>Mother:</b> All right, all right. Of course, you must keep your promise. I remember now, you did tell me. (Q3) But I thought you said next Wednesday. You said the 9th and that’s next week when I’m in Birmingham for a meeting so I shan’t need the car.</li><li><b>Matthew:</b> I didn’t ask for it next Wednesday! I’ve got an exam next Wednesday! I can’t help Alan when I’m doing an exam, can’t I?</li><li><b>Mother:</b> No, I suppose not. Well, I expect you’re right. (Q4) I didn’t write it down so it’s my fault. Next time we must both write it down. And make sure we write down the same date.</li><li><b>Matthew:</b> OK, so can I have it today? I need to go or I’ll miss my lecture.</li><li><b>Mother:</b> Well, what am I supposed to do? I need to be at work in half an hour.</li><li><b>Matthew:</b> I’ll give you a lift there on my way to college. How about that?</li><li><b>Mother:</b> I suppose I haven’t got much choice. Come on, then.</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Presenter:</b> OK, now we come to our regular spot on extreme sports, and this week our fearless reporter Tom Walker has been trying out something called indoor skydiving. And he’s with me now. Tom, what’s this all about?</li><li><b>Reporter:</b> Well, it’s the same as skydiving- jumping from an aeroplane and freefalling through the air without opening your parachute for some time – except that you do it (Q5) in an indoor wind tunnel. And there’s no plane, and no parachute, and, so I was told, no danger! So it gives you a taste of doing an extreme sport, but it isn’t quite so extreme.</li><li><b>Presenter:</b> Right, now where did you do it?</li><li><b>Reporter:</b> I did it in a vertical wind tunnel (Q6) at an adventure sports center called Runaway.</li><li><b>Presenter:</b> What exactly is a vertical wind tunnel?</li><li><b>Reporter:</b> Well, it’s a tunnel that gets filled with air. The air is provided by four enormous industrial fans of a kind that usually provide air for underground systems. These fans produce a column of air that rushes through the tunnel from below at more than 160 kilometers per hour. When you’re in the tunnel, (Q7) you float on this air. The machine has been described as being like an enormous hairdryer. It allows you to fly as if you had fallen from a plane, but you are only two meters off the ground.</li><li><b>Presenter:</b> And it’s completely safe is it?</li><li><b>Reporter:</b> Yes. There are bars across the top of the tunnel to stop you flying off up and out of the tunnel. The tunnel is four meters wide and has glass walls. The only small problem you might have is that you keep bashing into these walls. (Q8) But you’re not really going to hurt yourself a lot by doing this – the only injuries you are likely to get are sore elbows and knees. In fact, it’s so safe that the center is open to anyone over the age of four. In America, where the idea was invented by the military in 1994, pensioners in their eighties regularly have a go.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>PAM:</b> Hi Jun. As you know, I’ve asked you here today to discuss the future of our Self-Access Center. (Q9) We have to decide what we want to do about this very important resource for our English language students. So, can you tell me what the students think about this?</li><li><b>JUN:</b> Well, from the students’ point of view, we would like to keep it. The majority of students say that they enjoy using it because it provides a variation on the classroom routine and they see it as a pretty major component of their course, but we would like to see some improvements to the equipment, particularly the computers; (Q10) there aren’t enough for one each at the moment and we always have to share.</li><li><b>PAM:</b> Well, yes, the teachers agree that it is a very valuable recourse but one thing we have noticed is that a lot of student are using it to check their personal emails. We don’t want to stop you students using it, but we think the (Q11) computers should be used as a learning resource, not for emails. Some of us also think that we could benefit a lot more by relocating the Self-Access Center to the main University library building. How do you think the students would feel about that, Jun?</li><li><b>JUN:</b> Well, the library is big enough to incorporate the Self-Access Center, but it wouldn’t be like a class activity anymore. Our main worry would be not being able to go to a teacher for advice. I’m sure there would be plenty of things to do but we really need teachers to help us choose the best activities.</li><li><b>PAM:</b> Well, there would still be a teacher present and he or she would guide the activities of the students, we wouldn’t just leave them to get on with it.</li><li><b>JUN:</b> Yes, but I think the students would be much happier keeping the existing set-up; they really like going to the Self-Access Center with their teacher and staying together as a group to do activities. (Q12) If we could just improve the resources and facilities, I think it would be fine.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why doesn't his mother lend him her car?",
+              "options": [
+                "Because her car doesn't work well today",
+                "Because he can't drive",
+                "Because she needs the car",
+                "Because he can walk"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What will Matthew do after class?",
+              "options": [
+                "move his books",
+                "move his flat",
+                "help his friend",
+                "repair his car"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "When is his mother's meeting?",
+              "options": [
+                "Thursday 19th",
+                "Friday 9th",
+                "Wednesday 9th",
+                "Not discussed"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What is true about the conversation?",
+              "options": [
+                "Matthew forgot to ask his mother about her car",
+                "His mother refused to lend him her car",
+                "His mother agrees to take him to school by car",
+                "This problem is due to his mother's mistake"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Where does he play this sport?",
+              "options": [
+                "in a wind tunnel",
+                "from an aeroplane outdoor",
+                "in a park",
+                "from a high hill"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What is the name of the sport center?",
+              "options": [
+                "Vertical Tunnel center",
+                "Extreme sports center",
+                "Runaway",
+                "Adventure sports center"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What is it like to be in the wind tunnel?",
+              "options": [
+                "you stand on bars",
+                "you stay afloat",
+                "your hair is dried",
+                "you fly up high"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How dangerous is this sport?",
+              "options": [
+                "Glass might break and hurt you",
+                "You suffer from small injuries",
+                "You might fly off the tunnel",
+                "You can't stop flying up"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What are the main topic of the conversation?",
+              "options": [
+                "to know how students used the center",
+                "to know what to do with the center",
+                "to talk about the effectiveness of the library",
+                "to learn how to use the library effectively"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What are the main problem of the center?",
+              "options": [
+                "too many resources",
+                "slow computers",
+                "lack of valuable resource",
+                "lack of computers"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "The director complains that students are using computer for",
+              "options": [
+                "looking for personal resources",
+                "relocating documents",
+                "reading their emails",
+                "learning computer skills"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What are they likely to do with the center?",
+              "options": [
+                "move it to the library",
+                "purchase more equipment",
+                "ask teacher to come to the center",
+                "ask students to stop using emails"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1:</b></p><p>Dolls have always fascinated me, and that’s why, five years ago, I was delighted to be offered the job of running a doll museum.</p><p>Dolls have existed for thousands of years, and the earliest dolls we know about we found in graves in ancient Egypt. I only wish we could get one or two for our museum. But we haven’t unfortunately got anything as old as that in the museum. All the same, we have got examples from Europe from the twelfth century, but my favorite early dolls are actually from the seventeenth century. They interest me not just because they are early, or fairly early, but also because of the clothes they are wearing. They have their original clothes, and from them we know what the owners wore, since dolls in those days were always dressed like their owners. They were made of the only material readily available for things like this at the time: solid wood and they were painted in great detail. In fact, on the best examples, like the ones in the museum, the detail includes the seventeenth-century make-up.</p><p>Dolls like these were very expensive then, and only the very rich could afford them. These days, they’re popular with collectors and if you want one today, you have to pay anything up to ten thousand pounds for a doll in perfect condition from this time! By the way, what makes them so valuable is that, as far as a collector is concerned, a doll is only worth collecting if it is in perfect condition, and that means having the original clothes.</p><p>Doll collecting has become very fashionable since the museum opened, with people interested in dolls from every period, including later dolls. There’s great interest in nineteenth-century examples, when dolls were no longer made of wood, but began to have soft bodies and real hair. They were very delicate and few have survived, meaning such a doll would be worth about two thousand pounds, perhaps a bit more. Later, in the nineteenth century, you could often take off the doll’s hair. If you can, you can often see the maker’s name underneath, and of course the right one increases a doll’s value.</p><p>There was a really big change in dolls at the beginning of the twentieth century. In the museum we have one of the earliest examples, from about 1909, of a doll that’s a model of a baby. Previously all dolls, the earliest ones, were little adults.</p><p><b>Talk/Lecture 2</b></p><p>Hello. I’m Stephen Mills. I will travel with you to the Tiger Tour in India, but I’m not your guide. I work as an artist and I’m going to take some photographs of tigers so that I can use them when I paint some pictures later. An expert guide will join the group when we arrive in India, but I’m leading the group until then.</p><p>We leave London on the 6th of November, arriving in India the following day. It’s a good time of year to visit the wildlife park where the tigers live. The rainy season finishes in October. And later in the year, the park gets more crowded and the tigers become shy.</p><p>We’ll spend ten days in the wildlife park. There are twenty other types of animals and three hundred types of bird to see as well as tigers. There are eighteen of us altogether and everything is organized for your comfort by the tour company. For example, although we’re in the jungle, we won’t have to sleep in tents! The hotels where we’ll stay are all very comfortable.</p><p>To be sure of seeing tigers, we’ll stay in two different parts of the wildlife park. We’ll spend three days in the north, where we’ll travel around in an open truck, and the rest of the time in the south, where we’ll travel around on elephants. That should be fun!</p><p>On the way back to London, we have dinner and one night’s bed and breakfast in the Indian capital, Delhi. There you can either go sightseeing or go shopping, whichever you prefer. But please note that lunch is not provided on our day of departure, as the plane leaves at two in the afternoon.</p><p>Now, if there are any questions ....</p><p><b>Talk/Lecture 3:</b></p><p>Announcer: For the second in our series about locally-run businesses, we meet Simon Winridge, co-founder of the hugely-successfully Winridge Forest Railway Park. Welcome, Simon. Now, perhaps you can begin by telling us a little bit about how it all started.</p><p>Man: Well, during the 1970s, my wife, Liz and I had just acquired 80 acres of sheep-farming land, and we decided to settle down and have children. Pretty soon we had a daughter, Sarah, and a son, Duncan. The place was wonderful for the kids: they particularly loved trains and gradually built up an enormous network of miniature railway track. I began to develop larger-scale models of locomotives but we didn’t think anything more of it until I went on a trip to a theme park near Birmingham and decided we could do a much better job! So we set up a small one ourselves based on the miniature railway and we opened to the public for just a month that year, 1984- in July- our driest month- because our children said they didn’t want our guests to have a miserable, wet visit. I dealt with Park business and Liz carried on with the farm work.</p><p>It soon became clear that we were onto a winner. We began to extend the railway track and lay it among more interesting landscape by planting trees, which in turn attracted more wildlife, and by making cuttings through the rock.</p><p>Nowadays, we’re open all year round and we’re pleased to say that Winridge is one of the most popular visitor attractions in the area- with 50.000 visitors a year- a million and a half people have been through our doors since we opened.</p>",
+          "questions": [
+            {
+              "id": "L2Q21",
+              "type": "mcq",
+              "question": "What is the main purpose of the talk?",
+              "options": [
+                "To describe how the man's favorite dolls look like",
+                "To explain how dolls used to look like in the twelfth century",
+                "To compare the differences in all doll examples in the museum",
+                "To explain how dolls were made differently in times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q22",
+              "type": "mcq",
+              "question": "The dolls that the man interested in .........",
+              "options": [
+                "Existed from the twentieth century",
+                "Existed from the seventeenth century",
+                "Existed from the eighteenth century",
+                "Existed from the nineteenth century"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q23",
+              "type": "mcq",
+              "question": "At the beginning of the twentieth century, dolls were .................",
+              "options": [
+                "Babies",
+                "Adults",
+                "Elderly",
+                "Males"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q24",
+              "type": "mcq",
+              "question": "What makes the dolls in the seventeenth century special?",
+              "options": [
+                "They existed fairly early",
+                "They were made from solid wood",
+                "They are very expensive today",
+                "Their decorations are original"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q25",
+              "type": "mcq",
+              "question": "What can you do with the nineteen- century dolls?",
+              "options": [
+                "Buy them with thousands of pounds",
+                "Take off their hair",
+                "Replace their hair with real hair",
+                "See the maker's name on the body"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "When is the best time to see the tigers?",
+              "options": [
+                "November",
+                "October",
+                "September",
+                "The following day"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "How long will they be in the park?",
+              "options": [
+                "Twenty days",
+                "Eighteen days",
+                "Ten days",
+                "No information"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is arranged to make sure the visitors are comfortable?",
+              "options": [
+                "Meals",
+                "Transportation",
+                "Accommodation",
+                "Schedule"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is Stephen Mill's profession?",
+              "options": [
+                "Photographer",
+                "Tour guide",
+                "Traveller",
+                "Artist"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What is not included in the program?",
+              "options": [
+                "Going sightseeing in Delhi",
+                "Going shopping in Delhi",
+                "Breakfast on the last day",
+                "Lunch on the last day"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Simon's idea for a theme park came from ..............",
+              "options": [
+                "his childhood hobby",
+                "his interest in landscape design",
+                "his visit to another park",
+                "his wife's idea"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "When they started, the family decided to open the park only when ..................",
+              "options": [
+                "The weather was expected to be good",
+                "There were not many people in the neighborhood",
+                "The children weren't at school",
+                "There were fewer farming commitments"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Since opening the park has had ..................",
+              "options": [
+                "50,000 visitors",
+                "1,000,000 visitors",
+                "5,000 visitors",
+                "1,500,000 visitors"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What did their children love?",
+              "options": [
+                "Trains",
+                "Theme park",
+                "Farm work",
+                "We weather"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "The park today is ..................",
+              "options": [
+                "Closed on holidays",
+                "Opened all year",
+                "Closed every two months",
+                "Opened on weekdays"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Exploring Bangkok: A City of Contrasts",
+            "text": "<p>Bangkok, the capital of Thailand, welcomes millions of visitors every year, drawn by a mix of ancient temples, busy street markets, and modern shopping malls standing side by side. Unlike many capital cities that feel dominated by a single style or era, Bangkok often surprises first-time visitors with how quickly the scenery can change from one street to the next. A quiet, centuries-old temple might sit just a short walk away from a loud, crowded night market selling everything from grilled skewers to handmade souvenirs.</p><p>One of the most popular activities for visitors is exploring the city's many temples, known locally as wats. The Grand Palace and the Temple of the Emerald Buddha remain among the most visited sites, attracting tourists eager to see their golden rooftops and detailed decorations. Beyond the palace grounds, Wat Arun, often called the Temple of Dawn, offers impressive views along the Chao Phraya River, especially in the early morning or at sunset when the light makes the temple's surface appear to glow.</p><p>Food plays an equally important role in the Bangkok experience. Street food stalls line many sidewalks, offering dishes such as pad thai, mango sticky rice, and spicy papaya salad at prices far lower than restaurant meals. Many visitors consider trying street food an <strong>essential</strong> part of any trip to the city, though newcomers are often advised to choose stalls that appear busy and clean, since popularity among locals is usually a reliable sign of freshness and quality.</p><p>Getting around Bangkok can feel overwhelming at first because of the city's <b>notorious</b> traffic congestion, but several transportation options help visitors avoid long delays. The Skytrain and underground metro systems connect many major attractions quickly and comfortably, while traditional long-tail boats offer a scenic, if occasionally bumpy, way to travel along the city's canals. For shorter distances, tuk-tuks, three-wheeled taxis, remain a fun though sometimes noisy way to experience the city up close.</p><p>Despite its rapid modernization, Bangkok has managed to hold onto much of its traditional character, and <strong>this balance</strong> between old and new is part of what continues to draw visitors back again and again. Whether wandering through a floating market at dawn or admiring skyscrapers lit up at night, travelers often leave the city with the feeling that they have only begun to scratch the surface of everything Bangkok has to offer.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật chiến lược sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R1Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc các câu mở đầu và kết thúc của từng đoạn để nắm bao quát chủ đề toàn bài: bài viết giới thiệu sự kết hợp đa dạng giữa đền chùa cổ kính, chợ đêm và trung tâm thương mại (đoạn 1); điểm qua các danh thắng tiêu biểu như Grand Palace, Wat Arun (đoạn 2); văn hóa ẩm thực đường phố (đoạn 3); phương tiện di chuyển đa dạng (đoạn 4) và chốt lại ở đoạn 5 với nhận định về sự hòa quyện giữa nét truyền thống và hiện đại. Vì vậy, lựa chọn chính xác phải phản ánh được sự dung hòa giữa truyền thống và tính hiện đại tạo nên sức hút cho du lịch Bangkok.</li><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa):<ul><li>Với <b>R1Q1</b>, quét tên riêng \"Wat Arun\" ở đoạn 2: bài đọc nêu rõ nơi đây còn thường được gọi là \"Temple of Dawn\" với tầm nhìn đẹp bên sông Chao Phraya.</li><li>Với <b>R1Q5</b>, quét các từ khóa liên quan đến phương tiện giao thông ở đoạn 4: bài đề cập đến tàu điện Skytrain và hệ thống tàu ngầm metro giúp kết nối các điểm tham quan nhanh chóng. Cần lưu ý tránh các phương án chứa từ ngữ mang tính tuyệt đối hóa như \"exclusively\" hay \"only\".</li><li>Với <b>R1Q7</b>, định vị cụm từ \"newcomers\" hoặc \"street food\" ở đoạn 3: bài đọc chỉ ra lời khuyên dành cho du khách mới là nên chọn những quán ăn trông đông đúc (busy) và sạch sẽ (clean) vì sự ưa chuộng của người dân địa phương bảo chứng cho độ tươi ngon.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q4):</b> Đối soát danh sách các món ăn đường phố được đề cập trực tiếp ở đoạn 3 gồm: <i>pad thai</i>, <i>mango sticky rice</i> (xôi xoài) và <i>spicy papaya salad</i> (gỏi đu đủ cay). Món ăn không thuộc ẩm thực đường phố Bangkok truyền thống được nêu trong đoạn này chính là đáp án cần tìm.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R1Q3</b>, từ <strong>\"essential\"</strong> ở đoạn 3 mô tả trải nghiệm thử ẩm thực đường phố đối với du khách. Ngữ cảnh chỉ ra đây là một phần không thể thiếu, quan trọng và cần thiết của chuyến đi (necessary).</li><li>Với <b>R1Q8</b>, từ <strong>\"notorious\"</strong> ở đoạn 4 đi kèm với cụm \"traffic congestion\" (ùn tắc giao thông) của Bangkok. Từ này mang sắc thái tai tiếng, nổi tiếng vì điều gì đó tồi tệ hoặc tiêu cực (well-known for something negative).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q6):</b> Tập trung vào cụm từ <strong>\"this balance\"</strong> ở đầu đoạn 5. Áp dụng quy tắc đọc ngược lại câu liền trước hoặc vế trước của đoạn để xác định hai yếu tố cân bằng: bài viết nhấn mạnh dù hiện đại hóa nhanh chóng nhưng Bangkok vẫn giữ được nét truyền thống (rapid modernization & traditional character).</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Kết hợp logic ở cuối đoạn 3. Tác giả giải thích lý do nên chọn các hàng ăn đông đúc: sự đông khách của người dân địa phương thường là dấu hiệu tin cậy cho thấy nguyên liệu tươi mới và chất lượng đảm bảo (freshness and quality).</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích tính chất ngôn từ trong toàn bộ bài viết. Tác giả miêu tả Bangkok với góc nhìn đầy hào hứng, ca ngợi sự đa dạng từ đền chùa, ẩm thực đến phương tiện di chuyển và khẳng định du khách luôn muốn quay lại. Thái độ này mang tính nhiệt tình, đánh giá cao sức hút của thành phố (Enthusiastic).</li></ul><p><b>Lời khuyên:</b> Hãy bắt đầu bằng cách xử lý các câu hỏi từ vựng (R1Q3, R1Q8) và câu hỏi quy chiếu (R1Q6) để tích lũy điểm nhanh. Sau đó, quét nhanh các từ khóa đặc hiệu để trả lời các câu hỏi chi tiết (R1Q1, R1Q5, R1Q7) và câu hỏi loại trừ (R1Q4). Khi đã nắm rõ thông tin chi tiết từng đoạn, bạn sẽ dễ dàng suy luận logic cho R1Q9, đánh giá thái độ tác giả ở R1Q10 và xác định chính xác ý chính toàn bài ở R1Q2.</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is Wat Arun also commonly known as?</span>",
+              "options": [
+                "The Grand Palace of Bangkok.",
+                "The Temple of the Emerald Buddha.",
+                "The Floating Market Temple.",
+                "The Temple of Dawn."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Bangkok's temples are the only attraction worth visiting there.",
+                "Bangkok has lost most of its traditional character recently.",
+                "Bangkok blends tradition and modernity in ways that attract visitors.",
+                "Bangkok's traffic makes it impossible for tourists to travel easily."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"essential\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "optional",
+                "necessary",
+                "expensive",
+                "seasonal"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a popular street food dish in Bangkok?</span>",
+              "options": [
+                "Mango sticky rice sold by vendors",
+                "Sushi rolls prepared fresh daily",
+                "Pad thai served at street stalls",
+                "Spicy papaya salad from local stalls"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one way visitors can travel around Bangkok?</span>",
+              "options": [
+                "Using the Skytrain and underground metro systems only.",
+                "Walking exclusively, since no public transport exists.",
+                "Renting bicycles as the sole transportation option.",
+                "Using the Skytrain and underground metro systems."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this balance\"</strong> in paragraph 5 refers to _______.</span>",
+              "options": [
+                "traditional character and rapid modernization together",
+                "skyscrapers lit up at night",
+                "floating markets at dawn",
+                "tuk-tuks and long-tail boats"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what advice are newcomers often given about choosing street food stalls?</span>",
+              "options": [
+                "Choose the cheapest stall available nearby.",
+                "Choose stalls that appear busy and clean.",
+                "Choose stalls located only near temples.",
+                "Avoid all street food stalls entirely."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"notorious\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "well-known for something negative",
+                "occasionally noticeable",
+                "completely unknown",
+                "officially regulated"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about why busy street food stalls are considered safer choices?</span>",
+              "options": [
+                "Busy stalls are always inspected by the government.",
+                "Quiet stalls are illegal and therefore avoided.",
+                "Local popularity likely signals freshness and quality.",
+                "Price alone determines a stall's food safety."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's attitude toward Bangkok as a travel destination?</span>",
+              "options": [
+                "Critical, focusing mainly on its traffic problems.",
+                "Doubtful that visitors would enjoy returning.",
+                "Enthusiastic, highlighting its variety and appeal.",
+                "Indifferent, offering no real opinion of the city."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Changing Role of Travel Magazines",
+            "text": "<p>For much of the twentieth century, travel magazines occupied a position of considerable influence, shaping where middle-class readers imagined vacationing long before budget airlines or online booking made such trips broadly affordable. Glossy photographs of distant beaches and mountain villages, paired with narrative-driven articles written by professional correspondents who often spent weeks embedded in a single destination, gave readers a curated, carefully edited window onto the world that few alternative sources could match at the time.</p><p>That privileged position has <b>eroded</b> considerably since the rise of smartphone photography and social media platforms, which now allow ordinary travelers to share their own destination photos and impressions within minutes of experiencing them, rather than waiting months for a magazine's editorial and printing cycle. Circulation figures across the traditional travel magazine sector have declined substantially over the past two decades, a trend some industry analysts attribute less to declining interest in travel itself than to readers redirecting their attention toward faster, more interactive digital sources offering comparable visual appeal.</p><p>Rather than disappearing entirely, however, many established travel publications have restructured their business models considerably, shifting emphasis toward digital subscriptions, sponsored destination content, and branded travel experiences marketed directly to their remaining readership. <strong>This restructuring</strong> has not been without controversy: media critics have raised concerns about the blurred line between editorial recommendation and paid promotion, particularly when destinations or hotels featured prominently in supposedly independent articles turn out to have sponsored the coverage, a practice some publications disclose more transparently than others.</p><p>Independent travel bloggers and social media influencers have, in the meantime, captured a considerable share of the audience once served exclusively by print magazines, offering more immediate, personality-driven content that many younger travelers report finding more relatable than traditional magazine writing. Whether this shift has genuinely improved the quality or reliability of travel information available to the average consumer, though, remains a matter some media researchers view with considerable skepticism, since independent creators often operate under similarly <b>opaque</b> sponsorship arrangements while lacking the editorial oversight structures, however imperfect, that traditional publications historically maintained.</p><p>Despite these pressures, a handful of long-established travel publications have maintained loyal readerships by leaning into exactly the qualities social media struggles to replicate: extensively researched long-form journalism, professional photography developed over weeks rather than captured in a single moment, and a slower, more reflective approach to describing a place that some readers describe as a welcome contrast to the rapid, algorithm-driven pace of social feeds.</p><p>Taken together, the travel magazine industry's trajectory illustrates a broader pattern visible across much of print media: not outright disappearance, but a considerable narrowing of audience and a corresponding shift toward business models that blend traditional editorial credibility with the commercial pressures of a digital marketplace increasingly dominated by faster, more personal, and more difficult-to-verify sources of travel information.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật chiến lược sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R2Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc các câu chủ đề của từng đoạn để phác thảo mạch nội dung: đoạn 1 và 2 nói về vị thế ảnh hưởng lớn trong quá khứ và sự suy giảm lượng phát hành của tạp chí du lịch truyền thống; đoạn 3 mô tả việc tái cấu trúc mô hình kinh doanh; đoạn 4 đề cập sự vươn lên của các blogger/influencer; đoạn 5 chỉ ra điểm tựa giúp các tạp chí lâu đời duy trì độc giả; đoạn 6 đúc kết xu hướng thu hẹp tệp độc giả và thích ứng chứ không biến mất hoàn toàn. Vì vậy, lựa chọn chính xác phải phản ánh được sự thu hẹp nhưng thích ứng để tồn tại thay vì hoàn toàn biến mất của ngành tạp chí du lịch.</li><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q7):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu):<ul><li>Với <b>R2Q1</b>, quét thông tin về sự hoài nghi hoặc mập mờ trong tài trợ ở đoạn 3 và đoạn 4: bài chỉ ra các tạp chí truyền thống có mối quan ngại về ranh giới giữa biên tập độc lập và quảng cáo trả phí (paid promotion), trong khi các influencer độc lập cũng hoạt động dưới các thỏa thuận tài trợ mập mờ tương tự (opaque sponsorship arrangements). Do đó, điểm chung là sự thiếu minh bạch hoàn toàn trong các thỏa thuận tài trợ.</li><li>Với <b>R2Q5</b>, định vị cụm từ \"long-established\" hoặc \"maintain\" ở đoạn 5 để tìm phẩm chất cốt lõi: các tạp chí lâu đời duy trì độc giả nhờ tập trung vào báo chí chuyên sâu, được nghiên cứu kỹ lưỡng (extensively researched long-form journalism). Cần cẩn trọng với các phương án chứa từ bẫy mang tính tuyệt đối hóa như \"exclusively online\".</li><li>Với <b>R2Q7</b>, quét cụm từ \"circulation figures\" hoặc \"analysts\" ở đoạn 2: lý do lượng phát hành giảm là do độc giả chuyển sự chú ý sang các nguồn kỹ thuật số nhanh hơn và tương tác tốt hơn. Tránh chọn các phương án có từ bẫy \"exclusively\".</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q4):</b> Đối soát kỹ danh sách các chiến lược chuyển đổi mô hình kinh doanh được liệt kê ở đoạn 3 gồm: đăng ký số (digital subscriptions), nội dung điểm đến có tài trợ (sponsored destination content) và trải nghiệm du lịch gắn thương hiệu (branded travel experiences). Chiến lược sáp nhập với các mạng lưới truyền hình hoàn toàn không được nhắc tới.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q3, R2Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R2Q3</b>, từ <strong>\"eroded\"</strong> ở đoạn 2 mô tả sự suy giảm vị thế của tạp chí truyền thống do sự bùng nổ của nhiếp ảnh smartphone và mạng xã hội. Trong ngữ cảnh này, từ này mang nghĩa bị xói mòn, suy yếu (weakened).</li><li>Với <b>R2Q8</b>, từ <strong>\"opaque\"</strong> ở đoạn 4 mô tả các thỏa thuận tài trợ của influencer thiếu sự kiểm soát biên tập, thể hiện tính mập mờ, không rõ ràng (unclear), trái ngược với từ \"transparent\".</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q6):</b> Tập trung vào cụm từ <strong>\"This restructuring\"</strong> ở đầu câu hai của đoạn 3. Đọc ngược lại câu đầu tiên của đoạn 3 để tìm các hoạt động tái cấu trúc: đó là việc chuyển dịch trọng tâm sang đăng ký số, nội dung tài trợ và trải nghiệm du lịch gắn thương hiệu.</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Kết hợp logic ở đoạn 4 về nội dung do các influencer tạo ra. Tác giả sử dụng cấu trúc nghi vấn liệu sự chuyển dịch này có thực sự cải thiện chất lượng/độ tin cậy hay không (\"Whether this shift has genuinely improved... remains a matter some media researchers view with considerable skepticism\"), từ đó suy ra rằng tính cải thiện về độ tin cậy thực tế vẫn chưa rõ ràng và còn bị hoài nghi (remains genuinely uncertain).</li><li><b>Dạng câu hỏi Thái độ tác giả (R2Q10):</b> Phân tích sắc thái ngôn từ vĩ mô xuyên suốt bài đọc. Tác giả đưa ra góc nhìn phân tích đa chiều về cả mặt mạnh lẫn hạn chế của tạp chí truyền thống lẫn các influencer trên mạng xã hội, chỉ ra bối cảnh thị trường mà không lồng ghép cảm xúc hoài niệm cực đoan hay chỉ trích phiến diện. Đây là đặc trưng của thái độ phân tích, khách quan và cân bằng (Analytical and balanced).</li></ul><p><b>Lời khuyên:</b> Hãy tối ưu tốc độ làm bài bằng cách ưu tiên hoàn thành nhóm câu hỏi có vị trí định vị rõ ràng như <b>Từ vựng</b> (R2Q3, R2Q8) và <b>Quy chiếu</b> (R2Q6). Tiếp theo, áp dụng kỹ thuật đọc quét nhanh để trả lời các câu hỏi <b>Chi tiết</b> (R2Q1, R2Q5, R2Q7) và câu hỏi <b>Loại trừ</b> (R2Q4). Sau khi đã nắm chắc bức tranh dữ liệu tổng thể của bài đọc, bạn sẽ dễ dàng suy luận chính xác cho câu <b>Suy luận</b> (R2Q9), đánh giá <b>Thái độ tác giả</b> (R2Q10) và chọn phương án đúng nhất cho câu <b>Ý chính toàn bài</b> (R2Q2).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what concern applies to both traditional travel publications and independent influencers?</span>",
+              "options": [
+                "Both rely exclusively on print-based distribution.",
+                "Sponsorship arrangements can lack full transparency.",
+                "Both face declining circulation figures equally.",
+                "Neither produces any destination-focused content."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Social media influencers now provide more reliable travel information.",
+                "Print media faces no real competition from digital sources today.",
+                "Travel magazines have narrowed in audience but adapted, not disappeared.",
+                "Travel magazines have completely vanished due to social media."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"eroded\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "established",
+                "erased",
+                "strengthened",
+                "weakened"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as part of travel publications' business model shift?</span>",
+              "options": [
+                "Branded travel experiences",
+                "Digital subscription services",
+                "Sponsored destination content",
+                "Mergers with television networks"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what quality have some long-established travel publications leaned into to maintain readership?</span>",
+              "options": [
+                "Rapid, algorithm-driven content updates.",
+                "Extensively researched, long-form journalism.",
+                "Extensively researched, long-form journalism exclusively online.",
+                "Shorter articles matching social media's pace."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This restructuring\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "the shift toward digital subscriptions and sponsored content",
+                "circulation figures declining",
+                "smartphone photography adoption",
+                "professional correspondents embedded abroad"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, why did travel magazine circulation decline, according to some analysts?</span>",
+              "options": [
+                "Printing costs became too expensive to sustain magazines.",
+                "Readers redirected attention to faster digital sources.",
+                "Readers redirected attention to faster digital sources exclusively.",
+                "Interest in travel itself declined sharply worldwide."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"opaque\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "organized",
+                "unclear",
+                "opulent",
+                "transparent"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about whether influencer-driven content has improved travel information quality?</span>",
+              "options": [
+                "Its actual reliability improvement remains genuinely uncertain.",
+                "It has completely replaced all traditional editorial oversight.",
+                "Editorial oversight structures were always fully reliable historically.",
+                "It has been definitively proven to improve reliability."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall approach to describing the travel magazine industry's changes?</span>",
+              "options": [
+                "Strongly nostalgic, longing only for the print era.",
+                "Analytical and balanced, avoiding a one-sided judgment.",
+                "Dismissive of any continued value in travel magazines.",
+                "Enthusiastic, praising influencers over traditional journalism."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Handedness: Why Some People Favor the Left",
+            "text": "<p>That roughly one in ten people write, throw, and manipulate tools preferentially with the left hand — a proportion that has remained strikingly stable across recorded history and, as far as anthropologists can determine, across virtually every studied culture — might seem too consistent a pattern to attribute to chance alone, yet more than a century of dedicated research has failed to settle definitively why handedness distributes itself this way rather than, say, splitting the population evenly or skewing further in either direction.</p><p>Genetic research offers one prominent explanatory thread, without providing anything resembling a complete answer. Twin studies, comparing identical twins who share essentially all genetic material against fraternal twins who share roughly half, consistently find higher handedness <strong>concordance</strong> among identical pairs, suggesting a heritable component; yet even identical twins raised in the same household disagree on handedness often enough — considerably more often than a purely genetic explanation would predict — that researchers now generally describe handedness as influenced by genetics rather than determined by it, with estimates of heritability varying considerably depending on the population and methodology examined.</p><p>Prenatal development has drawn increasing attention as a complementary explanation. Ultrasound studies tracking fetal thumb-sucking behavior have found that a fetus's preferred thumb correlates, with notable though imperfect reliability, with the hand that same individual favors years later after birth, implying that some component of handedness may be established well before any environmental influence could plausibly intervene. <strong>This prenatal correlation</strong>, researchers caution, does not by itself establish causation, since the same underlying neurological asymmetry driving thumb preference in utero could independently produce both the prenatal pattern and the eventual handedness outcome, rather than one causing the other directly.</p><p>Left-handedness carried, for much of recorded history across numerous cultures, a burden of stigma difficult for contemporary readers to fully appreciate: the very word 'sinister' derives from the Latin term for left, and left-handed schoolchildren were, well into the twentieth century in many countries, forcibly retrained to write with their right hand, sometimes through methods considered abusive by modern standards. <strong>[1]</strong> This historical suppression complicates any attempt to study handedness's true population-level prevalence across earlier eras, since documented rates likely understate how many people were naturally left-handed but retrained. <strong>[2]</strong> Even today, everyday tools — scissors, desks, certain kitchen implements — remain disproportionately designed for right-handed use, a persistent asymmetry some disability advocates argue deserves more design attention than it currently receives. <strong>[3]</strong> Whether this residual design bias meaningfully disadvantages left-handed individuals in measurable ways, however, has received comparatively little direct empirical study. <strong>[4]</strong></p><p>One curious pattern that has drawn particular research interest concerns combat and interactive sports, where left-handed athletes appear overrepresented relative to their roughly ten percent share of the general population discussed earlier. Researchers generally attribute this overrepresentation to a strategic rarity advantage: because right-handed opponents train predominantly against other right-handed competitors, they encounter left-handed technique less frequently and consequently adapt to it less effectively, giving left-handed athletes a disproportionate edge specifically in sports involving direct, reactive opposition rather than in sports judged on independent technical execution, such as gymnastics, where no comparable left-handed overrepresentation appears.</p><p>Popular claims connecting left-handedness to elevated creativity or general intelligence, frequently repeated in casual conversation and occasionally in less rigorous popular science writing, find only <strong>inconsistent</strong> support in the peer-reviewed literature; some studies report modest associations with particular cognitive subdomains, others find no meaningful difference whatsoever, and few of the positive findings have replicated reliably across independent research teams, leading most handedness researchers to treat the creativity claim with considerable skepticism rather than as an established finding.</p><p>Taken together, contemporary research suggests handedness likely emerges from a genuinely multifactorial process — genetic predisposition, prenatal neurological asymmetry, and some degree of environmental and cultural shaping — rather than from any single decisive cause researchers have yet identified, a conclusion that, however unsatisfying to those hoping for a tidy explanation, appears to be where a century of accumulated evidence actually points.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật chiến lược sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R3Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc các câu chủ đề của từng đoạn và đoạn kết luận để nắm mạch lập luận: đoạn 1 đặt vấn đề về tỉ lệ thuận tay trái; đoạn 2 phân tích yếu tố di truyền; đoạn 3 đề cập sự phát triển trước khi sinh (prenatal); đoạn 4 nêu yếu tố lịch sử, văn hóa; đoạn 5 giải thích hiện tượng ở các môn thể thao đối kháng; đoạn 6 bác bỏ quan niệm về sự sáng tạo; đoạn cuối đúc kết rằng thuận tay là kết quả của sự tương tác đa yếu tố (multifactorial process). Vì vậy, lựa chọn chính xác phải thể hiện sự kết hợp từ nhiều yếu tố tương tác lẫn nhau chứ không do một nguyên nhân đơn lẻ.</li><li><b>Dạng câu hỏi Chi tiết (R3Q1, R3Q5):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu):<ul><li>Với <b>R3Q1</b>, quét từ khóa \"twin studies\" ở đoạn 2: kết quả cho thấy cặp sinh đôi cùng trứng có tỉ lệ tương đồng (concordance) cao hơn sinh đôi khác trứng, nhưng vẫn có những cặp sinh đôi cùng trứng không giống tay thuận nhau. Từ đó chỉ ra cặp sinh đôi cùng trứng có cùng tay thuận thường xuyên hơn, nhưng không phải luôn luôn.</li><li>Với <b>R3Q5</b>, quét các từ khóa \"combat sports\" hoặc \"overrepresented\" ở đoạn 5: lý do vận động viên thuận tay trái chiếm ưu thế trong các môn đối kháng là do các đối thủ thuận tay phải chủ yếu luyện tập với người thuận tay phải, nên ít có kinh nghiệm đối phó với kỹ thuật của người thuận tay trái (train less against left-handed technique).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q4):</b> Đối soát các yếu tố ảnh hưởng đến tay thuận được nêu trong bài: di truyền ( đoạn 2), sự phát triển thần kinh trước sinh (đoạn 3) và tác động văn hóa/môi trường (đoạn 4). Yếu tố về thói quen ăn uống hay dinh dưỡng thời thơ ấu (childhood dietary habits and nutrition) hoàn toàn không được nhắc đến trong văn bản.</li><li><b>Dạng câu hỏi Chèn câu vào vị trí phù hợp (R3Q7):</b> Đọc câu cần chèn: <i>\"Some historians argue this forced retraining may have caused lasting psychological effects independent of handedness itself.\"</i> Câu này chứa cụm từ quy chiếu <strong>\"this forced retraining\"</strong> (việc rèn luyện lại bắt buộc này). Tìm vị trí ở đoạn 4 ngay sau câu đề cập đến việc học sinh thuận tay trái bị ép buộc rèn luyện để viết bằng tay phải (forcibly retrained to write with their right hand). Do đó, vị trí <b>[1]</b> là nơi nối tiếp logic hoàn hảo nhất.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q3, R3Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R3Q3</b>, từ <strong>\"concordance\"</strong> ở đoạn 2 mô tả sự tương đồng/giống nhau về tay thuận giữa các cặp sinh đôi. Trong ngữ cảnh thống kê di truyền học, từ này đồng nghĩa với sự nhất trí, tương hợp (agreement).</li><li>Với <b>R3Q8</b>, từ <strong>\"inconsistent\"</strong> ở đoạn 6 mô tả các bằng chứng khoa học về mối liên hệ giữa tay trái và sự sáng tạo (nghiên cứu thì thấy có, nghiên cứu lại không thấy). Ngữ cảnh này chỉ ra sự mâu thuẫn, không nhất quán (conflicting).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q6):</b> Tập trung vào cụm từ <strong>\"This prenatal correlation\"</strong> ở đoạn 3. Đọc ngược lại câu trước để xác định mối tương quan trước khi sinh: đó là mối liên hệ giữa thói quen mút ngón tay của thai nhi trong siêu âm và bàn tay ưu tiên sau khi sinh (the fetal thumb-preference link).</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Kết hợp logic ở đoạn 3. Tác giả lưu ý rằng sự tương quan trước khi sinh không khẳng định quan hệ nguyên nhân - kết quả trực tiếp, vì một bất đối xứng thần kinh ẩn bên dưới có thể độc lập tạo ra cả hai hiện tượng. Điều này suy ra rằng mối quan hệ giữa thói quen mút ngón tay thai nhi và tay thuận sau này có thể chỉ cùng phản ánh một nguyên nhân chung (shared cause) chứ không phải quan hệ nhân quả trực tiếp.</li><li><b>Dạng câu hỏi Thái độ tác giả (R3Q10):</b> Phân tích sắc thái ở đoạn 6. Tác giả chỉ ra rằng các tuyên bố về sự sáng tạo chỉ có bằng chứng mâu thuẫn, hiếm khi lặp lại thành công ở các nghiên cứu độc lập và các nhà nghiên cứu nhìn nhận quan niệm này với \"considerable skepticism\". Điều này thể hiện thái độ hoài nghi, dè dặt (Skeptical) dựa trên các bằng chứng thiếu nhất quán.</li></ul><p><b>Lời khuyên:</b> Ưu tiên giải quyết các câu hỏi từ vựng (R3Q3, R3Q8) và quy chiếu (R3Q6) để tích lũy điểm nhanh chóng. Tiếp theo, sử dụng kỹ thuật đọc quét để xử lý câu hỏi chi tiết (R3Q1, R3Q5) và câu chèn câu (R3Q7) bằng cách chú ý đại từ liên kết. Cuối cùng, dựa trên sự hiểu biết tổng thể bài đọc để hoàn thành các câu suy luận (R3Q9), thái độ tác giả (R3Q10) và câu hỏi ý chính (R3Q2).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what did twin studies reveal about handedness?</span>",
+              "options": [
+                "Identical twins share handedness more often, but not always.",
+                "Identical twins always share identical handedness without exception.",
+                "Twin studies found no genetic component to handedness whatsoever.",
+                "Fraternal twins share handedness more often than identical twins."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Genetics alone fully explains why people become left-handed.",
+                "Handedness likely arises from multiple interacting factors.",
+                "Left-handed people always show greater creativity than others.",
+                "Cultural stigma alone caused all historical handedness patterns."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"concordance\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "unity",
+                "heredity",
+                "agreement",
+                "concord"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor influencing handedness?</span>",
+              "options": [
+                "Prenatal neurological asymmetry before birth",
+                "Genetic predisposition inherited from parents",
+                "Childhood dietary habits and nutrition",
+                "Cultural and environmental shaping over time"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, why are left-handed athletes overrepresented in combat sports specifically?</span>",
+              "options": [
+                "Left-handed athletes train exclusively against other left-handers.",
+                "Opponents train less against left-handed technique.",
+                "Right-handed athletes are naturally weaker in combat sports.",
+                "Gymnastics judges favor left-handed competitors' technique specifically."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This prenatal correlation\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "environmental influence",
+                "imperfect reliability",
+                "years later after birth",
+                "the fetal thumb-preference link"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'Some historians argue this forced retraining may have caused lasting psychological effects independent of handedness itself.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"inconsistent\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "contradictory",
+                "creative",
+                "conflicting",
+                "insistent"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between fetal thumb preference and eventual handedness?</span>",
+              "options": [
+                "Fetal thumb preference has been proven to directly cause handedness.",
+                "It may reflect a shared cause, not direct causation.",
+                "Genetic research offers one prominent explanatory thread only.",
+                "Later handedness causes the fetal thumb preference to change."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's attitude toward popular claims linking left-handedness to higher creativity?</span>",
+              "options": [
+                "Dismissive of any possible cognitive differences whatsoever.",
+                "Skeptical, noting inconsistent and unreplicated evidence.",
+                "Fully convinced such claims are scientifically accurate.",
+                "Mildly supportive, citing strong replicated research findings."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Rethinking Educational Inclusion for Children with Disabilities",
+            "text": "<p>Not only has the shift from segregated special-education classrooms toward inclusive, mixed-ability settings become the dominant policy direction across much of the developed world, but proponents increasingly frame the change as supported by rigorous outcomes research rather than resting on moral or legal aspiration alone — a framing that, while broadly accurate, obscures considerable nuance in what that research actually demonstrates, since the effect of inclusion on any individual child appears to depend heavily on implementation quality, disability type, and available classroom support in ways a simple policy mandate cannot, by itself, guarantee.</p><p>Legislative frameworks mandating inclusive placement wherever feasible have expanded considerably since the late twentieth century, often justified by disability-rights arguments emphasizing that segregated settings, however well-intentioned, risk communicating <strong>diminished</strong> expectations and limiting long-term social integration. Implementation, however, has proceeded considerably less uniformly than the underlying legislation might suggest: some school districts have invested substantially in the specialized staffing and individualized support structures inclusion genuinely requires, while others have, in effect, relabeled segregated arrangements as inclusive without meaningfully altering classroom practice, a gap between statute and lived experience that complicates any straightforward evaluation of inclusion's actual effects.</p><p>Academic-outcome research examining inclusive placement, drawing on several decades of accumulated studies across different countries and disability categories, generally reports modestly positive effects for students with disabilities relative to segregated placement, though the magnitude of benefit varies considerably depending on the specific support structures present in a given classroom — dedicated aide staffing, individualized learning plans, teacher co-planning time — rather than from inclusion as an undifferentiated placement category. <strong>This support-dependence</strong> complicates policy discussions that treat inclusion as a binary yes-or-no intervention, since two classrooms both technically labeled 'inclusive' may differ enormously in whether the supports genuinely present are sufficient to realize the placement's intended benefit.</p><p>Whether inclusive classrooms measurably affect non-disabled peers, a question that has generated disproportionate public and political attention relative to its actual research base, receives a considerably less alarming answer than popular concern might suggest: the accumulated evidence, echoing the support-dependence pattern discussed above, generally finds neutral to modestly positive effects on non-disabled students' academic outcomes, provided adequate support staffing accompanies the inclusive placement, though several studies note measurably worse outcomes for all students in poorly resourced inclusive classrooms lacking that support — a finding that implicates resourcing rather than inclusion itself as the operative variable.</p><p>Underlying much of this variation is a persistent and, some researchers argue, underaddressed teacher-preparation gap: general-education teachers, surveyed across multiple countries, consistently report feeling inadequately trained to meet the instructional needs of students with significant disabilities within a mixed-ability classroom, a gap that predates and, critics argue, has not kept pace with the legislative expansion of inclusive mandates. <strong>[1]</strong> Professional development programs specifically targeting inclusive instruction exist in many districts, though their availability, quality, and the degree to which teachers can realistically apply the training within already demanding classroom schedules vary considerably. <strong>[2]</strong> Class sizes further complicate matters, since individualized attention becomes measurably harder to sustain as the ratio of students to teacher rises. <strong>[3]</strong> Some districts have responded by expanding co-teaching models pairing general and special educators within a single classroom. <strong>[4]</strong></p><p>Assistive technology has, over the past decade, meaningfully expanded what inclusive classrooms can practically accommodate, from text-to-speech and communication devices to adaptive testing formats, though access remains unevenly distributed, with better-funded districts able to provide individualized technology that lower-resourced districts, serving comparable disability populations, frequently cannot. This <strong>disparity</strong>, some disability advocates argue, risks quietly reproducing within inclusive settings the very inequities inclusion was originally intended to address, simply relocated from the question of physical placement to the question of resource access within a shared classroom.</p><p>Parental perspectives on inclusion, notably, are considerably less uniform than advocacy discourse sometimes implies: while many parents of children with disabilities strongly favor inclusive placement, citing social integration and reduced stigma, a meaningful minority, particularly parents of children with certain significant communication or behavioral needs, report preferring specialized settings they believe better address their child's specific requirements, complicating any policy framework that treats inclusion as uniformly preferable regardless of individual circumstance or family preference.</p><p>Taken together, the evidence supports inclusive education as a generally beneficial default, though one whose actual benefit depends considerably more on resourcing, teacher preparation, and implementation fidelity than on the placement mandate alone — a conclusion suggesting that debates focused primarily on whether inclusion should occur may matter less, in practice, than debates focused on whether it is adequately resourced once it does.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật chiến lược sau đây:</b></p><ul><li><b>Dạng câu hỏi Ý chính (R4Q2):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc các câu chủ đề ở đầu mỗi đoạn và đoạn kết luận tổng kết bài viết: bài viết phân tích chuyển biến chính sách giáo dục hòa nhập (inclusive education) nhưng nhấn mạnh hiệu quả thực tế phụ thuộc lớn vào nguồn lực tài chính, đào tạo giáo viên và hỗ trợ thực thi hơn là chỉ dựa vào sắc lệnh/mệnh lệnh (mandate). Vì vậy, phương án chính xác phải thể hiện rằng lợi ích của giáo dục hòa nhập phụ thuộc nhiều vào việc phân bổ nguồn lực hơn là chỉ ban hành chính sách đơn thuần.</li><li><b>Dạng câu hỏi Chi tiết (R4Q1, R4Q5):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa đặc hiệu):<ul><li>Với <b>R4Q1</b>, quét từ khóa \"non-disabled peers\" ở đoạn 4: bài đọc khẳng định tác động đến học sinh không khuyết tật mang tính trung lập đến tích cực nhẹ, với điều kiện đi kèm nhân sự hỗ trợ đầy đủ (adequate support staffing).</li><li>Với <b>R4Q5</b>, quét từ khóa \"communication needs\" hoặc \"parents\" ở đoạn 7: một bộ phận phụ huynh có con gặp khó khăn về giao tiếp/hành vi báo cáo rằng họ ưu tiên các môi trường chuyên biệt (specialized settings) vì tin rằng nơi đó đáp ứng tốt hơn nhu cầu cụ thể của trẻ.</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q4):</b> Đối soát kỹ các thách thức được nêu trong bài: thiếu sót trong đào tạo giáo viên (đoạn 5), quy mô lớp học lớn (đoạn 5) và sự tiếp cận công nghệ hỗ trợ không đồng đều (đoạn 6). Yếu tố thiếu không gian sân chơi ở các trường đô thị (lack of playground space in urban schools) hoàn toàn không được đề cập tới.</li><li><b>Dạng câu hỏi Chèn câu vào vị trí phù hợp (R4Q7):</b> Đọc phân tích câu cần chèn: <i>\"This mismatch between training and mandate has left many educators feeling underprepared for a role their credentials never fully anticipated.\"</i> Câu này chứa cụm từ quy chiếu <strong>\"This mismatch between training and mandate\"</strong> (Sự bất hợp lý/mất cân đối giữa đào tạo và yêu cầu chính sách này). Ngay trước vị trí <b>[1]</b> ở đoạn 5, tác giả vừa đề cập đến \"teacher-preparation gap\" - khoảng trống đào tạo giáo viên chưa theo kịp sự mở rộng của các luật định về giáo dục hòa nhập. Do đó, vị trí <b>[1]</b> là điểm nối logic hoàn hảo nhất.</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R4Q3</b>, từ <strong>\"diminished\"</strong> ở đoạn 2 đi kèm với cụm \"expectations\" (kỳ vọng bị hạ thấp/giảm sút). Trong ngữ cảnh này, từ đồng nghĩa chính xác nhất là bị làm giảm, hạ thấp (lowered).</li><li>Với <b>R4Q8</b>, từ <strong>\"disparity\"</strong> ở đoạn 6 mô tả sự chênh lệch trong việc tiếp cận công nghệ hỗ trợ giữa các khu học chánh giàu và nghèo tài chính. Ngữ cảnh này thể hiện sự bất bình đẳng, không đồng đều (inequality).</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q6):</b> Tập trung vào cụm từ <strong>\"This support-dependence\"</strong> ở đoạn 3. Áp dụng quy tắc đọc ngược lại câu trước: câu trước giải thích rằng mức độ lợi ích của lớp học hòa nhập thay đổi đáng kể tùy thuộc vào các cấu trúc hỗ trợ cụ thể có mặt trong lớp học đó (benefit varies considerably depending on the specific support structures present). Do đó, cụm từ này quy chiếu trực tiếp đến việc hiệu quả phụ thuộc vào các yếu tố hỗ trợ có sẵn.</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Kết hợp logic ở đoạn 6 về tiếp cận công nghệ hỗ trợ. Tác giả lưu ý rằng sự chênh lệch nguồn lực có nguy cơ tái tạo lại chính những bất bình đẳng mà giáo dục hòa nhập ban đầu muốn giải quyết (reproducing the very inequities inclusion was originally intended to address). Từ đó suy ra tiếp cận nguồn lực không đồng đều có thể vô tình tái hiện lại sự bất bình đẳng ban đầu.</li><li><b>Dạng câu hỏi Thái độ tác giả (R4Q10):</b> Phân tích lập luận toàn bài và câu kết luận ở đoạn cuối. Tác giả đánh giá giáo dục hòa nhập là hướng đi tốt nhưng liên tục đưa ra lời cảnh báo rằng mệnh lệnh chính sách nếu không đi kèm việc đảm bảo nguồn lực, đào tạo giáo viên và nhân sự hỗ trợ sẽ không mang lại hiệu quả thực tế. Thái độ này mang tính thận trọng, cảnh báo (Cautionary).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên giải quyết các câu hỏi định vị nhanh như <b>Từ vựng</b> (R4Q3, R4Q8) và <b>Quy chiếu</b> (R4Q6). Tiếp đến, áp dụng kỹ thuật đọc quét từ khóa để xử lý các câu <b>Chi tiết</b> (R4Q1, R4Q5), câu <b>Loại trừ</b> (R4Q4) và câu <b>Chèn câu</b> (R4Q7) nhờ phân tích tính liên kết câu. Cuối cùng, tổng hợp góc nhìn toàn diện từ bài đọc để hoàn thành chính xác câu hỏi <b>Suy luận</b> (R4Q9), <b>Thái độ tác giả</b> (R4Q10) và <b>Ý chính toàn bài</b> (R4Q2).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what determines whether non-disabled peers experience positive or negative effects in inclusive classrooms?</span>",
+              "options": [
+                "Whether teachers received specialized certification before graduating college.",
+                "The number of non-disabled students enrolled in the school.",
+                "The overall academic reputation of the school district.",
+                "Adequate support staffing accompanying the inclusive placement."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Inclusion's benefit depends more on resourcing than mandate alone.",
+                "Every inclusive classroom produces identical positive outcomes for all students.",
+                "Assistive technology alone determines inclusion's overall success.",
+                "Segregated classrooms have been proven better than inclusion universally."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"diminished\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "diminutive",
+                "lowered",
+                "segregated",
+                "eliminated"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a challenge to implementing inclusive education?</span>",
+              "options": [
+                "Insufficient teacher training for inclusive instruction",
+                "Uneven access to assistive technology across districts",
+                "Lack of playground space in urban schools",
+                "Large class sizes reducing individualized attention"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do some parents of children with significant communication needs report preferring?</span>",
+              "options": [
+                "Inclusive placement exclusively, regardless of their child's needs.",
+                "Fully segregated schools with no mainstream contact whatsoever.",
+                "Homeschooling arrangements instead of any school-based placement.",
+                "Specialized settings they believe better address specific needs."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This support-dependence\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "the benefit varying with available classroom supports",
+                "dedicated aide staffing",
+                "individualized learning plans",
+                "an undifferentiated placement category"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>Which of the following square brackets <strong>[1]</strong>, <strong>[2]</strong>, <strong>[3]</strong>, or <strong>[4]</strong> best indicates where the following sentence could be added? 'This mismatch between training and mandate has left many educators feeling underprepared for a role their credentials never fully anticipated.'</span>",
+              "options": [
+                "[1]",
+                "[2]",
+                "[3]",
+                "[4]"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"disparity\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "inequality",
+                "disparate",
+                "technology",
+                "disaster"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between unequal resource access and the original goals of inclusion?</span>",
+              "options": [
+                "Reduced inequity in classrooms caused increased technology funding.",
+                "Unequal resource access may recreate the inequities inclusion aimed to fix.",
+                "Better-funded districts have completely eliminated all inclusion-related inequities.",
+                "Assistive technology has expanded what classrooms can accommodate."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall stance on mandating inclusive education without addressing resourcing?</span>",
+              "options": [
+                "Fully opposed to any form of inclusive education policy.",
+                "Cautionary, arguing resourcing matters as much as the mandate.",
+                "Uncritically supportive of mandates regardless of resourcing levels.",
+                "Focused solely on criticizing parental preferences for segregation."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. Your friend, Tom, has just come back from a family trip and has asked you about your recent holiday with your family.</p> Read part of his email below.",
+          "content": "<p class='mb-1'>I heard you went on a trip with your family recently. I'd love to hear all about it!</p><ul><li>When did you go, and where did you travel to?</li><li>What activities did you and your family do together?</li><li>How long did the trip last, and how did you feel about it?</li></ul>",
+          "description": "You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Informal Email</strong> (thư gửi bạn thân) kể lại chuyến du lịch cùng gia đình. Đề bài yêu cầu trả lời đủ <strong>3 ý chính</strong>: (1) đi khi nào và đến đâu, (2) những hoạt động cả gia đình đã cùng làm, (3) chuyến đi kéo dài bao lâu và cảm nhận của bạn về chuyến đi đó. Bài viết cần tối thiểu <strong>120 từ</strong>, giọng văn thân mật, kể chuyện tự nhiên như đang tâm sự với bạn bè.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi thân mật. Ví dụ: Dear Tom,</li><li><strong>Opening:</strong> Bày tỏ sự vui mừng khi nhận thư. Ví dụ: It's great to hear from you! I'd love to tell you all about our family trip.</li><li><strong>Body 1 (thời gian và địa điểm):</strong> Ví dụ: We went to Da Lat for a week during the summer holiday, as my parents wanted to escape the summer heat.</li><li><strong>Body 2 (hoạt động):</strong> Ví dụ: We spent our days visiting flower gardens, trying local specialties, and even went camping by a lake one night.</li><li><strong>Body 3 (thời lượng và cảm nhận):</strong> Ví dụ: The trip lasted seven days in total, and it was honestly one of the most memorable holidays we've had together as a family.</li><li><strong>Closing:</strong> Ví dụ: I hope you and your family get to visit Da Lat sometime too. It's truly worth it!</li><li><strong>Sign-off:</strong> Best wishes, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Dùng thì quá khứ đơn để kể lại các sự kiện đã xảy ra (went, visited, tried), kết hợp với tính từ miêu tả cảm xúc để bài viết sinh động và chân thật hơn. Tránh lặp lại từ \"go/went\" hoặc \"fun\" quá nhiều lần, nên thay bằng các từ đồng nghĩa.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>family trip:</strong> chuyến du lịch cùng gia đình</li><li><strong>local specialty:</strong> đặc sản địa phương</li><li><strong>go camping:</strong> đi cắm trại</li><li><strong>memorable holiday:</strong> kỳ nghỉ đáng nhớ</li><li><strong>bond with family:</strong> gắn kết với gia đình</li><li><strong>scenic route:</strong> tuyến đường ngắm cảnh</li><li><strong>quality time:</strong> thời gian chất lượng bên nhau</li><li><strong>worth visiting:</strong> đáng để ghé thăm</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>After that:</strong> Sau đó</li><li><strong>Besides:</strong> Bên cạnh đó</li><li><strong>Especially:</strong> Đặc biệt là</li><li><strong>On the last day:</strong> Vào ngày cuối cùng</li><li><strong>Overall:</strong> Nhìn chung</li></ul><p><strong>Cách diễn đạt cảm xúc:</strong></p><ul><li><strong>It was truly a memorable experience:</strong> Đó thực sự là một trải nghiệm đáng nhớ</li><li><strong>I felt so relaxed and happy:</strong> Tôi cảm thấy rất thư giãn và hạnh phúc</li><li><strong>We had such a wonderful time together:</strong> Chúng tôi đã có khoảng thời gian tuyệt vời bên nhau</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Quên chia thì quá khứ khi kể lại các sự kiện đã xảy ra.</li><li>Bỏ sót một trong ba ý chính, đặc biệt là thời lượng chuyến đi.</li><li>Liệt kê hoạt động khô khan mà không kèm cảm nhận cá nhân.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã trả lời đủ cả 3 ý trong đề chưa.</li><li>Rà soát lỗi chia thì quá khứ và chính tả.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy kể chuyến đi như đang thực sự chia sẻ một kỷ niệm đẹp với bạn thân. Ưu tiên sự chân thật, sinh động và đầy đủ thông tin hơn là cố gắng dùng từ ngữ quá cầu kỳ.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "adv_dis",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>As concerns about climate change continue to grow, more countries are turning to green energy sources such as solar, wind and hydropower to meet their energy needs.</p><p class='mb-1'>While this shift is often praised for its environmental benefits, it also raises questions about cost, reliability and practicality.</p><p class='mb-1'><strong>Discuss the advantages and disadvantages of green energy.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the advantages and disadvantages of green energy. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Advantages & Disadvantages Essay</strong>. Bạn cần trình bày cân đối cả <strong>ưu điểm và nhược điểm</strong> của việc phát triển năng lượng xanh, tránh thiên vị hoàn toàn về một phía. Có thể nêu quan điểm cá nhân ngắn gọn ở phần kết luận nếu phù hợp. Bài viết cần tối thiểu <strong>250 từ</strong>.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu xu hướng chuyển đổi sang năng lượng xanh và nêu luận điểm chính. Ví dụ: As countries strive to combat climate change, the shift towards green energy has brought both promising benefits and notable challenges.</li><li><strong>Body 1 (ưu điểm):</strong> Ví dụ: One clear advantage of green energy is its minimal environmental impact, as it produces little to no greenhouse gas emissions during operation.</li><li><strong>Body 2 (ưu điểm khác):</strong> Ví dụ: Moreover, renewable sources help reduce a country's dependence on imported fossil fuels, thereby improving energy security in the long run.</li><li><strong>Body 3 (nhược điểm):</strong> Ví dụ: On the other hand, the high upfront costs of building infrastructure such as solar farms or wind turbines can be a significant barrier, particularly for developing countries.</li><li><strong>Conclusion:</strong> Tóm tắt hai mặt và đưa ra nhận định. Ví dụ: In conclusion, despite the financial and technical challenges involved, the long-term environmental gains of green energy make it a direction worth pursuing.</li></ul><p><strong>Mỗi đoạn thân bài nên theo cấu trúc:</strong> Topic sentence → Giải thích → Ví dụ minh họa → Kết mini-đoạn, giúp bài viết mạch lạc và cân đối.</p><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng cấu trúc so sánh và đối lập (whereas, while, unlike) để làm rõ ranh giới giữa ưu điểm và nhược điểm, cùng với thì hiện tại đơn khi trình bày sự thật chung. Cần có thesis statement rõ ràng ngay từ mở bài để định hướng bài viết.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>renewable energy:</strong> năng lượng tái tạo</li><li><strong>energy security:</strong> an ninh năng lượng</li><li><strong>infrastructure cost:</strong> chi phí cơ sở hạ tầng</li><li><strong>environmental impact:</strong> tác động môi trường</li><li><strong>solar/wind farm:</strong> trang trại năng lượng mặt trời/gió</li><li><strong>energy storage:</strong> lưu trữ năng lượng</li><li><strong>non-renewable resources:</strong> nguồn tài nguyên không tái tạo</li><li><strong>carbon-neutral:</strong> trung hòa carbon</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>Moreover / In addition (Thêm ý):</strong> Hơn nữa</li><li><strong>On the other hand / However (Đối lập):</strong> Mặt khác / Tuy nhiên</li><li><strong>As a result / Therefore (Nguyên nhân-kết quả):</strong> Do đó</li><li><strong>For example / Such as (Ví dụ):</strong> Ví dụ như</li><li><strong>In conclusion / Overall (Kết luận):</strong> Tóm lại</li><li><strong>Despite / Although (Nhượng bộ):</strong> Mặc dù</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>green energy:</strong> có thể thay bằng \"clean/renewable power sources\"</li><li><strong>advantages and disadvantages:</strong> có thể thay bằng \"benefits and drawbacks\"</li><li><strong>climate change:</strong> có thể thay bằng \"global environmental change\"</li></ul><p><strong>Cách diễn đạt so sánh:</strong></p><ul><li><strong>Whereas green energy offers..., fossil fuels tend to...:</strong> Trong khi năng lượng xanh mang lại..., thì nhiên liệu hóa thạch lại...</li><li><strong>Unlike traditional power sources,...:</strong> Không giống như các nguồn năng lượng truyền thống,...</li><li><strong>Despite its benefits,...:</strong> Mặc dù có những lợi ích,...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ tập trung vào ưu điểm hoặc nhược điểm mà bỏ qua mặt còn lại.</li><li>Thiếu ví dụ cụ thể để minh họa cho từng luận điểm.</li><li>Không có sự chuyển ý rõ ràng giữa phần ưu điểm và nhược điểm.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã đạt tối thiểu 250 từ chưa.</li><li>Đảm bảo bài viết trình bày cân đối cả ưu điểm và nhược điểm.</li><li>Xem lại phần kết luận đã tóm tắt hợp lý cả hai mặt chưa.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy giữ thái độ khách quan, trình bày cả hai mặt một cách công bằng thay vì thiên vị. Sự cân đối và logic trong lập luận là yếu tố then chốt để đạt điểm cao ở dạng bài này.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "What do you think are your main responsibilities towards your family?",
+            "How do you usually help your family members in daily life?",
+            "Do you think responsibilities towards family change as people grow older? Why?",
+            "Why do you think making money is important?",
+            "What are some ways young people today try to earn money?",
+            "Do you think money can bring happiness? Why or why not?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần 1 kéo dài <strong>3 phút</strong> với <strong>6 câu hỏi</strong> chia thành 2 chủ đề nhỏ, giúp giám khảo đánh giá khả năng giao tiếp tự nhiên ngay từ đầu bài thi.</li><li><strong>Topic A (Trách nhiệm với gia đình):</strong> Câu 1-3 hỏi về trách nhiệm chính của bạn với gia đình, cách bạn giúp đỡ người thân và việc trách nhiệm có thay đổi theo tuổi tác hay không, kiểm tra khả năng bày tỏ quan điểm về giá trị gia đình.</li><li><strong>Topic B (Kiếm tiền):</strong> Câu 4-6 hỏi về tầm quan trọng của việc kiếm tiền, cách người trẻ kiếm tiền và mối liên hệ giữa tiền bạc và hạnh phúc, kiểm tra vốn từ về tài chính và tư duy phản biện.</li><li>Tiêu chí chấm điểm gồm <strong>Fluency</strong>, <strong>Vocabulary</strong>, <strong>Grammar</strong> và <strong>Pronunciation</strong>.</li><li>Nên phân bổ khoảng <strong>25-35 giây</strong> cho mỗi câu, tránh trả lời quá dài ở Topic A khiến Topic B bị thiếu thời gian.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Áp dụng cấu trúc <strong>Answer - Reason - Example (ARE)</strong> để câu trả lời có chiều sâu thay vì chỉ nói một câu ngắn gọn.</li><li><strong>Ví dụ Topic A:</strong> \"I think one of my main responsibilities is to support my parents emotionally and financially as they get older, because they have sacrificed a lot for me.\"</li><li><strong>Ví dụ Topic B:</strong> \"I believe making money is important because it allows me to be independent and take care of the people I love.\"</li><li>Luôn tự hỏi <strong>Why?/How?</strong> sau khi trả lời để mở rộng ý, tránh câu trả lời cụt lủn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển tiếp mượt mà, ví dụ: \"Speaking of taking care of my family, that's actually one of the main reasons why earning money matters so much to me.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ nhịp nói ổn định, dùng từ đệm như \"well\", \"actually\", \"to be honest\" để tránh im lặng kéo dài khi suy nghĩ.</li><li>Dùng <strong>thì hiện tại đơn</strong> để nói về trách nhiệm và quan điểm chung (I believe..., I usually...) và <strong>động từ khuyết thiếu should/have to</strong> khi nói về nghĩa vụ (I should take care of my parents).</li><li>Nếu quên từ, hãy diễn giải thay vì im lặng, ví dụ thay vì \"provide for\" có thể nói \"give money and support to\".</li><li>Từ vựng cho Topic A: <strong>take care of</strong> (chăm sóc), <strong>be there for someone</strong> (ở bên cạnh ai đó), <strong>filial piety</strong> (lòng hiếu thảo).</li><li>Từ vựng cho Topic B: <strong>earn a living</strong> (kiếm sống), <strong>financial independence</strong> (độc lập tài chính), <strong>make ends meet</strong> (đủ trang trải cuộc sống).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>lend a helping hand</strong> - giúp đỡ (Topic A)</li><li><strong>a sense of duty</strong> - ý thức trách nhiệm (Topic A)</li><li><strong>repay my parents' love</strong> - đền đáp tình yêu thương của cha mẹ (Topic A)</li><li><strong>a part-time job</strong> - công việc bán thời gian (Topic B)</li><li><strong>save up for the future</strong> - tiết kiệm cho tương lai (Topic B)</li><li><strong>a stable income</strong> - thu nhập ổn định (Topic B)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước tiên</li><li><strong>Besides that</strong> - bên cạnh đó</li><li><strong>Moreover</strong> - hơn nữa</li><li><strong>As for...</strong> - còn về...</li><li><strong>In short</strong> - tóm lại</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>To me, ...matters a lot</strong> ví dụ: \"To me, supporting my family matters a lot, especially as my parents grow older.\" (Đối với tôi, ...rất quan trọng)</li><li><strong>I truly believe that...</strong> ví dụ: \"I truly believe that earning money gives you more freedom in life.\" (Tôi thực sự tin rằng...)</li><li><strong>What matters most to me is...</strong> ví dụ: \"What matters most to me is being able to provide for my family.\" (Điều quan trọng nhất với tôi là...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\" hoặc \"No\" rồi im lặng - lỗi nghiêm trọng nhất khiến giám khảo không đánh giá được khả năng ngôn ngữ.</li><li>Ở Topic A, nhiều bạn chỉ nói chung chung \"I love my family\" mà không nêu được trách nhiệm cụ thể.</li><li>Ở Topic B, nhiều bạn chỉ nói \"money is important\" mà không giải thích lý do hoặc cách kiếm tiền cụ thể.</li><li>Dùng sai thì, ví dụ dùng thì quá khứ khi nói về quan điểm hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's a thoughtful question, let me think about it for a moment.\"</li><li>Nếu quên từ vựng cụ thể, hãy mô tả bằng từ đơn giản hơn thay vì dừng lại.</li><li>Với Topic A, nếu bí ý, hãy kể về một kỷ niệm cụ thể với gia đình để minh họa.</li><li>Với Topic B, nếu bí ý, hãy nói về dự định công việc trong tương lai gần.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy coi đây như một cuộc trò chuyện chân thành về giá trị cá nhân, không phải một bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để tránh nhầm lẫn nội dung giữa hai chủ đề.</li><li>Sự chân thành và trôi chảy quan trọng hơn việc cố dùng từ vựng phức tạp mà không chắc chắn.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You have just graduated and received three different job offers.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: A job with a high salary</li><li>Option 2: A job with a good working environment</li><li>Option 3: A job that you are truly passionate about</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống đưa ra là lựa chọn công việc sau khi tốt nghiệp, với 3 lựa chọn: lương cao, môi trường làm việc tốt, và công việc mình yêu thích.</li><li>Tiêu chí chấm điểm gồm khả năng phân tích, so sánh và đưa ra quyết định có lý lẽ thuyết phục.</li><li>Thời gian làm bài là <strong>4 phút</strong>, trong đó khoảng 1 phút chuẩn bị và 3 phút nói.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction - Comparison/Body - End)</strong>: giới thiệu tình huống, so sánh 3 lựa chọn, sau đó kết luận và chọn phương án tốt nhất.</li><li><strong>Option 1 (Lương cao):</strong> Giúp ổn định tài chính và hỗ trợ gia đình sớm, tuy nhiên công việc lương cao thường đi kèm áp lực lớn và ít thời gian cho bản thân.</li><li><strong>Option 2 (Môi trường tốt):</strong> Giúp duy trì sức khỏe tinh thần, có đồng nghiệp thân thiện và cơ hội học hỏi, nhưng có thể mức lương không cao bằng các lựa chọn khác.</li><li><strong>Option 3 (Công việc yêu thích):</strong> Mang lại động lực và sự hài lòng lâu dài trong công việc, tuy nhiên có thể thu nhập ban đầu chưa cao và cần thời gian để phát triển.</li><li>Nên gắn lập luận với ngữ cảnh thực tế, ví dụ giai đoạn mới ra trường cần ưu tiên điều gì trước.</li><li>Dùng từ nối tương phản để chuyển giữa ưu và nhược điểm của từng lựa chọn, ví dụ \"however\", \"on the other hand\".</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ so sánh trực tiếp Option 1 và Option 3 trước khi nói tới Option 2.</li><li>Dùng thì hiện tại đơn để miêu tả đặc điểm chung của từng lựa chọn (A high salary usually means...) và thì tương lai để nói về dự định (I will probably prioritize...).</li><li>Sử dụng từ đồng nghĩa để tránh lặp lại \"good\" hoặc \"important\", ví dụ \"fulfilling\", \"rewarding\", \"essential\".</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a competitive salary</strong> - mức lương cạnh tranh</li><li><strong>a supportive workplace</strong> - môi trường làm việc hỗ trợ</li><li><strong>job satisfaction</strong> - sự hài lòng trong công việc</li><li><strong>burn out</strong> - kiệt sức vì công việc</li><li><strong>career growth</strong> - sự phát triển sự nghiệp</li><li><strong>pursue your passion</strong> - theo đuổi đam mê</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared to...</strong> - so với...</li><li><strong>On the other hand</strong> - mặt khác</li><li><strong>Nevertheless</strong> - tuy nhiên</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố</li><li><strong>All things considered</strong> - nhìn chung, xét mọi mặt</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I had to choose, I would go with...</strong> ví dụ: \"If I had to choose, I would go with the job I'm passionate about because it keeps me motivated long-term.\" (Nếu phải chọn, tôi sẽ chọn...)</li><li><strong>I'm inclined to think that...</strong> ví dụ: \"I'm inclined to think that a good working environment matters more than salary at the start of a career.\" (Tôi nghiêng về suy nghĩ rằng...)</li><li><strong>All things considered, I believe...</strong> ví dụ: \"All things considered, I believe passion is the key to long-term success.\" (Xét mọi mặt, tôi tin rằng...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của các lựa chọn còn lại.</li><li>Lặp lại từ \"good\" hoặc \"important\" nhiều lần thay vì dùng tính từ học thuật hơn.</li><li>Không đưa ra kết luận rõ ràng ở cuối bài, khiến giám khảo không biết bạn thực sự chọn phương án nào.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng chuyên biệt về công việc, hãy chuyển hướng sang yếu tố thời gian hoặc cảm xúc, ví dụ \"it also makes me feel happier every day\".</li><li>Dùng câu đệm: \"Let's evaluate this option from a different perspective\" để có thêm thời gian suy nghĩ.</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang lựa chọn tiếp theo thay vì dừng lại quá lâu.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như người ra quyết định thực sự - đâu là lựa chọn phù hợp và bền vững nhất cho giai đoạn hiện tại của cuộc đời bạn.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn được chọn để thể hiện tư duy phản biện, ví dụ có thể thương lượng thêm về lương dù chọn công việc yêu thích.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits of failure in personal growth",
+          "mindmap": {
+            "title": "Benefits of Failure",
+            "ideas": [
+              "Learning valuable lessons from mistakes",
+              "Building resilience and character",
+              "Motivation for future success",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Do you think schools should teach students how to handle failure?",
+            "How can people stay motivated after experiencing failure?",
+            "Is failure always a bad thing? Why or why not?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về lợi ích của thất bại, dựa trên 3 nhánh ý chính: bài học rút ra từ sai lầm, xây dựng sự kiên cường và tính cách, động lực cho thành công trong tương lai, cùng nhánh ý tự do thứ 4.</li><li>Tiêu chí chấm điểm gồm khả năng phát triển ý, tính mạch lạc và vốn từ vựng học thuật liên quan đến tâm lý và phát triển bản thân.</li><li>Thời gian là <strong>5 phút</strong>, bao gồm khoảng 3-3.5 phút cho bài nói chính và phần còn lại cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>FEEL (Point - Explanation - Example - Link)</strong> cho mỗi nhánh ý để đảm bảo có dẫn chứng cụ thể thay vì chỉ liệt kê ý chung chung.</li><li><strong>Câu mở đầu gợi ý:</strong> \"Today, I would like to talk about the benefits of failure and why it plays an important role in personal growth.\"</li><li><strong>Câu cho nhánh ý cá nhân:</strong> \"Besides these benefits, I also think failure helps people develop humility and empathy towards others.\"</li><li>Nên đưa ra ví dụ thực tế để tăng tính thuyết phục, ví dụ nhắc đến những người thành công từng thất bại nhiều lần trước khi đạt được mục tiêu.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lan man sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển tiếp mượt mà giữa các nhánh ý để bài nói liền mạch.</li><li>Kết hợp <strong>thì hiện tại đơn</strong> để nêu sự thật chung (Failure teaches us valuable lessons) và <strong>hiện tại hoàn thành</strong> để nói về trải nghiệm tích lũy (I have learned a lot from my past mistakes).</li><li>Paraphrase cụm từ chính \"failure\" bằng các cách diễn đạt khác như \"setbacks\" hoặc \"unsuccessful attempts\".</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>learn from one's mistakes</strong> - học hỏi từ sai lầm của bản thân</li><li><strong>bounce back</strong> - vực dậy sau thất bại</li><li><strong>build resilience</strong> - xây dựng sự kiên cường</li><li><strong>a stepping stone to success</strong> - bước đệm dẫn đến thành công</li><li><strong>step out of one's comfort zone</strong> - bước ra khỏi vùng an toàn</li><li><strong>a valuable life lesson</strong> - bài học quý giá trong cuộc sống</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>First and foremost</strong> - trước hết</li><li><strong>Another benefit is...</strong> - một lợi ích khác là...</li><li><strong>Not only... but also...</strong> - không chỉ... mà còn...</li><li><strong>As a result</strong> - kết quả là</li><li><strong>To sum up</strong> - tóm lại</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>From my perspective, ...</strong> ví dụ: \"From my perspective, failure is often more valuable than early success.\" (Theo quan điểm của tôi, ...)</li><li><strong>It seems to me that...</strong> ví dụ: \"It seems to me that people who never fail rarely learn how to overcome real challenges.\" (Dường như đối với tôi rằng...)</li><li><strong>I would argue that...</strong> ví dụ: \"I would argue that failure is an essential part of the learning process.\" (Tôi cho rằng...)</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Do you think schools should teach students how to handle failure?\"</strong> - Yes, schools should help students see failure as a normal part of learning rather than something to fear.</li><li><strong>\"How can people stay motivated after experiencing failure?\"</strong> - They can focus on what they learned, set new realistic goals, and seek support from friends or mentors.</li><li><strong>\"Is failure always a bad thing? Why or why not?\"</strong> - Not necessarily, because failure often provides insights and motivation that success alone cannot offer.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê nhánh ý mà không giải thích hoặc đưa ví dụ cụ thể.</li><li>Quên nhánh ý cá nhân (nhánh thứ 4) - nên chuẩn bị trước để tránh bị động.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Khi bí ý, hãy liên hệ đến trải nghiệm thất bại thực tế của bản thân trong học tập hoặc công việc để có thêm ví dụ.</li><li>Dùng câu học thuật để câu giờ: \"That is a complex issue. If we evaluate it from a psychological perspective...\"</li><li>Nếu quên từ vựng chuyên môn, hãy dùng từ đồng nghĩa đơn giản hơn hoặc mô tả khái niệm bằng câu dễ hiểu.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Hãy tư duy thực tế, nhìn nhận thất bại như một phần tất yếu của quá trình trưởng thành.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố then chốt để đạt điểm cao.</li><li>Đừng ngại đưa ra góc nhìn cá nhân, vì điều đó giúp bài nói trở nên chân thực và thuyết phục hơn.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

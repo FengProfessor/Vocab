@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-32",
+  "title": "Luyện Đọc VSTEP: Sleep and Human Health (VstepR3-Test 02)",
+  "duration": 10,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Sleep and Human Health",
+            "text": "<p style=\"text-align:justify;\">Sleep is one of the most fundamental biological needs of the human body. During sleep, the brain consolidates memories, repairs neural connections, and processes the experiences of the day. The body also uses this time to repair tissues, produce hormones, and strengthen the immune system. Despite its critical importance, many people in modern society are chronically sleep-deprived, often sacrificing rest to meet the demands of work, school, or social activities.</p>\n<p style=\"text-align:justify;\">Research has shown that insufficient sleep has serious consequences for both physical and mental health. People who regularly sleep fewer than seven hours per night are at higher risk for conditions including obesity, diabetes, cardiovascular disease, and depression. Cognitive functions such as attention, decision-making, and problem-solving are also impaired by sleep deprivation. Studies have found that sleep-deprived individuals perform as poorly as those who are legally intoxicated in tests of reaction time and judgment.</p>\n<p style=\"text-align:justify;\">Given these findings, public health experts are increasingly calling for greater awareness of sleep hygiene — the set of practices that promote regular, high-quality sleep. These include maintaining a consistent sleep schedule, avoiding screens before bedtime, limiting caffeine consumption in the evening, and creating a dark, quiet sleeping environment. Schools and workplaces are also being encouraged to adjust their schedules to better align with natural sleep patterns, particularly for adolescents, who tend to have later natural sleep cycles than adults.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r32-q1",
+              "type": "mcq",
+              "question": "What is the best title for this passage?",
+              "options": [
+                "How to Fall Asleep Quickly",
+                "The Importance of Sleep for Human Health",
+                "Why Students Stay Up Late",
+                "The History of Sleep Research"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r32-q2",
+              "type": "mcq",
+              "question": "What is the main idea of paragraph 1?",
+              "options": [
+                "Sleep deprivation is common in developed countries only",
+                "Sleep is essential for the body and brain but is often neglected in modern life",
+                "The brain is most active during deep sleep",
+                "Modern people sleep more than they need to"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r32-q3",
+              "type": "mcq",
+              "question": "The main purpose of paragraph 2 is to?",
+              "options": [
+                "explain how to cure insomnia",
+                "discuss the health consequences of insufficient sleep",
+                "compare sleep patterns in different countries",
+                "list treatments for sleep disorders"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r32-q4",
+              "type": "mcq",
+              "question": "What is the main argument presented in paragraph 3?",
+              "options": [
+                "Schools should give less homework",
+                "Caffeine should be banned from schools",
+                "Society should adopt better practices and policies to support healthy sleep",
+                "Technology is the only cause of sleep problems"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r32-q5",
+              "type": "mcq",
+              "question": "Which statement best summarizes the main message of the passage?",
+              "options": [
+                "Most people sleep too much and should be more active",
+                "Sleep is vital for health, and many problems arise from not getting enough of it",
+                "Traditional medicine has better solutions for sleep problems than modern science",
+                "Sleep disorders are impossible to cure without medication"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

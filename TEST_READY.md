@@ -1,179 +1,180 @@
-# Test Readiness Certification: Video Learning & Vocabulary Redesign
+# TEST READY: VSTEP Standardized Exam Engine
 
-**Project**: Video Learning & Vocabulary Redesign  
-**Module**: Video Immersion Hub (`/practice/listening` & `/practice/listening/[videoId]`)  
+**Subsystem**: VSTEP Computer-Based Examination & Practice Engine (`/vstep` & `/vstep/exam/[examId]`)  
 **Track**: E2E Testing Track Orchestration  
-**Status**: APPROVED & READY FOR IMPLEMENTATION VALIDATION  
-**Date**: 2026-09-08  
-**Author**: Test Writer (`test_writer_e2e`)  
+**Status**: 🟢 **READY — 100% TEST PASS RATE (0 DEFECTS)**  
+**Workspace Root**: `d:\Vibe\Vocab\web-app`  
+**Date**: 2026-09-12  
 
 ---
 
-## 1. Quality Gate Certification
+## 1. Executive Summary & Readiness Declaration
 
-The automated test infrastructure and comprehensive E2E test suite for the **Video Learning & Vocabulary Redesign** project have been successfully authored, verified, and integrated into the project's master test runner.
+The E2E Test Suite for the **VSTEP Standardized Examination Engine** has been successfully designed, implemented, and executed. All 77 newly created requirement-driven tests across Tiers 1–4 pass cleanly with zero failures and zero regressions.
 
-- **Total Automated Tests**: 150 tests (97 baseline regression tests + 53 redesign E2E tests).
-- **Pass Rate**: 100% (150/150 tests passed, 0 failures, 0 regressions).
-- **TypeScript Typecheck**: 0 errors (`tsc --noEmit`).
-- **Execution Performance**: Full 150-test suite runs in <2 seconds.
-- **Test Integrity**: Zero facade tests. Every assertion verifies observable outputs, deterministic mathematical oracles, and public interface contracts.
+All tests strictly follow the **Technical Minimalist UI**, **Active Cyber Defense**, **Standardized Barem Engine**, and **Smart Anti-Duplication** guidelines specified in `standardized-exam-engine/SKILL.md` and `PROJECT.md`.
 
 ---
 
-## 2. Redesign Test Suite Breakdown (`tests/listening/e2e-video-redesign.test.ts`)
+## 2. Master Test Suite Execution Summary
 
-| Tier | Description | Minimum Required | Delivered Tests | Status |
-|---|---|:---:|:---:|:---:|
-| **Tier 1** | Feature Coverage (F1 to F6, $\ge 5$ tests per feature) | 30 | 33 | **PASS** |
-| **Tier 2** | Boundary & Corner Cases (B1 to B8) | 8 | 8 | **PASS** |
-| **Tier 3** | Cross-Feature Combinations (C1 to C8) | 8 | 8 | **PASS** |
-| **Tier 4** | Real-World Scenarios (S1 to S4) | 4 | 4 | **PASS** |
-| **Total** | **Video Redesign E2E Suite** | **50** | **53** | **PASS** |
+| Suite / Tier | Min Req | Total Tests | Passed | Failed | Duration | Status |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Tier 1: Feature Coverage** | 25 | **30** | 30 | 0 | 44ms | **PASS** |
+| **Tier 2: Boundary & Corner Cases** | 20 | **28** | 28 | 0 | 10ms | **PASS** |
+| **Tier 3: Cross-Feature Combinations** | 10 | **13** | 13 | 0 | 10ms | **PASS** |
+| **Tier 4: Real-World Scenarios** | 5 | **6** | 6 | 0 | 6ms | **PASS** |
+| **TOTAL ACROSS ALL 4 TIERS** | **60** | **77** | **77** | **0** | **78ms** | **PASS** |
 
-### Detailed Tier 1 Feature Verification
-- **F1: Shelf Grouping across 7 Life Topics**: 5 tests (`F1.1` – `F1.5`) verifying complete 200-video partition across `daily_life`, `social_conversations`, `workplace`, `travel`, `food_shopping`, `science_tech_health`, and `culture` ($\ge 15$ videos/shelf, localized metadata, zero duplication).
-- **F2: Daily 3-Video Recommendation Engine**: 6 tests (`F2.1` – `F2.6`) validating deterministic date-seeded Mulberry32 PRNG, 3 distinct topics, multi-level CEFR diversity, unwatched prioritization, and 100% completed catalog fallback.
-- **F3: Completed Video Move-To-Tail (Smart Queue Reordering)**: 6 tests (`F3.1` – `F3.6`) proving completed videos move to the shelf tail, unwatched items remain at the front in stable catalog order (zero UI jitter), multi-item grouping, and `inProgressFirst` mode.
-- **F4: Persistent Watch Status & Sticky Completion**: 6 tests (`F4.1` – `F4.6`) validating $\ge 90\%$ completion threshold, sticky completion invariant (rewinding never unmarks completed), YouTube ENDED event completion, status classification, and LocalStorage persistence roundtrip.
-- **F5: Minimalist Player Focus**: 5 tests (`F5.1` – `F5.5`) confirming 2-column layout (player + synced transcript), elimination of 4-tab exercise bar, absence of disruptive modals, focus mode persistence, and playback controls.
-- **F6: Synchronized Subtitles & Seeking**: 5 tests (`F6.1` – `F6.5`) ensuring $O(\log N)$ sub-second binary search sync, 1.2s hysteresis buffer across silences, authentic caption verification (0% template strings), click-to-seek, and non-blocking tokenization.
+### Non-Regression Quality Gates
+
+| Verification Suite | Target | Result | Status |
+|:---|:---:|:---:|:---:|
+| **VSTEP Baseline Suite** (`tests/vstep/test-vstep-engine.ts`) | 36 / 36 | **36 / 36 Passed** | **PASS** |
+| **TOEIC Master Test Suite** (`tests/toeic/run-all-toeic-tests.ts`) | 286 / 286 | **286 / 286 Passed** | **PASS** |
+| **TypeScript Typecheck** (`npm run typecheck`) | 0 errors | **0 errors** | **PASS** |
 
 ---
 
-## 3. Verification Commands & Verbatim Outputs
+## 3. Tier-by-Tier Verification Details
 
-### 3.1 Master Test Suite Execution
+### 3.1 Tier 1: Feature Coverage (30 Tests)
+- **F1: Catalog Metadata & Ingestion Integrity (6 tests)**:
+  - Validates `vstep-catalog-index.json` structure, version, and top-level fields.
+  - Verifies 5 exam categories (`full_mock`, `listening`, `reading`, `writing`, `speaking`) with Vietnamese descriptions and badges.
+  - Verifies `VstepExamCatalogItem` contract: duration, targetLevel (A2-C1), question and task counts.
+  - Validates authentic VSTEP Owl manifests (23 Full Mocks, 56 Listening sets).
+  - Verifies ingested test files on disk with valid `VstepExam` schema.
+  - Verifies zero duplicate test IDs.
+- **F2: Universal Loader Functions (6 tests)**:
+  - `loadRawVstepExam`: returns intact exam with sections, tasks, questions, and answers.
+  - Graceful handling of non-existent IDs (returns `null` without throwing).
+  - `stripSensitiveVstepData`: recursively removes answers, explanations, tapescripts, suggestions.
+  - `loadVstepExamSafe`: delivers safe client payload with zero answer leaks.
+  - `loadVstepSkillPractice`: loads practice sets by skill with matching section structure.
+  - Deep cloning invariant: mutations to loaded payload do not corrupt internal registry.
+- **F3: Standardized Barem Scoring Engine (6 tests)**:
+  - Listening raw-to-scaled score conversion (0..35 mapped to 0.0..10.0 scale).
+  - Reading raw-to-scaled score conversion (0..40 mapped to 0.0..10.0 scale).
+  - MOET quarter-point rounding rules (.00-.24 -> .0, .25-.74 -> .5, .75-.99 -> 1.0).
+  - CEFR level mapping strictly reflecting MOET rules (<4.0: A2, 4.0-5.5: B1, 6.0-8.0: B2, 8.5-10.0: C1).
+  - Multi-skill composite score calculation (arithmetic mean with MOET rounding).
+  - CEFR localized descriptions and badges.
+- **F4: Zero Bulk Leaks & Cyber Defense (6 tests)**:
+  - Zero answer fields in public safe exam payloads.
+  - Zero explanation fields in public safe exam payloads.
+  - Zero tapescripts in public safe exam payloads.
+  - On-demand single question explanation verification.
+  - Honeypot canary detection (`isVstepHoneypot`).
+  - Plausible data poisoning: answers shifted and deceptive explanations generated.
+- **F5: Smart Anti-Duplication Algorithms (6 tests)**:
+  - Uninitialized store returns empty map.
+  - `recordVstepQuestionAnswer` and `batchRecordVstepAnswers` persist attempt records.
+  - `getAnsweredVstepQuestionIds` isolates IDs strictly by skill and part.
+  - `getIncorrectVstepQuestionIds` filters strictly to latest failed questions.
+  - `loadVstepSkillPractice` in `unseen` mode excludes 100% of answered question IDs.
+  - `resetVstepSkillProgress` clears only target skill records while preserving others.
+
+### 3.2 Tier 2: Boundary & Corner Cases (28 Tests)
+- **B1: Score & Response Extremes (6 tests)**:
+  - Perfect score: all correct answers yield 10.0 / C1.
+  - Zero score: all wrong answers yield 0.0 / A2.
+  - Empty submissions: 0 answered questions yield 0.0 / A2.
+  - Clamping: negative correct clamped to 0, excess clamped to 10.0.
+  - Single correct question (1/40) yields raw 0.25 -> 0.5 (A2).
+  - Exact passing threshold: 16/40 in Reading yields 4.0 (B1 entry).
+- **B2: Fractional Rounding & CEFR Transitions (6 tests)**:
+  - MOET 3.75 boundary: 3.74 -> 3.5 (A2) vs 3.75 -> 4.0 (B1).
+  - MOET 5.75 boundary: 5.74 -> 5.5 (B1) vs 5.75 -> 6.0 (B2).
+  - MOET 8.25 boundary: 8.24 -> 8.0 (B2) vs 8.25 -> 8.5 (C1).
+  - Lower edge: 6.24 -> 6.0 vs 6.25 -> 6.5.
+  - Zero edge: 0.24 -> 0.0 vs 0.25 -> 0.5.
+  - Upper edge: 9.74 -> 9.5 vs 9.75 -> 10.0.
+- **B3: Cryptographic Session Token Boundaries (6 tests)**:
+  - Valid token verification with matching IP and testId.
+  - Tampered testId in payload rejected.
+  - Tampered signature bits rejected.
+  - Expired token rejected.
+  - IP mismatch rejected.
+  - Malformed tokens (empty, non-base64, wrong delimiters) safely rejected without throwing.
+- **B4: Honeypot Canary & Scraper Traps (5 tests)**:
+  - All CANARY_VSTEP_IDS caught by honeypot detector.
+  - Case-insensitive canary matching (`VSTEP-CANARY-HONEYPOT`).
+  - Bot flagging state machine correctly tracks and flags scrapers.
+  - Plausible data poisoning handles questions with missing answers safely.
+  - Steganographic watermark handles edge cases (short strings, no spaces, empty text).
+- **B5: Storage Corruptions & Corner Cases (5 tests)**:
+  - Corrupted JSON in localStorage recovers safely with empty store.
+  - Unseen mode with exhausted questions preserves remaining available tasks.
+  - Empty excluded IDs list returns complete section tasks.
+  - Part progress calculation with 0 totalInBank returns 0% without NaN.
+  - Non-existent questionId in on-demand explain returns null without throwing.
+
+### 3.3 Tier 3: Cross-Feature Combinations (13 Tests)
+- **C1: Multi-Section Anti-Duplication & Progress Isolation (5 tests)**:
+  - Concurrent progress tracking across Listening and Reading maintains isolated metrics.
+  - Unseen filter applied to Reading does not exclude questions in Listening.
+  - Mistakes mode after multi-section exam filters strictly to failed questions.
+  - Batch recording handles 75 questions across skills without store corruption.
+  - Toggling between unseen and mistakes mode maintains isolation of historical records.
+- **C2: Session Token HMAC Lifecycle & Watermarking (4 tests)**:
+  - Full HMAC lifecycle: create session -> submit answers -> verify -> explain with watermark.
+  - Steganographic payload preserves 100% of visible characters in Vietnamese text.
+  - Session token expiration lifecycle (valid before expiration, invalid after).
+  - Cross-test session token isolation (token for mock-01 rejected for mock-02).
+- **C3: Audio CDN Playback Validation & Media Integrity (4 tests)**:
+  - Cloudflare R2 audio link validation in Listening practice sets.
+  - Full mock exams audio media structure adheres to VstepTask schema.
+  - Stimulus-media consistency: exam duration > 0 and timed sections have timeLimit > 0.
+  - Server-side submit scoring integration: stripped client exam payload grades accurately.
+
+### 3.4 Tier 4: Real-World Application Scenarios (6 Tests)
+- **S1.1: Complete Candidate Full Simulation**:
+  - Full 172-minute mock exam flow: start room -> answer 50/75 questions -> flag 5 questions -> timer auto-submits -> server grades to 5.5 B1 -> candidate reviews flagged questions with explanations.
+- **S1.2: Multi-Round Practice Session (0% Duplicate)**:
+  - 3 consecutive rounds in unseen mode with 0% duplicate questions across rounds.
+- **S1.3: Spaced Repetition Remediation**:
+  - Candidate answers 20 questions with 6 mistakes, switches to mistakes mode, remediates all 6, achieving 0 mistakes remaining.
+- **S1.4: Skill Progress Reset**:
+  - Resetting Listening progress clears Listening metrics to 0 while leaving Reading history completely intact.
+- **S1.5: Cyber Attack Defense Simulation**:
+  - Malicious scraper hits canary honeypot, triggers silent data poisoning (HTTP 200 OK facade with corrupted answers), and bot flag persists.
+- **S1.6: Guest-First Practice to Persistence**:
+  - Unauthenticated guest completes practice set, results persist in localStorage, and progress statistics reflect accurate metrics.
+
+---
+
+## 4. How to Execute Tests
+
 ```bash
-npx tsx tests/listening/run-all-listening-tests.ts
-```
+# Execute Master VSTEP Test Runner (All 4 Tiers)
+npx tsx tests/vstep/run-all-vstep-tests.ts
 
-**Verbatim Output**:
-```
-================================================================================
-  LISTENING IMMERSION HUB — MASTER AUTOMATED TEST SUITE
-  Mode: Opaque-box E2E, Boundary, Cross-Feature & Workflow Verification
-================================================================================
+# Execute Individual Tiers
+npx tsx tests/vstep/tier1-features.test.ts
+npx tsx tests/vstep/tier2-boundary.test.ts
+npx tsx tests/vstep/tier3-combinations.test.ts
+npx tsx tests/vstep/tier4-scenarios.test.ts
 
-▶ Running Tier 1: Feature Coverage (R1 Market Research, R2 Dataset, R3 Player, R4 Exercises)...
-✓ Tier 1 Finished: 23/23 passed (1065ms)
+# Execute Non-Regression Verifications
+npx tsx tests/vstep/test-vstep-engine.ts
+npx tsx tests/toeic/run-all-toeic-tests.ts
 
-▶ Running Tier 2: Boundary & Corner Cases (Temporal, Silence Gap, Search, Cloze Normalization)...
-✓ Tier 2 Finished: 36/36 passed (239ms)
-
-▶ Running Tier 3: Cross-Feature Combinations (A-B Loop, Subtitles, Vocab Lookup, Quizzes)...
-✓ Tier 3 Finished: 26/26 passed (29ms)
-
-▶ Running Tier 4: Real-World Scenarios (Daily Life, Workplace, Travel, Social Stories)...
-✓ Tier 4 Finished: 12/12 passed (12ms)
-
-▶ Running Redesign E2E: Shelves, Daily Recommendation, Queue Reordering & Minimal Player...
-✓ Redesign E2E Finished: 53/53 passed (330ms)
-
-================================================================================
-  LISTENING TEST EXECUTION SUMMARY
-================================================================================
-| Tier                                | Min Req | Total | Passed | Failed | Duration | Status |
-|-------------------------------------|:-------:|:-----:|:------:|:------:|:--------:|:------:|
-| Tier 1: Feature Coverage            |      20 |    23 |     23 |      0 |   1065ms |   PASS |
-| Tier 2: Boundary & Corner Cases     |      20 |    36 |     36 |      0 |    239ms |   PASS |
-| Tier 3: Cross-Feature Combinations  |      10 |    26 |     26 |      0 |     29ms |   PASS |
-| Tier 4: Real-World Scenarios        |       8 |    12 |     12 |      0 |     12ms |   PASS |
-| Redesign E2E (R1, R2, R3)           |      50 |    53 |     53 |      0 |    330ms |   PASS |
-|-------------------------------------|:-------:|:-----:|:------:|:------:|:--------:|:------:|
-| TOTAL ACROSS ALL SUITES             |     108 |   150 |    150 |      0 |    143ms |   PASS |
-================================================================================
-
-✅ SUCCESS: All 150 tests passed cleanly with 0 defects!
-  Tier 1 Requirement (>=20 cases): PASSED (23)
-  Tier 2 Requirement (>=20 cases): PASSED (36)
-  Tier 3 Requirement (>=10 cases): PASSED (26)
-  Tier 4 Requirement (>=8 cases):  PASSED (12)
-  Redesign Requirement (>=50 cases): PASSED (53)
-```
-
-### 3.2 Standalone Redesign Suite Execution
-```bash
-npx tsx tests/listening/e2e-video-redesign.test.ts
-```
-
-**Verbatim Output**:
-```
-  [PASS] F1.1: 200 catalog videos are partitioned across 7 canonical life topics with zero loss (17ms)
-  [PASS] F1.2: Every canonical topic shelf contains a healthy catalog depth (>=15 videos per shelf) (17ms)
-  [PASS] F1.3: Each topic shelf provides localized Vietnamese title and distinct badge theme (17ms)
-  [PASS] F1.4: Shelf video items contain all required UI rendering metadata (16ms)
-  [PASS] F1.5: Topic shelves are mutually disjoint with zero cross-shelf duplication (13ms)
-  [PASS] F2.1: Always produces exactly 3 recommended videos from the 200-video catalog (13ms)
-  [PASS] F2.2: Deterministic date-seeded PRNG ensures reproducible recommendations (11ms)
-  [PASS] F2.3: Topic diversity invariant: all 3 recommendations belong to distinct topics (10ms)
-  [PASS] F2.4: CEFR level diversity invariant: recommendations span diverse difficulty levels (10ms)
-  [PASS] F2.5: Unwatched priority: never recommends completed video when unwatched candidates exist (10ms)
-  [PASS] F2.6: Resilient fallback when candidate topics have no unwatched items (10ms)
-  [PASS] F3.1: Single completed video immediately moves to the tail of its shelf (9ms)
-  [PASS] F3.2: Unwatched videos remain at the front of the shelf (9ms)
-  [PASS] F3.3: Stable relative ordering among unwatched items (zero UI jitter) (9ms)
-  [PASS] F3.4: Multiple completed videos are grouped together at the tail (9ms)
-  [PASS] F3.5: In-progress prioritization when options.inProgressFirst is enabled (8ms)
-  [PASS] F3.6: Shelf with 0 completed videos preserves 100% original catalog order (8ms)
-  [PASS] F4.1: >=90% watch progress triggers completed state with timestamp (8ms)
-  [PASS] F4.2: <90% watch progress remains in-progress without completion (8ms)
-  [PASS] F4.3: Sticky completion invariant: rewinding never unmarks completion (8ms)
-  [PASS] F4.4: YouTube ENDED state (playerState = 0) marks video completed regardless of percent (7ms)
-  [PASS] F4.5: getVideoWatchStatus accurately classifies unwatched, in_progress, and completed (7ms)
-  [PASS] F4.6: LocalStorage persistence roundtrip and getAllVideoWatchProgress (7ms)
-  [PASS] F5.1: Minimalist player architecture contract enforces 2-column focus (Player + Transcript) (7ms)
-  [PASS] F5.2: Verification of exercise tabs elimination in player specifications (7ms)
-  [PASS] F5.3: Absence of distracting gamification modals during video immersion (7ms)
-  [PASS] F5.4: Focus mode state toggling and localStorage persistence (7ms)
-  [PASS] F5.5: Minimalist controls support speed selection and sentence repetition (7ms)
-  [PASS] F6.1: Sub-second subtitle sync via O(log N) binary search (7ms)
-  [PASS] F6.2: 1.2s Hysteresis Buffer maintains active cue during inter-word silences (7ms)
-  [PASS] F6.3: Authentic YouTube caption enforcement (zero synthetic template strings) (7ms)
-  [PASS] F6.4: Click-to-seek contract resolves exact cue start timestamp without blocking (6ms)
-  [PASS] F6.5: Tokenized sentence for in-context vocabulary lookup without interrupting video (6ms)
-  [PASS] B1: Empty watch map: all videos classify as unwatched and shelves preserve original order (6ms)
-  [PASS] B2: 100% completed catalog: recommendation engine falls back gracefully with 3 diverse videos (5ms)
-  [PASS] B3: Exact 90% threshold boundary precision (89.9% vs 90.0% vs 90.1%) (5ms)
-  [PASS] B4: Midnight date transition produces distinct daily recommendations deterministically (5ms)
-  [PASS] B5: Backward seek across cues updates active index immediately without hysteresis lag (5ms)
-  [PASS] B6: Rapid scrub & extreme timestamps (-100s, 0s, 999999s, NaN, Infinity) (5ms)
-  [PASS] B7: Empty and single-item shelf reordering (5ms)
-  [PASS] B8: Corrupted LocalStorage values handle gracefully with safe null fallbacks (5ms)
-  [PASS] C1: Daily recommendation + Shelf queue reordering interaction (4ms)
-  [PASS] C2: Subtitle click-to-seek to tail segment + auto-completion trigger (4ms)
-  [PASS] C3: Sticky completion invariant + subtitle rewinding (4ms)
-  [PASS] C4: Midnight date rollover + in-progress state retention (4ms)
-  [PASS] C5: Multi-topic shelf isolation during reordering (3ms)
-  [PASS] C6: Queue reordering with mixed statuses [in-progress, unwatched, completed] (3ms)
-  [PASS] C7: Minimalist player + Subtitle hysteresis during video pause (3ms)
-  [PASS] C8: Multi-video progress storage isolation (3ms)
-  [PASS] S1: Complete Learner Full-Day Session (The Canonical E2E Flow) (2ms)
-  [PASS] S2: Multi-Topic Exploration and Shelf Navigation Session (2ms)
-  [PASS] S3: Deep Immersion Listening Session (Sub-second Sync & Fast Repetition) (1ms)
-  [PASS] S4: Catalog Mastery & Recommendation Fallback Session (1ms)
-
-Results: 53/53 passed in 384ms
-```
-
-### 3.3 TypeScript Compilation Check
-```bash
+# Verify TypeScript Compilation
 npm run typecheck
 ```
 
-**Verbatim Output**:
-```
-> web-app@0.1.0 typecheck
-> tsc --noEmit
-```
-*Exit Code: 0 (0 errors).*
-
 ---
 
-## 4. Operational Sign-Off
+## 5. Artifact Index
 
-The test suite is **100% operational and active**. Downstream milestone workers can immediately rely on `tests/listening/e2e-video-redesign.test.ts` and `tests/listening/run-all-listening-tests.ts` to validate:
-- Milestone M1: Core State, Recommendation & Queue Engine
-- Milestone M2: Minimalist Player & Synchronized Subtitles
-- Milestone M3: Horizontal Shelf Rows & Daily Recommendation UI
-- Milestone M4: Final Integration & Adversarial Hardening
+| File Path | Description | Test Count |
+|:---|:---|:---:|
+| `TEST_INFRA.md` | Authoritative Test Infrastructure Specification | — |
+| `TEST_READY.md` | Completion Certificate & Test Readiness Report | — |
+| `tests/vstep/test-harness.ts` | TestRunner, assertion matchers, browser mock, MOET oracle | — |
+| `tests/vstep/run-all-vstep-tests.ts` | Master test runner with formatted summary table | 77 |
+| `tests/vstep/tier1-features.test.ts` | Tier 1: Feature Coverage test suite | 30 |
+| `tests/vstep/tier2-boundary.test.ts` | Tier 2: Boundary & Corner Cases test suite | 28 |
+| `tests/vstep/tier3-combinations.test.ts` | Tier 3: Cross-Feature Combinations test suite | 13 |
+| `tests/vstep/tier4-scenarios.test.ts` | Tier 4: Real-World Scenarios test suite | 6 |

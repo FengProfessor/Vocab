@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-44",
+  "title": "Luyện Đọc VSTEP: Quantum Computing: Promise and Reality (VstepR6-Test 06 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Quantum Computing: Promise and Reality",
+            "text": "<p style=\"text-align:justify;\">Quantum computing represents a <strong>paradigm shift</strong> in how computation is conceived and performed. Whereas classical computers store and process information as binary bits — each with a value of either 0 or 1 — quantum computers use quantum bits, or qubits, which can exist in a superposition of 0 and 1 simultaneously. This property, combined with quantum entanglement (the ability of qubits to be correlated regardless of physical distance) and quantum interference (the ability to amplify correct computational paths and suppress incorrect ones), gives quantum computers the theoretical capacity to solve certain classes of problems exponentially faster than any classical machine.</p>\n<p style=\"text-align:justify;\">The potential applications are significant. In drug discovery, quantum computers could simulate molecular interactions at the quantum level with a <strong>fidelity</strong> impossible for classical systems, potentially accelerating the development of new medicines by years. In cryptography, quantum algorithms such as Shor's algorithm can theoretically break the encryption systems that currently protect most of the world's digital communications — a fact that has prompted urgent work on post-quantum cryptography standards. In logistics and optimization, quantum algorithms could find more efficient solutions to <strong>intractable</strong> routing and scheduling problems that affect supply chains, financial modeling, and climate simulation.</p>\n<p style=\"text-align:justify;\">Despite the excitement, practical quantum computing faces enormous engineering challenges. Qubits are extremely fragile: they lose their quantum properties through a process called decoherence when they interact with their environment, including thermal noise, electromagnetic interference, and even cosmic rays. Most current quantum computers require cooling to temperatures near absolute zero — far colder than outer space — to minimize decoherence. Error rates in current systems remain high, and the number of reliable, error-corrected logical qubits needed to perform practically useful computations — estimated at millions — is far beyond present capabilities. Leading technology companies and governments are investing billions of dollars in quantum research, but most experts believe that truly transformative quantum computing remains at least a decade away.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r44-q1",
+              "type": "mcq",
+              "question": "What is the best title for this passage?",
+              "options": [
+                "How to Build a Quantum Computer at Home",
+                "Quantum Computing: Enormous Potential, Significant Obstacles",
+                "Why Classical Computers Will Never Be Replaced",
+                "The History of Computing from Turing to Today"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r44-q2",
+              "type": "mcq",
+              "question": "The word \"fidelity\" in paragraph 2 is closest in meaning to?",
+              "options": [
+                "speed or processing power",
+                "accuracy or faithfulness to reality",
+                "cost or financial efficiency",
+                "compatibility with existing systems"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r44-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, what is the threat of Shor's algorithm to current digital security?",
+              "options": [
+                "It could slow down the internet significantly.",
+                "It could break the encryption systems protecting digital communications.",
+                "It could make digital currencies completely worthless.",
+                "It could corrupt databases stored on classical computers."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r44-q4",
+              "type": "mcq",
+              "question": "The word \"intractable\" in paragraph 2 is closest in meaning to?",
+              "options": [
+                "unnecessarily complicated",
+                "extremely easy and routine",
+                "too difficult to solve with current methods",
+                "recently discovered and not yet studied"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r44-q5",
+              "type": "mcq",
+              "question": "What can be inferred from paragraph 3 about the current state of quantum computing?",
+              "options": [
+                "Quantum computers are already being used in hospitals and supply chains.",
+                "The technology is promising but still far from practical large-scale use.",
+                "All engineering problems have been solved and only cost remains an obstacle.",
+                "Governments have decided to stop investing because results are too slow."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

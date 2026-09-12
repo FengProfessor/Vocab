@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-49",
+  "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 04 (Reading Part 1 - Test 04)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 1 - Test 04",
+            "text": "<p style=\"text-align:center;\"><strong>TEXT A - Birthday Invitation</strong></p>\n<p><strong>YOU'RE INVITED!</strong></p>\n<p style=\"text-align:justify;\">I'm <strong>thrilled</strong> to invite you to my 30th birthday! The venue has a <strong>spectacular</strong> city view. Please RSVP so I can <strong>confirm</strong> the headcount. If you feel <strong>inclined</strong> to bring something, I'm collecting donations for the animal shelter.</p>\n</div>\n\n<div style=\"background: #fff3e0; padding: 15px; margin: 20px 0; border-left: 4px solid #ff9800;\">\n<p style=\"text-align:center;\"><strong>TEXT B - Health Advisory</strong></p>\n<p><strong>Flu Season Alert</strong></p>\n<p style=\"text-align:justify;\">The health department recommends <strong>precautionary</strong> measures during flu season. Vaccination is <strong>advisable</strong> for vulnerable groups. Maintain <strong>adequate</strong> hygiene by washing hands frequently. These simple steps can significantly <strong>reduce</strong> infection risk.</p>\n</div>\n\n<div style=\"background: #ffebee; padding: 15px; margin: 20px 0; border-left: 4px solid #f44336;\">\n<p style=\"text-align:center;\"><strong>TEXT C - Product Recall Notice</strong></p>\n<p><strong>URGENT: Product Recall</strong></p>\n<p style=\"text-align:justify;\">We are issuing a <strong>voluntary</strong> recall of batch #XYZ123. A manufacturing <strong>defect</strong> was detected during quality control. Customers should <strong>discontinue</strong> use immediately. Full refunds are <strong>available</strong> at all retail locations.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r49-q1",
+              "type": "mcq",
+              "question": "In TEXT A, what does \"thrilled\" mean?",
+              "options": [
+                "sad",
+                "extremely excited and happy",
+                "nervous",
+                "angry"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r49-q2",
+              "type": "mcq",
+              "question": "The word \"spectacular\" in TEXT A is closest in meaning to?",
+              "options": [
+                "poor",
+                "impressively beautiful",
+                "expensive",
+                "distant"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r49-q3",
+              "type": "mcq",
+              "question": "What does \"confirm\" mean in TEXT A?",
+              "options": [
+                "cancel",
+                "verify or establish as certain",
+                "question",
+                "ignore"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r49-q4",
+              "type": "mcq",
+              "question": "The word \"inclined\" in TEXT A means?",
+              "options": [
+                "unwilling",
+                "having a tendency or desire to do something",
+                "required",
+                "forbidden"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r49-q5",
+              "type": "mcq",
+              "question": "In TEXT B, what does \"precautionary\" mean?",
+              "options": [
+                "expensive",
+                "done as a prevention before something bad happens",
+                "unnecessary",
+                "complicated"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r49-q6",
+              "type": "mcq",
+              "question": "The word \"advisable\" in TEXT B is closest in meaning to?",
+              "options": [
+                "forbidden",
+                "recommended or wise",
+                "dangerous",
+                "impossible"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r49-q7",
+              "type": "mcq",
+              "question": "What does \"adequate\" mean in TEXT B?",
+              "options": [
+                "insufficient",
+                "excessive",
+                "sufficient or satisfactory",
+                "complicated"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r49-q8",
+              "type": "mcq",
+              "question": "In TEXT C, what does \"voluntary\" mean?",
+              "options": [
+                "mandatory",
+                "done willingly, not forced",
+                "expensive",
+                "permanent"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r49-q9",
+              "type": "mcq",
+              "question": "The word \"defect\" in TEXT C is closest in meaning to?",
+              "options": [
+                "improvement",
+                "flaw or fault",
+                "feature",
+                "design"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r49-q10",
+              "type": "mcq",
+              "question": "What does \"discontinue\" mean in TEXT C?",
+              "options": [
+                "continue using",
+                "stop using",
+                "increase usage",
+                "share with others"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

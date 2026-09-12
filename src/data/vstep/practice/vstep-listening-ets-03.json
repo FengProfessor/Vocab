@@ -1,0 +1,666 @@
+{
+  "id": "vstep-listening-ets-03",
+  "title": "VSTEP B1, B2, C1 Listening - Full Test 003 (EnglishTestStore Practice)",
+  "duration": 40,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 34,
+      "tasks": [
+        {
+          "id": "ets-l03-task-1",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 1 to 1.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q01",
+              "type": "mcq",
+              "question": "What is the main focus of this talk?",
+              "options": [
+                "The idea behind Harry Potter.",
+                "How J.K. Rowling began her work.",
+                "How much money the author earns.",
+                "Where J.K. Rowling is from."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 1",
+              "orderNumber": 1
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-2",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 2 to 2.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q02",
+              "type": "mcq",
+              "question": "What should Brian prepare?",
+              "options": [
+                "The new schedule for the meeting.",
+                "The minutes from the last meeting.",
+                "A draft of the gas plant.",
+                "The feasibility study report."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 2",
+              "orderNumber": 2
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-3",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 3 to 3.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q03",
+              "type": "mcq",
+              "question": "What is meant by \"a surplus of funds?\"",
+              "options": [
+                "Extra money.",
+                "More play time.",
+                "New books for children.",
+                "More time to spend."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 3",
+              "orderNumber": 3
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-4",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 4 to 4.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q04",
+              "type": "mcq",
+              "question": "Why is a meeting needed?",
+              "options": [
+                "To make a registration.",
+                "To negotiate the break time.",
+                "To fill out the forms.",
+                "To listen to the president's speech."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 4",
+              "orderNumber": 4
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-5",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 5 to 5.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q05",
+              "type": "mcq",
+              "question": "How often should a person use this product?",
+              "options": [
+                "Three times a day.",
+                "After they brush",
+                "Before bedtime.",
+                "When they wake up."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 5",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-6",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 6 to 6.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q06",
+              "type": "mcq",
+              "question": "Where has a fire been detected?",
+              "options": [
+                "In a theater.",
+                "In an office building.",
+                "In a subway system.",
+                "In a shopping complex."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 6",
+              "orderNumber": 6
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-7",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 7 to 7.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q07",
+              "type": "mcq",
+              "question": "What did the speaker say may cause a problem for your rabbit?",
+              "options": [
+                "Too much water.",
+                "Not enough exercise.",
+                "Too many treats.",
+                "Extra fresh vegetables."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 7",
+              "orderNumber": 7
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-8",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 8 to 8.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q08",
+              "type": "mcq",
+              "question": "What is the purpose of this advertisement?",
+              "options": [
+                "To tell about the city's water system.",
+                "To sell a machine that cleans the water.",
+                "To get people to drink more water.",
+                "To get rid of old water."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 8",
+              "orderNumber": 8
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-9",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 9 to 12.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q09",
+              "type": "mcq",
+              "question": "What was Robin’s job in Argentina?",
+              "options": [
+                "Translator",
+                "Tour guide",
+                "Salesman",
+                "Tourist"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-l03-q10",
+              "type": "mcq",
+              "question": "What did Robin buy from the market he visited?",
+              "options": [
+                "A picture",
+                "A chair",
+                "A record",
+                "A CD"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-l03-q11",
+              "type": "mcq",
+              "question": "How did Robin feel during the dance performance he saw?",
+              "options": [
+                "He wanted to get up and dance",
+                "He wished he had continued his dance classes",
+                "He was sad he didn’t dance well",
+                "He thought Argentinean dancing was much easier than his country’s dancing"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-l03-q12",
+              "type": "mcq",
+              "question": "What did Robin like about his favourite place?",
+              "options": [
+                "The wildlife",
+                "The views",
+                "The peace",
+                "The weather"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 12
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-10",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 13 to 16.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q13",
+              "type": "mcq",
+              "question": "Why did Harry first become interested in adventure travel?",
+              "options": [
+                "His father talked a lot about the places he’d been to.",
+                "His father gave him adventure stories to read.",
+                "His father worked in a travel company.",
+                "His father spent several years travelling around the world."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-l03-q14",
+              "type": "mcq",
+              "question": "Why did Harry decide to start an adventure travel company?",
+              "options": [
+                "He thought he could make a lot of money.",
+                "He hoped to do more travelling himself.",
+                "He wanted to share his experience with others.",
+                "He wanted to travel to many other different countries."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-l03-q15",
+              "type": "mcq",
+              "question": "Who suggested the name for Harry’s company?",
+              "options": [
+                "A friend",
+                "His wife",
+                "His father",
+                "A customer"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 15
+            },
+            {
+              "id": "ets-l03-q16",
+              "type": "mcq",
+              "question": "What does Harry try to do when he visits a place?",
+              "options": [
+                "Give the local people jobs.",
+                "Avoid damaging the area",
+                "Take modem equipment.",
+                "Bring in things like television and fridges."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 16
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-11",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 17 to 19.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q17",
+              "type": "mcq",
+              "question": "What did the man think about people of the Ice Age?",
+              "options": [
+                "They lived in caves.",
+                "They traveled in groups.",
+                "They had an advanced language",
+                "They ate mostly fruit."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-l03-q18",
+              "type": "mcq",
+              "question": "How did people in the early ice age keep warm?",
+              "options": [
+                "They lived in large groups.",
+                "They used sand as insulation.",
+                "They kept fires burning constantly.",
+                "They faced their homes toward the south."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-l03-q19",
+              "type": "mcq",
+              "question": "What does the man want the woman to do?",
+              "options": [
+                "Meet his anthropology teacher.",
+                "Lend him her magazine when she's done with it.",
+                "Come over to his house after class.",
+                "Help him study for an anthropology test."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 19
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-12",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 20 to 24.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q20",
+              "type": "mcq",
+              "question": "PS Camping has been organising holidays for .......",
+              "options": [
+                "15 years.",
+                "20 years.",
+                "25 years.",
+                "30 years."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-l03-q21",
+              "type": "mcq",
+              "question": "The company has most camping sites in .........",
+              "options": [
+                "France.",
+                "Italy.",
+                "Europe",
+                "Switzerland."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-l03-q22",
+              "type": "mcq",
+              "question": "Which organized activity can children do every day of the week?",
+              "options": [
+                "Singing and dancing.",
+                "Football.",
+                "Dram",
+                "Model making."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-l03-q23",
+              "type": "mcq",
+              "question": "Some areas of the sites have a \"no- noise\" rule after .......",
+              "options": [
+                "9.30 pm",
+                "10.00 pm",
+                "10.30 pm",
+                "11.30 pm"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-l03-q24",
+              "type": "mcq",
+              "question": "Customers who recommend PS Camping to friends will receive ...........",
+              "options": [
+                "a free gift",
+                "an upgrade to a luxury tent",
+                "a discount",
+                "an insurance"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 24
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-13",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 25 to 29.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q25",
+              "type": "mcq",
+              "question": "What does the professor say about the elements in the body?",
+              "options": [
+                "Ideally, these should be different amounts of each.",
+                "The amount of each in the body is not very important.",
+                "They can be out of balance.",
+                "Different people have different elements."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-l03-q26",
+              "type": "mcq",
+              "question": "According to the professor, what are yin and yang?",
+              "options": [
+                "They are opposite forces.",
+                "They are what make a person healthy.",
+                "They are four different elements.",
+                "They are the land and the ocean."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-l03-q27",
+              "type": "mcq",
+              "question": "What does the professor say about yin and yang?",
+              "options": [
+                "They are always in balance.",
+                "They are always changing.",
+                "They don't need to be in balance.",
+                "They compare with each other."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-l03-q28",
+              "type": "mcq",
+              "question": "According to the Chinese, five elements of Yin and Yang are studied for the work of ........",
+              "options": [
+                "the body and spirit",
+                "body, mind and spirit work",
+                "balance and harmony",
+                "spirit work"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-l03-q29",
+              "type": "mcq",
+              "question": "Why does the professor says \"Yin and Yang should be considered as opposite forces like, uhh, like land and ocean, for example\"?",
+              "options": [
+                "To correct something she said earlier",
+                "To explain a term she just introduced",
+                "To explain what is wrong with a particular theory",
+                "To remind the students of something discussed earlier"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 29
+            }
+          ]
+        },
+        {
+          "id": "ets-l03-task-14",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 30 to 34.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test03/data/audios/snd-034cfdc3aa65391083109884bd4e8d0e324c5c46.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l03-q30",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "What heat is",
+                "How heat transfers",
+                "The properties of heat",
+                "Heat in hot air balloons"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-l03-q31",
+              "type": "mcq",
+              "question": "What happens to a hot air balloon because of convection?",
+              "options": [
+                "The balloon's air is heated.",
+                "The balloon becomes filled with gas.",
+                "The balloon goes up and goes down.",
+                "The balloon’s flame gets hotter and hotter."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 31
+            },
+            {
+              "id": "ets-l03-q32",
+              "type": "mcq",
+              "question": "What is the professor’s opinion of the conduction?",
+              "options": [
+                "He finds it easiest to teach by cooking.",
+                "He feels that it is good for making buildings.",
+                "He believes that it is useful for heating buildings.",
+                "He thinks many people get hurt from it."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 32
+            },
+            {
+              "id": "ets-l03-q33",
+              "type": "mcq",
+              "question": "Why does the professor mention a toaster?",
+              "options": [
+                "To explain how toast is made by convection",
+                "To discuss how conduction makes toasters hot",
+                "To give an example of something that bums people",
+                "To give an example of heat radiation"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 33
+            },
+            {
+              "id": "ets-l03-q34",
+              "type": "mcq",
+              "question": "What can be inferred from the lecturer?",
+              "options": [
+                "Heat moving through solid materials is convection.",
+                "Convection is not a pattern that repeats.",
+                "Heat cannot move through solid materials.",
+                "Some materials are better at conducting heat than others."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 34
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

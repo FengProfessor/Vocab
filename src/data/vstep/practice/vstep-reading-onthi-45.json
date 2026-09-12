@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-45",
+  "title": "Luyện Đọc VSTEP: The History and Global Journey of Coffee (VstepR6-Test 07 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The History and Global Journey of Coffee",
+            "text": "<p style=\"text-align:justify;\">Coffee is one of the world's most widely consumed beverages and one of the most valuable traded commodities, second only to petroleum in global trade volume. Its origins trace to the Ethiopian highlands, where, according to legend, a goat herder named Kaldi noticed his animals became unusually <strong>energetic</strong> after eating berries from a particular tree. Whether or not the legend is true, historical evidence confirms that coffee was cultivated and consumed in Ethiopia and Yemen by at least the fifteenth century. Sufi monks in Yemen drank coffee to aid concentration during nighttime prayers, and coffeehouses — called qahveh khaneh — became important centers of social and intellectual life in the Ottoman Empire.</p>\n<p style=\"text-align:justify;\">From the Middle East, coffee spread to Europe in the seventeenth century, initially met with <strong>suspicion</strong> and even hostility. In 1600, Pope Clement VIII was urged by advisors to condemn coffee as a \"bitter invention of Satan,\" but after tasting it, he reportedly gave it his blessing. By the mid-1600s, coffeehouses had become fixtures of European social life, serving as meeting places for merchants, intellectuals, and political figures. London alone had over 300 coffeehouses by 1675. These establishments were sometimes called \"penny universities\" because for the price of a penny — the admission charge — anyone could sit, drink coffee, and engage in wide-ranging conversation and debate.</p>\n<p style=\"text-align:justify;\">The global expansion of coffee cultivation followed colonial trade routes. Dutch traders brought coffee plants to their colonies in Java (present-day Indonesia) in the late 1600s, and the French later established plantations in the Caribbean, particularly in what is now Haiti. Brazil, which today produces approximately one-third of the world's coffee, received its first plants from French Guiana in 1727. The spread of coffee cultivation to the Americas relied heavily on enslaved African labor — a history that continues to <strong>cast a shadow</strong> over the industry's celebration of its global success. Today, an estimated 125 million people worldwide depend on coffee farming for their livelihoods.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r45-q1",
+              "type": "mcq",
+              "question": "What is the main idea of the passage?",
+              "options": [
+                "Coffee is the world's most traded commodity and most popular beverage.",
+                "The history of coffee reflects its journey from Ethiopian origins to global significance.",
+                "The coffee industry has always been associated with exploitation and injustice.",
+                "European coffeehouses played the most important role in the history of coffee."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r45-q2",
+              "type": "mcq",
+              "question": "The word \"suspicion\" in paragraph 2 is closest in meaning to?",
+              "options": [
+                "enthusiasm and excitement",
+                "distrust and a feeling that something might be dangerous or wrong",
+                "curiosity and eagerness to learn more",
+                "indifference and lack of interest"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r45-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, why were coffeehouses called \"penny universities\"?",
+              "options": [
+                "Because they were cheaper to visit than actual universities",
+                "Because they were funded by universities who wanted to promote knowledge",
+                "Because for a penny admission, anyone could join in intellectual conversation",
+                "Because university students received a discount on their coffee"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r45-q4",
+              "type": "mcq",
+              "question": "The phrase \"cast a shadow\" in paragraph 3 means that the use of enslaved labor?",
+              "options": [
+                "temporarily slowed the growth of the coffee industry",
+                "left a lasting dark mark on coffee's history that cannot be ignored",
+                "prevented the spread of coffee to South America",
+                "made coffee farming physically dangerous for early settlers"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r45-q5",
+              "type": "mcq",
+              "question": "What can be inferred about the early European reaction to coffee from paragraph 2?",
+              "options": [
+                "Europeans adopted coffee immediately and without any resistance.",
+                "The Church successfully banned coffee consumption across Europe.",
+                "Despite initial concerns, coffee quickly became socially accepted and valued.",
+                "Coffee was only popular among the upper classes and aristocracy."
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

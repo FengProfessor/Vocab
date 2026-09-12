@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-36",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 36",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What is John going to do tonight?</b></p><ul><li><b>Speaker 1:</b> Hello Mrs Brown. Is John there?</li><li><b>Speaker 2:</b> No. He’s out on his bicycle at the moment</li><li><b>Speaker 1:</b> Uh Can he go swimming tonight?</li><li><b>Speaker 2:</b> Sorry, Paul. He’s got a football match tonight</li></ul><p><b>2. Which bag does the woman buy?</b></p><ul><li><b>Speaker 1:</b> I want to buy a present for Diana?</li><li><b>Speaker 2:</b> What about a bag?</li><li><b>Speaker 1:</b> Yes. This one’s nice. It’s small and round</li><li><b>Speaker 2:</b> I think she prefers a square bag</li><li><b>Speaker 1:</b> No. this is better. I’ll get the round one.</li></ul><p><b>3. How much did the woman pay for the apples?</b></p><ul><li><b>Speaker 1:</b> Can I help you?</li><li><b>Speaker 2:</b> Yes. I’d like a pound of apples please.</li><li><b>Speaker 1:</b> Do you want the ones at 30 pence, 35 pence or 40 pence?</li><li><b>Speaker 2:</b> The one at 30 pence, please.</li></ul><p><b>4. When must the boys get on the coach?</b></p><ul><li>The football match starts at 2:30. But we should get there at half past one. The coach will pick you up at ten to one. As it takes about 40 minutes to drive there. So we’ll meet in a school car park. Don’t be late boys, will you?</li></ul><p><b>5. What fruit do they take?</b></p><ul><li><b>Speaker 1:</b> Mom, Have we got any fruit to take on the picnic. There were some oranges and bananas.</li><li><b>Speaker 2:</b> Here are the bananas. Let’s take those. Oh. The oranges were gone. What about taking some grapes or apples as well?</li><li><b>Speaker 1:</b> Ok. Let’s take the grapes. That would be enough.</li></ul><p><b>6. Which present has the man bought?</b></p><ul><li><b>Speaker 1:</b> Is the book in the bag for Mom then? I didn’t think she’s particularly interested in flowers.</li><li><b>Speaker 2:</b> I thought she liked it, to give her some good ideas for the garden. Although she never reads it. It’s got some lovely photos.</li><li><b>Speaker 1:</b> I thought you were going to get those gloves I show you in that shop last Saturday. They match the scarf I bought her</li></ul><p><b>7. Where are the photographs?</b></p><ul><li><b>Speaker 1:</b> Have you seen my new passport photographs? I put them on the bookshelf. Oh here they are with your coffee cups. I hope they aren’t dirty.</li><li><b>Speaker 2:</b> Oh sorry. I was showing them to Pat. He said they make you look like that newsreader on the television</li></ul><p><b>8. What did Ben break?</b></p><ul><li><b>Speaker 1:</b> Ben. What’s this broken cup doing here?</li><li><b>Speaker 2:</b> Sorry mom. I had an accident when I was washing up. You know those big dinner plates.</li><li><b>Speaker 1:</b> You have broken them as well.</li><li><b>Speaker 2:</b> Oh just a couple. They slipped out of my hands into the sink and the cup got broken as well</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What is John going to do tonight?",
+              "options": [
+                "swimming",
+                "cycling",
+                "playing football",
+                "running"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Which bag does the woman buy?",
+              "options": [
+                "square bag",
+                "small and round bag",
+                "a big bag",
+                "an oval bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How much did the woman pay for the apples?",
+              "options": [
+                "30 pence",
+                "35 pence",
+                "40 pence",
+                "34 pence"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "When must the boys get on the coach?",
+              "options": [
+                "12:50",
+                "01:30",
+                "02:30",
+                "03:20"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What fruit do they take?",
+              "options": [
+                "oranges",
+                "bananas",
+                "grapes",
+                "apples"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Which present has the man bought?",
+              "options": [
+                "book",
+                "bag",
+                "gloves",
+                "flowers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Where are the photographs?",
+              "options": [
+                "on the bookshelf",
+                "on the TV",
+                "on the table with the coffee cups",
+                "in the café shop"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What did Ben break?",
+              "options": [
+                "vase",
+                "glass",
+                "cup",
+                "dinner bowls"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-2.mp3"
+          },
+          "tapescript": "<div><p><b>Conversation 1</b></p><ul><li><b>Man:</b> Good morning. Tauber Insurance Company. How can I help you?</li><li><b>Woman:</b> Good morning. I want to alter my insurance policy.</li><li><b>Man:</b> Is that for your house, contents or vehicle?</li><li><b>Woman:</b> <b>My vehicle (1).</b></li><li><b>Man:</b> Can you give me the number of the policy please?</li><li><b>Woman:</b> Certainly, I have it here in front of me. It’s <b>ZQW5009 (2).</b></li><li><b>Man:</b> And what make and model of car is it?</li><li><b>Woman:</b> It’s Mazda...a Mazda Marvel.</li><li><b>Man:</b> And what is the cc rating?</li><li><b>Woman:</b> Sorry? What do you mean?</li><li><b>Man:</b> <b>How big is the engine (3)?</b> Is it 1500 or 1800cc, for example?</li><li><b>Woman:</b> Oh that... it’s actually much bigger than that. It’s 2500 cc.</li><li><b>Man:</b> Thank you. Now I just have to ask you a few questions to verify your identity. What name is the policy under?</li><li><b>Woman:</b> Heathcoat.</li><li><b>Man:</b> Let me just bring that up on the computer. Yes, can I just confirm your first name, please?</li><li><b>Woman:</b> Well, my first name is Lisa but I’m known by my middle name – Marie.</li><li><b>Man:</b> Right. I see both here but <b>Lisa is the one I want for ID purposes (4).</b> And your date of birth, Lisa? ... I mean Marie.</li><li><b>Woman:</b> The twenty second of August, 1955.</li></ul><p><b>Conversation 2</b></p><ul><li><b>Woman:</b> Good morning, Travel Link. How can I help you?</li><li><b>Man:</b> Good morning. I live in Bayswater and I’d like to get to <b>Harbour City tomorrow (1) before 11.am.</b></li><li><b>Woman:</b> Well, to get to Bayswater....</li><li><b>Man:</b> No, no. I live in Bayswater – <b>my destination is Harbour City (1).</b></li><li><b>Woman:</b> Sorry. Right; so that’s Bayswater to Harbour City. Are you planning to travel by bus or by train?</li><li><b>Man:</b> I don’t mind really. Whichever option is faster, I suppose.</li><li><b>Woman:</b> Well, if you catch a railway express, that’ll get you there in under an hour ... Let’s see – yes, if you can make the 9.30 am express, I’d recommend you do that.</li><li><b>Man:</b> Great. <b>Which station does that leave from (2)?</b></li><li><b>Woman:</b> Helendale is the nearest train station to you.</li><li><b>Man:</b> Did you say Helensvale?</li><li><b>Woman:</b> No, Helendale – that’s H-E-L-E-N-D-A-L-E</li><li><b>Man:</b> What’s the best way to get to the Helendale station then?</li><li><b>Woman:</b> Well, hang on a minute while I look into that ... Now, it seems to me that you have two options. Option one would be to take the 706 bus from the Bayswater Shopping Centre to Central Street. When you get there, you transfer to another bus <b>which will take you to the station (3).</b> Or, the second option, if you don’t mind walking a couple of kilometres, is to go directly to Central Street and get straight on the bus going to the train station.</li><li><b>Man:</b> Okay. Which bus is that?</li><li><b>Woman:</b> The 792 will take you to the station.</li><li><b>Man:</b> I guess <b>the walk will be good for me so that might be the better option (4).</b></li></ul><p><b>Conversation 3</b></p><ul><li><b>Interviewer:</b> Elena, before we talk about how a sixteen-year-old can write, direct and star in her own film, tell me a bit about the character of Susie, the girl you played in your film, Stolen Dream.</li><li><b>Elena:</b> She’s artistic and doesn’t really care what people think or say about her, or get upset about how people behave. <b>I’m a lot like that too (Q1).</b> I don’t worry too much about other people's opinions of me.</li><li><b>Interviewer:</b> So is being free of worry a message you wanted to communicate to your audience?</li><li><b>Elena:</b> In a way. You need to be free. You shouldn’t be tied to your background, where you were born or anything you haven't chosen for yourself. People have dreams and <b>I guess I’m saying that (Q2) they should have belief in themselves</b>, that they can make those dreams come real.</li><li><b>Interviewer:</b> It must have been an exciting atmosphere to work in. Was making the film like your own dream coming true?</li><li><b>Elena:</b> Definitely, although it wasn’t easy. <b>(Q3) I had very little time or money.</b> People told me to relax but I knew I couldn’t - if I didn’t work, no one else would! But after a week or so because everyone on the film was facing the same challenge we came together. When we all left at the end it was sad because it was like a family breaking up.</li><li><b>Interviewer:</b> Tell me about a typical day's filming.</li><li><b>Elena:</b> I don’t think there was a typical day really. Each day <b>I got up at 5 to start at 6. (Q4)</b> I’d film two or three scenes in the morning and the same again after lunch. That way I had a goal and I knew how much I was achieving each day. Sometimes, if we needed to we'd work on until late, till 3 a.m. one time! I really enjoyed my Sundays off!</li></ul></div>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the policy number?",
+              "options": [
+                "ZQW5009",
+                "XQW5009",
+                "ZYW5009",
+                "ZYY5009"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is the cc rating?",
+              "options": [
+                "The engine’s size",
+                "The engine’s shape",
+                "The engine’s price",
+                "The engine’s power"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What’s the name the man wants for ID purposes?",
+              "options": [
+                "Her first name",
+                "Her middle name",
+                "Her family name",
+                "All of them"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "When is her birthday?",
+              "options": [
+                "2nd, August 1955",
+                "12th, August 1950",
+                "22nd August 1955",
+                "22nd August 1950"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Where does the man want to get to?",
+              "options": [
+                "Helenvale",
+                "Helendale",
+                "Bayswater",
+                "Harbour City"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Which station is the nearest?",
+              "options": [
+                "Helenvale",
+                "Helendale",
+                "Hedenvale",
+                "Hevendale"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How many bus routes does the man have to take to the nearest station?",
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which option does the man choose finally?",
+              "options": [
+                "Walk and then take a bus",
+                "Take a bus and then walk",
+                "Go there on foot",
+                "Take the bus for two routes"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does Elena think about Susie?",
+              "options": [
+                "She is artistic and cares about other people.",
+                "She is an optimistic girl.",
+                "She is different from Elena.",
+                "She is artistic but doesn’t care about people around."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did Elena think about making film?",
+              "options": [
+                "It was easy for her.",
+                "It was quite relaxing.",
+                "It was demanding for her.",
+                "It was beyond her ability."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How many scenes did she have to film in the afternoon?",
+              "options": [
+                "5-6 scenes",
+                "2-3 scenes",
+                "3-4 scenes",
+                "1-2 scenes"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "Which days was she off?",
+              "options": [
+                "Saturdays",
+                "Mondays",
+                "Sundays",
+                "None of these above"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1:</b></p><p>Dolls have always fascinated me, and that’s why, five years ago, I was delighted to be offered the job of running a doll museum.</p><p>Dolls have existed for thousands of years, and the earliest dolls we know about we found in graves in ancient Egypt. I only wish we could get one or two for our museum. But we haven’t unfortunately got anything as old as that in the museum. All the same, we have got examples from Europe from the twelfth century, but my favorite early dolls are actually from the seventeenth century. They interest me not just because they are early, or fairly early, but also because of the clothes they are wearing. They have their original clothes, and from them we know what the owners wore, since dolls in those days were always dressed like their owners. They were made of the only material readily available for things like this at the time: solid wood and they were painted in great detail. In fact, on the best examples, like the ones in the museum, the detail includes the seventeenth-century make-up.</p><p>Dolls like these were very expensive then, and only the very rich could afford them. These days, they’re popular with collectors and if you want one today, you have to pay anything up to ten thousand pounds for a doll in perfect condition from this time! By the way, what makes them so valuable is that, as far as a collector is concerned, a doll is only worth collecting if it is in perfect condition, and that means having the original clothes.</p><p>Doll collecting has become very fashionable since the museum opened, with people interested in dolls from every period, including later dolls. There’s great interest in nineteenth-century examples, when dolls were no longer made of wood, but began to have soft bodies and real hair. They were very delicate and few have survived, meaning such a doll would be worth about two thousand pounds, perhaps a bit more. Later, in the nineteenth century, you could often take off the doll’s hair. If you can, you can often see the maker’s name underneath, and of course the right one increases a doll’s value.</p><p>There was a really big change in dolls at the beginning of the twentieth century. In the museum we have one of the earliest examples, from about 1909, of a doll that’s a model of a baby. Previously all dolls, the earliest ones, were little adults.</p><p><b>Talk/Lecture 2</b></p><p>Hello. I’m Stephen Mills. I will travel with you to the Tiger Tour in India, but I’m not your guide. I work as an artist and I’m going to take some photographs of tigers so that I can use them when I paint some pictures later. An expert guide will join the group when we arrive in India, but I’m leading the group until then.</p><p>We leave London on the 6th of November, arriving in India the following day. It’s a good time of year to visit the wildlife park where the tigers live. The rainy season finishes in October. And later in the year, the park gets more crowded and the tigers become shy.</p><p>We’ll spend ten days in the wildlife park. There are twenty other types of animals and three hundred types of bird to see as well as tigers. There are eighteen of us altogether and everything is organized for your comfort by the tour company. For example, although we’re in the jungle, we won’t have to sleep in tents! The hotels where we’ll stay are all very comfortable.</p><p>To be sure of seeing tigers, we’ll stay in two different parts of the wildlife park. We’ll spend three days in the north, where we’ll travel around in an open truck, and the rest of the time in the south, where we’ll travel around on elephants. That should be fun!</p><p>On the way back to London, we have dinner and one night’s bed and breakfast in the Indian capital, Delhi. There you can either go sightseeing or go shopping, whichever you prefer. But please note that lunch is not provided on our day of departure, as the plane leaves at two in the afternoon.</p><p>Now, if there are any questions ....</p><p><b>Talk/Lecture 3:</b></p><p>Announcer: For the second in our series about locally-run businesses, we meet Simon Winridge, co-founder of the hugely-successfully Winridge Forest Railway Park. Welcome, Simon. Now, perhaps you can begin by telling us a little bit about how it all started.</p><p>Man: Well, during the 1970s, my wife, Liz and I had just acquired 80 acres of sheep-farming land, and we decided to settle down and have children. Pretty soon we had a daughter, Sarah, and a son, Duncan. The place was wonderful for the kids: they particularly loved trains and gradually built up an enormous network of miniature railway track. I began to develop larger-scale models of locomotives but we didn’t think anything more of it until I went on a trip to a theme park near Birmingham and decided we could do a much better job! So we set up a small one ourselves based on the miniature railway and we opened to the public for just a month that year, 1984- in July- our driest month- because our children said they didn’t want our guests to have a miserable, wet visit. I dealt with Park business and Liz carried on with the farm work.</p><p>It soon became clear that we were onto a winner. We began to extend the railway track and lay it among more interesting landscape by planting trees, which in turn attracted more wildlife, and by making cuttings through the rock.</p><p>Nowadays, we’re open all year round and we’re pleased to say that Winridge is one of the most popular visitor attractions in the area- with 50.000 visitors a year- a million and a half people have been through our doors since we opened.</p>",
+          "questions": [
+            {
+              "id": "L2Q21",
+              "type": "mcq",
+              "question": "What is the main purpose of the talk?",
+              "options": [
+                "To describe how the man's favorite dolls look like",
+                "To explain how dolls used to look like in the twelfth century",
+                "To compare the differences in all doll examples in the museum",
+                "To explain how dolls were made differently in times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q22",
+              "type": "mcq",
+              "question": "The dolls that the man interested in .........",
+              "options": [
+                "Existed from the twentieth century",
+                "Existed from the seventeenth century",
+                "Existed from the eighteenth century",
+                "Existed from the nineteenth century"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q23",
+              "type": "mcq",
+              "question": "At the beginning of the twentieth century, dolls were .................",
+              "options": [
+                "Babies",
+                "Adults",
+                "Elderly",
+                "Males"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q24",
+              "type": "mcq",
+              "question": "What makes the dolls in the seventeenth century special?",
+              "options": [
+                "They existed fairly early",
+                "They were made from solid wood",
+                "They are very expensive today",
+                "Their decorations are original"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q25",
+              "type": "mcq",
+              "question": "What can you do with the nineteen- century dolls?",
+              "options": [
+                "Buy them with thousands of pounds",
+                "Take off their hair",
+                "Replace their hair with real hair",
+                "See the maker's name on the body"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "When is the best time to see the tigers?",
+              "options": [
+                "November",
+                "October",
+                "September",
+                "The following day"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "How long will they be in the park?",
+              "options": [
+                "Twenty days",
+                "Eighteen days",
+                "Ten days",
+                "No information"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is arranged to make sure the visitors are comfortable?",
+              "options": [
+                "Meals",
+                "Transportation",
+                "Accommodation",
+                "Schedule"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is Stephen Mill's profession?",
+              "options": [
+                "Photographer",
+                "Tour guide",
+                "Traveller",
+                "Artist"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What is not included in the program?",
+              "options": [
+                "Going sightseeing in Delhi",
+                "Going shopping in Delhi",
+                "Breakfast on the last day",
+                "Lunch on the last day"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Simon's idea for a theme park came from ..............",
+              "options": [
+                "his childhood hobby",
+                "his interest in landscape design",
+                "his visit to another park",
+                "his wife's idea"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "When they started, the family decided to open the park only when ..................",
+              "options": [
+                "The weather was expected to be good",
+                "There were not many people in the neighborhood",
+                "The children weren't at school",
+                "There were fewer farming commitments"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Since opening the park has had ..................",
+              "options": [
+                "50,000 visitors",
+                "1,000,000 visitors",
+                "5,000 visitors",
+                "1,500,000 visitors"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What did their children love?",
+              "options": [
+                "Trains",
+                "Theme park",
+                "Farm work",
+                "We weather"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "The park today is ..................",
+              "options": [
+                "Closed on holidays",
+                "Opened all year",
+                "Closed every two months",
+                "Opened on weekdays"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

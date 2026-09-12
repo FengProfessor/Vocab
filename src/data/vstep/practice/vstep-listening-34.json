@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-34",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 34",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-19/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>OK everybody. This next exercise is a bit difficult but it’s really good for your legs. All you do is put your back against the wall place your feet about half a metre away from the wall move your back down the wall so your knees are bent at 90 degrees. Now put your hands out straight in front of you right make sure your head is against the wall. Now, see how long you can stay like that. If you do two minutes, you’re doing well.</li></ul><p><b>Question 2.</b></p><ul><li>Because of the ski jumping finals we’re late finishing so there are some changes to this evening’s programmes. We won’t now show the Nature Programme about the dolphins found near the Florida coast at nine o’clock. Instead, Tim Wong’s Chinese Kitchen will be at this time an hour later than advertised. You can see the Nature Programme at its usual time next week.</li></ul><p><b>Question 3.</b></p><ul><li>All fans of Peter Robbins should go to the South Street book store tomorrow afternoon where Peter will sign copies of his book Love of Life and answer questions. He is expected at a quarter past two and promises to stay until half past three when he has to leave for another appointment. Get there as soon as you can because if it’s anything like Peter’s last visit queues will start to form at quarter to two or even earlier. Don’t miss this opportunity to meet everyone’s favourite writer.</li></ul><p><b>Question 4.</b></p><ul><li>Here is the weather forecast. Today will be very cloudy although it won’t rain until the evening. The weather tomorrow will be the same as yesterday sunshine and showers. But the weekend looks good plenty of sunshine and very little rain.</li></ul><p><b>Question 5.</b></p><ul><li>Now you won’t need any money for the bus or your entrance ticket to the zoo tomorrow because that’s already paid for. But bring some small change for when you get thirsty and want a drink. The only food or drink allowed on the bus is fruit. Bring some with you because it’s a long trip and you’ll get hungry. No food or drink must be taken into the zoo. And you’ll need to bring all your coloured pencils for the work I’m going to ask you to do there.</li></ul><p><b>Question 6.</b></p><ul><li>And now for tomorrow’s weather. The day will start showery and windy. Those winds should disappear by late morning but the wet weather will continue until well into the evening. Although we might see some bright sunny periods between the showers early on by midday, it will be cloudy with temperatures of no more than ten or twelve degrees centigrade.</li></ul><p><b>Question 7.</b></p><ul><li>It was really strange going back to Redmond where I used to live. Everything has changed so much. I went to see my old house. It used to have trees in the garden and a hedge in the front. Well, the people who own it now have built another bedroom over the top of the garage and removed the trees and hedge so they have more room to park their cars. It made me feel really sad because it looked so different.</li></ul><p><b>Question 8.</b></p><ul><li>Coming up next on The Science Channel is the latest documentary produced and presented by photographer Daniel Hamilton, who made the prize-winning series about African animals which you may have seen last year. His latest series is simply called Earth and viewers can enjoy some amazing photography with pictures of the planet shot from cameras in space using the latest satellite technology. So sit back, relax and enjoy!</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which part(s) of the body does the exercise affect well?",
+              "options": [
+                "knees",
+                "back",
+                "hands",
+                "legs"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Which TV programme is on at 9 o’clock tonight?",
+              "options": [
+                "Ski jumping finals",
+                "Nature Programme",
+                "Tim Wong’s Chinese Kitchen",
+                "a programme about dolphins"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What time will the writer arrive at the bookshop?",
+              "options": [
+                "At 1.45",
+                "At 2.15",
+                "At 3.30",
+                "At 2.30"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What will the weather be like tomorrow?",
+              "options": [
+                "rainy",
+                "cloudy",
+                "sunny",
+                "both sunny and rainy"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What should the students take on the school trip?",
+              "options": [
+                "Drink, fruit and some change",
+                "Drink, fruit and coloured pencils",
+                "Fruit, some change and coloured pencils",
+                "fruit and coloured pencils"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What will the weather be like tomorrow afternoon?",
+              "options": [
+                "rainy",
+                "windy",
+                "sunny",
+                "cloudy"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What does the woman’s house look like now?",
+              "options": [
+                "It has another bedroom over the garage",
+                "It has trees in the garden",
+                "It has a hedge in the front",
+                "It has trees in the garden and a hedge in the front."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is the next TV program about?",
+              "options": [
+                "the satellite",
+                "the Earth",
+                "African animals",
+                "photography"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-16/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Questions 9-12</b></p><ul><li><b>M:</b> Hi, Professor Smith. Do you have a few minutes?</li><li><b>W:</b> Sure. How can I help?</li><li><b>M:</b> I want to know how to write a good essay.</li><li><b>W:</b> I see. What exactly is the problem?</li><li><b>M:</b> Well, I'm not sure. I mean I take many notes, and I understand the lessons. It's just that my essays aren't very good.</li><li><b>W:</b> Ah, yes. A good essay needs organization. Let's go over the format for an essay.</li><li><b>M:</b> That would be great.</li><li><b>W:</b> So there are three parts to an essay. First, there's the introduction. You need a strong introduction. This gives the main idea for your whole essay. OK?</li><li><b>M:</b> OK.</li><li><b>M:</b> That makes sense.</li><li><b>W:</b> Next, there are the body paragraphs. They provide evidence or details for your main idea.</li><li><b>M:</b> OK. [Slowly] I think I should write this down.</li><li><b>W:</b> Yes, that is a good idea.</li><li><b>M:</b> OK [Quickly] Can you tell me about body paragraphs again?</li><li><b>W:</b> Sure. The body paragraphs provide evidence or details.</li><li><b>M:</b> Ahhh right.</li><li><b>W:</b> And then there's your conclusion. The conclusion is just a summary of your main idea.</li><li><b>M:</b> Wow! I've never thought of it that way.</li><li><b>W:</b> Yes, it can make a big difference. Good organization is important for essay writing.</li></ul><p><b>Conversation 2: Questions 13-16</b></p><ul><li><b>M:</b> Hi. Are you in charge of the Student Tutoring Center?</li><li><b>W:</b> No, but I do tutor here.</li><li><b>M:</b> Well, I need help with my mathematics class work. Can you help me?</li><li><b>W:</b> That's fine. I'm actually a math major. I can help you. But, before we begin, I need to clarify the rules.</li><li><b>M:</b> Rules? What rules?</li><li><b>W:</b> Well, there are some things I can help you with, and some things I can't help you with. Let me explain.</li><li><b>W:</b> First of all, our school has rules about cheating. It's pretty standard for schools nowadays. Anyway, according to the rules, if you cheat, then you can get kicked out of school.</li><li><b>M:</b> That makes sense. I don't want them to punish either one of us because of tutoring.</li><li><b>W:</b> Exactly. OK, so I can help you with things like learning strategies for studying, and studying from your notes. I can even help you take notes. However, when it comes to class work and homework, you're on your own. Are we all clear?</li><li><b>M:</b> I think that's fair.</li><li><b>W:</b> Good. OK, let's get started.</li></ul><p><b>Conversation 3: Questions 17-20</b></p><ul><li><b>M:</b> Hi. Can I help you with anything?</li><li><b>W:</b> Hi, Professor. Well, it's about our project that's due next week. I was wondering if I could get an extension. Can I get an extra week to do it?</li><li><b>M:</b> Why are you asking?</li><li><b>W:</b> I normally wouldn't, but I've been really sick and I was absent for a few of your lectures.</li><li><b>M:</b> Well, I'm sorry but I can't give you an extension. However, I can suggest a couple of ways to make up for lost time.</li><li><b>W:</b> I hope so. I really need a good grade or I could lose my scholarship. Then I wouldn't be able to pay my tuition.</li><li><b>M:</b> You'll be fine. Here's what you can do: borrow one of your classmate's notes from the lectures that you missed. Ask if he or she can help explain them to you.</li><li><b>W:</b> OK.</li><li><b>M:</b> Or you can go to the library and do the research yourself. I can give you an outline of the lectures that you missed. You can look up the main information. Either way, you should be fine.</li><li><b>W:</b> Yeah, I guess you're right. I should get started. Thanks.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "How to get a better grade in class",
+                "How to write a better essay",
+                "How to write a paragraph",
+                "How to organize an essay"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "According to professor Smith, what is important for essay writing?",
+              "options": [
+                "Many good ideas",
+                "Strong introduction",
+                "Summary",
+                "Organization"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "How many parts are there in an essay?",
+              "options": [
+                "Two",
+                "Three",
+                "Four",
+                "Five"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What are the functions of the body paragraphs?",
+              "options": [
+                "To summarize the main ideas",
+                "To provide examples and ideas",
+                "To provide evidences and details",
+                "To give main ideas for an essay"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "Taking a math test",
+                "Getting a tutor",
+                "Taking a midterm test",
+                "Having a part-time job"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does the man ask the woman to do?",
+              "options": [
+                "Help him finish his homework",
+                "Tutor him with a subject at school",
+                "Teach him English",
+                "Find him a good math teacher"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What will happen if the students cheat?",
+              "options": [
+                "They will be expelled from school.",
+                "They cannot take the final exam.",
+                "They will be fined.",
+                "They will have to study again."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which of the following the tutor CANNOT do for the student?",
+              "options": [
+                "The learning strategies",
+                "Taking notes",
+                "Homework",
+                "Learning tips"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "Ways a student can make up for missed lectures",
+                "How to avoid getting sick and missing school",
+                "How to get a scholarship",
+                "How to get high scores"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Why did the woman miss the lessons?",
+              "options": [
+                "Because of her sickness",
+                "Because of the accident",
+                "Because of the severe weather",
+                "Because of her laziness"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What does the woman want the man to do for her?",
+              "options": [
+                "Lend her his notes",
+                "Give her an extension",
+                "Give her a scholarship",
+                "Explain the lessons"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What should the woman probably do next?",
+              "options": [
+                "Go on a vacation",
+                "Go to the library to do some research",
+                "Hang out with her classmates",
+                "Apply for a scholarship"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1</b></p><p>Well, there’s nothing quite like finding your first old ship – it was 300 years old. Well, there’s nothing quite like finding your first Ok just lying at the bottom of the sea, so it wasn’t difficult to find. Most are covered in sand and rocks – but this one wasn’t.</p><p>I’m actually a teacher, not a full time diver – I dive in my free time but I often get to them before the professional divers, because I have good up-to-date equipment. Another thing that helps is talking to fish-men who tell me about their local area. I’ve even written a book about some of their experiences.</p><p>At the moment, I’m looking for the gold from a ship called The Sea Bird. It was an enormous well-built ship and it was coming from Australia on a winter night in 1859. Everything was going fine until the ship reached the English coast, when it crashed into some rocks in a very strong wind and sank to the bottom of the sea. It was carrying gold from Australia, and most of it is still at the bottom of the sea.</p><p>My wedding ring is actually made from gold which I found on an eighteenth – century sailing ship. A friend of mine, another diver, has already found 88,000 pounds worth of gold from different ship. He’s now decided to give up his job and become a full – time diver.</p><p>My house is full of things like coins, bottles and old guns. My wife is always complaining about the number of objects around the house – she says I should open an antiques shop – but I love all these old things. Anyway, in the end, I gave some things from my collection to museums, because I didn’t want to sell them. But my wife still wasn’t very pleased, I’m afraid.</p><p>As diving is a dangerous hobby, It’s not a good idea to try to teach yourself. I’d advise anyone interested to do what I did. There are some excellent diving clubs like the one I joined, which run courses for beginners. It is best to do one of these before you go on a diving holiday...</p><p><b>Talk 2</b></p><p>Are you interested in history? Well, I’d like to tell you about some of the historical places open to visitors in this part of the country.</p><p>Let’s start with the oldest first, Black Rock Caves have been here for over two million years. And, for half a million year, they were home to people and various animals, particularly tigers. You can explore these ancient homes and imagine what life was like for the people who lived there. The caves are open daily from April to October. A special attraction on evenings in August is a walk by candle light. Don’t take this tour if you are afraid of the dark.</p><p>Next I recommend a visit to Salter house. This was built by Sir Joshua Salter and dates back to seventeen sixty – five. The Salter family are still living these today. The house became famous in nineteen eighty two when the television series Aunt Dorothy was filmed there. The furniture and paintings are well worth seeing, but the attraction nobody wants to miss is the kitchen. This is where Aunt Dorothy cooked her enormous meals and gave advice to anyone who passed through this part of the house.</p><p>And don’t forget to visit the Old Port. You will need several hours to see everything there, especially if you take a trip along the riverside in an old tram as far as the fishing village. The guides there all wear traditional costume and you too get the chance to try on clothes from hundred years ago. You can buy gifts in the old village stores and eat delicious snacks in the Tea Shop. If you visit the village factory, you can see how sweets were made a hundred years ago, and taste them, too.</p><p>So, you see there’s plenty of...</p><p><b>Talk 3</b></p><p>This lecture is going to introduce you to traditional Chinese philosophy. First, you will learn about, uh, the yin and yang philosophy. Secondly, we will look at the five elements of this philosophy. It is important that you remember these five elements as we will be discussing them throughout the lecture. The five elements of yin and yang are: water, wood, fire, earth, and umm, metal. Ok, so those are the five elements. Umm, let’s begin with the definition of yin and yang. Yin and yang should be considered as opposite forces like, uhh, like land and ocean, for example. These are opposite. Now, these opposites do not compete with each other. They are complementary. When you think of yin and yang, think complementary opposites.</p><p>So, moving from complementary opposites, let’s return to the five elements we mentioned earlier. If you recall, we said they were water, wood, fire, earth and metal. The Chinese divided yin and yang into five elements to gain an understanding of how the body, mind and spirit work. According to the Chinese, every person’s physical and mental health relies on a balance of the five elements.</p><p>Individuals may have more of one element than another. Of course, ideally, all elements are in balance or harmony. What does this mean? Uh, it means that a person’s body contains equal amounts of each element.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The first old ship which Frank found was ..........",
+              "options": [
+                "covered by rocks",
+                "older than he first thought",
+                "easy to find",
+                "had a lot of gold"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did Frank find the ships so quickly?",
+              "options": [
+                "reads history books",
+                "is a professional driver",
+                "his friends helped him",
+                "uses the latest equipment"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does Frank say about the ship called The Sea Bird?",
+              "options": [
+                "It was so expensive",
+                "It was built in 1859",
+                "It sank in a storm",
+                "It was badly made"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What did Frank say about his wedding ring?",
+              "options": [
+                "was made from gold he found himself",
+                "it was given by someone",
+                "is worth 88,000 pounds",
+                "was found by a friend"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How did Frank learn to dive?",
+              "options": [
+                "by joining a diving club",
+                "by asking the dive tutor",
+                "by teaching himself",
+                "by going on a diving holiday"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "The Black Rock Caves have been home for....",
+              "options": [
+                "Two million years",
+                "A million year",
+                "A half a million year",
+                "centuries"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "When can the cave attract the tourists?",
+              "options": [
+                "from April to October",
+                "April",
+                "October",
+                "August"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Salter house was built in ............",
+              "options": [
+                "1765s",
+                "1756s",
+                "1928s",
+                "1982s"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "The things that are worth to visit in Salter house is ............",
+              "options": [
+                "the furniture",
+                "the paintings",
+                "the enormous meals",
+                "the kitchen"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should tourists do as visiting The Old Port?",
+              "options": [
+                "take an old trek to visit the riverside",
+                "buy different traditional costumes",
+                "try sweets made in the Tea Shop",
+                "visit the village factory"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What does the professor say about the elements in the body?",
+              "options": [
+                "Ideally, these should be different amounts of each",
+                "The amount of each in the body is not very important",
+                "They can be out of balance",
+                "Different people have different elements"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the professor, what are yin and yang?",
+              "options": [
+                "They are opposite forces",
+                "They are what make a person healthy",
+                "They are four different elements",
+                "They are the land and the ocean"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What does the professor say about yin and yang?",
+              "options": [
+                "They represent opposing forces that complement each other.",
+                "They are constantly changing to maintain harmony.",
+                "They must remain equal in order to maintain good health.",
+                "They are divided into five elements that compete with one another."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "According to the Chinese, five elements of Yin and Yang are studied for the work of",
+              "options": [
+                "the body and spirit",
+                "body, mind and spirit work",
+                "balance and harmony",
+                "medicine and health"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the professor says “Yin and Yang should be considered as opposite forces like, uhh, like land and ocean, for example”?",
+              "options": [
+                "To correct something she said earlier",
+                "To explain a term she just introduced",
+                "To explain what is wrong with a particular theory",
+                "To remind the students of something discussed earlier"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

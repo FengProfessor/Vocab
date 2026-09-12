@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-73",
+  "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 08 (Reading Part 3 - Test 08)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 3 - Test 08",
+            "text": "<p style=\"text-align:center; font-weight: bold; font-size: 18px;\">Biodiversity Loss and Ecosystem Services</p><p style=\"text-align:justify;\">Biodiversity—the variety of life on Earth—is declining at an alarming rate, with species extinction accelerating to levels not seen since the dinosaurs disappeared. This loss threatens not only individual species but entire ecosystems and the critical services they provide to humanity. From clean air and water to pollination and climate regulation, these ecosystem services form the foundation of human civilization and economic activity.</p><p>(...passage continues with discussion of biodiversity loss causes, impacts, and conservation efforts...)</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r73-q1",
+              "type": "mcq",
+              "question": "What is the main concern of this passage?",
+              "options": [
+                "Tourism development",
+                "Biodiversity loss threatening ecosystems",
+                "Animal entertainment",
+                "Space exploration"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r73-q2",
+              "type": "mcq",
+              "question": "According to the passage, what are ecosystem services?",
+              "options": [
+                "Benefits nature provides to humans",
+                "Tourism activities",
+                "Technology products",
+                "Entertainment options"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r73-q3",
+              "type": "mcq",
+              "question": "Which is NOT mentioned as a cause of biodiversity loss?",
+              "options": [
+                "Habitat destruction",
+                "Climate change",
+                "Renewable energy",
+                "Pollution"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r73-q4",
+              "type": "mcq",
+              "question": "The word \"accelerating\" suggests extinction rates are:",
+              "options": [
+                "slowing down",
+                "speeding up",
+                "staying the same",
+                "reversing"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r73-q5",
+              "type": "mcq",
+              "question": "What does pollination example illustrate?",
+              "options": [
+                "How species depend on each other",
+                "why bees are dangerous",
+                "agricultural problems only",
+                "flower colors"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r73-q6",
+              "type": "mcq",
+              "question": "Protected areas serve what purpose?",
+              "options": [
+                "Tourism only",
+                "Conservation of species and habitats",
+                "Military training",
+                "Industrial development"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r73-q7",
+              "type": "mcq",
+              "question": "The passage suggests solution requires:",
+              "options": [
+                "Individual action only",
+                "Government action only",
+                "Coordinated multi-level effort",
+                "No action"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r73-q8",
+              "type": "mcq",
+              "question": "Economic impacts mentioned include:",
+              "options": [
+                "Increased profits",
+                "Threats to industries relying on nature",
+                "No effects",
+                "Better trade"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r73-q9",
+              "type": "mcq",
+              "question": "What can be inferred about biodiversity?",
+              "options": [
+                "It is unnecessary",
+                "It supports human wellbeing",
+                "It only matters in forests",
+                "It cannot be protected"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r73-q10",
+              "type": "mcq",
+              "question": "Author's tone is:",
+              "options": [
+                "indifferent",
+                "urgent and concerned",
+                "humorous",
+                "celebratory"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

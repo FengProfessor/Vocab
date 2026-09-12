@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-28",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 28",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-28/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>You’re listening to the morning traffic report on J-49. No congestion is reported in the downtown area. Commuters will also be happy to know that the Port Smith Bridge will reopen tomorrow morning, following 2 months of repairs.</li></ul><p><b>Question 2.</b></p><ul><li>Good afternoon. Thanks for coming to the meeting this morning. I have a few announcements. First, the director will be leaving tomorrow for Berlin and won’t be back until next Tuesday. Also, our project is nearly two weeks ahead of schedule, thanks to your hard work. We still have a lot to do, but I am pleased with our progress. One last thing: please think of some ideas for our presentation next month. We will meet next week to discuss them.</li></ul><p><b>Question 3.</b></p><ul><li>This morning, we’ll be talking to Dr. Russell Johnson, a professor of history at Dale University. Dr. Johnson is an expert in ancient building techniques and he’s the winner of this year’s Gailling Award for his book, The Development of Pyramids.</li></ul><p><b>Question 4.</b></p><ul><li>Snowstorms are expected this afternoon, continuing through tomorrow. Temperatures are also expected to drop dramatically overnight. Roads may become quite slippery, so please drive carefully. Coming up next is the local news with Amy Howard.</li></ul><p><b>Question 5.</b></p><ul><li>This is Andrea Martin reporting for KG-98 news. Local residents are feeling the effects of the rising cost of natural gas this winter. Many people are trying to find alternate methods of heating their homes because of the expense of gas. City officials report that the cost of natural gas has risen by nearly 20 percent in the past year. Energy experts say that the best way people can save on the cost of heating their homes is to make sure their houses are energy efficient.</li></ul><p><b>Question 6.</b></p><ul><li>Ms. Austen, this is George calling from Sun Valley Computer Repairs. I wanted to let you know that the repairs on your computer have been completed. You can drop by our store anytime before 5:00 this evening to pick it up. However, did find one small problem with your computer that we need to discuss the anti-virus software on your computer is out of date and I suggest you let us install the newest version. I have a meeting this morning, so I will not be back until after lunch. Please call me sometime this afternoon and let me know if you would like us to go ahead and install the new anti-virus.</li></ul><p><b>Question 7.</b></p><ul><li>On today’s show, we’ll be speaking with Dr. Mark Hamid, a director of the Northshore Medical Center. He’ll talk about changes in the medical industry over the past years. He’ll also discuss his opinions of medical coverage in this country.</li></ul><p><b>Question 8.</b></p><ul><li>It’s 7 o’clock and this is the morning traffic report on WKPR radio. The continuing snowstorm has caused a lot of traffic congestion this morning. Traffic has stopped completely on Pandosy Avenue, so take Gershmar Road if you’re going to the city center. The transportation department reports that they are working on clearing the snow but because of the congestion, progress is slow. The storm is expected to continue until tomorrow afternoon, so we don’t think the conditions will better anytime soon. Stay tuned for our next traffic report at 7:30.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "According to the report, what will happen tomorrow?",
+              "options": [
+                "the reopening of a bridge",
+                "traffic congestion",
+                "the repair of a bridge",
+                "road restriction"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What are employees asked to give?",
+              "options": [
+                "Progress reports",
+                "A list of announcements",
+                "Vacation schedules",
+                "Presentation ideas"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is true about Dr. Johnson?",
+              "options": [
+                "He is a professor of Literature",
+                "He designed ancient buildings.",
+                "He got this year's award.",
+                "He wrote books about literature"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What does the speaker advise people to do tomorrow?",
+              "options": [
+                "Wear warm clothes",
+                "Drive carefully",
+                "Stay at home",
+                "Watch the local news"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is this news report about?",
+              "options": [
+                "A stock market forecast",
+                "Building construction",
+                "Increasing gas costs",
+                "Office maintenance"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "When will George attend a meeting?",
+              "options": [
+                "In the morning",
+                "At noon",
+                "In the afternoon",
+                "In the evening"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the topic of the show?",
+              "options": [
+                "Advice about changes in health",
+                "Changes in medical industry",
+                "Medical industry and its coverage",
+                "How to improve health"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "According to the report, what will happen tomorrow?",
+              "options": [
+                "the reopening of a bridge",
+                "traffic congestion",
+                "the repair of a bridge",
+                "road restriction"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-05/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Interview with Andy Wells regarding Theme Parks</b></p><ul><li><b>Interviewer:</b> Good morning. Today we’re going to talk about theme parks and we’re going to hear from <b>Andy Wells</b> who has written a guide to theme parks around the world. Welcome to the programme, Andy.</li><li><b>Andy:</b> Hi, it’s good to be here.</li><li><b>Interviewer:</b> You really have a dream job, don’t you, Andy? Flying round the world all the time, visiting adventure parks ...</li><li><b>Andy:</b> Well, yes, it’s pretty exciting. But it’s really hard work too, you know.</li><li><b>Interviewer:</b> I bet. So, what’s the <b>number one theme park</b> in the world?</li><li><b>Andy:</b> That all depends what you’re looking for. In terms of numbers, it has to be <b>Magic Kingdom at Disney World</b> in Florida, the most famous theme park. But the most popular park for people who like adventure rides is <b>Cedar Point</b> in Ohio, USA. It has the biggest number of rollercoasters in one park, <b>17</b>, and three water rides. There are lots of other attractions too. Last year they introduced 50 animatronic dinosaurs. You know, life-size models that move and look real.</li><li><b>Interviewer:</b> Cool! Have they got anything lined up for this year?</li><li><b>Andy:</b> Yeah, there’s a new rollercoaster called the <b>Gatekeeper</b>. Well, actually it’s not a rollercoaster, it’s a <b>wingcoaster</b>. It’ll be the biggest in the world.</li><li><b>Interviewer:</b> What’s a wingcoaster?</li><li><b>Andy:</b> With a normal rollercoaster you are sitting on a seat with the track under you. With a wingcoaster the seats kind of stick out at the side so the passengers have nothing below or above them. You feel as if you’re flying.</li><li><b>Interviewer:</b> So it’s more frightening?</li><li><b>Andy:</b> More exciting! Way more exciting.</li><li><b>Interviewer:</b> What other attractions have you seen recently?</li><li><b>Andy:</b> I’ve just been to <b>The Wizarding World of Harry Potter</b> at the Islands of Adventure in Orlando, Florida. It’s great! You know those shops that sell magic sweets and things in the Harry Potter books? Well, they have those, just like you’ve imagined. There’s a fantastic tour of Hogwarts School where you meet characters from the books. It’s so well done.</li><li><b>Interviewer:</b> Right, sounds interesting. In your book you have a lot of theme parks in <b>Asia</b> too. Can you tell us about them?</li><li><b>Andy:</b> Sure. Tokyo has had a <b>Disneyland</b> for quite a long time, which attracts a lot of people. <b>Ocean Park</b> in Hong Kong has also been going for a long time – that has a lot of marine animals as well as rides. <b>Lotte World</b>, a huge park in South Korea, has the world’s biggest indoor theme park. And then there’s <b>Universal Studios</b> in Singapore. That’s expanding with additions to its New York street section. There’s going to be a Sesame Street dark ride. A dark ride’s a ride inside a building.</li><li><b>Interviewer:</b> I see. New York in Singapore?</li><li><b>Andy:</b> Yeah, it’s weird, but it works. But the place to watch at the moment is <b>China</b> – they’re really expanding. Lots more parks will open in China in the next few years, including another one with dinosaurs in the north, and <b>Ocean Kingdom</b> in the south. That will have the world’s longest roller coaster and tallest Ferris wheel, as well as boat rides and a night-time zoo.</li><li><b>Interviewer:</b> Wow, so that’s opening soon?</li><li><b>Andy:</b> Yes, this year. I’ll be there!</li><li><b>Interviewer:</b> Have a ride for me, then.</li></ul><p><b>Conversation 2: Interview with Geoff, World Heavyweight Champion</b></p><ul><li><b>Journalist:</b> Good evening, <b>Geoff</b>.</li><li><b>Geoff:</b> Hi.</li><li><b>Journalist:</b> Perhaps you could tell me a bit about your background. Where are you from exactly?</li><li><b>Geoff:</b> Well, I was actually born in <b>1958</b>, up in the north of England. My parents came to live in Britain after the war.</li><li><b>Journalist:</b> It sounds great.</li><li><b>Geoff:</b> We moved south to <b>London</b> after that. We were completely broke and I did all sorts of odd jobs to try and make money.</li><li><b>Journalist:</b> Goodness, how dramatic! But?...</li><li><b>Geoff:</b> But I was lucky – I discovered <b>karate</b>.</li><li><b>Journalist:</b> Ah! How, exactly?</li><li><b>Geoff:</b> There was a school trip – nothing special really – but we went to this sports center and I just thought “That’s for me!”.</li><li><b>Journalist:</b> Just like that?</li><li><b>Geoff:</b> Yup. Anyway, I started training. I found myself a Japanese coach and things just happened. I found it came naturally to me and I worked my way up till I found myself in <b>Taiwan</b> for the World Championships. That was in <b>1982</b>.</li><li><b>Journalist:</b> And you won?</li><li><b>Geoff:</b> Yeah, suddenly I was <b>World Heavyweight Champion</b>. It was great.</li><li><b>Journalist:</b> And you were world champion at that weight <b>five times</b> in all?</li><li><b>Geoff:</b> Yeah, that’s right.</li><li><b>Journalist:</b> And then you retired?</li><li><b>Geoff:</b> Well, I didn’t have much choice.</li><li><b>Journalist:</b> And now you’ve got others projects on the go all around the country and even abroad?</li><li><b>Geoff:</b> Mm...yeah...we’re going from strength to strength.</li></ul><p><b>Conversation 3: Marek and Tanya discussing holiday plans</b></p><ul><li><b>T:</b> Hi, <b>Marek</b>. Are you looking forward to your holiday?</li><li><b>M:</b> Oh <b>Tanya</b>, I can’t wait!</li><li><b>T:</b> Where is it you’re going? Is it camping on an island somewhere or am I thinking of someone else?</li><li><b>M:</b> Well, we were going camping, but my Dad’s just bought a <b>camper van</b>, so we’re going in that instead. It means you can go to other countries without having to get a flight which is good in a way, but actually I always used to enjoy sleeping in a tent.</li><li><b>T:</b> Yeah, I know what you mean, but it must be nice getting to see all the scenery along the way. I have to say the <b>flight</b> is my least favourite part of going abroad on holiday.</li><li><b>M:</b> Oh I never mind it actually – and the airport can be quite fun sometimes.</li><li><b>T:</b> You must be joking! All those people and nothing to do except look round expensive shops. I mean, you always end up buying something you don’t really want, just because there’s nothing else to do.</li><li><b>M:</b> Oh, I don’t. Anyway, where you are off to this year? Florida again?</li><li><b>T:</b> Well, I’m getting a bit old for <b>Disneyland</b>, Marek, though my little brother would still like it. We’re actually going somewhere new. It’s like a <b>sports camp</b> where you stay with lots of other kids and learn how to do different activities.</li><li><b>M:</b> You mean you’re going without your parents?</li><li><b>T:</b> Not exactly. I mean they’re there too doing whatever they want – golf in my dad’s case – but you only actually see them at mealtimes.</li><li><b>M:</b> Sounds cool. But will you have to look after your little brother?</li><li><b>T:</b> No way. They divide you up according to <b>age</b>. He’ll be doing football and swimming and all that, whereas I get to go to <b>water skiing</b>.</li><li><b>M:</b> Wow! Doesn’t that cost a fortune?</li><li><b>T:</b> Well, quite a bit so I’m just doing it on one of the days. But there’s <b>windsurfing</b> and <b>water polo</b> too.</li><li><b>M:</b> I see.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is Magic Kingdom at Disney World in Florida famous for?",
+              "options": [
+                "The largest area",
+                "The most rides",
+                "The biggest number of visitors",
+                "The most beautiful theme park"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is Cedar Point in Ohio introducing this year?",
+              "options": [
+                "A new roller coaster",
+                "Three new water rides",
+                "Animatronic dinosaurs",
+                "Two new roller coasters"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Andy think about a wingcoaster?",
+              "options": [
+                "More relaxing than a roller coaster",
+                "More frightening than a roller coaster",
+                "More exciting than a roller coaster",
+                "More dangerous than a roller coaster"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does China soon have?",
+              "options": [
+                "The world's longest dinosaur tour",
+                "The world's biggest zoo",
+                "The world's tallest Ferris wheel",
+                "The world's biggest theme park"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What happened to Geoff’s family when they moved to London?",
+              "options": [
+                "They couldn’t find a place to live",
+                "They ran out of money",
+                "His parents couldn’t find a job",
+                "He couldn’t help his parents earn money"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "When did Geoff become interested in karate?",
+              "options": [
+                "When he joined a school trip",
+                "When he joined a karate club at school",
+                "When his family went to a sports center",
+                "When he watched karate on television"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "When did he become the World Heavyweight champion?",
+              "options": [
+                "1980",
+                "1981",
+                "1982",
+                "1983"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How many times was he the world champion?",
+              "options": [
+                "2 times",
+                "3 times",
+                "4 times",
+                "5 times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why doesn't Tanya enjoy spending time at the airport?",
+              "options": [
+                "She prefers enjoying the scenery during the journey.",
+                "She finds it crowded and the shops too expensive.",
+                "She would rather spend time at the sports camp.",
+                "She wants to join more water sports instead."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Where is Tanya going for her holiday this year?",
+              "options": [
+                "A campsite on a small island.",
+                "Disneyland in Florida with her family.",
+                "A sports camp with different activities.",
+                "A camper van trip across different countries."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Who is Marek going on holiday with?",
+              "options": [
+                "His school friends",
+                "His father and younger brother",
+                "His extended family",
+                "His family"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is Marek's feeling about his next holiday?",
+              "options": [
+                "Excited",
+                "Indifferent",
+                "Anxious",
+                "Relieved"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-13/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 (Q.21-25)</strong></p><ul><li><b>W:</b> Can you believe Professor Kensington postponed the due date for the term paper this morning? It's unbelievable!</li><li><b>M:</b> Yeah, it was crazy! I've been spending days and nights in the computer lab writing up that paper. I only did that because he kept on emphasizing that he won't take any paper that's not in his office by noon today.</li><li><b>W:</b> I heard that, too. Jessica and I stayed up half the night trying to finish it. I think it was three o'clock in the morning when we finally had the third draft. I barely had any sleep.</li><li><b>M:</b> You had Jessica to help you? At least you had someone to proofread your paper and help you with the research. It was a nightmare for me. I didn't even have time to proofread my paper.</li><li><b>W:</b> Well, I'm really upset that Professor Kensington was so inconsiderate. Don't you agree?</li><li><b>M:</b> I guess it was a hasty change, but... I think he did it for us students.</li><li><b>W:</b> You really didn't get enough sleep, did you? You're not thinking straight. I can't possibly see how I can understand his hasty decision that way.</li><li><b>M:</b> Well, as much as I'm unhappy with his last-minute decision, I think he did it so that we could have one more chance to look over our work before turning it in. Besides, an extension of two days isn't going to change anything drastic in our papers.</li><li><b>W:</b> I suppose. Still, I would have had more time to study for the calculus exam, which was today, if I hadn't had to spend so much time and energy on that paper.</li><li><b>M:</b> Oh well, at least he didn't tell us to hand it in earlier.</li><li><b>W:</b> That's right... anyway, I'm not going to spend another two days on the assignment. I'm handing it in after the next class.</li></ul><p><strong>Conversation 2 (Q.26-30)</strong></p><ul><li><b>W:</b> Professor Atkins, could I get some help with my chemistry lab?</li><li><b>P:</b> Certainly, Julie. What's the problem? Are you having trouble understanding some of the experiments?</li><li><b>W:</b> Oh, no, I understand the experiment ...perhaps I only think that I understand it.</li><li><b>P:</b> What do you mean? Do you or don't you?</li><li><b>W:</b> Well, I tried the latest experiment by myself, based on what I understood from your lectures and lab session ... but I seem to come up with really different results from what the textbook indicates I should be getting.</li><li><b>P:</b> That certainly is a possibility. Remember, the textbook tends to give you an ideal explanation of the experiments. But in real life, any number of factors can cause you to get results that might not be the ideal or preferred outcome.</li><li><b>W:</b> Oh, that's good... so any result is acceptable?</li><li><b>P:</b> No, of course there is a range for this particular experiment, I'd expect your answer to be within ... let's see now... perhaps 4 or 5% off the textbook.</li><li><b>W:</b> Really? My answer was nearly 10% off. Wouldn't that be alright?</li><li><b>P:</b> I'm sorry, but that would be a problem. If your answer were that far from the proper answer, and say that even if you could explain the difference, I would have to lower your grade significantly.</li><li><b>W:</b> I see. Alright. I guess I'm going to have to redo it. I want to do well in your class and can't afford to get a bad grade.</li><li><b>P:</b> Very good. But you'll have to hurry, the lab is due Friday, and I won't be giving any extensions.</li><li><b>W:</b> Oh, I was hoping...</li><li><b>P:</b> Yes, it's nothing. Well, could you please sign a permission slip for me to use the lab after hours? I only have time during late evenings this weekend.</li><li><b>P:</b> Sure, I'll do that for you right now. Here you go... and a tip... before you start the experiment, wipe the test tubes with alcohol... there might be unwanted residue inside that might be affecting the result.</li></ul><p><strong>Conversation 3 (Q.31-35)</strong></p><p>We'll be looking into the largest state in America, Alaska. If you look at the location of Alaska on the map, you can see that it is bordered by Canada on the east, the Arctic Ocean on the north, the Bering Strait and Bering Sea to the east, and the Gulf of Alaska ... wait a minute ... sorry about that... to the west and the Gulf of Alaska to the south. And as you can see on the map, Alaska has a greater land area than California and Texas combined. Now, although there are many cities in Alaska, the population is so low that an average number of students in a middle school classroom is only about 10. You can imagine many desolate small towns scattered around Alaska. So, it's natural that Alaskans rely heavily on airplanes for transportation, since many parts of Alaska are accessible only via air. Well, of course, there is a railway operating between Fairbanks, a relatively big city in central Alaska, and Seward, a city on the southern coast. It is much more popular than the only major highway in Alaska, the Alaska Highway, which is open throughout the year. Not that there's much traffic. One does not need to venture far to understand the reason for its sparse population. Even though cold climate and other factors make most of Alaska a less-than-desirable location for farming, agriculture is conducted in a few areas between Fairbanks and the southern coast. Most of the food Alaskans need, however, must be imported from outside the state. Also, Alaska is subject to strong earthquakes and occasional volcanic activity. Your textbook describes the explosion of the Alaskan volcano Mount Katmai in the early 20th century as one of the most famous and violent volcanic eruptions in history. I strongly suggest you read up on that chapter, as we'll be touching on some of that the next time. Anyway, where was I? Oh yes, earthquakes ... these occasional earthquakes generate seismic sea waves, called tsunamis. As you may have heard, these waves can reach far inland and destroy communities along the shore. It wasn't much different from the terrible tsunami of 2004.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What did the woman do last night?",
+              "options": [
+                "Studied for a final test",
+                "Worked on her paper",
+                "Stayed in the computer lab",
+                "Turned the paper in early"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What is probably true about the woman?",
+              "options": [
+                "She called Professor Kensington and asked for an extension.",
+                "She had her friend help to complete her paper.",
+                "She had plenty of time to complete her paper last night.",
+                "She completed his paper without help from anyone else."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What can be inferred about the man?",
+              "options": [
+                "He is too unhappy to express his anger to the woman.",
+                "He does not feel the extension was necessary at all.",
+                "He understands the reasoning behind the extension.",
+                "He is planning to hand in the paper today no matter what."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What is the extension for the assignment submission?",
+              "options": [
+                "They have 1 more day.",
+                "They have 2 more days.",
+                "They have 1 more week.",
+                "They have 2 more weeks."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is the woman probably going to do next?",
+              "options": [
+                "She is going to revise the paper.",
+                "She is going to talk with the professor.",
+                "She is going to submit her paper.",
+                "She is going to prepare for the exam."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Who is professor Atkins?",
+              "options": [
+                "A math teacher",
+                "A physics teacher",
+                "A chemistry teacher",
+                "A laboratory manager"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What is the acceptable range of difference off the textbook?",
+              "options": [
+                "4% or 5%",
+                "10%",
+                "Less than 10%",
+                "45%"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What will the woman most likely do?",
+              "options": [
+                "Redo the experiment in the evenings",
+                "Ask the professor for more time",
+                "Hand in the experiment as it is",
+                "Lower her results by 10% from the textbook"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "When is the experiment due day?",
+              "options": [
+                "Tomorrow",
+                "Next week",
+                "Tuesday",
+                "Friday"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What does the professor advise Julie to do?",
+              "options": [
+                "Spend more time in the lab",
+                "Clean the tubes before the experiment",
+                "Ask someone to help her",
+                "Meet him after class hours in the lab"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is true about Alaska?",
+              "options": [
+                "It is the second largest state in the USA.",
+                "It is bordered by Canada on the East.",
+                "It is smaller than California and Texas combined.",
+                "It is populous."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What is the average number of students in a middle school classroom?",
+              "options": [
+                "10",
+                "15",
+                "20",
+                "25"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Which of the following is a popular transportation system in Alaska?",
+              "options": [
+                "Airplanes",
+                "Ships",
+                "Railways",
+                "A complex highway system"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What will the professor probably talk about in the next class?",
+              "options": [
+                "The volcanic eruption of Mount Katmai in the early 20th century.",
+                "The type of airplanes used by Alaskans to move from point to point.",
+                "The amount of food imported by the Alaskans to balance out their miniscule farming production.",
+                "The effects of seismic sea waves that reach far inland and destroy communities."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What does the professor feel about life in Alaska?",
+              "options": [
+                "It is a fantastic place to dwell for anyone.",
+                "It is probably not very desirable for some to live in.",
+                "It is not a place that he knows much about.",
+                "It is a peaceful place without any worries to think about."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

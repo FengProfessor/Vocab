@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-02",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 02",
+  "duration": 172,
+  "date": "2026-03-15",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What will the weather be like tomorrow?</b></p><ul><li><b>Announcer:</b> Here is the weather forecast. Today will be very cloudy, although it won’t rain until the evening. The weather tomorrow will be the same as yesterday – <b>sunshine and showers</b>. But the weekend looks good – plenty of sunshine and very little rain.</li></ul><p><b>2. What will the man do first?</b></p><ul><li><b>Woman:</b> Steve, what are you going to do today?</li><li><b>Man:</b> Mmm ... well, I’ve got to have my hair cut, but before I do anything I need to <b>ring Peter</b> and see if he wants to play golf.</li><li><b>Woman:</b> That’s a good idea, you haven’t played for a while, have you?</li></ul><p><b>3. Where is the knife?</b></p><ul><li><b>Woman:</b> I’m glad we decided to stop here for our picnic. Can you find the knife for me, and I’ll cut up the cucumber? I packed it in the bag with the bread ... oh, but I used it to peel some oranges when we stopped in the <b>petrol station</b> so it’ll be <b>with them</b>. I hope it’s big enough to cut up this pie.</li></ul><p><b>4. What happened to the girl this afternoon?</b></p><ul><li><b>Girl:</b> You’ll never guess what happened to me this afternoon! I was cycling over the bridge in town, when there was this really strong wind, and I <b>fell off my bike</b>. I didn’t hurt myself, but my books were thrown onto the pavement and went everywhere. This really nice boy picked them up for me! It’s lucky there were no cars around to drive over my bike, which was still in the road. I thanked the boy, then I picked up my bike and cycled away. I was ...</li></ul><p><b>5. Which man is waiting at the bus stop?</b></p><ul><li><b>Boy:</b> Oh look, that’s my new English teacher over there, see – he’s waiting at the bus stop.</li><li><b>Girl:</b> The <b>young one with sunglasses and blond hair</b>? You always told me your teacher was bald and really old and got angry because he kept losing his glasses.</li><li><b>Boy:</b> That was the teacher I had before. This one is really nice.</li></ul><p><b>6. What time does the television programme end?</b></p><ul><li><b>Mum:</b> Go to bed, Luke. It’s already twenty to eleven and you’ve got to be up early in the morning.</li><li><b>Boy:</b> Aw, mum, just another few minutes. I’m watching this brilliant TV programme about American football. It’ll be <b>over at 10 to</b> and I can be in bed by 10 past. Nobody in my class has to go to bed before 11 o’clock. It’s not fair.</li></ul><p><b>7. Which postcard will they send to Mark?</b></p><ul><li><b>Man:</b> I’m getting this postcard of that bridge in the old city for my parents. And this church looks nice – shall we send it to Mark? He likes old buildings.</li><li><b>Woman:</b> But we haven’t actually been there – we should send him a card of something we’ve actually seen. Here’s the beach we went to yesterday.</li><li><b>Man:</b> But it looks horrible and crowded in that picture.</li><li><b>Woman:</b> Oh, just <b>get him the same one as you’re sending to your parents</b>.</li></ul><p><b>8. Which present will the girl take?</b></p><ul><li><b>Girl:</b> I really don’t know what to give Mrs Allemano when I go and stay with her in New York. Do you think she’d like some <b>perfume</b>?</li><li><b>Man:</b> Well, you don’t know her very well, do you, so I’d choose something like a scarf, or just a box of chocolates.</li><li><b>Girl:</b> Umm ... I like your <b>first idea best</b> – it’ll be much easier to carry.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What will the weather be like tomorrow?",
+              "options": [
+                "Sunny and rainy",
+                "Cloudy",
+                "Cloudy and windy",
+                "Sunny"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What will the man do first?",
+              "options": [
+                "Play golf",
+                "Have his hair cut",
+                "Ring Peter",
+                "Play baseball"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Where is the knife?",
+              "options": [
+                "In the bag with the bread",
+                "In the orange pack",
+                "In the cucumber pack",
+                "In the petrol station"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What happened to the girl this afternoon?",
+              "options": [
+                "She cycled in the strong wind",
+                "Her bike was broken",
+                "She fell off her bike",
+                "She met a boy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which man is waiting at the bus stop?",
+              "options": [
+                "An old bald man with glasses",
+                "An old man with glasses and blond hair",
+                "A young bald man with sunglasses",
+                "A young man with sunglasses and blond hair"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What time does the television programme end?",
+              "options": [
+                "10.50 P.m",
+                "10.10 P.m",
+                "11 P.m",
+                "9.50 P.m"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which postcard will they send to Mark?",
+              "options": [
+                "The bridge of the old city",
+                "The church",
+                "The beach",
+                "The sea"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Which present will the girl take?",
+              "options": [
+                "Some perfume",
+                "A scarf",
+                "A box of chocolate",
+                "A purse"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-2.mp3"
+          },
+          "tapescript": "<div><p><b>Conversation 1</b></p><ul><li><b>Man:</b> Good morning. Tauber Insurance Company. How can I help you?</li><li><b>Woman:</b> Good morning. I want to alter my insurance policy.</li><li><b>Man:</b> Is that for your house, contents or vehicle?</li><li><b>Woman:</b> <b>My vehicle (1).</b></li><li><b>Man:</b> Can you give me the number of the policy please?</li><li><b>Woman:</b> Certainly, I have it here in front of me. It’s <b>ZQW5009 (2).</b></li><li><b>Man:</b> And what make and model of car is it?</li><li><b>Woman:</b> It’s Mazda...a Mazda Marvel.</li><li><b>Man:</b> And what is the cc rating?</li><li><b>Woman:</b> Sorry? What do you mean?</li><li><b>Man:</b> <b>How big is the engine (3)?</b> Is it 1500 or 1800cc, for example?</li><li><b>Woman:</b> Oh that... it’s actually much bigger than that. It’s 2500 cc.</li><li><b>Man:</b> Thank you. Now I just have to ask you a few questions to verify your identity. What name is the policy under?</li><li><b>Woman:</b> Heathcoat.</li><li><b>Man:</b> Let me just bring that up on the computer. Yes, can I just confirm your first name, please?</li><li><b>Woman:</b> Well, my first name is Lisa but I’m known by my middle name – Marie.</li><li><b>Man:</b> Right. I see both here but <b>Lisa is the one I want for ID purposes (4).</b> And your date of birth, Lisa? ... I mean Marie.</li><li><b>Woman:</b> The twenty second of August, 1955.</li></ul><p><b>Conversation 2</b></p><ul><li><b>Woman:</b> Good morning, Travel Link. How can I help you?</li><li><b>Man:</b> Good morning. I live in Bayswater and I’d like to get to <b>Harbour City tomorrow (1) before 11.am.</b></li><li><b>Woman:</b> Well, to get to Bayswater....</li><li><b>Man:</b> No, no. I live in Bayswater – <b>my destination is Harbour City (1).</b></li><li><b>Woman:</b> Sorry. Right; so that’s Bayswater to Harbour City. Are you planning to travel by bus or by train?</li><li><b>Man:</b> I don’t mind really. Whichever option is faster, I suppose.</li><li><b>Woman:</b> Well, if you catch a railway express, that’ll get you there in under an hour ... Let’s see – yes, if you can make the 9.30 am express, I’d recommend you do that.</li><li><b>Man:</b> Great. <b>Which station does that leave from (2)?</b></li><li><b>Woman:</b> Helendale is the nearest train station to you.</li><li><b>Man:</b> Did you say Helensvale?</li><li><b>Woman:</b> No, Helendale – that’s H-E-L-E-N-D-A-L-E</li><li><b>Man:</b> What’s the best way to get to the Helendale station then?</li><li><b>Woman:</b> Well, hang on a minute while I look into that ... Now, it seems to me that you have two options. Option one would be to take the 706 bus from the Bayswater Shopping Centre to Central Street. When you get there, you transfer to another bus <b>which will take you to the station (3).</b> Or, the second option, if you don’t mind walking a couple of kilometres, is to go directly to Central Street and get straight on the bus going to the train station.</li><li><b>Man:</b> Okay. Which bus is that?</li><li><b>Woman:</b> The 792 will take you to the station.</li><li><b>Man:</b> I guess <b>the walk will be good for me so that might be the better option (4).</b></li></ul><p><b>Conversation 3</b></p><ul><li><b>Interviewer:</b> Elena, before we talk about how a sixteen-year-old can write, direct and star in her own film, tell me a bit about the character of Susie, the girl you played in your film, Stolen Dream.</li><li><b>Elena:</b> She’s artistic and doesn’t really care what people think or say about her, or get upset about how people behave. <b>I’m a lot like that too (Q1).</b> I don’t worry too much about other people's opinions of me.</li><li><b>Interviewer:</b> So is being free of worry a message you wanted to communicate to your audience?</li><li><b>Elena:</b> In a way. You need to be free. You shouldn’t be tied to your background, where you were born or anything you haven't chosen for yourself. People have dreams and <b>I guess I’m saying that (Q2) they should have belief in themselves</b>, that they can make those dreams come real.</li><li><b>Interviewer:</b> It must have been an exciting atmosphere to work in. Was making the film like your own dream coming true?</li><li><b>Elena:</b> Definitely, although it wasn’t easy. <b>(Q3) I had very little time or money.</b> People told me to relax but I knew I couldn’t - if I didn’t work, no one else would! But after a week or so because everyone on the film was facing the same challenge we came together. When we all left at the end it was sad because it was like a family breaking up.</li><li><b>Interviewer:</b> Tell me about a typical day's filming.</li><li><b>Elena:</b> I don’t think there was a typical day really. Each day <b>I got up at 5 to start at 6. (Q4)</b> I’d film two or three scenes in the morning and the same again after lunch. That way I had a goal and I knew how much I was achieving each day. Sometimes, if we needed to we'd work on until late, till 3 a.m. one time! I really enjoyed my Sundays off!</li></ul></div>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the policy number?",
+              "options": [
+                "ZQW5009",
+                "XQW5009",
+                "ZYW5009",
+                "ZYY5009"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is the cc rating?",
+              "options": [
+                "The engine’s size",
+                "The engine’s shape",
+                "The engine’s price",
+                "The engine’s power"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What’s the name the man wants for ID purposes?",
+              "options": [
+                "Her first name",
+                "Her middle name",
+                "Her family name",
+                "All of them"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "When is her birthday?",
+              "options": [
+                "2nd, August 1955",
+                "12th, August 1950",
+                "22nd August 1955",
+                "22nd August 1950"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Where does the man want to get to?",
+              "options": [
+                "Helenvale",
+                "Helendale",
+                "Bayswater",
+                "Harbour City"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Which station is the nearest?",
+              "options": [
+                "Helenvale",
+                "Helendale",
+                "Hedenvale",
+                "Hevendale"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How many bus routes does the man have to take to the nearest station?",
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which option does the man choose finally?",
+              "options": [
+                "Walk and then take a bus",
+                "Take a bus and then walk",
+                "Go there on foot",
+                "Take the bus for two routes"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does Elena think about Susie?",
+              "options": [
+                "She is artistic and cares about other people.",
+                "She is an optimistic girl.",
+                "She is different from Elena.",
+                "She is artistic but doesn’t care about people around."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did Elena think about making film?",
+              "options": [
+                "It was easy for her.",
+                "It was quite relaxing.",
+                "It was demanding for her.",
+                "It was beyond her ability."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How many scenes did she have to film in the afternoon?",
+              "options": [
+                "5-6 scenes",
+                "2-3 scenes",
+                "3-4 scenes",
+                "1-2 scenes"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "Which days was she off?",
+              "options": [
+                "Saturdays",
+                "Mondays",
+                "Sundays",
+                "None of these above"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1: Ecotourism</b></p><p>Ecotourism is a booming business that many tour operators cite as being <b>helpful to nature</b>. Every year, millions of people descend on protected and pristine natural areas to observe rare species. However, a new report casts doubt on the value of this form of tourism. In fact, it suggests that ecotourism is <b>more damaging than helpful</b> to nature. Details are in a report published in the journal 'Trends in Ecology and Evolution'. Researchers believe tourists are <b>disrupting animals</b> in their natural habitat. They pointed to a recent event where sea turtles in Costa Rica had problems laying their eggs because of the hordes of tourists who had congregated to watch the turtles' nesting habits.</p><p>The report says that ecotourism is making animals <b>bolder</b> and that this could endanger the animals. A regular human presence might make animals tamer and less cautious about other animals around them, and this could put them at risk of being attacked by their <b>natural threats</b>. \"Then they will suffer <b>higher mortality</b> when they encounter real predators,\" the report says. It added: \"When animals interact in 'benign' ways with humans, they may let down their guard.\" The report said it was essential, \"to develop a more comprehensive understanding of how different species in different situations respond to human visitation and under what precise conditions human exposure might put them at risk.\"</p><p><b>Talk 2: Skin-lightening Creams</b></p><p>An association of local governments in the UK, called the LGA, has warned consumers about the use of some <b>skin-lightening creams</b>. The LGA discovered that some of the whitening cosmetics they tested contained <b>banned ingredients</b> and were thus illegal. However, they were available for purchase in UK stores. An LGA spokesperson said these ingredients could pose a <b>serious threat</b> to consumers' health. He said there has been an increase in the number of users experiencing health problems after using the creams. These include <b>seizures, rashes and scarring</b>. The spokesperson said the creams could increase the risk of skin cancer, and liver and kidney damage.</p><p>The global skin-lightening industry is booming. In 2017, it was valued at an estimated $4.8 billion and is forecast to nearly double to around $8.9 billion in the next decade. Many people use it to reduce the darkness of the color of their skin. The LGA warned that <b>\"rogue retailers\"</b> were selling illegal skin-lightening lotions on which the label incorrectly listed the ingredients and omitted the illegal substances. The LGA said some illegal ingredients acted like <b>paint stripper</b> and could burn off the top layer of skin. It said: \"Skin creams containing banned ingredients are very dangerous and could seriously damage your health, scar you for life and <b>even kill you</b>, so they should be avoided at all costs.\"</p><p><b>Talk 3: Parental Happiness</b></p><p>Many of us believe that having children is the <b>key to happiness</b> and a perfect family life. Naturally, this idealistic image is true for some, but researchers say that in reality, children make us happiest when they <b>fly the nest</b> - when they have grown up and left home. Researchers in Germany looked at data from a survey of 55,000 over 50-year-olds living in Europe. The survey respondents were quizzed about their emotional wellbeing. The researchers discovered that most parents were <b>happier with life</b> after their offspring had left home and started making their own way in life. Researchers say this could be because raising children creates <b>financial worry, stress, fatigue and anxiety</b>.</p><p>The research was led by Christoph Becker at Heidelberg University. He concluded that a big reason for parents being happiest when their children leave home is that the tables are turned and the <b>children provide more support</b> to their parents. He said parents whose children no longer live with them suffer from fewer symptoms of depression and have a <b>more positive outlook</b> on life. Regarding the role reversal in providing support, Mr Becker said: \"Children's roles as caregivers, providers of financial support or simply as a means of social contact might outweigh the negative aspects of parenthood.\" He added that maintaining family relationships may <b>stave off loneliness</b> in ageing parents.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the main idea of Talk 1?",
+              "options": [
+                "Ecotourism benefits local economies",
+                "Ecotourism may harm the environment",
+                "Tourists prefer natural destinations",
+                "Animals adapt well to tourists"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why are sea turtles mentioned?",
+              "options": [
+                "They attract many tourists",
+                "They are endangered species",
+                "They were disturbed while nesting",
+                "They live in Costa Rica"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How does human presence affect animals?",
+              "options": [
+                "It makes them more aggressive",
+                "It makes them less cautious",
+                "It improves their survival skills",
+                "It helps them find food"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What risk do animals face when they become bolder?",
+              "options": [
+                "They may lose their habitat",
+                "They may get lost easily",
+                "They may be attacked by predators",
+                "They may stop reproducing"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What do researchers suggest?",
+              "options": [
+                "Stop all tourism activities",
+                "Increase tourism marketing",
+                "Study animal responses more carefully",
+                "Build more protected areas"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What warning did the LGA give?",
+              "options": [
+                "Skin creams are too expensive",
+                "Some creams contain illegal ingredients",
+                "Skin care products are ineffective",
+                "Cosmetics are not regulated"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What health problems are mentioned?",
+              "options": [
+                "Headaches and fever",
+                "Hair loss and blindness",
+                "Seizures, rashes, and scarring",
+                "Coughing and fatigue"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is said about the skin-lightening industry?",
+              "options": [
+                "It is declining rapidly",
+                "It is highly regulated",
+                "It is growing quickly",
+                "It is only popular in Asia"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What problem exists with product labeling?",
+              "options": [
+                "Labels are too detailed",
+                "Ingredients are incorrectly listed",
+                "Labels are written in foreign languages",
+                "Products have no labels"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can illegal ingredients do?",
+              "options": [
+                "Improve skin quality",
+                "Act like paint stripper on skin",
+                "Protect against sunlight",
+                "Make skin healthier"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What belief about children is mentioned?",
+              "options": [
+                "They always bring happiness",
+                "They reduce stress completely",
+                "They are the key to happiness",
+                "They improve financial stability"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "When are parents reported to be happiest?",
+              "options": [
+                "When children are young",
+                "When children start school",
+                "When children leave home",
+                "When children get married"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Why can raising children be stressful?",
+              "options": [
+                "It limits social life",
+                "It causes financial and emotional pressure",
+                "It requires moving house",
+                "It reduces career opportunities"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What happens when children grow up?",
+              "options": [
+                "They depend more on parents",
+                "They provide support to parents",
+                "They move abroad permanently",
+                "They lose contact with parents"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What benefit does maintaining family relationships bring?",
+              "options": [
+                "Better financial status",
+                "Improved physical strength",
+                "Reduced loneliness",
+                "Higher social status"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The 'Kangaroo Family' in Korea",
+            "text": "<p>In South Korea, many families make a difficult choice so that their children can learn English well: the mother and children move to an English-speaking country such as the United States, Canada, or New Zealand, while the father stays behind in Korea to work and send money. This kind of family has come to be known informally as a 'kangaroo family,' since the children stay close to one parent, much like a baby kangaroo staying near its mother, while the other parent lives far away for years at a time. The arrangement usually begins when parents decide that early exposure to English will give their children a real advantage later in school and in their careers.</p><p>Life for the children in this arrangement often looks quite different from life back home. They attend local schools abroad, make new friends, and slowly become comfortable speaking English in daily conversations, something that can take years to achieve through classroom study alone. Meanwhile, the father who remains in Korea usually continues working long hours at his regular job, living alone in an apartment that once held the whole family. He might see his wife and children only once or twice a year, often during school holidays, when he saves vacation days and money for a short visit or when the family flies back to Korea.</p><p>This separation comes with a real <strong>burden</strong> that goes beyond money, even though the financial cost alone is already significant for most families. Supporting two households in two different countries, including rent, school fees, and travel expenses, can place enormous pressure on a single income. Fathers who live this way sometimes describe feeling lonely and disconnected from their children's daily lives, missing small moments such as a child's first day at a new school or a family dinner that happens without <b>them</b>.</p><p>Not everyone agrees that the kangaroo family lifestyle is worth these <strong>sacrifices</strong>. Critics argue that children can now learn English through many other methods, including online classes, video calls, and international schools inside Korea itself, without breaking up the family for years at a time. Supporters counter that living inside an English-speaking country still offers something video lessons cannot fully replace: constant, natural exposure to the language in everyday situations, from ordering food to making friends at school.</p><p>In recent years, the number of kangaroo families has slowly decreased, partly because international schools and online English programs inside Korea have improved so much that some parents no longer see the separation as necessary. Even so, for families who still believe strongly in the benefits of studying abroad, the kangaroo family remains a familiar, if difficult, path toward giving their children a stronger command of English.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q2, R1Q4, R1Q8):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm chính xác vị trí dữ kiện có sẵn trong bài đọc:<ul><li>Với <b>R1Q2</b>, quét các từ khóa liên quan đến động cơ lựa chọn như \"decide\", \"advantage\", \"learn English\" ở đoạn 1 để xác định lý do nhiều gia đình Hàn Quốc chấp nhận sống xa nhau (để con học tốt tiếng Anh từ sớm).</li><li>Với <b>R1Q4</b>, quét cụm từ chỉ tần suất \"see his wife and children\" hoặc \"once or twice a year\" ở đoạn 2 để kiểm tra số lần người cha gặp lại gia đình trong năm.</li><li>Với <b>R1Q8</b>, quét các từ thuộc nhóm cảm xúc/trạng thái của người cha như \"fathers\", \"describe\", \"feeling lonely\" ở đoạn 3 để chọn đúng thông tin về ảnh hưởng tâm lý đối với họ.</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q3, R1Q9):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R1Q3</b>, đọc kỹ đoạn 3 nơi đề cập đến gánh nặng tài chính, áp lực chi phí và sự cô đơn để xác định nét nghĩa tương đương của từ <strong>\"burden\"</strong> (áp lực, sự gánh nặng).</li><li>Với <b>R1Q9</b>, đối soát đoạn 4 về việc không phải ai cũng đồng tình rằng lối sống này đáng để gán đổi những khó khăn, mất mát nhằm tìm từ đồng nghĩa thích hợp cho <strong>\"sacrifices\"</strong>.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q5):</b> Đọc ngược lại câu chứa đại từ <strong>\"them\"</strong> ở cuối đoạn 3 để xác định danh từ số nhiều chỉ người làm chủ thể cho sự việc \"các bữa ăn gia đình diễn ra mà không có họ\".</li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q6):</b> Tổng hợp danh sách các phương pháp thay thế việc du học được liệt kê ở đoạn 4 (lớp học trực tuyến, cuộc gọi video, trường quốc tế tại Hàn Quốc) để đối soát và tìm ra giải pháp không hề được nhắc đến.</li><li><b>Dạng câu hỏi Suy luận (R1Q7):</b> Kết hợp thông tin ở đoạn 5 về việc chất lượng các trường quốc tế và chương trình tiếng Anh nội địa ngày càng nâng cao để suy luận ra nguyên nhân khiến xu hướng gia đình chuột túi dần giảm bớt.</li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R1Q1, R1Q10):</b> Phân tích bức tranh tổng quan của bài viết:<ul><li>Với <b>R1Q1</b>, tổng hợp thông tin từ đoạn mở đầu và các đoạn thân bài để chọn ý khái quát trọn vẹn hiện tượng các gia đình Hàn Quốc sống ly tán nhiều năm vì mục tiêu học tiếng Anh của con cái.</li><li>Với <b>R1Q10</b>, đánh giá cách trình bày của tác giả khi vừa nêu rõ lợi ích tiếp xúc ngôn ngữ tự nhiên, vừa phân tích áp lực tài chính và tình cảm để chọn phương án phản ánh thái độ khách quan, cân bằng.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước nhóm câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R1Q5) và <b>Từ vựng</b> (R1Q3, R1Q9). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R1Q2, R1Q4, R1Q8) và câu hỏi <b>Loại trừ</b> (R1Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã ráp chỉnh chu, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R1Q7), <b>Ý chính toàn bài</b> (R1Q1) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Korean 'kangaroo families' separate for years so children can learn English",
+                "Online English classes have completely replaced studying abroad in Korea",
+                "Kangaroo families are now the most common family type in Korea",
+                "Korean fathers always prefer working abroad rather than staying in Korea"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, why do many Korean families choose to live in this kind of arrangement?</span>",
+              "options": [
+                "So the whole family can move permanently to another country",
+                "So fathers can find better paying jobs outside of Korea",
+                "So mothers can continue their own university studies abroad",
+                "So their children can learn English well from an early age"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"burden\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "benefit",
+                "strain",
+                "salary",
+                "comfort"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, how often does the father usually see his wife and children?</span>",
+              "options": [
+                "Every weekend, since he often travels abroad to visit",
+                "Only once every several years, due to strict travel rules",
+                "Almost every month, using video calls instead of visits",
+                "Usually once or twice a year, often during school holidays"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "fathers",
+                "small moments",
+                "their children",
+                "daily lives"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as an alternative to living abroad for English learning?</span>",
+              "options": [
+                "International schools available inside Korea itself",
+                "Video calls that fully replace all in-person practice",
+                "Online classes offered as an alternative to living abroad",
+                "Hiring a private native-speaking tutor at home"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about why the number of kangaroo families has decreased?</span>",
+              "options": [
+                "Fathers refused to continue supporting their families financially",
+                "Korean law now requires all children to attend school only in Korea",
+                "English is no longer considered an important skill in Korea",
+                "Improved local English programs have made living abroad less necessary for some families"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>According to the passage, what have some fathers reported about living apart from their families?</span>",
+              "options": [
+                "They earn significantly less money than fathers who live together",
+                "They visit their families more often than mothers expect",
+                "They report higher stress and sometimes serious health problems",
+                "They report feeling relieved to live without their families"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"sacrifices\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "rewards",
+                "habits",
+                "opinions",
+                "hardships"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the kangaroo family arrangement?</span>",
+              "options": [
+                "Balanced, presenting both the benefits and the difficulties involved",
+                "Indifferent, showing no real interest in the topic at all",
+                "Strongly opposed, arguing the practice should be banned immediately",
+                "Entirely supportive, insisting every family should try this arrangement"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Individualism: A Useful but Imperfect Lens",
+            "text": "<p>Among the concepts that shape how psychologists and sociologists compare cultures across the globe, few have proven as influential, or as contested, as individualism — broadly defined as a cultural orientation that prioritizes personal autonomy, individual achievement, and self-expression over group harmony and collective obligation. Its conceptual counterpart, collectivism, emphasizes interdependence, family loyalty, and social duty instead, and the tension between these two orientations has become a foundational framework for understanding cross-cultural difference, even as scholars increasingly question how cleanly real societies map onto either category.</p><p>The modern popularity of this framework owes much to research conducted in the late twentieth century that ranked dozens of countries along an individualism-collectivism spectrum based on workplace attitudes and values surveys. Nations such as the United States, Australia, and much of Western Europe consistently scored toward the individualist end, while many East Asian, African, and Latin American societies scored closer to the collectivist end, a pattern that subsequent decades of research have largely, though not uniformly, replicated. Critics of this early work have since pointed out that the original data came almost entirely from employees of a single multinational corporation, raising legitimate questions about how representative those rankings ever truly were of entire national cultures.</p><p>In practical terms, individualist orientations tend to <strong>manifest</strong> in everyday decisions that many people in such societies barely notice as culturally shaped at all: choosing a career based primarily on personal interest rather than family expectation, moving away from one's hometown for education or work without this being considered unusual, or expecting children, once grown, to establish financially independent households of their own. Collectivist orientations, by contrast, more often involve extended family members participating directly in major life decisions, multigenerational households remaining the norm well into adulthood, and workplace loyalty being expressed through group harmony rather than individual recognition.</p><p>Whether entire nations can be meaningfully described as individualist or collectivist at all has become one of the framework's most persistent criticisms, and the skepticism is not without empirical grounding. Substantial variation exists within every country studied — urban and rural populations, different socioeconomic classes, and successive generations often diverge from a nation's supposed cultural average by margins large enough to make any single national score feel, to many researchers, like a statistical convenience rather than an accurate description of lived experience for most individuals within that country.</p><p>Research examining how individualism relates to psychological wellbeing has produced a genuinely mixed picture rather than a clear verdict in either direction. Some studies suggest that individualist values correlate with higher self-reported life satisfaction, possibly because personal autonomy allows people to pursue goals more closely aligned with their own preferences rather than externally imposed expectations. Other research, however, finds that strong social support networks, more characteristic of collectivist societies, may <strong>buffer</strong> against loneliness and certain forms of psychological distress more effectively than individual autonomy alone can, suggesting that neither orientation holds a straightforward wellbeing advantage over the other once other variables are properly accounted for.</p><p>Globalization has further complicated the individualism-collectivism distinction by exposing younger generations in traditionally collectivist societies to individualist media, education systems, and professional norms, often producing what researchers term 'hybrid' cultural identities that resist easy classification along a single spectrum. A young professional in Seoul or São Paulo might, for instance, hold strongly individualist career ambitions while simultaneously maintaining deeply collectivist obligations toward aging parents, illustrating that <strong>the two orientations</strong> may coexist within a single person rather than functioning as mutually exclusive cultural categories.</p><p>Despite its limitations, the individualism-collectivism framework has not been abandoned so much as refined, with contemporary researchers increasingly treating it as one useful lens among several rather than a complete explanation of cultural difference. Whether future cross-cultural psychology retains this framework in something close to its current form, or gradually replaces it with more granular models that better capture within-country variation, remains an open question that the field has not yet definitively resolved.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q2, R2Q4, R2Q8):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị thông tin trực tiếp trong bài đọc:<ul><li>Với <b>R2Q2</b>, quét từ khóa \"criticism\" hoặc \"single multinational corporation\" ở đoạn 2 để tìm hạn chế của dữ liệu nghiên cứu ban đầu về thứ hạng chủ nghĩa cá nhân/tập thể.</li><li>Với <b>R2Q4</b>, quét từ khóa \"skeptical\" hoặc \"variation within every country\" ở đoạn 4 để tìm lý do các nhà nghiên cứu hoài nghi về việc dán nhãn toàn bộ một quốc gia.</li><li>Với <b>R2Q8</b>, quét tên hai thành phố \"Seoul\" hoặc \"São Paulo\" ở đoạn 6 để tìm ví dụ minh họa cho sự song tồn của các giá trị cá nhân và tập thể trong cùng một cá nhân.</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q3, R2Q9):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R2Q3</b>, xét ngữ cảnh đoạn 3 nói về việc các định hướng cá nhân thể hiện/bộc lộ ra ngoài qua các quyết định hàng ngày để tìm từ đồng nghĩa thích hợp cho <strong>\"manifest\"</strong>.</li><li>Với <b>R2Q9</b>, xét ngữ cảnh đoạn 5 mô tả mạng lưới hỗ trợ xã hội đóng vai trò như lá chắn giảm thiểu/bảo vệ con người khỏi sự cô đơn để tìm từ đồng nghĩa với <strong>\"buffer\"</strong>.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q5):</b> Đọc ngược lại câu trước câu chứa cụm <strong>\"the two orientations\"</strong> ở đoạn 6 để xác định hai định hướng văn hóa chính được đề cập xuyên suốt văn bản.</li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q6):</b> Tổng hợp danh sách các ví dụ về hành vi cá nhân được đề cập ở đoạn 3 (chọn sự nghiệp, chuyển khỏi quê hương, tự lập tài chính), sau đó đối soát 4 phương án để chỉ ra hành vi không được nhắc đến.</li><li><b>Dạng câu hỏi Suy luận (R2Q7):</b> Kết hợp thông tin ở đoạn 5 về việc cả hai mô hình văn hóa đều có những ưu thế tâm lý riêng nhưng không mô hình nào vượt trội hoàn toàn, từ đó suy luận về mối quan hệ giữa định hướng văn hóa và sức khỏe tinh thần.</li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R2Q1, R2Q10):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R2Q1</b>, tổng hợp ý chính xuyên suốt các đoạn từ việc giới thiệu khung lý thuyết, chỉ ra hạn chế, sự phức tạp hóa do toàn cầu hóa đến kết luận ở đoạn cuối để chọn phương án bao quát toàn bài.</li><li>Với <b>R2Q10</b>, nhận diện cách tác giả trình bày cả giá trị sử dụng lẫn những hạn chế thực tế của khung lý thuyết này để xác định thái độ cân bằng, khách quan (Balanced).</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy bắt đầu bằng cách xử lý các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R2Q5) và <b>Từ vựng</b> (R2Q3, R2Q9). Tiếp theo, áp dụng kỹ năng đọc quét cho các câu hỏi <b>Chi tiết</b> (R2Q2, R2Q4, R2Q8) và câu hỏi <b>Loại trừ</b> (R2Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm được, bạn sẽ dễ dàng chọn được đáp án chính xác cho các câu đòi hỏi tư duy tổng hợp cao gồm <b>Suy luận</b> (R2Q7), <b>Ý chính toàn bài</b> (R2Q1) và <b>Thái độ tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Individualism offers a useful but imperfect lens for understanding cultural difference",
+                "Collectivist societies always produce happier individuals than individualist ones",
+                "Globalization has eliminated all meaningful cultural differences between nations",
+                "National individualism scores have proven completely accurate for every citizen"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what criticism have researchers raised about the original individualism-collectivism rankings?</span>",
+              "options": [
+                "The original researchers refused to publish their data publicly",
+                "The data came almost entirely from employees of one multinational company",
+                "The data was collected exclusively from university students worldwide",
+                "The rankings were based only on government economic statistics"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"manifest\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "increase",
+                "measure",
+                "appear",
+                "disappear"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why do some researchers doubt that entire nations can be labeled individualist or collectivist?</span>",
+              "options": [
+                "Every citizen within a nation shares identical cultural values",
+                "Variation within countries can be as large as the difference between nations",
+                "National governments officially assign individualism scores to citizens",
+                "Only wealthy countries show any internal cultural variation at all"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"the two orientations\"</strong> in paragraph 6 refers to _______.</span>",
+              "options": [
+                "individualism and collectivism",
+                "urban and rural populations",
+                "career ambitions and family obligations",
+                "hybrid cultural identities"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as an example of individualist behavior?</span>",
+              "options": [
+                "Choosing a career based primarily on personal interest",
+                "Every individualist person always moving permanently away from family",
+                "Voting in national elections based on party loyalty",
+                "Moving away from one's hometown for education or work"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the relationship between cultural orientation and psychological wellbeing?</span>",
+              "options": [
+                "Collectivist social support networks eliminate psychological distress entirely",
+                "Individualist values always produce greater life satisfaction than collectivist ones",
+                "Neither orientation appears to hold a clear, consistent wellbeing advantage",
+                "Wellbeing research has found no connection between culture and psychology at all"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does the example of a young professional in Seoul or São Paulo illustrate?</span>",
+              "options": [
+                "That individualist career ambitions are impossible in traditionally collectivist societies",
+                "That individualist and collectivist values can coexist within the same person",
+                "That collectivist obligations disappear completely once someone becomes a professional",
+                "That globalization has made all young professionals identical worldwide"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"buffer\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "weaken",
+                "measure",
+                "protect",
+                "replace"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall stance toward the individualism-collectivism framework?</span>",
+              "options": [
+                "Balanced, treating it as a useful though imperfect analytical tool",
+                "Uncritically supportive, presenting it as a flawless model of culture",
+                "Entirely dismissive, arguing the framework should be abandoned completely",
+                "Focused solely on criticizing one specific research study's methodology"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Vietnam's Coffee Paradox",
+            "text": "<p>Vietnam's emergence as one of the world's leading coffee producers represents something of a paradox: a country with a coffee-growing history spanning barely a century and a half has, within the past three decades, come to rival nations with far older cultivation traditions in terms of sheer export volume. This rapid ascent, driven less by inherited expertise than by a combination of favorable geography, government policy, and sheer scale of production, has reshaped global coffee markets in ways that few observers anticipated when Vietnam's modern coffee sector began taking shape in the 1980s.</p><p>Coffee cultivation arrived in Vietnam under French colonial administration in the late nineteenth century, initially as a plantation crop intended primarily for export back to France rather than for domestic consumption. Unlike many coffee-growing regions that favored the more delicate arabica variety, Vietnam's climate and soil, particularly in the Central Highlands, proved especially well suited to robusta, a hardier species that yields a stronger, more bitter brew and tolerates heat and pest pressure considerably better than its more temperamental cousin. This early agronomic choice, made largely for practical rather than flavor-driven reasons, would go on to define the country's coffee identity for well over a century.</p><p>The vast majority of Vietnam's coffee is grown not on large industrial plantations but on smallholder farms, often just one or two hectares in size, cultivated by families who frequently depend on coffee for the greater share of their household income. This fragmented structure brings clear advantages, including flexibility and resilience against the kind of large-scale crop failure that can devastate a single massive plantation, yet <strong>it</strong> also leaves individual farmers with comparatively little bargaining power against the intermediaries and exporters who ultimately determine the prices those farmers receive for their harvest.</p><p>Vietnamese coffee farmers remain <strong>acutely</strong> exposed to price volatility that originates almost entirely outside their control, and this vulnerability is not merely an occasional inconvenience but a structural feature of how the global coffee trade operates. International robusta prices, set primarily on commodity exchanges in London and elsewhere, can swing significantly within a single growing season due to factors ranging from weather events in competing producer countries to shifts in currency exchange rates, leaving even well-managed smallholder farms financially exposed regardless of the quality or volume of coffee they manage to produce.</p><p>While the vast majority of Vietnamese coffee has historically been grown for export, domestic consumption has grown substantially in recent decades, giving rise to a distinctive café culture that blends traditional and contemporary elements. Cà phê sữa đá, strong drip coffee served over ice with sweetened condensed milk, remains the most iconic preparation, though newer inventions such as egg coffee, in which whipped egg yolk creates a custard-like foam atop the drink, have attracted considerable attention from younger consumers and international visitors alike, alongside a growing specialty coffee movement that increasingly champions higher-grade arabica alongside traditional robusta.</p><p>Climate change poses a threat to Vietnamese coffee production that researchers describe as considerably more serious than most farmers currently appreciate, since robusta, despite its relative hardiness compared to arabica, still requires fairly specific temperature and rainfall patterns to produce consistent yields. Rising temperatures and increasingly <strong>erratic</strong> rainfall across the Central Highlands have already begun reducing yields in some districts, while excessive groundwater extraction for irrigation, a practice many farmers adopted precisely because rainfall has grown less predictable, has itself begun to lower water tables in ways that may eventually threaten the long-term viability of coffee farming in certain areas.</p><p>Taken together, Vietnam's coffee industry illustrates how a genuine export success story can coexist with structural vulnerabilities that remain largely unresolved. Whether smallholder farmers can be better protected against price volatility, whether climate adaptation measures can be scaled quickly enough to matter, and whether the country's growing domestic coffee culture can meaningfully diversify an economy still heavily dependent on a single commodity crop are questions that will likely determine the industry's trajectory considerably more than its impressive export statistics alone.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q2, R3Q4, R3Q8):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm trực tiếp các dữ kiện có sẵn trong bài đọc:<ul><li>Với <b>R3Q2</b>, quét từ khóa \"robusta\" và \"arabica\" ở đoạn 2 để tìm lý do chọn giống cà phê robusta (do phù hợp với khí hậu thổ nhưỡng và chống chịu sâu bệnh, nắng nóng tốt hơn).</li><li>Với <b>R3Q4</b>, quét cụm từ \"fragmented structure\" hoặc \"disadvantage\" ở đoạn 3 để xác định nhược điểm của mô hình nông hộ nhỏ lẻ (khiến nông dân có ít sức mạnh thương lượng giá cả với đại lý/nhà xuất khẩu).</li><li>Với <b>R3Q8</b>, quét cụm từ \"groundwater extraction\" ở đoạn 6 để tìm nguyên nhân nông dân tăng cường khai thác nước ngầm tưới tiêu (do lượng mưa trở nên thất thường, khó dự báo).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q3, R3Q9):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R3Q3</b>, xét ngữ cảnh đoạn 4 mô tả sự bộc lộ rủi ro/nguy cơ tổn thương nghiêm trọng của nông dân trước sự biến động giá cả để chọn nét nghĩa tương đương cho từ <strong>\"acutely\"</strong>.</li><li>Với <b>R3Q9</b>, xét ngữ cảnh đoạn 6 nói về lượng mưa diễn biến thất thường, không thể đoán trước gây ảnh hưởng năng suất để tìm từ đồng nghĩa thích hợp cho <strong>\"erratic\"</strong>.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q5):</b> Đọc ngược lại câu liền trước ở đoạn 3 để xác định danh từ số ít làm chủ thể logic cho mệnh đề \"mang lại những ưu điểm rõ rệt nhưng cũng để lại hạn chế về sức mạnh thương lượng\" (cấu trúc phân mảnh/mô hình nông hộ nhỏ).</li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q6):</b> Tổng hợp các nét văn hóa thưởng thức cà phê nội địa ở đoạn 5 (cà phê sữa đá, cà phê trứng, phong trào cà phê đặc sản) để đối soát 4 phương án và chỉ ra chi tiết không được nhắc tới.</li><li><b>Dạng câu hỏi Suy luận (R3Q7):</b> Kết hợp thông tin ở đoạn 4 và đoạn cuối về biến động giá hàng hóa quốc tế vượt tầm kiểm soát để suy luận về tình trạng tài chính bấp bấp bấp của người nông dân dù ngành xuất khẩu chung đạt thành tựu lớn.</li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R3Q1, R3Q10):</b> Phân tích lập luận vĩ mô của văn bản:<ul><li>Với <b>R3Q1</b>, tổng hợp thông tin xuyên suốt bài viết từ lịch sử phát triển thần tốc, sự thành công về xuất khẩu cho đến các thách thức cấu trúc chưa được giải quyết ở cuối bài để chọn ý chính toàn vẹn nhất.</li><li>Với <b>R3Q10</b>, nhận diện giọng văn của tác giả khi vừa ghi nhận thành công vừa liên tục nhấn mạnh các thách thức rủi ro phía trước để xác định thái độ cẩn trọng, chú ý đến các bài toán cấu trúc (Cautiously attentive).</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R3Q5) và <b>Từ vựng</b> (R3Q3, R3Q9). Tiếp đó, thực hiện đọc quét nhanh dữ kiện cho các câu hỏi <b>Chi tiết</b> (R3Q2, R3Q4, R3Q8) và câu hỏi <b>Loại trừ</b> (R3Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R3Q7), <b>Ý chính toàn bài</b> (R3Q1) và <b>Thái độ tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Coffee consumption inside Vietnam has completely overtaken export volumes",
+                "Robusta beans were first cultivated in Vietnam by local farmers alone",
+                "Government subsidies are the sole reason Vietnam became a major exporter",
+                "Vietnam's coffee industry combines a rich history with unresolved structural challenges"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, why did Vietnam's coffee industry come to focus on robusta rather than arabica?</span>",
+              "options": [
+                "Robusta suited the local climate and resisted heat and pests more effectively",
+                "Robusta yields a stronger, more bitter brew than arabica",
+                "Modern engineers deliberately chose robusta for greater speed of growth",
+                "Vietnamese farmers overwhelmingly preferred arabica but were forced to grow robusta"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"acutely\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "officially",
+                "briefly",
+                "rarely",
+                "severely"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is one disadvantage of Vietnam's smallholder coffee farming structure?</span>",
+              "options": [
+                "Smallholder farms are often just one or two hectares in size",
+                "Farmers receive government-guaranteed minimum prices regardless of market conditions",
+                "Smallholder farms are more vulnerable to total crop failure than large plantations",
+                "Farmers have limited bargaining power over the prices they receive"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "household income",
+                "a single massive plantation",
+                "this fragmented structure",
+                "smallholder farms"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as part of Vietnam's domestic coffee culture?</span>",
+              "options": [
+                "Every young Vietnamese consumer now preferring egg coffee over drip coffee",
+                "Cà phê sữa đá served with sweetened condensed milk over ice",
+                "Egg coffee made with whipped egg yolk foam",
+                "Coffee grown using only certified organic methods nationwide"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about Vietnamese coffee farmers' financial situation despite the industry's export success?</span>",
+              "options": [
+                "Vietnam's export growth was intended specifically to shield smallholder farmers from price swings",
+                "Farmers may remain financially exposed despite Vietnam's overall export success",
+                "Robusta still requires fairly specific temperature and rainfall patterns to yield well",
+                "Price volatility exists mainly because farmers deliberately overplant in good years"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>According to the passage, why have many farmers increased their use of groundwater irrigation?</span>",
+              "options": [
+                "Government regulations require all farms to switch to groundwater irrigation",
+                "Rainfall has become less predictable, pushing farmers to rely more on groundwater",
+                "Groundwater extraction has consistently raised water tables across the region",
+                "Rising temperatures and increasingly erratic rainfall have already begun reducing yields"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"erratic\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "seasonal",
+                "abundant",
+                "unpredictable",
+                "delayed"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the future of Vietnam's coffee industry?</span>",
+              "options": [
+                "Cautiously attentive, focused on unresolved structural challenges ahead",
+                "Focused solely on praising egg coffee as a cultural innovation",
+                "Fully confident that export growth alone guarantees future prosperity",
+                "Dismissive of climate change as an exaggerated concern for farmers"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Elusive Bangkok-Singapore Rail Corridor",
+            "text": "<p>The idea of a continuous rail line linking Bangkok to Singapore has circulated among planners and politicians for well over a century, surviving colonial administrations, world wars, and countless changes of government without ever being fully realized in the form early proponents imagined. What exists today across Thailand, Malaysia, and Singapore is less a unified corridor than a patchwork of separately developed networks, some dating to early twentieth-century colonial construction and others reflecting far more recent, and considerably more ambitious, engineering efforts.</p><p>Much of the existing track across Malaysia and southern Thailand still runs on meter-gauge rail, a narrower standard than the 1,435-millimeter 'standard gauge' used in most of the world's newer high-speed systems, a legacy of decisions made by British colonial administrators more concerned with construction cost than with long-term interoperability. This gauge mismatch, seemingly a minor technical detail, has proven remarkably consequential: trains built for one gauge cannot simply run on the other, meaning any future seamless connection would likely require either extensive new standard-gauge construction or costly conversion of existing meter-gauge lines, neither of which any government has yet fully committed to funding.</p><p>The proposed high-speed rail link between Kuala Lumpur and Singapore illustrates just how difficult regional rail cooperation has proven even between two relatively wealthy, geographically adjacent nations. First formally proposed in the early 2010s and intended to cut journey times between the two capitals to roughly ninety minutes, the project has been suspended, revived, renegotiated, and suspended again multiple times, with disagreements over cost-sharing, technology providers, and station locations repeatedly <strong>derailing</strong> timelines that officials on both sides had, at various points, described with considerable confidence as final.</p><p>Thailand's own standard-gauge ambitions have centered on a Chinese-backed line intended eventually to connect Bangkok with Kunming via Laos, a project whose economic and strategic significance, however contested the details of <strong>its</strong> financing have proven, is difficult to dismiss entirely. Construction has proceeded in phases rather than as a single continuous build, with early sections opening years behind initial projections, and questions about technology transfer, debt financing terms, and the eventual division of operating revenue between Thai and Chinese entities remain, according to officials close to the negotiations, only partially resolved even as track-laying continues.</p><p>Coordinating rail infrastructure across three sovereign nations, each with its own funding priorities, regulatory frameworks, and domestic political pressures, has proven considerably harder in practice than the relatively straightforward engineering challenge might suggest on paper. Singapore, with its comparatively small domestic rail network and correspondingly limited direct stake in cross-border freight, has historically approached joint projects somewhat more cautiously than Malaysia or Thailand, both of which stand to gain more directly from expanded regional freight capacity, a <strong>divergence</strong> in incentive that has repeatedly complicated efforts to align the three countries around a single technical standard or shared timeline.</p><p>Proponents of a fully connected Bangkok-Singapore corridor point to substantial potential gains in tourism revenue and freight efficiency, arguing that a seamless standard-gauge link could shift meaningful volumes of cargo away from congested road networks and toward considerably more energy-efficient rail transport. Skeptics counter that the economic case, while plausible in broad outline, rests on freight and passenger volume projections that have not yet been rigorously tested against the region's actual trade patterns, and that similar infrastructure projects elsewhere have sometimes underperformed initial ridership and freight forecasts by considerable margins once actually operational.</p><p>Whether a genuinely continuous, standard-gauge rail corridor from Bangkok to Singapore ultimately materializes within the coming decade, or instead remains, as it has for much of the past century, a recurring proposal perpetually deferred by shifting political and financial circumstances, will likely depend less on any single breakthrough than on the simultaneous alignment of financing, political will, and technical standardization across all three governments — a combination that, based on the project's history to date, has proven considerably harder to achieve than any individual component of it.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q4, R4Q8):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị thông tin trực tiếp trong đoạn văn:<ul><li>Với <b>R4Q2</b>, quét từ khóa \"meter-gauge\" hoặc \"British colonial administrators\" ở đoạn 2 để tìm lý do quyết định sử dụng khổ đường ray hẹp (do ưu tiên chi phí xây dựng hơn tính khả thi kết nối lâu dài).</li><li>Với <b>R4Q4</b>, quét từ khóa \"Singapore\" hoặc \"cautiously\" ở đoạn 5 để tìm nguyên nhân Singapore thận trọng hơn (do mạng lưới đường ray nội địa nhỏ nên lợi ích từ vận tải hàng hóa xuyên biên giới ít trực tiếp hơn).</li><li>Với <b>R4Q8</b>, quét cụm từ \"Kuala Lumpur-Singapore\" ở đoạn 3 để xác định đặc điểm lịch sử của dự án (liên tục bị tạm dừng, khôi phục và đàm phán lại nhiều lần).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q9):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R4Q3</b>, xét ngữ cảnh đoạn 3 nói về các bất đồng làm gián đoạn/phá hỏng tiến độ kế hoạch để chọn từ đồng nghĩa với <strong>\"derailing\"</strong>.</li><li>Với <b>R4Q9</b>, xét ngữ cảnh đoạn 5 đề cập đến sự khác biệt về động lực/lợi ích giữa các quốc gia để tìm từ đồng nghĩa cho <strong>\"divergence\"</strong>.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q5):</b> Đọc ngược lại câu chứa đại từ <strong>\"its\"</strong> ở đoạn 4 để tìm danh từ số ít chỉ đối tượng/dự án đang được phân tích về mặt tài chính (tuyến đường sắt do Trung Quốc hỗ trợ).</li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q6):</b> Tổng hợp các lập luận ở đoạn 6 (tiềm năng du lịch, hiệu quả vận tải, sự hoài nghi về số liệu dự báo), đối soát 4 phương án để tìm ra chi tiết không hề được đề cập.</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Kết hợp thông tin ở đoạn cuối về việc hoàn thành tuyến đường phụ thuộc vào sự đồng bộ đồng thời của nhiều yếu tố (tài chính, chính trị, tiêu chuẩn kỹ thuật) thay vì một đột phá đơn lẻ.</li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R4Q1, R4Q10):</b> Phân tích bức tranh tổng thể của văn bản:<ul><li>Với <b>R4Q1</b>, tổng hợp nội dung xuyên suốt bài viết về những trở ngại cấu trúc, kỹ thuật và chính trị trong việc kết nối đường sắt Thái Lan, Malaysia và Singapore.</li><li>Với <b>R4Q10</b>, nhận diện giọng văn của tác giả khi phân tích kỹ các rào cản thực tế để chọn thái độ hoài nghi một cách thận trọng (Cautiously doubtful).</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R4Q5) và <b>Từ vựng</b> (R4Q3, R4Q9). Tiếp đó, thực hiện đọc quét dữ kiện cho các câu <b>Chi tiết</b> (R4Q2, R4Q4, R4Q8) và câu <b>Loại trừ</b> (R4Q6). Sau cùng, dựa trên bức tranh thông tin toàn cảnh đã ráp nối, bạn sẽ dễ dàng lựa chọn phương án chính xác cho các câu đòi hỏi tư duy tổng hợp gồm <b>Suy luận</b> (R4Q7), <b>Ý chính toàn bài</b> (R4Q1) và <b>Thái độ tác giả</b> (R4Q10).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Gauge differences have never affected regional rail development in Southeast Asia",
+                "China alone is responsible for every regional rail project discussed",
+                "Connecting Thailand, Malaysia, and Singapore by rail faces major structural obstacles",
+                "The Kuala Lumpur-Singapore rail line has already been completed successfully"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, why does much of the existing track in Malaysia and southern Thailand still use meter gauge?</span>",
+              "options": [
+                "Meter gauge is a narrower standard than the 1,435-millimeter standard gauge",
+                "Modern engineers deliberately chose meter gauge for greater speed",
+                "Trains built for standard gauge can run on meter-gauge track without modification",
+                "British colonial administrators prioritized construction cost over future interoperability"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"derailing\"</strong> in paragraph 3 is closest in meaning to _______.</span>",
+              "options": [
+                "delaying",
+                "disrupting",
+                "tracking",
+                "confirming"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why has Singapore approached joint rail projects more cautiously than Malaysia or Thailand?</span>",
+              "options": [
+                "Singapore refuses to fund any cross-border infrastructure whatsoever",
+                "Malaysia and Thailand have historically opposed all regional freight expansion",
+                "Singapore has a comparatively small domestic rail network",
+                "Its smaller rail network gives it less direct stake in cross-border freight"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"its\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "Kunming",
+                "Bangkok",
+                "Laos",
+                "the Chinese-backed line"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned in the debate over the corridor's economic case?</span>",
+              "options": [
+                "Potential gains in tourism revenue and freight efficiency",
+                "Guaranteed government subsidies covering all construction costs",
+                "Every regional infrastructure project already exceeding its ridership forecasts",
+                "Skepticism about untested freight and passenger volume projections"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what does the author suggest about the likelihood of a fully connected Bangkok-Singapore rail corridor?</span>",
+              "options": [
+                "Political will alone has consistently been the single deciding factor",
+                "Its completion depends solely on resolving the gauge mismatch issue",
+                "Its completion is virtually guaranteed once Chinese financing is finalized",
+                "Its completion likely depends on simultaneously aligning several difficult factors, not one breakthrough"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>According to the passage, what has characterized the history of the Kuala Lumpur-Singapore high-speed rail project?</span>",
+              "options": [
+                "It was intended to cut journey times to roughly ninety minutes",
+                "It has been suspended, revived, and renegotiated multiple times since first proposed",
+                "It was completed on schedule with no significant delays",
+                "It was cancelled permanently and has never been discussed again"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"divergence\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "difference",
+                "discussion",
+                "delay",
+                "agreement"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall stance toward the prospects of a fully connected Bangkok-Singapore rail corridor?</span>",
+              "options": [
+                "Mildly doubtful but ultimately confident completion is imminent",
+                "Cautiously doubtful, emphasizing how many factors must align simultaneously",
+                "Focused solely on criticizing Chinese involvement in regional financing",
+                "Entirely dismissive of any economic benefit from regional rail links"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "formal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. A young man named Tom recently applied for a job at your restaurant and sent you an email asking for more details.</p> Read part of his email below.",
+          "content": "<p class='mb-1'>Thank you for considering my application. Before I confirm, I'd like to ask a few questions about the position.</p><ul><li>Which branch would I be working at?</li><li>What would my main responsibilities be?</li><li>What are the benefits of this job, and what is the salary?</li></ul>",
+          "description": "Respond to Tom's email and answer all of his questions. You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Email trả lời (Formal)</strong> cho một người đã ứng tuyển vào nhà hàng của bạn. Bạn cần trả lời đầy đủ <strong>3 câu hỏi chính</strong>: làm việc ở chi nhánh nào, trách nhiệm công việc là gì, và lợi ích cùng mức lương của công việc. Yêu cầu tối thiểu <strong>120 từ</strong>, giọng văn thân thiện, cởi mở nhưng vẫn cung cấp thông tin rõ ràng, cụ thể để ứng viên nắm được công việc.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi. Ví dụ: Dear Tom,</li><li><strong>Opening:</strong> Cảm ơn và dẫn vào chủ đề. Ví dụ: Thank you for your interest in joining our team. I'm happy to answer your questions.</li><li><strong>Body 1 (Branch):</strong> Nêu chi nhánh làm việc. Ví dụ: You would be working at our branch on Nguyen Hue Street, which is our busiest and most popular location.</li><li><strong>Body 2 (Responsibilities):</strong> Nêu trách nhiệm công việc. Ví dụ: Your main responsibilities would include taking orders, serving customers, and helping to keep the dining area clean and organized.</li><li><strong>Body 3 (Benefits & Salary):</strong> Nêu lợi ích và lương. Ví dụ: As for benefits, you'll receive free meals during shifts and health insurance after three months, with a starting salary of 6 million VND per month.</li><li><strong>Closing:</strong> Kết thúc thư và mời phản hồi thêm. Ví dụ: Please let me know if you have any further questions.</li><li><strong>Sign-off:</strong> Best regards, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng thì Hiện tại đơn để mô tả công việc và các cấu trúc liệt kê (include, such as) khi nêu trách nhiệm. Đưa ra số liệu cụ thể (lương, thời gian) để câu trả lời thuyết phục hơn.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Job responsibilities:</strong> Trách nhiệm công việc</li><li><strong>Starting salary:</strong> Mức lương khởi điểm</li><li><strong>Health insurance:</strong> Bảo hiểm y tế</li><li><strong>Working hours:</strong> Giờ làm việc</li><li><strong>Staff benefits:</strong> Phúc lợi nhân viên</li><li><strong>Branch location:</strong> Vị trí chi nhánh</li><li><strong>Probation period:</strong> Thời gian thử việc</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>First of all:</strong> Trước hết</li><li><strong>In terms of:</strong> Về mặt</li><li><strong>Additionally:</strong> Thêm vào đó</li><li><strong>As for:</strong> Còn về</li><li><strong>Lastly:</strong> Cuối cùng</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I'm happy to answer...:</strong> Tôi rất vui được trả lời...</li><li><strong>We'd love to have you...:</strong> Chúng tôi rất mong được có bạn...</li><li><strong>Feel free to ask...:</strong> Đừng ngại hỏi thêm...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ trả lời 1-2 trong số 3 câu hỏi mà đề bài yêu cầu.</li><li>Đưa ra thông tin quá chung chung, không có số liệu hay chi tiết cụ thể.</li><li>Dùng văn phong quá thân mật như viết cho bạn bè trong khi đây là ngữ cảnh công việc.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã trả lời đủ cả 3 câu hỏi (chi nhánh, trách nhiệm, lợi ích/lương) chưa.</li><li>Rà soát lại các con số và thông tin đã nêu có nhất quán không.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy tưởng tượng bạn đang thật sự tuyển dụng và muốn cung cấp thông tin rõ ràng, chuyên nghiệp nhưng vẫn thân thiện để ứng viên cảm thấy được chào đón.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "discussion",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>Nowadays, it is common to see people buying clothes and other products that are similar to those owned by their friends.</p><p class='mb-1'>Some people believe that this helps them feel more connected to their friends and fit in with their social circle, while others think that everyone should express their own individual style regardless of what their friends choose.</p><p class='mb-1'><strong>Discuss both views and give your own opinion.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss both views and give your own opinion about people buying clothes and other products similar to their friends. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Discussion Essay</strong>, bàn về việc nhiều người mua quần áo và các sản phẩm giống với bạn bè của mình. Bạn cần trình bày <strong>cả hai quan điểm</strong>: một bên cho rằng điều này giúp gắn kết với bạn bè, bên còn lại cho rằng mỗi người nên có phong cách riêng. Yêu cầu tối thiểu <strong>250 từ</strong>, tránh chỉ tập trung vào một phía.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu hiện tượng và nêu hai luồng quan điểm. Ví dụ: It has become increasingly common for people to purchase items similar to those of their friends, and opinions on this trend vary widely.</li><li><strong>Body 1 (Quan điểm 1):</strong> Topic sentence → Explanation → Example. Ví dụ: On the one hand, some people believe that owning similar items helps them feel more connected to their friends and strengthens their sense of belonging.</li><li><strong>Body 2 (Quan điểm 2):</strong> Ví dụ: On the other hand, others argue that everyone should express their own individuality rather than simply following what their friends buy.</li><li><strong>Body 3 (Ý kiến cá nhân):</strong> Ví dụ: In my opinion, while it is natural to be influenced by friends, personal choices should ultimately reflect one's own tastes and needs.</li><li><strong>Conclusion:</strong> Khẳng định lại quan điểm. Ví dụ: In conclusion, both social connection and personal identity matter, but individuality should not be sacrificed entirely for the sake of fitting in.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng thì Hiện tại đơn để nêu sự thật và quan điểm chung, kết hợp cấu trúc nhượng bộ (although, while) để liên kết hai luồng ý kiến mạch lạc hơn. Có câu Thesis Statement rõ ràng ở phần mở bài.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Peer influence:</strong> Ảnh hưởng từ bạn bè</li><li><strong>Sense of belonging:</strong> Cảm giác thuộc về một nhóm</li><li><strong>Personal identity:</strong> Bản sắc cá nhân</li><li><strong>Social circle:</strong> Nhóm bạn xã hội</li><li><strong>Consumer behavior:</strong> Hành vi tiêu dùng</li><li><strong>Individuality:</strong> Cá tính riêng</li><li><strong>Conform to a trend:</strong> Tuân theo xu hướng</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>On the one hand / On the other hand:</strong> Một mặt / Mặt khác (Thêm ý)</li><li><strong>However / Nevertheless:</strong> Tuy nhiên (Đối lập)</li><li><strong>As a result:</strong> Do đó (Nguyên nhân - kết quả)</li><li><strong>For example / For instance:</strong> Ví dụ như (Minh họa)</li><li><strong>In conclusion / To sum up:</strong> Tóm lại (Kết luận)</li><li><strong>Similarly / Likewise:</strong> Tương tự (Thêm ý tương đồng)</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Purchasing similar items:</strong> Thay cho \"buying the same things\".</li><li><strong>Following friends' choices:</strong> Thay cho \"copying friends\".</li><li><strong>Personal self-expression:</strong> Thay cho \"individual style\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh:</strong></p><ul><li><strong>From my perspective...:</strong> Theo quan điểm của tôi...</li><li><strong>Unlike those who prefer...:</strong> Không giống những người thích...</li><li><strong>A more balanced approach would be...:</strong> Một cách tiếp cận cân bằng hơn sẽ là...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ trình bày một quan điểm mà bỏ qua quan điểm còn lại.</li><li>Không có Topic sentence rõ ràng ở mỗi đoạn thân bài.</li><li>Lạm dụng ví dụ chung chung, thiếu tính thuyết phục.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem đã có Thesis Statement rõ ràng ở mở bài chưa.</li><li>Đảm bảo cả hai quan điểm đều được thảo luận đầy đủ.</li><li>Rà soát lỗi ngữ pháp và sự liên kết giữa các đoạn.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Đừng vội nghiêng về một phía ngay từ đầu. Hãy phân tích khách quan cả hai luồng ý kiến, sau đó mới đưa ra quan điểm cá nhân dựa trên lập luận vững chắc.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "How often do you check your email?",
+            "What do you usually use email for?",
+            "Do you think email is still an important way of communication nowadays?",
+            "Do you exercise regularly?",
+            "What type of physical activity do you enjoy the most?",
+            "How do you usually make time for exercise in your daily schedule?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này kéo dài <strong>3 phút</strong> với <strong>6 câu hỏi</strong>, được giám khảo hỏi trực tiếp theo hình thức hội thoại tự nhiên.</li><li><strong>Chủ đề A (Email):</strong> Ba câu hỏi đầu xoay quanh tần suất kiểm tra email, mục đích sử dụng và tầm quan trọng của email trong giao tiếp hiện đại.</li><li><strong>Chủ đề B (Tập thể dục):</strong> Ba câu hỏi sau khai thác thói quen tập luyện, môn thể thao yêu thích và cách sắp xếp thời gian cho việc rèn luyện sức khỏe.</li><li>Tiêu chí chấm điểm gồm: <strong>Độ trôi chảy (Fluency)</strong>, <strong>Từ vựng (Vocabulary)</strong>, <strong>Ngữ pháp (Grammar)</strong> và <strong>Phát âm (Pronunciation)</strong>.</li><li>Nên phân bổ khoảng <strong>25–30 giây</strong> cho mỗi câu hỏi, tránh dồn quá nhiều thời gian cho một chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Áp dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong>: trả lời trực tiếp, đưa lý do, sau đó minh họa bằng ví dụ cụ thể.</li><li><strong>Ví dụ Chủ đề A:</strong> \"I check my email several times a day, mainly to keep up with work-related messages and university announcements.\"</li><li><strong>Ví dụ Chủ đề B:</strong> \"Yes, I try to exercise at least three times a week, usually by jogging in the morning before classes start.\"</li><li>Luôn tự hỏi <strong>Why?/How?</strong> sau mỗi câu trả lời ngắn để mở rộng ý (bắt buộc).</li><li>Dùng một câu chuyển ý ngắn gọn khi chuyển từ Chủ đề A sang B, ví dụ: \"Now, shifting to a different aspect of my daily routine...\" (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói đều, sử dụng các từ đệm tự nhiên như \"well\", \"actually\" để tránh im lặng kéo dài.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> khi nói về thói quen sử dụng email và tập luyện (\"I usually...\", \"I tend to...\"), dùng <strong>hiện tại hoàn thành</strong> nếu nhắc đến trải nghiệm tích lũy (\"I have used email for work since I started my job\").</li><li>Nếu quên từ, hãy diễn giải bằng cách mô tả (paraphrase) thay vì dừng lại.</li><li>Từ vựng Chủ đề A: <strong>inbox</strong> (hộp thư đến), <strong>attachment</strong> (tệp đính kèm), <strong>formal correspondence</strong> (thư từ trang trọng), <strong>stay in touch</strong> (giữ liên lạc).</li><li>Từ vựng Chủ đề B: <strong>work out</strong> (tập luyện), <strong>stay in shape</strong> (giữ dáng), <strong>burn calories</strong> (đốt calo), <strong>squeeze in some time</strong> (sắp xếp thời gian).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>a quick and convenient way to communicate</strong> (cách giao tiếp nhanh và tiện lợi) — Chủ đề A.</li><li><strong>respond to emails promptly</strong> (phản hồi email kịp thời) — Chủ đề A.</li><li><strong>an official channel of communication</strong> (kênh giao tiếp chính thức) — Chủ đề A.</li><li><strong>maintain a healthy lifestyle</strong> (duy trì lối sống lành mạnh) — Chủ đề B.</li><li><strong>relieve stress</strong> (giải tỏa căng thẳng) — Chủ đề B.</li><li><strong>fit exercise into a busy schedule</strong> (sắp xếp việc tập luyện vào lịch trình bận rộn) — Chủ đề B.</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Actually,</strong> – mở đầu ý kiến cá nhân tự nhiên (thực ra thì).</li><li><strong>In terms of...</strong> – giới hạn phạm vi câu trả lời (về mặt...).</li><li><strong>Apart from that,</strong> – bổ sung ý (bên cạnh đó).</li><li><strong>The main reason is that...</strong> – nêu lý do chính.</li><li><strong>Speaking of...</strong> – chuyển chủ đề mượt mà (nói đến...).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"Personally, I think email is still essential, especially for formal or professional matters.\" (Cá nhân tôi nghĩ...) — Chủ đề A.</li><li>\"From my point of view, quick messaging apps have replaced email for casual conversations.\" (Theo quan điểm của tôi...) — Chủ đề A.</li><li>\"As far as I'm concerned, regular exercise is key to both physical and mental well-being.\" (Theo tôi thì...) — Chủ đề B.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời cụt lủn kiểu \"Yes\" hoặc \"Every day\" mà không giải thích thêm — đây là lỗi nghiêm trọng nhất.</li><li>Với Chủ đề A: nhầm lẫn giữa \"email\" (danh từ) và \"e-mail somebody\" (động từ), hoặc phát âm sai từ \"attachment\".</li><li>Với Chủ đề B: chỉ nói \"I like sports\" chung chung mà không nêu cụ thể môn thể thao nào.</li><li>Dùng sai thì, ví dụ dùng thì tương lai khi mô tả thói quen hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu chêm: \"That's an interesting question, let me think for a moment\" để có thêm thời gian.</li><li>Nếu quên từ vựng cụ thể, hãy mô tả bằng từ đơn giản hơn, ví dụ thay vì \"cardio\" có thể nói \"exercise that makes your heart beat faster\".</li><li>Với Chủ đề A, nếu không nhớ chi tiết, có thể nói chung chung về \"checking emails for work and study\" rồi phát triển thêm.</li><li>Với Chủ đề B, nếu bí ý tưởng, hãy liên hệ đến lợi ích sức khỏe của việc tập luyện để kéo dài câu trả lời.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy xem đây như một cuộc trò chuyện thân mật, không phải một bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Chủ đề A sang B, hãy \"reset\" tâm lý và coi đó là một câu hỏi hoàn toàn mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố gắng dùng từ vựng học thuật phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your company is planning an annual company trip for all employees.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: A trip to a riverside area</li><li>Option 2: A trip to a theme park</li><li>Option 3: A camping trip in the countryside</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống: công ty của bạn đang lên kế hoạch tổ chức chuyến đi chơi thường niên cho toàn bộ nhân viên.</li><li>Ba lựa chọn: <strong>đi ven sông (riverside)</strong>, <strong>công viên giải trí (theme park)</strong>, và <strong>cắm trại ở vùng quê (camping)</strong>.</li><li>Tiêu chí chấm điểm: khả năng phân tích, so sánh và đưa ra kết luận thuyết phục, cùng với Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>4 phút</strong> — khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction – Comparison/Body – End)</strong>: giới thiệu tình huống, phân tích lần lượt ba lựa chọn, sau đó kết luận và đưa ra lý do.</li><li><strong>Option 1 (riverside):</strong> \"A riverside trip offers a peaceful setting for relaxation, but it may not provide enough activities to keep everyone engaged.\"</li><li><strong>Option 2 (theme park):</strong> \"A theme park is exciting and suitable for all age groups, though it can be quite costly and crowded during holidays.\"</li><li><strong>Option 3 (camping):</strong> \"Camping encourages teamwork and closer bonding among colleagues, but it might be physically demanding for those who are not used to outdoor conditions.\"</li><li>Mẹo: luôn neo lập luận vào bối cảnh thực tế của một chuyến đi tập thể công ty (bắt buộc).</li><li>Mẹo: dùng từ nối tương phản như \"however\", \"on the other hand\" để chuyển giữa ưu và nhược điểm (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết ba lựa chọn với nhau thay vì nói tách biệt, ví dụ: \"Compared to Option 2, Option 3 promotes stronger team bonding.\"</li><li>Về thì: dùng <strong>câu điều kiện loại 1</strong> khi dự đoán hệ quả (\"If we go camping, we will need to prepare more carefully\") và <strong>hiện tại đơn</strong> khi mô tả đặc điểm từng lựa chọn.</li><li>Paraphrase cụm \"company trip\" thành \"team-building trip\" hoặc \"corporate outing\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>team bonding</strong> (gắn kết đồng đội).</li><li><strong>a relaxing getaway</strong> (chuyến đi thư giãn).</li><li><strong>budget-friendly</strong> (tiết kiệm chi phí).</li><li><strong>outdoor activities</strong> (hoạt động ngoài trời).</li><li><strong>suitable for all ages</strong> (phù hợp với mọi lứa tuổi).</li><li><strong>logistics arrangement</strong> (sắp xếp hậu cần).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>On the other hand,</strong> – nêu quan điểm đối lập (mặt khác).</li><li><strong>Compared to...,</strong> – so sánh giữa các lựa chọn.</li><li><strong>Taking everything into account,</strong> – tổng kết trước khi kết luận (xét tổng thể).</li><li><strong>Nevertheless,</strong> – nhấn mạnh điểm trái ngược (tuy nhiên).</li><li><strong>As a result,</strong> – nêu hệ quả (kết quả là).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"If it were up to me, I would choose the camping trip because it strengthens teamwork the most.\" (Nếu là tôi...)</li><li>\"I would strongly recommend the theme park for its fun and lively atmosphere.\" (Tôi sẽ khuyên...)</li><li>\"In my opinion, a riverside trip offers the best balance between relaxation and cost.\" (Theo ý kiến của tôi...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không chỉ ra nhược điểm của các lựa chọn còn lại.</li><li>Lặp đi lặp lại từ \"fun\"/\"good\" thay vì dùng tính từ học thuật hơn như \"engaging\", \"cost-effective\".</li><li>Không đưa ra kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng chuyên ngành, chuyển hướng sang yếu tố chi phí hoặc sự thuận tiện để tiếp tục lập luận.</li><li>Dùng câu chêm: \"Let's evaluate this option from a different perspective\" để có thêm thời gian suy nghĩ.</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một nhân viên thực sự đang góp ý cho công ty — điều gì thực sự phù hợp với đa số mọi người.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả cho lựa chọn được chọn để thể hiện tư duy phản biện.</li><li>Sự mạch lạc và logic trong lập luận quan trọng hơn việc dùng từ vựng phức tạp.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The key factors that make a training workshop successful",
+          "mindmap": {
+            "title": "Successful Training Workshops",
+            "ideas": [
+              "Clear objectives and well-structured content",
+              "Qualified and engaging trainers",
+              "Interactive activities and participant engagement",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "What do you think makes a training workshop successful?",
+            "How can a company measure whether a workshop has achieved its goals?",
+            "If a company has a limited budget, what aspects of a workshop could be downsized without affecting its quality?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề: <strong>Những yếu tố tạo nên một buổi training workshop thành công</strong>, với 3 nhánh ý chính và 1 nhánh ý cá nhân (gợi ý nhánh thứ 4: vai trò của phản hồi sau workshop).</li><li>Tiêu chí chấm điểm: khả năng phát triển ý mạch lạc theo sơ đồ tư duy, cùng Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>5 phút</strong>; khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> vì chủ đề mang tính công việc/tổ chức, cần cả lý lẽ lẫn ví dụ thực tế.</li><li><strong>Ví dụ 1 (mở bài):</strong> \"A successful training workshop depends on several key factors, from careful planning to active participant engagement.\"</li><li><strong>Ví dụ 2 (nhánh cá nhân):</strong> \"Personally, I believe collecting feedback after the workshop is just as important as the workshop itself, as it helps organizers improve future sessions.\"</li><li>Mẹo: khi nói về từng nhánh ý, hãy đưa ra một ví dụ workshop cụ thể để minh họa thay vì chỉ nói lý thuyết.</li><li>Mẹo: bám sát sơ đồ tư duy để tránh lan man, không lặp lại ý đã nói (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng cụm từ chuyển tiếp mượt mà giữa các nhánh ý, ví dụ \"Another crucial factor is...\".</li><li>Về thì: dùng <strong>hiện tại đơn</strong> để nêu sự thật/quan điểm chung (\"A good trainer keeps participants engaged\") và <strong>hiện tại hoàn thành</strong> để nói về trải nghiệm tích lũy (\"I have attended several workshops on soft skills\").</li><li>Paraphrase \"training workshop\" bằng \"training session\" hoặc \"professional development program\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>clear-cut objectives</strong> (mục tiêu rõ ràng).</li><li><strong>hands-on activities</strong> (hoạt động thực hành).</li><li><strong>keep participants engaged</strong> (giữ người tham gia hứng thú).</li><li><strong>subject-matter expert</strong> (chuyên gia trong lĩnh vực).</li><li><strong>practical takeaways</strong> (bài học thực tiễn mang về).</li><li><strong>post-workshop feedback</strong> (phản hồi sau buổi workshop).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with,</strong> – mở đầu nhánh ý đầu tiên (trước hết).</li><li><strong>Moreover,</strong> – bổ sung ý (hơn nữa).</li><li><strong>Another point worth noting is...</strong> – chuyển sang nhánh ý mới.</li><li><strong>In addition to that,</strong> – mở rộng ý (thêm vào đó).</li><li><strong>To sum up,</strong> – kết luận (tóm lại).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"I would say that a well-structured agenda is the backbone of any successful workshop.\" (Tôi cho rằng...)</li><li>\"From what I've experienced, interactive sessions are far more memorable than lecture-style presentations.\" (Theo những gì tôi trải nghiệm được...)</li><li>\"It seems to me that the trainer's ability to engage the audience matters just as much as the content itself.\" (Đối với tôi thì có vẻ như...)</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"What do you think makes a training workshop successful?\"</strong> – Clear objectives, an engaging trainer, and practical, interactive content that participants can apply afterward.</li><li><strong>\"How can a company measure whether a workshop has achieved its goals?\"</strong> – Through participant feedback surveys, follow-up assessments, and observing whether new skills are applied at work.</li><li><strong>\"If a company has a limited budget, what aspects of a workshop could be downsized without affecting its quality?\"</strong> – Elements like venue luxury, catering, or printed materials could be reduced, while keeping the trainer's quality and core content intact.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê ý mà không giải thích hoặc cho ví dụ cụ thể.</li><li>Quên nhánh ý cá nhân — nên chuẩn bị trước một quan điểm riêng liên quan đến workshop.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào một buổi workshop hoặc khóa đào tạo thực tế mà bản thân từng tham gia khi bí ý.</li><li>Câu chêm học thuật: \"That is a complex issue. If we evaluate it from a societal viewpoint...\"</li><li>Nếu quên từ vựng chuyên ngành, dùng mô tả đơn giản, ví dụ thay vì \"facilitator\" có thể nói \"the person who leads and guides the workshop\".</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ từ góc nhìn của cả người tổ chức lẫn người tham gia workshop.</li><li>Sự mạch lạc và logic trong luồng ý là yếu tố then chốt để đạt điểm cao.</li><li>Đừng cố nhồi nhét từ vựng khó, hãy ưu tiên truyền tải ý tưởng rõ ràng và tự nhiên.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

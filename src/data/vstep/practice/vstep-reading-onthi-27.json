@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-27",
+  "title": "Luyện Đọc VSTEP: The Industrial Revolution (VstepR6-Test 01)",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Industrial Revolution",
+            "text": "<p style=\"text-align:justify;\">The Industrial Revolution, which began in Britain in the mid-eighteenth century and gradually spread throughout Europe and North America, fundamentally transformed human society. Prior to this period, most goods were produced by hand in homes or small workshops. The introduction of machinery — particularly the mechanized textile loom and the steam engine — dramatically increased production capacity and changed the nature of work forever.</p>\n<p style=\"text-align:justify;\">The development of factory production concentrated workers in urban centers, leading to rapid urbanization. Cities grew almost overnight, creating both economic opportunity and acute social challenges. Workers, including women and children, labored long hours in often dangerous conditions for <strong>meager</strong> wages. This exploitation eventually gave rise to labor movements and trade unions, which fought for workers' rights and ultimately helped shape the modern social contract.</p>\n<p style=\"text-align:justify;\">Beyond labor, the Industrial Revolution also triggered profound environmental changes. The burning of coal to power factories and locomotives released vast quantities of carbon dioxide and other pollutants into the atmosphere, marking the beginning of significant human impact on global climate. Rivers were contaminated by industrial waste, and urban air quality deteriorated sharply. Many historians now consider this period the <strong>genesis</strong> of the environmental crisis we face today.</p>\n<p style=\"text-align:justify;\">Despite these negative consequences, the Industrial Revolution generated unprecedented wealth and technological innovation. Transportation networks — including canals and railways — connected markets and lowered the costs of goods. Agricultural productivity improved through better tools and methods. Over time, rising wages and falling prices for manufactured goods raised the standard of living for many people, though the benefits were distributed unevenly across society.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r27-q1",
+              "type": "mcq",
+              "question": "What is the best title for this passage?",
+              "options": [
+                "The Benefits of Economic Growth",
+                "The Industrial Revolution: Transformation and Its Consequences",
+                "How Machines Replaced Human Labor",
+                "The Invention of the Steam Engine"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r27-q2",
+              "type": "mcq",
+              "question": "According to the passage, which development directly caused rapid urbanization?",
+              "options": [
+                "The growth of agricultural productivity",
+                "The invention of the steam engine",
+                "The concentration of workers in factory-based production",
+                "The expansion of transportation networks"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r27-q3",
+              "type": "mcq",
+              "question": "The word \"meager\" in paragraph 2 is closest in meaning to?",
+              "options": [
+                "regular",
+                "insufficient",
+                "dangerous",
+                "consistent"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r27-q4",
+              "type": "mcq",
+              "question": "The word \"genesis\" in paragraph 3 is closest in meaning to?",
+              "options": [
+                "solution",
+                "impact",
+                "beginning",
+                "worsening"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r27-q5",
+              "type": "mcq",
+              "question": "The author's attitude toward the Industrial Revolution can best be described as?",
+              "options": [
+                "entirely critical of the environmental damage it caused",
+                "entirely positive about the economic progress it generated",
+                "balanced, acknowledging both achievements and negative consequences",
+                "nostalgic for the pre-industrial era"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

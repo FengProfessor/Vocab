@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-19",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 19",
+  "duration": 172,
+  "date": "2026-03-17",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-19/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>OK everybody. This next exercise is a bit difficult but it’s really good for your legs. All you do is put your back against the wall place your feet about half a metre away from the wall move your back down the wall so your knees are bent at 90 degrees. Now put your hands out straight in front of you right make sure your head is against the wall. Now, see how long you can stay like that. If you do two minutes, you’re doing well.</li></ul><p><b>Question 2.</b></p><ul><li>Because of the ski jumping finals we’re late finishing so there are some changes to this evening’s programmes. We won’t now show the Nature Programme about the dolphins found near the Florida coast at nine o’clock. Instead, Tim Wong’s Chinese Kitchen will be at this time an hour later than advertised. You can see the Nature Programme at its usual time next week.</li></ul><p><b>Question 3.</b></p><ul><li>All fans of Peter Robbins should go to the South Street book store tomorrow afternoon where Peter will sign copies of his book Love of Life and answer questions. He is expected at a quarter past two and promises to stay until half past three when he has to leave for another appointment. Get there as soon as you can because if it’s anything like Peter’s last visit queues will start to form at quarter to two or even earlier. Don’t miss this opportunity to meet everyone’s favourite writer.</li></ul><p><b>Question 4.</b></p><ul><li>Here is the weather forecast. Today will be very cloudy although it won’t rain until the evening. The weather tomorrow will be the same as yesterday sunshine and showers. But the weekend looks good plenty of sunshine and very little rain.</li></ul><p><b>Question 5.</b></p><ul><li>Now you won’t need any money for the bus or your entrance ticket to the zoo tomorrow because that’s already paid for. But bring some small change for when you get thirsty and want a drink. The only food or drink allowed on the bus is fruit. Bring some with you because it’s a long trip and you’ll get hungry. No food or drink must be taken into the zoo. And you’ll need to bring all your coloured pencils for the work I’m going to ask you to do there.</li></ul><p><b>Question 6.</b></p><ul><li>And now for tomorrow’s weather. The day will start showery and windy. Those winds should disappear by late morning but the wet weather will continue until well into the evening. Although we might see some bright sunny periods between the showers early on by midday, it will be cloudy with temperatures of no more than ten or twelve degrees centigrade.</li></ul><p><b>Question 7.</b></p><ul><li>It was really strange going back to Redmond where I used to live. Everything has changed so much. I went to see my old house. It used to have trees in the garden and a hedge in the front. Well, the people who own it now have built another bedroom over the top of the garage and removed the trees and hedge so they have more room to park their cars. It made me feel really sad because it looked so different.</li></ul><p><b>Question 8.</b></p><ul><li>Coming up next on The Science Channel is the latest documentary produced and presented by photographer Daniel Hamilton, who made the prize-winning series about African animals which you may have seen last year. His latest series is simply called Earth and viewers can enjoy some amazing photography with pictures of the planet shot from cameras in space using the latest satellite technology. So sit back, relax and enjoy!</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which part(s) of the body does the exercise affect well?",
+              "options": [
+                "knees",
+                "back",
+                "hands",
+                "legs"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Which TV programme is on at 9 o’clock tonight?",
+              "options": [
+                "Ski jumping finals",
+                "Nature Programme",
+                "Tim Wong’s Chinese Kitchen",
+                "a programme about dolphins"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What time will the writer arrive at the bookshop?",
+              "options": [
+                "At 1.45",
+                "At 2.15",
+                "At 3.30",
+                "At 2.30"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What will the weather be like tomorrow?",
+              "options": [
+                "rainy",
+                "cloudy",
+                "sunny",
+                "both sunny and rainy"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What should the students take on the school trip?",
+              "options": [
+                "Drink, fruit and some change",
+                "Drink, fruit and coloured pencils",
+                "Fruit, some change and coloured pencils",
+                "fruit and coloured pencils"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What will the weather be like tomorrow afternoon?",
+              "options": [
+                "rainy",
+                "windy",
+                "sunny",
+                "cloudy"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What does the woman’s house look like now?",
+              "options": [
+                "It has another bedroom over the garage",
+                "It has trees in the garden",
+                "It has a hedge in the front",
+                "It has trees in the garden and a hedge in the front."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is the next TV program about?",
+              "options": [
+                "the satellite",
+                "the Earth",
+                "African animals",
+                "photography"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-19/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> And today in the studio we have a familiar face on television, Angela Bond the news reporter. Angela, your job has taken you all over the world, hasn’t it?</li><li><b>W:</b> Yes. I’ve reported from a number of countries in Asia and I’ve just returned from the United States. I must say, it’s good to be able to unpack my suitcase now that the job has brought me to Britain for at least six months.</li><li><b>M:</b> Is the travelling what you enjoy about the job?</li><li><b>W:</b> It’s certainly interesting, but it can be annoying never knowing where I’m going to be next week! For me, the really exciting thing is being somewhere when a big news story is taking place and seeing it develop. Sometimes that can be quite dangerous, but all jobs have their disadvantages! And travelling gives me the chance to collect souvenirs.</li><li><b>M:</b> What kind of things?</li><li><b>W:</b> Mostly things for my flat. I’m mad about anything Chinese and so when I was in Hong Kong, I got a really nice table and some chairs and in Turkey I spend a lot of money on carpets. Then I’ve got pictures and other bits of art from Thailand and India. The flat’s getting a bit crowded!</li><li><b>M:</b> It sounds colourful! Do you have a regular working day?</li><li><b>W:</b> Not really. At the moment, I’m one of the team that reads the evening news so sometimes I’m on at six thirty, and sometimes at ten o’clock. But that’s at the end of the day. It all starts in the morning at eight thirty when I phone the office to see what has happened and what they want me to go and report on.</li><li><b>M:</b> So you don’t have much time for a social life?</li><li><b>W:</b> It’s better now I’m in London and can see my boyfriend more often. My sister introduced us. He came round for dinner when I was staying with her a year ago. We have a lot in common. He’s a lawyer and I studied law at university. Also we’ve found that we lived in Hong Kong at the same time, although we never met.</li><li><b>M:</b> What do you like to do in your free time?</li><li><b>W:</b> Well, cooking is something new I’m trying because I can’t do it when I’m travelling. But I’m not very good at it yet so I find it a bit stressful. One of the best things I’ve bought recently was a boat and when I want to feel calm and peaceful I go for a sail on the river. It never fails!</li><li><b>M:</b> Angela - thanks.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Oh, what a wonderful view! I’m here with Jack Williams, who’s telling me about his home town of Swanton.</li><li><b>M:</b> Yes, the top of this hill is the best place to see the area. Swanton is on the coast you can see the harbour from here but in fact the town is built along the river Dean. This river comes from a lake in the mountains, over there in the distance then flows down to the flat land below us where the town is built.</li><li><b>W:</b> What do you most like about living here?</li><li><b>M:</b> About Swanton? Oh, it’s an important industrial town and a port so there’s lots of activity. And there’s a forest behind the town with interesting wildlife. But the most exciting thing for me is the mountains. I go climbing whenever I get the chance.</li><li><b>W:</b> What about entertainment?</li><li><b>M:</b> There’s plenty of entertainment. A big centre was built last year to encourage the arts - very modern. It’s got a cinema, a theatre and an art gallery. And there’s football. The local team hasn’t done so well lately. A few years ago we nearly won the Cup. And our area is famous for music not in Swanton itself but there’s a well-known music festival in the next town.</li><li><b>W:</b> But there are problems with the environment.</li><li><b>M:</b> We’re working on that. The river was a great place for fish but the water got so polluted by the factories that most of the fish disappeared. Well, we’ve cleaned the river up now, and the fish are starting to come back. But I’m unhappy about Swanton woods. The trees are quite healthy but if you look, there are no birds there, and that’s because pollution has reduced the number of insects.</li><li><b>W:</b> Swanton’s growing fast. Are you pleased about the way it’s changed?</li><li><b>M:</b> You’ve got to move with the times. It was completely different when I was a boy. In those days everybody worked in the factories, and the families all knew each other. Maybe it was a little boring. Today there are hundreds of different companies and so many new houses that some people don’t even know their neighbours. There are disadvantages, but it’s impossible to be bored with all the things going on.</li><li><b>W:</b> And what about Swanton’s future?</li><li><b>M:</b> Education is important to us. We have a fine university which specialises in advanced technology. And a huge shopping centre, just built, which is bringing in double the number of visitors - good news for us. And last year we improved our airport, so more planes can come in.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> My guest today is the star of the London Ballet Company, twenty-two-year-old Elena Karpov. Elena you were born in Bulgaria. Did you always want to be a dancer?</li><li><b>W:</b> Well, I was a very lively little girl, so at the age of seven my mother sent me to gymnastics classes. When I was nine, I went on to ballet lessons and from that moment I knew that I wanted to spend my life dancing. Two years later, when I was eleven, I won a place at the New York Ballet School.</li><li><b>M:</b> So you had to move to the United States. Did you miss your family?</li><li><b>W:</b> Oh yes. At first it was difficult being away from home and not knowing a lot of English. But it taught me how to look after myself and not to depend on others. There were other Bulgarian students there and we actually found it quite easy to learn enough English to take part in the lessons with the other students.</li><li><b>M:</b> Tell us about your latest role with the London Ballet Company.</li><li><b>W:</b> I’m going to dance the part of Cinderella. It’s a story about a poor girl who marries a handsome prince. My parents used to read it to me when I was little. I’d never seen the ballet before, but I already knew the music really well. I’m sure children will love the ballet.</li><li><b>M:</b> What do you do when you’re not practising or performing?</li><li><b>W:</b> Before I joined this company I spent two weeks going round London as a tourist. I don’t have time for sightseeing now, but I love trying on the latest fashions with my friends. I’m always buying new jeans and trainers! I’m not too keen on discos and nightclubs I dance enough during the day!</li><li><b>M:</b> You must have lots of fans?</li><li><b>W:</b> Quite a few! They always ask for a photograph of me, but unfortunately I don’t have many to give away. I sometimes sign their programmes instead and if I can I give them one of the flowers I’ve received from the audience. They always ask for tickets, but of course that’s not possible.</li><li><b>M:</b> What’s been the best thing that’s happened in your career so far?</li><li><b>W:</b> Well, I’ve been a guest dancer with ballet companies in Moscow and Vienna and I appeared twice on television in Bulgaria and met the president! I shall never forget that! But the most satisfying thing for me is that I’m paid for doing what I really enjoy - dancing!</li><li><b>M:</b> Elena, thank you for talking to us.</li><li><b>W:</b> Thank you.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Where is Angela working at the moment?",
+              "options": [
+                "Britain",
+                "the USA",
+                "Thailand",
+                "India"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does Angela like about her job?",
+              "options": [
+                "She loves being in dangerous situations.",
+                "She never knows where she’ll go next.",
+                "She enjoys watching important events happen.",
+                "She likes collecting souvenirs."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What did Angela bring home from Hong Kong?",
+              "options": [
+                "pictures",
+                "carpets",
+                "furniture",
+                "postcards"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "Where did Angela meet her boyfriend?",
+              "options": [
+                "at her sister’s house",
+                "at university",
+                "in Hong",
+                "in a law firm"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Where is the town of Swanton located?",
+              "options": [
+                "near the sea",
+                "by a lake",
+                "on a hill",
+                "in the mountains"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Jack say about entertainment in Swanton?",
+              "options": [
+                "A music festival takes place in the town.",
+                "Its football club has done well this year.",
+                "An arts centre consists of a cinema, a theatre and an art gallery.",
+                "The arts centre is old."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Why is Jack worried about the environment of Swanton?",
+              "options": [
+                "the water in the river is dirty.",
+                "there are few wild birds around today.",
+                "pollution has destroyed the plants in one area.",
+                "There are no fish in the river."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What does Jack say about the way Swanton has changed?",
+              "options": [
+                "He preferred the town when it was smaller.",
+                "He thinks it is a more interesting place.",
+                "He is sorry that there are fewer jobs available.",
+                "He thinks it’s impossible to change people’s way of life."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "How old was Elena when she decided to become a dancer?",
+              "options": [
+                "seven.",
+                "nine.",
+                "ten.",
+                "eleven."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What does Elena say about the ballet called Cinderella?",
+              "options": [
+                "It will attract both adults and children.",
+                "The music was unfamiliar to her.",
+                "She saw it when she was a child.",
+                "She will play one role in it."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What does Elena like to do in her free time?",
+              "options": [
+                "go sightseeing.",
+                "go to clubs.",
+                "go dancing",
+                "go shopping."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does Elena like best about her job?",
+              "options": [
+                "appearing on television",
+                "doing something she loves",
+                "travelling to different countries",
+                "meeting the president"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-19/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talks/Lectures 1 (Q.21-25)</b></p><p>Hello, I’m Sarah Brown, and I’m here to tell you about my job as a weather forecaster. I’ve been a weather forecaster for a television company for seven years and two years ago I became the head of the weather department. Now, I divide my time equally between presenting weather forecasting on television and managing the weather department which has a staff of eleven. At thirty years old I’m the youngest ever head of weather and the first woman to do the job. Since our news and weather service goes out all round the world, we all take turns to work at night I prefer that to doing the show when I have to get up at four in the morning. I normally work an eight-hour day and at that time I do ten or twelve forecasts. Before doing a weather forecast, I study data on the computer. This is the information I use in my forecasts. There isn’t much time to learn what I have to say but fortunately I’ve never forgotten my words so I don’t get nervous. My husband and I try to have the same free days, but neither of us has a regular pattern of work. He’s a pilot on long-distance flights, so although he works hard he has a lot more time at home than I do. We moved to our present house about a year ago, and he’s enjoying painting it. I took up flying as a hobby five years ago. I hope to get my pilot’s licence this year but because of the job, I haven’t been to the flying school for ages For exercise I swim and ski and I like running. I’m really proud of myself for running in the London Marathon it’s a forty-kilometre race and I never thought I could manage it! My husband plays tennis, and we sometimes play together, but he’s better than me so I never win. Because I’m on world news, people sometimes recognise me in really distant places. Once, in an Indian village, an old man took me to have my photo taken with all his family. I get some lovely letters one person wrote to say that my smile made her feel happy all day. People occasionally even write and ask me to marry them!</p><p><b>Talks/Lectures 2 (Q.26-30)</b></p><p>Thank you all for coming to my talk this evening. It’s nice to see so many people in the audience. For those of you who don’t know very much about PS Camping let me start by giving you some background information about the company. The company started twenty-five years ago. It actually opened as a retail chain selling camping equipment, and then twenty years ago it bought a small number of campsites in the UK and began offering camping holidays. The company grew rapidly and has been providing holidays in continental Europe for the last fifteen years. If you book a camping holiday with us you’ll have a choice of over 300 sites. In Italy we now have some 64 sites that we either own, or have exclusive use of. France is where we have the majority of sites, and we currently have a project to expand into Switzerland. We also have a number of sites in Northern Spain particularly in the mountainous region of Picos de Europa. We’ve upgraded all these Spanish sites, and improved them considerably from their original three-star rating. We believe our holidays offer superb facilities for the whole family. Parents who want their children to be fully occupied for all or part of the day can take advantage of our children’s activities. These are organised by our well-qualified and enthusiastic staff. Each day kicks off with a sports match perhaps football, or volleyball, followed by an hour of drama for everyone. This may include singing or dancing, mime or other activities. In the afternoon, there’s a different art activity for each day of the week including a poster competition or model making What’s more, our sites are truly child-friendly and, with this in mind we operate a no-noise rule in the evenings Children’s evening activities usually finish at 9.30 or occasionally 10, and from 10.30 holiday-makers are expected to be quiet in the areas where there are tents. We want nothing to go wrong on a PS Camping holiday, but if it does, we also want all customers to be insured. If you haven’t organised an annual insurance policy of your own you’ll need to take out the low-cost cover we offer and we require that you arrange this when you make your holiday reservation. There are many advantages to choosing PS Camping, and to recommending it to others. As a regular customer you’ll be kept informed of special offers and your friends can benefit from ten per cent off their holiday or book a luxury tent for the price of a standard one. In return, we’ll send you a thank-you present, which you can choose from a list of high-quality items.</p><p><b>Talks/Lectures 3 (Q.31-35)</b></p><p>Good morning I’m very pleased to have been invited along to your club to talk about our Charity Sponsored Walking Holiday for Education Aid. I’ll start by giving you a brief overview of what it entails. First of all let me explain what we mean by ‘sponsored’ here. This is where people promise to donate money to the charity if you achieve your goal in this case to walk a certain number of miles. Basically we are organizing a ten-day holiday, from the sixth to the sixteenth of November with eight days actual walking, trekking in the Semira Mountains. Let’s have a look at some of the details. We require you to raise sponsorship money of at least $3,200 paying $250 of it up front as a deposit and the rest in stages throughout the year Out of this, about 35% will go on your expenses and that leaves 65% guaranteed to go to the charity. Which brings me to the most important part. This trek is being specifically organized to help education in the Semira region. Last year we helped train teachers for the disabled, and this year we’re focusing on the pupils Each of the walkers’ sponsorship money will go to help an individual special needs pupil in one of the mountain schools. In the second part of the talk I’ll be giving you a lot more details, but back to the basic information. Age limits is the second time we have run this kind of holiday and um, on the first we even had an eighty-year old But we found it was wise to establish limits this time You have to be at least eighteen and the top limit is now seventy though you need to obtain a health certificate from your doctor if you are over sixty years old. Now, the Semira Mountains are among the highest in the world but you mustn’t be too daunted we will mainly be trekking in the foothills only, although there will be spectacular views even in the foothills. However, you will need to be extremely fit if you aren’t now and you’re interested in coming with us You have plenty of time to get into shape You will be sleeping in tents so you must have quite a bit of equipment with you but you will be helped by local assistants. Your bedding and so forth will be carried by them. We ask that you only walk with a small rucksack with needs for the day. I don’t think I’ve really said enough about the marvellous area you’ll be walking in Let’s have a look at some of the sights you’ll be seeing. Apart from these spectacular snow-covered peaks and valleys, there are marvellous historic villages, the area has been famous for centuries for making beautiful carpets although recently there has been a trend to move into weaving blankets and wood carving. The people are extremely friendly and welcoming. We deliberately keep the parties small in size to minimize disruption to people and landscape.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "How long has Sarah worked as a weather forecaster?",
+              "options": [
+                "two years",
+                "seven years",
+                "eleven years.",
+                "thirty years"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What does Sarah say about her job?",
+              "options": [
+                "She sometimes has to work at night.",
+                "She enjoys getting up early.",
+                "She works ten or twelve hours a day.",
+                "She sometimes forgets her words."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does Sarah say about her doing weather forecast?",
+              "options": [
+                "she prepares it in advance.",
+                "she sometimes forgets her words.",
+                "she worries about making a mistake.",
+                "She sometimes get nervous on television."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What is true about Sarah’s husband?",
+              "options": [
+                "He works on the same days each week.",
+                "He wants to move nearer his work.",
+                "He spends a lot of time travelling.",
+                "He has little time to relax."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What did Sarah say about her hobby?",
+              "options": [
+                "She has got her pilot’s license.",
+                "She taught her husband to play tennis.",
+                "She took part in a long race.",
+                "Flying is difficult so she gave it up."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How long has PS Camping been organising holidays?",
+              "options": [
+                "15 years.",
+                "20 years.",
+                "25 years.",
+                "30 years."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Where does the company has most camping sites?",
+              "options": [
+                "France.",
+                "Italy.",
+                "Switzerland.",
+                "Spain"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Which organised activity can children do every day of the week?",
+              "options": [
+                "football",
+                "drama",
+                "model making",
+                "volleyball"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about the holiday insurance offered by PS Camping?",
+              "options": [
+                "It can be charged on an annual basis.",
+                "It is included in the price of the holiday.",
+                "It must be taken out at the time of booking.",
+                "It can be optional."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can customers recommending PS Camping to friends receive?",
+              "options": [
+                "a free gift.",
+                "an upgrade to a luxury tent.",
+                "a discount.",
+                "a thank-you letter."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "How long will you be walking on the holiday?",
+              "options": [
+                "6 days.",
+                "8 days.",
+                "10 days.",
+                "16 days"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What proportion of the sponsorship money goes to charity?",
+              "options": [
+                "25%",
+                "35%",
+                "50%",
+                "65%"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What is the top age limit to attend the holiday?",
+              "options": [
+                "50 years old.",
+                "60 years old.",
+                "80 years old.",
+                "70 years old."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What will you carry as you walk?",
+              "options": [
+                "all of your belongings.",
+                "some of your belongings.",
+                "none of your belongings.",
+                "some of your belongings and food."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What does the Semira Region have a long tradition of?",
+              "options": [
+                "making carpets.",
+                "weaving blankets.",
+                "carving wood.",
+                "processing food"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Mu Cang Chai and Lao Cai: Mountains, Resorts, and Local Food",
+            "text": "<p>Mu Cang Chai is a mountainous district in Yên Bái province, though it lies close to the tourist routes that also lead to Sa Pa in Lao Cai province, and travelers often visit both areas on the same trip. The region is famous above all for its terraced rice fields, which climb the steep hillsides in wide curving steps built by local farmers over many generations. Local farmers maintain <strong>them</strong> carefully every season, repairing the earthen walls between planting cycles. From a distance, these terraces look almost like a giant staircase carved into the mountainside, and photographers travel from across Vietnam and abroad just to capture the view.</p><p>The most popular time to visit is during the rice harvest, usually from mid-September to early October, when the terraces turn a deep golden color under the autumn sun. Some visitors also come earlier, around May and June, to see the terraces filled with water before the rice is planted, when the fields reflect the sky like thousands of small mirrors. Local guides say the golden season draws the largest crowds, so travelers who prefer quieter roads sometimes choose the water-filled season instead.</p><p>As more tourists arrived over the past decade, small hotels and homestays began appearing along the main roads and in nearby villages. Many of these homestays are run by local families from the Hmong and Thai ethnic groups, who offer simple wooden rooms with wide windows facing the valley. A few larger resorts have also opened near the most scenic viewpoints, offering swimming pools and restaurants alongside the traditional rice-field views, though most travelers still say the smaller homestays feel more connected to daily life in the mountains.</p><p>Food in the region reflects its mountain location and ethnic diversity. Grilled meats, sticky rice cooked in bamboo tubes, and fresh mountain vegetables appear on most local menus, often served with a simple chili dipping sauce. Sour bamboo shoot soup is another common dish, prized for its <strong>tangy</strong> taste and thought to suit the cool mountain air. Many homestays cook meals using vegetables grown in their own gardens, so the exact dishes offered can change slightly from one village to the next.</p><p>Tourism has clearly brought new income to a district that was once among the poorest in the province, giving many families a <strong>steady</strong> source of earnings beyond farming alone. At the same time, some residents worry that rapid construction near the terraces could eventually damage the very scenery that draws visitors in the first place. Local authorities have begun limiting new building permits close to the most photographed viewpoints, hoping to keep Mu Cang Chai's mountains looking much as they have for generations.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q2, R1Q3, R1Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R1Q2</b>, quét từ khóa \"harvest\" và \"golden\" ở đoạn 2 để xác định thời điểm ruộng bậc thang đẹp nhất: từ giữa tháng 9 đến đầu tháng 10 vào mùa thu hoạch lúa (Mid-September to early October, during the rice harvest season).</li><li>Với <b>R1Q3</b>, quét từ khóa \"homestays\" và \"run\" ở đoạn 3 để tìm người quản lý homestay: các gia đình người dân tộc H'Mông và Thái (Local families from the Hmong and Thai ethnic groups).</li><li>Với <b>R1Q4</b>, định vị các món ăn địa phương ở đoạn 4 để xác định món ăn phổ biến: canh măng chua với hương vị đậm đà đặc trưng (Sour bamboo shoot soup, prized for its tangy taste).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R1Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của từng đoạn: cảnh quan ruộng bậc thang Mù Căng Chải thu hút sự chú ý ngày càng tăng về du lịch, khu nghỉ dưỡng và ẩm thực độc đáo (Mu Cang Chai's scenic terraces have drawn growing tourism, resorts, and food interest).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q6, R1Q8):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R1Q6</b>, từ <strong>\"tangy\"</strong> ở đoạn 4 mô tả vị chua thanh đặc trưng của món canh măng chua. Ngữ cảnh này đồng nghĩa với vị chua (sour).</li><li>Với <b>R1Q8</b>, từ <strong>\"steady\"</strong> ở đoạn 5 mô tả nguồn thu nhập ổn định/đáng tin cậy từ hoạt động du lịch mang lại cho người dân. Ngữ cảnh này đồng nghĩa với ổn định, đáng tin cậy (reliable).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q5):</b> Đối soát các yếu tố được nhắc đến trong bài: ruộng bậc thang mùa lúa chín, homestay do người H'Mông/Thái vận hành, và món canh măng chua. Chi tiết \"cáp treo nối trực tiếp ruộng bậc thang với Sa Pa\" (A cable car connecting the terraces directly to Sa Pa) hoàn toàn không xuất hiện trong bài.</li><li><b>Dạng câu hỏi Quy chiếu (R1Q7):</b> Tập trung vào đại từ <strong>\"them\"</strong> ở đoạn 1. Đọc lại câu trước để xác định đối tượng quy chiếu: người dân địa phương chăm sóc cẩn thận các thửa ruộng bậc thang (terraced rice fields).</li><li><b>Dạng câu hỏi Suy luận (R1Q9):</b> Tổng hợp logic ở đoạn cuối về sự phát triển du lịch đi kèm với yêu cầu bảo tồn. Chính quyền địa phương đang nỗ lực cân bằng giữa phát triển kinh tế du lịch và bảo vệ cảnh quan thiên nhiên (Authorities are trying to balance tourism growth with protecting scenery).</li><li><b>Dạng câu hỏi Thái độ tác giả (R1Q10):</b> Phân tích sắc thái ngôn từ toàn bài. Tác giả giữ góc nhìn khách quan, cân bằng giữa những lợi ích kinh tế mang lại và các mối lo ngại về bảo tồn cảnh quan khi du lịch phát triển (Balanced, presenting both the benefits and concerns of tourism growth).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R1Q7) và <b>Từ vựng</b> (R1Q6, R1Q8). Tiếp theo, áp dụng kỹ thuật đọc quét thông tin để hoàn thành các câu <b>Chi tiết</b> (R1Q2, R1Q3, R1Q4) và <b>Loại trừ</b> (R1Q5). Cuối cùng, kết nối ý chính toàn bài để chốt chính xác các câu hỏi đòi hỏi phân tích gồm <b>Suy luận</b> (R1Q9), <b>Ý chính toàn bài</b> (R1Q1) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Mu Cang Chai's tourism growth already damaged its terraced landscape permanently.",
+                "Mu Cang Chai's homestays now attract more visitors than all of Sa Pa.",
+                "Sa Pa's tourism industry has completely replaced Mu Cang Chai's rice farming.",
+                "Mu Cang Chai's scenic terraces have drawn growing tourism, resorts, and food interest."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, when is the most popular time to see the golden terraces?</span>",
+              "options": [
+                "December and January, during the coldest winter months.",
+                "May and June, right after the rice is fully harvested.",
+                "Year-round, since the terraces stay golden in every season.",
+                "Mid-September to early October, during the rice harvest season."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, who runs many of the homestays in Mu Cang Chai?</span>",
+              "options": [
+                "Government tourism officials managing state-owned guesthouses.",
+                "Local families from the Hmong and Thai ethnic groups.",
+                "Large hotel companies based in Hanoi and Sa Pa.",
+                "International investors who built resorts near viewpoints."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is a common local dish in the region?</span>",
+              "options": [
+                "Spicy noodle soup served with imported beef.",
+                "Sweet rice cakes wrapped in banana leaves only.",
+                "Grilled seafood imported fresh from the coast daily.",
+                "Sour bamboo shoot soup, prized for its tangy taste."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a feature of tourism in Mu Cang Chai?</span>",
+              "options": [
+                "Golden terraces appearing during the September harvest season.",
+                "Homestays run by local Hmong and Thai families.",
+                "Sour bamboo shoot soup served in local restaurants.",
+                "A cable car connecting the terraces directly to Sa Pa."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"tangy\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "sour",
+                "sweet",
+                "imported",
+                "tangled"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 1 refers to _______.</span>",
+              "options": [
+                "local farmers",
+                "curving steps",
+                "steep hillsides",
+                "terraced rice fields"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"steady\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "farming",
+                "study",
+                "reliable",
+                "temporary"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about local authorities' response to tourism growth?</span>",
+              "options": [
+                "Farmers stopped rice farming because tourists demanded new resorts.",
+                "Mu Cang Chai was once among the poorest districts nearby.",
+                "Authorities are trying to balance tourism growth with protecting scenery.",
+                "The terraces will certainly be destroyed by new construction soon."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward tourism development in Mu Cang Chai?</span>",
+              "options": [
+                "Focused only on describing local food specialties in detail.",
+                "Entirely negative about the future of Mu Cang Chai's scenery.",
+                "Strongly critical of all tourism development in the region.",
+                "Balanced, presenting both the benefits and concerns of tourism growth."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Vietnamese Coffee: Colonial Origins and a Distinctive Flavor Profile",
+            "text": "<p>Although coffee is often associated with high-altitude Arabica beans, Vietnam's identity as one of the world's largest coffee exporters rests overwhelmingly on a different, hardier variety. French colonists introduced coffee cultivation to Vietnam in the 1850s, initially planting Arabica trees imported from other French colonial territories, though the more <strong>resilient</strong> Robusta variety gradually displaced Arabica across most commercial plantations once growers recognized how poorly Arabica tolerated Vietnam's lowland heat and humidity. Some historians suggest this early agricultural trial-and-error, rather than any deliberate national strategy, shaped the flavor most people now associate with Vietnamese coffee.</p><p>The Central Highlands region, particularly Đắk Lắk province, eventually emerged as the country's dominant coffee-growing area, its reddish volcanic soil and moderate elevation proving especially suited to Robusta cultivation. Because Robusta yields higher volumes per hectare than Arabica while requiring less delicate handling, the crop became attractive to smallholder farmers who could not easily absorb the losses that Arabica's more sensitive growing requirements often produce elsewhere.</p><p>Traditional processing across much of the region relied on the dry method, in which harvested cherries are spread out to dry in the sun before the outer fruit is removed, rather than the wet method common in many Arabica-growing countries, where the fruit is washed away almost immediately after picking. Dry processing, while cheaper and less water-intensive, tends to leave more of the fruit's sugars in contact with the bean for longer, a factor some researchers link to the fuller-bodied, slightly fruitier undertone found in traditionally processed Vietnamese Robusta, though controlled comparisons isolating this variable from others remain limited.</p><p>Because a metal drip filter called a phin sits directly atop the cup during brewing, allowing hot water to pass slowly through tightly packed grounds over several minutes, the resulting cup is markedly more concentrated than coffee produced through faster brewing methods. <strong>This</strong> deliberately slow pace — often treated as much a social ritual as a brewing technique — reflects a broader pattern in which the method of preparation, not merely the bean itself, ends up defining a country's coffee identity as strongly as origin does.</p><p>The resulting brew's characteristic boldness, verging on bitterness, owes as much to Robusta's naturally higher chlorogenic acid content as to the slow, concentrated brewing method itself. Partly to <strong>offset</strong> this intensity, and partly because fresh milk was historically scarce and difficult to preserve in Vietnam's tropical climate before reliable refrigeration became widespread, condensed milk became the standard addition rather than fresh dairy, giving rise to the sweetened iced coffee now sold under the name cà phê sữa đá. What began as a practical substitution born of limited refrigeration has since become, for many drinkers both in Vietnam and abroad, the defining flavor of Vietnamese coffee itself.</p><p>In recent years, a smaller but growing specialty coffee movement has begun cultivating Arabica at higher elevations in provinces such as Lâm Đồng, explicitly positioning itself against the historically dominant Robusta identity described above. Proponents argue that Vietnam's coffee reputation has been unfairly limited by decades of emphasis on volume over nuance, while defenders of traditional Robusta production counter that abandoning the bean responsible for the country's original export success risks erasing a distinct flavor profile that no other major coffee-producing country has replicated at comparable scale.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q2, R2Q3, R2Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp trong bài đọc.<ul><li>Với <b>R2Q2</b>, quét mốc thời gian ở đoạn 1: thực dân Pháp lần đầu đưa cà phê vào trồng ở Việt Nam vào những năm 1850 (In the 1850s, when French colonists first introduced cultivation).</li><li>Với <b>R2Q3</b>, quét từ khóa \"displace Arabica\" ở đoạn 1 để tìm lý do Robusta thay thế Arabica: Robusta phát triển chống chịu tốt/kiên cường hơn (Robusta gradually displaced Arabica because it grew more resiliently).</li><li>Với <b>R2Q4</b>, định vị các chi tiết về sữa đặc ở đoạn 5 để giải thích nguồn gốc lịch sử: sữa tươi hiếm và khó bảo quản trong khí hậu nhiệt đới (Fresh milk was scarce and hard to preserve in the tropical climate).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R2Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề đoạn 1 và đoạn kết: bản sắc cà phê Robusta Việt Nam được hình thành từ lịch sử thời thuộc địa, địa lý thổ nhưỡng và thói quen pha chế thực tế (Vietnamese Robusta coffee's identity emerged from colonial history, geography, and practical brewing customs).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q6, R2Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R2Q6</b>, từ <strong>\"resilient\"</strong> ở đoạn 1 mô tả khả năng chịu đựng tốt thời tiết của giống cây Robusta. Ngữ cảnh này đồng nghĩa với bền bỉ, dẻo dai (hardy).</li><li>Với <b>R2Q7</b>, từ <strong>\"offset\"</strong> ở đoạn 5 mô tả vị ngọt đậm của sữa đặc làm trung hòa/bù trừ vị đắng của Robusta. Ngữ cảnh này mang nghĩa triệt tiêu, làm cân bằng (counteract).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q5):</b> Đối soát các lý do Robusta phù hợp với nông dân Tây Nguyên ở đoạn 2: sản lượng cao hơn, đất đỏ bazán Đắk Lắk phù hợp, ít đòi hỏi kỹ thuật chăm sóc phức tạp. Chi tiết \"chính phủ cung cấp trợ cấp đặc biệt dành riêng cho người trồng Robusta\" (The government provided special subsidies exclusively for Robusta farmers) không được nhắc tới.</li><li><b>Dạng câu hỏi Quy chiếu (R2Q8):</b> Đại từ <strong>\"This\"</strong> ở đoạn 4 (\"This deliberately slow pace...\") quy chiếu trực tiếp đến quá trình pha cà phê bằng phin chầm chậm đã được miêu tả ở câu trước đó (the slow phin brewing process).</li><li><b>Dạng câu hỏi Suy luận (R2Q9):</b> Tổng hợp lập luận ở đoạn 5 về sự ra đời của thói quen dùng sữa đặc. Sự hiện diện của sữa đặc trở thành một nét bản sắc cà phê Việt Nam một phần xuất phát từ rào cản/hạn chế thực tế trong lịch sử (Condensed milk became central to Vietnamese coffee partly through a historical practical constraint).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R2Q10):</b> Phân tích sắc thái bài viết. Tác giả giữ thái độ khách quan, cân bằng để khắc họa quá trình lịch sử và địa lý hình thành nên bản sắc cà phê Việt Nam độc đáo (Balanced, tracing how history and geography shaped a distinct coffee identity).</li></ul><p><b>Lời khuyên:</b> Ưu tiên giải quyết nhanh các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R2Q8) và <b>Từ vựng</b> (R2Q6, R2Q7). Tiếp theo, áp dụng kỹ thuật đọc quét thông tin để xử lý gọn các câu <b>Chi tiết</b> (R2Q2, R2Q3, R2Q4) và <b>Loại trừ</b> (R2Q5). Cuối cùng, tổng hợp mạch logic toàn bài để chọn đáp án chính xác cho các câu <b>Suy luận</b> (R2Q9), <b>Ý chính toàn bài</b> (R2Q1) và <b>Mục đích của tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Vietnamese Robusta coffee's identity emerged from colonial history, geography, and practical brewing customs.",
+                "Vietnamese coffee gained its flavor mainly through deliberate government agricultural planning.",
+                "Condensed milk alone explains why Vietnamese coffee tastes different from other countries'.",
+                "Arabica coffee has always been Vietnam's dominant and most celebrated variety."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, when did French colonists first introduce coffee cultivation to Vietnam?</span>",
+              "options": [
+                "In the 1980s, when specialty Arabica farms first appeared.",
+                "Sometime after Đắk Lắk's volcanic soil was first discovered.",
+                "During the emergence of the phin filter brewing method.",
+                "In the 1850s, when French colonists first introduced cultivation."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, why did Robusta gradually displace Arabica across Vietnam's plantations?</span>",
+              "options": [
+                "Robusta gradually displaced Arabica because it grew more resiliently.",
+                "Smallholder farmers preferred Arabica's more delicate growing requirements.",
+                "The French government banned Arabica cultivation across all colonies.",
+                "Arabica tolerated Vietnam's lowland heat and humidity very well."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why did condensed milk historically become the standard addition to Vietnamese coffee?</span>",
+              "options": [
+                "Vietnamese consumers always preferred a sweeter taste over bitterness.",
+                "Fresh milk was banned by colonial authorities for health reasons.",
+                "Condensed milk was cheaper to import than coffee beans themselves.",
+                "Fresh milk was scarce and hard to preserve in the tropical climate."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a reason Robusta suited Central Highlands farmers?</span>",
+              "options": [
+                "The government provided special subsidies exclusively for Robusta farmers.",
+                "Đắk Lắk's volcanic soil proved especially suited to Robusta cultivation.",
+                "Robusta yields higher volumes per hectare than Arabica does.",
+                "Robusta requires dramatically less handling than absolutely every other crop."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"resilient\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "resident",
+                "expensive",
+                "fragile",
+                "hardy"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"offset\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "outset",
+                "counteract",
+                "increase",
+                "sweeten"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"This\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "hot water",
+                "the cup",
+                "tightly packed grounds",
+                "the slow phin brewing process"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about condensed milk's role in Vietnamese coffee identity?</span>",
+              "options": [
+                "Robusta contains higher chlorogenic acid content than Arabica does.",
+                "Condensed milk was always essential since coffee first arrived in Vietnam.",
+                "Coffee's bitterness was created specifically to justify adding condensed milk.",
+                "Condensed milk became central to Vietnamese coffee partly through a historical practical constraint."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "Strongly critical of Robusta coffee's flavor compared to Arabica's.",
+                "Balanced, tracing how history and geography shaped a distinct coffee identity.",
+                "Completely certain that Robusta will always dominate Vietnamese coffee production.",
+                "Focused only on describing the mechanics of the phin filter."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Vietnam's Evolving Fight Against Infectious Disease",
+            "text": "<p>For much of the twentieth century, the diseases that shaped Vietnam's public health priorities were less a matter of policy choice than of geography and colonial neglect, since malaria, cholera, and bubonic plague together accounted for a share of preventable deaths that, in some provincial records from the 1930s, rivaled the toll of armed conflict itself. Only once independence altered which authorities were responsible for public health did systematic disease surveillance begin to displace the sporadic, often reactive interventions that colonial administrators had favored, an administrative shift whose public health consequences arguably outlasted the political transition that produced it.</p><p>Malaria control absorbed a disproportionate share of early public health resources, partly because the parasite's resistance to successive generations of antimalarial drugs kept forcing program planners back to earlier, less efficient methods even as newer ones became available elsewhere. Large-scale spraying campaigns using DDT reduced transmission substantially through the 1960s and 1970s, though resistance among mosquito populations, combined with wartime disruption to spraying schedules, allowed transmission to <b>rebound</b> in several provinces once campaigns lapsed. Artemisinin-based combination therapies, introduced decades later, proved more durable, and by the early 2000s malaria mortality had fallen to a fraction of its mid-century level, even as isolated outbreaks in border regions continued to complicate claims of nationwide control.</p><p>Attention subsequently broadened to encompass a wider category of tropical disease, dengue fever and Japanese encephalitis chief among them, both of which resisted the kind of single-intervention solution that had eventually tamed malaria. Because the mosquito species responsible for dengue transmission breeds in ordinary household water containers rather than in the standing water associated with rural irrigation, urban districts once considered comparatively low-risk for tropical disease found themselves confronting outbreak patterns that rural malaria programs had not been designed to anticipate. Vaccination against Japanese encephalitis, incorporated into the national immunization schedule from the 1990s onward, reduced case numbers considerably, though dengue itself has so far resisted a comparably decisive public health response.</p><p>Respiratory infectious disease control followed a markedly different trajectory, shaped less by a single dominant pathogen than by a sequence of distinct outbreaks that each tested different aspects of the health system's preparedness. Tuberculosis, <strong>endemic</strong> for generations, was addressed mainly through sustained treatment and case-detection programs rather than a single decisive intervention, whereas the emergence of severe acute respiratory syndrome in 2003 confronted Vietnamese authorities with a novel pathogen against which no existing treatment protocol offered guidance. That the country was declared free of local SARS transmission before several wealthier nations achieved the same milestone owed less to superior treatment capacity, according to health officials who later reviewed the episode, than to aggressive early isolation measures adopted before the virus had spread widely.</p><p><strong>This pattern</strong> of early, aggressive containment resurfaced prominently during the initial phase of the COVID-19 pandemic, when extensive contact tracing and geographically targeted lockdowns kept confirmed cases and deaths markedly lower, relative to population size, than in many higher-income countries during 2020. Whether this early success reflected superior institutional coordination or simply the advantage of observing other countries' outbreaks before the virus arrived locally remains debated among public health researchers, a debate the subsequent 2021 Delta variant surge — which overwhelmed hospital capacity in several southern provinces despite the same containment playbook still being in use — did little to resolve conclusively.</p><p>Surveillance infrastructure, meanwhile, has remained uneven across the country, with remote highland and border districts continuing to report disease data more slowly and less completely than urban centers, a gap that complicates efforts to detect emerging outbreaks before they spread beyond their point of origin. Cross-border movement, particularly along frontiers where formal health checkpoints operate alongside extensive informal trade routes, continues to pose a specific challenge that domestic surveillance improvements alone cannot fully resolve, since a pathogen's point of entry rarely coincides with where formal monitoring resources are concentrated.</p><p>Considered together, this progression from malaria to broader tropical disease to respiratory epidemics reveals not a smooth improvement in institutional capacity but rather a series of adaptations, each incomplete, to whichever pathogen posed the most immediate threat at the time. Whether the surveillance and response systems built to manage one category of disease will transfer effectively to whatever emerges next remains, as with so much in epidemic preparedness, a question public health planners can only partially answer in advance.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q2, R3Q3, R3Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp trong bài đọc.<ul><li>Với <b>R3Q2</b>, quét các từ khóa \"DDT spraying\" và \"lapsed\" ở đoạn 2 để tìm kết quả: sự lây nhiễm bùng phát trở lại ở một số tỉnh (Transmission rebounded once spraying campaigns lapsed in several provinces).</li><li>Với <b>R3Q3</b>, quét từ khóa \"SARS\" và \"wealthier nations\" ở đoạn 4 để tìm nguyên nhân: áp dụng các biện pháp cách ly khoanh vùng quyết liệt từ sớm trước khi dịch lan rộng (Because aggressive early isolation measures were adopted before wide spread).</li><li>Với <b>R3Q4</b>, định vị loài muỗi truyền bệnh sốt xuất huyết ở đoạn 3: sinh sản trong các dụng cụ chứa nước sinh hoạt gia đình thay vì nước đọng nông thôn (In ordinary household water containers rather than rural standing water).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R3Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề từng đoạn: hệ thống kiểm soát bệnh dịch của Việt Nam phát triển thông qua những sự thích ứng chưa hoàn chỉnh trước các mối đe dọa thay đổi liên tục (Vietnam's disease control evolved through incomplete adaptations to shifting threats).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q6, R3Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R3Q6</b>, từ <strong>\"endemic\"</strong> ở đoạn 4 mô tả căn bệnh xuất hiện thường xuyên/cố định tại địa phương. Ngữ cảnh này đồng nghĩa với xuất hiện liên tục/cố định (constantly present).</li><li>Với <b>R3Q7</b>, từ <strong>\"rebound\"</strong> ở đoạn 2 mô tả sự bùng phát/tăng trở lại của tình trạng lây nhiễm. Ngữ cảnh này đồng nghĩa với bùng phát trở lại (resurge).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q5):</b> Đối soát các thách thức được nêu trong bài: đáp ứng thời thuộc địa mang tính thụ động, vùng xa gửi dữ liệu chậm, và các mầm bệnh khác nhau thử thách các khía cạnh khác nhau. Chi tiết \"thiếu hụt nguồn vốn quốc tế gây ra mọi đợt bùng phát dịch bệnh lớn\" (International funding shortages caused every major disease outbreak recorded) hoàn toàn sai so với nội dung bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R3Q8):</b> Cụm từ <strong>\"This pattern\"</strong> ở đầu đoạn 5 quy chiếu trực tiếp đến mô hình kiểm soát dịch bệnh bằng cách khoanh vùng/cách ly sớm từ khi chưa lan rộng đã thảo luận ở đoạn 4 (aggressive early containment before wide spread).</li><li><b>Dạng câu hỏi Suy luận (R3Q9):</b> Tổng hợp logic ở đoạn 5 về thành công ban đầu đối với đại dịch COVID-19. Vẫn còn tranh cãi/chưa ngã ngũ liệu thành công ban đầu phản ánh năng lực thể chế hay chỉ là yếu tố thời điểm may mắn (Whether early success reflected institutional strength or lucky timing remains unresolved).</li><li><b>Dạng câu hỏi Mục đích của tác giả (R3Q10):</b> Phân tích sắc thái ngôn từ toàn bài. Tác giả nhằm phác họa lại lịch sử kiểm soát bệnh dịch như một chuỗi các sự thích ứng chưa hoàn chỉnh trước các mối đe dọa biến đổi liên tục (To trace disease control as a series of incomplete adaptations to shifting threats).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin trực tiếp như <b>Quy chiếu</b> (R3Q8) và <b>Từ vựng</b> (R3Q6, R3Q7). Tiếp theo, áp dụng kỹ thuật đọc quét thông tin để xử lý gọn các câu <b>Chi tiết</b> (R3Q2, R3Q3, R3Q4) và <b>Loại trừ</b> (R3Q5). Cuối cùng, tổng hợp mạch logic toàn bài để chọn đáp án chính xác cho các câu <b>Suy luận</b> (R3Q9), <b>Ý chính toàn bài</b> (R3Q1) và <b>Mục đích của tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Vietnam's malaria program alone explains its modern epidemic preparedness.",
+                "Respiratory epidemics created Vietnam's earlier tropical disease control programs entirely.",
+                "Vietnam's disease control evolved through incomplete adaptations to shifting threats.",
+                "Vietnam's disease control shifted focus without any institutional improvement whatsoever."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what happened to malaria transmission after DDT spraying campaigns lapsed in some provinces?</span>",
+              "options": [
+                "Transmission disappeared entirely once artemisinin-based therapies were introduced instead.",
+                "Transmission rebounded once spraying campaigns lapsed in several provinces.",
+                "Transmission increased mainly because of dengue outbreaks in urban districts.",
+                "Transmission fell permanently due to DDT spraying nationwide before 1960."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, why was Vietnam declared free of local SARS transmission before several wealthier nations?</span>",
+              "options": [
+                "Because aggressive early isolation measures were adopted before wide spread.",
+                "Because the virus originated within Vietnam and was contained immediately.",
+                "Because superior treatment protocols cured patients faster than elsewhere.",
+                "Because vaccination campaigns had already been completed before the outbreak."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, where does the mosquito species responsible for dengue transmission typically breed?</span>",
+              "options": [
+                "In hospital water systems during respiratory disease outbreaks nationally.",
+                "In stagnant rivers near cross-border trade routes specifically.",
+                "In ordinary household water containers rather than rural standing water.",
+                "In standing water associated with rural irrigation systems mainly."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a challenge to Vietnam's epidemic preparedness?</span>",
+              "options": [
+                "International funding shortages caused every major disease outbreak recorded.",
+                "Remote and border districts report disease data more slowly.",
+                "Colonial-era disease responses were often reactive rather than systematic.",
+                "Distinct pathogens have each tested different aspects of preparedness."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"endemic\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "constantly present",
+                "recently discovered",
+                "epidemic",
+                "highly contagious"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"rebound\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "disappear",
+                "rebuild",
+                "resist",
+                "resurge"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"This pattern\"</strong> at the beginning of paragraph 5 refers to _______.</span>",
+              "options": [
+                "existing treatment protocols",
+                "wealthier nations' SARS response",
+                "tuberculosis case-detection programs",
+                "aggressive early containment before wide spread"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about Vietnam's early COVID-19 containment success?</span>",
+              "options": [
+                "Whether early success reflected institutional strength or lucky timing remains unresolved.",
+                "The Delta variant surge caused Vietnam's earlier containment strategies to form.",
+                "Vietnam's coordination was proven superior to every other nation's response.",
+                "Vietnam's lockdowns kept cases lower than many higher-income countries in 2020."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall purpose in this passage?</span>",
+              "options": [
+                "To argue that Vietnam has fully mastered epidemic preparedness today.",
+                "To praise Vietnam's COVID-19 response as its greatest public health achievement.",
+                "To strongly criticize colonial authorities for neglecting public health entirely.",
+                "To trace disease control as a series of incomplete adaptations to shifting threats."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Formation and Ecological Role of Volcanoes",
+            "text": "<p>Volcanic activity arises from at least three distinct geological settings — subduction zones, mid-ocean ridges, and localized mantle hotspots — and while subduction-zone volcanism produces the majority of historically documented eruptions, some geologists caution against treating this apparent dominance as evidence that subduction generates more magma overall, since mid-ocean ridge volcanism, though largely hidden beneath the ocean and therefore <strong>undercounted</strong> in the historical record, may in fact account for a comparable or even greater share of the planet's total volcanic output.</p><p>Not all eruptions manifest with equal violence, a variation researchers attribute primarily, though not exclusively, to the interplay between magma viscosity and dissolved gas content rather than to the depth or size of the magma chamber alone. Magma rich in silica tends to trap gas more effectively, building pressure that can be released explosively once confining rock finally fractures, whereas lower-viscosity basaltic magma typically allows gas to escape gradually, producing the comparatively gentle lava flows characteristic of effusive eruptions. Whether a given volcano will erupt explosively or effusively can shift over its lifetime, however, as the chemical composition of its magma supply evolves, which is precisely why past eruptive behavior offers only a partial guide to future risk.</p><p>Among the more consequential long-term effects of volcanism is its influence on soil fertility, an influence that appears to depend at least as much on climate and weathering time as on the mineral composition of the parent volcanic rock itself. Weathered volcanic ash releases potassium, phosphorus, and other minerals essential to plant growth more readily than many non-volcanic parent materials do, which may explain why regions surrounding historically active volcanoes — parts of Indonesia and the Philippines prominent among them — support some of the highest agricultural yields recorded anywhere, though researchers are careful to note that adequate rainfall and sufficient time since the last eruption are preconditions <strong>this fertility advantage</strong> cannot fully substitute for.</p><p>Large explosive eruptions can measurably cool the global climate for months or years afterward, primarily through sulfur dioxide injected high into the stratosphere, where it converts into reflective sulfate aerosols; the 1815 eruption of Mount Tambora, linked to the following year's unusually cold summer across parts of Europe and North America, remains the most frequently cited example, although the precise magnitude of Tambora's contribution relative to other contemporaneous climatic factors is not something researchers claim to have fully isolated. The 1991 eruption of Mount Pinatubo produced a comparatively better-documented cooling effect of roughly half a degree Celsius globally, a figure researchers treat with somewhat greater confidence than Tambora's estimated impact, given the availability of satellite data unavailable in the early nineteenth century.</p><p>Despite considerable advances in seismic and geochemical monitoring, predicting precisely when a specific volcano will erupt remains an inexact undertaking, since the same warning signs — increased seismicity, ground deformation, elevated gas emissions — have preceded both eruptions that occurred within days and, in other documented cases, false alarms that dissipated without any eruption following at all. Pyroclastic flows, fast-moving currents of superheated gas and volcanic debris, account for a disproportionate share of volcanic fatalities precisely because they can outrun evacuation efforts once triggered, whereas lahars — mudflows generated when volcanic debris mixes with water — can travel considerable distances downstream long after an eruption has visibly ended, occasionally catching communities unprepared who reasonably assumed the immediate danger had passed.</p><p>Volcanism's role in Earth's deeper history remains more contested still. Some researchers link the Permian mass extinction, the most severe die-off documented in the fossil record, to prolonged volcanic activity associated with the Siberian Traps, a vast igneous province whose eruptions may have released enough carbon dioxide and sulfur compounds to destabilize global climate and ocean chemistry over a period of many thousand years; other researchers, while not dismissing volcanism's likely contribution, argue that the timing evidence linking the eruptions precisely to the extinction's onset remains too <strong>imprecise</strong> to rule out other contributing causes acting concurrently, a debate the geological record from this period has so far done little to settle definitively.</p><p>Considered together, volcanism resists any single characterization as purely hazardous or purely beneficial, functioning instead as a geological process whose consequences — fertile soil in one register, catastrophic destruction in another, and possibly mass extinction in the most extreme historical cases — depend heavily on timescale, location, and a degree of scientific uncertainty that further monitoring technology has narrowed only partially. Whether the discipline will ever achieve eruption prediction precise enough to fully offset the hazards volcanism poses is a question current researchers answer with considerably more caution than confidence.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q3, R4Q4):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm các dữ kiện trực tiếp có sẵn trong bài đọc.<ul><li>Với <b>R4Q2</b>, quét từ khóa \"Tambora\" và \"Pinatubo\" ở đoạn 4 để tìm nhận định của các nhà nghiên cứu: độ tin cậy đối với ước tính của Pinatubo cao hơn đôi chút so với Tambora (Pinatubo's estimate is treated with somewhat greater confidence than Tambora's).</li><li>Với <b>R4Q3</b>, quét cụm từ \"subduction-zone volcanism\" ở đoạn 1 để thấy cảnh báo của các nhà địa chất: hiện tượng núi lửa ở sống núi giữa đại dương có thể bị đếm thiếu và có thể tương đương với sản lượng ở đới hút chìm (Mid-ocean ridge volcanism may be undercounted and could rival subduction output).</li><li>Với <b>R4Q4</b>, định vị cụm từ \"pyroclastic flows\" ở đoạn 5 để tìm lý do vì sao chúng nguy hiểm: chúng có thể di chuyển nhanh vượt qua cả nỗ lực sơ tán một khi đã được kích hoạt (They can outrun evacuation efforts once they have been triggered).</li></ul></li><li><b>Dạng câu hỏi Ý chính (R4Q1):</b> Sử dụng kỹ năng <b>Skimming</b> (Đọc lướt). Đọc câu chủ đề của các đoạn: bài đọc bao quát các tác động của hoạt động núi lửa từ việc tạo độ phì nhiêu cho đất đến các hiểm họa, đồng thời nhấn mạnh nhiều điều vẫn chưa chắc chắn (Volcanism's effects span fertility to hazard, with much still uncertain).</li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q6, R4Q7):</b> Sử dụng kỹ năng <b>Context Clues</b> (Manh mối ngữ cảnh).<ul><li>Với <b>R4Q6</b>, từ <strong>\"undercounted\"</strong> ở đoạn 1 mô tả số lượng/sản lượng chưa được ghi nhận đầy đủ do ẩn dưới đại dương. Ngữ cảnh này đồng nghĩa với bị ước tính thấp hơn thực tế (underestimated in number).</li><li>Với <b>R4Q7</b>, từ <strong>\"imprecise\"</strong> ở đoạn 6 mô tả các dự báo còn thiếu độ chính xác. Ngữ cảnh này đồng nghĩa với chưa đủ chính xác (not exact enough).</li></ul></li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q5):</b> Đối soát các tác động được đề cập trong bài: tro núi lửa cải thiện độ phì nhiêu của đất, phun trào lớn làm hạ nhiệt độ toàn cầu tạm thời, và núi lửa kéo dài góp phần gây tuyệt chủng hàng loạt. Chi tiết \"khí núi lửa được chứng minh làm đảo ngược hiện tượng nóng lên toàn cầu vĩnh viễn\" (Volcanic gas emissions have been proven to reverse global warming permanently) hoàn toàn sai so với thực tế bài đọc.</li><li><b>Dạng câu hỏi Quy chiếu (R4Q8):</b> Cụm từ <strong>\"this fertility advantage\"</strong> ở đoạn 3 quy chiếu trực tiếp đến ưu thế về độ phì nhiêu khoáng chất cao hơn của đất núi lửa (soil's higher mineral fertility) vừa được phân tích trước đó.</li><li><b>Dạng câu hỏi Suy luận (R4Q9):</b> Tổng hợp logic ở đoạn 2 về sự thay đổi thành phần magma. Do thành phần hóa học của magma có thể tiến hóa, lịch sử phun trào trong quá khứ chỉ cung cấp hướng dẫn dự báo có giới hạn (Because magma composition can change, past behavior offers only limited predictive guidance).</li><li><b>Dạng câu hỏi Cấu trúc lập luận (R4Q10):</b> Phân tích cách tác giả xây dựng bài viết. Tác giả trình bày các tác động đa dạng của hiện tượng núi lửa, đồng thời nhất quán chỉ ra những điểm còn chưa chắc chắn về mặt khoa học (By presenting volcanism's varied effects while consistently flagging the scientific uncertainty involved).</li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị thông tin nhanh như <b>Quy chiếu</b> (R4Q8) và <b>Từ vựng</b> (R4Q6, R4Q7). Kế tiếp, áp dụng kỹ thuật đọc quét để xử lý gọn các câu <b>Chi tiết</b> (R4Q2, R4Q3, R4Q4) và <b>Loại trừ</b> (R4Q5). Cuối cùng, tổng hợp mạch logic toàn bài để chốt chính xác các câu đòi hỏi phân tích chuyên sâu gồm <b>Suy luận</b> (R4Q9), <b>Ý chính toàn bài</b> (R4Q1) và <b>Cấu trúc lập luận</b> (R4Q10).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Eruption prediction technology has already eliminated most volcanic hazards.",
+                "Volcanic soil fertility is the only significant effect of volcanism.",
+                "Volcanoes are proven to cause every major mass extinction recorded.",
+                "Volcanism's effects span fertility to hazard, with much still uncertain."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, how do researchers regard the cooling effect estimates for Tambora and Pinatubo?</span>",
+              "options": [
+                "Pinatubo's estimate is treated with somewhat greater confidence than Tambora's.",
+                "Tambora's cooling effect is considered more precisely documented than Pinatubo's.",
+                "Neither eruption's cooling effect has ever been measured or estimated.",
+                "Both estimates are regarded with exactly the same level of confidence."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>According to the passage, what caution do some geologists raise about subduction-zone volcanism's apparent dominance?</span>",
+              "options": [
+                "Hotspot volcanism definitely accounts for most of Earth's total output.",
+                "Subduction zones are proven to produce less magma than ridges do.",
+                "Mid-ocean ridges produce no measurable volcanic activity at all.",
+                "Mid-ocean ridge volcanism may be undercounted and could rival subduction output."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why are pyroclastic flows especially dangerous?</span>",
+              "options": [
+                "They occur only long after an eruption has visibly ended.",
+                "They are easily predicted days in advance by seismic monitoring.",
+                "They can outrun evacuation efforts once they have been triggered.",
+                "They travel slowly, giving communities ample time to evacuate safely."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> presented as a documented or hypothesized effect of volcanism?</span>",
+              "options": [
+                "Volcanic gas emissions have been proven to reverse global warming permanently.",
+                "Volcanic ash weathering can improve soil fertility over time.",
+                "Large eruptions can measurably cool the global climate temporarily.",
+                "Prolonged volcanism may have contributed to the Permian mass extinction."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"undercounted\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "uncounted",
+                "completely eliminated",
+                "geographically isolated",
+                "underestimated in number"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"imprecise\"</strong> in paragraph 6 is closest in meaning to _______.</span>",
+              "options": [
+                "not exact enough",
+                "completely false",
+                "chemically unstable",
+                "impressive"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this fertility advantage\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "non-volcanic parent materials",
+                "sufficient time since eruption",
+                "soil's higher mineral fertility",
+                "adequate rainfall levels"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about predicting how a volcano will erupt?</span>",
+              "options": [
+                "Past eruptive behavior guarantees exactly how a volcano will erupt next.",
+                "Monitoring signs always precede an eruption within a predictable number of days.",
+                "Seismic monitoring has completely eliminated the possibility of false alarms.",
+                "Because magma composition can change, past behavior offers only limited predictive guidance."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>How does the author primarily structure the argument in this passage?</span>",
+              "options": [
+                "By arguing that eruption prediction technology has solved most forecasting problems.",
+                "By concluding decisively that volcanism single-handedly caused the Permian extinction.",
+                "By presenting volcanism's varied effects while consistently flagging the scientific uncertainty involved.",
+                "By proving definitively that volcanism causes more benefit than harm overall."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You are planning your upcoming birthday party.</p> Write an email to your younger brother to tell him about the celebration. Read the questions below.",
+          "content": "<p class='mb-1'>I am so excited about my birthday next week! I want to share my plans with you.</p><ul><li>Where do you want to organize the party and why?</li><li>What kind of birthday gifts would you like to receive?</li><li>How can your brother help you with the preparations?</li></ul>",
+          "description": "Write an email to your brother. You should write at least 120 words. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><ul><li>Đây là thư thân mật (Informal Email) viết cho người thân (em trai).</li><li>Nội dung: Thông báo về địa điểm tổ chức tiệc, sở thích về quà cáp và nhờ vả giúp đỡ.</li><li>Yêu cầu: Tối thiểu 120 từ, giọng văn vui vẻ, tự nhiên.</li></ul><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li>Greeting: Dear [Tên em trai], hoặc Hi [Tên em trai],</li><li>Opening: Hỏi thăm tình hình của em và dẫn dắt vào sự kiện sinh nhật. Ví dụ: How's everything going? As you know, my birthday is coming up next Sunday!</li><li>Body 1: Địa điểm tổ chức (nhà hàng, tại nhà, hay quán café) và lý do (không gian rộng, đồ ăn ngon).</li><li>Body 2: Đề cập đến quà tặng (một cuốn sách, món đồ công nghệ, hay đơn giản là sự có mặt của em).</li><li>Body 3: Nhờ em trai giúp một vài việc (trang trí, mời bạn bè, hoặc mua bánh kem).</li><li>Closing: Mong chờ phản hồi từ em. Ví dụ: Let me know what you think. See you soon!</li><li>Sign-off: Love, / Best, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các cấu trúc bày tỏ mong muốn (I'm planning to, I'd love to, I'm thinking of).</li><li>Sử dụng ngôn ngữ đời thường, có thể dùng từ lóng nhẹ nhàng hoặc câu cảm thán.</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li>To celebrate: Kỷ niệm/Tổ chức</li><li>Cozy atmosphere: Không khí ấm cúng</li><li>Birthday treat: Tiệc/Món ăn sinh nhật</li><li>Surprise: Sự bất ngờ</li><li>Outdoor activities: Các hoạt động ngoài trời</li><li>Keep it a secret: Giữ bí mật</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li>Actually: Thực ra thì</li><li>Besides: Ngoài ra</li><li>By the way: Nhân tiện</li><li>Anyway: Dù sao thì</li><li>In that case: Trong trường hợp đó</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li>I'm over the moon about... (Anh/chị đang cực kỳ vui về...)</li><li>I would be really happy if... (Anh/chị sẽ rất hạnh phúc nếu...)</li><li>It would mean a lot to me. (Điều đó có ý nghĩa rất lớn với anh/chị.)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Viết quá trang trọng như thư xin việc (dùng \"Dear Sir/Madam\").</li><li>Quên không nêu lý do tại sao lại chọn địa điểm đó.</li><li>Lỗi sử dụng thì tương lai (nhầm lẫn giữa will và be going to).</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đã nhắc đến địa điểm và quà tặng chưa?</li><li>Kiểm tra xem tên em trai có nhất quán trong thư không.</li><li>Đảm bảo độ dài đạt yêu cầu.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Hãy viết như đang nói chuyện trực tiếp. Đừng quá cứng nhắc về ngữ pháp mà hãy tập trung vào sự tự nhiên của ngôn ngữ nói.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "mixed",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>In many families, there are frequent conflicts and misunderstandings between parents and their teenage children.</p><p class='mb-1'>This situation can affect the relationship and the general atmosphere of the household.</p><p class='mb-1'><strong>Discuss the causes of this problem and suggest some possible solutions.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the problems caused by conflicts between parents and teenagers and suggest possible solutions. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><ul><li>Dạng bài: Cause and Solution Essay (Nguyên nhân và Giải pháp).</li><li>Chủ đề: Mâu thuẫn giữa cha mẹ và con cái tuổi thiếu niên.</li><li>Yêu cầu: Phân tích ít nhất 2 nguyên nhân và đưa ra 2 giải pháp tương ứng.</li><li>Độ dài: Tối thiểu 250 từ.</li></ul><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li>Introduction: Dẫn dắt về hiện trạng xung đột thế hệ (generation gap) và nêu mục tiêu bài viết là thảo luận nguyên nhân/giải pháp.</li><li>Body 1: Nguyên nhân (Khác biệt về quan điểm sống, áp lực học tập, sự thiếu giao tiếp, mong muốn tự lập của trẻ).</li><li>Body 2: Giải pháp (Cha mẹ cần lắng nghe hơn, con cái cần chia sẻ, cả hai bên cùng học cách thỏa hiệp, dành thời gian chất lượng cho nhau).</li><li>Conclusion: Tóm tắt lại tầm quan trọng của việc thấu hiểu để duy trì hạnh phúc gia đình.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><ul><li>Sử dụng các cấu trúc chỉ nguyên nhân - kết quả (Due to, Lead to, As a result).</li><li>Dùng các động từ khuyết thiếu để đưa ra lời khuyên (Should, Ought to, Must).</li></ul><p><strong>Từ vựng quan trọng:</strong></p><ul><li>Generation gap: Khoảng cách thế hệ</li><li>Peer pressure: Áp lực đồng lứa</li><li>Parental expectations: Sự kỳ vọng của cha mẹ</li><li>Mutual understanding: Sự thấu hiểu lẫn nhau</li><li>Rebellious behavior: Thái độ nổi loạn</li><li>Bridge the gap: Rút ngắn khoảng cách</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li>One of the primary causes is: Một trong những nguyên nhân chính là</li><li>Consequently: Hậu quả là</li><li>Regarding the solutions: Liên quan đến các giải pháp</li><li>Moreover: Hơn thế nữa</li><li>In addition: Ngoài ra</li><li>To sum up: Tóm lại</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li>Parent-child conflict: Thay cho \"disagreement between parents and children\".</li><li>Adolescents: Thay cho \"teenagers\".</li><li>Domestic atmosphere: Thay cho \"family environment\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh / giải pháp:</strong></p><ul><li>The root of the problem often lies in... (Gốc rễ của vấn đề thường nằm ở...)</li><li>A viable solution would be to... (Một giải pháp khả thi sẽ là...)</li><li>Effective communication is the key to... (Giao tiếp hiệu quả là chìa khóa để...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ nêu nguyên nhân mà không có giải pháp (hoặc ngược lại).</li><li>Giải pháp đưa ra quá chung chung, không thực tế.</li><li>Viết lan man về tuổi teen mà quên mất vai trò của cha mẹ trong mâu thuẫn.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Đảm bảo các giải pháp giải quyết trực tiếp các nguyên nhân đã nêu ở đoạn trên.</li><li>Kiểm tra sự mạch lạc giữa các ý tưởng (cohesion).</li><li>Soát lỗi chính tả và các dấu câu.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><ul><li>Nên giữ cái nhìn khách quan từ cả hai phía. Tránh việc đổ lỗi hoàn toàn cho cha mẹ hoặc hoàn toàn cho con cái. Sự cân bằng sẽ giúp bài viết thuyết phục hơn.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you enjoy learning English?",
+            "What methods do you use to improve your English?",
+            "Do you find it difficult to practice English in your daily life? Why or why not?",
+            "How much time do you usually spend with your family every day?",
+            "What activities do you and your family enjoy doing together?",
+            "Do you think family plays an important role in a person's life? Why?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này có <strong>2 chủ đề nhỏ</strong>: <strong>Topic A (Learning English)</strong> và <strong>Topic B (Family)</strong>.</li><li><strong>Topic A (Learning English):</strong> Ba câu hỏi đầu kiểm tra khả năng nói về sở thích học tiếng Anh, phương pháp học và khó khăn khi luyện tập hằng ngày.</li><li><strong>Topic B (Family):</strong> Ba câu hỏi sau kiểm tra khả năng mô tả thời gian dành cho gia đình, hoạt động chung và quan điểm về vai trò của gia đình.</li><li>Tiêu chí đánh giá gồm <strong>Fluency, Vocabulary, Grammar và Pronunciation</strong>.</li><li>Thời gian Part 1 là <strong>3 phút</strong>, nên dành khoảng 25–35 giây cho mỗi câu hỏi, cân bằng đều giữa hai chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong> để trả lời đầy đủ và có chiều sâu.</li><li><strong>Ví dụ Topic A:</strong> \"Yes, I really enjoy learning English because it opens up opportunities for me to study abroad and communicate with people from different cultures.\"</li><li><strong>Ví dụ Topic B:</strong> \"I usually spend around two hours with my family every evening, mostly having dinner together and chatting about our day.\"</li><li>Luôn tự hỏi Why?/How? để mở rộng câu trả lời, tránh nói quá ngắn.</li><li>Khi chuyển từ Topic A sang Topic B, dùng câu chuyển ý tự nhiên như \"Besides learning English, I'd also like to share a bit about my family life.\"</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Duy trì tốc độ nói ổn định, dùng từ đệm để tránh khoảng lặng dài.</li><li>Dùng <strong>hiện tại đơn</strong> khi nói về thói quen học tập và sinh hoạt gia đình, dùng <strong>hiện tại hoàn thành</strong> khi nói về quá trình học tiếng Anh đã trải qua.</li><li>Nếu bí từ, hãy diễn đạt bằng từ đơn giản hơn thay vì im lặng.</li><li>Từ vựng cho Topic A: pick up a language, immerse myself in English, build vocabulary, improve fluency.</li><li>Từ vựng cho Topic B: a close-knit family, bond with family members, family values, a supportive environment.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>pick up a language</strong> (học một ngôn ngữ một cách tự nhiên)</li><li><strong>immerse myself in English</strong> (đắm mình trong môi trường tiếng Anh)</li><li><strong>build vocabulary</strong> (xây dựng vốn từ vựng)</li><li><strong>a close-knit family</strong> (một gia đình gắn kết)</li><li><strong>bond with family members</strong> (gắn kết với các thành viên gia đình)</li><li><strong>a supportive environment</strong> (một môi trường hỗ trợ)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Firstly</strong> - trước hết, dùng để mở đầu ý.</li><li><strong>Besides</strong> - bên cạnh đó, dùng để bổ sung ý.</li><li><strong>For example</strong> - ví dụ như, dùng khi minh họa.</li><li><strong>However</strong> - tuy nhiên, dùng khi đối chiếu ý kiến.</li><li><strong>That's why</strong> - đó là lý do vì sao, dùng để nêu kết quả.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>Personally, I think...</strong> Ví dụ: \"Personally, I think watching English movies with subtitles is one of the most effective ways to learn.\"</li><li><strong>In my opinion...</strong> Ví dụ: \"In my opinion, family support is the foundation for a person's confidence and happiness.\"</li><li><strong>I would say that...</strong> Ví dụ: \"I would say that my parents have always encouraged me to keep practicing English.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời \"Yes\"/\"No\" rồi im lặng mà không giải thích thêm - lỗi nghiêm trọng nhất.</li><li>Ở Topic A, chỉ nêu tên phương pháp học mà không giải thích lý do hiệu quả.</li><li>Ở Topic B, liệt kê hoạt động mà không mô tả cảm xúc hay ý nghĩa của nó.</li><li>Phát âm sai trọng âm từ: <strong>'language</strong>, <strong>'family</strong>.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu đệm: \"That's an interesting question, let me think for a second.\"</li><li>Nếu quên từ, hãy mô tả khái niệm bằng từ đơn giản hơn.</li><li>Với Topic A, nếu bí ý, hãy kể về một ứng dụng hoặc trang web học tiếng Anh cụ thể mà bạn dùng.</li><li>Với Topic B, nếu bí ý, hãy kể về một kỷ niệm gần đây với một thành viên trong gia đình.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Coi đây như một cuộc trò chuyện thân mật với giám khảo, không phải bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Topic A sang Topic B, hãy \"reset\" tâm lý để bắt đầu câu chuyện mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố dùng từ vựng quá phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>You and your friends want to choose a place to have dinner together, but you can only choose one option.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: A traditional restaurant</li><li>Option 2: A modern restaurant</li><li>Option 3: A street food and drink stall</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Đây là dạng <strong>Solution Discussion</strong>. Bạn cần chọn một địa điểm ăn uống phù hợp nhất cùng bạn bè trong ba lựa chọn: nhà hàng truyền thống, nhà hàng hiện đại, hoặc quán ăn uống vỉa hè.</li><li>Ba lựa chọn khác nhau về không gian, phong cách phục vụ và chi phí.</li><li>Thời gian là <strong>4 phút</strong>; cần phân tích cả ba phương án trước khi đưa ra kết luận.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction - Comparison/Body - End)</strong> để trình bày mạch lạc từng lựa chọn rồi kết luận.</li><li><strong>Option 1 (Nhà hàng truyền thống):</strong> \"A traditional restaurant offers authentic local dishes and a cozy atmosphere, but the menu might be less varied for those who want something different.\"</li><li><strong>Option 2 (Nhà hàng hiện đại):</strong> \"A modern restaurant provides a stylish setting and creative dishes, though it can be quite pricey compared to other options.\"</li><li><strong>Option 3 (Quán ăn vỉa hè):</strong> \"A street food and drink stall is affordable and offers a wide variety of quick bites, but it may lack comfort and hygiene standards compared to a proper restaurant.\"</li><li>Nên neo lập luận vào bối cảnh thực tế của một buổi gặp mặt bạn bè.</li><li>Dùng từ nối tương phản như \"however\", \"whereas\" để chuyển giữa ưu và nhược điểm của từng lựa chọn.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết các lựa chọn với nhau thay vì nói tách rời, ví dụ: \"Unlike a modern restaurant, which focuses on presentation, a traditional restaurant emphasizes authentic flavors.\"</li><li>Dùng modal verbs (would, could, should) khi giả định và đề xuất giải pháp.</li><li>Paraphrase \"restaurant\" bằng \"eatery\" hoặc \"dining venue\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>authentic local flavors</strong> (hương vị địa phương đích thực)</li><li><strong>a cozy atmosphere</strong> (một không gian ấm cúng)</li><li><strong>a wide variety of dishes</strong> (sự đa dạng các món ăn)</li><li><strong>on a tight budget</strong> (trong ngân sách eo hẹp)</li><li><strong>hygiene standards</strong> (tiêu chuẩn vệ sinh)</li><li><strong>a stylish setting</strong> (một không gian sang trọng)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Compared with</strong> - so với, dùng khi so sánh hai lựa chọn.</li><li><strong>Whereas</strong> - trong khi đó, dùng để đối lập.</li><li><strong>Nevertheless</strong> - tuy nhiên, dùng để chuyển ý ngược lại.</li><li><strong>Taking everything into account</strong> - xét tất cả các yếu tố, dùng trước kết luận.</li><li><strong>In terms of</strong> - xét về mặt, dùng khi so sánh theo tiêu chí cụ thể.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>If I had to choose, I would go with...</strong> Ví dụ: \"If I had to choose, I would go with the traditional restaurant because it offers a more memorable dining experience.\"</li><li><strong>I'm more inclined towards...</strong> Ví dụ: \"I'm more inclined towards something affordable rather than an expensive dining option.\"</li><li><strong>All things considered...</strong> Ví dụ: \"All things considered, the modern restaurant seems like the best choice for a special occasion.\"</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không phân tích nhược điểm của nó.</li><li>Lặp lại từ \"good\"/\"delicious\" quá nhiều thay vì dùng tính từ học thuật hơn.</li><li>Không có kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng liên quan đến một lựa chọn, chuyển hướng sang nói về giá cả hoặc không gian của địa điểm đó.</li><li>Dùng câu chờ ý: \"Let's evaluate this option from a different perspective.\"</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Đặt mình vào vị trí người lên kế hoạch cho buổi gặp mặt - địa điểm nào phù hợp nhất với sở thích và ngân sách của cả nhóm?</li><li>Có thể đề xuất kết hợp, ví dụ ăn ở quán vỉa hè rồi đi uống nước ở một quán hiện đại, để thể hiện tư duy linh hoạt.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả với lựa chọn đã chọn để thể hiện tư duy phản biện.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits and risks of weightlifting as a form of exercise",
+          "mindmap": {
+            "title": "Weightlifting",
+            "ideas": [
+              "Reasons for taking up weightlifting",
+              "Physical and mental health benefits",
+              "Risks and safety precautions",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "Have you or anyone you know ever tried weightlifting?",
+            "What precautions should beginners take when starting weightlifting?",
+            "Do you think weightlifting is becoming more popular among young people nowadays? Why?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề yêu cầu bạn phát triển bài nói về lợi ích và rủi ro của việc tập tạ như một hình thức rèn luyện thể chất, dựa trên ba nhánh chính và một nhánh ý kiến cá nhân.</li><li>Ba nhánh chính gồm: lý do phổ biến khiến mọi người bắt đầu tập tạ, lợi ích của tập tạ đối với sức khỏe thể chất và tinh thần, và những rủi ro cùng lưu ý cần thiết khi tập luyện.</li><li><strong>Gợi ý cho nhánh thứ 4 (ý kiến cá nhân):</strong> có thể phát triển theo hướng vai trò của huấn luyện viên cá nhân hoặc kế hoạch tập luyện khoa học trong việc giảm thiểu chấn thương.</li><li>Thời gian là <strong>5 phút</strong>: khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> để trình bày từng nhánh của sơ đồ tư duy.</li><li><strong>Ví dụ mở bài:</strong> \"Today, I'd like to talk about the benefits and risks of weightlifting as a form of exercise.\"</li><li><strong>Ví dụ cho nhánh ý kiến cá nhân:</strong> \"In my opinion, having a well-structured training plan or a personal trainer can significantly reduce the risk of injury for beginners.\"</li><li>Nên đưa ví dụ thực tế như tập tạ tại phòng gym, tự tập tại nhà, hoặc chấn thương do sai kỹ thuật.</li><li>Bám sát sơ đồ tư duy để tránh lặp ý hoặc lạc đề sang chủ đề khác.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng các cụm từ chuyển ý mượt mà khi chuyển từ nhánh này sang nhánh khác của sơ đồ tư duy.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> cho sự thật chung, dùng <strong>hiện tại hoàn thành</strong> khi nói về xu hướng tập luyện đã thay đổi theo thời gian.</li><li>Paraphrase \"weightlifting\" bằng \"strength training\" hoặc \"resistance training\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>build muscle strength</strong> (xây dựng sức mạnh cơ bắp)</li><li><strong>boost self-confidence</strong> (tăng sự tự tin)</li><li><strong>proper technique</strong> (kỹ thuật đúng)</li><li><strong>risk of injury</strong> (nguy cơ chấn thương)</li><li><strong>a structured training plan</strong> (một kế hoạch tập luyện có hệ thống</li><li><strong>relieve stress</strong> (giảm căng thẳng)</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with</strong> - trước hết, dùng để mở đầu nhánh đầu tiên.</li><li><strong>Moving on to</strong> - chuyển sang, dùng khi chuyển nhánh ý.</li><li><strong>Furthermore</strong> - hơn nữa, dùng để bổ sung ý.</li><li><strong>On the other hand</strong> - mặt khác, dùng khi nêu rủi ro.</li><li><strong>To sum up</strong> - tóm lại, dùng khi kết luận.</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li><strong>I firmly believe that...</strong> Ví dụ: \"I firmly believe that weightlifting, when done correctly, can greatly improve one's overall health.\"</li><li><strong>It seems to me that...</strong> Ví dụ: \"It seems to me that many beginners get injured simply because they skip proper warm-ups.\"</li><li><strong>What strikes me most is...</strong> Ví dụ: \"What strikes me most is how weightlifting can boost both physical strength and mental resilience.\"</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"Have you or anyone you know ever tried weightlifting?\"</strong> - Có thể chia sẻ trải nghiệm cá nhân hoặc của bạn bè, ví dụ bắt đầu tập tạ để cải thiện vóc dáng hoặc sức khỏe.</li><li><strong>\"What precautions should beginners take when starting weightlifting?\"</strong> - Nên khởi động kỹ, học đúng kỹ thuật từ huấn luyện viên, và tăng dần mức tạ thay vì tập quá sức ngay từ đầu.</li><li><strong>\"Do you think weightlifting is becoming more popular among young people nowadays?\"</strong> - Có thể liên hệ đến sự phát triển của các phòng gym và xu hướng quan tâm đến vóc dáng, sức khỏe của giới trẻ hiện nay.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Liệt kê lợi ích hoặc rủi ro mà không giải thích cụ thể - luôn cần đưa ví dụ minh họa.</li><li>Quên nhánh ý kiến cá nhân - nên chuẩn bị trước nhánh thứ tư này.</li><li>Nói quá dài ở phần mở đầu khiến không còn thời gian trả lời câu hỏi follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào trải nghiệm cá nhân hoặc quan sát thực tế khi bí ý, ví dụ thói quen tập luyện của bản thân hoặc bạn bè.</li><li>Câu chờ ý học thuật: \"That is an interesting point. If we look at it from a fitness perspective...\"</li><li>Dùng từ đồng nghĩa hoặc mô tả đơn giản nếu quên từ vựng chuyên môn.</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ thực tế và liên hệ với xu hướng rèn luyện sức khỏe của giới trẻ hiện nay.</li><li>Sự mạch lạc và logic trong cách triển khai ý là yếu tố quyết định điểm số.</li><li>Luôn giữ giọng điệu tự nhiên, tránh đọc thuộc lòng như một bài văn mẫu.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

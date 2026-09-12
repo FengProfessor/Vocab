@@ -1,0 +1,600 @@
+{
+  "id": "vstep-reading-ets-05",
+  "title": "VSTEP B1, B2, C1 Reading - Full Test 005 (EnglishTestStore Practice)",
+  "duration": 60,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 36,
+      "tasks": [
+        {
+          "id": "ets-r05-task-1",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 4.",
+          "passage": {
+            "title": "Passage 1",
+            "text": "The fact that most Americans live in urban areas does not mean that they reside in the center of large cities. In fact, more Americans live in the suburbs of large metropolitan areas than in the cities themselves.\n        The Bureau of Census regards any area with more than 2,500 people as an urban area, and does not consider boundaries of cities and suburbs. According to the Bureau, the political boundaries are less significant than the social and economic relationships and the transportation and communication systems that integrate a local. The term used by the Bureau for an integrated metropolis is an MSA, which stands for Metropolitan Statistical Area. In general, an MSA is any area that contains a city and its surrounding suburbs and has a total population of 50,000 or more.\n        At the present time, the Bureau reports more than 280 MSAs, which together account for 75 percent of the U.S. population. In addition, the Bureau recognizes eighteen megapolises, that is, continuous adjacent metropolitan areas. One of the most obvious megapolises includes a chain of hundreds of cities and suburbs across ten states on the East Coast from Massachusetts to Virginia, including Boston, New York, and Washington D.C. In the Eastern Corridor, as it is called, a population of 45 million inhabitants is concentrated. Another megapolis that is growing rapidly is the California coast from San Francisco through Los Angeles to San Diego."
+          },
+          "questions": [
+            {
+              "id": "ets-r05-q01",
+              "type": "mcq",
+              "question": "Which of the following would be the best title for the passage?",
+              "options": [
+                "Metropolitan Statistical Areas",
+                "Type of Population Centers",
+                "The Bureau of Census",
+                "Megapolises"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "ets-r05-q02",
+              "type": "mcq",
+              "question": "Where do most Americans live?",
+              "options": [
+                "In the center of cities",
+                "In the suburbs surrounding large cities",
+                "In rural areas",
+                "In small towns"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "ets-r05-q03",
+              "type": "mcq",
+              "question": "Which of the following are not considered important in defining an urban area?",
+              "options": [
+                "Political boundaries",
+                "Transportation networks",
+                "Social relationships",
+                "Economic systems"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "ets-r05-q04",
+              "type": "mcq",
+              "question": "According to the Bureau of Census, what is an MSA?",
+              "options": [
+                "The center of a city with a population of 50,000 people to the boundaries of the surrounding suburbs",
+                "A city and its suburbs with a total population of at least 50,000 people",
+                "The surrounding suburbs of a city with a total population of 50,000 people",
+                "Any area with a total population of 50,000 people"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 4
+            }
+          ]
+        },
+        {
+          "id": "ets-r05-task-2",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 5 to 14.",
+          "passage": {
+            "title": "PASSAGE 2",
+            "text": "Animation traditionally is done by hand-drawing or painting successive frames of an object, each slightly different than the preceding frame. In computer animation, although the computer may be the one to draw the different frames, in most cases the artist will draw the beginning and ending frames and the computer will produce the drawings between the first and the last drawing. This is generally referred to as computer-assisted animation, because the computer is more of a helper than an originator. \n     In full computer animation, complex mathematical formulas are used to produce the final sequence of pictures.   \nThese formulas operate on extensive databases of numbers that define the objects in the pictures as they exist in mathematical space. The database consists of endpoints, and color and intensity information. Highly trained professionals are needed to produce such effects because animation that obtains high degrees of realism involves computer techniques for three-dimensional transformation, shading, and curvatures. \n     High-tech computer animation for film involves very expensive computer systems along with special color terminals or frame buffers. The frame buffer is nothing more than a giant image memory for viewing a single frame. It temporarily holds the image for display on the screen. \n     A camera can be used to film directly from the computer's display screen, but for the highest quality images possible, expensive film recorders are used. The computer computes the positions and colors for the figures in the picture, and sends this information to the recorder, which captures it on film. Sometimes, however, the images are stored on a large magnetic disk before being sent to the recorder. Once this process is completed, it is repeated for the next frame. When the entire sequence has been recorded on the film, the film must be developed before the animation can be viewed. If the entire sequence does not seem right, the motions must be corrected, recomputed, redisplayed, and rerecorded. This approach can be very expensive and time consuming. Often, computer-animation companies first do motion tests with simple computer-generated line drawings before selling their computers to the task of calculating the high-resolution, realistic-looking images."
+          },
+          "questions": [
+            {
+              "id": "ets-r05-q05",
+              "type": "mcq",
+              "question": "What aspect of computer animation does the passage mainly discuss?",
+              "options": [
+                "The production process",
+                "The equipment needed",
+                "The high cost",
+                "The role of the artist"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 5
+            },
+            {
+              "id": "ets-r05-q06",
+              "type": "mcq",
+              "question": "According to the passage, in computer-assisted animation the role of the computer is to draw the........",
+              "options": [
+                "first frame",
+                "middle frames",
+                "last frame",
+                "entire sequence of frames"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 6
+            },
+            {
+              "id": "ets-r05-q07",
+              "type": "mcq",
+              "question": "The word \"they\" in the second paragraph refers to........",
+              "options": [
+                "formulas",
+                "databases",
+                "numbers",
+                "objects"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 7
+            },
+            {
+              "id": "ets-r05-q08",
+              "type": "mcq",
+              "question": "According to the passage, the frame buffers mentioned in the third paragraph are used to............",
+              "options": [
+                "add color to the images",
+                "expose several frames at the same time",
+                "store individual images",
+                "create new frames"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 8
+            },
+            {
+              "id": "ets-r05-q09",
+              "type": "mcq",
+              "question": "According to the passage, the positions and colours of the figures in high-tech animation are determined by........",
+              "options": [
+                "drawing several versions",
+                "enlarging one frame at a lime",
+                "analyzing the sequence from different angles",
+                "using computer calculations"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-r05-q10",
+              "type": "mcq",
+              "question": "The word \"captures\" in the fourth paragraph is closest in meaning to......",
+              "options": [
+                "separates",
+                "registers",
+                "describes",
+                "numbers"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-r05-q11",
+              "type": "mcq",
+              "question": "The word \"Once\" in the fourth paragraph is closest in meaning to.....",
+              "options": [
+                "before",
+                "since",
+                "after",
+                "while"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-r05-q12",
+              "type": "mcq",
+              "question": "According to the passage, how do computer-animation companies often test motion?",
+              "options": [
+                "They experiment with computer-generated line drawings.",
+                "They hand-draw successive frames.",
+                "They calculate high-resolution images.",
+                "They develop extensive mathematical formulas."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-r05-q13",
+              "type": "mcq",
+              "question": "The word \"task\" in the 4th paragraph is closest in meaning to.......",
+              "options": [
+                "possibility",
+                "position",
+                "time",
+                "job"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-r05-q14",
+              "type": "mcq",
+              "question": "Which of the following statements is supported by the passage?",
+              "options": [
+                "Computers have reduced the costs of animation.",
+                "In the future, traditional artists will no longer be needed.",
+                "Artists are unable to produce drawings as high in quality as computer drawings.",
+                "Animation involves a wide range of technical and artistic skills."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 14
+            }
+          ]
+        },
+        {
+          "id": "ets-r05-task-3",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 15 to 26.",
+          "passage": {
+            "title": "PASSAGE 3",
+            "text": "What we today call American folk art was, indeed, art of, by, and for ordinary, everyday “folks” who, with increasing prosperity and leisure, created a market for art of all kinds, and especially for portraits. Citizens of prosperous, essentially middle-class republics ― whether ancient Romans, seventeenth-century Dutch burghers, or nineteenth-century Americans ― have always shown a marked taste for portraiture. Starting in the late eighteenth century, the United States contained increasing numbers of such people, and of the artists who could meet their demands.  The earliest American folk art portraits come, not surprisingly, from New England ― especially Connecticut and Massachusetts ― for this was a wealthy and populous region and the center of a strong craft tradition. Within a few decades after the signing of the Declaration of Independence in 1776, the population was pushing westward, and portrait painters could be found at work in western New York, Ohio, Kentucky, Illinois, and Missouri. Midway through its first century as a nation, the United States’ population had increased roughly five times, and eleven new states had been added to the original thirteen.  During these years the demand for portraits grew and grew eventually to be satisfied by the camera. In 1839 the daguerreotype was introduced to America, ushering in the age of photography, and within a generation the new invention put an end to the popularity of painted portraits. Once again an original portrait became a luxury, commissioned by the wealthy and executed by the professional.  But in the heyday of portrait painting ― from the late eighteenth century until the 1850's ― anyone with a modicum of artistic ability could become a limner, as such a portraitist was called. Local craftspeople ― sign, coach, and house painters ― began to paint portraits as a profitable sideline; sometimes a talented man or woman who began by sketching family members gained a local reputation and was besieged with requests for portraits; artists found it worth their while to pack their paints, canvases, and brushes and to travel the countryside, often combining house decorating with portrait painting."
+          },
+          "questions": [
+            {
+              "id": "ets-r05-q15",
+              "type": "mcq",
+              "question": "The author mentions seventeenth-century Dutch burghers as an example of a group that",
+              "options": [
+                "Consisted mainly of self-taught artists",
+                "Appreciated portraits",
+                "Influenced American folk art",
+                "Had little time for the arts"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 15
+            },
+            {
+              "id": "ets-r05-q16",
+              "type": "mcq",
+              "question": "The word “marked” is closest in meaning to",
+              "options": [
+                "Pronounced",
+                "Fortunate",
+                "Understandable",
+                "Mysterious"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 16
+            },
+            {
+              "id": "ets-r05-q17",
+              "type": "mcq",
+              "question": "According to the passage, where were many of the first American folk art portraits painted?",
+              "options": [
+                "In western New York",
+                "In Illinois and Missouri",
+                "In Connecticut and Massachusetts",
+                "In Ohio"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-r05-q18",
+              "type": "mcq",
+              "question": "The word “this” refers to",
+              "options": [
+                "A strong craft tradition",
+                "American folk art",
+                "New England",
+                "Western New York"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-r05-q19",
+              "type": "mcq",
+              "question": "How much did the population of the United States increase in the first fifty years following independence?",
+              "options": [
+                "It became three times larger.",
+                "It became five times larger.",
+                "It became eleven times larger.",
+                "It became thirteen times larger."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 19
+            },
+            {
+              "id": "ets-r05-q20",
+              "type": "mcq",
+              "question": "The phrase “ushering in” is closest in meaning to",
+              "options": [
+                "Beginning",
+                "Demanding",
+                "Publishing",
+                "Increasing"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-r05-q21",
+              "type": "mcq",
+              "question": "The relationship between the daguerreotype and the painted portrait is similar to the relationship between the automobile and the",
+              "options": [
+                "Highway",
+                "Driver",
+                "Horse-drawn carriage",
+                "Engine"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-r05-q22",
+              "type": "mcq",
+              "question": "According to the passage, which of the following contributed to a decline in the demand for painted portrait?",
+              "options": [
+                "The lack of a strong craft tradition",
+                "The westward migration of many painters",
+                "The growing preference for landscape paintings",
+                "The invention of the camera"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-r05-q23",
+              "type": "mcq",
+              "question": "The word “executed” is closest in meaning to",
+              "options": [
+                "Sold",
+                "Requested",
+                "Admired",
+                "Created"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-r05-q24",
+              "type": "mcq",
+              "question": "The author implies that most limners",
+              "options": [
+                "Received instruction from traveling teachers",
+                "Were women",
+                "Were from wealthy families",
+                "Had no formal art training"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-r05-q25",
+              "type": "mcq",
+              "question": "The word “sketching” is closest in meaning to",
+              "options": [
+                "Drawing",
+                "Hiring",
+                "Helping",
+                "Discussing"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-r05-q26",
+              "type": "mcq",
+              "question": "The phrase “worth their while” is closest in meaning to",
+              "options": [
+                "Essential",
+                "Educational",
+                "Profitable",
+                "Pleasurable"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 26
+            }
+          ]
+        },
+        {
+          "id": "ets-r05-task-4",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 27 to 36.",
+          "passage": {
+            "title": "Passage 4",
+            "text": "The word laser was coined as an acronym for Light Amplification by the Stimulated Emission of Radiation. Ordinary light, from the Sun or a light bulb, is emitted spontaneously, when atoms or molecules get rid of excess energy by themselves, without any outside intervention. Stimulated emission is different because it occurs when an atom or molecule holding onto excess energy has been stimulated to emit it as light.\n          Albert Einstein was the first to suggest the existence of stimulated emission in a paper published in 1917. However, for many years physicists thought that atoms and molecules always were much more likely to emit light spontaneously and that stimulated emission thus always would be much weaker. It was not until after the Second World War that physicists began trying to make stimulated emission dominate. They sought ways by which one atom or molecule could stimulate many others to emit light, amplifying it to much higher powers.\n          The first to succeed was Charles H. Towns, then at Columbia University in New York. Instead of working with light, however, he worked with microwaves, which have a much longer wavelength, and built a device he called a \"maser\" for Microwave Amplification by the Stimulated Emission of Radiation. Although he thought of the key idea in 1951, the first maser was not completed until a couple of years later. Before long, many other physicists were building masers and trying to discover how to produce stimulated emission at even shorter wavelengths. The key concepts emerged about 1957. Townes and Arthur Schawlow, then at Bell Telephone Laboratories, wrote a long paper outlining the conditions needed to amplify stimulated emission of visible light waves. At about the same time, similar ideas crystallized in the mind of Gordon Gould, then a 37-year-old graduate student at Columbia, who wrote them down in a series of notebooks. Towns and Schawlow published their ideas in a scientific journal, Physical Review Letter, but Gould filed a patent application. Three decades later, people still argue about who deserves the credit for the concept of the laser."
+          },
+          "questions": [
+            {
+              "id": "ets-r05-q27",
+              "type": "mcq",
+              "question": "The word \"coined\" could best be replaced by",
+              "options": [
+                "created",
+                "mentioned",
+                "understood",
+                "discovered"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-r05-q28",
+              "type": "mcq",
+              "question": "The word \"intervention\" can best be replaced by",
+              "options": [
+                "need",
+                "device",
+                "influence",
+                "source"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-r05-q29",
+              "type": "mcq",
+              "question": "The word \"it\" refers to",
+              "options": [
+                "light bulb",
+                "energy",
+                "molecule",
+                "atom"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-r05-q30",
+              "type": "mcq",
+              "question": "Which of the following statements best describes a laser?",
+              "options": [
+                "A device for stimulating atoms and molecules to emit light",
+                "An atom in a high-energy state",
+                "A technique for destroying atoms or molecules",
+                "An instrument for measuring light waves"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-r05-q31",
+              "type": "mcq",
+              "question": "Why was Town's early work with stimulated emission done with microwaves?",
+              "options": [
+                "He was not concerned with light amplification.",
+                "It was easier to work with longer wavelengths.",
+                "His partner Schawlow had already begun work on the laser.",
+                "The laser had already been developed."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 31
+            },
+            {
+              "id": "ets-r05-q32",
+              "type": "mcq",
+              "question": "In his research at Columbia University, Charles Townes worded with all of the following EXCEPT",
+              "options": [
+                "stimulated emission",
+                "microwaves",
+                "light amplification",
+                "a maser"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 32
+            },
+            {
+              "id": "ets-r05-q33",
+              "type": "mcq",
+              "question": "In approximately what year was the first maser built?",
+              "options": [
+                "1917",
+                "1951",
+                "1953",
+                "1957"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 33
+            },
+            {
+              "id": "ets-r05-q34",
+              "type": "mcq",
+              "question": "The word \"emerged\" is closest in meaning to",
+              "options": [
+                "increased",
+                "concluded",
+                "succeeded",
+                "appeared"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 34
+            },
+            {
+              "id": "ets-r05-q35",
+              "type": "mcq",
+              "question": "The word \"outlining\" is closest in meaning to",
+              "options": [
+                "assigning",
+                "studying",
+                "checking",
+                "summarizing"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 35
+            },
+            {
+              "id": "ets-r05-q36",
+              "type": "mcq",
+              "question": "Why do people still argue about who deserves the credit for the concept of the laser?",
+              "options": [
+                "The researcher's notebooks were lost.",
+                "Several people were developing the idea at the same time.",
+                "No one claimed credit for the development until recently.",
+                "The work is still incomplete."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

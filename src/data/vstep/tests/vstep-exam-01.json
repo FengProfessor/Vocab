@@ -1,0 +1,1076 @@
+{
+  "id": "vstep-mock-01",
+  "title": "Đề Thi Mô Phỏng Chuẩn VSTEP B1-B2-C1 — Đề Số 01",
+  "duration": 172,
+  "date": "2026-03-14",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-01/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. Where did the man leave his camera?</b></p><ul><li><b>Man:</b> Oh no! I haven’t got my camera!</li><li><b>Woman:</b> But you used it just now to take a photograph of the fountain.</li><li><b>Man:</b> Oh, I remember, I put it down on the <b>steps</b> while I put my coat on.</li><li><b>Woman:</b> Well, let’s drive back quickly – it might still be there.</li></ul><p><b>2. What is the woman’s first memory?</b></p><ul><li><b>Woman:</b> The first thing I remember is when I was about five my father took me to the <b>seaside</b>. My brother stayed at home with my mother because he was too young. We couldn’t go in the sea because it was too rough, but we spent hours <b>playing on the sand</b>.</li></ul><p><b>3. Which train will the woman catch?</b></p><ul><li><b>Woman:</b> What time’s the next train to Manchester please?</li><li><b>Man:</b> You’ve just missed the 8.15. The next one’s not until <b>10.15</b>. There isn’t one at 9.15.</li><li><b>Woman:</b> But that’s a two hour wait! and I’ll be late for my appointment at 10.30. But I suppose I haven’t any choice – I’ll go for a coffee while I’m waiting.</li></ul><p><b>4. What should the students take with them tomorrow?</b></p><ul><li><b>Teacher:</b> Now, about the school picnic – it’ll be hot so leave your sweaters behind but make sure you’ve got <b>something to keep the sun off your head</b>, and a <b>drink</b> in case you get thirsty … oh, and <b>something to write on</b> – that’s for a game we’re going to play. And don’t be late!</li></ul><p><b>5. What will they do at the weekend?</b></p><ul><li><b>Woman:</b> What shall we do at the weekend, Tony? The Browns are coming up with their children. I was wondering about a visit to the zoo, or a river trip … or just going down to the sea again …</li><li><b>Man:</b> Let’s do something different. The weather should be good, so we could take a <b>picnic to the castle</b> instead. The children will enjoy it and it’ll be a nice change from the beach.</li><li><b>Woman:</b> Right then, we’ll do that.</li></ul><p><b>6. What does the woman need to buy?</b></p><ul><li><b>Woman:</b> Let me see, eggs – I’ve got lots of those; butter – I don’t need that. I’ll get some <b>milk</b>, <b>bread</b>, and I’ve nearly finished the toothpaste … oh, there’s a new one in the cupboard. But I do need some <b>apples</b>. Now, where’s my purse?</li></ul><p><b>7. How will the boy get to school?</b></p><ul><li><b>Woman:</b> Get up, Martin. It’s snowed during the night. The school bus won’t be able to go, so you’ll have to walk.</li><li><b>Boy:</b> Oh, I’ll go by bike.</li><li><b>Woman:</b> Don’t be silly. The snow’s far too deep for that.</li><li><b>Boy:</b> Then I’ll <b>ski</b>. That’ll be quicker than walking and I can save the bus fare! But I’ll have some breakfast first.</li></ul><p><b>8. What is the job of Tanya’s boyfriend now?</b></p><ul><li><b>Woman 1:</b> Look – this is the band on the television now, Tanya’s boyfriend is the <b>singer</b>.</li><li><b>Woman 2:</b> She told me he played the guitar.</li><li><b>Woman 1:</b> He does sometimes, but not tonight, and you know he used to be the keyboard player in that other band. He’s so brilliant. Don’t you think she’s lucky?</li><li><b>Woman 2:</b> Oh, I don’t know. I think I prefer the drummer myself, actually.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Where did the man leave his camera?",
+              "options": [
+                "On the steps",
+                "Next to the fountain",
+                "In the coat pocket",
+                "On the boat"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What is the woman’s first memory?",
+              "options": [
+                "She went to the sea with her family.",
+                "She went to the sea with her father.",
+                "She went to the sea with her younger brother.",
+                "She went to the sea with her mother."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Which train will the woman catch?",
+              "options": [
+                "8.15",
+                "10.15",
+                "9.15",
+                "10.30"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What should the students take with them tomorrow?",
+              "options": [
+                "Sweater, hat and drink",
+                "Sweater, notebook and drink",
+                "Drink, hat and notebook",
+                "Drink, hat, notebook and sweater"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What will they do at the weekend?",
+              "options": [
+                "Visit the zoo",
+                "Take a picnic to the castle",
+                "Go to the beach",
+                "Go on a river trip"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What does the woman need to buy?",
+              "options": [
+                "Milk, apple and bread",
+                "Milk, apple, and toothpaste",
+                "Milk, bread and apples",
+                "Milk, bread and toothpaste"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "How will the boy get to school?",
+              "options": [
+                "By bike",
+                "By school bus",
+                "By skiing",
+                "On foot"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is Tanya’s boyfriend doing on the television now?",
+              "options": [
+                "He is playing the keyboard.",
+                "He is playing the guitar.",
+                "He is playing the drum.",
+                "He is singing."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-01/part1-2.mp3"
+          },
+          "tapescript": "<div><p><b>Conversation 1</b></p><ul><li><b>Interviewer:</b> Simon, tell us about yourself.</li><li><b>Simon:</b> Well, like lots of other kids my age, I’ve grown up taking my boat onto the rivers in this area. One of my favourite rivers is <b>(1) the River Stanton, which is fast with excellent white water – so things can get pretty dangerous but it’s exciting</b> and I’m experienced.</li><li><b>Interviewer:</b> Now, it was while you were on the River Stanton that you noticed something was wrong.</li><li><b>Simon:</b> Yeah, <b>(2) I always wondered why the water made my eyes burn if it got on my face...and why it was a strange, orange colour</b>, especially when the water was running low.</li><li><b>Interviewer:</b> So you decided to find out more.</li><li><b>Simon:</b> Yeah, I asked other people using the river and <b>(3) I visited a few websites and found out that the river was orange because of pollution from the old mines in the area.</b> There was a lot of mining for coal done in this part of the country. I knew that from my history class at school, but what I didn’t know was that pollution was coming from those old mine works and escaping into the rivers.</li><li><b>Interviewer:</b> then you did a qualification, didn’t you?</li><li><b>Simon:</b> Yes, I found out about an organization called: “The Friends of the River Stanton”. They told me they did a special course where I could learn how to test the river water to see if it was healthy or not. So that’s what I did and I got really interested in the subject.</li><li><b>Interviewer:</b> In fact, you got so interested that you actually started to look for an answer to the pollution problem!</li><li><b>Simon:</b> I learned as much as I could about the chemistry behind the pollution. I can’t really explain all the detail, but basically <b>(4) if you add something called limestone to the river, it can improve the chemistry.</b> That means that the plants and fish which had died because of all the mining companies that used to be in the area…could live in the river again. <b>So that made me really happy.</b></li></ul><p><b>Conversation 2</b></p><ul><li><b>Officer:</b> Yes, what can I do for you?</li><li><b>Student:</b> My friend is in homestay...and she really enjoys it...so I’d like to join a family as well.</li><li><b>Officer:</b> Okay, so let me get some details. What’s your name?</li><li><b>Student:</b> My name is Keiko Yuichini.</li><li><b>Officer:</b> And you’re female. And your nationality?</li><li><b>Student:</b> I’m Japanese.</li><li><b>Officer:</b> And you’re how old?</li><li><b>Student:</b> I’m twenty-eight years old.</li><li><b>Officer:</b> Now you live at one of the colleges…which one?</li><li><b>Student:</b> Willow College, umm Room 21C.</li><li><b>Officer:</b> <b>And how long are you planning on staying with homestay?</b></li><li><b>Student:</b> <b>About four months</b> (1)</li><li><b>Officer:</b> And what course are you enrolled in?</li><li><b>Student:</b> Well, <b>I’ve enrolled for twenty weeks in the Advanced English Studies</b> (2).</li><li><b>Officer:</b> Okay. Do you have any preference for a family with children or without children?</li><li><b>Student:</b> I prefer I mean I like young children, but I’d like to be with older people.</li><li><b>Officer:</b> All right. Now what about you? Are you a vegetarian or do you have any special food requirements?</li><li><b>Student:</b> No, I am not a vegetarian but I don’t eat a lot of meat. <b>I really like seafood</b> (3).</li><li><b>Officer:</b> Are you familiar with the public transport system?</li><li><b>Student:</b> No.</li><li><b>Officer:</b> What about the trains?</li><li><b>Student:</b> I like catching the train. They are much faster.</li><li><b>Officer:</b> Now let me go check on the computer and see who I’ve got. <b>I’ll check my records and I’ll give you details this afternoon</b> (4).</li><li><b>Student:</b> Thank you for helping me.</li><li><b>Officer:</b> It’s pleasure. Bye.</li></ul><p><b>Conversation 3</b></p><ul><li><b>Interviewer:</b> Sophie, you’re a native English speaker and you’re been working as a translator for some time now.</li><li><b>Sophie:</b> <b>I’m currently doing a lot of legal texts (9)</b> – the details of court cases can be interesting and the language quite challenging.</li><li><b>Interviewer:</b> And what kind of language gives you the most problems? The kind of expressions used in technology, perhaps, or science?</li><li><b>Sophie:</b> Actually, I don’t have much trouble with those. <b>What’s still quite tricky, though, is when someone mentions a person or an event, perhaps in their country’s history (10).</b></li><li><b>Interviewer:</b> So, do you normally deal with big private firms or with state institutions like local government?</li><li><b>Sophie:</b> Well, I was once contacted by an insurance company and I did a job for them, <b>but nearly always it’s a case of an agency asking if I’d be willing to do a particular text (11).</b></li><li><b>Interviewer:</b> That mush speed things up a lot.</li><li><b>Sophie:</b> Yes, but it can still be a very long working day. I don’t mind which part of the day I’m working though – that’s one of the advantages of working from home.</li><li><b>Interviewer:</b> How do you see the long – term future of translating? Will it continue to be a good area to work in?</li><li><b>Sophie:</b> Oh, I think so. Professional standards are higher than they’ve ever been, and <b>the increasingly wide range of languages used internationally means that the demand for high-quality translation will keep growing for many years to come (12).</b></li></ul></div>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why does Simon like the River Stanton?",
+              "options": [
+                "Because of its water speed",
+                "Because of its scenery",
+                "Because of its peace",
+                "Because of its dangers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What was wrong with the river?",
+              "options": [
+                "The water turned brown when it was running low.",
+                "The water turned brown when it was running fast.",
+                "The water turned orange when it was running fast.",
+                "The water turned orange when it was running low."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What was the cause of the river’s problem?",
+              "options": [
+                "Old mine work",
+                "Farming activities",
+                "Fishing activities",
+                "Tourism activities"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What made Simon happy?",
+              "options": [
+                "He found the solution to the river’s problem.",
+                "He found limestones in the river.",
+                "He found a lot of fish in the river.",
+                "He found a lot of plants in the river."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why does the student want to live with a family?",
+              "options": [
+                "Because she feels homesick",
+                "Because she wants to improve her English",
+                "Because she doesn’t want to cook",
+                "Because her friend is enjoying her homestay"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "How long is the student’s course?",
+              "options": [
+                "Four months",
+                "20 weeks",
+                "5 months",
+                "12 weeks"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What may the student like to eat?",
+              "options": [
+                "Seafood",
+                "Pork",
+                "Beef",
+                "Vegetable"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "When does the officer give the student her homestay details?",
+              "options": [
+                "Right after he checks on his computer",
+                "At lunch time",
+                "In the afternoon",
+                "Tomorrow afternoon"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is Sophie’s job now?",
+              "options": [
+                "A secretary",
+                "A translator",
+                "A manager",
+                "A designer"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What is the most challenging thing in Sophie’s job?",
+              "options": [
+                "Technical terms",
+                "Informal expressions",
+                "Scientific terms",
+                "Cultural preferences"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "According to Sophie, what is the advantage of working from home?",
+              "options": [
+                "She doesn’t have to travel to work.",
+                "She doesn’t have to dress formally.",
+                "She doesn’t have to sign contracts.",
+                "Her working time can be flexible."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does Sophie think about her job in the future?",
+              "options": [
+                "It will be more demanding.",
+                "It will be easier.",
+                "It is not necessary any more.",
+                "It can help her earn a lot of money."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-01/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1</b></p><p>I wanna talk about learning languages. I’ve lived in many different countries, both in Western Europe, Middle East, and now here in Hong Kong. And during all of that time, I’ve learned five or six different languages, to one degree or another. I love learning languages, not only are they important when you move to a country, I just find them fascinating.</p><p>Before I came to Hong Kong, I lived in Barcelona Spain for ten years. And when I first arrived, the most important thing was being able to communicate with people locally. I don’t attend classes. I don’t think I’m particularly good in classes. I prefer to learn by just talking to people, finding out what I need to say by looking at dictionaries and listening carefully.</p><p>Other things that helped me when I first moved to Spain, were watching the typical kinds of programs we see everyday on channels around the world. For example the weather. This is great, because they always say the same things. So you can really quickly hear the same words repeated again and again. And the pictures helped of course.</p><p>Other types of program that helped me learn Spanish quickly were things like game shows, where the same thing happens. They have a catchphrase or a slogan that they repeat endlessly when contestants win or when they are called to compete.</p><p>As well as that, I used to pick up the Spanish newspapers. First of all, I just accepted that there was no way I was going to understand anything but one or two words. But gradually, I found that I learned lots of new things about this. I was interested because I wanted to know what was happening in the country I lived in. But, I also knew that I could learn a lot of language this way.</p><p>So I’d take a dictionary with me sometimes, or I’d notice a word and I’d ask other people what it meant. Anyway, by far the best practice I ever had was just talking to people in the street, or in shops where I’d rehearse in my head what I wanted to say beforehand, before I went in. Usually, I’d make a right mess of it first of all, but, after you get over the embarrassment, it’s quite funny really. And people are very sympathetic and supporting in most cases.</p><p>It took me a long time to develop a good level of Spanish. I lived there for ten years, and I think I’m very fluent now. But I think for the first two years I was there, it was quite a struggle to hold a decent conversation. There were always lots of words or expressions that I didn’t pick up. In particular with the colloquial expressions, idioms, that kind of thing, that people use in everyday talk, but you don’t necessarily see written down. I didn’t find those very easy to learn at all. But it was a lot of fun. And people as I said are really supporting when they know that you are genuinely interested in learning their language.</p><p><b>Talk 2</b></p><p>Hello Ladies and Gentleman. It gives me great pleasure to introduce our keynote speaker for today's plenary address, Dr. Howard Miller. Dr. Miller, Professor of Sociology at Washington University, has written numerous articles and books on the issues facing older Americans in our graying society for the past 15 years. Dr. Miller.</p><p><b>Dr. Miller:</b> Thank you for that introduction. Today, I'd like to preface my remarks from a story from my own life which I feel highlights our common concerns that bring us here together.</p><p>Several years ago when my grandparents were well into their eighties, they were faced with the reality of no longer being able to adequately care for themselves. My grandfather spoke of his greatest fear, that of leaving the only home they had known for the past 60 years. Fighting back the tears, he spoke proudly of the fact that he had built their home from the ground up, and that he had pounded every nail and laid every brick in the process. The prospect of having to sell their home and give up their independence, and move into a retirement home was an extremely traumatic experience for them. It was, in my grandfather's own words, like having a limb severed off. He was quite emphatic exclaiming that he felt he wasn't important anymore.</p><p>For them and some older Americans, their so-called \"golden years\" are at times not so pleasant, for this period can mean the decline of not only one's health but the loss of identity and self-worth. In many societies, this self-identity is closely related with our social status, occupation, material possessions, or independence.</p><p>Furthermore, we often live in societies that value that which is \"new\" or in vogue, and our own usage of lexicon in the English language often does not bode well for older Americans. I mean how would your family react if you came home tonight elated exclaiming, \"Hey, come to the living room and see the OLD black and white TV I brought!\" Unfortunately, the word \"old\" conjures up images of the need to replace or discard.</p><p>Now, many of the lectures given at this conference have focused on the issues of pension reform, medical care, and the development of public facilities for senior citizens. And while these are vital issues that must be addressed, I'd like to focus my comments on an underlying issue that will affect the overall success of the other programs mentioned. This has to do with realigning our perspectives on what it means to be a part of this group, and finding meaningful roles the elderly can play and should play in our societies.</p><p>First of all, I'd like to talk about ...</p><p><b>Talk 3</b></p><p>Hello. I’m going to talk about British festivals. I’m sure you’ve heard about the Notting Hill Carnival in London and the Edinburgh Festival, but today we’re going to look at a lot more that you might not know about. Actually, a lot of these are not exactly festivals, but strange races or competitions. Some of them are ancient and some are modern.</p><p>So, let’s start in January in the north of Scotland with the Burning of the Clavie. This is a whisky barrel which is set alight then carried through the streets as a bonfire. It’s an ancient tradition which always takes place on 11th of January, the first day of the year, according to an older form of the calendar. The bonfire brings good luck for the coming year and people used to keep bits of burnt wood as protection against evil spirits.</p><p>At the end of January, even further north, in the Shetland Islands, there’s another fire festival, the Up Helly Aa. This seems like an ancient festival, but has actually only been going for about 130 years – well, it is fairly old, I suppose. People carry fire-lit torches and a Viking boat through the streets, then set fire to the boat. There’s lots of dancing; it’s good fun.</p><p>Now to the north of England. On Shrove Tuesday in February, otherwise known as Pancake Day, a special Pancake Bell is rung in Scarborough. Everyone goes down to the road next to the beach where they skip – yep, they jump over long ropes, up to fifteen people to one rope.</p><p>And they have pancake races. This is quite common in the UK – running with a frying pan and tossing a pancake at the same time. Another kind of race takes place in spring – cheese rolling. In Gloucestershire, in the south-west of England, round cheeses in round boxes are sent rolling down a hill and people run after them and try and catch them. The hill is very steep, so people often fall over – if you take part in this you need to be very fit and wear your oldest jeans. Nowadays this strange custom attracts visitors from all over the world, but the people from the local village are usually the ones who catch the cheese.</p><p>From people-racing, to animals, very tiny animals. World Championship Snail Racing takes place in a village in Norfolk. The snails have to race from an inner circle to an outer circle and the winner gets a lot of lettuce. There’s a party and barbecue for the snail owners and observers. This custom began in the 1960s after a local man saw something similar in France. In the UK we don’t eat snails, by the way.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "Which area in the world has the speaker not lived in?",
+              "options": [
+                "Asia",
+                "Europe",
+                "South America",
+                "Middle East"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Which two things does the speaker do to learn a new language?",
+              "options": [
+                "Go to classes and speak to people",
+                "Watch TV and listen to the radio",
+                "Speak to people and use a dictionary",
+                "Go to classes and watch TV"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does the speaker say about using newspapers?",
+              "options": [
+                "It was easy to learn a lot of new words quickly.",
+                "It helps you save time learning a language.",
+                "Other people could explain new words the writer found.",
+                "It is so boring to read."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does the speaker say about talking to people in the street?",
+              "options": [
+                "You should rehearse in your head before you go.",
+                "People feel embarrassed to talk to you.",
+                "People reacted negatively.",
+                "People are not eager to talk to you."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "Why were colloquial expressions a problem for the speaker?",
+              "options": [
+                "They took ten years to learn.",
+                "They were never written down.",
+                "They were often unnoticed.",
+                "They were often written down."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What is Dr. Howard Miller’s major?",
+              "options": [
+                "Psychology",
+                "History",
+                "Sociology",
+                "Geology"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What is Dr. Miller’s grandfather biggest fear?",
+              "options": [
+                "Leaving his home of many years",
+                "The loss of his wife",
+                "The decline in his health",
+                "The loss of his hearing ability"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What do societies tend to value?",
+              "options": [
+                "Creative things",
+                "New things",
+                "Expensive things",
+                "Life-long things"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Who does Dr. Miller want to find meaningful purpose for?",
+              "options": [
+                "The elderly",
+                "Teachers and public affairs",
+                "The youth",
+                "Working people"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What do you think the speaker will talk about in the next part of his speech?",
+              "options": [
+                "The contributions the elderly can make in our societies",
+                "The swelling burden of supporting welfare programs in the future",
+                "Our responsibility of building retirement homes for our graying society",
+                "The need of paying more attention to the elder’s health problem"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the Clavie?",
+              "options": [
+                "A whisky container",
+                "A wooden cross",
+                "A bonfire made of things people don’t need",
+                "A kind of whisky"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What do people keep as protection against evil spirits?",
+              "options": [
+                "Burnt pieces of the Viking boat",
+                "Burnt torch handles",
+                "Burnt pieces of the whisky barrel lid",
+                "Bits of burnt wood"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What do you have to do during the pancake race?",
+              "options": [
+                "Eat as many pancakes as possible",
+                "Run as fast as possible while tossing a pancake in a pan",
+                "Run and jump over the ropes without dropping the pancake",
+                "Run and jump over a hole without dropping the pancake"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Who often win the cheese rolling competition?",
+              "options": [
+                "Top athletes",
+                "People from the village",
+                "Visitors from all over the world",
+                "People from other villages"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What can the fattest snail receive?",
+              "options": [
+                "Extra lettuce",
+                "A cup",
+                "Some garlic and butter",
+                "Nothing"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Obesity and the Body Mass Index",
+            "text": "<p>Obesity has become one of the most widely discussed public health issues of the past few decades, affecting people in wealthy and developing countries alike. Doctors and researchers needed a simple way to estimate whether a person's weight might pose a risk to their health, and this need led to the widespread adoption of the Body Mass Index, commonly known as BMI. Although the tool was originally developed nearly two hundred years ago by a Belgian mathematician, <strong>it</strong> did not become a standard part of medical checkups until the twentieth century, when public health officials began searching for numbers that could be compared easily across large populations.</p><p>Calculating BMI is fairly simple: a person's weight in kilograms is divided by the square of their height in meters, producing a single number that doctors then place into one of several categories. A result under 18.5 is generally classified as underweight, while a number between 18.5 and 24.9 is considered a healthy range for most adults. Scores from 25 to 29.9 fall into the overweight category, and anything above 30 is classified as obese. Because the calculation requires only two easily measured values, clinics around the world can apply it quickly, without needing expensive equipment or specialized training.</p><p>Despite its convenience, BMI has clear limitations that doctors are usually careful to explain to patients. The formula cannot distinguish between muscle and fat, so a highly muscular athlete may receive a BMI score suggesting obesity even though their body fat percentage is quite low. Age, sex, and even ethnicity can also affect how accurately the number reflects true health risk, since fat tends to be distributed differently depending on these factors. For this reason, many doctors now treat BMI as a useful starting point for a conversation rather than a final diagnosis on its own.</p><p>The causes of obesity are rarely simple, and researchers generally agree that no single factor explains why rates have risen so sharply in recent decades. Diets higher in processed food and sugar, combined with jobs and daily routines that involve far less physical movement than in previous generations, play an important role. Genetics also matters; some people are more likely than others to gain weight even when eating similar amounts of food. Sleep patterns, stress levels, and even certain medications have additionally been linked to weight gain, making obesity a condition shaped by many <strong>overlapping</strong> influences rather than a simple failure of willpower.</p><p>Carrying <strong>excess</strong> weight over a long period is associated with a higher risk of several serious conditions, including heart disease, type 2 diabetes, and certain types of cancer. Public health campaigns therefore encourage regular exercise, balanced meals, and adequate sleep, though doctors are increasingly careful to frame these recommendations without blaming individuals for a condition shaped by so many outside factors. Some clinics now combine BMI with other simple measurements, such as waist circumference, to build a more complete picture of a patient's health before recommending any changes.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R1Q1, R1Q5, R1Q9):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm thông tin chính xác trong bài đọc:<ul><li>Với <b>R1Q1</b>, quét cụm từ \"healthy range\" ở đoạn 2 để tìm khoảng chỉ số BMI chuẩn dành cho người trưởng thành.</li><li>Với <b>R1Q5</b>, quét từ khóa \"muscular athlete\" ở đoạn 3 để xem lý do hạn chế của BMI đối với vận động viên (liên quan đến khả năng phân biệt giữa cơ bắp và mỡ).</li><li>Với <b>R1Q9</b>, quét từ khóa \"some clinics\" ở đoạn cuối để tìm hiểu phương pháp đo lường bổ sung mà các phòng khám sử dụng kèm với BMI.</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R1Q2, R1Q7):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R1Q2</b>, xét ngữ cảnh đoạn 4 nhắc đến nhiều yếu tố tác động cùng lúc lên tình trạng béo phì để tìm từ đồng nghĩa với <strong>\"overlapping\"</strong>.</li><li>Với <b>R1Q7</b>, xét ngữ cảnh đoạn 5 nói về việc mang trọng lượng dư thừa trong thời gian dài để chọn nét nghĩa tương đương cho từ <strong>\"excess\"</strong>.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R1Q4):</b> Đọc câu trước câu chứa đại từ <strong>\"it\"</strong> ở đoạn 1, xác định danh từ chỉ vật/công cụ ở số ít mà câu chuyện đang đề cập đến kể từ khi được phát minh.</li><li><b>Dạng câu hỏi Loại trừ NOT (R1Q6):</b> Tóm tắt danh sách các nguyên nhân gây béo phì ở đoạn 4 (chế độ ăn, vận động, gen, giấc ngủ, căng thẳng, thuốc), sau đó đối soát 4 phương án để tìm ra yếu tố không hề được đề cập.</li><li><b>Dạng câu hỏi Suy luận (R1Q8):</b> Đọc kỹ phần cuối đoạn 3 nói về góc nhìn hiện tại của giới y khoa đối với chỉ số BMI (xem BMI là điểm bắt đầu cho cuộc thảo luận thay vì kết luận cuối cùng) để chọn phương án phản ánh đúng thực tế này.</li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R1Q3, R1Q10):</b> Phân tích bức tranh tổng thể của bài viết:<ul><li>Với <b>R1Q3</b>, tổng hợp nội dung xuyên suốt từ ưu điểm tính toán đơn giản đến các hạn chế thực tế của BMI để chọn ý chính bao quát toàn bài.</li><li>Với <b>R1Q10</b>, đánh giá giọng văn của tác giả khi vừa nêu bật sự tiện lợi vừa phân tích rõ nét những hạn chế của BMI để đưa ra nhận định chính xác về thái độ (mang tính cân bằng, khách quan).</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên hoàn thành trước các câu hỏi định vị rõ ràng như <b>Quy chiếu</b> (R1Q4) và <b>Từ vựng</b> (R1Q2, R1Q7). Tiếp theo, thực hiện đọc quét nhanh cho các câu <b>Chi tiết</b> (R1Q1, R1Q5, R1Q9) và <b>Loại trừ</b> (R1Q6). Cuối cùng, dựa trên bức tranh tổng quan đã nắm được, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao như <b>Suy luận</b> (R1Q8), <b>Ý chính</b> (R1Q3) và <b>Thái độ tác giả</b> (R1Q10).</p>",
+          "questions": [
+            {
+              "id": "R1Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, which BMI range is considered a healthy range for most adults?</span>",
+              "options": [
+                "A score between 25 and 29.9 for most adults",
+                "A score between 18.5 and 24.9 for most adults",
+                "A score above 30 for most healthy adults",
+                "A score under 18.5 for most healthy adults"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R1Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"overlapping\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "interconnected",
+                "independent",
+                "predictable",
+                "temporary"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "BMI is a simple but imperfect tool for estimating obesity-related health risk",
+                "BMI judging relies entirely on objective, measurable criteria",
+                "Obesity is caused only by poor diet choices",
+                "Doctors have stopped using BMI in modern medical practice"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"it\"</strong> in paragraph 1 refers to _______.</span>",
+              "options": [
+                "the tool",
+                "the twentieth century",
+                "a Belgian mathematician",
+                "this need"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, why might a muscular athlete receive a misleadingly high BMI score?</span>",
+              "options": [
+                "Because athletes generally weigh less than the average adult",
+                "Because muscular athletes typically have higher body fat than average",
+                "Because BMI cannot tell the difference between muscle and fat",
+                "Because BMI was never intended for use with adult patients"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor contributing to obesity?</span>",
+              "options": [
+                "A shortage of clean drinking water in some regions",
+                "Certain medications that have been linked to weight gain",
+                "Every person's genetics guaranteeing they will gain weight",
+                "A diet high in processed food and added sugar"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"excess\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "average",
+                "reduced",
+                "extra",
+                "necessary"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R1Q8",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about how doctors currently view BMI?</span>",
+              "options": [
+                "They have completely stopped recommending it to any patient",
+                "Public health officials began comparing numbers across large populations in the twentieth century",
+                "They developed it specifically to replace exercise recommendations",
+                "They increasingly treat it as a starting point rather than a definitive diagnosis"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R1Q9",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do some clinics now do in addition to calculating BMI?</span>",
+              "options": [
+                "They also measure waist circumference for a fuller picture",
+                "They stop tracking any measurements once patients reach adulthood",
+                "They replace BMI entirely with genetic testing methods",
+                "They rely only on patient self-reports of body fat"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R1Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward BMI as a health measurement tool?</span>",
+              "options": [
+                "Focused solely on praising the mathematician who invented the formula",
+                "Completely dismissive of BMI as a scientifically worthless measurement",
+                "Entirely uncritical, presenting BMI as flawless for every patient",
+                "Balanced, recognizing its usefulness while pointing out its limitations"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Figure Skating: Between Sport and Art",
+            "text": "<p>Few Olympic disciplines provoke as much debate over classification as figure skating, an activity that sits, somewhat uneasily, at the intersection of competitive sport and performing art. Skaters must execute jumps, spins, and footwork sequences that demand years of highly technical training, yet they are simultaneously expected to convey musicality, emotion, and narrative in a way that few other Olympic events require. Whether this duality strengthens figure skating's appeal or simply complicates how audiences and judges alike are supposed to evaluate it remains, even among longtime fans, an unresolved question.</p><p>The physical toll of elite figure skating is often <strong>underestimated</strong> by casual viewers who see only the finished performance rather than the years of preparation behind it. A single quadruple jump, now common among top competitors, generates forces on landing that can exceed several times the skater's body weight, and repeated exposure to such impact has been linked to stress fractures and chronic joint problems that sometimes end careers well before an athlete reaches their physical prime. Coaches increasingly balance ambitious technical content against injury risk, a calculation that has become considerably more difficult as competitors push jump difficulty ever higher in pursuit of higher scores.</p><p>Scoring in figure skating combines a technical score, based on the difficulty and execution of specific elements, with a component score meant to capture artistry, interpretation, and overall presentation, and it is this second component that has generated the most persistent controversy. Critics argue that artistic scoring, however carefully judges are trained, inevitably introduces a degree of subjectivity that pure timing or distance-based sports largely avoid, opening the door to accusations of national bias or inconsistent standards between competitions. Federation officials have tried to address such accusations by rotating judging panels between events, though skaters say <strong>they</strong> remain skeptical that the change has meaningfully reduced bias. Defenders of the current system counter that some subjectivity is unavoidable, and arguably even desirable, in any discipline that claims to reward artistic merit rather than technical execution alone.</p><p>Television audiences for major figure skating events, particularly at the Winter Olympics, have historically outpaced those for several other winter sports combined, and this popularity has shaped the sport's development in ways that extend well beyond the rink itself. Broadcasters favor programming that generates strong emotional narratives, and skaters who successfully <strong>cultivate</strong> a compelling public persona often attract sponsorship deals considerably larger than their competitive rankings alone would predict. Some sport administrators worry that this dynamic quietly rewards charisma and marketability over pure technical achievement, subtly shifting incentives in a sport already criticized for the ambiguity of its scoring.</p><p>Mental health concerns among competitive skaters, while not unique to the sport, appear to be intensified by factors that are somewhat distinctive to figure skating's particular structure. The subjective nature of artistic scoring may leave athletes feeling that their fate rests partly on factors beyond their direct control, a sense of powerlessness that sports psychologists suggest can heighten anxiety more than sports where performance is measured by an objective clock or scoreboard. Extremely young competitive ages in some disciplines, though gradually being addressed through revised eligibility rules, have additionally drawn concern from researchers who study the long-term effects of intense early specialization on adolescent athletes.</p><p>Looking forward, several skating federations have begun experimenting with technology intended to reduce, though probably never fully eliminate, the subjectivity embedded in artistic scoring. Motion-tracking systems capable of measuring rotation speed, jump height, and landing quality with far greater precision than a human eye could offer one avenue for standardizing technical evaluation, even as most officials acknowledge that no algorithm currently exists that can meaningfully assess artistry or emotional expression. Whether such tools ultimately narrow the gap between figure skating's athletic and artistic identities, or merely relocate the debate to a new technical frontier, remains very much an open question within the sport.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R2Q1, R2Q5, R2Q9):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để định vị thông tin trực tiếp trong bài đọc:<ul><li>Với <b>R2Q1</b>, quét cụm từ \"quadruple jumps\" hoặc \"landing forces\" ở đoạn 2 để tìm các hệ lụy về sức khỏe thể chất mà động tác này gây ra đối với vận động viên.</li><li>Với <b>R2Q5</b>, quét từ khóa \"Scoring\" hoặc \"combines\" ở đoạn 3 để xác định hai thành phần cấu thành nên tổng điểm của một màn trình diễn trượt băng nghệ thuật.</li><li>Với <b>R2Q9</b>, quét từ khóa \"sport administrators worry\" hoặc \"public persona\" ở đoạn 4 để tìm mối quan ngại liên quan đến việc ưu tiên thương hiệu cá nhân hơn thành tích kỹ thuật thuần túy.</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R2Q2, R2Q7):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R2Q2</b>, xét ngữ cảnh đoạn 2 mô tả việc khán giả thông thường chỉ nhìn thấy thành phẩm hoàn hảo mà không đánh giá đúng mức sự tổn hại thể chất thực tế để tìm từ đồng nghĩa với <strong>\"underestimated\"</strong>.</li><li>Với <b>R2Q7</b>, xét ngữ cảnh đoạn 4 nói về việc vận động viên chủ động xây dựng và phát triển một hình ảnh công chúng thu hút để chọn từ đồng nghĩa thích hợp cho <strong>\"cultivate\"</strong>.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R2Q4):</b> Đọc câu trước câu chứa đại từ <strong>\"they\"</strong> ở đoạn 3, tìm danh từ số nhiều làm chủ thể cho trạng thái \"nghi ngờ\" (skeptical) về tính hiệu quả của việc thay đổi hội đồng chấm thi.</li><li><b>Dạng câu hỏi Loại trừ NOT (R2Q6):</b> Tổng hợp các yếu tố ảnh hưởng đến sức khỏe tinh thần được liệt kê ở đoạn 5 (sự chấm điểm cảm tính gây áp lực, độ tuổi thi đấu quá trẻ), sau đó đối soát 4 phương án để chỉ ra yếu tố không hề được đề cập.</li><li><b>Dạng câu hỏi Suy luận (R2Q8):</b> Kết hợp thông tin ở đoạn cuối về việc ứng dụng hệ thống theo dõi chuyển động (motion-tracking): công nghệ này hỗ trợ chuẩn hóa việc đánh giá kỹ thuật nhưng chưa thuật toán nào có thể chấm được tính nghệ thuật hay cảm xúc, từ đó suy ra giới hạn hiện tại của công nghệ.</li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R2Q3, R2Q10):</b> Phân tích mạch nội dung vĩ mô của bài viết:<ul><li>Với <b>R2Q3</b>, tổng hợp sự giao thoa giữa thể thao và nghệ thuật cùng những tranh cãi xoay quanh cách chấm điểm cũng như sức khỏe vận động viên để chọn phương án bao quát toàn bài.</li><li>Với <b>R2Q10</b>, đánh giá giọng văn khách quan của tác giả khi trình bày cả hai mặt tranh luận mà không thiên vị hay kết luận phiến diện để xác định thái độ trung lập, cân bằng.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy ưu tiên giải quyết trước các câu hỏi định vị vị trí nhanh như <b>Quy chiếu</b> (R2Q4) và <b>Từ vựng</b> (R2Q2, R2Q7). Tiếp theo, áp dụng kỹ thuật đọc quét cho các câu hỏi <b>Chi tiết</b> (R2Q1, R2Q5, R2Q9) và câu <b>Loại trừ</b> (R2Q6). Cuối cùng, dựa trên cái nhìn toàn cảnh đã nắm được qua bài đọc, bạn sẽ dễ dàng chinh phục các câu hỏi tư duy tổng hợp gồm <b>Suy luận</b> (R2Q8), <b>Ý chính toàn bài</b> (R2Q3) và <b>Thái độ tác giả</b> (R2Q10).</p>",
+          "questions": [
+            {
+              "id": "R2Q1",
+              "type": "mcq",
+              "question": "<span>According to the passage, what has repeated exposure to landing forces from quadruple jumps been linked to?</span>",
+              "options": [
+                "It has been linked to a complete ban on quadruple jumps",
+                "It has been linked to shorter training schedules for young skaters",
+                "It has been linked to improvements in landing technique over time",
+                "It has been linked to stress fractures and chronic joint problems"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q2",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"underestimated\"</strong> in paragraph 2 is closest in meaning to _______.</span>",
+              "options": [
+                "undervalued",
+                "documented",
+                "exaggerated",
+                "witnessed"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q3",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Quadruple jumps are the only factor judges consider in scoring",
+                "Figure skating's blend of sport and art fuels debate on scoring and health",
+                "Broadcasters alone determine how figure skating scoring rules change",
+                "Figure skating judging relies entirely on objective, measurable criteria"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q4",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"they\"</strong> in paragraph 3 refers to _______.</span>",
+              "options": [
+                "skaters",
+                "judging panels",
+                "such accusations",
+                "federation officials"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q5",
+              "type": "mcq",
+              "question": "<span>According to the passage, what are the two components that make up a figure skater's score?</span>",
+              "options": [
+                "An artistry score and a score based on skater popularity",
+                "A technical score and a score based on audience votes",
+                "A technical score and a score for costume design only",
+                "A technical score and a component score for artistry"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a factor affecting skaters' mental health?</span>",
+              "options": [
+                "Very young competitive ages in some skating disciplines",
+                "Constant travel schedules between international competitions",
+                "Every skater experiencing severe anxiety because of subjective judging",
+                "The subjective nature of artistic scoring creating a sense of powerlessness"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q7",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"cultivate\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "imitate",
+                "abandon",
+                "measure",
+                "develop"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R2Q8",
+              "type": "mcq",
+              "question": "<span>What can be inferred from the passage about the use of motion-tracking technology in figure skating judging?</span>",
+              "options": [
+                "It was created because broadcasters demanded shorter competition formats",
+                "It could reduce subjectivity in technical scoring but cannot yet judge artistry",
+                "It has already fully replaced human judges in every major competition",
+                "Coaches increasingly balance technical content against injury risk in training"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R2Q9",
+              "type": "mcq",
+              "question": "<span>According to the passage, what do some sport administrators worry about regarding skaters with strong public personas?</span>",
+              "options": [
+                "That marketability may be rewarded over pure technical achievement",
+                "That broadcasters refuse to air events featuring popular skaters",
+                "That sponsorship deals are now banned in major competitions",
+                "That such skaters always perform worse technically than others"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R2Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall attitude toward the debate over figure skating's classification as art or sport?</span>",
+              "options": [
+                "Focused only on criticizing broadcasters for over-commercializing skating",
+                "Dismissive of concerns about skaters' mental health and injuries",
+                "Balanced, presenting the debate as genuinely unresolved rather than settled",
+                "Firmly convinced that figure skating should not be considered a sport at all"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Elusive Causes of Crime",
+            "text": "<p>Crime has occupied criminologists, economists, and policymakers for well over a century, yet consensus on its fundamental causes remains <strong>elusive</strong> despite an extraordinary volume of accumulated research. Part of the difficulty lies in the sheer diversity of behaviors the term encompasses, ranging from impulsive acts of violence to meticulously planned financial fraud, each of which may respond to entirely different explanatory frameworks and, by extension, different policy interventions. Any attempt to reduce crime to a single cause, however intuitively appealing, tends to collapse once tested against the messy variability of actual criminal behavior across different societies and historical periods.</p><p>Two broad theoretical traditions have long dominated the field, though neither has fully displaced the other. Classical criminology, rooted in eighteenth-century philosophy, treats offenders as rational actors who weigh potential gains against the likelihood and severity of punishment, a framework that continues to underpin much contemporary sentencing policy. Positivist criminology, by contrast, locates the roots of criminal behavior in factors substantially outside an individual's immediate control — psychological disposition, social environment, or even, according to some contested strands of research, biological predisposition — implying that punishment alone addresses only the symptom rather than the underlying cause.</p><p>Empirical support for purely economic explanations of crime is considerably more mixed than early theorists assumed it would be. While concentrated poverty and stark income inequality correlate with elevated crime rates across numerous studies, the relationship is neither uniform nor straightforwardly causal; some economically disadvantaged communities exhibit remarkably low crime rates, a pattern researchers increasingly attribute to the strength of local social networks and informal community oversight rather than to income levels themselves. This suggests that economic deprivation may function less as a direct trigger and more as one condition among several that, in combination, raise the probability of criminal behavior.</p><p>Predictive policing tools, which use historical crime data to forecast where future offenses are statistically likely to occur, have been adopted by numerous police departments on the promise of allocating scarce resources more efficiently — and the underlying premise, however contested its execution has proven, is not without a degree of empirical justification. Departments using such systems in several pilot programs reported modest reductions in certain property-crime categories within targeted zones, though whether these gains reflect genuine crime prevention or merely displacement of criminal activity into neighboring, unmonitored areas remains a question the existing data cannot fully resolve.</p><p>Critics of predictive policing raise a concern that goes well beyond simple accuracy: because the algorithms are trained on historical arrest data, and because policing has historically been concentrated more heavily in certain neighborhoods regardless of actual underlying crime rates, the resulting predictions risk reproducing and even <strong>amplifying</strong> prior patterns of disproportionate enforcement rather than correcting for <strong>them</strong>. Such a feedback loop, once established, may prove difficult to detect from within the system itself, since each cycle of concentrated policing generates precisely the kind of arrest data that appears, superficially, to validate the original prediction.</p><p>Whether punitive deterrence or rehabilitative intervention more effectively reduces reoffending remains a genuinely contested empirical question rather than a settled matter of ideology, and the picture that recidivism research paints resists simple summary. Programs emphasizing education, vocational training, and mental health treatment during incarceration have, in several long-term studies, been associated with meaningfully lower reoffending rates than sentencing length alone would predict, yet the same body of research cautions that these effects vary considerably depending on program quality, participant selection, and the availability of post-release support — variables that are frequently under-reported in studies claiming broad success.</p><p>Taken together, the accumulated evidence resists any tidy narrative in which a single cause, or a single remedy, adequately explains criminal behavior or its prevention. Crime appears instead as an outcome shaped by the interaction of individual circumstance, community structure, and institutional response, an interaction complex enough that even well-designed interventions produce effects that vary substantially depending on context. Policymakers who treat any single theory as sufficient, whether classical, positivist, or purely technological, do so, the evidence suggests, at the cost of overlooking precisely the complexity that decades of criminological research have worked to establish.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R3Q2, R3Q4, R3Q8):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm dữ kiện trực diện trong bài đọc:<ul><li>Với <b>R3Q2</b>, quét từ khóa \"Positivist criminology\" ở đoạn 2 để tìm điểm khác biệt so với thuyết cổ điển (tập trung vào các yếu tố ngoài tầm kiểm soát cá nhân).</li><li>Với <b>R3Q4</b>, quét cụm từ \"economically disadvantaged communities\" ở đoạn 3 để xác định lý do một số khu vực nghèo vẫn có tỷ lệ tội phạm thấp (liên quan đến mạng lưới xã hội địa phương và sự giám sát cộng đồng).</li><li>Với <b>R3Q8</b>, quét cụm từ \"feedback loop\" ở đoạn 5 để giải thích cơ chế tự duy trì của vòng lặp dự đoán tội phạm (hoạt động tuần tra tập trung tạo ra dữ liệu bắt giữ mới, từ đó xác nhận lại dự đoán ban đầu).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R3Q3, R3Q9):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R3Q3</b>, xét ngữ cảnh đoạn 1 mô tả việc mặc dù có khối lượng nghiên cứu khổng lồ nhưng sự đồng thuận về nguyên nhân gốc rễ vẫn chưa đạt được để chọn nét nghĩa cho từ <strong>\"elusive\"</strong>.</li><li>Với <b>R3Q9</b>, xét ngữ cảnh đoạn 5 nói về nguy cơ thuật toán làm gia tăng/trầm trọng hơn các mô hình thực thi pháp luật lệch lạc sẵn có để tìm từ đồng nghĩa thích hợp cho <strong>\"amplifying\"</strong>.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R3Q5):</b> Đọc ngược lại câu liền trước ở đoạn 5 để tìm danh từ số nhiều làm chủ thể logic mà thuật toán có nguy cơ tái lặp hoặc làm trầm trọng thêm thay vì sửa chữa.</li><li><b>Dạng câu hỏi Loại trừ NOT (R3Q6):</b> Đối soát danh sách các yếu tố giúp giảm tỷ lệ tái phạm được nêu ở đoạn 6 (chương trình giáo dục, đào tạo nghề, điều trị tâm thần) để chỉ ra yếu tố không được đề cập làm giảm tỷ lệ này.</li><li><b>Dạng câu hỏi Suy luận (R3Q7):</b> Kết hợp thông tin ở đoạn 5 về việc các công cụ dự đoán sử dụng dữ liệu lịch sử bị lệch lạc, từ đó suy luận về mối quan hệ giữa cảnh sát dự đoán và các mô hình thiên vị sẵn có.</li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R3Q1, R3Q10):</b> Phân tích lập luận toàn cục của văn bản:<ul><li>Với <b>R3Q1</b>, tổng hợp thông tin từ đoạn đầu và đoạn cuối khẳng định tội phạm là kết quả của sự tương tác phức tạp, không thể quy về một lý thuyết đơn lẻ.</li><li>Với <b>R3Q10</b>, nhận diện quan điểm hoài nghi (Skeptical) của tác giả đối với mọi giải thích đơn nguyên về nguyên nhân gây ra tội phạm.</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy bắt đầu bài thi bằng cách giải quyết các câu hỏi định vị nhanh như <b>Quy chiếu</b> (R3Q5) và <b>Từ vựng</b> (R3Q3, R3Q9). Tiếp đó, thực hiện đọc quét dữ kiện cho các câu hỏi <b>Chi tiết</b> (R3Q2, R3Q4, R3Q8) và câu hỏi <b>Loại trừ</b> (R3Q6). Cuối cùng, dựa trên bức tranh thông tin toàn cảnh đã nắm bắt, bạn sẽ dễ dàng xử lý các câu đòi hỏi tính tổng hợp cao gồm <b>Suy luận</b> (R3Q7), <b>Ý chính toàn bài</b> (R3Q1) và <b>Thái độ tác giả</b> (R3Q10).</p>",
+          "questions": [
+            {
+              "id": "R3Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Classical deterrence theory alone fully explains most criminal behavior",
+                "Economic poverty is the sole and direct cause of nearly all crime",
+                "Crime results from interacting causes that resist any single explanatory theory",
+                "Predictive policing has definitively solved the problem of urban crime"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, how does positivist criminology differ from classical criminology in explaining crime?</span>",
+              "options": [
+                "It claims environmental factors have no influence on behavior at all",
+                "It argues punishment is the only effective tool against crime",
+                "It treats offenders as rational actors weighing punishment and reward",
+                "It attributes criminal behavior mainly to factors beyond an individual's control"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"elusive\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "highly detailed",
+                "hard to achieve",
+                "quickly forgotten",
+                "widely accepted"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, why do some economically disadvantaged communities show low crime rates despite poverty?</span>",
+              "options": [
+                "Concentrated poverty and income inequality correlate with elevated crime rates",
+                "Economic deprivation always directly causes higher crime without exception",
+                "Researchers found income levels are completely unrelated to crime rates",
+                "Strong local social networks and community oversight may offset poverty's effects"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R3Q5",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"them\"</strong> in paragraph 5 refers to _______.</span>",
+              "options": [
+                "historical arrest data",
+                "prior patterns of disproportionate enforcement",
+                "the algorithms",
+                "the resulting predictions"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as being associated with lower reoffending rates?</span>",
+              "options": [
+                "Vocational training provided while inmates are incarcerated",
+                "Educational programs offered to inmates during incarceration",
+                "Every program that includes education always guarantees lower reoffending",
+                "The total length of the original prison sentence"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R3Q7",
+              "type": "mcq",
+              "question": "<span>What can be inferred about the relationship between predictive policing and patterns of disproportionate enforcement?</span>",
+              "options": [
+                "The tools may reinforce existing enforcement patterns rather than correct them",
+                "Predictive policing tools were designed specifically to eliminate any bias in arrest data",
+                "Departments using predictive tools reported modest reductions in certain property crimes",
+                "Disproportionate enforcement patterns exist mainly because algorithms were coded with technical errors"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q8",
+              "type": "mcq",
+              "question": "<span>According to the passage, how does the predictive policing feedback loop sustain itself over time?</span>",
+              "options": [
+                "Concentrated policing generates arrest data that appears to confirm the original prediction",
+                "The feedback loop is easily detected and corrected through internal audits",
+                "Police departments deliberately falsify arrest records to support their algorithms",
+                "Policing has historically been concentrated more heavily in certain neighborhoods"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R3Q9",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"amplifying\"</strong> in paragraph 5 is closest in meaning to _______.</span>",
+              "options": [
+                "duplicating",
+                "intensifying",
+                "publicizing",
+                "reducing"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R3Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall stance toward single-cause explanations of crime?</span>",
+              "options": [
+                "Mildly doubtful but ultimately convinced classical theory is correct",
+                "Focused solely on criticizing predictive policing technology specifically",
+                "Neutral to the point of offering no assessment of any theory",
+                "Skeptical, emphasizing that no single theory adequately accounts for crime"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part4",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Solar Power's Uncertain Trajectory",
+            "text": "<p>Solar photovoltaic technology has moved, within roughly two decades, from a niche and heavily subsidized energy source to one of the cheapest forms of new electricity generation in much of the world, a trajectory that few energy analysts anticipated with any confidence as recently as the early 2000s. Not only has the cost of manufacturing solar panels fallen dramatically, but the pace of that decline has itself accelerated in ways that continue to <strong>outstrip</strong> even relatively optimistic industry forecasts, complicating any attempt to project the technology's trajectory more than a few years into the future with real precision.</p><p>The physical efficiency of converting sunlight into electricity remains bound by thermodynamic limits that no amount of engineering can fully overcome, though commercially available panels still operate well below even these theoretical ceilings, leaving meaningful room for incremental improvement. Laboratory prototypes using multi-junction cell designs have achieved efficiencies exceeding forty percent under concentrated light, a figure that may eventually filter down into mass-market products, though the manufacturing costs associated with such designs currently make widespread commercial deployment appear, at best, a distant and uncertain prospect rather than an imminent one.</p><p>Manufacturing a solar panel is not, in itself, an environmentally costless process, and critics of overly enthusiastic solar advocacy are right to note that producing silicon wafers, purifying raw materials, and assembling finished panels all consume considerable energy, some of it still drawn from fossil-fuel sources depending on where manufacturing occurs. Most life-cycle analyses conclude that a typical panel generates enough clean electricity within one to four years to offset the energy invested in producing it, after which the remaining twenty-plus years of its operational life represent a genuine net energy gain — though this payback estimate, researchers caution, varies considerably depending on the panel's manufacturing location and the carbon intensity of that region's electrical grid.</p><p>Grid operators increasingly regard the intermittent nature of solar generation as the technology's most <strong>consequential</strong> limitation, and this concern is not merely theoretical: several regions with high solar penetration have already documented significant operational strain during the transition hours around sunset, when solar output drops sharply just as residential electricity demand typically rises. Battery storage technology, while advancing rapidly, has not yet reached a cost point at which utility-scale deployment can fully resolve <strong>this mismatch</strong> everywhere, leaving many grid operators to rely on a patchwork of natural-gas peaker plants, demand-response programs, and imported power to smooth over the gap, at least for the foreseeable near term.</p><p>Whether solar energy's continued cost decline can be attributed primarily to manufacturing scale, to genuine technological innovation, or to sustained government subsidies remains a matter that economists studying the industry have not fully settled, and the honest answer likely involves some combination of all three operating simultaneously rather than any single dominant factor. Removing subsidies abruptly in markets where they remain substantial could, some analysts argue, slow adoption meaningfully in the short term, even if underlying manufacturing costs continue to fall regardless of policy support, a distinction that matters considerably for how policymakers ought to plan any eventual subsidy phase-out.</p><p>Large-scale solar installations inevitably compete with agriculture, wildlife habitat, and other forms of land use, a tension that has grown more visible as utility-scale solar farms have expanded into rural areas previously used for farming or left as open space. Some research suggests that carefully designed 'agrivoltaic' systems, which combine solar panels with compatible crops or grazing livestock on the same land, may substantially reduce this competition, though such dual-use approaches remain far less common than conventional single-use solar farms and their economic viability across diverse crop types has not been thoroughly established.</p><p>Taken as a whole, solar energy's future contribution to global electricity generation appears to hinge less on any single technological breakthrough than on the simultaneous resolution of several distinct challenges — storage economics, manufacturing decarbonization, land-use tension, and policy design — none of which can be fully addressed in isolation from the others. Analysts who forecast solar's near-total dominance of future electricity markets, and those who dismiss it as fundamentally limited by intermittency, arguably both overstate the degree of certainty that current evidence actually supports.</p>"
+          },
+          "suggestion": "<p><b>Để đạt kết quả tốt cho phần thi này, bạn nên áp dụng các chiến thuật sau đây:</b></p><ul><li><b>Dạng câu hỏi Chi tiết (R4Q2, R4Q4, R4Q8):</b> Sử dụng kỹ năng <b>Scanning</b> (Đọc quét từ khóa) để tìm kiếm chính xác vị trí dữ kiện trong bài đọc:<ul><li>Với <b>R4Q2</b>, quét từ khóa \"thermodynamic limits\" hoặc \"commercially available\" ở đoạn 2 để tìm khẳng định đúng về tiềm năng cải thiện hiệu suất của pin mặt trời thương mại.</li><li>Với <b>R4Q4</b>, quét cụm từ \"payback estimate\" hoặc \"varies\" ở đoạn 3 để xác định hai yếu tố ảnh hưởng trực tiếp đến thời gian hoàn vốn năng lượng (vị trí sản xuất và cường độ phát thải carbon của lưới điện).</li><li>Với <b>R4Q8</b>, quét từ khóa \"agrivoltaic\" ở đoạn 6 để tìm thực trạng triển khai hệ thống kết hợp nông nghiệp và điện mặt trời (giúp giảm xung đột đất đai nhưng vẫn ít phổ biến).</li></ul></li><li><b>Dạng câu hỏi Từ vựng theo ngữ cảnh (R4Q3, R4Q9):</b> Áp dụng kỹ thuật <b>Context Clues</b> (Manh mối ngữ cảnh):<ul><li>Với <b>R4Q3</b>, xét ngữ cảnh đoạn 1 mô tả tốc độ giảm chi phí diễn ra nhanh vượt xa cả những dự báo lạc quan nhất để chọn từ đồng nghĩa cho <strong>\"outstrip\"</strong>.</li><li>Với <b>R4Q9</b>, xét ngữ cảnh đoạn 4 nhấn mạnh tính chập chờn của điện mặt trời là hạn chế lớn nhất/quan trọng nhất mà các đơn vị vận hành lưới điện phải đối mặt để tìm từ đồng nghĩa cho <strong>\"consequential\"</strong>.</li></ul></li><li><b>Dạng câu hỏi Quy chiếu (R4Q5):</b> Đọc câu trước câu chứa cụm <strong>\"this mismatch\"</strong> ở đoạn 4 để xác định sự chênh lệch/mất cân đối giữa sản lượng điện mặt trời sụt giảm vào lúc hoàng hôn và nhu cầu tiêu thụ điện tăng cao của người dân.</li><li><b>Dạng câu hỏi Loại trừ NOT (R4Q6):</b> Đối soát các giải pháp ứng phó được đề cập ở đoạn 4 (nhà máy điện khí tự nhiên, chương trình điều chỉnh phụ tải, điện nhập khẩu) để chỉ ra giải pháp không hề được nhắc đến.</li><li><b>Dạng câu hỏi Suy luận (R4Q7):</b> Kết hợp phân tích ở đoạn 5 về việc các nhà kinh tế học chưa thống nhất nguyên nhân chính (quy mô sản xuất, đổi mới công nghệ hay trợ cấp) để chọn đáp án phản ánh sự kết hợp đồng thời của nhiều yếu tố.</li><li><b>Dạng câu hỏi Ý chính & Thái độ tác giả (R4Q1, R4Q10):</b> Phân tích bức tranh tổng thể của văn bản:<ul><li>Với <b>R4Q1</b>, tổng hợp ý tưởng chính ở đoạn cuối khẳng định tương lai của năng lượng mặt trời phụ thuộc vào việc giải quyết đồng thời nhiều thách thức liên quan.</li><li>Với <b>R4Q10</b>, nhận diện quan điểm của tác giả khi chỉ ra cả dự báo quá lạc quan lẫn quá bi quan đều thổi phồng mức độ chắc chắn để chọn đánh giá thái độ hoài nghi mang tính cân bằng (Skeptical of both).</li></ul></li></ul><p><b>Lời khuyên:</b> Hãy bắt đầu bằng việc xử lý nhanh các câu hỏi định vị rõ ràng như <b>Quy chiếu</b> (R4Q5) và <b>Từ vựng</b> (R4Q3, R4Q9). Tiếp đó, sử dụng kỹ năng đọc quét dữ kiện cho các câu <b>Chi tiết</b> (R4Q2, R4Q4, R4Q8) và câu <b>Loại trừ</b> (R4Q6). Sau cùng, dựa trên bức tranh thông tin toàn cảnh đã ráp nối, bạn sẽ dễ dàng lựa chọn phương án chính xác cho các câu đòi hỏi tư duy tổng hợp gồm <b>Suy luận</b> (R4Q7), <b>Thái độ tác giả</b> (R4Q10) và <b>Ý chính toàn bài</b> (R4Q1).</p>",
+          "questions": [
+            {
+              "id": "R4Q1",
+              "type": "mcq",
+              "question": "<span>What is the main idea of the passage?</span>",
+              "options": [
+                "Battery storage technology has completely solved solar's intermittency problem",
+                "Solar panel efficiency has already reached its absolute theoretical maximum",
+                "Solar energy's future depends on solving several interlinked challenges simultaneously",
+                "Government subsidies alone fully explain solar energy's falling costs"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "R4Q2",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about efficiency improvements in solar technology?</span>",
+              "options": [
+                "Commercial panels operate below theoretical limits, leaving room for gradual gains",
+                "Thermodynamic limits are expected to be fully overcome within a decade",
+                "Commercial solar panels have now matched laboratory efficiency records exactly",
+                "Multi-junction cells have achieved efficiencies exceeding forty percent under concentrated light"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q3",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"outstrip\"</strong> in paragraph 1 is closest in meaning to _______.</span>",
+              "options": [
+                "delay",
+                "exceed",
+                "match",
+                "predict"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q4",
+              "type": "mcq",
+              "question": "<span>According to the passage, what determines how long it takes a solar panel to offset the energy used to manufacture it?</span>",
+              "options": [
+                "Payback time is identical for every panel regardless of where it is made",
+                "A typical panel generates enough clean electricity within one to four years",
+                "Panels never generate more energy than was used to manufacture them",
+                "It varies depending on manufacturing location and that region's grid carbon intensity"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q5",
+              "type": "mcq",
+              "question": "<span>The phrase <strong>\"this mismatch\"</strong> in paragraph 4 refers to _______.</span>",
+              "options": [
+                "battery storage technology",
+                "utility-scale deployment",
+                "the deployment cost point",
+                "the demand-output gap"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q6",
+              "type": "mcq",
+              "question": "<span>According to the passage, which of the following is <b class='uppercase'>NOT</b> mentioned as a way grid operators cope with solar intermittency?</span>",
+              "options": [
+                "Reliance on natural-gas peaker plants during demand spikes",
+                "Construction of new large-scale nuclear power plants nationwide",
+                "Battery storage systems already relied upon everywhere without limits",
+                "Use of demand-response programs to manage peak load"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "R4Q7",
+              "type": "mcq",
+              "question": "<span>According to the passage, what can be inferred about the cause of solar energy's falling costs?</span>",
+              "options": [
+                "The decline likely stems from a combination of factors, not one cause",
+                "The decline is definitively caused only by government subsidies",
+                "Government subsidies exist because manufacturing scale reduced costs first",
+                "The decline results exclusively from genuine technological innovation alone"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q8",
+              "type": "mcq",
+              "question": "<span>According to the passage, what is true about agrivoltaic systems?</span>",
+              "options": [
+                "They may ease land-use competition but remain far less common",
+                "Agrivoltaic systems are now more common than conventional solar farms everywhere",
+                "Solar farms have expanded into rural areas once used for farming",
+                "Their economic viability has been thoroughly proven across every crop type"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "R4Q9",
+              "type": "mcq",
+              "question": "<span>The word <strong>\"consequential\"</strong> in paragraph 4 is closest in meaning to _______.</span>",
+              "options": [
+                "controversial",
+                "temporary",
+                "predictable",
+                "significant"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "R4Q10",
+              "type": "mcq",
+              "question": "<span>What is the author's overall stance toward predictions about solar energy's future role in electricity generation?</span>",
+              "options": [
+                "Focused solely on criticizing battery storage technology's limitations",
+                "Entirely certain that current subsidies alone explain solar's growth",
+                "Mildly skeptical but ultimately confident solar will dominate soon",
+                "Skeptical of both overly optimistic and overly pessimistic forecasts"
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "email",
+          "formatType": "informal",
+          "minWords": 120,
+          "title": "<p class='mb-1'>You should spend about 20 minutes on this task. You recently received an email from your friend, Jimmy, who is thinking about taking a Chinese course.</p> He asked you about the Chinese class you are attending. Read part of his email below.",
+          "content": "<p class='mb-1'>I heard you've been taking a Chinese class recently, and I'm thinking of signing up too. Could you tell me more about it?</p><ul><li>What is the class like?</li><li>How much is the tuition fee?</li><li>What do you think of the teacher?</li></ul>",
+          "description": "Respond to Jimmy's email and answer all of his questions. You should write at least 120 words. You don't need to include your name or addresses. Your response will be evaluated in terms of Task Fulfillment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng đề:</strong></p><p>Đây là dạng <strong>Informal Email</strong> gửi cho bạn bè, chia sẻ trải nghiệm cá nhân về một lớp học. Bạn cần trả lời đầy đủ <strong>3 câu hỏi chính</strong> của Jimmy: lớp học như thế nào, học phí bao nhiêu, và cảm nghĩ về giáo viên. Yêu cầu tối thiểu <strong>120 từ</strong>, giọng văn thân mật, tự nhiên như đang chia sẻ trải nghiệm thật với bạn bè.</p><p><strong>2. Cách xây dựng bố cục logic (Organization):</strong></p><ul><li><strong>Greeting:</strong> Chào hỏi thân mật. Ví dụ: Dear Jimmy,</li><li><strong>Opening:</strong> Bày tỏ sự vui mừng khi nhận được thư. Ví dụ: I was so happy to hear that you're considering taking a Chinese class too!</li><li><strong>Body 1 (Class):</strong> Mô tả lớp học. Ví dụ: The class is quite small, with about ten students, so we get plenty of chances to practice speaking.</li><li><strong>Body 2 (Fee):</strong> Nêu học phí cụ thể. Ví dụ: The tuition fee is around 2 million VND for a three-month course.</li><li><strong>Body 3 (Teacher):</strong> Chia sẻ cảm nghĩ về giáo viên. Ví dụ: As for the teacher, she's really patient and explains grammar points very clearly.</li><li><strong>Closing:</strong> Khuyến khích bạn tham gia. Ví dụ: I really think you'd enjoy it, so let me know if you decide to join!</li><li><strong>Sign-off:</strong> Best wishes, [Your Name].</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng thì Hiện tại đơn để mô tả thói quen, đặc điểm lớp học và giáo viên. Kết hợp tính từ miêu tả cảm xúc, tính cách để bài viết sinh động, chân thực hơn.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Tuition fee:</strong> Học phí</li><li><strong>Native speaker:</strong> Người bản xứ</li><li><strong>Patient teacher:</strong> Giáo viên kiên nhẫn</li><li><strong>Small class size:</strong> Lớp học sĩ số nhỏ</li><li><strong>Interactive lesson:</strong> Bài học tương tác</li><li><strong>Fluent in Chinese:</strong> Thành thạo tiếng Trung</li><li><strong>Enrol in a course:</strong> Đăng ký khóa học</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>First of all:</strong> Trước hết</li><li><strong>As for:</strong> Còn về</li><li><strong>Besides:</strong> Bên cạnh đó</li><li><strong>Overall:</strong> Nhìn chung</li><li><strong>By the way:</strong> Nhân tiện</li></ul><p><strong>Cách diễn đạt cảm xúc (Expressing feelings):</strong></p><ul><li><strong>I was so happy to hear...:</strong> Tôi rất vui khi nghe...</li><li><strong>I really enjoy...:</strong> Tôi thực sự thích...</li><li><strong>I think you'd love it!:</strong> Tôi nghĩ bạn sẽ thích nó!</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ trả lời 1-2 trong số 3 câu hỏi mà đề bài yêu cầu.</li><li>Mô tả quá chung chung, không có chi tiết cụ thể về lớp học, học phí, giáo viên.</li><li>Quên phần chào hỏi hoặc kết thư.</li></ul><p><strong>5. Cách kiểm tra bài trong 2 phút cuối:</strong></p><ul><li>Đếm lại số từ, đảm bảo đạt tối thiểu 120 từ.</li><li>Kiểm tra đã trả lời đủ cả 3 câu hỏi của Jimmy chưa.</li><li>Rà soát lỗi chính tả và cách dùng thì.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy viết như thể bạn đang thật sự kể cho một người bạn nghe về lớp học của mình. Sự chân thực, cụ thể trong ví dụ sẽ giúp bài viết tự nhiên và thuyết phục hơn.</p>"
+        },
+        {
+          "id": "part2",
+          "type": "essay",
+          "formatType": "adv_dis",
+          "minWords": 250,
+          "title": "You should spend about 40 minutes on this task.",
+          "content": "<p class='mb-1'>Advertising has become an inseparable part of modern life, appearing on television, social media, billboards, and almost every website people visit.</p><p class='mb-1'>While advertising helps businesses promote their products and informs consumers about new options, some people believe it also has several negative effects on society and individuals.</p><p class='mb-1'><strong>Discuss the advantages and disadvantages of advertising.</strong></p>",
+          "description": "Write an essay to an educated reader to discuss the advantages and disadvantages of advertising. Include reasons and any relevant examples to support your answer. You should write at least 250 words. Your response will be evaluated in terms of Task Fulfilment, Organization, Vocabulary and Grammar.",
+          "suggestion": "<p><strong>1. Phân tích đề bài và xác định dạng bài:</strong></p><p>Đây là dạng bài <strong>Advantages and Disadvantages Essay</strong>, yêu cầu bạn phân tích cả mặt lợi và mặt hại của quảng cáo trong đời sống hiện đại. Bạn cần trình bày <strong>cân bằng cả hai khía cạnh</strong>, có thể nêu quan điểm cá nhân ở phần kết luận. Yêu cầu tối thiểu <strong>250 từ</strong>, tránh chỉ tập trung vào một phía.</p><p><strong>2. Cách xây dựng bố cục (Organization):</strong></p><ul><li><strong>Introduction:</strong> Giới thiệu vai trò của quảng cáo trong đời sống hiện đại. Ví dụ: Advertising has become an integral part of everyday life, influencing how people shop and make decisions.</li><li><strong>Body 1 (Advantages):</strong> Topic sentence → Explanation → Example. Ví dụ: One major advantage of advertising is that it provides consumers with useful information about new products and services.</li><li><strong>Body 2 (Disadvantages):</strong> Ví dụ: However, advertising also has notable drawbacks, such as encouraging unnecessary spending and sometimes conveying misleading information.</li><li><strong>Body 3 (Ý kiến cá nhân, nếu có):</strong> Ví dụ: In my opinion, while advertising offers real benefits, stricter regulations are needed to prevent misleading claims.</li><li><strong>Conclusion:</strong> Tóm lại cả hai mặt. Ví dụ: In conclusion, although advertising brings certain benefits to both businesses and consumers, its potential drawbacks should not be overlooked.</li></ul><p><strong>3. Chiến lược đạt điểm cao (Vocabulary & Grammar):</strong></p><p>Sử dụng thì Hiện tại đơn để nêu sự thật chung, kết hợp cấu trúc so sánh và nhượng bộ (although, despite) để liên kết hai mặt lợi - hại một cách mạch lạc. Có câu Thesis Statement rõ ràng ở phần mở bài.</p><p><strong>Từ vựng quan trọng:</strong></p><ul><li><strong>Consumer awareness:</strong> Nhận thức của người tiêu dùng</li><li><strong>Brand recognition:</strong> Nhận diện thương hiệu</li><li><strong>Misleading information:</strong> Thông tin sai lệch</li><li><strong>Impulse buying:</strong> Mua sắm bốc đồng</li><li><strong>Market competition:</strong> Cạnh tranh thị trường</li><li><strong>Targeted advertising:</strong> Quảng cáo nhắm mục tiêu</li><li><strong>Consumerism:</strong> Chủ nghĩa tiêu dùng</li></ul><p><strong>Từ nối (Linking words):</strong></p><ul><li><strong>On the positive side / On the other hand:</strong> Về mặt tích cực / Mặt khác (Thêm ý)</li><li><strong>However / Nevertheless:</strong> Tuy nhiên (Đối lập)</li><li><strong>As a result / Consequently:</strong> Do đó (Nguyên nhân - kết quả)</li><li><strong>For example / For instance:</strong> Ví dụ như (Minh họa)</li><li><strong>Despite this:</strong> Mặc dù vậy (Nhượng bộ)</li><li><strong>In conclusion / Overall:</strong> Nhìn chung (Kết luận)</li></ul><p><strong>Diễn đạt lại ý (Paraphrasing):</strong></p><ul><li><strong>Promotional content:</strong> Thay cho \"advertising\".</li><li><strong>Excessive spending habits:</strong> Thay cho \"unnecessary spending\".</li><li><strong>The general public:</strong> Thay cho \"consumers\".</li></ul><p><strong>Cách diễn đạt ý kiến / so sánh:</strong></p><ul><li><strong>One clear benefit is...:</strong> Một lợi ích rõ ràng là...</li><li><strong>Compared to its drawbacks...:</strong> So với những hạn chế của nó...</li><li><strong>From my point of view...:</strong> Theo quan điểm của tôi...</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ tập trung liệt kê lợi ích hoặc chỉ hạn chế, thiếu cân bằng cả hai mặt.</li><li>Không có ví dụ cụ thể minh họa cho từng luận điểm.</li><li>Kết luận lặp lại y nguyên câu mở bài mà không tổng hợp lại ý.</li></ul><p><strong>5. Cách kiểm tra bài trong 3–5 phút cuối:</strong></p><ul><li>Kiểm tra xem cả lợi ích và hạn chế đều được trình bày cân đối.</li><li>Đảm bảo bài viết đạt tối thiểu 250 từ.</li><li>Rà soát lỗi ngữ pháp và tính liên kết giữa các đoạn văn.</li></ul><p><strong>6. Tư duy làm bài:</strong></p><p>Hãy giữ thái độ khách quan khi phân tích, tránh thiên vị quá mức về một phía. Mỗi luận điểm nên đi kèm ví dụ thực tế để bài viết có sức thuyết phục cao hơn.</p>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking",
+      "tasks": [
+        {
+          "id": "part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "Do you often take breaks during work or study?",
+            "What do you usually do during your breaks?",
+            "How important do you think breaks are for productivity?",
+            "Do you prefer indoor or outdoor activities?",
+            "What do you usually do in your office during your free time?",
+            "Do you think a comfortable workplace affects how well you perform?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Phần thi này kéo dài <strong>3 phút</strong> với <strong>6 câu hỏi</strong>, được giám khảo hỏi trực tiếp theo hình thức hội thoại tự nhiên.</li><li><strong>Chủ đề A (Giờ nghỉ giải lao):</strong> Ba câu hỏi đầu xoay quanh thói quen nghỉ giải lao, hoạt động trong giờ nghỉ và tầm quan trọng của việc nghỉ ngơi với hiệu suất làm việc.</li><li><strong>Chủ đề B (Hoạt động trong/ngoài trời và nơi làm việc):</strong> Ba câu hỏi sau khai thác sở thích hoạt động trong nhà hay ngoài trời, thói quen trong văn phòng và ảnh hưởng của môi trường làm việc.</li><li>Tiêu chí chấm điểm gồm: <strong>Độ trôi chảy (Fluency)</strong>, <strong>Từ vựng (Vocabulary)</strong>, <strong>Ngữ pháp (Grammar)</strong> và <strong>Phát âm (Pronunciation)</strong>.</li><li>Nên phân bổ khoảng <strong>25–30 giây</strong> cho mỗi câu hỏi, tránh dồn quá nhiều thời gian cho một chủ đề.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Áp dụng cấu trúc <strong>Answer – Reason – Example (ARE)</strong>: trả lời trực tiếp, đưa lý do, sau đó minh họa bằng ví dụ cụ thể.</li><li><strong>Ví dụ Chủ đề A:</strong> \"Yes, I usually take a short break every two hours because it helps me stay focused and avoid mental fatigue.\"</li><li><strong>Ví dụ Chủ đề B:</strong> \"I prefer indoor activities like reading, but I try to spend time outdoors on weekends to get some fresh air.\"</li><li>Luôn tự hỏi <strong>Why?/How?</strong> sau mỗi câu trả lời ngắn để mở rộng ý (bắt buộc).</li><li>Dùng một câu chuyển ý ngắn gọn khi chuyển từ Chủ đề A sang B, ví dụ: \"Now, let's move on to how I spend my time at the workplace...\" (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Giữ tốc độ nói đều, sử dụng các từ đệm tự nhiên như \"well\", \"actually\" để tránh im lặng kéo dài.</li><li>Về thì: dùng <strong>hiện tại đơn</strong> khi nói về thói quen nghỉ ngơi và hoạt động trong/ngoài trời (\"I usually...\", \"I tend to...\"), dùng <strong>hiện tại hoàn thành</strong> nếu nhắc đến trải nghiệm tích lũy (\"I have noticed that short breaks improve my focus\").</li><li>Nếu quên từ, hãy diễn giải bằng cách mô tả (paraphrase) thay vì dừng lại.</li><li>Từ vựng Chủ đề A: <strong>take a breather</strong> (nghỉ giải lao ngắn), <strong>mental fatigue</strong> (mệt mỏi tinh thần), <strong>boost productivity</strong> (tăng năng suất), <strong>step away from the desk</strong> (rời khỏi bàn làm việc).</li><li>Từ vựng Chủ đề B: <strong>get some fresh air</strong> (hít thở không khí trong lành), <strong>a cozy workspace</strong> (không gian làm việc ấm cúng), <strong>stay indoors</strong> (ở trong nhà), <strong>a comfortable environment</strong> (môi trường thoải mái).</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>recharge my energy</strong> (nạp lại năng lượng) — Chủ đề A.</li><li><strong>avoid burnout</strong> (tránh kiệt sức) — Chủ đề A.</li><li><strong>a well-deserved rest</strong> (một khoảng nghỉ xứng đáng) — Chủ đề A.</li><li><strong>a change of scenery</strong> (thay đổi không gian) — Chủ đề B.</li><li><strong>foster creativity</strong> (thúc đẩy sự sáng tạo) — Chủ đề B.</li><li><strong>a well-organized office</strong> (văn phòng được sắp xếp gọn gàng) — Chủ đề B.</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>Actually,</strong> – mở đầu ý kiến cá nhân tự nhiên (thực ra thì).</li><li><strong>In terms of...</strong> – giới hạn phạm vi câu trả lời (về mặt...).</li><li><strong>Apart from that,</strong> – bổ sung ý (bên cạnh đó).</li><li><strong>The main reason is that...</strong> – nêu lý do chính.</li><li><strong>Speaking of...</strong> – chuyển chủ đề mượt mà (nói đến...).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"Personally, I think regular breaks are essential for maintaining focus throughout the day.\" (Cá nhân tôi nghĩ...) — Chủ đề A.</li><li>\"From my point of view, short walks during breaks work better than staying on my phone.\" (Theo quan điểm của tôi...) — Chủ đề A.</li><li>\"As far as I'm concerned, a comfortable workplace has a direct impact on how productive I feel.\" (Theo tôi thì...) — Chủ đề B.</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Trả lời cụt lủn kiểu \"Yes\" hoặc \"Indoor\" mà không giải thích thêm — đây là lỗi nghiêm trọng nhất.</li><li>Với Chủ đề A: chỉ nói \"I take breaks\" mà không mô tả cụ thể mình làm gì trong lúc nghỉ.</li><li>Với Chủ đề B: nhầm lẫn giữa \"in the office\" và \"at the office\", hoặc không phân biệt rõ giữa sở thích và thói quen thực tế.</li><li>Dùng sai thì, ví dụ dùng thì tương lai khi mô tả thói quen hiện tại.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Dùng câu chêm: \"That's an interesting question, let me think for a moment\" để có thêm thời gian.</li><li>Nếu quên từ vựng cụ thể, hãy mô tả bằng từ đơn giản hơn, ví dụ thay vì \"break room\" có thể nói \"a place where employees can rest during work\".</li><li>Với Chủ đề A, nếu không nhớ chi tiết, có thể nói chung chung về \"a short rest to clear my mind\" rồi phát triển thêm.</li><li>Với Chủ đề B, nếu bí ý tưởng, hãy liên hệ đến cảm giác thoải mái khi làm việc trong một không gian dễ chịu.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy xem đây như một cuộc trò chuyện thân mật, không phải một bài kiểm tra căng thẳng.</li><li>Khi chuyển từ Chủ đề A sang B, hãy \"reset\" tâm lý và coi đó là một câu hỏi hoàn toàn mới.</li><li>Ưu tiên sự tự nhiên và trôi chảy hơn là cố gắng dùng từ vựng học thuật phức tạp.</li></ul>"
+        },
+        {
+          "id": "part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class='mb-1'>Your family is choosing an elementary school for your younger sister.</p><p class='mb-1'>You are considering the following options:</p><ul><li>Option 1: A private school</li><li>Option 2: An international school</li><li>Option 3: A public school</li></ul><p class='mb-2'>Choose the best option and explain your reasons.</p>",
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Tình huống: gia đình bạn đang chọn trường tiểu học cho em gái.</li><li>Ba lựa chọn: <strong>trường tư thục (private school)</strong>, <strong>trường quốc tế (international school)</strong>, và <strong>trường công lập (public school)</strong>.</li><li>Tiêu chí chấm điểm: khả năng phân tích, so sánh và đưa ra kết luận thuyết phục, cùng với Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>4 phút</strong> — khoảng 1 phút chuẩn bị và 3 phút trình bày.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>I-C-E (Introduction – Comparison/Body – End)</strong>: giới thiệu tình huống, phân tích lần lượt ba lựa chọn, sau đó kết luận và đưa ra lý do.</li><li><strong>Option 1 (trường tư):</strong> \"A private school usually offers smaller class sizes and more personalized attention, but the tuition fees can be quite high.\"</li><li><strong>Option 2 (trường quốc tế):</strong> \"An international school provides a strong foreign language environment and modern facilities, though it is often the most expensive choice.\"</li><li><strong>Option 3 (trường công):</strong> \"A public school is affordable and close to home, but class sizes tend to be larger, which may reduce individual attention.\"</li><li>Mẹo: luôn neo lập luận vào bối cảnh thực tế của một gia đình đang cân nhắc học phí và chất lượng giáo dục (bắt buộc).</li><li>Mẹo: dùng từ nối tương phản như \"however\", \"on the other hand\" để chuyển giữa ưu và nhược điểm (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Liên kết ba lựa chọn với nhau thay vì nói tách biệt, ví dụ: \"Compared to Option 3, Option 2 offers a more international learning environment.\"</li><li>Về thì: dùng <strong>câu điều kiện loại 1</strong> khi dự đoán hệ quả (\"If she attends an international school, she will improve her English quickly\") và <strong>hiện tại đơn</strong> khi mô tả đặc điểm từng loại trường.</li><li>Paraphrase cụm \"choose a school\" thành \"select an educational institution\" hoặc \"decide on a school\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>personalized attention</strong> (sự quan tâm cá nhân hóa).</li><li><strong>tuition fees</strong> (học phí).</li><li><strong>a well-rounded education</strong> (nền giáo dục toàn diện).</li><li><strong>modern facilities</strong> (cơ sở vật chất hiện đại).</li><li><strong>class size</strong> (sĩ số lớp học).</li><li><strong>within a reasonable budget</strong> (trong ngân sách hợp lý).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>On the other hand,</strong> – nêu quan điểm đối lập (mặt khác).</li><li><strong>Compared to...,</strong> – so sánh giữa các lựa chọn.</li><li><strong>Taking everything into account,</strong> – tổng kết trước khi kết luận (xét tổng thể).</li><li><strong>Nevertheless,</strong> – nhấn mạnh điểm trái ngược (tuy nhiên).</li><li><strong>As a result,</strong> – nêu hệ quả (kết quả là).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"If it were up to me, I would choose the private school because it balances quality and cost reasonably well.\" (Nếu là tôi...)</li><li>\"I would strongly recommend the international school if the family can afford the tuition.\" (Tôi sẽ khuyên...)</li><li>\"In my opinion, the public school is a practical choice for families with a limited budget.\" (Theo ý kiến của tôi...)</li></ul><p><strong>4. Các lỗi thường gặp:</strong></p><ul><li>Chỉ khen lựa chọn mình chọn mà không chỉ ra nhược điểm của các lựa chọn còn lại.</li><li>Lặp đi lặp lại từ \"good\"/\"expensive\" thay vì dùng tính từ học thuật hơn như \"beneficial\", \"costly\".</li><li>Không đưa ra kết luận rõ ràng ở cuối bài nói.</li></ul><p><strong>5. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Nếu quên từ vựng chuyên ngành giáo dục, chuyển hướng sang yếu tố chi phí hoặc khoảng cách để tiếp tục lập luận.</li><li>Dùng câu chêm: \"Let's evaluate this option from a different perspective\" để có thêm thời gian suy nghĩ.</li><li>Nếu bí ý ở một lựa chọn, hãy bình tĩnh chuyển sang phân tích lựa chọn tiếp theo.</li></ul><p><strong>6. Tư duy làm bài nói:</strong></p><ul><li>Hãy suy nghĩ như một người thân trong gia đình đang thực sự cân nhắc cho việc học của em gái.</li><li>Đưa ra một vài gợi ý cải thiện ngay cả cho lựa chọn được chọn để thể hiện tư duy phản biện.</li><li>Sự mạch lạc và logic trong lập luận quan trọng hơn việc dùng từ vựng phức tạp.</li></ul>"
+        },
+        {
+          "id": "part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits of investment in the arts",
+          "mindmap": {
+            "title": "Benefits of Investment in the Arts",
+            "ideas": [
+              "Improving individual skills and creativity",
+              "Contributing to cultural growth and preservation",
+              "Boosting economic development through creative industries",
+              "[your own ideas]"
+            ]
+          },
+          "media": {
+            "image": ""
+          },
+          "followUp": [
+            "How can governments encourage more investment in the arts?",
+            "Do you think art education should be compulsory in schools?",
+            "What role do the arts play in shaping a country's international image?"
+          ],
+          "suggestion": "<p><strong>1. Phân tích đề bài:</strong></p><ul><li>Chủ đề: <strong>Lợi ích của việc đầu tư vào nghệ thuật</strong>, với 3 nhánh ý chính và 1 nhánh ý cá nhân (gợi ý nhánh thứ 4: nghệ thuật giúp nâng cao đời sống tinh thần của cộng đồng).</li><li>Tiêu chí chấm điểm: khả năng phát triển ý mạch lạc theo sơ đồ tư duy, cùng Fluency, Vocabulary, Grammar và Pronunciation.</li><li>Thời gian: <strong>5 phút</strong>; khoảng 3–3.5 phút cho bài nói chính, phần còn lại dành cho câu hỏi follow-up.</li></ul><p><strong>2. Cách xây dựng bố cục khi nói (Organization):</strong></p><ul><li>Sử dụng cấu trúc <strong>IDEA (Introduction – Detail – Example – Add/wrap up)</strong> vì chủ đề mang tính xã hội và kinh tế, cần cả lý lẽ lẫn ví dụ thực tế.</li><li><strong>Ví dụ 1 (mở bài):</strong> \"Investing in the arts brings a wide range of benefits, from personal development to national economic growth.\"</li><li><strong>Ví dụ 2 (nhánh cá nhân):</strong> \"Personally, I believe that the arts also play a role in improving people's mental well-being by providing a creative outlet for self-expression.\"</li><li>Mẹo: khi nói về từng nhánh ý, hãy đưa ra một ví dụ cụ thể như một lễ hội nghệ thuật hoặc ngành công nghiệp sáng tạo để minh họa.</li><li>Mẹo: bám sát sơ đồ tư duy để tránh lan man, không lặp lại ý đã nói (bắt buộc).</li></ul><p><strong>3. Chiến lược đạt điểm cao (Fluency, Vocabulary & Grammar):</strong></p><ul><li>Dùng cụm từ chuyển tiếp mượt mà giữa các nhánh ý, ví dụ \"Another significant benefit is...\".</li><li>Về thì: dùng <strong>hiện tại đơn</strong> để nêu sự thật/quan điểm chung (\"The creative industry contributes significantly to the economy\") và <strong>hiện tại hoàn thành</strong> để nói về trải nghiệm tích lũy (\"I have taken part in several art workshops\").</li><li>Paraphrase \"investment in the arts\" bằng \"funding for the arts\" hoặc \"supporting artistic activities\" để tránh lặp từ.</li></ul><p><strong>Cụm từ quan trọng nên dùng:</strong></p><ul><li><strong>nurture creativity</strong> (nuôi dưỡng sự sáng tạo).</li><li><strong>preserve cultural heritage</strong> (bảo tồn di sản văn hóa).</li><li><strong>the creative industry</strong> (ngành công nghiệp sáng tạo).</li><li><strong>generate revenue</strong> (tạo ra doanh thu).</li><li><strong>a source of national pride</strong> (niềm tự hào dân tộc).</li><li><strong>enhance quality of life</strong> (nâng cao chất lượng cuộc sống).</li></ul><p><strong>Từ nối khi nói (Linking Words):</strong></p><ul><li><strong>To begin with,</strong> – mở đầu nhánh ý đầu tiên (trước hết).</li><li><strong>Moreover,</strong> – bổ sung ý (hơn nữa).</li><li><strong>Another point worth noting is...</strong> – chuyển sang nhánh ý mới.</li><li><strong>In addition to that,</strong> – mở rộng ý (thêm vào đó).</li><li><strong>To sum up,</strong> – kết luận (tóm lại).</li></ul><p><strong>Cách thể hiện quan điểm tự nhiên:</strong></p><ul><li>\"I would say that investing in the arts is just as important as investing in science or technology.\" (Tôi cho rằng...)</li><li>\"From what I've seen, countries with strong art industries often enjoy a more positive international image.\" (Theo những gì tôi quan sát được...)</li><li>\"It seems to me that supporting local artists helps preserve traditions that might otherwise be lost.\" (Đối với tôi thì có vẻ như...)</li></ul><p><strong>4. Gợi ý trả lời câu hỏi follow-up:</strong></p><ul><li><strong>\"How can governments encourage more investment in the arts?\"</strong> – By offering grants, tax incentives, and public funding for artists and cultural institutions.</li><li><strong>\"Do you think art education should be compulsory in schools?\"</strong> – Yes, because it nurtures creativity and helps students develop skills beyond academic subjects.</li><li><strong>\"What role do the arts play in shaping a country's international image?\"</strong> – The arts showcase a nation's culture and creativity, helping to attract tourism and build cultural diplomacy.</li></ul><p><strong>5. Các lỗi thường gặp:</strong></p><ul><li>Chỉ liệt kê ý mà không giải thích hoặc cho ví dụ cụ thể.</li><li>Quên nhánh ý cá nhân — nên chuẩn bị trước một quan điểm riêng liên quan đến nghệ thuật.</li><li>Dành quá nhiều thời gian cho bài nói chính, không còn thời gian trả lời follow-up.</li></ul><p><strong>6. Chiến lược xử lý khi bí ý hoặc quên từ:</strong></p><ul><li>Neo vào một hoạt động nghệ thuật thực tế mà bản thân từng tham gia hoặc chứng kiến khi bí ý.</li><li>Câu chêm học thuật: \"That is a complex issue. If we evaluate it from a societal viewpoint...\"</li><li>Nếu quên từ vựng chuyên ngành, dùng mô tả đơn giản, ví dụ thay vì \"patronage\" có thể nói \"financial support given to artists\".</li></ul><p><strong>7. Tư duy làm bài nói:</strong></p><ul><li>Suy nghĩ từ góc nhìn của cả cá nhân, xã hội và nền kinh tế khi đánh giá lợi ích của nghệ thuật.</li><li>Sự mạch lạc và logic trong luồng ý là yếu tố then chốt để đạt điểm cao.</li><li>Đừng cố nhồi nhét từ vựng khó, hãy ưu tiên truyền tải ý tưởng rõ ràng và tự nhiên.</li></ul>"
+        }
+      ]
+    }
+  ]
+}

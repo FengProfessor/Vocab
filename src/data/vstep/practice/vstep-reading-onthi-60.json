@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-60",
+  "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 05 (Reading Part 2 - Test 05)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 2 - Test 05",
+            "text": "<p style=\"text-align:justify;\">As the world's population continues to grow, cities are facing unprecedented challenges in managing resources, infrastructure, and environmental impact. Sustainable urban development has emerged as a crucial approach to creating cities that can meet the needs of present residents without <strong>compromising</strong> the ability of future generations to meet their own needs. This concept encompasses everything from energy use and waste management to transportation systems and green spaces.</p>\n\n<p style=\"text-align:justify;\">One of the key principles of sustainable urban development is reducing carbon emissions and energy consumption. Many cities are now investing in renewable energy sources such as solar and wind power to reduce their dependence on fossil fuels. Additionally, improving public transportation systems encourages people to use cars less frequently, which not only reduces pollution but also decreases traffic congestion. <strong>These</strong> initiatives are essential for combating climate change while also improving the quality of life for urban residents.</p>\n\n<p style=\"text-align:justify;\">Another important aspect is the creation and preservation of green spaces within cities. Parks, gardens, and urban forests provide numerous benefits: they improve air quality, reduce the urban heat island effect, offer recreational opportunities, and support biodiversity. Cities like Singapore and Copenhagen have become leaders in <strong>integrating</strong> nature into urban environments, demonstrating that dense populations and green spaces can <strong>coexist</strong> harmoniously. These green areas are not merely aesthetic additions but essential components of a healthy urban ecosystem.</p>\n\n<p style=\"text-align:justify;\">However, implementing sustainable urban development faces significant obstacles. The initial costs of green infrastructure and renewable energy systems can be high, making it difficult for cities with limited budgets to adopt these practices. There may also be resistance from residents and businesses who are accustomed to traditional ways of doing things. Despite these challenges, the long-term benefits—including reduced operating costs, improved public health, and enhanced resilience to climate change—make sustainable development a worthwhile investment. As urban populations continue to expand, cities that embrace sustainability will be better positioned to thrive in the future.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r60-q1",
+              "type": "mcq",
+              "question": "What is the main topic of this passage?",
+              "options": [
+                "The history of urban planning",
+                "Sustainable approaches to city development",
+                "Population growth in developing countries",
+                "The disadvantages of living in cities"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r60-q2",
+              "type": "mcq",
+              "question": "The word \"compromising\" in paragraph 1 is closest in meaning to ____.",
+              "options": [
+                "improving or enhancing",
+                "harming or endangering",
+                "understanding or accepting",
+                "measuring or calculating"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r60-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, how can cities reduce carbon emissions?",
+              "options": [
+                "By building more roads for cars",
+                "By using renewable energy and improving public transport",
+                "By increasing population density",
+                "By reducing the number of parks"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r60-q4",
+              "type": "mcq",
+              "question": "The word \"These\" in paragraph 2 refers to ____.",
+              "options": [
+                "cities around the world",
+                "fossil fuels",
+                "renewable energy and improved transportation efforts",
+                "present and future generations"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r60-q5",
+              "type": "mcq",
+              "question": "According to paragraph 3, which of the following is NOT mentioned as a benefit of urban green spaces?",
+              "options": [
+                "Improving air quality",
+                "Providing recreation areas",
+                "Increasing property values",
+                "Supporting biodiversity"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r60-q6",
+              "type": "mcq",
+              "question": "The word \"integrating\" in paragraph 3 most likely means ____.",
+              "options": [
+                "removing or eliminating",
+                "separating or dividing",
+                "combining or incorporating",
+                "ignoring or neglecting"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r60-q7",
+              "type": "mcq",
+              "question": "The word \"coexist\" in paragraph 3 suggests that ____.",
+              "options": [
+                "dense populations and green spaces cannot work together",
+                "green spaces must replace all buildings",
+                "dense populations and green spaces can exist together successfully",
+                "cities should focus only on green spaces"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r60-q8",
+              "type": "mcq",
+              "question": "According to paragraph 4, what is a major obstacle to sustainable urban development?",
+              "options": [
+                "Lack of available technology",
+                "High initial costs",
+                "Too many green spaces",
+                "Excessive public support"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r60-q9",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that cities which adopt sustainable practices ____.",
+              "options": [
+                "will face immediate financial losses",
+                "will be better prepared for future challenges",
+                "must eliminate all modern technology",
+                "should stop population growth completely"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r60-q10",
+              "type": "mcq",
+              "question": "The author's attitude toward sustainable urban development is ____.",
+              "options": [
+                "doubtful and skeptical",
+                "supportive and encouraging",
+                "angry and critical",
+                "indifferent and neutral"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

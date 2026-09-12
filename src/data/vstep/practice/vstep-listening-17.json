@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-17",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 17",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-17/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>And now for tomorrow's weather. Partly cloudy in the morning for London and the south-east but overcast by midday with rain in the afternoon. Temperatures will range from 11-19°C. There'll also be rain in the north which will quickly spread to the rest of the country. Rain will be very heavy in some areas by late afternoon especially in western and central England and there will be strong winds over most of mainland Britain.</li></ul><p><b>Question 2.</b></p><ul><li>Hello. This is the lost property office. There's no one here to take your call at present but if you've lost something please listen carefully to the following message. If you've lost valuables such as jewelry, cash or credit cards you'll need to contact your nearest police station as soon as possible to make a statement. In the case of a credit card you should also contact your bank immediately. For any other items please call in at our office between 9am and 5pm Monday to Friday. Thank you.</li></ul><p><b>Question 3.</b></p><ul><li>Erm ... yeah, hello, yes, it's me. Look, I know I'm supposed to be in the meeting now but something's come up. I feel dreadful about it, but. Oh, what a day this has been! First my train was delayed for half an hour then ... er... Anyway, I could still have got there but would you believe it my engine's packed in and I'm stranded here next to the motorway until the breakdown service turns up. I'm so sorry.</li></ul><p><b>Question 4.</b></p><ul><li>Late last night thieves broke into Mac Hannan Hall where a collection of the late Lady Betty Baldridge's paintings statues and antiques are on display to the public. The thieves, who disabled a sophisticated electronic security system ignored all the less valuable paintings and pieces on display taking only. The Lonely Wanderer by Karl van Turbeck. The 1-metre high bronze figure which stands on a marble base is regarded as the jewel of the Baldridge collection and is valued at over £5 million.</li></ul><p><b>Question 5.</b></p><ul><li>This isn't terribly difficult but if you're one of those people who won't even change a light bulb just call a breakdown service. Anyway, make sure you're safely off the road with your hazard triangle in place at least 20 meters behind you. Find the jack, spanner and spare they should all be in the boot and check the spare isn't flat, too. Put the jack in place under your car but before you begin to lift the side of the car. Don't forget to loosen the nuts on the wheel. Then jack the car up undo the nuts & take off the wheel.</li></ul><p><b>Question 6.</b></p><ul><li>Attention, please. We would like to remind you that next Monday at nine o'clock we will be having our yearly staff picnic. All staff and their families are invited to attend. Plenty of food and drink will be provided for everyone and we will be having our famous barbecue. We will also have our annual fun and games. Prizes include a new DVD player and a holiday.</li></ul><p><b>Question 7.</b></p><ul><li>Due to problems with the lighting the concert has to be postponed until Friday the 22. The concert will also be moved from hall A to the larger hall C. A bigger venue means a five hundred tickets will now be available twice the original number. Because of the extra tickets will now be priced at the lower cost of twenty dollars.</li></ul><p><b>Question 8.</b></p><ul><li>In the event of a fire please follow these directions. Stand up and walk towards the nearest exit. Do not run, and do not try to gather your things. When outside, wait for your teacher on the football field. Next week we will have the first of our two annual fire drills. Thank you.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which part(s) of England will have the heaviest rainfall?",
+              "options": [
+                "London and south-east",
+                "Northern",
+                "Western and Central",
+                "mainland Britain"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What should you do in case of losing money?",
+              "options": [
+                "call the lost property office",
+                "to contact the police to make a statement",
+                "to contact your bank immediately",
+                "go to the lost property office"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Why can’t she be at the meeting?",
+              "options": [
+                "Her flight was delayed.",
+                "She is feeling unwell.",
+                "Her car has broken down.",
+                "Her train was delayed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What was stolen in the burglary?",
+              "options": [
+                "a painting",
+                "a statue",
+                "a famous jewel",
+                "antiques"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What are the instructions about?",
+              "options": [
+                "how to change a light bulb",
+                "how to change your car’s hazard lights",
+                "what to do if your car breaks down",
+                "how to change a flat tire"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Which prizes are mentioned?",
+              "options": [
+                "A holiday and a CD player",
+                "A DVD player and a CD player",
+                "A DVD player and a holiday",
+                "A holiday and a television"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "How much would five tickets cost?",
+              "options": [
+                "$100",
+                "$50",
+                "$20",
+                "$200"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "If there is a fire, what should you do?",
+              "options": [
+                "Run out of the building",
+                "Stay seated",
+                "Walk out of the building",
+                "Jog out of the building"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-17/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> All right. Saturday's the big day. Are you ready? Yes, Susan?</li><li><b>W:</b> Tests make me nervous. What can I do?</li><li><b>M:</b> Good question. It's natural to be a little nervous before a test. The important thing is: don't panic. You've studied hard for this test. You can pass it. Be confident! Relax! Now, you're more likely to be relaxed if you are well prepared. Here are some tips. First, before you leave home, check to make sure you have everything you need. You should have your admission ticket. This was mailed to you last week. You should have two number-two pencils and a good eraser. You should have identification your student ID card, a driver's license, or a passport. If you're taking the math portion of the test, you should have a calculator. Second, know what you can't bring to the test. You cannot bring a watch with a loud alarm. You cannot bring any food or drink. You cannot bring extra paper to write on. You cannot bring any books, notes, or dictionaries. You cannot bring compasses, rulers, protractors, or other aids - except for the calculator. You cannot bring colored pens, pencils, or highlighters. You cannot bring cell phones or pagers. You cannot bring any portable tape recorders, walkmans, or headphones. Questions?</li><li><b>W:</b> Um...what if I uh, have to go to the bathroom during the test?</li><li><b>M:</b> You can't. So go before! Don't worry, there will be breaks after each section of the test. You'll be able to go then.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi there. On last week's programme, we interviewed the man behind the idea of the International camps so I thought that this week you'd be interested to hear more about one of the camps which will be held later this year over to you Michael.</li><li><b>M:</b> Thank you. Yes, the Camp is open to everyone between the ages of 18 to 23. You don't have to be a student. You don't even have to be employed but you must be able to speak one foreign language in addition to your mother tongue.</li><li><b>W:</b> OK. And what about accommodation?</li><li><b>M:</b> Well, the International Camp organisers supply tents which sleep up to four people. But you are unlikely to know the people who you'll be sharing a tent with. The nationalities are mixed so you'll be sharing with people who may not even speak your language!</li><li><b>W:</b> Sounds interesting. Who does the cooking at the Camp?</li><li><b>M:</b> Everybody is expected to help with the running of the Camp. That means helping to prepare food, keeping the camp site clean and tidy, and so on. The Camp organisers are looking for people who can get along with others whatever happens.</li><li><b>W:</b> And is there anything you need to take?</li><li><b>M:</b> Well as I've said, tents are provided but you'll need to bring your own pillow, knife, fork and spoon. If you get chosen, you're also asked to bring along photographs, postcards, anything that shows some of the traditions and customs of your own country. Everything goes into an exhibition at the start of the Camp together with a huge map of the world showing the different countries people come from.</li><li><b>W:</b> And is there any entertainment?</li><li><b>M:</b> Yes, there is. Everyone helps to provide the Camp entertainment. You are expected to sing, dance or play something musical. It doesn't matter how good or bad you are. There is a space on the form to write down what you can do.</li><li><b>W:</b> Sounds great fun. And what does it all cost?</li><li><b>M:</b> Well, you have to find your own way to the Camp so it's up to you whether you fly, cycle, walk, hitch-hike or whatever. The charge for a week's Camp is 300 dollars. But you'll have to change that into your own currency to get a better idea of the cost. You have to pay the full cost before you arrive. But you can pay in any currency you want or you can use a credit card if you have one. Right. Now for the phone number to ring ...</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> In today's programme. David Green has come along to tell us all about Waterside Shopping Centre near Northport. Good morning, David.</li><li><b>M:</b> Good morning. Well, I visited Waterside last week and I think it has something for everyone and I would recommend it for a day out. It's taken three years to build and finally opened three weeks ago, two months later than planned. Firstly, getting there; there are organized coach trips from most towns in the area but they leave early and come home very late, so I drove. There are 12,000 free parking spaces, so parking is no problem. You can also get there by train, but the station is 15 minutes from Waterside by bus and the buses are really crowded so you sometimes have a long wait.</li><li><b>W:</b> And what about opening times?</li><li><b>M:</b> Well, one thing to remember is that the shops don't open till 10.00 in the morning except on Saturday when they open at 9.00. So don't get there too early on a weekday. They close at 8 o'clock every day except Friday when they're open until 9 pm.</li><li><b>W:</b> Can you tell us some more about the facilities at the shopping centre?</li><li><b>M:</b> Yes, it's arranged on three levels. You'll find all your favourites here. In fact, if you want to buy a pair of shoes there are 15 different shops to choose from on levels one and two. When you run out of money there are seven different banks but collect your money before you get to the third level as there aren't any banks up there. On that level, however, there are several restaurants as well as a cinema with seven screens. And don't get lost like I did, go to the information desk on the first level and get a map.</li><li><b>W:</b> What else can you do at Waterside?</li><li><b>M:</b> Before you go back to your car or the bus and in fact it might be better to do this before you go shopping and have too much to carry go and see the lake. Take a walk or have a go at fishing, sailing or wind surfing if you have time. Or you can rest your tired feet and watch the birds and ducks, but you are asked not to feed them.</li><li><b>W:</b> Was there anything you didn't like about the shopping centre?</li><li><b>M:</b> Oh. Well, although I had a good day, I would complain about one thing but not the usual thing the service in the shops was good and I had an excellent lunch in a cafe. No, the silly thing was that everywhere was quite clean but people were dropping their sweet papers and empty drink cans on the ground because there wasn't anywhere else to throw them. Apart from that I would recommend it.</li><li><b>W:</b> And so that's all for today's programme ...</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why do students need identification?",
+              "options": [
+                "The professor can't remember their names.",
+                "The test requires it.",
+                "There are not enough calculators.",
+                "Too many students want to take the test."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "According to the professor, why is it important to be prepared for the test?",
+              "options": [
+                "It will make you nervous.",
+                "It will help you relax.",
+                "It will guarantee that you get a high mark.",
+                "It will save time on the day of the test."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What is the speaker's main point?",
+              "options": [
+                "What type of questions will be on the test",
+                "Which subjects will be on the test",
+                "How long the test will last",
+                "Things you should and shouldn't bring for the test"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does the professor imply?",
+              "options": [
+                "There will be a test on Saturday.",
+                "There will be no school on Saturday.",
+                "Saturday is the longest day of the year.",
+                "He doesn't like Saturdays."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What must you be if you want to apply for the Camp?",
+              "options": [
+                "be a student",
+                "be at least twenty-four years old",
+                "be employed",
+                "speak more than one language."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What can you expect in a camp tent?",
+              "options": [
+                "mix with other nationalities.",
+                "share with five other people.",
+                "know the other people.",
+                "share with people from the same nationality."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What do you NOT have to take to the Camp?",
+              "options": [
+                "tent",
+                "a knife",
+                "pictures",
+                "postcards"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How must the Camp fees be paid?",
+              "options": [
+                "in dollars.",
+                "by cheque.",
+                "before the Camp starts.",
+                "in your own currency"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "According to the speaker, what is the best way of travelling to Waterside?",
+              "options": [
+                "coach.",
+                "car.",
+                "train.",
+                "bus."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "On Fridays, what time are the shops open from?",
+              "options": [
+                "8 o'clock",
+                "9 o'clock",
+                "10 o'clock",
+                "11 o'clock"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What can you NOT do at Waterside?",
+              "options": [
+                "feed the ducks",
+                "go shopping",
+                "go sailing",
+                "go wind surfing"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does the speaker complain about?",
+              "options": [
+                "There was nowhere to put rubbish.",
+                "The food in the café was disappointing.",
+                "The service in the shops was slow.",
+                "There weren't any bathrooms."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-17/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1 (Questions 21-25)</b></p><p>Welcome, ladies and gentlemen, to the Morecambe Museum of Fashion. Before we go up to the fashion exhibition ‘Clothes of the Future’ I would like to show you some slides on the screen, and say a few words about the history of fashion.</p><p>I will also mention some of the important people in fashion. This will provide an introduction for you and will prepare you for the clothes that we’re going to see in the exhibition. As I’m sure you know nowadays fashion is something that almost everybody enjoys. People of all age groups and all incomes usually have an interest in what they wear. But this has only recently happened, and I will tell you why. Until the beginning of this century, it was only the rich who could afford to follow fashion. There were no factories to make many copies of the same article, as there are today. Rich men and women wore trousers, jackets and dresses which were made especially for them. This picture here shows a young lady being measured for a dress that she will have made by hand, exactly how she wants it to be. Ladies’ clothes in those days were long and usually tight-fitting and made of heavy material. However, the new century – the 1900s – brought new ideas.</p><p>The important person at this time was Coco Chanel who started making clothes in 1908, in Paris. Many people think she was the 20th century’s most important influence on fashion. Chanel loved to wear loose-fitting clothes and produced jackets and skirts which everyone admired. Here’s a picture of one of her ladies’ suits. Even today people still wear styles like this when they want to look smart.</p><p>Young Paris designers all began to produce simple clothes, and skirts started to get shorter. The idea of special clothes for playing sports also became popular in the early 1920s. Things like long shorts and tennis clothes started to become fashionable. Soon factories produced these new styles more cheaply and then many more people were able to enjoy fashion. In 1947, after the Second World War Christian Dior used all the new materials available to produce a fashion which was known as the ‘New Look’. As you can see in this picture, he made skirt lengths longer again. Later, in the 60s, ‘flower power’ and student fashion were popular. In London, Mary Quant introduced short skirts. These were worn with boots that went up to the knee. Look at the white, shiny boots in this picture! And now we come to today’s exhibition. Some of the clothes you will see today will be very different from anything which you have seen before. The exhibition aims to take a look at the sort of clothes that we might wear in the next 50 years. Let’s go inside and have a look at the exciting clothes that are waiting for us ...</p><p><b>Talk 2 (Questions 26-30)</b></p><p>Right, everyone about the trip to the Jubilee Arts Centre next Wednesday. As you know, we have tickets for the Centre’s two theatres and the concert hall. Those of you with concert tickets will hear piano music by Chopin and Schumann. Those with tickets for the main theatre will see Shakespeare’s Twelfth Night while people going to the smaller theatre will see The Wild Duck by Ibsen. Although all the theatre and concert tickets have gone if anyone else would like to join us on the trip I can get tickets for the Arts Centre cinema to see the Australian comedy film Spider and Rose. The shows begin at half past seven, but we’ll leave early so you can spend time looking round the Arts Centre. The coach will leave here at 3.30 and arrive at the Arts Centre at about a quarter to five. Let me tell you what you can do there. The Centre has a lot for art-lovers. In the Art Gallery there’s an exhibition of the history of Russian ballet. It has dresses and shoes worn by famous dancers and photos of past performances. With your student card, you can get in very cheaply. There are also some interesting free exhibitions. On the ground floor you can see prize-winning paintings from a children’s competition, and gold jewellery made by Scottish artists. On the first floor there’s an exhibition of South American photographs, and there’s no charge for that either. I know some of you hope to do some shopping. The Centre has a bookshop on the first floor and there’s a souvenir shop by the ticket office. If you’re more interested in clothes and shoes there’s a large shopping centre five minutes’ walk from the Arts Centre. You’ll probably want to eat before the show. The Balcony Restaurant has a menu with a wide range of meals and waiter service, but it is rather expensive. Or there’s the Fountain Restaurant whose special three-course dinner is good value for money. There’s also Charlie’s coffee bar which serves coffee, sandwiches and cakes. You can get fruit juices and ice cream from the cinema kiosk. After the shows the coach will pick us up at the Bridge Street exit. Everyone should be there by twenty past ten. The two plays will finish at around 10.10 or 10.15. I’m afraid concert-goers will have to wait, as the concert finishes earlier, at ten to ten.</p><p><b>Talk 3 (Questions 31-35)</b></p><p>Well, good evening everyone. I’ve come along to talk to you about my painting. It was just a hobby but it’s really more than that now. I used to paint in the evenings after work but now I work four days a week instead of five. That means I spend Friday, Saturday and Sunday on my painting. I have pictures in local exhibitions at least once a month. I’d love to give up my job and spend all my time painting, but I work with computers and I earn more that way! I do make some money from selling my pictures enough to pay for all my paint, brushes and paper and a few art lessons. I’d love to go to art college full-time for three years but I’ve got all the rent on my flat to pay and a car to run. I first became interested in art when I was at primary school. I used to go out with some paper and a few pencils during break time and draw anything I saw: houses, gardens, people. Then at secondary school we had art classes twice a week and I learnt how to use chalk and then different kinds of paint: watercolours, oils and so on. Those classes were really useful for me, and ever since then I’ve had lessons of some kind. I’ve attended evening classes and been on what they call painting ‘holidays’, where you go out into the countryside and paint during the day and then sit and discuss your work with a teacher and the other artists after dinner. Those holidays are great; you learn so much talking to other people studying with you. I’ve enjoyed painting in lots of different countries. I’ve been to Morocco and painted desert scenes with beautiful sunrises. I’ve been to Greece and Spain and painted pictures of the local people working in the fields near their homes. My favourite place is still Scotland. I love walking in the Scottish mountains, and there are so many different birds to see, especially in spring. Well, I’m going to finish now by showing you a video of the places I’ve visited. After that there’ll be a chance to relax with a cup of coffee and then there’ll be time for some questions. Oh, and I’ve got some information about my next art exhibition for you. It’s going to be at the Queen’s Gallery. Now, if someone would turn off the lights ...</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "According to the speaker, who are interested in fashion?",
+              "options": [
+                "rich people.",
+                "young people.",
+                "old people.",
+                "most people."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "How were fashion clothes before the 1900s?",
+              "options": [
+                "they were individually made.",
+                "they were copied from pictures.",
+                "they were made of light material.",
+                "they were often loose-fitting."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What is true about Coco Chanel?",
+              "options": [
+                "She was born in 1908.",
+                "She changed people's ideas about fashion.",
+                "She liked wearing tight-fitting clothes.",
+                "Her designed clothes in the 1900s become out of fashion now."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "How was the fashion in the 1920s?",
+              "options": [
+                "white skirts were fashionable",
+                "clothes started to cost less.",
+                "women took up sports.",
+                "sport clothes were cheap."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "Which of these was part of the ‘New Look’?",
+              "options": [
+                "material with flowers",
+                "very short skirts",
+                "longer skirts",
+                "boots that went up to the knee."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Which tickets are still available?",
+              "options": [
+                "the piano concert.",
+                "Twelfth Night.",
+                "Spider and Rose.",
+                "The Wild Duck"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Which exhibition do visitors have to pay a fee?",
+              "options": [
+                "the Russian ballet exhibition.",
+                "the Scottish jewellery.",
+                "the South American photographs.",
+                "prize winning paintings from a children’s competition."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Where can you buy clothes?",
+              "options": [
+                "on the first floor.",
+                "in the souvenir shop.",
+                "close to the Arts Centre.",
+                "in the main theatre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Where can you enjoy cakes?",
+              "options": [
+                "the Fountain.",
+                "Charlie’s coffee.",
+                "the cinema kiosk.",
+                "The Balcony Restaurant"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What time does the concert end?",
+              "options": [
+                "10.10.",
+                "10.15.",
+                "10.20.",
+                "9.50."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "How often does Sarah paint now?",
+              "options": [
+                "two days a week.",
+                "three days a week.",
+                "five days a week.",
+                "every evening"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How does Sarah use money from her painting?",
+              "options": [
+                "to give up her computing job.",
+                "to pay for her flat and car.",
+                "to pay for her artist’s materials.",
+                "to pay for three-year full-time fee at Art College."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "When did she learn when she was at primary school?",
+              "options": [
+                "she painted pictures of people.",
+                "she learnt to use chalk.",
+                "she learnt to use different kinds of paint.",
+                "she drew scenes in pencil."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What pleased Sarah most about her painting holidays?",
+              "options": [
+                "meeting other artists",
+                "seeing beautiful scenery",
+                "receiving individual teaching",
+                "painting the countryside."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What will the audience NOT do after watching Sarah’s video?",
+              "options": [
+                "find out some information about the next exhibition.",
+                "look round an art exhibition.",
+                "have a break and a drink.",
+                "ask Sarah some questions."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
