@@ -7,8 +7,8 @@ import {
   Headphones,
   BookOpen,
   Languages,
-  Zap,
   Award,
+  ShieldCheck,
   Search,
   Library,
   FileUp,
@@ -128,15 +128,6 @@ export function buildStudentNavSections(opts?: {
           match: (pathname) => pathname.startsWith('/practice/codemix'),
           onboardingId: 'practice-codemix',
         },
-        {
-          href: '/practice/vocab-station',
-          label: '100 Động từ cốt lõi',
-          icon: Zap,
-          match: (pathname) =>
-            pathname.startsWith('/practice/vocab-station') ||
-            pathname.startsWith('/practice/verb-drill'),
-          onboardingId: 'practice-vocab-station',
-        },
       ],
     },
     {
@@ -145,10 +136,19 @@ export function buildStudentNavSections(opts?: {
       items: [
         {
           href: '/toeic',
-          label: 'Thi thử TOEIC chuẩn ETS',
+          label: 'Thi thử TOEIC',
           icon: Award,
+          badge: 'ETS 990',
           match: (pathname) => pathname.startsWith('/toeic'),
           onboardingId: 'toeic',
+        },
+        {
+          href: '/vstep',
+          label: 'Thi thử VSTEP',
+          icon: ShieldCheck,
+          badge: 'B1–C1',
+          match: (pathname) => pathname.startsWith('/vstep'),
+          onboardingId: 'vstep',
         },
       ],
     },

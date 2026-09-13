@@ -53,17 +53,17 @@ async function runNavTests() {
   assert(learnHrefs.includes('/review'), 'Learn group contains /review (Ôn tập ngắt quãng)');
   assert(learnHrefs.includes('/grammar/learn'), 'Learn group contains /grammar/learn (Ngữ pháp ứng dụng)');
 
-  // Group 2: Kỹ năng thực hành (4 items)
-  assert(sections[1].items.length === 4, `Section 'Kỹ năng thực hành' has 4 items, got ${sections[1].items.length}`);
+  // Group 2: Kỹ năng thực hành (3 items)
+  assert(sections[1].items.length === 3, `Section 'Kỹ năng thực hành' has 3 items, got ${sections[1].items.length}`);
   const practiceHrefs = sections[1].items.map((i) => i.href);
   assert(practiceHrefs.includes('/practice/listening'), 'Practice group contains /practice/listening (Luyện nghe Video)');
   assert(practiceHrefs.includes('/practice/pack-reading'), 'Practice group contains /practice/pack-reading (Luyện đọc hiểu)');
   assert(practiceHrefs.includes('/practice/codemix'), 'Practice group contains /practice/codemix (Đặt câu song ngữ)');
-  assert(practiceHrefs.includes('/practice/vocab-station'), 'Practice group contains /practice/vocab-station (100 Động từ cốt lõi)');
 
-  // Group 3: Khảo thí (1 item)
-  assert(sections[2].items.length === 1, `Section 'Khảo thí' has 1 item, got ${sections[2].items.length}`);
-  assert(sections[2].items[0].href === '/toeic', 'Exam group contains /toeic (Thi thử TOEIC chuẩn ETS)');
+  // Group 3: Khảo thí (2 items: TOEIC & VSTEP)
+  assert(sections[2].items.length === 2, `Section 'Khảo thí' has 2 items, got ${sections[2].items.length}`);
+  assert(sections[2].items[0].href === '/toeic', 'Exam group contains /toeic (Thi thử TOEIC)');
+  assert(sections[2].items[1].href === '/vstep', 'Exam group contains /vstep (Thi thử VSTEP)');
 
   // Group 4: Tra cứu & Kho (3 items)
   assert(sections[3].items.length === 3, `Section 'Tra cứu & Kho' has 3 items, got ${sections[3].items.length}`);
@@ -134,16 +134,10 @@ async function runNavTests() {
   assert(codemixItem.match('/practice/codemix') === true, 'codemix item matches /practice/codemix');
   assert(codemixItem.match('/practice/listening') === false, 'codemix item does not match /practice/listening');
 
-  const vocabStationItem = findItem('/practice/vocab-station')!;
-  assert(vocabStationItem.match('/practice/vocab-station') === true, 'vocab-station item matches /practice/vocab-station');
-  assert(vocabStationItem.match('/practice/verb-drill') === true, 'vocab-station item matches /practice/verb-drill');
-  assert(vocabStationItem.match('/practice/listening') === false, 'vocab-station item does not match /practice/listening');
-
   // Practice Hub direct access: /practice should not falsely highlight any specific subpath
   assert(listeningItem.match('/practice') === false, '/practice does not match listening');
   assert(readingItem.match('/practice') === false, '/practice does not match reading');
   assert(codemixItem.match('/practice') === false, '/practice does not match codemix');
-  assert(vocabStationItem.match('/practice') === false, '/practice does not match vocab-station');
 
   // /toeic subpaths
   const toeicItem = findItem('/toeic')!;
@@ -151,6 +145,13 @@ async function runNavTests() {
   assert(toeicItem.match('/toeic/part5/ref-1') === true, 'toeic item matches /toeic/part5/ref-1');
   assert(toeicItem.match('/toeic/exam/full-1') === true, 'toeic item matches /toeic/exam/full-1');
   assert(toeicItem.match('/practice') === false, 'toeic item does not match /practice');
+
+  // /vstep subpaths
+  const vstepItem = findItem('/vstep')!;
+  assert(vstepItem.match('/vstep') === true, 'vstep item matches /vstep');
+  assert(vstepItem.match('/vstep/exam/vstep-mock-01') === true, 'vstep item matches /vstep/exam/vstep-mock-01');
+  assert(vstepItem.match('/practice') === false, 'vstep item does not match /practice');
+  assert(vstepItem.match('/toeic') === false, 'vstep item does not match /toeic');
 
   // Vault subpaths
   const dictItem = findItem('/dictionary')!;
@@ -182,12 +183,13 @@ async function runNavTests() {
 
   // Check section 2 in drawer
   assert(drawerSections[1].id === 'practice', 'Drawer section 1 is practice');
-  assert(drawerSections[1].items.length === 4, `Drawer section 1 has all 4 practice items, got ${drawerSections[1].items.length}`);
+  assert(drawerSections[1].items.length === 3, `Drawer section 1 has 3 practice items, got ${drawerSections[1].items.length}`);
 
   // Check section 3 in drawer
   assert(drawerSections[2].id === 'exam', 'Drawer section 2 is exam');
-  assert(drawerSections[2].items.length === 1, `Drawer section 2 has /toeic, got ${drawerSections[2].items.length}`);
-  assert(drawerSections[2].items[0].href === '/toeic', 'Drawer section 2 item is /toeic');
+  assert(drawerSections[2].items.length === 2, `Drawer section 2 has 2 items (/toeic & /vstep), got ${drawerSections[2].items.length}`);
+  assert(drawerSections[2].items[0].href === '/toeic', 'Drawer section 2 item 0 is /toeic');
+  assert(drawerSections[2].items[1].href === '/vstep', 'Drawer section 2 item 1 is /vstep');
 
   // Check section 4 in drawer
   assert(drawerSections[3].id === 'vault', 'Drawer section 3 is vault');
