@@ -9,9 +9,8 @@ import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  ArrowDownToLine, Brain, LogOut, Loader2, Plus,
-  User, LayoutGrid, ArrowRight,
-  Menu, X, Clock, Search, ChevronDown, UserPlus, Sparkles, School, Copy,
+  Loader2, Plus, ArrowRight,
+  X, Clock, Search, ChevronDown, UserPlus, Sparkles,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -939,110 +938,6 @@ export default function StudentDashboard() {
             </div>
           </div>
 
-          {/* Classroom Switcher Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-slate-200/80 bg-white p-2.5 shadow-sm">
-            <div className="flex items-center gap-2 min-w-0 flex-1">
-              <span className="text-xs font-black uppercase tracking-wider text-slate-400 pl-1 shrink-0">Phạm vi:</span>
-              <div className="relative min-w-0 flex-1 sm:max-w-xs">
-                <select
-                  value={currentClassScope}
-                  onChange={(e) => {
-                    if (e.target.value === '__join_new__') {
-                      setJoinError(null);
-                      setJoinCode('');
-                      setIsJoinModalOpen(true);
-                    } else {
-                      handleSwitchScope(e.target.value);
-                    }
-                  }}
-                  className="w-full cursor-pointer appearance-none rounded-xl border border-indigo-200 bg-indigo-50/70 py-1.5 pl-8 pr-8 text-xs sm:text-sm font-black text-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-400 hover:bg-indigo-100/60 transition truncate"
-                >
-                  <option value="__personal__">👤 Kho từ cá nhân (Của bạn)</option>
-                  {enrolledClassrooms.map((cls) => (
-                    <option key={cls.id} value={cls.id}>
-                      🏫 {cls.name} · GV: {cls.teacher.name}
-                    </option>
-                  ))}
-                  <option value="__join_new__">➕ Tham gia lớp học bằng mã...</option>
-                </select>
-                <div className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-indigo-600">
-                  {currentClassScope === '__personal__' ? (
-                    <User className="h-4 w-4" />
-                  ) : (
-                    <School className="h-4 w-4" />
-                  )}
-                </div>
-                <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-indigo-600" />
-              </div>
-            </div>
-
-            <div className="flex items-center gap-1.5 shrink-0">
-              <button
-                type="button"
-                onClick={() => {
-                  setJoinError(null);
-                  setJoinCode('');
-                  setIsJoinModalOpen(true);
-                }}
-                className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition active:scale-95"
-              >
-                <UserPlus className="h-3.5 w-3.5 text-slate-500" />
-                <span className="hidden sm:inline">Tham gia lớp</span>
-                <span className="sm:hidden">Vào lớp</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Active Classroom Banner */}
-          {activeClassroom && (
-            <div className="rounded-2xl border border-indigo-200 bg-gradient-to-r from-indigo-50 via-sky-50 to-white p-3 sm:p-4 shadow-sm">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="flex items-start sm:items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm font-bold">
-                    <School className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="text-sm sm:text-base font-black text-slate-900">{activeClassroom.name}</h3>
-                      <Badge className="bg-indigo-100 text-indigo-800 hover:bg-indigo-100 text-[10px] font-bold">
-                        Đang xem từ vựng của lớp
-                      </Badge>
-                    </div>
-                    <p className="text-xs font-medium text-slate-600 mt-0.5">
-                      Giáo viên: <strong className="text-slate-800">{activeClassroom.teacher.name}</strong>
-                      {activeClassroom.teacher.email ? ` (${activeClassroom.teacher.email})` : ''}
-                      {activeClassroom.joined_at && (
-                        <span className="text-slate-400"> · Tham gia: {new Date(activeClassroom.joined_at).toLocaleDateString('vi-VN')}</span>
-                      )}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 self-start sm:self-center">
-                  {activeClassroom.invite_code && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        navigator.clipboard.writeText(activeClassroom.invite_code!);
-                        toast.success(`Đã sao chép mã lớp: ${activeClassroom.invite_code}`);
-                      }}
-                      className="inline-flex items-center gap-1 rounded-xl border border-indigo-200 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm hover:bg-indigo-50/50 transition"
-                      title="Sao chép mã lớp"
-                    >
-                      <span className="font-mono text-indigo-600 font-bold">{activeClassroom.invite_code}</span>
-                      <Copy className="h-3 w-3 text-slate-400" />
-                    </button>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => handleSwitchScope('__personal__')}
-                    className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-600 hover:bg-slate-50 transition"
-                  >
-                    Kho cá nhân
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* Desktop banner; mobile = fixed popup trong component */}
           <EnableNotifications />
@@ -1057,7 +952,7 @@ export default function StudentDashboard() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {/* Thẻ Học Từ Mới */}
             <Link
-              href={currentClassScope && currentClassScope !== '__personal__' ? `/flashcard?class=${encodeURIComponent(currentClassScope)}&mode=learn` : '/flashcard?mode=learn'}
+              href="/flashcard?mode=learn"
               data-onboarding="learn"
               className="group relative flex items-center justify-between rounded-2xl border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-500 to-indigo-700 p-4 text-white shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/30 active:scale-[0.98]"
             >
@@ -1084,7 +979,7 @@ export default function StudentDashboard() {
 
             {/* Thẻ Ôn Tập FSRS */}
             <Link
-              href={currentClassScope && currentClassScope !== '__personal__' ? `/review?class=${encodeURIComponent(currentClassScope)}` : '/review'}
+              href="/review"
               data-onboarding="review"
               className="group relative flex items-center justify-between rounded-2xl border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-500 to-teal-700 p-4 text-white shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/30 active:scale-[0.98]"
             >
