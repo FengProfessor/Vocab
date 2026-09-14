@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
-import { track } from '@/lib/analytics';
 import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -28,9 +27,7 @@ import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpGoalCard } from '@/components/gamification/XpGoalCard';
 import { ProTrialMilestoneCard } from '@/components/gamification/ProTrialMilestoneCard';
 import type { MilestonePopupPayload } from '@/components/gamification/MilestonePopup';
-import { MobileBottomNav } from '@/components/student/MobileBottomNav';
 import { StudentShell } from '@/components/student/StudentShell';
-import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
 import {
   readWordSummaryCache,
@@ -131,31 +128,17 @@ interface EnrolledClassroom {
   };
 }
 
-interface StudentUserMetadata {
-  email?: string;
-  lingopro_onboarding_completed?: unknown;
-  lingopro_onboarding_version?: unknown;
-  force_onboarding?: boolean;
-}
-
 export default function StudentDashboard() {
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [userMetadata, setUserMetadata] = useState<StudentUserMetadata | null>(null);
   const [words, setWords] = useState<Word[]>([]);
   const [classroomId, setClassroomId] = useState<string | null>(null);
   const [currentClassScope, setCurrentClassScope] = useState<string>('__personal__');
   const currentClassScopeRef = useRef<string>('__personal__');
   const [enrolledClassrooms, setEnrolledClassrooms] = useState<EnrolledClassroom[]>([]);
-  const [joinedClass, setJoinedClass] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isRetryingAI, setIsRetryingAI] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const profileRef = useRef<HTMLDivElement>(null);
   const [dailyActivity, setDailyActivity] = useState<{ date: string; count: number }[]>([]);
   const [todayWords, setTodayWords] = useState(0);
   const [countdown, setCountdown] = useState<string>('');
-  const [grammarDue, setGrammarDue] = useState(0);
   const [vocabPacks, setVocabPacks] = useState<ActiveVocabPack[]>([]);
   const [selectedWord, setSelectedWord] = useState<Word | null>(null);
   const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
@@ -200,9 +183,6 @@ export default function StudentDashboard() {
       const json = await res.json();
       if (json.success && Array.isArray(json.classrooms)) {
         setEnrolledClassrooms(json.classrooms);
-        if (json.classrooms.length > 0) {
-          setJoinedClass(true);
-        }
         return json.classrooms as EnrolledClassroom[];
       }
     } catch (e) {
@@ -218,7 +198,6 @@ export default function StudentDashboard() {
 
       if (session?.user) {
         accessTokenRef.current = session.access_token;
-        setUserMetadata(session.user.user_metadata);
 
         let initialScope = '__personal__';
         if (typeof window !== 'undefined') {
@@ -262,7 +241,6 @@ export default function StudentDashboard() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session?.user) {
         accessTokenRef.current = session.access_token;
-        setUserMetadata(session.user.user_metadata);
         void fetchClassrooms(session.access_token);
         // Chỉ reload khi chưa load (tránh double với getSession)
         if (!loadStartedRef.current) {
@@ -271,7 +249,6 @@ export default function StudentDashboard() {
         }
       } else if (event === 'SIGNED_OUT') {
         loadStartedRef.current = false;
-        setUserMetadata(null);
         accessTokenRef.current = null;
         router.push('/auth');
       }
@@ -356,11 +333,6 @@ export default function StudentDashboard() {
 
     loadActivityStats(token);
 
-    void authFetch('/api/grammar/progress?summary=1', {}, token)
-      .then((r) => r.json())
-      .then((gp) => { if (gp?.success) setGrammarDue(gp.dueCount || 0); })
-      .catch(() => {});
-
     void authFetch('/api/vocab/packs', {}, token)
       .then((response) => response.json())
       .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
@@ -438,9 +410,8 @@ export default function StudentDashboard() {
         })
         .catch(() => null);
 
-      const [profRes, enrollRes] = await Promise.all([
+      const [profRes] = await Promise.all([
         supabase.from('profiles').select('*').eq('id', userId).single(),
-        supabase.from('enrollments').select('id').eq('student_id', userId),
         summaryP,
       ]);
 
@@ -450,7 +421,6 @@ export default function StudentDashboard() {
         return;
       }
       if (profRes.data) setProfile(profRes.data as Profile);
-      setJoinedClass((enrollRes.data?.length ?? 0) > 0);
       setIsLoading(false);
       setWordsLoading(true);
 
@@ -689,23 +659,6 @@ export default function StudentDashboard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: so sánh snapshot cũ vs mới
   }, [gamification.total_xp, gamificationLoading, studyStreak, words.length, profile?.id]);
 
-  // Đóng dropdown profile khi click ra ngoài
-  useEffect(() => {
-    if (!isProfileOpen) return;
-    const onClick = (e: MouseEvent) => {
-      if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
-        setIsProfileOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', onClick);
-    return () => document.removeEventListener('mousedown', onClick);
-  }, [isProfileOpen]);
-
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    router.push('/auth');
-  };
-
   const handleUpdateMeaning = async (wordId: string, translation: string, pos: string, ipa?: string) => {
     try {
       const res = await authFetch('/api/words', {
@@ -722,48 +675,6 @@ export default function StudentDashboard() {
       }
     } catch {
       toast.error('❌ Failed to update meaning');
-    }
-  };
-
-  const handleDeleteWord = async (wordId: string) => {
-    if (!confirm('Are you sure you want to delete this word?')) return;
-    try {
-      const res = await authFetch('/api/words', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ wordId }),
-      });
-      if (res.ok) {
-        toast.success('Word deleted');
-        if (profile?.id) void loadData(profile.id, accessTokenRef.current || undefined, currentClassScopeRef.current);
-      } else {
-        throw new Error('Failed to delete word');
-      }
-    } catch {
-      toast.error('Failed to delete word');
-    }
-  };
-
-  const handleRetryAI = async () => {
-    if (!classroomId || isRetryingAI) return;
-    setIsRetryingAI(true);
-    try {
-      const res = await fetch('/api/words/refresh', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ classroomId }),
-      });
-      if (!res.ok) throw new Error('Background refresh failed');
-      const data = await res.json();
-      if (data.refreshed > 0) {
-        toast.success(`✅ AI analyzed ${data.refreshed} word(s)!`);
-        setTimeout(() => { if (profile?.id) void loadData(profile.id, accessTokenRef.current || undefined, currentClassScopeRef.current); }, 2000);
-      }
-    } catch {
-      // Background maintenance failed - silently log without toast
-      console.warn('Background AI retry failed, will try again next cycle.');
-    } finally {
-      setIsRetryingAI(false);
     }
   };
 
@@ -794,7 +705,6 @@ export default function StudentDashboard() {
       toast.success(`Đã tham gia lớp ${result.data?.name ?? ''}!`);
       if (result.data) {
         setClassroomId(result.data.id);
-        setJoinedClass(true);
         void fetchClassrooms(accessTokenRef.current);
         handleSwitchScope(result.data.id);
       }
@@ -836,18 +746,6 @@ export default function StudentDashboard() {
     const t = setTimeout(() => setDebouncedQuery(searchQuery), 300);
     return () => clearTimeout(t);
   }, [searchQuery]);
-
-  // Onboarding spotlight Grammar (mobile): mở/đóng drawer hamburger
-  useEffect(() => {
-    const open = () => setIsMenuOpen(true);
-    const close = () => setIsMenuOpen(false);
-    window.addEventListener('lingopro-onboarding-open-menu', open);
-    window.addEventListener('lingopro-onboarding-close-menu', close);
-    return () => {
-      window.removeEventListener('lingopro-onboarding-open-menu', open);
-      window.removeEventListener('lingopro-onboarding-close-menu', close);
-    };
-  }, []);
 
   const filteredWords = useMemo(() => {
     let result = [...words];
@@ -1105,6 +1003,15 @@ export default function StudentDashboard() {
                 <span className="truncate">{activeClassroom ? `Từ vựng · ${activeClassroom.name}` : 'Kho từ vựng'}</span>
               </h3>
               <div className="flex flex-wrap items-center justify-end gap-1.5">
+                {activeClassroom && (
+                  <button
+                    type="button"
+                    onClick={() => handleSwitchScope('__personal__')}
+                    className="inline-flex h-7 items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 text-[11px] font-extrabold text-slate-600 hover:bg-slate-50 transition active:scale-95"
+                  >
+                    Về kho cá nhân
+                  </button>
+                )}
                 <Badge variant="outline" className="h-6 px-2 text-[10px] font-bold tabular-nums">
                   {countsReady ? totalWords : '…'} từ
                 </Badge>
