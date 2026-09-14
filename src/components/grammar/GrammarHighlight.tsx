@@ -45,27 +45,27 @@ interface RoleConfig {
 
 const ROLE_CONFIG: Record<GrammarRole, RoleConfig> = {
   // ─── POS mới ───
-  noun:        { bg: 'bg-blue-100',    text: 'text-blue-800',    label: 'Danh từ',     dotColor: '#60a5fa', showInLegend: true },
-  pronoun:     { bg: 'bg-sky-100',     text: 'text-sky-800',     label: 'Đại từ',      dotColor: '#38bdf8', showInLegend: true },
-  verb:        { bg: 'bg-red-100',     text: 'text-red-800',     label: 'Động từ',     dotColor: '#f87171', showInLegend: true },
-  auxiliary:   { bg: 'bg-rose-100',    text: 'text-rose-800',    label: 'Trợ động từ', dotColor: '#fb7185', showInLegend: true },
-  modal:       { bg: 'bg-orange-100',  text: 'text-orange-800',  label: 'Khuyết thiếu', dotColor: '#fb923c', showInLegend: true },
-  adjective:   { bg: 'bg-purple-100',  text: 'text-purple-800',  label: 'Tính từ',     dotColor: '#c084fc', showInLegend: true },
-  adverb:      { bg: 'bg-amber-100',   text: 'text-amber-800',   label: 'Trạng từ',    dotColor: '#fbbf24', showInLegend: true },
-  preposition: { bg: 'bg-teal-100',    text: 'text-teal-800',    label: 'Giới từ',     dotColor: '#2dd4bf', showInLegend: true },
-  conjunction: { bg: 'bg-pink-100',    text: 'text-pink-800',    label: 'Liên từ',     dotColor: '#f472b6', showInLegend: true },
-  determiner:  { bg: 'bg-indigo-100',  text: 'text-indigo-800',  label: 'Hạn định từ', dotColor: '#818cf8', showInLegend: true },
-  article:     { bg: '',               text: 'text-gray-400',    label: 'Mạo từ',      dotColor: '#9ca3af', showInLegend: false },
-  interjection:{ bg: 'bg-yellow-100',  text: 'text-yellow-800',  label: 'Thán từ',     dotColor: '#facc15', showInLegend: true },
+  noun:        { bg: 'bg-blue-100 dark:bg-blue-950/60',       text: 'text-blue-800 dark:text-blue-300',       label: 'Danh từ',     dotColor: '#60a5fa', showInLegend: true },
+  pronoun:     { bg: 'bg-sky-100 dark:bg-sky-950/60',         text: 'text-sky-800 dark:text-sky-300',         label: 'Đại từ',      dotColor: '#38bdf8', showInLegend: true },
+  verb:        { bg: 'bg-rose-100 dark:bg-rose-950/60',       text: 'text-rose-800 dark:text-rose-300',       label: 'Động từ',     dotColor: '#f87171', showInLegend: true },
+  auxiliary:   { bg: 'bg-pink-100 dark:bg-pink-950/60',       text: 'text-pink-800 dark:text-pink-300',       label: 'Trợ động từ', dotColor: '#fb7185', showInLegend: true },
+  modal:       { bg: 'bg-orange-100 dark:bg-orange-950/60',   text: 'text-orange-800 dark:text-orange-300',   label: 'Khuyết thiếu', dotColor: '#fb923c', showInLegend: true },
+  adjective:   { bg: 'bg-purple-100 dark:bg-purple-950/60',   text: 'text-purple-800 dark:text-purple-300',   label: 'Tính từ',     dotColor: '#c084fc', showInLegend: true },
+  adverb:      { bg: 'bg-amber-100 dark:bg-amber-950/60',     text: 'text-amber-800 dark:text-amber-300',     label: 'Trạng từ',    dotColor: '#fbbf24', showInLegend: true },
+  preposition: { bg: 'bg-teal-100 dark:bg-teal-950/60',       text: 'text-teal-800 dark:text-teal-300',       label: 'Giới từ',     dotColor: '#2dd4bf', showInLegend: true },
+  conjunction: { bg: 'bg-fuchsia-100 dark:bg-fuchsia-950/60', text: 'text-fuchsia-800 dark:text-fuchsia-300', label: 'Liên từ',     dotColor: '#f472b6', showInLegend: true },
+  determiner:  { bg: 'bg-indigo-100 dark:bg-indigo-950/60',   text: 'text-indigo-800 dark:text-indigo-300',   label: 'Hạn định từ', dotColor: '#818cf8', showInLegend: true },
+  article:     { bg: '',                                      text: 'text-muted-foreground',                  label: 'Mạo từ',      dotColor: '#94a3b8', showInLegend: false },
+  interjection:{ bg: 'bg-yellow-100 dark:bg-yellow-950/60',  text: 'text-yellow-800 dark:text-yellow-300',  label: 'Thán từ',     dotColor: '#facc15', showInLegend: true },
   // ─── Backward-compat: nhãn chức năng cú pháp cũ ───
-  subject:     { bg: 'bg-blue-100',    text: 'text-blue-800',    label: 'Chủ ngữ',     dotColor: '#60a5fa', showInLegend: true },
-  object:      { bg: 'bg-green-100',   text: 'text-green-800',   label: 'Tân ngữ',     dotColor: '#34d399', showInLegend: true },
-  other:       { bg: '',               text: '',                 label: '',             dotColor: '',        showInLegend: false },
+  subject:     { bg: 'bg-blue-100 dark:bg-blue-950/60',       text: 'text-blue-800 dark:text-blue-300',       label: 'Chủ ngữ',     dotColor: '#60a5fa', showInLegend: true },
+  object:      { bg: 'bg-emerald-100 dark:bg-emerald-950/60', text: 'text-emerald-800 dark:text-emerald-300', label: 'Tân ngữ',    dotColor: '#34d399', showInLegend: true },
+  other:       { bg: '',                                      text: '',                                       label: '',            dotColor: '',        showInLegend: false },
 };
 
-// Fallback inline styles for article (no bg, gray text)
+// Fallback inline styles for article (no bg, muted text)
 const ROLE_INLINE_STYLE: Partial<Record<GrammarRole, React.CSSProperties>> = {
-  article: { color: '#9ca3af' },
+  article: { color: 'var(--muted-foreground)' },
 };
 
 export default function GrammarHighlight({
@@ -77,8 +77,8 @@ export default function GrammarHighlight({
   if (loading) {
     return (
       <div className="space-y-2">
-        <div className="h-6 w-full animate-pulse rounded bg-gray-200" />
-        <div className="h-4 w-2/3 animate-pulse rounded bg-gray-100" />
+        <div className="h-6 w-full animate-pulse rounded bg-muted" />
+        <div className="h-4 w-2/3 animate-pulse rounded bg-muted/60" />
       </div>
     );
   }
@@ -146,7 +146,7 @@ export default function GrammarHighlight({
 
   return (
     <div className="space-y-2">
-      <p className="text-sm font-semibold text-slate-800">{segments}</p>
+      <p className="text-sm font-semibold text-foreground">{segments}</p>
 
       {hasLegend && (
         <div className="flex flex-wrap gap-x-3 gap-y-1 opacity-70">

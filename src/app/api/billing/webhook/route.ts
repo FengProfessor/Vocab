@@ -343,6 +343,27 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         if (confirmResult.success) {
           processedOrders.push({ orderId: order.id, status: 'confirmed' });
           console.log(`[Webhook] Order ${order.id} successfully auto-confirmed.`);
+
+          // Challenge order: activate participant + grant Pro
+          if (order.order_kind === 'challenge') {
+            try {
+              const { activateChallengeParticipant } = await import('@/lib/challenge');
+              const { data: participant } = await supabase
+                .from('challenge_participants')
+                .select('id')
+                .eq('order_id', order.id)
+                .eq('status', 'pending')
+                .maybeSingle();
+              if (participant) {
+                await activateChallengeParticipant(supabase, participant.id);
+                console.log(`[Webhook] Challenge participant ${participant.id} activated for order ${order.id}`);
+              }
+            } catch (chalErr) {
+              console.error(`[Webhook] Failed to activate challenge participant for order ${order.id}:`, chalErr);
+              // Don't fail the webhook — order is already confirmed
+            }
+          }
+
           await supabase
             .from('payment_webhook_events')
             .update({

@@ -55,6 +55,10 @@ const MilestonePopup = dynamic(
   { ssr: false }
 );
 import { UpgradeGiftModal } from '@/components/campaign/UpgradeGiftModal';
+const ChallengeWidget = dynamic(
+  () => import('@/components/challenge/ChallengeWidget').then((m) => m.ChallengeWidget),
+  { ssr: false }
+);
 
 /** Compact notification card: "You have a daily reading exercise!" */
 function DailyReadingCard() {
@@ -1045,6 +1049,9 @@ export default function StudentDashboard() {
 
           {/* Daily reading notification */}
           <DailyReadingCard />
+
+          {/* Challenge campaign widget */}
+          <ChallengeWidget />
 
           {/* CTA chính: Học + Ôn + Luyện Tập Siêu To, Nổi Bật, Dễ Thấy, Dễ Bấm */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

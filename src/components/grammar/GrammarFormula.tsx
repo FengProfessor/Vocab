@@ -36,15 +36,15 @@ function cleanFormulaToken(raw: string): string {
 
 function getTokenBadgeStyle(cleanText: string): string {
   if (cleanText.startsWith('S')) {
-    return 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md border-blue-500';
+    return 'bg-sky-50 text-sky-800 border-sky-200/80 dark:bg-sky-950/50 dark:text-sky-300 dark:border-sky-800';
   }
   if (cleanText.startsWith('V') || cleanText.startsWith('be')) {
-    return 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md border-purple-500';
+    return 'bg-indigo-50 text-indigo-800 border-indigo-200/80 dark:bg-indigo-950/50 dark:text-indigo-300 dark:border-indigo-800';
   }
   if (cleanText.startsWith('O') || cleanText.includes('Bổ ngữ')) {
-    return 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md border-emerald-500';
+    return 'bg-emerald-50 text-emerald-800 border-emerald-200/80 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800';
   }
-  return 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 shadow-md border-slate-700';
+  return 'bg-muted text-foreground border-border/80';
 }
 
 export function GrammarFormula({ code }: { code: string }) {
@@ -57,12 +57,13 @@ export function GrammarFormula({ code }: { code: string }) {
     .filter(Boolean);
 
   return (
-    <div className="my-6 p-4 sm:p-5 rounded-3xl bg-gradient-to-br from-indigo-50/90 via-purple-50/60 to-blue-50/90 dark:from-indigo-950/40 dark:via-purple-950/30 dark:to-slate-900 border border-indigo-100 dark:border-indigo-800/60 shadow-lg space-y-3">
-      <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-indigo-700 dark:text-indigo-300">
-        <span>⚡ Công thức cốt lõi</span>
+    <div className="my-5 p-4 sm:p-5 rounded-2xl bg-card border border-border/80 shadow-xs space-y-3">
+      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+        <span>Công thức cấu trúc</span>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {formulas.map((formula, fIdx) => {
           // Split elements by '+'
           const parts = formula
@@ -73,7 +74,7 @@ export function GrammarFormula({ code }: { code: string }) {
           return (
             <div
               key={fIdx}
-              className="flex flex-nowrap items-center gap-2 sm:gap-3 p-3 bg-white/90 dark:bg-slate-900/90 rounded-2xl border border-indigo-100/80 dark:border-slate-800 shadow-sm overflow-x-auto whitespace-nowrap no-scrollbar"
+              className="flex flex-nowrap items-center gap-2 sm:gap-2.5 p-3 bg-muted/40 rounded-xl border border-border/60 overflow-x-auto whitespace-nowrap scrollbar-none"
             >
               {parts.map((part, pIdx) => {
                 // If part has choices like {am|is|are} or (don't | doesn't)
@@ -85,17 +86,17 @@ export function GrammarFormula({ code }: { code: string }) {
                 return (
                   <React.Fragment key={pIdx}>
                     {pIdx > 0 && (
-                      <span className="text-indigo-400 dark:text-indigo-500 font-black text-base sm:text-lg shrink-0 px-0.5 select-none">
+                      <span className="text-muted-foreground/70 font-semibold text-sm shrink-0 px-0.5 select-none">
                         +
                       </span>
                     )}
 
                     {isStack ? (
-                      <div className="flex flex-col gap-1 p-1 bg-indigo-50 dark:bg-indigo-950/50 rounded-xl border border-indigo-200 dark:border-indigo-800 shrink-0">
+                      <div className="flex flex-col gap-1 p-1 bg-background rounded-lg border border-border/60 shrink-0">
                         {options.map((opt, oIdx) => (
                           <div
                             key={oIdx}
-                            className={`px-3 py-1 rounded-lg text-xs sm:text-sm font-extrabold border text-center transition-all whitespace-nowrap shrink-0 ${getTokenBadgeStyle(opt)}`}
+                            className={`px-3 py-1 rounded-md text-xs font-semibold border text-center transition-colors whitespace-nowrap shrink-0 ${getTokenBadgeStyle(opt)}`}
                           >
                             {opt}
                           </div>
@@ -103,7 +104,7 @@ export function GrammarFormula({ code }: { code: string }) {
                       </div>
                     ) : (
                       <div
-                        className={`px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-extrabold border shadow-sm transition-all whitespace-nowrap shrink-0 ${getTokenBadgeStyle(options[0])}`}
+                        className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border transition-colors whitespace-nowrap shrink-0 ${getTokenBadgeStyle(options[0])}`}
                       >
                         {options[0]}
                       </div>

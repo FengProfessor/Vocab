@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
-import { Brain, Users, BookOpen, Target, TrendingUp, ChevronLeft, CreditCard, Building2 } from 'lucide-react';
+import { Brain, Users, BookOpen, Target, TrendingUp, ChevronLeft, CreditCard, Building2, Trophy } from 'lucide-react';
 import Link from 'next/link';
 import { authFetch } from '@/lib/auth-fetch';
 
@@ -71,6 +71,9 @@ export default function AdminPage() {
           </Link>
           <Link href="/admin/pilot-leads" className="flex items-center gap-1.5 text-sm font-semibold bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 px-4 py-2 rounded-xl transition-colors">
             <Building2 className="h-4 w-4" /> Pilot Leads
+          </Link>
+          <Link href="/admin/challenges" className="flex items-center gap-1.5 text-sm font-semibold bg-amber-500/10 text-amber-700 hover:bg-amber-500/20 px-4 py-2 rounded-xl transition-colors">
+            <Trophy className="h-4 w-4" /> Challenges
           </Link>
           <Link href="/admin/billing" className="flex items-center gap-1.5 text-sm font-semibold bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-xl transition-colors">
             <CreditCard className="h-4 w-4" /> Billing

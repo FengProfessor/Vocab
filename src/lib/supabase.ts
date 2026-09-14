@@ -100,7 +100,7 @@ export interface Classroom {
   enrollment_count?: number;
 }
 
-export type OrderKind = 'individual' | 'group';
+export type OrderKind = 'individual' | 'group' | 'challenge';
 export type GroupStatus = 'active' | 'expired' | 'cancelled';
 
 /** Gói nhóm đã kích hoạt: 1 owner trả gộp, chia ghế Pro cho nhóm bạn. */
@@ -335,6 +335,13 @@ export interface GrammarSections {
     note?: string;
     rows: Record<string, string>[];
   }[];
+  // 25 Buổi Master Curriculum Extensions
+  bigQuestion?: string;
+  outcome?: string;
+  cheatSheetHtml?: string;
+  videoUrl?: string;
+  contrastPairs?: { good?: string; bad?: string }[];
+  traps?: string[];
 }
 
 export interface GrammarExerciseItem {

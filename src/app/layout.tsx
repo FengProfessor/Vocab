@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Be_Vietnam_Pro, Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from 'next-themes';
@@ -7,6 +7,15 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { PostHogProvider } from '@/components/PostHogProvider';
 import { ClientBoot } from '@/components/ClientBoot';
 import { DevFcmButton } from '@/components/DevFcmButton';
+
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ['latin', 'vietnamese'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-be-vietnam-pro',
+  preload: true,
+  adjustFontFallback: true,
+});
 
 const inter = Inter({
   subsets: ['latin', 'vietnamese'],
@@ -72,7 +81,7 @@ const supabaseOrigin = (() => {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="vi" suppressHydrationWarning>
+    <html lang="vi" className={`${beVietnamPro.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         {/* Không auto-register sw-custom ở scope / — xung đột FCM SW, gây getToken fail */}
         {/* Capture beforeinstallprompt sớm — event chỉ bắn 1 lần, trước khi InstallPrompt (dynamic) mount */}
@@ -91,7 +100,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="dns-prefetch" href="https://fcm.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.gstatic.com" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <PostHogProvider>
         <ThemeProvider
           attribute="class"

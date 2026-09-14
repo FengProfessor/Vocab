@@ -307,7 +307,10 @@ export async function createOrder(
   const couponCode = input.couponCode?.trim().toUpperCase() || '';
 
   // Gói nhóm: ép plan = GROUP_PLAN, tính giá theo ghế.
-  const orderKind: OrderKind = input.orderKind === 'group' ? 'group' : 'individual';
+  // Gói challenge: order_kind='challenge', xử lý riêng tại /api/challenges/[id]/join.
+  const orderKind: OrderKind = input.orderKind === 'group' ? 'group'
+    : input.orderKind === 'challenge' ? 'challenge'
+    : 'individual';
   const seats = orderKind === 'group' ? normalizeSeats(input.seats ?? GROUP_SEATS_DEFAULT) : 1;
   const plan: Exclude<Plan, 'free'> = orderKind === 'group' ? GROUP_PLAN : input.plan;
 

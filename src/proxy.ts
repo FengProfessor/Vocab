@@ -39,6 +39,17 @@ function isAllowedOrigin(origin: string | null): boolean {
 }
 
 export function proxy(request: NextRequest) {
+  const url = request.nextUrl.clone();
+  const hostname = request.headers.get('host');
+
+  // Check if the request is for the challenge subdomain
+  if (hostname && hostname.startsWith('challenge.')) {
+    if (!url.pathname.startsWith('/challenge-landing')) {
+      url.pathname = `/challenge-landing${url.pathname === '/' ? '' : url.pathname}`;
+      return NextResponse.rewrite(url);
+    }
+  }
+
   // Only apply CORS logic to API routes
   if (!request.nextUrl.pathname.startsWith('/api/')) {
     return NextResponse.next();
@@ -67,5 +78,7 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/api/:path*',
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico).*)',
+  ],
 };

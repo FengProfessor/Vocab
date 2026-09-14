@@ -159,16 +159,36 @@ export function normalizeLessonExercise(
 
   const rawType = typeof ex.type === 'string' ? ex.type : undefined;
   // Nhiều schema: question | q | prompt | sentence | stem | text
-  const questionText = String(
+  let questionText = String(
     ex.question || ex.q || ex.prompt || ex.sentence || ex.stem || ex.text || '',
   ).trim();
-  const explanationText = String(ex.explanation || ex.fb || '').trim();
+  let explanationText = String(ex.explanation || ex.fb || ex.why || '').trim();
+
+  // Strip duplicate question numbering / prefixes
+  questionText = questionText.replace(/^\s*(?:Câu\s*\d+[\.:]?\s*)?\d+[\.:\)]\s*\d+[\.:\)]\s*/i, '');
+  questionText = questionText.replace(/^(?:(?:Câu|Question)\s*\d+[\.:\s]*){2,}/i, '');
+  questionText = questionText.replace(/^(?:Câu|Question)\s*\d+\s*(?:\(([^)]+)\))?[:\s]*/i, (_m, p1) => {
+    if (p1) return `(${p1}): `;
+    return '';
+  }).trim();
+
+  // Clean explanation noise
+  explanationText = explanationText
+    .replace(/(?:^|[^\w\u00C0-\u1EF9])(?:🟡\s*)?(?:THẺ|Thẻ|Ô|Khung)\s+[A-Z0-9](?:\s*[·:–—.-]\s*|\s+(?=\p{Lu})|(?=[)\]}]|$))/giu, ' ')
+    .replace(/\s*\((?:Ô|Thẻ)\s+[A-Z0-9]\)/giu, '')
+    .replace(/cần thuộc lòng/gi, 'trọng tâm')
+    .replace(/cần thuộc[:\*]*\s*/gi, 'cần nhớ: ')
+    .replace(/\s*[-—–]\s*\*(?:SAI|ĐÚNG|Sai|Đúng)\*/g, '')
+    .replace(/\s*\((?:SAI|ĐÚNG|Sai|Đúng)\)/g, '')
+    .replace(/`slide[^`]*`/gi, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
 
   let optionsList: string[] = [];
   if (rawType === 'tf') {
     optionsList = ['Đúng', 'Sai'];
   } else {
-    optionsList = parseOptions(ex);
+    optionsList = parseOptions(ex).map(o => o.replace(/^([A-D][\.\)])\s*[A-D][\.\)]\s*/i, '$1 '));
   }
 
   const correctAnswer = parseCorrectAnswer(ex, rawType || '');
@@ -195,4 +215,168 @@ export function normalizeLessonExercise(
     type: qType,
     difficulty,
   };
+}
+
+export function cleanGrammarAnswer(s: string): string {
+  return (s || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[’`]/g, "'")
+    .replace(/\s+/g, ' ');
+}
+
+export function expandContractions(str: string): string[] {
+  const base = cleanGrammarAnswer(str)
+    .replace(/\bdđin't\b/g, "didn't")
+    .replace(/\b([a-z]+)\s*\.\.\.\s*([a-z]+)\b/gi, '$1 $2')
+    .replace(/[,/]/g, ' ');
+
+  const var1 = base
+    .replace(/\bdidn't\b/g, 'did not')
+    .replace(/\bdoesn't\b/g, 'does not')
+    .replace(/\bdon't\b/g, 'do not')
+    .replace(/\bisn't\b/g, 'is not')
+    .replace(/\baren't\b/g, 'are not')
+    .replace(/\bwasn't\b/g, 'was not')
+    .replace(/\bweren't\b/g, 'were not')
+    .replace(/\bhaven't\b/g, 'have not')
+    .replace(/\bhasn't\b/g, 'has not')
+    .replace(/\bwon't\b/g, 'will not')
+    .replace(/\bcan't\b/g, 'cannot')
+    .replace(/\bshan't\b/g, 'shall not')
+    .replace(/\bshouldn't\b/g, 'should not')
+    .replace(/\bwouldn't\b/g, 'would not')
+    .replace(/\bcouldn't\b/g, 'could not')
+    .replace(/\bain't\b/g, 'am not')
+    .replace(/\bit's\b/g, 'it is')
+    .replace(/\bhe's\b/g, 'he is')
+    .replace(/\bshe's\b/g, 'she is')
+    .replace(/\bthat's\b/g, 'that is')
+    .replace(/\bthere's\b/g, 'there is')
+    .replace(/\bwhat's\b/g, 'what is')
+    .replace(/\bthey're\b/g, 'they are')
+    .replace(/\byou're\b/g, 'you are')
+    .replace(/\bwe're\b/g, 'we are')
+    .replace(/\bi'm\b/g, 'i am')
+    .replace(/\bi've\b/g, 'i have')
+    .replace(/\bthey've\b/g, 'they have')
+    .replace(/\bwe've\b/g, 'we have')
+    .replace(/\byou've\b/g, 'you have')
+    .replace(/\bi'll\b/g, 'i will')
+    .replace(/\bhe'll\b/g, 'he will')
+    .replace(/\bshe'll\b/g, 'she will')
+    .replace(/\bthey'll\b/g, 'they will')
+    .replace(/\bwe'll\b/g, 'we will')
+    .replace(/\byou'll\b/g, 'you will');
+
+  const var2 = base.replace(/['’]/g, '');
+
+  return [base, var1, var2, cleanGrammarAnswer(str)];
+}
+
+export function areAnswersEqual(userAns: string, correctAns: string): boolean {
+  if (!userAns || !correctAns) return false;
+
+  const strippedUser = userAns.replace(/^[A-D]\.\s*/i, '');
+  const strippedCorrect = correctAns.replace(/^[A-D]\.\s*/i, '');
+
+  if (
+    cleanGrammarAnswer(userAns) === cleanGrammarAnswer(correctAns) ||
+    cleanGrammarAnswer(strippedUser) === cleanGrammarAnswer(strippedCorrect)
+  ) {
+    return true;
+  }
+
+  const uVariants = expandContractions(strippedUser);
+  const cPossibilities = (strippedCorrect || '')
+    .split(/[,/]/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  for (const pos of cPossibilities) {
+    const cVariants = expandContractions(pos);
+    for (const u of uVariants) {
+      if (cVariants.includes(u)) return true;
+      const uStripped = u.replace(/[^a-z0-9]/g, '');
+      for (const c of cVariants) {
+        if (uStripped === c.replace(/[^a-z0-9]/g, '')) return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+/** Checks whether a specific option (by string and 0-indexed index) is the correct answer. */
+export function isOptionMatchingCorrect(
+  opt: string,
+  index: number,
+  correctAns: string | undefined | null,
+): boolean {
+  if (!correctAns) return false;
+  const letter = String.fromCharCode(65 + index);
+  const trimmedAns = correctAns.trim();
+
+  // 1. Single letter in correctAns (e.g. "B")
+  if (/^[A-D]$/i.test(trimmedAns)) {
+    return trimmedAns.toUpperCase() === letter;
+  }
+
+  // 2. Prefixed answer (e.g. "B. had been put out")
+  const prefixMatch = trimmedAns.match(/^([A-D])\.\s*(.*)/i);
+  if (prefixMatch) {
+    if (prefixMatch[1].toUpperCase() === letter) return true;
+    if (areAnswersEqual(opt.replace(/^[A-D]\.\s*/i, ''), prefixMatch[2])) return true;
+  }
+
+  // 3. Text equality
+  const cleanOpt = opt.replace(/^[A-D]\.\s*/i, '').trim();
+  if (areAnswersEqual(cleanOpt, trimmedAns)) return true;
+  if (areAnswersEqual(opt, trimmedAns)) return true;
+
+  return false;
+}
+
+/** Unified checker for user responses against correct answers. */
+export function isGrammarAnswerCorrect(
+  userAns: string,
+  correctAns: string | undefined | null,
+  options?: string[] | null,
+): boolean {
+  if (!userAns || !correctAns) return false;
+  const trimmedAns = correctAns.trim();
+  const trimmedUser = userAns.trim();
+
+  if (areAnswersEqual(trimmedUser, trimmedAns)) return true;
+
+  if (/^[A-D]$/i.test(trimmedAns)) {
+    if (trimmedUser.toUpperCase() === trimmedAns.toUpperCase()) return true;
+    if (trimmedUser.toUpperCase().startsWith(`${trimmedAns.toUpperCase()}.`)) return true;
+    if (options && options.length > 0) {
+      const targetIdx = trimmedAns.toUpperCase().charCodeAt(0) - 65;
+      if (options[targetIdx]) {
+        const optText = options[targetIdx].replace(/^[A-D]\.\s*/i, '').trim();
+        if (areAnswersEqual(trimmedUser, optText)) return true;
+      }
+    }
+  }
+
+  if (/^[A-D]$/i.test(trimmedUser) && options && options.length > 0) {
+    const userIdx = trimmedUser.toUpperCase().charCodeAt(0) - 65;
+    if (options[userIdx]) {
+      return isOptionMatchingCorrect(options[userIdx], userIdx, correctAns);
+    }
+  }
+
+  if (options && options.length > 0) {
+    const matchedOptIdx = options.findIndex((o) => {
+      const cleanO = o.replace(/^[A-D]\.\s*/i, '').trim();
+      return areAnswersEqual(trimmedUser, cleanO) || areAnswersEqual(trimmedUser, o);
+    });
+    if (matchedOptIdx !== -1) {
+      return isOptionMatchingCorrect(options[matchedOptIdx], matchedOptIdx, correctAns);
+    }
+  }
+
+  return false;
 }
