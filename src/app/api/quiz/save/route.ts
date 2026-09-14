@@ -109,7 +109,8 @@ export async function POST(req: Request) {
                 const { data: candidateWords } = await supabase
                   .from('words')
                   .select('classroom_id, word')
-                  .in('classroom_id', enrolledIds);
+                  .in('classroom_id', enrolledIds)
+                  .in('word', wordStrings);
 
                 const countsByClass = new Map<string, number>();
                 for (const cw of candidateWords || []) {
@@ -164,12 +165,14 @@ export async function POST(req: Request) {
       );
     }
 
-    // Award XP + streak. PHẢI await: supabase builder lazy thenable,
-    // `void` không trigger `.then` → request không bao giờ gửi (XP/streak mất).
-    const { error: xpError } = await supabase.rpc('award_xp', { p_user_id: userId, p_xp: score * XP_PER_CORRECT_QUIZ });
-    if (xpError) console.error('[Gamification] award_xp failed:', xpError.message);
+    // Award XP + streak. Only award when score > 0 (award_xp raises DB exception on xp <= 0)
+    const xp = score * XP_PER_CORRECT_QUIZ;
+    if (xp > 0) {
+      const { error: xpError } = await supabase.rpc('award_xp', { p_user_id: userId, p_xp: xp });
+      if (xpError) console.error('[Gamification] award_xp failed:', xpError.message);
+    }
 
-    return NextResponse.json({ success: true, data, xpAwarded: score * XP_PER_CORRECT_QUIZ });
+    return NextResponse.json({ success: true, data, xpAwarded: xp });
   } catch (error: unknown) {
     return safeErrorResponse(error, 'Internal Server Error');
   }

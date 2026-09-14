@@ -120,55 +120,63 @@ export function shouldShowProMilestoneCard(input: {
   return false;
 }
 
+import { cacheGetOrSet } from '@/lib/ttl-cache';
+
 /**
  * Đếm từ học của user — lấy MAX các nguồn để tránh undercount (enroll nhầm power user):
  *  - srs_progress (đã ôn)
  *  - words.added_by
  *  - words trong personal classroom (__personal__)
+ * Có TTL cache 60s để tránh dồn dập count query full-table trên Supabase.
  */
 export async function countUserLearningWords(
   supabase: SupabaseClient,
   userId: string,
 ): Promise<number> {
-  const [srsRes, wordsRes, personalCls] = await Promise.all([
-    supabase
-      .from('srs_progress')
-      .select('word_id', { count: 'exact', head: true })
-      .eq('user_id', userId),
-    supabase
-      .from('words')
-      .select('id', { count: 'exact', head: true })
-      .eq('added_by', userId),
-    supabase
-      .from('classrooms')
-      .select('id')
-      .eq('teacher_id', userId)
-      .eq('name', '__personal__')
-      .maybeSingle(),
-  ]);
+  return cacheGetOrSet(`user-learning-words:${userId}`, 60_000, async () => {
+    const [srsRes, wordsRes, personalCls] = await Promise.all([
+      supabase
+        .from('srs_progress')
+        .select('word_id', { count: 'exact', head: true })
+        .eq('user_id', userId),
+      supabase
+        .from('words')
+        .select('id', { count: 'exact', head: true })
+        .eq('added_by', userId),
+      supabase
+        .from('classrooms')
+        .select('id')
+        .eq('teacher_id', userId)
+        .eq('name', '__personal__')
+        .maybeSingle(),
+    ]);
 
-  if (srsRes.error) {
-    console.warn('[ProMilestone] srs count failed:', srsRes.error.message);
-  }
-  if (wordsRes.error) {
-    console.warn('[ProMilestone] words count failed:', wordsRes.error.message);
-  }
-
-  let personalCount = 0;
-  const clsId = personalCls.data?.id as string | undefined;
-  if (clsId) {
-    const { count, error } = await supabase
-      .from('words')
-      .select('id', { count: 'exact', head: true })
-      .eq('classroom_id', clsId);
-    if (error) {
-      console.warn('[ProMilestone] personal words count failed:', error.message);
-    } else {
-      personalCount = count ?? 0;
+    if (srsRes.error) {
+      const msg = srsRes.error.message || JSON.stringify(srsRes.error);
+      console.warn('[ProMilestone] srs count failed:', msg);
     }
-  }
+    if (wordsRes.error) {
+      const msg = wordsRes.error.message || JSON.stringify(wordsRes.error);
+      console.warn('[ProMilestone] words count failed:', msg);
+    }
 
-  return Math.max(srsRes.count ?? 0, wordsRes.count ?? 0, personalCount);
+    let personalCount = 0;
+    const clsId = personalCls.data?.id as string | undefined;
+    if (clsId) {
+      const { count, error } = await supabase
+        .from('words')
+        .select('id', { count: 'exact', head: true })
+        .eq('classroom_id', clsId);
+      if (error) {
+        const msg = error.message || JSON.stringify(error);
+        console.warn('[ProMilestone] personal words count failed:', msg);
+      } else {
+        personalCount = count ?? 0;
+      }
+    }
+
+    return Math.max(srsRes.count ?? 0, wordsRes.count ?? 0, personalCount);
+  });
 }
 
 /** Đã từng redeem mã NEWBIE* (paid order)? */

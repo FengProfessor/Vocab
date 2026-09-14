@@ -133,10 +133,12 @@ async function importPack(supabase: ReturnType<typeof createServiceClient>, { us
         const teacherId = (enr.classroom as any)?.teacher_id;
         if (!enrolledClassroomId || !teacherId) continue;
 
+        const cleanWordList = words.map((w) => w.trim());
         const { data: existingInClass } = await supabase
           .from('words')
           .select('word')
-          .eq('classroom_id', enrolledClassroomId);
+          .eq('classroom_id', enrolledClassroomId)
+          .in('word', cleanWordList);
 
         const existingClassSet = new Set((existingInClass || []).map((r) => r.word.trim().toLowerCase()));
         const missingForClass = words.filter((w) => !existingClassSet.has(w.trim().toLowerCase()));

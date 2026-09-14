@@ -12,8 +12,8 @@ import {
   userCanWriteClassroom,
 } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
-import { checkWordSaveQuota, resolvePlanByUserId } from '@/lib/entitlement-server';
-import { cacheGet, cacheSet } from '@/lib/ttl-cache';
+import { checkWordSaveQuota, resolvePlanByUserId, invalidateWordSaveUsage } from '@/lib/entitlement-server';
+import { cacheGet, cacheSet, cacheDelete } from '@/lib/ttl-cache';
 import { parseIpa } from '@/lib/study';
 
 /**
@@ -597,6 +597,9 @@ export async function POST(req: Request): Promise<NextResponse> {
     const remainingAfter =
       limit != null ? Math.max(0, limit - usedAfter) : null;
 
+    invalidateWordSaveUsage(userId);
+    cacheDelete(`user-learning-words:${userId}`);
+
     return NextResponse.json({
       success: true,
       message: `"${word}" saved!`,
@@ -935,8 +938,12 @@ export async function GET(req: Request): Promise<NextResponse> {
       headers: { 'Cache-Control': 'private, max-age=15, stale-while-revalidate=30' },
     });
   } catch (error: unknown) {
-    const msg = error instanceof Error ? error.message : 'Unknown error';
-    console.error('GET /api/words Error:', msg);
+    const msg = error instanceof Error
+      ? error.message
+      : typeof error === 'object' && error !== null && 'message' in error
+        ? String((error as any).message)
+        : 'Unknown error';
+    console.error('GET /api/words Error:', msg, error);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }

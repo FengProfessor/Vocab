@@ -199,9 +199,16 @@ export async function checkAndConsumePackReading(
   };
 }
 
+import { cacheGetOrSet, cacheDelete } from '@/lib/ttl-cache';
+
+export function invalidateWordSaveUsage(userId: string): void {
+  cacheDelete(`word-save-usage:${userId}`);
+}
+
 /**
  * Đếm từ Free: trong 1 tháng chu kỳ của học sinh + lifetime.
  * Pro: used=0, lifetime=0, limit=null.
+ * Có TTL cache 60s để tránh dồn dập count query full-table trên Supabase.
  */
 export async function getWordSaveUsage(
   supabase: SupabaseClient,
@@ -213,45 +220,49 @@ export async function getWordSaveUsage(
     return { used: 0, lifetime: 0, limit: null, remaining: null };
   }
 
-  let createdAt = userCreatedAt;
-  if (!createdAt) {
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('created_at')
-      .eq('id', userId)
-      .maybeSingle();
-    createdAt = profile?.created_at as string | null | undefined;
-  }
+  return cacheGetOrSet(`word-save-usage:${userId}`, 60_000, async () => {
+    let createdAt = userCreatedAt;
+    if (!createdAt) {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('created_at')
+        .eq('id', userId)
+        .maybeSingle();
+      createdAt = profile?.created_at as string | null | undefined;
+    }
 
-  const cycleStart = startOfStudentCycle(createdAt);
-  const [monthRes, lifeRes] = await Promise.all([
-    supabase
-      .from('words')
-      .select('id', { count: 'exact', head: true })
-      .eq('added_by', userId)
-      .gte('created_at', cycleStart),
-    supabase
-      .from('words')
-      .select('id', { count: 'exact', head: true })
-      .eq('added_by', userId),
-  ]);
+    const cycleStart = startOfStudentCycle(createdAt);
+    const [monthRes, lifeRes] = await Promise.all([
+      supabase
+        .from('words')
+        .select('id', { count: 'exact', head: true })
+        .eq('added_by', userId)
+        .gte('created_at', cycleStart),
+      supabase
+        .from('words')
+        .select('id', { count: 'exact', head: true })
+        .eq('added_by', userId),
+    ]);
 
-  if (monthRes.error) {
-    console.warn('[Entitlement] word cycle count failed:', monthRes.error.message);
-  }
-  if (lifeRes.error) {
-    console.warn('[Entitlement] word lifetime count failed:', lifeRes.error.message);
-  }
+    if (monthRes.error) {
+      const msg = monthRes.error.message || JSON.stringify(monthRes.error);
+      console.warn('[Entitlement] word cycle count failed:', msg);
+    }
+    if (lifeRes.error) {
+      const msg = lifeRes.error.message || JSON.stringify(lifeRes.error);
+      console.warn('[Entitlement] word lifetime count failed:', msg);
+    }
 
-  const used = monthRes.count ?? 0;
-  const lifetime = lifeRes.count ?? 0;
-  const remaining = Math.max(0, FREE_WORD_SAVE_MONTHLY_LIMIT - used);
-  return {
-    used,
-    lifetime,
-    limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
-    remaining,
-  };
+    const used = monthRes.count ?? 0;
+    const lifetime = lifeRes.count ?? 0;
+    const remaining = Math.max(0, FREE_WORD_SAVE_MONTHLY_LIMIT - used);
+    return {
+      used,
+      lifetime,
+      limit: FREE_WORD_SAVE_MONTHLY_LIMIT,
+      remaining,
+    };
+  });
 }
 
 /**
