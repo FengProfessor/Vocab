@@ -186,6 +186,7 @@ function QuizContent() {
               score: newScore.correct,
               totalQuestions: total,
               quizType: 'vocabulary',
+              wordIds: words.map((w) => w.id),
             }),
           });
         } catch (err) {

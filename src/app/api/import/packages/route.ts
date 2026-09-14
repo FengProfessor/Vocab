@@ -118,6 +118,58 @@ async function importPack(supabase: ReturnType<typeof createServiceClient>, { us
   });
   if (rpcError) throw rpcError;
 
+  // For verbal assignments: if student is enrolled in teacher classrooms,
+  // ensure these words also exist in those classrooms (with added_by = teacher_id)
+  // so the teacher dashboard automatically captures student progress for this topic.
+  try {
+    const { data: enrollments } = await supabase
+      .from('enrollments')
+      .select('classroom_id, classroom:classrooms(id, teacher_id)')
+      .eq('student_id', userId);
+
+    if (enrollments && enrollments.length > 0) {
+      for (const enr of enrollments) {
+        const enrolledClassroomId = enr.classroom_id;
+        const teacherId = (enr.classroom as any)?.teacher_id;
+        if (!enrolledClassroomId || !teacherId) continue;
+
+        const { data: existingInClass } = await supabase
+          .from('words')
+          .select('word')
+          .eq('classroom_id', enrolledClassroomId);
+
+        const existingClassSet = new Set((existingInClass || []).map((r) => r.word.trim().toLowerCase()));
+        const missingForClass = words.filter((w) => !existingClassSet.has(w.trim().toLowerCase()));
+
+        if (missingForClass.length > 0) {
+          const classRows = missingForClass.map((word) => {
+            const cleanWord = word.trim();
+            const gdEntry = gdMap.get(cleanWord.toLowerCase());
+            const gdData = (gdEntry?.data ?? {}) as GdData;
+            const m = gdData.results?.[0]?.meanings?.[0] ?? {};
+            return {
+              classroom_id: enrolledClassroomId,
+              added_by: teacherId,
+              word: cleanWord,
+              translation: m.definition || '⏳ Analyzing...',
+              ipa: gdData.pronunciations?.[0]?.ipa || '',
+              pos: m.pos || '',
+              example: m.example || '',
+              image_url: gdEntry?.image_url || null,
+              image_source: gdEntry?.image_source || 'none',
+              image_confidence: gdEntry?.image_confidence ?? null,
+              synonyms: m.synonyms || [],
+              antonyms: m.antonyms || [],
+            };
+          });
+          await supabase.from('words').insert(classRows);
+        }
+      }
+    }
+  } catch (syncErr) {
+    console.warn('[VocabCatalog] Verbal assignment classroom sync warning:', syncErr);
+  }
+
   return { ok: { imported: rows.length, classroomId, packId, wordIds: orderedWordIds } };
 }
 

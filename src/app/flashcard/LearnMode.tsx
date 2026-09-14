@@ -283,6 +283,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         score: results.correct,
         totalQuestions: batch.length,
         quizType: 'vocabulary',
+        wordIds: batch.map((w) => w.id),
       }),
     }).catch((err) => console.error('[Learn] save session failed:', err));
 

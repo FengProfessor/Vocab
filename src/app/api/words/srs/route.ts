@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
     const { data: word } = await supabase
       .from('words')
-      .select('added_by, classroom_id, classroom:classrooms(teacher_id)')
+      .select('*, classroom:classrooms(teacher_id, name)')
       .eq('id', wordId)
       .maybeSingle();
     if (!word) {
@@ -87,6 +87,124 @@ export async function POST(req: Request) {
 
     if (error) {
       return safeErrorResponse(error, 'Failed to save progress');
+    }
+
+    // For verbal assignments: mirror SRS progress to enrolled classrooms.
+    // If the word exists in the classroom, mirror SRS stats.
+    // If the word does NOT exist in the classroom yet (e.g. newly verbally assigned pack/topic),
+    // automatically ensure the word exists in the classroom under the teacher's ownership,
+    // and link the student's SRS progress so the teacher dashboard accurately captures it.
+    try {
+      const { data: enrollments } = await supabase
+        .from('enrollments')
+        .select('classroom_id, classroom:classrooms(id, teacher_id, name)')
+        .eq('student_id', userId);
+
+      if (enrollments && enrollments.length > 0 && word?.word) {
+        const cleanWord = word.word.trim();
+        const targetEnrollments = enrollments.filter(
+          (e) => e.classroom_id !== word.classroom_id && (e.classroom as any)?.teacher_id
+        );
+
+        for (const enr of targetEnrollments) {
+          const targetClassroomId = enr.classroom_id;
+          const classTeacherId = (enr.classroom as any)?.teacher_id;
+          if (!targetClassroomId || !classTeacherId) continue;
+
+          // Check if word already exists in target classroom (case-insensitive)
+          const { data: existingClassWords } = await supabase
+            .from('words')
+            .select('id, word')
+            .eq('classroom_id', targetClassroomId);
+
+          let targetWordId = existingClassWords?.find(
+            (cw) => cw.word.trim().toLowerCase() === cleanWord.toLowerCase()
+          )?.id;
+
+          // If not in classroom yet, insert it on behalf of the teacher
+          if (!targetWordId) {
+            const { data: insertedWord, error: insErr } = await supabase
+              .from('words')
+              .insert({
+                classroom_id: targetClassroomId,
+                added_by: classTeacherId,
+                word: cleanWord,
+                translation: word.translation || '⏳ Analyzing...',
+                ipa: word.ipa || '',
+                pos: word.pos || '',
+                example: word.example || '',
+                example_vi: word.example_vi || null,
+                image_url: word.image_url || null,
+                image_source: word.image_source || 'global_dict',
+                image_confidence: word.image_confidence ?? null,
+                synonyms: word.synonyms || [],
+                antonyms: word.antonyms || [],
+                dictionary_data: word.dictionary_data || null,
+              })
+              .select('id')
+              .maybeSingle();
+
+            if (!insErr && insertedWord?.id) {
+              targetWordId = insertedWord.id;
+            }
+          }
+
+          if (targetWordId) {
+            await supabase.from('srs_progress').upsert({
+              user_id: userId,
+              word_id: targetWordId,
+              stability: newSRS.stability,
+              difficulty: newSRS.difficulty,
+              interval_days: newSRS.interval_days,
+              review_count: newSRS.review_count,
+              state: newSRS.state,
+              lapses: newSRS.lapses,
+              learning_steps: newSRS.learning_steps,
+              next_review_date: newSRS.next_review_date,
+              last_reviewed_at: newSRS.last_reviewed_at,
+              algorithm_version: 'ts-fsrs',
+            }, { onConflict: 'user_id,word_id' });
+          }
+        }
+      }
+
+      // Also mirror to personal classroom if reviewing within a teacher classroom
+      const { data: personalCls } = await supabase
+        .from('classrooms')
+        .select('id')
+        .eq('teacher_id', userId)
+        .eq('name', '__personal__')
+        .maybeSingle();
+
+      if (personalCls?.id && personalCls.id !== word?.classroom_id && word?.word) {
+        const { data: personalWords } = await supabase
+          .from('words')
+          .select('id, word')
+          .eq('classroom_id', personalCls.id);
+
+        const personalWordId = personalWords?.find(
+          (pw) => pw.word.trim().toLowerCase() === word.word.trim().toLowerCase()
+        )?.id;
+
+        if (personalWordId) {
+          await supabase.from('srs_progress').upsert({
+            user_id: userId,
+            word_id: personalWordId,
+            stability: newSRS.stability,
+            difficulty: newSRS.difficulty,
+            interval_days: newSRS.interval_days,
+            review_count: newSRS.review_count,
+            state: newSRS.state,
+            lapses: newSRS.lapses,
+            learning_steps: newSRS.learning_steps,
+            next_review_date: newSRS.next_review_date,
+            last_reviewed_at: newSRS.last_reviewed_at,
+            algorithm_version: 'ts-fsrs',
+          }, { onConflict: 'user_id,word_id' });
+        }
+      }
+    } catch (mirrorErr) {
+      console.warn('[SRS] Failed to mirror progress to enrolled classroom:', mirrorErr);
     }
 
     // Award XP + streak. PHẢI await: supabase builder lazy thenable,
