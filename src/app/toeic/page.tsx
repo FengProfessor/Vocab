@@ -227,7 +227,7 @@ function ToeicCatalogContent() {
 
   const [activeTab, setActiveTab] = useState<'full_test' | 'practice_parts'>(initialTab);
   const [selectedPart, setSelectedPart] = useState<number>(validPart);
-  const [testFilter, setTestFilter] = useState<'200q' | 'ets2024' | 'ets2026' | 'estudyme' | 'study4' | 'all'>('200q');
+  const [testFilter, setTestFilter] = useState<'all' | '200q' | 'ets2026' | 'ets2024' | 'estudyme' | 'study4'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [displayLayout, setDisplayLayout] = useState<'list' | 'grid'>('list');
   const [userExamStatus, setUserExamStatus] = useState<Record<string, UserExamStatus>>({});
@@ -418,7 +418,7 @@ function ToeicCatalogContent() {
 
           {/* Compact Subtitle */}
           <p className="mt-2 max-w-3xl text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Phòng thi máy tính trực tuyến chuẩn định dạng ETS: 200 câu hỏi chia 2 cột, bảng điều hướng 4 trạng thái, gắn cờ Flag và bảng điểm quy đổi 10–990.
+            Phòng thi máy tính trực tuyến: 200 câu hỏi chia 2 cột, bảng điều hướng 4 trạng thái, gắn cờ Flag và bảng điểm quy đổi 10–990.
           </p>
 
           {/* ── Prominent Stat Cards Grid ── */}
@@ -450,10 +450,10 @@ function ToeicCatalogContent() {
                 <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
                   {full200Count}
                 </span>
-                <span className="font-mono text-xs font-semibold text-slate-500">đề thi</span>
+                <span className="font-mono text-xs font-semibold text-slate-500">đề</span>
               </div>
               <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                200 câu · 120 phút thi
+                Chuẩn 200 câu / 120 phút
               </p>
             </div>
 
@@ -474,10 +474,10 @@ function ToeicCatalogContent() {
               </p>
             </div>
 
-            {/* Card 4: Thang Barem ETS 10–990 */}
+            {/* Card 4: Thang Điểm 10–990 */}
             <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
               <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Barem ETS</span>
+                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Thang Điểm</span>
                 <Trophy className="h-4 w-4 text-slate-400" />
               </div>
               <div className="mt-2 flex items-baseline gap-1">
@@ -535,7 +535,7 @@ function ToeicCatalogContent() {
                           : 'text-slate-500 dark:text-slate-400'
                       }`}
                     >
-                      Mô phỏng 120 phút chuẩn phòng thi máy tính ETS
+                      Mô phỏng 120 phút chuẩn phòng thi máy tính
                     </p>
                   </div>
                 </div>
@@ -624,6 +624,17 @@ function ToeicCatalogContent() {
                 </span>
                 <button
                   type="button"
+                  onClick={() => setTestFilter('all')}
+                  className={`rounded-sm px-2.5 py-1 text-xs font-mono font-medium transition-colors cursor-pointer ${
+                    testFilter === 'all'
+                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold'
+                      : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
+                  }`}
+                >
+                  Tất cả ({catalog.fullTests?.length || 61})
+                </button>
+                <button
+                  type="button"
                   onClick={() => setTestFilter('200q')}
                   className={`rounded-sm px-2.5 py-1 text-xs font-mono font-medium transition-colors cursor-pointer ${
                     testFilter === '200q'
@@ -631,18 +642,7 @@ function ToeicCatalogContent() {
                       : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  Đề 200 câu ({full200Count})
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setTestFilter('ets2024')}
-                  className={`rounded-sm px-2.5 py-1 text-xs font-mono font-medium transition-colors cursor-pointer ${
-                    testFilter === 'ets2024'
-                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold'
-                      : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
-                  }`}
-                >
-                  ETS 2024 (10 Đề)
+                  200 câu ({full200Count})
                 </button>
                 <button
                   type="button"
@@ -653,7 +653,18 @@ function ToeicCatalogContent() {
                       : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  ETS 2026 (10 Đề)
+                  Bộ 2026 (10)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setTestFilter('ets2024')}
+                  className={`rounded-sm px-2.5 py-1 text-xs font-mono font-medium transition-colors cursor-pointer ${
+                    testFilter === 'ets2024'
+                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold'
+                      : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
+                  }`}
+                >
+                  Bộ 2024 (10)
                 </button>
                 <button
                   type="button"
@@ -664,7 +675,7 @@ function ToeicCatalogContent() {
                       : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  Khảo Thí Chuẩn ETS (21 Đề)
+                  Mô phỏng (21)
                 </button>
                 <button
                   type="button"
@@ -675,18 +686,7 @@ function ToeicCatalogContent() {
                       : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  Luyện Đề Tinh Hoa ETS (7 Đề 200Q)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setTestFilter('all')}
-                  className={`rounded-sm px-2.5 py-1 text-xs font-mono font-medium transition-colors cursor-pointer ${
-                    testFilter === 'all'
-                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold'
-                      : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
-                  }`}
-                >
-                  Toàn bộ kho đề ({catalog.fullTests?.length || 61})
+                  Tổng hợp (20)
                 </button>
               </div>
 
@@ -1176,7 +1176,7 @@ function ToeicCatalogContent() {
                     </div>
                     <div>
                       <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                        <span>Toàn bộ ngân hàng câu hỏi (ETS Bank)</span>
+                        <span>Toàn bộ ngân hàng câu hỏi</span>
                         <span className="rounded-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-1 py-0.2 text-[10px] font-mono font-bold">
                           KHUYÊN DÙNG
                         </span>
@@ -1200,7 +1200,7 @@ function ToeicCatalogContent() {
                         type="button"
                         onClick={() => {
                           if (selectedSource === 'all') {
-                            setSelectedSource(catalog.fullTests[0]?.id || 'estudyme-test-1');
+                            setSelectedSource(catalog.fullTests[0]?.id || 'ets2026-01');
                           }
                         }}
                         className="flex items-center gap-2 cursor-pointer text-left"
@@ -1232,7 +1232,25 @@ function ToeicCatalogContent() {
                       className="w-full rounded-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:border-slate-900 dark:focus:border-white focus:outline-hidden font-mono"
                     >
                       <option value="" disabled>-- Chọn đề thi cụ thể --</option>
-                      <optgroup label="Series Khảo Thí Chuẩn ETS Format (21 Đề)">
+                      <optgroup label="Bộ Đề 2026 (10 đề)">
+                        {catalog.fullTests
+                          .filter((t) => t.source === 'ets2026')
+                          .map((t) => (
+                            <option key={t.id} value={t.id}>
+                              [{t.displayId}] {t.title}
+                            </option>
+                          ))}
+                      </optgroup>
+                      <optgroup label="Bộ Đề 2024 (10 đề)">
+                        {catalog.fullTests
+                          .filter((t) => t.source === 'ets2024')
+                          .map((t) => (
+                            <option key={t.id} value={t.id}>
+                              [{t.displayId}] {t.title}
+                            </option>
+                          ))}
+                      </optgroup>
+                      <optgroup label="Bộ Đề Mô Phỏng (21 đề)">
                         {catalog.fullTests
                           .filter((t) => t.source === 'estudyme')
                           .map((t) => (
@@ -1241,7 +1259,7 @@ function ToeicCatalogContent() {
                             </option>
                           ))}
                       </optgroup>
-                      <optgroup label="Series Luyện Đề Tinh Hoa ETS (20 Đề)">
+                      <optgroup label="Bộ Đề Tổng Hợp (20 đề)">
                         {catalog.fullTests
                           .filter((t) => t.source === 'study4')
                           .map((t) => (

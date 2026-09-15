@@ -114,10 +114,10 @@ export async function runCopyrightWhitelabelTests(runner: TestRunner): Promise<v
     runner.it('CW-8: UI Filter buttons in page.tsx use professional white-labeled Vietnamese text', () => {
       const pageContent = fs.readFileSync(TOEIC_PAGE_PATH, 'utf-8');
 
-      expect(pageContent).toContain('Khảo Thí Chuẩn ETS (21 Đề)');
-      expect(pageContent).toContain('Luyện Đề Tinh Hoa ETS (7 Đề 200Q)');
-      expect(pageContent).toContain('Series Khảo Thí Chuẩn ETS Format (21 Đề)');
-      expect(pageContent).toContain('Series Luyện Đề Tinh Hoa ETS (20 Đề)');
+      expect(pageContent).toContain('Mô phỏng (21)');
+      expect(pageContent).toContain('Tổng hợp (20)');
+      expect(pageContent).toContain('Bộ Đề Mô Phỏng (21 đề)');
+      expect(pageContent).toContain('Bộ Đề Tổng Hợp (20 đề)');
 
       // Ensure raw strings are not displayed on buttons
       expect(pageContent.includes('>Estudyme ETS Simulation')).toBe(false);
