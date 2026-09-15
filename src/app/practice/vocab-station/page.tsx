@@ -54,11 +54,12 @@ import {
 } from '@/lib/roadmap';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
 import {
-  getVocabTopic,
-  getAllVocabTopics,
-  type VocabStageTopic,
+  getAllVocabTopicsIndex,
+  getVocabTopicMeta,
+  loadVocabTopic,
+  type VocabTopicMeta,
   type VocabStageItem,
-} from '@/lib/vocab-stages';
+} from '@/lib/vocab-topics';
 
 type PracticeTab = 'flashcard' | 'cloze' | 'story' | 'builder' | 'match';
 
@@ -86,9 +87,43 @@ function VocabStationContent() {
   const validTabs: PracticeTab[] = ['flashcard', 'cloze', 'story', 'builder', 'match'];
 
   const allPacks = useMemo(() => getFoundationVerbPacks(), []);
-  const allTopics = useMemo(() => getAllVocabTopics(), []);
-  const activeTopic = useMemo(() => (topicParam ? getVocabTopic(topicParam) : null), [topicParam]);
+  const allTopics = useMemo(() => getAllVocabTopicsIndex(), []);
+  const activeTopic = useMemo(() => (topicParam ? getVocabTopicMeta(topicParam) : null), [topicParam]);
   const isTopicMode = !!activeTopic;
+
+  // On-demand topic words state
+  const [loadedTopicWords, setLoadedTopicWords] = useState<VocabStageItem[] | null>(null);
+  const [isLoadingTopicWords, setIsLoadingTopicWords] = useState<boolean>(false);
+
+  // Load detailed topic words on demand when topicParam is active
+  useEffect(() => {
+    if (!topicParam) {
+      setLoadedTopicWords(null);
+      setIsLoadingTopicWords(false);
+      return;
+    }
+
+    let isMounted = true;
+    setIsLoadingTopicWords(true);
+
+    loadVocabTopic(topicParam)
+      .then((topic) => {
+        if (isMounted) {
+          setLoadedTopicWords(topic?.words ?? []);
+          setIsLoadingTopicWords(false);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setLoadedTopicWords([]);
+          setIsLoadingTopicWords(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [topicParam]);
 
   const initialPack = useMemo(() => resolveFoundationVerbPack(packParam), [packParam]);
   const [currentPackId, setCurrentPackId] = useState<string>(initialPack.id);
@@ -122,7 +157,10 @@ function VocabStationContent() {
   // Unified items list (adapting topic words or foundation verbs)
   const activeWords = useMemo(() => {
     if (isTopicMode && activeTopic) {
-      return activeTopic.words.map((w) => ({
+      if (!loadedTopicWords || loadedTopicWords.length === 0) {
+        return [];
+      }
+      return loadedTopicWords.map((w) => ({
         id: w.id,
         lemma: w.word,
         ipa: w.ipa,
@@ -139,7 +177,7 @@ function VocabStationContent() {
       }));
     }
     return pack.verbs;
-  }, [isTopicMode, activeTopic, pack]);
+  }, [isTopicMode, activeTopic, loadedTopicWords, pack]);
 
   const handlePackChange = (newPackId: string) => {
     setCurrentPackId(newPackId);
@@ -449,7 +487,7 @@ function VocabStationContent() {
                 <Trophy className="h-4 w-4 text-amber-500" />
                 <span>Đã thuộc:</span>
                 <span className="font-bold text-amber-600 dark:text-amber-400">
-                  {activeWords.filter(w => masteredWords.has(w.lemma.toLowerCase())).length} / {activeWords.length}
+                  {activeWords.filter(w => masteredWords.has(w.lemma.toLowerCase())).length} / {activeTopic ? (activeTopic.wordCount || activeWords.length) : activeWords.length}
                 </span>
               </div>
             </div>
@@ -522,6 +560,19 @@ function VocabStationContent() {
             <span>{isTopicMode ? '3. Phản Xạ Nhanh' : '5. Phản Xạ Nhanh'}</span>
           </button>
         </div>
+
+        {/* On-Demand Topic Loading State */}
+        {isTopicMode && isLoadingTopicWords && activeWords.length === 0 && (
+          <div className="flex flex-col items-center justify-center rounded-2xl border border-sky-100 bg-white p-12 text-center shadow-xs dark:border-slate-800 dark:bg-slate-900">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-sky-500 border-t-transparent" />
+            <p className="mt-3 text-sm font-semibold text-slate-700 dark:text-slate-200">
+              Đang tải nội dung luyện tập {activeTopic?.title}...
+            </p>
+            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+              Tối ưu tải siêu tốc ({activeTopic?.wordCount} từ vựng)
+            </p>
+          </div>
+        )}
 
         {/* ──────────────────────────────────────────────────────────── */}
         {/* TAB 1: FLASHCARD 2.0 (LÀM QUEN & BỐ CỤC CÂU)               */}

@@ -1,5 +1,5 @@
-import { PageLoading } from '@/components/perf/PageLoading';
+import { StudentDashboardSkeleton } from '@/components/student/StudentDashboardSkeleton';
 
 export default function Loading() {
-  return <PageLoading label="Đang mở bảng học..." />;
+  return <StudentDashboardSkeleton />;
 }

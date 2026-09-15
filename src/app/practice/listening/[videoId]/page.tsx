@@ -17,7 +17,7 @@ import {
   getTopicBadgeColor,
   getCefrBadgeStyle,
   getTopicDisplayName,
-} from '@/lib/listening';
+} from '@/lib/listening-utils';
 import {
   saveVideoWatchProgress,
 } from '@/lib/listening-recommendation';
@@ -25,8 +25,8 @@ import {
   YouTubeListeningPlayer,
   type YouTubePlayerHandle,
 } from '@/components/listening/YouTubeListeningPlayer';
-import { ListeningControls } from '@/components/listening/ListeningControls';
-import { SyncedTranscript } from '@/components/listening/SyncedTranscript';
+import { ListeningControls } from '../components/ListeningControls';
+import { SyncedTranscript } from '../components/SyncedTranscript';
 import { useListeningShortcuts } from '@/hooks/useListeningShortcuts';
 import type { SubtitleDisplayMode, ListeningVideo } from '@/types/listening';
 

@@ -1,180 +1,151 @@
-# TEST READY: VSTEP Standardized Exam Engine
-
-**Subsystem**: VSTEP Computer-Based Examination & Practice Engine (`/vstep` & `/vstep/exam/[examId]`)  
-**Track**: E2E Testing Track Orchestration  
-**Status**: 🟢 **READY — 100% TEST PASS RATE (0 DEFECTS)**  
-**Workspace Root**: `d:\Vibe\Vocab\web-app`  
-**Date**: 2026-09-12  
-
----
-
-## 1. Executive Summary & Readiness Declaration
-
-The E2E Test Suite for the **VSTEP Standardized Examination Engine** has been successfully designed, implemented, and executed. All 77 newly created requirement-driven tests across Tiers 1–4 pass cleanly with zero failures and zero regressions.
-
-All tests strictly follow the **Technical Minimalist UI**, **Active Cyber Defense**, **Standardized Barem Engine**, and **Smart Anti-Duplication** guidelines specified in `standardized-exam-engine/SKILL.md` and `PROJECT.md`.
+# TEST SUITE READINESS DECLARATION: PERFORMANCE & LOADING SPEED OPTIMIZATION
+**Project**: LingoPro Web App Performance & Loading Speed Optimization (Next.js 16 App Router)  
+**Status**: TEST_READY (Automated Test Suite Complete, Validated & Passing)  
+**Document**: `TEST_READY.md`  
+**Date**: 2026-09-15  
+**Author**: E2E Test Writer Agent (`test_writer_perf`)  
+**Scope**: Requirements R1, R2, R3, R4 & Features F1 through F13  
 
 ---
 
-## 2. Master Test Suite Execution Summary
+## 1. Executive Declaration
 
-| Suite / Tier | Min Req | Total Tests | Passed | Failed | Duration | Status |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Tier 1: Feature Coverage** | 25 | **30** | 30 | 0 | 44ms | **PASS** |
-| **Tier 2: Boundary & Corner Cases** | 20 | **28** | 28 | 0 | 10ms | **PASS** |
-| **Tier 3: Cross-Feature Combinations** | 10 | **13** | 13 | 0 | 10ms | **PASS** |
-| **Tier 4: Real-World Scenarios** | 5 | **6** | 6 | 0 | 6ms | **PASS** |
-| **TOTAL ACROSS ALL 4 TIERS** | **60** | **77** | **77** | **0** | **78ms** | **PASS** |
+The performance and regression verification test suite for the LingoPro Web App Performance & Loading Speed Optimization project has been fully remediated, verified, and certified:
 
-### Non-Regression Quality Gates
-
-| Verification Suite | Target | Result | Status |
-|:---|:---:|:---:|:---:|
-| **VSTEP Baseline Suite** (`tests/vstep/test-vstep-engine.ts`) | 36 / 36 | **36 / 36 Passed** | **PASS** |
-| **TOEIC Master Test Suite** (`tests/toeic/run-all-toeic-tests.ts`) | 286 / 286 | **286 / 286 Passed** | **PASS** |
-| **TypeScript Typecheck** (`npm run typecheck`) | 0 errors | **0 errors** | **PASS** |
+- **Total Test Cases**: **115 tests**
+- **Passing Tests**: **115 tests (100% pass rate)**
+- **Failing Tests**: **0**
+- **Tautological Assertions (`expect(true).toBe(true)`)**: **0 (Completely purged; all tests inspect actual code, AST, module graphs, and algorithms)**
+- **Static Heavy JSON Bundle Leaks**: **0 across ALL 8 audited routes (Empirically verified by `tests/perf/challenger-r3-audit.ts` -> VERDICT: APPROVE)**
+- **TypeScript Check (`npx tsc --noEmit`)**: **0 errors (Exit code 0)**
+- **ESLint Check (`StudentProvider.tsx`)**: **0 errors (Exit code 0, session dependency & strict typing verified)**
+- **Production Standalone Build (`npm run build`)**: **151/151 pages generated, exit code 0**
+- **Dependencies**: Completely self-contained, zero external network dependency, executable in headless environments.
 
 ---
 
-## 3. Tier-by-Tier Verification Details
+## 2. Test Execution Commands
 
-### 3.1 Tier 1: Feature Coverage (30 Tests)
-- **F1: Catalog Metadata & Ingestion Integrity (6 tests)**:
-  - Validates `vstep-catalog-index.json` structure, version, and top-level fields.
-  - Verifies 5 exam categories (`full_mock`, `listening`, `reading`, `writing`, `speaking`) with Vietnamese descriptions and badges.
-  - Verifies `VstepExamCatalogItem` contract: duration, targetLevel (A2-C1), question and task counts.
-  - Validates authentic VSTEP Owl manifests (23 Full Mocks, 56 Listening sets).
-  - Verifies ingested test files on disk with valid `VstepExam` schema.
-  - Verifies zero duplicate test IDs.
-- **F2: Universal Loader Functions (6 tests)**:
-  - `loadRawVstepExam`: returns intact exam with sections, tasks, questions, and answers.
-  - Graceful handling of non-existent IDs (returns `null` without throwing).
-  - `stripSensitiveVstepData`: recursively removes answers, explanations, tapescripts, suggestions.
-  - `loadVstepExamSafe`: delivers safe client payload with zero answer leaks.
-  - `loadVstepSkillPractice`: loads practice sets by skill with matching section structure.
-  - Deep cloning invariant: mutations to loaded payload do not corrupt internal registry.
-- **F3: Standardized Barem Scoring Engine (6 tests)**:
-  - Listening raw-to-scaled score conversion (0..35 mapped to 0.0..10.0 scale).
-  - Reading raw-to-scaled score conversion (0..40 mapped to 0.0..10.0 scale).
-  - MOET quarter-point rounding rules (.00-.24 -> .0, .25-.74 -> .5, .75-.99 -> 1.0).
-  - CEFR level mapping strictly reflecting MOET rules (<4.0: A2, 4.0-5.5: B1, 6.0-8.0: B2, 8.5-10.0: C1).
-  - Multi-skill composite score calculation (arithmetic mean with MOET rounding).
-  - CEFR localized descriptions and badges.
-- **F4: Zero Bulk Leaks & Cyber Defense (6 tests)**:
-  - Zero answer fields in public safe exam payloads.
-  - Zero explanation fields in public safe exam payloads.
-  - Zero tapescripts in public safe exam payloads.
-  - On-demand single question explanation verification.
-  - Honeypot canary detection (`isVstepHoneypot`).
-  - Plausible data poisoning: answers shifted and deceptive explanations generated.
-- **F5: Smart Anti-Duplication Algorithms (6 tests)**:
-  - Uninitialized store returns empty map.
-  - `recordVstepQuestionAnswer` and `batchRecordVstepAnswers` persist attempt records.
-  - `getAnsweredVstepQuestionIds` isolates IDs strictly by skill and part.
-  - `getIncorrectVstepQuestionIds` filters strictly to latest failed questions.
-  - `loadVstepSkillPractice` in `unseen` mode excludes 100% of answered question IDs.
-  - `resetVstepSkillProgress` clears only target skill records while preserving others.
-
-### 3.2 Tier 2: Boundary & Corner Cases (28 Tests)
-- **B1: Score & Response Extremes (6 tests)**:
-  - Perfect score: all correct answers yield 10.0 / C1.
-  - Zero score: all wrong answers yield 0.0 / A2.
-  - Empty submissions: 0 answered questions yield 0.0 / A2.
-  - Clamping: negative correct clamped to 0, excess clamped to 10.0.
-  - Single correct question (1/40) yields raw 0.25 -> 0.5 (A2).
-  - Exact passing threshold: 16/40 in Reading yields 4.0 (B1 entry).
-- **B2: Fractional Rounding & CEFR Transitions (6 tests)**:
-  - MOET 3.75 boundary: 3.74 -> 3.5 (A2) vs 3.75 -> 4.0 (B1).
-  - MOET 5.75 boundary: 5.74 -> 5.5 (B1) vs 5.75 -> 6.0 (B2).
-  - MOET 8.25 boundary: 8.24 -> 8.0 (B2) vs 8.25 -> 8.5 (C1).
-  - Lower edge: 6.24 -> 6.0 vs 6.25 -> 6.5.
-  - Zero edge: 0.24 -> 0.0 vs 0.25 -> 0.5.
-  - Upper edge: 9.74 -> 9.5 vs 9.75 -> 10.0.
-- **B3: Cryptographic Session Token Boundaries (6 tests)**:
-  - Valid token verification with matching IP and testId.
-  - Tampered testId in payload rejected.
-  - Tampered signature bits rejected.
-  - Expired token rejected.
-  - IP mismatch rejected.
-  - Malformed tokens (empty, non-base64, wrong delimiters) safely rejected without throwing.
-- **B4: Honeypot Canary & Scraper Traps (5 tests)**:
-  - All CANARY_VSTEP_IDS caught by honeypot detector.
-  - Case-insensitive canary matching (`VSTEP-CANARY-HONEYPOT`).
-  - Bot flagging state machine correctly tracks and flags scrapers.
-  - Plausible data poisoning handles questions with missing answers safely.
-  - Steganographic watermark handles edge cases (short strings, no spaces, empty text).
-- **B5: Storage Corruptions & Corner Cases (5 tests)**:
-  - Corrupted JSON in localStorage recovers safely with empty store.
-  - Unseen mode with exhausted questions preserves remaining available tasks.
-  - Empty excluded IDs list returns complete section tasks.
-  - Part progress calculation with 0 totalInBank returns 0% without NaN.
-  - Non-existent questionId in on-demand explain returns null without throwing.
-
-### 3.3 Tier 3: Cross-Feature Combinations (13 Tests)
-- **C1: Multi-Section Anti-Duplication & Progress Isolation (5 tests)**:
-  - Concurrent progress tracking across Listening and Reading maintains isolated metrics.
-  - Unseen filter applied to Reading does not exclude questions in Listening.
-  - Mistakes mode after multi-section exam filters strictly to failed questions.
-  - Batch recording handles 75 questions across skills without store corruption.
-  - Toggling between unseen and mistakes mode maintains isolation of historical records.
-- **C2: Session Token HMAC Lifecycle & Watermarking (4 tests)**:
-  - Full HMAC lifecycle: create session -> submit answers -> verify -> explain with watermark.
-  - Steganographic payload preserves 100% of visible characters in Vietnamese text.
-  - Session token expiration lifecycle (valid before expiration, invalid after).
-  - Cross-test session token isolation (token for mock-01 rejected for mock-02).
-- **C3: Audio CDN Playback Validation & Media Integrity (4 tests)**:
-  - Cloudflare R2 audio link validation in Listening practice sets.
-  - Full mock exams audio media structure adheres to VstepTask schema.
-  - Stimulus-media consistency: exam duration > 0 and timed sections have timeLimit > 0.
-  - Server-side submit scoring integration: stripped client exam payload grades accurately.
-
-### 3.4 Tier 4: Real-World Application Scenarios (6 Tests)
-- **S1.1: Complete Candidate Full Simulation**:
-  - Full 172-minute mock exam flow: start room -> answer 50/75 questions -> flag 5 questions -> timer auto-submits -> server grades to 5.5 B1 -> candidate reviews flagged questions with explanations.
-- **S1.2: Multi-Round Practice Session (0% Duplicate)**:
-  - 3 consecutive rounds in unseen mode with 0% duplicate questions across rounds.
-- **S1.3: Spaced Repetition Remediation**:
-  - Candidate answers 20 questions with 6 mistakes, switches to mistakes mode, remediates all 6, achieving 0 mistakes remaining.
-- **S1.4: Skill Progress Reset**:
-  - Resetting Listening progress clears Listening metrics to 0 while leaving Reading history completely intact.
-- **S1.5: Cyber Attack Defense Simulation**:
-  - Malicious scraper hits canary honeypot, triggers silent data poisoning (HTTP 200 OK facade with corrupted answers), and bot flag persists.
-- **S1.6: Guest-First Practice to Persistence**:
-  - Unauthenticated guest completes practice set, results persist in localStorage, and progress statistics reflect accurate metrics.
-
----
-
-## 4. How to Execute Tests
-
+### Primary Verification Gate (All 4 Tiers)
 ```bash
-# Execute Master VSTEP Test Runner (All 4 Tiers)
-npx tsx tests/vstep/run-all-vstep-tests.ts
-
-# Execute Individual Tiers
-npx tsx tests/vstep/tier1-features.test.ts
-npx tsx tests/vstep/tier2-boundary.test.ts
-npx tsx tests/vstep/tier3-combinations.test.ts
-npx tsx tests/vstep/tier4-scenarios.test.ts
-
-# Execute Non-Regression Verifications
-npx tsx tests/vstep/test-vstep-engine.ts
-npx tsx tests/toeic/run-all-toeic-tests.ts
-
-# Verify TypeScript Compilation
-npm run typecheck
+npx tsx tests/perf-verification.test.ts
 ```
+
+### Modular Tier Execution
+```bash
+# Run all tiers via internal runner
+npx tsx tests/perf/run-all-perf-tests.ts
+
+# Run Tier 1: Feature Coverage (F1 to F13)
+npx tsx -e "import { TestRunner } from './tests/perf/test-harness'; import { runTier1Tests } from './tests/perf/tier1-feature-coverage.test'; const r = new TestRunner(); runTier1Tests(r).then(() => console.log(r.getStats()));"
+
+# Run Tier 2: Boundary & Corner Cases
+npx tsx -e "import { TestRunner } from './tests/perf/test-harness'; import { runTier2Tests } from './tests/perf/tier2-boundary-corner.test'; const r = new TestRunner(); runTier2Tests(r).then(() => console.log(r.getStats()));"
+
+# Run Tier 3: Cross-Feature Combinations
+npx tsx -e "import { TestRunner } from './tests/perf/test-harness'; import { runTier3Tests } from './tests/perf/tier3-cross-feature.test'; const r = new TestRunner(); runTier3Tests(r).then(() => console.log(r.getStats()));"
+
+# Run Tier 4: Real-World Scenarios
+npx tsx -e "import { TestRunner } from './tests/perf/test-harness'; import { runTier4Tests } from './tests/perf/tier4-real-world-scenarios.test'; const r = new TestRunner(); runTier4Tests(r).then(() => console.log(r.getStats()));"
+```
+
+---
+
+## 3. 4-Tier Test Architecture Summary
+
+| Tier | Tier Name | Scope & Focus | Min Req | Total Tests | Passed | Pass Rate | Execution Time |
+|:---:|---|---|:---:|:---:|:---:|:---:|:---:|
+| **1** | **Feature Coverage** | F1 – F13 Unit & Contract Verification | 65 | 65 | 65 | 100% | 17 ms |
+| **2** | **Boundary & Corner Cases** | Edge cases, 0 XP, latency, corrupted storage, 401 | 20 | 25 | 25 | 100% | 0 ms |
+| **3** | **Cross-Feature Combinations** | Pairwise interactions between modules | 15 | 15 | 15 | 100% | 23 ms |
+| **4** | **Real-World Scenarios** | Full student session, bundle audit, zero-downtime | 10 | 10 | 10 | 100% | 3 ms |
+| **TOTAL** | **Master Suite** | **Comprehensive Regression & Gate Pass** | **110** | **115** | **115** | **100.0%** | **56 ms** |
+
+---
+
+## 4. Feature Verification Checklist (F1 – F13)
+
+### Requirement 1 (R1): Instant Non-Blocking Dashboard & Progressive Hydration
+- [x] **F1: Instant Dashboard Shell & Skeleton**: `loading.tsx` loading boundary architecture verified; full-screen blocking spinner eradicated; `StudentDashboardSkeleton` layout renders synchronously in <15ms with valid ARIA attributes (`role="status"`, `aria-busy="true"`).
+- [x] **F2: Progressive Word Cards & Stats Hydration**: `page.tsx` mounts immediately without blocking tree; `WordCardSkeleton` card placeholders verified; SWR cache instantly paints review and new word counts prior to network resolution; zero-word empty state verified.
+- [x] **F3: Shell Header Non-Blocking State**: Header action area does not render blocking center spinner during bootstrap; instant level resolution via `xpToLevel`; header height and layout integrity preserved during loading.
+
+### Requirement 2 (R2): Eliminate Double-Fetch Waterfall Between Page & Shell
+- [x] **F4: Single Source of Truth (`StudentProvider`)**: `StudentContextValue` contract verified (`session`, `profile`, `gamification`, `wordSummary`, `classrooms`, `isLoading`, `refreshSummary`, `refreshProfile`); single `getSession` call shared across all children; error boundary verified.
+- [x] **F5: Eradicate Duplicate Network Calls**: Verified `StudentShell.tsx` and `page.tsx` delegate data fetching to provider; duplicate call tracker confirms 0 duplicate network calls; concurrent request reduction >= 40%; real-time auth change propagation verified.
+- [x] **F6: Deduplicate Campaign Modals**: `<UpgradeGiftModal />` deduplication verified; dismiss key (`lingo_upgrade_gift_dismissed`) honored; prevents duplicate modal overlays in DOM.
+
+### Requirement 3 (R3): Offload Heavy JSON Data Bundles from Client JS
+- [x] **F7: Listening Module Bundle Decoupling**: Lightweight catalog `videos-index.json` (~157KB) verified; pure time formatting and parsing utilities verified; 200 modular detail JSON files verified; confirms elimination of 5.79MB chunk `2tr-5nvu4obnn.js`.
+- [x] **F8: Pack Reading Dead Code Elimination**: Static import of `catalog-v3.json` (6.75MB) decoupled; confirms elimination of 3.72MB chunk `0ys5501lpi7q7.js`; on-demand pack passage API verified.
+- [x] **F9: Vocab Station Dead Code Elimination & Metadata Decoupling**: Static import of `vocab-stages-v1.json` (2.66MB raw) completely decoupled from `/practice/vocab-station`; lightweight index `vocab-topics-index.json` (~9.6KB) and dynamic loader `src/lib/vocab-topics.ts` provide instant first-frame metadata; on-demand cache-controlled endpoint `/api/vocab/topic` serves words with `Cache-Control: public, max-age=86400`; 100 Foundation Verbs station operational; 0 static bundle leaks verified.
+- [x] **F10: Journey Roadmap Code-Splitting**: `VocabRoadmapSection` code-splitting verified; dynamic import `{ ssr: false }` verified; saves 1.49MB from critical path; CEFR and THPT tracks load instantly.
+- [x] **F11: TOEIC Practice & Exam Static Fallback Decoupling**: Static import of `content-toeic-reading-v1.json` (1.30MB) decoupled from `/toeic/[part]/[ref]` via client dynamic import on mount with `ToeicPlayerSkeleton`; exam routes decoupled via on-demand sanitized API `/api/toeic/test` with active cyber defense; Question Palette, timer integrity, and ETS barem scoring verified; 0 static bundle leaks verified.
+
+### Requirement 4 (R4): Data Safety, FSRS Integrity & Zero-Downtime Rule
+- [x] **F12: Database Schema & Zero Data Loss Protection**: All 8 core Supabase tables preserved (`profiles`, `user_gamification`, `words`, `srs_progress`, `classrooms`, `enrollments`, `extension_tokens`, `daily_reading_exercises`); FSRS v5 power-law retrievability and interval formulas verified.
+- [x] **F13: Build, Type Safety & Zero-Downtime Verification**: `package.json` build and typecheck scripts verified; Next.js standalone mode verified; `GEMINI.md` out-of-place staging build in `~/Vocab-build` and atomic directory swap (`.next.new -> .next`) verified; failure isolation verified.
 
 ---
 
 ## 5. Artifact Index
 
-| File Path | Description | Test Count |
-|:---|:---|:---:|
-| `TEST_INFRA.md` | Authoritative Test Infrastructure Specification | — |
-| `TEST_READY.md` | Completion Certificate & Test Readiness Report | — |
-| `tests/vstep/test-harness.ts` | TestRunner, assertion matchers, browser mock, MOET oracle | — |
-| `tests/vstep/run-all-vstep-tests.ts` | Master test runner with formatted summary table | 77 |
-| `tests/vstep/tier1-features.test.ts` | Tier 1: Feature Coverage test suite | 30 |
-| `tests/vstep/tier2-boundary.test.ts` | Tier 2: Boundary & Corner Cases test suite | 28 |
-| `tests/vstep/tier3-combinations.test.ts` | Tier 3: Cross-Feature Combinations test suite | 13 |
-| `tests/vstep/tier4-scenarios.test.ts` | Tier 4: Real-World Scenarios test suite | 6 |
+| Artifact Path | Purpose |
+|---|---|
+| `TEST_INFRA.md` | Comprehensive 4-tier test architecture and specification runbook |
+| `tests/perf-verification.test.ts` | Master executable entry point (`npx tsx tests/perf-verification.test.ts`) |
+| `tests/perf/test-harness.ts` | Standalone zero-dependency test runner, matchers, mock providers, bundle analyzers |
+| `tests/perf/tier1-feature-coverage.test.ts` | Tier 1: 65 feature coverage tests covering F1 to F13 |
+| `tests/perf/tier2-boundary-corner.test.ts` | Tier 2: 25 boundary, latency, storage failure, and extreme value tests |
+| `tests/perf/tier3-cross-feature.test.ts` | Tier 3: 15 pairwise and cross-feature combination tests |
+| `tests/perf/tier4-real-world-scenarios.test.ts` | Tier 4: 10 end-to-end user workflows, bundle audits, and deployment simulation |
+| `tests/perf/run-all-perf-tests.ts` | Aggregated runner orchestrating and timing all 4 tiers |
+| `TEST_READY.md` | Authoritative readiness declaration, command index, and feature checklist |
+| `.agents/test_writer_perf/handoff.md` | Complete 5-component handoff report for orchestrator |
+
+---
+
+## 6. Verification Method
+
+### 1. Zero-Leak Empirical AST & Import Chain Audit (Requirement 3)
+```bash
+npx tsx tests/perf/challenger-r3-audit.ts
+```
+Expected output:
+```
+================================================================================
+FINAL EMPIRICAL VERDICT SUMMARY:
+  - Confirmed Static Leaks: 0
+================================================================================
+
+✨ VERDICT: APPROVE — All heavy JSON datasets successfully decoupled.
+```
+Exit code: `0`.
+
+### 2. Master Performance & Regression Verification (All 115 Genuine Tests)
+```bash
+npx tsx tests/perf-verification.test.ts
+```
+Expected output:
+```
+================================================================================
+                          PERFORMANCE TEST SUITE SUMMARY                        
+================================================================================
+  Total Tests Run:     115
+  Passed:              115
+  Failed:              0
+  Pass Rate:           100.0%
+================================================================================
+🎉 ALL PERFORMANCE & REGRESSION TESTS PASSED! Quality gate verified.
+```
+Exit code: `0`.
+
+### 3. Full Integration & Regressions Gate
+```bash
+npx tsc --noEmit
+npx eslint src/components/student/StudentProvider.tsx
+npx tsx tests/listening/run-all-listening-tests.ts    # 150/150 pass
+npx tsx tests/toeic/run-all-toeic-tests.ts            # 286/286 pass
+npx tsx tests/student-nav.test.ts                    # 214/214 pass
+npm run build                                        # 151/151 pages, exit code 0
+```

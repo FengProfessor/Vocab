@@ -1,120 +1,82 @@
-# Project: TOEIC Technical Minimalist UI/UX & Full Dataset Unlocking (>15,000 Questions)
+# Project: LingoPro Web App Performance & Loading Speed Optimization
 
 ## Architecture
-The TOEIC subsystem is transformed from a marketing-heavy prototype into an authoritative, distraction-free computer-based examination and practice platform (ETS/IIG standard). It unlocks the repository's full dataset of over 15,175 authentic questions across 28+ Full Tests (200Q) and 231 Part Practice Sets (Parts 1-7).
-
-```
-[Dataset Sources: crawlers/toeic/]
-   ├── estudyme_data/full_tests/ (21 full tests × 200Q = 4,200 Qs)
-   ├── estudyme_data/practice_parts/ (231 sets across 7 Parts = 7,549 Qs)
-   └── toeic_data/ (20 Study4 tests = 3,426 Qs)
-               │
-               ▼
-[Pre-built Lightweight Manifest: src/data/toeic/toeic-catalog-index.json (~78 KB)]
-   │ Total Questions (>15,000), 28+ Full Tests list, 231 Part Practice Sets metadata
-   │
-   ├──► [/toeic] (Content-First 2-Tab Catalog: instant switch <20ms, zero lag)
-   │       ├── Tab 1: Đề thi Full Test (200 câu - 120 phút)
-   │       └── Tab 2: Luyện tập theo 7 Part (Part 1 to 7 set picker)
-   │
-   └──► Dynamic On-Demand Server Loader: src/lib/toeic-test-loader.ts & /api/toeic/test
-           │ Adapts Estudyme & Study4 cards to ToeicUnifiedQuestion
-           │ Strips sensitive keys on GET /api/toeic/test
-           ▼
-        [/toeic/exam/[examId]] (Distraction-Free Exam Room)
-           ├── ToeicExamHeader (Compact 48px, monospace timer, clean submit)
-           ├── ToeicSplitPane (2-column 1px border, flat option cards A/B/C/D, keyboard shortcuts)
-           ├── ToeicQuestionPalette (Flat 5-column grid, monospace tabular-nums, 4-state encoding)
-           ├── Dialog Modals (SubmitConfirmModal, ExamPauseModal, GuestSaveExamModal)
-           └── ToeicScoreReportView (ETS-style score certificate, part diagnostics, review mode)
-```
-
----
+- **Framework**: Next.js 16.2.9 App Router (React 19, standalone output, Turbopack).
+- **Client/Server Split**:
+  - `src/app/student/layout.tsx`: Houses `StudentProvider`, providing single-source-of-truth auth session, profile, gamification stats, and vocabulary summary.
+  - `src/app/student/loading.tsx`: Instant App Shell skeleton (`StudentDashboardSkeleton`), paints in <150ms.
+  - `src/app/student/page.tsx`: Removes blocking `{isLoading ? ... : ...}`, mounts immediately on Frame 1, progressively hydrating word cards and stats.
+  - `src/components/student/StudentShell.tsx`: Consumes `StudentProvider` context, eliminating redundant network calls (`profiles`, `user_gamification`, `/api/words?summary=1`).
+  - `src/lib/listening-utils.ts`: Pure helper functions with zero heavy data imports.
+  - `src/data/listening/videos-index.json`: Lightweight metadata catalog (~146KB) for listening browse view.
+  - `src/data/roadmap/vocab-topics-index.json`: Lightweight metadata catalog (~9.6KB) for vocab-station dropdown.
+  - `src/lib/vocab-topics.ts`: Pure client helper for on-demand topic word loading via `/api/vocab/topic`.
+  - `src/app/journey/page.tsx`: `VocabRoadmapSection` dynamically imported via `next/dynamic`.
+  - `src/app/toeic/[part]/[ref]/page.tsx` & `src/app/toeic/exam/[examId]/page.tsx`: Decoupled heavy static JSON imports via dynamic imports and server API routes.
 
 ## Feature Inventory
-| # | Feature | Description | Milestone | Status | Source |
-|---|---------|-------------|-----------|--------|--------|
-| 1 | Pre-compiled Catalog Index | Generate `src/data/toeic/toeic-catalog-index.json` (~78 KB) indexing >15,175 questions, 28+ full tests, 231 practice sets | M1 | **DONE** | Survey Data §1.1-1.3 |
-| 2 | Dynamic Universal Test Loader | Implement `loadAnyToeicTest(testId)` in `src/lib/toeic-test-loader.ts` with Estudyme card adapter and Study4 adapter | M1 | **DONE** | ORIGINAL_REQUEST §R3 |
-| 3 | API Route Dynamic Resolution | Update `src/app/api/toeic/test/route.ts` & `submit/route.ts` to dynamically resolve tests on demand with zero client JS bloat | M1 | **DONE** | Survey Data §4.3 |
-| 4 | Loader Defect Fixes & Slug Support | Fix `normalizeTestId` regex and string coercion, support `estudyme-test-*`, `estudyme-p*-set*`, `study4-*` slugs | M1 | **DONE** | Survey Tests §1.2 |
-| 5 | Anti-AI Template Design Tokens | Standardize on 1px flat borders (`border-slate-200 dark:border-slate-800`), `rounded-sm`/`rounded-md` max, eliminate gradients, blur shadows, `rounded-2xl/3xl/full` | M2, M3 | **DONE** | ORIGINAL_REQUEST §R1 |
-| 6 | Content-First Homepage Catalog | Overhaul `src/app/toeic/page.tsx`: header with >15,000 questions, eliminate all marketing hero/features/level fluff | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
-| 7 | Tab 1: Đề Full Test (200 câu) | Instant catalog grid of 28+ full tests with specifications and direct "Vào thi" actions | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
-| 8 | Tab 2: Luyện theo 7 Part | Instant Part 1-7 filter bar, displaying all 231 practice sets with question counts and time estimates | M2 | **DONE** | ORIGINAL_REQUEST §R2 |
-| 9 | Distraction-Free Exam Header | Compact 48px header in `ToeicExamHeader.tsx`, flat 1px border, monospace tabular countdown timer, no bounce/pulse | M3 | **DONE** | ORIGINAL_REQUEST §R4 |
-| 10 | Flat Split-Pane Layout | 2-column layout in `ToeicSplitPane.tsx`, 1px borders, slim scrollbars, clean stimulus viewing | M3 | **DONE** | ORIGINAL_REQUEST §R4 |
-| 11 | Flat Option Cards & Shortcuts | Option cards A/B/C/D with monospace badges, full click targets, keyboard shortcuts `A`, `B`, `C`, `D`, `ArrowLeft`, `ArrowRight`, `F` | M3 | **DONE** | ORIGINAL_REQUEST §R4 |
-| 12 | Monospace 4-State Question Palette | 5-column flat matrix in `ToeicQuestionPalette.tsx`, `font-mono tabular-nums`, no `scale-105` jitter, crisp 4-state styling | M3 | **DONE** | ORIGINAL_REQUEST §R4 |
-| 13 | Minimalist Dialog Modals | Technical minimalist overhaul of `SubmitConfirmModal.tsx`, `ExamPauseModal.tsx`, `GuestSaveExamModal.tsx` | M3 | **DONE** | Survey UI §4.3 |
-| 14 | Technical Minimalist Score Report | Overhaul `ToeicScoreReportView.tsx` to an official ETS-style certificate, part breakdown, flat review mode | M3 | **DONE** | Survey UI §4.3 |
-| 15 | E2E Test Suite Expansion | Create `catalog-integrity.test.ts`, `estudyme-loader.test.ts`, `ui-minimalist.test.ts`, update `run-all-toeic-tests.ts` | E2E | **DONE** | Survey Tests §4.2 |
-| 16 | Final Verification & Hardening | 100% E2E test pass (Tiers 1-4), Tier 5 adversarial hardening, Forensic Integrity Audit, TypeScript & Next.js build | M4 | **DONE** | Project Pattern |
-
----
+| # | Feature | Description | Milestone | Source | Status |
+|---|---------|-------------|-----------|--------|:---:|
+| 1 | Instant Dashboard Shell & Skeleton | Replace blocking `<PageLoading>` in `loading.tsx` and `<Loader2>` at `page.tsx:797` with `StudentDashboardSkeleton` (<300ms paint) | M1 | Survey (Dashboard Explorer) | **DONE** |
+| 2 | Progressive Word Cards & Stats Hydration | Progressive loading state in `/student` page displaying skeleton placeholders while background promises resolve | M1 | Survey (Dashboard Explorer) | **DONE** |
+| 3 | Shell Header Non-Blocking State | Replace header `<Loader2>` spinner in `StudentShell.tsx` with skeleton pill or cached gamification stats | M1 | Survey (Dashboard Explorer) | **DONE** |
+| 4 | Single Source of Truth (`StudentProvider`) | Centralize `getSession`, `profiles`, `user_gamification`, and vocabulary counts into a unified context in `layout.tsx` | M2 | Survey (Dashboard Explorer) | **DONE** |
+| 5 | Eradicate Duplicate Network Calls | Eliminate redundant `profiles`, `user_gamification`, and `/api/words?summary=1` fetches between `page.tsx` and `StudentShell.tsx` | M2 | Survey (Dashboard Explorer) | **DONE** |
+| 6 | Deduplicate Campaign Modals | Remove duplicate `<UpgradeGiftModal />` in `page.tsx` (retaining single instance in `StudentShell.tsx`) | M2 | Survey (Dashboard Explorer) | **DONE** |
+| 7 | Listening Module Bundle Decoupling | Extract `listening-utils.ts` and decouple `videos.json` (8.35MB raw / 5.79MB JS chunk `2tr-5nvu4obnn.js`) from initial client bundle | M3 | Survey (Bundle Explorer) | **DONE** |
+| 8 | Pack Reading Dead Code Elimination | Remove unused `resolvePack` static import in `src/app/practice/pack-reading/page.tsx` (saving 3.72MB JS chunk `0ys5501lpi7q7.js`) | M3 | Survey (Bundle Explorer) | **DONE** |
+| 9 | Vocab Station Decoupling | Decouple `vocab-stages-v1.json` (2.54MB raw / 1.49MB JS) using `vocab-topics-index.json` (~9.6KB) and `/api/vocab/topic` | M3 | Survey (Bundle Explorer) | **DONE** |
+| 10 | Journey Roadmap Code-Splitting | Dynamically import `VocabRoadmapSection` in `src/app/journey/page.tsx` to offload 1.49MB chunk from initial load | M3 | Survey (Bundle Explorer) | **DONE** |
+| 11 | TOEIC Exam & Part Practice Decoupling | Decouple `content-toeic-*.json` on `/toeic/exam/[examId]` and `/toeic/[part]/[ref]` via dynamic imports & `ToeicPlayerSkeleton` (saving >2.77MB JS) | M3 | Survey (Bundle Explorer) | **DONE** |
+| 12 | Database Schema & Zero Data Loss Protection | Ensure Supabase Postgres tables (`profiles`, `user_gamification`, `words`, `srs_progress`) remain untouched with zero loss | M4 | Survey (Baseline Explorer) | **DONE** |
+| 13 | Build, Type Safety & Zero-Downtime Verification | Validate `npx tsc --noEmit`, `npm run build`, all test suites pass, clean audit, and adhere to `GEMINI.md` zero-downtime rules | M4 | Survey (Baseline Explorer) | **DONE** |
 
 ## Milestones
-| # | Name | Scope | Dependencies | Status | Key Outputs |
-|---|------|-------|-------------|--------|-------------|
-| E2E | E2E Testing Track | Design & implement test suites for catalog integrity (>15,000 Qs), Estudyme adapter, UI minimalist rules, update runner, publish TEST_READY.md | none | **DONE** | `TEST_INFRA.md`, `tests/toeic/catalog-integrity.test.ts`, `tests/toeic/estudyme-loader.test.ts`, `tests/toeic/ui-minimalist.test.ts`, `TEST_READY.md` (219/219 PASS) |
-| M1 | Data Loader & Catalog Index | Generate `toeic-catalog-index.json`, implement universal dynamic loader & adapters in `toeic-test-loader.ts`, update API routes | none | **DONE** | `src/data/toeic/toeic-catalog-index.json` (78KB, 15,175 Qs), `src/lib/toeic-test-loader.ts`, `src/app/api/toeic/test/route.ts`, `src/app/api/toeic/submit/route.ts` (16,554 stress assertions pass) |
-| M2 | Content-First Homepage Catalog | Overhaul `/toeic` to Technical Minimalist: header with >15,000 Qs, 2-Tab layout (Full Test 200Q & 7-Part sets), zero marketing fluff | M1 | **DONE** | `src/app/toeic/page.tsx` (2-Tab layout, 28 full tests, 231 practice sets, 0 minimalist rule violations) |
-| M3 | Distraction-Free Exam Room & Palette | Overhaul exam room components (`ToeicExamHeader`, `ToeicSplitPane`, `ToeicQuestionPalette`, modals, `ToeicScoreReportView`), keyboard shortcuts | M1, M2 | **DONE** | `src/app/toeic/exam/[examId]/page.tsx`, `src/components/toeic/*` (100% clean files, 0 style violations, full shortcuts) |
-| M4 | Final Milestone: Full Pass, Hardening & Audit | 100% E2E test pass (Tiers 1-4), Tier 5 adversarial hardening, Forensic Auditor check, `npx tsc --noEmit`, `npm run build` | M1, M2, M3, E2E | **DONE** | 219/219 master tests pass, 44/44 adversarial checks pass, npm run build (135/135 pages) 0 errors, Forensic Auditor CLEAN verdict |
-
----
+| # | Name | Scope | Dependencies | Status |
+|---|------|-------|-------------|:---:|
+| 1 | M1: Dashboard Progressive Shell & Skeleton | `loading.tsx`, `page.tsx`, `StudentDashboardSkeleton.tsx`, `StudentShell.tsx` header | none | **DONE** |
+| 2 | M2: Single Source of Truth & Zero Duplicate Fetches | `layout.tsx`, `StudentProvider.tsx`, `StudentShell.tsx`, `page.tsx`, modal deduplication | M1 | **DONE** |
+| 3 | M3: Decouple Heavy JSON Bundles from Client JS | Listening decoupling, pack-reading, vocab-station, journey, and TOEIC decoupling | none | **DONE** |
+| 4 | M4: Comprehensive Verification, Testing & Zero Regressions | E2E performance validation, all 9 test suites (2,846+ tests), bundle size measurement, full build gate | M1, M2, M3 | **DONE** |
 
 ## Interface Contracts
-
-### 1. `ToeicCatalogIndex` (`src/data/toeic/toeic-catalog-index.json`)
+### `StudentContext` (M1 ↔ M2)
 ```typescript
-export interface ToeicCatalogIndex {
-  version: string;
-  totalQuestions: number; // 15,175
-  totalFullTests: number; // 41 (28 200Q tests)
-  totalPracticeSets: number; // 231
-  fullTests: ToeicCatalogTestItem[];
-  practiceParts: Record<string, ToeicCatalogPracticeItem[]>; // "1" .. "7"
+interface StudentContextValue {
+  session: Session | null;
+  profile: Profile | null;
+  gamification: GamificationStats | null;
+  wordSummary: WordSummary | null;
+  classrooms: ClassroomItem[];
+  isLoading: boolean;
+  error: Error | null;
+  refreshSummary: () => Promise<void>;
+  refreshProfile: () => Promise<void>;
 }
 ```
 
-### 2. Universal Loader Interface (`src/lib/toeic-test-loader.ts`)
-```typescript
-export function loadAnyToeicTest(testId: string): ToeicUnifiedQuestion[];
-export function getToeicCatalogIndex(): ToeicCatalogIndex;
-export function stripSensitiveToeicData(questions: ToeicUnifiedQuestion[]): Partial<ToeicUnifiedQuestion>[];
-```
+### Listening Utilities (M3)
+`src/lib/listening-utils.ts` exports pure functions:
+- `formatTime(seconds: number): string`
+- `parseTime(timeStr: string): number`
+- `getVideoDifficulty(level: string): DifficultyLevel`
+- Zero data imports from `videos.json` or `catalog-v3.json`.
 
-### 3. Exam State & Palette Contract
-```typescript
-export interface ToeicQuestionPaletteProps {
-  questions: ToeicClientQuestion[];
-  currentIndex: number;
-  userAnswers: Record<number, string>;
-  flaggedQuestions: Record<number, boolean>;
-  onSelectQuestion: (index: number) => void;
-  isOpen: boolean;
-  onToggleOpen: () => void;
-}
-```
-
----
+### Vocab Topics Utilities (M3)
+`src/lib/vocab-topics.ts` exports pure helpers:
+- `getAllVocabTopicsIndex(): VocabTopicMeta[]`
+- `getVocabTopicMeta(id: string): VocabTopicMeta | null`
+- `loadVocabTopic(id: string): Promise<VocabStageTopic | null>`
 
 ## Code Layout
-- Catalog Index & Metadata: `src/data/toeic/toeic-catalog-index.json`
-- Test Loader & Adapters: `src/lib/toeic-test-loader.ts`
-- API Routes: `src/app/api/toeic/test/route.ts`, `src/app/api/toeic/submit/route.ts`
-- Homepage & Catalog: `src/app/toeic/page.tsx`
-- Exam Room Page: `src/app/toeic/exam/[examId]/page.tsx`
-- Exam Components:
-  - Header: `src/components/toeic/ToeicExamHeader.tsx`
-  - Split-Pane: `src/components/toeic/ToeicSplitPane.tsx`
-  - Question Palette: `src/components/toeic/ToeicQuestionPalette.tsx`
-  - Audio Player: `src/components/toeic/ToeicAudioPlayer.tsx`
-  - Modals: `src/components/toeic/SubmitConfirmModal.tsx`, `ExamPauseModal.tsx`, `GuestSaveExamModal.tsx`
-  - Score Report & Review: `src/components/toeic/ToeicScoreReportView.tsx`
-- Test Suite: `tests/toeic/`
-  - Master Runner: `tests/toeic/run-all-toeic-tests.ts`
-  - Test Harness: `tests/toeic/test-harness.ts`
-  - Tiers 1-5: `tier1-features.test.ts`, `tier2-boundary.test.ts`, `tier3-combinations.test.ts`, `tier4-scenarios.test.ts`, `tier5-adversarial.test.ts`
-  - Dedicated Suites: `catalog-integrity.test.ts`, `estudyme-loader.test.ts`, `ui-minimalist.test.ts`, `challenger-1-adversarial.test.ts`, `challenger-1-r2-verification.test.ts`, `stress-loader.test.ts`, `stress-scoring.test.ts`
+- `src/app/student/layout.tsx`: Student layout wrapping `StudentProvider`.
+- `src/components/student/StudentProvider.tsx`: Context provider consolidating auth, profile, gamification, and counts.
+- `src/components/student/StudentDashboardSkeleton.tsx`: Instant App Shell & cards skeleton component.
+- `src/app/student/loading.tsx`: Next.js loading boundary rendering `StudentDashboardSkeleton`.
+- `src/app/student/page.tsx`: Immediate Frame-1 mount of `StudentShell`.
+- `src/components/student/StudentShell.tsx`: Shell consuming `StudentProvider` with graceful fallback.
+- `src/lib/listening-utils.ts`: Lightweight pure utilities for listening module.
+- `src/data/listening/videos-index.json`: Lightweight metadata catalog (~146KB) for listening browse view.
+- `src/data/roadmap/vocab-topics-index.json`: Lightweight metadata catalog (~9.6KB) for vocab-station dropdown.
+- `src/lib/vocab-topics.ts`: Pure client helper for on-demand topic word loading via `/api/vocab/topic`.
+- `tests/perf-verification.test.ts`: E2E performance & regression verification suite.

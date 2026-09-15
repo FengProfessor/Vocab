@@ -36,7 +36,7 @@ const UpgradeGiftModal = dynamic(
 );
 
 import { useGamification } from '@/hooks/useGamification';
-import { supabase, type Profile } from '@/lib/supabase';
+import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
 import {
   readWordSummaryCache,
@@ -48,10 +48,7 @@ import {
   type StudentNavSection,
 } from '@/lib/student-nav';
 import { cn } from '@/lib/utils';
-
-type ShellProfile = Profile & {
-  telegram_id?: string | null;
-};
+import { useStudentContext, type ShellProfile } from '@/components/student/StudentProvider';
 
 interface StudentShellProps {
   title: string;
@@ -68,6 +65,12 @@ interface StudentShellProps {
   onJoinClass?: () => void;
   /** Yêu cầu đăng nhập để truy cập (mặc định true). Đặt false cho các trang công khai / dùng thử như Luyện nghe */
   requireAuth?: boolean;
+  /** Optional overrides from parent context or props */
+  profile?: ShellProfile | null;
+  gamification?: UserGamification;
+  reviewDueCount?: number;
+  newCount?: number;
+  classroomId?: string | null;
 }
 
 export function StudentShell({
@@ -78,28 +81,52 @@ export function StudentShell({
   immersive = false,
   onJoinClass,
   requireAuth = true,
+  profile: propProfile,
+  gamification: propGamification,
+  reviewDueCount: propReviewDueCount,
+  newCount: propNewCount,
+  classroomId: propClassroomId,
 }: StudentShellProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const context = useStudentContext();
   const profileRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
   const desktopNavRef = useRef<HTMLElement>(null);
   const wasMenuOpen = useRef(false);
-  const [profile, setProfile] = useState<ShellProfile | null>(null);
+  const [internalProfile, setInternalProfile] = useState<ShellProfile | null>(null);
   const [profileEmail, setProfileEmail] = useState('');
   const [isTeacherUser, setIsTeacherUser] = useState(false);
   const [classroomId, setClassroomId] = useState<string | null>(null);
   const [reviewDueCount, setReviewDueCount] = useState(0);
   const [newCount, setNewCount] = useState(0);
   const [grammarDue, setGrammarDue] = useState(0);
-  const [isBootstrapping, setIsBootstrapping] = useState(true);
+  const [isBootstrapping, setIsBootstrapping] = useState(!context?.profile);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   /** Hub iframe: ?embed=1 | from=hub → ẩn chrome (không dùng useSearchParams — tránh Suspense toàn app) */
   const [embedMode, setEmbedMode] = useState(false);
-  const { data: gamification } = useGamification(profile?.id ?? null);
+
+  // Fallback gamification hook: only queries when outside StudentProvider
+  const { data: fallbackGamification } = useGamification(
+    context ? null : (internalProfile?.id ?? null),
+  );
+
+  // Effective values derived from Props -> Context -> Internal State
+  const effectiveProfile = propProfile ?? context?.profile ?? internalProfile;
+  const effectiveGamification =
+    propGamification ?? (context ? context.gamification : fallbackGamification);
+  const effectiveIsTeacher = context
+    ? context.isTeacherUser
+    : (effectiveProfile?.role === 'teacher' || isTeacherUser);
+  const effectiveClassroomId =
+    propClassroomId ?? context?.wordSummary.classroomId ?? classroomId;
+  const effectiveReviewDueCount =
+    propReviewDueCount ?? context?.wordSummary.reviewDueCount ?? reviewDueCount;
+  const effectiveNewCount =
+    propNewCount ?? context?.wordSummary.newCount ?? newCount;
   const effectiveImmersive = immersive || embedMode;
 
   useEffect(() => {
@@ -135,6 +162,31 @@ export function StudentShell({
 
     const loadShellData = async () => {
       try {
+        if (context) {
+          const session = context.session ?? (await supabase.auth.getSession()).data?.session;
+          if (isCancelled) return;
+          if (!session?.user) {
+            if (requireAuth) {
+              router.push('/auth');
+            }
+            return;
+          }
+
+          setProfileEmail(session.user.email ?? '');
+
+          // Grammar progress is specific to shell notification bell
+          const authHeaders = { Authorization: `Bearer ${session.access_token}` };
+          const grammarResponse = await fetch('/api/grammar/progress?summary=1', { headers: authHeaders })
+            .then((response) => response.json())
+            .catch(() => null);
+
+          if (!isCancelled && grammarResponse?.success) {
+            setGrammarDue(Number(grammarResponse.dueCount ?? 0));
+          }
+          return;
+        }
+
+        // Fallback for standalone routes outside StudentProvider (e.g. /journey, /library)
         const { data: { session } } = await supabase.auth.getSession();
         if (isCancelled) return;
         if (!session?.user) {
@@ -177,7 +229,7 @@ export function StudentShell({
         if (isCancelled) return;
 
         if (profileData) {
-          setProfile(profileData as ShellProfile);
+          setInternalProfile(profileData as ShellProfile);
           const hasTeacher = profileData.role === 'teacher' || (teacherClassesRes?.count ?? 0) > 0;
           setIsTeacherUser(hasTeacher);
         }
@@ -213,7 +265,7 @@ export function StudentShell({
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (isCancelled) return;
       if (event === 'SIGNED_OUT') {
-        setProfile(null);
+        setInternalProfile(null);
         setProfileEmail('');
         if (requireAuth) {
           router.push('/auth');
@@ -227,7 +279,7 @@ export function StudentShell({
       isCancelled = true;
       subscription.unsubscribe();
     };
-  }, [router, requireAuth]);
+  }, [router, requireAuth, context]);
 
   // Khoá scroll body khi drawer mở
   useEffect(() => {
@@ -365,12 +417,12 @@ export function StudentShell({
   const navSections = useMemo<StudentNavSection[]>(
     () =>
       buildStudentNavSections({
-        classroomId,
-        hasClass: Boolean(classroomId),
-        reviewDueCount,
+        classroomId: effectiveClassroomId,
+        hasClass: Boolean(effectiveClassroomId),
+        reviewDueCount: effectiveReviewDueCount,
         grammarDueCount: grammarDue,
       }),
-    [classroomId, reviewDueCount, grammarDue],
+    [effectiveClassroomId, effectiveReviewDueCount, grammarDue],
   );
 
   const mobileDrawerSections = useMemo<StudentNavSection[]>(
@@ -447,7 +499,7 @@ export function StudentShell({
     );
   };
 
-  const initials = (profile?.full_name || profileEmail || 'U')
+  const initials = (effectiveProfile?.full_name || profileEmail || 'U')
     .split(' ')
     .filter(Boolean)
     .map((word) => word[0])
@@ -455,7 +507,7 @@ export function StudentShell({
     .join('')
     .toUpperCase() || 'U';
 
-  const currentLevel = xpToLevel(gamification.total_xp);
+  const currentLevel = xpToLevel(effectiveGamification.total_xp);
   const showBottomNav = !hideMobileNav && !effectiveImmersive;
   const showChrome = !effectiveImmersive;
   const isTeacherActive = pathname.startsWith('/teacher');
@@ -526,13 +578,13 @@ export function StudentShell({
               <div className="flex flex-1 items-center gap-1.5 rounded-md border border-[#fde2c0] bg-[#fff5e9] px-3 py-1.5 dark:border-amber-900/40 dark:bg-amber-950/25">
                 <span className="text-sm leading-none">🔥</span>
                 <span className="tabular-nums text-xs font-black text-[#ea7a23]">
-                  {gamification.current_streak} ngày
+                  {effectiveGamification.current_streak} ngày
                 </span>
               </div>
               <div className="flex flex-1 items-center gap-1.5 rounded-md border border-[#fbeaa6] bg-[#fffbe8] px-3 py-1.5 dark:border-yellow-900/40 dark:bg-yellow-950/25">
                 <span className="text-sm leading-none">⭐</span>
                 <span className="tabular-nums text-xs font-black text-[#b45309]">
-                  {gamification.total_xp} XP
+                  {effectiveGamification.total_xp} XP
                 </span>
               </div>
             </div>
@@ -586,16 +638,16 @@ export function StudentShell({
                   </div>
                   <div className="min-w-0 truncate text-left">
                     <div className="font-semibold text-slate-800 dark:text-slate-200 leading-tight truncate text-xs group-hover:text-slate-900 dark:group-hover:text-white">
-                      {profile?.full_name || profileEmail || 'Học viên'}
+                      {effectiveProfile?.full_name || profileEmail || 'Học viên'}
                     </div>
                     <div className="text-[10px] text-slate-400 dark:text-slate-500 truncate">
-                      Lv.{currentLevel} · {gamification.total_xp} XP
+                      Lv.{currentLevel} · {effectiveGamification.total_xp} XP
                     </div>
                   </div>
                 </div>
-                {profile?.plan && profile.plan !== 'free' ? (
+                {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? (
                   <span className="px-1.5 py-0.5 rounded bg-indigo-600 text-[9px] font-bold text-white uppercase shrink-0">
-                    {profile.plan}
+                    {effectiveProfile.plan}
                   </span>
                 ) : (
                   <span className="px-1.5 py-0.5 rounded bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 text-[9px] font-bold text-indigo-600 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800 shrink-0">
@@ -605,7 +657,7 @@ export function StudentShell({
               </Link>
 
               <div className="flex items-center justify-between px-1 text-[11px] text-slate-500 dark:text-slate-400 pt-0.5">
-                {isTeacherUser && (
+                {effectiveIsTeacher && (
                   <Link
                     href="/teacher"
                     onClick={() => setIsMenuOpen(false)}
@@ -703,16 +755,16 @@ export function StudentShell({
               </div>
               <div className="min-w-0 truncate text-left">
                 <div className="font-semibold text-slate-800 dark:text-slate-200 leading-tight truncate text-xs group-hover:text-slate-900 dark:group-hover:text-white">
-                  {profile?.full_name || profileEmail || 'Học viên'}
+                  {effectiveProfile?.full_name || profileEmail || 'Học viên'}
                 </div>
                 <div className="text-[10px] text-slate-400 dark:text-slate-500 truncate">
-                  Lv.{currentLevel} · {gamification.total_xp} XP
+                  Lv.{currentLevel} · {effectiveGamification.total_xp} XP
                 </div>
               </div>
             </div>
-            {profile?.plan && profile.plan !== 'free' ? (
+            {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? (
               <span className="px-1.5 py-0.5 rounded bg-indigo-600 text-[9px] font-bold text-white uppercase shrink-0">
-                {profile.plan}
+                {effectiveProfile.plan}
               </span>
             ) : (
               <span className="px-1.5 py-0.5 rounded bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 text-[9px] font-bold text-indigo-600 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800 shrink-0">
@@ -723,7 +775,7 @@ export function StudentShell({
 
           {/* Secondary links row */}
           <div className="flex items-center justify-between px-1 text-[11px] text-slate-500 dark:text-slate-400 pt-0.5">
-            {isTeacherUser && (
+            {effectiveIsTeacher && (
               <Link
                 href="/teacher"
                 className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-1"
@@ -789,13 +841,15 @@ export function StudentShell({
             </h1>
           </div>
 
-          {isBootstrapping ? (
-            <div className="flex items-center gap-2 text-slate-400">
-              <Loader2 className="h-5 w-5 animate-spin" />
+          {isBootstrapping && !effectiveProfile ? (
+            <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+              <div className="h-7 w-14 sm:w-16 rounded-full bg-[#fff5e9] border border-[#fde2c0] animate-pulse" />
+              <div className="hidden md:block h-7 w-20 rounded-full bg-[#fffbe8] border border-[#fbeaa6] animate-pulse" />
+              <div className="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-800 animate-pulse" />
             </div>
           ) : (
             <div className="flex shrink-0 items-center gap-1 sm:gap-2.5">
-              {isTeacherUser && (
+              {effectiveIsTeacher && (
                 <Link
                   href="/teacher"
                   className="hidden items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-[12px] font-extrabold text-indigo-700 transition-colors hover:bg-indigo-100 sm:flex"
@@ -815,25 +869,25 @@ export function StudentShell({
               <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
                 <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
                 <span className="tabular-nums text-[12px] font-black text-[#ea7a23] sm:text-[13px]">
-                  {gamification.current_streak}
+                  {effectiveGamification.current_streak}
                 </span>
               </div>
               <div className="hidden items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1 md:flex">
                 <span className="text-[13px] leading-none">⭐</span>
                 <span className="tabular-nums text-[13px] font-black text-[#b45309]">
-                  {gamification.total_xp} XP
+                  {effectiveGamification.total_xp} XP
                 </span>
                 <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#d4a017]">
                   Lv.{currentLevel}
                 </span>
               </div>
               <NotificationBell
-                dueCount={reviewDueCount}
+                dueCount={effectiveReviewDueCount}
                 grammarDueCount={grammarDue}
-                streak={gamification.current_streak}
-                dailyGoalXp={gamification.today_xp}
-                dailyGoal={gamification.daily_goal}
-                classroomId={classroomId}
+                streak={effectiveGamification.current_streak}
+                dailyGoalXp={effectiveGamification.today_xp}
+                dailyGoal={effectiveGamification.daily_goal}
+                classroomId={effectiveClassroomId}
               />
               <div className="hidden h-[22px] w-px bg-[#e8e8ee] sm:block dark:bg-slate-800" />
               <div className="relative" ref={profileRef}>
@@ -848,7 +902,7 @@ export function StudentShell({
                     {initials}
                   </span>
                   <span className="hidden max-w-[120px] truncate text-[13.5px] font-extrabold text-[#0f172a] sm:block dark:text-slate-200">
-                    {profile?.full_name?.split(' ')[0] || 'bạn'}
+                    {effectiveProfile?.full_name?.split(' ')[0] || 'bạn'}
                   </span>
                   <ChevronDown
                     className={`h-[15px] w-[15px] text-slate-400 transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''}`}
@@ -862,7 +916,7 @@ export function StudentShell({
                   >
                     <div className="px-2.5 pb-1.5 pt-2">
                       <div className="truncate text-[13px] font-extrabold text-[#0f172a] dark:text-slate-100">
-                        {profile?.full_name || 'Học viên'}
+                        {effectiveProfile?.full_name || 'Học viên'}
                       </div>
                       {profileEmail && (
                         <div className="truncate text-[11px] font-semibold text-[#9aa2b1] dark:text-slate-400">
@@ -871,7 +925,7 @@ export function StudentShell({
                       )}
                     </div>
                     <div className="my-1 h-px bg-[#f1f1f5] dark:bg-slate-800" />
-                    {isTeacherUser && (
+                    {effectiveIsTeacher && (
                       <Link
                         href="/teacher"
                         onClick={() => setIsProfileOpen(false)}
@@ -919,9 +973,9 @@ export function StudentShell({
 
       {showBottomNav && (
         <MobileBottomNav
-          classroomId={classroomId}
-          reviewDueCount={reviewDueCount}
-          newCount={newCount}
+          classroomId={effectiveClassroomId}
+          reviewDueCount={effectiveReviewDueCount}
+          newCount={effectiveNewCount}
         />
       )}
     </div>

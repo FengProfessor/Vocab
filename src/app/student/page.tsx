@@ -50,7 +50,7 @@ const MilestonePopup = dynamic(
   () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),
   { ssr: false }
 );
-import { UpgradeGiftModal } from '@/components/campaign/UpgradeGiftModal';
+import { useStudentContext } from '@/components/student/StudentProvider';
 const ChallengeWidget = dynamic(
   () => import('@/components/challenge/ChallengeWidget').then((m) => m.ChallengeWidget),
   { ssr: false }
@@ -129,13 +129,14 @@ interface EnrolledClassroom {
 }
 
 export default function StudentDashboard() {
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const studentCtx = useStudentContext();
+  const [profile, setProfile] = useState<Profile | null>(studentCtx?.profile ?? null);
   const [words, setWords] = useState<Word[]>([]);
-  const [classroomId, setClassroomId] = useState<string | null>(null);
+  const [classroomId, setClassroomId] = useState<string | null>(studentCtx?.wordSummary.classroomId ?? null);
   const [currentClassScope, setCurrentClassScope] = useState<string>('__personal__');
   const currentClassScopeRef = useRef<string>('__personal__');
   const [enrolledClassrooms, setEnrolledClassrooms] = useState<EnrolledClassroom[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [dailyActivity, setDailyActivity] = useState<{ date: string; count: number }[]>([]);
   const [todayWords, setTodayWords] = useState(0);
   const [countdown, setCountdown] = useState<string>('');
@@ -148,13 +149,13 @@ export default function StudentDashboard() {
   const [isJoining, setIsJoining] = useState(false);
   const [joinError, setJoinError] = useState<string | null>(null);
   // Pagination state cho word list
-  const [totalWords, setTotalWords] = useState(0);
-  const [newCount, setNewCount] = useState(0);
-  const [reviewDueCount, setReviewDueCount] = useState(0);
+  const [totalWords, setTotalWords] = useState(studentCtx?.wordSummary.total ?? 0);
+  const [newCount, setNewCount] = useState(studentCtx?.wordSummary.newCount ?? 0);
+  const [reviewDueCount, setReviewDueCount] = useState(studentCtx?.wordSummary.reviewDueCount ?? 0);
   /** Phân bố SRS L1–L6 full kho (từ API summary) */
   const [levelCounts, setLevelCounts] = useState<number[]>([0, 0, 0, 0, 0, 0]);
   /** false cho đến khi có counts (cache hoặc API) — progressive badge */
-  const [countsReady, setCountsReady] = useState(false);
+  const [countsReady, setCountsReady] = useState(Boolean(studentCtx?.wordSummary.total));
   /** word list load sau shell — tránh flash empty state */
   const [wordsLoading, setWordsLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -166,9 +167,21 @@ export default function StudentDashboard() {
   const [statusFilter, setStatusFilter] = useState<'all' | 'new' | 'due' | 'learned' | 'mastered'>('all');
   const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'az' | 'hardest'>('newest');
   const router = useRouter();
-  const { data: gamification, loading: gamificationLoading, refresh: refreshGamification } = useGamification(profile?.id ?? null);
+  const { data: fallbackGamification, refresh: fallbackRefreshGamification, loading: fallbackGamificationLoading } = useGamification(
+    studentCtx ? null : (profile?.id ?? null),
+  );
+  const gamification = studentCtx ? studentCtx.gamification : fallbackGamification;
+  const refreshGamification = studentCtx ? studentCtx.refreshGamification : fallbackRefreshGamification;
+  const gamificationLoading = studentCtx ? studentCtx.isLoading : fallbackGamificationLoading;
   /** Streak hiển thị = ngày LIÊN TIẾP từ heatmap (không dùng raw current_streak / tổng ngày học). */
   const [studyStreak, setStudyStreak] = useState(0);
+
+  // Sync profile when studentCtx resolves
+  useEffect(() => {
+    if (studentCtx?.profile && !profile) {
+      setProfile(studentCtx.profile);
+    }
+  }, [studentCtx?.profile, profile]);
 
   // Popup chúc mừng mốc (level / badge / streak)
   const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
@@ -212,7 +225,9 @@ export default function StudentDashboard() {
 
         // Stale-while-revalidate: paint counts từ cache ngay (chỉ cho personal scope)
         if (initialScope === '__personal__') {
-          const cached = readWordSummaryCache(session.user.id);
+          const cached = (studentCtx?.wordSummary.total ?? 0) > 0
+            ? studentCtx!.wordSummary
+            : readWordSummaryCache(session.user.id);
           if (cached) {
             setTotalWords(cached.total);
             setNewCount(cached.newCount);
@@ -286,6 +301,13 @@ export default function StudentDashboard() {
     const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
     if (!scope || scope === '__personal__') {
       writeWordSummaryCache(userId, {
+        total,
+        newCount: nextNew,
+        reviewDueCount: nextReview,
+        dueCount: data.dueCount,
+        classroomId: data.classroomId ?? null,
+      });
+      studentCtx?.updateWordSummary({
         total,
         newCount: nextNew,
         reviewDueCount: nextReview,
@@ -367,12 +389,16 @@ export default function StudentDashboard() {
          * Critical path: profile + words kèm counts (shell nhanh).
          * Secondary (heatmap / đếm từ / levels / packs): fire-and-forget sau shell.
          */
+        const profPromise = (studentCtx?.profile || profile)
+          ? Promise.resolve({ data: studentCtx?.profile || profile, error: null })
+          : supabase
+              .from('profiles')
+              .select('id, full_name, email, role, avatar_url, plan, created_at')
+              .eq('id', userId)
+              .single();
+
         const [profRes, wordsJson] = await Promise.all([
-          supabase
-            .from('profiles')
-            .select('id, full_name, email, role, avatar_url, plan, created_at')
-            .eq('id', userId)
-            .single(),
+          profPromise,
           authFetch(
             `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&includeCounts=1${scopeParam}`,
             {},
@@ -793,21 +819,20 @@ export default function StudentDashboard() {
 
   return (
     <>
-      <UpgradeGiftModal />
-      {isLoading ? (
-        <div className="min-h-dvh bg-muted/40 p-8 flex items-center justify-center">
-          <Loader2 className="h-10 w-10 animate-spin text-primary" />
-        </div>
-      ) : (
-        <StudentShell
-          title="Dashboard"
-          contentClassName="p-0"
-          onJoinClass={() => {
-            setJoinError(null);
-            setJoinCode('');
-            setIsJoinModalOpen(true);
-          }}
-        >
+      <StudentShell
+        title="Dashboard"
+        contentClassName="p-0"
+        profile={profile}
+        gamification={gamification}
+        reviewDueCount={reviewDueCount}
+        newCount={newCount}
+        classroomId={classroomId}
+        onJoinClass={() => {
+          setJoinError(null);
+          setJoinCode('');
+          setIsJoinModalOpen(true);
+        }}
+      >
 
       <div className="mx-auto flex w-full max-w-[920px] flex-col gap-3 px-4 py-3 sm:gap-3.5 sm:px-7 sm:py-5">
           {/* Greeting — 1 dòng gọn */}
@@ -1468,7 +1493,6 @@ export default function StudentDashboard() {
       )}
 
         </StudentShell>
-      )}
     </>
   );
 }

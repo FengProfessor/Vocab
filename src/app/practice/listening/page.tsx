@@ -11,14 +11,12 @@ import {
   Layers,
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
-import {
-  getListeningVideosIndex,
-  getListeningAttempt,
-} from '@/lib/listening';
+import { getListeningAttempt } from '@/lib/listening-utils';
+import videosIndexData from '@/data/listening/videos-index.json';
 import { getAllVideoWatchProgress } from '@/lib/listening-recommendation';
 import { TopicFilterChips } from '@/components/listening/TopicFilterChips';
-import { DailyRecommendedShelf } from '@/components/listening/DailyRecommendedShelf';
-import { TopicVideoShelf } from '@/components/listening/TopicVideoShelf';
+import { DailyRecommendedShelf } from './components/DailyRecommendedShelf';
+import { TopicVideoShelf } from './components/TopicVideoShelf';
 import type {
   DurationFilter,
   TopicFilter,
@@ -53,8 +51,8 @@ const CEFR_OPTIONS: { id: LevelFilter; label: string; desc: string }[] = [
 ];
 
 export default function ListeningLibraryPage() {
-  // 1. High-Performance Lightweight Index Loading (148 KB for 200 videos, <80ms)
-  const allVideos = useMemo(() => getListeningVideosIndex(), []);
+  // 1. High-Performance Lightweight Index Loading (157 KB for 200 videos, <80ms)
+  const allVideos = useMemo(() => videosIndexData as unknown as ListeningVideoIndexItem[], []);
 
   // Filter States
   const [durationFilter, setDurationFilter] = useState<DurationFilter>('all');

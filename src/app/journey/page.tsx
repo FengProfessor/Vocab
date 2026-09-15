@@ -45,7 +45,17 @@ import { TrackSwitcher, type TrackStats } from '@/components/journey/TrackSwitch
 import { ModuleCard } from '@/components/journey/ModuleCard';
 import { NodePreviewModal } from '@/components/journey/NodePreviewModal';
 import { UnitBadgeModal } from '@/components/journey/UnitBadgeModal';
-import { VocabRoadmapSection } from '@/components/journey/VocabRoadmapSection';
+const VocabRoadmapSection = dynamic(
+  () => import('@/components/journey/VocabRoadmapSection').then((m) => m.VocabRoadmapSection),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-8 text-center text-sm text-slate-400">
+        Đang tải lộ trình từ vựng...
+      </div>
+    ),
+  }
+);
 
 const MilestonePopup = dynamic(
   () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),

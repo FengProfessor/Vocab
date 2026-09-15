@@ -9,7 +9,6 @@
 import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { resolvePack } from '@/lib/vocab-catalog';
 import {
   BookOpen,
   Check,
@@ -266,17 +265,25 @@ function PackReadingInner() {
 
   // Tự động nhận dạng từ vựng từ URL query (packId / words / themeId)
   useEffect(() => {
-    let wordList: string[] = [];
-    if (paramWords) {
-      wordList = paramWords.split(',').map((s) => s.trim()).filter(Boolean);
-    } else if (paramPackId) {
-      const resolved = resolvePack(paramPackId);
-      if (resolved && resolved.words) {
-        wordList = resolved.words;
+    let cancelled = false;
+    const initWords = async () => {
+      let wordList: string[] = [];
+      if (paramWords) {
+        wordList = paramWords.split(',').map((s) => s.trim()).filter(Boolean);
+      } else if (paramPackId) {
+        try {
+          const { resolvePack } = await import('@/lib/vocab-catalog');
+          const resolved = resolvePack(paramPackId);
+          if (resolved && resolved.words) {
+            wordList = resolved.words;
+          }
+        } catch (e) {
+          console.error('Failed to resolve pack:', e);
+        }
       }
-    }
 
-    if (wordList.length > 0) {
+      if (cancelled || wordList.length === 0) return;
+
       const customPool: PoolWord[] = wordList.map((w, idx) => ({
         id: `custom-${idx}`,
         word: w,
@@ -302,7 +309,10 @@ function PackReadingInner() {
       if (paramTheme) {
         setThemeId(paramTheme);
       }
-    }
+    };
+
+    void initWords();
+    return () => { cancelled = true; };
   }, [paramPackId, paramWords, paramTheme]);
 
   // Load chỉ từ ĐÃ HỌC + SRS bucket + lần đúng quiz (giống quiz / đặt câu)

@@ -30,14 +30,10 @@ import { ToeicScoreReportView } from '@/components/toeic/ToeicScoreReportView';
 import { GuestSaveExamModal } from '@/components/toeic/GuestSaveExamModal';
 import { useToeicExamSession } from '@/hooks/useToeicExamSession';
 
-import {
-  loadToeicPartPractice,
-  loadAnyToeicTest,
-  getToeicCatalogIndex,
-  getAvailableToeicTests,
-  stripSensitiveToeicData,
-  convertLegacyMiniTest,
-  type ToeicFilterMode,
+import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
+import type {
+  ToeicCatalogIndex,
+  ToeicFilterMode,
 } from '@/lib/toeic-test-loader';
 import {
   getAnsweredQuestionIds,
@@ -104,14 +100,12 @@ function ToeicExamRoomInner() {
     return decodedExamId;
   }, [isPartPractice, testIdParam, decodedExamId]);
 
-  // ── 2. Local Fallback Dataset (Used offline or before API loads) ──
-  const { fallbackQuestions, testTitle, durationSeconds } = useMemo(() => {
+  // ── 2. Test Metadata & Duration (Lightweight Catalog Lookup) ──
+  const { testTitle, durationSeconds } = useMemo(() => {
     // Check if it's a legacy mini-test ID first
-    const legacyQuestions = convertLegacyMiniTest(decodedExamId);
-    if (legacyQuestions.length > 0) {
+    if (decodedExamId.startsWith('mini-')) {
       const minutes = timeParam ? parseInt(timeParam, 10) : 20;
       return {
-        fallbackQuestions: stripSensitiveToeicData(legacyQuestions),
         testTitle: `TOEIC Mini Test (${decodedExamId})`,
         durationSeconds: minutes * 60,
       };
@@ -125,49 +119,40 @@ function ToeicExamRoomInner() {
         targetTestId === 'bank' ||
         targetTestId === 'practice' ||
         targetTestId === 'part-practice';
-      const catalog = getToeicCatalogIndex();
-      const foundItem = catalog.fullTests.find(
+      const catalog = catalogIndexRaw as unknown as ToeicCatalogIndex;
+      const foundItem = catalog.fullTests?.find(
         (t) => t.id === targetTestId || t.displayId === targetTestId
       );
       const cleanLabel = targetTestId
         .replace(/^estudyme-test-(\d+)/i, 'Đề ETS Simulation $1')
         .replace(/^study4_test_(\d+)/i, 'Đề ETS $1');
       const sourceLabel = isBank ? 'Ngân hàng đề' : (foundItem?.title || cleanLabel);
-      const excludedIds = isBank && partNum ? getAnsweredQuestionIds(partNum) : undefined;
-      const mistakeIds = isBank && partNum ? getMistakeQuestionIds(partNum) : undefined;
-      const pQuestions = loadToeicPartPractice(partNum, targetTestId, limitNum, true, {
-        filterMode,
-        excludedIds,
-        mistakeIds,
-      });
+      const defaultQCount = limitNum || 20;
       const minutes = timeParam
         ? parseInt(timeParam, 10)
-        : Math.max(5, Math.ceil(pQuestions.length * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25)));
+        : Math.max(5, Math.ceil(defaultQCount * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25)));
       return {
-        fallbackQuestions: stripSensitiveToeicData(pQuestions),
-        testTitle: `Luyện tập Part ${partNum} (${pQuestions.length} câu — ${sourceLabel})`,
+        testTitle: `Luyện tập Part ${partNum} (${defaultQCount} câu — ${sourceLabel})`,
         durationSeconds: minutes * 60,
       };
     }
 
     // Universal Dynamic Test Resolution (ETS Authentic Simulation)
-    const catalog = getToeicCatalogIndex();
-    const fullCatalogItem = catalog.fullTests.find(
+    const catalog = catalogIndexRaw as unknown as ToeicCatalogIndex;
+    const fullCatalogItem = catalog.fullTests?.find(
       (t) => t.id === decodedExamId || t.displayId === decodedExamId
     );
 
     let practiceCatalogItem = undefined;
-    for (const pKey of Object.keys(catalog.practiceParts)) {
-      const found = catalog.practiceParts[pKey]?.find((item) => item.id === decodedExamId);
-      if (found) {
-        practiceCatalogItem = found;
-        break;
+    if (catalog.practiceParts) {
+      for (const pKey of Object.keys(catalog.practiceParts)) {
+        const found = catalog.practiceParts[pKey]?.find((item) => item.id === decodedExamId);
+        if (found) {
+          practiceCatalogItem = found;
+          break;
+        }
       }
     }
-
-    const fullQuestions = loadAnyToeicTest(decodedExamId);
-    const availableTests = getAvailableToeicTests();
-    const meta = availableTests.find((t) => t.testId === decodedExamId);
 
     const cleanFallback = decodedExamId
       .replace(/^estudyme-test-(\d+)/i, 'ETS Simulation $1')
@@ -176,33 +161,23 @@ function ToeicExamRoomInner() {
     const resolvedTitle =
       fullCatalogItem?.title ||
       practiceCatalogItem?.title ||
-      meta?.title ||
       `Đề thi TOEIC LR (${cleanFallback})`;
 
     const defaultMinutes =
       fullCatalogItem?.durationMinutes ||
       practiceCatalogItem?.durationMinutes ||
-      (fullQuestions.length <= 30 ? 20 : 120);
+      (isPartPractice ? 20 : 120);
 
     const minutes = timeParam ? parseInt(timeParam, 10) : defaultMinutes;
 
-    const isAuthenticHardcoded = availableTests.some((t) => t.testId === decodedExamId);
-    const isBrowser = typeof window !== 'undefined';
-    // For non-hardcoded dynamic tests in browser, avoid flashing duplicate 6852 questions
-    const safeFallbackQuestions =
-      isBrowser && !isAuthenticHardcoded && !isPartPractice
-        ? []
-        : stripSensitiveToeicData(fullQuestions);
-
     return {
-      fallbackQuestions: safeFallbackQuestions,
       testTitle: resolvedTitle,
       durationSeconds: minutes * 60,
     };
   }, [targetTestId, decodedExamId, isPartPractice, partNum, timeParam, limitNum, currentMode]);
 
-  // Questions state: initially loaded via sanitized endpoint or fallback
-  const [questions, setQuestions] = useState<ToeicClientQuestion[]>(fallbackQuestions);
+  // Questions state: loaded via sanitized endpoint on mount or dynamic fallback
+  const [questions, setQuestions] = useState<ToeicClientQuestion[]>([]);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState<boolean>(true);
 
   // Honeypot anti-bot trap state
@@ -267,11 +242,11 @@ function ToeicExamRoomInner() {
     let isCancelled = false;
 
     async function fetchSanitizedTest() {
-      try {
-        const isBankPractice = isPartPractice && targetTestId === 'bank';
-        const excludedIds = isPartPractice && partNum ? getAnsweredQuestionIds(partNum) : undefined;
-        const mistakeIds = isPartPractice && partNum ? getMistakeQuestionIds(partNum) : undefined;
+      const isBankPractice = isPartPractice && targetTestId === 'bank';
+      const excludedIds = isPartPractice && partNum ? getAnsweredQuestionIds(partNum) : undefined;
+      const mistakeIds = isPartPractice && partNum ? getMistakeQuestionIds(partNum) : undefined;
 
+      try {
         let res: Response;
         if (isBankPractice || (isPartPractice && partNum)) {
           res = await fetch('/api/toeic/test', {
@@ -313,11 +288,32 @@ function ToeicExamRoomInner() {
           }
         }
       } catch (err) {
-        console.warn('[ToeicExam] Failed to load sanitized questions via API, using fallback:', err);
+        console.warn('[ToeicExam] Failed to load sanitized questions via API, attempting dynamic fallback:', err);
+        try {
+          const { loadAnyToeicTest, loadToeicPartPractice, stripSensitiveToeicData } = await import('@/lib/toeic-test-loader');
+          let fallback: ToeicUnifiedQuestion[] = [];
+          if (isPartPractice && partNum) {
+            const answeredIds = getAnsweredQuestionIds(partNum);
+            const mistakes = getMistakeQuestionIds(partNum);
+            fallback = loadToeicPartPractice(partNum, targetTestId, limitNum, true, {
+              filterMode,
+              excludedIds: answeredIds,
+              mistakeIds: mistakes,
+            });
+          } else {
+            fallback = loadAnyToeicTest(decodedExamId);
+          }
+          if (!isCancelled && fallback.length > 0) {
+            setQuestions(stripSensitiveToeicData(fallback));
+            setIsLoadingQuestions(false);
+            return;
+          }
+        } catch (dynErr) {
+          console.error('[ToeicExam] Dynamic import fallback failed:', dynErr);
+        }
       }
 
       if (!isCancelled) {
-        setQuestions(fallbackQuestions);
         setIsLoadingQuestions(false);
       }
     }
@@ -327,7 +323,7 @@ function ToeicExamRoomInner() {
     return () => {
       isCancelled = true;
     };
-  }, [targetTestId, currentMode, fallbackQuestions, partNum, timeParam, limitNum, filterMode, isPartPractice]);
+  }, [targetTestId, currentMode, decodedExamId, partNum, timeParam, limitNum, filterMode, isPartPractice]);
 
   // ── 4. Session State Hook & Submitted Exam Persistence ──
   const sessionKey = useMemo(() => {

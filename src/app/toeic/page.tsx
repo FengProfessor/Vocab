@@ -227,7 +227,7 @@ function ToeicCatalogContent() {
 
   const [activeTab, setActiveTab] = useState<'full_test' | 'practice_parts'>(initialTab);
   const [selectedPart, setSelectedPart] = useState<number>(validPart);
-  const [testFilter, setTestFilter] = useState<'200q' | 'estudyme' | 'study4' | 'all'>('200q');
+  const [testFilter, setTestFilter] = useState<'200q' | 'ets2024' | 'ets2026' | 'estudyme' | 'study4' | 'all'>('200q');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [displayLayout, setDisplayLayout] = useState<'list' | 'grid'>('list');
   const [userExamStatus, setUserExamStatus] = useState<Record<string, UserExamStatus>>({});
@@ -355,6 +355,10 @@ function ToeicCatalogContent() {
     let list = catalog.fullTests || [];
     if (testFilter === '200q') {
       list = list.filter((t) => t.questionCount === 200);
+    } else if (testFilter === 'ets2024') {
+      list = list.filter((t) => t.source === 'ets2024');
+    } else if (testFilter === 'ets2026') {
+      list = list.filter((t) => t.source === 'ets2026');
     } else if (testFilter === 'estudyme') {
       list = list.filter((t) => t.source === 'estudyme');
     } else if (testFilter === 'study4') {
@@ -631,6 +635,28 @@ function ToeicCatalogContent() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => setTestFilter('ets2024')}
+                  className={`rounded-sm px-2.5 py-1 text-xs font-mono font-medium transition-colors cursor-pointer ${
+                    testFilter === 'ets2024'
+                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold'
+                      : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
+                  }`}
+                >
+                  ETS 2024 (10 Đề)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setTestFilter('ets2026')}
+                  className={`rounded-sm px-2.5 py-1 text-xs font-mono font-medium transition-colors cursor-pointer ${
+                    testFilter === 'ets2026'
+                      ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold'
+                      : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
+                  }`}
+                >
+                  ETS 2026 (10 Đề)
+                </button>
+                <button
+                  type="button"
                   onClick={() => setTestFilter('estudyme')}
                   className={`rounded-sm px-2.5 py-1 text-xs font-mono font-medium transition-colors cursor-pointer ${
                     testFilter === 'estudyme'
@@ -660,7 +686,7 @@ function ToeicCatalogContent() {
                       : 'border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  Toàn bộ kho đề ({catalog.fullTests?.length || 41})
+                  Toàn bộ kho đề ({catalog.fullTests?.length || 61})
                 </button>
               </div>
 

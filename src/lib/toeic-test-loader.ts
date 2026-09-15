@@ -25,7 +25,7 @@ export interface ToeicCatalogTestItem {
   title: string;
   questionCount: number;
   durationMinutes: number;
-  source: 'estudyme' | 'study4';
+  source: 'estudyme' | 'study4' | 'ets2024' | 'ets2026';
   badge: string;
 }
 
@@ -786,8 +786,47 @@ function loadStudy4Test(testId: string): ToeicUnifiedQuestion[] {
 }
 
 /**
+ * Loads an ETS 2024 or ETS 2026 authentic test (1 to 10).
+ * Supports test IDs: 'ets-2024-01' .. 'ets-2024-10', 'ets-2026-01' .. 'ets-2026-10',
+ * as well as unpadded 'ets-2024-1', uppercase 'ETS-2024-01', etc.
+ */
+export function loadEtsTest(year: '2024' | '2026' | string, testNumber: number): ToeicUnifiedQuestion[] {
+  const yearStr = String(year).includes('2026') ? '2026' : '2024';
+  const pad = String(testNumber).padStart(2, '0');
+  const cacheKey = `ets-${yearStr}-${pad}`;
+  if (testCache.has(cacheKey)) {
+    return cloneUnifiedQuestions(testCache.get(cacheKey)!);
+  }
+
+  const folder = `ets_${yearStr}`;
+  const fname = `ets_${yearStr}_test_${pad}.json`;
+  const fullPath = getCrawlerDataPath(folder, fname);
+  if (!fullPath) {
+    return loadFullToeicTest('6852');
+  }
+
+  const fsModule = getNodeFs();
+  if (!fsModule) return loadFullToeicTest('6852');
+
+  try {
+    const content = fsModule.readFileSync(fullPath, 'utf8');
+    const data = JSON.parse(content);
+    const questions: ToeicUnifiedQuestion[] = Array.isArray(data.questions) ? data.questions : [];
+    if (questions.length > 0) {
+      testCache.set(cacheKey, questions);
+      return cloneUnifiedQuestions(questions);
+    }
+  } catch (err) {
+    console.error(`Error loading ETS test ${cacheKey}:`, err);
+  }
+
+  return loadFullToeicTest('6852');
+}
+
+/**
  * Universal dynamic loader for any TOEIC test or practice set.
  * Supports:
+ * - Authentic ETS 2024 & ETS 2026 full tests: 'ets-2024-01' to '10', 'ets-2026-01' to '10', 'ETS-2024-01', etc.
  * - Estudyme full tests: 'estudyme-test-1' to 'estudyme-test-21', 'test-1' to 'test-21', 'ets-01' to 'ets-21'
  * - Estudyme practice sets: 'estudyme-part_5_incomplete_sentences-test-1', 'estudyme-p5-set1', 'estudyme-p5-set-1', etc.
  * - Study4 tests: '6852' to '7009', 'study4-6852', 'study4_test_7000'
@@ -808,6 +847,17 @@ export function loadAnyToeicTest(testId?: unknown): ToeicUnifiedQuestion[] {
   const legacy = convertLegacyMiniTest(rawStr);
   if (legacy.length > 0) {
     return legacy;
+  }
+
+  // 1.5. Authentic ETS 2024 & ETS 2026 Full Tests
+  const etsMatch =
+    rawStr.match(/^ets[-_]?(2024|2026)[-_]?(?:test[-_]?)?(\d{1,2})$/i);
+  if (etsMatch) {
+    const year = etsMatch[1] as '2024' | '2026';
+    const num = parseInt(etsMatch[2], 10);
+    if (num >= 1 && num <= 10) {
+      return loadEtsTest(year, num);
+    }
   }
 
   // 2. Estudyme Full Test (estudyme-test-1 to 21, test-1 to 21, ets-01 to 21)

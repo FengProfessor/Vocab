@@ -5,16 +5,15 @@
  * part5 = Incomplete Sentences (MCQ ngữ pháp/từ vựng)
  * part6 = Text Completion (đọc đoạn văn + điền chỗ trống)
  * part7 = Reading Comprehension (đọc hiểu single/double/triple passage)
- * Nội dung import từ content-toeic-reading-v1.json. Xong → POST roadmap progress.
+ * Decoupled from initial static bundle via dynamic import. Xong → POST roadmap progress.
  */
-import { useMemo, useState, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, CheckCircle2, Lightbulb, BookOpen } from 'lucide-react';
 import Link from 'next/link';
-import contentData from '@/data/toeic/content-toeic-reading-v1.json';
 import type {
   ToeicPart5Item,
   ToeicPart6Item,
@@ -22,8 +21,6 @@ import type {
   ToeicReadingContent,
   ToeicFlatQ,
 } from '@/types/toeic';
-
-const content = contentData as unknown as ToeicReadingContent;
 
 // ── Flatten helpers ──
 
@@ -67,9 +64,6 @@ function part7ToQs(item: ToeicPart7Item): ToeicFlatQ[] {
 function findBySet<T extends { setId: string }>(arr: T[], setId: string): T[] {
   return arr.filter((x) => x.setId === setId);
 }
-function findItemById<T extends { id: string }>(arr: T[], id: string): T | undefined {
-  return arr.find((x) => x.id === id);
-}
 
 // ── Part label cho UI ──
 const PART_LABEL: Record<string, string> = {
@@ -78,47 +72,122 @@ const PART_LABEL: Record<string, string> = {
   part7: 'Part 7 — Reading Comprehension',
 };
 
+export function ToeicPlayerSkeleton() {
+  return (
+    <div
+      className="mx-auto max-w-2xl p-4 space-y-5 animate-pulse"
+      role="status"
+      aria-busy="true"
+      aria-label="Đang tải bài tập TOEIC..."
+    >
+      {/* Header skeleton */}
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-md bg-muted" />
+        <div className="h-3 flex-1 rounded-full bg-muted" />
+        <div className="w-12 h-4 rounded bg-muted" />
+      </div>
+
+      {/* Part badge skeleton */}
+      <div className="flex items-center gap-2">
+        <div className="w-24 h-5 rounded-full bg-muted" />
+        <div className="w-40 h-4 rounded bg-muted" />
+      </div>
+
+      {/* Passage / Context skeleton */}
+      <div className="h-36 rounded-lg bg-muted/60" />
+
+      {/* Question prompt skeleton */}
+      <div className="h-6 w-3/4 rounded bg-muted" />
+
+      {/* Options skeleton */}
+      <div className="space-y-3">
+        <div className="grid gap-2">
+          <div className="h-12 rounded-md bg-muted/70" />
+          <div className="h-12 rounded-md bg-muted/70" />
+          <div className="h-12 rounded-md bg-muted/70" />
+          <div className="h-12 rounded-md bg-muted/70" />
+        </div>
+        <div className="h-11 rounded-md bg-muted" />
+      </div>
+    </div>
+  );
+}
+
 function ToeicPlayerInner() {
   const { part, ref } = useParams<{ part: string; ref: string }>();
   const searchParams = useSearchParams();
   const router = useRouter();
   const stepId = searchParams.get('roadmapStep') ?? '';
 
-  const { title, questions } = useMemo(() => {
-    const partKey = part.replace('-', '');
-    const decodedRef = decodeURIComponent(ref);
+  const [loading, setLoading] = useState(true);
+  const [title, setTitle] = useState('');
+  const [questions, setQuestions] = useState<ToeicFlatQ[]>([]);
 
-    if (partKey === 'part5') {
-      const items = findBySet(content.part5, decodedRef);
-      if (items.length === 0) return { title: '', questions: [] as ToeicFlatQ[] };
-      return {
-        title: PART_LABEL.part5,
-        questions: part5ToQs(items),
-      };
+  useEffect(() => {
+    let isCancelled = false;
+
+    async function loadQuestions() {
+      setLoading(true);
+      try {
+        const mod = await import('@/data/toeic/content-toeic-reading-v1.json');
+        const content = mod.default as unknown as ToeicReadingContent;
+
+        if (isCancelled) return;
+
+        const partKey = (part || '').replace('-', '');
+        const decodedRef = decodeURIComponent(ref || '');
+
+        if (partKey === 'part5') {
+          const items = findBySet(content.part5 || [], decodedRef);
+          if (items.length > 0) {
+            setTitle(PART_LABEL.part5);
+            setQuestions(part5ToQs(items));
+          } else {
+            setTitle('');
+            setQuestions([]);
+          }
+        } else if (partKey === 'part6') {
+          const items = findBySet(content.part6 || [], decodedRef);
+          if (items.length > 0) {
+            setTitle(PART_LABEL.part6);
+            setQuestions(items.flatMap(part6ToQs));
+          } else {
+            setTitle('');
+            setQuestions([]);
+          }
+        } else if (partKey === 'part7') {
+          const singles = findBySet(content.part7_single || [], decodedRef);
+          const doubles = findBySet(content.part7_double ?? [], decodedRef);
+          const all = [...singles, ...doubles];
+          if (all.length > 0) {
+            setTitle(PART_LABEL.part7);
+            setQuestions(all.flatMap(part7ToQs));
+          } else {
+            setTitle('');
+            setQuestions([]);
+          }
+        } else {
+          setTitle('');
+          setQuestions([]);
+        }
+      } catch (err) {
+        console.error('[ToeicPlayer] Failed to load reading dataset dynamically:', err);
+        if (!isCancelled) {
+          setTitle('');
+          setQuestions([]);
+        }
+      } finally {
+        if (!isCancelled) {
+          setLoading(false);
+        }
+      }
     }
 
-    if (partKey === 'part6') {
-      const items = findBySet(content.part6, decodedRef);
-      if (items.length === 0) return { title: '', questions: [] as ToeicFlatQ[] };
-      return {
-        title: PART_LABEL.part6,
-        questions: items.flatMap(part6ToQs),
-      };
-    }
+    loadQuestions();
 
-    if (partKey === 'part7') {
-      // Tìm trong cả single và double
-      const singles = findBySet(content.part7_single, decodedRef);
-      const doubles = findBySet(content.part7_double ?? [], decodedRef);
-      const all = [...singles, ...doubles];
-      if (all.length === 0) return { title: '', questions: [] as ToeicFlatQ[] };
-      return {
-        title: PART_LABEL.part7,
-        questions: all.flatMap(part7ToQs),
-      };
-    }
-
-    return { title: '', questions: [] as ToeicFlatQ[] };
+    return () => {
+      isCancelled = true;
+    };
   }, [part, ref]);
 
   // ── Player state ──
@@ -128,6 +197,26 @@ function ToeicPlayerInner() {
   const [correct, setCorrect] = useState(0);
   const [finished, setFinished] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  // ── Loading skeleton state ──
+  if (loading) {
+    return <ToeicPlayerSkeleton />;
+  }
+
+  // ── Empty state (only after loading completed with 0 questions) ──
+  if (questions.length === 0) {
+    return (
+      <div className="mx-auto max-w-lg p-6 text-center space-y-4">
+        <BookOpen className="w-12 h-12 mx-auto text-muted-foreground" />
+        <p className="text-muted-foreground">Nội dung bài này chưa sẵn sàng.</p>
+        <Link href="/toeic">
+          <Button variant="outline">
+            <ArrowLeft className="w-4 h-4 mr-1" /> Về TOEIC
+          </Button>
+        </Link>
+      </div>
+    );
+  }
 
   const q = questions[index];
 
@@ -171,21 +260,6 @@ function ToeicPlayerInner() {
     setFinished(false);
   };
 
-  // ── Empty state ──
-  if (questions.length === 0) {
-    return (
-      <div className="mx-auto max-w-lg p-6 text-center space-y-4">
-        <BookOpen className="w-12 h-12 mx-auto text-muted-foreground" />
-        <p className="text-muted-foreground">Nội dung bài này chưa sẵn sàng.</p>
-        <Link href="/toeic">
-          <Button variant="outline">
-            <ArrowLeft className="w-4 h-4 mr-1" /> Về TOEIC
-          </Button>
-        </Link>
-      </div>
-    );
-  }
-
   // ── Finished state ──
   if (finished) {
     const pct = Math.round((correct / questions.length) * 100);
@@ -205,7 +279,6 @@ function ToeicPlayerInner() {
           {(['part5', 'part6', 'part7'] as const).map((p) => {
             const partQs = questions.filter((q2) => q2.part === p);
             if (partQs.length === 0) return null;
-            // Count correct cho part này (cần track riêng — simplified)
             return (
               <p key={p} className="text-muted-foreground">
                 {PART_LABEL[p]}: {partQs.length} câu
@@ -357,13 +430,7 @@ function ToeicPlayerInner() {
 
 export default function ToeicPartPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="flex items-center justify-center min-h-[50vh]">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
-        </div>
-      }
-    >
+    <Suspense fallback={<ToeicPlayerSkeleton />}>
       <ToeicPlayerInner />
     </Suspense>
   );
