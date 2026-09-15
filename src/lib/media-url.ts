@@ -36,6 +36,8 @@ const DIRECT_IMAGE_HOST_SUFFIXES = [
   'staticflickr.com',
   'pollinations.ai',
   'image.pollinations.ai',
+  'toeicbuilding.com.vn',
+  'testtoeic.com',
 ] as const;
 
 function hostAllowedDirect(hostname: string): boolean {

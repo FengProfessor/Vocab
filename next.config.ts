@@ -14,7 +14,7 @@ const csp = [
   "font-src 'self' data: https://fonts.gstatic.com",
   "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com https://www.googleapis.com https://dict.minhqnd.com https://api.dictionaryapi.dev https://us.i.posthog.com https://us-assets.i.posthog.com",
   // Audio phát âm giọng thật & TOEIC Listening CDN
-  "media-src 'self' https://api.dictionaryapi.dev https://ssl.gstatic.com https://dict.youdao.com https://s4-media1.study4.com https://*.study4.com https://storage.googleapis.com",
+  "media-src 'self' https://api.dictionaryapi.dev https://ssl.gstatic.com https://dict.youdao.com https://s4-media1.study4.com https://*.study4.com https://storage.googleapis.com https://test.toeicbuilding.com.vn https://*.toeicbuilding.com.vn https://testtoeic.com https://*.testtoeic.com",
   "worker-src 'self'",
   // 'self' = cho phép LingoTown nhúng app trong iframe (cùng origin)
   "frame-ancestors 'self'",
@@ -49,6 +49,7 @@ const nextConfig: NextConfig = {
       'cloudinary.com', 'imgur.com', 'googleusercontent.com', 'gstatic.com',
       'wikimedia.org', 'cdn.jsdelivr.net', 'cloudfront.net', 'r2.dev',
       'amazonaws.com', 'google.com', 'study4.com', 'googleapis.com',
+      'toeicbuilding.com.vn', 'testtoeic.com',
     ].flatMap((h) => [
       { protocol: 'https' as const, hostname: h },
       { protocol: 'https' as const, hostname: `**.${h}` },

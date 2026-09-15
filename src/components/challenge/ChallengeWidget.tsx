@@ -31,9 +31,7 @@ export function ChallengeWidget() {
   }, [])
 
   if (loading) {
-    return (
-      <Card className="animate-pulse bg-slate-100 dark:bg-slate-900 border-none h-32" />
-    )
+    return null
   }
 
   // If not participating and no open challenges to promote

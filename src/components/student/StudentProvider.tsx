@@ -12,8 +12,10 @@ import React, {
 import type { Session } from '@supabase/supabase-js';
 import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
 import { effectiveCurrentStreak } from '@/lib/gamification';
+import { authFetch } from '@/lib/auth-fetch';
 import {
   readWordSummaryCache,
+  readLastWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
 
@@ -167,6 +169,39 @@ export function fetchTeacherCheckOnce(userId: string): Promise<boolean> {
   return promise;
 }
 
+const inFlightWordSummaries = new Map<string, Promise<WordSummaryData | null>>();
+
+export function fetchWordSummaryOnce(userId: string, token?: string | null): Promise<WordSummaryData | null> {
+  const existing = inFlightWordSummaries.get(userId);
+  if (existing) return existing;
+
+  const promise = (async () => {
+    try {
+      const res = await authFetch('/api/words?summary=1', {}, token);
+      const json = await res.json();
+      if (json?.success) {
+        const summary: WordSummaryData = {
+          total: Number(json.total ?? 0),
+          newCount: Number(json.newCount ?? 0),
+          reviewDueCount: Number(json.reviewDueCount ?? 0),
+          dueCount: Number(json.dueCount ?? 0),
+          classroomId: json.classroomId ?? null,
+        };
+        writeWordSummaryCache(userId, summary);
+        return summary;
+      }
+      return null;
+    } catch {
+      return null;
+    } finally {
+      inFlightWordSummaries.delete(userId);
+    }
+  })();
+
+  inFlightWordSummaries.set(userId, promise);
+  return promise;
+}
+
 /* ═════════════════════════════════════════════════════════════════════════
  * SWR sessionStorage Cache Utilities
  * ═════════════════════════════════════════════════════════════════════════ */
@@ -234,7 +269,18 @@ export function StudentProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<ShellProfile | null>(null);
   const [gamification, setGamification] = useState<UserGamification>(DEFAULT_GAMIFICATION);
-  const [wordSummary, setWordSummary] = useState<WordSummaryData>(DEFAULT_WORD_SUMMARY);
+  const [wordSummary, setWordSummary] = useState<WordSummaryData>(() => {
+    const cached = readLastWordSummaryCache();
+    return cached
+      ? {
+          total: cached.total,
+          newCount: cached.newCount,
+          reviewDueCount: cached.reviewDueCount,
+          dueCount: cached.dueCount ?? 0,
+          classroomId: cached.classroomId ?? null,
+        }
+      : DEFAULT_WORD_SUMMARY;
+  });
   const [isTeacherUser, setIsTeacherUser] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -319,11 +365,12 @@ export function StudentProvider({ children }: { children: ReactNode }) {
           });
         }
 
-        // Parallel single-flight background validation
-        const [profData, gamData, teacherFlag] = await Promise.all([
+        // Parallel single-flight background validation (profile + gamification + teacher + wordSummary)
+        const [profData, gamData, teacherFlag, wordSum] = await Promise.all([
           fetchProfileOnce(userId),
           fetchGamificationOnce(userId),
           fetchTeacherCheckOnce(userId),
+          fetchWordSummaryOnce(userId, currentSession?.access_token),
         ]);
 
         if (isCancelled) return;
@@ -337,6 +384,10 @@ export function StudentProvider({ children }: { children: ReactNode }) {
 
         if (gamData) {
           setGamification(gamData);
+        }
+
+        if (wordSum) {
+          setWordSummary(wordSum);
         }
       } finally {
         if (!isCancelled) {

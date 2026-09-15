@@ -31,6 +31,7 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { EnableNotifications } from '@/components/EnableNotifications';
 import {
   readWordSummaryCache,
+  readLastWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
 import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
@@ -148,14 +149,26 @@ export default function StudentDashboard() {
   const [joinCode, setJoinCode] = useState('');
   const [isJoining, setIsJoining] = useState(false);
   const [joinError, setJoinError] = useState<string | null>(null);
-  // Pagination state cho word list
-  const [totalWords, setTotalWords] = useState(studentCtx?.wordSummary.total ?? 0);
-  const [newCount, setNewCount] = useState(studentCtx?.wordSummary.newCount ?? 0);
-  const [reviewDueCount, setReviewDueCount] = useState(studentCtx?.wordSummary.reviewDueCount ?? 0);
+  // Pagination state cho word list - Khởi tạo tức thì Frame 0 từ Context hoặc Cache
+  const [totalWords, setTotalWords] = useState(() => {
+    const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
+    return cached?.total ?? 0;
+  });
+  const [newCount, setNewCount] = useState(() => {
+    const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
+    return cached?.newCount ?? 0;
+  });
+  const [reviewDueCount, setReviewDueCount] = useState(() => {
+    const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
+    return cached?.reviewDueCount ?? 0;
+  });
   /** Phân bố SRS L1–L6 full kho (từ API summary) */
   const [levelCounts, setLevelCounts] = useState<number[]>([0, 0, 0, 0, 0, 0]);
-  /** false cho đến khi có counts (cache hoặc API) — progressive badge */
-  const [countsReady, setCountsReady] = useState(Boolean(studentCtx?.wordSummary.total));
+  /** Sẵn sàng hiển thị số đếm ngay từ Frame 0 nếu đã có cache */
+  const [countsReady, setCountsReady] = useState(() => {
+    const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
+    return Boolean(cached);
+  });
   /** word list load sau shell — tránh flash empty state */
   const [wordsLoading, setWordsLoading] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -182,6 +195,19 @@ export default function StudentDashboard() {
       setProfile(studentCtx.profile);
     }
   }, [studentCtx?.profile, profile]);
+
+  // Sync wordSummary counts when studentCtx updates
+  useEffect(() => {
+    if (studentCtx?.wordSummary) {
+      const ws = studentCtx.wordSummary;
+      if (ws.total > 0 || ws.reviewDueCount > 0 || ws.newCount > 0 || ws.dueCount > 0) {
+        setTotalWords(ws.total);
+        setNewCount(ws.newCount);
+        setReviewDueCount(ws.reviewDueCount);
+        setCountsReady(true);
+      }
+    }
+  }, [studentCtx?.wordSummary]);
 
   // Popup chúc mừng mốc (level / badge / streak)
   const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
