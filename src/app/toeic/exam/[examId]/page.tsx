@@ -204,20 +204,22 @@ function ToeicExamRoomInner() {
           body: JSON.stringify({
             testId: targetTestId,
             questionNumber: qNum,
+            questionId: targetQ?.id,
+            part: targetQ?.part,
             sessionToken,
           }),
         });
         if (res.ok) {
           const data = await res.json();
-          if (data.success) {
+          if (data.success && data.correctAnswer) {
             setQuestions((prev) =>
               prev.map((q) =>
-                q.questionNumber === qNum
+                q.questionNumber === qNum || (targetQ?.id && q.id === targetQ.id)
                   ? {
                       ...q,
                       correctAnswer: data.correctAnswer,
-                      explanationVi: data.explanationVi,
-                      transcript: data.transcript,
+                      explanationVi: data.explanationVi || q.explanationVi,
+                      transcript: data.transcript || q.transcript,
                     }
                   : q
               )
@@ -428,14 +430,12 @@ function ToeicExamRoomInner() {
     onSubmit: handleSubmit,
   });
 
-  // In practice mode: auto-reveal explanation and fetch on-demand if question answered
+  // In practice mode: auto-reveal explanation and prefetch answer/explanation immediately
   useEffect(() => {
     if (currentMode === 'practice') {
       const hasAnswer = Boolean(session.answers[session.currentQNum]);
       setShowPracticeExplanation(hasAnswer);
-      if (hasAnswer) {
-        void fetchSingleExplanation(session.currentQNum);
-      }
+      void fetchSingleExplanation(session.currentQNum);
     }
   }, [currentMode, session.currentQNum, session.answers, fetchSingleExplanation]);
 

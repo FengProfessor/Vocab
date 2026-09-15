@@ -159,6 +159,12 @@ export function ToeicSplitPane({
     return question.passage.split(/\n\s*---\s*\n/).map((p) => p.trim());
   }, [question.passage]);
 
+  const hasVisibleImage = Boolean(
+    (question.part === 1 || question.part === 3 || question.part === 4) &&
+      question.imageUrl &&
+      (!isReadingWithPassage || mobileTab === 'passage')
+  );
+
   return (
     <div
       className={`flex flex-col h-[calc(100vh-48px)] w-full overflow-hidden bg-slate-100 dark:bg-slate-950 ${className}`}
@@ -204,7 +210,7 @@ export function ToeicSplitPane({
               ? mobileTab === 'passage'
                 ? 'flex flex-col flex-1 overflow-hidden'
                 : 'hidden lg:flex'
-              : 'flex flex-col shrink-0 max-h-[44vh] overflow-y-auto'
+              : 'flex flex-col shrink-0 max-h-[50vh] sm:max-h-[52vh] overflow-y-auto'
           } lg:col-span-6 xl:col-span-7 lg:max-h-none lg:h-full lg:overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900`}
         >
           {/* Scrollable Stimulus Body */}
@@ -221,25 +227,38 @@ export function ToeicSplitPane({
               </div>
             )}
 
-            {/* 2. Part 1 Photograph */}
+            {/* 2. Part 1 Photograph — Edge-to-edge scaling with overlay Next button */}
             {question.part === 1 && question.imageUrl && (
-              <div className="space-y-1.5 sm:space-y-2">
-                <div className="relative group overflow-hidden rounded-sm border border-slate-200 bg-slate-50 shadow-none dark:border-slate-800 dark:bg-slate-900">
-                  <div className="relative h-44 sm:h-64 md:h-80 lg:h-96 w-full">
+              <div className="space-y-1.5 sm:space-y-2 -mx-3 sm:mx-0 -mt-1 sm:mt-0">
+                <div className="relative group overflow-hidden rounded-none sm:rounded-sm border-y sm:border border-slate-200 bg-slate-900/5 dark:border-slate-800 dark:bg-slate-950/40">
+                  <div className="relative w-full aspect-[4/3] xs:aspect-[16/10] sm:aspect-auto sm:h-80 md:h-88 lg:h-96">
                     <Image
                       src={question.imageUrl}
                       alt={`Photograph for Question ${question.questionNumber}`}
                       fill
                       unoptimized
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-contain p-2"
+                      className="object-contain p-0"
                       priority
                     />
                   </div>
+
+                  {/* Next Question Overlay Button (Middle Right of Image) */}
+                  <button
+                    type="button"
+                    onClick={onNext}
+                    disabled={!hasNext}
+                    aria-label="Câu tiếp theo"
+                    className="lg:hidden absolute right-2.5 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-sm bg-black/80 hover:bg-black/95 active:scale-95 text-white shadow-xs border border-slate-700 transition-all cursor-pointer disabled:opacity-30 disabled:pointer-events-none group"
+                    title="Câu tiếp theo (Phím tắt: →)"
+                  >
+                    <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => setIsImageZoomed(!isImageZoomed)}
-                    className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-sm border border-slate-700 bg-black/70 text-white shadow-none transition hover:bg-black/90 cursor-pointer"
+                    className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-sm border border-slate-700 bg-black/70 text-white shadow-none transition hover:bg-black/90 cursor-pointer z-10"
                     title="Phóng to ảnh"
                   >
                     <Maximize2 className="h-3.5 w-3.5" />
@@ -265,19 +284,31 @@ export function ToeicSplitPane({
               </div>
             )}
 
-            {/* 4. Part 3 & 4 Graphic / Additional Image */}
+            {/* 4. Part 3 & 4 Graphic / Additional Image — Edge-to-edge scaling with overlay Next button */}
             {(question.part === 3 || question.part === 4) && question.imageUrl && (
-              <div className="overflow-hidden rounded-sm border border-slate-200 bg-slate-50 p-2 shadow-none dark:border-slate-800 dark:bg-slate-900">
-                <div className="relative h-44 sm:h-56 md:h-72 w-full">
+              <div className="relative group overflow-hidden -mx-3 sm:mx-0 rounded-none sm:rounded-sm border-y sm:border border-slate-200 bg-slate-900/5 p-0 shadow-none dark:border-slate-800 dark:bg-slate-950/40">
+                <div className="relative w-full aspect-[4/3] xs:aspect-[16/10] sm:aspect-auto sm:h-72 md:h-80">
                   <Image
                     src={question.imageUrl}
                     alt={`Graphic for Question ${question.questionNumber}`}
                     fill
                     unoptimized
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-contain"
+                    className="object-contain p-0"
                   />
                 </div>
+
+                {/* Next Question Overlay Button (Middle Right of Graphic) */}
+                <button
+                  type="button"
+                  onClick={onNext}
+                  disabled={!hasNext}
+                  aria-label="Câu tiếp theo"
+                  className="lg:hidden absolute right-2.5 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-sm bg-black/80 hover:bg-black/95 active:scale-95 text-white shadow-xs border border-slate-700 transition-all cursor-pointer disabled:opacity-30 disabled:pointer-events-none group"
+                  title="Câu tiếp theo (Phím tắt: →)"
+                >
+                  <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:translate-x-0.5" />
+                </button>
               </div>
             )}
 
@@ -428,8 +459,12 @@ export function ToeicSplitPane({
               </div>
             )}
 
-            {/* Options List (A, B, C, D) */}
-            <div className="space-y-2 sm:space-y-2.5" role="radiogroup" aria-label="Các phương án lựa chọn">
+            {/* Options List (A, B, C, D) — Compact 2x2 Grid (1 2 / 3 4) on mobile, 1 column on desktop */}
+            <div
+              className="grid grid-cols-2 gap-2 lg:grid-cols-1 lg:gap-2.5"
+              role="radiogroup"
+              aria-label="Các phương án lựa chọn"
+            >
               {question.options.map((opt) => {
                 const isSelected = selectedOption === opt.key;
                 const isAnswered = Boolean(selectedOption);
@@ -443,11 +478,11 @@ export function ToeicSplitPane({
                     key={opt.key}
                     type="button"
                     onClick={() => onSelectOption(opt.key)}
-                    className={`group relative flex w-full items-center gap-2.5 sm:gap-3 rounded-sm border p-2.5 sm:p-3 text-left text-sm sm:text-base transition-colors duration-100 cursor-pointer select-none min-h-[44px] sm:min-h-[48px] ${
+                    className={`group relative flex w-full items-start gap-2 sm:gap-2.5 rounded-sm border p-2 sm:p-2.5 lg:p-3 text-left text-xs sm:text-sm lg:text-base transition-colors duration-100 cursor-pointer select-none min-h-[42px] sm:min-h-[46px] lg:min-h-[48px] ${
                       isCorrectAnswer
-                        ? 'border-emerald-500 bg-emerald-50/50 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-100 font-medium'
+                        ? 'border-emerald-500 bg-emerald-50/60 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-100 font-medium'
                         : isWrongSelection
-                        ? 'border-rose-500 bg-rose-50/50 text-rose-950 dark:border-rose-600 dark:bg-rose-950/40 dark:text-rose-100 font-medium'
+                        ? 'border-rose-500 bg-rose-50/60 text-rose-950 dark:border-rose-600 dark:bg-rose-950/40 dark:text-rose-100 font-medium'
                         : isSelected
                         ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 font-bold'
                         : 'border-slate-200 bg-white text-slate-800 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800 font-normal'
@@ -455,7 +490,7 @@ export function ToeicSplitPane({
                   >
                     {/* Badge key (A, B, C, D) */}
                     <span
-                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-xs font-mono text-xs font-bold border transition-colors ${
+                      className={`flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-xs font-mono text-xs font-bold border transition-colors mt-0.5 sm:mt-0 ${
                         isCorrectAnswer
                           ? 'border-emerald-600 bg-emerald-600 text-white'
                           : isWrongSelection
@@ -469,21 +504,21 @@ export function ToeicSplitPane({
                     </span>
 
                     {/* Option Text */}
-                    <span className="flex-1 leading-relaxed">
-                      {opt.text || (question.part === 1 || question.part === 2 ? '(Nghe phương án)' : '')}
+                    <span className="flex-1 leading-snug break-words">
+                      {opt.text || (question.part === 1 || question.part === 2 ? '(Nghe)' : '')}
                     </span>
 
                     {/* Explanation visual marker */}
                     {isCorrectAnswer && (
                       <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400 shrink-0">
                         <CheckCircle2 className="h-4 w-4" />
-                        <span className="hidden sm:inline">Đáp án đúng</span>
+                        <span className="hidden lg:inline">Đáp án đúng</span>
                       </span>
                     )}
                     {isWrongSelection && (
                       <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-rose-700 dark:text-rose-400 shrink-0">
                         <XCircle className="h-4 w-4" />
-                        <span className="hidden sm:inline">Sai</span>
+                        <span className="hidden lg:inline">Sai</span>
                       </span>
                     )}
                   </button>
@@ -665,6 +700,19 @@ export function ToeicSplitPane({
           <ChevronRight className="h-3.5 w-3.5" />
         </button>
       </footer>
+
+      {/* Floating Overlay Next Button (Mobile when question has no visible image) */}
+      {!hasVisibleImage && hasNext && (
+        <button
+          type="button"
+          onClick={onNext}
+          aria-label="Câu tiếp theo"
+          className="lg:hidden fixed right-2.5 top-[35%] z-30 flex h-9 w-9 items-center justify-center rounded-sm bg-slate-900/90 hover:bg-slate-900 active:scale-95 text-white shadow-xs border border-slate-700 transition-all cursor-pointer group"
+          title="Câu tiếp theo (Phím tắt: →)"
+        >
+          <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+        </button>
+      )}
 
       {/* Lightbox / Zoomed image modal */}
       {isImageZoomed && question.imageUrl && (

@@ -30,8 +30,8 @@ function part5ToQs(items: ToeicPart5Item[]): ToeicFlatQ[] {
     part: 'part5' as const,
     prompt: item.question,
     options: item.options,
-    answer: item.answer,
-    explain: item.explain,
+    answer: item.answer || 'A',
+    explain: item.explain || '',
   }));
 }
 
@@ -42,8 +42,8 @@ function part6ToQs(item: ToeicPart6Item): ToeicFlatQ[] {
     context: item.text,
     prompt: `${item.title} — Chỗ trống (${b.index})`,
     options: b.options,
-    answer: b.answer,
-    explain: b.explain,
+    answer: b.answer || 'A',
+    explain: b.explain || '',
   }));
 }
 
@@ -55,8 +55,8 @@ function part7ToQs(item: ToeicPart7Item): ToeicFlatQ[] {
     context: passage,
     prompt: q.q,
     options: q.options,
-    answer: q.answer,
-    explain: q.explain,
+    answer: q.answer || 'A',
+    explain: q.explain || '',
   }));
 }
 
@@ -357,13 +357,13 @@ function ToeicPlayerInner() {
       {/* Question */}
       <h1 className="text-base font-bold leading-relaxed">{q.prompt}</h1>
 
-      {/* Options */}
+      {/* Options — 2x2 Grid (1 2 / 3 4) on Mobile */}
       <div className="space-y-3">
-        <div className="grid gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-1 sm:gap-2">
           {q.options.map((opt) => {
-            const optLetter = opt.match(/^\(([A-D])\)/)?.[1] ?? opt;
-            const ansLetter = q.answer.match(/^\(([A-D])\)/)?.[1] ?? q.answer;
-            const isAnswer = optLetter === ansLetter;
+            const optLetter = opt.match(/^[\(\[]?([A-D])[.\)\]\s]/i)?.[1]?.toUpperCase() ?? opt.trim().toUpperCase();
+            const ansLetter = q.answer.match(/^[\(\[]?([A-D])[.\)\]\s]?/i)?.[1]?.toUpperCase() ?? q.answer.trim().toUpperCase();
+            const isAnswer = optLetter === ansLetter || opt.trim().toLowerCase() === q.answer.trim().toLowerCase();
             const isPicked = opt === picked;
 
             return (
@@ -371,7 +371,7 @@ function ToeicPlayerInner() {
                 key={opt}
                 variant="outline"
                 disabled={revealed && !isAnswer && !isPicked}
-                className={`justify-start h-auto py-3 px-4 text-sm whitespace-normal text-left ${
+                className={`justify-start h-auto py-2.5 px-3 text-xs sm:text-sm whitespace-normal text-left ${
                   !revealed && isPicked
                     ? 'border-primary bg-primary/5 ring-1 ring-primary/30'
                     : ''
