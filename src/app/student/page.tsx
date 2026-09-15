@@ -423,6 +423,14 @@ export default function StudentDashboard() {
               .eq('id', userId)
               .single();
 
+        // Fast-path: Nạp số đếm từ cần ôn và từ mới tức thì qua endpoint summary siêu nhẹ (~40ms)
+        void authFetch(`/api/words?summary=1${scopeParam}`, {}, token)
+          .then((r) => r.json())
+          .then((sum) => {
+            if (sum?.success) applySummaryCounts(userId, sum, scope);
+          })
+          .catch(() => {});
+
         const [profRes, wordsJson] = await Promise.all([
           profPromise,
           authFetch(
