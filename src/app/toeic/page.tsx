@@ -981,7 +981,7 @@ function ToeicCatalogContent() {
 
         {/* ── TAB 2: PART PRACTICE CONFIGURATOR (PART 1–7) ── */}
         {activeTab === 'practice_parts' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 pb-16 sm:pb-0">
             {/* Part Switcher Bar (Part 1 to Part 7) */}
             <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5 sm:p-3">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2.5 px-1 flex flex-wrap items-center justify-between gap-1">
@@ -1083,9 +1083,9 @@ function ToeicCatalogContent() {
             </div>
 
             {/* Part Practice Setup Box (Consolidated & Streamlined) */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-6 space-y-5 shadow-xs">
+            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 sm:p-5 space-y-3.5 sm:space-y-4 shadow-xs">
               {/* Header: Unified 1-Line Part Title + Info Tooltip */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-2.5">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tabular-nums">
                     Part {currentPartMeta.part} ({currentPartMeta.section === 'listening' ? 'LC' : 'RC'})
@@ -1111,51 +1111,56 @@ function ToeicCatalogContent() {
                 </div>
               </div>
 
-              {/* ── VISUAL PROGRESS BAR & STATS ── */}
-              <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/40 p-4 space-y-3">
-                {/* Top Row: Title & Reset Action */}
+              {/* ── VISUAL PROGRESS BAR & STATS (COMPACT 1-ROW ROW, SAVES 60% HEIGHT) ── */}
+              <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/50 p-2.5 sm:p-3 space-y-2">
+                {/* Top Row: Title, Percentage & Reset Action */}
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                    TIẾN ĐỘ HOÀN THÀNH PART {selectedPart}
-                  </span>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 truncate">
+                      TIẾN ĐỘ HOÀN THÀNH PART {selectedPart}
+                    </span>
+                    <span className="font-mono text-[11px] font-semibold text-slate-500 tabular-nums">
+                      ({partProgress.percentage}%)
+                    </span>
+                  </div>
                   <button
                     type="button"
                     onClick={() => setIsResetConfirmOpen(true)}
-                    className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 transition-colors cursor-pointer"
+                    className="flex items-center gap-1 text-[11px] font-medium text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 transition-colors cursor-pointer shrink-0"
                     title={`Đặt lại tiến độ Part ${selectedPart}`}
                   >
                     <RotateCcw className="h-3 w-3" />
-                    <span>Đặt lại tiến độ</span>
+                    <span>Đặt lại</span>
                   </button>
                 </div>
 
-                {/* Progress Bar Track */}
-                <div className="h-2 w-full rounded-xs bg-slate-200 dark:bg-slate-800 overflow-hidden flex">
+                {/* Progress Bar Track Mini */}
+                <div className="h-1.5 w-full rounded-xs bg-slate-200 dark:bg-slate-800 overflow-hidden flex">
                   <div
                     className="bg-slate-900 dark:bg-white transition-all duration-300"
                     style={{ width: `${Math.min(100, Math.max(0, partProgress.percentage))}%` }}
                   />
                 </div>
 
-                {/* 3-Column Stats Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="border border-slate-200 dark:border-slate-800 p-3 rounded-sm bg-white dark:bg-slate-950">
-                    <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Đã làm:</div>
-                    <div className="text-xs font-mono tabular-nums font-bold text-slate-900 dark:text-white mt-0.5">
-                      {partProgress.completedCount} / {partProgress.totalQuestions} câu ({partProgress.percentage}%)
-                    </div>
+                {/* 3-Column Stats: 1 horizontal row on all screens */}
+                <div className="grid grid-cols-3 divide-x divide-slate-200 dark:divide-slate-800 rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-1.5 px-1 text-center shadow-2xs">
+                  <div className="px-1 min-w-0">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block uppercase font-medium">Đã làm</span>
+                    <span className="text-[11px] sm:text-xs font-mono tabular-nums font-bold text-slate-900 dark:text-white truncate block">
+                      {partProgress.completedCount}/{partProgress.totalQuestions} ({partProgress.percentage}%)
+                    </span>
                   </div>
-                  <div className="border border-slate-200 dark:border-slate-800 p-3 rounded-sm bg-white dark:bg-slate-950">
-                    <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Cần ôn:</div>
-                    <div className="text-xs font-mono tabular-nums font-bold text-amber-600 dark:text-amber-400 mt-0.5">
-                      {partProgress.mistakeCount} câu từng làm sai
-                    </div>
+                  <div className="px-1 min-w-0">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block uppercase font-medium">Cần ôn</span>
+                    <span className="text-[11px] sm:text-xs font-mono tabular-nums font-bold text-amber-600 dark:text-amber-400 truncate block">
+                      {partProgress.mistakeCount} câu sai
+                    </span>
                   </div>
-                  <div className="border border-slate-200 dark:border-slate-800 p-3 rounded-sm bg-white dark:bg-slate-950">
-                    <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400">Còn lại:</div>
-                    <div className="text-xs font-mono tabular-nums font-bold text-slate-600 dark:text-slate-400 mt-0.5">
-                      {partProgress.unseenCount} câu chưa làm
-                    </div>
+                  <div className="px-1 min-w-0">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block uppercase font-medium">Còn lại</span>
+                    <span className="text-[11px] sm:text-xs font-mono tabular-nums font-bold text-slate-600 dark:text-slate-400 truncate block">
+                      {partProgress.unseenCount} câu mới
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1198,87 +1203,86 @@ function ToeicCatalogContent() {
               )}
 
               {/* ── BƯỚC 1: NGUỒN ĐỀ THI LẤY CÂU HỎI ── */}
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
                     1
                   </span>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                    Nguồn đề thi lấy câu hỏi:
+                    Nguồn đề thi:
                   </label>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {/* Option 1: Test Bank All */}
                   <button
                     type="button"
                     onClick={() => setSelectedSource('all')}
-                    className={`flex items-start gap-3 p-3.5 rounded-sm border text-left transition-colors cursor-pointer ${
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedSource === 'all'
-                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
-                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                        ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="mt-0.5">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                        className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
                           selectedSource === 'all'
-                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
                         }`}
                       >
                         {selectedSource === 'all' && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-slate-900" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-900 dark:bg-white" />
                         )}
                       </div>
+                      <span className="text-xs font-bold truncate">
+                        Toàn bộ ngân hàng ({currentPartMeta.questionCount.toLocaleString('vi-VN')} câu)
+                      </span>
                     </div>
-                    <div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                        <span>Toàn bộ ngân hàng câu hỏi</span>
-                        <span className="rounded-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-1 py-0.2 text-[10px] font-mono font-bold">
-                          KHUYÊN DÙNG
-                        </span>
-                      </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                        Lấy ngẫu nhiên chuẩn format từ toàn bộ kho {currentPartMeta.questionCount.toLocaleString('vi-VN')} câu có sẵn của Part {currentPartMeta.part}
-                      </div>
-                    </div>
+                    <span
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 font-bold ${
+                        selectedSource === 'all'
+                          ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
+                          : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                      }`}
+                    >
+                      Khuyên dùng
+                    </span>
                   </button>
 
                   {/* Option 2: Select Specific Test */}
                   <div
-                    className={`flex flex-col p-3.5 rounded-sm border transition-colors ${
+                    className={`flex items-center gap-2 p-1.5 rounded-sm border transition-colors ${
                       selectedSource !== 'all'
-                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
-                        : 'border-slate-200 dark:border-slate-800'
+                        ? 'border-slate-900 dark:border-white bg-slate-100 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950'
                     }`}
                   >
-                    <div className="flex items-center gap-3 mb-2">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          if (selectedSource === 'all') {
-                            setSelectedSource(catalog.fullTests[0]?.id || 'ets2026-01');
-                          }
-                        }}
-                        className="flex items-center gap-2 cursor-pointer text-left"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (selectedSource === 'all') {
+                          setSelectedSource(catalog.fullTests[0]?.id || 'ets2026-01');
+                        }
+                      }}
+                      className="flex items-center gap-1.5 shrink-0 cursor-pointer text-left pl-1"
+                    >
+                      <div
+                        className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
+                          selectedSource !== 'all'
+                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            : 'border-slate-400'
+                        }`}
                       >
-                        <div
-                          className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                            selectedSource !== 'all'
-                              ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
-                              : 'border-slate-400'
-                          }`}
-                        >
-                          {selectedSource !== 'all' && (
-                            <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-slate-900" />
-                          )}
-                        </div>
-                        <span className="text-xs font-bold text-slate-900 dark:text-white">
-                          Chọn một đề thi cụ thể
-                        </span>
-                      </button>
-                    </div>
+                        {selectedSource !== 'all' && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-slate-900" />
+                        )}
+                      </div>
+                      <span className="text-xs font-bold text-slate-800 dark:text-slate-200 whitespace-nowrap">
+                        Đề cụ thể:
+                      </span>
+                    </button>
 
                     <select
                       value={selectedSource === 'all' ? '' : selectedSource}
@@ -1287,7 +1291,12 @@ function ToeicCatalogContent() {
                           setSelectedSource(e.target.value);
                         }
                       }}
-                      className="w-full rounded-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-2.5 py-1.5 text-xs text-slate-900 dark:text-white focus:border-slate-900 dark:focus:border-white focus:outline-hidden font-mono"
+                      onFocus={() => {
+                        if (selectedSource === 'all') {
+                          setSelectedSource(catalog.fullTests[0]?.id || 'ets2026-01');
+                        }
+                      }}
+                      className="w-full rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-hidden font-mono truncate"
                     >
                       <option value="" disabled>-- Chọn đề thi cụ thể --</option>
                       <optgroup label="Bộ Đề 2026 (10 đề)">
@@ -1332,145 +1341,153 @@ function ToeicCatalogContent() {
               </div>
 
               {/* ── BƯỚC 2: BỘ LỌC CÂU HỎI THÔNG MINH (CHỐNG TRÙNG LẶP) ── */}
-              <div className="space-y-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
-                    2
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
+                      2
+                    </span>
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                      Bộ lọc câu hỏi (Chống trùng):
+                    </label>
+                  </div>
+                  <span className="text-[11px] text-slate-500 font-mono hidden sm:inline">
+                    Thuật toán loại trừ lịch sử học
                   </span>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                    Bộ lọc câu hỏi thông minh (Chống trùng lặp):
-                  </label>
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {/* Option 1: Unseen (Default) */}
                   <button
                     type="button"
                     onClick={() => setSelectedFilterMode('unseen')}
-                    className={`flex items-start gap-3 p-3.5 rounded-sm border text-left transition-colors cursor-pointer ${
+                    title="Quét toàn bộ kho đề và loại bỏ 100% câu đã làm trong lịch sử"
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedFilterMode === 'unseen'
-                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
-                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                        ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="mt-0.5">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center ${
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center shrink-0 ${
                           selectedFilterMode === 'unseen'
-                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
                         }`}
                       >
                         {selectedFilterMode === 'unseen' && (
-                          <div className="w-1.5 h-1.5 rounded-xs bg-white dark:bg-slate-900" />
+                          <div className="w-1.5 h-1.5 rounded-xs bg-slate-900 dark:bg-white" />
                         )}
                       </div>
+                      <span className="text-xs font-bold truncate">Chỉ câu mới chưa làm</span>
                     </div>
-                    <div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5 flex-wrap">
-                        <span>Chỉ câu mới chưa làm (Chống trùng)</span>
-                        <span className="rounded-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-1 py-0.2 text-[10px] font-mono font-bold">
-                          [MẶC ĐỊNH]
-                        </span>
-                      </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                        Quét toàn bộ kho đề và loại bỏ 100% câu đã làm trong lịch sử. Đảm bảo mỗi lượt luyện tập là câu hỏi hoàn toàn mới.
-                      </div>
-                    </div>
+                    <span
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 font-bold ${
+                        selectedFilterMode === 'unseen'
+                          ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
+                          : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                      }`}
+                    >
+                      Mặc định
+                    </span>
                   </button>
 
                   {/* Option 2: Mistakes */}
                   <button
                     type="button"
                     onClick={() => setSelectedFilterMode('mistakes')}
-                    className={`flex items-start gap-3 p-3.5 rounded-sm border text-left transition-colors cursor-pointer ${
-                      partProgress.mistakeCount === 0 ? 'opacity-60' : ''
+                    title="Tập trung củng cố những câu từng chọn sai để khắc phục điểm yếu"
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
+                      partProgress.mistakeCount === 0 ? 'opacity-70' : ''
                     } ${
                       selectedFilterMode === 'mistakes'
-                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
-                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                        ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="mt-0.5">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center ${
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center shrink-0 ${
                           selectedFilterMode === 'mistakes'
-                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
                         }`}
                       >
                         {selectedFilterMode === 'mistakes' && (
-                          <div className="w-1.5 h-1.5 rounded-xs bg-white dark:bg-slate-900" />
+                          <div className="w-1.5 h-1.5 rounded-xs bg-slate-900 dark:bg-white" />
                         )}
                       </div>
+                      <span className="text-xs font-bold truncate">Ôn câu từng làm sai</span>
                     </div>
-                    <div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5 flex-wrap">
-                        <span>Ôn lại các câu từng làm sai ({partProgress.mistakeCount} câu sẵn sàng)</span>
-                      </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                        Tập trung củng cố những câu từng chọn sai để khắc phục điểm yếu và rèn luyện phản xạ chính xác.
-                        {partProgress.mistakeCount === 0 && (
-                          <span className="block mt-1 text-amber-600 dark:text-amber-400 font-medium">
-                            (Chưa có câu làm sai nào ở Part này)
-                          </span>
-                        )}
-                      </div>
-                    </div>
+                    <span
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums font-bold ${
+                        selectedFilterMode === 'mistakes'
+                          ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
+                          : partProgress.mistakeCount > 0
+                          ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300'
+                          : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                      }`}
+                    >
+                      {partProgress.mistakeCount} câu
+                    </span>
                   </button>
 
                   {/* Option 3: All Random */}
                   <button
                     type="button"
                     onClick={() => setSelectedFilterMode('all_random')}
-                    className={`flex items-start gap-3 p-3.5 rounded-sm border text-left transition-colors cursor-pointer ${
+                    title="Bốc ngẫu nhiên từ toàn bộ kho câu hỏi không xét lịch sử"
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedFilterMode === 'all_random'
-                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
-                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                        ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="mt-0.5">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center ${
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center shrink-0 ${
                           selectedFilterMode === 'all_random'
-                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
                         }`}
                       >
                         {selectedFilterMode === 'all_random' && (
-                          <div className="w-1.5 h-1.5 rounded-xs bg-white dark:bg-slate-900" />
+                          <div className="w-1.5 h-1.5 rounded-xs bg-slate-900 dark:bg-white" />
                         )}
                       </div>
+                      <span className="text-xs font-bold truncate">Xáo trộn ngẫu nhiên</span>
                     </div>
-                    <div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white">
-                        Xáo trộn ngẫu nhiên toàn bộ kho
-                      </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                        Bốc ngẫu nhiên không hoàn lại từ kho {partProgress.totalQuestions} câu hỏi của Part này, không xét lịch sử làm bài.
-                      </div>
-                    </div>
+                    <span
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
+                        selectedFilterMode === 'all_random'
+                          ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900 font-bold'
+                          : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                      }`}
+                    >
+                      Kho {partProgress.totalQuestions}
+                    </span>
                   </button>
                 </div>
               </div>
 
               {/* ── BƯỚC 3: SỐ LƯỢNG CÂU HỎI MUỐN LÀM ── */}
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
                       3
                     </span>
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                      Số lượng câu hỏi muốn làm:
+                      Số lượng câu hỏi:
                     </label>
                   </div>
                   <span className="font-mono text-xs text-slate-500 tabular-nums">
-                    Dự kiến: ~{estimatedTimeMinutes} phút (~{currentPartMeta.secondsPerQuestion}s/câu)
+                    ~{estimatedTimeMinutes} phút (~{currentPartMeta.secondsPerQuestion}s/câu)
                   </span>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-1.5">
                   {presetsForCurrentPart.map((cnt) => {
                     const isSelected = selectedCount === cnt && !customCountInput;
                     return (
@@ -1481,7 +1498,7 @@ function ToeicCatalogContent() {
                           setSelectedCount(cnt);
                           setCustomCountInput('');
                         }}
-                        className={`px-3.5 py-1.5 rounded-sm border text-xs font-mono font-bold transition-colors cursor-pointer ${
+                        className={`px-3 py-1.5 rounded-sm border text-xs font-mono font-bold transition-colors cursor-pointer select-none ${
                           isSelected
                             ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs'
                             : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -1489,14 +1506,14 @@ function ToeicCatalogContent() {
                       >
                         {cnt} câu
                         {cnt === currentPartMeta.defaultCount && (
-                          <span className="ml-1 text-[10px] opacity-75 font-sans">(chuẩn 1 đề)</span>
+                          <span className="ml-1 text-[10px] opacity-80 font-sans font-normal">(chuẩn 1 đề)</span>
                         )}
                       </button>
                     );
                   })}
 
                   {/* Custom question input */}
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1">
                     <input
                       type="number"
                       min={1}
@@ -1511,7 +1528,7 @@ function ToeicCatalogContent() {
                           setSelectedCount(Math.min(100, Math.max(1, n)));
                         }
                       }}
-                      className="w-24 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 px-2.5 py-1.5 text-xs font-mono text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-slate-900 dark:focus:border-white focus:outline-hidden"
+                      className="w-20 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 px-2 py-1.5 text-xs font-mono text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-slate-900 dark:focus:border-white focus:outline-hidden"
                     />
                     <span className="text-xs text-slate-500 font-mono">câu</span>
                   </div>
@@ -1519,9 +1536,9 @@ function ToeicCatalogContent() {
               </div>
 
               {/* ── BƯỚC 4: HÌNH THỨC LÀM BÀI ── */}
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-700 text-white dark:bg-slate-300 dark:text-slate-900 font-mono text-xs font-bold">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
                     4
                   </span>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
@@ -1529,79 +1546,95 @@ function ToeicCatalogContent() {
                   </label>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {/* Option 1: Practice */}
                   <button
                     type="button"
                     onClick={() => setSelectedMode('practice')}
-                    className={`flex items-start gap-3 p-3 rounded-sm border text-left transition-colors cursor-pointer ${
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedMode === 'practice'
-                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
-                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                        ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="mt-0.5">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                        className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
                           selectedMode === 'practice'
-                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
                         }`}
                       >
                         {selectedMode === 'practice' && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-slate-900" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-900 dark:bg-white" />
                         )}
                       </div>
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                        <span>Luyện tập tự do</span>
-                        <span className="rounded-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-1 py-0.2 text-[10px] font-mono font-bold">
-                          KHUYÊN DÙNG
+                      <div className="min-w-0">
+                        <span className="text-xs font-bold truncate block">Luyện tập (Có giải thích)</span>
+                        <span
+                          className={`text-[10px] block truncate font-mono ${
+                            selectedMode === 'practice'
+                              ? 'text-slate-300 dark:text-slate-600'
+                              : 'text-slate-500'
+                          }`}
+                        >
+                          Hiện ngay đáp án & transcript
                         </span>
                       </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                        Xem ngay giải thích đáp án & transcript sau khi chọn. Không giới hạn áp lực thời gian.
-                      </div>
                     </div>
+                    <span
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 font-bold ${
+                        selectedMode === 'practice'
+                          ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
+                          : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                      }`}
+                    >
+                      Khuyên dùng
+                    </span>
                   </button>
 
+                  {/* Option 2: Real exam mode */}
                   <button
                     type="button"
                     onClick={() => setSelectedMode('real')}
-                    className={`flex items-start gap-3 p-3 rounded-sm border text-left transition-colors cursor-pointer ${
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedMode === 'real'
-                        ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
-                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                        ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
+                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="mt-0.5">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                        className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
                           selectedMode === 'real'
-                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white'
+                            ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
                         }`}
                       >
                         {selectedMode === 'real' && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-slate-900" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-900 dark:bg-white" />
                         )}
                       </div>
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-slate-900 dark:text-white">
-                        Mô phỏng áp lực thi thật
-                      </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                        Đếm ngược thời gian, ẩn đáp án đến khi bấm Nộp bài. Nhận báo cáo chi tiết cho phần thi này.
+                      <div className="min-w-0">
+                        <span className="text-xs font-bold truncate block">Mô phỏng áp lực thi thật</span>
+                        <span
+                          className={`text-[10px] block truncate font-mono ${
+                            selectedMode === 'real'
+                              ? 'text-slate-300 dark:text-slate-600'
+                              : 'text-slate-500'
+                          }`}
+                        >
+                          Đếm ngược giờ, ẩn đáp án đến nộp bài
+                        </span>
                       </div>
                     </div>
                   </button>
                 </div>
               </div>
 
-              {/* ── ACTION LAUNCH BAR (RÚT GỌN, CHỐNG TRÀN MOBILE) ── */}
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-slate-600 dark:text-slate-400 tabular-nums">
+              {/* ── ACTION LAUNCH BAR (INLINE) ── */}
+              <div className="pt-3.5 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-slate-600 dark:text-slate-400 tabular-nums">
                   <span className="rounded-sm bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-bold text-slate-900 dark:text-white">
                     Part {currentPartMeta.part}
                   </span>
@@ -1632,6 +1665,38 @@ function ToeicCatalogContent() {
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
+            </div>
+
+            {/* ── MOBILE STICKY LAUNCH BAR (sm:hidden, always accessible) ── */}
+            <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 border-t border-slate-200 dark:border-slate-800 px-3 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] shadow-md flex items-center justify-between gap-2.5">
+              <div className="flex flex-col min-w-0 flex-1">
+                <div className="flex items-center gap-1 text-xs font-bold text-slate-900 dark:text-white truncate">
+                  <span className="font-mono">Part {currentPartMeta.part}</span>
+                  <span>·</span>
+                  <span className="font-mono">{effectiveCount} câu</span>
+                  <span>·</span>
+                  <span className="text-[11px] font-normal text-slate-500">
+                    {selectedMode === 'practice' ? 'Có giải thích' : 'Thi thật'}
+                  </span>
+                </div>
+                <div className="text-[10px] font-mono text-slate-500 truncate">
+                  {selectedFilterMode === 'unseen'
+                    ? 'Chỉ câu mới'
+                    : selectedFilterMode === 'mistakes'
+                    ? 'Ôn câu từng sai'
+                    : 'Xáo ngẫu nhiên'}
+                  {selectedSource !== 'all' ? ' · Đề cụ thể' : ' · Ngân hàng'}
+                </div>
+              </div>
+
+              <Link
+                href={`/toeic/exam/${selectedSource === 'all' ? 'bank' : selectedSource}?part=${selectedPart}&limit=${effectiveCount}&mode=${selectedMode}&filterMode=${selectedFilterMode}`}
+                className="inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 px-3.5 py-2 text-xs font-bold transition-colors shadow-xs shrink-0"
+              >
+                <Play className="h-3 w-3 fill-current" />
+                <span>Bắt đầu</span>
+                <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
           </div>
         )}

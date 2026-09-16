@@ -136,6 +136,57 @@ export async function runMobileUxEnhancementTests(runner: TestRunner) {
       expect(pageCode.includes("test.questionCount === 200 ? `${test.questionCount} câu (100 LC + 100 RC)` : `${test.questionCount} câu`")).toBe(true);
     });
 
+    runner.it('MUX-13: Part progress block uses 1-row 3-column compact layout with mini progress bar (saves >60% height)', () => {
+      const pageCode = fs.readFileSync(TOEIC_PAGE_PATH, 'utf8');
+
+      // 1-row 3-column stats on all screen sizes
+      expect(pageCode.includes('grid grid-cols-3 divide-x divide-slate-200 dark:divide-slate-800')).toBe(true);
+      expect(pageCode.includes('Đã làm')).toBe(true);
+      expect(pageCode.includes('Cần ôn')).toBe(true);
+      expect(pageCode.includes('Còn lại')).toBe(true);
+
+      // Mini progress bar (h-1.5)
+      expect(pageCode.includes('h-1.5 w-full rounded-xs bg-slate-200 dark:bg-slate-800')).toBe(true);
+
+      // Old stacked cards (grid-cols-1 sm:grid-cols-3 with large padding) eliminated
+      expect(pageCode.includes('grid grid-cols-1 sm:grid-cols-3 gap-3')).toBe(false);
+    });
+
+    runner.it('MUX-14: Source (Khối 1) and smart question filter (Khối 2) use compact 1-line interactive selectors', () => {
+      const pageCode = fs.readFileSync(TOEIC_PAGE_PATH, 'utf8');
+
+      // Khối 1: Nguồn đề
+      expect(pageCode.includes('Toàn bộ ngân hàng')).toBe(true);
+      expect(pageCode.includes('Đề cụ thể:')).toBe(true);
+
+      // Khối 2: Bộ lọc câu hỏi (Chống trùng)
+      expect(pageCode.includes('Bộ lọc câu hỏi (Chống trùng):')).toBe(true);
+      expect(pageCode.includes('Chỉ câu mới chưa làm')).toBe(true);
+      expect(pageCode.includes('Ôn câu từng làm sai')).toBe(true);
+      expect(pageCode.includes('Xáo trộn ngẫu nhiên')).toBe(true);
+      expect(pageCode.includes('grid-cols-1 sm:grid-cols-3 gap-2')).toBe(true);
+    });
+
+    runner.it('MUX-15: Part Practice mode (Khối 4) uses compact pill/card selectors adhering to ETS Technical Minimalist UI', () => {
+      const pageCode = fs.readFileSync(TOEIC_PAGE_PATH, 'utf8');
+
+      expect(pageCode.includes('Luyện tập (Có giải thích)')).toBe(true);
+      expect(pageCode.includes('Mô phỏng áp lực thi thật')).toBe(true);
+      expect(pageCode.includes('grid-cols-1 sm:grid-cols-2 gap-2')).toBe(true);
+    });
+
+    runner.it('MUX-16: Mobile Sticky Launch Bar (sm:hidden) provides quick access to start test from any scroll position', () => {
+      const pageCode = fs.readFileSync(TOEIC_PAGE_PATH, 'utf8');
+
+      // Sticky bar presence and mobile-only display
+      expect(pageCode.includes('sm:hidden fixed bottom-0 left-0 right-0 z-40')).toBe(true);
+      expect(pageCode.includes('pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))]')).toBe(true);
+      expect(pageCode.includes('Bắt đầu luyện Part')).toBe(true);
+
+      // Clearance padding on mobile container to prevent content occlusion
+      expect(pageCode.includes('pb-16 sm:pb-0')).toBe(true);
+    });
+
   });
 }
 
