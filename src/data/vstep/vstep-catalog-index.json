@@ -1,6 +1,6 @@
 {
   "version": "2026-09-12",
-  "totalExams": 24,
+  "totalExams": 26,
   "totalPracticeSets": 166,
   "categories": [
     {
@@ -58,10 +58,10 @@
     },
     {
       "id": "vnu",
-      "name": "Đề Mẫu ĐHQGHN (QĐ 729)",
-      "descriptionVi": "Đề thi mẫu chuẩn định dạng Quyết định số 729/QĐ-BGDĐT của Trường ĐH Ngoại ngữ - ĐHQGHN",
+      "name": "Khảo Thí ĐHQGHN & ULIS (Chuẩn QĐ 729)",
+      "descriptionVi": "Ngân hàng đề thi mô phỏng chính thức chuẩn định dạng ĐHQGHN: đề sau đại học B2-C1, đề chuẩn đầu ra cử nhân ULIS và đề mẫu Bộ GD&ĐT.",
       "badge": "Chuẩn ĐHQG",
-      "totalItems": 1
+      "totalItems": 3
     }
   ],
   "items": [
@@ -3743,6 +3743,50 @@
       "totalTasks": 9,
       "badge": "Chuẩn ĐHQG",
       "description": "Đề thi mô phỏng chính thức chuẩn định dạng Bộ GD&ĐT do Trường ĐH Ngoại ngữ - ĐHQGHN ban hành, đủ 4 kỹ năng Listening (35Q), Reading (40Q), Writing (2 tasks) và Speaking (3 tasks).",
+      "isPopular": true,
+      "category": "full_mock",
+      "source": "vnu"
+    },
+    {
+      "id": "vstep-exam-vnu-02",
+      "title": "Đề Khảo Thí VSTEP B2-C1 Sau Đại Học — Đại Học Quốc Gia Hà Nội",
+      "titleVi": "Đề Khảo Thí VSTEP B2-C1 Sau Đại Học — Đại Học Quốc Gia Hà Nội",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "skill": "full_mock",
+      "targetLevel": "C1",
+      "cefrLevel": "C1",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Chuẩn ĐHQG (Sau ĐH)",
+      "description": "Đề thi khảo thí VSTEP trình độ B2-C1 chuyên biệt cho tuyển sinh và tốt nghiệp Thạc sĩ, Tiến sĩ tại ĐHQGHN. Đầy đủ 4 kỹ năng với ngữ liệu học thuật chuyên sâu và bài mẫu Band C1.",
+      "isPopular": true,
+      "category": "full_mock",
+      "source": "vnu"
+    },
+    {
+      "id": "vstep-exam-vnu-03",
+      "title": "Đề Thi Chuẩn Đầu Ra Cử Nhân B1-B2 — ULIS Đại Học Quốc Gia Hà Nội",
+      "titleVi": "Đề Thi Chuẩn Đầu Ra Cử Nhân B1-B2 — ULIS Đại Học Quốc Gia Hà Nội",
+      "duration": 172,
+      "skills": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking"
+      ],
+      "skill": "full_mock",
+      "targetLevel": "B2",
+      "cefrLevel": "B2",
+      "totalQuestions": 75,
+      "totalTasks": 9,
+      "badge": "Chuẩn ĐHQG (Cử Nhân)",
+      "description": "Đề thi chuẩn đầu ra B1-B2 tốt nghiệp đại học chính quy của Trường ĐH Ngoại ngữ - ĐHQGHN. Bám sát thực tế đời sống sinh viên, chuẩn bị việc làm và giao tiếp công sở.",
       "isPopular": true,
       "category": "full_mock",
       "source": "vnu"

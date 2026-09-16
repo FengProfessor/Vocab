@@ -20,6 +20,7 @@ import { runTier2Tests } from './tier2-boundary.test';
 import { runTier3Tests } from './tier3-combinations.test';
 import { runTier4Tests } from './tier4-scenarios.test';
 import { runVstepAntiDuplicationTests } from './anti-duplication.test';
+import { runVnuEnrichmentTests } from './vnu-enrichment.test';
 
 async function main() {
   console.log('================================================================================');
@@ -69,6 +70,14 @@ async function main() {
   const statsAntiDup = runnerAntiDup.getStats();
   tierStats.push({ tierName: 'Anti-Duplication & Practice Progress', stats: statsAntiDup, minRequired: 35 });
   console.log(`✓ Anti-Duplication Finished: ${statsAntiDup.passed}/${statsAntiDup.total} passed (${statsAntiDup.durationMs}ms)\n`);
+
+  // VNU Test Suite: Enrichment & Pedagogical Quality (min 9 required)
+  console.log('▶ Running Suite: VNU Test Enrichment & Quality (min 9 required)...');
+  const runnerVnu = new TestRunner();
+  await runVnuEnrichmentTests(runnerVnu);
+  const statsVnu = runnerVnu.getStats();
+  tierStats.push({ tierName: 'VNU Test Enrichment & Quality', stats: statsVnu, minRequired: 9 });
+  console.log(`✓ VNU Test Enrichment Finished: ${statsVnu.passed}/${statsVnu.total} passed (${statsVnu.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);
