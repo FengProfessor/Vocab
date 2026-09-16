@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import catalogDataRaw from '@/data/vstep/vstep-catalog-index.json';
+import { ExamLegalDisclaimer } from '@/components/exam/ExamLegalDisclaimer';
 import {
   getVstepProgressStats,
   getVstepExamSummaries,
@@ -1753,6 +1754,9 @@ function VstepCatalogContent() {
           </div>
         </div>
       )}
+
+      {/* ── OFFICIAL LEGAL & TRADEMARK DISCLAIMER ── */}
+      <ExamLegalDisclaimer examType="vstep" className="mt-12" />
     </div>
   );
 }

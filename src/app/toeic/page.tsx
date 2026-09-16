@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
 import { toast } from 'sonner';
+import { ExamLegalDisclaimer } from '@/components/exam/ExamLegalDisclaimer';
 import {
   getPartProgressStats,
   resetPartProgress,
@@ -1578,6 +1579,9 @@ function ToeicCatalogContent() {
           </div>
         )}
       </main>
+
+      {/* ── 4. OFFICIAL LEGAL & TRADEMARK DISCLAIMER ── */}
+      <ExamLegalDisclaimer examType="toeic" className="mt-12" />
     </div>
   );
 }

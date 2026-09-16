@@ -115,12 +115,44 @@ export default function TermsPage() {
             </p>
           </section>
 
+          <section id="exam-disclaimer">
+            <h2 className="mb-2 text-lg font-semibold text-white">
+              8. Tuyên bố sở hữu nhãn hiệu &amp; Miễn trừ liên kết khảo thí (Standardized Exams)
+            </h2>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Nhãn hiệu TOEIC®</strong>: TOEIC® là nhãn hiệu đã đăng ký của Viện Khảo thí Giáo dục Hoa Kỳ (Educational Testing Service - ETS) tại Hoa Kỳ và các quốc gia khác. LingoPro là nền tảng công nghệ giáo dục độc lập phục vụ mục đích tự học, rèn luyện kỹ năng và tự đánh giá năng lực của học viên. LingoPro không liên kết, không được tài trợ, không được chứng thực hoặc phê duyệt bởi ETS hay IIG Việt Nam.
+              </li>
+              <li>
+                <strong>Khảo thí VSTEP</strong>: VSTEP là Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam do Bộ Giáo dục &amp; Đào tạo quy định. Các đề thi thử và bài tập trên LingoPro được biên soạn theo định dạng khảo thí mô phỏng nhằm giúp học viên làm quen với cấu trúc bài thi.
+              </li>
+              <li>
+                <strong>Quyền sở hữu trí tuệ phái sinh sư phạm</strong>: Toàn bộ thuật toán khảo thí, động cơ bốc đề chống trùng lặp, barem quy đổi điểm số dự đoán, lời giải thích chi tiết bằng tiếng Việt, phân tích từ vựng - ngữ pháp chuyên sâu và transcript là tác phẩm trí tuệ nguyên bản thuộc quyền sở hữu độc quyền của LingoPro © 2026.
+              </li>
+              <li>
+                <strong>Quy trình tiếp nhận &amp; xử lý bản quyền (Notice-and-Takedown)</strong>: LingoPro tôn trọng quyền sở hữu trí tuệ của các cá nhân và tổ chức. Nếu bạn là chủ sở hữu quyền tác giả và cho rằng có nội dung vi phạm bản quyền trên nền tảng, vui lòng gửi thông báo kèm bằng chứng pháp lý tới{' '}
+                <a className="text-indigo-400 hover:underline" href="mailto:legal@lingopro.online">
+                  legal@lingopro.online
+                </a>{' '}
+                hoặc{' '}
+                <a className="text-indigo-400 hover:underline" href="mailto:support@lingopro.online">
+                  support@lingopro.online
+                </a>
+                . Chúng tôi sẽ tiếp nhận, xác minh và xử lý ngay lập tức theo đúng quy định pháp luật.
+              </li>
+            </ul>
+          </section>
+
           <section>
-            <h2 className="mb-2 text-lg font-semibold text-white">8. Liên hệ</h2>
+            <h2 className="mb-2 text-lg font-semibold text-white">9. Liên hệ</h2>
             <p>
-              Câu hỏi về điều khoản, liên hệ:{' '}
+              Câu hỏi về điều khoản và vấn đề pháp lý, liên hệ:{' '}
               <a className="text-indigo-400 hover:underline" href="mailto:support@lingopro.online">
                 support@lingopro.online
+              </a>{' '}
+              hoặc{' '}
+              <a className="text-indigo-400 hover:underline" href="mailto:legal@lingopro.online">
+                legal@lingopro.online
               </a>
               .
             </p>
