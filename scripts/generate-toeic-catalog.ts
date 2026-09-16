@@ -1,12 +1,14 @@
 /**
- * Pre-compiles the TOEIC Catalog Index (~75 KB) from crawler datasets.
+ * Pre-compiles the TOEIC Catalog Index (~85 KB) from crawler and authentic exam datasets.
  *
  * Indexed Datasets:
- * 1. crawlers/toeic/estudyme_data/full_tests/ (21 tests, 4,200 questions)
- * 2. crawlers/toeic/toeic_data/ (20 Study4 tests, 3,426 questions)
- * 3. crawlers/toeic/estudyme_data/practice_parts/ (231 sets across 9 folders, 7,549 questions)
+ * 1. Estudyme full tests: 21 tests x 200Q = 4,200 questions
+ * 2. Study4 full tests: 20 tests (7 of 200Q, 13 partial) = 3,426 questions
+ * 3. ETS 2024 full tests: 10 tests x 200Q = 2,000 questions
+ * 4. ETS 2026 full tests: 10 tests x 200Q = 2,000 questions
+ * 5. Estudyme practice parts: 231 sets across 9 folders = 7,549 questions
  *
- * Grand Total: 15,175 authentic TOEIC questions.
+ * Grand Total: 19,175 authentic TOEIC questions across 61 full tests + 231 practice sets.
  */
 
 import fs from 'fs';
@@ -18,7 +20,7 @@ export interface ToeicCatalogTestItem {
   title: string;
   questionCount: number;
   durationMinutes: number;
-  source: 'estudyme' | 'study4';
+  source: 'estudyme' | 'study4' | 'ets2024' | 'ets2026';
   badge: string;
 }
 
@@ -77,11 +79,23 @@ const RECOMMENDED_MINS_PER_Q: Record<number, number> = {
   7: 55 / 54,
 };
 
+function resolveDatasetDir(rootDir: string, primaryRel: string, fallbackRel: string): string {
+  const primary = path.join(rootDir, primaryRel);
+  if (fs.existsSync(primary)) return primary;
+  const fallback = path.join(rootDir, fallbackRel);
+  if (fs.existsSync(fallback)) return fallback;
+  return primary;
+}
+
 export function generateToeicCatalogIndex(rootDir: string = process.cwd()): ToeicCatalogIndex {
   const fullTests: ToeicCatalogTestItem[] = [];
 
   // ── 1. Estudyme Full Tests (21 tests x 200Q = 4,200 questions) ──
-  const ftDir = path.join(rootDir, 'crawlers/toeic/estudyme_data/full_tests');
+  const ftDir = resolveDatasetDir(
+    rootDir,
+    'src/data/toeic/datasets/estudyme_data/full_tests',
+    'crawlers/toeic/estudyme_data/full_tests'
+  );
   for (let i = 1; i <= 21; i++) {
     let fname = `test-${i}.json`;
     if (i === 11) fname = 'test-11-new.json';
@@ -96,27 +110,54 @@ export function generateToeicCatalogIndex(rootDir: string = process.cwd()): Toei
     fullTests.push({
       id: `estudyme-test-${i}`,
       displayId: `ETS-${numStr}`,
-      title: `TOEIC ETS Simulation Test ${numStr}`,
+      title: `Đề mô phỏng ${numStr}`,
       questionCount: qCount,
       durationMinutes: 120,
       source: 'estudyme',
-      badge: 'ETS 200Q',
+      badge: '200 câu',
     });
   }
 
   // ── 2. Study4 Tests (20 tests = 3,426 questions) ──
-  const s4Dir = path.join(rootDir, 'crawlers/toeic/toeic_data');
+  const s4Dir = resolveDatasetDir(
+    rootDir,
+    'src/data/toeic/datasets/study4_data',
+    'crawlers/toeic/toeic_data'
+  );
   const s4Files = fs.readdirSync(s4Dir).filter((f) => f.startsWith('study4_test_')).sort(naturalSort);
 
   const s4_200q = ['6852', '6856', '6857', '6859', '7000', '7003', '7004'];
   const s4Tests200: ToeicCatalogTestItem[] = [];
   const s4TestsOther: ToeicCatalogTestItem[] = [];
 
+  const STUDY4_WHITELABEL_TITLES: Record<string, string> = {
+    '6852': 'Bộ đề tuyển chọn 1 Test 1',
+    '6853': 'Bộ đề tuyển chọn 1 Test 2',
+    '6854': 'Bộ đề tuyển chọn 1 Test 3',
+    '6855': 'Bộ đề tuyển chọn 1 Test 4',
+    '6856': 'Bộ đề tuyển chọn 1 Test 5',
+    '6857': 'Bộ đề tuyển chọn 1 Test 6',
+    '6858': 'Bộ đề tuyển chọn 1 Test 7',
+    '6859': 'Bộ đề tuyển chọn 1 Test 8',
+    '6860': 'Bộ đề tuyển chọn 1 Test 9',
+    '6861': 'Bộ đề tuyển chọn 1 Test 10',
+    '7000': 'Bộ đề tuyển chọn 2 Test 1',
+    '7001': 'Bộ đề tuyển chọn 2 Test 2',
+    '7002': 'Bộ đề tuyển chọn 2 Test 3',
+    '7003': 'Bộ đề tuyển chọn 2 Test 4',
+    '7004': 'Bộ đề tuyển chọn 2 Test 5',
+    '7005': 'Bộ đề tuyển chọn 2 Test 6',
+    '7006': 'Bộ đề tuyển chọn 2 Test 7',
+    '7007': 'Bộ đề tuyển chọn 2 Test 8',
+    '7008': 'Bộ đề tuyển chọn 2 Test 9',
+    '7009': 'Bộ đề tuyển chọn 2 Test 10',
+  };
+
   for (const f of s4Files) {
     const data = JSON.parse(fs.readFileSync(path.join(s4Dir, f), 'utf8'));
     const tid = String(data.test_id);
     const qCount = countStudy4Questions(data.parts);
-    const cleanTitle = (data.title || `TOEIC Test ${tid}`).replace(/\s*-\s*STUDY4.*$/i, '').trim();
+    const cleanTitle = STUDY4_WHITELABEL_TITLES[tid] || (data.title || `TOEIC Test ${tid}`).replace(/\s*-\s*STUDY4.*$/i, '').trim();
     const is200 = s4_200q.includes(tid);
     const item: ToeicCatalogTestItem = {
       id: tid,
@@ -134,13 +175,57 @@ export function generateToeicCatalogIndex(rootDir: string = process.cwd()): Toei
     }
   }
 
-  // First 28 tests in fullTests are the 28 authentic 200-question tests (21 Estudyme + 7 Study4)
   fullTests.push(...s4Tests200);
-  // Then the remaining 13 partial Study4 tests
   fullTests.push(...s4TestsOther);
 
-  // ── 3. Estudyme Practice Parts (231 sets across 9 folders = 7,549 questions) ──
-  const ppDir = path.join(rootDir, 'crawlers/toeic/estudyme_data/practice_parts');
+  // ── 3. ETS 2024 Full Tests (10 tests x 200Q = 2,000 questions) ──
+  const ets2024Dir = path.join(rootDir, 'src/data/toeic/datasets/ets_2024');
+  if (fs.existsSync(ets2024Dir)) {
+    for (let i = 1; i <= 10; i++) {
+      const numStr = i < 10 ? `0${i}` : String(i);
+      const filePath = path.join(ets2024Dir, `ets_2024_test_${numStr}.json`);
+      if (fs.existsSync(filePath)) {
+        const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        fullTests.push({
+          id: `ets-2024-${numStr}`,
+          displayId: `ETS-2024-${numStr}`,
+          title: `Đề thi 2024 — Test ${numStr}`,
+          questionCount: data.questionCount || (data.questions ? data.questions.length : 200),
+          durationMinutes: data.durationMinutes || 120,
+          source: 'ets2024',
+          badge: 'Năm 2024',
+        });
+      }
+    }
+  }
+
+  // ── 4. ETS 2026 Full Tests (10 tests x 200Q = 2,000 questions) ──
+  const ets2026Dir = path.join(rootDir, 'src/data/toeic/datasets/ets_2026');
+  if (fs.existsSync(ets2026Dir)) {
+    for (let i = 1; i <= 10; i++) {
+      const numStr = i < 10 ? `0${i}` : String(i);
+      const filePath = path.join(ets2026Dir, `ets_2026_test_${numStr}.json`);
+      if (fs.existsSync(filePath)) {
+        const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        fullTests.push({
+          id: `ets-2026-${numStr}`,
+          displayId: `ETS-2026-${numStr}`,
+          title: `Đề thi 2026 — Test ${numStr}`,
+          questionCount: data.questionCount || (data.questions ? data.questions.length : 200),
+          durationMinutes: data.durationMinutes || 120,
+          source: 'ets2026',
+          badge: 'Năm 2026',
+        });
+      }
+    }
+  }
+
+  // ── 5. Estudyme Practice Parts (231 sets across 9 folders = 7,549 questions) ──
+  const ppDir = resolveDatasetDir(
+    rootDir,
+    'src/data/toeic/datasets/estudyme_data/practice_parts',
+    'crawlers/toeic/estudyme_data/practice_parts'
+  );
   const practiceParts: Record<string, ToeicCatalogPracticeItem[]> = {
     '1': [],
     '2': [],
@@ -230,6 +315,6 @@ if (process.argv[1]?.endsWith('generate-toeic-catalog.ts') || process.argv[1]?.e
   console.log(`Successfully generated TOEIC Catalog Index at: ${outputPath}`);
   console.log(`- File Size: ${kbSize} KB`);
   console.log(`- Total Questions: ${catalog.totalQuestions.toLocaleString()}`);
-  console.log(`- Total Full Tests: ${catalog.totalFullTests} (First 28 tests are 200Q)`);
+  console.log(`- Total Full Tests: ${catalog.totalFullTests} (First 48 tests are 200Q)`);
   console.log(`- Total Practice Sets: ${catalog.totalPracticeSets} across Parts 1-7`);
 }

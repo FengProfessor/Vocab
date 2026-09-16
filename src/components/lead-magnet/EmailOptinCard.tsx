@@ -291,7 +291,7 @@ export default function EmailOptinCard({
           {/* Action buttons: Download PDF vs Read Online */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md mx-auto pt-1">
             <a
-              href="/api/lead-magnet/download?format=pdf"
+              href={`${downloadUrl}?format=pdf`}
               download
               className="py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20"
             >
@@ -313,7 +313,7 @@ export default function EmailOptinCard({
 
           <div className="text-center">
             <a
-              href="/api/lead-magnet/download?format=md"
+              href={`${downloadUrl}?format=md`}
               download
               className="text-xs text-slate-400 hover:text-slate-200 underline transition"
             >

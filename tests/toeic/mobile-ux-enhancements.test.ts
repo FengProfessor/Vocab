@@ -32,6 +32,8 @@ export async function runMobileUxEnhancementTests(runner: TestRunner) {
       // Check total questions uses dynamic formatting
       expect(pageCode.includes('totalQuestionsFormatted')).toBe(true);
       expect(pageCode.includes('totalFullTestsCount')).toBe(true);
+      expect(pageCode.includes('totalPracticeQuestionsFormatted')).toBe(true);
+      expect(pageCode.includes('totalPracticeSetsCount')).toBe(true);
 
       // Verify no legacy hardcoded 15.175 in hero cards or Part bar
       expect(pageCode.includes('>15.175<')).toBe(false);
@@ -48,6 +50,8 @@ export async function runMobileUxEnhancementTests(runner: TestRunner) {
       expect(splitCode.includes('grid-cols-4')).toBe(true);
       expect(splitCode.includes('grid-cols-3')).toBe(true);
       expect(splitCode.includes('[ {opt.key} ]')).toBe(true);
+      expect(splitCode.includes('whitespace-nowrap')).toBe(true);
+      expect(splitCode.includes('px-2 py-3 sm:p-4')).toBe(true);
 
       // Part 3-7 branch: strictly grid-cols-1
       expect(splitCode.includes('grid-cols-1 gap-2 sm:gap-2.5')).toBe(true);
@@ -122,6 +126,14 @@ export async function runMobileUxEnhancementTests(runner: TestRunner) {
       expect(pageCode.includes('overflow-x-hidden')).toBe(true);
       expect(pageCode.includes('min-w-0 max-w-full')).toBe(true);
       expect(pageCode.includes('grid grid-cols-1 xs:grid-cols-2 sm:flex sm:items-center')).toBe(true);
+    });
+
+    runner.it('MUX-12: Full test question count subline avoids hardcoded (100 LC + 100 RC) on partial tests', () => {
+      const pageCode = fs.readFileSync(TOEIC_PAGE_PATH, 'utf8');
+
+      // Ensure 100 LC + 100 RC is conditioned on 200Q, not unconditionally hardcoded
+      expect(pageCode.includes("test.questionCount === 200 ? '200 câu (100 LC + 100 RC)' : `${test.questionCount} câu`")).toBe(true);
+      expect(pageCode.includes("test.questionCount === 200 ? `${test.questionCount} câu (100 LC + 100 RC)` : `${test.questionCount} câu`")).toBe(true);
     });
 
   });
