@@ -593,6 +593,35 @@ export async function runInteractiveTextTests(runner: TestRunner): Promise<void>
       const toeicDrillSource = fs.readFileSync(toeicDrillPath, 'utf8');
       expect(toeicDrillSource.includes('<ExamInteractiveText text={stripHtmlTags(q.explain)}')).toBe(false);
     });
+
+    runner.it('IT-7.6: Regression test: ExamInteractiveText ignores scroll events inside .exam-lookup-card', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const componentPath = path.resolve(__dirname, '../../src/components/exam/ExamInteractiveText.tsx');
+      const source = fs.readFileSync(componentPath, 'utf8');
+
+      expect(source.includes("target.closest?.('.exam-lookup-card')")).toBe(true);
+      expect(source.includes("width: `${cardWidth}px`")).toBe(true);
+    });
+
+    runner.it('IT-7.7: Regression test: ExamWordLookupCard prevents duplicate saves and handles pointer events', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const cardPath = path.resolve(__dirname, '../../src/components/exam/ExamWordLookupCard.tsx');
+      const source = fs.readFileSync(cardPath, 'utf8');
+
+      expect(source.includes('if (isSaved) {')).toBe(true);
+      expect(source.includes('onPointerDown={(e) => e.stopPropagation()}')).toBe(true);
+    });
+
+    runner.it('IT-7.8: Regression test: ToeicScoreReportView never wraps listening option placeholder in ExamInteractiveText', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const reportPath = path.resolve(__dirname, '../../src/components/toeic/ToeicScoreReportView.tsx');
+      const source = fs.readFileSync(reportPath, 'utf8');
+
+      expect(source.includes('text={opt.text || (isListening ? `(Phương án ${opt.key})` : \'\')}')).toBe(false);
+    });
   } finally {
     (global as any).window = originalWindow;
     (global as any).localStorage = originalLocalStorage;

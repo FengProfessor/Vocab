@@ -84,7 +84,11 @@ export function ExamInteractiveText({
       handleClose();
     }
 
-    function handleScroll() {
+    function handleScroll(e: Event) {
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest?.('.exam-lookup-card')) {
+        return;
+      }
       handleClose();
     }
 
@@ -170,6 +174,7 @@ export function ExamInteractiveText({
     // Anchor using bottom when placing above to prevent dynamic content height overlap;
     // Anchor using top when placing below
     const positionStyle: React.CSSProperties = {
+      width: `${cardWidth}px`,
       left: `${Math.round(left)}px`,
       ...(placeTop
         ? { bottom: `${Math.max(12, Math.round(viewportHeight - rect.top + 8))}px` }

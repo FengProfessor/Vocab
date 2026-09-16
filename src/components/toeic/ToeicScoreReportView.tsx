@@ -1205,10 +1205,13 @@ export function ToeicScoreReportView({
                               {opt.key}
                             </span>
                             <span className="leading-relaxed pt-0.5">
-                              <ExamInteractiveText
-                                text={opt.text || (isListening ? `(Phương án ${opt.key})` : '')}
-                                enabled={true}
-                              />
+                              {opt.text ? (
+                                <ExamInteractiveText text={opt.text} enabled={true} />
+                              ) : isListening ? (
+                                <span className="italic text-slate-400 font-mono text-xs">
+                                  (Phương án {opt.key})
+                                </span>
+                              ) : null}
                             </span>
                           </div>
 

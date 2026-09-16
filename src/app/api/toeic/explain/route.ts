@@ -93,6 +93,8 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           success: true,
           questionNumber: qNum,
+          questionId: fallbackTarget.id,
+          part: fallbackTarget.part,
           correctAnswer: poisoned.correctAnswer,
           explanationVi: poisoned.explanationVi,
           transcript: poisoned.transcript,
@@ -113,10 +115,18 @@ export async function POST(req: NextRequest) {
     // 6. Legitimate User: Fetch authentic question and embed invisible watermark
     let target: ToeicUnifiedQuestion | undefined;
     const requiredPart = body.part ? Number(body.part) : undefined;
+    const rawQuestionId = typeof body.questionId === 'string' ? body.questionId.trim() : undefined;
+    const normalizedQuestionId = rawQuestionId
+      ? rawQuestionId.startsWith('q-')
+        ? rawQuestionId
+        : rawQuestionId.match(/^([a-zA-Z0-9_-]+)-q(\d+)$/)
+        ? `q-${rawQuestionId.replace(/-q(\d+)$/, '-$1')}`
+        : rawQuestionId
+      : undefined;
 
     // A. Priority 1: Match by unique question ID (100% accurate across all 15,000+ questions)
-    if (body.questionId) {
-      const found = loadToeicQuestionsByIds([body.questionId]);
+    if (normalizedQuestionId) {
+      const found = loadToeicQuestionsByIds([normalizedQuestionId]);
       if (found.length > 0 && found[0].testId !== 'synthetic') {
         if (!requiredPart || found[0].part === requiredPart) {
           target = found[0];
@@ -128,7 +138,10 @@ export async function POST(req: NextRequest) {
     if (!target && cleanTestId && cleanTestId !== 'bank' && cleanTestId !== 'all') {
       const allQuestions = loadAnyToeicTest(cleanTestId);
       target = allQuestions.find((q) => {
-        if (body.questionId && q.id === body.questionId) {
+        if (
+          normalizedQuestionId &&
+          (q.id === normalizedQuestionId || (rawQuestionId && q.id === rawQuestionId))
+        ) {
           return !requiredPart || q.part === requiredPart;
         }
         return requiredPart
@@ -143,7 +156,9 @@ export async function POST(req: NextRequest) {
       const partPractice = loadToeicPartPractice(pNum, cleanTestId || 'bank', 100, true);
       target = partPractice.find(
         (q) =>
-          ((body.questionId && q.id === body.questionId) || q.questionNumber === qNum) &&
+          ((normalizedQuestionId &&
+            (q.id === normalizedQuestionId || (rawQuestionId && q.id === rawQuestionId))) ||
+            q.questionNumber === qNum) &&
           q.part === pNum
       );
     }
@@ -175,6 +190,7 @@ export async function POST(req: NextRequest) {
       success: true,
       questionNumber: qNum,
       questionId: target.id,
+      part: target.part,
       correctAnswer: resolvedAnswer,
       explanationVi: watermarkedExplanation,
       transcript: target.transcript,

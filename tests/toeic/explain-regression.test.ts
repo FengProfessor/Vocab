@@ -40,6 +40,7 @@ export async function runExplainRegressionTests(runner: TestRunner): Promise<voi
     const data = await res.json();
     expect(data.success).toBe(true);
     expect(data.questionNumber).toBe(1);
+    expect(data.part).toBe(5);
     expect(typeof data.correctAnswer).toBe('string');
     expect(['A', 'B', 'C', 'D'].includes(data.correctAnswer)).toBe(true);
     expect(typeof data.explanationVi).toBe('string');
@@ -66,6 +67,7 @@ export async function runExplainRegressionTests(runner: TestRunner): Promise<voi
     const data = await res.json();
     expect(data.success).toBe(true);
     expect(data.questionNumber).toBe(1);
+    expect(data.part).toBe(2);
     expect(['A', 'B', 'C'].includes(data.correctAnswer)).toBe(true);
   });
 
@@ -90,6 +92,7 @@ export async function runExplainRegressionTests(runner: TestRunner): Promise<voi
     const data = await res.json();
     expect(data.success).toBe(true);
     expect(data.questionNumber).toBe(1);
+    expect(data.part).toBe(7);
     expect(typeof data.correctAnswer).toBe('string');
   });
 
@@ -134,11 +137,55 @@ export async function runExplainRegressionTests(runner: TestRunner): Promise<voi
     expect(res.status).toBe(200);
     const data = await res.json();
     expect(data.success).toBe(true);
+    expect(data.part).toBe(5);
     expect(data.isPoisoned).toBe(true);
     clearBotFlag(localhostIp);
   });
 
-  await runner.it('EX-REG-6: QuestionId takes precedence when part matches', async () => {
+  await runner.it('EX-REG-6: Authentic QuestionId (q-6852-101) takes precedence in Priority 1', async () => {
+    clearBotFlag(localhostIp);
+    const req = new NextRequest('http://localhost:3000/api/toeic/explain?unban=1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-forwarded-for': localhostIp,
+      },
+      body: JSON.stringify({
+        testId: '6852',
+        questionId: 'q-6852-101',
+        part: 5,
+      }),
+    });
+
+    const res = await explainHandler(req);
+    expect(res.status).toBe(200);
+    const data = await res.json();
+    expect(data.success).toBe(true);
+    expect(data.questionId).toBe('q-6852-101');
+    expect(data.part).toBe(5);
+  });
+
+  await runner.it('EX-REG-7: QuestionId with mismatched part is rejected and not treated as valid', async () => {
+    clearBotFlag(localhostIp);
+    const req = new NextRequest('http://localhost:3000/api/toeic/explain?unban=1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-forwarded-for': localhostIp,
+      },
+      body: JSON.stringify({
+        testId: '6852',
+        questionId: 'q-6852-1',
+        part: 5,
+        questionNumber: 9999,
+      }),
+    });
+
+    const res = await explainHandler(req);
+    expect(res.status).toBe(404);
+  });
+
+  await runner.it('EX-REG-8: Normalized questionId format (e.g. 6852-q101 -> q-6852-101) resolves correctly in Priority 1', async () => {
     clearBotFlag(localhostIp);
     const req = new NextRequest('http://localhost:3000/api/toeic/explain?unban=1', {
       method: 'POST',
@@ -157,26 +204,8 @@ export async function runExplainRegressionTests(runner: TestRunner): Promise<voi
     expect(res.status).toBe(200);
     const data = await res.json();
     expect(data.success).toBe(true);
-  });
-
-  await runner.it('EX-REG-7: QuestionId with mismatched part is rejected and not treated as valid', async () => {
-    clearBotFlag(localhostIp);
-    const req = new NextRequest('http://localhost:3000/api/toeic/explain?unban=1', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-forwarded-for': localhostIp,
-      },
-      body: JSON.stringify({
-        testId: '6852',
-        questionId: '6852-q1',
-        part: 5,
-        questionNumber: 9999,
-      }),
-    });
-
-    const res = await explainHandler(req);
-    expect(res.status).toBe(404);
+    expect(data.questionId).toBe('q-6852-101');
+    expect(data.part).toBe(5);
   });
 }
 

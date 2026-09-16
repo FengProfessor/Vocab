@@ -73,6 +73,10 @@ export function ExamWordLookupCard({
   const handleSaveToVocab = async (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!dictResult?.cleanWord || isSaving) return;
+    if (isSaved) {
+      toast.info('Từ này đã có trong Sổ từ SRS!');
+      return;
+    }
 
     setIsSaving(true);
     const targetWord = dictResult.cleanWord;
@@ -120,7 +124,8 @@ export function ExamWordLookupCard({
       role="dialog"
       aria-label="Bảng tra cứu từ vựng"
       style={positionStyle}
-      className={`exam-lookup-card fixed z-50 w-72 sm:w-80 max-h-[85vh] overflow-y-auto rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3.5 shadow-xl transition-all duration-150 animate-in fade-in zoom-in-95 select-none ${className}`}
+      className={`exam-lookup-card fixed z-50 max-w-[calc(100vw-24px)] max-h-[85vh] overflow-y-auto rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3.5 shadow-xl transition-all duration-150 animate-in fade-in zoom-in-95 select-none ${className}`}
+      onPointerDown={(e) => e.stopPropagation()}
       onMouseDown={(e) => e.stopPropagation()}
       onClick={(e) => e.stopPropagation()}
     >
