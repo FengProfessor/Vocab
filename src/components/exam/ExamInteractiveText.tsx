@@ -61,7 +61,7 @@ export function ExamInteractiveText({
     handleClose();
   }, [text, handleClose]);
 
-  // Close on Escape, click outside, or scroll
+  // Close on Escape, click outside, or scroll (mouse, touch & pointer events)
   useEffect(() => {
     if (!activeWord) return;
 
@@ -71,8 +71,9 @@ export function ExamInteractiveText({
       }
     }
 
-    function handleClickOutside(e: MouseEvent) {
-      const target = e.target as HTMLElement;
+    function handleClickOutside(e: MouseEvent | TouchEvent | PointerEvent) {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
       if (
         target.closest('[role="dialog"]') ||
         target.closest('.exam-lookup-card') ||
@@ -88,21 +89,23 @@ export function ExamInteractiveText({
     }
 
     window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('pointerdown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside, { passive: true });
     document.addEventListener('mousedown', handleClickOutside);
     window.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener('scroll', handleScroll, { passive: true, capture: true });
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('pointerdown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
       document.removeEventListener('mousedown', handleClickOutside);
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('scroll', handleScroll, { capture: true });
     };
   }, [activeWord, handleClose]);
 
-  // If not enabled, render plain text with zero overhead
-  if (!enabled || !text) {
-    return <Component className={className}>{text}</Component>;
-  }
-
   // Tokenize the input text while strictly preserving spaces and newlines
+  // Hooks MUST execute unconditionally before any early returns to prevent React #300/#310 crashes
   const tokens = useMemo<WordToken[]>(() => {
     if (!text) return [];
     const result: WordToken[] = [];
@@ -256,6 +259,11 @@ export function ExamInteractiveText({
     }
   };
 
+  // If not enabled or empty text, render plain text with zero overhead AFTER all hooks have executed
+  if (!enabled || !text) {
+    return <Component className={className}>{text}</Component>;
+  }
+
   return (
     <Component
       ref={containerRef as any}
@@ -275,6 +283,9 @@ export function ExamInteractiveText({
             role="button"
             tabIndex={0}
             onClick={(e) => handleWordClick(e, token)}
+            onPointerDown={(e) => {
+              e.stopPropagation();
+            }}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();

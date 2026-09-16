@@ -1226,7 +1226,7 @@ export function ToeicScoreReportView({
                         <span>Giải thích chi tiết:</span>
                       </div>
                       <div className="leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line pl-5">
-                        <ExamInteractiveText text={stripHtmlTags(q.explanationVi)} enabled={true} />
+                        <p>{stripHtmlTags(q.explanationVi)}</p>
                       </div>
                     </div>
                   )}

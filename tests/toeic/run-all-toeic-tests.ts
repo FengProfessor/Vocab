@@ -25,6 +25,7 @@ import { runCopyrightWhitelabelTests } from './copyright-whitelabel.test';
 import { runAntiScrapingTests } from './test-anti-scraping-poison';
 import { runAntiDuplicationTests } from './anti-duplication.test';
 import { runMobileUxEnhancementTests } from './mobile-ux-enhancements.test';
+import { runExplainRegressionTests } from './explain-regression.test';
 
 async function main() {
   console.log('================================================================================');
@@ -138,6 +139,14 @@ async function main() {
   const statsMUX = runnerMUX.getStats();
   tierStats.push({ tierName: 'Mobile UX & Dynamic Statistics', stats: statsMUX, minRequired: 10 });
   console.log(`✓ Mobile UX Enhancements Finished: ${statsMUX.passed}/${statsMUX.total} passed (${statsMUX.durationMs}ms)\n`);
+
+  // Suite: Explain Endpoint Part Alignment & Regression Defense
+  console.log('▶ Running Suite: Explain Endpoint Part Alignment & Regression Defense...');
+  const runnerExp = new TestRunner();
+  await runExplainRegressionTests(runnerExp);
+  const statsExp = runnerExp.getStats();
+  tierStats.push({ tierName: 'Explain Part Alignment & Regression', stats: statsExp, minRequired: 7 });
+  console.log(`✓ Explain Part Alignment Finished: ${statsExp.passed}/${statsExp.total} passed (${statsExp.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

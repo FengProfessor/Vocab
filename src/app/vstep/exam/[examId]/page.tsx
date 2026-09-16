@@ -905,7 +905,7 @@ function VstepExamPageInner() {
                     <Info className="w-3.5 h-3.5" /> Giải thích chi tiết:
                   </span>
                   <div className="whitespace-pre-line">
-                    <ExamInteractiveText text={stripHtmlTags(currentQuestion.explanationVi)} enabled={true} />
+                    <p>{stripHtmlTags(currentQuestion.explanationVi)}</p>
                   </div>
                 </div>
               )}

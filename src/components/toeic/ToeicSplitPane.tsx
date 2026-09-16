@@ -511,7 +511,16 @@ export function ToeicSplitPane({
                     <button
                       key={opt.key}
                       type="button"
-                      onClick={() => onSelectOption(opt.key)}
+                      onClick={(e) => {
+                        const target = e.target as HTMLElement | null;
+                        if (
+                          target?.closest?.('.exam-lookup-trigger') ||
+                          target?.closest?.('.exam-lookup-card')
+                        ) {
+                          return;
+                        }
+                        onSelectOption(opt.key);
+                      }}
                       className={`group relative flex w-full items-start gap-2.5 sm:gap-3 rounded-sm border p-2.5 sm:p-3 text-left text-xs sm:text-sm lg:text-base transition-colors duration-100 cursor-pointer select-none min-h-[44px] sm:min-h-[48px] ${
                         isCorrectAnswer
                           ? 'border-emerald-500 bg-emerald-50/60 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-100 font-medium'
@@ -654,10 +663,7 @@ export function ToeicSplitPane({
                           <span>📖 Phân tích ngữ pháp & Bản dịch tiếng Việt:</span>
                         </p>
                         <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 text-xs sm:text-sm pl-2.5 border-l-2 border-amber-400 dark:border-amber-600">
-                          <ExamInteractiveText
-                            text={stripHtmlTags(question.explanationVi)}
-                            enabled={isAnswerRevealed}
-                          />
+                          <p>{stripHtmlTags(question.explanationVi)}</p>
                         </div>
                       </div>
                     ) : question.correctAnswer ? (

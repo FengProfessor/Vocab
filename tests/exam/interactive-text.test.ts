@@ -529,6 +529,70 @@ export async function runInteractiveTextTests(runner: TestRunner): Promise<void>
       expect(cardTopY > 0).toBe(true); // Fully visible on screen
       expect(cardBottomY < wordRect.top).toBe(true); // NEVER overlaps the clicked word!
     });
+
+    runner.it('IT-7.2: Regression test: ExamInteractiveText source code guarantees hooks precede all conditional returns', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const componentPath = path.resolve(__dirname, '../../src/components/exam/ExamInteractiveText.tsx');
+      const source = fs.readFileSync(componentPath, 'utf8');
+
+      const memoIdx = source.indexOf('const tokens = useMemo');
+      const callbackIdx = source.indexOf('const calculatePopoverPosition = useCallback');
+      const earlyReturnIdx = source.indexOf('if (!enabled || !text)');
+
+      expect(memoIdx !== -1).toBe(true);
+      expect(callbackIdx !== -1).toBe(true);
+      expect(earlyReturnIdx !== -1).toBe(true);
+      // Both hooks MUST be defined before early return to prevent React #300/#310 crashes
+      expect(memoIdx < earlyReturnIdx).toBe(true);
+      expect(callbackIdx < earlyReturnIdx).toBe(true);
+    });
+
+    runner.it('IT-7.3: Regression test: ExamInteractiveText attaches pointerdown/touchstart listeners for outside click dismissal', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const componentPath = path.resolve(__dirname, '../../src/components/exam/ExamInteractiveText.tsx');
+      const source = fs.readFileSync(componentPath, 'utf8');
+
+      expect(source.includes("document.addEventListener('pointerdown', handleClickOutside)")).toBe(true);
+      expect(source.includes("document.addEventListener('touchstart', handleClickOutside")).toBe(true);
+      expect(source.includes('onPointerDown')).toBe(true);
+    });
+
+    runner.it('IT-7.4: Regression test: ToeicSplitPane suppresses option selection when clicking inside word lookup trigger', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const splitPanePath = path.resolve(__dirname, '../../src/components/toeic/ToeicSplitPane.tsx');
+      const source = fs.readFileSync(splitPanePath, 'utf8');
+
+      expect(source.includes('.exam-lookup-trigger')).toBe(true);
+      expect(source.includes('.exam-lookup-card')).toBe(true);
+    });
+
+    runner.it('IT-7.5: Regression test: Vietnamese explanations are NEVER wrapped in ExamInteractiveText', () => {
+      const fs = require('fs');
+      const path = require('path');
+
+      // Check ToeicSplitPane.tsx
+      const splitPanePath = path.resolve(__dirname, '../../src/components/toeic/ToeicSplitPane.tsx');
+      const splitPaneSource = fs.readFileSync(splitPanePath, 'utf8');
+      expect(splitPaneSource.includes('<ExamInteractiveText\n                            text={stripHtmlTags(question.explanationVi)}')).toBe(false);
+
+      // Check ToeicScoreReportView.tsx
+      const reportPath = path.resolve(__dirname, '../../src/components/toeic/ToeicScoreReportView.tsx');
+      const reportSource = fs.readFileSync(reportPath, 'utf8');
+      expect(reportSource.includes('<ExamInteractiveText text={stripHtmlTags(q.explanationVi)}')).toBe(false);
+
+      // Check vstep page.tsx
+      const vstepPath = path.resolve(__dirname, '../../src/app/vstep/exam/[examId]/page.tsx');
+      const vstepSource = fs.readFileSync(vstepPath, 'utf8');
+      expect(vstepSource.includes('<ExamInteractiveText text={stripHtmlTags(currentQuestion.explanationVi)}')).toBe(false);
+
+      // Check toeic/[part]/[ref]/page.tsx
+      const toeicDrillPath = path.resolve(__dirname, '../../src/app/toeic/[part]/[ref]/page.tsx');
+      const toeicDrillSource = fs.readFileSync(toeicDrillPath, 'utf8');
+      expect(toeicDrillSource.includes('<ExamInteractiveText text={stripHtmlTags(q.explain)}')).toBe(false);
+    });
   } finally {
     (global as any).window = originalWindow;
     (global as any).localStorage = originalLocalStorage;

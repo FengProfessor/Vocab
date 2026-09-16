@@ -83,8 +83,10 @@ export async function POST(req: NextRequest) {
     // Legitimate users clicking fast or toggling explanations will NEVER receive poisoned data!
     if (isHoneypotTriggered || isClientFlaggedAsBot(ip)) {
       const allMaster = loadAnyToeicTest(cleanTestId);
+      const targetPart = body.part ? Number(body.part) : undefined;
+      const filteredMaster = targetPart ? allMaster.filter((q) => q.part === targetPart) : allMaster;
       const fallbackTarget =
-        allMaster.find((q) => q.questionNumber === qNum) || allMaster[0];
+        filteredMaster.find((q) => q.questionNumber === qNum) || filteredMaster[0] || allMaster[0];
 
       if (fallbackTarget) {
         const poisoned = poisonUnifiedQuestion(fallbackTarget, ip);
@@ -110,41 +112,50 @@ export async function POST(req: NextRequest) {
 
     // 6. Legitimate User: Fetch authentic question and embed invisible watermark
     let target: ToeicUnifiedQuestion | undefined;
+    const requiredPart = body.part ? Number(body.part) : undefined;
 
     // A. Priority 1: Match by unique question ID (100% accurate across all 15,000+ questions)
     if (body.questionId) {
       const found = loadToeicQuestionsByIds([body.questionId]);
       if (found.length > 0 && found[0].testId !== 'synthetic') {
-        target = found[0];
+        if (!requiredPart || found[0].part === requiredPart) {
+          target = found[0];
+        }
       }
     }
 
     // B. Priority 2: Match in specific test
     if (!target && cleanTestId && cleanTestId !== 'bank' && cleanTestId !== 'all') {
       const allQuestions = loadAnyToeicTest(cleanTestId);
-      target = allQuestions.find(
-        (q) =>
-          (body.questionId && q.id === body.questionId) ||
-          (body.part ? q.part === Number(body.part) && q.questionNumber === qNum : q.questionNumber === qNum)
-      );
+      target = allQuestions.find((q) => {
+        if (body.questionId && q.id === body.questionId) {
+          return !requiredPart || q.part === requiredPart;
+        }
+        return requiredPart
+          ? q.part === requiredPart && q.questionNumber === qNum
+          : q.questionNumber === qNum;
+      });
     }
 
-    // C. Priority 3: Match in part practice
-    if (!target && body.part) {
-      const pNum = Number(body.part) as ToeicPart;
-      const partPractice = loadToeicPartPractice(pNum, cleanTestId || 'bank', 100);
+    // C. Priority 3: Match in part practice with renumber = true (matching client 1..N indexing)
+    if (!target && requiredPart) {
+      const pNum = requiredPart as ToeicPart;
+      const partPractice = loadToeicPartPractice(pNum, cleanTestId || 'bank', 100, true);
       target = partPractice.find(
-        (q) => (body.questionId && q.id === body.questionId) || q.questionNumber === qNum
+        (q) =>
+          ((body.questionId && q.id === body.questionId) || q.questionNumber === qNum) &&
+          q.part === pNum
       );
     }
 
-    // D. Priority 4: Fallback match in canonical test
-    if (!target) {
+    // D. Safe Fallback: Only when part is NOT specified, match canonical test
+    if (!target && !requiredPart) {
       const allQuestions = loadAnyToeicTest(cleanTestId || '6852');
-      target = allQuestions.find((q) => q.questionNumber === qNum) || allQuestions[0];
+      target = allQuestions.find((q) => q.questionNumber === qNum);
     }
 
-    if (!target) {
+    // Strict validation: if requiredPart was specified, target must match it
+    if (!target || (requiredPart && target.part !== requiredPart)) {
       return NextResponse.json(
         { success: false, error: `Question ${qNum} not found in test ${cleanTestId}` },
         { status: 404 }

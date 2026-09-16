@@ -412,7 +412,7 @@ function ToeicPlayerInner() {
           >
             <Lightbulb className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
             <div className="flex-1 leading-relaxed">
-              <ExamInteractiveText text={stripHtmlTags(q.explain)} enabled={revealed} />
+              <p>{stripHtmlTags(q.explain)}</p>
             </div>
           </div>
         )}

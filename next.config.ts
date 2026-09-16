@@ -26,6 +26,9 @@ const csp = [
 const nextConfig: NextConfig = {
   // Docker/Hetzner: image gọn, chỉ copy .next/standalone + static
   output: 'standalone',
+  outputFileTracingIncludes: {
+    '/api/toeic/**': ['./src/data/toeic/datasets/**/*'],
+  },
   // Tránh Turbopack nhầm root lên D:\Vibe (nhiều lockfile) → API 404
   turbopack: {
     root: configDir,

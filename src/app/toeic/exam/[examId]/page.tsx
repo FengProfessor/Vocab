@@ -189,8 +189,15 @@ function ToeicExamRoomInner() {
   // ── 2.1. On-Demand Single-Question Explanation Fetcher (Zero Bulk Leak) ──
   const fetchSingleExplanation = useCallback(
     async (qNum: number) => {
+      // Abort immediately if questions have not yet finished loading from /api/toeic/test
+      if (questions.length === 0) {
+        return;
+      }
       const targetQ = questions.find((q) => q.questionNumber === qNum);
-      if (targetQ?.correctAnswer && targetQ?.explanationVi) {
+      if (!targetQ) {
+        return;
+      }
+      if (targetQ.correctAnswer && targetQ.explanationVi) {
         return;
       }
       if (inFlightExplanationRef.current.has(qNum)) {
@@ -205,8 +212,8 @@ function ToeicExamRoomInner() {
           body: JSON.stringify({
             testId: targetTestId,
             questionNumber: qNum,
-            questionId: targetQ?.id,
-            part: targetQ?.part,
+            questionId: targetQ.id,
+            part: targetQ.part,
             sessionToken,
           }),
         });
@@ -215,7 +222,7 @@ function ToeicExamRoomInner() {
           if (data.success && data.correctAnswer) {
             setQuestions((prev) =>
               prev.map((q) =>
-                q.questionNumber === qNum || (targetQ?.id && q.id === targetQ.id)
+                q.questionNumber === qNum || q.id === targetQ.id
                   ? {
                       ...q,
                       correctAnswer: data.correctAnswer,

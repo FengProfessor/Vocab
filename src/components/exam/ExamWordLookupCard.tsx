@@ -10,6 +10,7 @@ import {
   isWordSavedLocally,
   saveWordLocally,
 } from '@/lib/exam-dict-cache';
+import { toast } from 'sonner';
 
 export interface ExamWordLookupCardProps {
   dictResult: ExamDictResult | null;
@@ -105,6 +106,8 @@ export function ExamWordLookupCard({
           new CustomEvent('lingo_word_saved', { detail: { word: targetWord } })
         );
       }
+
+      toast.success("Đã lưu từ vựng vào Sổ từ SRS!");
     } catch (err) {
       console.warn('[ExamWordLookupCard] Save error:', err);
     } finally {
