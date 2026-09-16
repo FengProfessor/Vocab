@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, useRef, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -10,6 +10,8 @@ import {
   FileText,
   Clock,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Layers,
   ListFilter,
   SlidersHorizontal,
@@ -354,11 +356,41 @@ function ToeicCatalogContent() {
     toast.success(`Đã đặt lại tiến độ Part ${selectedPart} về 0 câu.`);
   };
 
+  const partRailRef = useRef<HTMLDivElement | null>(null);
+  const [railCanScrollLeft, setRailCanScrollLeft] = useState<boolean>(false);
+  const [railCanScrollRight, setRailCanScrollRight] = useState<boolean>(true);
+
+  const checkRailScroll = useCallback(() => {
+    const el = partRailRef.current;
+    if (!el) return;
+    setRailCanScrollLeft(el.scrollLeft > 10);
+    setRailCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    checkRailScroll();
+    window.addEventListener('resize', checkRailScroll);
+    return () => window.removeEventListener('resize', checkRailScroll);
+  }, [checkRailScroll]);
+
+  const scrollPartRail = (dir: 'left' | 'right') => {
+    const el = partRailRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === 'left' ? -150 : 150, behavior: 'smooth' });
+    setTimeout(checkRailScroll, 300);
+  };
+
   const handleSelectPart = (partNum: number) => {
     setSelectedPart(partNum);
     const def = PART_DEFINITIONS.find((p) => p.part === partNum)?.defaultCount || 10;
     setSelectedCount(def);
     setCustomCountInput('');
+    if (partRailRef.current) {
+      const btn = partRailRef.current.querySelector<HTMLButtonElement>(`[data-part="${partNum}"]`);
+      if (btn) {
+        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
   };
 
   // Synchronize state changes with URL query parameters without reloading
@@ -985,54 +1017,97 @@ function ToeicCatalogContent() {
             {/* Part Switcher Bar (Part 1 to Part 7) */}
             <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5 sm:p-3">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2.5 px-1 flex flex-wrap items-center justify-between gap-1">
-                <span>CHỌN PHẦN THI ĐỂ LUYỆN TẬP (PART 1 – 7):</span>
+                <div className="flex items-center gap-1.5">
+                  <span>CHỌN PHẦN THI ĐỂ LUYỆN TẬP (PART 1 – 7):</span>
+                  {/* Compact visual swipe indicator — icon only, no text */}
+                  <span
+                    aria-hidden="true"
+                    className="sm:hidden inline-flex items-center gap-0.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 text-slate-400 dark:text-slate-400 select-none shadow-2xs"
+                  >
+                    <ChevronLeft className="h-3 w-3 opacity-60" />
+                    <span className="h-1 w-2 rounded-full bg-slate-300 dark:bg-slate-600" />
+                    <ChevronRight className="h-3 w-3 animate-pulse text-slate-600 dark:text-slate-300" />
+                  </span>
+                </div>
                 <span className="font-mono tabular-nums text-[11px]">Tổng cộng: 7 Parts | {totalPracticeQuestionsFormatted} Câu Luyện Tập ({totalPracticeSetsCount} Bộ Đề — {totalQuestionsFormatted} Câu Hỏi Toàn Hệ Thống)</span>
               </div>
 
-              {/* Mobile Part Rail: Smooth horizontal scrollable rail (sm:hidden) */}
-              <div className="sm:hidden flex overflow-x-auto gap-2 pb-1.5 scrollbar-none snap-x snap-mandatory -mx-1 px-1">
-                {PART_DEFINITIONS.map((p) => {
-                  const isSelected = p.part === selectedPart;
-                  return (
-                    <button
-                      key={p.part}
-                      type="button"
-                      onClick={() => handleSelectPart(p.part)}
-                      className={`snap-start shrink-0 w-[140px] flex flex-col items-start p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
-                        isSelected
-                          ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold shadow-xs'
-                          : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-850'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span className="font-mono text-xs font-extrabold uppercase">
-                          Part {p.part}
-                        </span>
-                        <span
-                          className={`font-mono text-[10px] px-1 py-0.2 rounded-xs uppercase tabular-nums ${
-                            isSelected
-                              ? 'bg-slate-800 dark:bg-slate-100 text-slate-200 dark:text-slate-800'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
-                          }`}
-                        >
-                          {p.section === 'listening' ? 'LC' : 'RC'}
-                        </span>
-                      </div>
-                      <span className="text-xs mt-1 truncate w-full font-medium">
-                        {p.vietnameseTitle}
-                      </span>
-                      <span
-                        className={`font-mono text-[11px] mt-0.5 tabular-nums ${
+              {/* Mobile Part Rail with compact edge swipe cues (sm:hidden) */}
+              <div className="relative sm:hidden">
+                {/* Left scroll cue */}
+                {railCanScrollLeft && (
+                  <button
+                    type="button"
+                    onClick={() => scrollPartRail('left')}
+                    aria-label="Cuộn sang trái"
+                    className="absolute left-0 top-0 bottom-1.5 z-10 w-7 flex items-center justify-start pl-0.5 bg-gradient-to-r from-white via-white/90 to-transparent dark:from-slate-900 dark:via-slate-900/90 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-opacity cursor-pointer select-none"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </button>
+                )}
+
+                {/* Mobile Part Rail: Smooth horizontal scrollable rail (sm:hidden) */}
+                <div
+                  ref={partRailRef}
+                  onScroll={checkRailScroll}
+                  className="sm:hidden flex overflow-x-auto gap-2 pb-1.5 scrollbar-none snap-x snap-mandatory -mx-1 px-1 scroll-smooth"
+                >
+                  {PART_DEFINITIONS.map((p) => {
+                    const isSelected = p.part === selectedPart;
+                    return (
+                      <button
+                        key={p.part}
+                        data-part={p.part}
+                        type="button"
+                        onClick={() => handleSelectPart(p.part)}
+                        className={`snap-start shrink-0 w-[140px] flex flex-col items-start p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                           isSelected
-                            ? 'text-slate-300 dark:text-slate-600'
-                            : 'text-slate-500 dark:text-slate-400'
+                            ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold shadow-xs'
+                            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-850'
                         }`}
                       >
-                        {p.questionCount.toLocaleString('vi-VN')} câu
-                      </span>
-                    </button>
-                  );
-                })}
+                        <div className="flex items-center justify-between w-full">
+                          <span className="font-mono text-xs font-extrabold uppercase">
+                            Part {p.part}
+                          </span>
+                          <span
+                            className={`font-mono text-[10px] px-1 py-0.2 rounded-xs uppercase tabular-nums ${
+                              isSelected
+                                ? 'bg-slate-800 dark:bg-slate-100 text-slate-200 dark:text-slate-800'
+                                : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                            }`}
+                          >
+                            {p.section === 'listening' ? 'LC' : 'RC'}
+                          </span>
+                        </div>
+                        <span className="text-xs mt-1 truncate w-full font-medium">
+                          {p.vietnameseTitle}
+                        </span>
+                        <span
+                          className={`font-mono text-[11px] mt-0.5 tabular-nums ${
+                            isSelected
+                              ? 'text-slate-300 dark:text-slate-600'
+                              : 'text-slate-500 dark:text-slate-400'
+                          }`}
+                        >
+                          {p.questionCount.toLocaleString('vi-VN')} câu
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Right scroll cue with pulsing indicator */}
+                {railCanScrollRight && (
+                  <button
+                    type="button"
+                    onClick={() => scrollPartRail('right')}
+                    aria-label="Cuộn sang phải"
+                    className="absolute right-0 top-0 bottom-1.5 z-10 w-7 flex items-center justify-end pr-0.5 bg-gradient-to-l from-white via-white/90 to-transparent dark:from-slate-900 dark:via-slate-900/90 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-opacity cursor-pointer select-none"
+                  >
+                    <ChevronRight className="h-4 w-4 animate-pulse" />
+                  </button>
+                )}
               </div>
 
               {/* Desktop Part Grid (hidden sm:grid) */}
