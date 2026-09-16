@@ -22,7 +22,11 @@ export interface UseToeicExamSessionOptions {
   onSubmit?: (
     result: ToeicScoreResult,
     answers: Record<number, ToeicOptionKey>,
-    reviewQuestions?: (ToeicUnifiedQuestion | ToeicClientQuestion)[]
+    reviewQuestions?: (ToeicUnifiedQuestion | ToeicClientQuestion)[],
+    meta?: {
+      savedToHistory?: boolean;
+      isGuest?: boolean;
+    }
   ) => void;
 }
 
@@ -204,22 +208,28 @@ export function useToeicExamSession({
               }
             }
 
+            const isHistorySaved = Boolean(data.savedToHistory);
+            const isGuestUser = Boolean(data.isGuest);
+
             setIsSubmitted(true);
             isSubmittedRef.current = true;
             setScoreResult(data.scoreResult);
-            setSavedToHistory(Boolean(data.savedToHistory));
-            setIsGuest(Boolean(data.isGuest));
+            setSavedToHistory(isHistorySaved);
+            setIsGuest(isGuestUser);
             setIsSubmitting(false);
 
             if (onSubmit) {
-              onSubmit(data.scoreResult, answers, data.reviewQuestions);
+              onSubmit(data.scoreResult, answers, data.reviewQuestions, {
+                savedToHistory: isHistorySaved,
+                isGuest: isGuestUser,
+              });
             }
             return {
               success: true,
               scoreResult: data.scoreResult,
               reviewQuestions: data.reviewQuestions,
-              savedToHistory: Boolean(data.savedToHistory),
-              isGuest: Boolean(data.isGuest),
+              savedToHistory: isHistorySaved,
+              isGuest: isGuestUser,
             };
           } else {
             console.warn('[useToeicExamSession] Submit error payload:', data.error);
@@ -251,7 +261,10 @@ export function useToeicExamSession({
         setIsSubmitting(false);
 
         if (onSubmit) {
-          onSubmit(computedResult, answers, questions);
+          onSubmit(computedResult, answers, questions, {
+            savedToHistory: false,
+            isGuest: false,
+          });
         }
         return {
           success: true,

@@ -42,6 +42,7 @@ import {
 } from '@/lib/toeic-question-history';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { supabase } from '@/lib/supabase';
+import type { User } from '@supabase/supabase-js';
 import { authFetch } from '@/lib/auth-fetch';
 import type {
   ToeicUnifiedQuestion,
@@ -239,6 +240,25 @@ function ToeicExamRoomInner() {
   const [isGuestModalOpen, setIsGuestModalOpen] = useState<boolean>(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState<boolean>(false);
 
+  // Track active authenticated user to prevent redundant guest save modals
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (mounted) setCurrentUser(user);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (mounted) setCurrentUser(session?.user ?? null);
+    });
+
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
+  }, []);
+
   // ── 3. Public Test Loader API: Fetch sanitized questions from server ──
   useEffect(() => {
     let isCancelled = false;
@@ -347,7 +367,8 @@ function ToeicExamRoomInner() {
   const handleSubmit = (
     result: ToeicScoreResult,
     answers: Record<number, ToeicOptionKey>,
-    reviewQuestions?: (ToeicUnifiedQuestion | ToeicClientQuestion)[]
+    reviewQuestions?: (ToeicUnifiedQuestion | ToeicClientQuestion)[],
+    meta?: { savedToHistory?: boolean; isGuest?: boolean }
   ) => {
     // Enrich questions with master review questions (reveals explanations & transcripts)
     if (reviewQuestions && reviewQuestions.length > 0) {
@@ -356,8 +377,12 @@ function ToeicExamRoomInner() {
     setSubmittedScoreResult(result);
     setSubmittedAnswers(answers);
     setIsExamSubmittedState(true);
-    setIsSavedToHistoryState(Boolean(session.savedToHistory));
-    setIsGuestState(Boolean(session.isGuest));
+
+    const isActuallySaved = Boolean(meta?.savedToHistory ?? session.savedToHistory);
+    const isActuallyGuest = !currentUser && Boolean(meta?.isGuest ?? session.isGuest);
+
+    setIsSavedToHistoryState(isActuallySaved);
+    setIsGuestState(isActuallyGuest);
 
     // Record question answers into question history (R1 & R3)
     const historyResults = questions
@@ -378,8 +403,8 @@ function ToeicExamRoomInner() {
       recordQuestionAnswers(historyResults);
     }
 
-    // If user is guest or exam not yet saved to DB, cache in localStorage immediately
-    if (session.isGuest || !session.savedToHistory) {
+    // ONLY prompt GuestSaveExamModal if user is truly unauthenticated AND not yet saved
+    if (!currentUser && isActuallyGuest && !isActuallySaved) {
       if (typeof window !== 'undefined') {
         try {
           localStorage.setItem(
@@ -402,7 +427,20 @@ function ToeicExamRoomInner() {
       }
       setIsGuestModalOpen(true);
     } else {
-      toast.success('Kết quả bài thi đã được lưu vào tài khoản của bạn!');
+      // Authenticated user or successfully saved: clean up any stale pending guest draft
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.removeItem('lingo_pending_toeic_save');
+        } catch (e) {
+          // ignore
+        }
+      }
+      setIsGuestModalOpen(false);
+      if (isActuallySaved || currentUser) {
+        toast.success('Kết quả bài thi đã được lưu vào tài khoản của bạn!');
+      } else {
+        toast.success('Đã nộp bài thành công! Xem báo cáo chi tiết bên dưới.');
+      }
     }
 
     if (roadmapStep && questions.length > 0) {
@@ -668,8 +706,8 @@ function ToeicExamRoomInner() {
   const activeAnswers =
     Object.keys(submittedAnswers).length > 0 ? submittedAnswers : session.answers;
   const isCompleted = isExamSubmittedState || session.isSubmitted;
-  const isHistorySaved = isSavedToHistoryState || session.savedToHistory;
-  const isCurrentGuest = isGuestState || session.isGuest;
+  const isHistorySaved = isSavedToHistoryState || session.savedToHistory || Boolean(currentUser);
+  const isCurrentGuest = !currentUser && (isGuestState || session.isGuest);
 
   if (isCompleted && activeScoreResult) {
     return (
@@ -683,24 +721,28 @@ function ToeicExamRoomInner() {
             testTitle={testTitle}
             isGuest={isCurrentGuest && !isHistorySaved}
             savedToHistory={isHistorySaved}
-            onOpenGuestSaveModal={() => setIsGuestModalOpen(true)}
+            onOpenGuestSaveModal={() => {
+              if (!currentUser) setIsGuestModalOpen(true);
+            }}
             onRetake={handleRetakeExam}
             onBackToHub={() => router.push('/toeic')}
           />
 
-          {/* Encouraging Guest Save Prompt Modal */}
-          <GuestSaveExamModal
-            isOpen={isGuestModalOpen}
-            onClose={() => setIsGuestModalOpen(false)}
-            scoreResult={activeScoreResult}
-            testTitle={testTitle}
-            onGoogleSignIn={handleGoogleSignInForGuest}
-            isGoogleLoading={isGoogleLoading}
-            isFullTest={isFullTestExam}
-            totalQuestions={questions.length}
-            partNum={partNum}
-            onRetake={handleRetakeExam}
-          />
+          {/* Encouraging Guest Save Prompt Modal - strictly for unauthenticated guests */}
+          {!currentUser && (
+            <GuestSaveExamModal
+              isOpen={isGuestModalOpen}
+              onClose={() => setIsGuestModalOpen(false)}
+              scoreResult={activeScoreResult}
+              testTitle={testTitle}
+              onGoogleSignIn={handleGoogleSignInForGuest}
+              isGoogleLoading={isGoogleLoading}
+              isFullTest={isFullTestExam}
+              totalQuestions={questions.length}
+              partNum={partNum}
+              onRetake={handleRetakeExam}
+            />
+          )}
         </div>
       </StudentShell>
     );

@@ -121,6 +121,38 @@ export async function runUserFeedbackV4Tests(runner: TestRunner) {
       expect(examPageCode.includes('partNum={partNum}')).toBe(true);
     });
 
+    runner.it('V4-13: useToeicExamSession passes server metadata (savedToHistory, isGuest) to onSubmit', () => {
+      const sessionHookPath = path.resolve(__dirname, '../../src/hooks/useToeicExamSession.ts');
+      const sessionHookCode = fs.readFileSync(sessionHookPath, 'utf8');
+      expect(sessionHookCode.includes('meta?: {')).toBe(true);
+      expect(sessionHookCode.includes('savedToHistory?: boolean')).toBe(true);
+      expect(sessionHookCode.includes('isGuest?: boolean')).toBe(true);
+      expect(sessionHookCode.includes('savedToHistory: isHistorySaved')).toBe(true);
+      expect(sessionHookCode.includes('isGuest: isGuestUser')).toBe(true);
+    });
+
+    runner.it('V4-14: ToeicExam page prevents GuestSaveExamModal from opening for authenticated users', () => {
+      const examPagePath = path.resolve(__dirname, '../../src/app/toeic/exam/[examId]/page.tsx');
+      const examPageCode = fs.readFileSync(examPagePath, 'utf8');
+      // currentUser state tracking
+      expect(examPageCode.includes('const [currentUser, setCurrentUser] = useState<User | null>(null)')).toBe(true);
+      // Guarded handleSubmit
+      expect(examPageCode.includes('if (!currentUser && isActuallyGuest && !isActuallySaved)')).toBe(true);
+      // Guarded modal rendering
+      expect(examPageCode.includes('{!currentUser && (')).toBe(true);
+      expect(examPageCode.includes('<GuestSaveExamModal')).toBe(true);
+      // Stale pending cleanup on auth submission
+      expect(examPageCode.includes("localStorage.removeItem('lingo_pending_toeic_save')")).toBe(true);
+    });
+
+    runner.it('V4-15: authFetch proactively refreshes nearing-expiry tokens and handles 401 retry', () => {
+      const authFetchPath = path.resolve(__dirname, '../../src/lib/auth-fetch.ts');
+      const authFetchCode = fs.readFileSync(authFetchPath, 'utf8');
+      expect(authFetchCode.includes('refreshSession()')).toBe(true);
+      expect(authFetchCode.includes('res.status === 401')).toBe(true);
+      expect(authFetchCode.includes('expiresAt - Date.now() < 60_000')).toBe(true);
+    });
+
   });
 }
 

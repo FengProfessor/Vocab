@@ -15,10 +15,38 @@ export async function authFetch(
   let token = accessToken ?? null;
   if (!token) {
     const { data: { session } } = await supabase.auth.getSession();
-    token = session?.access_token ?? null;
+    if (session) {
+      // If token expires in under 60s, refresh proactively
+      const expiresAt = session.expires_at ? session.expires_at * 1000 : 0;
+      if (expiresAt > 0 && expiresAt - Date.now() < 60_000) {
+        try {
+          const { data: refreshed } = await supabase.auth.refreshSession();
+          token = refreshed.session?.access_token ?? session.access_token;
+        } catch {
+          token = session.access_token;
+        }
+      } else {
+        token = session.access_token;
+      }
+    }
   }
   if (token) {
     headers.set('Authorization', `Bearer ${token}`);
   }
-  return fetch(input, { ...init, headers });
+  let res = await fetch(input, { ...init, headers });
+
+  // If 401 Unauthorized occurs and no explicit token was passed, attempt single refresh & retry
+  if (res.status === 401 && !accessToken) {
+    try {
+      const { data: refreshed } = await supabase.auth.refreshSession();
+      if (refreshed.session?.access_token) {
+        headers.set('Authorization', `Bearer ${refreshed.session.access_token}`);
+        res = await fetch(input, { ...init, headers });
+      }
+    } catch {
+      // Return original response if refresh failed
+    }
+  }
+
+  return res;
 }
