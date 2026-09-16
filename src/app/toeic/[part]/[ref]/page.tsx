@@ -14,6 +14,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, CheckCircle2, Lightbulb, BookOpen } from 'lucide-react';
 import Link from 'next/link';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { stripHtmlTags } from '@/components/toeic/ToeicSplitPane';
 import type {
   ToeicPart5Item,
   ToeicPart6Item,
@@ -349,13 +351,15 @@ function ToeicPlayerInner() {
       {q.context && (
         <Card className="border-blue-200/50 dark:border-blue-800/30">
           <CardContent className="p-4 whitespace-pre-line text-sm leading-relaxed max-h-72 overflow-y-auto">
-            {q.context}
+            <ExamInteractiveText text={stripHtmlTags(q.context)} enabled={revealed} />
           </CardContent>
         </Card>
       )}
 
       {/* Question */}
-      <h1 className="text-base font-bold leading-relaxed">{q.prompt}</h1>
+      <h1 className="text-base font-bold leading-relaxed">
+        <ExamInteractiveText text={stripHtmlTags(q.prompt)} enabled={revealed} />
+      </h1>
 
       {/* Options — 2x2 Grid (1 2 / 3 4) on Mobile */}
       <div className="space-y-3">
@@ -370,7 +374,6 @@ function ToeicPlayerInner() {
               <Button
                 key={opt}
                 variant="outline"
-                disabled={revealed && !isAnswer && !isPicked}
                 className={`justify-start h-auto py-2.5 px-3 text-xs sm:text-sm whitespace-normal text-left ${
                   !revealed && isPicked
                     ? 'border-primary bg-primary/5 ring-1 ring-primary/30'
@@ -383,12 +386,16 @@ function ToeicPlayerInner() {
                   revealed && isPicked && !isAnswer
                     ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 line-through'
                     : ''
+                } ${
+                  revealed && !isAnswer && !isPicked
+                    ? 'opacity-60 cursor-default'
+                    : ''
                 }`}
                 onClick={() => {
                   if (!revealed) setPicked(opt);
                 }}
               >
-                {opt}
+                <ExamInteractiveText text={stripHtmlTags(opt)} enabled={revealed} />
               </Button>
             );
           })}
@@ -404,7 +411,9 @@ function ToeicPlayerInner() {
             }`}
           >
             <Lightbulb className="w-4 h-4 mt-0.5 shrink-0 text-amber-500" />
-            <span>{q.explain}</span>
+            <div className="flex-1 leading-relaxed">
+              <ExamInteractiveText text={stripHtmlTags(q.explain)} enabled={revealed} />
+            </div>
           </div>
         )}
 

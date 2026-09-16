@@ -12,6 +12,9 @@
     "open-vocab:stage": "npx tsx scripts/import-open-vocab-sources.ts",
     "open-vocab:validate": "npx tsx scripts/validate-open-vocab-sources.ts",
     "open-vocab:apply": "npx tsx scripts/import-open-vocab-sources.ts --apply",
+    "vocab:ipa": "npx tsx scripts/backfill-missing-ipa.ts --target=words",
+    "vocab:ipa:apply": "npx tsx scripts/backfill-missing-ipa.ts --target=words --apply",
+    "vocab:ipa:gd": "npx tsx scripts/backfill-missing-ipa.ts --target=gd --limit=1000 --apply",
     "force-onboarding": "node scripts/force-onboarding.js",
     "docker:build": "docker build -t lingopro:latest .",
     "docker:up": "docker compose up -d --build"

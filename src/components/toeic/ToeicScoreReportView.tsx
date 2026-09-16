@@ -39,6 +39,7 @@ import type {
 import { getCefrDescriptor, getPartAccuracyRating } from '@/lib/toeic-scoring';
 import { ToeicAudioPlayer } from './ToeicAudioPlayer';
 import { stripHtmlTags } from './ToeicSplitPane';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 export interface ToeicScoreReportViewProps {
   scoreResult: ToeicScoreResult;
@@ -1112,7 +1113,7 @@ export function ToeicScoreReportView({
                                 Lời thoại gốc:
                               </span>
                               <p className="whitespace-pre-line leading-relaxed font-sans">
-                                {stripHtmlTags(q.transcript)}
+                                <ExamInteractiveText text={stripHtmlTags(q.transcript)} enabled={true} />
                               </p>
                             </div>
                           )}
@@ -1133,7 +1134,7 @@ export function ToeicScoreReportView({
                             key={idx}
                             className="whitespace-pre-line rounded-sm bg-white p-3.5 border border-slate-200 dark:bg-slate-900 dark:border-slate-800"
                           >
-                            {seg}
+                            <ExamInteractiveText text={seg} enabled={true} />
                           </div>
                         ))}
                       </div>
@@ -1143,7 +1144,7 @@ export function ToeicScoreReportView({
                   {/* Question Prompt */}
                   {q.prompt && (
                     <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white leading-relaxed">
-                      {q.prompt}
+                      <ExamInteractiveText text={stripHtmlTags(q.prompt)} enabled={true} />
                     </h3>
                   )}
 
@@ -1204,7 +1205,10 @@ export function ToeicScoreReportView({
                               {opt.key}
                             </span>
                             <span className="leading-relaxed pt-0.5">
-                              {opt.text || (isListening ? `(Phương án ${opt.key})` : '')}
+                              <ExamInteractiveText
+                                text={opt.text || (isListening ? `(Phương án ${opt.key})` : '')}
+                                enabled={true}
+                              />
                             </span>
                           </div>
 
@@ -1221,9 +1225,9 @@ export function ToeicScoreReportView({
                         <Lightbulb className="h-3.5 w-3.5 text-slate-500 shrink-0" />
                         <span>Giải thích chi tiết:</span>
                       </div>
-                      <p className="leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line pl-5">
-                        {stripHtmlTags(q.explanationVi)}
-                      </p>
+                      <div className="leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line pl-5">
+                        <ExamInteractiveText text={stripHtmlTags(q.explanationVi)} enabled={true} />
+                      </div>
                     </div>
                   )}
                 </article>

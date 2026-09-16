@@ -288,15 +288,15 @@ export default function EmailOptinCard({
             </p>
           </div>
 
-          {/* Action buttons: Download vs Read Online */}
+          {/* Action buttons: Download PDF vs Read Online */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md mx-auto pt-1">
             <a
-              href={downloadUrl}
+              href="/api/lead-magnet/download?format=pdf"
               download
               className="py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20"
             >
               <Download className="w-4 h-4" />
-              <span>TẢI FILE EBOOK (.MD)</span>
+              <span>TẢI EBOOK (BẢN PDF)</span>
             </a>
 
             {onReadOnline && (
@@ -309,6 +309,16 @@ export default function EmailOptinCard({
                 <span>ĐỌC TRỰC TUYẾN NGAY</span>
               </button>
             )}
+          </div>
+
+          <div className="text-center">
+            <a
+              href="/api/lead-magnet/download?format=md"
+              download
+              className="text-xs text-slate-400 hover:text-slate-200 underline transition"
+            >
+              Tải bản Markdown thô (.MD) thay vì PDF
+            </a>
           </div>
 
           {/* Promo code box */}

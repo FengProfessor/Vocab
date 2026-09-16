@@ -559,14 +559,24 @@ export default function DiagnosticScorecard({
                 Đã lưu kết quả bài test ({totalScore}/30)! Bạn có thể tải ngay Ebook trọn bộ bên dưới.
               </span>
             </div>
-            <a
-              href="/api/lead-magnet/download"
-              download
-              className="px-4 py-2 rounded-xl bg-emerald-400 text-slate-950 font-bold text-xs hover:bg-emerald-300 transition flex items-center gap-1.5 whitespace-nowrap"
-            >
-              <span>TẢI EBOOK (.MD)</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="/api/lead-magnet/download?format=pdf"
+                download
+                className="px-4 py-2 rounded-xl bg-emerald-400 text-slate-950 font-bold text-xs hover:bg-emerald-300 transition flex items-center gap-1.5 whitespace-nowrap"
+              >
+                <span>TẢI EBOOK (BẢN PDF)</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="/api/lead-magnet/download?format=md"
+                download
+                className="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs hover:bg-slate-800 transition"
+                title="Tải bản Markdown thô"
+              >
+                <span>Bản .MD</span>
+              </a>
+            </div>
           </div>
         )}
       </div>

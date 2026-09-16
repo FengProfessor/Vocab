@@ -833,7 +833,7 @@ function ToeicExamRoomInner() {
         {/* Main Content Area */}
         <main className="relative flex-1 overflow-hidden">
           {isLoadingQuestions && questions.length === 0 ? (
-            <div className="flex h-[calc(100vh-48px)] flex-col items-center justify-center gap-3 font-mono text-xs text-slate-500">
+            <div className="flex h-[calc(100dvh-48px)] flex-col items-center justify-center gap-3 font-mono text-xs text-slate-500">
               <Loader2 className="h-5 w-5 animate-spin text-emerald-600 dark:text-emerald-400" />
               <span>Đang nạp dữ liệu bài thi {testTitle}...</span>
             </div>
@@ -872,7 +872,7 @@ function ToeicExamRoomInner() {
                 answered: session.answeredCount,
                 total: session.totalQuestions,
               }}
-              className="h-[calc(100vh-48px)]"
+              className="h-[calc(100dvh-48px)]"
             />
           ) : null}
 

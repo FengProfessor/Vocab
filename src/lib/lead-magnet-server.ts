@@ -43,3 +43,27 @@ export function getLeadMagnetBuffer(): Buffer {
   }
   return fs.readFileSync(filePath);
 }
+
+export function getLeadMagnetPdfFilePath(): string | null {
+  const candidatePaths = [
+    path.join(process.cwd(), 'public', 'downloads', 'Bach-Khoa-Sat-Thu-TOEIC-Listening-ETS-2026-LingoPro.pdf'),
+    path.join(process.cwd(), 'public', 'downloads', 'sat-thu-toeic-listening-lead-magnet.pdf'),
+    path.join(process.cwd(), 'docs', 'Bach-Khoa-Sat-Thu-TOEIC-Listening-ETS-2026-LingoPro.pdf'),
+    path.join(process.cwd(), 'web-app', 'docs', 'Bach-Khoa-Sat-Thu-TOEIC-Listening-ETS-2026-LingoPro.pdf'),
+  ];
+
+  for (const p of candidatePaths) {
+    if (fs.existsSync(p)) {
+      return p;
+    }
+  }
+
+  return null;
+}
+
+export function getLeadMagnetPdfBuffer(): Buffer | null {
+  const filePath = getLeadMagnetPdfFilePath();
+  if (!filePath) return null;
+  return fs.readFileSync(filePath);
+}
+

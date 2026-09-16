@@ -23,6 +23,7 @@ import type {
   ToeicClientQuestion,
 } from '@/types/toeic';
 import { ToeicAudioPlayer } from './ToeicAudioPlayer';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 export function stripHtmlTags(str?: string): string {
   if (!str) return '';
@@ -103,6 +104,7 @@ export function ToeicSplitPane({
   className = '',
 }: ToeicSplitPaneProps) {
   const isExamMode = mode === 'real' || mode === 'full_simulation';
+  const isAnswerRevealed = !isExamMode && (showExplanation || Boolean(selectedOption));
   const [isImageZoomed, setIsImageZoomed] = useState<boolean>(false);
 
   // Keyboard shortcut listener: A/B/C/D to answer, Arrows to navigate, F to flag
@@ -148,10 +150,19 @@ export function ToeicSplitPane({
   const isPart5 = question.part === 5;
   const [mobileTab, setMobileTab] = useState<'passage' | 'question'>('question');
 
-  // When question changes, reset mobile tab to 'question'
+  // Track previous passage to avoid resetting mobile tab to 'question' when navigating questions within the same reading passage in Part 6 & 7
+  const prevPassageRef = React.useRef<string | undefined>(question.passage);
   useEffect(() => {
-    setMobileTab('question');
-  }, [question.id]);
+    if (isReadingWithPassage) {
+      if (question.passage !== prevPassageRef.current) {
+        prevPassageRef.current = question.passage;
+        setMobileTab('question');
+      }
+    } else {
+      prevPassageRef.current = undefined;
+      setMobileTab('question');
+    }
+  }, [question.id, question.passage, isReadingWithPassage]);
 
   // Passage segments for reading Part 6 & 7 (handles multi-passages split by '---')
   const passageSegments = useMemo(() => {
@@ -167,7 +178,7 @@ export function ToeicSplitPane({
 
   return (
     <div
-      className={`flex flex-col h-[calc(100vh-48px)] w-full overflow-hidden bg-slate-100 dark:bg-slate-950 ${className}`}
+      className={`flex flex-col h-[calc(100dvh-48px)] w-full overflow-hidden bg-slate-100 dark:bg-slate-950 ${className}`}
     >
       {/* Mobile Reading Segmented Tab Bar (Only Part 6 & 7 on mobile) */}
       {isReadingWithPassage && (
@@ -243,18 +254,6 @@ export function ToeicSplitPane({
                     />
                   </div>
 
-                  {/* Next Question Overlay Button (Middle Right of Image) */}
-                  <button
-                    type="button"
-                    onClick={onNext}
-                    disabled={!hasNext}
-                    aria-label="Câu tiếp theo"
-                    className="lg:hidden absolute right-2.5 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-sm bg-black/80 hover:bg-black/95 active:scale-95 text-white shadow-xs border border-slate-700 transition-all cursor-pointer disabled:opacity-30 disabled:pointer-events-none group"
-                    title="Câu tiếp theo (Phím tắt: →)"
-                  >
-                    <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
-                  </button>
-
                   <button
                     type="button"
                     onClick={() => setIsImageZoomed(!isImageZoomed)}
@@ -297,18 +296,6 @@ export function ToeicSplitPane({
                     className="object-contain p-0"
                   />
                 </div>
-
-                {/* Next Question Overlay Button (Middle Right of Graphic) */}
-                <button
-                  type="button"
-                  onClick={onNext}
-                  disabled={!hasNext}
-                  aria-label="Câu tiếp theo"
-                  className="lg:hidden absolute right-2.5 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-sm bg-black/80 hover:bg-black/95 active:scale-95 text-white shadow-xs border border-slate-700 transition-all cursor-pointer disabled:opacity-30 disabled:pointer-events-none group"
-                  title="Câu tiếp theo (Phím tắt: →)"
-                >
-                  <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:translate-x-0.5" />
-                </button>
               </div>
             )}
 
@@ -345,7 +332,7 @@ export function ToeicSplitPane({
                         </span>
                       </div>
                       <div className="prose dark:prose-invert max-w-none text-sm sm:text-base leading-relaxed whitespace-pre-wrap font-serif text-slate-800 dark:text-slate-200">
-                        {segment}
+                        <ExamInteractiveText text={segment} enabled={isAnswerRevealed} />
                       </div>
                     </div>
 
@@ -433,7 +420,7 @@ export function ToeicSplitPane({
             {question.prompt && (
               <div className="rounded-sm bg-slate-50 p-3 sm:p-3.5 border border-slate-200 dark:bg-slate-900 dark:border-slate-800">
                 <p className="text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100 leading-relaxed break-words">
-                  {stripHtmlTags(question.prompt)}
+                  <ExamInteractiveText text={stripHtmlTags(question.prompt)} enabled={isAnswerRevealed} />
                 </p>
               </div>
             )}
@@ -459,72 +446,123 @@ export function ToeicSplitPane({
               </div>
             )}
 
-            {/* Options List (A, B, C, D) — Compact 2x2 Grid (1 2 / 3 4) on mobile, 1 column on desktop */}
-            <div
-              className="grid grid-cols-2 gap-2 lg:grid-cols-1 lg:gap-2.5"
-              role="radiogroup"
-              aria-label="Các phương án lựa chọn"
-            >
-              {question.options.map((opt) => {
-                const isSelected = selectedOption === opt.key;
-                const isAnswered = Boolean(selectedOption);
-                const shouldReveal = !isExamMode && (showExplanation || isAnswered);
-                const isCorrectAnswer = shouldReveal && opt.key === question.correctAnswer;
-                const isWrongSelection =
-                  shouldReveal && isSelected && opt.key !== question.correctAnswer;
+            {/* Options List: Part 1 & 2 use horizontal button row ([A][B][C][D] / [A][B][C]), Part 3-7 strictly 1 column full-width */}
+            {question.part === 1 || question.part === 2 ? (
+              <div
+                className={`grid ${question.part === 2 || question.options.length === 3 ? 'grid-cols-3' : 'grid-cols-4'} gap-2 sm:gap-3`}
+                role="radiogroup"
+                aria-label="Các phương án lựa chọn (A, B, C, D)"
+              >
+                {question.options.map((opt) => {
+                  const isSelected = selectedOption === opt.key;
+                  const isAnswered = Boolean(selectedOption);
+                  const shouldReveal = !isExamMode && (showExplanation || isAnswered);
+                  const isCorrectAnswer = shouldReveal && opt.key === question.correctAnswer;
+                  const isWrongSelection =
+                    shouldReveal && isSelected && opt.key !== question.correctAnswer;
 
-                return (
-                  <button
-                    key={opt.key}
-                    type="button"
-                    onClick={() => onSelectOption(opt.key)}
-                    className={`group relative flex w-full items-start gap-2 sm:gap-2.5 rounded-sm border p-2 sm:p-2.5 lg:p-3 text-left text-xs sm:text-sm lg:text-base transition-colors duration-100 cursor-pointer select-none min-h-[42px] sm:min-h-[46px] lg:min-h-[48px] ${
-                      isCorrectAnswer
-                        ? 'border-emerald-500 bg-emerald-50/60 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-100 font-medium'
-                        : isWrongSelection
-                        ? 'border-rose-500 bg-rose-50/60 text-rose-950 dark:border-rose-600 dark:bg-rose-950/40 dark:text-rose-100 font-medium'
-                        : isSelected
-                        ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 font-bold'
-                        : 'border-slate-200 bg-white text-slate-800 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800 font-normal'
-                    }`}
-                  >
-                    {/* Badge key (A, B, C, D) */}
-                    <span
-                      className={`flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-xs font-mono text-xs font-bold border transition-colors mt-0.5 sm:mt-0 ${
+                  return (
+                    <button
+                      key={opt.key}
+                      type="button"
+                      onClick={() => onSelectOption(opt.key)}
+                      className={`group relative flex flex-col items-center justify-center px-2 py-3 sm:p-4 rounded-sm border transition-all duration-100 cursor-pointer select-none min-h-[52px] sm:min-h-[58px] ${
                         isCorrectAnswer
-                          ? 'border-emerald-600 bg-emerald-600 text-white'
+                          ? 'border-emerald-500 bg-emerald-50 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-100 font-bold shadow-xs'
                           : isWrongSelection
-                          ? 'border-rose-600 bg-rose-600 text-white'
+                          ? 'border-rose-500 bg-rose-50 text-rose-950 dark:border-rose-600 dark:bg-rose-950/50 dark:text-rose-100 font-bold shadow-xs'
                           : isSelected
-                          ? 'border-white bg-white text-slate-900 dark:border-slate-900 dark:bg-slate-900 dark:text-white'
-                          : 'border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300'
+                          ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 font-bold shadow-xs scale-[1.02]'
+                          : 'border-slate-200 bg-white text-slate-800 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800 font-medium'
                       }`}
                     >
-                      {opt.key}
-                    </span>
-
-                    {/* Option Text */}
-                    <span className="flex-1 leading-snug break-words">
-                      {opt.text || (question.part === 1 || question.part === 2 ? '(Nghe)' : '')}
-                    </span>
-
-                    {/* Explanation visual marker */}
-                    {isCorrectAnswer && (
-                      <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400 shrink-0">
-                        <CheckCircle2 className="h-4 w-4" />
-                        <span className="hidden lg:inline">Đáp án đúng</span>
+                      <span className="font-mono text-base sm:text-lg font-black tracking-tight whitespace-nowrap">
+                        [ {opt.key} ]
                       </span>
-                    )}
-                    {isWrongSelection && (
-                      <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-rose-700 dark:text-rose-400 shrink-0">
-                        <XCircle className="h-4 w-4" />
-                        <span className="hidden lg:inline">Sai</span>
+                      {isCorrectAnswer && (
+                        <span className="mt-1 font-mono text-[10px] sm:text-[11px] font-bold text-emerald-700 dark:text-emerald-400 flex items-center justify-center gap-0.5 whitespace-nowrap">
+                          <CheckCircle2 className="h-3 w-3 shrink-0" /> Đúng
+                        </span>
+                      )}
+                      {isWrongSelection && (
+                        <span className="mt-1 font-mono text-[10px] sm:text-[11px] font-bold text-rose-700 dark:text-rose-400 flex items-center justify-center gap-0.5 whitespace-nowrap">
+                          <XCircle className="h-3 w-3 shrink-0" /> Sai
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            ) : (
+              <div
+                className="grid grid-cols-1 gap-2 sm:gap-2.5"
+                role="radiogroup"
+                aria-label="Các phương án lựa chọn"
+              >
+                {question.options.map((opt) => {
+                  const isSelected = selectedOption === opt.key;
+                  const isAnswered = Boolean(selectedOption);
+                  const shouldReveal = !isExamMode && (showExplanation || isAnswered);
+                  const isCorrectAnswer = shouldReveal && opt.key === question.correctAnswer;
+                  const isWrongSelection =
+                    shouldReveal && isSelected && opt.key !== question.correctAnswer;
+
+                  return (
+                    <button
+                      key={opt.key}
+                      type="button"
+                      onClick={() => onSelectOption(opt.key)}
+                      className={`group relative flex w-full items-start gap-2.5 sm:gap-3 rounded-sm border p-2.5 sm:p-3 text-left text-xs sm:text-sm lg:text-base transition-colors duration-100 cursor-pointer select-none min-h-[44px] sm:min-h-[48px] ${
+                        isCorrectAnswer
+                          ? 'border-emerald-500 bg-emerald-50/60 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-100 font-medium'
+                          : isWrongSelection
+                          ? 'border-rose-500 bg-rose-50/60 text-rose-950 dark:border-rose-600 dark:bg-rose-950/40 dark:text-rose-100 font-medium'
+                          : isSelected
+                          ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 font-bold'
+                          : 'border-slate-200 bg-white text-slate-800 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800 font-normal'
+                      }`}
+                    >
+                      {/* Badge key (A, B, C, D) */}
+                      <span
+                        className={`flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-xs font-mono text-xs font-bold border transition-colors mt-0.5 sm:mt-0 ${
+                          isCorrectAnswer
+                            ? 'border-emerald-600 bg-emerald-600 text-white'
+                            : isWrongSelection
+                            ? 'border-rose-600 bg-rose-600 text-white'
+                            : isSelected
+                            ? 'border-white bg-white text-slate-900 dark:border-slate-900 dark:bg-slate-900 dark:text-white'
+                            : 'border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300'
+                        }`}
+                      >
+                        {opt.key}
                       </span>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+
+                      {/* Option Text */}
+                      <span className="flex-1 leading-snug break-words">
+                        <ExamInteractiveText
+                          text={opt.text || ''}
+                          enabled={isAnswerRevealed}
+                        />
+                      </span>
+
+                      {/* Explanation visual marker */}
+                      {isCorrectAnswer && (
+                        <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400 shrink-0">
+                          <CheckCircle2 className="h-4 w-4" />
+                          <span className="hidden sm:inline">Đáp án đúng</span>
+                        </span>
+                      )}
+                      {isWrongSelection && (
+                        <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-rose-700 dark:text-rose-400 shrink-0">
+                          <XCircle className="h-4 w-4" />
+                          <span className="hidden sm:inline">Sai</span>
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
             {/* Keyboard shortcut hint (hidden on mobile/touch screens) */}
             <p className="hidden md:block font-mono text-[11px] text-slate-500 dark:text-slate-400">
@@ -616,7 +654,10 @@ export function ToeicSplitPane({
                           <span>📖 Phân tích ngữ pháp & Bản dịch tiếng Việt:</span>
                         </p>
                         <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 text-xs sm:text-sm pl-2.5 border-l-2 border-amber-400 dark:border-amber-600">
-                          {stripHtmlTags(question.explanationVi)}
+                          <ExamInteractiveText
+                            text={stripHtmlTags(question.explanationVi)}
+                            enabled={isAnswerRevealed}
+                          />
                         </div>
                       </div>
                     ) : question.correctAnswer ? (
@@ -636,7 +677,10 @@ export function ToeicSplitPane({
                           <span>🎧 Lời thoại bài nghe (Transcript):</span>
                         </p>
                         <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans text-xs sm:text-sm pl-2.5 border-l-2 border-blue-400 dark:border-blue-600">
-                          {stripHtmlTags(question.transcript)}
+                          <ExamInteractiveText
+                            text={stripHtmlTags(question.transcript)}
+                            enabled={isAnswerRevealed}
+                          />
                         </div>
                       </div>
                     )}
@@ -649,7 +693,7 @@ export function ToeicSplitPane({
       </div>
 
       {/* Fixed Navigation Footer (Prev / Next / Palette) */}
-      <footer className="shrink-0 border-t border-slate-200 bg-slate-50 p-2 sm:p-2.5 flex items-center justify-between dark:border-slate-800 dark:bg-slate-900 gap-2 select-none z-10">
+      <footer className="shrink-0 border-t border-slate-200 bg-slate-50 p-2 sm:p-2.5 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] flex items-center justify-between dark:border-slate-800 dark:bg-slate-900 gap-2 select-none z-10">
         <button
           type="button"
           onClick={onPrev}
@@ -700,19 +744,6 @@ export function ToeicSplitPane({
           <ChevronRight className="h-3.5 w-3.5" />
         </button>
       </footer>
-
-      {/* Floating Overlay Next Button (Mobile when question has no visible image) */}
-      {!hasVisibleImage && hasNext && (
-        <button
-          type="button"
-          onClick={onNext}
-          aria-label="Câu tiếp theo"
-          className="lg:hidden fixed right-2.5 top-[35%] z-30 flex h-9 w-9 items-center justify-center rounded-sm bg-slate-900/90 hover:bg-slate-900 active:scale-95 text-white shadow-xs border border-slate-700 transition-all cursor-pointer group"
-          title="Câu tiếp theo (Phím tắt: →)"
-        >
-          <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
-        </button>
-      )}
 
       {/* Lightbox / Zoomed image modal */}
       {isImageZoomed && question.imageUrl && (

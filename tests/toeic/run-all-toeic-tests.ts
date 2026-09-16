@@ -24,6 +24,7 @@ import { runUserFeedbackV4Tests } from './user-feedback-v4.test';
 import { runCopyrightWhitelabelTests } from './copyright-whitelabel.test';
 import { runAntiScrapingTests } from './test-anti-scraping-poison';
 import { runAntiDuplicationTests } from './anti-duplication.test';
+import { runMobileUxEnhancementTests } from './mobile-ux-enhancements.test';
 
 async function main() {
   console.log('================================================================================');
@@ -129,6 +130,14 @@ async function main() {
   const statsAD = runnerAD.getStats();
   tierStats.push({ tierName: 'Anti-Duplication & Practice Progress', stats: statsAD, minRequired: 35 });
   console.log(`✓ Anti-Duplication Finished: ${statsAD.passed}/${statsAD.total} passed (${statsAD.durationMs}ms)\n`);
+
+  // Suite: Mobile UX & Dynamic Statistics Enhancements
+  console.log('▶ Running Suite: Mobile UX & Dynamic Statistics Enhancements...');
+  const runnerMUX = new TestRunner();
+  await runMobileUxEnhancementTests(runnerMUX);
+  const statsMUX = runnerMUX.getStats();
+  tierStats.push({ tierName: 'Mobile UX & Dynamic Statistics', stats: statsMUX, minRequired: 10 });
+  console.log(`✓ Mobile UX Enhancements Finished: ${statsMUX.passed}/${statsMUX.total} passed (${statsMUX.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

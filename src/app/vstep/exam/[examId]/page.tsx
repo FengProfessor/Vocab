@@ -44,6 +44,8 @@ import {
   getAnsweredVstepQuestionIds,
   getIncorrectVstepQuestionIds,
 } from '@/lib/vstep-history';
+import { stripHtmlTags } from '@/components/toeic/ToeicSplitPane';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 function VstepExamPageInner() {
   const params = useParams();
@@ -676,10 +678,9 @@ function VstepExamPageInner() {
                       <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
                         📜 Tapescript Bài Nghe:
                       </span>
-                      <div
-                        className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900 p-3 rounded border border-slate-200 dark:border-slate-700"
-                        dangerouslySetInnerHTML={{ __html: currentTask.tapescript }}
-                      />
+                      <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900 p-3 rounded border border-slate-200 dark:border-slate-700 whitespace-pre-line font-sans">
+                        <ExamInteractiveText text={stripHtmlTags(currentTask.tapescript)} enabled={true} />
+                      </div>
                     </div>
                   )}
                 </div>
@@ -689,12 +690,22 @@ function VstepExamPageInner() {
               {currentSection.type === 'reading' && currentTask?.passage && (
                 <div className="space-y-3">
                   <h3 className="text-base font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1">
-                    {currentTask.passage.title}
+                    {isCompleted ? (
+                      <ExamInteractiveText text={stripHtmlTags(currentTask.passage.title)} enabled={true} />
+                    ) : (
+                      currentTask.passage.title
+                    )}
                   </h3>
-                  <div
-                    className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-3 font-serif"
-                    dangerouslySetInnerHTML={{ __html: currentTask.passage.text }}
-                  />
+                  {isCompleted ? (
+                    <div className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-3 font-serif whitespace-pre-line">
+                      <ExamInteractiveText text={stripHtmlTags(currentTask.passage.text)} enabled={true} />
+                    </div>
+                  ) : (
+                    <div
+                      className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-3 font-serif"
+                      dangerouslySetInnerHTML={{ __html: currentTask.passage.text }}
+                    />
+                  )}
                 </div>
               )}
 
@@ -827,10 +838,16 @@ function VstepExamPageInner() {
               </div>
 
               {/* Question Text */}
-              <div
-                className="text-sm font-semibold text-slate-900 dark:text-white leading-snug"
-                dangerouslySetInnerHTML={{ __html: currentQuestion.question }}
-              />
+              {isCompleted ? (
+                <div className="text-sm font-semibold text-slate-900 dark:text-white leading-snug">
+                  <ExamInteractiveText text={stripHtmlTags(currentQuestion.question)} enabled={true} />
+                </div>
+              ) : (
+                <div
+                  className="text-sm font-semibold text-slate-900 dark:text-white leading-snug"
+                  dangerouslySetInnerHTML={{ __html: currentQuestion.question }}
+                />
+              )}
 
               {/* Options A, B, C, D */}
               <div className="space-y-2.5 pt-2">
@@ -869,7 +886,13 @@ function VstepExamPageInner() {
                       }`}>
                         {optLetter}
                       </span>
-                      <span className="text-xs sm:text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: optText }} />
+                      <span className="text-xs sm:text-sm leading-relaxed">
+                        {isCompleted ? (
+                          <ExamInteractiveText text={stripHtmlTags(optText)} enabled={true} />
+                        ) : (
+                          <span dangerouslySetInnerHTML={{ __html: optText }} />
+                        )}
+                      </span>
                     </div>
                   );
                 })}
@@ -881,7 +904,9 @@ function VstepExamPageInner() {
                   <span className="font-bold flex items-center gap-1 text-blue-800 dark:text-blue-300">
                     <Info className="w-3.5 h-3.5" /> Giải thích chi tiết:
                   </span>
-                  <div dangerouslySetInnerHTML={{ __html: currentQuestion.explanationVi }} />
+                  <div className="whitespace-pre-line">
+                    <ExamInteractiveText text={stripHtmlTags(currentQuestion.explanationVi)} enabled={true} />
+                  </div>
                 </div>
               )}
             </div>
