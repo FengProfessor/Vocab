@@ -164,7 +164,7 @@ export async function runMobileUxEnhancementTests(runner: TestRunner) {
       expect(pageCode.includes('Chỉ câu mới chưa làm')).toBe(true);
       expect(pageCode.includes('Ôn câu từng làm sai')).toBe(true);
       expect(pageCode.includes('Xáo trộn ngẫu nhiên')).toBe(true);
-      expect(pageCode.includes('grid-cols-1 sm:grid-cols-3 gap-2')).toBe(true);
+      expect(pageCode.includes('grid-cols-3 gap-1.5 sm:gap-2')).toBe(true);
     });
 
     runner.it('MUX-15: Part Practice mode (Khối 4) uses compact pill/card selectors adhering to ETS Technical Minimalist UI', () => {
@@ -172,7 +172,7 @@ export async function runMobileUxEnhancementTests(runner: TestRunner) {
 
       expect(pageCode.includes('Luyện tập (Có giải thích)')).toBe(true);
       expect(pageCode.includes('Mô phỏng áp lực thi thật')).toBe(true);
-      expect(pageCode.includes('grid-cols-1 sm:grid-cols-2 gap-2')).toBe(true);
+      expect(pageCode.includes('grid-cols-2 gap-1.5 sm:gap-2')).toBe(true);
     });
 
     runner.it('MUX-16: Mobile Sticky Launch Bar (sm:hidden) provides quick access to start test from any scroll position', () => {
