@@ -13,6 +13,7 @@
 import { TestRunner, expect } from '../toeic/test-harness';
 import {
   fetchExamWordDict,
+  getCandidateLemmas,
   isWordSavedLocally,
   saveWordLocally,
 } from '../../src/lib/exam-dict-cache';
@@ -395,6 +396,82 @@ export async function runInteractiveTextTests(runner: TestRunner): Promise<void>
       expect(res.cleanWord).toBe('unreachable_word');
       expect(res.definition).toContain('Từ vựng tiếng Anh');
       expect(res.synonyms).toEqual([]);
+    });
+
+    await runner.it('IT-4.6: getCandidateLemmas generates accurate candidate root lemmas for plurals, past tense, and gerunds', () => {
+      // Plurals
+      expect(getCandidateLemmas('passengers').includes('passenger')).toBe(true);
+      expect(getCandidateLemmas('boxes').includes('box')).toBe(true);
+      expect(getCandidateLemmas('berries').includes('berry')).toBe(true);
+
+      // Past tense
+      expect(getCandidateLemmas('observed').includes('observe')).toBe(true);
+      expect(getCandidateLemmas('stopped').includes('stop')).toBe(true);
+      expect(getCandidateLemmas('worried').includes('worry')).toBe(true);
+
+      // Gerunds
+      expect(getCandidateLemmas('walking').includes('walk')).toBe(true);
+      expect(getCandidateLemmas('taking').includes('take')).toBe(true);
+      expect(getCandidateLemmas('sitting').includes('sit')).toBe(true);
+      expect(getCandidateLemmas('tying').includes('tie')).toBe(true);
+    });
+
+    await runner.it('IT-4.7: fetchExamWordDict falls back to root lemma when conjugated form misses in Tier 1', async () => {
+      setupMockEnvironment();
+      (global as any).fetch = async (url: string) => {
+        // Exact conjugated word "passengers" is not in kho
+        if (url.includes('word=passengers') && url.includes('/api/dictionary/lookup')) {
+          return { ok: false, status: 404 };
+        }
+        // Candidate lemma "passenger" is found in kho
+        if (url.includes('word=passenger') && url.includes('/api/dictionary/lookup')) {
+          return {
+            ok: true,
+            json: async () => ({
+              word: 'passenger',
+              ipa: '/ˈpæs.ən.dʒər/',
+              pos: 'noun',
+              results: [{ meanings: [{ definition: 'Hành khách trên tàu xe.' }] }],
+            }),
+          };
+        }
+        return { ok: false, status: 404 };
+      };
+
+      const res = await fetchExamWordDict('passengers');
+      expect(res.cleanWord).toBe('passengers');
+      expect(res.definition).toBe('Hành khách trên tàu xe.');
+      expect(res.pos).toBe('danh từ');
+      expect(res.ipa).toBe('/ˈpæs.ən.dʒər/');
+    });
+
+    await runner.it('IT-4.8: fetchExamWordDict cascades to Tier 2 Wiktionary proxy when Tier 1 completely misses', async () => {
+      setupMockEnvironment();
+      (global as any).fetch = async (url: string) => {
+        // All Tier 1 lookup calls return 404
+        if (url.includes('/api/dictionary/lookup')) {
+          return { ok: false, status: 404 };
+        }
+        // Tier 2 external Wiktionary proxy returns data
+        if (url.includes('/api/dictionary/external') && url.includes('word=serendipity')) {
+          return {
+            ok: true,
+            json: async () => ({
+              word: 'serendipity',
+              ipa: '/ˌser.ənˈdɪp.ə.ti/',
+              pos: 'noun',
+              results: [{ meanings: [{ definition: 'Sự tình cờ may mắn.' }] }],
+            }),
+          };
+        }
+        return { ok: false, status: 404 };
+      };
+
+      const res = await fetchExamWordDict('serendipity');
+      expect(res.cleanWord).toBe('serendipity');
+      expect(res.definition).toBe('Sự tình cờ may mắn.');
+      expect(res.pos).toBe('danh từ');
+      expect(res.ipa).toBe('/ˌser.ənˈdɪp.ə.ti/');
     });
 
     // ── 5. Local Storage Word Synchronization ──

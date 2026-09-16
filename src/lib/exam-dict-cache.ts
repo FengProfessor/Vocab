@@ -11,8 +11,141 @@ export interface ExamDictResult {
 const memoryCache = new Map<string, ExamDictResult>();
 const inFlightRequests = new Map<string, Promise<ExamDictResult>>();
 
+const POS_MAP: Record<string, string> = {
+  noun: 'danh từ',
+  verb: 'động từ',
+  adjective: 'tính từ',
+  adj: 'tính từ',
+  adverb: 'trạng từ',
+  adv: 'trạng từ',
+  preposition: 'giới từ',
+  prep: 'giới từ',
+  conjunction: 'liên từ',
+  conj: 'liên từ',
+  pronoun: 'đại từ',
+  pron: 'đại từ',
+  interjection: 'thán từ',
+};
+
 /**
- * Tra cứu nghĩa từ vựng từ từ điển hệ thống với cơ chế caching đa tầng.
+ * Sinh danh sách các biến thể từ gốc (lemmas) cho các dạng số nhiều hoặc chia thì.
+ * Ví dụ: passengers -> passenger, observed -> observe, walking -> walk.
+ */
+export function getCandidateLemmas(clean: string): string[] {
+  const candidates = new Set<string>();
+  if (!clean || clean.includes(' ') || clean.length <= 2) {
+    return [clean];
+  }
+
+  candidates.add(clean);
+
+  // Plural / 3rd person singular: -ies -> -y (berries -> berry)
+  if (clean.endsWith('ies') && clean.length > 4) {
+    candidates.add(clean.slice(0, -3) + 'y');
+  }
+  // -es (boxes -> box, watches -> watch, passes -> pass)
+  if (clean.endsWith('es') && clean.length > 3) {
+    candidates.add(clean.slice(0, -2));
+    candidates.add(clean.slice(0, -1)); // likes -> like
+  } else if (clean.endsWith('s') && clean.length > 3) {
+    candidates.add(clean.slice(0, -1));
+  }
+
+  // Past tense / past participle: -ied -> -y (worried -> worry)
+  if (clean.endsWith('ied') && clean.length > 4) {
+    candidates.add(clean.slice(0, -3) + 'y');
+  }
+  // -ed (walked -> walk, liked -> like, stopped -> stop)
+  if (clean.endsWith('ed') && clean.length > 3) {
+    candidates.add(clean.slice(0, -2));
+    candidates.add(clean.slice(0, -1));
+    if (clean.length > 4 && clean[clean.length - 3] === clean[clean.length - 4]) {
+      candidates.add(clean.slice(0, -3));
+    }
+  }
+
+  // Gerund / continuous: -ying -> -ie (tying -> tie)
+  if (clean.endsWith('ying') && clean.length >= 5) {
+    candidates.add(clean.slice(0, -4) + 'ie');
+  }
+  // -ing (walking -> walk, taking -> take, sitting -> sit)
+  if (clean.endsWith('ing') && clean.length > 4) {
+    candidates.add(clean.slice(0, -3));
+    candidates.add(clean.slice(0, -3) + 'e');
+    if (clean.length > 5 && clean[clean.length - 4] === clean[clean.length - 5]) {
+      candidates.add(clean.slice(0, -4));
+    }
+  }
+
+  return Array.from(candidates);
+}
+
+function parseDictPayload(data: any, cleanWord: string, rawWord: string): ExamDictResult | null {
+  if (!data) return null;
+  const meanings = data?.results?.[0]?.meanings || [];
+  const primaryMeaning = meanings[0];
+
+  const definition =
+    primaryMeaning?.definition ||
+    primaryMeaning?.meaning_vi ||
+    data?.translation ||
+    data?.results?.[0]?.definition ||
+    data?.definition ||
+    '';
+
+  if (!definition || definition.trim().length === 0) {
+    return null;
+  }
+
+  const rawIpa =
+    data?.pronunciations?.[0]?.ipa ||
+    data?.ipa ||
+    data?.results?.[0]?.pronunciations?.[0]?.ipa ||
+    '';
+  const ipa = rawIpa ? `/${rawIpa.replace(/^\/|\/$/g, '')}/` : '';
+
+  const rawPos = (primaryMeaning?.pos || data?.pos || '').toLowerCase();
+  const pos = POS_MAP[rawPos] || rawPos;
+
+  const synonyms = Array.isArray(data?.synonyms) ? data.synonyms.slice(0, 4) : [];
+  const antonyms = Array.isArray(data?.antonyms) ? data.antonyms.slice(0, 4) : [];
+
+  return {
+    word: rawWord,
+    cleanWord,
+    ipa,
+    pos,
+    definition,
+    synonyms,
+    antonyms,
+  };
+}
+
+async function queryDictEndpoint(url: string, timeoutMs: number): Promise<any | null> {
+  try {
+    const signal =
+      typeof AbortSignal !== 'undefined' && 'timeout' in AbortSignal
+        ? AbortSignal.timeout(timeoutMs)
+        : undefined;
+
+    const res = await fetch(url, { signal });
+    if (res.ok) {
+      const json = await res.json();
+      if (json && (json.results?.length > 0 || json.translation || json.definition)) {
+        return json;
+      }
+    }
+  } catch {
+    // Network / timeout / 404
+  }
+  return null;
+}
+
+/**
+ * Tra cứu nghĩa từ vựng từ từ điển hệ thống với cơ chế caching đa tầng:
+ * - Tier 1: Kho từ điển nội bộ trong Supabase (global_dictionary)
+ * - Lemma Fallback: Tự động tra từ nguyên thể cho từ số nhiều/chia thì nếu từ gốc chưa có
+ * - Tier 2: Wiktionary API proxy (/api/dictionary/external) tự động cache ngược vào kho
  * Trả về giải nghĩa, từ loại, phiên âm IPA trong 0ms nếu đã có trong cache.
  */
 export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult> {
@@ -43,60 +176,39 @@ export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult
   }
 
   const fetchPromise = (async (): Promise<ExamDictResult> => {
-    try {
-      const res = await fetch(`/api/dictionary/lookup?word=${encodeURIComponent(clean)}`);
-      if (res.ok) {
-        const data = await res.json();
-        const meanings = data?.results?.[0]?.meanings || [];
-        const primaryMeaning = meanings[0];
-        
-        // Extract definition with fallback chain
-        const definition =
-          primaryMeaning?.definition ||
-          primaryMeaning?.meaning_vi ||
-          data?.translation ||
-          data?.results?.[0]?.definition ||
-          'Chưa có giải nghĩa chi tiết.';
+    const candidates = getCandidateLemmas(clean);
 
-        // Extract IPA
-        const rawIpa = data?.pronunciations?.[0]?.ipa || data?.ipa || '';
-        const ipa = rawIpa ? `/${rawIpa.replace(/^\/|\/$/g, '')}/` : '';
-
-        // Extract Part of Speech
-        const rawPos = primaryMeaning?.pos || data?.pos || '';
-        const posMap: Record<string, string> = {
-          noun: 'danh từ',
-          verb: 'động từ',
-          adjective: 'tính từ',
-          adverb: 'trạng từ',
-          preposition: 'giới từ',
-          conjunction: 'liên từ',
-          pronoun: 'đại từ',
-          interjection: 'thán từ',
-        };
-        const pos = posMap[rawPos.toLowerCase()] || rawPos;
-
-        const synonyms = Array.isArray(data?.synonyms) ? data.synonyms.slice(0, 4) : [];
-        const antonyms = Array.isArray(data?.antonyms) ? data.antonyms.slice(0, 4) : [];
-
-        const result: ExamDictResult = {
-          word: rawWord,
-          cleanWord: clean,
-          ipa,
-          pos,
-          definition,
-          synonyms,
-          antonyms,
-        };
-
-        memoryCache.set(clean, result);
-        return result;
+    // ── Tier 1: Tra kho từ điển nội bộ (global_dictionary) ──
+    for (const wordVariant of candidates) {
+      const data = await queryDictEndpoint(
+        `/api/dictionary/lookup?word=${encodeURIComponent(wordVariant)}`,
+        4000
+      );
+      if (data) {
+        const parsed = parseDictPayload(data, clean, rawWord);
+        if (parsed) {
+          memoryCache.set(clean, parsed);
+          return parsed;
+        }
       }
-    } catch (err) {
-      console.warn('[ExamDictCache] Lookup failed for:', clean, err instanceof Error ? err.message : err);
     }
 
-    // Graceful fallback (differentiates between single words and phrases)
+    // ── Tier 2: Tra Wiktionary proxy (/api/dictionary/external, tự động cache ngược vào kho) ──
+    for (const wordVariant of candidates) {
+      const data = await queryDictEndpoint(
+        `/api/dictionary/external?word=${encodeURIComponent(wordVariant)}`,
+        6000
+      );
+      if (data) {
+        const parsed = parseDictPayload(data, clean, rawWord);
+        if (parsed) {
+          memoryCache.set(clean, parsed);
+          return parsed;
+        }
+      }
+    }
+
+    // ── Fallback an toàn nếu cả 2 nguồn đều không có hoặc thiết bị offline ──
     const isPhrase = clean.includes(' ');
     const fallback: ExamDictResult = {
       word: rawWord,
