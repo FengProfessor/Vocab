@@ -30,7 +30,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   if (denied) return denied;
 
   // Tier 1: In-Memory RAM Smart Search (Prefix 0.005ms + Fuzzy Typo-Tolerance <30ms)
-  await getInMemWordList();
+  await getInMemWordList(250);
   const smartResult = getSmartSuggestionsFromRAM(q, 8);
   if (smartResult.suggestions.length > 0) {
     return NextResponse.json(

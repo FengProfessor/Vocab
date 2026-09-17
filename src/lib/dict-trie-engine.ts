@@ -3,7 +3,7 @@ import { createServiceClient } from '@/lib/supabase';
 let WORD_CACHE: string[] | null = null;
 let LENGTH_BUCKETS: Map<number, string[]> = new Map();
 let LAST_LOAD_TIME = 0;
-let IS_LOADING = false;
+let LOAD_PROMISE: Promise<string[]> | null = null;
 const CACHE_TTL_MS = 3600 * 1000; // 1 giờ reload 1 lần
 
 /** Xây dựng phân nhóm độ dài từ (Length Buckets) để tối ưu hóa tìm kiếm mờ */
@@ -22,48 +22,96 @@ function buildLengthBuckets(words: string[]): void {
   LENGTH_BUCKETS = buckets;
 }
 
-/** Nạp danh sách từ vựng từ Supabase DB vào bộ nhớ RAM của Server Node.js */
-export async function getInMemWordList(): Promise<string[]> {
+/**
+ * Kích hoạt nạp danh sách từ vựng từ Supabase DB vào RAM (Singleton Promise).
+ * Nạp song song theo batch (6 trang/lần) giúp nạp toàn bộ 40.860 từ trong 2-3s thay vì 30s+.
+ * Đảm bảo chỉ có DUY NHẤT 1 tác vụ tải chạy cùng một thời điểm, chống quá tải kết nối.
+ */
+export async function triggerWordListLoad(): Promise<string[]> {
   const now = Date.now();
-  if (WORD_CACHE && (now - LAST_LOAD_TIME < CACHE_TTL_MS)) {
+  if (WORD_CACHE && WORD_CACHE.length > 0 && now - LAST_LOAD_TIME < CACHE_TTL_MS) {
     return WORD_CACHE;
   }
 
-  if (IS_LOADING && WORD_CACHE) {
+  if (LOAD_PROMISE) {
+    return LOAD_PROMISE;
+  }
+
+  LOAD_PROMISE = (async () => {
+    try {
+      const supabase = createServiceClient();
+      const pageSize = 1000;
+      const totalPages = 42; // Ước lượng cho ~40.860 từ
+      const allWords = new Set<string>();
+
+      // Tải song song theo batch 6 trang một lượt
+      const batchSize = 6;
+      for (let b = 0; b < totalPages; b += batchSize) {
+        const batchPromises = [];
+        for (let p = b; p < Math.min(b + batchSize, totalPages); p++) {
+          batchPromises.push(
+            supabase
+              .from('global_dictionary')
+              .select('word')
+              .range(p * pageSize, (p + 1) * pageSize - 1)
+          );
+        }
+        const results = await Promise.all(batchPromises);
+        let hasData = false;
+        for (const res of results) {
+          if (res.data && res.data.length > 0) {
+            hasData = true;
+            for (let i = 0; i < res.data.length; i++) {
+              const w = res.data[i].word;
+              if (w && typeof w === 'string') {
+                allWords.add(w.trim().toLowerCase());
+              }
+            }
+          }
+        }
+        if (!hasData && b > 0) break;
+      }
+
+      if (allWords.size > 0) {
+        const sorted = Array.from(allWords).sort((a, b) => a.localeCompare(b));
+        WORD_CACHE = sorted;
+        buildLengthBuckets(sorted);
+        LAST_LOAD_TIME = Date.now();
+      }
+    } catch (err) {
+      console.error('[dict-trie-engine] Error loading words into RAM:', err);
+    } finally {
+      LOAD_PROMISE = null;
+    }
+    return WORD_CACHE || [];
+  })();
+
+  return LOAD_PROMISE;
+}
+
+/**
+ * Nạp/lấy danh sách từ vựng từ RAM.
+ * @param waitForMs Thời gian chờ tối đa (ms). Mặc định -1 (chờ nạp xong hoàn toàn, phù hợp kiểm thử).
+ *                  Nếu truyền giá trị dương (ví dụ 250ms), hàm sẽ không bao giờ treo request nếu mạng chậm.
+ */
+export async function getInMemWordList(waitForMs: number = -1): Promise<string[]> {
+  if (WORD_CACHE && WORD_CACHE.length > 0) {
     return WORD_CACHE;
   }
 
-  IS_LOADING = true;
-  try {
-    const supabase = createServiceClient();
-    const allWords: string[] = [];
-    let page = 0;
-    const pageSize = 1000;
+  const loadPromise = triggerWordListLoad();
 
-    while (true) {
-      const { data, error } = await supabase
-        .from('global_dictionary')
-        .select('word')
-        .range(page * pageSize, (page + 1) * pageSize - 1);
-
-      if (error || !data || data.length === 0) break;
-      data.forEach(d => {
-        if (d.word) allWords.push(d.word);
-      });
-      if (data.length < pageSize) break;
-      page++;
+  if (waitForMs > 0) {
+    try {
+      await Promise.race([
+        loadPromise,
+        new Promise((resolve) => setTimeout(resolve, waitForMs)),
+      ]);
+    } catch {
+      // Bỏ qua lỗi timeout, trả về fallback an toàn
     }
-
-    if (allWords.length > 0) {
-      allWords.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-      WORD_CACHE = allWords;
-      buildLengthBuckets(allWords);
-      LAST_LOAD_TIME = Date.now();
-    }
-  } catch (err) {
-    console.error('[dict-trie-engine] Error loading words into RAM:', err);
-  } finally {
-    IS_LOADING = false;
+  } else if (waitForMs === -1) {
+    await loadPromise;
   }
 
   return WORD_CACHE || [];

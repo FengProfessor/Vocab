@@ -131,7 +131,7 @@ export async function GET(req: Request) {
 
     if (!data || !data.data) {
       // Tìm kiếm gợi ý sửa lỗi gõ sai chính tả từ 40,860 từ trong RAM
-      await getInMemWordList();
+      await getInMemWordList(250);
       const fuzzyMatches = fuzzySuggestFromRAM(word, 2, 4);
       const didYouMean = fuzzyMatches.map((m) => m.word);
 
