@@ -25,6 +25,7 @@ import {
   CheckCircle2,
   Sparkles,
   Info,
+  BookOpen,
 } from 'lucide-react';
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
 import { toast } from 'sonner';
@@ -644,6 +645,19 @@ function ToeicCatalogContent() {
                   [7 Parts]
                 </span>
               </button>
+
+              {/* Tab 3: CẨM NANG LÝ THUYẾT & CHIẾN THUẬT LINK */}
+              <Link
+                href="/toeic/learn"
+                className="flex-1 py-2 sm:py-2.5 px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer select-none text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50"
+              >
+                <BookOpen className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
+                <span className="font-bold">Lý Thuyết & Chiến Thuật</span>
+                <span className="hidden sm:inline font-normal text-[11px] opacity-80">(Part 1–7)</span>
+                <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-semibold border border-amber-300/50 dark:border-amber-700">
+                  [16 Bài]
+                </span>
+              </Link>
             </div>
           </div>
         </div>
@@ -651,6 +665,34 @@ function ToeicCatalogContent() {
 
       {/* ── 3. MAIN CATALOG BODY ── */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-6 min-w-0 max-w-full overflow-x-hidden">
+        {/* ── THEORY & TACTICS FAST PROMO BANNER ── */}
+        <div className="rounded-sm border border-amber-300/80 bg-amber-50/70 dark:border-amber-900/60 dark:bg-amber-950/20 p-3.5 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+          <div className="flex items-start sm:items-center gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xs bg-amber-200 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 font-mono font-bold">
+              <BookOpen className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded-xs bg-amber-200/80 dark:bg-amber-900/80 text-amber-900 dark:text-amber-200">
+                  Mới Ra Mắt
+                </span>
+                <h3 className="font-mono text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
+                  Cẩm Nang Lý Thuyết & Chiến Thuật Giải Đề TOEIC (16 Chủ Điểm)
+                </h3>
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                Bóc tách phương pháp làm bài, quy tắc câu 5 giây, bẫy đề thi ETS và 61 checkpoints tương tác có lời giải chi tiết.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/toeic/learn"
+            className="inline-flex items-center justify-center gap-1.5 rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-3.5 py-1.5 font-mono text-xs font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition shadow-2xs shrink-0 self-start sm:self-auto"
+          >
+            <span>Học lý thuyết ngay</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
         {/* ── TAB 1: FULL TEST CATALOG ── */}
         {activeTab === 'full_test' && (
           <div className="space-y-6 min-w-0 max-w-full">

@@ -4,6 +4,7 @@
  * - Catalog & Dataset Integrity (>15,000 Questions)
  * - Estudyme Normalizer & Media Loader
  * - Technical Minimalist UI & Anti-AI Template
+ * - TOEIC Theory Curriculum & Checkpoint Verification (Suite 18)
  *
  * Aggregates results, prints formatted reports, and exits with code 0 on 100% pass or 1 on failure.
  *
@@ -29,6 +30,7 @@ import { runExplainRegressionTests } from './explain-regression.test';
 import { runInteractiveTextTests } from '../exam/interactive-text.test';
 import { runFuzzyDictTests } from '../exam/fuzzy-dict.test';
 import { runPart7ReadingStimulusTests } from './part7-reading-stimulus.test';
+import { runTheoryCurriculumTests } from './theory-curriculum.test';
 
 (process.env as any).NODE_ENV = 'test';
 process.env.TSX_TEST = '1';
@@ -177,6 +179,14 @@ async function main() {
   const statsP7 = runnerP7.getStats();
   tierStats.push({ tierName: 'Part 7 & 6 Reading Stimulus', stats: statsP7, minRequired: 9 });
   console.log(`✓ Part 7 & 6 Reading Stimulus Finished: ${statsP7.passed}/${statsP7.total} passed (${statsP7.durationMs}ms)\n`);
+
+  // Suite 18: TOEIC Theory Curriculum & Checkpoint Verification
+  console.log('▶ Running Suite 18: TOEIC Theory Curriculum & Checkpoint Verification (all 16 lessons, 61 quizzes, 5 tiers)...');
+  const runnerTC = new TestRunner();
+  await runTheoryCurriculumTests(runnerTC);
+  const statsTC = runnerTC.getStats();
+  tierStats.push({ tierName: 'Theory Curriculum & Checkpoints', stats: statsTC, minRequired: 25 });
+  console.log(`✓ Theory Curriculum Finished: ${statsTC.passed}/${statsTC.total} passed (${statsTC.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);
