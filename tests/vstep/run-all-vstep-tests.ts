@@ -21,6 +21,7 @@ import { runTier3Tests } from './tier3-combinations.test';
 import { runTier4Tests } from './tier4-scenarios.test';
 import { runVstepAntiDuplicationTests } from './anti-duplication.test';
 import { runVnuEnrichmentTests } from './vnu-enrichment.test';
+import { runVstepSpeakingTests } from './speaking.test';
 
 async function main() {
   console.log('================================================================================');
@@ -78,6 +79,14 @@ async function main() {
   const statsVnu = runnerVnu.getStats();
   tierStats.push({ tierName: 'VNU Test Enrichment & Quality', stats: statsVnu, minRequired: 9 });
   console.log(`✓ VNU Test Enrichment Finished: ${statsVnu.passed}/${statsVnu.total} passed (${statsVnu.durationMs}ms)\n`);
+
+  // VSTEP Speaking Ecosystem Suite: Part 1, Part 2, Part 3 & Full Mock (min 8 required)
+  console.log('▶ Running Suite: VSTEP Speaking Ecosystem (min 8 required)...');
+  const runnerSpeaking = new TestRunner();
+  await runVstepSpeakingTests(runnerSpeaking);
+  const statsSpeaking = runnerSpeaking.getStats();
+  tierStats.push({ tierName: 'VSTEP Speaking Ecosystem', stats: statsSpeaking, minRequired: 8 });
+  console.log(`✓ VSTEP Speaking Finished: ${statsSpeaking.passed}/${statsSpeaking.total} passed (${statsSpeaking.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

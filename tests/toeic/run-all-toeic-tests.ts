@@ -31,6 +31,7 @@ import { runInteractiveTextTests } from '../exam/interactive-text.test';
 import { runFuzzyDictTests } from '../exam/fuzzy-dict.test';
 import { runPart7ReadingStimulusTests } from './part7-reading-stimulus.test';
 import { runTheoryCurriculumTests } from './theory-curriculum.test';
+import { runToeicSpeakingTests } from './speaking.test';
 
 (process.env as any).NODE_ENV = 'test';
 process.env.TSX_TEST = '1';
@@ -187,6 +188,14 @@ async function main() {
   const statsTC = runnerTC.getStats();
   tierStats.push({ tierName: 'Theory Curriculum & Checkpoints', stats: statsTC, minRequired: 25 });
   console.log(`✓ Theory Curriculum Finished: ${statsTC.passed}/${statsTC.total} passed (${statsTC.durationMs}ms)\n`);
+
+  // Suite 19: TOEIC Speaking Ecosystem & AI Tutor
+  console.log('▶ Running Suite 19: TOEIC Speaking Ecosystem & AI Tutor (11 Questions, Rubrics, 24+ AI Scenarios)...');
+  const runnerSP = new TestRunner();
+  await runToeicSpeakingTests(runnerSP);
+  const statsSP = runnerSP.getStats();
+  tierStats.push({ tierName: 'TOEIC Speaking & AI Scenarios', stats: statsSP, minRequired: 10 });
+  console.log(`✓ TOEIC Speaking Finished: ${statsSP.passed}/${statsSP.total} passed (${statsSP.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

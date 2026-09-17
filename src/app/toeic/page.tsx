@@ -26,6 +26,7 @@ import {
   Sparkles,
   Info,
   BookOpen,
+  Mic,
 } from 'lucide-react';
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
 import { toast } from 'sonner';
@@ -652,10 +653,23 @@ function ToeicCatalogContent() {
                 className="flex-1 py-2 sm:py-2.5 px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer select-none text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50"
               >
                 <BookOpen className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
-                <span className="font-bold">Lý Thuyết & Chiến Thuật</span>
+                <span className="font-bold">Lý Thuyết</span>
                 <span className="hidden sm:inline font-normal text-[11px] opacity-80">(Part 1–7)</span>
                 <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-semibold border border-amber-300/50 dark:border-amber-700">
                   [16 Bài]
+                </span>
+              </Link>
+
+              {/* Tab 4: PHÒNG LUYỆN NÓI TOEIC SPEAKING */}
+              <Link
+                href="/toeic/speaking"
+                className="flex-1 py-2 sm:py-2.5 px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer select-none text-indigo-700 dark:text-indigo-300 hover:text-indigo-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50"
+              >
+                <Mic className="h-4 w-4 shrink-0 text-indigo-600 dark:text-indigo-400" />
+                <span className="font-bold">Speaking Lab</span>
+                <span className="hidden sm:inline font-normal text-[11px] opacity-80">(Q1–11)</span>
+                <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums bg-indigo-100 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300 font-semibold border border-indigo-300/50 dark:border-indigo-700">
+                  [Mới]
                 </span>
               </Link>
             </div>

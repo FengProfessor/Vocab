@@ -12,6 +12,7 @@ import {
   Search,
   Library,
   FileUp,
+  Mic,
 } from 'lucide-react';
 
 export type StudentNavItem = {
@@ -105,6 +106,14 @@ export function buildStudentNavSections(opts?: {
       id: 'practice',
       title: 'Kỹ năng thực hành',
       items: [
+        {
+          href: '/student/speaking',
+          label: 'Luyện nói AI (MVA)',
+          icon: Mic,
+          badge: '24+ Chủ đề',
+          match: (pathname) => pathname.startsWith('/student/speaking'),
+          onboardingId: 'speaking-ai',
+        },
         {
           href: '/practice/listening',
           label: 'Luyện nghe Video',

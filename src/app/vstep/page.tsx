@@ -544,7 +544,7 @@ function VstepCatalogContent() {
         {/* ── 2. PROMINENT 2-TAB CTA SWITCHER (Identical to TOEIC) ── */}
         <div className="border-t border-slate-200 dark:border-slate-800 bg-slate-100/70 dark:bg-slate-950/60 p-3 sm:p-4">
           <div className="mx-auto max-w-7xl">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" role="tablist">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3" role="tablist">
               {/* Tab 1: ĐỀ FULL MOCK CTA */}
               <button
                 type="button"
@@ -654,6 +654,32 @@ function VstepCatalogContent() {
                   [{bankTotals.totalPracticeSets} Bài]
                 </span>
               </button>
+
+              {/* Tab 3: PHÒNG LUYỆN NÓI VSTEP SPEAKING LAB */}
+              <Link
+                href="/vstep/speaking"
+                className="flex items-center justify-between p-3.5 sm:p-4 rounded-sm border transition-all cursor-pointer text-left border-amber-200 dark:border-amber-900/60 bg-amber-50/60 dark:bg-amber-950/20 text-slate-900 dark:text-slate-100 hover:border-amber-400 dark:hover:border-amber-600 hover:bg-amber-100/60 dark:hover:bg-amber-950/40"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm font-mono text-base font-bold bg-amber-500 text-slate-950 shadow-sm">
+                    <Award className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs sm:text-sm font-black uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                        VSTEP Speaking Lab
+                      </span>
+                    </div>
+                    <p className="text-xs mt-0.5 text-slate-600 dark:text-slate-400">
+                      Luyện Part 1–3, chấm điểm mẫu B1-B2-C1 & bấm giờ 12 phút
+                    </p>
+                  </div>
+                </div>
+
+                <span className="hidden sm:inline-flex rounded-sm px-2 py-0.5 font-mono text-[11px] font-bold tabular-nums shrink-0 border border-amber-300 dark:border-amber-700 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300">
+                  [Mới]
+                </span>
+              </Link>
             </div>
           </div>
         </div>
