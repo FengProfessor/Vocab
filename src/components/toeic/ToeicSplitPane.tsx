@@ -521,7 +521,9 @@ export function ToeicSplitPane({
                         }
                         onSelectOption(opt.key);
                       }}
-                      className={`group relative flex w-full items-start gap-2.5 sm:gap-3 rounded-sm border p-2.5 sm:p-3 text-left text-xs sm:text-sm lg:text-base transition-colors duration-100 cursor-pointer select-none min-h-[44px] sm:min-h-[48px] ${
+                      className={`group relative flex w-full items-start gap-2.5 sm:gap-3 rounded-sm border p-2.5 sm:p-3 text-left text-xs sm:text-sm lg:text-base transition-colors duration-100 cursor-pointer ${
+                        isAnswerRevealed ? 'select-text' : 'select-none'
+                      } min-h-[44px] sm:min-h-[48px] ${
                         isCorrectAnswer
                           ? 'border-emerald-500 bg-emerald-50/60 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-100 font-medium'
                           : isWrongSelection

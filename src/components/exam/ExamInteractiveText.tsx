@@ -187,6 +187,17 @@ export function ExamInteractiveText({
     };
   }, []);
 
+  // Compute parent phrase if the entire text block is a concise phrase (2-8 words)
+  const parentPhrase = useMemo(() => {
+    if (!text) return null;
+    const trimmed = text.trim().replace(/\s+/g, ' ');
+    const words = trimmed.split(' ').filter((w) => /^[a-zA-Z'’-]+$/.test(w));
+    if (words.length >= 2 && words.length <= 8) {
+      return trimmed;
+    }
+    return null;
+  }, [text]);
+
   // Handle word click
   const handleWordClick = async (
     e: React.MouseEvent<HTMLSpanElement> | React.KeyboardEvent<HTMLSpanElement>,
@@ -222,8 +233,30 @@ export function ExamInteractiveText({
     }
   };
 
-  // Handle multi-word phrase selection (Collocation / Idiom lookup)
-  const handleMouseUp = () => {
+  // Handle looking up an explicit phrase or suggested correction
+  const handleLookupPhrase = useCallback(async (phrase: string) => {
+    const clean = phrase.trim().toLowerCase();
+    if (!clean) return;
+
+    setActiveWord(phrase);
+    inFlightWordRef.current = clean;
+
+    playWordAudio(phrase);
+    setIsLoading(true);
+    try {
+      const res = await fetchExamWordDict(phrase);
+      if (inFlightWordRef.current === clean) {
+        setDictResult(res);
+      }
+    } finally {
+      if (inFlightWordRef.current === clean) {
+        setIsLoading(false);
+      }
+    }
+  }, []);
+
+  // Handle multi-word phrase selection (Collocation / Idiom lookup on mouse up or touch end)
+  const handleSelectionLookup = useCallback(() => {
     if (typeof window === 'undefined') return;
     const selection = window.getSelection();
     if (!selection || selection.isCollapsed) return;
@@ -236,8 +269,8 @@ export function ExamInteractiveText({
     const selectedText = selection.toString().trim().replace(/\s+/g, ' ');
     const wordCount = selectedText.split(' ').length;
 
-    // Support phrases from 2 to 5 words
-    if (wordCount >= 2 && wordCount <= 5 && /^[a-zA-Z\s'-]+$/.test(selectedText)) {
+    // Support phrases from 2 to 8 words
+    if (wordCount >= 2 && wordCount <= 8 && /^[a-zA-Z\s'’-]+$/.test(selectedText)) {
       const range = selection.getRangeAt(0);
       const rect = range.getBoundingClientRect();
       const { positionStyle, placement: calculatedPlacement } = calculatePopoverPosition(rect);
@@ -262,7 +295,7 @@ export function ExamInteractiveText({
           }
         });
     }
-  };
+  }, [calculatePopoverPosition]);
 
   // If not enabled or empty text, render plain text with zero overhead AFTER all hooks have executed
   if (!enabled || !text) {
@@ -273,7 +306,8 @@ export function ExamInteractiveText({
     <Component
       ref={containerRef as any}
       className={`${Component === 'span' ? 'inline' : 'block'} ${text.includes('\n') ? 'whitespace-pre-wrap' : ''} leading-relaxed ${className}`}
-      onMouseUp={handleMouseUp}
+      onMouseUp={handleSelectionLookup}
+      onTouchEnd={handleSelectionLookup}
     >
       {tokens.map((token) => {
         if (!token.isWord) {
@@ -317,6 +351,8 @@ export function ExamInteractiveText({
             onClose={handleClose}
             positionStyle={popoverPos}
             placement={placement}
+            parentPhrase={parentPhrase}
+            onLookupPhrase={handleLookupPhrase}
           />,
           document.body
         )

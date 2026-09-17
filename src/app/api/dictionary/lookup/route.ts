@@ -3,6 +3,7 @@ import { createServiceClient } from '@/lib/supabase';
 import { getClientIp } from '@/lib/api-security';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
+import { getInMemWordList, fuzzySuggestFromRAM } from '@/lib/dict-trie-engine';
 
 /**
  * GET /api/dictionary/lookup?word=X
@@ -129,7 +130,16 @@ export async function GET(req: Request) {
     if (error) throw error;
 
     if (!data || !data.data) {
-      const body = { success: false, error: 'Not found' };
+      // Tìm kiếm gợi ý sửa lỗi gõ sai chính tả từ 40,860 từ trong RAM
+      await getInMemWordList();
+      const fuzzyMatches = fuzzySuggestFromRAM(word, 2, 4);
+      const didYouMean = fuzzyMatches.map((m) => m.word);
+
+      const body: Record<string, unknown> = {
+        success: false,
+        error: 'Not found',
+        ...(didYouMean.length > 0 ? { didYouMean } : {}),
+      };
       // 404 cache ngắn hơn — từ mới backfill có thể xuất hiện
       cacheSet(cacheKey, { status: 404, body }, 15_000);
       return NextResponse.json(body, {

@@ -31,18 +31,21 @@ async function runDeepVerification() {
   }
 
   const tocItems = [
-    { title: 'Phần I: Cú sốc khảo thí ETS 2024–2026', keyword: 'PHẦN I', slug: 'phan-i-cu-soc-khao-thi-ets-2024-2026-bay-ket-diem-600750' },
-    { title: 'Phần II: Ma trận 15 Chiều Sát thủ', keyword: 'PHẦN II', slug: 'phan-ii-ma-tran-15-chieu-khong-gian-sat-thu-the-15-dimension-killer-matrix' },
-    { title: 'Khối 1: Part 1 — Tập trận thị giác', keyword: 'KHỐI 1', slug: 'khoi-1-part-1-tap-tran-thi-giac-tu-huyet-mieu-ta-tranh-6-cau-hoi' },
-    { title: 'Chiều 1: The Hypernym Engine', keyword: 'CHIỀU 1', slug: 'chieu-1-the-hypernym-abstraction-engine' },
-    { title: 'Khối 2: Part 2 — Phản xạ Hỏi - Đáp', keyword: 'KHỐI 2', slug: 'khoi-2-part-2-phan-xa-hoi-dap-vu-khi-tam-ly-khao-thi-25-cau-hoi' },
-    { title: 'Chiều 6: Statement Speech Acts', keyword: 'CHIỀU 6', slug: 'chieu-6-the-statement-speech-act-traps' },
-    { title: 'Khối 3: Part 3 & 4 — Chuyên sâu', keyword: 'KHỐI 3', slug: 'khoi-3-part-3-part-4-doi-thoai-doc-thoai-chuyen-sau-69-cau-hoi' },
-    { title: 'Chiều 11: Paraphrasing Engine', keyword: 'CHIỀU 11', slug: 'chieu-11-the-systematic-paraphrasing-engine' },
-    { title: 'Phần III: Từ điển sát thủ 150 cụm từ', keyword: 'PHẦN III', slug: 'phan-iii-tu-dien-sat-thu-150-cum-tu-collocations-tan-suat-cao-nhat-ets-2024-ets-2026' },
-    { title: 'Phần IV: Bảng tự chẩn đoán 15 chiều', keyword: 'PHẦN IV', slug: 'phan-iv-bang-tu-danh-gia-do-nhay-thinh-giac-15-chieu' },
-    { title: 'Phần V: Huấn luyện FSRS LingoPro', keyword: 'PHẦN V', slug: 'phan-v-he-thong-huan-luyen-phan-xa-fsrs-native-shadowing-tren-lingopro' },
-    { title: 'Phần VI: Lộ trình 30 ngày & Kỷ luật', keyword: 'PHẦN VI', slug: 'phan-vi-thu-thach-ky-luat-hoan-tien-giam-dan-lo-trinh-but-pha-30-ngay' },
+    { title: 'Trang 1: Bản Đồ Tư Duy 4 Part', keyword: 'BẢN ĐỒ TƯ DUY', slug: 'ban-do-tu-duy-4-phan-thi' },
+    { title: 'Trang 2: Báo Cáo Số Liệu ETS 2024 vs 2026', keyword: 'BÁO CÁO DỮ LIỆU', slug: 'bao-cao-du-lieu-dinh-luong-ets-2024-vs-ets-2026' },
+    { title: 'Trang 3: Bẫy từ chỉ nhóm đồ vật lớn', keyword: 'TỬ HUYỆT 1', slug: 'part-1-tu-huyet-1-bay-tu-chi-nhom-do-vat-lon-tu-bao-ham' },
+    { title: 'Trang 4: Soi vi cử động ngón tay & mắt', keyword: 'TỬ HUYỆT 2', slug: 'part-1-tu-huyet-2-soi-vi-cu-dong-ngon-tay-anh-mat' },
+    { title: 'Trang 5: Đang làm (Being) vs Đã xong (Been)', keyword: 'TỬ HUYỆT 3', slug: 'part-1-tu-huyet-3-bay-dang-lam-being-vs-da-xong-been-meo-soi-hau-canh' },
+    { title: 'Trang 6: Đã mặc sẵn vs Đang mặc đồ', keyword: 'TỬ HUYỆT 4', slug: 'part-1-tu-huyet-4-bay-da-mac-san-vs-dang-mac-do-tu-da-nghia' },
+    { title: 'Trang 7: Đối đáp câu trần thuật công sở', keyword: 'TỬ HUYỆT 5', slug: 'part-2-tu-huyet-5-cach-doi-dap-cau-tran-thuat-noi-cong-so-statements' },
+    { title: 'Trang 8: Trả lời vòng vo, thoái thác', keyword: 'TỬ HUYỆT 6', slug: 'part-2-tu-huyet-6-bay-tra-loi-vong-vo-thoai-thac-be-lai-cau-hoi' },
+    { title: 'Trang 9: Quy tắc thật Có Yes - Không No', keyword: 'TỬ HUYỆT 7', slug: 'part-2-tu-huyet-7-quy-tac-that-co-la-yes-khong-la-no-bay-tu-nghe-giong-nhau' },
+    { title: 'Trang 10: Đổi chữ Paraphrase 3 Tầng', keyword: 'TỬ HUYỆT 8', slug: 'part-3-tu-huyet-8-ky-thuat-doi-chu-dong-nghia-paraphrase-3-tang' },
+    { title: 'Trang 11: Gióng cột biểu đồ & Thoại 3 người', keyword: 'TỬ HUYỆT 9', slug: 'part-3-4-tu-huyet-9-meo-giong-cot-tranh-bieu-do-thoai-3-nguoi' },
+    { title: 'Trang 12: 15 câu cửa miệng ngầm ý bản xứ', keyword: 'TỬ HUYỆT 10', slug: 'part-3-4-tu-huyet-10-15-cau-cua-mieng-ngam-y-cua-nguoi-ban-xu' },
+    { title: 'Trang 13: 4 mẹo nghe nối âm - nuốt âm', keyword: 'TỬ HUYỆT 11', slug: 'ngu-am-tu-huyet-11-4-meo-nghe-thung-noi-am-nuot-am-ngu-dieu-4-nuoc' },
+    { title: 'Trang 14: Tự Chẩn Đoán Lỗ Hổng 15 Bẫy', keyword: 'BẢNG TỰ CHẨN ĐOÁN', slug: 'bang-tu-chan-doan-lo-hong-nghe-15-bay-sat-thu' },
+    { title: 'Trang 15: Lộ Trình 30 Ngày & Kế Hoạch', keyword: 'LỘ TRÌNH 30 NGÀY', slug: 'lo-trinh-30-ngay-lot-xac-thinh-giac-ke-hoach-hanh-dong' },
   ];
 
   for (const item of tocItems) {

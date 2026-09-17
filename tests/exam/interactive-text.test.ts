@@ -474,6 +474,64 @@ export async function runInteractiveTextTests(runner: TestRunner): Promise<void>
       expect(res.ipa).toBe('/ˌser.ənˈdɪp.ə.ti/');
     });
 
+    await runner.it('IT-4.9: getCandidateLemmas normalizes phrasal verbs by lemmatizing the leading verb', () => {
+      const candidates1 = getCandidateLemmas('looked forward to');
+      expect(candidates1.includes('look forward to')).toBe(true);
+      expect(candidates1.includes('looked forward to')).toBe(true);
+
+      const candidates2 = getCandidateLemmas('taking into consideration');
+      expect(candidates2.includes('take into consideration')).toBe(true);
+      expect(candidates2.includes('taking into consideration')).toBe(true);
+    });
+
+    await runner.it('IT-4.10: fetchExamWordDict falls back to /api/translate for multi-word phrases when dictionary misses', async () => {
+      setupMockEnvironment();
+      (global as any).fetch = async (url: string, opts?: any) => {
+        // Dictionary endpoints return 404
+        if (url.includes('/api/dictionary/lookup') || url.includes('/api/dictionary/external')) {
+          return { ok: false, status: 404, json: async () => ({}) };
+        }
+        // /api/translate returns contextual machine translation
+        if (url.includes('/api/translate') && opts?.method === 'POST') {
+          return {
+            ok: true,
+            json: async () => ({
+              success: true,
+              translatedText: 'do thời tiết khắc nghiệt',
+            }),
+          };
+        }
+        return { ok: false, status: 404 };
+      };
+
+      const res = await fetchExamWordDict('due to inclement weather');
+      expect(res.cleanWord).toBe('due to inclement weather');
+      expect(res.pos).toBe('cụm từ');
+      expect(res.definition).toBe('do thời tiết khắc nghiệt');
+    });
+
+    await runner.it('IT-4.11: fetchExamWordDict captures didYouMean when /api/dictionary/lookup returns fuzzy suggestions', async () => {
+      setupMockEnvironment();
+      (global as any).fetch = async (url: string) => {
+        if (url.includes('/api/dictionary/lookup')) {
+          return {
+            ok: false,
+            status: 404,
+            json: async () => ({
+              success: false,
+              error: 'Not found',
+              didYouMean: ['definite', 'definitely'],
+            }),
+          };
+        }
+        return { ok: false, status: 404, json: async () => ({}) };
+      };
+
+      const res = await fetchExamWordDict('defenite');
+      expect(res.cleanWord).toBe('defenite');
+      expect(res.didYouMean).toEqual(['definite', 'definitely']);
+    });
+
     // ── 5. Local Storage Word Synchronization ──
 
     await runner.it('IT-5.1: saveWordLocally and isWordSavedLocally persist correctly with case insensitivity', () => {
@@ -698,6 +756,29 @@ export async function runInteractiveTextTests(runner: TestRunner): Promise<void>
       const source = fs.readFileSync(reportPath, 'utf8');
 
       expect(source.includes('text={opt.text || (isListening ? `(Phương án ${opt.key})` : \'\')}')).toBe(false);
+    });
+
+    runner.it('IT-7.9: Regression test: ExamInteractiveText computes parentPhrase and attaches onTouchEnd for mobile', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const compPath = path.resolve(__dirname, '../../src/components/exam/ExamInteractiveText.tsx');
+      const source = fs.readFileSync(compPath, 'utf8');
+
+      expect(source.includes('const parentPhrase = useMemo')).toBe(true);
+      expect(source.includes('onTouchEnd={handleSelectionLookup}')).toBe(true);
+      expect(source.includes('parentPhrase={parentPhrase}')).toBe(true);
+      expect(source.includes('onLookupPhrase={handleLookupPhrase}')).toBe(true);
+    });
+
+    runner.it('IT-7.10: Regression test: ExamWordLookupCard renders Tra ca cum chip and didYouMean suggestions', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const cardPath = path.resolve(__dirname, '../../src/components/exam/ExamWordLookupCard.tsx');
+      const source = fs.readFileSync(cardPath, 'utf8');
+
+      expect(source.includes('Tra cả cụm:')).toBe(true);
+      expect(source.includes('Gợi ý cụm từ trong câu')).toBe(true);
+      expect(source.includes('Có phải bạn muốn tìm:')).toBe(true);
     });
   } finally {
     (global as any).window = originalWindow;

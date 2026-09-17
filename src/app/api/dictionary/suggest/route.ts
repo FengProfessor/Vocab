@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getClientIp } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
-import { getInMemWordList, suggestFromRAM } from '@/lib/dict-trie-engine';
+import { getInMemWordList, getSmartSuggestionsFromRAM } from '@/lib/dict-trie-engine';
 
 // Gợi ý từ từ global_dictionary khi user đang gõ (autocomplete)
 export const dynamic = 'force-dynamic';
@@ -29,13 +29,24 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
   const denied = await assertScrapeQuota(`suggest:${ip}`, QUOTA.dictSuggest);
   if (denied) return denied;
 
-  // Tier 1: In-Memory RAM Binary Search Engine (0.005ms latency)
+  // Tier 1: In-Memory RAM Smart Search (Prefix 0.005ms + Fuzzy Typo-Tolerance <30ms)
   await getInMemWordList();
-  const ramSuggestions = suggestFromRAM(q, 8);
-  if (ramSuggestions.length > 0) {
+  const smartResult = getSmartSuggestionsFromRAM(q, 8);
+  if (smartResult.suggestions.length > 0) {
     return NextResponse.json(
-      { success: true, suggestions: ramSuggestions, source: 'ram_trie' },
-      { headers: { 'Cache-Control': 'public, s-maxage=3600', 'X-Suggest-Speed': '0.005ms' } }
+      {
+        success: true,
+        suggestions: smartResult.suggestions,
+        isFuzzy: smartResult.isFuzzy,
+        didYouMean: smartResult.didYouMean,
+        source: 'ram_smart',
+      },
+      {
+        headers: {
+          'Cache-Control': 'public, s-maxage=3600',
+          'X-Suggest-Speed': smartResult.isFuzzy ? '<30ms' : '0.005ms',
+        },
+      }
     );
   }
 

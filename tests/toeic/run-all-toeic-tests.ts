@@ -26,6 +26,8 @@ import { runAntiScrapingTests } from './test-anti-scraping-poison';
 import { runAntiDuplicationTests } from './anti-duplication.test';
 import { runMobileUxEnhancementTests } from './mobile-ux-enhancements.test';
 import { runExplainRegressionTests } from './explain-regression.test';
+import { runInteractiveTextTests } from '../exam/interactive-text.test';
+import { runFuzzyDictTests } from '../exam/fuzzy-dict.test';
 
 async function main() {
   console.log('================================================================================');
@@ -147,6 +149,22 @@ async function main() {
   const statsExp = runnerExp.getStats();
   tierStats.push({ tierName: 'Explain Part Alignment & Regression', stats: statsExp, minRequired: 7 });
   console.log(`✓ Explain Part Alignment Finished: ${statsExp.passed}/${statsExp.total} passed (${statsExp.durationMs}ms)\n`);
+
+  // Suite: Exam Interactive Text & Phrase Lookup Engine
+  console.log('▶ Running Suite: Exam Interactive Text & Smart Phrase Engine...');
+  const runnerIT = new TestRunner();
+  await runInteractiveTextTests(runnerIT);
+  const statsIT = runnerIT.getStats();
+  tierStats.push({ tierName: 'Exam Interactive Text & Phrases', stats: statsIT, minRequired: 35 });
+  console.log(`✓ Exam Interactive Text Finished: ${statsIT.passed}/${statsIT.total} passed (${statsIT.durationMs}ms)\n`);
+
+  // Suite: RAM Fuzzy Search & Spell Correction
+  console.log('▶ Running Suite: RAM Fuzzy Search & Spell Correction...');
+  const runnerFZ = new TestRunner();
+  await runFuzzyDictTests(runnerFZ);
+  const statsFZ = runnerFZ.getStats();
+  tierStats.push({ tierName: 'RAM Fuzzy Search & Spell Correction', stats: statsFZ, minRequired: 7 });
+  console.log(`✓ RAM Fuzzy Search Finished: ${statsFZ.passed}/${statsFZ.total} passed (${statsFZ.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

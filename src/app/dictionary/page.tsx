@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import {
-  Search, Loader2, Volume2, X, CheckCircle2, Layers, GitFork, Link2, Languages
+  Search, Loader2, Volume2, X, CheckCircle2, Layers, GitFork, Link2, Languages, Sparkles
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { StudentShell } from '@/components/student/StudentShell';
@@ -235,6 +235,8 @@ export default function DictionaryPage() {
 
   // Autocomplete state
   const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [isSuggestFuzzy, setIsSuggestFuzzy] = useState<boolean>(false);
+  const [didYouMean, setDidYouMean] = useState<string[]>([]);
   const [showSuggest, setShowSuggest] = useState(false);
   const [selectedSuggestIdx, setSelectedSuggestIdx] = useState(-1);
   const suggestRef = useRef<HTMLDivElement>(null);
@@ -466,6 +468,7 @@ export default function DictionaryPage() {
     setLoading(true);
     setResult(null);
     setError(null);
+    setDidYouMean([]);
     setWordAlreadySaved(false);
     setShowSuggest(false);
 
@@ -538,6 +541,21 @@ export default function DictionaryPage() {
       }
     }
 
+    // Nếu từ đơn/cụm không tìm thấy: tự động lấy gợi ý sửa lỗi gõ sai từ RAM trie engine
+    try {
+      const sugRes = await fetch(`/api/dictionary/suggest?q=${encodeURIComponent(trimmed)}`);
+      if (sugRes.ok) {
+        const sugJson = (await sugRes.json()) as { didYouMean?: string[]; suggestions?: string[] };
+        if (sugJson.didYouMean && sugJson.didYouMean.length > 0) {
+          setDidYouMean(sugJson.didYouMean);
+        } else if (sugJson.suggestions && sugJson.suggestions.length > 0) {
+          setDidYouMean(sugJson.suggestions.slice(0, 4));
+        }
+      }
+    } catch {
+      // Ignore
+    }
+
     setError(`Không tìm được nghĩa cho "${trimmed}"`);
     setLoading(false);
   }, [checkWordSaved, lookupLexical, lookupSentence]);
@@ -606,13 +624,20 @@ export default function DictionaryPage() {
           { signal: ctrl.signal }
         );
         if (!res.ok) { setSuggestions([]); setShowSuggest(false); return; }
-        const json = await res.json() as { success: boolean; suggestions?: string[] };
+        const json = (await res.json()) as {
+          success: boolean;
+          suggestions?: string[];
+          isFuzzy?: boolean;
+          didYouMean?: string[];
+        };
         if (json.success && json.suggestions && json.suggestions.length > 0) {
           setSuggestions(json.suggestions);
+          setIsSuggestFuzzy(Boolean(json.isFuzzy));
           setShowSuggest(true);
           setSelectedSuggestIdx(-1);
         } else {
           setSuggestions([]);
+          setIsSuggestFuzzy(false);
           setShowSuggest(false);
         }
       } catch {
@@ -815,6 +840,12 @@ export default function DictionaryPage() {
                 ref={suggestRef}
                 className="absolute left-0 right-14 top-[calc(100%+4px)] z-[9999] bg-background border border-border rounded-xl shadow-lg overflow-hidden"
               >
+                {isSuggestFuzzy && (
+                  <div className="px-4 py-2 bg-amber-500/10 border-b border-border/60 text-xs font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+                    <Sparkles className="h-3.5 w-3.5 shrink-0" />
+                    <span>Gợi ý sửa lỗi chính tả:</span>
+                  </div>
+                )}
                 {suggestions.map((word, idx) => (
                   <button
                     key={word}
@@ -826,11 +857,16 @@ export default function DictionaryPage() {
                       setSelectedSuggestIdx(-1);
                       void lookup(word);
                     }}
-                    className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors ${
+                    className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors flex items-center justify-between ${
                       idx === selectedSuggestIdx ? 'bg-muted' : ''
                     }`}
                   >
-                    {word}
+                    <span>{word}</span>
+                    {isSuggestFuzzy && (
+                      <span className="text-[10px] text-muted-foreground font-mono">
+                        sửa lỗi
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
@@ -852,8 +888,35 @@ export default function DictionaryPage() {
 
         {/* Error / empty state */}
         {!loading && error && (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground mb-4">{error}</p>
+          <div className="text-center py-10 max-w-md mx-auto px-4">
+            <p className="text-muted-foreground mb-3">{error}</p>
+
+            {/* Did you mean banner */}
+            {didYouMean.length > 0 && (
+              <div className="my-5 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-left animate-in fade-in zoom-in-95">
+                <div className="flex items-center gap-2 text-sm font-semibold text-amber-800 dark:text-amber-300 mb-2.5">
+                  <Sparkles className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                  <span>Có phải bạn muốn tìm từ này không?</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {didYouMean.map((sug) => (
+                    <button
+                      key={sug}
+                      type="button"
+                      onClick={() => {
+                        setQuery(sug);
+                        void lookup(sug);
+                      }}
+                      className="px-3.5 py-1.5 rounded-xl bg-background border border-amber-500/30 hover:border-amber-500 text-foreground font-medium text-sm transition-all hover:scale-105 shadow-sm cursor-pointer flex items-center gap-1.5"
+                    >
+                      <span className="text-amber-600 dark:text-amber-400">👉</span>
+                      <span className="font-semibold underline decoration-amber-500/50">{sug}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/Pro/i.test(error) && (
               <Link
                 href="/upgrade"

@@ -6,6 +6,7 @@ export interface ExamDictResult {
   definition: string;
   synonyms: string[];
   antonyms: string[];
+  didYouMean?: string[];
 }
 
 const memoryCache = new Map<string, ExamDictResult>();
@@ -28,12 +29,11 @@ const POS_MAP: Record<string, string> = {
 };
 
 /**
- * Sinh danh sách các biến thể từ gốc (lemmas) cho các dạng số nhiều hoặc chia thì.
- * Ví dụ: passengers -> passenger, observed -> observe, walking -> walk.
+ * Sinh danh sách các biến thể từ gốc (lemmas) cho một từ đơn lẻ.
  */
-export function getCandidateLemmas(clean: string): string[] {
+export function getSingleWordCandidateLemmas(clean: string): string[] {
   const candidates = new Set<string>();
-  if (!clean || clean.includes(' ') || clean.length <= 2) {
+  if (!clean || clean.length <= 2) {
     return [clean];
   }
 
@@ -78,6 +78,30 @@ export function getCandidateLemmas(clean: string): string[] {
   }
 
   return Array.from(candidates);
+}
+
+/**
+ * Sinh danh sách các biến thể từ gốc (lemmas) cho từ đơn hoặc cụm từ (phrases).
+ * Hỗ trợ chuẩn hóa động từ đầu cụm: ví dụ "taking into consideration" -> "take into consideration",
+ * "looked forward to" -> "look forward to".
+ */
+export function getCandidateLemmas(clean: string): string[] {
+  if (!clean) return [];
+  if (clean.includes(' ')) {
+    const candidates = new Set<string>();
+    candidates.add(clean);
+    const parts = clean.split(/\s+/);
+    if (parts.length >= 2) {
+      const firstWordLemmas = getSingleWordCandidateLemmas(parts[0]);
+      for (const fl of firstWordLemmas) {
+        if (fl !== parts[0]) {
+          candidates.add([fl, ...parts.slice(1)].join(' '));
+        }
+      }
+    }
+    return Array.from(candidates);
+  }
+  return getSingleWordCandidateLemmas(clean);
 }
 
 function parseDictPayload(data: any, cleanWord: string, rawWord: string): ExamDictResult | null {
@@ -129,14 +153,49 @@ async function queryDictEndpoint(url: string, timeoutMs: number): Promise<any | 
         : undefined;
 
     const res = await fetch(url, { signal });
+    const json = await res.json();
     if (res.ok) {
-      const json = await res.json();
       if (json && (json.results?.length > 0 || json.translation || json.definition)) {
         return json;
       }
+    } else if (json && Array.isArray(json.didYouMean) && json.didYouMean.length > 0) {
+      return { isFuzzyOnly: true, didYouMean: json.didYouMean };
     }
   } catch {
     // Network / timeout / 404
+  }
+  return null;
+}
+
+/**
+ * Gọi API dịch câu/cụm từ (/api/translate) cho các cụm từ ngữ cảnh (collocations/phrases)
+ * không có trong từ điển từ đơn.
+ */
+async function queryTranslateEndpoint(text: string, timeoutMs: number): Promise<string | null> {
+  try {
+    const signal =
+      typeof AbortSignal !== 'undefined' && 'timeout' in AbortSignal
+        ? AbortSignal.timeout(timeoutMs)
+        : undefined;
+
+    const res = await fetch('/api/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text,
+        sourceLang: 'en',
+        targetLang: 'vi',
+      }),
+      signal,
+    });
+    if (res.ok) {
+      const json = await res.json();
+      if (json?.success && typeof json.translatedText === 'string' && json.translatedText.trim()) {
+        return json.translatedText.trim();
+      }
+    }
+  } catch {
+    // Translation fallback
   }
   return null;
 }
@@ -146,6 +205,7 @@ async function queryDictEndpoint(url: string, timeoutMs: number): Promise<any | 
  * - Tier 1: Kho từ điển nội bộ trong Supabase (global_dictionary)
  * - Lemma Fallback: Tự động tra từ nguyên thể cho từ số nhiều/chia thì nếu từ gốc chưa có
  * - Tier 2: Wiktionary API proxy (/api/dictionary/external) tự động cache ngược vào kho
+ * - Tier 3: Tự động dịch cụm từ qua /api/translate nếu từ điển chưa có mục từ thành ngữ
  * Trả về giải nghĩa, từ loại, phiên âm IPA trong 0ms nếu đã có trong cache.
  */
 export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult> {
@@ -177,6 +237,8 @@ export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult
 
   const fetchPromise = (async (): Promise<ExamDictResult> => {
     const candidates = getCandidateLemmas(clean);
+    const isPhrase = clean.includes(' ');
+    let lastDidYouMean: string[] | undefined;
 
     // ── Tier 1: Tra kho từ điển nội bộ (global_dictionary) ──
     for (const wordVariant of candidates) {
@@ -185,10 +247,14 @@ export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult
         4000
       );
       if (data) {
-        const parsed = parseDictPayload(data, clean, rawWord);
-        if (parsed) {
-          memoryCache.set(clean, parsed);
-          return parsed;
+        if (data.isFuzzyOnly && data.didYouMean) {
+          lastDidYouMean = data.didYouMean;
+        } else {
+          const parsed = parseDictPayload(data, clean, rawWord);
+          if (parsed) {
+            memoryCache.set(clean, parsed);
+            return parsed;
+          }
         }
       }
     }
@@ -199,7 +265,7 @@ export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult
         `/api/dictionary/external?word=${encodeURIComponent(wordVariant)}`,
         6000
       );
-      if (data) {
+      if (data && !data.isFuzzyOnly) {
         const parsed = parseDictPayload(data, clean, rawWord);
         if (parsed) {
           memoryCache.set(clean, parsed);
@@ -208,8 +274,25 @@ export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult
       }
     }
 
-    // ── Fallback an toàn nếu cả 2 nguồn đều không có hoặc thiết bị offline ──
-    const isPhrase = clean.includes(' ');
+    // ── Tier 3: Đối với Cụm từ (Phrases): Dịch tự động qua /api/translate ──
+    if (isPhrase) {
+      const translated = await queryTranslateEndpoint(clean, 5000);
+      if (translated) {
+        const phraseResult: ExamDictResult = {
+          word: rawWord,
+          cleanWord: clean,
+          ipa: '',
+          pos: 'cụm từ',
+          definition: translated,
+          synonyms: [],
+          antonyms: [],
+        };
+        memoryCache.set(clean, phraseResult);
+        return phraseResult;
+      }
+    }
+
+    // ── Fallback an toàn nếu các nguồn đều không có hoặc thiết bị offline ──
     const fallback: ExamDictResult = {
       word: rawWord,
       cleanWord: clean,
@@ -220,6 +303,7 @@ export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult
         : 'Từ vựng tiếng Anh. Bấm "Lưu vào Sổ từ" để hệ thống tự động đồng bộ và phân tích.',
       synonyms: [],
       antonyms: [],
+      didYouMean: lastDidYouMean,
     };
     memoryCache.set(clean, fallback);
     return fallback;

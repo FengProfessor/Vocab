@@ -4,7 +4,7 @@ const { getCitation } = require('./lead-magnet-corpus-helper.js');
 
 // 150 items across 6 domains: 25 items each
 const dictData = [
-  // Group 1: Workplace & Office Hypernyms (1-25)
+  // Group 1: Workplace & Office Categories (1-25)
   ['light fixture', '/ˈlaɪt ˌfɪks.tʃɚ/', 'thiết bị chiếu sáng/đèn treo', 'hang from the ceiling', 'light fixture', 'Thí sinh hay chờ nghe lamp/chandelier'],
   ['merchandise', '/ˈmɝː.tʃən.daɪs/', 'hàng hóa thương mại', 'display merchandise for sale', '\\bmerchandise\\b', 'Danh từ không đếm được, không thêm -s'],
   ['apparel', '/əˈpær.əl/', 'y phục, quần áo may mặc', 'an apparel store / clothing item', '\\bapparel\\b', 'Dùng thay cho shirts, dresses, jackets'],
@@ -24,15 +24,15 @@ const dictData = [
   ['agenda', '/əˈdʒen.də/', 'chương trình nghị sự cuộc họp', 'the first agenda item', '\\bagenda\\b', 'Hay xuất hiện ở câu mở đầu Part 4'],
   ['estimate', '/ˈes.tə.mət/', 'bản dự toán/báo giá', 'contact companies for estimates', '\\bestimate\\b', 'Đồng nghĩa với quote / quotation'],
   ['inventory', '/ˈɪn.vən.tɔːr.i/', 'kiểm kê hàng tồn kho', 'conduct an annual inventory count', '\\binventory\\b', 'Nhấn âm 1 (Mỹ), bẫy lặp âm với invention'],
-  ['footwear', '/ˈfʊt.wer/', 'giày dép các loại', 'protective footwear / footwear display', '\\bfootwear\\b', 'Thượng danh từ thay cho shoes, boots, sneakers'],
+  ['footwear', '/ˈfʊt.wer/', 'giày dép các loại', 'protective footwear / footwear display', '\\bfootwear\\b', 'Từ chỉ nhóm lớn thay cho shoes, boots, sneakers'],
   ['headset', '/ˈhed.set/', 'tai nghe có kèm micro', 'wear a headset during customer calls', '\\bheadset\\b', 'Thường gặp trong bối cảnh trung tâm CSKH'],
   ['brochure', '/broʊˈʃʊr/', 'tờ rơi/sách quảng cáo gấp', 'hand out informational brochures', '\\bbrochure\\b', 'Đồng nghĩa với pamphlet, flyer'],
-  ['container', '/kənˈteɪ.nɚ/', 'thùng/hộp/vật chứa', 'empty plastic containers', '\\bcontainer\\b', 'Thượng danh từ thay cho box, bottle, jar, tub'],
+  ['container', '/kənˈteɪ.nɚ/', 'thùng/hộp/vật chứa', 'empty plastic containers', '\\bcontainer\\b', 'Từ chỉ nhóm lớn thay cho box, bottle, jar, tub'],
   ['equipment', '/ɪˈkwɪp.mənt/', 'trang thiết bị máy móc', 'inspect laboratory equipment', '\\bequipment\\b', 'Danh từ không đếm được, không thêm -s'],
   ['supplies', '/səˈplaɪz/', 'vật tư, nhu yếu phẩm công sở', 'order additional office supplies', '\\bsupplies\\b', 'Thường ở dạng số nhiều, thay cho paper, pens, toner'],
 
-  // Group 2: Micro-Actions & Kinematics (26-50)
-  ['tying up hair', '/ˈtaɪ.ɪŋ ʌp her/', 'buộc túm tóc lên', 'tying up her hair', 'tying up', 'Cử động vi mô tay đưa sau đầu'],
+  // Group 2: Micro-Actions & Body Movements (26-50)
+  ['tying up hair', '/ˈtaɪ.ɪŋ ʌp her/', 'buộc túm tóc lên', 'tying up her hair', 'tying up', 'Vi cử động tay đưa sau đầu'],
   ['reaching into/for', '/ˈriː.tʃɪŋ ˈɪn.tuː/', 'thò tay vào trong / với lấy', 'reaching into a bucket', 'reaching (?:into|for|toward)', 'Cánh tay vươn dài tới vật thể'],
   ['leaning against', '/ˈliː.nɪŋ əˈɡenst/', 'tựa người vào vật cố định', 'leaning against a railing', 'leaning against', 'Tư thế tiếp xúc tĩnh, không phải đang đi'],
   ['leaning over', '/ˈliː.nɪŋ ˈoʊ.vɚ/', 'nhoài/cúi người qua', 'leaning over a desk', 'leaning over', 'Cúi gập thân trên qua mặt phẳng'],
@@ -93,7 +93,7 @@ const dictData = [
   ['banquet', '/ˈbæŋ.kwət/', 'tiệc chiêu đãi trang trọng', 'annual company awards banquet', '\\bbanquet\\b', 'Tiệc tối lớn có nghi thức'],
   ['catering service', '/ˈkeɪ.t̬ɚ.ɪŋ ˈsɝː.vɪs/', 'dịch vụ nấu tiệc trọn gói', 'hire a professional catering service', '\\bcatering\\b', 'Cung cấp đồ ăn tận nơi cho sự kiện'],
   ['culinary', '/ˈkʌl.ə.ner.i/', 'thuộc về nghệ thuật ẩm thực', 'renowned culinary institute / chef', '\\bculinary\\b', 'Trọng âm rơi âm 1'],
-  ['beverage', '/ˈbev.ɚ.ɪdʒ/', 'thức uống đóng chai/pha chế', 'complimentary hot beverages', '\\bbeverage\\b', 'Thượng danh từ cho drinks'],
+  ['beverage', '/ˈbev.ɚ.ɪdʒ/', 'thức uống đóng chai/pha chế', 'complimentary hot beverages', '\\bbeverage\\b', 'Từ chỉ nhóm lớn cho drinks'],
   ['refreshments', '/rɪˈfreʃ.mənts/', 'tiệc trà bánh nhẹ giải lao', 'light refreshments served at break', '\\brefreshment', 'Trà, cà phê, bánh ngọt giữa giờ'],
   ['chef', '/ʃef/', 'bếp trưởng điều hành', 'executive chef preparing specialties', '\\bchef\\b', 'Phát âm âm đầu là /ʃ/, không đọc /tʃ/'],
   ['counter', '/ˈkaʊn.t̬ɚ/', 'quầy phục vụ / tính tiền', 'order at the front counter', '\\bcounter\\b', 'Nơi giao dịch giữa khách và nhân viên'],
@@ -126,7 +126,7 @@ const dictData = [
   ['luggage', '/ˈlʌɡ.ɪdʒ/', 'hành lý vali túi xách', 'pull luggage across the concourse', '\\bluggage\\b', 'Danh từ không đếm được, tương đương baggage'],
   ['delay', '/dɪˈleɪ/', 'sự chậm trễ, hoãn chuyến', 'announce a thirty-minute flight delay', '\\bdelay\\b', 'Từ khóa vàng trong các thông báo phát thanh Part 4'],
   ['transit', '/ˈtræn.zɪt/', 'hệ thống giao thông công cộng', 'city public transit disruption', '\\btransit\\b', 'Bao quát hệ thống xe buýt, tàu điện'],
-  ['vehicle', '/ˈviː.ə.kəl/', 'phương tiện giao thông đường bộ', 'vehicles parked in designated spots', '\\bvehicle\\b', 'Thượng danh từ cho car, truck, van, bus'],
+  ['vehicle', '/ˈviː.ə.kəl/', 'phương tiện giao thông đường bộ', 'vehicles parked in designated spots', '\\bvehicle\\b', 'Từ chỉ nhóm lớn cho car, truck, van, bus'],
   ['driver', '/ˈdraɪ.vɚ/', 'tài xế điều khiển phương tiện', 'commercial delivery truck driver', '\\bdriver\\b', 'Người lái xe'],
   ['ticket', '/ˈtɪk.ɪt/', 'vé lên tàu, vé hòa nhạc', 'purchase a discounted commuter ticket', '\\bticket\\b', 'Chứng từ thanh toán lượt đi'],
   ['airport', '/ˈer.pɔːrt/', 'sân bay hàng không dân dụng', 'arrive at the airport two hours early', '\\bairport\\b', 'Bối cảnh thông báo phát thanh Part 4'],
@@ -170,8 +170,8 @@ const dictData = [
 function buildDictionaryMarkdown() {
   let md = '';
   const domainTitles = [
-    'NHÓM 1: THƯỢNG DANH TỪ & ĐỒ VẬT CÔNG SỞ (Office & Workplace Hypernyms)',
-    'NHÓM 2: VI HÀNH ĐỘNG & ĐỘNG TÁC CƠ THỂ (Kinematics & Micro-Actions)',
+    'NHÓM 1: TỪ CHỈ NHÓM LỚN & ĐỒ VẬT CÔNG SỞ (Office & Workplace Categories)',
+    'NHÓM 2: VI CỬ ĐỘNG & ĐỘNG TÁC CƠ THỂ (Micro-Actions & Body Movements)',
     'NHÓM 3: XÂY DỰNG, NHÀ XƯỞNG & KHO VẬN (Construction, Warehousing & Logistics)',
     'NHÓM 4: NHÀ HÀNG, KHÁCH SẠN & DỊCH VỤ (Hospitality, Catering & Dining)',
     'NHÓM 5: GIAO THÔNG, ĐI LẠI & SÂN BAY (Transit, Commuting & Aviation)',

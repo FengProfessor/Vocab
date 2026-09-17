@@ -19,6 +19,8 @@ export interface ExamWordLookupCardProps {
   positionStyle: React.CSSProperties;
   placement?: 'top' | 'bottom';
   className?: string;
+  parentPhrase?: string | null;
+  onLookupPhrase?: (phrase: string) => void;
 }
 
 export function ExamWordLookupCard({
@@ -28,6 +30,8 @@ export function ExamWordLookupCard({
   positionStyle,
   placement = 'top',
   className = '',
+  parentPhrase,
+  onLookupPhrase,
 }: ExamWordLookupCardProps) {
   const [isSaved, setIsSaved] = useState<boolean>(false);
   const [isSaving, setIsSaving] = useState<boolean>(false);
@@ -197,6 +201,48 @@ export function ExamWordLookupCard({
                     {syn}
                   </span>
                 ))}
+              </div>
+            )}
+            {/* Parent phrase suggestion (e.g. Option text contains 2-8 words) */}
+            {parentPhrase && onLookupPhrase && parentPhrase.toLowerCase() !== dictResult?.cleanWord.toLowerCase() && (
+              <div className="pt-2 pb-1 border-t border-slate-100 dark:border-slate-800/80">
+                <button
+                  type="button"
+                  onClick={() => onLookupPhrase(parentPhrase)}
+                  className="group flex items-center gap-2 w-full text-left rounded-md bg-indigo-50/90 hover:bg-indigo-100 dark:bg-indigo-950/70 dark:hover:bg-indigo-900/80 p-2 text-xs border border-indigo-200/90 dark:border-indigo-800/80 transition cursor-pointer"
+                  title={`Tra cứu toàn bộ cụm từ: "${parentPhrase}"`}
+                >
+                  <Sparkles className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400 shrink-0 group-hover:scale-110 transition-transform" />
+                  <div className="min-w-0 flex-1">
+                    <span className="font-semibold block text-[10px] uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+                      Gợi ý cụm từ trong câu
+                    </span>
+                    <span className="truncate block font-medium text-indigo-950 dark:text-indigo-100">
+                      Tra cả cụm: &ldquo;{parentPhrase}&rdquo;
+                    </span>
+                  </div>
+                </button>
+              </div>
+            )}
+
+            {/* Typo-tolerance suggestions (Did You Mean) */}
+            {dictResult?.didYouMean && dictResult.didYouMean.length > 0 && onLookupPhrase && (
+              <div className="pt-2 pb-1 border-t border-slate-100 dark:border-slate-800/80 text-xs">
+                <span className="font-semibold block text-[10px] uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1.5">
+                  Có phải bạn muốn tìm:
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {dictResult.didYouMean.slice(0, 3).map((sug) => (
+                    <button
+                      key={sug}
+                      type="button"
+                      onClick={() => onLookupPhrase(sug)}
+                      className="px-2 py-0.5 rounded-sm bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/60 dark:hover:bg-amber-900/80 text-amber-800 dark:text-amber-200 font-mono text-xs border border-amber-200 dark:border-amber-800 transition cursor-pointer"
+                    >
+                      {sug}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </>

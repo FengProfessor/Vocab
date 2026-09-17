@@ -16,7 +16,16 @@ async function buildPdf() {
   }
 
   const rawMd = fs.readFileSync(mdPath, 'utf8');
-  const parsedHtml = marked.parse(rawMd);
+  // Split into individual pages
+  const pageSections = rawMd.split(/<div\s+style=["']page-break-after:\s*always;?["']><\/div>/i);
+  console.log(`Detected ${pageSections.length} structured page sections.`);
+
+  const renderedPagesHtml = pageSections
+    .map((sectionMd, idx) => {
+      const html = marked.parse(sectionMd.trim());
+      return `<div class="pdf-page" id="page-${idx + 1}">${html}</div>`;
+    })
+    .join('\n');
 
   const fullHtml = `<!DOCTYPE html>
 <html lang="vi">
@@ -30,10 +39,18 @@ async function buildPdf() {
       box-sizing: border-box;
     }
 
+    @page {
+      size: A4 portrait;
+      margin-top: 14mm;
+      margin-bottom: 14mm;
+      margin-left: 12mm;
+      margin-right: 12mm;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 9.5pt;
-      line-height: 1.6;
+      font-size: 8.8pt;
+      line-height: 1.48;
       color: #1e293b;
       margin: 0;
       padding: 0;
@@ -41,56 +58,73 @@ async function buildPdf() {
       -webkit-font-smoothing: antialiased;
     }
 
+    .pdf-page {
+      page-break-after: always;
+      break-after: page;
+      position: relative;
+      width: 100%;
+      height: 269mm;
+      max-height: 269mm;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pdf-page:last-child {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
     h1 {
-      font-size: 20pt;
+      font-size: 17pt;
       font-weight: 800;
       color: #0f172a;
-      margin-top: 24pt;
-      margin-bottom: 12pt;
+      margin-top: 4pt;
+      margin-bottom: 8pt;
       line-height: 1.25;
       page-break-after: avoid;
     }
 
     h2 {
-      font-size: 13.5pt;
+      font-size: 12.5pt;
       font-weight: 700;
       color: #1e1b4b;
-      margin-top: 18pt;
-      margin-bottom: 8pt;
-      padding-bottom: 4pt;
-      border-bottom: 1.5pt solid #e2e8f0;
+      margin-top: 6pt;
+      margin-bottom: 6pt;
+      padding-bottom: 3pt;
+      border-bottom: 1.2pt solid #e2e8f0;
       page-break-after: avoid;
     }
 
     h3 {
-      font-size: 11pt;
+      font-size: 10.2pt;
       font-weight: 700;
       color: #312e81;
-      margin-top: 14pt;
-      margin-bottom: 6pt;
-      page-break-after: avoid;
-    }
-
-    h4 {
-      font-size: 10pt;
-      font-weight: 700;
-      color: #047857;
-      margin-top: 10pt;
+      margin-top: 6pt;
       margin-bottom: 4pt;
       page-break-after: avoid;
     }
 
-    h5 {
-      font-size: 9.5pt;
-      font-weight: 600;
-      color: #475569;
-      margin-top: 8pt;
+    h4 {
+      font-size: 9.2pt;
+      font-weight: 700;
+      color: #047857;
+      margin-top: 5pt;
       margin-bottom: 3pt;
       page-break-after: avoid;
     }
 
+    h5 {
+      font-size: 8.8pt;
+      font-weight: 600;
+      color: #475569;
+      margin-top: 4pt;
+      margin-bottom: 2pt;
+      page-break-after: avoid;
+    }
+
     p {
-      margin: 0 0 7pt 0;
+      margin: 0 0 5pt 0;
       text-align: justify;
     }
 
@@ -109,27 +143,27 @@ async function buildPdf() {
     }
 
     blockquote {
-      margin: 10pt 0;
-      padding: 8pt 12pt;
+      margin: 6pt 0;
+      padding: 6pt 10pt;
       background: #f8fafc;
       border-left: 3pt solid #6366f1;
       border-radius: 0 4pt 4pt 0;
       color: #334155;
-      font-size: 9pt;
+      font-size: 8.5pt;
       page-break-inside: avoid;
     }
 
     blockquote p {
-      margin: 3pt 0;
+      margin: 2pt 0;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 10pt 0 14pt 0;
-      font-size: 8pt;
-      line-height: 1.45;
-      page-break-inside: auto;
+      margin: 6pt 0 8pt 0;
+      font-size: 7.6pt;
+      line-height: 1.35;
+      page-break-inside: avoid;
     }
 
     tr {
@@ -146,12 +180,12 @@ async function buildPdf() {
       color: #f8fafc;
       font-weight: 700;
       text-align: left;
-      padding: 5pt 7pt;
+      padding: 4pt 6pt;
       border: 0.5pt solid #334155;
     }
 
     td {
-      padding: 4.5pt 6.5pt;
+      padding: 3.5pt 5.5pt;
       border: 0.5pt solid #cbd5e1;
       vertical-align: top;
     }
@@ -163,19 +197,19 @@ async function buildPdf() {
     pre {
       background: #0f172a;
       color: #e2e8f0;
-      padding: 8pt 10pt;
+      padding: 6pt 8pt;
       border-radius: 4pt;
       font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
-      font-size: 7.5pt;
-      line-height: 1.4;
+      font-size: 7pt;
+      line-height: 1.35;
       overflow-x: auto;
-      margin: 8pt 0;
+      margin: 6pt 0;
       page-break-inside: avoid;
     }
 
     code {
       font-family: 'JetBrains Mono', Consolas, monospace;
-      font-size: 8.5pt;
+      font-size: 8pt;
       background: #f1f5f9;
       color: #4338ca;
       padding: 1pt 3pt;
@@ -189,23 +223,23 @@ async function buildPdf() {
     }
 
     ul, ol {
-      margin: 0 0 8pt 0;
-      padding-left: 18pt;
+      margin: 0 0 6pt 0;
+      padding-left: 16pt;
     }
 
     li {
-      margin-bottom: 3pt;
+      margin-bottom: 2pt;
     }
 
     hr {
       border: none;
       border-top: 1pt solid #cbd5e1;
-      margin: 14pt 0;
+      margin: 8pt 0;
     }
   </style>
 </head>
 <body>
-  ${parsedHtml}
+  ${renderedPagesHtml}
 </body>
 </html>`;
 
@@ -217,15 +251,37 @@ async function buildPdf() {
   const page = await browser.newPage();
   await page.setContent(fullHtml, { waitUntil: 'networkidle0' });
 
+  // Evaluate height of each page to ensure no content overflow
+  const pageMetrics = await page.evaluate(() => {
+    const pages = Array.from(document.querySelectorAll('.pdf-page'));
+    return pages.map((p, i) => ({
+      index: i + 1,
+      scrollHeight: p.scrollHeight,
+      clientHeight: p.clientHeight,
+      overflow: p.scrollHeight > p.clientHeight + 2,
+    }));
+  });
+
+  console.log('--- Page Render Diagnostics ---');
+  let hasOverflow = false;
+  for (const m of pageMetrics) {
+    if (m.overflow) {
+      console.warn(`⚠️ Page ${m.index} overflows: scrollHeight=${m.scrollHeight}px > clientHeight=${m.clientHeight}px`);
+      hasOverflow = true;
+    } else {
+      console.log(`✔ Page ${m.index}: fits perfectly (${m.scrollHeight}px / ${m.clientHeight}px)`);
+    }
+  }
+
   const headerHtml = `
-    <div style="font-size: 7.5pt; font-family: sans-serif; color: #94a3b8; width: 100%; padding: 0 20mm; display: flex; justify-content: space-between; border-bottom: 0.5pt solid #e2e8f0; padding-bottom: 4px;">
+    <div style="font-size: 7pt; font-family: sans-serif; color: #94a3b8; width: 100%; padding: 0 16mm; display: flex; justify-content: space-between; border-bottom: 0.5pt solid #e2e8f0; padding-bottom: 3px;">
       <span>LingoPro EdTech Platform • Khảo Thí ETS 2024 - 2026</span>
-      <span>BÁCH KHOA TOÀN THƯ: SÁT THỦ BÀI NGHE TOEIC</span>
+      <span>CẨM NANG THỰC CHIẾN: SÁT THỦ BÀI NGHE TOEIC (15 TRANG)</span>
     </div>
   `;
 
   const footerHtml = `
-    <div style="font-size: 7.5pt; font-family: sans-serif; color: #94a3b8; width: 100%; padding: 0 20mm; display: flex; justify-content: space-between; border-top: 0.5pt solid #e2e8f0; padding-top: 4px;">
+    <div style="font-size: 7pt; font-family: sans-serif; color: #94a3b8; width: 100%; padding: 0 16mm; display: flex; justify-content: space-between; border-top: 0.5pt solid #e2e8f0; padding-top: 3px;">
       <span>https://lingopro.vn/sat-thu-toeic-listening</span>
       <span>Trang <span class="pageNumber"></span> / <span class="totalPages"></span></span>
     </div>
@@ -235,10 +291,10 @@ async function buildPdf() {
     format: 'A4',
     printBackground: true,
     margin: {
-      top: '18mm',
-      bottom: '18mm',
-      left: '14mm',
-      right: '14mm',
+      top: '14mm',
+      bottom: '14mm',
+      left: '12mm',
+      right: '12mm',
     },
     displayHeaderFooter: true,
     headerTemplate: headerHtml,
