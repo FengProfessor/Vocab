@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Clock,
   BookOpen,
@@ -14,6 +14,9 @@ import {
   Check,
   Tag,
   BarChart,
+  Headphones,
+  FileText,
+  Zap,
 } from 'lucide-react';
 import type {
   TheoryLesson,
@@ -27,6 +30,11 @@ import { ToeicTrapAlert } from './ToeicTrapAlert';
 import { ToeicComparisonTable } from './ToeicComparisonTable';
 import { ToeicQuickQuiz } from './ToeicQuickQuiz';
 import { ToeicPracticeBridge } from './ToeicPracticeBridge';
+import { ToeicAudioNarrator } from './ToeicAudioNarrator';
+import { ToeicLessonFlashcards } from './ToeicLessonFlashcards';
+import { ToeicLessonNotes } from './ToeicLessonNotes';
+import { ToeicLessonCheatSheet } from './ToeicLessonCheatSheet';
+import { ToeicAutoNextBanner } from './ToeicAutoNextBanner';
 
 export interface ToeicLessonViewerProps {
   lesson: TheoryLesson;
@@ -37,6 +45,13 @@ export interface ToeicLessonViewerProps {
   className?: string;
 }
 
+export type ClassroomWorkspaceTab =
+  | 'lecture'
+  | 'audio'
+  | 'flashcards'
+  | 'notes'
+  | 'cheatsheet';
+
 export function ToeicLessonViewer({
   lesson,
   onCheckpointComplete,
@@ -45,23 +60,36 @@ export function ToeicLessonViewer({
   onSelectLesson,
   className = '',
 }: ToeicLessonViewerProps) {
+  const [activeTab, setActiveTab] = useState<ClassroomWorkspaceTab>('lecture');
+  const [showAutoNext, setShowAutoNext] = useState<boolean>(false);
+
+  // Reset tab and auto-next banner when changing lesson
+  useEffect(() => {
+    setActiveTab('lecture');
+    setShowAutoNext(false);
+  }, [lesson.id]);
+
   // Difficulty label helper
   const difficultyBadge = {
     starter: {
       text: 'Mục Tiêu 450–550 (Starter)',
-      className: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800',
+      className:
+        'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800',
     },
     intermediate: {
       text: 'Mục Tiêu 600–750 (Intermediate)',
-      className: 'bg-blue-100 text-blue-800 dark:bg-blue-950/70 dark:text-blue-300 border-blue-300 dark:border-blue-800',
+      className:
+        'bg-blue-100 text-blue-800 dark:bg-blue-950/70 dark:text-blue-300 border-blue-300 dark:border-blue-800',
     },
     advanced: {
       text: 'Mục Tiêu 800+ (Mastery)',
-      className: 'bg-purple-100 text-purple-800 dark:bg-purple-950/70 dark:text-purple-300 border-purple-300 dark:border-purple-800',
+      className:
+        'bg-purple-100 text-purple-800 dark:bg-purple-950/70 dark:text-purple-300 border-purple-300 dark:border-purple-800',
     },
   }[lesson.difficulty] || {
     text: 'Chuẩn ETS',
-    className: 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300 border-slate-300 dark:border-slate-700',
+    className:
+      'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300 border-slate-300 dark:border-slate-700',
   };
 
   // Module Category name
@@ -72,10 +100,15 @@ export function ToeicLessonViewer({
       ? 'LISTENING TACTICS · PART 1 - 4'
       : 'READING MASTERY · PART 7';
 
+  // Handle all checkpoints completed
+  const handleAllCheckpointsCompleted = () => {
+    setShowAutoNext(true);
+  };
+
   return (
     <article
       aria-label={lesson.title}
-      className={`min-w-0 max-w-4xl mx-auto space-y-8 pb-16 ${className}`}
+      className={`min-w-0 max-w-4xl mx-auto space-y-6 pb-16 ${className}`}
     >
       {/* ── 1. LESSON HEADER ── */}
       <header className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-xs space-y-4">
@@ -95,9 +128,14 @@ export function ToeicLessonViewer({
 
         {/* Lesson Titles */}
         <div className="space-y-1">
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-slate-900 dark:text-white leading-snug">
-            {lesson.title}
-          </h1>
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-xs font-bold px-2 py-0.5 rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900">
+              {lesson.id}
+            </span>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-slate-900 dark:text-white leading-snug">
+              {lesson.title}
+            </h1>
+          </div>
           <p className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400">
             {lesson.englishTitle}
           </p>
@@ -144,102 +182,239 @@ export function ToeicLessonViewer({
         )}
       </header>
 
-      {/* ── 2. SECTIONS CONTENT ── */}
-      <div className="space-y-8">
-        {lesson.sections.map((section, sIdx) => (
-          <section
-            key={section.id || sIdx}
-            className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-xs space-y-5"
+      {/* ── 2. COURSERA-GRADE 5-TAB WORKSPACE SWITCHER ── */}
+      <div className="sticky top-[4.5rem] z-20 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-xs py-1">
+        <div
+          role="tablist"
+          aria-label="Không gian học tập chuyên sâu"
+          className="flex p-1 rounded-sm bg-slate-200/90 dark:bg-slate-800/90 border border-slate-300/80 dark:border-slate-700 gap-1 text-xs font-mono overflow-x-auto shadow-2xs"
+        >
+          {/* Tab 1: Bài Giảng */}
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === 'lecture'}
+            onClick={() => setActiveTab('lecture')}
+            className={`flex-1 min-w-[100px] py-2 px-2.5 rounded-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer shrink-0 ${
+              activeTab === 'lecture'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+            }`}
           >
-            {/* Section Header */}
-            <div className="flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-2.5">
-              <span className="flex h-5 w-5 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-[11px] font-bold">
-                {section.order || sIdx + 1}
-              </span>
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight">
-                {section.title}
-              </h2>
-            </div>
+            <BookOpen className="h-3.5 w-3.5 shrink-0 text-amber-500" />
+            <span className="truncate">Bài Giảng</span>
+          </button>
 
-            {/* Visual Formula (if present) */}
-            {section.formula && <VisualFormulaBlock formula={section.formula} />}
+          {/* Tab 2: Audio Giảng Viên */}
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === 'audio'}
+            onClick={() => setActiveTab('audio')}
+            className={`flex-1 min-w-[110px] py-2 px-2.5 rounded-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer shrink-0 ${
+              activeTab === 'audio'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+            }`}
+          >
+            <Headphones className="h-3.5 w-3.5 shrink-0 text-blue-500" />
+            <span className="truncate">Audio Bài Giảng</span>
+          </button>
 
-            {/* Markdown Body */}
-            {section.contentMarkdown && (
-              <div className="prose prose-slate dark:prose-invert max-w-none text-xs sm:text-sm leading-relaxed">
-                <LazyMarkdown>{section.contentMarkdown}</LazyMarkdown>
-              </div>
-            )}
+          {/* Tab 3: Thẻ Ghi Nhớ Flashcards */}
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === 'flashcards'}
+            onClick={() => setActiveTab('flashcards')}
+            className={`flex-1 min-w-[110px] py-2 px-2.5 rounded-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer shrink-0 ${
+              activeTab === 'flashcards'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+            }`}
+          >
+            <Sparkles className="h-3.5 w-3.5 shrink-0 text-amber-500" />
+            <span className="truncate">Thẻ Ghi Nhớ</span>
+          </button>
 
-            {/* Embedded Tip Box */}
-            {section.tipBox && <ToeicTipBox tip={section.tipBox} />}
+          {/* Tab 4: Sổ Tay Ghi Chú */}
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === 'notes'}
+            onClick={() => setActiveTab('notes')}
+            className={`flex-1 min-w-[100px] py-2 px-2.5 rounded-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer shrink-0 ${
+              activeTab === 'notes'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+            }`}
+          >
+            <FileText className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+            <span className="truncate">Sổ Ghi Chú</span>
+          </button>
 
-            {/* Embedded Trap Alert */}
-            {section.trapAlert && <ToeicTrapAlert trap={section.trapAlert} />}
-
-            {/* Embedded Comparison Table */}
-            {section.comparisonTable && (
-              <ToeicComparisonTable table={section.comparisonTable} />
-            )}
-
-            {/* Real-World Examples */}
-            {section.examples && section.examples.length > 0 && (
-              <div className="space-y-3 pt-2">
-                <div className="font-mono text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                  <Tag className="h-3.5 w-3.5 text-slate-500" />
-                  <span>Trích Dẫn Ví Dụ Đề Thi Thật ETS:</span>
-                </div>
-
-                <div className="space-y-3">
-                  {section.examples.map((example, eIdx) => (
-                    <RealWorldExampleCard key={eIdx} example={example} />
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Key Takeaways */}
-            {section.keyTakeaways && section.keyTakeaways.length > 0 && (
-              <div className="rounded-xs border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 p-3.5 text-xs sm:text-sm space-y-2">
-                <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Điểm cốt lõi cần nhớ (Key Takeaways):</span>
-                </div>
-                <ul className="space-y-1 pl-1">
-                  {section.keyTakeaways.map((takeaway, tIdx) => (
-                    <li
-                      key={tIdx}
-                      className="flex items-start gap-2 text-emerald-950 dark:text-emerald-200 leading-normal"
-                    >
-                      <span className="text-emerald-600 font-bold">•</span>
-                      <span>{takeaway}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </section>
-        ))}
+          {/* Tab 5: Tóm Tắt 60s */}
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === 'cheatsheet'}
+            onClick={() => setActiveTab('cheatsheet')}
+            className={`flex-1 min-w-[105px] py-2 px-2.5 rounded-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer shrink-0 ${
+              activeTab === 'cheatsheet'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+            }`}
+          >
+            <Zap className="h-3.5 w-3.5 shrink-0 text-rose-500" />
+            <span className="truncate">Tóm Tắt 60s</span>
+          </button>
+        </div>
       </div>
 
-      {/* ── 3. IN-LESSON QUICK QUIZ (CHECKPOINTS) ── */}
-      {lesson.checkpoints && lesson.checkpoints.length > 0 && (
-        <ToeicQuickQuiz
-          checkpoints={lesson.checkpoints}
-          lessonId={lesson.id}
-          onCheckpointAnswer={onCheckpointComplete}
-        />
+      {/* ── 3. WORKSPACE TAB PANELS ── */}
+
+      {/* TAB 2: AUDIO NARRATOR */}
+      {activeTab === 'audio' && (
+        <div className="animate-in fade-in duration-200">
+          <ToeicAudioNarrator lesson={lesson} />
+        </div>
       )}
 
-      {/* ── 4. BRIDGE TO REAL PRACTICE ── */}
-      {lesson.bridgeToPractice && (
-        <ToeicPracticeBridge bridge={lesson.bridgeToPractice} />
+      {/* TAB 3: FLASHCARDS */}
+      {activeTab === 'flashcards' && (
+        <div className="animate-in fade-in duration-200">
+          <ToeicLessonFlashcards lessonId={lesson.id} />
+        </div>
       )}
 
-      {/* ── 5. PREV / NEXT NAVIGATION FOOTER ── */}
+      {/* TAB 4: PERSONAL NOTES */}
+      {activeTab === 'notes' && (
+        <div className="animate-in fade-in duration-200">
+          <ToeicLessonNotes lessonId={lesson.id} lessonTitle={lesson.title} />
+        </div>
+      )}
+
+      {/* TAB 5: CHEAT SHEET */}
+      {activeTab === 'cheatsheet' && (
+        <div className="animate-in fade-in duration-200">
+          <ToeicLessonCheatSheet lesson={lesson} />
+        </div>
+      )}
+
+      {/* TAB 1: MAIN LECTURE BODY */}
+      {activeTab === 'lecture' && (
+        <div className="space-y-8 animate-in fade-in duration-200">
+          {/* Detailed Theory Sections */}
+          <div className="space-y-8">
+            {lesson.sections.map((section, sIdx) => (
+              <section
+                key={section.id || sIdx}
+                className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-xs space-y-5"
+              >
+                {/* Section Header */}
+                <div className="flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-2.5">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-[11px] font-bold">
+                    {section.order || sIdx + 1}
+                  </span>
+                  <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight">
+                    {section.title}
+                  </h2>
+                </div>
+
+                {/* Visual Formula (if present) */}
+                {section.formula && <VisualFormulaBlock formula={section.formula} />}
+
+                {/* Markdown Body */}
+                {section.contentMarkdown && (
+                  <div className="prose prose-slate dark:prose-invert max-w-none text-xs sm:text-sm leading-relaxed">
+                    <LazyMarkdown>{section.contentMarkdown}</LazyMarkdown>
+                  </div>
+                )}
+
+                {/* Embedded Tip Box */}
+                {section.tipBox && <ToeicTipBox tip={section.tipBox} />}
+
+                {/* Embedded Trap Alert */}
+                {section.trapAlert && <ToeicTrapAlert trap={section.trapAlert} />}
+
+                {/* Embedded Comparison Table */}
+                {section.comparisonTable && (
+                  <ToeicComparisonTable table={section.comparisonTable} />
+                )}
+
+                {/* Real-World Examples */}
+                {section.examples && section.examples.length > 0 && (
+                  <div className="space-y-3 pt-2">
+                    <div className="font-mono text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      <Tag className="h-3.5 w-3.5 text-slate-500" />
+                      <span>Trích Dẫn Ví Dụ Đề Thi Thật ETS:</span>
+                    </div>
+
+                    <div className="space-y-3">
+                      {section.examples.map((example, eIdx) => (
+                        <RealWorldExampleCard key={eIdx} example={example} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Key Takeaways */}
+                {section.keyTakeaways && section.keyTakeaways.length > 0 && (
+                  <div className="rounded-xs border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/20 p-3.5 text-xs sm:text-sm space-y-2">
+                    <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                      <span>Điểm cốt lõi cần nhớ (Key Takeaways):</span>
+                    </div>
+                    <ul className="space-y-1 pl-1">
+                      {section.keyTakeaways.map((takeaway, tIdx) => (
+                        <li
+                          key={tIdx}
+                          className="flex items-start gap-2 text-emerald-950 dark:text-emerald-200 leading-normal"
+                        >
+                          <span className="text-emerald-600 font-bold">•</span>
+                          <span>{takeaway}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </section>
+            ))}
+          </div>
+
+          {/* ── 4. IN-LESSON QUICK QUIZ (CHECKPOINTS) ── */}
+          {lesson.checkpoints && lesson.checkpoints.length > 0 && (
+            <div className="space-y-4">
+              <ToeicQuickQuiz
+                checkpoints={lesson.checkpoints}
+                lessonId={lesson.id}
+                onCheckpointAnswer={onCheckpointComplete}
+                onAllCompleted={handleAllCheckpointsCompleted}
+              />
+
+              {/* Coursera-style Auto Next Countdown Banner */}
+              {showAutoNext && nextLesson && (
+                <ToeicAutoNextBanner
+                  currentLesson={lesson}
+                  nextLesson={nextLesson}
+                  onAdvanceNext={() => onSelectLesson?.(nextLesson.id)}
+                  onDismiss={() => setShowAutoNext(false)}
+                />
+              )}
+            </div>
+          )}
+
+          {/* ── 5. BRIDGE TO REAL PRACTICE ── */}
+          {lesson.bridgeToPractice && (
+            <ToeicPracticeBridge bridge={lesson.bridgeToPractice} />
+          )}
+        </div>
+      )}
+
+      {/* ── 6. PREV / NEXT NAVIGATION FOOTER ── */}
       <nav
         aria-label="Điều hướng giữa các bài học"
-        className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-slate-200 dark:border-slate-800"
+        className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-6 border-t border-slate-200 dark:border-slate-800"
       >
         {prevLesson ? (
           <button
@@ -258,7 +433,7 @@ export function ToeicLessonViewer({
             </div>
           </button>
         ) : (
-          <div className="hidden sm:block flex-1" />
+          <div className="flex-1" />
         )}
 
         {nextLesson && (
@@ -269,7 +444,7 @@ export function ToeicLessonViewer({
           >
             <div className="min-w-0">
               <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
-                Bài tiếp theo →
+                Bài kế tiếp →
               </span>
               <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 truncate block">
                 {nextLesson.title}
@@ -285,11 +460,14 @@ export function ToeicLessonViewer({
 
 // ── SUB-COMPONENT: Visual Formula Block ──
 function VisualFormulaBlock({ formula }: { formula: VisualGrammarFormula }) {
-  const colorMap = {
+  const colorMap: Record<string, string> = {
     blue: 'bg-blue-100 text-blue-900 dark:bg-blue-950/70 dark:text-blue-200 border-blue-300 dark:border-blue-800',
-    emerald: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950/70 dark:text-emerald-200 border-emerald-300 dark:border-emerald-800',
-    amber: 'bg-amber-100 text-amber-900 dark:bg-amber-950/70 dark:text-amber-200 border-amber-300 dark:border-amber-800',
-    purple: 'bg-purple-100 text-purple-900 dark:bg-purple-950/70 dark:text-purple-200 border-purple-300 dark:border-purple-800',
+    emerald:
+      'bg-emerald-100 text-emerald-900 dark:bg-emerald-950/70 dark:text-emerald-200 border-emerald-300 dark:border-emerald-800',
+    amber:
+      'bg-amber-100 text-amber-900 dark:bg-amber-950/70 dark:text-amber-200 border-amber-300 dark:border-amber-800',
+    purple:
+      'bg-purple-100 text-purple-900 dark:bg-purple-950/70 dark:text-purple-200 border-purple-300 dark:border-purple-800',
   };
 
   return (
@@ -312,15 +490,13 @@ function VisualFormulaBlock({ formula }: { formula: VisualGrammarFormula }) {
                 className="flex items-start gap-2.5 rounded-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5 text-xs"
               >
                 <span
-                  className={`font-mono text-xs font-bold px-2 py-0.5 rounded-xs border shrink-0 ${colorClass}`}
+                  className={`font-mono font-bold px-1.5 py-0.5 rounded-xs border shrink-0 text-[11px] ${colorClass}`}
                 >
                   {el.symbol}
                 </span>
-                <div className="leading-tight">
-                  <div className="font-semibold text-slate-900 dark:text-slate-100">
-                    {el.label}
-                  </div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                <div className="min-w-0 space-y-0.5">
+                  <div className="font-semibold text-slate-800 dark:text-slate-200">{el.label}</div>
+                  <div className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
                     {el.explanation}
                   </div>
                 </div>
@@ -330,11 +506,11 @@ function VisualFormulaBlock({ formula }: { formula: VisualGrammarFormula }) {
         </div>
       )}
 
-      {/* Notes */}
+      {/* Formula Notes */}
       {formula.notes && (
-        <p className="font-mono text-xs text-slate-600 dark:text-slate-400 italic pt-1 border-t border-slate-200 dark:border-slate-800">
+        <div className="font-mono text-xs text-slate-600 dark:text-slate-400 italic pt-1 border-t border-slate-200 dark:border-slate-800">
           * {formula.notes}
-        </p>
+        </div>
       )}
     </div>
   );
@@ -368,11 +544,10 @@ function RealWorldExampleCard({ example }: { example: RealWorldExample }) {
         → {example.vietnamese}
       </div>
 
-      {/* Grammatical / Structural Analysis */}
+      {/* Grammatical Analysis */}
       {example.analysis && (
-        <div className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900 p-2 rounded-xs border border-slate-200 dark:border-slate-800 leading-normal">
-          <span className="font-mono font-bold text-slate-500 mr-1">Phân tích:</span>
-          {example.analysis}
+        <div className="font-mono text-[11px] text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 p-2 rounded-xs border border-amber-200/60 dark:border-amber-900/40">
+          💡 <strong>Phân tích ETS:</strong> {example.analysis}
         </div>
       )}
     </div>

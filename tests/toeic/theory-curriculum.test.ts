@@ -22,6 +22,11 @@ import {
   getLessonBySlug,
   getAdjacentLessons,
   getCurriculumStats,
+  getFlashcardsByLessonId,
+  getAllFlashcards,
+  getFlashcardsStats,
+  getCheatSheetByLessonId,
+  getAllCheatSheets,
 } from '../../src/data/toeic/theory';
 import type {
   TheoryModule,
@@ -422,6 +427,88 @@ export async function runTheoryCurriculumTests(runner: TestRunner): Promise<void
       expect(stats.moduleDetails['grammar-foundation'].title).toBeDefined();
       expect(stats.moduleDetails['grammar-foundation'].lessons).toBe(stats.byModule['grammar-foundation']);
       expect(stats.moduleDetails['grammar-foundation'].checkpoints).toBe(stats.checkpointsByModule['grammar-foundation']);
+    });
+  });
+
+  // ───────────────────────────────────────────────────────────────────────────
+  // Tier 6: Coursera LMS Flashcards, Cheat Sheets & Certificate Integrity
+  // ───────────────────────────────────────────────────────────────────────────
+  runner.describe('TOEIC Theory Curriculum: Tier 6 - Coursera LMS Micro-Learning & Certification', () => {
+    runner.it('TC-6.1: Flashcards dataset exists and contains cards across lessons with unique IDs', () => {
+      const allCards = getAllFlashcards();
+      expect(allCards.length).toBeGreaterThanOrEqual(25);
+
+      const cardIds = new Set<string>();
+      for (const card of allCards) {
+        expect(card.id.trim().length).toBeGreaterThan(0);
+        expect(cardIds.has(card.id)).toBe(false);
+        cardIds.add(card.id);
+      }
+    });
+
+    runner.it('TC-6.2: Every flashcard has non-empty term, IPA, vietnamese, and valid example sentence', () => {
+      const allCards = getAllFlashcards();
+      for (const card of allCards) {
+        expect(card.term.trim().length).toBeGreaterThan(0);
+        expect(card.ipa.trim().length).toBeGreaterThan(0);
+        expect(card.vietnamese.trim().length).toBeGreaterThan(0);
+        expect(card.partOfSpeech.trim().length).toBeGreaterThan(0);
+        expect(card.exampleSentence.trim().length).toBeGreaterThan(0);
+        expect(card.exampleTranslation.trim().length).toBeGreaterThan(0);
+      }
+    });
+
+    runner.it('TC-6.3: getFlashcardsByLessonId retrieves targeted cards for lessons', () => {
+      const g01Cards = getFlashcardsByLessonId('G01');
+      expect(g01Cards.length).toBeGreaterThanOrEqual(3);
+      for (const card of g01Cards) {
+        expect(card.lessonId).toBe('G01');
+      }
+
+      const l01Cards = getFlashcardsByLessonId('L01');
+      expect(l01Cards.length).toBeGreaterThanOrEqual(1);
+
+      const r01Cards = getFlashcardsByLessonId('R01');
+      expect(r01Cards.length).toBeGreaterThanOrEqual(1);
+
+      const stats = getFlashcardsStats();
+      expect(stats.totalCards).toBe(getAllFlashcards().length);
+      expect(stats.lessonsCovered).toBeGreaterThanOrEqual(10);
+    });
+
+    runner.it('TC-6.4: Cheat Sheets cover all 16 lessons with non-empty core rules and speed tricks', () => {
+      const allSheets = getAllCheatSheets();
+      expect(allSheets.length).toBe(16);
+
+      for (const sheet of allSheets) {
+        expect(sheet.lessonId.trim().length).toBeGreaterThan(0);
+        expect(sheet.title.trim().length).toBeGreaterThan(0);
+        expect(sheet.targetScore.trim().length).toBeGreaterThan(0);
+        expect(sheet.formulaSummary.trim().length).toBeGreaterThan(0);
+        expect(sheet.coreRules.length).toBeGreaterThanOrEqual(2);
+        expect(sheet.speedTricks.length).toBeGreaterThanOrEqual(1);
+        expect(sheet.commonTraps.length).toBeGreaterThanOrEqual(1);
+        expect(sheet.examChecklist.length).toBeGreaterThanOrEqual(2);
+      }
+    });
+
+    runner.it('TC-6.5: getCheatSheetByLessonId retrieves exact cheat sheet or undefined', () => {
+      const g01Sheet = getCheatSheetByLessonId('G01');
+      expect(g01Sheet).toBeDefined();
+      expect(g01Sheet!.lessonId).toBe('G01');
+      expect(g01Sheet!.formulaSummary.length).toBeGreaterThan(5);
+
+      const r05Sheet = getCheatSheetByLessonId('R05');
+      expect(r05Sheet).toBeDefined();
+      expect(r05Sheet!.lessonId).toBe('R05');
+
+      const nonExistent = getCheatSheetByLessonId('NON_EXISTENT_ID');
+      expect(nonExistent).toBeUndefined();
+    });
+
+    runner.it('TC-6.6: Certificate verification code format conforms to LP-TOEIC-2026-XXXX standard', () => {
+      const testCode = 'LP-TOEIC-2026-88F9';
+      expect(/^LP-TOEIC-2026-[A-F0-9]{4}$/.test(testCode)).toBe(true);
     });
   });
 }

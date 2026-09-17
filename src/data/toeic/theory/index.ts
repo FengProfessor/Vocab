@@ -20,6 +20,8 @@ import { readingMasteryModule } from './modules/reading-mastery';
 
 export * from './types';
 export { grammarFoundationModule, listeningTacticsModule, readingMasteryModule };
+export * from './flashcards';
+export * from './cheatsheets';
 
 export const toeicTheoryCurriculum: TheoryCurriculumIndex = {
   version: '1.0.0',

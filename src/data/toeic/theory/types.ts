@@ -140,3 +140,27 @@ export interface TheoryCurriculumIndex {
   totalCheckpoints: number;
   modules: TheoryModule[];
 }
+
+export interface LessonFlashcard {
+  id: string;
+  lessonId: string;
+  term: string;
+  ipa: string;
+  partOfSpeech: 'noun' | 'verb' | 'adjective' | 'adverb' | 'preposition' | 'conjunction' | 'phrase' | 'formula';
+  vietnamese: string;
+  collocation?: string;
+  exampleSentence: string;
+  exampleTranslation: string;
+  trapWarning?: string;
+}
+
+export interface LessonCheatSheet {
+  lessonId: string;
+  title: string;
+  targetScore: string;
+  formulaSummary: string;
+  coreRules: string[];
+  speedTricks: string[];
+  commonTraps: string[];
+  examChecklist: string[];
+}
