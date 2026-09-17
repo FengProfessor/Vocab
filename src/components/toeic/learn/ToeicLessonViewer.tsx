@@ -30,7 +30,6 @@ import { ToeicPracticeBridge } from './ToeicPracticeBridge';
 
 export interface ToeicLessonViewerProps {
   lesson: TheoryLesson;
-  completedCheckpoints?: Set<string>;
   onCheckpointComplete?: (id: string, isCorrect: boolean) => void;
   prevLesson?: TheoryLesson;
   nextLesson?: TheoryLesson;

@@ -323,7 +323,6 @@ function ToeicLearnContent() {
           <div className="flex-1 min-w-0">
             <ToeicLessonViewer
               lesson={currentLesson}
-              completedCheckpoints={completedLessonIds}
               onCheckpointComplete={handleCheckpointComplete}
               prevLesson={prevLesson}
               nextLesson={nextLesson}
