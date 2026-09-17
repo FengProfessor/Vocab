@@ -454,6 +454,51 @@ function extractAnswerLetter(raw: unknown, fallback: 'A' | 'B' | 'C' | 'D' = 'A'
 }
 
 /**
+ * Strips raw HTML tags and decodes entities for normalized dataset question objects.
+ */
+function stripHtmlForDataset(str?: string): string {
+  if (!str) return '';
+  return str
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(?:p|div|tr|li|h[1-6])>/gi, '\n\n')
+    .replace(/<\/(?:td|th)>/gi, ' ')
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&rsquo;/gi, "'")
+    .replace(/&lsquo;/gi, "'")
+    .replace(/&ldquo;/gi, '"')
+    .replace(/&rdquo;/gi, '"')
+    .replace(/&mdash;/gi, '—')
+    .replace(/&ndash;/gi, '–')
+    .replace(/&hellip;/gi, '...')
+    .replace(/&#(\d+);/g, (_, dec) => {
+      try {
+        const code = parseInt(dec, 10);
+        return code >= 32 ? String.fromCharCode(code) : ' ';
+      } catch {
+        return ' ';
+      }
+    })
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => {
+      try {
+        const code = parseInt(hex, 16);
+        return code >= 32 ? String.fromCharCode(code) : ' ';
+      } catch {
+        return ' ';
+      }
+    })
+    .replace(/\u00a0/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
  * Adapts raw Estudyme card objects (parent and child cards) into standardized ToeicUnifiedQuestion array.
  */
 export function adaptEstudymeCardsToUnified(
@@ -522,7 +567,7 @@ export function adaptEstudymeCardsToUnified(
       const parsedOptions = fallbackKeys.map((key, optIdx) => {
         const rawOpt = rawOptions[optIdx] || '';
         const parsed = parseQuestionOption(rawOpt, key);
-        return { key, text: parsed.text };
+        return { key, text: stripHtmlForDataset(parsed.text) };
       });
 
       const rawCorrect =
@@ -541,7 +586,10 @@ export function adaptEstudymeCardsToUnified(
       const audioUrl = resolveToeicMediaUrl(sub.sound) || parentSound;
       const imageUrl = resolveToeicMediaUrl(sub.image) || parentImage;
 
-      let prompt = sub.questionText ? String(sub.questionText).trim() : undefined;
+      let prompt = sub.questionText ? stripHtmlForDataset(String(sub.questionText)) : undefined;
+      if (prompt) {
+        prompt = prompt.replace(/^(?:(?:Câu|Question)\s*\d+[\s.:\)-]*|\d+[\s.:\)-]+)\s*/i, '').trim();
+      }
       if (part === 1 && !prompt) {
         prompt = 'Look at the photograph and choose the best statement.';
       } else if (part === 2 && !prompt) {
@@ -552,7 +600,10 @@ export function adaptEstudymeCardsToUnified(
 
       let passage: string | undefined = undefined;
       if (part === 6 || part === 7) {
-        passage = sub.passage || parentPassage;
+        const rawPass = sub.passage || parentPassage;
+        if (rawPass) {
+          passage = stripHtmlForDataset(rawPass);
+        }
       }
 
       questions.push({

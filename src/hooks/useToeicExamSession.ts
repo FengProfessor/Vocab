@@ -59,6 +59,7 @@ export function useToeicExamSession({
   const [flagged, setFlagged] = useState<Set<number>>(new Set());
   const [currentQNum, setCurrentQNum] = useState<number>(minQNum);
   const [timeRemainingSeconds, setTimeRemainingSeconds] = useState<number>(initialTimeSeconds);
+  const [timeSpentSeconds, setTimeSpentSeconds] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [scoreResult, setScoreResult] = useState<ToeicScoreResult | undefined>(undefined);
@@ -83,8 +84,8 @@ export function useToeicExamSession({
     try {
       const raw = localStorage.getItem(storageKey);
       if (raw) {
-        const draft: SavedSessionDraft = JSON.parse(raw);
-        if (draft && draft.testId === testId && draft.timeRemainingSeconds > 0) {
+        const draft: SavedSessionDraft & { timeSpentSeconds?: number } = JSON.parse(raw);
+        if (draft && draft.testId === testId) {
           setAnswers(draft.answers || {});
           setFlagged(new Set(draft.flagged || []));
           if (draft.currentQNum) {
@@ -92,6 +93,9 @@ export function useToeicExamSession({
           }
           if (typeof draft.timeRemainingSeconds === 'number') {
             setTimeRemainingSeconds(draft.timeRemainingSeconds);
+          }
+          if (typeof draft.timeSpentSeconds === 'number') {
+            setTimeSpentSeconds(draft.timeSpentSeconds);
           }
           setHasRestoredDraft(true);
         }
@@ -117,7 +121,8 @@ export function useToeicExamSession({
       currentAnswers: Record<number, ToeicOptionKey>,
       currentFlagged: Set<number>,
       qNum: number,
-      timeRemaining: number
+      timeRemaining: number,
+      timeSpent: number
     ) => {
       if (typeof window === 'undefined' || isSubmittedRef.current) return;
 
@@ -126,12 +131,13 @@ export function useToeicExamSession({
 
       const performSave = () => {
         try {
-          const draft: SavedSessionDraft = {
+          const draft: SavedSessionDraft & { timeSpentSeconds: number } = {
             testId,
             answers: currentAnswers,
             flagged: Array.from(currentFlagged),
             currentQNum: qNum,
             timeRemainingSeconds: timeRemaining,
+            timeSpentSeconds: timeSpent,
             mode,
             updatedAt: Date.now(),
           };
@@ -171,7 +177,10 @@ export function useToeicExamSession({
       if (isSubmittedRef.current || isSubmitting) return;
       setIsSubmitting(true);
 
-      const elapsed = initialTimeSeconds - timeRemainingSeconds;
+      const elapsed =
+        mode === 'practice'
+          ? Math.max(0, timeSpentSeconds)
+          : Math.max(0, initialTimeSeconds - timeRemainingSeconds);
 
       // Extract clean testId without mode suffixes (e.g. '6852_real' -> '6852')
       const cleanTestId = testId
@@ -297,7 +306,7 @@ export function useToeicExamSession({
     ]
   );
 
-  // ── 4. Countdown Timer Engine ──
+  // ── 4. Timer Engine (Countdown for Real Exam, Count-up / Untimed for Practice) ──
   useEffect(() => {
     if (isSubmitted || isPaused) {
       if (timerRef.current) {
@@ -308,21 +317,28 @@ export function useToeicExamSession({
     }
 
     timerRef.current = setInterval(() => {
-      setTimeRemainingSeconds((prev) => {
-        if (prev <= 1) {
-          // Timer reached 00:00 -> auto submit
-          if (timerRef.current) {
-            clearInterval(timerRef.current);
-            timerRef.current = null;
+      if (mode === 'practice') {
+        // Practice mode: TẮT thời gian giới hạn, chỉ ghi nhận thời gian làm bài (count-up)
+        setTimeSpentSeconds((prev) => prev + 1);
+      } else {
+        // Real exam mode: Đếm ngược thời gian thi, tự động nộp bài khi hết giờ
+        setTimeRemainingSeconds((prev) => {
+          if (prev <= 1) {
+            // Timer reached 00:00 -> auto submit
+            if (timerRef.current) {
+              clearInterval(timerRef.current);
+              timerRef.current = null;
+            }
+            setTimeout(() => {
+              if (onTimeExpired) onTimeExpired();
+              submitExam();
+            }, 0);
+            return 0;
           }
-          setTimeout(() => {
-            if (onTimeExpired) onTimeExpired();
-            submitExam();
-          }, 0);
-          return 0;
-        }
-        return prev - 1;
-      });
+          return prev - 1;
+        });
+        setTimeSpentSeconds((prev) => prev + 1);
+      }
     }, 1000);
 
     return () => {
@@ -331,14 +347,14 @@ export function useToeicExamSession({
         timerRef.current = null;
       }
     };
-  }, [isPaused, isSubmitted, onTimeExpired, submitExam]);
+  }, [isPaused, isSubmitted, mode, onTimeExpired, submitExam]);
 
   // Save on time changes periodically (every 5 seconds)
   useEffect(() => {
-    if (!isSubmitted && !isPaused && timeRemainingSeconds % 5 === 0) {
-      scheduleAutosave(answers, flagged, currentQNum, timeRemainingSeconds);
+    if (!isSubmitted && !isPaused && (timeRemainingSeconds % 5 === 0 || timeSpentSeconds % 5 === 0)) {
+      scheduleAutosave(answers, flagged, currentQNum, timeRemainingSeconds, timeSpentSeconds);
     }
-  }, [answers, currentQNum, flagged, isPaused, isSubmitted, scheduleAutosave, timeRemainingSeconds]);
+  }, [answers, currentQNum, flagged, isPaused, isSubmitted, scheduleAutosave, timeRemainingSeconds, timeSpentSeconds]);
 
   // ── 5. User Interaction Actions ──
 
@@ -347,11 +363,11 @@ export function useToeicExamSession({
       if (isSubmitted) return;
       setAnswers((prev) => {
         const next = { ...prev, [qNum]: option };
-        scheduleAutosave(next, flagged, currentQNum, timeRemainingSeconds);
+        scheduleAutosave(next, flagged, currentQNum, timeRemainingSeconds, timeSpentSeconds);
         return next;
       });
     },
-    [currentQNum, flagged, isSubmitted, scheduleAutosave, timeRemainingSeconds]
+    [currentQNum, flagged, isSubmitted, scheduleAutosave, timeRemainingSeconds, timeSpentSeconds]
   );
 
   const toggleFlag = useCallback(
@@ -364,19 +380,19 @@ export function useToeicExamSession({
         } else {
           next.add(qNum);
         }
-        scheduleAutosave(answers, next, currentQNum, timeRemainingSeconds);
+        scheduleAutosave(answers, next, currentQNum, timeRemainingSeconds, timeSpentSeconds);
         return next;
       });
     },
-    [answers, currentQNum, isSubmitted, scheduleAutosave, timeRemainingSeconds]
+    [answers, currentQNum, isSubmitted, scheduleAutosave, timeRemainingSeconds, timeSpentSeconds]
   );
 
   const goToQuestion = useCallback(
     (qNum: number) => {
       setCurrentQNum(qNum);
-      scheduleAutosave(answers, flagged, qNum, timeRemainingSeconds);
+      scheduleAutosave(answers, flagged, qNum, timeRemainingSeconds, timeSpentSeconds);
     },
-    [answers, flagged, scheduleAutosave, timeRemainingSeconds]
+    [answers, flagged, scheduleAutosave, timeRemainingSeconds, timeSpentSeconds]
   );
 
   const nextQuestion = useCallback(() => {
@@ -399,8 +415,8 @@ export function useToeicExamSession({
     if (isSubmitted) return;
     setIsPaused(true);
     // Persist immediately on pause
-    scheduleAutosave(answers, flagged, currentQNum, timeRemainingSeconds);
-  }, [answers, currentQNum, flagged, isSubmitted, scheduleAutosave, timeRemainingSeconds]);
+    scheduleAutosave(answers, flagged, currentQNum, timeRemainingSeconds, timeSpentSeconds);
+  }, [answers, currentQNum, flagged, isSubmitted, scheduleAutosave, timeRemainingSeconds, timeSpentSeconds]);
 
   const resumeExam = useCallback(() => {
     setIsPaused(false);
@@ -418,6 +434,7 @@ export function useToeicExamSession({
     setFlagged(new Set());
     setCurrentQNum(minQNum);
     setTimeRemainingSeconds(initialTimeSeconds);
+    setTimeSpentSeconds(0);
     setIsPaused(false);
     setIsSubmitted(false);
     isSubmittedRef.current = false;
@@ -444,19 +461,21 @@ export function useToeicExamSession({
     return count;
   }, [flagged, questions]);
 
-  // Warning when less than 5 minutes (300 seconds)
-  const isTimeWarning = timeRemainingSeconds <= 300 && timeRemainingSeconds > 0;
+  // Warning when less than 5 minutes (300 seconds) - ONLY in real exam mode
+  const isTimeWarning =
+    mode === 'real' && timeRemainingSeconds <= 300 && timeRemainingSeconds > 0;
 
   // Active question object
   const currentQuestion = useMemo(() => {
     return questions.find((q) => q.questionNumber === currentQNum) || questions[0];
   }, [currentQNum, questions]);
 
-  // Formatted countdown time mm:ss or hh:mm:ss
+  // Formatted timer: count-up for practice mode, count-down for real exam mode
   const formattedTime = useMemo(() => {
-    const hours = Math.floor(timeRemainingSeconds / 3600);
-    const minutes = Math.floor((timeRemainingSeconds % 3600) / 60);
-    const seconds = timeRemainingSeconds % 60;
+    const targetSeconds = mode === 'practice' ? timeSpentSeconds : timeRemainingSeconds;
+    const hours = Math.floor(targetSeconds / 3600);
+    const minutes = Math.floor((targetSeconds % 3600) / 60);
+    const seconds = targetSeconds % 60;
 
     const pad = (n: number) => n.toString().padStart(2, '0');
 
@@ -464,7 +483,7 @@ export function useToeicExamSession({
       return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
     }
     return `${pad(minutes)}:${pad(seconds)}`;
-  }, [timeRemainingSeconds]);
+  }, [mode, timeRemainingSeconds, timeSpentSeconds]);
 
   return {
     // States
@@ -473,6 +492,7 @@ export function useToeicExamSession({
     currentQNum,
     currentQuestion,
     timeRemainingSeconds,
+    timeSpentSeconds,
     formattedTime,
     isPaused,
     isSubmitted,

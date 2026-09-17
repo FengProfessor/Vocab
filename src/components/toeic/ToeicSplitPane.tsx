@@ -29,14 +29,34 @@ export function stripHtmlTags(str?: string): string {
   if (!str) return '';
   let text = str
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<\/(?:p|div|tr|li|h[1-6])>/gi, '\n\n')
+    .replace(/<\/(?:td|th)>/gi, ' ')
     .replace(/<[^>]*>/g, '')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>');
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>');
+
+  // Decimal and hex numerical HTML entities (e.g. &#8217; or &#x2019;)
+  text = text.replace(/&#(\d+);/g, (_, dec) => {
+    try {
+      const code = parseInt(dec, 10);
+      return code >= 32 ? String.fromCharCode(code) : ' ';
+    } catch {
+      return ' ';
+    }
+  });
+  text = text.replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => {
+    try {
+      const code = parseInt(hex, 16);
+      return code >= 32 ? String.fromCharCode(code) : ' ';
+    } catch {
+      return ' ';
+    }
+  });
 
   const entityMap: Record<string, string> = {
     '&agrave;': 'à', '&aacute;': 'á', '&acirc;': 'â', '&atilde;': 'ã',
@@ -61,7 +81,38 @@ export function stripHtmlTags(str?: string): string {
     text = text.replaceAll(entity, char);
   }
 
+  // Replace unicode non-breaking space with regular space
+  text = text.replace(/\u00a0/g, ' ');
+
   return text.replace(/\n{3,}/g, '\n\n').trim();
+}
+
+/**
+ * Strips HTML tags and removes redundant leading question numbers or labels
+ * (e.g. "162. What is...", "Câu 162: What is...", "Question 162: What is...")
+ */
+export function cleanQuestionPrompt(prompt?: string): string {
+  if (!prompt) return '';
+  const stripped = stripHtmlTags(prompt);
+  return stripped
+    .replace(/^(?:(?:Câu|Question)\s*\d+[\s.:\)-]*|\d+[\s.:\)-]+)\s*/i, '')
+    .trim();
+}
+
+/**
+ * Strips HTML tags and removes redundant leading option keys
+ * (e.g. "(A) ", "A. ", "A) ") since the UI already renders a prominent [ A ] badge.
+ */
+export function cleanOptionText(text?: string, optionKey?: string): string {
+  if (!text) return '';
+  let cleaned = stripHtmlTags(text);
+  if (optionKey) {
+    const keyRegex = new RegExp(`^\\s*(?:\\(${optionKey}\\)|${optionKey}[.:\\)])\\s*`, 'i');
+    cleaned = cleaned.replace(keyRegex, '');
+  } else {
+    cleaned = cleaned.replace(/^\s*(?:\([A-Da-d]\)|[A-Da-d][.:\)])\s*/, '');
+  }
+  return cleaned.trim();
 }
 
 interface ToeicSplitPaneProps {
@@ -170,7 +221,13 @@ export function ToeicSplitPane({
   // Passage segments for reading Part 6 & 7 (handles multi-passages split by '---')
   const passageSegments = useMemo(() => {
     if (!question.passage) return [];
-    return question.passage.split(/\n\s*---\s*\n/).map((p) => p.trim());
+    const normalized = question.passage
+      .replace(/<(?:p|div|br)[^>]*>\s*---\s*<\/(?:p|div)>/gi, '\n\n---\n\n')
+      .replace(/<br\s*\/?>\s*---\s*<br\s*\/?>/gi, '\n\n---\n\n');
+    return normalized
+      .split(/\n\s*---\s*\n/)
+      .map((p) => stripHtmlTags(p).trim())
+      .filter(Boolean);
   }, [question.passage]);
 
   const hasVisibleImage = Boolean(
@@ -464,7 +521,7 @@ export function ToeicSplitPane({
             {question.prompt && (
               <div className="rounded-sm bg-slate-50 p-3 sm:p-3.5 border border-slate-200 dark:bg-slate-900 dark:border-slate-800">
                 <p className="text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100 leading-relaxed break-words">
-                  <ExamInteractiveText text={stripHtmlTags(question.prompt)} enabled={isAnswerRevealed} />
+                  <ExamInteractiveText text={cleanQuestionPrompt(question.prompt)} enabled={isAnswerRevealed} />
                 </p>
               </div>
             )}
@@ -595,7 +652,7 @@ export function ToeicSplitPane({
                       {/* Option Text */}
                       <span className="flex-1 leading-snug break-words">
                         <ExamInteractiveText
-                          text={opt.text || ''}
+                          text={cleanOptionText(opt.text, opt.key)}
                           enabled={isAnswerRevealed}
                         />
                       </span>

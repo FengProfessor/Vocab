@@ -17,7 +17,11 @@ import {
   isWordSavedLocally,
   saveWordLocally,
 } from '../../src/lib/exam-dict-cache';
-import { stripHtmlTags } from '../../src/components/toeic/ToeicSplitPane';
+import {
+  stripHtmlTags,
+  cleanQuestionPrompt,
+  cleanOptionText,
+} from '../../src/components/toeic/ToeicSplitPane';
 import {
   WORD_SPLIT_REGEX,
   IS_ENGLISH_WORD,
@@ -626,6 +630,30 @@ export async function runInteractiveTextTests(runner: TestRunner): Promise<void>
       expect(stripHtmlTags(undefined)).toBe('');
       expect(stripHtmlTags('')).toBe('');
       expect(stripHtmlTags('Clean text')).toBe('Clean text');
+    });
+
+    await runner.it('IT-6.4: cleanQuestionPrompt strips leading question numbers and labels', () => {
+      expect(cleanQuestionPrompt('162. What is suggested about Ms. Ayala?')).toBe('What is suggested about Ms. Ayala?');
+      expect(cleanQuestionPrompt('Câu 162: What is suggested?')).toBe('What is suggested?');
+      expect(cleanQuestionPrompt('Question 45. Where does the conversation take place?')).toBe('Where does the conversation take place?');
+      expect(cleanQuestionPrompt('101) Which statement is true?')).toBe('Which statement is true?');
+      expect(cleanQuestionPrompt('What is the main topic?')).toBe('What is the main topic?');
+    });
+
+    await runner.it('IT-6.5: cleanOptionText strips redundant option keys', () => {
+      expect(cleanOptionText('(A) She has worked as a pastry chef.', 'A')).toBe('She has worked as a pastry chef.');
+      expect(cleanOptionText('A. She has worked as a pastry chef.', 'A')).toBe('She has worked as a pastry chef.');
+      expect(cleanOptionText('A) She has worked as a pastry chef.', 'A')).toBe('She has worked as a pastry chef.');
+      expect(cleanOptionText('She has worked as a pastry chef.', 'A')).toBe('She has worked as a pastry chef.');
+      expect(cleanOptionText('(B) By next Monday', 'B')).toBe('By next Monday');
+    });
+
+    await runner.it('IT-6.6: stripHtmlTags handles decimal and hexadecimal HTML numeric entities', () => {
+      const decHtml = 'The customer&#39;s order &#38; invoice &#40;No. 12&#41;';
+      expect(stripHtmlTags(decHtml)).toBe("The customer's order & invoice (No. 12)");
+
+      const hexHtml = 'Price: &#x24;50 &#x26; tax';
+      expect(stripHtmlTags(hexHtml)).toBe('Price: $50 & tax');
     });
 
     // ── 7. Popover Placement & Geometry Defense ──

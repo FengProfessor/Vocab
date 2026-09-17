@@ -131,7 +131,7 @@ function ToeicExamRoomInner() {
       const defaultQCount = limitNum || 20;
       const minutes = timeParam
         ? parseInt(timeParam, 10)
-        : Math.max(5, Math.ceil(defaultQCount * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25)));
+        : Math.ceil(defaultQCount * ((PART_RECOMMENDED_MINUTES[partNum] || 15) / 25));
       return {
         testTitle: `Luyện tập Part ${partNum} (${defaultQCount} câu — ${sourceLabel})`,
         durationSeconds: minutes * 60,

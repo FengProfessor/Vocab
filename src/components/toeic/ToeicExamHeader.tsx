@@ -105,23 +105,34 @@ export function ToeicExamHeader({
         </div>
       </div>
 
-      {/* Center: Digital Countdown Timer */}
+      {/* Center: Digital Timer (Untimed Count-up for Practice, Countdown for Real Exam) */}
       <div className="flex items-center">
-        <div
-          className={`flex items-center gap-1 sm:gap-1.5 rounded-sm px-2 sm:px-3 py-1 font-mono text-xs sm:text-sm font-bold tabular-nums tracking-wider border transition-colors ${
-            isTimeWarning
-              ? 'border-rose-500 bg-rose-50 text-rose-600 dark:border-rose-600 dark:bg-rose-950/40 dark:text-rose-400'
-              : 'border-slate-300 bg-slate-100 text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100'
-          }`}
-          title={isTimeWarning ? 'Thời gian còn dưới 5 phút!' : 'Thời gian làm bài còn lại'}
-        >
-          {isTimeWarning ? (
-            <AlertTriangle className="h-3.5 w-3.5 text-rose-600 dark:text-rose-400 shrink-0" />
-          ) : (
-            <Clock className="h-3.5 w-3.5 text-slate-500 dark:text-slate-400 shrink-0" />
-          )}
-          <span>{formattedTime}</span>
-        </div>
+        {mode === 'practice' ? (
+          <div
+            className="flex items-center gap-1 sm:gap-1.5 rounded-sm px-2 sm:px-3 py-1 font-mono text-xs sm:text-sm font-semibold border border-slate-200 bg-slate-100 text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 select-none"
+            title="Chế độ Luyện tập: Tự do làm bài, không giới hạn thời gian"
+          >
+            <Clock className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <span>{formattedTime}</span>
+            <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-bold hidden sm:inline">(Tự do)</span>
+          </div>
+        ) : (
+          <div
+            className={`flex items-center gap-1 sm:gap-1.5 rounded-sm px-2 sm:px-3 py-1 font-mono text-xs sm:text-sm font-bold tabular-nums tracking-wider border transition-colors ${
+              isTimeWarning
+                ? 'border-rose-500 bg-rose-50 text-rose-600 dark:border-rose-600 dark:bg-rose-950/40 dark:text-rose-400'
+                : 'border-slate-300 bg-slate-100 text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100'
+            }`}
+            title={isTimeWarning ? 'Thời gian còn dưới 5 phút!' : 'Thời gian làm bài còn lại'}
+          >
+            {isTimeWarning ? (
+              <AlertTriangle className="h-3.5 w-3.5 text-rose-600 dark:text-rose-400 shrink-0" />
+            ) : (
+              <Clock className="h-3.5 w-3.5 text-slate-500 dark:text-slate-400 shrink-0" />
+            )}
+            <span>{formattedTime}</span>
+          </div>
+        )}
       </div>
 
       {/* Right: Mode Toggle, Palette, Pause & Submit Actions */}

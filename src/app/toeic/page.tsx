@@ -1566,9 +1566,15 @@ function ToeicCatalogContent() {
                       Số lượng câu hỏi:
                     </label>
                   </div>
-                  <span className="font-mono text-xs text-slate-500 tabular-nums">
-                    ~{estimatedTimeMinutes} phút (~{currentPartMeta.secondsPerQuestion}s/câu)
-                  </span>
+                  {selectedMode === 'practice' ? (
+                    <span className="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-semibold">
+                      Không giới hạn thời gian (Tự do)
+                    </span>
+                  ) : (
+                    <span className="font-mono text-xs text-slate-500 tabular-nums">
+                      ~{estimatedTimeMinutes} phút (~{currentPartMeta.secondsPerQuestion}s/câu - Tính giờ)
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex flex-wrap items-center gap-1 sm:gap-1.5">
@@ -1745,7 +1751,11 @@ function ToeicCatalogContent() {
                   className="inline-flex items-center justify-center gap-2 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 px-5 py-2.5 text-xs sm:text-sm font-bold transition-colors shadow-xs shrink-0"
                 >
                   <Play className="h-3.5 w-3.5 fill-current" />
-                  <span>Bắt đầu luyện Part {currentPartMeta.part} ({effectiveCount} câu)</span>
+                  <span>
+                    {selectedMode === 'practice'
+                      ? `Bắt đầu luyện Part ${currentPartMeta.part} (${effectiveCount} câu · Tự do)`
+                      : `Bắt đầu thi Part ${currentPartMeta.part} (${effectiveCount} câu · ${estimatedTimeMinutes}p)`}
+                  </span>
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>

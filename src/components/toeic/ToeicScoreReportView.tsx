@@ -38,7 +38,7 @@ import type {
 } from '@/types/toeic';
 import { getCefrDescriptor, getPartAccuracyRating } from '@/lib/toeic-scoring';
 import { ToeicAudioPlayer } from './ToeicAudioPlayer';
-import { stripHtmlTags } from './ToeicSplitPane';
+import { stripHtmlTags, cleanQuestionPrompt, cleanOptionText } from './ToeicSplitPane';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 export interface ToeicScoreReportViewProps {
@@ -1140,14 +1140,20 @@ export function ToeicScoreReportView({
                         <FileText className="h-3.5 w-3.5" /> Đoạn văn đọc hiểu
                       </span>
                       <div className="space-y-3 text-xs sm:text-sm font-serif leading-relaxed text-slate-800 dark:text-slate-200">
-                        {q.passage.split('\n\n---\n\n').map((seg, idx) => (
-                          <div
-                            key={idx}
-                            className="whitespace-pre-line rounded-sm bg-white p-3.5 border border-slate-200 dark:bg-slate-900 dark:border-slate-800"
-                          >
-                            <ExamInteractiveText text={seg} enabled={true} />
-                          </div>
-                        ))}
+                        {q.passage
+                          .replace(/<(?:p|div|br)[^>]*>\s*---\s*<\/(?:p|div)>/gi, '\n\n---\n\n')
+                          .replace(/<br\s*\/?>\s*---\s*<br\s*\/?>/gi, '\n\n---\n\n')
+                          .split(/\n\s*---\s*\n/)
+                          .map((seg) => stripHtmlTags(seg).trim())
+                          .filter(Boolean)
+                          .map((seg, idx) => (
+                            <div
+                              key={idx}
+                              className="whitespace-pre-line rounded-sm bg-white p-3.5 border border-slate-200 dark:bg-slate-900 dark:border-slate-800"
+                            >
+                              <ExamInteractiveText text={seg} enabled={true} />
+                            </div>
+                          ))}
                       </div>
                     </div>
                   )}
@@ -1155,7 +1161,7 @@ export function ToeicScoreReportView({
                   {/* Question Prompt */}
                   {q.prompt && (
                     <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white leading-relaxed">
-                      <ExamInteractiveText text={stripHtmlTags(q.prompt)} enabled={true} />
+                      <ExamInteractiveText text={cleanQuestionPrompt(q.prompt)} enabled={true} />
                     </h3>
                   )}
 
@@ -1217,7 +1223,7 @@ export function ToeicScoreReportView({
                             </span>
                             <span className="leading-relaxed pt-0.5">
                               {opt.text ? (
-                                <ExamInteractiveText text={opt.text} enabled={true} />
+                                <ExamInteractiveText text={cleanOptionText(opt.text, opt.key)} enabled={true} />
                               ) : isListening ? (
                                 <span className="italic text-slate-400 font-mono text-xs">
                                   (Phương án {opt.key})
