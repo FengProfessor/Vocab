@@ -2,6 +2,12 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { getClientIp } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
+import { cacheGet, cacheSet } from '@/lib/ttl-cache';
+
+const CACHE_TTL_MS = 24 * 3600 * 1000; // 24h
+const CACHE_HEADERS = {
+  'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000',
+} as const;
 
 /**
  * GET /api/dictionary/external?word=X
@@ -28,12 +34,20 @@ export async function GET(req: Request) {
   const denied = await assertScrapeQuota(`ext:${ip}`, QUOTA.dictExternal);
   if (denied) return denied;
 
+  const cacheKey = `ext-lookup:${raw}`;
+  const cached = cacheGet<Record<string, unknown>>(cacheKey);
+  if (cached) {
+    return NextResponse.json(cached, {
+      headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT' },
+    });
+  }
+
   try {
     const word = encodeURIComponent(raw);
 
-    // Gọi dict.minhqnd.com với timeout 6s (AbortController pattern)
+    // Gọi dict.minhqnd.com với timeout 2.5s (giảm từ 6s để không treo request)
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000);
+    const timeoutId = setTimeout(() => controller.abort(), 2500);
 
     let extData: Record<string, unknown>;
     try {
@@ -75,11 +89,16 @@ export async function GET(req: Request) {
       }
     })();
 
-    // Trả về spread nguyên body dict.minhqnd kèm meta source
-    return NextResponse.json({
+    const payload = {
       success: true,
       source: 'external',
       ...extData,
+    };
+    cacheSet(cacheKey, payload, CACHE_TTL_MS);
+
+    // Trả về spread nguyên body dict.minhqnd kèm meta source & Cache-Control
+    return NextResponse.json(payload, {
+      headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'MISS' },
     });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Unknown error';

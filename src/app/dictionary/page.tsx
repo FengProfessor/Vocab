@@ -216,6 +216,9 @@ function isGarbageResult(data: DictionaryData): boolean {
   return false;
 }
 
+const clientLexicalCache = new Map<string, LookupResult>();
+const clientSuggestCache = new Map<string, { suggestions: string[]; isFuzzy: boolean; didYouMean?: string[] }>();
+
 export default function DictionaryPage() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -301,54 +304,71 @@ export default function DictionaryPage() {
       kind: 'word' | 'phrase',
     ): Promise<LookupResult | null> => {
       const isPhrase = kind === 'phrase';
+      const cacheKey = trimmed.toLowerCase();
+
+      // 0ms Cache Hit
+      const cached = clientLexicalCache.get(cacheKey);
+      if (cached) {
+        return cached;
+      }
 
       // Tier 1: local dictionary (cụm nếu đã có trong kho)
       try {
         const res = await fetch(
           `/api/dictionary/lookup?word=${encodeURIComponent(trimmed)}`,
-          { signal: AbortSignal.timeout(4000) },
+          { signal: AbortSignal.timeout(2000) },
         );
+        const json = await res.json().catch(() => ({}));
         if (res.ok) {
-          const json = await res.json();
           if (json.results && json.results.length > 0) {
             const data: DictionaryData = json;
             if (!isGarbageResult(data)) {
-              return {
+              const resObj: LookupResult = {
                 data,
                 source: isPhrase ? 'Cụm · kho' : 'Kho từ điển',
                 imageUrl: json.image_url,
                 queriedWord: trimmed,
                 kind,
               };
+              clientLexicalCache.set(cacheKey, resObj);
+              return resObj;
             }
           }
+        } else if (res.status === 404 && Array.isArray(json.didYouMean) && json.didYouMean.length > 0) {
+          // Bắt trúng lỗi gõ sai chính tả: hiển thị ngay gợi ý Did You Mean, không lãng phí 15s gọi API bên ngoài
+          setDidYouMean(json.didYouMean);
+          return null;
         }
       } catch {
         // fall through
       }
 
-      // Tier 2: external (từ đơn hiệu quả hơn; cụm thử luôn)
-      try {
-        const res = await fetch(
-          `/api/dictionary/external?word=${encodeURIComponent(trimmed)}`,
-          { signal: AbortSignal.timeout(6000) },
-        );
-        if (res.ok) {
-          const json = await res.json();
-          if (json.success && (json.results?.length > 0 || json.pronunciations?.length > 0)) {
-            const data: DictionaryData = json;
-            if (!isGarbageResult(data)) {
-              return {
-                data,
-                source: isPhrase ? 'Cụm · kho' : 'Wiktionary',
-                queriedWord: trimmed,
-                kind,
-              };
+      // Tier 2: external (từ đơn hiệu quả cao trên Wiktionary; cụm từ bỏ qua để không chờ đợi vô ích)
+      if (!isPhrase) {
+        try {
+          const res = await fetch(
+            `/api/dictionary/external?word=${encodeURIComponent(trimmed)}`,
+            { signal: AbortSignal.timeout(2500) },
+          );
+          if (res.ok) {
+            const json = await res.json().catch(() => ({}));
+            if (json.success && (json.results?.length > 0 || json.pronunciations?.length > 0)) {
+              const data: DictionaryData = json;
+              if (!isGarbageResult(data)) {
+                const resObj: LookupResult = {
+                  data,
+                  source: 'Wiktionary',
+                  queriedWord: trimmed,
+                  kind,
+                };
+                clientLexicalCache.set(cacheKey, resObj);
+                return resObj;
+              }
             }
           }
+        } catch {
+          // fall through
         }
-      } catch {
-        // fall through
       }
 
       // Tier 3: AI word/phrase (free có quota ngày — prompt đã hỗ trợ phrase)
@@ -358,23 +378,25 @@ export default function DictionaryPage() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ word: trimmed }),
-            signal: AbortSignal.timeout(12000),
+            signal: AbortSignal.timeout(8000),
           });
           if (res.status === 429) {
             toast.error('AI đang bận, chờ chút rồi thử lại');
             return null;
           }
           if (res.ok) {
-            const json = await res.json();
+            const json = await res.json().catch(() => ({}));
             if (json.success && json.data) {
               const data: DictionaryData = json.data;
               if (!isGarbageResult(data)) {
-                return {
+                const resObj: LookupResult = {
                   data,
                   source: isPhrase ? 'Cụm · AI' : 'AI',
                   queriedWord: trimmed,
                   kind,
                 };
+                clientLexicalCache.set(cacheKey, resObj);
+                return resObj;
               }
             }
           }
@@ -612,6 +634,16 @@ export default function DictionaryPage() {
       return;
     }
 
+    // 0ms Cache Hit từ client cache
+    const cached = clientSuggestCache.get(q);
+    if (cached) {
+      setSuggestions(cached.suggestions);
+      setIsSuggestFuzzy(cached.isFuzzy);
+      setShowSuggest(cached.suggestions.length > 0);
+      setSelectedSuggestIdx(-1);
+      return;
+    }
+
     suggestTimerRef.current = setTimeout(async () => {
       // Hủy request cũ
       suggestAbortRef.current?.abort();
@@ -631,6 +663,11 @@ export default function DictionaryPage() {
           didYouMean?: string[];
         };
         if (json.success && json.suggestions && json.suggestions.length > 0) {
+          clientSuggestCache.set(q, {
+            suggestions: json.suggestions,
+            isFuzzy: Boolean(json.isFuzzy),
+            didYouMean: json.didYouMean,
+          });
           setSuggestions(json.suggestions);
           setIsSuggestFuzzy(Boolean(json.isFuzzy));
           setShowSuggest(true);
@@ -643,7 +680,7 @@ export default function DictionaryPage() {
       } catch {
         // AbortError hoặc network error — bỏ qua
       }
-    }, 150); // Debounce siêu tốc 150ms với In-Memory RAM Trie Engine (0.005ms latency)
+    }, 80); // Debounce siêu nhạy 80ms (kết hợp RAM Trie 0.005ms phản hồi tức thì)
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -289,3 +289,13 @@ export function getSmartSuggestionsFromRAM(
     didYouMean,
   };
 }
+
+// Tự động kích hoạt nạp RAM ngầm ngay khi server khởi động (chỉ chạy trên production/server runtime, không tự kích hoạt trong test runner)
+if (typeof window === 'undefined' && process.env.NODE_ENV !== 'test' && !process.env.TSX_TEST) {
+  const timer = setTimeout(() => {
+    triggerWordListLoad().catch(() => {});
+  }, 1000);
+  if (typeof (timer as any)?.unref === 'function') {
+    (timer as any).unref();
+  }
+}

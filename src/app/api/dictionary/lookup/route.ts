@@ -19,9 +19,9 @@ type CachedPayload = {
   body: Record<string, unknown>;
 };
 
-const CACHE_TTL_MS = 60_000;
+const CACHE_TTL_MS = 24 * 3600 * 1000; // 24 giờ lưu RAM
 const CACHE_HEADERS = {
-  'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=3600',
+  'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000',
 } as const;
 
 /** Cặp vai trò hay bị gán nhầm "trái nghĩa" (teach↔learn ≠ hot↔cold). */

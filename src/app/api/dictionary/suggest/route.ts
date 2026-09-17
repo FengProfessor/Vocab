@@ -43,7 +43,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       },
       {
         headers: {
-          'Cache-Control': 'public, s-maxage=3600',
+          'Cache-Control': 'public, max-age=3600, s-maxage=86400',
           'X-Suggest-Speed': smartResult.isFuzzy ? '<30ms' : '0.005ms',
         },
       }
