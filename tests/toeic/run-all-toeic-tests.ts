@@ -28,6 +28,7 @@ import { runMobileUxEnhancementTests } from './mobile-ux-enhancements.test';
 import { runExplainRegressionTests } from './explain-regression.test';
 import { runInteractiveTextTests } from '../exam/interactive-text.test';
 import { runFuzzyDictTests } from '../exam/fuzzy-dict.test';
+import { runPart7ReadingStimulusTests } from './part7-reading-stimulus.test';
 
 async function main() {
   console.log('================================================================================');
@@ -165,6 +166,14 @@ async function main() {
   const statsFZ = runnerFZ.getStats();
   tierStats.push({ tierName: 'RAM Fuzzy Search & Spell Correction', stats: statsFZ, minRequired: 7 });
   console.log(`✓ RAM Fuzzy Search Finished: ${statsFZ.passed}/${statsFZ.total} passed (${statsFZ.durationMs}ms)\n`);
+
+  // Suite: Part 7 & Part 6 Reading Stimulus (ETS Images & Passages)
+  console.log('▶ Running Suite: Part 7 & Part 6 Reading Stimulus (ETS Images & Passages)...');
+  const runnerP7 = new TestRunner();
+  await runPart7ReadingStimulusTests(runnerP7);
+  const statsP7 = runnerP7.getStats();
+  tierStats.push({ tierName: 'Part 7 & 6 Reading Stimulus', stats: statsP7, minRequired: 9 });
+  console.log(`✓ Part 7 & 6 Reading Stimulus Finished: ${statsP7.passed}/${statsP7.total} passed (${statsP7.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

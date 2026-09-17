@@ -180,7 +180,7 @@ export const AUTHENTIC_TEST_METADATA: readonly ToeicTestMetadata[] = [
  * Safe Node.js filesystem and path helpers (guarded against client bundling).
  */
 function getNodeFs(): typeof import('fs') | null {
-  if (typeof window !== 'undefined') return null;
+  if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
   try {
     // eslint-disable-next-line @typescript-eslint/no-implied-eval
     const req = eval('require');
@@ -191,7 +191,7 @@ function getNodeFs(): typeof import('fs') | null {
 }
 
 function getNodePath(): typeof import('path') | null {
-  if (typeof window !== 'undefined') return null;
+  if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
   try {
     // eslint-disable-next-line @typescript-eslint/no-implied-eval
     const req = eval('require');
@@ -539,7 +539,7 @@ export function adaptEstudymeCardsToUnified(
       if (!fallbackKeys.includes(correct)) correct = 'A';
 
       const audioUrl = resolveToeicMediaUrl(sub.sound) || parentSound;
-      const imageUrl = resolveToeicMediaUrl(sub.image) || (part === 1 ? parentImage : undefined);
+      const imageUrl = resolveToeicMediaUrl(sub.image) || parentImage;
 
       let prompt = sub.questionText ? String(sub.questionText).trim() : undefined;
       if (part === 1 && !prompt) {
@@ -1293,7 +1293,8 @@ export function groupQuestionsIntoStimulusGroups(
     }
 
     if (p === 6) {
-      const passageKey = q.passage || `no-passage-${q.testId}-${Math.floor(q.questionNumber / 4)}`;
+      const passageKey =
+        q.passage || (q.imageUrl ? `img-${q.imageUrl}` : `no-passage-${q.testId}-${Math.floor(q.questionNumber / 4)}`);
       const samePassage =
         currentGroup.length > 0 &&
         currentGroupType === 'passage' &&
@@ -1318,7 +1319,8 @@ export function groupQuestionsIntoStimulusGroups(
     }
 
     if (p === 7) {
-      const passageKey = q.passage || `no-passage-${q.testId}-${q.id}`;
+      const passageKey =
+        q.passage || (q.imageUrl ? `img-${q.imageUrl}` : `no-passage-${q.testId}-${q.id}`);
       const samePassage =
         currentGroup.length > 0 &&
         currentGroupType === 'passage' &&

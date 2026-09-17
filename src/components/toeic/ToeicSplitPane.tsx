@@ -145,24 +145,27 @@ export function ToeicSplitPane({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [hasNext, hasPrev, onNext, onPrev, onSelectOption, onToggleFlag, question.options]);
 
-  const isReadingWithPassage =
-    (question.part === 6 || question.part === 7) && Boolean(question.passage);
+  const isReadingPart = question.part === 6 || question.part === 7;
+  const hasReadingPassageText = Boolean(isReadingPart && question.passage);
+  const hasReadingPassageImage = Boolean(isReadingPart && question.imageUrl);
+  const isReadingWithPassage = hasReadingPassageText || hasReadingPassageImage;
   const isPart5 = question.part === 5;
   const [mobileTab, setMobileTab] = useState<'passage' | 'question'>('question');
 
   // Track previous passage to avoid resetting mobile tab to 'question' when navigating questions within the same reading passage in Part 6 & 7
-  const prevPassageRef = React.useRef<string | undefined>(question.passage);
+  const stimulusKey = question.passage || (isReadingPart ? question.imageUrl : undefined);
+  const prevPassageRef = React.useRef<string | undefined>(stimulusKey);
   useEffect(() => {
     if (isReadingWithPassage) {
-      if (question.passage !== prevPassageRef.current) {
-        prevPassageRef.current = question.passage;
+      if (question.passage !== prevPassageRef.current && stimulusKey !== prevPassageRef.current) {
+        prevPassageRef.current = stimulusKey;
         setMobileTab('question');
       }
     } else {
       prevPassageRef.current = undefined;
       setMobileTab('question');
     }
-  }, [question.id, question.passage, isReadingWithPassage]);
+  }, [question.id, question.passage, stimulusKey, isReadingWithPassage]);
 
   // Passage segments for reading Part 6 & 7 (handles multi-passages split by '---')
   const passageSegments = useMemo(() => {
@@ -171,7 +174,7 @@ export function ToeicSplitPane({
   }, [question.passage]);
 
   const hasVisibleImage = Boolean(
-    (question.part === 1 || question.part === 3 || question.part === 4) &&
+    (question.part === 1 || question.part === 3 || question.part === 4 || isReadingPart) &&
       question.imageUrl &&
       (!isReadingWithPassage || mobileTab === 'passage')
   );
@@ -312,7 +315,48 @@ export function ToeicSplitPane({
               </div>
             )}
 
-            {/* 6. Part 6 & Part 7 Reading Passages */}
+            {/* 6. Part 6 & Part 7 Reading Image Stimulus (ETS Authentic Scanned Documents / Letters / Notices) */}
+            {(question.part === 6 || question.part === 7) && question.imageUrl && (
+              <div className="space-y-3">
+                <div className="relative group overflow-hidden rounded-sm border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/40 p-2 sm:p-3 shadow-2xs">
+                  <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 mb-2.5">
+                    <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                      <FileText className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
+                      {question.part === 6 ? 'Part 6 — Văn bản đọc điền' : 'Part 7 — Đoạn văn đọc hiểu'}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setIsImageZoomed(true)}
+                      className="flex items-center gap-1 font-mono text-xs text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition px-2.5 py-1 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 cursor-pointer shadow-2xs font-semibold"
+                      title="Phóng to tài liệu đọc"
+                    >
+                      <Maximize2 className="h-3.5 w-3.5" />
+                      <span>Phóng to</span>
+                    </button>
+                  </div>
+
+                  <div
+                    className="relative w-full overflow-hidden flex justify-center cursor-zoom-in group/img"
+                    onClick={() => setIsImageZoomed(true)}
+                    title="Nhấp để phóng to toàn màn hình"
+                  >
+                    <img
+                      src={question.imageUrl}
+                      alt={`Tài liệu đọc Part ${question.part} (Câu ${question.questionNumber})`}
+                      className="w-full h-auto object-contain rounded-xs select-none max-h-[75vh] lg:max-h-none transition-transform duration-200 group-hover/img:scale-[1.005]"
+                      loading="eager"
+                    />
+                  </div>
+
+                  <div className="mt-2.5 pt-2 border-t border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400 select-none">
+                    <span>🔍 Nhấp vào tài liệu để phóng to toàn màn hình</span>
+                    <span>ETS Part {question.part}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 7. Part 6 & Part 7 Text Reading Passages */}
             {(question.part === 6 || question.part === 7) && question.passage && (
               <div className="flex flex-col min-h-full space-y-4">
                 {passageSegments.map((segment, idx) => (
@@ -342,20 +386,20 @@ export function ToeicSplitPane({
                     </div>
                   </article>
                 ))}
+              </div>
+            )}
 
-                {/* Mobile switch to question button at bottom of passage */}
-                {isReadingWithPassage && (
-                  <div className="lg:hidden sticky bottom-2 flex justify-center pt-2 pb-1">
-                    <button
-                      type="button"
-                      onClick={() => setMobileTab('question')}
-                      className="inline-flex items-center gap-1.5 rounded-sm border border-slate-700 bg-slate-900 dark:border-slate-300 dark:bg-slate-100 px-4 py-2 font-mono text-xs font-bold text-white dark:text-slate-900 shadow-md transition hover:bg-slate-800 dark:hover:bg-white cursor-pointer active:scale-98"
-                    >
-                      <span>Làm câu hỏi {question.questionNumber}</span>
-                      <ChevronRight className="h-3.5 w-3.5" />
-                    </button>
-                  </div>
-                )}
+            {/* Mobile switch to question button at bottom of stimulus pane */}
+            {isReadingWithPassage && (
+              <div className="lg:hidden sticky bottom-2 flex justify-center pt-2 pb-1">
+                <button
+                  type="button"
+                  onClick={() => setMobileTab('question')}
+                  className="inline-flex items-center gap-1.5 rounded-sm border border-slate-700 bg-slate-900 dark:border-slate-300 dark:bg-slate-100 px-4 py-2 font-mono text-xs font-bold text-white dark:text-slate-900 shadow-md transition hover:bg-slate-800 dark:hover:bg-white cursor-pointer active:scale-98"
+                >
+                  <span>Làm câu hỏi {question.questionNumber}</span>
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </button>
               </div>
             )}
           </div>
@@ -412,7 +456,7 @@ export function ToeicSplitPane({
                 className="lg:hidden inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1.5 rounded-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition cursor-pointer mb-1"
               >
                 <FileText className="h-3.5 w-3.5 text-slate-500" />
-                <span>Xem lại bài đọc ({passageSegments.length > 1 ? `${passageSegments.length} đoạn` : 'văn bản'}) →</span>
+                <span>Xem lại bài đọc ({passageSegments.length > 1 ? `${passageSegments.length} đoạn` : 'tài liệu/văn bản'}) →</span>
               </button>
             )}
 
@@ -759,7 +803,7 @@ export function ToeicSplitPane({
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
           onClick={() => setIsImageZoomed(false)}
         >
-          <div className="relative max-w-4xl max-h-[90vh] w-full h-[80vh]">
+          <div className="relative max-w-5xl max-h-[92vh] w-full h-[88vh]">
             <Image
               src={question.imageUrl}
               alt="Phóng to ảnh"

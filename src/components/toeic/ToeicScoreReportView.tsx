@@ -1060,17 +1060,28 @@ export function ToeicScoreReportView({
 
                   {/* Stimulus 1: Image (if any) */}
                   {q.imageUrl && (
-                    <div className="overflow-hidden rounded-sm border border-slate-200 bg-slate-50 p-2 dark:border-slate-800 dark:bg-slate-950/40">
-                      <div className="relative mx-auto max-h-72 max-w-md aspect-[4/3]">
-                        <Image
-                          src={q.imageUrl}
-                          alt={`Minh họa câu ${q.questionNumber}`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 450px"
-                          className="rounded-xs object-contain"
-                          unoptimized
-                        />
-                      </div>
+                    <div className="overflow-hidden rounded-sm border border-slate-200 bg-slate-50 p-2 sm:p-3 dark:border-slate-800 dark:bg-slate-950/40">
+                      {q.part === 6 || q.part === 7 ? (
+                        <div className="relative mx-auto w-full max-w-2xl flex justify-center">
+                          <img
+                            src={q.imageUrl}
+                            alt={`Tài liệu đọc Part ${q.part} (Câu ${q.questionNumber})`}
+                            className="w-full h-auto max-h-[75vh] object-contain rounded-xs shadow-2xs"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div className="relative mx-auto max-h-72 max-w-md aspect-[4/3]">
+                          <Image
+                            src={q.imageUrl}
+                            alt={`Minh họa câu ${q.questionNumber}`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 450px"
+                            className="rounded-xs object-contain"
+                            unoptimized
+                          />
+                        </div>
+                      )}
                     </div>
                   )}
 
