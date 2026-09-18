@@ -45,10 +45,10 @@ interface WordItem extends ReviewWordLike {
   isDue: boolean;
 }
 
-const NEXT_OK_MS = 4000;
-const NEXT_BAD_MS = 10000;
-/** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án. */
-const FEEDBACK_LOCK_MS = 700;
+const NEXT_OK_MS = 1400;
+const NEXT_BAD_MS = 3500;
+/** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án (180ms nhạy bén nhưng an toàn). */
+const FEEDBACK_LOCK_MS = 180;
 const SESSION_CAP = 25;
 
 function parseSessionMode(raw: string | null): ReviewSessionMode {
@@ -92,6 +92,8 @@ function SessionContent() {
   const feedbackLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   /** Guard cứng (tránh stale verdict / double-tap) — không phụ thuộc render. */
   const answeredRef = useRef(false);
+  /** Buffer phím Enter/Space bấm trong lúc feedback lock (180ms) để không bị trôi/bỏ qua */
+  const pendingSkipRef = useRef(false);
 
   const modeMeta = useMemo(() => itemModeLabel(itemMode), [itemMode]);
 
@@ -117,6 +119,7 @@ function SessionContent() {
     setSelected(null);
     setVerdict(null);
     setCanSkip(false);
+    pendingSkipRef.current = false;
     setShakingIdx(null);
     answeredRef.current = false;
     startedAt.current = Date.now();
@@ -178,23 +181,35 @@ function SessionContent() {
         const base = classroomId
           ? `/api/words?classroomId=${classroomId}`
           : `/api/words`;
-        // Pool nhẹ (80 từ) cho distractor MCQ; queue due cap SESSION_CAP
+        // Pool nhẹ (30 từ) cho distractor MCQ; queue due cap SESSION_CAP
         // Truyền token sẵn → authFetch không gọi getSession() lại (tiết kiệm ~400ms)
         const [allRes, dueRes] = await Promise.all([
-          authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=80`, {}, token),
+          authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=30`, {}, token),
           authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {}, token),
         ]);
-        const allJson = await allRes.json();
-        const dueJson = await dueRes.json();
+        const allJson = await allRes.json().catch(() => ({ success: false }));
+        const dueJson = await dueRes.json().catch(() => ({ success: false }));
 
-        if (!allJson.success) {
+        if (!allJson.success && !dueJson.success) {
           toast.error('Không tải được từ vựng.');
           setIsLoading(false);
           return;
         }
-        if (!classroomId && allJson.classroomId) setClassroomId(allJson.classroomId);
+        const classroomIdFromRes = dueJson.classroomId || allJson.classroomId;
+        if (!classroomId && classroomIdFromRes) setClassroomId(classroomIdFromRes);
 
-        const ready = (allJson.data as WordItem[]).filter(
+        const allWords = (allJson.success && Array.isArray(allJson.data)) ? (allJson.data as WordItem[]) : [];
+        const dueWords = (dueJson.success && Array.isArray(dueJson.data)) ? (dueJson.data as WordItem[]) : [];
+
+        // Pool cho distractor MCQ: kết hợp allWords + dueWords để không bị thiếu phương án
+        const combinedPool = [...allWords];
+        for (const dw of dueWords) {
+          if (!combinedPool.some((w) => w.id === dw.id)) {
+            combinedPool.push(dw);
+          }
+        }
+
+        const ready = combinedPool.filter(
           (w) =>
             w.word &&
             w.translation &&
@@ -203,7 +218,7 @@ function SessionContent() {
         );
         setPool(ready);
 
-        let due = ((dueJson.success && dueJson.data) ? dueJson.data : ready.filter((w) => w.isDue)) as WordItem[];
+        let due = dueWords.length > 0 ? dueWords : ready.filter((w) => w.isDue);
         due = due.filter(
           (w) =>
             w.word &&
@@ -267,6 +282,7 @@ function SessionContent() {
       clearTimeout(feedbackLockTimer.current);
       feedbackLockTimer.current = null;
     }
+    pendingSkipRef.current = false;
     stopWordAudio();
 
     const head = queueRef.current[0];
@@ -312,11 +328,15 @@ function SessionContent() {
         body: JSON.stringify({ wordId: current.id, quality }),
       }).catch((err) => console.error('[ReviewSession] SRS:', err));
 
-      // Mở skip sau lock — tránh ghost-click từ chạm đáp án
+      // Mở skip sau lock — nếu user đã bấm Enter/Space trước đó thì advance ngay
       if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
       feedbackLockTimer.current = setTimeout(() => {
         setCanSkip(true);
         feedbackLockTimer.current = null;
+        if (pendingSkipRef.current) {
+          pendingSkipRef.current = false;
+          advanceFn.current?.();
+        }
       }, FEEDBACK_LOCK_MS);
 
       const delay = isCorrect ? NEXT_OK_MS : NEXT_BAD_MS;
@@ -361,7 +381,11 @@ function SessionContent() {
   };
 
   const skipWait = () => {
-    if (!answeredRef.current || !canSkip) return;
+    if (!answeredRef.current) return;
+    if (!canSkip) {
+      pendingSkipRef.current = true;
+      return;
+    }
     advanceFn.current?.();
   };
 
@@ -375,8 +399,7 @@ function SessionContent() {
       if (done || isLoading || !current) return;
       if (answeredRef.current && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
-        // Chỉ skip khi hết feedback lock (tránh Enter double-fire sau gõ)
-        if (canSkip) skipWait();
+        skipWait();
         return;
       }
       if (answeredRef.current) return;
@@ -739,7 +762,7 @@ function SessionContent() {
                     if (e.key === 'Enter') {
                       e.preventDefault();
                       if (answeredRef.current) {
-                        if (canSkip) skipWait();
+                        skipWait();
                       } else {
                         handleTypeSubmit();
                       }

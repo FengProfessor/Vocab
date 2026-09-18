@@ -35,20 +35,22 @@ function ReviewHubContent() {
         }
 
         const url = classParam
-          ? `/api/words?classroomId=${classParam}&filter=review`
-          : `/api/words?filter=review`;
+          ? `/api/words?classroomId=${classParam}&summary=1`
+          : `/api/words?summary=1`;
         const res = await authFetch(url, {}, token);
         const data = await res.json();
-        if (!cancelled && data.success && Array.isArray(data.data)) {
-          const count = data.data.length;
+        if (!cancelled && data.success) {
+          const count = typeof data.reviewDueCount === 'number'
+            ? data.reviewDueCount
+            : (Array.isArray(data.data) ? data.data.length : (data.dueCount ?? 0));
           setDueCount(count);
           // Ghi cache cho lần sau paint ngay (chỉ cho kho cá nhân)
           if (!classParam) {
             writeWordSummaryCache(session.user.id, {
-              total: cached?.total ?? count,
-              newCount: cached?.newCount ?? 0,
+              total: data.total ?? cached?.total ?? count,
+              newCount: data.newCount ?? cached?.newCount ?? 0,
               reviewDueCount: count,
-              dueCount: cached?.dueCount ?? count,
+              dueCount: data.dueCount ?? cached?.dueCount ?? count,
               classroomId: cached?.classroomId ?? null,
             });
           }

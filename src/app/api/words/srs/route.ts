@@ -51,23 +51,29 @@ async function mirrorSrsProgress(
 
         // If not in classroom yet, insert it on behalf of the teacher
         if (!targetWordId) {
+          const { data: fullWord } = await supabase
+            .from('words')
+            .select('translation, ipa, pos, example, example_vi, image_url, image_source, image_confidence, synonyms, antonyms, dictionary_data')
+            .eq('id', word.id)
+            .maybeSingle();
+
           const { data: insertedWord, error: insErr } = await supabase
             .from('words')
             .insert({
               classroom_id: targetClassroomId,
               added_by: classTeacherId,
               word: cleanWord,
-              translation: word.translation || '⏳ Analyzing...',
-              ipa: word.ipa || '',
-              pos: word.pos || '',
-              example: word.example || '',
-              example_vi: word.example_vi || null,
-              image_url: word.image_url || null,
-              image_source: word.image_source || 'global_dict',
-              image_confidence: word.image_confidence ?? null,
-              synonyms: word.synonyms || [],
-              antonyms: word.antonyms || [],
-              dictionary_data: word.dictionary_data || null,
+              translation: fullWord?.translation || '⏳ Analyzing...',
+              ipa: fullWord?.ipa || '',
+              pos: fullWord?.pos || '',
+              example: fullWord?.example || '',
+              example_vi: fullWord?.example_vi || null,
+              image_url: fullWord?.image_url || null,
+              image_source: fullWord?.image_source || 'global_dict',
+              image_confidence: fullWord?.image_confidence ?? null,
+              synonyms: fullWord?.synonyms || [],
+              antonyms: fullWord?.antonyms || [],
+              dictionary_data: fullWord?.dictionary_data || null,
             })
             .select('id')
             .maybeSingle();
@@ -169,7 +175,7 @@ export async function POST(req: Request) {
 
     const { data: word } = await supabase
       .from('words')
-      .select('*, classroom:classrooms(teacher_id, name)')
+      .select('id, word, added_by, classroom_id, classroom:classrooms(teacher_id, name)')
       .eq('id', wordId)
       .maybeSingle();
     if (!word) {
@@ -201,7 +207,7 @@ export async function POST(req: Request) {
 
     const newSRS = scheduleNext(existingSRS, rating);
 
-    // Upsert into srs_progress with FSRS columns
+    // Upsert into srs_progress with FSRS columns (chỉ select id để nhẹ payload DB)
     const { data, error } = await supabase
       .from('srs_progress')
       .upsert(
@@ -221,8 +227,8 @@ export async function POST(req: Request) {
         },
         { onConflict: 'user_id,word_id' }
       )
-      .select()
-      .single();
+      .select('id')
+      .maybeSingle();
 
     if (error) {
       return safeErrorResponse(error, 'Failed to save progress');

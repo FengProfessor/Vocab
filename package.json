@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/auto-clean-cache.mjs",
     "dev": "next dev",
+    "clean": "node scripts/auto-clean-cache.mjs --force",
+    "dev:clean": "npm run clean && npm run dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint src",

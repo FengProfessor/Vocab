@@ -9,6 +9,7 @@ import {
   FREE_WORD_SAVE_MONTHLY_LIMIT,
   type AccessResult
 } from '@/lib/entitlement';
+import { cacheGetOrSet, cacheDelete, cacheGet, cacheSet } from '@/lib/ttl-cache';
 
 export interface CodemixQuotaResult extends AccessResult {
   used?: number;
@@ -45,15 +46,17 @@ export async function resolvePlanByUserId(
   supabase: SupabaseClient,
   userId: string,
 ): Promise<Plan> {
-  const { data } = await supabase
-    .from('profiles')
-    .select('plan, plan_expires_at')
-    .eq('id', userId)
-    .maybeSingle();
-  return getEffectivePlan(
-    data?.plan as Plan | undefined,
-    data?.plan_expires_at as string | null | undefined,
-  );
+  return cacheGetOrSet(`user-plan:${userId}`, 60_000, async () => {
+    const { data } = await supabase
+      .from('profiles')
+      .select('plan, plan_expires_at')
+      .eq('id', userId)
+      .maybeSingle();
+    return getEffectivePlan(
+      data?.plan as Plan | undefined,
+      data?.plan_expires_at as string | null | undefined,
+    );
+  });
 }
 
 /**
@@ -199,10 +202,26 @@ export async function checkAndConsumePackReading(
   };
 }
 
-import { cacheGetOrSet, cacheDelete } from '@/lib/ttl-cache';
-
 export function invalidateWordSaveUsage(userId: string): void {
   cacheDelete(`word-save-usage:${userId}`);
+}
+
+/**
+ * Cập nhật cache sử dụng từ vựng ngay lập tức sau khi lưu từ thành công,
+ * tránh phải re-query 2 count queries full-table trên Supabase khi user lưu dồn dập.
+ */
+export function recordWordSaved(userId: string): void {
+  const cacheKey = `word-save-usage:${userId}`;
+  const existing = cacheGet<WordSaveUsage>(cacheKey);
+  if (existing) {
+    const used = existing.used + 1;
+    const lifetime = existing.lifetime + 1;
+    const limit = existing.limit;
+    const remaining = limit != null ? Math.max(0, limit - used) : null;
+    cacheSet(cacheKey, { used, lifetime, limit, remaining }, 60_000);
+  } else {
+    cacheDelete(cacheKey);
+  }
 }
 
 /**

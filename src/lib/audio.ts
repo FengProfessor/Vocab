@@ -112,7 +112,7 @@ function playUrl(url: string, rate = 1.0, myGen: number): Promise<boolean> {
 async function freeDictUrl(word: string, region: 'UK' | 'US' = 'US'): Promise<string | null> {
   try {
     const res = await fetch(`${FREE_DICT}${encodeURIComponent(word)}`, {
-      signal: AbortSignal.timeout(4000),
+      signal: AbortSignal.timeout(1500),
     });
     if (!res.ok) return null;
     const entries = (await res.json()) as { phonetics?: { audio?: string }[] }[];
@@ -203,7 +203,15 @@ export async function playWordAudio(
     }
   }
 
-  // 3) Wikimedia Commons / Free Dictionary API (mp3 người thật)
+  // 3) Youdao direct voice theo vùng (UK type=1 / US type=2)
+  // Ưu tiên cao: Youdao là direct MP3 stream (~300ms), không bị timeout/treo API như FreeDict.
+  const ydUrl = youdaoUrl(text, region);
+  if (await playUrl(ydUrl, mp3Rate, myGen)) {
+    urlCache.set(cacheKey, ydUrl);
+    return 'real';
+  }
+
+  // 4) Wikimedia Commons / Free Dictionary API (fallback sau Youdao với timeout 1.5s)
   if (!isPhrase) {
     if (!alive()) return 'tts';
     const fd = await freeDictUrl(text, region);
@@ -211,13 +219,6 @@ export async function playWordAudio(
       urlCache.set(cacheKey, fd);
       return 'real';
     }
-  }
-
-  // 4) Youdao direct voice theo vùng (UK type=1 / US type=2)
-  const ydUrl = youdaoUrl(text, region);
-  if (await playUrl(ydUrl, mp3Rate, myGen)) {
-    urlCache.set(cacheKey, ydUrl);
-    return 'real';
   }
 
   // 5) Neural TTS (Google Translate / Youdao proxy) — rõ, hỗ trợ cụm

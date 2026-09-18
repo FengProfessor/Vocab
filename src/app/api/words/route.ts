@@ -12,7 +12,7 @@ import {
   userCanWriteClassroom,
 } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
-import { checkWordSaveQuota, resolvePlanByUserId, invalidateWordSaveUsage } from '@/lib/entitlement-server';
+import { checkWordSaveQuota, resolvePlanByUserId, invalidateWordSaveUsage, recordWordSaved } from '@/lib/entitlement-server';
 import { cacheGet, cacheSet, cacheDelete } from '@/lib/ttl-cache';
 import { parseIpa } from '@/lib/study';
 
@@ -330,7 +330,12 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
 
     // ── Tier 3: AI (cache miss, hoặc user chọn nghĩa riêng) ──
     if (!updateData) {
-      const parsed = await performAIEnrichment(originalInput, customApiKey, dictionaryData, userTargetTranslation);
+      let apiKey = customApiKey;
+      if (!apiKey) {
+        const { data: profile } = await supabase.from('profiles').select('gemini_api_key').eq('id', userId).maybeSingle();
+        apiKey = profile?.gemini_api_key;
+      }
+      const parsed = await performAIEnrichment(originalInput, apiKey, dictionaryData, userTargetTranslation);
       updateData = {
         word: parsed.english,
         translation: parsed.vietnamese,
@@ -469,9 +474,9 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'Word too long' }, { status: 400 });
     }
 
-    // Rate limit: chỉ áp lên path kích hoạt AI enrichment (skipAI=false) — 15 req/min mỗi user
+    // Rate limit: chỉ áp lên path kích hoạt AI enrichment (skipAI=false) — 45 req/min mỗi user
     if (!body.skipAI) {
-      const rl = await checkRateLimitAsync(`ai:words:${userId}`, 15, 60_000);
+      const rl = await checkRateLimitAsync(`ai:words:${userId}`, 45, 60_000);
       if (!rl.allowed) {
         return NextResponse.json(
           { success: false, error: 'Rate limit exceeded' },
@@ -541,22 +546,39 @@ export async function POST(req: Request): Promise<NextResponse> {
     let initialIpa = body.ipa || '';
     let initialPos = body.pos || '';
 
-    // Only fetch if data was not manually selected or imported
+    // Only fetch if data was not manually selected or imported (kiểm tra global_dictionary trước ~5ms, timeout fallback 1200ms)
     if (initialTranslation === '⏳ Analyzing...') {
-      try {
-        const dictRes = await fetch(`https://dict.minhqnd.com/api/v1/lookup?word=${encodeURIComponent(word)}&lang=en&def_lang=vi`);
-        if (dictRes.ok) {
-          dictData = (await dictRes.json()) as DictApiResponse;
-          const actualDictData = dictData?.results?.[0];
-          // Extract primary meaning and IPA from the nested data
-          if (actualDictData?.meanings && actualDictData.meanings.length > 0) {
-            initialIpa = parseIpa(actualDictData.pronunciations?.[0]?.ipa) || '';
-            initialTranslation = actualDictData.meanings[0].definition || initialTranslation;
-            initialPos = actualDictData.meanings[0].pos || '';
+      const lower = word.toLowerCase();
+      const { data: gd } = await supabase
+        .from('global_dictionary')
+        .select('data')
+        .eq('word', lower)
+        .maybeSingle();
+
+      const gdData = (gd?.data ?? null) as GdData | null;
+      const gdMeaning = gdData?.results?.[0]?.meanings?.[0];
+      if (gdMeaning?.definition) {
+        initialTranslation = gdMeaning.definition;
+        initialIpa = parseIpa(gdData?.pronunciations?.[0]?.ipa) || '';
+        initialPos = gdMeaning.pos || '';
+      } else {
+        try {
+          const dictRes = await fetch(`https://dict.minhqnd.com/api/v1/lookup?word=${encodeURIComponent(word)}&lang=en&def_lang=vi`, {
+            signal: AbortSignal.timeout(1800),
+          });
+          if (dictRes.ok) {
+            dictData = (await dictRes.json()) as DictApiResponse;
+            const actualDictData = dictData?.results?.[0];
+            // Extract primary meaning and IPA from the nested data
+            if (actualDictData?.meanings && actualDictData.meanings.length > 0) {
+              initialIpa = parseIpa(actualDictData.pronunciations?.[0]?.ipa) || '';
+              initialTranslation = actualDictData.meanings[0].definition || initialTranslation;
+              initialPos = actualDictData.meanings[0].pos || '';
+            }
           }
+        } catch (dictErr) {
+          console.warn('[Dictionary API] Failed:', dictErr);
         }
-      } catch (dictErr) {
-        console.warn('[Dictionary API] Failed:', dictErr);
       }
     }
 
@@ -580,15 +602,12 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     const skipAI = Boolean(body.skipAI);
     if (!skipAI) {
-      // ── Background AI Enrichment (Stage 2) ──
-      const { data: profile } = await supabase.from('profiles').select('gemini_api_key').eq('id', userId).single();
-      
-      // Pass userSelectedTranslation (only if explicitly provided in body.translation)
+      // ── Background AI Enrichment (Stage 2) — chạy hoàn toàn nền, không chặn HTTP response ──
       const userSelectedTranslation = (typeof body.translation === 'string' && body.translation.trim().length > 0 && body.translation !== '⏳ Analyzing...')
         ? body.translation.trim()
         : undefined;
 
-      enrichWord(data.id, word, userId, profile?.gemini_api_key, dictData, userSelectedTranslation);
+      void enrichWord(data.id, word, userId, undefined, dictData, userSelectedTranslation);
     }
     
     // used trước insert; sau insert +1 (cho UI near-limit 150+)
@@ -597,7 +616,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     const remainingAfter =
       limit != null ? Math.max(0, limit - usedAfter) : null;
 
-    invalidateWordSaveUsage(userId);
+    recordWordSaved(userId);
     cacheDelete(`user-learning-words:${userId}`);
 
     return NextResponse.json({
@@ -633,15 +652,18 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (!auth) return unauthorized();
     const userId = auth.userId;
 
-    // Chống dump pagination (offset tăng liên tục) — đủ cho học/dashboard
-    const listDenied = await assertScrapeQuota(`words-list:${userId}`, QUOTA.wordsList);
-    if (listDenied) return listDenied;
-
     const { searchParams } = new URL(req.url);
     let classroomId = searchParams.get('classroomId') || '';
     const summary = searchParams.get('summary') === '1';
     const includeLevels = searchParams.get('levels') === '1';
     const filter = searchParams.get('filter'); // 'review' = từ đã học & đến hạn | 'new' = từ chưa học (review_count=0)
+
+    // Chống dump pagination: chỉ áp dụng khi browse/list từ thông thường (không áp dụng lên phiên ôn tập SRS hay tóm tắt summary)
+    const isStudyRequest = summary || filter === 'review' || filter === 'new';
+    if (!isStudyRequest) {
+      const listDenied = await assertScrapeQuota(`words-list:${userId}`, QUOTA.wordsList);
+      if (listDenied) return listDenied;
+    }
     // Cap page size — cào full kho bằng limit=500 bị chặn
     const limit = Math.min(50, Math.max(1, parseInt(searchParams.get('limit') || '20', 10)));
     const offset = Math.max(0, parseInt(searchParams.get('offset') || '0', 10));
