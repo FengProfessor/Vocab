@@ -570,7 +570,7 @@ export default function StudentDetailSheet({
                 ) : (
                   <Copy className="h-3.5 w-3.5" />
                 )}
-                <span>{copiedMsg ? 'Đã sao chép!' : 'Sao chép tin Zalo'}</span>
+                <span>{copiedMsg ? 'Đã sao chép!' : 'Sao chép tin nhắn Zalo'}</span>
                 <span className="hidden sm:inline text-[10px] opacity-75 font-mono">(C)</span>
               </button>
             </div>
@@ -633,9 +633,9 @@ export default function StudentDetailSheet({
                 }`}
               >
                 <Trophy className="h-4 w-4" /> Lịch sử Quiz & Bài thi
-                {quizzes.length > 0 && (
+                {(quizzes.length + toeicAssessments.length) > 0 && (
                   <span className="ml-1 px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold">
-                    {quizzes.length}
+                    {quizzes.length + toeicAssessments.length}
                   </span>
                 )}
               </button>
@@ -783,7 +783,7 @@ export default function StudentDetailSheet({
                     <BookOpen className="h-8 w-8 text-muted-foreground/40 mx-auto mb-2" />
                     <p className="font-semibold text-xs sm:text-sm">Chưa có từ vựng nào được lưu</p>
                     <p className="text-xs text-muted-foreground mt-1">
-                      Học sinh chưa lưu từ vựng nào trong lớp này.
+                      Học sinh chưa lưu từ vựng nào.
                     </p>
                   </div>
                 ) : (

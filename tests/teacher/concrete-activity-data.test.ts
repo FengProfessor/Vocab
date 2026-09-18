@@ -35,10 +35,31 @@ async function runTests() {
     assert(resYesterday.text === 'Hôm qua 15:37', `Expected 'Hôm qua 15:37', got '${resYesterday.text}'`);
     assert(resYesterday.isYesterday === true, 'isYesterday must be true');
 
+    // 2 calendar days ago (ensure it NEVER says '1 ngày trước')
+    const twoDaysAgo = new Date(now);
+    twoDaysAgo.setDate(now.getDate() - 2);
+    twoDaysAgo.setHours(20, 0, 0, 0);
+    const res2Days = formatLastActive(twoDaysAgo.toISOString());
+    assert(res2Days.text === '2 ngày trước', `Expected '2 ngày trước', got '${res2Days.text}'`);
+    assert(res2Days.isToday === false && res2Days.isYesterday === false, 'isToday/isYesterday should be false');
+
     // 4 days ago
-    const fourDaysAgo = new Date(now.getTime() - 4 * 24 * 60 * 60 * 1000).toISOString();
-    const res4Days = formatLastActive(fourDaysAgo);
+    const fourDaysAgo = new Date(now);
+    fourDaysAgo.setDate(now.getDate() - 4);
+    const res4Days = formatLastActive(fourDaysAgo.toISOString());
     assert(res4Days.text === '4 ngày trước', `Expected '4 ngày trước', got '${res4Days.text}'`);
+
+    // 6 days ago
+    const sixDaysAgo = new Date(now);
+    sixDaysAgo.setDate(now.getDate() - 6);
+    const res6Days = formatLastActive(sixDaysAgo.toISOString());
+    assert(res6Days.text === '6 ngày trước', `Expected '6 ngày trước', got '${res6Days.text}'`);
+
+    // 7+ days ago formatted as DD/MM
+    const sevenDaysAgo = new Date(now);
+    sevenDaysAgo.setDate(now.getDate() - 7);
+    const res7Days = formatLastActive(sevenDaysAgo.toISOString());
+    assert(!res7Days.text.includes('ngày trước'), '7+ days ago should not use relative days');
   }
 
   // 2. Test formatQuizSummary
@@ -116,6 +137,7 @@ async function runTests() {
   // 3. Test formatWordsSummary
   {
     console.log('3. Testing formatWordsSummary...');
+    // Both reviewed words and saved words
     const s1: StudentProgress = {
       student_id: 's-1',
       student_name: 'Hoang Nam',
@@ -139,6 +161,7 @@ async function runTests() {
     assert(wSummary1.text === '20 từ đã nạp', `Expected '20 từ đã nạp', got '${wSummary1.text}'`);
     assert(wSummary1.subtext === '+5 từ đã lưu', `Expected '+5 từ đã lưu', got '${wSummary1.subtext}'`);
 
+    // Reviewed words only, 0 saved words (ensure NO redundant "40 từ" underneath "40 từ đã nạp")
     const s2: StudentProgress = {
       ...s1,
       words_reviewed: 40,
@@ -147,6 +170,29 @@ async function runTests() {
     };
     const wSummary2 = formatWordsSummary(s2);
     assert(wSummary2.text === '40 từ đã nạp', `Expected '40 từ đã nạp', got '${wSummary2.text}'`);
+    assert(wSummary2.subtext === undefined, `Expected subtext to be undefined, got '${wSummary2.subtext}'`);
+
+    // Saved words only, 0 reviewed words
+    const s3: StudentProgress = {
+      ...s1,
+      words_reviewed: 0,
+      saved_words_count: 8,
+      total_words: 0,
+    };
+    const wSummary3 = formatWordsSummary(s3);
+    assert(wSummary3.text === '8 từ đã lưu', `Expected '8 từ đã lưu', got '${wSummary3.text}'`);
+    assert(wSummary3.subtext === 'Chưa nạp flashcard', `Expected 'Chưa nạp flashcard', got '${wSummary3.subtext}'`);
+
+    // Zero words overall
+    const s4: StudentProgress = {
+      ...s1,
+      words_reviewed: 0,
+      saved_words_count: 0,
+      total_words: 0,
+    };
+    const wSummary4 = formatWordsSummary(s4);
+    assert(wSummary4.text === '0 từ', `Expected '0 từ', got '${wSummary4.text}'`);
+    assert(wSummary4.subtext === 'Chưa học từ nào', `Expected 'Chưa học từ nào', got '${wSummary4.subtext}'`);
   }
 
   // 4. Test Timeline Merging & Chronological Ordering
@@ -156,6 +202,7 @@ async function runTests() {
     const t1 = new Date(now - 3600000).toISOString(); // 1h ago
     const t2 = new Date(now - 1800000).toISOString(); // 30m ago
     const t3 = new Date(now - 600000).toISOString();  // 10m ago
+    const t4 = new Date(now - 300000).toISOString();  // 5m ago
 
     const mockQuizzes = [
       { id: 'q-1', quiz_type: 'vocabulary', score: 10, total_questions: 10, accuracy: 1.0, completed_at: t2 },
@@ -163,6 +210,9 @@ async function runTests() {
     const mockWords = [
       { id: 'w-1', word: 'ubiquitous', translation: 'phổ biến', pos: 'adj', created_at: t1, added_by: 's-1' },
       { id: 'w-2', word: 'resilient', translation: 'kiên cường', pos: 'adj', created_at: t3, added_by: 's-1' },
+    ];
+    const mockPacks = [
+      { pack_id: 'toeic-500', topic_title: 'TOEIC Công sở', reviewed_count: 15, word_count: 20, last_studied_at: t4, status: 'in_progress' },
     ];
 
     interface TimelineItem {
@@ -179,14 +229,18 @@ async function runTests() {
     for (const w of mockWords) {
       timeline.push({ id: `word-${w.id}`, type: 'word_saved', timestamp: w.created_at, title: `Lưu từ ${w.word}` });
     }
+    for (const p of mockPacks) {
+      timeline.push({ id: `pack-${p.pack_id}`, type: 'vocab_pack', timestamp: p.last_studied_at, title: `Học bộ từ: ${p.topic_title}` });
+    }
 
     // Sort newest first
     timeline.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
-    assert(timeline.length === 3, 'Timeline must have 3 items');
-    assert(timeline[0].id === 'word-w-2', 'Newest item must be word-w-2 (10m ago)');
-    assert(timeline[1].id === 'quiz-q-1', 'Second item must be quiz-q-1 (30m ago)');
-    assert(timeline[2].id === 'word-w-1', 'Third item must be word-w-1 (1h ago)');
+    assert(timeline.length === 4, 'Timeline must have 4 items');
+    assert(timeline[0].id === 'pack-toeic-500', 'Newest item must be pack (5m ago)');
+    assert(timeline[1].id === 'word-w-2', 'Second item must be word-w-2 (10m ago)');
+    assert(timeline[2].id === 'quiz-q-1', 'Third item must be quiz-q-1 (30m ago)');
+    assert(timeline[3].id === 'word-w-1', 'Fourth item must be word-w-1 (1h ago)');
   }
 
   console.log('✅ All Teacher Concrete Activity Unit Tests Passed Successfully!');

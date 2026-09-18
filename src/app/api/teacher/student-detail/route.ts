@@ -63,17 +63,17 @@ export async function GET(req: Request): Promise<NextResponse> {
         .from('quiz_results')
         .select('id, quiz_type, score, total_questions, accuracy, completed_at')
         .eq('user_id', studentId)
-        .order('completed_at', { ascending: false })
+        .order('completed_at', { ascending: false, nullsFirst: false })
         .limit(50),
       supabase
         .from('words')
         .select('id, word, translation, ipa, pos, example, example_vi, created_at, classroom_id, added_by')
-        .or(`added_by.eq.${studentId},classroom_id.eq.${classroomId}`)
-        .order('created_at', { ascending: false })
+        .eq('added_by', studentId)
+        .order('created_at', { ascending: false, nullsFirst: false })
         .limit(100),
       supabase
         .from('user_vocab_packs')
-        .select('pack_id, status, reviewed_count, word_count, started_at, last_studied_at, completed_at')
+        .select('pack_id, topic_title, status, reviewed_count, word_count, started_at, last_studied_at, completed_at')
         .eq('user_id', studentId)
         .order('last_studied_at', { ascending: false, nullsFirst: false })
         .limit(20),
@@ -81,7 +81,7 @@ export async function GET(req: Request): Promise<NextResponse> {
         .from('user_roadmap_assessments')
         .select('*')
         .eq('user_id', studentId)
-        .order('created_at', { ascending: false })
+        .order('created_at', { ascending: false, nullsFirst: false })
         .limit(20),
       supabase
         .from('profiles')
@@ -159,15 +159,16 @@ export async function GET(req: Request): Promise<NextResponse> {
       const time = p.last_studied_at || p.completed_at || p.started_at;
       if (!time) continue;
       const isDone = p.status === 'completed';
+      const packDisplayName = p.topic_title?.trim() || p.pack_id;
       timeline.push({
         id: `pack-${p.pack_id}-${time}`,
         type: 'vocab_pack',
         timestamp: time,
-        title: `Học bộ từ: ${p.pack_id}`,
+        title: `Học bộ từ: ${packDisplayName}`,
         subtitle: `Tiến độ: ${p.reviewed_count || 0}/${p.word_count || 0} từ (${isDone ? 'Hoàn thành' : 'Đang học'})`,
         badge: isDone ? 'Hoàn thành' : `${p.reviewed_count || 0} từ`,
         badgeVariant: 'violet',
-        details: { packId: p.pack_id, status: p.status, reviewedCount: p.reviewed_count, wordCount: p.word_count },
+        details: { packId: p.pack_id, topicTitle: p.topic_title, status: p.status, reviewedCount: p.reviewed_count, wordCount: p.word_count },
       });
     }
 

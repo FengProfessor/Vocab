@@ -58,11 +58,12 @@ export async function GET(req: Request) {
           .from('quiz_results')
           .select('user_id, score, total_questions, accuracy, completed_at, quiz_type')
           .in('user_id', studentIds)
-          .order('completed_at', { ascending: false }),
+          .order('completed_at', { ascending: false, nullsFirst: false }),
         supabase
           .from('words')
-          .select('added_by')
-          .in('added_by', studentIds),
+          .select('added_by, created_at')
+          .in('added_by', studentIds)
+          .order('created_at', { ascending: false, nullsFirst: false }),
       ]) : [{ data: [] }, { data: [] }, { data: [] }, { data: [] }];
 
       const profMap = new Map((profilesRes.data || []).map(p => [p.id, p]));
@@ -71,7 +72,7 @@ export async function GET(req: Request) {
       // Latest quiz per student
       const latestQuizMap = new Map<string, { score: number; total_questions: number; accuracy: number; completed_at: string; quiz_type?: string }>();
       for (const q of quizzesRes.data || []) {
-        if (!latestQuizMap.has(q.user_id)) {
+        if (q.completed_at && !latestQuizMap.has(q.user_id)) {
           latestQuizMap.set(q.user_id, {
             score: q.score,
             total_questions: q.total_questions,
@@ -82,11 +83,18 @@ export async function GET(req: Request) {
         }
       }
 
-      // Count words saved by student
+      // Count words saved and latest word created_at per student
       const savedWordsCountMap = new Map<string, number>();
+      const latestWordMap = new Map<string, string>();
       for (const w of wordsRes.data || []) {
         if (w.added_by) {
           savedWordsCountMap.set(w.added_by, (savedWordsCountMap.get(w.added_by) || 0) + 1);
+          if (w.created_at) {
+            const cur = latestWordMap.get(w.added_by);
+            if (!cur || new Date(w.created_at) > new Date(cur)) {
+              latestWordMap.set(w.added_by, w.created_at);
+            }
+          }
         }
       }
 
@@ -113,11 +121,17 @@ export async function GET(req: Request) {
         const latestQuiz = latestQuizMap.get(s.student_id) || null;
         const savedWordsCount = savedWordsCountMap.get(s.student_id) || 0;
 
-        // Determine true last active timestamp (newer of SRS review or Quiz completion)
+        // Determine true last active timestamp (newest of SRS review, Quiz completion, or Word creation)
         let trueLastActive = s.last_active;
         if (latestQuiz?.completed_at) {
           if (!trueLastActive || new Date(latestQuiz.completed_at) > new Date(trueLastActive)) {
             trueLastActive = latestQuiz.completed_at;
+          }
+        }
+        const latestWordAt = latestWordMap.get(s.student_id);
+        if (latestWordAt) {
+          if (!trueLastActive || new Date(latestWordAt) > new Date(trueLastActive)) {
+            trueLastActive = latestWordAt;
           }
         }
 

@@ -31,22 +31,18 @@ export function formatLastActive(dateStr?: string | null): { text: string; isTod
   if (isNaN(d.getTime())) return { text: 'Chưa hoạt động', isToday: false, isYesterday: false, isRecent: false };
 
   const now = new Date();
-  const diffMs = Math.max(0, now.getTime() - d.getTime());
-
-  const isToday = d.toDateString() === now.toDateString();
-  const yesterday = new Date(now);
-  yesterday.setDate(now.getDate() - 1);
-  const isYesterday = d.toDateString() === yesterday.toDateString();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const dStart = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const diffCalendarDays = Math.round((todayStart.getTime() - dStart.getTime()) / (1000 * 60 * 60 * 24));
 
   const hours = String(d.getHours()).padStart(2, '0');
   const minutes = String(d.getMinutes()).padStart(2, '0');
   const timeStr = `${hours}:${minutes}`;
 
-  if (isToday) return { text: `Hôm nay ${timeStr}`, isToday: true, isYesterday: false, isRecent: true };
-  if (isYesterday) return { text: `Hôm qua ${timeStr}`, isToday: false, isYesterday: true, isRecent: true };
+  if (diffCalendarDays <= 0) return { text: `Hôm nay ${timeStr}`, isToday: true, isYesterday: false, isRecent: true };
+  if (diffCalendarDays === 1) return { text: `Hôm qua ${timeStr}`, isToday: false, isYesterday: true, isRecent: true };
 
-  const diffDays = Math.max(1, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
-  if (diffDays < 7) return { text: `${diffDays} ngày trước`, isToday: false, isYesterday: false, isRecent: false };
+  if (diffCalendarDays < 7) return { text: `${diffCalendarDays} ngày trước`, isToday: false, isYesterday: false, isRecent: false };
 
   return {
     text: d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' }),
@@ -80,9 +76,17 @@ export function formatQuizSummary(s: StudentProgress): { text: string; subtext?:
 export function formatWordsSummary(s: StudentProgress): { text: string; subtext?: string } {
   const reviewed = s.words_reviewed || s.total_words || 0;
   const saved = s.saved_words_count || 0;
-  const text = `${reviewed} từ đã nạp`;
-  const subtext = saved > 0 ? `+${saved} từ đã lưu` : `${s.total_words ? `${s.total_words} từ` : 'Đang học'}`;
-  return { text, subtext };
+
+  if (reviewed > 0 && saved > 0) {
+    return { text: `${reviewed} từ đã nạp`, subtext: `+${saved} từ đã lưu` };
+  }
+  if (reviewed > 0) {
+    return { text: `${reviewed} từ đã nạp`, subtext: undefined };
+  }
+  if (saved > 0) {
+    return { text: `${saved} từ đã lưu`, subtext: 'Chưa nạp flashcard' };
+  }
+  return { text: '0 từ', subtext: 'Chưa học từ nào' };
 }
 
 interface StudentsPanelProps {
@@ -593,10 +597,10 @@ export default function StudentsPanel({
                   {/* Concrete Activity Strip: Last Active, Quiz, Words */}
                   <div className="mt-3 pt-3 border-t border-border/40 grid grid-cols-3 gap-2 text-xs">
                     {/* Last Active */}
-                    <div className="bg-muted/30 rounded-xl p-2 space-y-1">
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1 min-w-0" title={lastActiveInfo.text}>
                       <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
-                        <Clock className="h-3 w-3" />
-                        <span>Gần nhất</span>
+                        <Clock className="h-3 w-3 shrink-0" />
+                        <span className="truncate">Gần nhất</span>
                       </div>
                       <p className={`font-semibold text-[11px] truncate ${lastActiveInfo.isToday ? 'text-emerald-700' : 'text-foreground'}`}>
                         {lastActiveInfo.text}
@@ -604,10 +608,10 @@ export default function StudentsPanel({
                     </div>
 
                     {/* Quiz Summary */}
-                    <div className="bg-muted/30 rounded-xl p-2 space-y-1">
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1 min-w-0" title={quizInfo.text}>
                       <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
-                        <Trophy className="h-3 w-3" />
-                        <span>Quiz</span>
+                        <Trophy className="h-3 w-3 shrink-0" />
+                        <span className="truncate">Quiz</span>
                       </div>
                       <p className={`font-semibold text-[11px] truncate ${quizInfo.isGood ? 'text-emerald-700' : quizInfo.hasQuiz ? 'text-amber-700' : 'text-muted-foreground'}`}>
                         {quizInfo.text}
@@ -615,10 +619,10 @@ export default function StudentsPanel({
                     </div>
 
                     {/* Words Studied */}
-                    <div className="bg-muted/30 rounded-xl p-2 space-y-1">
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1 min-w-0" title={wordsInfo.text}>
                       <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
-                        <BookOpen className="h-3 w-3" />
-                        <span>Từ vựng</span>
+                        <BookOpen className="h-3 w-3 shrink-0" />
+                        <span className="truncate">Từ vựng</span>
                       </div>
                       <p className="font-semibold text-[11px] text-foreground truncate">
                         {wordsInfo.text}
