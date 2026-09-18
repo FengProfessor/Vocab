@@ -600,6 +600,30 @@ BEGIN
 END;
 $$;
 
+-- -----------------------------------------------------------------------------
+-- 3.2.1. Overload for fn_process_referral_reward with single argument (p_order_id)
+-- Resolves user_id (referee) and amount directly from the orders table
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION public.fn_process_referral_reward(
+  p_order_id uuid
+)
+RETURNS jsonb
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = pg_catalog, public
+AS $$
+DECLARE
+  v_order record;
+BEGIN
+  SELECT user_id, amount INTO v_order FROM public.orders WHERE id = p_order_id;
+  IF NOT FOUND THEN
+    RETURN jsonb_build_object('reward_awarded', false, 'status', 'order_not_found');
+  END IF;
+
+  RETURN public.fn_process_referral_reward(p_order_id, v_order.user_id, v_order.amount);
+END;
+$$;
+
 
 -- -----------------------------------------------------------------------------
 -- 3.3. fn_clear_matured_rewards()

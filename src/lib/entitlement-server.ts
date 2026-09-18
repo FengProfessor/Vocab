@@ -39,6 +39,36 @@ export interface WordSaveUsage {
   remaining: number | null;
 }
 
+export interface UserPlanInfo {
+  plan: Plan;
+  createdAt: string | null;
+}
+
+/**
+ * Server-side: resolve gói hiệu lực và ngày tạo tài khoản từ userId đã auth.
+ * Caches both plan and createdAt for 60s to avoid redundant profile queries in quota checks.
+ */
+export async function resolveUserPlanInfo(
+  supabase: SupabaseClient,
+  userId: string,
+): Promise<UserPlanInfo> {
+  return cacheGetOrSet(`user-plan-info:${userId}`, 60_000, async () => {
+    const { data } = await supabase
+      .from('profiles')
+      .select('plan, plan_expires_at, created_at')
+      .eq('id', userId)
+      .maybeSingle();
+    const plan = getEffectivePlan(
+      data?.plan as Plan | undefined,
+      data?.plan_expires_at as string | null | undefined,
+    );
+    return {
+      plan,
+      createdAt: (data?.created_at as string) || null,
+    };
+  });
+}
+
 /**
  * Server-side: resolve gói hiệu lực từ userId đã auth (Bearer JWT hoặc extension token).
  */
@@ -47,15 +77,8 @@ export async function resolvePlanByUserId(
   userId: string,
 ): Promise<Plan> {
   return cacheGetOrSet(`user-plan:${userId}`, 60_000, async () => {
-    const { data } = await supabase
-      .from('profiles')
-      .select('plan, plan_expires_at')
-      .eq('id', userId)
-      .maybeSingle();
-    return getEffectivePlan(
-      data?.plan as Plan | undefined,
-      data?.plan_expires_at as string | null | undefined,
-    );
+    const info = await resolveUserPlanInfo(supabase, userId);
+    return info.plan;
   });
 }
 

@@ -110,7 +110,11 @@ export default function InviteLandingPage({
       });
 
       const json = await res.json().catch(() => ({}));
-      if (json.alreadyClaimed) {
+      if (json.isSelfReferral) {
+        toast.info('Đây là liên kết mời của chính bạn! Đang mở bảng chia sẻ để bạn gửi cho bạn bè nhé.');
+        router.push('/student/referral');
+        return;
+      } else if (json.alreadyClaimed) {
         toast.info('Tài khoản của bạn đã áp dụng mã quà tặng trước đó!');
       } else if (json.success) {
         toast.success(json.message || 'Kích hoạt quà tặng 7 ngày Pro VIP thành công!');
@@ -248,14 +252,25 @@ export default function InviteLandingPage({
             </div>
 
             {/* 3 Quick Steps */}
-            <div className="rounded-xl bg-slate-50/80 p-3.5 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+            <div className="rounded-xl bg-slate-50/80 p-3.5 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 space-y-2">
               <div className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                Cách nhận và kích hoạt quà:
+                3 bước đơn giản để cùng nhận quà VIP:
               </div>
-              <p className="leading-relaxed pl-5">
-                Bấm đăng ký bên dưới ➔ Hoàn thành 1 lượt học hoặc lưu từ vựng ➔ Quà VIP tự động kích hoạt cho cả bạn và bạn bè!
-              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] leading-relaxed">
+                <div className="rounded-lg bg-white dark:bg-slate-800 p-2.5 border border-slate-100 dark:border-slate-700/60 shadow-2xs">
+                  <span className="font-bold text-indigo-600 dark:text-indigo-400 block mb-0.5">1. Đăng ký nhanh</span>
+                  Tạo tài khoản miễn phí chỉ trong vài giây, không cần thẻ.
+                </div>
+                <div className="rounded-lg bg-white dark:bg-slate-800 p-2.5 border border-slate-100 dark:border-slate-700/60 shadow-2xs">
+                  <span className="font-bold text-indigo-600 dark:text-indigo-400 block mb-0.5">2. Bắt đầu học bài</span>
+                  Lưu từ mới vào kho hoặc học phiên ôn tập đầu tiên.
+                </div>
+                <div className="rounded-lg bg-white dark:bg-slate-800 p-2.5 border border-slate-100 dark:border-slate-700/60 shadow-2xs">
+                  <span className="font-bold text-emerald-600 dark:text-emerald-400 block mb-0.5">3. Mở khóa 7 ngày VIP</span>
+                  Học 3 ngày hoặc lưu 30 từ, cả hai bạn cùng nhận VIP!
+                </div>
+              </div>
             </div>
 
             {/* CTA Button */}

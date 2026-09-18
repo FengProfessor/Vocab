@@ -12,7 +12,7 @@ import {
   userCanWriteClassroom,
 } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
-import { checkWordSaveQuota, resolvePlanByUserId, recordWordSaved } from '@/lib/entitlement-server';
+import { checkWordSaveQuota, resolvePlanByUserId, resolveUserPlanInfo, recordWordSaved } from '@/lib/entitlement-server';
 import { cacheGet, cacheSet, cacheDelete } from '@/lib/ttl-cache';
 import { parseIpa } from '@/lib/study';
 
@@ -88,10 +88,12 @@ type WordSummaryCounts = {
   levelCounts: number[];
 };
 
+const inFlightLevelCounts = new Map<string, Promise<number[]>>();
+
 /**
  * Đếm L1–L6 trên TOÀN BỘ từ classroom.
  * Ưu tiên RPC get_word_level_counts (1 query) — migration 20260716_class_scale_db_perf.
- * Fallback chunk cũ nếu RPC chưa apply.
+ * Fallback: song song chunks (Promise.all) + single-flight in-flight deduplication.
  */
 async function fetchLevelCounts(
   supabase: ReturnType<typeof createServiceClient>,
@@ -99,67 +101,92 @@ async function fetchLevelCounts(
   classroomId: string,
   totalWords: number,
 ): Promise<number[]> {
-  const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_level_counts', {
-    p_user_id: userId,
-    p_classroom_id: classroomId,
-  });
-  if (!rpcErr && rpcRows) {
-    const row = (Array.isArray(rpcRows) ? rpcRows[0] : rpcRows) as {
-      l1?: number; l2?: number; l3?: number; l4?: number; l5?: number; l6?: number;
-    } | null;
-    if (row) {
-      return [
-        Number(row.l1 ?? 0),
-        Number(row.l2 ?? 0),
-        Number(row.l3 ?? 0),
-        Number(row.l4 ?? 0),
-        Number(row.l5 ?? 0),
-        Number(row.l6 ?? 0),
-      ];
-    }
-  }
+  const flightKey = `${userId}:${classroomId}`;
+  const existing = inFlightLevelCounts.get(flightKey);
+  if (existing) return existing;
 
-  // Fallback: chunk (chậm) — chỉ khi migration chưa chạy
-  const levelCounts = [0, 0, 0, 0, 0, 0];
-  const { data: wordRows, error: wErr } = await supabase
-    .from('words')
-    .select('id')
-    .eq('classroom_id', classroomId);
-  if (wErr || !wordRows?.length) {
-    if (totalWords > 0 && (!wordRows || wordRows.length === 0)) {
-      levelCounts[0] = totalWords;
-    }
-    return levelCounts;
-  }
-
-  const wordIds = wordRows.map((w) => w.id as string);
-  const CHUNK = 200;
-  const stabilityByWord = new Map<string, number>();
-  for (let i = 0; i < wordIds.length; i += CHUNK) {
-    const chunk = wordIds.slice(i, i + CHUNK);
-    const { data: srsRows } = await supabase
-      .from('srs_progress')
-      .select('word_id, stability')
-      .eq('user_id', userId)
-      .in('word_id', chunk);
-    for (const row of srsRows ?? []) {
-      if (row.word_id) {
-        stabilityByWord.set(row.word_id as string, Number(row.stability ?? 0));
+  const promise = (async () => {
+    try {
+      const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_level_counts', {
+        p_user_id: userId,
+        p_classroom_id: classroomId,
+      });
+      if (!rpcErr && rpcRows) {
+        const row = (Array.isArray(rpcRows) ? rpcRows[0] : rpcRows) as {
+          l1?: number; l2?: number; l3?: number; l4?: number; l5?: number; l6?: number;
+        } | null;
+        if (row) {
+          return [
+            Number(row.l1 ?? 0),
+            Number(row.l2 ?? 0),
+            Number(row.l3 ?? 0),
+            Number(row.l4 ?? 0),
+            Number(row.l5 ?? 0),
+            Number(row.l6 ?? 0),
+          ];
+        }
       }
-    }
-  }
 
-  for (const id of wordIds) {
-    const s = stabilityByWord.get(id);
-    const level = s === undefined ? 1 : stabilityToLevel(s);
-    levelCounts[level - 1] += 1;
-  }
-  return levelCounts;
+      // Fallback: parallel chunks — tránh vòng lặp tuần tự gây lag
+      const levelCounts = [0, 0, 0, 0, 0, 0];
+      const { data: wordRows, error: wErr } = await supabase
+        .from('words')
+        .select('id')
+        .eq('classroom_id', classroomId);
+      if (wErr || !wordRows?.length) {
+        if (totalWords > 0 && (!wordRows || wordRows.length === 0)) {
+          levelCounts[0] = totalWords;
+        }
+        return levelCounts;
+      }
+
+      const wordIds = wordRows.map((w) => w.id as string);
+      const CHUNK = 200;
+      const chunks: string[][] = [];
+      for (let i = 0; i < wordIds.length; i += CHUNK) {
+        chunks.push(wordIds.slice(i, i + CHUNK));
+      }
+
+      const stabilityByWord = new Map<string, number>();
+      const chunkResults = await Promise.all(
+        chunks.map((chunk) =>
+          supabase
+            .from('srs_progress')
+            .select('word_id, stability')
+            .eq('user_id', userId)
+            .in('word_id', chunk)
+        )
+      );
+
+      for (const res of chunkResults) {
+        for (const row of res.data ?? []) {
+          if (row.word_id) {
+            stabilityByWord.set(row.word_id as string, Number(row.stability ?? 0));
+          }
+        }
+      }
+
+      for (const id of wordIds) {
+        const s = stabilityByWord.get(id);
+        const level = s === undefined ? 1 : stabilityToLevel(s);
+        levelCounts[level - 1] += 1;
+      }
+      return levelCounts;
+    } finally {
+      inFlightLevelCounts.delete(flightKey);
+    }
+  })();
+
+  inFlightLevelCounts.set(flightKey, promise);
+  return promise;
 }
+
+const inFlightWordSummaryCounts = new Map<string, Promise<WordSummaryCounts>>();
 
 /**
  * Đếm total / new / review-due — RPC + fallback.
  * levelCounts (O(n) quét full kho) CHỈ khi includeLevels=true — poll 30s không được gọi.
+ * Có single-flight promise cache để tránh chạy trùng nhiều query khi nhiều request cùng đến.
  */
 async function fetchWordSummaryCounts(
   supabase: ReturnType<typeof createServiceClient>,
@@ -172,78 +199,90 @@ async function fetchWordSummaryCounts(
   const cached = cacheGet<WordSummaryCounts>(cacheKey);
   if (cached) return cached;
 
-  // Ưu tiên RPC (migration 20260709_word_summary_perf)
-  const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
-    p_user_id: userId,
-    p_classroom_id: classroomId,
-  });
-  if (!rpcErr && rpcRows) {
-    const row = Array.isArray(rpcRows) ? rpcRows[0] : rpcRows;
-    if (row) {
-      const total = Number(row.total ?? 0);
+  const inFlight = inFlightWordSummaryCounts.get(cacheKey);
+  if (inFlight) return inFlight;
+
+  const promise = (async () => {
+    try {
+      // Ưu tiên RPC (migration 20260709_word_summary_perf)
+      const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
+        p_user_id: userId,
+        p_classroom_id: classroomId,
+      });
+      if (!rpcErr && rpcRows) {
+        const row = Array.isArray(rpcRows) ? rpcRows[0] : rpcRows;
+        if (row) {
+          const total = Number(row.total ?? 0);
+          const result: WordSummaryCounts = {
+            total,
+            newCount: Number(row.new_count ?? 0),
+            reviewDueCount: Number(row.review_due_count ?? 0),
+            dueCount: Number(row.due_count ?? 0),
+            levelCounts: includeLevels
+              ? await fetchLevelCounts(supabase, userId, classroomId, total)
+              : [0, 0, 0, 0, 0, 0],
+          };
+          cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
+          return result;
+        }
+      }
+
+      const now = new Date().toISOString();
+      const [
+        { count: total },
+        { count: dueCount },
+        { count: wordsWithSrs },
+        { count: learnedCount },
+        { count: reviewDueCount },
+      ] = await Promise.all([
+        supabase
+          .from('words')
+          .select('id', { count: 'exact', head: true })
+          .eq('classroom_id', classroomId),
+        supabase
+          .from('srs_progress')
+          .select('id', { count: 'exact', head: true })
+          .eq('user_id', userId)
+          .lte('next_review_date', now),
+        supabase
+          .from('srs_progress')
+          .select('id', { count: 'exact', head: true })
+          .eq('user_id', userId),
+        supabase
+          .from('srs_progress')
+          .select('id', { count: 'exact', head: true })
+          .eq('user_id', userId)
+          .gt('review_count', 0),
+        supabase
+          .from('srs_progress')
+          .select('id', { count: 'exact', head: true })
+          .eq('user_id', userId)
+          .gt('review_count', 0)
+          .lte('next_review_date', now),
+      ]);
+
+      const totalN = total || 0;
+      const learnedN = learnedCount || 0;
+      const withSrsN = wordsWithSrs || 0;
       const result: WordSummaryCounts = {
-        total,
-        newCount: Number(row.new_count ?? 0),
-        reviewDueCount: Number(row.review_due_count ?? 0),
-        dueCount: Number(row.due_count ?? 0),
+        total: totalN,
+        // due = SRS đến hạn + từ chưa có SRS (coi như cần học/ôn)
+        dueCount: (dueCount || 0) + Math.max(0, totalN - withSrsN),
+        newCount: Math.max(0, totalN - learnedN),
+        reviewDueCount: reviewDueCount || 0,
         levelCounts: includeLevels
-          ? await fetchLevelCounts(supabase, userId, classroomId, total)
+          ? await fetchLevelCounts(supabase, userId, classroomId, totalN)
           : [0, 0, 0, 0, 0, 0],
       };
       cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
       return result;
+    } finally {
+      inFlightWordSummaryCounts.delete(cacheKey);
     }
-  }
+  })();
 
-  const now = new Date().toISOString();
-  const [
-    { count: total },
-    { count: dueCount },
-    { count: wordsWithSrs },
-    { count: learnedCount },
-    { count: reviewDueCount },
-  ] = await Promise.all([
-    supabase
-      .from('words')
-      .select('id', { count: 'exact', head: true })
-      .eq('classroom_id', classroomId),
-    supabase
-      .from('srs_progress')
-      .select('id', { count: 'exact', head: true })
-      .eq('user_id', userId)
-      .lte('next_review_date', now),
-    supabase
-      .from('srs_progress')
-      .select('id', { count: 'exact', head: true })
-      .eq('user_id', userId),
-    supabase
-      .from('srs_progress')
-      .select('id', { count: 'exact', head: true })
-      .eq('user_id', userId)
-      .gt('review_count', 0),
-    supabase
-      .from('srs_progress')
-      .select('id', { count: 'exact', head: true })
-      .eq('user_id', userId)
-      .gt('review_count', 0)
-      .lte('next_review_date', now),
-  ]);
-
-  const totalN = total || 0;
-  const learnedN = learnedCount || 0;
-  const withSrsN = wordsWithSrs || 0;
-  const result: WordSummaryCounts = {
-    total: totalN,
-    // due = SRS đến hạn + từ chưa có SRS (coi như cần học/ôn)
-    dueCount: (dueCount || 0) + Math.max(0, totalN - withSrsN),
-    newCount: Math.max(0, totalN - learnedN),
-    reviewDueCount: reviewDueCount || 0,
-    levelCounts: includeLevels
-      ? await fetchLevelCounts(supabase, userId, classroomId, totalN)
-      : [0, 0, 0, 0, 0, 0],
-  };
-  cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
-  return result;
+  inFlightWordSummaryCounts.set(cacheKey, promise);
+  return promise;
 }
 
 // Shape JSONB của global_dictionary.data (Vietnamese definitions + IPA)
@@ -324,6 +363,42 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
             antonyms: peer.antonyms || [],
           };
           source = 'peer_word';
+        }
+      }
+
+      // Tier 2.5: External dictionary API chạy ngầm (không chặn người dùng khi lưu từ)
+      if (!updateData && !dictionaryData) {
+        try {
+          const dictRes = await fetch(`https://dict.minhqnd.com/api/v1/lookup?word=${encodeURIComponent(lower)}&lang=en&def_lang=vi`, {
+            signal: AbortSignal.timeout(1800),
+          });
+          if (dictRes.ok) {
+            const extData = (await dictRes.json()) as {
+              results?: Array<{
+                pronunciations?: { ipa?: string }[];
+                meanings?: { definition?: string; pos?: string; example?: string; example_vi?: string }[];
+              }>;
+              synonyms?: string[];
+              antonyms?: string[];
+            };
+            const firstMeaning = extData?.results?.[0]?.meanings?.[0];
+            if (firstMeaning?.definition && !firstMeaning.definition.includes('failed')) {
+              updateData = {
+                word: lower,
+                translation: firstMeaning.definition,
+                ipa: parseIpa(extData.results?.[0]?.pronunciations?.[0]?.ipa) || '',
+                pos: firstMeaning.pos || '',
+                example: firstMeaning.example || '',
+                example_vi: firstMeaning.example_vi || '',
+                synonyms: extData.synonyms || [],
+                antonyms: extData.antonyms || [],
+              };
+              source = 'global_dict';
+              dictionaryData = extData as unknown as DictionaryData;
+            }
+          }
+        } catch {
+          // Proceed to Tier 3 AI
         }
       }
     }
@@ -505,14 +580,14 @@ export async function POST(req: Request): Promise<NextResponse> {
     let initialPos = body.pos || '';
     const needsGdLookup = initialTranslation === '⏳ Analyzing...';
 
-    const [existingRes, plan, gdRes] = await Promise.all([
+    const [existingRes, planInfo, gdRes] = await Promise.all([
       supabase
         .from('words')
         .select('id, word, translation')
         .eq('classroom_id', classroomId)
         .ilike('word', word.trim())
         .maybeSingle(),
-      resolvePlanByUserId(supabase, userId),
+      resolveUserPlanInfo(supabase, userId),
       needsGdLookup
         ? supabase
             .from('global_dictionary')
@@ -532,7 +607,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     }
 
     // Free: tối đa 200 từ mới/tháng (không đếm duplicate; từ cũ vẫn ôn được)
-    const saveQuota = await checkWordSaveQuota(supabase, userId, plan, 1);
+    const saveQuota = await checkWordSaveQuota(supabase, userId, planInfo.plan, 1, planInfo.createdAt);
     if (!saveQuota.allowed) {
       return NextResponse.json(
         {
@@ -548,15 +623,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       );
     }
 
-    // ── Stage 1: Fast Dictionary Lookup (Skip if already provided by Extension/Spreadsheet) ──
-    // External API trả về shape có thêm `pronunciations` ở mỗi result entry — dùng narrow type
-    type DictApiResult = {
-      pronunciations?: { ipa?: string }[];
-      meanings?: { definition?: string; pos?: string }[];
-    };
-    type DictApiResponse = { results?: DictApiResult[] } & DictionaryData;
-
-    let dictData: DictApiResponse | null = null;
+    // ── Stage 1: Fast Local Dictionary Check (Không chặn network ngoài trên foreground) ──
+    let dictData: DictionaryData | null = null;
 
     if (needsGdLookup) {
       const gdData = (gdRes.data?.data ?? null) as GdData | null;
@@ -565,24 +633,6 @@ export async function POST(req: Request): Promise<NextResponse> {
         initialTranslation = gdMeaning.definition;
         initialIpa = parseIpa(gdData?.pronunciations?.[0]?.ipa) || '';
         initialPos = gdMeaning.pos || '';
-      } else {
-        try {
-          const dictRes = await fetch(`https://dict.minhqnd.com/api/v1/lookup?word=${encodeURIComponent(word)}&lang=en&def_lang=vi`, {
-            signal: AbortSignal.timeout(1800),
-          });
-          if (dictRes.ok) {
-            dictData = (await dictRes.json()) as DictApiResponse;
-            const actualDictData = dictData?.results?.[0];
-            // Extract primary meaning and IPA from the nested data
-            if (actualDictData?.meanings && actualDictData.meanings.length > 0) {
-              initialIpa = parseIpa(actualDictData.pronunciations?.[0]?.ipa) || '';
-              initialTranslation = actualDictData.meanings[0].definition || initialTranslation;
-              initialPos = actualDictData.meanings[0].pos || '';
-            }
-          }
-        } catch (dictErr) {
-          console.warn('[Dictionary API] Failed:', dictErr);
-        }
       }
     }
 
@@ -1002,7 +1052,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       };
     });
 
-    const total = summaryCounts?.total ?? countResult.count ?? 0;
+    const total = summaryCounts?.total ?? countResult.count ?? (noCount ? null : 0);
     return new NextResponse(JSON.stringify({
       success: true,
       data: enriched,
@@ -1017,7 +1067,7 @@ export async function GET(req: Request): Promise<NextResponse> {
         : {}),
       limit,
       offset,
-      hasMore: offset + limit < total,
+      hasMore: total != null ? offset + limit < total : enriched.length >= limit,
     }), {
       // Private browser cache 15s — bớt spam khi user reload/đổi tab
       headers: { 'Cache-Control': 'private, max-age=15, stale-while-revalidate=30' },

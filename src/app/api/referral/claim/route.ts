@@ -65,7 +65,10 @@ export async function POST(req: NextRequest) {
     // Prevent self-referral
     if (link.user_id === user.id) {
       return NextResponse.json(
-        { error: 'Bạn không thể tự áp dụng mã quà tặng của chính mình' },
+        {
+          isSelfReferral: true,
+          error: 'Đây là mã quà tặng của chính bạn! Hãy chia sẻ liên kết này cho bạn bè để cả hai cùng nhận 7 ngày VIP nhé.',
+        },
         { status: 400 },
       );
     }

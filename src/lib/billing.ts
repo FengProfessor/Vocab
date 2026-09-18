@@ -634,7 +634,21 @@ export async function confirmOrder(
 
   // Tự động kích hoạt ghi nhận hoa hồng referral nếu người mua có người giới thiệu
   try {
-    await supabase.rpc('fn_process_referral_reward', { p_order_id: orderId });
+    const { data: ord } = await supabase
+      .from('orders')
+      .select('user_id, amount')
+      .eq('id', orderId)
+      .maybeSingle();
+
+    if (ord?.user_id && ord?.amount) {
+      await supabase.rpc('fn_process_referral_reward', {
+        p_order_id: orderId,
+        p_referee_id: ord.user_id,
+        p_order_amount: ord.amount,
+      });
+    } else {
+      await supabase.rpc('fn_process_referral_reward', { p_order_id: orderId });
+    }
   } catch (refErr) {
     console.warn('[Billing] Referral reward trigger warning:', refErr);
   }

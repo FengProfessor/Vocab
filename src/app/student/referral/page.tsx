@@ -51,6 +51,18 @@ interface ReferralItem {
   convertedAt?: string | null;
 }
 
+interface PayoutItem {
+  id: string;
+  amount: number;
+  bankName: string;
+  bankAccountNumber: string;
+  bankAccountHolder: string;
+  status: 'pending' | 'approved' | 'rejected' | 'completed';
+  adminNote?: string | null;
+  createdAt: string;
+  processedAt?: string | null;
+}
+
 interface HubData {
   referralCode: string;
   shareUrl: string;
@@ -65,6 +77,7 @@ interface HubData {
     };
   };
   referrals: ReferralItem[];
+  payouts?: PayoutItem[];
 }
 
 const POPULAR_BANKS = [
@@ -79,7 +92,16 @@ const POPULAR_BANKS = [
   'VIB',
   'Sacombank',
   'HDBank',
+  'OCB (Phương Đông)',
+  'MSB (Hàng Hải)',
+  'SeABank',
+  'LPBank (Bưu Điện Liên Việt)',
+  'SHB (Sài Gòn - Hà Nội)',
+  'Cake by VPBank',
+  'Timo Digital Bank',
   'MoMo',
+  'ZaloPay',
+  'Ngân hàng khác (Tự nhập tên)',
 ];
 
 export default function ReferralHubPage() {
@@ -89,11 +111,13 @@ export default function ReferralHubPage() {
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedMsg, setCopiedMsg] = useState(false);
   const [canNativeShare, setCanNativeShare] = useState(false);
+  const [msgTone, setMsgTone] = useState<'casual' | 'study'>('casual');
 
   // Payout modal state
   const [isPayoutOpen, setIsPayoutOpen] = useState(false);
   const [payoutAmount, setPayoutAmount] = useState('100000');
   const [payoutBank, setPayoutBank] = useState('Vietcombank');
+  const [customBank, setCustomBank] = useState('');
   const [payoutAccNumber, setPayoutAccNumber] = useState('');
   const [payoutAccHolder, setPayoutAccHolder] = useState('');
   const [isSubmittingPayout, setIsSubmittingPayout] = useState(false);
@@ -164,7 +188,10 @@ export default function ReferralHubPage() {
 
   const getInviteMessage = () => {
     if (!data?.shareUrl) return '';
-    return `Ê, tớ gửi bạn quà tặng 7 ngày Pro VIP học từ vựng tiếng Anh trên LingoPro nè! Vừa có AI sửa câu vừa ôn ngắt quãng FSRS siêu nhớ. Nhận quà học cùng tớ nhé: ${data.shareUrl}`;
+    if (msgTone === 'study') {
+      return `Xin chào! Mình đang học từ vựng và luyện thi trên LingoPro. Gửi bạn gói 7 ngày Pro VIP trải nghiệm trọn vẹn toàn bộ tính năng cao cấp và kho bài học nhé: ${data.shareUrl}`;
+    }
+    return `Chào bạn! Mình gửi tặng bạn 7 ngày Pro VIP học tiếng Anh trên LingoPro nè. Ở đây học từ vựng theo phương pháp lặp lại ngắt quãng FSRS nhớ sâu lắm, lại có AI trợ lý chấm sửa câu cực hay. Bấm vào link nhận quà và học cùng mình nhé: ${data.shareUrl}`;
   };
 
   const handleCopyMessage = () => {
@@ -182,7 +209,7 @@ export default function ReferralHubPage() {
     try {
       await navigator.share({
         title: 'Tặng bạn 7 ngày Pro VIP học tiếng Anh trên LingoPro',
-        text: 'Cùng học tiếng Anh thông minh với AI và FSRS trên LingoPro nha! Bấm vào link nhận ngay 7 ngày Pro VIP cùng tớ:',
+        text: 'Cùng học tiếng Anh thông minh với AI và phương pháp FSRS trên LingoPro nha! Bấm vào link nhận ngay 7 ngày Pro VIP cùng mình:',
         url: data.shareUrl,
       });
     } catch {
@@ -226,7 +253,16 @@ export default function ReferralHubPage() {
       return;
     }
 
-    if (!payoutAccNumber.trim() || !payoutAccHolder.trim()) {
+    const effectiveBank =
+      payoutBank === 'Ngân hàng khác (Tự nhập tên)' ? customBank.trim() : payoutBank;
+
+    if (!effectiveBank) {
+      toast.error('Vui lòng nhập tên ngân hàng thụ hưởng của bạn');
+      return;
+    }
+
+    const cleanAccNum = payoutAccNumber.trim().replace(/\s+/g, '');
+    if (!cleanAccNum || !payoutAccHolder.trim()) {
       toast.error('Vui lòng điền số tài khoản và tên chủ tài khoản thụ hưởng');
       return;
     }
@@ -246,8 +282,8 @@ export default function ReferralHubPage() {
         },
         body: JSON.stringify({
           amount: amountNum,
-          bankName: payoutBank,
-          bankAccountNumber: payoutAccNumber.trim(),
+          bankName: effectiveBank,
+          bankAccountNumber: cleanAccNum,
           bankAccountHolder: payoutAccHolder.trim().toUpperCase(),
         }),
       });
@@ -262,6 +298,9 @@ export default function ReferralHubPage() {
           'Yêu cầu rút tiền thành công! LingoPro sẽ duyệt và chuyển khoản qua VietQR trong vòng 24 giờ.',
       );
       setIsPayoutOpen(false);
+      setPayoutAccNumber('');
+      setPayoutAccHolder('');
+      setCustomBank('');
       void fetchHubData();
     } catch (err: any) {
       toast.error(err.message || 'Lỗi gửi yêu cầu rút tiền');
@@ -287,13 +326,13 @@ export default function ReferralHubPage() {
           <div className="relative z-10 max-w-2xl space-y-3.5">
             <div className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-indigo-100 backdrop-blur-md">
               <Sparkles className="h-3.5 w-3.5 text-amber-300" />
-              Chương trình Bạn Đồng Hành · Càng học càng vui
+              Chương trình Bạn Đồng Hành · Học cùng bạn bè, nhân đôi tiến bộ
             </div>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight">
-              Học Cùng Bạn Thân — Rinh Trọn Pro VIP &amp; Thưởng Tiền Mặt!
+              Cùng Bạn Bứt Phá Tiếng Anh — Nhận Trọn Pro VIP &amp; Thưởng Tri Ân
             </h1>
             <p className="text-sm sm:text-base text-indigo-100/90 leading-relaxed">
-              Mời bạn bè cùng bứt phá tiếng Anh trên LingoPro: <span className="font-bold text-amber-300">Cả 2 đều nhận ngay 7 ngày Pro VIP</span>. Đặc biệt, bạn còn nhận thêm <span className="font-bold text-emerald-300">15% – 20% tiền thưởng</span> chuyển khoản thẳng về tài khoản ngân hàng khi bạn bè nâng cấp tài khoản!
+              Mời bạn bè cùng nâng cấp vốn từ vựng trên LingoPro: <span className="font-bold text-amber-300">Cả 2 đều nhận ngay 7 ngày Pro VIP</span>. Đặc biệt, bạn còn nhận thêm <span className="font-bold text-emerald-300">15% – 20% hoa hồng tri ân</span> rút thẳng về tài khoản ngân hàng khi bạn bè nâng cấp tài khoản!
             </p>
 
             {/* Quick value badges */}
@@ -304,11 +343,11 @@ export default function ReferralHubPage() {
               </div>
               <div className="inline-flex items-center gap-1 rounded-lg bg-black/20 px-2.5 py-1 backdrop-blur-xs">
                 <Coins className="h-3.5 w-3.5 text-emerald-300" />
-                Nhận 15% – 20% hoa hồng
+                Nhận 15% – 20% hoa hồng tri ân
               </div>
               <div className="inline-flex items-center gap-1 rounded-lg bg-black/20 px-2.5 py-1 backdrop-blur-xs">
                 <Zap className="h-3.5 w-3.5 text-blue-300" />
-                Rút tiền 24/7 qua VietQR
+                Rút tiền 24/7 qua VietQR miễn phí
               </div>
             </div>
           </div>
@@ -321,10 +360,10 @@ export default function ReferralHubPage() {
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-black shadow-xs">
                 1
               </span>
-              Gửi link mời bạn
+              Gửi link mời bạn bè
             </div>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Gửi liên kết độc quyền hoặc mã quà tặng qua Zalo, Messenger để rủ bạn thân cùng tham gia.
+              Gửi liên kết độc quyền hoặc mã quà tặng qua Zalo, Messenger để rủ bạn bè cùng tham gia học tập.
             </p>
           </div>
 
@@ -333,10 +372,10 @@ export default function ReferralHubPage() {
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-500 text-white text-xs font-black shadow-xs">
                 2
               </span>
-              Cùng học &amp; Nhận VIP
+              Cùng học &amp; Mở quà VIP
             </div>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Bạn bè hoàn thành 3 ngày học hoặc lưu 30 từ vựng — <span className="font-semibold text-indigo-600 dark:text-indigo-400">cả hai bạn</span> được tặng ngay 7 ngày Pro VIP!
+              Bạn bè học 3 ngày liên tục hoặc lưu 30 từ vựng — <span className="font-semibold text-indigo-600 dark:text-indigo-400">cả hai bạn</span> được tặng ngay 7 ngày Pro VIP!
             </p>
           </div>
 
@@ -345,10 +384,10 @@ export default function ReferralHubPage() {
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 text-white text-xs font-black shadow-xs">
                 3
               </span>
-              Rinh thưởng tiền mặt
+              Nhận hoa hồng tri ân
             </div>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Khi bạn bè đăng ký bất kỳ gói Pro nào, bạn nhận ngay <span className="font-semibold text-emerald-600 dark:text-emerald-400">15% – 20% hoa hồng</span> chuyển khoản qua VietQR.
+              Khi bạn bè đăng ký bất kỳ gói Pro nào, bạn nhận ngay <span className="font-semibold text-emerald-600 dark:text-emerald-400">15% – 20% hoa hồng</span> rút thẳng về tài khoản ngân hàng.
             </p>
           </div>
         </div>
@@ -378,7 +417,7 @@ export default function ReferralHubPage() {
               </div>
             </div>
             <p className="mt-2 text-[11px] text-slate-400">
-              Cộng dồn vào thời hạn tài khoản của bạn
+              Cộng dồn trực tiếp vào hạn dùng tài khoản
             </p>
           </div>
 
@@ -411,11 +450,15 @@ export default function ReferralHubPage() {
                 onClick={() => setIsPayoutOpen(true)}
                 className="w-full text-xs font-bold border-emerald-300 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-800 dark:text-emerald-300 h-8"
               >
-                Rút tiền về tài khoản
+                Rút về tài khoản ngân hàng
               </Button>
-              {data && data.stats.availableCash < 100000 && (
+              {data && data.stats.availableCash < 100000 ? (
                 <p className="mt-1 text-center text-[10px] text-slate-400">
                   (Cần tối thiểu 100.000đ để rút)
+                </p>
+              ) : (
+                <p className="mt-1 text-center text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">
+                  Rút tức thì 24/7 qua VietQR
                 </p>
               )}
             </div>
@@ -426,7 +469,7 @@ export default function ReferralHubPage() {
             <div>
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-                  Thưởng Chờ Đối Soát
+                  Thưởng Chờ Mở Khóa
                 </span>
                 <div className="rounded-lg bg-amber-50 p-2 text-amber-600 dark:bg-amber-950/60 dark:text-amber-400">
                   <Clock className="h-4 w-4" />
@@ -443,7 +486,7 @@ export default function ReferralHubPage() {
               </div>
             </div>
             <p className="mt-2 text-[11px] text-slate-400">
-              Tự động mở khóa rút sau 7–14 ngày
+              Tự động mở khóa sau 7–14 ngày (khi đơn hàng hoàn tất)
             </p>
           </div>
 
@@ -502,10 +545,11 @@ export default function ReferralHubPage() {
                 <Input
                   readOnly
                   value={data?.shareUrl || 'Đang tạo liên kết mời...'}
-                  className="pr-24 font-mono text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 h-10"
+                  className="pr-36 font-mono text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 h-10"
                 />
                 <Button
                   size="sm"
+                  disabled={!data?.shareUrl}
                   onClick={handleCopyLink}
                   className="absolute right-1 top-1 h-8 text-xs bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-xs"
                 >
@@ -520,9 +564,17 @@ export default function ReferralHubPage() {
             </div>
 
             {/* Referral Code Box */}
-            <div className="flex items-center justify-between rounded-lg border border-dashed border-indigo-200 bg-indigo-50/50 px-3 py-2 dark:border-indigo-900/60 dark:bg-indigo-950/20">
+            <div
+              onClick={handleCopyCode}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') handleCopyCode();
+              }}
+              className="flex items-center justify-between rounded-lg border border-dashed border-indigo-200 bg-indigo-50/60 px-3.5 py-2 cursor-pointer transition-all hover:bg-indigo-100/60 hover:border-indigo-300 dark:border-indigo-900/60 dark:bg-indigo-950/20 dark:hover:bg-indigo-900/30"
+            >
               <div className="text-left">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-indigo-500">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
                   Mã quà tặng
                 </div>
                 <div className="font-mono text-base font-extrabold text-indigo-700 dark:text-indigo-300">
@@ -532,16 +584,61 @@ export default function ReferralHubPage() {
               <Button
                 size="sm"
                 variant="ghost"
-                onClick={handleCopyCode}
-                className="h-8 px-2 text-indigo-600 hover:bg-indigo-100/60 dark:hover:bg-indigo-900/40"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCopyCode();
+                }}
+                className="h-8 px-2 text-indigo-600 hover:bg-indigo-200/50 dark:hover:bg-indigo-900/40 text-xs font-semibold"
               >
                 {copiedCode ? (
-                  <Check className="h-4 w-4 text-emerald-600" />
+                  <>
+                    <Check className="h-3.5 w-3.5 text-emerald-600 mr-1" />
+                    Đã chép
+                  </>
                 ) : (
-                  <Copy className="h-4 w-4" />
+                  <>
+                    <Copy className="h-3.5 w-3.5 mr-1" />
+                    Chép mã
+                  </>
                 )}
               </Button>
             </div>
+          </div>
+
+          {/* Tone Selector & Message Box */}
+          <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-3.5 dark:border-slate-800 dark:bg-slate-800/40 space-y-2.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                Mẫu tin nhắn rủ bạn bè:
+              </span>
+              <div className="inline-flex rounded-lg border border-slate-200 bg-white p-0.5 text-xs dark:border-slate-700 dark:bg-slate-800">
+                <button
+                  type="button"
+                  onClick={() => setMsgTone('casual')}
+                  className={`rounded-md px-2.5 py-1 text-[11px] font-semibold transition-all ${
+                    msgTone === 'casual'
+                      ? 'bg-indigo-600 text-white shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400'
+                  }`}
+                >
+                  💬 Bạn thân
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMsgTone('study')}
+                  className={`rounded-md px-2.5 py-1 text-[11px] font-semibold transition-all ${
+                    msgTone === 'study'
+                      ? 'bg-indigo-600 text-white shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400'
+                  }`}
+                >
+                  📚 Nhóm / Lớp học
+                </button>
+              </div>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-300 italic bg-white dark:bg-slate-900 p-2.5 rounded-lg border border-slate-100 dark:border-slate-800 leading-relaxed">
+              &quot;{getInviteMessage()}&quot;
+            </p>
           </div>
 
           {/* Social Share Buttons */}
@@ -578,14 +675,14 @@ export default function ReferralHubPage() {
               size="sm"
               variant="outline"
               onClick={handleCopyMessage}
-              className="text-xs font-semibold text-slate-600 hover:bg-slate-100 dark:text-slate-300 h-8"
+              className="text-xs font-semibold text-slate-700 hover:bg-slate-100 dark:text-slate-200 h-8"
             >
               {copiedMsg ? (
                 <Check className="h-3.5 w-3.5 mr-1.5 text-emerald-600" />
               ) : (
                 <Copy className="h-3.5 w-3.5 mr-1.5" />
               )}
-              {copiedMsg ? 'Đã sao chép tin nhắn' : 'Sao chép lời mời bạn'}
+              {copiedMsg ? 'Đã sao chép tin nhắn' : 'Sao chép tin nhắn mẫu'}
             </Button>
           </div>
         </div>
@@ -687,7 +784,7 @@ export default function ReferralHubPage() {
                   )}
                 </div>
                 <div className="text-slate-500 text-[11px] mt-1.5 leading-relaxed">
-                  Tặng thêm 30 ngày Pro VIP miễn phí cho bạn.
+                  15% hoa hồng + Thưởng thêm 30 ngày Pro VIP khi đạt mốc.
                 </div>
               </div>
 
@@ -743,7 +840,7 @@ export default function ReferralHubPage() {
                 Bạn chưa có bạn học đồng hành nào
               </h3>
               <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
-                Học một mình dễ nản, rủ ngay đứa bạn thân cùng học để vừa có bạn đua top, vừa nhận trọn 7 ngày VIP!
+                Học một mình dễ nản, rủ ngay bạn thân cùng học để vừa có bạn đua top, vừa cùng nhận trọn 7 ngày VIP!
               </p>
               <Button
                 size="sm"
@@ -786,11 +883,11 @@ export default function ReferralHubPage() {
                           </span>
                         ) : item.status === 'activated' ? (
                           <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-0.5 text-[11px] font-bold text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300">
-                            <CheckCircle2 className="h-3 w-3" /> Đã học cùng bạn ⭐
+                            <CheckCircle2 className="h-3 w-3" /> Đã kích hoạt VIP 🎁
                           </span>
                         ) : item.status === 'fraud_flagged' ? (
                           <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-bold text-amber-700 dark:bg-amber-950/60 dark:text-amber-300">
-                            <AlertCircle className="h-3 w-3" /> Cần xác minh ⚠️
+                            <AlertCircle className="h-3 w-3" /> Chưa đủ điều kiện ⚠️
                           </span>
                         ) : (
                           <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400">
@@ -800,9 +897,9 @@ export default function ReferralHubPage() {
                       </td>
                       <td className="py-3 text-right font-bold text-slate-900 dark:text-white">
                         {item.status === 'converted' ? (
-                          <span className="text-emerald-600">+7d VIP &amp; Thưởng tiền</span>
+                          <span className="text-emerald-600">+7 ngày VIP &amp; Hoa hồng</span>
                         ) : item.status === 'activated' ? (
-                          <span className="text-indigo-600">+7 Ngày Pro VIP</span>
+                          <span className="text-indigo-600">+7 ngày Pro VIP</span>
                         ) : item.status === 'fraud_flagged' ? (
                           <span className="text-slate-400">Chưa đủ điều kiện</span>
                         ) : (
@@ -816,6 +913,78 @@ export default function ReferralHubPage() {
             </div>
           )}
         </div>
+
+        {/* Payout Requests History (when user has submitted payouts) */}
+        {data?.payouts && data.payouts.length > 0 && (
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-2xs dark:border-slate-800 dark:bg-slate-900">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800">
+              <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Building2 className="h-4 w-4 text-emerald-600" />
+                Lịch sử yêu cầu rút tiền ({data.payouts.length})
+              </h2>
+            </div>
+
+            <div className="overflow-x-auto mt-4">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="border-b border-slate-100 text-slate-400 dark:border-slate-800">
+                    <th className="pb-2.5 font-medium">Thời gian</th>
+                    <th className="pb-2.5 font-medium">Số tiền</th>
+                    <th className="pb-2.5 font-medium">Ngân hàng thụ hưởng</th>
+                    <th className="pb-2.5 font-medium">Trạng thái</th>
+                    <th className="pb-2.5 font-medium text-right">Ghi chú</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {data.payouts.map((p) => (
+                    <tr key={p.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                      <td className="py-3 text-slate-500 font-mono text-[11px]">
+                        {new Date(p.createdAt).toLocaleDateString('vi-VN', {
+                          day: '2-digit',
+                          month: '2-digit',
+                          year: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })}
+                      </td>
+                      <td className="py-3 font-bold text-emerald-600 dark:text-emerald-400">
+                        {formatVND(p.amount)}
+                      </td>
+                      <td className="py-3 text-slate-700 dark:text-slate-300">
+                        <div className="font-semibold">{p.bankName}</div>
+                        <div className="font-mono text-[11px] text-slate-400">
+                          {p.bankAccountNumber.slice(0, 3)}****{p.bankAccountNumber.slice(-4)} · {p.bankAccountHolder}
+                        </div>
+                      </td>
+                      <td className="py-3">
+                        {p.status === 'completed' ? (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">
+                            <CheckCircle2 className="h-3 w-3" /> Đã chuyển tiền ✅
+                          </span>
+                        ) : p.status === 'approved' ? (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-bold text-blue-700 dark:bg-blue-950/60 dark:text-blue-300">
+                            <Clock className="h-3 w-3" /> Đã duyệt · Đang chuyển 💸
+                          </span>
+                        ) : p.status === 'rejected' ? (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-2.5 py-0.5 text-[11px] font-bold text-rose-700 dark:bg-rose-950/60 dark:text-rose-300">
+                            <AlertCircle className="h-3 w-3" /> Từ chối ❌
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-bold text-amber-700 dark:bg-amber-950/60 dark:text-amber-300">
+                            <Clock className="h-3 w-3" /> Đang chờ duyệt ⏳
+                          </span>
+                        )}
+                      </td>
+                      <td className="py-3 text-right text-[11px] text-slate-400 max-w-xs truncate">
+                        {p.adminNote || 'Chuyển khoản VietQR 24/7'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
 
         {/* FAQs */}
         <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-2xs dark:border-slate-800 dark:bg-slate-900 space-y-3">
@@ -845,15 +1014,15 @@ export default function ReferralHubPage() {
                 Tôi có thể rút tiền về tài khoản ngân hàng không?
               </span>
               <p className="mt-1.5 leading-relaxed">
-                Hoàn toàn được! Khi số dư ví thưởng từ 100.000đ trở lên, bạn chỉ cần bấm nút &quot;Rút tiền về tài khoản&quot; và điền thông tin ngân hàng. LingoPro duyệt và chuyển khoản 24/7 qua VietQR hoàn toàn miễn phí.
+                Hoàn toàn được! Khi số dư ví thưởng từ 100.000đ trở lên, bạn chỉ cần bấm nút &quot;Rút về tài khoản ngân hàng&quot; và điền thông tin tài khoản. LingoPro duyệt và chuyển khoản 24/7 qua VietQR hoàn toàn miễn phí.
               </p>
             </div>
             <div className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/60">
               <span className="font-bold text-slate-800 dark:text-slate-200">
-                Thưởng chờ đối soát là gì và bao lâu thì rút được?
+                Thưởng chờ mở khóa là gì và bao lâu thì rút được tiền?
               </span>
               <p className="mt-1.5 leading-relaxed">
-                Đây là khoản tiền thưởng từ các gói học mới của bạn bè. Tiền sẽ được giữ đối soát từ 7 đến 14 ngày nhằm đảm bảo đơn hàng hoàn tất ổn định, sau đó tự động chuyển sang số dư khả dụng để bạn rút về tài khoản.
+                Khi bạn bè nâng cấp gói học, tiền hoa hồng sẽ ở trạng thái chờ mở khóa trong 7–14 ngày (tùy gói tháng hoặc năm) nhằm đảm bảo đơn hàng hoàn tất ổn định. Sau thời gian này, tiền sẽ tự động chuyển sang số dư khả dụng để bạn rút về tài khoản ngân hàng bất cứ lúc nào.
               </p>
             </div>
           </div>

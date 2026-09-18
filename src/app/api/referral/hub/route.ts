@@ -152,6 +152,25 @@ export async function GET(req: NextRequest) {
       convertedAt: log.converted_at,
     }));
 
+    // 5. Fetch user payout requests
+    const { data: payouts } = await supabase
+      .from('payout_requests')
+      .select('id, amount, bank_name, bank_account_number, bank_account_holder, status, admin_note, created_at, processed_at')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false });
+
+    const formattedPayouts = (payouts || []).map((p) => ({
+      id: p.id,
+      amount: p.amount,
+      bankName: p.bank_name,
+      bankAccountNumber: p.bank_account_number,
+      bankAccountHolder: p.bank_account_holder,
+      status: p.status as 'pending' | 'approved' | 'rejected' | 'completed',
+      adminNote: p.admin_note,
+      createdAt: p.created_at,
+      processedAt: p.processed_at,
+    }));
+
     return NextResponse.json({
       success: true,
       referralCode,
@@ -170,6 +189,7 @@ export async function GET(req: NextRequest) {
         nextMilestone,
       },
       referrals: formattedReferrals,
+      payouts: formattedPayouts,
     });
   } catch (err: any) {
     return NextResponse.json({ error: err.message || 'Internal error' }, { status: 500 });

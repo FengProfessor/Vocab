@@ -239,16 +239,22 @@ export default function AuthPage() {
         }
         const refCode = getStoredReferralCode();
         if (refCode && data.session?.access_token) {
-          void fetch('/api/referral/claim', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${data.session.access_token}`,
-            },
-            body: JSON.stringify({ referralCode: refCode }),
-          })
-            .then(() => clearStoredReferralCode())
-            .catch(() => null);
+          try {
+            await Promise.race([
+              fetch('/api/referral/claim', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${data.session.access_token}`,
+                },
+                body: JSON.stringify({ referralCode: refCode }),
+                keepalive: true,
+              }).then(() => clearStoredReferralCode()),
+              new Promise((r) => setTimeout(r, 1200)),
+            ]);
+          } catch {
+            // ignore
+          }
         }
 
         setStatus('Thành công — đang vào học...');
@@ -274,16 +280,22 @@ export default function AuthPage() {
 
       const refCode = getStoredReferralCode();
       if (refCode && session.access_token) {
-        void fetch('/api/referral/claim', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${session.access_token}`,
-          },
-          body: JSON.stringify({ referralCode: refCode }),
-        })
-          .then(() => clearStoredReferralCode())
-          .catch(() => null);
+        try {
+          await Promise.race([
+            fetch('/api/referral/claim', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${session.access_token}`,
+              },
+              body: JSON.stringify({ referralCode: refCode }),
+              keepalive: true,
+            }).then(() => clearStoredReferralCode()),
+            new Promise((r) => setTimeout(r, 1200)),
+          ]);
+        } catch {
+          // ignore
+        }
       }
 
       setStatus('Thành công — đang vào học...');
@@ -493,9 +505,25 @@ export default function AuthPage() {
               {hasReferralGift && (
                 <div className="mb-4 flex items-center gap-2.5 rounded-2xl border border-amber-400/40 bg-amber-500/15 p-3 text-xs text-amber-100 font-semibold shadow-xs">
                   <Gift className="h-5 w-5 shrink-0 text-amber-400 animate-pulse" />
-                  <p className="leading-relaxed">
-                    <span className="font-bold text-white">Quà tặng bạn mới:</span> Đăng ký ngay để nhận <span className="font-bold text-amber-300">7 ngày Pro VIP</span> học tập cùng bạn bè!
-                  </p>
+                  <div className="leading-relaxed">
+                    {mode === 'signup' ? (
+                      <>
+                        <span className="font-bold text-white">Quà tặng bạn mới:</span> Đăng ký ngay để nhận <span className="font-bold text-amber-300">7 ngày Pro VIP</span> học tập cùng bạn bè!
+                      </>
+                    ) : (
+                      <>
+                        <span className="font-bold text-white">Quà tặng bạn bè:</span> Đăng nhập để kích hoạt hoặc chuyển sang tab{' '}
+                        <button
+                          type="button"
+                          onClick={() => setMode('signup')}
+                          className="font-bold text-amber-300 underline hover:text-amber-200 cursor-pointer"
+                        >
+                          Đăng ký
+                        </button>{' '}
+                        nếu bạn chưa có tài khoản!
+                      </>
+                    )}
+                  </div>
                 </div>
               )}
 

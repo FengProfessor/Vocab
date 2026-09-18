@@ -310,12 +310,12 @@ export default function StudentDashboard() {
     },
     targetScope?: string,
   ) => {
-    const total = data.total || 0;
-    const nextNew = data.newCount ?? 0;
-    const nextReview = data.reviewDueCount ?? 0;
-    setTotalWords(total);
-    setNewCount(nextNew);
-    setReviewDueCount(nextReview);
+    const hasTotal = typeof data.total === 'number';
+    const hasNew = typeof data.newCount === 'number';
+    const hasReview = typeof data.reviewDueCount === 'number';
+    if (hasTotal) setTotalWords(data.total!);
+    if (hasNew) setNewCount(data.newCount!);
+    if (hasReview) setReviewDueCount(data.reviewDueCount!);
     // Không ghi đè chart L1–L6 bằng [0,0,…] từ poll summary (không levels)
     if (Array.isArray(data.levelCounts) && data.levelCounts.length === 6) {
       const next = data.levelCounts.map((n) => Number(n) || 0);
@@ -325,7 +325,10 @@ export default function StudentDashboard() {
     setCountsReady(true);
 
     const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
-    if (!scope || scope === '__personal__') {
+    if ((!scope || scope === '__personal__') && hasTotal) {
+      const total = data.total!;
+      const nextNew = data.newCount ?? 0;
+      const nextReview = data.reviewDueCount ?? 0;
       writeWordSummaryCache(userId, {
         total,
         newCount: nextNew,
@@ -434,7 +437,7 @@ export default function StudentDashboard() {
         const [profRes, wordsJson] = await Promise.all([
           profPromise,
           authFetch(
-            `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&includeCounts=1${scopeParam}`,
+            `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&noCount=1${scopeParam}`,
             {},
             token,
           )
