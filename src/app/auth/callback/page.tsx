@@ -96,16 +96,22 @@ export default function AuthCallbackPage() {
         // Claim referral attribution if present
         const refCode = getStoredReferralCode();
         if (refCode && session.access_token) {
-          void fetch('/api/referral/claim', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${session.access_token}`,
-            },
-            body: JSON.stringify({ referralCode: refCode }),
-          })
-            .then(() => clearStoredReferralCode())
-            .catch(() => null);
+          try {
+            await Promise.race([
+              fetch('/api/referral/claim', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${session.access_token}`,
+                },
+                body: JSON.stringify({ referralCode: refCode }),
+                keepalive: true,
+              }).then(() => clearStoredReferralCode()),
+              new Promise((r) => setTimeout(r, 1200)),
+            ]);
+          } catch {
+            // ignore
+          }
         }
 
         if (requestedRole === 'teacher') {
