@@ -48,13 +48,13 @@ export async function GET(req: Request): Promise<NextResponse> {
       .order('recorded_at', { ascending: true })
       .limit(30);
 
-    // 3. Fetch recent quiz results
+    // 3. Fetch recent quiz results (newest first)
     const { data: quizzes } = await supabase
       .from('quiz_results')
       .select('completed_at, score, total_questions, accuracy')
       .eq('user_id', studentId)
       .eq('classroom_id', classroomId)
-      .order('completed_at', { ascending: true })
+      .order('completed_at', { ascending: false })
       .limit(10);
 
     return NextResponse.json({

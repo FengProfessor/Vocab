@@ -11,6 +11,7 @@ import {
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
+import { getCachedStudentDetail, setCachedStudentDetail } from '@/components/teacher/teacher-cache';
 
 const StudentVmsLineChart = dynamic(
   () => import('@/components/charts/StudentProgressCharts').then((m) => m.StudentVmsLineChart),
@@ -96,11 +97,23 @@ export default function StudentDetailPage() {
   }, []);
 
   const loadStudentDetail = useCallback(async () => {
+    if (!classroomId) return;
+    const cached = getCachedStudentDetail(studentId, classroomId);
+    if (cached) {
+      setData(cached);
+      setIsLoading(false);
+      if (cached.current) {
+        void generateAiInsight(cached.current);
+      }
+      return;
+    }
+
     try {
       const res = await authFetch(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`);
       const json = await res.json();
       if (json.error) throw new Error(json.error);
       setData(json);
+      setCachedStudentDetail(studentId, classroomId, json);
 
       if (json.current) {
         void generateAiInsight(json.current);
@@ -242,7 +255,7 @@ export default function StudentDetailPage() {
     date: new Date(h.recorded_at).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' })
   }));
 
-  const formattedQuizzes = quizzes.map(q => ({
+  const formattedQuizzes = quizzes.slice().reverse().map(q => ({
     ...q,
     acc: Math.round(q.accuracy * 100),
     date: new Date(q.completed_at).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' })

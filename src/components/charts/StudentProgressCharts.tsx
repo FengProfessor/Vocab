@@ -2,7 +2,7 @@
 
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  BarChart, Bar,
+  BarChart, Bar, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from 'recharts';
 
 export function StudentVmsLineChart({
@@ -40,6 +40,23 @@ export function StudentQuizBarChart({
         <Tooltip contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }} />
         <Bar dataKey="acc" name="Tỷ lệ chính xác (%)" fill="#6366f1" radius={[8, 8, 0, 0]} barSize={30} />
       </BarChart>
+    </ResponsiveContainer>
+  );
+}
+
+export function StudentCompetencyRadarChart({
+  data,
+}: {
+  data: { subject: string; score: number; fullMark: number }[];
+}) {
+  return (
+    <ResponsiveContainer width="100%" height="100%">
+      <RadarChart data={data} outerRadius="75%">
+        <PolarGrid stroke="#e2e8f0" />
+        <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: '#64748b', fontWeight: 600 }} />
+        <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
+        <Radar name="Năng lực" dataKey="score" stroke="#8b5cf6" fill="#8b5cf6" fillOpacity={0.35} />
+      </RadarChart>
     </ResponsiveContainer>
   );
 }

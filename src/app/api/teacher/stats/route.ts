@@ -20,7 +20,7 @@ export async function GET(req: Request) {
     // 1. Get classrooms (filter out personal word collections)
     const { data: classrooms, error: classErr } = await supabase
       .from('classrooms')
-      .select('*, enrollments(count)')
+      .select('id, name, description, invite_code, created_at, teacher_id, enrollments(count)')
       .eq('teacher_id', auth.userId)
       .neq('name', '__personal__')
       .order('created_at', { ascending: false });
@@ -36,15 +36,9 @@ export async function GET(req: Request) {
     // 2. Get students for selected classroom if provided
     let students = [];
     if (classroomId) {
-      // Verify classroom ownership first
-      const { data: classroom, error: classroomErr } = await supabase
-        .from('classrooms')
-        .select('teacher_id')
-        .eq('id', classroomId)
-        .maybeSingle();
-
-      if (classroomErr) throw classroomErr;
-      if (!classroom || classroom.teacher_id !== auth.userId) {
+      // Verify classroom ownership from already fetched teacher classrooms (eliminates duplicate roundtrip)
+      const isOwner = (classrooms || []).some(c => c.id === classroomId);
+      if (!isOwner) {
         return unauthorized();
       }
 
