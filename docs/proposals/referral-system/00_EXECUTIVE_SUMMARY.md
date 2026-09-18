@@ -63,7 +63,7 @@ Hệ thống đặt ra 4 mục tiêu kinh doanh và công nghệ định lượn
 ```
 
 ### R1. Chính Sách Thưởng Kép (Two-Sided Hybrid Reward Structure)
-- **Tầng 1 (Free-to-Trial / Engagement)**: Học viên giới thiệu (Referrer) và Bạn bè (Referee) đều nhận **7 ngày học Pro VIP miễn phí** khi bạn bè hoàn thành **Điều kiện Kích hoạt (Activation Event)**: Duy trì Streak học tập $\ge 3$ ngày HOẶC tích lũy $\ge 30$ từ vựng mới.
+- **Tầng 1 (Free-to-Trial / Engagement)**: Học viên giới thiệu (Referrer) và Bạn bè (Referee) đều nhận **7 ngày học Pro VIP miễn phí** khi bạn bè hoàn thành **Điều kiện Kích hoạt (Activation Event)**: Duy trì Streak học tập $\ge 3$ ngày VÀ tích lũy $\ge 30$ từ vựng mới.
 - **Tầng 2 (Monetization / Affiliate Commission)**: Người giới thiệu nhận **hoa hồng tiền mặt 15% – 20%** (theo Kịch bản Cân bằng) hoặc nâng hạn mức khi bạn bè thanh toán bất kỳ gói học nào (Pro/Premium từ 1 tháng đến 1 năm).
 
 ### R2. Hiệu Quả Kinh Tế Đơn Vị & Lợi Nhuận (Unit Economics & ROI)

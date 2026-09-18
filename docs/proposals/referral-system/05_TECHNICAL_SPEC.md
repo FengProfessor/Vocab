@@ -273,7 +273,7 @@ CREATE INDEX idx_payout_requests_bank_acc ON public.payout_requests (bank_accoun
 ---
 
 ### 3.4. `POST /api/referral/evaluate-activation`
-- **Mô tả**: Đánh giá điều kiện kích hoạt Tầng 1 (Streak $\ge 3$ ngày HOẶC từ vựng $\ge 30$) cho tài khoản hiện tại. Được gọi ngầm sau khi học viên hoàn thành một phiên học (FSRS review, quiz hoặc bài đọc).
+- **Mô tả**: Đánh giá điều kiện kích hoạt Tầng 1 (Streak $\ge 3$ ngày VÀ từ vựng $\ge 30$) cho tài khoản hiện tại. Được gọi ngầm sau khi học viên hoàn thành một phiên học (FSRS review, quiz hoặc bài đọc).
 - **Xác thực**: Bắt buộc (`auth.uid()`).
 - **Xử lý Logic**:
   - Gọi Stored Procedure PostgreSQL `fn_evaluate_referral_activation(auth.uid())`.

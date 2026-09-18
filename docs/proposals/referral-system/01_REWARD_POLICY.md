@@ -25,7 +25,7 @@ Cơ chế này chia làm 2 tầng độc lập nhưng tương hỗ chặt chẽ:
                 ▼                                               ▼
  ┌───────────────────────────────────────────────────────────────────────────────┐
  │ TẦNG 1: TRẢI NGHIỆM HỌC THỬ (FREE-TO-TRIAL ENGAGEMENT)                        │
- │ Điều kiện: Referee đạt Mốc Kích Hoạt (Streak >= 3 ngày HOẶC học >= 30 từ)     │
+ │ Điều kiện: Referee đạt Mốc Kích Hoạt (Streak >= 3 ngày VÀ học >= 30 từ)       │
  ├───────────────────────────────┬───────────────────────────────────────────────┤
  │ 🎁 Nhận +7 Ngày Pro VIP       │ 🎁 Mở khóa +7 Ngày Pro VIP                    │
  │    (Cộng dồn vào hạn dùng)    │    (Trải nghiệm full AI, FSRS, Video & Thi)   │
@@ -51,11 +51,10 @@ Cơ chế này chia làm 2 tầng độc lập nhưng tương hỗ chặt chẽ:
 - **Nguyên tắc cốt lõi**: **KHÔNG TẶNG THƯỞNG NGAY KHI VỪA ĐĂNG KÝ**. Quà tặng Pro VIP chỉ được kích hoạt khi Người được mời (Referee) chứng minh mình là một người học thực thụ thông qua **Sự Kiện Kích Hoạt (Activation Event)**.
 
 ### 2.2. Tiêu Chí Kích Hoạt (Activation Criteria)
-Kế thừa trực tiếp cấu trúc dữ liệu đã được kiểm chứng tại `src/lib/pro-trial-milestone.ts`. Một tài khoản Referee được coi là kích hoạt thành công khi thỏa mãn **ít nhất 1 trong 3 điều kiện**:
+Một tài khoản Referee được coi là kích hoạt thành công khi thỏa mãn **đồng thời cả 2 điều kiện học tập cốt lõi** (kết hợp cả tính kiên trì theo thời gian và khối lượng tiếp thu):
 
-1. **Điều kiện 1 (Streak Học Tập)**: Duy trì Streak học tập liên tục $\ge 3$ ngày (`user_gamification.current_streak >= 3`).
-2. **Điều kiện 2 (Tích Lũy Từ Vựng)**: Đã học và ghi nhớ $\ge 30$ từ vựng trong hệ thống (`Math.max(srs_progress.count, words.added_by.count, personal_classroom_words) >= 30`).
-3. **Điều kiện 3 (Hoàn Thành Bài Học Lộ Trình)**: Hoàn thành $\ge 1$ bài học trên Lộ trình học (`user_roadmap_steps.status = 'completed'` với điểm số $\ge 80\%$) HOẶC hoàn thành 1 bài luyện nghe video (`daily_reading_completions`).
+1. **Streak Học Tập**: Duy trì Streak học tập liên tục $\ge 3$ ngày (`user_gamification.current_streak >= 3`).
+2. **Tích Lũy Từ Vựng**: Đã học và ghi nhớ $\ge 30$ từ vựng trong hệ thống (`Math.max(srs_progress.count, words.added_by.count) >= 30`).
 
 ### 2.3. Quy Tắc Cộng Dồn Hạn VIP (Additive Stacking Rule)
 Tuân thủ nghiêm ngặt nguyên tắc của LingoPro (`confirm_paid_order` và `grantGroupEntitlement`):

@@ -37,7 +37,7 @@ sequenceDiagram
     Auth-->>B: Chuyển hướng vào /student bắt đầu học
 
     %% Giai đoạn 3: Kích hoạt Tầng 1 (Engagement)
-    B->>App: Học tập: Duy trì Streak 3 ngày HOẶC học 30 từ vựng
+    B->>App: Học tập: Duy trì Streak 3 ngày VÀ học 30 từ vựng
     App->>DB: Kích hoạt fn_evaluate_referral_activation()
     DB-->>A: Cộng dồn +7 Ngày Pro VIP & Gửi thông báo
     DB-->>B: Mở khóa +7 Ngày Pro VIP & Bắn pháo hoa ăn mừng
@@ -61,7 +61,7 @@ Một bản ghi trong bảng `referral_logs` và `reward_transactions` sẽ tr�
 stateDiagram-v2
     [*] --> Registered: Referee nhấp link và tạo tài khoản thành công
     
-    Registered --> Activated: Referee đạt Streak >= 3 ngày HOẶC học >= 30 từ
+    Registered --> Activated: Referee đạt Streak >= 3 ngày VÀ học >= 30 từ
     Registered --> Flagged: Phát hiện chung Device Fingerprint hoặc Spam IP
     
     Activated --> Converted: Referee mua bất kỳ gói trả phí nào (Pro/Premium)

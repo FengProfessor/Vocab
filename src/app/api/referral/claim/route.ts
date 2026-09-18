@@ -128,7 +128,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: 'Nhận quà thành công! Hãy học bài liên tục 3 ngày hoặc lưu 30 từ vựng để mở khóa trọn vẹn 7 ngày Pro VIP nhé.',
+      message: 'Nhận quà thành công! Hãy học bài liên tục 3 ngày và lưu 30 từ vựng để mở khóa trọn vẹn 7 ngày Pro VIP nhé.',
     });
   } catch (err: any) {
     return NextResponse.json({ error: err.message || 'Internal error' }, { status: 500 });

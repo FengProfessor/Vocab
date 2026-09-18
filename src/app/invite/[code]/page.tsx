@@ -270,7 +270,7 @@ export default function InviteLandingPage({
                 </div>
                 <div className="rounded-lg bg-white dark:bg-slate-800 p-2.5 border border-slate-100 dark:border-slate-700/60 shadow-2xs">
                   <span className="font-bold text-emerald-600 dark:text-emerald-400 block mb-0.5">3. Mở khóa 7 ngày VIP</span>
-                  Học 3 ngày hoặc lưu 30 từ, cả hai bạn cùng nhận VIP!
+                  Học 3 ngày + lưu 30 từ, cả hai bạn cùng nhận VIP!
                 </div>
               </div>
             </div>

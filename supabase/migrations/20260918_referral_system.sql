@@ -263,7 +263,7 @@ GRANT EXECUTE ON FUNCTION public.fn_resolve_referral_code(text) TO anon, authent
 
 -- -----------------------------------------------------------------------------
 -- 3.1. fn_evaluate_referral_activation(p_referee_id uuid)
--- Evaluates learning milestones (Streak >= 3 OR Words >= 30) with:
+-- Evaluates learning milestones (Streak >= 3 AND Words >= 30) with:
 -- 1. SQL three-valued logic safety (COALESCE against empty user_gamification)
 -- 2. Anti-bot dwell time check (referee account age >= 24h OR 2 distinct learning days, plus >60s srs dwell)
 -- 3. Monthly referrer cap enforcement (referral_campaigns.monthly_ref_cap)
@@ -333,9 +333,10 @@ BEGIN
   SELECT count(*) INTO v_words_count FROM public.words WHERE added_by = p_referee_id;
   v_words := greatest(coalesce(v_srs_count, 0), coalesce(v_words_count, 0));
 
-  -- 6. Validate Activation Criteria: streak >= min_streak OR words >= min_words
+  -- 6. Validate Activation Criteria: streak >= min_streak AND words >= min_words
+  -- Must satisfy BOTH conditions: continuous streak >= 3 days AND word count >= 30
   -- Strict COALESCE ensures three-valued logic cannot slip NULL past comparison
-  IF coalesce(v_streak, 0) < v_min_streak AND coalesce(v_words, 0) < v_min_words THEN
+  IF coalesce(v_streak, 0) < v_min_streak OR coalesce(v_words, 0) < v_min_words THEN
     RETURN jsonb_build_object(
       'success', false,
       'reason', 'criteria_not_met',

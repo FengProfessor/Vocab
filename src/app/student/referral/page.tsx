@@ -391,7 +391,7 @@ export default function ReferralHubPage() {
               Cùng học &amp; Mở quà VIP
             </div>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Bạn bè học 3 ngày liên tục hoặc lưu 30 từ vựng — <span className="font-semibold text-indigo-600 dark:text-indigo-400">cả hai bạn</span> được tặng ngay 7 ngày Pro VIP!
+              Bạn bè học 3 ngày liên tục và lưu 30 từ vựng — <span className="font-semibold text-indigo-600 dark:text-indigo-400">cả hai bạn</span> được tặng ngay 7 ngày Pro VIP!
             </p>
           </div>
 
@@ -919,7 +919,7 @@ export default function ReferralHubPage() {
                         ) : item.status === 'fraud_flagged' ? (
                           <span className="text-slate-400">Chưa đủ điều kiện</span>
                         ) : (
-                          <span className="text-slate-400">Chờ học 3 ngày hoặc 30 từ</span>
+                          <span className="text-slate-400">Chờ học 3 ngày + 30 từ</span>
                         )}
                       </td>
                     </tr>
@@ -1014,7 +1014,7 @@ export default function ReferralHubPage() {
                 Làm sao để cả hai cùng nhận 7 ngày Pro VIP?
               </span>
               <p className="mt-1.5 leading-relaxed">
-                Bạn chỉ cần gửi link hoặc mã quà tặng. Khi bạn bè đăng ký và hoàn thành 3 ngày học liên tiếp hoặc lưu 30 từ vựng đầu tiên, hệ thống sẽ tự động kích hoạt 7 ngày Pro VIP cho cả bạn và bạn của bạn!
+                Bạn chỉ cần gửi link hoặc mã quà tặng. Khi bạn bè đăng ký và hoàn thành 3 ngày học liên tiếp cùng 30 từ vựng đầu tiên, hệ thống sẽ tự động kích hoạt 7 ngày Pro VIP cho cả bạn và bạn của bạn!
               </p>
             </div>
             <div className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/60">
