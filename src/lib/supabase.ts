@@ -423,4 +423,12 @@ export interface StudentProgress {
   plan?: string;
   plan_expires_at?: string | null;
   joined_at?: string | null;
+  latest_quiz?: {
+    score: number;
+    total_questions: number;
+    accuracy: number;
+    completed_at: string;
+    quiz_type?: string;
+  } | null;
+  saved_words_count?: number;
 }

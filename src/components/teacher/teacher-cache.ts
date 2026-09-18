@@ -8,10 +8,49 @@ export interface HistoryPoint {
 }
 
 export interface QuizPoint {
+  id?: string;
   completed_at: string;
   score: number;
   total_questions: number;
   accuracy: number;
+  quiz_type?: string;
+}
+
+export interface SavedWordItem {
+  id: string;
+  word: string;
+  translation?: string;
+  ipa?: string;
+  pos?: string;
+  example?: string;
+  created_at: string;
+  added_by?: string;
+  classroom_id?: string;
+}
+
+export interface ToeicAssessmentItem {
+  id: string;
+  track?: string;
+  tier?: string;
+  target_id?: string;
+  score: number;
+  passed?: boolean;
+  created_at: string;
+  details?: Record<string, unknown>;
+}
+
+export interface TimelineItem {
+  id: string;
+  type: 'quiz' | 'word_saved' | 'vocab_pack' | 'assessment';
+  timestamp: string;
+  title: string;
+  subtitle?: string;
+  score?: number;
+  totalQuestions?: number;
+  accuracy?: number;
+  badge?: string;
+  badgeVariant?: 'emerald' | 'amber' | 'violet' | 'sky' | 'indigo';
+  details?: Record<string, unknown>;
 }
 
 export interface StudentDetailPayload {
@@ -19,6 +58,9 @@ export interface StudentDetailPayload {
   current: StudentProgress;
   history: HistoryPoint[];
   quizzes: QuizPoint[];
+  savedWords?: SavedWordItem[];
+  toeicAssessments?: ToeicAssessmentItem[];
+  timeline?: TimelineItem[];
 }
 
 export interface StudentErrorItem {

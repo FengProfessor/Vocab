@@ -51,15 +51,46 @@ export async function GET(req: Request) {
       if (studentErr) throw studentErr;
 
       const studentIds = (studentData || []).map(s => s.student_id);
-      const [profilesRes, enrollmentsRes] = studentIds.length > 0 ? await Promise.all([
+      const [profilesRes, enrollmentsRes, quizzesRes, wordsRes] = studentIds.length > 0 ? await Promise.all([
         supabase.from('profiles').select('id, plan, plan_expires_at').in('id', studentIds),
         supabase.from('enrollments').select('student_id, joined_at').eq('classroom_id', classroomId).in('student_id', studentIds),
-      ]) : [{ data: [] }, { data: [] }];
+        supabase
+          .from('quiz_results')
+          .select('user_id, score, total_questions, accuracy, completed_at, quiz_type')
+          .in('user_id', studentIds)
+          .order('completed_at', { ascending: false }),
+        supabase
+          .from('words')
+          .select('added_by')
+          .in('added_by', studentIds),
+      ]) : [{ data: [] }, { data: [] }, { data: [] }, { data: [] }];
 
       const profMap = new Map((profilesRes.data || []).map(p => [p.id, p]));
       const enrMap = new Map((enrollmentsRes.data || []).map(e => [e.student_id, e.joined_at]));
 
-      // Map to include TESOL metrics & student plan details
+      // Latest quiz per student
+      const latestQuizMap = new Map<string, { score: number; total_questions: number; accuracy: number; completed_at: string; quiz_type?: string }>();
+      for (const q of quizzesRes.data || []) {
+        if (!latestQuizMap.has(q.user_id)) {
+          latestQuizMap.set(q.user_id, {
+            score: q.score,
+            total_questions: q.total_questions,
+            accuracy: q.accuracy,
+            completed_at: q.completed_at,
+            quiz_type: q.quiz_type,
+          });
+        }
+      }
+
+      // Count words saved by student
+      const savedWordsCountMap = new Map<string, number>();
+      for (const w of wordsRes.data || []) {
+        if (w.added_by) {
+          savedWordsCountMap.set(w.added_by, (savedWordsCountMap.get(w.added_by) || 0) + 1);
+        }
+      }
+
+      // Map to include TESOL metrics, recent activity & student plan details
       students = (studentData || []).map(s => {
         const accuracy = s.avg_quiz_accuracy || 0;
         const vms = s.vms || 0;
@@ -79,15 +110,28 @@ export async function GET(req: Request) {
 
         const p = profMap.get(s.student_id);
         const joinedAt = enrMap.get(s.student_id);
+        const latestQuiz = latestQuizMap.get(s.student_id) || null;
+        const savedWordsCount = savedWordsCountMap.get(s.student_id) || 0;
+
+        // Determine true last active timestamp (newer of SRS review or Quiz completion)
+        let trueLastActive = s.last_active;
+        if (latestQuiz?.completed_at) {
+          if (!trueLastActive || new Date(latestQuiz.completed_at) > new Date(trueLastActive)) {
+            trueLastActive = latestQuiz.completed_at;
+          }
+        }
 
         return {
           ...s,
+          last_active: trueLastActive,
           active_vms: activeVms,
           communicative_depth: depth,
           cefr_level: cefr,
           plan: p?.plan || 'free',
           plan_expires_at: p?.plan_expires_at || null,
           joined_at: joinedAt || null,
+          latest_quiz: latestQuiz,
+          saved_words_count: savedWordsCount,
         };
       });
     }

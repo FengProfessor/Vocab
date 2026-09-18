@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import type { StudentProgress } from '@/lib/supabase';
 import {
   Users, UserPlus, Trash2, ChevronRight, AlertCircle,
-  Loader2, HelpCircle, X, Search, Filter
+  Loader2, HelpCircle, X, Search, Filter, Clock, Trophy, BookOpen
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
@@ -23,6 +23,66 @@ export interface StudentStatusInfo {
   tag: string;
   title: string;
   advice: string;
+}
+
+export function formatLastActive(dateStr?: string | null): { text: string; isToday: boolean; isYesterday: boolean; isRecent: boolean } {
+  if (!dateStr) return { text: 'Chưa hoạt động', isToday: false, isYesterday: false, isRecent: false };
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return { text: 'Chưa hoạt động', isToday: false, isYesterday: false, isRecent: false };
+
+  const now = new Date();
+  const diffMs = Math.max(0, now.getTime() - d.getTime());
+
+  const isToday = d.toDateString() === now.toDateString();
+  const yesterday = new Date(now);
+  yesterday.setDate(now.getDate() - 1);
+  const isYesterday = d.toDateString() === yesterday.toDateString();
+
+  const hours = String(d.getHours()).padStart(2, '0');
+  const minutes = String(d.getMinutes()).padStart(2, '0');
+  const timeStr = `${hours}:${minutes}`;
+
+  if (isToday) return { text: `Hôm nay ${timeStr}`, isToday: true, isYesterday: false, isRecent: true };
+  if (isYesterday) return { text: `Hôm qua ${timeStr}`, isToday: false, isYesterday: true, isRecent: true };
+
+  const diffDays = Math.max(1, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
+  if (diffDays < 7) return { text: `${diffDays} ngày trước`, isToday: false, isYesterday: false, isRecent: false };
+
+  return {
+    text: d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' }),
+    isToday: false,
+    isYesterday: false,
+    isRecent: false,
+  };
+}
+
+export function formatQuizSummary(s: StudentProgress): { text: string; subtext?: string; isGood?: boolean; hasQuiz: boolean } {
+  if (s.latest_quiz) {
+    const acc = s.latest_quiz.accuracy ?? (s.latest_quiz.total_questions > 0 ? s.latest_quiz.score / s.latest_quiz.total_questions : 0);
+    const isGood = acc >= 0.8;
+    const scoreStr = `Quiz: ${s.latest_quiz.score}/${s.latest_quiz.total_questions}`;
+    const sub = (s.quizzes_taken || 0) > 1
+      ? `${s.quizzes_taken} bài (TB ${Math.round((s.avg_quiz_accuracy || 0) * 100)}%)`
+      : `${Math.round(acc * 100)}% chính xác`;
+    return { text: scoreStr, subtext: sub, isGood, hasQuiz: true };
+  }
+  if ((s.quizzes_taken || 0) > 0) {
+    const acc = s.avg_quiz_accuracy || 0;
+    return {
+      text: `${s.quizzes_taken} bài Quiz (TB ${Math.round(acc * 100)}%)`,
+      isGood: acc >= 0.8,
+      hasQuiz: true,
+    };
+  }
+  return { text: 'Chưa làm quiz', hasQuiz: false };
+}
+
+export function formatWordsSummary(s: StudentProgress): { text: string; subtext?: string } {
+  const reviewed = s.words_reviewed || s.total_words || 0;
+  const saved = s.saved_words_count || 0;
+  const text = `${reviewed} từ đã nạp`;
+  const subtext = saved > 0 ? `+${saved} từ đã lưu` : `${s.total_words ? `${s.total_words} từ` : 'Đang học'}`;
+  return { text, subtext };
 }
 
 interface StudentsPanelProps {
@@ -465,6 +525,9 @@ export default function StudentsPanel({
           <div className="md:hidden divide-y divide-border/60">
             {filteredStudents.map((s) => {
               const st = getStudentStatus(s);
+              const lastActiveInfo = formatLastActive(s.last_active);
+              const quizInfo = formatQuizSummary(s);
+              const wordsInfo = formatWordsSummary(s);
               const isSelected = selectedStudentId === s.student_id && isSheetOpen;
 
               return (
@@ -527,47 +590,58 @@ export default function StudentsPanel({
                     </div>
                   </div>
 
-                  {/* Metrics Row: VMS (Active/Passive) & LCS consistency (Streak flame) */}
-                  <div className="mt-3 pt-3 border-t border-border/40 grid grid-cols-2 gap-2.5">
-                    {/* VMS Metric */}
-                    <div className="bg-muted/30 rounded-xl p-2.5 space-y-1.5">
-                      <div className="flex items-center justify-between text-[11px]">
-                        <span className="text-muted-foreground font-medium">Trí nhớ (VMS)</span>
-                        <div className="font-mono tabular-nums font-bold">
-                          <span className="text-emerald-600">A {s.active_vms || 0}%</span>
-                          <span className="text-muted-foreground mx-1">&bull;</span>
-                          <span className="text-slate-600">P {s.vms || 0}%</span>
-                        </div>
+                  {/* Concrete Activity Strip: Last Active, Quiz, Words */}
+                  <div className="mt-3 pt-3 border-t border-border/40 grid grid-cols-3 gap-2 text-xs">
+                    {/* Last Active */}
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1">
+                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                        <Clock className="h-3 w-3" />
+                        <span>Gần nhất</span>
                       </div>
-                      <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden flex">
-                        <div
-                          className="h-full bg-emerald-500 rounded-full"
-                          style={{ width: `${s.active_vms || 0}%` }}
-                        />
-                        <div
-                          className="h-full bg-emerald-200"
-                          style={{ width: `${Math.max(0, (s.vms || 0) - (s.active_vms || 0))}%` }}
-                        />
-                      </div>
+                      <p className={`font-semibold text-[11px] truncate ${lastActiveInfo.isToday ? 'text-emerald-700' : 'text-foreground'}`}>
+                        {lastActiveInfo.text}
+                      </p>
                     </div>
 
-                    {/* LCS Metric */}
-                    <div className="bg-muted/30 rounded-xl p-2.5 space-y-1.5">
-                      <div className="flex items-center justify-between text-[11px]">
-                        <span className="text-muted-foreground font-medium flex items-center gap-1">
-                          <span>Chăm chỉ</span>
-                          {(s.lcs || 0) >= 70 && <span className="text-xs">🔥</span>}
-                        </span>
-                        <span className="font-mono tabular-nums font-bold text-sky-700">
-                          {s.lcs || 0}% ({s.quizzes_taken || 0}q)
-                        </span>
+                    {/* Quiz Summary */}
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1">
+                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                        <Trophy className="h-3 w-3" />
+                        <span>Quiz</span>
                       </div>
-                      <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-sky-500 rounded-full"
-                          style={{ width: `${s.lcs || 0}%` }}
-                        />
+                      <p className={`font-semibold text-[11px] truncate ${quizInfo.isGood ? 'text-emerald-700' : quizInfo.hasQuiz ? 'text-amber-700' : 'text-muted-foreground'}`}>
+                        {quizInfo.text}
+                      </p>
+                    </div>
+
+                    {/* Words Studied */}
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1">
+                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                        <BookOpen className="h-3 w-3" />
+                        <span>Từ vựng</span>
                       </div>
+                      <p className="font-semibold text-[11px] text-foreground truncate">
+                        {wordsInfo.text}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Metrics Row: VMS (Active/Passive) & LCS consistency */}
+                  <div className="mt-2.5 grid grid-cols-2 gap-2 text-[11px]">
+                    <div className="bg-muted/20 rounded-lg px-2 py-1.5 flex items-center justify-between">
+                      <span className="text-muted-foreground">Trí nhớ (VMS)</span>
+                      <span className="font-mono tabular-nums font-bold text-emerald-600">
+                        A {s.active_vms || 0}% • P {s.vms || 0}%
+                      </span>
+                    </div>
+                    <div className="bg-muted/20 rounded-lg px-2 py-1.5 flex items-center justify-between">
+                      <span className="text-muted-foreground flex items-center gap-0.5">
+                        <span>Chăm chỉ</span>
+                        {(s.lcs || 0) >= 70 && <span>🔥</span>}
+                      </span>
+                      <span className="font-mono tabular-nums font-bold text-sky-700">
+                        {s.lcs || 0}%
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -584,12 +658,16 @@ export default function StudentsPanel({
                   <th className="px-4 py-3 w-12 text-center">#</th>
                   {/* Column 2: Học sinh */}
                   <th className="px-4 py-3 min-w-[200px]">Học sinh</th>
-                  {/* Column 3: CEFR */}
-                  <th className="px-3 py-3 text-center w-20">CEFR</th>
-                  {/* Column 4: Độ bền trí nhớ (VMS · P/A) */}
-                  <th className="px-4 py-3 text-center min-w-[170px]">
+                  {/* Column 3: Hoạt động gần nhất */}
+                  <th className="px-4 py-3 min-w-[150px]">Hoạt động gần nhất</th>
+                  {/* Column 4: Bài Quiz gần nhất */}
+                  <th className="px-4 py-3 min-w-[160px]">Bài Quiz gần nhất</th>
+                  {/* Column 5: Từ vựng đã học */}
+                  <th className="px-4 py-3 min-w-[150px]">Từ vựng đã học</th>
+                  {/* Column 6: Độ bền trí nhớ (VMS · P/A) */}
+                  <th className="px-4 py-3 text-center min-w-[150px]">
                     <div className="inline-flex items-center gap-1 group relative cursor-help">
-                      <span>Độ bền trí nhớ (VMS · P/A)</span>
+                      <span>Trí nhớ (VMS · P/A)</span>
                       <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 bg-slate-900 text-white text-[11px] rounded-lg p-2.5 shadow-xl normal-case font-normal z-50 pointer-events-none">
                         <strong>VMS (Độ bền trí nhớ theo FSRS):</strong>
@@ -598,24 +676,16 @@ export default function StudentsPanel({
                       </div>
                     </div>
                   </th>
-                  {/* Column 5: Độ chăm chỉ (LCS) */}
-                  <th className="px-4 py-3 text-center min-w-[140px]">
-                    <div className="inline-flex items-center gap-1 group relative cursor-help">
-                      <span>Độ chăm chỉ (LCS)</span>
-                      <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-56 bg-slate-900 text-white text-[11px] rounded-lg p-2.5 shadow-xl normal-case font-normal z-50 pointer-events-none">
-                        <strong>LCS (Learning Consistency Score):</strong>
-                        <br />Tỷ lệ số ngày có học từ vựng trong vòng 14 ngày qua.
-                      </div>
-                    </div>
-                  </th>
-                  {/* Column 6: Tình trạng & Thao tác */}
-                  <th className="px-4 py-3 text-right min-w-[140px]">Tình trạng</th>
+                  {/* Column 7: Tình trạng & Thao tác */}
+                  <th className="px-4 py-3 text-right min-w-[130px]">Tình trạng</th>
                 </tr>
               </thead>
               <tbody className="divide-y text-sm">
                 {filteredStudents.map((s, i) => {
                   const st = getStudentStatus(s);
+                  const lastActiveInfo = formatLastActive(s.last_active);
+                  const quizInfo = formatQuizSummary(s);
+                  const wordsInfo = formatWordsSummary(s);
                   const isSelected = selectedStudentId === s.student_id && isSheetOpen;
 
                   return (
@@ -636,34 +706,80 @@ export default function StudentsPanel({
                         </div>
                       </td>
 
-                      {/* Column 2: Học sinh */}
+                      {/* Column 2: Học sinh & CEFR */}
                       <td className="px-4 py-3.5">
                         <div className="flex items-center gap-2.5">
                           <div className="min-w-0">
-                            <p className="font-semibold text-sm group-hover:text-primary transition-colors truncate">
-                              {s.student_name || 'Học sinh'}
-                            </p>
+                            <div className="flex items-center gap-2 min-w-0">
+                              <p className="font-semibold text-sm group-hover:text-primary transition-colors truncate">
+                                {s.student_name || 'Học sinh'}
+                              </p>
+                              <span
+                                className={`px-1.5 py-0.5 rounded text-[10px] font-black tracking-tighter shrink-0 ${
+                                  s.cefr_level?.startsWith('C')
+                                    ? 'bg-amber-100 text-amber-700 border border-amber-200'
+                                    : s.cefr_level?.startsWith('B')
+                                    ? 'bg-sky-100 text-sky-700 border border-sky-200'
+                                    : 'bg-slate-100 text-slate-600 border border-slate-200'
+                                }`}
+                              >
+                                {s.cefr_level || 'A1'}
+                              </span>
+                            </div>
                             <p className="text-xs text-muted-foreground truncate">{s.email}</p>
                           </div>
                         </div>
                       </td>
 
-                      {/* Column 3: CEFR */}
-                      <td className="px-3 py-3.5 text-center">
-                        <span
-                          className={`px-2 py-0.5 rounded-md text-[11px] font-black tracking-tighter ${
-                            s.cefr_level?.startsWith('C')
-                              ? 'bg-amber-100 text-amber-700 border border-amber-200'
-                              : s.cefr_level?.startsWith('B')
-                              ? 'bg-sky-100 text-sky-700 border border-sky-200'
-                              : 'bg-slate-100 text-slate-600 border border-slate-200'
-                          }`}
-                        >
-                          {s.cefr_level || 'A1'}
-                        </span>
+                      {/* Column 3: Hoạt động gần nhất */}
+                      <td className="px-4 py-3.5">
+                        <div className="flex items-center gap-1.5">
+                          <Clock className={`h-3.5 w-3.5 shrink-0 ${lastActiveInfo.isToday ? 'text-emerald-600' : 'text-muted-foreground'}`} />
+                          <span
+                            className={`text-xs font-semibold px-2 py-0.5 rounded-md border ${
+                              lastActiveInfo.isToday
+                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                : lastActiveInfo.isYesterday
+                                ? 'bg-sky-50 text-sky-700 border-sky-200'
+                                : 'bg-muted/40 text-muted-foreground border-transparent'
+                            }`}
+                          >
+                            {lastActiveInfo.text}
+                          </span>
+                        </div>
                       </td>
 
-                      {/* Column 4: Độ bền trí nhớ (VMS · P/A) with monospaced tabular numbers */}
+                      {/* Column 4: Bài Quiz gần nhất */}
+                      <td className="px-4 py-3.5">
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-1.5">
+                            <Trophy className={`h-3.5 w-3.5 shrink-0 ${quizInfo.isGood ? 'text-emerald-500' : quizInfo.hasQuiz ? 'text-amber-500' : 'text-muted-foreground/50'}`} />
+                            <span className={`text-xs font-bold ${quizInfo.isGood ? 'text-emerald-700' : quizInfo.hasQuiz ? 'text-amber-700' : 'text-muted-foreground font-normal'}`}>
+                              {quizInfo.text}
+                            </span>
+                          </div>
+                          {quizInfo.subtext && (
+                            <p className="text-[11px] text-muted-foreground pl-5 font-mono">{quizInfo.subtext}</p>
+                          )}
+                        </div>
+                      </td>
+
+                      {/* Column 5: Từ vựng đã học */}
+                      <td className="px-4 py-3.5">
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-1.5">
+                            <BookOpen className="h-3.5 w-3.5 text-violet-500 shrink-0" />
+                            <span className="text-xs font-bold text-foreground">
+                              {wordsInfo.text}
+                            </span>
+                          </div>
+                          {wordsInfo.subtext && (
+                            <p className="text-[11px] text-muted-foreground pl-5 font-medium">{wordsInfo.subtext}</p>
+                          )}
+                        </div>
+                      </td>
+
+                      {/* Column 6: Độ bền trí nhớ (VMS · P/A) with monospaced tabular numbers */}
                       <td className="px-4 py-3.5 text-center">
                         <div className="inline-flex flex-col items-center">
                           <div className="font-mono tabular-nums text-xs font-semibold">
@@ -684,22 +800,7 @@ export default function StudentsPanel({
                         </div>
                       </td>
 
-                      {/* Column 5: Độ chăm chỉ (LCS) with monospaced tabular numbers */}
-                      <td className="px-4 py-3.5 text-center">
-                        <div className="inline-flex flex-col items-center">
-                          <span className="font-mono tabular-nums text-xs font-semibold text-sky-700">
-                            {s.lcs || 0}% &bull; {s.quizzes_taken || 0} bài quiz
-                          </span>
-                          <div className="w-20 h-1.5 bg-muted rounded-full mt-1.5 overflow-hidden">
-                            <div
-                              className="h-full bg-sky-500 rounded-full"
-                              style={{ width: `${s.lcs || 0}%` }}
-                            />
-                          </div>
-                        </div>
-                      </td>
-
-                      {/* Column 6: Linear-style Status Dots & Action */}
+                      {/* Column 7: Linear-style Status Dots & Action */}
                       <td className="px-4 py-3.5 text-right">
                         <div className="flex items-center justify-end gap-2">
                           <span

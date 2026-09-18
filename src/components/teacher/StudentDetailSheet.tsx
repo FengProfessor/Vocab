@@ -5,9 +5,9 @@ import type { StudentProgress } from '@/lib/supabase';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import {
-  X, ChevronUp, ChevronDown, ExternalLink, Sparkles, MessageSquare,
-  Copy, CheckCircle2, AlertCircle, Plus, Loader2,
-  ShieldCheck, Zap, BarChart3
+  X, ChevronUp, ChevronDown, ExternalLink, Sparkles,
+  Copy, CheckCircle2, Plus, Loader2,
+  ShieldCheck, BarChart3, Clock, Trophy, BookOpen, Bookmark, Target
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
@@ -23,6 +23,9 @@ import {
   type HistoryPoint,
   type QuizPoint,
   type StudentErrorItem,
+  type SavedWordItem,
+  type ToeicAssessmentItem,
+  type TimelineItem,
 } from './teacher-cache';
 
 // Lazy-load heavy chart libraries inside the sheet so initial teacher page loads at lightning speed
@@ -48,6 +51,28 @@ interface StudentDetailSheetProps {
   isOpen: boolean;
   onClose: () => void;
   onNavigate: (newIndex: number) => void;
+}
+
+function formatExactTimestamp(dateStr?: string | null): string {
+  if (!dateStr) return 'Chưa ghi nhận';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return 'Chưa ghi nhận';
+
+  const now = new Date();
+  const hours = String(d.getHours()).padStart(2, '0');
+  const minutes = String(d.getMinutes()).padStart(2, '0');
+  const timeStr = `${hours}:${minutes}`;
+
+  const isToday = d.toDateString() === now.toDateString();
+  if (isToday) return `${timeStr} - Hôm nay`;
+
+  const yesterday = new Date(now);
+  yesterday.setDate(now.getDate() - 1);
+  const isYesterday = d.toDateString() === yesterday.toDateString();
+  if (isYesterday) return `${timeStr} - Hôm qua`;
+
+  const dateFormatted = d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  return `${timeStr} - ${dateFormatted}`;
 }
 
 async function copyTextToClipboard(text: string): Promise<boolean> {
@@ -77,7 +102,7 @@ async function copyTextToClipboard(text: string): Promise<boolean> {
   }
 }
 
-type SheetTab = 'intervention' | 'charts' | 'errors';
+type SheetTab = 'timeline' | 'saved_words' | 'quizzes' | 'analytics';
 
 export default function StudentDetailSheet({
   student,
@@ -89,9 +114,12 @@ export default function StudentDetailSheet({
   onClose,
   onNavigate,
 }: StudentDetailSheetProps) {
-  const [activeTab, setActiveTab] = useState<SheetTab>('intervention');
+  const [activeTab, setActiveTab] = useState<SheetTab>('timeline');
   const [history, setHistory] = useState<HistoryPoint[]>([]);
   const [quizzes, setQuizzes] = useState<QuizPoint[]>([]);
+  const [savedWords, setSavedWords] = useState<SavedWordItem[]>([]);
+  const [toeicAssessments, setToeicAssessments] = useState<ToeicAssessmentItem[]>([]);
+  const [timeline, setTimeline] = useState<TimelineItem[]>([]);
   const [errorsList, setErrorsList] = useState<StudentErrorItem[]>([]);
   const [aiSuggestion, setAiSuggestion] = useState<string>('');
   const [isLoadingDetail, setIsLoadingDetail] = useState(false);
@@ -186,11 +214,17 @@ export default function StudentDetailSheet({
     if (cached) {
       setHistory(cached.history || []);
       setQuizzes(cached.quizzes || []);
+      setSavedWords(cached.savedWords || []);
+      setToeicAssessments(cached.toeicAssessments || []);
+      setTimeline(cached.timeline || []);
       return;
     }
 
     setHistory([]);
     setQuizzes([]);
+    setSavedWords([]);
+    setToeicAssessments([]);
+    setTimeline([]);
     setIsLoadingDetail(true);
     try {
       const res = await authFetch(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`);
@@ -200,6 +234,9 @@ export default function StudentDetailSheet({
         if (currentStudentIdRef.current === studentId) {
           setHistory(json.history || []);
           setQuizzes(json.quizzes || []);
+          setSavedWords(json.savedWords || []);
+          setToeicAssessments(json.toeicAssessments || []);
+          setTimeline(json.timeline || []);
         }
       }
     } catch (err) {
@@ -245,6 +282,7 @@ export default function StudentDetailSheet({
 
     // Fast state transition
     startTransition(() => {
+      setActiveTab('timeline');
       void loadDetail(student.student_id);
       void loadErrors(student.student_id);
       void loadAiSuggestion(student);
@@ -506,45 +544,111 @@ export default function StudentDetailSheet({
             </div>
           </div>
 
-          {/* Sub-Tabs: Can thiệp nhanh | Biểu đồ & Năng lực | Từ hay sai */}
+          {/* Compact AI Coaching & Zalo Messenger Banner (Prominent at top, does not displace activity data) */}
+          <div className="px-4 sm:px-5 py-3 bg-gradient-to-r from-primary/5 via-violet-500/5 to-primary/5 border-b shrink-0 space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="p-1 rounded-md bg-primary/10 text-primary shrink-0">
+                  <Sparkles className="h-3.5 w-3.5" />
+                </div>
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="text-xs font-bold text-foreground truncate">
+                    Gợi ý can thiệp sư phạm
+                  </span>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border flex items-center gap-1 shrink-0 ${status.color}`}>
+                    <span>{status.dot}</span> {status.label}
+                  </span>
+                </div>
+              </div>
+
+              <button
+                onClick={handleCopyZaloMessage}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-lg font-bold text-xs shadow-xs hover:bg-primary/95 active:scale-[0.98] transition-all shrink-0"
+              >
+                {copiedMsg ? (
+                  <CheckCircle2 className="h-3.5 w-3.5 text-white" />
+                ) : (
+                  <Copy className="h-3.5 w-3.5" />
+                )}
+                <span>{copiedMsg ? 'Đã sao chép!' : 'Sao chép tin Zalo'}</span>
+                <span className="hidden sm:inline text-[10px] opacity-75 font-mono">(C)</span>
+              </button>
+            </div>
+
+            <div className="bg-background/80 backdrop-blur rounded-xl p-2.5 border text-xs text-foreground/90 italic flex items-center shadow-2xs">
+              {isAiLoading ? (
+                <div className="flex items-center gap-2 text-muted-foreground animate-pulse text-xs italic">
+                  <Loader2 className="h-3.5 w-3.5 animate-spin text-primary shrink-0" />
+                  <span>Gemini AI đang soạn tin nhắn...</span>
+                </div>
+              ) : (
+                <p className="leading-snug truncate sm:whitespace-normal line-clamp-2">
+                  &ldquo;{aiSuggestion || getFallbackSuggestion()}&rdquo;
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Sub-Tabs: Nhật ký hoạt động | Từ vựng đã lưu | Lịch sử Quiz | Biểu đồ & Can thiệp */}
           <div className="px-4 sm:px-5 border-b bg-muted/20 shrink-0">
             <nav className="flex gap-2 overflow-x-auto scrollbar-none whitespace-nowrap touch-pan-x">
               <button
-                onClick={() => setActiveTab('intervention')}
+                onClick={() => setActiveTab('timeline')}
                 className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
-                  activeTab === 'intervention'
+                  activeTab === 'timeline'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
-                <Zap className="h-4 w-4" /> Can thiệp nhanh
+                <Clock className="h-4 w-4" /> Nhật ký hoạt động
+                {timeline.length > 0 && (
+                  <span className="ml-1 px-1.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold">
+                    {timeline.length}
+                  </span>
+                )}
               </button>
 
               <button
-                onClick={() => setActiveTab('charts')}
+                onClick={() => setActiveTab('saved_words')}
                 className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
-                  activeTab === 'charts'
+                  activeTab === 'saved_words'
+                    ? 'border-primary text-primary'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <BookOpen className="h-4 w-4" /> Từ vựng đã lưu
+                {savedWords.length > 0 && (
+                  <span className="ml-1 px-1.5 py-0.5 rounded-full bg-sky-100 text-sky-700 text-[10px] font-bold">
+                    {savedWords.length}
+                  </span>
+                )}
+              </button>
+
+              <button
+                onClick={() => setActiveTab('quizzes')}
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
+                  activeTab === 'quizzes'
+                    ? 'border-primary text-primary'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <Trophy className="h-4 w-4" /> Lịch sử Quiz & Bài thi
+                {quizzes.length > 0 && (
+                  <span className="ml-1 px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold">
+                    {quizzes.length}
+                  </span>
+                )}
+              </button>
+
+              <button
+                onClick={() => setActiveTab('analytics')}
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
+                  activeTab === 'analytics'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
                 <BarChart3 className="h-4 w-4" /> Biểu đồ & Năng lực
-              </button>
-
-              <button
-                onClick={() => setActiveTab('errors')}
-                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
-                  activeTab === 'errors'
-                    ? 'border-primary text-primary'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                <AlertCircle className="h-4 w-4 text-rose-500" /> Từ hay sai
-                {errorsList.length > 0 && (
-                  <span className="ml-1 px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-[10px] font-bold">
-                    {errorsList.length}
-                  </span>
-                )}
               </button>
             </nav>
           </div>
@@ -552,167 +656,293 @@ export default function StudentDetailSheet({
           {/* Scrollable Tab Content Area */}
           <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5">
 
-            {/* TAB 1: Can thiệp nhanh */}
-            {activeTab === 'intervention' && (
-              <div className="space-y-5 animate-in fade-in duration-150">
-                {/* Pedagogical Diagnosis Card */}
-                <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-primary" />
-                      <h3 className="font-bold text-sm">Chẩn đoán Sư phạm (TESOL/FSRS)</h3>
-                    </div>
-                    <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold border flex items-center gap-1 ${status.color}`}>
-                      <span>{status.dot}</span> {status.label}
-                    </span>
-                  </div>
-
-                  <div className="p-3 bg-muted/40 rounded-xl border text-xs">
-                    <p className="font-semibold text-foreground">{status.title}</p>
-                    <p className="text-muted-foreground mt-1 leading-relaxed">{status.advice}</p>
-                  </div>
-
-                  {/* 4 Mini metrics */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-center font-mono tabular-nums">
-                    <div className="border rounded-xl p-2 bg-background">
-                      <span className="block text-[10px] font-sans font-medium text-muted-foreground uppercase">Trí nhớ (VMS)</span>
-                      <strong className="text-emerald-600 text-sm">{student.vms}%</strong>
-                    </div>
-                    <div className="border rounded-xl p-2 bg-background">
-                      <span className="block text-[10px] font-sans font-medium text-muted-foreground uppercase">Chủ động (A)</span>
-                      <strong className="text-emerald-600 text-sm">{student.active_vms || 0}%</strong>
-                    </div>
-                    <div className="border rounded-xl p-2 bg-background">
-                      <span className="block text-[10px] font-sans font-medium text-muted-foreground uppercase">Chăm chỉ (LCS)</span>
-                      <strong className="text-sky-600 text-sm">{student.lcs}%</strong>
-                    </div>
-                    <div className="border rounded-xl p-2 bg-background">
-                      <span className="block text-[10px] font-sans font-medium text-muted-foreground uppercase">Từ đã học</span>
-                      <strong className="text-violet-600 text-sm">{student.words_reviewed || 0}</strong>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Zalo / Messenger Template Card */}
-                <div className="bg-gradient-to-br from-primary/5 to-violet-500/5 border border-primary/20 rounded-2xl p-4 shadow-sm space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <MessageSquare className="h-4 w-4 text-primary" />
-                      <h3 className="font-bold text-sm text-primary">Tin nhắn tư vấn gửi học sinh</h3>
-                    </div>
-                    <span className="hidden sm:inline-block text-[10px] text-muted-foreground font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded">
-                      Phím tắt [C]
-                    </span>
-                  </div>
-
-                  <div className="bg-background rounded-xl p-3 border text-xs min-h-[75px] flex items-center shadow-inner">
-                    {isAiLoading ? (
-                      <div className="flex items-center gap-2 text-muted-foreground animate-pulse text-xs italic">
-                        <Loader2 className="h-4 w-4 animate-spin text-primary shrink-0" />
-                        <span>Gemini AI đang soạn tin nhắn...</span>
-                      </div>
-                    ) : (
-                      <p className="text-foreground/90 leading-relaxed italic whitespace-pre-wrap">
-                        &ldquo;{aiSuggestion || getFallbackSuggestion()}&rdquo;
-                      </p>
-                    )}
-                  </div>
-
-                  <button
-                    onClick={handleCopyZaloMessage}
-                    className="w-full flex items-center justify-center gap-2 py-2.5 bg-primary text-white rounded-xl font-bold text-xs shadow-md shadow-primary/20 hover:bg-primary/95 active:scale-[0.99] transition-all"
-                  >
-                    {copiedMsg ? (
-                      <CheckCircle2 className="h-4 w-4 text-white" />
-                    ) : (
-                      <Copy className="h-4 w-4" />
-                    )}
-                    {copiedMsg ? (
-                      'Đã copy vào bộ nhớ tạm!'
-                    ) : (
-                      <>
-                        <span>1-Click Sao chép gửi Zalo</span>
-                        <span className="hidden sm:inline"> (C)</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-
-                {/* Assign Drill 5 Words */}
-                <div className="bg-background border rounded-2xl p-4 shadow-sm flex items-center justify-between gap-3">
+            {/* TAB 1: Nhật ký hoạt động (Chronological Timeline) */}
+            {activeTab === 'timeline' && (
+              <div className="space-y-4 animate-in fade-in duration-150">
+                <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-bold text-xs sm:text-sm">Giao 5 từ yếu cần củng cố (Drill)</h4>
+                    <h4 className="font-bold text-xs sm:text-sm">Nhật ký hoạt động gần đây</h4>
                     <p className="text-[11px] text-muted-foreground">
-                      Tự động cài đặt 5 từ có độ khó cao nhất về hạn ôn tập hôm nay theo chuẩn FSRS.
+                      Toàn bộ hoạt động làm quiz, nạp từ và lưu từ vựng của học sinh
                     </p>
                   </div>
-                  <button
-                    disabled={isAssigningDrill}
-                    onClick={() => void handleAssignDrill()}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 active:scale-[0.98] transition-all disabled:opacity-50 shrink-0 shadow-sm"
-                  >
-                    {isAssigningDrill ? (
-                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                    ) : (
-                      <Plus className="h-3.5 w-3.5" />
-                    )}
-                    Giao Drill
-                  </button>
+                  <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-muted font-semibold text-muted-foreground tabular-nums">
+                    {timeline.length} hoạt động
+                  </span>
                 </div>
 
-                {/* Top 3 Struggling Words Preview */}
-                <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h4 className="font-bold text-xs sm:text-sm flex items-center gap-1.5">
-                      <AlertCircle className="h-3.5 w-3.5 text-rose-500" />
-                      Top 3 từ vựng học sinh hay quên
-                    </h4>
-                    <button
-                      onClick={() => setActiveTab('errors')}
-                      className="text-xs text-primary font-semibold hover:underline"
-                    >
-                      Xem tất cả ({errorsList.length}) →
-                    </button>
+                {isLoadingDetail ? (
+                  <div className="py-12 text-center text-xs text-muted-foreground flex flex-col items-center justify-center gap-2">
+                    <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                    <span>Đang tải nhật ký hoạt động...</span>
                   </div>
-
-                  {isLoadingErrors ? (
-                    <div className="py-4 text-center text-xs text-muted-foreground flex items-center justify-center gap-2">
-                      <Loader2 className="h-4 w-4 animate-spin text-primary" /> Đang tải danh sách từ...
-                    </div>
-                  ) : errorsList.length === 0 ? (
-                    <p className="text-xs text-muted-foreground py-2 italic text-center">
-                      Không có từ vựng nào gặp khó khăn nghiêm trọng!
+                ) : timeline.length === 0 ? (
+                  <div className="p-8 text-center bg-muted/20 border rounded-2xl">
+                    <Clock className="h-8 w-8 text-muted-foreground/40 mx-auto mb-2" />
+                    <p className="font-semibold text-xs sm:text-sm">Chưa có hoạt động nào được ghi nhận</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Các bài quiz, từ vựng vừa nạp hoặc các bộ từ đã học sẽ hiển thị tại đây.
                     </p>
-                  ) : (
-                    <div className="space-y-2">
-                      {errorsList.slice(0, 3).map((w) => (
-                        <div
-                          key={w.wordId}
-                          className="flex items-center justify-between p-2.5 rounded-xl bg-muted/30 border text-xs"
-                        >
-                          <div>
-                            <span className="font-bold text-foreground">{w.word}</span>
-                            {w.pos && <span className="text-muted-foreground ml-1.5 text-[10px]">({w.pos})</span>}
-                            <p className="text-muted-foreground text-[11px] truncate">{w.translation}</p>
+                  </div>
+                ) : (
+                  <div className="relative pl-6 space-y-3.5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-border/60">
+                    {timeline.map((item) => {
+                      let icon = <Clock className="h-3 w-3" />;
+                      let iconBg = 'bg-muted text-muted-foreground ring-2 ring-background';
+                      let badgeClass = 'bg-muted text-muted-foreground border-border';
+
+                      if (item.type === 'quiz') {
+                        const isGood = (item.accuracy ?? 0) >= 0.8;
+                        icon = <Trophy className="h-3 w-3" />;
+                        iconBg = isGood
+                          ? 'bg-emerald-600 text-white ring-4 ring-emerald-100'
+                          : 'bg-amber-500 text-white ring-4 ring-amber-100';
+                        badgeClass = isGood
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                          : 'bg-amber-50 text-amber-700 border-amber-200';
+                      } else if (item.type === 'word_saved') {
+                        icon = <Bookmark className="h-3 w-3" />;
+                        iconBg = 'bg-sky-500 text-white ring-4 ring-sky-100';
+                        badgeClass = 'bg-sky-50 text-sky-700 border-sky-200';
+                      } else if (item.type === 'vocab_pack') {
+                        icon = <BookOpen className="h-3 w-3" />;
+                        iconBg = 'bg-violet-600 text-white ring-4 ring-violet-100';
+                        badgeClass = 'bg-violet-50 text-violet-700 border-violet-200';
+                      } else if (item.type === 'assessment') {
+                        icon = <Target className="h-3 w-3" />;
+                        iconBg = 'bg-indigo-600 text-white ring-4 ring-indigo-100';
+                        badgeClass = 'bg-indigo-50 text-indigo-700 border-indigo-200';
+                      }
+
+                      return (
+                        <div key={item.id} className="relative group">
+                          {/* Dot icon */}
+                          <div
+                            className={`absolute -left-6 top-2 w-5 h-5 rounded-full flex items-center justify-center -translate-x-1/2 transition-transform group-hover:scale-110 shadow-xs ${iconBg}`}
+                          >
+                            {icon}
                           </div>
-                          <div className="text-right font-mono tabular-nums">
-                            <span className="text-[10px] font-bold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">
-                              Độ khó {Math.round((w.difficulty || 0) * 10) / 10}
-                            </span>
-                            <span className="block text-[10px] text-muted-foreground mt-0.5">
-                              {w.reviewCount} lần ôn
-                            </span>
+
+                          {/* Card content */}
+                          <div className="p-3 rounded-xl bg-background border shadow-xs hover:border-primary/40 transition-colors space-y-1">
+                            <div className="flex items-start justify-between gap-2">
+                              <div className="min-w-0">
+                                <h5 className="font-bold text-xs sm:text-sm text-foreground truncate">
+                                  {item.title}
+                                </h5>
+                                {item.subtitle && (
+                                  <p className="text-xs text-muted-foreground mt-0.5">
+                                    {item.subtitle}
+                                  </p>
+                                )}
+                              </div>
+                              {item.badge && (
+                                <span
+                                  className={`px-2 py-0.5 rounded-full text-[10px] font-bold border shrink-0 ${badgeClass}`}
+                                >
+                                  {item.badge}
+                                </span>
+                              )}
+                            </div>
+
+                            <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground pt-1 border-t border-border/40 font-mono">
+                              <Clock className="h-3 w-3" />
+                              <span>{formatExactTimestamp(item.timestamp)}</span>
+                            </div>
                           </div>
                         </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             )}
 
-            {/* TAB 2: Biểu đồ & Năng lực */}
-            {activeTab === 'charts' && (
+            {/* TAB 2: Từ vựng đã lưu */}
+            {activeTab === 'saved_words' && (
+              <div className="space-y-4 animate-in fade-in duration-150">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-xs sm:text-sm">Từ vựng học sinh đã lưu</h4>
+                    <p className="text-[11px] text-muted-foreground">
+                      Danh sách từ vựng do học sinh tự thu thập và lưu trữ
+                    </p>
+                  </div>
+                  <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200 font-semibold tabular-nums">
+                    {savedWords.length} từ
+                  </span>
+                </div>
+
+                {isLoadingDetail ? (
+                  <div className="py-12 text-center text-xs text-muted-foreground flex flex-col items-center justify-center gap-2">
+                    <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                    <span>Đang tải danh sách từ đã lưu...</span>
+                  </div>
+                ) : savedWords.length === 0 ? (
+                  <div className="p-8 text-center bg-muted/20 border rounded-2xl">
+                    <BookOpen className="h-8 w-8 text-muted-foreground/40 mx-auto mb-2" />
+                    <p className="font-semibold text-xs sm:text-sm">Chưa có từ vựng nào được lưu</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Học sinh chưa lưu từ vựng nào trong lớp này.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-2.5">
+                    {savedWords.map((w) => (
+                      <div
+                        key={w.id}
+                        className="p-3 bg-background border rounded-xl shadow-xs hover:border-primary/40 transition-colors space-y-1.5"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <div className="flex items-baseline gap-2">
+                              <span className="font-bold text-sm text-foreground">{w.word}</span>
+                              {w.pos && (
+                                <span className="text-[10px] font-bold bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase">
+                                  {w.pos}
+                                </span>
+                              )}
+                              {w.ipa && (
+                                <span className="text-muted-foreground text-xs font-mono">/{w.ipa}/</span>
+                              )}
+                            </div>
+                            <p className="text-xs text-muted-foreground mt-0.5">{w.translation}</p>
+                          </div>
+                          <div className="text-right shrink-0">
+                            <span className="text-[10px] text-muted-foreground font-mono">
+                              {formatExactTimestamp(w.created_at)}
+                            </span>
+                          </div>
+                        </div>
+
+                        {w.example && (
+                          <div className="p-2 bg-muted/30 rounded-lg text-[11px] text-muted-foreground italic border-l-2 border-primary/40">
+                            &ldquo;{w.example}&rdquo;
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB 3: Lịch sử Quiz & Bài thi */}
+            {activeTab === 'quizzes' && (
+              <div className="space-y-4 animate-in fade-in duration-150">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-xs sm:text-sm">Lịch sử bài kiểm tra & bài thi</h4>
+                    <p className="text-[11px] text-muted-foreground">
+                      Kết quả các lượt làm Quiz từ vựng, ngữ pháp và bài thi chuẩn hóa
+                    </p>
+                  </div>
+                  <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold tabular-nums">
+                    {quizzes.length + toeicAssessments.length} bài
+                  </span>
+                </div>
+
+                {isLoadingDetail ? (
+                  <div className="py-12 text-center text-xs text-muted-foreground flex flex-col items-center justify-center gap-2">
+                    <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                    <span>Đang tải lịch sử quiz...</span>
+                  </div>
+                ) : quizzes.length === 0 && toeicAssessments.length === 0 ? (
+                  <div className="p-8 text-center bg-muted/20 border rounded-2xl">
+                    <Trophy className="h-8 w-8 text-muted-foreground/40 mx-auto mb-2" />
+                    <p className="font-semibold text-xs sm:text-sm">Chưa có bài kiểm tra nào</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Khi học sinh hoàn thành các bài quiz hoặc thi thử, kết quả sẽ hiển thị tại đây.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-2.5">
+                    {quizzes.map((q, idx) => {
+                      const acc = q.accuracy ?? (q.total_questions > 0 ? q.score / q.total_questions : 0);
+                      const accPct = Math.round(acc * 100);
+                      const isGood = acc >= 0.8;
+
+                      return (
+                        <div
+                          key={q.id || idx}
+                          className="p-3 bg-background border rounded-xl shadow-xs hover:border-primary/40 transition-colors flex items-center justify-between gap-3"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div
+                              className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 ${
+                                isGood
+                                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                  : 'bg-amber-50 text-amber-700 border border-amber-200'
+                              }`}
+                            >
+                              <Trophy className="h-4 w-4" />
+                            </div>
+                            <div className="min-w-0">
+                              <div className="flex items-center gap-2">
+                                <p className="font-bold text-xs sm:text-sm text-foreground truncate">
+                                  Quiz {q.quiz_type === 'grammar' ? 'Ngữ pháp' : 'Từ vựng'}
+                                </p>
+                                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                                  #{quizzes.length - idx}
+                                </span>
+                              </div>
+                              <p className="text-[11px] text-muted-foreground font-mono">
+                                {formatExactTimestamp(q.completed_at)}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="text-right shrink-0">
+                            <span
+                              className={`font-mono tabular-nums text-xs font-bold px-2 py-0.5 rounded-md border ${
+                                isGood
+                                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                  : 'bg-amber-50 text-amber-700 border border-amber-200'
+                              }`}
+                            >
+                              {q.score}/{q.total_questions} ({accPct}%)
+                            </span>
+                            <div className="w-16 h-1 bg-muted rounded-full mt-1.5 ml-auto overflow-hidden">
+                              <div
+                                className={`h-full rounded-full ${isGood ? 'bg-emerald-500' : 'bg-amber-500'}`}
+                                style={{ width: `${accPct}%` }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    {toeicAssessments.map((a) => (
+                      <div
+                        key={a.id}
+                        className="p-3 bg-indigo-50/40 border border-indigo-100 rounded-xl shadow-xs flex items-center justify-between gap-3"
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs shrink-0">
+                            <Target className="h-4 w-4" />
+                          </div>
+                          <div className="min-w-0">
+                            <p className="font-bold text-xs sm:text-sm text-indigo-950 truncate">
+                              Thi đánh giá: {a.track?.toUpperCase() || 'TOEIC'} ({a.target_id || 'Bài thi'})
+                            </p>
+                            <p className="text-[11px] text-indigo-700/80 font-mono">
+                              {formatExactTimestamp(a.created_at)} {a.passed ? '• Đạt chuẩn' : ''}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="font-mono tabular-nums text-xs font-bold px-2.5 py-1 rounded-lg bg-indigo-600 text-white">
+                          {a.score}%
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB 4: Biểu đồ & Năng lực */}
+            {activeTab === 'analytics' && (
               <div className="space-y-5 animate-in fade-in duration-150">
                 {/* 30-Day VMS & LCS Trend Chart */}
                 <div className="bg-background border rounded-2xl p-4 shadow-sm">
@@ -794,81 +1024,60 @@ export default function StudentDetailSheet({
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
 
-            {/* TAB 3: Từ hay sai */}
-            {activeTab === 'errors' && (
-              <div className="space-y-4 animate-in fade-in duration-150">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className="font-bold text-xs sm:text-sm">Danh sách từ vựng hay sai & khó nhớ</h4>
-                    <p className="text-[11px] text-muted-foreground">
-                      Xếp theo mức độ khó giảm dần theo thuật toán Spaced Repetition (FSRS)
-                    </p>
+                {/* Assign Drill & Struggling Words */}
+                <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-bold text-xs sm:text-sm">Từ vựng hay sai & Giao bài Drill</h4>
+                      <p className="text-[11px] text-muted-foreground">
+                        Tự động cài đặt các từ khó về hạn ôn tập hôm nay
+                      </p>
+                    </div>
+                    <button
+                      disabled={isAssigningDrill}
+                      onClick={() => void handleAssignDrill()}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 shrink-0"
+                    >
+                      {isAssigningDrill ? <Loader2 className="h-3 w-3 animate-spin" /> : <Plus className="h-3 w-3" />}
+                      Giao Drill
+                    </button>
                   </div>
-                  <button
-                    disabled={isAssigningDrill || errorsList.length === 0}
-                    onClick={() => void handleAssignDrill()}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary text-white rounded-lg text-xs font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 shrink-0"
-                  >
-                    {isAssigningDrill ? <Loader2 className="h-3 w-3 animate-spin" /> : <Plus className="h-3 w-3" />}
-                    Giao bài tập
-                  </button>
-                </div>
 
-                {isLoadingErrors ? (
-                  <div className="py-12 text-center text-xs text-muted-foreground flex flex-col items-center justify-center gap-2">
-                    <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                    <span>Đang tải danh sách từ yếu...</span>
-                  </div>
-                ) : errorsList.length === 0 ? (
-                  <div className="p-8 text-center bg-muted/20 border rounded-2xl">
-                    <CheckCircle2 className="h-8 w-8 text-emerald-500 mx-auto mb-2" />
-                    <p className="font-semibold text-xs sm:text-sm">Không có từ vựng báo động</p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Học sinh ghi nhớ tốt các từ đã học trong lớp.
-                    </p>
-                  </div>
-                ) : (
-                  <div className="space-y-2.5">
-                    {errorsList.map((item, idx) => (
-                      <div
-                        key={item.wordId || idx}
-                        className="p-3 bg-background border rounded-xl shadow-sm hover:border-primary/40 transition-colors space-y-1.5"
-                      >
-                        <div className="flex items-start justify-between gap-2">
+                  {isLoadingErrors ? (
+                    <div className="py-8 text-center text-xs text-muted-foreground flex items-center justify-center gap-2">
+                      <Loader2 className="h-4 w-4 animate-spin text-primary" /> Đang tải danh sách từ yếu...
+                    </div>
+                  ) : errorsList.length === 0 ? (
+                    <div className="p-4 text-center bg-muted/20 border rounded-xl">
+                      <CheckCircle2 className="h-6 w-6 text-emerald-500 mx-auto mb-1" />
+                      <p className="font-semibold text-xs">Không có từ vựng báo động</p>
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      {errorsList.slice(0, 5).map((item) => (
+                        <div
+                          key={item.wordId}
+                          className="p-2.5 bg-background border rounded-xl shadow-2xs hover:border-primary/40 transition-colors flex items-center justify-between text-xs"
+                        >
                           <div>
-                            <div className="flex items-baseline gap-2">
-                              <span className="font-bold text-sm text-foreground">{item.word}</span>
-                              {item.pos && <span className="text-muted-foreground text-xs italic">({item.pos})</span>}
-                            </div>
-                            <p className="text-xs text-muted-foreground">{item.translation}</p>
+                            <span className="font-bold text-foreground">{item.word}</span>
+                            {item.pos && <span className="text-muted-foreground ml-1 text-[10px]">({item.pos})</span>}
+                            <p className="text-muted-foreground text-[11px]">{item.translation}</p>
                           </div>
-                          <div className="text-right font-mono tabular-nums shrink-0">
-                            <span className="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded">
+                          <div className="text-right font-mono tabular-nums">
+                            <span className="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">
                               Khó: {Math.round((item.difficulty || 0) * 10) / 10}
                             </span>
-                            <span className="block text-[10px] text-muted-foreground mt-1">
-                              Ôn {item.reviewCount} lần
+                            <span className="block text-[10px] text-muted-foreground mt-0.5">
+                              {item.reviewCount} lần ôn
                             </span>
                           </div>
                         </div>
-
-                        {item.example && (
-                          <div className="p-2 bg-muted/30 rounded-lg text-[11px] text-muted-foreground italic border-l-2 border-primary/40">
-                            &ldquo;{item.example}&rdquo;
-                          </div>
-                        )}
-
-                        <div className="flex items-center justify-between text-[10px] text-muted-foreground pt-1 border-t">
-                          <span>Độ bền: <strong>{Math.round((item.stability || 0) * 10) / 10} ngày</strong></span>
-                          <span>Hạn ôn: <strong>{new Date(item.nextReviewDate).toLocaleDateString('vi-VN')}</strong></span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
