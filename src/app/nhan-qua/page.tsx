@@ -150,7 +150,33 @@ export default function NhanQuaKhaiGiangPage() {
         </div>
 
         {/* Form Container hoặc Màn hình chúc mừng */}
-        {!isSuccess ? (
+        <div className="rounded-2xl border border-amber-500/30 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 shadow-2xl space-y-5 text-center">
+          <div className="w-16 h-16 rounded-full bg-amber-500/10 border border-amber-500/30 mx-auto flex items-center justify-center">
+            <Sparkles className="w-8 h-8 text-amber-400" />
+          </div>
+          <div className="space-y-2">
+            <h2 className="text-xl font-bold text-white">Chương trình Khai Giảng 3 Tháng Pro Đã Kết Thúc</h2>
+            <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+              Mã ưu đãi 3 tháng Pro cho đợt khai giảng 05/09 đã ngừng nhận đăng ký mới. Bạn vẫn có thể trải nghiệm lộ trình học tập miễn phí hoặc xem các gói ưu đãi mới nhất trên LingoPro.
+            </p>
+          </div>
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/student"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition-all text-center"
+            >
+              Vào học ngay (Miễn phí)
+            </Link>
+            <Link
+              href="/upgrade"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-sm transition-all text-center"
+            >
+              Xem các gói nâng cấp
+            </Link>
+          </div>
+        </div>
+
+        {false && !isSuccess ? (
           <form
             onSubmit={handleSubmit}
             className="rounded-2xl border border-slate-800 bg-slate-900/80 backdrop-blur-xl p-5 sm:p-7 shadow-2xl space-y-5"

@@ -26,16 +26,14 @@ export const TRIAL_COUPON_DAYS: Record<string, number> = {
   NEWBIE2W: 7,
   /** Live Buổi 3 — 1 tuần Pro free (quà tham gia live) */
   LIVEB3: 7,
-  /** Khai Giảng 05/09 — 3 tháng (90 ngày) Pro VIP */
-  KHAIGIANG3M: 90,
-  THAYPHONG3M: 90,
 };
 
 /**
  * Danh sách mã chiến dịch Khai Giảng 05/09 (3 tháng = 90 ngày Pro).
- * Mỗi tài khoản học viên chỉ được nhận tối đa 1 lần quà Khai Giảng.
+ * ĐÃ KẾT THÚC / NGỪNG HOẠT ĐỘNG.
  */
 export const KHAI_GIANG_CAMPAIGN_CODES = ['KHAIGIANG3M', 'THAYPHONG3M'] as const;
+export const KHAI_GIANG_CAMPAIGN_ACTIVE = false;
 
 export function isKhaiGiangCampaignCode(code: string): boolean {
   return (KHAI_GIANG_CAMPAIGN_CODES as readonly string[]).includes(code.trim().toUpperCase());
@@ -333,19 +331,7 @@ export async function createOrder(
     }
 
     if (isKhaiGiangCampaignCode(couponCode)) {
-      const { data: existingKhaiGiang } = await supabase
-        .from('orders')
-        .select('id')
-        .eq('user_id', userId)
-        .in('coupon_code', [...KHAI_GIANG_CAMPAIGN_CODES])
-        .eq('status', 'paid')
-        .maybeSingle();
-
-      if (existingKhaiGiang) {
-        throw new Error('Tài khoản của bạn đã kích hoạt gói quà tặng Khai Giảng rồi.');
-      }
-
-      periodMonths = 1;
+      throw new Error('Chương trình ưu đãi Khai Giảng (3 tháng Pro) đã kết thúc.');
     }
 
     const { data } = await supabase
@@ -378,19 +364,6 @@ export async function createOrder(
         valid_from: new Date(0).toISOString(),
         valid_until: null,
         applicable_plans: ['pro', 'premium'],
-        is_active: true,
-      };
-    } else if (isKhaiGiangCampaignCode(couponCode)) {
-      coupon = {
-        id: `synthetic-${couponCode.toLowerCase()}`,
-        code: couponCode,
-        discount_pct: 100,
-        discount_amount: null,
-        max_uses: null,
-        used_count: 0,
-        valid_from: new Date(0).toISOString(),
-        valid_until: '2026-12-31T23:59:59.999Z',
-        applicable_plans: ['pro'],
         is_active: true,
       };
     }

@@ -12,6 +12,7 @@ import {
   assertCouponAllowedForOrder,
   computeBasePrice,
   computeGroupPrice,
+  isKhaiGiangCampaignCode,
   isTrialCouponCode,
   normalizePeriodMonths,
   normalizeSeats,
@@ -62,6 +63,13 @@ export async function POST(req: NextRequest) {
 
   const plan: Exclude<Plan, 'free'> = body.orderKind === 'group' ? 'pro' : (body.plan ?? 'pro');
   const orderKind = body.orderKind === 'group' ? 'group' : 'individual';
+
+  if (isKhaiGiangCampaignCode(code)) {
+    return NextResponse.json(
+      { valid: false, error: 'Chương trình ưu đãi Khai Giảng (3 tháng Pro) đã kết thúc.' },
+      { status: 400 },
+    );
+  }
 
   if (code === 'WLU') {
     const { data: existingWlu } = await supabase

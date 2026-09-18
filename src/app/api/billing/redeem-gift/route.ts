@@ -37,6 +37,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Vui lòng nhập mã quà tặng.' }, { status: 400 });
     }
 
+    if (isKhaiGiangCampaignCode(code)) {
+      return NextResponse.json(
+        { error: 'Chương trình ưu đãi Khai Giảng (3 tháng Pro) đã kết thúc.' },
+        { status: 400 },
+      );
+    }
+
     if (!isTrialCouponCode(code)) {
       return NextResponse.json(
         {

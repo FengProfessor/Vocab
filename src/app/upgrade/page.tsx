@@ -146,9 +146,6 @@ function UpgradePageContent() {
         }
       }, 350);
     }
-    if (searchParams.get('welcome') === '1' || searchParams.get('khaigiang') === '1') {
-      setShowKhaiGiangModal(true);
-    }
   }, [searchParams]);
 
   // Flash sale khóa — tick để tắt UI khi hết hạn
@@ -320,11 +317,6 @@ function UpgradePageContent() {
       exp.setDate(exp.getDate() + days);
       setExpiresAt(exp.toISOString());
       toast.success(data.message ?? `Đã nhận ${days} ngày Pro!`);
-
-      // Pop open WelcomeKhaiGiangModal for Khai Giảng campaign codes (or >= 90 days)
-      if (isKhaiGiangCampaignCode(code) || days >= 90) {
-        setShowKhaiGiangModal(true);
-      }
 
       import('canvas-confetti')
         .then((confetti) => {
@@ -901,7 +893,7 @@ function UpgradePageContent() {
                         void handleRedeemGift();
                       }
                     }}
-                    placeholder="Nhập mã quà (VD: KHAIGIANG3M)"
+                    placeholder="Nhập mã quà (VD: LIVEB3)"
                     className="min-w-0 flex-1 rounded-xl border border-[#e8e6dc] bg-white px-3 py-2.5 font-mono text-sm font-bold uppercase text-[#1a1915] outline-none focus:border-[#1a1915]/30 focus:ring-2 focus:ring-[#1a1915]/8"
                   />
                   <button
