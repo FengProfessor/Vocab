@@ -12,6 +12,7 @@ import {
   readWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
+import { fetchWordSummaryOnce } from '@/components/student/StudentProvider';
 
 function ReviewHubContent() {
   const searchParams = useSearchParams();
@@ -34,28 +35,25 @@ function ReviewHubContent() {
           setDueCount(cached.reviewDueCount ?? 0);
         }
 
-        const url = classParam
-          ? `/api/words?classroomId=${classParam}&summary=1`
-          : `/api/words?summary=1`;
-        const res = await authFetch(url, {}, token);
-        const data = await res.json();
-        if (!cancelled && data.success) {
-          const count = typeof data.reviewDueCount === 'number'
-            ? data.reviewDueCount
-            : (Array.isArray(data.data) ? data.data.length : (data.dueCount ?? 0));
-          setDueCount(count);
-          // Ghi cache cho lần sau paint ngay (chỉ cho kho cá nhân)
-          if (!classParam) {
-            writeWordSummaryCache(session.user.id, {
-              total: data.total ?? cached?.total ?? count,
-              newCount: data.newCount ?? cached?.newCount ?? 0,
-              reviewDueCount: count,
-              dueCount: data.dueCount ?? cached?.dueCount ?? count,
-              classroomId: cached?.classroomId ?? null,
-            });
+        if (!classParam) {
+          const summary = await fetchWordSummaryOnce(session.user.id, token);
+          if (!cancelled && summary) {
+            setDueCount(summary.reviewDueCount);
+          } else if (!cancelled && !cached) {
+            setDueCount(0);
           }
-        } else if (!cancelled) {
-          setDueCount(0);
+        } else {
+          const url = `/api/words?classroomId=${encodeURIComponent(classParam)}&summary=1`;
+          const res = await authFetch(url, {}, token);
+          const data = await res.json();
+          if (!cancelled && data.success) {
+            const count = typeof data.reviewDueCount === 'number'
+              ? data.reviewDueCount
+              : (Array.isArray(data.data) ? data.data.length : (data.dueCount ?? 0));
+            setDueCount(count);
+          } else if (!cancelled && !cached) {
+            setDueCount(0);
+          }
         }
       } catch {
         if (!cancelled) setDueCount(null);

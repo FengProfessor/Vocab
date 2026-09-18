@@ -200,20 +200,32 @@ export async function userCanWriteClassroom(
   userId: string,
   classroomId: string,
 ): Promise<boolean> {
+  const cacheKey = `user-can-write-cls:${userId}:${classroomId}`;
+  const hit = cacheGet<boolean>(cacheKey);
+  if (hit !== null && hit !== undefined) return hit;
+
   const { data: cls } = await supabase
     .from('classrooms')
     .select('teacher_id')
     .eq('id', classroomId)
     .maybeSingle();
-  if (!cls) return false;
-  if (cls.teacher_id === userId) return true;
+  if (!cls) {
+    cacheSet(cacheKey, false, 30_000);
+    return false;
+  }
+  if (cls.teacher_id === userId) {
+    cacheSet(cacheKey, true, 60_000);
+    return true;
+  }
   const { data: enr } = await supabase
     .from('enrollments')
     .select('id')
     .eq('classroom_id', classroomId)
     .eq('student_id', userId)
     .maybeSingle();
-  return Boolean(enr);
+  const canWrite = Boolean(enr);
+  cacheSet(cacheKey, canWrite, 60_000);
+  return canWrite;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

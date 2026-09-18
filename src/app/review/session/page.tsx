@@ -45,10 +45,10 @@ interface WordItem extends ReviewWordLike {
   isDue: boolean;
 }
 
-const NEXT_OK_MS = 1400;
-const NEXT_BAD_MS = 3500;
-/** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án (180ms nhạy bén nhưng an toàn). */
-const FEEDBACK_LOCK_MS = 180;
+const NEXT_OK_MS = 950;
+const NEXT_BAD_MS = 2500;
+/** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án (100ms mượt mà, tức thì nhưng chống nảy phím). */
+const FEEDBACK_LOCK_MS = 100;
 const SESSION_CAP = 25;
 
 function parseSessionMode(raw: string | null): ReviewSessionMode {
@@ -183,31 +183,39 @@ function SessionContent() {
         const base = classroomId
           ? `/api/words?classroomId=${classroomId}`
           : `/api/words`;
-        // Pool nhẹ (30 từ) cho distractor MCQ (kèm noCount=1 để bỏ qua đếm full bảng); queue due cap SESSION_CAP
-        // Truyền token sẵn → authFetch không gọi getSession() lại (tiết kiệm ~400ms)
-        const [allRes, dueRes] = await Promise.all([
-          authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=30&noCount=1`, {}, token),
-          authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {}, token),
-        ]);
-        const allJson = await allRes.json().catch(() => ({ success: false }));
+        // Ưu tiên nạp danh sách đến hạn ôn (RPC get_due_words_list, siêu nhẹ ~120ms)
+        const dueRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {}, token);
         const dueJson = await dueRes.json().catch(() => ({ success: false }));
 
-        if (!allJson.success && !dueJson.success) {
+        if (!dueJson.success) {
           toast.error('Không tải được từ vựng.');
           setIsLoading(false);
           return;
         }
-        const classroomIdFromRes = dueJson.classroomId || allJson.classroomId;
+        const classroomIdFromRes = dueJson.classroomId;
         if (!classroomId && classroomIdFromRes) setClassroomId(classroomIdFromRes);
 
-        const allWords = (allJson.success && Array.isArray(allJson.data)) ? (allJson.data as WordItem[]) : [];
         const dueWords = (dueJson.success && Array.isArray(dueJson.data)) ? (dueJson.data as WordItem[]) : [];
 
+        // Nếu queue ôn ít hơn 4 từ (không đủ 4 đáp án MCQ), nạp thêm pool distractor phụ (30 từ)
+        let allWords: WordItem[] = [];
+        if (dueWords.length > 0 && dueWords.length < 4) {
+          try {
+            const allRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=30&noCount=1`, {}, token);
+            const allJson = await allRes.json().catch(() => ({ success: false }));
+            if (allJson.success && Array.isArray(allJson.data)) {
+              allWords = allJson.data as WordItem[];
+            }
+          } catch {
+            // Không chặn phiên ôn nếu distractor phụ lỗi
+          }
+        }
+
         // Pool cho distractor MCQ: kết hợp allWords + dueWords để không bị thiếu phương án
-        const combinedPool = [...allWords];
-        for (const dw of dueWords) {
-          if (!combinedPool.some((w) => w.id === dw.id)) {
-            combinedPool.push(dw);
+        const combinedPool = [...dueWords];
+        for (const aw of allWords) {
+          if (!combinedPool.some((w) => w.id === aw.id)) {
+            combinedPool.push(aw);
           }
         }
 
@@ -794,9 +802,8 @@ function SessionContent() {
                 ) : (
                   <Button
                     onClick={skipWait}
-                    disabled={!canSkip}
                     variant="outline"
-                    className="h-11 w-full rounded-xl text-sm font-bold disabled:opacity-40"
+                    className="h-11 w-full rounded-xl text-sm font-bold"
                   >
                     Tiếp theo →
                   </Button>
@@ -807,9 +814,8 @@ function SessionContent() {
             {isMcq && verdict !== null && (
               <Button
                 onClick={skipWait}
-                disabled={!canSkip}
                 variant="outline"
-                className="h-11 w-full shrink-0 rounded-xl text-sm font-bold disabled:opacity-40"
+                className="h-11 w-full shrink-0 rounded-xl text-sm font-bold"
               >
                 Tiếp theo →
               </Button>

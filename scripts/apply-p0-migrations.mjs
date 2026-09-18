@@ -56,6 +56,11 @@ function buildConnectionString() {
 const MIGRATIONS = [
   'supabase/migrations/20260710_security_hardening.sql',
   'supabase/migrations/20260710_atomic_paid_order_confirmation.sql',
+  'supabase/migrations/20260716_class_scale_db_perf.sql',
+  'supabase/migrations/20260718_words_example_vi.sql',
+  'supabase/migrations/20260806_perf_optimization_indexes.sql',
+  'supabase/migrations/20260918_referral_system.sql',
+  'supabase/migrations/20260918_words_save_perf_indexes.sql',
 ];
 
 async function main() {
@@ -98,12 +103,15 @@ async function main() {
     const probes = [
       `select proname from pg_proc p join pg_namespace n on n.oid=p.pronamespace
        where n.nspname='public' and proname in
-       ('confirm_paid_order','claim_onboarding_xp','claim_teacher_role','award_xp')
+       ('confirm_paid_order','claim_onboarding_xp','claim_teacher_role','award_xp','get_word_level_counts','get_due_words_list','get_word_summary','fn_resolve_referral_code')
+       order by 1`,
+      `select indexname from pg_indexes where schemaname='public' and indexname in
+       ('idx_words_added_by_created','idx_srs_user_word','idx_words_classroom_word_lower','idx_srs_user_next_review','idx_words_word_lower')
        order by 1`,
     ];
     for (const q of probes) {
       const { rows } = await client.query(q);
-      console.log('[ApplyMigrations] functions:', rows.map((r) => r.proname).join(', '));
+      console.log('[ApplyMigrations] probe results:', rows);
     }
   } finally {
     await client.end();

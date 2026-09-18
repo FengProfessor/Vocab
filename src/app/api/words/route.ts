@@ -89,6 +89,7 @@ type WordSummaryCounts = {
 };
 
 const inFlightLevelCounts = new Map<string, Promise<number[]>>();
+let rpcMissingCooldownUntil = 0;
 
 /**
  * Đếm L1–L6 trên TOÀN BỘ từ classroom.
@@ -107,23 +108,28 @@ async function fetchLevelCounts(
 
   const promise = (async () => {
     try {
-      const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_level_counts', {
-        p_user_id: userId,
-        p_classroom_id: classroomId,
-      });
-      if (!rpcErr && rpcRows) {
-        const row = (Array.isArray(rpcRows) ? rpcRows[0] : rpcRows) as {
-          l1?: number; l2?: number; l3?: number; l4?: number; l5?: number; l6?: number;
-        } | null;
-        if (row) {
-          return [
-            Number(row.l1 ?? 0),
-            Number(row.l2 ?? 0),
-            Number(row.l3 ?? 0),
-            Number(row.l4 ?? 0),
-            Number(row.l5 ?? 0),
-            Number(row.l6 ?? 0),
-          ];
+      if (Date.now() > rpcMissingCooldownUntil) {
+        const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_level_counts', {
+          p_user_id: userId,
+          p_classroom_id: classroomId,
+        });
+        if (!rpcErr && rpcRows) {
+          const row = (Array.isArray(rpcRows) ? rpcRows[0] : rpcRows) as {
+            l1?: number; l2?: number; l3?: number; l4?: number; l5?: number; l6?: number;
+          } | null;
+          if (row) {
+            return [
+              Number(row.l1 ?? 0),
+              Number(row.l2 ?? 0),
+              Number(row.l3 ?? 0),
+              Number(row.l4 ?? 0),
+              Number(row.l5 ?? 0),
+              Number(row.l6 ?? 0),
+            ];
+          }
+        } else if (rpcErr?.message?.includes('schema cache')) {
+          // RPC chưa được migrate: bật circuit breaker 2 phút để không chịu 350ms delay mỗi request
+          rpcMissingCooldownUntil = Date.now() + 120_000;
         }
       }
 
@@ -768,7 +774,13 @@ export async function GET(req: Request): Promise<NextResponse> {
           p_limit: reviewCap,
         });
 
-        if (!rpcErr && Array.isArray(rpcWords) && rpcWords.length > 0) {
+        if (!rpcErr && Array.isArray(rpcWords)) {
+          if (rpcWords.length === 0) {
+            return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
+              headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+            });
+          }
+
           const enriched = (rpcWords as Array<{
             id: string;
             word: string;

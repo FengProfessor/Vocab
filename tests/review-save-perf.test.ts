@@ -8,10 +8,11 @@ console.log('--- Testing Review Session & Save Word Performance Optimizations --
 const sessionPath = path.resolve('src/app/review/session/page.tsx');
 const sessionCode = fs.readFileSync(sessionPath, 'utf8');
 
-assert(sessionCode.includes('const FEEDBACK_LOCK_MS = 180;'), 'FEEDBACK_LOCK_MS must be 180ms for instant responsiveness');
-assert(sessionCode.includes('const NEXT_OK_MS = 1400;'), 'NEXT_OK_MS must be 1400ms for snappy auto-advance');
-assert(sessionCode.includes('const NEXT_BAD_MS = 3500;'), 'NEXT_BAD_MS must be 3500ms instead of 10000ms');
+assert(sessionCode.includes('const FEEDBACK_LOCK_MS = 100;'), 'FEEDBACK_LOCK_MS must be 100ms for instant responsiveness');
+assert(sessionCode.includes('const NEXT_OK_MS = 950;'), 'NEXT_OK_MS must be 950ms for snappy auto-advance');
+assert(sessionCode.includes('const NEXT_BAD_MS = 2500;'), 'NEXT_BAD_MS must be 2500ms instead of 10000ms');
 assert(sessionCode.includes('limit=30'), 'Review session distractor pool should be lightened to limit=30');
+assert(!sessionCode.includes('disabled={!canSkip}'), 'Next button must not be disabled with disabled={!canSkip} so clicks are never lost');
 console.log('✅ PASS: Review Session Timing Constants & Distractor Pool');
 
 // 2. Review Hub RPC Query
