@@ -6,6 +6,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Hometown & Living Area',
     topicVi: 'Quê hương & Nơi sinh sống',
     category: 'personal',
+    backgroundOverviewVi: "Chủ đề quen thuộc mở đầu bài thi VSTEP nhằm đánh giá khả năng mô tả không gian địa lý, cảnh quan và sự chuyển mình của quê hương qua thời gian.",
+    examinerCriteriaVi: "Giám khảo tìm kiếm sự trôi chảy tự nhiên, các cụm từ mô tả địa lý ven biển/đồng bằng/đô thị và cách dùng thì hiện tại hoàn thành khi tả sự đổi thay.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -55,6 +57,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Studies & Academic Life',
     topicVi: 'Học tập & Đời sống sinh viên',
     category: 'work_study',
+    backgroundOverviewVi: "Khai thác đời sống học thuật, lý do chọn ngành và phương pháp quản lý thời gian của sinh viên trước khối lượng kiến thức đại học.",
+    examinerCriteriaVi: "Đánh giá khả năng giải thích nguyên nhân lựa chọn ngành học, sử dụng từ vựng học thuật chuyên sâu và cách diễn đạt sự cân bằng cuộc sống.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -104,6 +108,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Job & Career Aspirations',
     topicVi: 'Công việc & Mục tiêu nghề nghiệp',
     category: 'work_study',
+    backgroundOverviewVi: "Thăm dò định hướng nghề nghiệp, kỹ năng cần thiết và tham vọng đóng góp trong thị trường lao động toàn cầu hóa.",
+    examinerCriteriaVi: "Kiểm tra cấu trúc tương lai (hope to, aspire to, intend to) kết hợp thuật ngữ về môi trường doanh nghiệp đa quốc gia và phát triển cá nhân.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -153,6 +159,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Reading Habits & Books',
     topicVi: 'Thói quen đọc sách & Tác phẩm văn học',
     category: 'society_lifestyle',
+    backgroundOverviewVi: "Đánh giá thói quen đọc sách truyền thống so với việc tiếp nhận thông tin điện tử trong kỷ nguyên mạng xã hội.",
+    examinerCriteriaVi: "Giám khảo chú trọng khả năng so sánh sách giấy và e-book, giải thích lợi ích phát triển tư duy và từ vựng về thể loại sách.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -202,6 +210,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Internet & Social Media',
     topicVi: 'Internet & Mạng xã hội',
     category: 'technology_media',
+    backgroundOverviewVi: "Vai trò thiết yếu của mạng internet trong đời sống hiện đại, đi kèm mặt trái nghiện mạng xã hội và bảo mật thông tin.",
+    examinerCriteriaVi: "Khả năng nêu bật lợi ích học tập/làm việc từ xa đồng thời cảnh báo rủi ro an ninh mạng bằng các mệnh đề chỉ sự tương phản.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -251,6 +261,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Health, Diet & Well-being',
     topicVi: 'Sức khỏe, Ăn uống & Lối sống lành mạnh',
     category: 'society_lifestyle',
+    backgroundOverviewVi: "Thói quen duy trì thể lực và chế độ dinh dưỡng trong nhịp sống đô thị bận rộn nhiều áp lực.",
+    examinerCriteriaVi: "Từ vựng dinh dưỡng, hoạt động thể chất và cấu trúc diễn tả thói quen sinh hoạt điều độ (maintain a balanced diet, stay hydrated).",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -300,6 +312,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Travel & Tourism',
     topicVi: 'Du lịch & Khám phá văn hóa',
     category: 'society_lifestyle',
+    backgroundOverviewVi: "Sở thích xê dịch, du lịch trải nghiệm khám phá văn hóa và mở rộng tầm nhìn cá nhân.",
+    examinerCriteriaVi: "Khả năng kể lại một chuyến đi đáng nhớ (thì quá khứ đơn), từ vựng phong cảnh thiên nhiên và sự hiếu khách của người dân bản địa.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -349,6 +363,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Environment & Conservation',
     topicVi: 'Môi trường & Bảo tồn thiên nhiên',
     category: 'society_lifestyle',
+    backgroundOverviewVi: "Ý thức bảo vệ môi trường, phân loại rác thải và các hành động cụ thể giảm thiểu rác thải nhựa.",
+    examinerCriteriaVi: "Sử dụng chuẩn xác các thuật ngữ sinh thái (carbon footprint, biodegradable, single-use plastics) và câu điều kiện chỉ giải pháp.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -398,6 +414,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Sports & Exercise',
     topicVi: 'Thể thao & Hoạt động thể chất',
     category: 'society_lifestyle',
+    backgroundOverviewVi: "Môn thể thao yêu thích, lợi ích rèn luyện sức bền và tinh thần đồng đội trong các môn tập thể.",
+    examinerCriteriaVi: "Phát âm chuẩn tên các môn thể thao, dùng đúng động từ đi kèm (play football, go swimming, do yoga) và giải thích tác động sức khỏe.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -447,6 +465,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Music & Artistic Expression',
     topicVi: 'Âm nhạc & Nghệ thuật',
     category: 'society_lifestyle',
+    backgroundOverviewVi: "Gu âm nhạc cá nhân, thể loại yêu thích và tác dụng trị liệu tâm hồn, giảm căng thẳng của âm nhạc.",
+    examinerCriteriaVi: "Từ vựng về thể loại nhạc (acoustic, classical, electronic), cảm xúc âm nhạc mang lại và trải nghiệm tham dự buổi hòa nhạc trực tiếp.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -496,6 +516,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Shopping & Consumer Culture',
     topicVi: 'Mua sắm & Văn hóa tiêu dùng',
     category: 'society_lifestyle',
+    backgroundOverviewVi: "Thói quen mua sắm trực tuyến so với mua sắm tại cửa hàng truyền thống, xu hướng tiêu dùng thông minh.",
+    examinerCriteriaVi: "So sánh ưu nhược điểm (tiện lợi, giá cả vs trải nghiệm trực quan thử đồ), các từ vựng thương mại và chính sách đổi trả.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -545,6 +567,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Transportation & Commuting',
     topicVi: 'Giao thông & Di chuyển đô thị',
     category: 'society_lifestyle',
+    backgroundOverviewVi: "Phương tiện đi lại hàng ngày và giải pháp giảm thiểu ùn tắc giao thông tại các thành phố lớn.",
+    examinerCriteriaVi: "Từ vựng phương tiện công cộng (metro, bus rapid transit), cách diễn đạt về thời gian di chuyển và đề xuất chính sách giao thông xanh.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -594,6 +618,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Friendship & Social Bonds',
     topicVi: 'Tình bạn & Mối quan hệ xã hội',
     category: 'personal',
+    backgroundOverviewVi: "Phẩm chất của một người bạn tốt, cách duy trì tình bạn qua năm tháng và tầm quan trọng của bạn bè trong lúc khó khăn.",
+    examinerCriteriaVi: "Khả năng mô tả tính cách (loyal, empathetic, trustworthy), dùng mệnh đề quan hệ và chia sẻ kỷ niệm sâu sắc.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -643,6 +669,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Weather & Seasonal Climates',
     topicVi: 'Thời tiết & Các mùa trong năm',
     category: 'personal',
+    backgroundOverviewVi: "Thời tiết đặc trưng từng mùa, khí hậu nhiệt đới gió mùa tại Việt Nam và ảnh hưởng của thời tiết đến tâm trạng.",
+    examinerCriteriaVi: "Từ vựng thời tiết phong phú (scorching, humid, torrential rain, crisp air) và cấu trúc chỉ sở thích theo mùa.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [
@@ -692,6 +720,8 @@ export const VSTEP_SPEAKING_PART1_TOPICS: VstepSpeakingPart1Topic[] = [
     topicName: 'Artificial Intelligence & Automation',
     topicVi: 'Trí tuệ nhân tạo & Tự động hóa',
     category: 'technology_media',
+    backgroundOverviewVi: "Ứng dụng của trí tuệ nhân tạo và công nghệ thông minh trong đời sống sinh hoạt và học tập hàng ngày.",
+    examinerCriteriaVi: "Thuật ngữ công nghệ số (automation, smart assistants, algorithm) và thái độ cân bằng giữa tận dụng tiện ích và giữ gìn tư duy độc lập.",
     suggestedPrepTimeSeconds: 0,
     suggestedSpeakTimeSeconds: 180,
     questions: [

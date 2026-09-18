@@ -272,6 +272,42 @@ export default function StudentSpeakingPage() {
               </div>
             </div>
 
+            {/* Context & Roleplay Persona Banner */}
+            {(activeTopic.roleplayPersona || activeTopic.contextSettingVi) && (
+              <div className="px-4 py-3 bg-slate-900/40 border-b border-slate-800/60 text-xs space-y-2">
+                {activeTopic.roleplayPersona && (
+                  <div className="flex items-center justify-between gap-2 flex-wrap text-[11px]">
+                    <div className="flex items-center gap-1.5 text-indigo-300 font-medium">
+                      <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>Đối tác đàm thoại AI:</span>
+                      <strong className="text-white">{activeTopic.roleplayPersona.name}</strong>
+                      <span className="text-slate-400">({activeTopic.roleplayPersona.role} • {activeTopic.roleplayPersona.organization})</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/50">
+                      Phong thái: {activeTopic.roleplayPersona.tone}
+                    </span>
+                  </div>
+                )}
+
+                {activeTopic.contextSettingVi && (
+                  <p className="text-[11px] text-slate-300 leading-relaxed">
+                    <strong className="text-amber-400/90">Bối cảnh:</strong> {activeTopic.contextSettingVi}
+                  </p>
+                )}
+
+                {activeTopic.conversationGoalsVi && activeTopic.conversationGoalsVi.length > 0 && (
+                  <div className="pt-1 flex flex-wrap items-center gap-1.5 text-[10px]">
+                    <span className="text-slate-400 font-bold uppercase tracking-wider">Mục tiêu bạn cần đạt:</span>
+                    {activeTopic.conversationGoalsVi.map((g, gi) => (
+                      <span key={gi} className="px-2 py-0.5 rounded bg-slate-800/60 text-slate-300 border border-slate-700/60">
+                        ✓ {g}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Messages scroll box */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((m, idx) => (

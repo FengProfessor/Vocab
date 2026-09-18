@@ -11,12 +11,16 @@ export interface VstepSpeakingVocabulary {
   partOfSpeech?: string;
   meaningVi: string;
   collocation?: string;
+  exampleSentence?: string;
 }
 
 export interface VstepSpeakingPart1Question {
   id: string;
   question: string;
   questionVi: string;
+  contextBackgroundVi?: string; // Bối cảnh văn hóa & tình huống đời thực
+  examinerExpectationsVi?: string; // Kỳ vọng của giám khảo theo thang chấm
+  commonMistakesVi?: string[]; // Các lỗi ngữ pháp, phát âm hay gặp
   sampleB1: string;
   sampleB2: string;
   sampleC1: string;
@@ -28,8 +32,10 @@ export interface VstepSpeakingPart1Topic {
   topicName: string;
   topicVi: string;
   category: 'personal' | 'work_study' | 'society_lifestyle' | 'technology_media';
-  suggestedPrepTimeSeconds: number; // typically 0s (immediate response)
-  suggestedSpeakTimeSeconds: number; // 3 minutes total for part 1
+  backgroundOverviewVi?: string; // Tổng quan bối cảnh xã hội của chủ đề
+  examinerCriteriaVi?: string; // Hướng dẫn giám khảo chấm điểm Part 1
+  suggestedPrepTimeSeconds: number; // 0s (phản xạ trực tiếp)
+  suggestedSpeakTimeSeconds: number; // 180s (3 phút)
   questions: VstepSpeakingPart1Question[];
 }
 
@@ -47,6 +53,8 @@ export interface VstepSpeakingPart2Scenario {
   titleVi: string;
   situation: string;
   situationVi: string;
+  backgroundContextVi?: string; // Phân tích bối cảnh sâu: nguyên nhân thế tiến thoái lưỡng nan
+  stakeholdersAnalysisVi?: string; // Phân tích lợi ích các bên liên quan (gia đình, sếp, bạn bè...)
   options: [VstepSpeakingPart2Option, VstepSpeakingPart2Option, VstepSpeakingPart2Option];
   recommendedChoice: string; // ID of the optimal choice
   prepTimeSeconds: number; // 60s
@@ -67,6 +75,8 @@ export interface VstepSpeakingPart3Topic {
   topicTitle: string;
   topicVi: string;
   category: 'education' | 'environment' | 'technology' | 'society_culture' | 'health_wellness';
+  socioEconomicContextVi?: string; // Bối cảnh kinh tế - xã hội toàn cầu & Việt Nam
+  academicCitationsVi?: string[]; // Dẫn chứng học thuật / tổ chức uy tín (UNESCO, WHO, WB)
   prepTimeSeconds: number; // 60s
   speakTimeSeconds: number; // 240s (4 minutes)
   mindmap: {
@@ -87,6 +97,7 @@ export interface VstepSpeakingPart3Topic {
   followUpQuestions: Array<{
     question: string;
     questionVi: string;
+    contextNoteVi?: string; // Bối cảnh tại sao giám khảo hỏi câu này
     sampleAnswer: string;
   }>;
   keyVocabulary: VstepSpeakingVocabulary[];
@@ -99,6 +110,7 @@ export interface VstepFullSpeakingExam {
   source: string; // e.g. "ULIS - ĐHQG Hà Nội"
   targetLevel: VstepSpeakingLevel;
   totalDurationMinutes: number; // 12 minutes
+  examContextVi?: string; // Bối cảnh khảo thí & đề thi
   part1: VstepSpeakingPart1Topic;
   part2: VstepSpeakingPart2Scenario;
   part3: VstepSpeakingPart3Topic;

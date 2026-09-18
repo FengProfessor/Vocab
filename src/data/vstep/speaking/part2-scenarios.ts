@@ -7,6 +7,8 @@ export const VSTEP_SPEAKING_PART2_SCENARIOS: VstepSpeakingPart2Scenario[] = [
     titleVi: 'Món quà tốt nghiệp cho em trai/gái',
     situation: 'Your younger brother has just passed the national entrance exam into university with high scores. Your family wants to give him a meaningful and useful gift. There are three options suggested: a laptop, a smartphone, or a sum of cash. Which one is the best choice?',
     situationVi: 'Em trai của bạn vừa thi đỗ đại học với điểm số rất cao. Gia đình bạn muốn tặng một món quà ý nghĩa và thiết thực. Có 3 gợi ý: máy tính xách tay (laptop), điện thoại thông minh (smartphone), hoặc một khoản tiền mặt. Đâu là sự lựa chọn tối ưu nhất?',
+    backgroundContextVi: "Trong bối cảnh chuyển tiếp từ bậc phổ thông lên giảng đường đại học, sinh viên Việt Nam đối mặt với sự thay đổi căn bản về phương pháp học tập: từ thụ động nghe giảng sang tự nghiên cứu, làm tiểu luận và làm việc nhóm trực tuyến. Món quà tốt nghiệp không chỉ mang giá trị động viên tinh thần mà còn là công cụ học tập thiết yếu phục vụ trực tiếp suốt 4-5 năm giảng đường.",
+    stakeholdersAnalysisVi: "Em trai (người nhận): Cần phương tiện phục vụ học tập, tra cứu tài liệu và làm đồ án; Gia đình: Muốn số tiền tích lũy chi tiêu đúng mục đích thực tế và bền vững; Nhà trường: Đòi hỏi sinh viên phải có máy tính để nộp bài qua cổng thông tin học tập (LMS).",
     options: [
       {
         id: 'opt-laptop',
@@ -71,6 +73,8 @@ In conclusion, when juxtaposed against transient gadgets or unmemorable currency
     titleVi: 'Địa điểm du lịch nghỉ dưỡng thường niên của công ty',
     situation: 'Your company is planning an annual three-day retreat for 50 employees to unwind and strengthen team bonding after an intensive quarter. Three potential destinations are proposed: a seaside coastal resort, a mountain eco-lodge, or a historical cultural tour in an ancient town. Which destination should be chosen?',
     situationVi: 'Công ty bạn dự định tổ chức chuyến du lịch dã ngoại 3 ngày cho 50 nhân viên nhằm xả stress và gắn kết tinh thần đồng đội sau một quý làm việc căng thẳng. Có 3 điểm đến được đề xuất: khu nghỉ dưỡng ven biển, khu sinh thái trên núi, hoặc tour di sản văn hóa tại phố cổ. Bạn chọn địa điểm nào?',
+    backgroundContextVi: "Sau một quý sản xuất kinh doanh cao điểm với nhiều áp lực, ban lãnh đạo muốn tổ chức kỳ nghỉ 3 ngày nhằm tái tạo sức lao động và củng cố tinh thần đồng đội cho 50 nhân sự. Thách thức lớn nhất là tìm kiếm một không gian vừa đủ rộng rãi cho các hoạt động tập thể, vừa đáp ứng sở thích đa dạng của nhiều lứa tuổi từ nhân viên trẻ đến các nhà quản lý thâm niên.",
+    stakeholdersAnalysisVi: "Ban Giám đốc: Kỳ vọng gắn kết văn hóa doanh nghiệp và tạo động lực cho quý tới; Nhân viên trẻ: Thích thể thao bãi biển, hoạt động ngoài trời náo nhiệt và tiệc tối gala; Nhân viên có gia đình/lớn tuổi: Mong muốn nghỉ ngơi thoải mái, ẩm thực phong phú và đi lại thuận tiện an toàn.",
     options: [
       {
         id: 'opt-coastal',
@@ -135,6 +139,8 @@ To encapsulate, given its unmatched spatial capacity, universal demographic reso
     titleVi: 'Phương pháp học ngoại ngữ hiệu quả nhất',
     situation: 'A friend wants to achieve fluent English communication within six months to prepare for working in an international environment. She is considering three avenues: attending intensive offline language academy classes, using self-study mobile applications daily, or participating in an overseas immersion homestay program. What is the most viable path?',
     situationVi: 'Một người bạn muốn đạt sự lưu loát khi giao tiếp tiếng Anh trong vòng 6 tháng để làm việc tại môi trường quốc tế. Cô ấy đang cân nhắc 3 con đường: đăng ký trung tâm Anh ngữ trực tiếp cường độ cao, tự học hàng ngày qua ứng dụng điện thoại, hoặc tham gia chương trình du học trải nghiệm bản xứ ngắn hạn. Đâu là hướng đi khả thi nhất?',
+    backgroundContextVi: "Yêu cầu sử dụng tiếng Anh giao tiếp lưu loát trong môi trường doanh nghiệp toàn cầu ngày càng khắt khe. Thời hạn 6 tháng là một áp lực thời gian tương đối gấp, đòi hỏi người học phải có lộ trình kỷ luật nghiêm ngặt, tương tác phản xạ hai chiều và được sửa lỗi kịp thời thay vì chỉ nạp kiến thức một chiều.",
+    stakeholdersAnalysisVi: "Người học: Cần sự tiến bộ đo lường được để vượt qua phỏng vấn, dễ nản chí nếu thiếu người đồng hành; Nhà tuyển dụng: Đánh giá cao khả năng phản biện, thuyết trình và đối thoại tự nhiên; Giảng viên: Đóng vai trò uốn nắn ngữ âm, kiểm tra ngữ pháp và tạo áp lực học tập tích cực.",
     options: [
       {
         id: 'opt-academy',
@@ -199,6 +205,8 @@ To summarize, by delivering immediate corrective feedback, authentic communicati
     titleVi: 'Lựa chọn chỗ ở cho tân sinh viên',
     situation: 'A high school graduate from the countryside is moving to Hanoi to start his university education. His parents are considering three living arrangements: an on-campus university dormitory, a shared private rental apartment with friends, or living with an aunt and uncle who reside in the city. Which living arrangement is best?',
     situationVi: 'Một học sinh vừa tốt nghiệp cấp ba từ nông thôn chuẩn bị lên Hà Nội học đại học. Bố mẹ đang cân nhắc 3 phương án cư trú: ký túc xá trong khuôn viên trường, thuê chung căn hộ tư nhân với bạn bè, hoặc ở nhờ nhà cô chú ruột tại thành phố. Phương án nào tối ưu nhất?',
+    backgroundContextVi: "Sự dịch chuyển từ nông thôn lên các trung tâm đô thị lớn như Hà Nội hay TP.HCM đặt tân sinh viên trước bài toán tự lập đầu đời. Nơi ở không chỉ là chỗ ngủ nghỉ mà còn quyết định sự an toàn cá nhân, ngân sách chi tiêu hàng tháng và khả năng hòa nhập môi trường học tập mới.",
+    stakeholdersAnalysisVi: "Tân sinh viên: Cần môi trường an toàn, gần thư viện/giảng đường để tiết kiệm thời gian đi lại; Phụ huynh: Đặt nặng yếu tố an ninh, chi phí vừa sức với điều kiện kinh tế gia đình ở quê; Nhà trường: Quản lý sinh viên nội trú qua quy chế kỷ luật giờ giấc nề nếp.",
     options: [
       {
         id: 'opt-dorm',
@@ -263,6 +271,8 @@ Ultimately, by optimizing logistical efficiency, economic prudence, and socio-em
     titleVi: 'Lựa chọn công việc đầu đời cho sinh viên mới tốt nghiệp',
     situation: 'A freshly graduated software engineer has received three employment offers: a lucrative position at an established but rigid multinational corporation, a moderate-salary role at an innovative high-growth startup, or a stable entry-level post in a government public agency. Which career launchpad should she select?',
     situationVi: 'Một kỹ sư phần mềm vừa tốt nghiệp nhận được 3 lời mời làm việc: mức lương hấp dẫn tại một tập đoàn đa quốc gia lâu năm nhưng cơ chế cứng nhắc, mức lương trung bình tại một công ty khởi nghiệp đổi mới sáng tạo tăng trưởng nhanh, hoặc một vị trí ổn định trong cơ quan hành chính sự nghiệp nhà nước. Cô ấy nên chọn bệ phóng nào?',
+    backgroundContextVi: "Giai đoạn khởi nghiệp nghề nghiệp đầu đời của sinh viên kỹ thuật công nghệ thường đứng trước ngã ba đường giữa mức lương hấp dẫn ban đầu, cơ hội phát triển kỹ năng toàn diện và tính ổn định lâu dài trong một thị trường lao động biến động không ngừng.",
+    stakeholdersAnalysisVi: "Kỹ sư mới tốt nghiệp: Cần tích lũy kinh nghiệm thực chiến đa mảng và xây dựng thương hiệu năng lực cá nhân; Doanh nghiệp Startup: Trao quyền tự chủ cao và cơ hội thăng tiến nhanh nhưng đòi hỏi sự xông xáo; Gia đình: Thường mong muốn sự an toàn hoặc danh tiếng từ các tập đoàn lớn.",
     options: [
       {
         id: 'opt-startup',
@@ -327,6 +337,8 @@ In conclusion, optimizing for aggressive human capital appreciation and creative
     titleVi: 'Chế độ rèn luyện thể chất cho người đi làm bận rộn',
     situation: 'A 28-year-old corporate accountant works 10 hours daily at a desk and feels chronically fatigued. He wants to adopt a consistent fitness regimen. Three options are proposed: buying a premium gym membership with a personal trainer, practicing home yoga routines via online videos, or jogging every evening in a neighborhood park. Which option is best suited for him?',
     situationVi: 'Một kế toán viên doanh nghiệp 28 tuổi làm việc 10 tiếng mỗi ngày ngồi bàn giấy và cảm thấy mệt mỏi kinh niên. Anh ấy muốn bắt đầu chế độ tập thể dục bền bỉ. Ba phương án: mua gói tập gym cao cấp có huấn luyện viên riêng (PT), tập yoga tại nhà theo video hướng dẫn trực tuyến, hoặc chạy bộ mỗi buổi tối ở công viên gần nhà. Phương án nào tối ưu nhất?',
+    backgroundContextVi: "Lối sống ít vận động (sedentary lifestyle) và áp lực công việc văn phòng kéo dài 10 tiếng mỗi ngày khiến tình trạng mệt mỏi thể chất và sai lệch tư thế cột sống trở thành vấn nạn phổ biến. Rào cản lớn nhất khi bắt đầu luyện tập thể thao chính là sự kiệt sức sau giờ làm và thiếu tính kỷ luật tự thân.",
+    stakeholdersAnalysisVi: "Người đi làm (kế toán viên): Mong muốn phục hồi năng lượng và chữa lành đau lưng nhưng dễ bỏ cuộc vì mệt mỏi; Huấn luyện viên cá nhân (PT): Cung cấp giáo án chỉnh sửa tư thế chuẩn xác và tạo cam kết kỷ luật buổi tập; Cơ sở tập luyện: Đảm bảo trang thiết bị trợ lực an toàn và không khí luyện tập tích cực.",
     options: [
       {
         id: 'opt-gym-pt',
@@ -391,6 +403,8 @@ To encapsulate, by delivering personalized biomechanical rehabilitation and invi
     titleVi: 'Giải quyết bất đồng với bạn cùng phòng',
     situation: 'Two university students share a two-bedroom rented apartment. One roommate consistently leaves dirty dishes in the sink, plays loud music late at night, and neglects communal cleaning duties. The other roommate wants to resolve this issue peacefully. Three actions are considered: scheduling a calm face-to-face house meeting with a written chore agreement, packing up and moving out to find another flat immediately, or filing a direct complaint with the landlord. What should he do?',
     situationVi: 'Hai sinh viên đại học thuê chung một căn hộ hai phòng ngủ. Một người liên tục để bát đĩa bẩn trong bồn rửa, bật nhạc ồn ào lúc nửa đêm và trốn tránh việc dọn dẹp không gian chung. Người bạn còn lại muốn giải quyết êm thấm. Ba hướng hành động: tổ chức một buổi nói chuyện trực tiếp thẳng thắn và lập bản cam kết phân chia việc nhà bằng văn bản, dọn đồ chuyển đi tìm phòng khác ngay lập tức, hoặc làm đơn khiếu nại lên chủ nhà. Anh ấy nên làm gì?',
+    backgroundContextVi: "Sống chung căn hộ thuê là trải nghiệm phổ biến của sinh viên đại học, nhưng sự khác biệt về thói quen sinh hoạt, ý thức vệ sinh và không gian riêng tư rất dễ bùng phát thành mâu thuẫn kéo dài. Kỹ năng giao tiếp trực tiếp và đàm phán ôn hòa là bài học quan trọng về sự trưởng thành trong ứng xử xã hội.",
+    stakeholdersAnalysisVi: "Bản thân sinh viên: Cần không gian nghỉ ngơi yên tĩnh và giữ vững hòa khí tình bạn; Người bạn cùng phòng vô ý: Cần được nhắc nhở thẳng thắn nhưng tế nhị để nhận diện tác động của hành vi; Chủ nhà trọ: Không muốn can thiệp vào xích mích nội bộ miễn là đóng tiền nhà đúng hạn.",
     options: [
       {
         id: 'opt-dialogue',

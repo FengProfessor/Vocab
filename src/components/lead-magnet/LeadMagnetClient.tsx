@@ -10,6 +10,10 @@ import {
   BookOpen,
   Flame,
   CheckCircle2,
+  Gift,
+  Star,
+  Award,
+  HelpCircle,
 } from 'lucide-react';
 import DiagnosticScorecard from './DiagnosticScorecard';
 import EmailOptinCard from './EmailOptinCard';
@@ -17,6 +21,11 @@ import KillerMatrixSection from './KillerMatrixSection';
 import StatsComparisonTable from './StatsComparisonTable';
 import DictionarySection from './DictionarySection';
 import EbookReaderModal from './EbookReaderModal';
+import BookCover3D from './BookCover3D';
+import OfferStackSection from './OfferStackSection';
+import SocialProofSection from './SocialProofSection';
+import FaqSection from './FaqSection';
+import StickyCtaBar from './StickyCtaBar';
 
 export default function LeadMagnetClient() {
   const [isReaderOpen, setIsReaderOpen] = useState(false);
@@ -33,7 +42,7 @@ export default function LeadMagnetClient() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900 pb-16 sm:pb-20">
       {/* Sticky Top Navbar */}
       <nav className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
@@ -48,20 +57,35 @@ export default function LeadMagnetClient() {
           </Link>
 
           {/* Quick Nav Links */}
-          <div className="hidden lg:flex items-center gap-6 text-xs sm:text-sm font-semibold text-slate-600">
+          <div className="hidden xl:flex items-center gap-5 text-xs sm:text-sm font-semibold text-slate-600">
+            <button
+              type="button"
+              onClick={() => scrollToSection('offer-stack')}
+              className="hover:text-emerald-700 transition cursor-pointer flex items-center gap-1 text-emerald-600 font-bold"
+            >
+              <Gift className="w-3.5 h-3.5" />
+              Gói Quà 0đ
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection('reviews')}
+              className="hover:text-amber-700 transition cursor-pointer flex items-center gap-1 text-amber-700 font-semibold"
+            >
+              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              Đánh Giá Thí Sinh
+            </button>
             <button
               type="button"
               onClick={() => scrollToSection('matrix')}
               className="hover:text-indigo-600 transition cursor-pointer"
             >
-              Ma Trận 15 Bẫy Nghe
+              Ma Trận 15 Bẫy
             </button>
             <button
               type="button"
               onClick={() => scrollToSection('audit')}
-              className="hover:text-emerald-700 transition cursor-pointer flex items-center gap-1 text-emerald-600 font-bold"
+              className="hover:text-indigo-600 transition cursor-pointer"
             >
-              <Sparkles className="w-3.5 h-3.5" />
               Test Chẩn Đoán (0-30đ)
             </button>
             <button
@@ -80,10 +104,10 @@ export default function LeadMagnetClient() {
             </button>
             <button
               type="button"
-              onClick={() => scrollToSection('roadmap')}
+              onClick={() => scrollToSection('faq')}
               className="hover:text-indigo-600 transition cursor-pointer"
             >
-              Lộ Trình 30 Ngày
+              Hỏi Đáp (FAQ)
             </button>
           </div>
 
@@ -110,8 +134,8 @@ export default function LeadMagnetClient() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 px-4 sm:px-6">
+      {/* Hero Section: Value Pitch + 3D Book Showcase + Opt-in */}
+      <section className="relative overflow-hidden pt-10 pb-16 sm:pt-16 sm:pb-20 px-4 sm:px-6">
         {/* Glow ambient effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-indigo-500/10 rounded-full blur-3xl" />
@@ -119,9 +143,9 @@ export default function LeadMagnetClient() {
           <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-sky-400/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Hero Left: Text Pitch */}
+        <div className="relative max-w-7xl mx-auto space-y-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            {/* Hero Left: Text Pitch & Opt-in Form */}
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Publication Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs sm:text-sm font-semibold tracking-wide shadow-xs">
@@ -130,7 +154,7 @@ export default function LeadMagnetClient() {
               </div>
 
               {/* Headline */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] text-slate-900">
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-black tracking-tight leading-[1.15] text-slate-900">
                 Bách Khoa Thực Chiến:<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600">
                   Sát Thủ Bài Nghe TOEIC
@@ -138,31 +162,31 @@ export default function LeadMagnetClient() {
               </h1>
 
               {/* Sub-headline */}
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
                 Giải mã định lượng <strong className="text-slate-900 font-bold">2,000 câu hỏi</strong> từ <strong className="text-emerald-700 font-bold">20 bộ đề chuẩn khảo thí ETS 2024 &amp; ETS 2026</strong>. Đột phá phản xạ nghe, bẻ gãy 15 bẫy sát thủ phòng thi, chinh phục <strong className="text-indigo-700 font-bold">450+ đến 495 điểm tuyệt đối</strong>.
               </p>
 
               {/* 4 Quantitative Proof Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm transition">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm transition">
                   <span className="block text-xl sm:text-2xl font-black font-mono text-emerald-600">
                     2,000
                   </span>
                   <span className="text-[11px] text-slate-500 font-medium">Câu hỏi khảo thí</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm transition">
+                <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm transition">
                   <span className="block text-xl sm:text-2xl font-black font-mono text-indigo-600">
                     20 Đề
                   </span>
                   <span className="text-[11px] text-slate-500 font-medium">ETS 2024 &amp; 2026</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm transition">
+                <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm transition">
                   <span className="block text-xl sm:text-2xl font-black font-mono text-amber-600">
                     15 Bẫy
                   </span>
                   <span className="text-[11px] text-slate-500 font-medium">Bẫy nghe sát thủ</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm transition">
+                <div className="p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:shadow-sm transition">
                   <span className="block text-xl sm:text-2xl font-black font-mono text-purple-600">
                     150 Từ
                   </span>
@@ -170,32 +194,38 @@ export default function LeadMagnetClient() {
                 </div>
               </div>
 
-              {/* Fast Jump Callouts */}
-              <div className="flex flex-wrap items-center gap-3 pt-2 text-xs text-slate-600">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Tự test chẩn đoán 0-30 điểm tức thì
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Tải về máy hoặc đọc online ngay
-                </span>
+              {/* High-Converting Form Card */}
+              <div id="optin-hero" className="pt-2">
+                <EmailOptinCard
+                  onReadOnline={() => setIsReaderOpen(true)}
+                  diagnosticScore={diagnosticScore}
+                  dimensionScores={dimensionScores}
+                  userEmail={userEmail}
+                  userFullName={userFullName}
+                  onUserEmailChange={setUserEmail}
+                  onUserFullNameChange={setUserFullName}
+                />
               </div>
             </div>
 
-            {/* Hero Right: Opt-in Form */}
-            <div id="optin-hero" className="lg:col-span-5">
-              <EmailOptinCard
+            {/* Hero Right: 3D Book Showcase Mockup & Badges */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 pt-4 lg:pt-0">
+              <BookCover3D
                 onReadOnline={() => setIsReaderOpen(true)}
-                diagnosticScore={diagnosticScore}
-                dimensionScores={dimensionScores}
-                userEmail={userEmail}
-                userFullName={userFullName}
-                onUserEmailChange={setUserEmail}
-                onUserFullNameChange={setUserFullName}
+                onScrollToOptin={() => scrollToSection('optin-hero')}
               />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Section: What's Inside The Bundle (Offer Value Stack 699k -> 0đ) */}
+      <div id="offer-stack">
+        <OfferStackSection
+          onScrollToOptin={() => scrollToSection('optin-hero')}
+          onReadOnline={() => setIsReaderOpen(true)}
+        />
+      </div>
 
       {/* Section: The Great Plateau & The Death of Mechanical Hacks */}
       <section className="py-16 px-4 sm:px-6 bg-slate-100/70 border-y border-slate-200/80">
@@ -253,22 +283,27 @@ export default function LeadMagnetClient() {
         </div>
       </section>
 
+      {/* Section: Social Proof Testimonials */}
+      <div id="reviews">
+        <SocialProofSection />
+      </div>
+
       {/* Section: Data Comparison Report */}
-      <section id="stats" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+      <section id="stats" className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-t border-slate-200/80">
         <div className="max-w-6xl mx-auto">
           <StatsComparisonTable />
         </div>
       </section>
 
       {/* Section: 15-Dimension Killer Matrix */}
-      <section id="matrix" className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-y border-slate-200/80">
+      <section id="matrix" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <KillerMatrixSection />
         </div>
       </section>
 
       {/* Section: Diagnostic Audit Scorecard */}
-      <section id="audit" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+      <section id="audit" className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-y border-slate-200/80">
         <div className="max-w-5xl mx-auto space-y-6">
           <DiagnosticScorecard
             onScoreCalculated={(score, scores) => {
@@ -285,14 +320,14 @@ export default function LeadMagnetClient() {
       </section>
 
       {/* Section: 150-Word Dictionary */}
-      <section id="dictionary" className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-y border-slate-200/80">
+      <section id="dictionary" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <DictionarySection />
         </div>
       </section>
 
       {/* Section: FSRS & Native Shadowing on LingoPro */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-t border-slate-200/80">
         <div className="max-w-5xl mx-auto space-y-10">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold uppercase tracking-wider shadow-xs">
@@ -307,7 +342,7 @@ export default function LeadMagnetClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-3 shadow-xs hover:shadow-md transition">
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/80 space-y-3 shadow-xs hover:shadow-md transition">
               <span className="font-mono text-xs font-bold text-sky-700 px-2 py-1 rounded bg-sky-100 border border-sky-200">
                 BƯỚC 1
               </span>
@@ -319,7 +354,7 @@ export default function LeadMagnetClient() {
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-3 shadow-xs hover:shadow-md transition">
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/80 space-y-3 shadow-xs hover:shadow-md transition">
               <span className="font-mono text-xs font-bold text-amber-800 px-2 py-1 rounded bg-amber-100 border border-amber-200">
                 BƯỚC 2
               </span>
@@ -331,7 +366,7 @@ export default function LeadMagnetClient() {
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-3 shadow-xs hover:shadow-md transition">
+            <div className="p-6 rounded-3xl bg-white border border-slate-200/80 space-y-3 shadow-xs hover:shadow-md transition">
               <span className="font-mono text-xs font-bold text-purple-700 px-2 py-1 rounded bg-purple-100 border border-purple-200">
                 BƯỚC 3
               </span>
@@ -358,7 +393,7 @@ export default function LeadMagnetClient() {
       </section>
 
       {/* Section: 30-Day Roadmap & Degrading-Reward Challenge */}
-      <section id="roadmap" className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-t border-slate-200/80">
+      <section id="roadmap" className="py-16 sm:py-24 px-4 sm:px-6 bg-white border-t border-slate-200/80">
         <div className="max-w-5xl mx-auto space-y-10">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider shadow-xs">
@@ -374,7 +409,7 @@ export default function LeadMagnetClient() {
 
           {/* 4-Week Schedule */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-5 rounded-2xl bg-white border border-slate-200/80 space-y-2 shadow-xs hover:shadow-md transition">
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 shadow-xs hover:shadow-md transition">
               <span className="text-xs font-bold text-sky-700 block font-mono">TUẦN 1 (Ngày 1 - 7)</span>
               <h4 className="font-bold text-slate-900 text-sm">Bẻ Khóa Part 1 &amp; Part 2</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -382,7 +417,7 @@ export default function LeadMagnetClient() {
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white border border-slate-200/80 space-y-2 shadow-xs hover:shadow-md transition">
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 shadow-xs hover:shadow-md transition">
               <span className="text-xs font-bold text-amber-800 block font-mono">TUẦN 2 (Ngày 8 - 14)</span>
               <h4 className="font-bold text-slate-900 text-sm">Bẫy Trần Thuật &amp; Trả Lời Vòng Vo</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -390,7 +425,7 @@ export default function LeadMagnetClient() {
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white border border-slate-200/80 space-y-2 shadow-xs hover:shadow-md transition">
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 shadow-xs hover:shadow-md transition">
               <span className="text-xs font-bold text-purple-700 block font-mono">TUẦN 3 (Ngày 15 - 21)</span>
               <h4 className="font-bold text-slate-900 text-sm">Làm Chủ Đổi Chữ Paraphrase 3 Tầng</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -398,7 +433,7 @@ export default function LeadMagnetClient() {
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white border border-slate-200/80 space-y-2 shadow-xs hover:shadow-md transition">
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 shadow-xs hover:shadow-md transition">
               <span className="text-xs font-bold text-emerald-700 block font-mono">TUẦN 4 (Ngày 22 - 30)</span>
               <h4 className="font-bold text-slate-900 text-sm">Thi Thử Áp Lực 45 Phút</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -432,7 +467,12 @@ export default function LeadMagnetClient() {
         </div>
       </section>
 
-      {/* Footer & FAQ */}
+      {/* Section: FAQ Accordion */}
+      <div id="faq">
+        <FaqSection />
+      </div>
+
+      {/* Footer */}
       <footer className="py-12 px-4 sm:px-6 bg-white border-t border-slate-200 text-xs text-slate-500">
         <div className="max-w-6xl mx-auto space-y-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-200 pb-6">
@@ -466,6 +506,12 @@ export default function LeadMagnetClient() {
           </div>
         </div>
       </footer>
+
+      {/* Sticky Bottom Quick Action Bar */}
+      <StickyCtaBar
+        onScrollToOptin={() => scrollToSection('optin-hero')}
+        onReadOnline={() => setIsReaderOpen(true)}
+      />
 
       {/* Full-screen / Modal Ebook Reader */}
       <EbookReaderModal

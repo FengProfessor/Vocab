@@ -124,16 +124,40 @@ export default function EmailOptinCard({
 
       {!isSuccess ? (
         <form onSubmit={handleSubmit} className="relative z-10 space-y-4 sm:space-y-5">
-          <div className="border-b border-slate-100 pb-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider mb-2 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-              Ấn Phẩm Khảo Thí 2026 — Hoàn Toàn Miễn Phí
+          <div className="border-b border-slate-100 pb-4 space-y-2.5">
+            {/* 3-Step Micro-Commitment Progress */}
+            <div className="flex items-center justify-between gap-1 text-[10px] font-bold text-slate-500 pb-1 border-b border-slate-100">
+              <span className="flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                <span className="w-3.5 h-3.5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px]">1</span>
+                Điền Email
+              </span>
+              <span className="text-slate-300">→</span>
+              <span className="flex items-center gap-1 text-slate-500">
+                <span className="w-3.5 h-3.5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[9px]">2</span>
+                Nhận Link Ngay
+              </span>
+              <span className="text-slate-300">→</span>
+              <span className="flex items-center gap-1 text-slate-500">
+                <span className="w-3.5 h-3.5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[9px]">3</span>
+                Bứt Phá 450+
+              </span>
             </div>
+
+            <div className="flex items-center justify-between gap-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                Quà Tặng 699,000đ → 0đ
+              </div>
+              <span className="text-[10px] text-rose-600 font-bold bg-rose-50 px-2 py-0.5 rounded border border-rose-200 animate-pulse">
+                Chỉ 500 Suất
+              </span>
+            </div>
+
             <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
               Tải Trọn Bộ Ebook Sát Thủ Bài Nghe TOEIC
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-              Nhận ngay cẩm nang thực chiến (15 bẫy nghe sát thủ + Từ điển 150 cụm từ tần suất cao ETS 2024-2026) cùng mã trải nghiệm VIP Pro trên LingoPro.
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Nhận ngay cẩm nang thực chiến (15 bẫy sát thủ + Từ điển 150 cụm từ ETS 2024-2026 + File Audio 1.1x) cùng mã VIP Pro 7 ngày.
             </p>
 
             {diagnosticScore !== null && diagnosticScore !== undefined && (
@@ -267,9 +291,18 @@ export default function EmailOptinCard({
             )}
           </button>
 
-          <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 pt-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            Không spam. Bản quyền LingoPro &amp; Hội đồng Thẩm định Khảo thí.
+          <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-slate-500 pt-1 border-t border-slate-100">
+            <span className="flex items-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              Bảo mật AES-256
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="flex items-center gap-1">
+              <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600" />
+              Nhận link tải tức thì
+            </span>
+            <span className="text-slate-300">•</span>
+            <span>Cam kết 0% spam</span>
           </div>
         </form>
       ) : (

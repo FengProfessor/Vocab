@@ -19,8 +19,14 @@ export async function runVstepSpeakingTests(runner?: TestRunner): Promise<TestRu
   const r = runner || new TestRunner();
 
   await r.describe('VSTEP Speaking — Part 1: Social Interaction Quality', async () => {
-    await r.it('VSP-P1.1: At least 15 authentic Part 1 topics exist', () => {
+    await r.it('VSP-P1.1: At least 15 authentic Part 1 topics exist with background and examiner criteria', () => {
       expect(VSTEP_SPEAKING_PART1_TOPICS.length >= 15).toBe(true);
+      for (const topic of VSTEP_SPEAKING_PART1_TOPICS) {
+        expect(topic.backgroundOverviewVi !== undefined).toBe(true);
+        expect(topic.backgroundOverviewVi!.length > 20).toBe(true);
+        expect(topic.examinerCriteriaVi !== undefined).toBe(true);
+        expect(topic.examinerCriteriaVi!.length > 20).toBe(true);
+      }
     });
 
     await r.it('VSP-P1.2: Every topic has 3 questions, each with B1, B2, and C1 model responses', () => {
@@ -53,8 +59,14 @@ export async function runVstepSpeakingTests(runner?: TestRunner): Promise<TestRu
   });
 
   await r.describe('VSTEP Speaking — Part 2: Solution Discussion Quality', async () => {
-    await r.it('VSP-P2.1: At least 5 authentic Part 2 scenarios exist', () => {
-      expect(VSTEP_SPEAKING_PART2_SCENARIOS.length >= 5).toBe(true);
+    await r.it('VSP-P2.1: At least 7 authentic Part 2 scenarios exist with stakeholder analyses', () => {
+      expect(VSTEP_SPEAKING_PART2_SCENARIOS.length >= 7).toBe(true);
+      for (const sc of VSTEP_SPEAKING_PART2_SCENARIOS) {
+        expect(sc.backgroundContextVi !== undefined).toBe(true);
+        expect(sc.backgroundContextVi!.length > 20).toBe(true);
+        expect(sc.stakeholdersAnalysisVi !== undefined).toBe(true);
+        expect(sc.stakeholdersAnalysisVi!.length >= 3).toBe(true);
+      }
     });
 
     await r.it('VSP-P2.2: Every scenario has 3 options, an optimal recommendation, and complete ICE breakdown', () => {
@@ -82,11 +94,21 @@ export async function runVstepSpeakingTests(runner?: TestRunner): Promise<TestRu
   });
 
   await r.describe('VSTEP Speaking — Part 3: Topic Development & Follow-up Quality', async () => {
-    await r.it('VSP-P3.1: Part 3 topics have 3 given branches, 1 custom branch, and 3 follow-up questions', () => {
+    await r.it('VSP-P3.1: At least 8 Part 3 topics have mindmaps, socio-economic contexts, and academic citations', () => {
+      expect(VSTEP_SPEAKING_PART3_TOPICS.length >= 8).toBe(true);
       for (const tp of VSTEP_SPEAKING_PART3_TOPICS) {
         expect(tp.mindmap.centerIdea.length > 5).toBe(true);
         expect(tp.mindmap.givenBranches.length).toBe(3);
         expect(tp.mindmap.customBranchPlaceholder.length > 5).toBe(true);
+
+        expect(tp.socioEconomicContextVi !== undefined).toBe(true);
+        expect(tp.socioEconomicContextVi!.length > 30).toBe(true);
+        expect(tp.academicCitationsVi !== undefined).toBe(true);
+        expect(tp.academicCitationsVi!.length >= 2).toBe(true);
+
+        for (const cit of tp.academicCitationsVi!) {
+          expect(cit.length > 10).toBe(true);
+        }
 
         expect(tp.followUpQuestions.length).toBe(3);
         for (const fq of tp.followUpQuestions) {
@@ -108,8 +130,8 @@ export async function runVstepSpeakingTests(runner?: TestRunner): Promise<TestRu
   });
 
   await r.describe('VSTEP Speaking — Full 12-minute Mock Exam Integrity', async () => {
-    await r.it('VSP-FULL.1: Full mock exams aggregate Part 1, Part 2, and Part 3 strictly', () => {
-      expect(VSTEP_FULL_SPEAKING_EXAMS.length >= 3).toBe(true);
+    await r.it('VSP-FULL.1: At least 8 full mock exams aggregate Part 1, 2, and 3 with exam context', () => {
+      expect(VSTEP_FULL_SPEAKING_EXAMS.length >= 8).toBe(true);
 
       for (const exam of VSTEP_FULL_SPEAKING_EXAMS) {
         expect(exam.id.length > 0).toBe(true);
@@ -117,6 +139,8 @@ export async function runVstepSpeakingTests(runner?: TestRunner): Promise<TestRu
         expect(exam.part1.questions.length).toBe(3);
         expect(exam.part2.options.length).toBe(3);
         expect(exam.part3.followUpQuestions.length).toBe(3);
+        expect(exam.examContextVi !== undefined).toBe(true);
+        expect(exam.examContextVi!.length > 20).toBe(true);
       }
     });
 

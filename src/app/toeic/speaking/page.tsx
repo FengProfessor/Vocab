@@ -38,9 +38,10 @@ type ExamMode = 'practice' | 'simulation';
 type SimPhase = 'idle' | 'prep' | 'speak' | 'review';
 
 export default function ToeicSpeakingPage() {
-  const currentExam: ToeicSpeakingExam = TOEIC_SPEAKING_TESTS[0];
+  const [selectedExamIndex, setSelectedExamIndex] = useState(0);
+  const currentExam: ToeicSpeakingExam = TOEIC_SPEAKING_TESTS[selectedExamIndex] || TOEIC_SPEAKING_TESTS[0];
   const [currentQIndex, setCurrentQIndex] = useState(0);
-  const activeQuestion: ToeicSpeakingQuestion = currentExam.questions[currentQIndex];
+  const activeQuestion: ToeicSpeakingQuestion = currentExam.questions[currentQIndex] || currentExam.questions[0];
 
   const [examMode, setExamMode] = useState<ExamMode>('practice');
   const [modelLevel, setModelLevel] = useState<'level6' | 'level8'>('level8');
@@ -202,6 +203,49 @@ export default function ToeicSpeakingPage() {
 
       {/* Main Container */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+        {/* Test Selector Tabs & Overview */}
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+              {TOEIC_SPEAKING_TESTS.map((t, idx) => (
+                <button
+                  key={t.id}
+                  disabled={examMode === 'simulation'}
+                  onClick={() => {
+                    setSelectedExamIndex(idx);
+                    setCurrentQIndex(0);
+                  }}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                    selectedExamIndex === idx
+                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-950/50'
+                      : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:bg-slate-850'
+                  }`}
+                >
+                  <Award className="size-3.5" /> Test {idx + 1}: {idx === 0 ? 'Thương mại & Dịch vụ' : idx === 1 ? 'Logistics & Chuỗi cung ứng' : 'FinTech & Y tế số'}
+                </button>
+              ))}
+            </div>
+
+            <span className="text-[11px] text-slate-400 font-mono">
+              Bộ đề: <strong className="text-slate-200">{currentExam.testSet}</strong> ({currentExam.difficulty.toUpperCase()})
+            </span>
+          </div>
+
+          {currentExam.businessOverviewVi && (
+            <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-2.5 text-xs text-slate-300">
+              <div className="p-1 rounded bg-indigo-500/10 text-indigo-400 shrink-0 mt-0.5">
+                <BookOpen className="size-4" />
+              </div>
+              <div className="space-y-1">
+                <span className="font-bold text-slate-200 uppercase tracking-wider text-[11px] block">
+                  Bối cảnh đề thi: {currentExam.titleVi}
+                </span>
+                <p className="text-slate-400 leading-relaxed text-xs">{currentExam.businessOverviewVi}</p>
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* Question Palette Strip */}
         <div className="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
@@ -278,6 +322,61 @@ export default function ToeicSpeakingPage() {
                   Q{activeQuestion.questionNumber}
                 </span>
               </div>
+
+              {/* Business Context & ETS Focus Card */}
+              {(activeQuestion.businessContextVi || activeQuestion.examinerFocusVi) && (
+                <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2.5">
+                  {activeQuestion.businessContextVi && (
+                    <div className="flex items-start gap-2.5">
+                      <div className="p-1 rounded bg-blue-500/10 text-blue-400 mt-0.5 shrink-0">
+                        <Layers className="size-3.5" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold text-blue-300 uppercase tracking-wider block">
+                          Bối cảnh công sở & tình huống thực tế
+                        </span>
+                        <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
+                          {activeQuestion.businessContextVi}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeQuestion.examinerFocusVi && (
+                    <div className="flex items-start gap-2.5 border-t border-slate-850 pt-2">
+                      <div className="p-1 rounded bg-amber-500/10 text-amber-400 mt-0.5 shrink-0">
+                        <Lightbulb className="size-3.5" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold text-amber-300 uppercase tracking-wider block">
+                          Trọng tâm giám khảo ETS đánh giá
+                        </span>
+                        <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
+                          {activeQuestion.examinerFocusVi}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeQuestion.commonMistakesVi && activeQuestion.commonMistakesVi.length > 0 && (
+                    <div className="flex items-start gap-2.5 border-t border-slate-850 pt-2">
+                      <div className="p-1 rounded bg-red-500/10 text-red-400 mt-0.5 shrink-0">
+                        <HelpCircle className="size-3.5" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold text-red-300 uppercase tracking-wider block">
+                          Lỗi thường gặp của thí sinh
+                        </span>
+                        <ul className="list-disc list-inside text-xs text-slate-400 space-y-0.5 mt-0.5">
+                          {activeQuestion.commonMistakesVi.map((err, ei) => (
+                            <li key={ei}>{err}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Stimulus Context Area */}
               {activeQuestion.stimulusText && (

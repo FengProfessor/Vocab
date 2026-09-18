@@ -27,6 +27,10 @@ export interface ToeicSpeakingQuestion {
   speakTimeSeconds: number;
   promptText: string;
   promptVi: string;
+  // Deep contextual enrichment
+  businessContextVi?: string; // Bối cảnh doanh nghiệp và tình huống giao tiếp thực tế
+  examinerFocusVi?: string; // Trọng tâm giám khảo ETS (phát âm, trọng âm, cấu trúc, phản xạ)
+  commonMistakesVi?: string[]; // Các lỗi thường gặp của thí sinh Việt Nam
   // Specific contextual payloads
   stimulusText?: string; // For Q1-Q2 (text to read)
   imageContext?: {
@@ -56,6 +60,8 @@ export interface ToeicSpeakingExam {
   titleVi: string;
   testSet: string;
   difficulty: 'intermediate' | 'advanced';
+  businessOverviewVi?: string; // Tổng quan bối cảnh doanh nghiệp và chuỗi vận hành của đề thi
+  etsScoringCriteriaVi?: string[]; // Hướng dẫn tiêu chí chấm điểm tổng quát ETS
   totalQuestions: number; // 11
   totalDurationMinutes: number; // ~20 minutes
   questions: ToeicSpeakingQuestion[];

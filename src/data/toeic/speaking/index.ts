@@ -1,11 +1,17 @@
-import { ToeicSpeakingExam, ToeicSpeakingQuestion } from './types';
-import { TOEIC_SPEAKING_TEST_01 } from './dataset';
+import { ToeicSpeakingExam } from './types';
+import {
+  TOEIC_SPEAKING_TEST_01,
+  TOEIC_SPEAKING_TEST_02,
+  TOEIC_SPEAKING_TEST_03,
+} from './dataset';
 
 export * from './types';
 export * from './dataset';
 
 export const TOEIC_SPEAKING_TESTS: ToeicSpeakingExam[] = [
   TOEIC_SPEAKING_TEST_01,
+  TOEIC_SPEAKING_TEST_02,
+  TOEIC_SPEAKING_TEST_03,
 ];
 
 export function getToeicSpeakingTestById(id: string): ToeicSpeakingExam | undefined {

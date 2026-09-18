@@ -300,6 +300,43 @@ export default function VstepSpeakingPage() {
                 </div>
               </div>
 
+              {/* Topic Background & Examiner Criteria Card */}
+              {(activeP1Topic.backgroundOverviewVi || activeP1Topic.examinerCriteriaVi) && (
+                <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
+                  {activeP1Topic.backgroundOverviewVi && (
+                    <div className="flex items-start gap-2.5">
+                      <div className="p-1 rounded bg-amber-500/10 text-amber-400 mt-0.5 shrink-0">
+                        <BookOpen className="size-4" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">
+                          Bối cảnh xã hội & Ý nghĩa chủ đề
+                        </span>
+                        <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
+                          {activeP1Topic.backgroundOverviewVi}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeP1Topic.examinerCriteriaVi && (
+                    <div className="flex items-start gap-2.5 border-t border-slate-800/80 pt-2">
+                      <div className="p-1 rounded bg-emerald-500/10 text-emerald-400 mt-0.5 shrink-0">
+                        <Lightbulb className="size-4" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">
+                          Tiêu chí & Hướng dẫn chấm điểm giám khảo
+                        </span>
+                        <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
+                          {activeP1Topic.examinerCriteriaVi}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Questions List */}
               <div className="space-y-4">
                 {activeP1Topic.questions.map((q, qIdx) => {
@@ -436,6 +473,43 @@ export default function VstepSpeakingPage() {
                   <h2 className="text-sm font-bold text-white">{activeP2Scenario.situation}</h2>
                   <p className="text-xs text-slate-400">{activeP2Scenario.situationVi}</p>
                 </div>
+
+                {/* Situation Background & Stakeholders Analysis */}
+                {(activeP2Scenario.backgroundContextVi || activeP2Scenario.stakeholdersAnalysisVi) && (
+                  <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2.5">
+                    {activeP2Scenario.backgroundContextVi && (
+                      <div className="flex items-start gap-2.5">
+                        <div className="p-1 rounded bg-amber-500/10 text-amber-400 mt-0.5 shrink-0">
+                          <Layers className="size-3.5" />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-bold text-amber-300 uppercase tracking-wider block">
+                            Bối cảnh phân tích sâu tình huống
+                          </span>
+                          <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
+                            {activeP2Scenario.backgroundContextVi}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {activeP2Scenario.stakeholdersAnalysisVi && (
+                      <div className="flex items-start gap-2.5 border-t border-slate-850 pt-2">
+                        <div className="p-1 rounded bg-purple-500/10 text-purple-400 mt-0.5 shrink-0">
+                          <Lightbulb className="size-3.5" />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-bold text-purple-300 uppercase tracking-wider block">
+                            Phân tích lợi ích các bên liên quan (Stakeholders)
+                          </span>
+                          <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
+                            {activeP2Scenario.stakeholdersAnalysisVi}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {/* 3 Options Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
@@ -615,6 +689,45 @@ export default function VstepSpeakingPage() {
                   <p className="text-xs text-slate-400">{activeP3Topic.topicVi}</p>
                 </div>
 
+                {/* Socio-Economic Context & Academic Citations */}
+                {(activeP3Topic.socioEconomicContextVi || (activeP3Topic.academicCitationsVi && activeP3Topic.academicCitationsVi.length > 0)) && (
+                  <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2.5">
+                    {activeP3Topic.socioEconomicContextVi && (
+                      <div className="flex items-start gap-2.5">
+                        <div className="p-1 rounded bg-blue-500/10 text-blue-400 mt-0.5 shrink-0">
+                          <Layers className="size-3.5" />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-bold text-blue-300 uppercase tracking-wider block">
+                            Bối cảnh kinh tế - xã hội (Việt Nam & Toàn cầu)
+                          </span>
+                          <p className="text-xs text-slate-300 leading-relaxed mt-0.5">
+                            {activeP3Topic.socioEconomicContextVi}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {activeP3Topic.academicCitationsVi && activeP3Topic.academicCitationsVi.length > 0 && (
+                      <div className="flex items-start gap-2.5 border-t border-slate-850 pt-2">
+                        <div className="p-1 rounded bg-emerald-500/10 text-emerald-400 mt-0.5 shrink-0">
+                          <BookOpen className="size-3.5" />
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-bold text-emerald-300 uppercase tracking-wider block">
+                            Dẫn chứng học thuật uy tín (UNESCO, WHO, World Bank, ILO, IPCC)
+                          </span>
+                          <ul className="list-disc list-inside text-xs text-slate-300 space-y-1 mt-0.5">
+                            {activeP3Topic.academicCitationsVi.map((cite, ci) => (
+                              <li key={ci}>{cite}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 {/* Mindmap Visualization Box */}
                 <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
                   <div className="text-center font-bold text-sm text-amber-300 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30">
@@ -684,6 +797,11 @@ export default function VstepSpeakingPage() {
                         <span>{fq.question}</span>
                       </div>
                       <div className="text-[11px] text-slate-400 ml-7">{fq.questionVi}</div>
+                      {fq.contextNoteVi && (
+                        <div className="ml-7 text-[10px] text-amber-300/90 italic bg-amber-500/10 px-2 py-1 rounded border border-amber-500/20">
+                          💡 <strong>Mục đích giám khảo:</strong> {fq.contextNoteVi}
+                        </div>
+                      )}
                       <div className="ml-7 pt-1 text-[11px] text-emerald-300 italic">
                         &ldquo;{fq.sampleAnswer}&rdquo;
                       </div>
@@ -742,6 +860,14 @@ export default function VstepSpeakingPage() {
                   <Clock className="size-8" />
                 </div>
                 <h2 className="text-lg font-bold text-white">{activeExam.titleVi}</h2>
+                {activeExam.examContextVi && (
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed text-left">
+                    <span className="text-[10px] uppercase font-bold text-amber-400 block mb-1">
+                      Bối cảnh khảo thí & Nguồn gốc đề:
+                    </span>
+                    {activeExam.examContextVi}
+                  </div>
+                )}
                 <p className="text-xs text-slate-400 leading-relaxed">
                   Hệ thống sẽ mô phỏng phòng thi thật với đồng hồ đếm ngược tự động:
                   <br />• <strong>Part 1 (3 phút)</strong>: 3 câu hỏi giao tiếp trực tiếp không có thời gian chuẩn bị.

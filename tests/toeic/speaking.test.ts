@@ -12,11 +12,15 @@ import { AI_SPEAKING_TOPICS } from '../../src/data/speaking/ai-topics';
 
 export async function runToeicSpeakingTests(runner: TestRunner): Promise<void> {
   runner.describe('TOEIC Speaking: Tier 1 - Exam Structure & Question Completeness', () => {
-    runner.it('TSP-1.1: At least 1 full official TOEIC Speaking exam exists with 11 questions', () => {
-      expect(TOEIC_SPEAKING_TESTS.length >= 1).toBe(true);
-      const test = TOEIC_SPEAKING_TESTS[0];
-      expect(test.totalQuestions).toBe(11);
-      expect(test.questions.length).toBe(11);
+    runner.it('TSP-1.1: At least 3 full official TOEIC Speaking exams exist with 11 questions each', () => {
+      expect(TOEIC_SPEAKING_TESTS.length >= 3).toBe(true);
+      for (const test of TOEIC_SPEAKING_TESTS) {
+        expect(test.totalQuestions).toBe(11);
+        expect(test.questions.length).toBe(11);
+        expect(test.businessOverviewVi !== undefined).toBe(true);
+        expect(test.businessOverviewVi!.length > 20).toBe(true);
+        expect(test.etsScoringCriteriaVi !== undefined).toBe(true);
+      }
     });
 
     runner.it('TSP-1.2: Q1 and Q2 are Read Aloud with 45s prep, 45s speak, and valid stimulusText', () => {
@@ -102,27 +106,40 @@ export async function runToeicSpeakingTests(runner: TestRunner): Promise<void> {
   });
 
   runner.describe('TOEIC Speaking: Tier 2 - Pedagogical Models & Rubrics', () => {
-    runner.it('TSP-2.1: Every question has Level 6 and Level 8 model answers and detailed rubrics', () => {
-      const test = TOEIC_SPEAKING_TESTS[0];
-      for (const q of test.questions) {
-        expect(q.sampleAnswerLevel6.length > 20).toBe(true);
-        expect(q.sampleAnswerLevel8.length > 25).toBe(true);
-        expect(q.scoringRubricVi.pronunciationAndStress.length > 10).toBe(true);
-        expect(q.scoringRubricVi.grammarAndVocabulary.length > 10).toBe(true);
-        expect(q.scoringRubricVi.coherenceAndRelevance.length > 10).toBe(true);
-        expect(q.keyTipsVi.length >= 1).toBe(true);
-        expect(q.keyVocabulary.length >= 2).toBe(true);
+    runner.it('TSP-2.1: Every question across all 3 tests has models, rubrics, business context, and examiner focus', () => {
+      for (const test of TOEIC_SPEAKING_TESTS) {
+        for (const q of test.questions) {
+          expect(q.sampleAnswerLevel6.length > 20).toBe(true);
+          expect(q.sampleAnswerLevel8.length > 25).toBe(true);
+          expect(q.scoringRubricVi.pronunciationAndStress.length > 10).toBe(true);
+          expect(q.scoringRubricVi.grammarAndVocabulary.length > 10).toBe(true);
+          expect(q.scoringRubricVi.coherenceAndRelevance.length > 10).toBe(true);
+          expect(q.keyTipsVi.length >= 1).toBe(true);
+          expect(q.keyVocabulary.length >= 2).toBe(true);
+          expect(q.businessContextVi !== undefined).toBe(true);
+          expect(q.businessContextVi!.length > 15).toBe(true);
+          expect(q.examinerFocusVi !== undefined).toBe(true);
+          expect(q.examinerFocusVi!.length > 15).toBe(true);
+        }
       }
     });
 
     runner.it('TSP-2.2: Helper lookup getToeicSpeakingTestById functions correctly', () => {
-      const test = getToeicSpeakingTestById('toeic-speaking-actual-01');
-      expect(test).toBeDefined();
-      expect(test!.titleVi).toBe('Đề thi thử TOEIC Speaking thực chiến 1');
+      const test1 = getToeicSpeakingTestById('toeic-speaking-actual-01');
+      expect(test1).toBeDefined();
+      expect(test1!.titleVi).toBe('Đề thi thử TOEIC Speaking thực chiến 1');
+
+      const test2 = getToeicSpeakingTestById('toeic-speaking-actual-02');
+      expect(test2).toBeDefined();
+      expect(test2!.questions.length).toBe(11);
+
+      const test3 = getToeicSpeakingTestById('toeic-speaking-actual-03');
+      expect(test3).toBeDefined();
+      expect(test3!.questions.length).toBe(11);
     });
   });
 
-  runner.describe('TOEIC Speaking: Tier 3 - AI Speaking Tutor Scenario Diversity', () => {
+  runner.describe('TOEIC Speaking: Tier 3 - AI Speaking Tutor Scenario Diversity & Personas', () => {
     runner.it('TSP-3.1: AI Speaking topics include at least 20 real-world scenarios', () => {
       expect(AI_SPEAKING_TOPICS.length >= 20).toBe(true);
     });
@@ -147,6 +164,21 @@ export async function runToeicSpeakingTests(runner: TestRunner): Promise<void> {
         expect(topic.initialGreeting.length > 20).toBe(true);
         expect(topic.suggestedStarters.length >= 2).toBe(true);
         expect(topic.keyVocabulary.length >= 2).toBe(true);
+      }
+    });
+
+    runner.it('TSP-3.4: Every AI topic features authentic roleplay personas, contexts, and goals', () => {
+      for (const topic of AI_SPEAKING_TOPICS) {
+        expect(topic.roleplayPersona !== undefined).toBe(true);
+        expect(topic.roleplayPersona!.name.length > 0).toBe(true);
+        expect(topic.roleplayPersona!.role.length > 0).toBe(true);
+        expect(topic.roleplayPersona!.tone.length > 0).toBe(true);
+        expect(topic.contextSettingVi !== undefined).toBe(true);
+        expect(topic.contextSettingVi!.length > 20).toBe(true);
+        expect(topic.conversationGoalsVi !== undefined).toBe(true);
+        expect(topic.conversationGoalsVi!.length >= 3).toBe(true);
+        expect(topic.situationalTipsVi !== undefined).toBe(true);
+        expect(topic.situationalTipsVi!.length >= 2).toBe(true);
       }
     });
   });

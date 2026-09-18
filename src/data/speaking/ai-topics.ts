@@ -3,6 +3,13 @@
  * Hệ thống 24+ kịch bản luyện nói thông minh theo chuẩn A2 - B1 - B2 - C1
  */
 
+export interface AiSpeakingRoleplayPersona {
+  name: string;
+  role: string;
+  organization: string;
+  tone: string;
+}
+
 export interface AiSpeakingTopic {
   id: string;
   category: 'workplace' | 'academic' | 'daily_travel' | 'debates' | 'exam_prep';
@@ -11,6 +18,10 @@ export interface AiSpeakingTopic {
   label: string;
   desc: string;
   icon: string;
+  roleplayPersona?: AiSpeakingRoleplayPersona;
+  contextSettingVi?: string; // Bối cảnh không gian & tình huống giao tiếp chi tiết
+  conversationGoalsVi?: string[]; // 3 mục tiêu cốt lõi cần đạt được trong hội thoại
+  situationalTipsVi?: string[]; // Mẹo phản xạ & mẫu câu ứng biến
   initialGreeting: string;
   suggestedStarters: string[];
   keyVocabulary: string[];
@@ -25,6 +36,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'IT Technical Interview',
     desc: 'Luyện tập phỏng vấn kỹ thuật ngành CNTT / Software Engineering.',
+    roleplayPersona: {"name":"David Vance","role":"VP of Engineering","organization":"TechNova Solutions","tone":"Chuyên nghiệp, sâu sắc, chú trọng tư duy kiến trúc và số liệu"},
+    contextSettingVi: "Vòng phỏng vấn kỹ thuật trực tuyến cấp cao qua Google Meet, đánh giá năng lực kiến trúc phần mềm, xử lý nghẽn hệ thống và tư duy triển khai thực tế.",
+    conversationGoalsVi: ["Giới thiệu súc tích stack công nghệ thế mạnh và kinh nghiệm thực chiến","Phân tích chi tiết một bài toán kỹ thuật phức tạp (database bottleneck, migration)","Chứng minh hiệu quả tối ưu hóa bằng các chỉ số định lượng cụ thể"],
+    situationalTipsVi: ["Áp dụng mô hình STAR: Situation -> Task -> Action -> Result","Nhấn mạnh vào Trade-offs (sự đánh đổi kỹ thuật) khi lựa chọn công nghệ"],
     icon: '💻',
     initialGreeting: "Welcome to your technical screening at TechNova Solutions. I am your engineering hiring manager. Could you introduce yourself and describe a recent challenging software project you architected or debugged?",
     suggestedStarters: [
@@ -41,6 +56,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B1',
     label: 'HR Behavioral Interview (STAR Method)',
     desc: 'Phỏng vấn nhân sự với phương pháp STAR (Tình huống, Nhiệm vụ, Hành động, Kết quả).',
+    roleplayPersona: {"name":"Elena Rostova","role":"Head of Global Talent","organization":"Apex Global Corp","tone":"Lắng nghe, thấu cảm nhưng đánh giá nghiêm túc về EQ và văn hóa"},
+    contextSettingVi: "Phỏng vấn hành vi vòng nhân sự nhằm kiểm tra độ tương thích văn hóa, khả năng giải quyết xung đột nội bộ và sức chịu đựng áp lực thời hạn.",
+    conversationGoalsVi: ["Kể một câu chuyện thực tế về xử lý bất đồng quan điểm trong dự án","Thể hiện tinh thần trách nhiệm và tư duy đặt mục tiêu tập thể lên trên","Đúc rút bài học kinh nghiệm phát triển bản thân từ tình huống đó"],
+    situationalTipsVi: ["Tránh đổ lỗi cho đồng nghiệp cũ; tập trung vào hành động mang tính xây dựng của bản thân","Sử dụng các từ vựng hành vi: proactively, mediated, consensus, prioritized"],
     icon: '👔',
     initialGreeting: "Hello! Welcome to our corporate interview. Can you share an example of a time when you faced a tight deadline or workplace conflict, and how you resolved it?",
     suggestedStarters: [
@@ -57,6 +76,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'Salary & Compensation Negotiation',
     desc: 'Thương lượng mức lương, thưởng và lộ trình thăng tiến chuyên nghiệp.',
+    roleplayPersona: {"name":"Marcus Sterling","role":"Compensation & Benefits Director","organization":"Horizon Capital","tone":"Thực dụng, điềm đạm, sẵn sàng đàm phán trên cơ sở giá trị mang lại"},
+    contextSettingVi: "Buổi làm việc chính thức về gói đãi ngộ sau khi ứng viên đã vượt qua xuất sắc các vòng đánh giá chuyên môn.",
+    conversationGoalsVi: ["Bày tỏ sự hào hứng với cơ hội cống hiến nhưng đề xuất mức đãi ngộ xứng đáng","Dẫn chứng mức lương chuẩn của thị trường (market benchmarks) và năng lực độc bản","Mở rộng đàm phán sang các quyền lợi phụ: thưởng hiệu suất, cổ phần, ngày nghỉ"],
+    situationalTipsVi: ["Không dùng từ ngữ mang tính đòi hỏi; dùng cụm từ nhã nhặn: \"Based on my track record, I was anticipating a range closer to...\"","Luôn chuẩn bị phương án dự phòng (Plan B) về thưởng và thăng tiến"],
     icon: '💰',
     initialGreeting: "Thank you for coming in today. We are delighted to extend you an offer for the Senior Specialist role at $2,000 per month. How does that compensation align with your expectations?",
     suggestedStarters: [
@@ -73,6 +96,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B1',
     label: 'Daily Agile Scrum Standup',
     desc: 'Họp báo cáo tiến độ Scrum hàng ngày: đã làm gì, sẽ làm gì và khó khăn gặp phải.',
+    roleplayPersona: {"name":"Sarah Jenkins","role":"Certified Scrum Master","organization":"FinEdge Lab","tone":"Nhanh nhẹn, hướng đến hành động và tháo gỡ rào cản tức thì"},
+    contextSettingVi: "Cuộc họp Scrum Standup 15 phút đầu ngày của đội ngũ phát triển sản phẩm Agile.",
+    conversationGoalsVi: ["Báo cáo rõ ràng việc đã hoàn thành hôm qua (ticket/PR cụ thể)","Cam kết mục tiêu hoàn thành trong ngày hôm nay","Chỉ rõ các rào cản (blockers) kỹ thuật hoặc sự phụ thuộc cần hỗ trợ"],
+    situationalTipsVi: ["Nói ngắn gọn dưới 90 giây, đúng 3 câu hỏi kinh điển của Scrum","Dùng thì quá khứ cho hôm qua, hiện tại tiếp diễn / tương lai gần cho hôm nay"],
     icon: '🏃',
     initialGreeting: "Good morning team! Let's kick off our 15-minute daily standup. Who wants to give their three updates: what you finished yesterday, your goals for today, and any impediments?",
     suggestedStarters: [
@@ -89,6 +116,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'B2B Client Sales Pitch',
     desc: 'Thuyết trình bán giải pháp SaaS cho khách hàng doanh nghiệp đối tác.',
+    roleplayPersona: {"name":"Robert Chen","role":"Chief Operating Officer","organization":"Vanguard Retail Enterprises","tone":"Cẩn trọng, hướng đến lợi nhuận (ROI) và khả năng tích hợp hệ thống"},
+    contextSettingVi: "Buổi pitching giải pháp phần mềm B2B trực tiếp cho lãnh đạo cấp cao của doanh nghiệp đối tác.",
+    conversationGoalsVi: ["Nêu bật điểm nghẽn của khách hàng và định vị giải pháp là lựa chọn tối ưu","Chứng minh giá trị kinh tế: tăng 30% năng suất, giảm 40% chi phí vận hành","Khép lại buổi họp với một lời kêu gọi hành động (Call-to-Action) dùng thử thử nghiệm"],
+    situationalTipsVi: ["Nói về nỗi đau và lợi ích của khách hàng trước khi nói về tính năng kỹ thuật","Dùng thuật ngữ doanh nghiệp: seamless integration, SLA, high ROI, turnkey deployment"],
     icon: '📊',
     initialGreeting: "Good afternoon. We are looking for a reliable enterprise CRM to streamline our regional sales pipelines. Can you give me an executive overview of why your platform is the superior choice?",
     suggestedStarters: [
@@ -105,6 +136,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'Customer Service & Conflict Handling',
     desc: 'Xử lý khiếu nại khách hàng giận dữ và đưa ra giải pháp khắc phục kịp thời.',
+    roleplayPersona: {"name":"Arthur Pendelton","role":"Frustrated Enterprise Customer","organization":"Logix Corp","tone":"Bực tức, thất vọng, yêu cầu xử lý ngay lập tức"},
+    contextSettingVi: "Cuộc gọi đường dây nóng tiếp nhận phản ánh của khách hàng VIP khi đơn hàng trị giá lớn bị thất lạc và trễ hạn bàn giao.",
+    conversationGoalsVi: ["Xoa dịu sự giận dữ bằng thái độ lắng nghe chân thành và lời xin lỗi chuyên nghiệp","Xác nhận chính xác mã đơn hàng và nguyên nhân sự cố mà không chối bỏ trách nhiệm","Đưa ra giải pháp đền bù cụ thể: giao hàng hỏa tốc miễn phí + hoàn phí dịch vụ"],
+    situationalTipsVi: ["Nguyên tắc HEAT: Hear (Lắng nghe) -> Empathize (Thấu cảm) -> Apologize (Xin lỗi) -> Take Action (Hành động)","Không ngắt lời khách hàng; dùng câu: \"I completely understand your frustration...\""],
     icon: '🎧',
     initialGreeting: "I have been waiting for my premium package for over a week, and your delivery tracking has been dead for three days! I want an immediate explanation and a full refund right now!",
     suggestedStarters: [
@@ -123,6 +158,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'A2',
     label: 'Academic Self-Introduction',
     desc: 'Giới thiệu bản thân, chuyên ngành học và sở thích trong môi trường học thuật.',
+    roleplayPersona: {"name":"Rachel Green","role":"English Language Facilitator","organization":"Global Language Lounge","tone":"Thân thiện, ấm áp, kiên nhẫn khích lệ người học"},
+    contextSettingVi: "Buổi trò chuyện giao lưu phá băng (Icebreaker) tại câu lạc bộ tiếng Anh quốc tế dành cho thành viên mới.",
+    conversationGoalsVi: ["Giới thiệu họ tên, quê quán, nghề nghiệp hoặc ngành học hiện tại","Chia sẻ sở thích cá nhân và động lực rèn luyện tiếng Anh giao tiếp","Duy trì không khí trò chuyện cởi mở bằng cách hỏi ngược lại đối phương"],
+    situationalTipsVi: ["Tự tin phát âm to, rõ ràng, không sợ sai ngữ pháp","Kết thúc câu bằng một câu hỏi thân mật: \"How about you? What do you usually do in your free time?\""],
     icon: '👋',
     initialGreeting: "Hello and welcome to our university orientation session! Could you please introduce your name, your academic major, and what inspired you to pursue this field?",
     suggestedStarters: [
@@ -139,6 +178,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'Study Abroad Scholarship Interview',
     desc: 'Phỏng vấn xin học bổng du học toàn phần hoặc bán phần tại các trường quốc tế.',
+    roleplayPersona: {"name":"Prof. Alistair Finch","role":"Admissions Committee Chair","organization":"University of Edinburgh","tone":"Hàn lâm, nghiêm cẩn, tìm kiếm đam mê nghiên cứu đích thực"},
+    contextSettingVi: "Vòng phỏng vấn tuyển sinh học bổng toàn phần du học bậc thạc sĩ tại trường đại học hàng đầu.",
+    conversationGoalsVi: ["Trình bày mục tiêu học thuật và lý do chọn đúng chuyên ngành và ngôi trường này","Liên hệ đề tài nghiên cứu dự kiến với các vấn đề cấp bách tại Việt Nam","Khẳng định kế hoạch đóng góp cho cộng đồng sau khi hoàn thành chương trình học"],
+    situationalTipsVi: ["Nghiên cứu kỹ giáo sư hướng dẫn và thế mạnh nghiên cứu của trường","Tránh câu trả lời chung chung; đưa ra tên môn học và đề tài cụ thể"],
     icon: '🎓',
     initialGreeting: "Welcome to the scholarship selection committee. We have reviewed your impressive academic portfolio. Why have you chosen our university, and how will this degree contribute to your home country?",
     suggestedStarters: [
@@ -155,6 +198,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'C1',
     label: 'University Thesis Defense Q&A',
     desc: 'Bảo vệ khóa luận tốt nghiệp trước hội đồng phản biện học thuật.',
+    roleplayPersona: {"name":"Dr. Evelyn Morales","role":"Chief Thesis Examiner","organization":"Academic Review Board","tone":"Khắt khe, truy vấn sâu vào phương pháp luận và tính mới của dữ liệu"},
+    contextSettingVi: "Phòng bảo vệ khóa luận tốt nghiệp trước hội đồng các nhà khoa học và giáo sư chuyên ngành.",
+    conversationGoalsVi: ["Bảo vệ tính hợp lý của phương pháp luận (methodology) và cỡ mẫu nghiên cứu","Giải thích ý nghĩa đóng góp thực tiễn của phát hiện khoa học","Đối thoại tự tin, cầu thị khi phản biện các câu hỏi xoáy từ hội đồng"],
+    situationalTipsVi: ["Dùng ngôn ngữ học thuật: \"Our empirical findings indicate...\", \"This limitation was mitigated by...\"","Bình tĩnh ghi chép câu hỏi của giám khảo trước khi trả lời"],
     icon: '📜',
     initialGreeting: "Thank you for presenting your thesis on 'Algorithmic Bias in Neural Networks'. The committee would like you to defend your experimental methodology: why did you choose this specific sampling framework over a longitudinal cohort study?",
     suggestedStarters: [
@@ -171,6 +218,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B1',
     label: 'Classroom Group Presentation Prep',
     desc: 'Bàn bạc phân công nhiệm vụ và slide thuyết trình cùng nhóm bạn cùng lớp.',
+    roleplayPersona: {"name":"Michael Chang","role":"Seminar Moderator","organization":"International Student Forum","tone":"Tràn đầy năng lượng, đóng vai trò kết nối các diễn giả"},
+    contextSettingVi: "Thuyết trình nhóm học thuật trước cả lớp và giảng viên trong buổi hội thảo chuyên đề.",
+    conversationGoalsVi: ["Mở đầu bài nói thu hút sự chú ý bằng một câu hỏi gợi mở hoặc số liệu gây bất ngờ","Trình bày phần nội dung phụ trách một cách rành mạch với slide chuyển tiếp","Bàn giao lượt nói trơn tru cho đồng đội tiếp theo trong nhóm"],
+    situationalTipsVi: ["Dùng cụm từ chuyển giao: \"Now I would like to hand over to my teammate, who will elaborate on...\"","Tương tác ánh mắt và cử chỉ tự nhiên"],
     icon: '👥',
     initialGreeting: "Hey! Our marketing presentation on multinational retail brands is due next Monday. How should we split the workload and assign the slides among the four of us?",
     suggestedStarters: [
@@ -189,6 +240,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'A2',
     label: 'Daily Life & Weekend Leisure',
     desc: 'Trò chuyện thân mật về thói quen sinh hoạt và các hoạt động thư giãn cuối tuần.',
+    roleplayPersona: {"name":"Sophie Miller","role":"Local Neighbor & Friend","organization":"Sunnyvale Community","tone":"Gần gũi, vui tươi, tự nhiên đời thường"},
+    contextSettingVi: "Trò chuyện cuối tuần giữa những người bạn bè thân thiết về nhịp sống, thói quen và kế hoạch thư giãn.",
+    conversationGoalsVi: ["Kể về một ngày điển hình từ sáng tới tối của bản thân","Bày tỏ cảm xúc về việc cân bằng giữa công việc và giải trí","Hỏi thăm và trao đổi về các hoạt động giải tỏa stress"],
+    situationalTipsVi: ["Sử dụng các trạng từ chỉ tần suất: usually, occasionally, hardly ever, every now and then","Thả lỏng ngữ điệu như đang trò chuyện bên tách trà"],
     icon: '☕',
     initialGreeting: "Hey there! How has your week been going so far? What do you usually like to do to unwind when the weekend finally arrives?",
     suggestedStarters: [
@@ -205,6 +260,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'A2',
     label: 'Ordering at a Restaurant & Cafe',
     desc: 'Thực hành gọi món, hỏi về nguyên liệu và thanh toán hóa đơn tại nhà hàng.',
+    roleplayPersona: {"name":"Chef Marco Bellini","role":"Gastronomy Critic & Chef","organization":"Culinary Heritage Institute","tone":"Đam mê ẩm thực, hào hứng khám phá các hương vị văn hóa mới"},
+    contextSettingVi: "Gặp gỡ một chuyên gia ẩm thực quốc tế tò mò muốn tìm hiểu tinh hoa ẩm thực đường phố Việt Nam.",
+    conversationGoalsVi: ["Miêu tả sinh động một món ăn đặc sản Việt Nam (Phở, Bún chả, Bánh mì)","Giải thích sự phối hợp tinh tế giữa các loại rau thơm gia vị và nước chấm chua ngọt","Khơi gợi niềm tự hào văn hóa ẩm thực và hướng dẫn cách thưởng thức chuẩn vị"],
+    situationalTipsVi: ["Dùng tính từ vị giác đa dạng: savory, aromatic, tangy, crispy, balanced flavors","Kể về ký ức tuổi thơ gắn liền với món ăn để bài nói thêm phần cảm xúc"],
     icon: '🍔',
     initialGreeting: "Good evening and welcome to The Olive Tree Bistro! Can I start you off with something refreshing to drink, or are you ready to order your main entrees?",
     suggestedStarters: [
@@ -221,6 +280,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B1',
     label: 'Hotel Check-in & Concierge Services',
     desc: 'Làm thủ tục nhận phòng khách sạn, hỏi mật khẩu wifi và nhờ tư vấn địa điểm du lịch.',
+    roleplayPersona: {"name":"Liam O’Connor","role":"Front Desk Concierge","organization":"The Grand Royale Hotel","tone":"Lịch thiệp, chuẩn mực dịch vụ 5 sao, chu đáo và kiên nhẫn"},
+    contextSettingVi: "Quầy lễ tân khách sạn quốc tế khi làm thủ tục nhận phòng (check-in) và xử lý các yêu cầu đặc biệt về phòng nghỉ.",
+    conversationGoalsVi: ["Cung cấp thông tin đặt phòng, xuất trình hộ chiếu và xác nhận số đêm lưu trú","Yêu cầu phòng tầng cao, view đẹp, không hút thuốc và có thêm giường phụ","Hỏi rõ về giờ phục vụ bữa sáng buffet, mật khẩu wifi và dịch vụ phòng tập gym"],
+    situationalTipsVi: ["Dùng câu yêu cầu lịch sự: \"Could you please confirm if breakfast is included?\"","Hỏi về chính sách trả phòng muộn (late check-out)"],
     icon: '🏨',
     initialGreeting: "Welcome to the Royal Orchid Grand Hotel! How may I assist you this afternoon? Do you have an advance reservation with us?",
     suggestedStarters: [
@@ -237,6 +300,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B1',
     label: 'Airport Immigration & Customs',
     desc: 'Trả lời câu hỏi của sĩ quan hải quan và kiểm soát xuất nhập cảnh tại sân bay quốc tế.',
+    roleplayPersona: {"name":"Officer Bradley","role":"Immigration & Border Security Inspector","organization":"JFK International Airport","tone":"Nghiêm nghị, chính xác, kiểm tra nhanh mục đích chuyến đi"},
+    contextSettingVi: "Khu vực kiểm soát nhập cảnh sân bay quốc tế khi xuất trình hộ chiếu và trả lời phỏng vấn hải quan.",
+    conversationGoalsVi: ["Nêu rõ mục đích chuyến đi (du lịch/công tác/du học) và thời gian lưu trú cụ thể","Cung cấp địa chỉ khách sạn hoặc nơi ở và xuất trình vé máy bay khứ hồi","Khẳng định việc không mang theo các hàng hóa cấm hoặc thực phẩm tươi sống"],
+    situationalTipsVi: ["Trả lời ngắn gọn, thẳng thắn, nhìn thẳng vào mắt viên chức hải quan","Không đùa giỡn tại khu vực an ninh; chuẩn bị sẵn giấy tờ trên tay"],
     icon: '✈️',
     initialGreeting: "Good day. Passports and boarding passes, please. What is the primary purpose of your visit to the United Kingdom, and how long do you intend to stay?",
     suggestedStarters: [
@@ -253,6 +320,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B1',
     label: 'Doctor Appointment & Symptoms',
     desc: 'Mô tả triệu chứng bệnh, tiền sử dị ứng và hỏi hướng dẫn dùng thuốc tại phòng khám.',
+    roleplayPersona: {"name":"Dr. Sarah Patel","role":"General Physician","organization":"St. Jude Medical Clinic","tone":"Ân cần, chu đáo, thăm khám kỹ lưỡng và dặn dò cẩn thận"},
+    contextSettingVi: "Phòng khám đa khoa quốc tế khi bạn bị sốt cao, đau đầu và cần bác sĩ chẩn đoán kê đơn thuốc.",
+    conversationGoalsVi: ["Mô tả các triệu chứng lâm sàng (sốt, ho, nhức đầu, buồn nôn) và thời gian xuất hiện","Thông báo về tiền sử dị ứng thuốc và các loại thuốc đang sử dụng","Hỏi rõ liều lượng dùng thuốc, tác dụng phụ và chế độ kiêng khem"],
+    situationalTipsVi: ["Dùng từ vựng y tế thông dụng: throbbing headache, runny nose, allergic to penicillin","Nhờ bác sĩ nhắc lại nếu không nghe rõ liều lượng: \"Could you clarify how many times a day?\""],
     icon: '🩺',
     initialGreeting: "Hello there, please take a seat. What seems to be the trouble today? How long have you been experiencing these symptoms?",
     suggestedStarters: [
@@ -269,6 +340,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'Apartment Leasing & Inspection',
     desc: 'Xem nhà cho thuê, hỏi về tiền cọc, phí dịch vụ và ký kết hợp đồng thuê nhà.',
+    roleplayPersona: {"name":"Jessica Taylor","role":"Leasing Property Agent","organization":"Metro Living Realty","tone":"Nhiệt tình môi giới, giới thiệu tiện ích căn hộ và giải thích hợp đồng"},
+    contextSettingVi: "Buổi xem căn hộ chung cư cho thuê thực tế và đàm phán các điều khoản hợp đồng thuê nhà.",
+    conversationGoalsVi: ["Hỏi về giá thuê hàng tháng, phí dịch vụ quản lý tòa nhà và tiền đặt cọc (deposit)","Kiểm tra tình trạng nội thất có sẵn (fully-furnished vs unfurnished) và hệ thống điều hòa","Thương lượng thời hạn hợp đồng (lease duration) và chính sách cho phép nuôi thú cưng"],
+    situationalTipsVi: ["Hỏi về các chi phí ẩn: \"Are water, electricity, and internet included in the monthly rent?\"","Kiểm tra kỹ điều khoản bồi thường khi chấm dứt hợp đồng sớm"],
     icon: '🔑',
     initialGreeting: "Hi there! Thanks for coming to view this two-bedroom serviced apartment. As you can see, it comes fully furnished with brand new appliances. What questions do you have before we discuss lease terms?",
     suggestedStarters: [
@@ -287,6 +362,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'C1',
     label: 'The Ethics of Artificial General Intelligence',
     desc: 'Tranh biện chuyên sâu về đạo đức AI, bản quyền sáng tạo và kiểm soát tự động hóa.',
+    roleplayPersona: {"name":"Prof. Julian Sterling","role":"Technology Ethicist & Debate Host","organization":"Oxford Digital Ethics Forum","tone":"Trí tuệ, sắc sảo, liên tục đặt các câu hỏi phản biện sâu sắc"},
+    contextSettingVi: "Buổi tranh biện triết học công nghệ về việc có nên ban hành đạo luật kiểm soát chặt chẽ hoặc tạm dừng phát triển các siêu AI tự hành.",
+    conversationGoalsVi: ["Xác định lập trường rõ ràng (ủng hộ siết chặt quản lý vs ủng hộ tự do đổi mới sáng tạo)","Đưa ra các luận cứ về rủi ro mất việc làm, deepfake thông tin sai lệch và thiên kiến thuật toán","Đề xuất khung quản trị AI có trách nhiệm (Responsible AI Framework)"],
+    situationalTipsVi: ["Sử dụng các cấu trúc tranh biện phản biện: \"While I concede that..., the counter-argument is...\"","Trích dẫn nguyên tắc đạo đức: algorithmic transparency, accountability, human alignment"],
     icon: '🤖',
     initialGreeting: "In this philosophical debate, I take the stance that generative AI creates unprecedented intellectual productivity with manageable risks. Do you agree, or do you believe it poses existential threats to human creativity and labor dignity?",
     suggestedStarters: [
@@ -303,6 +382,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'Remote Telework vs In-Office Mandates',
     desc: 'Tranh luận về việc các tập đoàn bắt buộc nhân viên quay lại văn phòng 5 ngày/tuần.',
+    roleplayPersona: {"name":"Victoria Vance","role":"Chief Human Resources Officer","organization":"Global Enterprises Alliance","tone":"Cân nhắc nhiều góc nhìn giữa hiệu suất công việc và sự gắn kết văn hóa"},
+    contextSettingVi: "Phiên tranh luận bàn tròn giữa các nhà quản trị nhân sự về chính sách làm việc từ xa hoàn toàn hay bắt buộc lên văn phòng.",
+    conversationGoalsVi: ["Bảo vệ luận điểm về việc mô hình Hybrid là sự thỏa hiệp hoàn hảo nhất","Phân tích ưu điểm giảm thời gian di chuyển, nâng cao sức khỏe tinh thần người lao động","Thừa nhận tầm quan trọng của các buổi gặp mặt trực tiếp để duy trì sự gắn kết nhóm"],
+    situationalTipsVi: ["Dẫn chứng số liệu nghiên cứu năng suất thực tế để tăng sức thuyết phục","Dùng từ vựng quản trị: workforce agility, operational overhead, serendipitous collaboration"],
     icon: '🏢',
     initialGreeting: "Many corporate CEOs are mandating a strict 5-day return-to-office policy, claiming that spontaneous innovation and corporate culture die behind Zoom screens. What is your position on this dispute?",
     suggestedStarters: [
@@ -319,6 +402,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'Restricting Social Media for Minors',
     desc: 'Tranh luận về việc ban hành lệnh cấm trẻ vị thành niên dưới 16 tuổi sử dụng mạng xã hội.',
+    roleplayPersona: {"name":"Senator Richard Hayes","role":"Legislative Committee Chair","organization":"National Commission on Child Wellness","tone":"Nghiêm túc, quan tâm đến sức khỏe tâm thần thanh thiếu niên"},
+    contextSettingVi: "Phiên điều trần công khai về dự thảo luật cấm trẻ vị thành niên dưới 16 tuổi sử dụng mạng xã hội độc lập.",
+    conversationGoalsVi: ["Trình bày quan điểm cá nhân về việc cấm mạng xã hội đối với trẻ em","Phân tích tác động tiêu cực: nghiện thuật toán, bắt nạt trên mạng (cyberbullying), trầm cảm","Đề xuất các biện pháp thay thế: giáo dục kỹ năng số học đường và xác minh độ tuổi chặt chẽ"],
+    situationalTipsVi: ["Tránh chỉ nói một chiều; hãy đề cập đến quyền tiếp cận thông tin và kết nối của thanh thiếu niên","Dùng thuật ngữ: dopamine feedback loops, cyberbullying, algorithmic addiction, parental supervision"],
     icon: '📱',
     initialGreeting: "Several countries are proposing legislative bans prohibiting teenagers under 16 from creating social media accounts to combat mental health crises. Do you support state prohibition, or should parental oversight suffice?",
     suggestedStarters: [
@@ -337,6 +424,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'VSTEP Speaking Part 1 Rapid Sparring',
     desc: 'Luyện phản xạ Part 1 VSTEP (ARE formula: Answer - Reason - Example) với giám khảo AI.',
+    roleplayPersona: {"name":"Examiner Nguyen Van Binh","role":"Senior VSTEP Speaking Assessor","organization":"ULIS - VNU Examination Board","tone":"Chuẩn mực khảo thí, giọng phát âm chuẩn, nhịp hỏi đều đặn"},
+    contextSettingVi: "Phòng thi vấn đáp VSTEP Part 1 mô phỏng thi thật, kiểm tra phản xạ tức thì trong 3 phút với 2 chủ đề thân thuộc.",
+    conversationGoalsVi: ["Phản xạ trả lời ngay trong 1-2 giây đầu tiên, không do dự ngắc ngứ","Mở rộng câu trả lời từ 3-4 câu với cấu trúc ngữ pháp phức và từ vựng B2-C1","Phát âm rõ âm đuôi, ngữ điệu tự nhiên và chuẩn xác"],
+    situationalTipsVi: ["Công thức trả lời Part 1: Câu trực tiếp -> Giải thích lý do (because/since) -> Cho ví dụ hoặc cảm nghĩ cá nhân","Không dùng câu trả lời cộc lốc Yes/No"],
     icon: '🎯',
     initialGreeting: "Welcome to your VSTEP Part 1 simulation. I am your examiner. Let's start with your living environment: Where is your hometown, and what do you like most about living there?",
     suggestedStarters: [
@@ -353,6 +444,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'VSTEP Speaking Part 2 Solution Dilemma',
     desc: 'Luyện kỹ năng thảo luận giải pháp Part 2 VSTEP (ICE formula: Intro - Compare & Counter - End).',
+    roleplayPersona: {"name":"Examiner Le Thu Hang","role":"VSTEP Panel Evaluator","organization":"National Foreign Language Project 2020","tone":"Nghiêm túc, lắng nghe toàn bộ 3 phút và chấm điểm theo tiêu chí ICE"},
+    contextSettingVi: "Phòng thi VSTEP Part 2: Thảo luận giải pháp tình huống tiến thoái lưỡng nan trong 3 phút sau 1 phút chuẩn bị.",
+    conversationGoalsVi: ["Giới thiệu tình huống và khẳng định ngay phương án tối ưu trong phần mở bài","Đưa ra 2 lý do mạnh mẽ bảo vệ phương án đã chọn","Phản biện và bác bỏ thuyết phục 2 phương án còn lại (counter-arguments)"],
+    situationalTipsVi: ["Bám sát mô hình ICE: Introduction -> Comparison & Counter -> End & Conclusion","Dùng liên từ so sánh: \"While option B might sound tempting at first glance, it carries severe drawbacks...\""],
     icon: '⚖️',
     initialGreeting: "Here is your VSTEP Part 2 prompt: A fresh graduate is deciding between a high-paying rigid multinational corporate, a fast-growing tech startup, or a secure public agency job. Which is best and why?",
     suggestedStarters: [
@@ -369,6 +464,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'C1',
     label: 'VSTEP Speaking Part 3 Topic Development',
     desc: 'Luyện phát triển chủ đề Part 3 VSTEP (Mind-map 4 nhánh + trả lời 3 câu hỏi Follow-up).',
+    roleplayPersona: {"name":"Prof. Tran Minh Tri","role":"Chief VSTEP Speaking Examiner","organization":"University of Foreign Languages","tone":"Hàn lâm, chuyên sâu, theo dõi cấu trúc mindmap và hỏi đào sâu 3 câu follow-up"},
+    contextSettingVi: "Phòng thi VSTEP Part 3: Phát triển chủ đề học thuật 4 phút theo sơ đồ tư duy (mindmap) và trả lời 3 câu hỏi đào sâu.",
+    conversationGoalsVi: ["Bao quát đủ 3 nhánh gợi ý sẵn và phát triển thêm 1 nhánh ý tưởng cá nhân sáng tạo","Sử dụng các từ vựng học thuật C1 và cấu trúc câu phức/đảo ngữ đa dạng","Trả lời sắc bén, sâu sắc các câu hỏi follow-up từ giám khảo"],
+    situationalTipsVi: ["Phân bổ 4 phút: Mở bài (30s) -> Nhánh 1 (45s) -> Nhánh 2 (45s) -> Nhánh 3 (45s) -> Ý tự phát triển (45s) -> Kết bài (30s)","Giữ phong thái đĩnh đạc, ánh mắt tự tin"],
     icon: '🧠',
     initialGreeting: "Your VSTEP Part 3 topic is: 'The rise of Artificial Intelligence in the modern labor force.' Can you elaborate on the benefits, potential risks, and propose your own unique perspective?",
     suggestedStarters: [
@@ -385,6 +484,10 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     level: 'B2',
     label: 'TOEIC Speaking Question 11 Opinion Sparring',
     desc: 'Luyện nói 60s câu 11 TOEIC Speaking theo khung OREO (Opinion - Reason - Example - Opinion).',
+    roleplayPersona: {"name":"ETS Certified Rater Carter","role":"Senior ETS TOEIC Speaking Evaluator","organization":"ETS Global Evaluation Service","tone":"Khảo thí chuẩn mực ETS, chấm điểm khắt khe trên thang 200"},
+    contextSettingVi: "Phòng thi mô phỏng câu 11 TOEIC Speaking: Trình bày quan điểm quản trị doanh nghiệp trong 60 giây sau 45 giây chuẩn bị.",
+    conversationGoalsVi: ["Mở đầu tuyên bố quan điểm dứt khoát trong 5 giây đầu bằng mô hình OREO","Trình bày 2 luận điểm kinh doanh chặt chẽ kèm ví dụ thực tế sắc sảo","Tóm tắt và tái khẳng định quan điểm trong 5 giây cuối cùng, khép lại ở giây thứ 55-58"],
+    situationalTipsVi: ["Khung OREO: Opinion (5s) -> Reason 1 (15s) -> Reason 2 + Example (25s) -> Opinion Restatement (5s)","Sử dụng các từ nối chuẩn ETS: \"First and foremost...\", \"Secondly, in my own experience...\", \"For these reasons...\""],
     icon: '🎙️',
     initialGreeting: "This is ETS TOEIC Speaking Question 11: 'Do you agree or disagree that working in a team is always better than working independently?' You have 60 seconds to express your opinion with supporting reasons.",
     suggestedStarters: [
