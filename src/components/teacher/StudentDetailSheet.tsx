@@ -396,7 +396,7 @@ export default function StudentDetailSheet({
       <div
         className="fixed inset-y-0 right-0 max-w-full flex sm:pl-10 z-50 pointer-events-none max-sm:inset-x-0 max-sm:top-auto max-sm:bottom-0"
       >
-        <div className="w-full sm:w-[580px] sm:max-w-[580px] pointer-events-auto bg-background border-l shadow-2xl flex flex-col h-full sm:h-full max-sm:h-[90vh] max-sm:max-h-[90vh] sm:rounded-none rounded-t-3xl border-t sm:border-t-0 animate-in max-sm:slide-in-from-bottom sm:slide-in-from-right duration-200">
+        <div className="w-full sm:w-[580px] sm:max-w-[580px] pointer-events-auto bg-background border-l shadow-2xl flex flex-col h-full sm:h-full max-sm:h-[90dvh] max-sm:max-h-[90dvh] pb-[env(safe-area-inset-bottom,16px)] sm:rounded-none rounded-t-3xl border-t sm:border-t-0 animate-in max-sm:slide-in-from-bottom sm:slide-in-from-right duration-200">
           
           {/* Header Bar */}
           <div className="p-4 sm:p-5 border-b bg-background/95 backdrop-blur shrink-0">
@@ -504,10 +504,10 @@ export default function StudentDetailSheet({
 
           {/* Sub-Tabs: Can thiệp nhanh | Biểu đồ & Năng lực | Từ hay sai */}
           <div className="px-4 sm:px-5 border-b bg-muted/20 shrink-0">
-            <nav className="flex gap-2">
+            <nav className="flex gap-2 overflow-x-auto scrollbar-none whitespace-nowrap">
               <button
                 onClick={() => setActiveTab('intervention')}
-                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 ${
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                   activeTab === 'intervention'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -518,7 +518,7 @@ export default function StudentDetailSheet({
 
               <button
                 onClick={() => setActiveTab('charts')}
-                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 ${
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                   activeTab === 'charts'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -529,7 +529,7 @@ export default function StudentDetailSheet({
 
               <button
                 onClick={() => setActiveTab('errors')}
-                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 ${
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                   activeTab === 'errors'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -596,7 +596,7 @@ export default function StudentDetailSheet({
                       <MessageSquare className="h-4 w-4 text-primary" />
                       <h3 className="font-bold text-sm text-primary">Tin nhắn tư vấn gửi học sinh</h3>
                     </div>
-                    <span className="text-[10px] text-muted-foreground font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded">
+                    <span className="hidden sm:inline-block text-[10px] text-muted-foreground font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded">
                       Phím tắt [C]
                     </span>
                   </div>
@@ -618,8 +618,19 @@ export default function StudentDetailSheet({
                     onClick={handleCopyZaloMessage}
                     className="w-full flex items-center justify-center gap-2 py-2.5 bg-primary text-white rounded-xl font-bold text-xs shadow-md shadow-primary/20 hover:bg-primary/95 active:scale-[0.99] transition-all"
                   >
-                    {copiedMsg ? <CheckCircle2 className="h-4 w-4 text-white" /> : <Copy className="h-4 w-4" />}
-                    {copiedMsg ? 'Đã copy vào bộ nhớ tạm!' : '1-Click Sao chép gửi Zalo (C)'}
+                    {copiedMsg ? (
+                      <CheckCircle2 className="h-4 w-4 text-white" />
+                    ) : (
+                      <Copy className="h-4 w-4" />
+                    )}
+                    {copiedMsg ? (
+                      'Đã copy vào bộ nhớ tạm!'
+                    ) : (
+                      <>
+                        <span>1-Click Sao chép gửi Zalo</span>
+                        <span className="hidden sm:inline"> (C)</span>
+                      </>
+                    )}
                   </button>
                 </div>
 

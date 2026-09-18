@@ -325,7 +325,8 @@ export default function StudentsPanel({
               </span>
             </div>
             <p className="text-xs text-muted-foreground">
-              Bấm vào học sinh để mở chẩn đoán sư phạm & can thiệp nhanh &bull; Hỗ trợ phím tắt [↑/↓/C/Esc]
+              Bấm vào học sinh để mở chẩn đoán sư phạm & can thiệp nhanh
+              <span className="hidden sm:inline"> &bull; Hỗ trợ phím tắt [↑/↓/C/Esc]</span>
             </p>
           </div>
         </div>
@@ -412,7 +413,7 @@ export default function StudentsPanel({
             placeholder="Tìm theo tên hoặc email..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-background border rounded-lg pl-8 pr-8 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
+            className="w-full bg-background border rounded-lg pl-8 pr-8 py-1.5 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
           />
           {searchQuery && (
             <button
@@ -459,147 +460,252 @@ export default function StudentsPanel({
           </button>
         </div>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead className="bg-muted/40 border-b text-xs font-semibold uppercase tracking-wider text-muted-foreground select-none">
-              <tr>
-                {/* Column 1: # */}
-                <th className="px-4 py-3 w-12 text-center">#</th>
-                {/* Column 2: Học sinh */}
-                <th className="px-4 py-3 min-w-[200px]">Học sinh</th>
-                {/* Column 3: CEFR */}
-                <th className="px-3 py-3 text-center w-20">CEFR</th>
-                {/* Column 4: Độ bền trí nhớ (VMS · P/A) */}
-                <th className="px-4 py-3 text-center min-w-[170px]">
-                  <div className="inline-flex items-center gap-1 group relative cursor-help">
-                    <span>Độ bền trí nhớ (VMS · P/A)</span>
-                    <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 bg-slate-900 text-white text-[11px] rounded-lg p-2.5 shadow-xl normal-case font-normal z-50 pointer-events-none">
-                      <strong>VMS (Độ bền trí nhớ theo FSRS):</strong>
-                      <br />&bull; <strong>A (Active):</strong> Từ chủ động, dùng cho viết/nói.
-                      <br />&bull; <strong>P (Passive):</strong> Từ thụ động, nhận biết nghĩa (&gt;15 ngày).
-                    </div>
-                  </div>
-                </th>
-                {/* Column 5: Độ chăm chỉ (LCS) */}
-                <th className="px-4 py-3 text-center min-w-[140px]">
-                  <div className="inline-flex items-center gap-1 group relative cursor-help">
-                    <span>Độ chăm chỉ (LCS)</span>
-                    <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-56 bg-slate-900 text-white text-[11px] rounded-lg p-2.5 shadow-xl normal-case font-normal z-50 pointer-events-none">
-                      <strong>LCS (Learning Consistency Score):</strong>
-                      <br />Tỷ lệ số ngày có học từ vựng trong vòng 14 ngày qua.
-                    </div>
-                  </div>
-                </th>
-                {/* Column 6: Tình trạng & Thao tác */}
-                <th className="px-4 py-3 text-right min-w-[140px]">Tình trạng</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y text-sm">
-              {filteredStudents.map((s, i) => {
-                const st = getStudentStatus(s);
-                const isSelected = selectedStudentId === s.student_id && isSheetOpen;
+        <>
+          {/* Mobile Card View (< md) */}
+          <div className="md:hidden divide-y divide-border/60">
+            {filteredStudents.map((s) => {
+              const st = getStudentStatus(s);
+              const isSelected = selectedStudentId === s.student_id && isSheetOpen;
 
-                return (
-                  <tr
-                    key={s.student_id}
-                    onClick={() => openSheetForStudent(s.student_id)}
-                    onMouseEnter={() => prefetchStudent(s.student_id, classroomId)}
-                    className={`cursor-pointer transition-colors group ${
-                      isSelected
-                        ? 'bg-primary/5 border-l-4 border-l-primary font-medium'
-                        : 'hover:bg-muted/40'
-                    }`}
-                  >
-                    {/* Column 1: Index */}
-                    <td className="px-4 py-3.5 text-center">
-                      <div className="w-6 h-6 mx-auto rounded-md bg-muted/80 text-muted-foreground flex items-center justify-center font-mono font-bold text-xs shrink-0 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                        {i + 1}
+              return (
+                <div
+                  key={s.student_id}
+                  onClick={() => openSheetForStudent(s.student_id)}
+                  onMouseEnter={() => prefetchStudent(s.student_id, classroomId)}
+                  onTouchStart={() => prefetchStudent(s.student_id, classroomId)}
+                  className={`p-4 transition-all cursor-pointer active:bg-muted/60 ${
+                    isSelected ? 'bg-primary/5 border-l-4 border-l-primary' : 'hover:bg-muted/30'
+                  }`}
+                >
+                  {/* Top Row: Avatar initial, Name, Email, CEFR badge, Status badge with dot */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-bold flex items-center justify-center text-sm shrink-0">
+                        {s.student_name ? s.student_name.trim().charAt(0)?.toUpperCase() : 'H'}
                       </div>
-                    </td>
-
-                    {/* Column 2: Học sinh */}
-                    <td className="px-4 py-3.5">
-                      <div className="flex items-center gap-2.5">
-                        <div className="min-w-0">
-                          <p className="font-semibold text-sm group-hover:text-primary transition-colors truncate">
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <p className="font-semibold text-sm truncate text-foreground">
                             {s.student_name || 'Học sinh'}
                           </p>
-                          <p className="text-xs text-muted-foreground truncate">{s.email}</p>
+                          <span
+                            className={`px-1.5 py-0.2 rounded text-[10px] font-black tracking-tighter shrink-0 ${
+                              s.cefr_level?.startsWith('C')
+                                ? 'bg-amber-100 text-amber-700 border border-amber-200'
+                                : s.cefr_level?.startsWith('B')
+                                ? 'bg-sky-100 text-sky-700 border border-sky-200'
+                                : 'bg-slate-100 text-slate-600 border border-slate-200'
+                            }`}
+                          >
+                            {s.cefr_level || 'A1'}
+                          </span>
                         </div>
+                        <p className="text-xs text-muted-foreground truncate">{s.email}</p>
                       </div>
-                    </td>
+                    </div>
 
-                    {/* Column 3: CEFR */}
-                    <td className="px-3 py-3.5 text-center">
+                    <div className="flex items-center gap-1.5 shrink-0">
                       <span
-                        className={`px-2 py-0.5 rounded-md text-[11px] font-black tracking-tighter ${
-                          s.cefr_level?.startsWith('C')
-                            ? 'bg-amber-100 text-amber-700 border border-amber-200'
-                            : s.cefr_level?.startsWith('B')
-                            ? 'bg-sky-100 text-sky-700 border border-sky-200'
-                            : 'bg-slate-100 text-slate-600 border border-slate-200'
-                        }`}
+                        className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold border ${st.badgeClass}`}
                       >
-                        {s.cefr_level || 'A1'}
+                        <span>{st.dot}</span>
+                        <span>{st.label}</span>
                       </span>
-                    </td>
+                      <ChevronRight className="h-4 w-4 text-muted-foreground/70" />
+                    </div>
+                  </div>
 
-                    {/* Column 4: Độ bền trí nhớ (VMS · P/A) with monospaced tabular numbers */}
-                    <td className="px-4 py-3.5 text-center">
-                      <div className="inline-flex flex-col items-center">
-                        <div className="font-mono tabular-nums text-xs font-semibold">
-                          <span className="text-emerald-600 font-bold">A {s.active_vms || 0}%</span>
+                  {/* Metrics Row: VMS (Active/Passive) & LCS consistency (Streak flame) */}
+                  <div className="mt-3 pt-3 border-t border-border/40 grid grid-cols-2 gap-2.5">
+                    {/* VMS Metric */}
+                    <div className="bg-muted/30 rounded-xl p-2.5 space-y-1.5">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className="text-muted-foreground font-medium">Trí nhớ (VMS)</span>
+                        <div className="font-mono tabular-nums font-bold">
+                          <span className="text-emerald-600">A {s.active_vms || 0}%</span>
                           <span className="text-muted-foreground mx-1">&bull;</span>
                           <span className="text-slate-600">P {s.vms || 0}%</span>
                         </div>
-                        <div className="w-24 h-1.5 bg-muted rounded-full mt-1.5 overflow-hidden flex">
-                          <div
-                            className="h-full bg-emerald-500 rounded-full"
-                            style={{ width: `${s.active_vms || 0}%` }}
-                          />
-                          <div
-                            className="h-full bg-emerald-200"
-                            style={{ width: `${Math.max(0, (s.vms || 0) - (s.active_vms || 0))}%` }}
-                          />
-                        </div>
                       </div>
-                    </td>
+                      <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden flex">
+                        <div
+                          className="h-full bg-emerald-500 rounded-full"
+                          style={{ width: `${s.active_vms || 0}%` }}
+                        />
+                        <div
+                          className="h-full bg-emerald-200"
+                          style={{ width: `${Math.max(0, (s.vms || 0) - (s.active_vms || 0))}%` }}
+                        />
+                      </div>
+                    </div>
 
-                    {/* Column 5: Độ chăm chỉ (LCS) with monospaced tabular numbers */}
-                    <td className="px-4 py-3.5 text-center">
-                      <div className="inline-flex flex-col items-center">
-                        <span className="font-mono tabular-nums text-xs font-semibold text-sky-700">
-                          {s.lcs || 0}% &bull; {s.quizzes_taken || 0} bài quiz
+                    {/* LCS Metric */}
+                    <div className="bg-muted/30 rounded-xl p-2.5 space-y-1.5">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className="text-muted-foreground font-medium flex items-center gap-1">
+                          <span>Chăm chỉ</span>
+                          {(s.lcs || 0) >= 70 && <span className="text-xs">🔥</span>}
                         </span>
-                        <div className="w-20 h-1.5 bg-muted rounded-full mt-1.5 overflow-hidden">
-                          <div
-                            className="h-full bg-sky-500 rounded-full"
-                            style={{ width: `${s.lcs || 0}%` }}
-                          />
-                        </div>
+                        <span className="font-mono tabular-nums font-bold text-sky-700">
+                          {s.lcs || 0}% ({s.quizzes_taken || 0}q)
+                        </span>
                       </div>
-                    </td>
+                      <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-sky-500 rounded-full"
+                          style={{ width: `${s.lcs || 0}%` }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-                    {/* Column 6: Linear-style Status Dots & Action */}
-                    <td className="px-4 py-3.5 text-right">
-                      <div className="flex items-center justify-end gap-2">
+          {/* Desktop Table View (>= md) */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-muted/40 border-b text-xs font-semibold uppercase tracking-wider text-muted-foreground select-none">
+                <tr>
+                  {/* Column 1: # */}
+                  <th className="px-4 py-3 w-12 text-center">#</th>
+                  {/* Column 2: Học sinh */}
+                  <th className="px-4 py-3 min-w-[200px]">Học sinh</th>
+                  {/* Column 3: CEFR */}
+                  <th className="px-3 py-3 text-center w-20">CEFR</th>
+                  {/* Column 4: Độ bền trí nhớ (VMS · P/A) */}
+                  <th className="px-4 py-3 text-center min-w-[170px]">
+                    <div className="inline-flex items-center gap-1 group relative cursor-help">
+                      <span>Độ bền trí nhớ (VMS · P/A)</span>
+                      <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 bg-slate-900 text-white text-[11px] rounded-lg p-2.5 shadow-xl normal-case font-normal z-50 pointer-events-none">
+                        <strong>VMS (Độ bền trí nhớ theo FSRS):</strong>
+                        <br />&bull; <strong>A (Active):</strong> Từ chủ động, dùng cho viết/nói.
+                        <br />&bull; <strong>P (Passive):</strong> Từ thụ động, nhận biết nghĩa (&gt;15 ngày).
+                      </div>
+                    </div>
+                  </th>
+                  {/* Column 5: Độ chăm chỉ (LCS) */}
+                  <th className="px-4 py-3 text-center min-w-[140px]">
+                    <div className="inline-flex items-center gap-1 group relative cursor-help">
+                      <span>Độ chăm chỉ (LCS)</span>
+                      <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-56 bg-slate-900 text-white text-[11px] rounded-lg p-2.5 shadow-xl normal-case font-normal z-50 pointer-events-none">
+                        <strong>LCS (Learning Consistency Score):</strong>
+                        <br />Tỷ lệ số ngày có học từ vựng trong vòng 14 ngày qua.
+                      </div>
+                    </div>
+                  </th>
+                  {/* Column 6: Tình trạng & Thao tác */}
+                  <th className="px-4 py-3 text-right min-w-[140px]">Tình trạng</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y text-sm">
+                {filteredStudents.map((s, i) => {
+                  const st = getStudentStatus(s);
+                  const isSelected = selectedStudentId === s.student_id && isSheetOpen;
+
+                  return (
+                    <tr
+                      key={s.student_id}
+                      onClick={() => openSheetForStudent(s.student_id)}
+                      onMouseEnter={() => prefetchStudent(s.student_id, classroomId)}
+                      className={`cursor-pointer transition-colors group ${
+                        isSelected
+                          ? 'bg-primary/5 border-l-4 border-l-primary font-medium'
+                          : 'hover:bg-muted/40'
+                      }`}
+                    >
+                      {/* Column 1: Index */}
+                      <td className="px-4 py-3.5 text-center">
+                        <div className="w-6 h-6 mx-auto rounded-md bg-muted/80 text-muted-foreground flex items-center justify-center font-mono font-bold text-xs shrink-0 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                          {i + 1}
+                        </div>
+                      </td>
+
+                      {/* Column 2: Học sinh */}
+                      <td className="px-4 py-3.5">
+                        <div className="flex items-center gap-2.5">
+                          <div className="min-w-0">
+                            <p className="font-semibold text-sm group-hover:text-primary transition-colors truncate">
+                              {s.student_name || 'Học sinh'}
+                            </p>
+                            <p className="text-xs text-muted-foreground truncate">{s.email}</p>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Column 3: CEFR */}
+                      <td className="px-3 py-3.5 text-center">
                         <span
-                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold border ${st.badgeClass}`}
+                          className={`px-2 py-0.5 rounded-md text-[11px] font-black tracking-tighter ${
+                            s.cefr_level?.startsWith('C')
+                              ? 'bg-amber-100 text-amber-700 border border-amber-200'
+                              : s.cefr_level?.startsWith('B')
+                              ? 'bg-sky-100 text-sky-700 border border-sky-200'
+                              : 'bg-slate-100 text-slate-600 border border-slate-200'
+                          }`}
                         >
-                          <span>{st.dot}</span>
-                          <span>{st.label}</span>
+                          {s.cefr_level || 'A1'}
                         </span>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+                      </td>
+
+                      {/* Column 4: Độ bền trí nhớ (VMS · P/A) with monospaced tabular numbers */}
+                      <td className="px-4 py-3.5 text-center">
+                        <div className="inline-flex flex-col items-center">
+                          <div className="font-mono tabular-nums text-xs font-semibold">
+                            <span className="text-emerald-600 font-bold">A {s.active_vms || 0}%</span>
+                            <span className="text-muted-foreground mx-1">&bull;</span>
+                            <span className="text-slate-600">P {s.vms || 0}%</span>
+                          </div>
+                          <div className="w-24 h-1.5 bg-muted rounded-full mt-1.5 overflow-hidden flex">
+                            <div
+                              className="h-full bg-emerald-500 rounded-full"
+                              style={{ width: `${s.active_vms || 0}%` }}
+                            />
+                            <div
+                              className="h-full bg-emerald-200"
+                              style={{ width: `${Math.max(0, (s.vms || 0) - (s.active_vms || 0))}%` }}
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Column 5: Độ chăm chỉ (LCS) with monospaced tabular numbers */}
+                      <td className="px-4 py-3.5 text-center">
+                        <div className="inline-flex flex-col items-center">
+                          <span className="font-mono tabular-nums text-xs font-semibold text-sky-700">
+                            {s.lcs || 0}% &bull; {s.quizzes_taken || 0} bài quiz
+                          </span>
+                          <div className="w-20 h-1.5 bg-muted rounded-full mt-1.5 overflow-hidden">
+                            <div
+                              className="h-full bg-sky-500 rounded-full"
+                              style={{ width: `${s.lcs || 0}%` }}
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Column 6: Linear-style Status Dots & Action */}
+                      <td className="px-4 py-3.5 text-right">
+                        <div className="flex items-center justify-end gap-2">
+                          <span
+                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold border ${st.badgeClass}`}
+                          >
+                            <span>{st.dot}</span>
+                            <span>{st.label}</span>
+                          </span>
+                          <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
 
       {/* Linear/Raycast Slide-Over Peek Sheet */}
@@ -617,7 +723,7 @@ export default function StudentsPanel({
       {/* MODAL: Thêm học sinh */}
       {isAddModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-background border rounded-2xl w-full max-w-md p-6 shadow-2xl relative">
+          <div className="bg-background border rounded-2xl w-full max-w-md p-6 shadow-2xl relative max-h-[90dvh] overflow-y-auto">
             <button
               onClick={() => !isSubmitting && setIsAddModalOpen(false)}
               className="absolute top-4 right-4 p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted"
@@ -653,7 +759,7 @@ export default function StudentsPanel({
                   placeholder="vidu: hocsinh@gmail.com"
                   value={studentEmail}
                   onChange={(e) => setStudentEmail(e.target.value)}
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   disabled={isSubmitting}
                 />
               </div>
@@ -667,7 +773,7 @@ export default function StudentsPanel({
                   placeholder="vidu: Nguyễn Minh Anh"
                   value={studentName}
                   onChange={(e) => setStudentName(e.target.value)}
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   disabled={isSubmitting}
                 />
               </div>
@@ -707,7 +813,7 @@ export default function StudentsPanel({
       {/* MODAL: Xác nhận xóa học sinh khỏi lớp */}
       {studentToRemove && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-background border rounded-2xl w-full max-w-sm p-6 shadow-2xl relative">
+          <div className="bg-background border rounded-2xl w-full max-w-sm p-6 shadow-2xl relative max-h-[90dvh] overflow-y-auto">
             <div className="w-11 h-11 rounded-full bg-destructive/10 text-destructive flex items-center justify-center mb-4 mx-auto">
               <AlertCircle className="h-6 w-6" />
             </div>

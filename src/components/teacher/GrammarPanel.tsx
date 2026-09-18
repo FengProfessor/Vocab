@@ -172,7 +172,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
                 setSelectedTopic('');
               }}
               placeholder="hoặc nhập chủ đề tùy ý..."
-              className="w-full border rounded-xl px-4 py-2 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="w-full border rounded-xl px-4 py-2 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
             />
           </div>
 
@@ -182,7 +182,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
               <select
                 value={level}
                 onChange={(e) => setLevel(e.target.value as GrammarLevel)}
-                className="w-full border rounded-xl px-4 py-2 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full border rounded-xl px-4 py-2 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
               >
                 <option value="beginner">Beginner (A1-A2)</option>
                 <option value="intermediate">Intermediate (B1-B2)</option>
@@ -194,7 +194,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
               <select
                 value={count}
                 onChange={(e) => setCount(Number(e.target.value))}
-                className="w-full border rounded-xl px-4 py-2 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full border rounded-xl px-4 py-2 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
               >
                 {[3, 5, 7, 10].map((n) => (
                   <option key={n} value={n}>{n} câu</option>
@@ -300,7 +300,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
                 </div>
                 <button
                   onClick={() => handleDelete(ex.id)}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 text-muted-foreground hover:text-destructive rounded-lg"
+                  className="opacity-80 sm:opacity-0 sm:group-hover:opacity-100 touch-manipulation transition-opacity p-1.5 text-muted-foreground hover:text-destructive rounded-lg"
                 >
                   <Trash2 className="h-3.5 w-3.5" />
                 </button>

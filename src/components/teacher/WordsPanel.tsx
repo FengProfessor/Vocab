@@ -340,7 +340,7 @@ function parseBulkWords(text: string): string[] {
               value={newWord}
               onChange={e => setNewWord(e.target.value)}
               placeholder="Nhập từ tiếng Anh (vd: ephemeral, resilient, comprehensive)..."
-              className="flex-1 border rounded-xl px-4 py-2.5 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="flex-1 border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
               disabled={isSaving}
             />
             <button
@@ -359,7 +359,7 @@ function parseBulkWords(text: string): string[] {
               onChange={e => setBulkText(e.target.value)}
               placeholder={'Dán danh sách từ vựng, mỗi từ một dòng (hoặc ngăn cách bởi dấu phẩy):\napple\nsustainability\nartificial intelligence\nmeticulous'}
               rows={4}
-              className="w-full border rounded-xl p-3.5 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono leading-relaxed"
+              className="w-full border rounded-xl p-3.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono leading-relaxed"
               disabled={isSaving}
             />
 
@@ -527,7 +527,7 @@ function parseBulkWords(text: string): string[] {
       {/* MODAL: Chỉnh sửa từ vựng */}
       {editingWord && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-background border rounded-2xl w-full max-w-lg p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+          <div className="bg-background border rounded-2xl w-full max-w-lg p-6 shadow-2xl relative max-h-[90dvh] overflow-y-auto">
             <button
               onClick={() => !isUpdating && setEditingWord(null)}
               className="absolute top-4 right-4 p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted"
@@ -555,7 +555,7 @@ function parseBulkWords(text: string): string[] {
                   required
                   value={editTranslation}
                   onChange={e => setEditTranslation(e.target.value)}
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   disabled={isUpdating}
                 />
               </div>
@@ -570,7 +570,7 @@ function parseBulkWords(text: string): string[] {
                     placeholder="noun, verb, adj..."
                     value={editPos}
                     onChange={e => setEditPos(e.target.value)}
-                    className="w-full border rounded-xl px-4 py-2 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    className="w-full border rounded-xl px-4 py-2 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
                     disabled={isUpdating}
                   />
                 </div>
@@ -583,7 +583,7 @@ function parseBulkWords(text: string): string[] {
                     placeholder="/.../"
                     value={editIpa}
                     onChange={e => setEditIpa(e.target.value)}
-                    className="w-full border rounded-xl px-4 py-2 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono"
+                    className="w-full border rounded-xl px-4 py-2 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono"
                     disabled={isUpdating}
                   />
                 </div>
@@ -598,7 +598,7 @@ function parseBulkWords(text: string): string[] {
                   value={editExample}
                   onChange={e => setEditExample(e.target.value)}
                   placeholder="Ví dụ minh họa ngữ cảnh sử dụng từ..."
-                  className="w-full border rounded-xl p-3 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 leading-relaxed"
+                  className="w-full border rounded-xl p-3 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 leading-relaxed"
                   disabled={isUpdating}
                 />
               </div>
@@ -612,7 +612,7 @@ function parseBulkWords(text: string): string[] {
                   value={editExampleVi}
                   onChange={e => setEditExampleVi(e.target.value)}
                   placeholder="Bản dịch tiếng Việt của câu ví dụ..."
-                  className="w-full border rounded-xl p-3 text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 leading-relaxed"
+                  className="w-full border rounded-xl p-3 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 leading-relaxed"
                   disabled={isUpdating}
                 />
               </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   BarChart, Bar, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
@@ -10,11 +11,26 @@ export function StudentVmsLineChart({
 }: {
   data: { date: string; vms: number; lcs: number }[];
 }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart data={data}>
         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-        <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#666' }} />
+        <XAxis
+          dataKey="date"
+          axisLine={false}
+          tickLine={false}
+          tick={{ fontSize: 11, fill: '#666' }}
+          interval={isMobile ? 4 : (data.length > 15 ? 2 : 'preserveStartEnd')}
+        />
         <YAxis axisLine={false} tickLine={false} domain={[0, 100]} tick={{ fontSize: 12, fill: '#666' }} />
         <Tooltip
           contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
@@ -31,14 +47,29 @@ export function StudentQuizBarChart({
 }: {
   data: { date: string; acc: number }[];
 }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-        <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#666' }} />
+        <XAxis
+          dataKey="date"
+          axisLine={false}
+          tickLine={false}
+          tick={{ fontSize: 11, fill: '#666' }}
+          interval={isMobile ? 3 : 'preserveStartEnd'}
+        />
         <YAxis axisLine={false} tickLine={false} domain={[0, 100]} tick={{ fontSize: 12, fill: '#666' }} />
         <Tooltip contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }} />
-        <Bar dataKey="acc" name="Tỷ lệ chính xác (%)" fill="#6366f1" radius={[8, 8, 0, 0]} barSize={30} />
+        <Bar dataKey="acc" name="Tỷ lệ chính xác (%)" fill="#6366f1" radius={[8, 8, 0, 0]} barSize={isMobile ? 18 : 30} />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -49,14 +80,28 @@ export function StudentCompetencyRadarChart({
 }: {
   data: { subject: string; score: number; fullMark: number }[];
 }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <RadarChart data={data} outerRadius="75%">
+      <RadarChart data={data} outerRadius={isMobile ? '58%' : '75%'}>
         <PolarGrid stroke="#e2e8f0" />
-        <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: '#64748b', fontWeight: 600 }} />
+        <PolarAngleAxis
+          dataKey="subject"
+          tick={{ fontSize: isMobile ? 10 : 11, fill: '#64748b', fontWeight: 600 }}
+        />
         <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
         <Radar name="Năng lực" dataKey="score" stroke="#8b5cf6" fill="#8b5cf6" fillOpacity={0.35} />
       </RadarChart>
     </ResponsiveContainer>
   );
 }
+
+export const StudentRadarChart = StudentCompetencyRadarChart;

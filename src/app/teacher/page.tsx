@@ -407,7 +407,7 @@ export default function TeacherDashboard() {
             <div className="bg-primary/10 p-1.5 rounded-lg text-primary">
               <Brain className="h-5 w-5" />
             </div>
-            <span className="text-base sm:text-lg font-bold tracking-tight">LingoPro</span>
+            <span className="hidden sm:inline text-base sm:text-lg font-bold tracking-tight">LingoPro</span>
           </Link>
 
           <span className="text-muted-foreground/30 font-light text-lg select-none">/</span>
@@ -434,7 +434,7 @@ export default function TeacherDashboard() {
 
             {/* Popover Dropdown */}
             {isClassSwitcherOpen && (
-              <div className="absolute left-0 top-full mt-2 w-72 sm:w-80 bg-background border rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+              <div className="max-sm:fixed max-sm:inset-x-3 max-sm:top-16 max-sm:w-auto sm:absolute sm:left-0 sm:top-full sm:mt-2 sm:w-80 bg-background border rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
                 {/* Search input */}
                 <div className="relative mb-2 px-1">
                   <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
@@ -443,7 +443,7 @@ export default function TeacherDashboard() {
                     placeholder="Tìm kiếm lớp học..."
                     value={classSearchQuery}
                     onChange={(e) => setClassSearchQuery(e.target.value)}
-                    className="w-full bg-muted/40 border rounded-xl pl-8 pr-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    className="w-full bg-muted/40 border rounded-xl pl-8 pr-3 py-1.5 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
                     autoFocus
                   />
                 </div>
@@ -812,7 +812,7 @@ export default function TeacherDashboard() {
       {/* Create Classroom Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-background border rounded-2xl p-6 w-full max-w-md shadow-2xl">
+          <div className="bg-background border rounded-2xl p-6 w-full max-w-md shadow-2xl max-h-[90dvh] overflow-y-auto">
             <h2 className="text-xl font-bold mb-4">Tạo lớp học mới</h2>
             <form onSubmit={handleCreateClass} className="space-y-4">
               <div>
@@ -823,7 +823,7 @@ export default function TeacherDashboard() {
                   onChange={(e) => setNewClassName(e.target.value)}
                   placeholder="vd: Luyện thi TOEIC Cấp Tốc 2026"
                   required
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
                 />
               </div>
               <div>
@@ -833,7 +833,7 @@ export default function TeacherDashboard() {
                   onChange={(e) => setNewClassDesc(e.target.value)}
                   placeholder="vd: Khóa học từ vựng nền tảng mục tiêu 750+"
                   rows={2}
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
                 />
               </div>
               <div className="flex gap-3 pt-2">
@@ -861,7 +861,7 @@ export default function TeacherDashboard() {
       {/* Class Settings Modal */}
       {showSettingsModal && selectedClass && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-background border rounded-2xl p-6 w-full max-w-md shadow-2xl relative">
+          <div className="bg-background border rounded-2xl p-6 w-full max-w-md shadow-2xl relative max-h-[90dvh] overflow-y-auto">
             <button
               onClick={() => !isSavingSettings && setShowSettingsModal(false)}
               className="absolute top-4 right-4 p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted"
@@ -886,7 +886,7 @@ export default function TeacherDashboard() {
                   onChange={(e) => setSettingsName(e.target.value)}
                   placeholder="vd: Luyện thi TOEIC Cấp Tốc 2026"
                   required
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
                 />
               </div>
               <div>
@@ -896,7 +896,7 @@ export default function TeacherDashboard() {
                   onChange={(e) => setSettingsDesc(e.target.value)}
                   placeholder="vd: Khóa học từ vựng nền tảng mục tiêu 750+"
                   rows={2}
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
                 />
               </div>
 
