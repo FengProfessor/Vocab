@@ -1074,27 +1074,37 @@ export default function ReferralHubPage() {
                 </div>
 
                 {/* Quick preset chips */}
-                <div className="mt-2 flex flex-wrap gap-1.5">
-                  {[100000, 200000, 500000].map((preset) => (
-                    <button
-                      key={preset}
-                      type="button"
-                      onClick={() => handleSetPresetAmount(preset)}
-                      className="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[11px] font-semibold text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
-                    >
-                      {preset.toLocaleString('vi-VN')}đ
-                    </button>
-                  ))}
-                  {data && data.stats.availableCash >= 100000 && (
+                {data && data.stats.availableCash >= 100000 && (
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {[100000, 200000, 500000]
+                      .filter((preset) => preset <= data.stats.availableCash)
+                      .map((preset) => (
+                        <button
+                          key={preset}
+                          type="button"
+                          onClick={() => handleSetPresetAmount(preset)}
+                          className={`rounded-md border px-2 py-1 text-[11px] font-semibold transition-all ${
+                            payoutAmount === String(preset)
+                              ? 'border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300'
+                              : 'border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300'
+                          }`}
+                        >
+                          {preset.toLocaleString('vi-VN')}đ
+                        </button>
+                      ))}
                     <button
                       type="button"
                       onClick={() => handleSetPresetAmount(data.stats.availableCash)}
-                      className="rounded-md border border-emerald-200 bg-emerald-50 px-2 py-1 text-[11px] font-bold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
+                      className={`rounded-md border px-2 py-1 text-[11px] font-bold transition-all ${
+                        payoutAmount === String(Math.min(2000000, data.stats.availableCash))
+                          ? 'border-emerald-500 bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200'
+                          : 'border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300'
+                      }`}
                     >
-                      Toàn bộ số dư
+                      Toàn bộ số dư ({formatVND(data.stats.availableCash)})
                     </button>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
 
               <div>
@@ -1112,6 +1122,22 @@ export default function ReferralHubPage() {
                     </option>
                   ))}
                 </select>
+
+                {payoutBank === 'Ngân hàng khác (Tự nhập tên)' && (
+                  <div className="mt-2.5">
+                    <Label className="text-slate-700 dark:text-slate-300 font-semibold">
+                      Nhập tên ngân hàng của bạn
+                    </Label>
+                    <Input
+                      type="text"
+                      placeholder="Ví dụ: Shinhan Bank, KienlongBank, Standard Chartered..."
+                      value={customBank}
+                      onChange={(e) => setCustomBank(e.target.value)}
+                      className="mt-1 h-10"
+                      required
+                    />
+                  </div>
+                )}
               </div>
 
               <div>
@@ -1122,7 +1148,7 @@ export default function ReferralHubPage() {
                   type="text"
                   placeholder="Ví dụ: 1029384756"
                   value={payoutAccNumber}
-                  onChange={(e) => setPayoutAccNumber(e.target.value)}
+                  onChange={(e) => setPayoutAccNumber(e.target.value.replace(/\s+/g, ''))}
                   className="mt-1 font-mono font-bold h-10"
                   required
                 />
