@@ -33,7 +33,7 @@ async function runNavTests() {
 
   // ── 1. SECTION HEADERS & GROUP STRUCTURE ──
   console.log('--- 1. Testing Section Structure & Headers ---');
-  assert(sections.length === 4, `Expected 4 navigation sections, got ${sections.length}`);
+  assert(sections.length === 5, `Expected 5 navigation sections, got ${sections.length}`);
   assert(sections[0].id === 'learn', 'Section 0 id is learn');
   assert(sections[0].title === 'Học & Lộ trình', `Section 0 title is 'Học & Lộ trình', got '${sections[0].title}'`);
   assert(sections[1].id === 'practice', 'Section 1 id is practice');
@@ -42,6 +42,8 @@ async function runNavTests() {
   assert(sections[2].title === 'Khảo thí', `Section 2 title is 'Khảo thí', got '${sections[2].title}'`);
   assert(sections[3].id === 'vault', 'Section 3 id is vault');
   assert(sections[3].title === 'Tra cứu & Kho', `Section 3 title is 'Tra cứu & Kho', got '${sections[3].title}'`);
+  assert(sections[4].id === 'referral', 'Section 4 id is referral');
+  assert(sections[4].title === 'Cộng đồng & Quà tặng', `Section 4 title is 'Cộng đồng & Quà tặng', got '${sections[4].title}'`);
 
   // ── 2. ITEMS PER SECTION & CONTENT ──
   console.log('\n--- 2. Testing Items Per Section ---');
@@ -53,9 +55,11 @@ async function runNavTests() {
   assert(learnHrefs.includes('/review'), 'Learn group contains /review (Ôn tập ngắt quãng)');
   assert(learnHrefs.includes('/grammar/learn'), 'Learn group contains /grammar/learn (Ngữ pháp ứng dụng)');
 
-  // Group 2: Kỹ năng thực hành (3 items)
-  assert(sections[1].items.length === 3, `Section 'Kỹ năng thực hành' has 3 items, got ${sections[1].items.length}`);
+  // Group 2: Kỹ năng thực hành (5 items)
+  assert(sections[1].items.length === 5, `Section 'Kỹ năng thực hành' has 5 items, got ${sections[1].items.length}`);
   const practiceHrefs = sections[1].items.map((i) => i.href);
+  assert(practiceHrefs.includes('/student/speaking/foundation'), 'Practice group contains /student/speaking/foundation (Luyện nói Nền tảng)');
+  assert(practiceHrefs.includes('/student/speaking'), 'Practice group contains /student/speaking (Luyện nói AI)');
   assert(practiceHrefs.includes('/practice/listening'), 'Practice group contains /practice/listening (Luyện nghe Video)');
   assert(practiceHrefs.includes('/practice/pack-reading'), 'Practice group contains /practice/pack-reading (Luyện đọc hiểu)');
   assert(practiceHrefs.includes('/practice/codemix'), 'Practice group contains /practice/codemix (Đặt câu song ngữ)');
@@ -72,8 +76,12 @@ async function runNavTests() {
   assert(vaultHrefs.includes('/library'), 'Vault group contains /library (Thư viện từ vựng)');
   assert(vaultHrefs.includes('/import'), 'Vault group contains /import (Nhập danh sách riêng)');
 
+  // Group 5: Cộng đồng & Quà tặng (1 item)
+  assert(sections[4].items.length === 1, `Section 'Cộng đồng & Quà tặng' has 1 item, got ${sections[4].items.length}`);
+  assert(sections[4].items[0].href === '/student/referral', 'Referral group contains /student/referral (Mời bạn học nhận VIP)');
+
   // Total items check
-  assert(items.length === 12, `Total nav items across all sections is 12, got ${items.length}`);
+  assert(items.length === 15, `Total nav items across all sections is 15, got ${items.length}`);
 
   // ── 3. ICON INTEGRITY & NO EMOJI TILES ──
   console.log('\n--- 3. Testing Iconography & Component Types ---');
@@ -86,7 +94,7 @@ async function runNavTests() {
     assert(!seenIcons.has(item.icon), `Item '${item.label}' icon is unique across all nav items (no icon collisions)`);
     seenIcons.add(item.icon);
   }
-  assert(seenIcons.size === 12, `All 12 nav items have mutually distinct Lucide icons, got ${seenIcons.size}`);
+  assert(seenIcons.size === 15, `All 15 nav items have mutually distinct Lucide icons, got ${seenIcons.size}`);
 
   // ── 4. ROUTE MATCHING BEHAVIOR ──
   console.log('\n--- 4. Testing Exact & Subpath Route Matching ---');
@@ -153,6 +161,22 @@ async function runNavTests() {
   assert(vstepItem.match('/practice') === false, 'vstep item does not match /practice');
   assert(vstepItem.match('/toeic') === false, 'vstep item does not match /toeic');
 
+  // Speaking subpaths
+  const speakingFoundItem = findItem('/student/speaking/foundation')!;
+  assert(speakingFoundItem.match('/student/speaking/foundation') === true, 'speaking foundation matches /student/speaking/foundation');
+  assert(speakingFoundItem.match('/student/speaking/foundation/stage-0') === true, 'speaking foundation matches subpath');
+  assert(speakingFoundItem.match('/student/speaking') === false, 'speaking foundation does not match /student/speaking');
+
+  const speakingAiItem = findItem('/student/speaking')!;
+  assert(speakingAiItem.match('/student/speaking') === true, 'speaking AI matches /student/speaking');
+  assert(speakingAiItem.match('/student/speaking/foundation') === false, 'speaking AI does not match speaking foundation');
+
+  // Referral subpaths
+  const referralItem = findItem('/student/referral')!;
+  assert(referralItem.match('/student/referral') === true, 'referral item matches /student/referral');
+  assert(referralItem.match('/referral') === true, 'referral item matches /referral alias');
+  assert(referralItem.match('/student') === false, 'referral item does not match /student');
+
   // Vault subpaths
   const dictItem = findItem('/dictionary')!;
   assert(dictItem.match('/dictionary') === true, 'dict item matches /dictionary');
@@ -174,7 +198,7 @@ async function runNavTests() {
     }))
     .filter((s) => s.items.length > 0);
 
-  assert(drawerSections.length === 4, `Mobile drawer preserves all 4 sections with remaining items, got ${drawerSections.length}`);
+  assert(drawerSections.length === 5, `Mobile drawer preserves all 5 sections with remaining items, got ${drawerSections.length}`);
 
   // Check section 1 in drawer
   assert(drawerSections[0].id === 'learn', 'Drawer section 0 is learn');
@@ -183,7 +207,7 @@ async function runNavTests() {
 
   // Check section 2 in drawer
   assert(drawerSections[1].id === 'practice', 'Drawer section 1 is practice');
-  assert(drawerSections[1].items.length === 3, `Drawer section 1 has 3 practice items, got ${drawerSections[1].items.length}`);
+  assert(drawerSections[1].items.length === 5, `Drawer section 1 has 5 practice items, got ${drawerSections[1].items.length}`);
 
   // Check section 3 in drawer
   assert(drawerSections[2].id === 'exam', 'Drawer section 2 is exam');
@@ -195,6 +219,11 @@ async function runNavTests() {
   assert(drawerSections[3].id === 'vault', 'Drawer section 3 is vault');
   assert(drawerSections[3].items.length === 1, `Drawer section 3 has 1 item (/import), got ${drawerSections[3].items.length}`);
   assert(drawerSections[3].items[0].href === '/import', 'Drawer section 3 item is /import');
+
+  // Check section 5 in drawer
+  assert(drawerSections[4].id === 'referral', 'Drawer section 4 is referral');
+  assert(drawerSections[4].items.length === 1, `Drawer section 4 has 1 item (/student/referral), got ${drawerSections[4].items.length}`);
+  assert(drawerSections[4].items[0].href === '/student/referral', 'Drawer section 4 item is /student/referral');
 
   // Verify that the 5 bottom nav items are filtered out of drawer
   const drawerHrefs = drawerSections.flatMap((s) => s.items.map((i) => i.href));
@@ -271,9 +300,9 @@ async function runNavTests() {
   console.log('\n--- 8. Testing Edge Cases & Default Arguments ---');
   // buildStudentNavSections with undefined opts
   const defaultSections = buildStudentNavSections(undefined);
-  assert(defaultSections.length === 4, 'buildStudentNavSections(undefined) succeeds with 4 sections');
+  assert(defaultSections.length === 5, 'buildStudentNavSections(undefined) succeeds with 5 sections');
   const defaultItems = buildStudentNavItems(undefined);
-  assert(defaultItems.length === 12, 'buildStudentNavItems(undefined) succeeds with 12 items');
+  assert(defaultItems.length === 15, 'buildStudentNavItems(undefined) succeeds with 15 items');
 
   // Null classroomId fallback
   const nullClassSections = buildStudentNavSections({ classroomId: null });

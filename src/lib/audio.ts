@@ -57,6 +57,7 @@ function playUrl(url: string, rate = 1.0, myGen: number): Promise<boolean> {
     currentAudio = audio;
     audio.preload = 'auto';
     audio.playbackRate = rate > 0 && rate <= 2 ? rate : 1;
+    audio.preservesPitch = true;
     let settled = false;
     const done = (ok: boolean) => {
       if (settled) return;

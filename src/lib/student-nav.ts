@@ -13,6 +13,7 @@ import {
   Library,
   FileUp,
   Mic,
+  Sparkles,
   Gift,
 } from 'lucide-react';
 
@@ -108,11 +109,22 @@ export function buildStudentNavSections(opts?: {
       title: 'Kỹ năng thực hành',
       items: [
         {
+          href: '/student/speaking/foundation',
+          label: 'Luyện nói Nền tảng',
+          icon: Sparkles,
+          badge: 'A0–A1',
+          match: (pathname) => pathname.startsWith('/student/speaking/foundation'),
+          onboardingId: 'speaking-foundation',
+        },
+        {
           href: '/student/speaking',
           label: 'Luyện nói AI (MVA)',
           icon: Mic,
           badge: '24+ Chủ đề',
-          match: (pathname) => pathname.startsWith('/student/speaking'),
+          match: (pathname) =>
+            pathname === '/student/speaking' ||
+            (pathname.startsWith('/student/speaking') &&
+              !pathname.startsWith('/student/speaking/foundation')),
           onboardingId: 'speaking-ai',
         },
         {
