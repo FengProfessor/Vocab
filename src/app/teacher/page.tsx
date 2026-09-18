@@ -62,9 +62,9 @@ export default function TeacherDashboard() {
   const profileMenuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  // Close popovers on click outside
+  // Close popovers on click/touch outside
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
       const target = e.target as Node;
       if (classSwitcherRef.current && !classSwitcherRef.current.contains(target)) {
         setIsClassSwitcherOpen(false);
@@ -74,7 +74,11 @@ export default function TeacherDashboard() {
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
   useEffect(() => {
@@ -421,7 +425,7 @@ export default function TeacherDashboard() {
               <BookOpen className="h-4 w-4 text-primary shrink-0" />
               <span className="truncate">{selectedClass?.name || 'Chọn lớp học'}</span>
               {selectedClass && (
-                <span className="text-[11px] font-mono font-medium px-1.5 py-0.2 rounded-full bg-muted text-muted-foreground tabular-nums shrink-0">
+                <span className="text-[11px] font-mono font-medium px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground tabular-nums shrink-0">
                   {selectedClass.enrollment_count || 0}
                 </span>
               )}
@@ -434,56 +438,62 @@ export default function TeacherDashboard() {
 
             {/* Popover Dropdown */}
             {isClassSwitcherOpen && (
-              <div className="max-sm:fixed max-sm:inset-x-3 max-sm:top-16 max-sm:w-auto sm:absolute sm:left-0 sm:top-full sm:mt-2 sm:w-80 bg-background border rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
-                {/* Search input */}
-                <div className="relative mb-2 px-1">
-                  <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-                  <input
-                    type="text"
-                    placeholder="Tìm kiếm lớp học..."
-                    value={classSearchQuery}
-                    onChange={(e) => setClassSearchQuery(e.target.value)}
-                    className="w-full bg-muted/40 border rounded-xl pl-8 pr-3 py-1.5 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
-                    autoFocus
-                  />
-                </div>
+              <>
+                {/* Mobile tap-outside backdrop */}
+                <div
+                  className="fixed inset-0 z-40 bg-black/25 backdrop-blur-xs sm:hidden"
+                  onClick={() => setIsClassSwitcherOpen(false)}
+                />
+                <div className="max-sm:fixed max-sm:inset-x-3 max-sm:top-16 max-sm:w-auto sm:absolute sm:left-0 sm:top-full sm:mt-2 sm:w-80 bg-background border rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  {/* Search input */}
+                  <div className="relative mb-2 px-1">
+                    <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+                    <input
+                      type="text"
+                      placeholder="Tìm kiếm lớp học..."
+                      value={classSearchQuery}
+                      onChange={(e) => setClassSearchQuery(e.target.value)}
+                      className="w-full bg-muted/40 border rounded-xl pl-8 pr-3 py-1.5 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      autoFocus
+                    />
+                  </div>
 
-                {/* Class List */}
-                <div className="max-h-56 overflow-y-auto space-y-0.5 px-1">
-                  {filteredClassrooms.length === 0 ? (
-                    <p className="text-xs text-muted-foreground text-center py-4">Chưa có lớp phù hợp</p>
-                  ) : (
-                    filteredClassrooms.map((cls) => {
-                      const isSelected = selectedClass?.id === cls.id;
-                      return (
-                        <button
-                          key={cls.id}
-                          onClick={() => {
-                            setSelectedClass(cls);
-                            setIsClassSwitcherOpen(false);
-                            changeTab(activeTab, cls.id);
-                          }}
-                          className={`w-full flex items-center justify-between p-2 rounded-xl text-xs text-left transition-colors ${
-                            isSelected
-                              ? 'bg-primary/10 text-primary font-bold'
-                              : 'hover:bg-muted text-foreground'
-                          }`}
-                        >
-                          <div className="flex items-center gap-2 min-w-0">
-                            <BookOpen className="h-3.5 w-3.5 shrink-0" />
-                            <span className="truncate">{cls.name}</span>
-                          </div>
-                          <div className="flex items-center gap-1.5 shrink-0">
-                            <span className="font-mono text-[10px] px-1.5 py-0.2 rounded bg-muted text-muted-foreground">
-                              {cls.enrollment_count || 0} HS
-                            </span>
-                            {isSelected && <Check className="h-3.5 w-3.5 text-primary" />}
-                          </div>
-                        </button>
-                      );
-                    })
-                  )}
-                </div>
+                  {/* Class List */}
+                  <div className="max-h-56 overflow-y-auto space-y-0.5 px-1">
+                    {filteredClassrooms.length === 0 ? (
+                      <p className="text-xs text-muted-foreground text-center py-4">Chưa có lớp phù hợp</p>
+                    ) : (
+                      filteredClassrooms.map((cls) => {
+                        const isSelected = selectedClass?.id === cls.id;
+                        return (
+                          <button
+                            key={cls.id}
+                            onClick={() => {
+                              setSelectedClass(cls);
+                              setIsClassSwitcherOpen(false);
+                              changeTab(activeTab, cls.id);
+                            }}
+                            className={`w-full flex items-center justify-between p-2 rounded-xl text-xs text-left transition-colors touch-manipulation ${
+                              isSelected
+                                ? 'bg-primary/10 text-primary font-bold'
+                                : 'hover:bg-muted text-foreground'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2 min-w-0">
+                              <BookOpen className="h-3.5 w-3.5 shrink-0" />
+                              <span className="truncate">{cls.name}</span>
+                            </div>
+                            <div className="flex items-center gap-1.5 shrink-0">
+                              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                                {cls.enrollment_count || 0} HS
+                              </span>
+                              {isSelected && <Check className="h-3.5 w-3.5 text-primary" />}
+                            </div>
+                          </button>
+                        );
+                      })
+                    )}
+                  </div>
 
                 <div className="my-1.5 border-t" />
 
@@ -548,7 +558,8 @@ export default function TeacherDashboard() {
                   )}
                 </div>
               </div>
-            )}
+            </>
+          )}
           </div>
         </div>
 
@@ -585,7 +596,12 @@ export default function TeacherDashboard() {
             </button>
 
             {isProfileMenuOpen && (
-              <div className="absolute right-0 top-full mt-2 w-64 bg-background border rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+              <>
+                <div
+                  className="fixed inset-0 z-40 bg-black/20 sm:hidden"
+                  onClick={() => setIsProfileMenuOpen(false)}
+                />
+                <div className="absolute right-0 top-full mt-2 w-64 bg-background border rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
                 <div className="p-2.5 border-b mb-1">
                   <p className="text-xs font-bold text-foreground truncate">{profile?.full_name || 'Giáo viên'}</p>
                   <p className="text-[11px] text-muted-foreground truncate">{profile?.email}</p>
@@ -626,7 +642,8 @@ export default function TeacherDashboard() {
                   </button>
                 </div>
               </div>
-            )}
+            </>
+          )}
           </div>
         </div>
       </header>

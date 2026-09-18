@@ -1,24 +1,30 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   BarChart, Bar, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from 'recharts';
+
+function useIsMobile(breakpoint = 640) {
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      if (typeof window === 'undefined') return () => {};
+      const mql = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+      mql.addEventListener('change', onStoreChange);
+      return () => mql.removeEventListener('change', onStoreChange);
+    },
+    () => (typeof window !== 'undefined' ? window.innerWidth < breakpoint : false),
+    () => false
+  );
+}
 
 export function StudentVmsLineChart({
   data,
 }: {
   data: { date: string; vms: number; lcs: number }[];
 }) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -47,14 +53,7 @@ export function StudentQuizBarChart({
 }: {
   data: { date: string; acc: number }[];
 }) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -80,14 +79,7 @@ export function StudentCompetencyRadarChart({
 }: {
   data: { subject: string; score: number; fullMark: number }[];
 }) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <ResponsiveContainer width="100%" height="100%">

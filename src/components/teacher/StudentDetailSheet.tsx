@@ -406,10 +406,14 @@ export default function StudentDetailSheet({
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-bold flex items-center justify-center text-sm shrink-0">
-                  {student.student_name.charAt(0)?.toUpperCase() || 'H'}
+                  {student.student_name?.trim()
+                    ? student.student_name.trim().charAt(0).toUpperCase()
+                    : student.email?.trim()
+                    ? student.email.trim().charAt(0).toUpperCase()
+                    : 'H'}
                 </div>
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
                     <h2 className="font-bold text-base sm:text-lg truncate">{student.student_name}</h2>
                     <span
                       className={`px-2 py-0.5 rounded-md text-[10px] font-black tracking-tighter shrink-0 ${
@@ -504,10 +508,10 @@ export default function StudentDetailSheet({
 
           {/* Sub-Tabs: Can thiệp nhanh | Biểu đồ & Năng lực | Từ hay sai */}
           <div className="px-4 sm:px-5 border-b bg-muted/20 shrink-0">
-            <nav className="flex gap-2 overflow-x-auto scrollbar-none whitespace-nowrap">
+            <nav className="flex gap-2 overflow-x-auto scrollbar-none whitespace-nowrap touch-pan-x">
               <button
                 onClick={() => setActiveTab('intervention')}
-                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
                   activeTab === 'intervention'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -518,7 +522,7 @@ export default function StudentDetailSheet({
 
               <button
                 onClick={() => setActiveTab('charts')}
-                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
                   activeTab === 'charts'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -529,7 +533,7 @@ export default function StudentDetailSheet({
 
               <button
                 onClick={() => setActiveTab('errors')}
-                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
                   activeTab === 'errors'
                     ? 'border-primary text-primary'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -537,7 +541,7 @@ export default function StudentDetailSheet({
               >
                 <AlertCircle className="h-4 w-4 text-rose-500" /> Từ hay sai
                 {errorsList.length > 0 && (
-                  <span className="ml-1 px-1.5 py-0.2 rounded-full bg-rose-100 text-rose-700 text-[10px] font-bold">
+                  <span className="ml-1 px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-[10px] font-bold">
                     {errorsList.length}
                   </span>
                 )}

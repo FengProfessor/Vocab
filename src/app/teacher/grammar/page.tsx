@@ -358,7 +358,7 @@ export default function TeacherGrammarEditorPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Tìm bài học..."
-                className="w-full pl-9 pr-3 py-2 text-sm bg-muted/30 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full pl-9 pr-3 py-2 text-base sm:text-sm bg-muted/30 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/30"
               />
             </div>
           </div>
@@ -484,7 +484,7 @@ export default function TeacherGrammarEditorPage() {
                   <select
                     value={form.topic_id}
                     onChange={(e) => setForm((prev) => ({ ...prev, topic_id: e.target.value }))}
-                    className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   >
                     <option value="">-- Chọn chủ đề --</option>
                     {topics.map((t) => (
@@ -503,7 +503,7 @@ export default function TeacherGrammarEditorPage() {
                     value={form.title}
                     onChange={(e) => setForm((prev) => ({ ...prev, title: e.target.value }))}
                     placeholder="VD: Thì hiện tại đơn — Cấu trúc và cách dùng"
-                    className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   />
                 </div>
 
@@ -522,7 +522,7 @@ export default function TeacherGrammarEditorPage() {
                       setForm((prev) => ({ ...prev, theory_vi: e.target.value }))
                     }
                     placeholder="Nhập phần lý thuyết, có thể dùng Markdown..."
-                    className="w-full border rounded-xl px-4 py-3 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono leading-relaxed resize-y"
+                    className="w-full border rounded-xl px-4 py-3 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono leading-relaxed resize-y"
                     style={{ minHeight: '200px' }}
                   />
                 </div>
@@ -597,25 +597,25 @@ export default function TeacherGrammarEditorPage() {
                       value={draftEn}
                       onChange={(e) => setDraftEn(e.target.value)}
                       placeholder="Câu tiếng Anh (bắt buộc)"
-                      className="w-full border rounded-lg px-3 py-2 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      className="w-full border rounded-lg px-3 py-2 text-base sm:text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
                     />
                     <input
                       type="text"
                       value={draftVi}
                       onChange={(e) => setDraftVi(e.target.value)}
                       placeholder="Bản dịch tiếng Việt (không bắt buộc)"
-                      className="w-full border rounded-lg px-3 py-2 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      className="w-full border rounded-lg px-3 py-2 text-base sm:text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
                     />
                     <input
                       type="text"
                       value={draftNote}
                       onChange={(e) => setDraftNote(e.target.value)}
                       placeholder="Ghi chú/giải thích (không bắt buộc)"
-                      className="w-full border rounded-lg px-3 py-2 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      className="w-full border rounded-lg px-3 py-2 text-base sm:text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/30"
                     />
                     <button
                       onClick={handleAddExample}
-                      className="w-full inline-flex items-center justify-center gap-1.5 bg-primary/10 text-primary hover:bg-primary/20 font-semibold text-sm rounded-lg py-2 transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-1.5 bg-primary/10 text-primary hover:bg-primary/20 font-semibold text-sm rounded-lg py-2 transition-colors touch-manipulation"
                     >
                       <Plus className="h-4 w-4" />
                       Thêm
@@ -634,7 +634,7 @@ export default function TeacherGrammarEditorPage() {
           className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={(e) => { if (e.target === e.currentTarget) setAiDialogOpen(false); }}
         >
-          <div className="bg-background rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-4">
+          <div className="bg-background rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-4 max-h-[90dvh] overflow-y-auto">
             <div className="flex items-center justify-between">
               <h3 className="font-bold flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-amber-500" />
@@ -653,7 +653,7 @@ export default function TeacherGrammarEditorPage() {
                   onChange={(e) => setAiTopic(e.target.value)}
                   onKeyDown={(e) => { if (e.key === 'Enter') void handleAiGenerate(); }}
                   placeholder="VD: Present Perfect, Modal verbs..."
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   autoFocus
                 />
               </div>
@@ -662,7 +662,7 @@ export default function TeacherGrammarEditorPage() {
                 <select
                   value={aiLevel}
                   onChange={(e) => setAiLevel(e.target.value as typeof aiLevel)}
-                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
                 >
                   <option value="beginner">Cơ bản (A1-A2)</option>
                   <option value="intermediate">Trung cấp (B1-B2)</option>

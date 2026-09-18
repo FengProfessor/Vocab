@@ -333,7 +333,7 @@ export default function StudentsPanel({
 
         <button
           onClick={() => setIsAddModalOpen(true)}
-          className="inline-flex items-center gap-2 bg-primary text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl hover:bg-primary/90 transition-all active:scale-[0.98] shadow-sm"
+          className="inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl hover:bg-primary/90 transition-all active:scale-[0.98] shadow-sm max-sm:w-full touch-manipulation"
         >
           <UserPlus className="h-4 w-4" />
           Thêm học sinh
@@ -343,7 +343,7 @@ export default function StudentsPanel({
       {/* Stripe-style Segment Filter Chips & Search Bar */}
       <div className="p-4 border-b bg-muted/20 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         {/* Chips */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none touch-pan-x">
           <button
             onClick={() => handleFilterChange('all')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap border flex items-center gap-1.5 ${
@@ -470,10 +470,18 @@ export default function StudentsPanel({
               return (
                 <div
                   key={s.student_id}
+                  role="button"
+                  tabIndex={0}
                   onClick={() => openSheetForStudent(s.student_id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openSheetForStudent(s.student_id);
+                    }
+                  }}
                   onMouseEnter={() => prefetchStudent(s.student_id, classroomId)}
                   onTouchStart={() => prefetchStudent(s.student_id, classroomId)}
-                  className={`p-4 transition-all cursor-pointer active:bg-muted/60 ${
+                  className={`p-4 transition-all cursor-pointer touch-manipulation active:bg-muted/60 ${
                     isSelected ? 'bg-primary/5 border-l-4 border-l-primary' : 'hover:bg-muted/30'
                   }`}
                 >
@@ -481,15 +489,19 @@ export default function StudentsPanel({
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-bold flex items-center justify-center text-sm shrink-0">
-                        {s.student_name ? s.student_name.trim().charAt(0)?.toUpperCase() : 'H'}
+                        {s.student_name?.trim()
+                          ? s.student_name.trim().charAt(0).toUpperCase()
+                          : s.email?.trim()
+                          ? s.email.trim().charAt(0).toUpperCase()
+                          : 'H'}
                       </div>
                       <div className="min-w-0">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 min-w-0">
                           <p className="font-semibold text-sm truncate text-foreground">
                             {s.student_name || 'Học sinh'}
                           </p>
                           <span
-                            className={`px-1.5 py-0.2 rounded text-[10px] font-black tracking-tighter shrink-0 ${
+                            className={`px-1.5 py-0.5 rounded text-[10px] font-black tracking-tighter shrink-0 ${
                               s.cefr_level?.startsWith('C')
                                 ? 'bg-amber-100 text-amber-700 border border-amber-200'
                                 : s.cefr_level?.startsWith('B')
