@@ -53,7 +53,7 @@ export default function GrammarCheatSheet({ cheatSheetHtml, lessonTitle }: Gramm
 
   if (!cheatSheetHtml) {
     return (
-      <div className="p-8 text-center rounded-2xl bg-muted/30 border border-border text-muted-foreground">
+      <div className="p-8 text-center rounded-2xl bg-muted/20 text-muted-foreground">
         <Table className="h-9 w-9 mx-auto mb-2 opacity-40 text-primary" />
         <h4 className="font-semibold text-sm text-foreground">Chưa có bảng tra cứu riêng cho bài này</h4>
         <p className="text-xs mt-1">Vui lòng tra cứu quy tắc và công thức tại tab Lý thuyết chi tiết.</p>
@@ -62,15 +62,15 @@ export default function GrammarCheatSheet({ cheatSheetHtml, lessonTitle }: Gramm
   }
 
   return (
-    <div className="space-y-4 my-5">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 bg-card rounded-2xl border border-border shadow-xs">
+    <div className="space-y-4 my-6 animate-in fade-in duration-300">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-border/40">
         <div className="flex items-center gap-2.5">
           <div className="h-8 w-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
             <Table className="h-4 w-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-bold text-sm text-foreground">Bảng tra cứu quy tắc nhanh</h3>
+              <h3 className="font-serif font-semibold text-base text-foreground">Bảng tra cứu quy tắc nhanh</h3>
               <span
                 ref={badgeRef}
                 style={{ display: 'none' }}
@@ -90,7 +90,7 @@ export default function GrammarCheatSheet({ cheatSheetHtml, lessonTitle }: Gramm
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Lọc từ khóa / công thức..."
-            className="w-full pl-8 pr-8 py-1.5 rounded-lg border border-input bg-background text-foreground text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary shadow-2xs"
+            className="w-full pl-8 pr-8 py-1.5 rounded-lg border border-border/60 bg-background/60 text-foreground text-xs font-medium focus:outline-none focus:border-primary"
           />
           {searchTerm && (
             <button
@@ -106,12 +106,12 @@ export default function GrammarCheatSheet({ cheatSheetHtml, lessonTitle }: Gramm
 
       <div
         ref={containerRef}
-        className="prose prose-slate max-w-none bg-card border border-border rounded-2xl p-4 sm:p-6 shadow-xs overflow-x-auto
-        [&_table]:w-full [&_table]:border-collapse [&_table]:my-2.5
-        [&_th]:border [&_th]:border-border [&_th]:p-3 [&_th]:bg-muted/60 [&_th]:font-semibold [&_th]:text-xs [&_th]:text-foreground
-        [&_td]:border [&_td]:border-border/70 [&_td]:p-3 [&_td]:text-xs [&_td]:text-foreground
-        [&_tr:nth-child(even)]:bg-muted/20
-        [&_h2]:text-base [&_h2]:font-bold [&_h2]:mb-2.5 [&_h2]:text-foreground
+        className="prose prose-slate max-w-none overflow-x-auto my-4 -mx-4 sm:mx-0 px-4 sm:px-0
+        [&_table]:w-full [&_table]:border-collapse [&_table]:border-b [&_table]:border-border/60
+        [&_th]:border-b [&_th]:border-border/60 [&_th]:py-3 [&_th]:px-3.5 [&_th]:font-semibold [&_th]:text-xs [&_th]:text-muted-foreground [&_th]:uppercase [&_th]:tracking-wider
+        [&_td]:border-t [&_td]:border-border/30 [&_td]:py-3 [&_td]:px-3.5 [&_td]:text-sm [&_td]:text-foreground/90
+        [&_tr:hover]:bg-muted/30 [&_tr]:transition-colors
+        [&_h2]:font-serif [&_h2]:text-base [&_h2]:font-semibold [&_h2]:mb-2.5 [&_h2]:text-foreground
         [&_ul]:my-1 [&_ul]:pl-4 [&_li]:my-0.5
         [&_.b-table_td:first-child]:font-semibold [&_.b-table_td:first-child]:text-foreground
       "

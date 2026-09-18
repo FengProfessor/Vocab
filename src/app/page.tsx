@@ -264,6 +264,10 @@ export default function LandingPage() {
 
           <nav className="hidden items-center gap-5 text-sm font-bold text-[#6d574a] md:flex" aria-label="Điều hướng chính">
             <a href="#cach-hoc" className="hover:text-[#241710]">Cách học</a>
+            <Link href="/landing" className="hover:text-indigo-900 font-bold text-indigo-700 bg-indigo-50/80 px-2.5 py-0.5 rounded-full border border-indigo-200 shadow-xs flex items-center gap-1">
+              <Sparkles className="w-3 h-3 text-indigo-600" />
+              <span>Bản Mới 2026</span>
+            </Link>
             <Link href="/ipa" className="hover:text-[#241710] font-bold text-amber-800 dark:text-amber-500">
               🗣️ Phiên Âm IPA
             </Link>

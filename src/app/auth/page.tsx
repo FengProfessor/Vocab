@@ -26,6 +26,7 @@ import type { UserRole } from '@/lib/supabase';
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
 import { detectInAppBrowser, externalBrowserUrl } from '@/lib/in-app-browser';
+import { getStoredReferralCode, clearStoredReferralCode } from '@/lib/referral-tracker';
 
 const display = 'font-bold tracking-tight';
 
@@ -225,6 +226,20 @@ export default function AuthPage() {
           setLoading(false);
           return;
         }
+        const refCode = getStoredReferralCode();
+        if (refCode && data.session?.access_token) {
+          void fetch('/api/referral/claim', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${data.session.access_token}`,
+            },
+            body: JSON.stringify({ referralCode: refCode }),
+          })
+            .then(() => clearStoredReferralCode())
+            .catch(() => null);
+        }
+
         setStatus('Thành công — đang vào học...');
         window.location.replace(destFromSession(data.session.user));
         return;
@@ -244,6 +259,20 @@ export default function AuthPage() {
         setDebugError('Nhấn nút chuyển hướng bên dưới hoặc tắt chế độ Ẩn danh.');
         setLoading(false);
         return;
+      }
+
+      const refCode = getStoredReferralCode();
+      if (refCode && session.access_token) {
+        void fetch('/api/referral/claim', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${session.access_token}`,
+          },
+          body: JSON.stringify({ referralCode: refCode }),
+        })
+          .then(() => clearStoredReferralCode())
+          .catch(() => null);
       }
 
       setStatus('Thành công — đang vào học...');

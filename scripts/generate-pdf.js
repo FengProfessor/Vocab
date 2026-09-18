@@ -20,9 +20,20 @@ async function buildPdf() {
   const pageSections = rawMd.split(/<div\s+style=["']page-break-after:\s*always;?["']><\/div>/i);
   console.log(`Detected ${pageSections.length} structured page sections.`);
 
+  // Read images as base64 for reliable PDF rendering
+  const imgMap = {
+    '/images/toeic-part1-produce.jpg': 'data:image/jpeg;base64,' + fs.readFileSync(path.join(__dirname, '../public/images/toeic-part1-produce.jpg')).toString('base64'),
+    '/images/toeic-part1-bending.jpg': 'data:image/jpeg;base64,' + fs.readFileSync(path.join(__dirname, '../public/images/toeic-part1-bending.jpg')).toString('base64'),
+    '/images/toeic-part3-graphic.jpg': 'data:image/jpeg;base64,' + fs.readFileSync(path.join(__dirname, '../public/images/toeic-part3-graphic.jpg')).toString('base64'),
+  };
+
   const renderedPagesHtml = pageSections
     .map((sectionMd, idx) => {
-      const html = marked.parse(sectionMd.trim());
+      let html = marked.parse(sectionMd.trim());
+      // Replace image paths with base64
+      for (const [imgPath, b64] of Object.entries(imgMap)) {
+        html = html.split(imgPath).join(b64);
+      }
       return `<div class="pdf-page" id="page-${idx + 1}">${html}</div>`;
     })
     .join('\n');
@@ -236,6 +247,36 @@ async function buildPdf() {
       border-top: 1pt solid #cbd5e1;
       margin: 8pt 0;
     }
+
+    .exam-img-wrap {
+      width: 100%;
+      margin: 3pt 0 4pt 0;
+      text-align: center;
+    }
+
+    .exam-img {
+      width: 100%;
+      max-height: 48mm;
+      object-fit: cover;
+      border-radius: 4pt;
+      border: 1pt solid #cbd5e1;
+      display: block;
+    }
+
+    .exam-box {
+      background: #f8fafc;
+      border: 0.8pt solid #cbd5e1;
+      border-left: 3.5pt solid #4f46e5;
+      border-radius: 4pt;
+      padding: 4.5pt 7.5pt;
+      margin: 4.5pt 0;
+      font-size: 7.2pt;
+      line-height: 1.35;
+    }
+
+    .exam-box strong {
+      color: #1e1b4b;
+    }
   </style>
 </head>
 <body>
@@ -276,7 +317,7 @@ async function buildPdf() {
   const headerHtml = `
     <div style="font-size: 7pt; font-family: sans-serif; color: #94a3b8; width: 100%; padding: 0 16mm; display: flex; justify-content: space-between; border-bottom: 0.5pt solid #e2e8f0; padding-bottom: 3px;">
       <span>LingoPro EdTech Platform • Khảo Thí ETS 2024 - 2026</span>
-      <span>CẨM NANG THỰC CHIẾN: SÁT THỦ BÀI NGHE TOEIC (15 TRANG)</span>
+      <span>CẨM NANG THỰC CHIẾN: SÁT THỦ BÀI NGHE TOEIC (10 TRANG)</span>
     </div>
   `;
 

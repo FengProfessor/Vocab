@@ -85,6 +85,10 @@ function VstepExamPageInner() {
   const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.0);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [audioDuration, setAudioDuration] = useState<number>(0);
+  const [audioVolume, setAudioVolume] = useState<number>(1.0);
+  const [isAudioMuted, setIsAudioMuted] = useState<boolean>(false);
+  const [audioError, setAudioError] = useState<string | null>(null);
+  const [isAudioLoading, setIsAudioLoading] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Nạp dữ liệu đề thi
@@ -221,6 +225,115 @@ function VstepExamPageInner() {
 
     return list;
   }, [currentExam]);
+
+  const currentAudioSrc = currentTask?.media?.audio;
+
+  // Tự động đồng bộ và nạp audio khi chuyển Task / Part bài nghe
+  useEffect(() => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+    setAudioDuration(0);
+    setAudioError(null);
+
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      if (currentAudioSrc) {
+        setIsAudioLoading(true);
+        audioRef.current.src = currentAudioSrc;
+        audioRef.current.playbackRate = playbackSpeed;
+        audioRef.current.volume = isAudioMuted ? 0 : audioVolume;
+        audioRef.current.load();
+      }
+    }
+  }, [currentAudioSrc]);
+
+  // Điều khiển Play / Pause an toàn
+  const toggleAudioPlay = () => {
+    if (!audioRef.current || !currentAudioSrc) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      setIsAudioLoading(true);
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          setIsAudioLoading(false);
+          setAudioError(null);
+        })
+        .catch((err) => {
+          console.warn('Audio play failed:', err);
+          setIsPlaying(false);
+          setIsAudioLoading(false);
+          if (err.name === 'NotAllowedError') {
+            toast.info('Trình duyệt yêu cầu tương tác để phát âm thanh.');
+          } else {
+            setAudioError('Không thể phát âm thanh. Vui lòng bấm thử lại.');
+          }
+        });
+    }
+  };
+
+  // Thử lại khi gặp sự cố tải audio
+  const handleAudioRetry = () => {
+    if (!audioRef.current || !currentAudioSrc) return;
+    setAudioError(null);
+    setIsAudioLoading(true);
+    audioRef.current.src = currentAudioSrc;
+    audioRef.current.load();
+    audioRef.current
+      .play()
+      .then(() => {
+        setIsPlaying(true);
+        setIsAudioLoading(false);
+      })
+      .catch((e) => {
+        console.error('Retry play failed:', e);
+        setIsPlaying(false);
+        setIsAudioLoading(false);
+        setAudioError('Không thể tải tệp âm thanh. Vui lòng kiểm tra kết nối.');
+      });
+  };
+
+  // Thay đổi tốc độ phát
+  const handleSpeedChange = (speed: number) => {
+    setPlaybackSpeed(speed);
+    if (audioRef.current) {
+      audioRef.current.playbackRate = speed;
+    }
+  };
+
+  // Tua lùi / tiến
+  const handleSeekDelta = (seconds: number) => {
+    if (!audioRef.current) return;
+    const target = Math.max(0, Math.min(audioDuration || 0, audioRef.current.currentTime + seconds));
+    audioRef.current.currentTime = target;
+    setCurrentTime(target);
+  };
+
+  // Bật/tắt âm thanh
+  const toggleAudioMute = () => {
+    if (!audioRef.current) return;
+    const next = !isAudioMuted;
+    setIsAudioMuted(next);
+    audioRef.current.muted = next;
+    if (!next && audioVolume === 0) {
+      setAudioVolume(1.0);
+      audioRef.current.volume = 1.0;
+    }
+  };
+
+  // Thay đổi âm lượng
+  const handleVolumeChange = (vol: number) => {
+    setAudioVolume(vol);
+    if (audioRef.current) {
+      audioRef.current.volume = vol;
+      audioRef.current.muted = vol === 0;
+    }
+    setIsAudioMuted(vol === 0);
+  };
 
   // Chọn đáp án
   const handleSelectOption = (questionId: string, optionIdx: number) => {
@@ -616,59 +729,166 @@ function VstepExamPageInner() {
 
               {/* LISTENING: Audio Player CDN */}
               {currentSection.type === 'listening' && currentTask?.media?.audio && (
-                <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg border border-slate-200 dark:border-slate-700 space-y-3">
+                <div className="bg-slate-50 dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3 shadow-xs">
+                  {/* Top Bar: Title + Speed selector */}
                   <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="font-bold text-slate-700 dark:text-slate-200">Trình Phát Audio Khảo Thí</span>
-                    <span className="text-slate-500">Tốc độ: {playbackSpeed}x</span>
+                    <div className="flex items-center gap-2">
+                      <div className="p-1 rounded bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300">
+                        <Headphones className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="font-bold text-slate-800 dark:text-slate-200">
+                        Bài Nghe VSTEP — {currentTask.id?.toUpperCase() || `Phần ${activeTaskIdx + 1}`}
+                      </span>
+                    </div>
+
+                    {/* Speed Selector Pills */}
+                    <div className="flex items-center gap-1 bg-slate-200/70 dark:bg-slate-700/60 p-0.5 rounded-md text-[11px]">
+                      {[0.75, 1.0, 1.25, 1.5].map((speed) => (
+                        <button
+                          key={speed}
+                          type="button"
+                          onClick={() => handleSpeedChange(speed)}
+                          className={`px-1.5 py-0.5 rounded transition-colors ${
+                            playbackSpeed === speed
+                              ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 font-bold shadow-xs'
+                              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                          }`}
+                        >
+                          {speed}x
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
                   <audio
                     ref={audioRef}
-                    src={currentTask.media.audio}
+                    src={currentAudioSrc}
                     onTimeUpdate={() => {
                       if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
                     }}
                     onLoadedMetadata={() => {
-                      if (audioRef.current) setAudioDuration(audioRef.current.duration);
+                      if (audioRef.current) {
+                        setAudioDuration(audioRef.current.duration);
+                        setIsAudioLoading(false);
+                        setAudioError(null);
+                      }
                     }}
+                    onCanPlay={() => setIsAudioLoading(false)}
+                    onWaiting={() => setIsAudioLoading(true)}
+                    onPlaying={() => {
+                      setIsPlaying(true);
+                      setIsAudioLoading(false);
+                    }}
+                    onPause={() => setIsPlaying(false)}
                     onEnded={() => setIsPlaying(false)}
+                    onError={() => {
+                      setIsPlaying(false);
+                      setIsAudioLoading(false);
+                      setAudioError('Không thể tải file âm thanh bài nghe. Vui lòng bấm thử lại.');
+                    }}
                     preload="auto"
                   />
 
-                  {/* Audio Controls */}
-                  <div className="flex items-center gap-3">
+                  {/* Error Notification with Retry */}
+                  {audioError && (
+                    <div className="p-2.5 rounded-lg bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 flex items-center justify-between text-xs text-rose-700 dark:text-rose-300">
+                      <div className="flex items-center gap-2">
+                        <AlertTriangle className="w-4 h-4 shrink-0 text-rose-500" />
+                        <span>{audioError}</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleAudioRetry}
+                        className="px-2.5 py-1 rounded bg-rose-600 hover:bg-rose-700 text-white font-semibold flex items-center gap-1 text-[11px] shadow-xs cursor-pointer"
+                      >
+                        <RotateCcw className="w-3 h-3" /> Thử lại
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Main Audio Controls */}
+                  <div className="flex items-center gap-2.5">
+                    {/* Play / Pause button */}
                     <button
                       type="button"
-                      onClick={() => {
-                        if (!audioRef.current) return;
-                        if (isPlaying) {
-                          audioRef.current.pause();
-                          setIsPlaying(false);
-                        } else {
-                          audioRef.current.play();
-                          setIsPlaying(true);
-                        }
-                      }}
-                      className="p-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-sm"
+                      onClick={toggleAudioPlay}
+                      className="p-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-sm active:scale-95 cursor-pointer shrink-0 disabled:opacity-50"
+                      title={isPlaying ? 'Tạm dừng bài nghe' : 'Phát bài nghe'}
+                      disabled={isAudioLoading}
                     >
-                      {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
+                      {isAudioLoading ? (
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      ) : isPlaying ? (
+                        <Pause className="w-4 h-4 fill-current" />
+                      ) : (
+                        <Play className="w-4 h-4 fill-current ml-0.5" />
+                      )}
                     </button>
 
+                    {/* Seek -5s */}
+                    <button
+                      type="button"
+                      onClick={() => handleSeekDelta(-5)}
+                      className="p-1.5 rounded text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 text-[11px] font-mono"
+                      title="Lùi 5 giây"
+                    >
+                      -5s
+                    </button>
+
+                    {/* Seek range slider */}
                     <input
                       type="range"
                       min={0}
                       max={audioDuration || 100}
+                      step={0.1}
                       value={currentTime}
                       onChange={(e) => {
                         const val = parseFloat(e.target.value);
                         setCurrentTime(val);
                         if (audioRef.current) audioRef.current.currentTime = val;
                       }}
-                      className="flex-1 h-1.5 bg-slate-300 dark:bg-slate-600 rounded-lg appearance-none cursor-pointer"
+                      className="flex-1 h-1.5 bg-slate-300 dark:bg-slate-600 rounded-lg appearance-none cursor-pointer accent-blue-600"
                     />
 
-                    <div className="text-[11px] font-mono text-slate-500">
+                    {/* Seek +5s */}
+                    <button
+                      type="button"
+                      onClick={() => handleSeekDelta(5)}
+                      className="p-1.5 rounded text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 text-[11px] font-mono"
+                      title="Tiến 5 giây"
+                    >
+                      +5s
+                    </button>
+
+                    {/* Time Counter */}
+                    <div className="text-[11px] font-mono text-slate-500 tabular-nums shrink-0">
                       {formatTime(Math.floor(currentTime))} / {formatTime(Math.floor(audioDuration))}
+                    </div>
+
+                    {/* Volume Mute & Slider */}
+                    <div className="hidden sm:flex items-center gap-1.5 pl-1 border-l border-slate-200 dark:border-slate-700">
+                      <button
+                        type="button"
+                        onClick={toggleAudioMute}
+                        className="p-1 rounded text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+                        title={isAudioMuted ? 'Bật âm lượng' : 'Tắt âm'}
+                      >
+                        {isAudioMuted || audioVolume === 0 ? (
+                          <VolumeX className="w-4 h-4 text-rose-500" />
+                        ) : (
+                          <Volume2 className="w-4 h-4" />
+                        )}
+                      </button>
+                      <input
+                        type="range"
+                        min={0}
+                        max={1}
+                        step={0.05}
+                        value={isAudioMuted ? 0 : audioVolume}
+                        onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
+                        className="w-16 h-1 bg-slate-300 dark:bg-slate-600 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                        title={`Âm lượng: ${Math.round((isAudioMuted ? 0 : audioVolume) * 100)}%`}
+                      />
                     </div>
                   </div>
 

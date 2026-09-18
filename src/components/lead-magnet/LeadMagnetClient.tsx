@@ -26,6 +26,7 @@ import OfferStackSection from './OfferStackSection';
 import SocialProofSection from './SocialProofSection';
 import FaqSection from './FaqSection';
 import StickyCtaBar from './StickyCtaBar';
+import VisualExamShowcase from './VisualExamShowcase';
 
 export default function LeadMagnetClient() {
   const [isReaderOpen, setIsReaderOpen] = useState(false);
@@ -282,6 +283,9 @@ export default function LeadMagnetClient() {
           </div>
         </div>
       </section>
+
+      {/* Visual Exam Showcase: Minh Họa Bẫy Đề Thi Thực Tế Kèm Hình Ảnh */}
+      <VisualExamShowcase />
 
       {/* Section: Social Proof Testimonials */}
       <div id="reviews">

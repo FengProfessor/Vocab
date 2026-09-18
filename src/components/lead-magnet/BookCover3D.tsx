@@ -52,10 +52,10 @@ export default function BookCover3D({ onReadOnline, onScrollToOptin }: BookCover
           </div>
         </div>
 
-        {/* Floating Badge 1: Top Right - 15 Trang Tinh Gọn */}
+        {/* Floating Badge 1: Top Right - 10 Trang Tinh Gọn */}
         <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-white border border-emerald-200 text-slate-900 px-3 py-1.5 rounded-2xl shadow-xl flex items-center gap-2 animate-bounce [animation-duration:3s]">
           <div className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-xs">
-            15
+            10
           </div>
           <div className="text-left">
             <span className="block text-[11px] font-extrabold text-slate-900 leading-none">Trang Tinh Gọn</span>

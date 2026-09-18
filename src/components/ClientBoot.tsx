@@ -1,7 +1,10 @@
 'use client';
 
+import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
+import { captureReferralCode } from '@/lib/referral-tracker';
+
 const FirebaseInitializer = dynamic(
   () => import('@/components/FirebaseInitializer'),
   { ssr: false },
@@ -54,8 +57,12 @@ function isTourPath(pathname: string): boolean {
 }
 
 export function ClientBoot() {
-
   const pathname = usePathname() ?? '';
+
+  useEffect(() => {
+    captureReferralCode();
+  }, [pathname]);
+
   const light = isLightPath(pathname);
 
   if (light) {

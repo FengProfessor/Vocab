@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Loader2 } from 'lucide-react';
+import { getStoredReferralCode, clearStoredReferralCode } from '@/lib/referral-tracker';
 
 const OAUTH_ROLE_KEY = 'lingopro_oauth_role';
 const OAUTH_PILOT_KEY = 'lingopro_oauth_pilot';
@@ -90,6 +91,21 @@ export default function AuthCallbackPage() {
         if (!session) {
           window.location.replace('/auth?error=oauth_no_session');
           return;
+        }
+
+        // Claim referral attribution if present
+        const refCode = getStoredReferralCode();
+        if (refCode && session.access_token) {
+          void fetch('/api/referral/claim', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${session.access_token}`,
+            },
+            body: JSON.stringify({ referralCode: refCode }),
+          })
+            .then(() => clearStoredReferralCode())
+            .catch(() => null);
         }
 
         if (requestedRole === 'teacher') {

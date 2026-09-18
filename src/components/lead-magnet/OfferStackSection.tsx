@@ -14,7 +14,7 @@ export default function OfferStackSection({ onScrollToOptin, onReadOnline }: Off
       id: 1,
       badge: 'ẤN PHẨM CỐT LÕI',
       badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-      title: 'Ebook Sát Thủ Bài Nghe TOEIC (15 Trang Tinh Gọn)',
+      title: 'Ebook Sát Thủ Bài Nghe TOEIC (10 Trang Tinh Gọn)',
       originalValue: '250,000đ',
       desc: 'Thiết kế chuẩn A4, mỗi trang 1 chuyên đề độc lập giải mã 15 bẫy sát thủ phòng thi, bẫy Being 100% sai, câu hỏi đuôi (+200%), đối thoại 3 người (+150%).',
       features: [

@@ -4,7 +4,7 @@ import LeadMagnetClient from '@/components/lead-magnet/LeadMagnetClient';
 export const metadata: Metadata = {
   title: 'Bách Khoa Thực Chiến: Sát Thủ Bài Nghe TOEIC ETS 2024 & ETS 2026 | LingoPro',
   description:
-    'Giải mã định lượng 2,000 câu hỏi từ 20 bộ đề thi chuẩn ETS 2024 & ETS 2026 mới nhất. Tải ngay Ebook 15 trang độc quyền, làm bài test chẩn đoán phản xạ 15 bẫy nghe sát thủ và bứt phá 450+ điểm Listening.',
+    'Giải mã định lượng 2,000 câu hỏi từ 20 bộ đề thi chuẩn ETS 2024 & ETS 2026 mới nhất. Tải ngay Ebook 10 trang độc quyền, làm bài test chẩn đoán phản xạ 15 bẫy nghe sát thủ và bứt phá 450+ điểm Listening.',
   keywords: [
     'TOEIC Listening',
     'ETS 2024',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bách Khoa Thực Chiến: Sát Thủ Bài Nghe TOEIC ETS 2024 & ETS 2026',
     description:
-      'Tải miễn phí trọn bộ Ebook 15 trang tinh gọn giải mã 2,000 câu hỏi khảo thí ETS 2024-2026, kho 150 cụm collocation bẫy thi và bài test chẩn đoán phản xạ 15 bẫy sát thủ.',
+      'Tải miễn phí trọn bộ Ebook 10 trang tinh gọn giải mã 2,000 câu hỏi khảo thí ETS 2024-2026, kho 150 cụm collocation bẫy thi và bài test chẩn đoán phản xạ 15 bẫy sát thủ.',
     url: 'https://lingopro.vn/sat-thu-toeic-listening',
     siteName: 'LingoPro EdTech Platform',
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bách Khoa Thực Chiến: Sát Thủ Bài Nghe TOEIC ETS 2024 & ETS 2026',
     description:
-      'Giải mã 2,000 câu hỏi nghe thực tế từ 20 đề chuẩn ETS 2024 & 2026. Tải Ebook 15 trang miễn phí ngay!',
+      'Giải mã 2,000 câu hỏi nghe thực tế từ 20 đề chuẩn ETS 2024 & 2026. Tải Ebook 10 trang miễn phí ngay!',
     images: ['/images/og-sat-thu-toeic.jpg'],
   },
   robots: {
@@ -121,7 +121,7 @@ export default function DirectSatThuToeicPage() {
             name: 'Làm thế nào để nhận trọn bộ Ebook, File Audio và Mã VIP Pro 7 ngày?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Bạn chỉ cần nhập địa chỉ Email vào biểu mẫu trên trang web. Hệ thống máy chủ tự động của LingoPro sẽ gửi ngay link tải trọn gói gồm: Ebook chuẩn PDF 15 trang, File tài liệu Markdown, bộ từ điển 150 cụm từ và mã kích hoạt 7 ngày trải nghiệm luyện nghe FSRS trên nền tảng.',
+              text: 'Bạn chỉ cần nhập địa chỉ Email vào biểu mẫu trên trang web. Hệ thống máy chủ tự động của LingoPro sẽ gửi ngay link tải trọn gói gồm: Ebook chuẩn PDF 10 trang, File tài liệu Markdown, bộ từ điển 150 cụm từ và mã kích hoạt 7 ngày trải nghiệm luyện nghe FSRS trên nền tảng.',
             },
           },
           {

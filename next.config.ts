@@ -12,9 +12,9 @@ const csp = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com https://www.googleapis.com https://dict.minhqnd.com https://api.dictionaryapi.dev https://us.i.posthog.com https://us-assets.i.posthog.com",
-  // Audio phát âm giọng thật & TOEIC Listening CDN
-  "media-src 'self' https://api.dictionaryapi.dev https://ssl.gstatic.com https://dict.youdao.com https://s4-media1.study4.com https://*.study4.com https://storage.googleapis.com https://test.toeicbuilding.com.vn https://*.toeicbuilding.com.vn https://testtoeic.com https://*.testtoeic.com",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://fcm.googleapis.com https://fcmregistrations.googleapis.com https://firebaseinstallations.googleapis.com https://www.googleapis.com https://dict.minhqnd.com https://api.dictionaryapi.dev https://us.i.posthog.com https://us-assets.i.posthog.com https://r2tadr.oucommunity.dev https://*.oucommunity.dev https://englishteststore.net https://*.englishteststore.net https://*.r2.dev",
+  // Audio phát âm giọng thật & TOEIC / VSTEP Listening CDN
+  "media-src 'self' https://api.dictionaryapi.dev https://ssl.gstatic.com https://dict.youdao.com https://s4-media1.study4.com https://*.study4.com https://storage.googleapis.com https://test.toeicbuilding.com.vn https://*.toeicbuilding.com.vn https://testtoeic.com https://*.testtoeic.com https://r2tadr.oucommunity.dev https://*.oucommunity.dev https://englishteststore.net https://*.englishteststore.net https://*.r2.dev",
   "worker-src 'self'",
   // 'self' = cho phép LingoTown nhúng app trong iframe (cùng origin)
   "frame-ancestors 'self'",
@@ -64,11 +64,9 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   poweredByHeader: false, // security: ẩn header X-Powered-By
-  // 301 redirect: gộp /landing về trang chủ (tránh trùng nội dung, dồn SEO về /)
+  // Redirects
   async redirects() {
-    return [
-      { source: '/landing', destination: '/', permanent: true },
-    ];
+    return [];
   },
   async headers() {
     // SW cần importScripts từ gstatic — CSP global worker-src 'self' sẽ chặn FCM.

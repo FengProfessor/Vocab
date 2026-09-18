@@ -21,7 +21,7 @@ export default function FaqSection() {
     },
     {
       q: 'Làm thế nào để nhận trọn bộ Ebook, File Audio và Mã VIP Pro 7 ngày?',
-      a: 'Bạn chỉ cần nhập địa chỉ Email vào biểu mẫu trên trang web. Hệ thống máy chủ tự động của LingoPro sẽ gửi ngay link tải trọn gói gồm: Ebook chuẩn PDF 15 trang, File tài liệu Markdown, bộ từ điển 150 cụm từ và mã kích hoạt 7 ngày trải nghiệm luyện nghe FSRS trên nền tảng.',
+      a: 'Bạn chỉ cần nhập địa chỉ Email vào biểu mẫu trên trang web. Hệ thống máy chủ tự động của LingoPro sẽ gửi ngay link tải trọn gói gồm: Ebook chuẩn PDF 10 trang, File tài liệu Markdown, bộ từ điển 150 cụm từ và mã kích hoạt 7 ngày trải nghiệm luyện nghe FSRS trên nền tảng.',
     },
     {
       q: 'Lộ trình 30 ngày trong Ebook có phù hợp với người mất gốc tiếng Anh không?',

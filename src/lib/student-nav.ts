@@ -13,6 +13,7 @@ import {
   Library,
   FileUp,
   Mic,
+  Gift,
 } from 'lucide-react';
 
 export type StudentNavItem = {
@@ -187,6 +188,20 @@ export function buildStudentNavSections(opts?: {
           icon: FileUp,
           match: (pathname) => pathname.startsWith('/import'),
           onboardingId: 'import',
+        },
+      ],
+    },
+    {
+      id: 'referral',
+      title: 'Lan tỏa & Thưởng',
+      items: [
+        {
+          href: '/student/referral',
+          label: 'Mời bạn nhận quà',
+          icon: Gift,
+          badge: '+7d Pro',
+          match: (pathname) => pathname.startsWith('/student/referral') || pathname === '/referral',
+          onboardingId: 'referral-hub',
         },
       ],
     },

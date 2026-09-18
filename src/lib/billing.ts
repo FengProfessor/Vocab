@@ -658,6 +658,14 @@ export async function confirmOrder(
     plan: Exclude<Plan, 'free'>;
     expiresAt: string;
   };
+
+  // Tự động kích hoạt ghi nhận hoa hồng referral nếu người mua có người giới thiệu
+  try {
+    await supabase.rpc('fn_process_referral_reward', { p_order_id: orderId });
+  } catch (refErr) {
+    console.warn('[Billing] Referral reward trigger warning:', refErr);
+  }
+
   return { success: result.success, plan: result.plan, expiresAt: result.expiresAt };
 }
 

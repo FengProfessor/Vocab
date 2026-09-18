@@ -378,8 +378,25 @@ export function StudentProvider({ children }: { children: ReactNode }) {
         if (profData) {
           setProfile(profData);
           setIsTeacherUser(profData.role === 'teacher' || teacherFlag);
+          setStoredProfile(userId, profData);
+          setStoredTeacher(userId, profData.role === 'teacher' || teacherFlag);
         } else if (teacherFlag) {
           setIsTeacherUser(true);
+        }
+
+        // Background check referral activation milestone
+        if (currentSession?.access_token && typeof window !== 'undefined') {
+          try {
+            if (!sessionStorage.getItem('lp_ref_checked')) {
+              sessionStorage.setItem('lp_ref_checked', '1');
+              void fetch('/api/referral/evaluate-activation', {
+                method: 'POST',
+                headers: { Authorization: `Bearer ${currentSession.access_token}` },
+              }).catch(() => null);
+            }
+          } catch {
+            // ignore
+          }
         }
 
         if (gamData) {

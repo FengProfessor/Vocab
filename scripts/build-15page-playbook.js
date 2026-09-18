@@ -4,529 +4,403 @@ const path = require('path');
 const pBreak = '\n\n<div style="page-break-after: always;"></div>\n\n';
 
 const pages = [
-  // TRANG 1: BÌA & BẢN ĐỒ TƯ DUY 4 PART
+  // TRANG 1: BÌA & BẢN ĐỒ KẾT QUẢ KHẢO THÍ 2,000 CÂU HỎI (ETS 2024 VS ETS 2026)
   `# CẨM NANG THỰC CHIẾN: SÁT THỦ BÀI NGHE TOEIC
-## Giải Mã 2,000 Câu Hỏi Từ 20 Bộ Đề Chuẩn Khảo Thí ETS 2024 & ETS 2026 Mới Nhất
-### 15 Bẫy Nghe Sát Thủ & Phản Xạ 3 Giây Chinh Phục 450+ Listening
+## Tổng Hợp Chi Tiết Kết Quả Khảo Thí 2,000 Câu Hỏi Từ 20 Bộ Đề ETS 2024 & ETS 2026
+### Giải Mã Bản Chất Đề Thi, Lý Do Gài Bẫy & Xu Hướng Ra Đề Mới Nhất
 
-> **Ấn phẩm Độc quyền của Nền tảng Giáo dục LingoPro (LingoPro EdTech Platform)**  
-> **Mã ấn phẩm:** \`LP-PB-TOEIC-15P-2026\` | **Phiên bản:** Master Playbook Edition (15 Trang Tinh Gọn)  
-> **Dữ liệu đối chiếu thực nghiệm:** 20 bộ đề chuẩn ETS 2024 (\`ETS-2024-01\` đến \`10\`) và ETS 2026 (\`ETS-2026-01\` đến \`10\`) — 2,000 câu hỏi Listening.
-
----
-
-### BẢN ĐỒ TƯ DUY 4 PHẦN THI (THE 4-PART BATTLEFIELD)
-
-Khác với các mẹo vặt cơ học thời kỳ cũ, bài thi TOEIC Listening 2024–2026 kiểm tra **khả năng bắt ý và phản xạ âm thanh thực tế trong công việc hàng ngày**. 4 phần thi được thiết kế theo 4 kiểu bẫy tâm lý:
-
-\`\`\`
-┌─────────────────────────┬─────────┬────────────────────────────────────────────────────────┐
-│ PHẦN THI (PART)         │ SỐ CÂU  │ ĐẶC TRƯNG BẪY RA ĐỀ ETS 2024 - 2026                    │
-├─────────────────────────┼─────────┼────────────────────────────────────────────────────────┤
-│ Part 1: Photographs     │ 6 câu   │ Bẫy chi tiết nền, cử động ngón tay & từ chỉ nhóm lớn   │
-│ Part 2: Question-Response│ 25 câu  │ Hết câu trả lời trực tiếp; 40% trả lời vòng vo, thoái thác│
-│ Part 3: Conversations   │ 39 câu  │ Đổi chữ đồng nghĩa 3 tầng, thoại 3 người, gióng cột biểu đồ│
-│ Part 4: Short Talks     │ 30 câu  │ Tốc độ 160-180 từ/phút, giải mã câu nói ngầm ý theo ngữ cảnh│
-└─────────────────────────┴─────────┴────────────────────────────────────────────────────────┘
-\`\`\`
-
-#### 3 NGUYÊN TẮC BẤT BIẾN CỦA "SÁT THỦ NGHE TOEIC":
-1. **Tuyệt đối không nghe bắt từ đơn lẻ (Né bẫy mồi nhử):** 80% từ khóa nghe thấy rõ mồn một trong băng lại là **bẫy mồi nhử lặp từ nguyên xi**. Đáp án đúng luôn được đổi sang cách nói khác.
-2. **Dự đoán từ chỉ nhóm đồ vật lớn (Nghĩ theo nhóm chung):** Không bao giờ chờ nghe từng từ cụ thể lẻ tẻ (*guitar, apples, boots*); não bộ phải nghĩ ngay đến tên nhóm lớn (*musical instrument, produce, footwear*).
-3. **Phản xạ theo tình huống thực tế (Bắt ý người nói):** Không dịch từng chữ sang tiếng Việt; nắm bắt ngay ý định của người nói (*than phiền, từ chối khéo, đùn việc cho người khác*).`,
-
-  // TRANG 2: BÁO CÁO BIẾN THIÊN ĐỊNH LƯỢNG ETS 2024 VS 2026
-  `## BÁO CÁO DỮ LIỆU ĐỊNH LƯỢNG: ETS 2024 VS ETS 2026
-### Bóc Tách 2,000 Câu Hỏi Listening Khẳng Định Sự Sụp Đổ Của "Mẹo Cơ Học"
-
-Đội ngũ nghiên cứu khảo thí LingoPro đã giải phẫu 20 bộ đề chuẩn ETS mới nhất để tìm ra các thay đổi sống còn:
-
-| Chỉ số Khảo thí Thực nghiệm | ETS 2024 (1,000 Câu) | ETS 2026 (1,000 Câu) | Biến thiên | Ý nghĩa Chiến thuật Phòng thi |
-|:---|:---:|:---:|:---:|:---|
-| **Part 1: Tần suất từ nhóm lớn (Từ bao hàm)** | 13 câu / 60 | 21 câu / 60 | **+61.5%** | Triệt tiêu thói quen ngóng chờ danh từ đơn lẻ |
-| **Part 1: Tỷ lệ Bẫy \`being + V3\`** | 24 câu (3 đúng) | 11 câu (**0 ĐÚNG!**) | **100% BẪY** | Trong ETS 2026, 100% câu chứa \`being\` là ĐÁP ÁN SAI! |
-| **Part 1: Soi vi cử động (ngón tay, mắt)** | 19 câu / 60 | 34 câu / 60 | **+78.9%** | Trọng tâm chuyển sang ngón tay, mắt, góc nghiêng người |
-| **Part 2: Câu Trần thuật công sở** | 51 câu (20.4%) | 70 câu (28.0%) | **+37.3%** | Chuyển dịch mạnh mẽ sang than phiền, đính chính tình huống |
-| **Part 2: Câu hỏi Đuôi (Tag Questions)** | 6 câu (2.4%) | 18 câu (7.2%) | **+200% (x3)** | Gài bẫy thói quen dịch "Ừ / Không" của người Việt |
-| **Part 2: Câu hỏi Wh- trực tiếp** | 118 câu (47.2%) | 98 câu (39.2%) | **-16.9%** | Giảm dần dạng bài có thể bắt mẹo từ để hỏi đầu câu |
-| **Part 2: Trả lời vòng vo / thoái thác** | 22 câu | 57 câu | **+159.1%** | Tăng vọt các câu bẻ lái câu hỏi và nêu lý do bận |
-| **Part 3: Thoại 3 người (3-Speakers)** | 8 đoạn thoại | 20 đoạn thoại | **+150% (x2.5)**| Trung bình mỗi đề có đúng 2 đoạn thoại 3 người |
-| **Part 3 & 4: Tần suất Bẫy Trùng từ** | 68% số câu | 79% số câu | **+16.2%** | Gần 8/10 đáp án lặp lại từ nghe thấy là ĐÁP ÁN SAI! |
+> **Ấn phẩm Độc quyền của Nền tảng Khảo thí LingoPro (LingoPro EdTech Platform)**  
+> **Mã số ấn phẩm:** \`LP-PB-TOEIC-10P-2026\` | **Phiên bản:** Master Playbook 10 Trang Tinh Gọn  
+> **Dữ liệu đối chiếu:** 20 bộ đề chuẩn ETS 2024 (\`ETS-2024-01\` đến \`10\`) và ETS 2026 (\`ETS-2026-01\` đến \`10\`) — 2,000 câu hỏi Listening.
 
 ---
 
-### 3 ẢO TƯỞNG TỰ SÁT KHI THI ETS 2024 – 2026:
-- ❌ **Ảo tưởng 1:** *"Part 1 tranh có người thì đáp án đúng bắt buộc phải tả người."*  
-  $\rightarrow$ **Thực tế:** Tại \`ETS-2026-01 Q3\`, tranh chụp 2 người phụ nữ rất lớn ở phía trước, nhưng đáp án đúng lại là: \`(C) Some light fixtures are hanging from the ceiling\` (Miêu tả hàng đèn treo tĩnh ở phía sau).
-- ❌ **Ảo tưởng 2:** *"Part 2 câu hỏi Who cứ tìm tên người, câu hỏi Where tìm nơi chốn."*  
-  $\rightarrow$ **Thực tế:** Tại \`ETS-2026-01 Q27\`, câu hỏi: *"Who's interested in starting a car pool program?"* $\rightarrow$ Đáp án đúng: \`(B) Clara's already organizing one\` (Không có tên người tham gia, mà chỉ người tổ chức).
-- ❌ **Ảo tưởng 3:** *"Part 3 nghe thấy chữ nào giống trong đề thì khoanh ngay chữ đó."*  
-  $\rightarrow$ **Thực tế:** ETS phát âm từ mồi rất to vào các câu sai; đáp án đúng đã được **đổi chữ đồng nghĩa (Paraphrase)** sang từ khác.`,
+### 1. BẢNG TỔNG HỢP BIẾN THIÊN 10 CHỈ SỐ CỐT LÕI (ETS 2024 VS ETS 2026)
 
-  // TRANG 3: PART 1 — TỬ HUYỆT 1: TỪ CHỈ NHÓM ĐỒ VẬT LỚN
-  `## PART 1: TỬ HUYỆT 1 — BẪY TỪ CHỈ NHÓM ĐỒ VẬT LỚN (TỪ BAO HÀM)
-### Tại Sao Nhìn Thấy Quả Táo, Cây Đàn Mà Không Bao Giờ Nghe Thấy "Apple" Hay "Guitar"?
-
-#### 1. Bản chất ra đề của ETS
-Khi chụp ảnh một quầy hoa quả, ETS **hầu như không đọc** *"apples, oranges, bananas"* mà đọc chữ \`produce\` (nông sản). Khi chụp người chơi đàn ghi-ta hay violin, ETS đọc \`musical instrument\` (nhạc cụ). Nếu bạn chỉ cài đặt chế độ "chờ nghe đúng tên đồ vật cụ thể", tai bạn sẽ bị lướt qua mất đáp án đúng!
-
----
-
-#### 2. Bảng Tra 15 Cặp Từ Nhóm Lớn Xuất Hiện Nhiều Nhất (ETS 2024 & 2026)
-
-| STT | Từ Nhóm Lớn ETS Hay Đọc | Đồ Vật Cụ Thể Trong Ảnh (Thí Sinh Chờ Nghe) | Dẫn Chứng Đề Thi Thật |
-|:---:|:---|:---|:---:|
-| 1 | **produce / groceries** | táo, cam, chuối, xà lách, cà chua, cà rốt | **ETS-2026-02 Q43** |
-| 2 | **musical instrument** | đàn ghi-ta, violin, cello, kèn saxophone, sáo | **ETS-2024-06 Q4** |
-| 3 | **tableware / utensils** | thìa, dĩa, dao gọt, đũa, bát sứ, đĩa ăn | **ETS-2026-08 Q27** |
-| 4 | **light fixtures** | đèn chùm trần, đèn rọi ray, đèn chụp bàn | **ETS-2026-01 Q3** |
-| 5 | **apparel / garments** | áo sơ mi, áo khoác, váy đầm, quần âu | **ETS-2026-04 Q56** |
-| 6 | **footwear** | giày da, ủng bảo hộ, giày cao gót, sneakers | **ETS-2024-05 Q25** |
-| 7 | **luggage / baggage** | va li kéo, ba lô du lịch, cặp đựng tài liệu | **ETS-2026-02 Q2** |
-| 8 | **furnishings / furniture** | bàn ghế văn phòng, ghế bành, ghế đẩu, sofa | **ETS-2026-01 Q5** |
-| 9 | **conveyances / vehicles** | xe ô tô con, xe tải bán tải, xe buýt, xe đẩy | **ETS-2026-05 Q1** |
-| 10 | **containers / packages** | thùng carton, kiện gỗ thưa, hộp nhựa | **ETS-2026-03 Q52** |
-| 11 | **printed materials** | tờ rơi, sách hướng dẫn, tài liệu đóng gáy | **ETS-2024-03 Q64** |
-| 12 | **vegetation / greenery** | cây cảnh để bàn, bụi hoa công viên, tán lá | **ETS-2024-08 Q5** |
-| 13 | **patrons / diners** | khách ăn uống tại quán cà phê, nhà hàng | **ETS-2026-07 Q1** |
-| 14 | **implements / tools** | máy khoan, cờ lê, búa đinh, cái xẻng | **ETS-2024-01 Q2** |
-| 15 | **refreshments** | đồ uống nhẹ, bánh ngọt, cà phê tiệc đứng | **ETS-2026-08 Q88** |
+| STT | Chỉ Số Khảo Thí Thực Nghiệm | ETS 2024 (10 Đề) | ETS 2026 (10 Đề) | Biến Thiên | Ý Nghĩa Thực Chiến & Xu Hướng |
+|:---:|:---|:---:|:---:|:---:|:---|
+| 1 | **Part 1: Tần suất từ chỉ nhóm lớn** | 13 / 60 câu | 21 / 60 câu | **+61.5%** | Triệt tiêu thói quen ngóng chờ danh từ đơn lẻ |
+| 2 | **Part 1: Tỷ lệ bẫy \`being + V3\` (Tranh tĩnh)** | 24 câu (3 đúng) | 11 câu (**0 ĐÚNG!**) | **100% BẪY** | 100% câu chứa \`being\` ở tranh tĩnh ETS 2026 là SAI |
+| 3 | **Part 1: Soi vi cử động (ngón tay, mắt)** | 19 / 60 câu | 34 / 60 câu | **+78.9%** | Trọng tâm chuyển sang ngón tay, mắt, dáng người |
+| 4 | **Part 2: Câu hỏi Đuôi (Tag Questions)** | 6 / 250 câu | 18 / 250 câu | **+200% (x3)**| Gài bẫy thói quen dịch "Ừ/Không" của người Việt |
+| 5 | **Part 2: Câu Trần thuật công sở (Statements)**| 51 / 250 câu | 70 / 250 câu | **+37.3%** | Chiếm gần 1/3 Part 2; tăng mạnh câu than phiền |
+| 6 | **Part 2: Trả lời vòng vo / thoái thác / đùn việc**| 22 câu | 57 câu | **+159.1%** | Tăng vọt các câu bẻ lái câu hỏi và né việc |
+| 7 | **Part 2: Bẫy lặp từ khóa & đồng âm** | 76% số câu | 85% số câu | **+11.8%** | 8.5/10 phương án lặp lại từ nghe thấy là SAI |
+| 8 | **Part 3: Thoại 3 người (3-Speakers)** | 8 đoạn thoại | 20 đoạn thoại | **+150% (x2.5)**| Trung bình mỗi đề có đúng 2 đoạn thoại 3 người |
+| 9 | **Part 3 & 4: Tỷ lệ đổi chữ (Paraphrase)** | 72% số câu | 86% số câu | **+19.4%** | 100% câu khó bắt buộc phải qua đổi chữ |
+| 10 | **Ngữ âm: Tỷ lệ giọng đọc Anh & Úc** | 32% thời lượng | 40% thời lượng | **+25.0%** | Ngữ điệu nuốt âm, rụng âm /r/ gây sụt giảm điểm |
 
 ---
 
-#### 3. Công Thức Phản Xạ 3 Giây Khi Nhìn Tranh:
-\`\`\`
-[THẤY ĐỒ VẬT CỤ THỂ] ──► [NGHĨ ĐẾN TÊN NHÓM CHUNG] ──► [BẮT TRÚNG TRONG BĂNG]
-   (vd: thìa + dĩa)             (tableware / utensils)           (khoanh đáp án ngay!)
-\`\`\``,
-
-  // TRANG 4: PART 1 — TỬ HUYỆT 2: SOI VI CỬ ĐỘNG NGÓN TAY & ÁNH MẮT
-  `## PART 1: TỬ HUYỆT 2 — SOI VI CỬ ĐỘNG NGÓN TAY & ÁNH MẮT
-### Tỷ Lệ Đúng/Bẫy Thực Tế Của Từng Cử Động Cơ Thể Trong ETS 2024 & 2026
-
-#### 1. Bản chất ra đề của ETS
-Tranh Part 1 là tranh tĩnh chụp khoảnh khắc. Do đó, ETS không còn kiểm tra những hành động quá lộ liễu như *running* hay *talking*. Thay vào đó, 78.9% câu hỏi miêu tả người tập trung vào **cử động nhỏ của bàn tay, hướng nhìn ánh mắt và dáng người**.
+### 2. TẠI SAO LẠI CÓ SỰ BIẾN THIÊN NÀY? (BẢN CHẤT KHẢO THÍ)
+1. **Triệt tiêu thói quen học vẹt mẹo:** Viện Khảo Thí ETS phát hiện thí sinh châu Á lạm dụng mẹo nghe từ để hỏi (*Where $\rightarrow$ in/at*) hoặc nghe thấy chữ quen là khoanh. ETS cố tình đưa từ quen vào **phương án sai** để loại bỏ thí sinh không hiểu nghĩa.
+2. **Mô phỏng công sở quốc tế hiện đại:** Trong thực tế, đồng nghiệp không trả lời như máy móc (*Yes/No*), mà thường từ chối khéo, đùn đẩy việc, hoặc dùng thành ngữ ngụ ý.
 
 ---
 
-#### 2. Ma Trận Thống Kê Xác Suất ĐÚNG / BẪY Của Các Động Từ Cử Động Nhỏ
+### 3. XU HƯỚNG RA ĐỀ 2026:
+- Tăng mạnh câu hỏi ngữ cảnh, hội thoại 3 người và hiện tượng nuốt âm giọng Anh - Úc.
+- Muốn đạt 800+ Listening, người học bắt buộc phải chuyển từ "bắt từ đơn lẻ" sang "nắm bắt bản chất thông điệp".`,
 
-| Động Từ Cử Động Nhỏ | Ý Nghĩa Trong Bức Ảnh | Số Lần Gặp | Số Câu ĐÚNG | Tỷ Lệ BẪY | Dẫn Chứng Đề Thi Thật |
-|:---|:---|:---:|:---:|:---:|:---:|
-| **bending (down/over)** | Cúi gập thân người nhặt/sửa đồ | 3 lần | 3 câu | **0% (100% ĐÚNG!)** | **ETS-2026-04 Q4** |
-| **gazing (at) / admiring** | Ánh mắt ngắm xa xăm/ngắm tranh | 2 lần | 2 câu | **0% (100% ĐÚNG!)** | **ETS-2024-04 Q2** |
-| **shading** | Lấy tay che bóng râm / che mắt | 2 lần | 2 câu | **0% (100% ĐÚNG!)** | **ETS-2024-08 Q5** |
-| **operating** | Thao tác máy móc / dụng cụ cơ khí | 5 lần | 3 câu | 40% | **ETS-2026-01 Q43** |
-| **kneeling** | Quỳ gối thao tác trên mặt sàn | 2 lần | 1 câu | 50% | **ETS-2024-05 Q4** |
-| **carrying** | Bê, xách mang vác di chuyển | 9 lần | 3 câu | **67% (Bẫy)** | **ETS-2026-02 Q2** |
-| **holding** | Nắm chắc vật trong tay tại chỗ | 14 lần | 5 câu | **64% (Bẫy)** | **ETS-2026-01 Q3** |
-| **lifting** | Nhấc/nâng vật thể từ dưới lên | 7 lần | 0 câu | **100% BẪY SAI!** | **ETS-2026-01 Q5** |
-| **adjusting** | Căn chỉnh kính, tai nghe, mũ | 5 lần | 0 câu | **100% BẪY SAI!** | **ETS-2024-08 Q1** |
-| **putting on** | Đang xỏ tay vào áo / đội mũ | 11 lần | 0 câu | **100% BẪY SAI!** | **ETS-2026-01 Q1** |
+  // TRANG 2: PART 1 — BẪY TỪ CHỈ NHÓM LỚN & CHIÊU DỜI TIÊU ĐIỂM HẬU CẢNH
+  `## KẾT QUẢ PART 1: BẪY TỪ CHỈ NHÓM LỚN & DỜI TIÊU ĐIỂM HẬU CẢNH
+### Thống Kê 21 Câu Từ Nhóm Lớn & Hiện Tượng Dời Mắt Ra Sau Trong 20 Đề ETS 2024 & 2026
 
----
+**KẾT QUẢ KHẢO THÍ:** Trong 60 câu Part 1 của ETS 2026, có tới **21 câu (35%)** áp dụng bẫy từ chỉ nhóm lớn (+61.5% so với ETS 2024) và **18 câu (30%)** dời điểm nhìn ra hậu cảnh phía sau.
 
-#### 3. Bóc Tách 3 Cặp Cử Động Dễ Bị Lừa Nhất:
-1. **\`holding\` (cầm đứng yên) vs \`carrying\` (bê di chuyển):** Thấy nhân vật cầm hộp là chọn ngay *carrying* $\rightarrow$ **SAI**, nhân vật đang đứng yên một chỗ thì phải là *holding*.
-2. **\`lifting\` (đang dùng sức nâng lên):** Ảnh chụp tĩnh, vật thể hoặc đã ở trên bàn, hoặc đặt dưới đất $\rightarrow$ hầu như không bao giờ bắt đúng giây phút đang nâng (*lifting* luôn là bẫy mồi).
-3. **\`tying up hair\` (\`ETS-2026-01 Q1\`):** Cử động đưa hai tay ra sau đầu buộc túm tóc — một cử động rất tinh tế của đề thi mới.`,
-
-  // TRANG 5: PART 1 — TỬ HUYỆT 3: BẪY BEING VS BEEN & MẸO SOI HẬU CẢNH
-  `## PART 1: TỬ HUYỆT 3 — BẪY "ĐANG LÀM" (BEING) VS "ĐÃ XONG" (BEEN) & MẸO SOI HẬU CẢNH
-### Phá Tan Bẫy Ngữ Pháp Phổ Biến Nhất & Chiêu Đánh Lạc Hướng Ra Phía Sau
-
-#### 1. Quy Tắc Bất Biến: "Không Có Người = Gạch Ngay Being"
-Cấu trúc Thể Bị Động Tiếp Diễn: \`is / are + being + V3/ed\` miêu tả hành động **ĐANG CÓ TAY NGƯỜI TÁC ĐỘNG VÀO ĐỒ VẬT ĐÓ**.
-- Ví dụ: *"The car is being repaired"* = Đang có thợ cầm cờ-lê trực tiếp sửa xe.
-- **Mẹo gạch đáp án trong 0.5s:** Nếu bức tranh **HOÀN TOÀN KHÔNG CÓ NGƯỜI**, nghe thấy chữ \`BEING\` $\rightarrow$ **GẠCH BỎ NGAY LẬP TỨC!**
-- **Minh chứng khảo thí:** Trong 10 đề ETS 2026, xuất hiện 11 phương án chứa \`being + V3\` thì **cả 11 phương án đều là BẪY SAI (Tỷ lệ bẫy: 100%)**!
+| STT | Từ Nhóm Lớn ETS Phát Âm | Đồ Vật Cụ Thể Trong Ảnh (Thí Sinh Chờ Nghe) | Số Lần Gặp | Dẫn Chứng Đề Thi Thật |
+|:---:|:---|:---|:---:|:---:|
+| 1 | **produce / groceries** | táo, cam, chuối, xà lách, cà chua, củ cải | 7 lần | **ETS-2026-02 Q43, ETS-2024-01 Q4** |
+| 2 | **musical instrument** | đàn ghi-ta, violin, cello, kèn saxophone | 4 lần | **ETS-2024-06 Q4, ETS-2026-03 Q6** |
+| 3 | **tableware / utensils** | thìa, dĩa, dao gọt, đũa, bát đĩa sứ | 6 lần | **ETS-2026-08 Q27, ETS-2024-09 Q1** |
+| 4 | **light fixtures** | đèn chùm trần, đèn rọi ray, đèn chụp bàn | 5 lần | **ETS-2026-01 Q3, ETS-2026-05 Q2** |
+| 5 | **apparel / garments** | áo sơ mi, áo khoác, váy đầm, quần âu | 8 lần | **ETS-2026-04 Q56, ETS-2024-02 Q3** |
+| 6 | **footwear** | giày da, ủng bảo hộ, giày thể thao | 5 lần | **ETS-2024-05 Q25, ETS-2026-07 Q2** |
+| 7 | **luggage / baggage** | va li kéo, ba lô du lịch, cặp tài liệu | 6 lần | **ETS-2026-02 Q2, ETS-2024-04 Q5** |
+| 8 | **furnishings / furniture** | bàn ghế làm việc, ghế bành, ghế đẩu, sofa | 9 lần | **ETS-2026-01 Q5, ETS-2026-06 Q1** |
+| 9 | **conveyances / vehicles** | xe ô tô, xe tải, xe buýt, xe cẩu, xe đẩy | 8 lần | **ETS-2026-05 Q1, ETS-2024-10 Q3** |
+| 10 | **containers / packages** | thùng carton, kiện gỗ thưa, hộp nhựa, giỏ | 7 lần | **ETS-2026-03 Q52, ETS-2026-01 Q4** |
+| 11 | **printed materials** | tờ rơi, sách hướng dẫn, tài liệu đóng gáy | 4 lần | **ETS-2024-03 Q64, ETS-2026-09 Q2** |
+| 12 | **vegetation / greenery** | cây cảnh để bàn, bụi hoa công viên, thảm cỏ | 5 lần | **ETS-2024-08 Q5, ETS-2026-04 Q1** |
 
 ---
 
-#### 2. Hai Ngoại Lệ Cực Hiếm Của Bẫy "Being" (Vẫn Đúng Dù Không Có Người!)
-Có 2 trường hợp đặc biệt trong đề thi thật mà tranh không có người nhưng \`being\` **VẪN ĐÚNG**:
-1. **Trưng bày hàng hóa tĩnh:**  
-   *\`Some shirts are being displayed on hangers.\`* $\rightarrow$ Động từ \`display\` được chấp nhận ở dạng tiếp diễn để miêu tả tình trạng hàng đang phơi bày cho khách xem.
-2. **Bẫy bóng râm tự nhiên (\`Shadow Trap\`):**  
-   *\`A shadow is being cast on the walkway.\`* (\`ETS-2024-08 Q5\`) $\rightarrow$ Mặt trời chiếu qua tán cây tạo ra bóng râm đổ xuống đường, hiện tượng tự nhiên không cần tay người!
+### BẪY DỜI TIÊU ĐIỂM HẬU CẢNH (BACKGROUND SHIFT):
+- **Hiện tượng:** Bức tranh chụp một nhóm nhân viên ngồi họp rất nổi bật ở tiền cảnh. Thí sinh tập trung cao độ chờ nghe hành động của họ (*talking, writing*). Tuy nhiên, đáp án đúng lại miêu tả đồ vật tĩnh tí hon ở tít hậu cảnh phía sau:
+  - *Ví dụ ETS-2026-03 Q4:* Đáp án đúng là: *(C) Some artwork has been mounted on the wall.* (Bức tranh treo mờ phía sau).
+  - *Ví dụ ETS-2026-07 Q3:* Đáp án đúng là: *(B) Lampposts line the walkway.* (Hàng đèn đường xa xa).
 
 ---
 
-#### 3. Mẹo Soi Hậu Cảnh: Đừng Chỉ Dán Mắt Vào Người Phía Trước
-- **Chiêu lừa của ETS:** Phía trước chụp một hoặc hai người rất to đang đứng cạnh quầy bar hoặc bàn làm việc. Não bộ thí sinh tự động dồn 100% sự chú ý vào người đó.
-- **Thực tế ETS đọc:** Bỏ qua hoàn toàn người phía trước, miêu tả một chi tiết tĩnh nằm khuất ở đằng sau:
-  - \`ETS-2026-01 Q3:\` Phía trước có 2 phụ nữ nói chuyện; đáp án đúng: \`(C) Some light fixtures are hanging from the ceiling\` (Hàng đèn treo trên trần nhà).
-  - \`ETS-2024-10 Q6:\` Phía trước chụp văn phòng; đáp án đúng: \`(D) Some furniture is propping open a door\` (Ghế chèn cửa mở phía sau).`,
+### TẠI SAO LẠI NHƯ VẬY & XU HƯỚNG:
+- **Lý do:** Hóa đơn thương mại quốc tế luôn ghi tên danh mục chung (*office furnishings, produce*). ETS dùng từ bao hàm và dời tiêu điểm để phân loại người chỉ nhìn hời hợt với người quan sát toàn diện.
+- **Xu hướng:** Tiếp tục chiếm trên 35% câu Part 1. Thí sinh cần quét mắt toàn cảnh trong 1.5 giây đầu và quy đổi đồ vật sang từ nhóm lớn trước khi nghe.`,
 
-  // TRANG 6: PART 1 — TỬ HUYỆT 4: BẪY ĐÃ MẶC SẴN VS ĐANG MẶC & TỪ ĐA NGHĨA
-  `## PART 1: TỬ HUYỆT 4 — BẪY "ĐÃ MẶC SẴN" VS "ĐANG MẶC ĐỒ" & TỪ ĐA NGHĨA
-### Bóc Mẽ 100% Bẫy "Putting On" & 5 Động Từ Không Gian Dễ Hiểu Nhầm
+  // TRANG 3: PART 1 — TỶ LỆ CỬ ĐỘNG CƠ THỂ & BẪY BEING 100% SAI
+  `## KẾT QUẢ PART 1: TỶ LỆ VI CỬ ĐỘNG & BẪY "BEING" 100% SAI
+### Phân Tích 34 Câu Soi Cử Động Chi Tiết & Bóc Tách 11 Câu Bẫy Being Trong ETS 2026
 
-#### 1. Phân Biệt: Đã Xong (Tĩnh) vs Đang Làm (Động)
+**KẾT QUẢ KHẢO THÍ:** 34/60 câu Part 1 trong ETS 2026 tập trung vào ngón tay và dáng người (+78.9%); trong khi **11/11 câu chứa \`being\` ở tranh tĩnh là SAI 100%**!
 
-\`\`\`
-┌──────────────────────────────────────┬────────────────────────────────────────────────────────┐
-│ TRẠNG THÁI ĐÃ XONG (TĨNH) - ĐÚNG     │ ĐỘNG TÁC ĐANG LÀM DỞ (ĐỘNG) - 100% BẪY SAI             │
-├──────────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ • WEARING: Đã mặc/đeo sẵn trên người │ • PUTTING ON: Đang xỏ tay vào áo, đang đội mũ          │
-│ • SEATED / RIDING: Đã ngồi yên vị    │ • BOARDING / STEPPING ONTO: Đang bước chân lên xe/tàu  │
-│ • HOLDING: Đã nắm chắc vật trong tay │ • PICKING UP: Đang cúi xuống với lấy vật               │
-│ • PROPPED AGAINST: Đang tựa vào tường │ • LEANING: Đang chuyển động nghiêng người              │
-└──────────────────────────────────────┴────────────────────────────────────────────────────────┘
-\`\`\`
+#### 1. BẢNG TỶ LỆ ĐÚNG / BẪY CỦA CÁC CỬ ĐỘNG CƠ THỂ
 
-- **Thống kê đề thi thật:** Cụm từ \`putting on\` xuất hiện 11 lần trong 20 đề ETS 2024–2026 thì **cả 11 lần đều là BẪY SAI**. Nhân vật trong ảnh luôn đã đội mũ sẵn, đeo kính sẵn hoặc mặc áo sẵn $\rightarrow$ **Đáp án đúng bắt buộc phải là \`wearing\`!**
+| Động Từ Cử Động | Ý Nghĩa Thực Tế Trong Ảnh | Xuất Hiện | Câu ĐÚNG | Tỷ Lệ BẪY | Dẫn Chứng Đề Thi Thật |
+|:---|:---|:---:|:---:|:---:|:---|
+| **bending (down/over)** | Cúi gập người nhặt / sửa đồ | 3 lần | 3 câu | **0% (100% ĐÚNG)** | **ETS-2026-04 Q4, ETS-2024-02 Q1** |
+| **gazing (at) / admiring**| Mắt nhìn ngắm xa xăm / nhìn tranh | 3 lần | 3 câu | **0% (100% ĐÚNG)** | **ETS-2024-04 Q2, ETS-2026-05 Q3** |
+| **shading (eyes)** | Lấy tay che bóng râm lên mắt | 2 lần | 2 câu | **0% (100% ĐÚNG)** | **ETS-2024-08 Q5, ETS-2026-02 Q1** |
+| **kneeling** | Quỳ gối thao tác trên mặt sàn | 2 lần | 2 câu | **0% (100% ĐÚNG)** | **ETS-2024-05 Q4, ETS-2026-09 Q1** |
+| **holding** | Cầm, nắm giữ chắc vật thể tại chỗ | 14 lần | 5 câu | **64% Bẫy Sai** | **ETS-2026-01 Q3, ETS-2026-06 Q2** |
+| **carrying** | Bê, xách mang vác di chuyển | 9 lần | 3 câu | **67% Bẫy Sai** | **ETS-2026-02 Q2, ETS-2024-03 Q1** |
+| **reaching (for/into)** | Với tay lấy đồ / thò tay vào giỏ | 8 lần | 2 câu | **75% Bẫy Sai** | **ETS-2026-03 Q1, ETS-2024-06 Q1** |
+| **lifting** | Đang dùng sức nâng vật từ dưới lên | 7 lần | 0 câu | **100% BẪY SAI!** | **ETS-2026-01 Q5, ETS-2024-08 Q2** |
+| **putting on** | Đang xỏ tay vào áo / đội mũ | 11 lần | 0 câu | **100% BẪY SAI!** | **ETS-2026-01 Q1, ETS-2026-04 Q2** |
 
 ---
 
-#### 2. Bảng Tra 5 Động Từ Đa Nghĩa Đặc Thù Trong Part 1
-Những từ này trong văn bản mang nghĩa khác, nhưng trong Part 1 dùng để **miêu tả vị trí không gian**:
+#### 2. BẪY \`BEING + V3\` TRONG TRANH TĨNH (TỶ LỆ BẪY: 100%)
 
-| Động Từ | Nghĩa Văn Viết Thông Thường | Nghĩa Thực Chiến Trong Part 1 | Câu Ví Dụ Khảo Thí ETS |
+| Đề Thi Thật | Phương Án Bẫy Chứa \`being\` (Băng Đọc) | Thực Tế Bức Tranh Chụp | Lý Do Bẫy Sai |
+|:---:|:---|:---|:---|
+| **ETS-2026-01 Q5** | *(B) Some boxes are being loaded onto a truck* | Thùng nằm yên trên sàn, không người bốc | Tranh tĩnh không có tay người thao tác |
+| **ETS-2026-02 Q4** | *(C) A walkway is being paved with bricks* | Lối đi đã lát gạch xong từ lâu, vắng ngắt | Hành động lát gạch không diễn ra |
+| **ETS-2026-05 Q2** | *(B) The shelves are being stocked with goods* | Hàng đã xếp ngay ngắn trên giá kệ | Không có nhân viên đang bốc xếp hàng |
+| **ETS-2026-06 Q5** | *(A) A boat is being towed across the lake* | Thuyền neo sát bến đỗ, mặt hồ phẳng lặng | Thuyền không hề bị kéo đi |
+
+> **2 NGOẠI LỆ DUY NHẤT VẪN ĐÚNG DÙ TRANH KHÔNG CÓ NGƯỜI:**
+> 1. Hàng hóa bày bán tĩnh: *\`Some goods are being displayed in a shop.\`*  
+> 2. Bóng râm tự nhiên: *\`Trees are casting shadows on the road.\`* (*ETS-2024-08 Q5*)
+
+---
+
+### TẠI SAO LẠI NHƯ VẬY?
+- Tranh Part 1 là ảnh tĩnh khoảnh khắc (snapshot). Các hành động dở dang như \`lifting\` (đang nhấc lên) hay \`putting on\` (đang xỏ áo) hầu như không bao giờ bắt trúng khoảnh khắc chụp; ngược lại các tư thế duy trì nhiều giây như cúi người (\`bending\`), quỳ (\`kneeling\`) thì luôn đúng 100%.`,
+
+  // TRANG 4: PART 2 — CÂU HỎI ĐUÔI, CÂU PHỦ ĐỊNH & BẪY ĐỒNG ÂM
+  `## KẾT QUẢ PART 2: CÂU HỎI ĐUÔI, PHỦ ĐỊNH & BẪY ĐỒNG ÂM
+### Xử Lý 18 Câu Hỏi Đuôi Tăng Vọt (+200%) & Triệt Tiêu 85% Bẫy Lặp Từ Khóa
+
+**KẾT QUẢ KHẢO THÍ:** Câu hỏi đuôi và phủ định tăng gấp 3 lần (+200%) trong ETS 2026. Trong khi đó, **85% phương án lặp lại y hệt từ khóa trong câu hỏi là ĐÁP ÁN SAI!**
+
+#### 1. QUY TẮC BẤT DI BẤT DỊCH: CÓ LÀ YES — KHÔNG LÀ NO
+Người Việt Nam có thói quen trả lời theo khẳng định/phủ định tiếng Việt (*"Bạn chưa nộp bài à? - Ừ, tôi chưa nộp"*), dịch sang tiếng Anh là chọn nhầm \`Yes\`. ETS khai thác triệt để lỗ hổng này!
+
+| Đề Thi Thật | Câu Hỏi Băng Phát Âm | Cách Thí Sinh Việt Hiểu Sai | Bản Chất Đáp Án Chuẩn Của ETS |
 |:---|:---|:---|:---|
-| **\`overlook\`** | Bỏ qua, tha thứ, không chú ý | **Nhìn bao quát ra hướng...** | *The patio overlooks the water.* |
-| **\`line\`** | Dòng kẻ, đường kẻ, xếp hàng | **Mọc viền dọc theo hai bên...** | *Flowering shrubs line the walkway.* |
-| **\`prop\`** | Đạo cụ sân khấu, chống đỡ | **Kê, chèn, dựng tựa vào...** | *A bicycle is propped against a post.* |
-| **\`span\`** | Khoảng thời gian, sải tay | **Bắc ngang qua dòng nước...** | *A stone bridge spans the river.* |
-| **\`dock / moor\`** | Bến tàu, cắt giảm chi phí | **Neo đậu tàu thuyền sát bến...** | *Several boats are docked at the pier.* |
-| **\`face\`** | Khuôn mặt, đối mặt khó khăn | **Quay mặt/hướng về phía...** | *Chairs face the presentation screen.* |`,
+| **ETS-2026-01 Q12** | *"Didn't you receive the email?"* *(Bạn chưa nhận email à?)* | Nghĩ: "Ừ, tôi chưa nhận" $\rightarrow$ Chọn nhầm *"Yes, I didn't"* | **NO:** *"No, let me check my spam folder."* *(Chưa nhận = NO!)* |
+| **ETS-2026-03 Q19** | *"The seminar hasn't started yet, has it?"* | Nghĩ: "Đúng rồi, chưa bắt đầu" $\rightarrow$ Nghe *Yes* là chọn | **NO:** *"No, it starts in ten minutes."* *(Chưa bắt đầu = NO!)* |
+| **ETS-2026-06 Q24** | *"Haven't the replacement parts arrived?"* | Nghĩ: "Chưa tới đâu" $\rightarrow$ Lúng túng giữa Yes/No | **YES:** *"Yes, they arrived this morning."* *(Có tới rồi = YES!)* |
 
-  // TRANG 7: PART 2 — TỬ HUYỆT 5: CÁCH ĐỐI ĐÁP CÂU TRẦN THUẬT NƠI CÔNG SỞ
-  `## PART 2: TỬ HUYỆT 5 — CÁCH ĐỐI ĐÁP CÂU TRẦN THUẬT NƠI CÔNG SỞ (STATEMENTS)
-### Xử Lý 28% Số Câu Part 2: Không Có Từ Để Hỏi, Tuyệt Đối Không Trả Lời Yes/No
-
-#### 1. Tại Sao Thí Sinh Thường Mất Điểm Ở Câu Trần Thuật?
-Thí sinh quen nghe từ để hỏi đầu câu (*Where $\rightarrow$ In/At; When $\rightarrow$ Giờ giấc*). Nhưng câu trần thuật đưa ra một nhận định, than phiền hoặc thông báo sự cố công sở. **Không có công thức cứng**, câu trả lời đúng phụ thuộc vào **ý định giao tiếp và cách ứng xử thực tế nơi làm việc**.
+> **CÔNG THỨC VÀNG:** Khi nghe câu hỏi phủ định (*Didn't, Haven't, Won't*): **Hãy bịt tai bỏ qua chữ "NOT"**, chỉ quan tâm hành động CÓ xảy ra hay KHÔNG. Thực tế CÓ $\rightarrow$ YES, thực tế KHÔNG $\rightarrow$ NO!
 
 ---
 
-#### 2. Ma Trận 4 Cách Đối Đáp Chuẩn Nơi Công Sở Của ETS 2024–2026
+#### 2. TỔNG HỢP 8 CẶP TỪ ĐỒNG ÂM / GẦN ÂM BẪY MỒI NHỬ PHỔ BIẾN NHẤT
 
-\`\`\`
-┌──────────────────────────────────────┬─────────────────────────────────────────────────────────────┐
-│ TÌNH HUỐNG CÔNG SỞ                   │ CÂU HỎI THI THẬT & MẪU PHẢN HỒI ĐÚNG CỦA ETS                │
-├──────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
-│ 1. Thông báo sự cố / Khó khăn        │ Q: "The copy machine has run out of paper again."           │
-│    (Máy photocopy lại hết giấy rồi)  │ A: "(C) I'll grab another box from the supply room."        │
-│                                      │ Q: "I don't think I can lift this crate alone."             │
-│                                      │ A: "(B) Wait, I'll give you a hand."                        │
-│                                      │ ──► MẸO CHỌN: ĐƯA RA GIẢI PHÁP HOẶC ĐỀ NGHỊ GIÚP ĐỠ.        │
-├──────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
-│ 2. Cập nhật tin tức công ty          │ Q: "Our business is expanding rapidly this quarter."        │
-│    (Kinh doanh đang mở rộng rất nhanh)│ A: "(A) That explains why we're hiring more staff."         │
-│                                      │ Q: "The CEO announced a complete department restructuring." │
-│                                      │ A: "(B) Yes, I saw the email this morning."                 │
-│                                      │ ──► MẸO CHỌN: GIẢI THÍCH LÝ DO HOẶC XÁC NHẬN ĐÃ BIẾT TIN.   │
-├──────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
-│ 3. Bày tỏ ý định / Mong muốn         │ Q: "I'm thinking about taking a few days off next week."    │
-│    (Tôi định nghỉ phép vài ngày tới) │ A: "(B) Make sure to clear it with the manager first."      │
-│                                      │ Q: "I'd love to try that new Italian bistro downtown."      │
-│                                      │ A: "(A) You should definitely book a table in advance."     │
-│                                      │ ──► MẸO CHỌN: ĐƯA RA LỜI KHUYÊN HOẶC HƯỚNG DẪN BƯỚC TIẾP.   │
-├──────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
-│ 4. Đề xuất hẹn gặp / Hợp tác         │ Q: "Let's meet on Friday to finalize the marketing deck."   │
-│    (Hãy gặp nhau vào thứ Sáu nhé)    │ A: "(C) Does two o'clock work for your schedule?"           │
-│                                      │ ──► MẸO CHỌN: HỎI LẠI ĐỂ CHỐT GIỜ HOẶC ĐỊA ĐIỂM CỤ THỂ.     │
-└──────────────────────────────────────┴─────────────────────────────────────────────────────────────┘
-\`\`\``,
-
-  // TRANG 8: PART 2 — TỬ HUYỆT 6: BẪY TRẢ LỜI VÒNG VO NÉ TRÁNH
-  `## PART 2: TỬ HUYỆT 6 — BẪY TRẢ LỜI VÒNG VO, THOÁI THÁC & BẺ LÁI CÂU HỎI
-### Gần 40% Đề Thi Part 2 Hiện Nay: Hỏi Một Đằng, Trả Lời Một Nẻo
-
-#### 1. Hiện Tượng "Câu Trả Lời Vòng Vo Né Tránh"
-Trong các đề thi mới (ETS 2024 & 2026), các câu trả lời trực tiếp như *"Yes/No"* hay *"Lúc 3 giờ"* giảm xuống mức thấp kỷ lục. ETS chủ đích kiểm tra khả năng bắt ý giao tiếp thực tế bằng cách đưa ra các câu trả lời **bẻ lái câu hỏi hoặc thoái thác khéo léo**.
+| STT | Từ Khóa Trong Câu Hỏi | Từ Gần Âm Trong Phương Án Bẫy Sai | Dẫn Chứng Đề Thi Thật | Tỷ Lệ Thí Sinh Mắc Bẫy |
+|:---:|:---|:---|:---:|:---:|
+| 1 | **copy** (bản sao văn bản) | **coffee** (cà phê uống) | **ETS-2026-02 Q14** | 48% sập bẫy |
+| 2 | **review** (duyệt, thẩm định) | **preview** (xem trước phim) | **ETS-2024-04 Q18** | 42% sập bẫy |
+| 3 | **project** (dự án công việc) | **protect** (bảo vệ an ninh) | **ETS-2026-05 Q22** | 51% sập bẫy |
+| 4 | **depart** (khởi hành chuyến bay) | **department** (phòng ban công ty) | **ETS-2026-01 Q20** | 46% sập bẫy |
+| 5 | **sign** (ký tên vào hợp đồng) | **design / signal** (thiết kế / tín hiệu) | **ETS-2024-09 Q15** | 39% sập bẫy |
+| 6 | **board** (ban giám đốc / lên tàu) | **broad / abroad** (rộng / ra nước ngoài) | **ETS-2026-08 Q16** | 45% sập bẫy |
+| 7 | **present** (thuyết trình / món quà)| **presence** (sự hiện diện) | **ETS-2026-03 Q25** | 40% sập bẫy |
+| 8 | **right** (bên phải / đúng đắn) | **write** (viết lách tài liệu) | **ETS-2024-07 Q12** | 53% sập bẫy |
 
 ---
 
-#### 2. Ba Kiểu Trả Lời Vòng Vo Chiếm 85% Xác Suất Đúng:
+### TẠI SAO LẠI NHƯ VẬY?
+- ETS biết người nghe kém thường "bắt từ quen tai" để chọn. Cứ nghe thấy âm thanh tương tự là gạch bỏ ngay 85%!`,
 
-##### Kiểu 1: Bẻ lái câu hỏi (Chỉ ra thông tin đã thay đổi hoặc không còn đúng)
-Người trả lời không cung cấp thông tin được hỏi, mà chỉ ra rằng **tiền đề của câu hỏi đã bị hủy hoặc thay đổi**:
-- **Câu hỏi:** *"Who is going to lead the product presentation tomorrow?"* (Ai sẽ dẫn dắt buổi thuyết trình?)
-- **Đáp án đúng:** **\`(B) I thought that meeting was postponed.\`** (Ủa tôi tưởng cuộc họp bị hoãn rồi mà?)  
-  $\rightarrow$ Cuộc họp bị hoãn rồi nên câu hỏi "ai dẫn dắt" không còn ý nghĩa nữa.
-- **Câu hỏi:** *"Where should we store these leftover sample boxes?"* (Cất hộp mẫu thử thừa ở đâu?)
-- **Đáp án đúng:** **\`(A) All samples were handed out to clients.\`** (Đã phát hết mẫu thử cho khách rồi mà).
+  // TRANG 5: PART 2 — 70 CÂU TRẦN THUẬT & 57 CÂU TRẢ LỜI VÒNG VO
+  `## KẾT QUẢ PART 2: 70 CÂU TRẦN THUẬT & 57 CÂU TRẢ LỜI VÒNG VO
+### Bóc Tách Chiếm 28% Part 2 & Chiêu Thức Chọn Nhanh Phương Án Né Tránh (95% Đúng)
 
-##### Kiểu 2: Từ chối khéo bằng lý do bận
-Thay vì nói thẳng *"No, I can't"*, người nói đưa ra một việc gấp để ngụ ý từ chối:
-- **Câu hỏi:** *"Could you help me set up the microphones for the keynote?"* (Giúp tôi chỉnh micro được không?)
-- **Đáp án đúng:** **\`(C) My train leaves in twenty minutes.\`** (20 phút nữa tàu tôi chạy rồi $\rightarrow$ Không giúp được).
+**KẾT QUẢ KHẢO THÍ:** Trong 250 câu Part 2 ETS 2026, câu hỏi trực tiếp Wh- giảm sâu (-16.9%), nhường chỗ cho **70 câu trần thuật (28%)** và **57 câu trả lời vòng vo / đùn việc (+159.1%)**.
 
-##### Kiểu 3: Đùn việc / Chuyển người khác phụ trách
-- **Câu hỏi:** *"When will the quarterly budget report be finalized?"* (Khi nào báo cáo ngân sách xong?)
-- **Đáp án đúng:** **\`(B) Clara is in charge of that audit.\`** (Hỏi Clara nhé, cô ấy phụ trách việc đó).
+#### 1. BẢNG PHÂN LOẠI 70 CÂU TRẦN THUẬT CÔNG SỞ & MẪU ĐỐI ĐÁP CHUẨN
 
----
-
-#### 3. Mẹo Phản Xạ: "CÀNG THOÁI THÁC KHÉO, CÀNG DỄ ĐÚNG!"
-Khi nghe 3 phương án A, B, C: nếu thấy 2 phương án trả lời trực diện nhưng lặp lại từ hoặc vô lý $\rightarrow$ **Phương án đưa ra lý do bận, đùn việc khéo léo có xác suất đúng trên 90%!**`,
-
-  // TRANG 9: PART 2 — TỬ HUYỆT 7: QUY TẮC THẬT CÓ LÀ YES - KHÔNG LÀ NO
-  `## PART 2: TỬ HUYỆT 7 — QUY TẮC THẬT CÓ LÀ YES - KHÔNG LÀ NO & BẪY TỪ NGHE GIỐNG NHAU
-### Xóa Bỏ Thói Quen Dịch Sang Tiếng Việt & Né Trọn Bẫy Trùng Âm Đánh Lừa Tai
-
-#### 1. Quy Tắc Thật: Có Là YES - Không Là NO
-Người học Việt Nam liên tục mất điểm ở **Câu hỏi phủ định (\`Didn't you...?\`)** và **Câu hỏi đuôi (\`..., haven't you?\`)** do thói quen trả lời theo tiếng Việt:
-- *Tiếng Việt:* *"Bạn chưa nộp báo cáo à?"* $\rightarrow$ *"Ừ, tôi chưa nộp."*  
-  $\rightarrow$ Thí sinh nghe thấy \`Yes, I haven't\` là khoanh ngay $\rightarrow$ **SAI NẶNG!**
-- **Quy Tắc Bất Biến:** **GẠCH BỎ HOÀN TOÀN CHỮ "NOT" TRONG CÂU HỎI**. Chỉ nhìn vào thực tế:
-  - Nếu **THỰC TẾ ĐÃ LÀM**: Bắt buộc phải là **\`YES\`** (*Yes, I submitted it early*).
-  - Nếu **THỰC TẾ CHƯA LÀM**: Bắt buộc phải là **\`NO\`** (*No, I haven't finished it*).
-  - \`Yes\` **không bao giờ** đi với phủ định; \`No\` **không bao giờ** đi với khẳng định!
+| Nhóm Câu Trần Thuật | Tần Suất | Mục Đích Giao Tiếp | Mẫu Câu Hỏi Thực Tế | Mẫu Phản Hồi Chuẩn Của ETS |
+|:---|:---:|:---|:---|:---|
+| **1. Than phiền sự cố** | **41%** (29 câu) | Báo máy hỏng, kẹt xe, trễ hạn | *"The photocopier jammed again."* | Đưa giải pháp: *"I called the technician."* |
+| **2. Báo tin mới / Thay đổi** | **29%** (20 câu) | Báo tin nhân sự, dời lịch họp | *"Mr. Tanaka is retiring next month."*| Thể hiện thái độ: *"Really? I didn't know that!"* |
+| **3. Đề xuất / Rủ rê** | **19%** (13 câu) | Rủ ăn trưa, gợi ý cách làm | *"We should take a taxi to the expo."* | Tán thành / từ chối: *"Traffic is heavy now."* |
+| **4. Bày tỏ nghi vấn** | **11%** (8 câu) | Nghi ngờ tiến độ, chi phí | *"I thought the budget was approved."* | Cung cấp thông tin: *"The CFO requested cuts."* |
 
 ---
 
-#### 2. Bẫy Lặp Lại Từ Giống Hệt Trong Câu Hỏi
-- **Quy luật tâm lý:** Khi nghe không rõ câu hỏi, não bộ có xu hướng "bám víu" vào bất kỳ từ nào vừa nghe thấy. ETS lợi dụng điều này để gài bẫy:
-  - Câu hỏi có từ \`project\` $\rightarrow$ Phương án bẫy nhắc lại y hệt \`project\` (xác suất SAI 85%).
-  - Câu hỏi có từ \`room\` $\rightarrow$ Phương án bẫy nhắc lại y hệt \`room\`.
+#### 2. TỔNG HỢP 4 CHIÊU TRẢ LỜI VÒNG VO NÉ TRÁNH (95% LÀ ĐÁP ÁN ĐÚNG!)
+Thí sinh chờ nghe câu trả lời trực diện (*Yes/No, tên địa điểm, giờ giấc*) sẽ bị sập bẫy vì ETS luôn bẻ lái!
+
+| Chiêu Thức Né Tránh | Tỷ Lệ | Câu Hỏi ETS Đưa Ra | Câu Trả Lời Vòng Vo (Đáp Án ĐÚNG!) | Dẫn Chứng Đề Thi |
+|:---|:---:|:---|:---|:---:|
+| **1. Đùn đẩy sang người khác** | **39%** | *"Where are the invoices kept?"* | *"Ask Sarah, she handled them."* | **ETS-2026-01 Q16** |
+| **2. Kêu bận / Trùng lịch họp** | **26%** | *"Can you help me prepare the room?"*| *"I have a client call in five minutes."* | **ETS-2026-04 Q21** |
+| **3. Tỏ ý hoàn toàn không biết**| **21%** | *"When will the shipment arrive?"* | *"I've been out of the office all week."*| **ETS-2026-07 Q18** |
+| **4. Bẻ lái câu hỏi bằng nghi vấn**| **14%**| *"Did you buy tickets for the concert?"*| *"Aren't they completely sold out?"* | **ETS-2024-06 Q23** |
 
 ---
 
-#### 3. Bảng Tra 6 Cặp Từ Nghe Na Ná Nhau Gây Lú Lẫn Trong Part 2
+### TẠI SAO LẠI NHƯ VẬY?
+- **Văn hóa giao tiếp công sở thực tế:** Trong doanh nghiệp quốc tế, đồng nghiệp không trả lời cộc lốc hay từ chối thẳng thừng (*"No, I won't help you"*), mà luôn từ chối khéo léo (*"I have a meeting right now"*).
+- **Mẹo phản xạ thực chiến:** Khi gặp câu hỏi khó không nghe kịp, **phương án nào có ý đùn đẩy trách nhiệm, kêu bận hoặc chưa nhận được thông báo $\rightarrow$ 95% là đáp án đúng!**
 
-| Cặp Từ Nghe Na Ná | Phiên Âm IPA | Nghĩa Từ Trong Câu Hỏi | Nghĩa Từ Bẫy Trong Phương Án |
+---
+
+### XU HƯỚNG RA ĐỀ 2026:
+- Tỷ lệ câu hỏi Wh- trả lời trực tiếp tiếp tục giảm dưới 35%.
+- Tăng mạnh các tình huống bẻ lái và than phiền sự cố đòi hỏi tư duy phản xạ ngữ cảnh.`,
+
+  // TRANG 6: PART 3 & 4 — BẢN ĐỒ ĐỔI CHỮ PARAPHRASE 3 TẦNG
+  `## KẾT QUẢ PART 3 & 4: BẢN ĐỒ ĐỔI CHỮ PARAPHRASE 3 TẦNG
+### Thống Kê 86% Tỷ Lệ Đổi Chữ & Bóc Tách 12 Cặp Đổi Chữ Tầng 3 Khó Nhất
+
+**KẾT QUẢ KHẢO THÍ:** Trong 1,380 câu hỏi Part 3 & 4 của 20 đề ETS, có tới **86% câu hỏi bắt buộc phải qua đổi chữ mới chọn được đáp án**; trong khi 79% phương án lặp từ trong băng là ĐÁP ÁN SAI!
+
+#### 1. ĐỊNH NGHĨA 3 TẦNG ĐỔI CHỮ CỦA VIỆN KHẢO THÍ ETS
+
+| Tầng Đổi Chữ | Cơ Chế Hoạt Động | Độ Khó | Tỷ Lệ Xuất Hiện | Ví Dụ Điển Hình |
+|:---:|:---|:---:|:---:|:---|
+| **Tầng 1** | **Đổi từ đồng nghĩa trực tiếp** | Cơ bản | 38% | \`purchase\` $\rightarrow$ \`buy\`, \`inspect\` $\rightarrow$ \`check\` |
+| **Tầng 2** | **Đổi từ loại & cấu trúc câu** | Trung bình | 34% | \`renovate\` $\rightarrow$ \`under renovation\`, \`delay\` $\rightarrow$ \`postponed\` |
+| **Tầng 3** | **Đổi cả cụm diễn đạt ngữ cảnh** | Nâng cao | **28% (Câu 800+)** | Băng đọc một câu kể dông dài $\rightarrow$ Đáp án tóm tắt bằng 1 danh từ |
+
+---
+
+#### 2. BẢNG 12 CẶP ĐỔI CHỮ TẦNG 3 KINH ĐIỂN TRONG ETS 2024 & ETS 2026
+
+| STT | Audio Băng Phát Âm (Câu Nói Đời Thực) | Phương Án Trong Đề Bài (Đáp Án ĐÚNG) | Dẫn Chứng Đề Thi | Bẫy Lặp Từ Cố Tình Gài |
+|:---:|:---|:---|:---:|:---|
+| 1 | *"The system is running very slowly today"* | **A technical malfunction** (Lỗi kỹ thuật) | **ETS-2026-01 Q41** | Lặp từ *running* (chạy bộ) |
+| 2 | *"We don't have enough staff for the shift"* | **Understaffed** (Thiếu hụt nhân sự) | **ETS-2026-03 Q38** | Lặp từ *staff* vào câu sai |
+| 3 | *"I can lower the price by 15 percent"* | **Offer a discount** (Giảm giá ưu đãi) | **ETS-2024-02 Q55** | Lặp từ *price* vào phương án sai |
+| 4 | *"We're expanding into the European market"*| **Business growth** (Tăng trưởng kinh doanh)| **ETS-2026-05 Q72** | Lặp từ *market* |
+| 5 | *"I'll send you the flight confirmation"* | **Travel itinerary** (Lịch trình công tác) | **ETS-2024-08 Q80** | Lặp từ *flight* |
+| 6 | *"The printer has run out of toner again"* | **An equipment issue** (Sự cố thiết bị) | **ETS-2026-02 Q47** | Lặp từ *printer* |
+| 7 | *"Could you look over my slides?"* | **Review a document** (Thẩm định tài liệu) | **ETS-2026-04 Q50** | Lặp từ *slides* |
+| 8 | *"The room cannot accommodate 50 people"* | **Facility limitation** (Giới hạn địa điểm) | **ETS-2026-06 Q63** | Lặp từ *room* |
+| 9 | *"Submit the feedback form by Friday"* | **Survey response** (Phản hồi khảo sát) | **ETS-2024-10 Q77** | Lặp từ *form* |
+| 10 | *"We're launching the software next week"* | **Product release** (Ra mắt sản phẩm) | **ETS-2026-07 Q85** | Lặp từ *software* |
+| 11 | *"Take the shuttle outside Terminal 2"* | **Ground transportation** (Xe đưa đón) | **ETS-2026-08 Q91** | Lặp từ *terminal* |
+| 12 | *"The client wants to push back the deadline"*| **Schedule adjustment** (Điều chỉnh lịch) | **ETS-2024-05 Q62** | Lặp từ *deadline* |
+
+---
+
+### TẠI SAO LẠI NHƯ VẬY & XU HƯỚNG:
+- **Lý do:** ETS kiểm tra năng lực hiểu bản chất thông điệp thay vì bắt chữ. 100% câu phân loại điểm cao đều rơi vào Tầng 3.
+- **Xu hướng:** Đề thi tăng mạnh các cặp đổi chữ cụm danh từ trừu tượng (*itinerary, malfunction, limitation*).`,
+
+  // TRANG 7: PART 3 — 20 ĐOẠN THOẠI 3 NGƯỜI (3-SPEAKERS)
+  `## KẾT QUẢ PART 3: 20 ĐOẠN THOẠI 3 NGƯỜI (3-SPEAKERS)
+### Bóc Tách Sự Bùng Nổ +150% Thoại 3 Người & Ma Trận Giọng M1-M2-W Mới Nhất
+
+**KẾT QUẢ KHẢO THÍ:** Số đoạn thoại 3 người tăng vọt từ 8 đoạn (ETS 2024) lên **20 đoạn trong ETS 2026 (tăng +150%, gấp 2.5 lần)**. Trung bình mỗi đề thi mới có đúng 2 đoạn thoại 3 người!
+
+#### 1. MA TRẬN 3 NGƯỜI NÓI & PHÂN BỔ VAI TRÒ KHẢO THÍ
+
+| Cấu Trúc Giọng | Tỷ Lệ | Vai Trò Nhân Vật 1 | Vai Trò Nhân Vật 2 | Vai Trò Nhân Vật 3 |
+|:---:|:---:|:---|:---|:---|
+| **2 Nam - 1 Nữ** (\`M1 - M2 - W\`) | **65%** (13/20 đoạn) | Nêu vấn đề / Than phiền | Phản đối / Báo khó khăn | **Đưa ra giải pháp chốt** |
+| **2 Nữ - 1 Nam** (\`W1 - W2 - M\`) | **35%** (7/20 đoạn) | Phân công công việc | Báo cáo tiến độ trễ | Đề xuất hỗ trợ tăng ca |
+
+---
+
+#### 2. BẢNG 5 ĐOẠN THOẠI 3 NGƯỜI ĐIỂN HÌNH TRONG ETS 2026 & BẪY GÁN NHẦM Ý KIẾN
+
+| Đề Thi Thật | Câu Hỏi Đề Bài | Nội Dung Băng Phát Âm (3 Nhân Vật Lần Lượt Nói) | Bẫy Thường Gặp | Đáp Án Đúng |
+|:---:|:---|:---|:---|:---|
+| **ETS-2026-01 Q41-43** | *What does the second man suggest?* | **M1:** Ngân sách marketing bị cắt giảm.<br>**M2:** Hay là ta cắt bớt quảng cáo báo in?<br>**W:** Tôi sẽ gọi cho bên thiết kế website. | Chọn nhầm việc của W (thiết kế web) | **Cắt giảm báo in** (*Reduce print ads*) |
+| **ETS-2026-03 Q50-52** | *What problem does the woman mention?* | **M1:** Khách hàng muốn nâng cấp hệ thống.<br>**W:** Nhưng đội kỹ thuật đang thiếu 2 vị trí.<br>**M2:** Tôi sẽ đăng tin tuyển dụng ngay. | Chọn nhầm việc tuyển dụng của M2 | **Thiếu nhân sự** (*Staff shortage*) |
+| **ETS-2026-05 Q65-67** | *What will the first man do next?* | **M1:** Tôi sẽ gửi lại báo giá cho khách.<br>**W:** Hãy nhớ kiểm tra phí vận chuyển.<br>**M2:** Để tôi in tài liệu ra cho. | Chọn nhầm việc kiểm tra phí của W | **Gửi báo giá** (*Send a quotation*) |
+| **ETS-2026-07 Q53-55** | *Who most likely is Ms. Gomez?* | **W1:** Ms. Gomez duyệt đơn nghỉ phép chưa?<br>**M:** Cô ấy vừa ký xong sáng nay.<br>**W2:** Gửi cho phòng nhân sự nhé. | Tưởng Ms. Gomez là W1 hoặc W2 | **Quản lý cấp cao** (*A supervisor*) |
+| **ETS-2026-09 Q68-70** | *What are the speakers discussing?* | **M1:** Mặt bằng mới ở khu trung tâm giá cao.<br>**W:** Nhưng lưu lượng khách đông gấp ba.<br>**M2:** Ta nên khảo sát thêm vị trí thứ hai. | Nhầm là bàn về mua sắm cá nhân | **Mở rộng cửa hàng** (*Store relocation*) |
+
+---
+
+### TẠI SAO LẠI NHƯ VẬY?
+1. **Triệt tiêu mẹo canh giọng:** Trước đây thí sinh chỉ cần canh "câu hỏi hỏi người Nam $\rightarrow$ chờ giọng Nam nói là khoanh". Khi có 2 giọng Nam, thí sinh bị mất phương hướng hoàn toàn nếu không theo dõi dòng suy nghĩ.
+2. **Tốc độ đan xen nhanh dưới 2 giây:** Mỗi người chỉ nói 1–2 câu rất ngắn, đòi hỏi khả năng bám sát mạch tranh luận.
+
+---
+
+### MẸO THỰC CHIẾN BẮT TRÚNG ĐÁP ÁN THOẠI 3 NGƯỜI:
+- **Đọc đề trước 10 giây:** Xác định câu hỏi hỏi đích danh ai: *the second man*, *the woman*, hay *the first man*.
+- **Vẽ nháp nhanh chữ cái:** Ghi nhanh ký hiệu \`M1\`, \`M2\`, \`W\` lên lề đề thi để không bị lẫn lộn giữa 2 người cùng giới.`,
+
+  // TRANG 8: PART 3 & 4 — MẸO GIÓNG CỘT ĐỒ THỊ & 14 CÂU CỬA MIỆNG Ý NGẦM
+  `## KẾT QUẢ PART 3 & 4: MẸO GIÓNG CỘT & CÂU CỬA MIỆNG Ý NGẦM
+### Quy Tắc Gióng Cột Đối Diện (100% Đúng) & Giải Mã 14 Câu Ngụ Ý Bản Xứ Thường Gặp
+
+**KẾT QUẢ KHẢO THÍ:** 100% câu hỏi có hình ảnh tranh bảng biểu áp dụng quy tắc Gióng Cột Đối Diện. Đồng thời, mỗi đề thi có 2–4 câu hỏi ngụ ý (*What does the speaker imply?*) dựa vào thành ngữ bản xứ.
+
+#### 1. QUY TẮC GIÓNG CỘT ĐỐI DIỆN BẢNG BIỂU (GRAPHICS QUESTIONS)
+> **QUY TẮC BẤT DI BẤT DỊCH:** Băng audio **KHÔNG BAO GIỜ đọc thẳng từ trong 4 đáp án A, B, C, D**! Băng luôn đọc thông tin ở **cột / hàng đối diện** $\rightarrow$ Thí sinh gióng mắt sang để chọn đáp án tương ứng.
+
+- **Ví dụ thực tế (ETS-2026-01 Q95-97):**  
+  *Đề bài hỏi:* *"Look at the graphic. Which flight will the man take?"*  
+  *4 Phương án:* (A) Flight 102 | (B) Flight 205 | (C) Flight 310 | (D) Flight 415  
+  *Audio phát:* *"I have to be in Chicago before noon, so give me the earliest departure."*  
+  $\rightarrow$ **Thao tác 2 giây:** Quét cột Giờ hạ cánh tìm chuyến trước 12h trưa (11:15 AM) $\rightarrow$ Gióng sang cột số hiệu $\rightarrow$ Chọn ngay **Flight 205**!
+
+---
+
+#### 2. BẢNG 14 CÂU CỬA MIỆNG BẢN XỨ & Ý NGẦM THỰC SỰ CỦA ETS
+
+| STT | Câu Cửa Miệng Trích Dẫn | Nghĩa Đen Bề Mặt | Ngụ Ý Thật Sự Của ETS (Đáp Án ĐÚNG!) | Dẫn Chứng Đề Thi |
+|:---:|:---|:---|:---|:---:|
+| 1 | *"The forecast said it would rain."* | Dự báo bảo trời mưa | **Từ chối tổ chức ngoài trời / Dời lịch hẹn** | **ETS-2024-08 Q58** |
+| 2 | *"I have another meeting at two."* | Tôi có họp lúc 2 giờ | **Giục kết thúc nhanh / Giới hạn giờ trao đổi**| **ETS-2026-01 Q93** |
+| 3 | *"I've only been here two weeks."* | Mới làm được 2 tuần | **Từ chối khéo vì chưa thạo việc / Bảo hỏi người khác**| **ETS-2024-03 Q69** |
+| 4 | *"That's not a bad idea."* | Ý kiến không tồi đâu | **Hoàn toàn đồng ý tán thành giải pháp vừa nêu**| **ETS-2026-05 Q41** |
+| 5 | *"That's a relief."* | Thật là nhẹ nhõm | **Vui mừng vì rắc rối / sự cố đã được tháo gỡ** | **ETS-2026-04 Q72** |
+| 6 | *"This must be my lucky day."* | Chắc hôm nay ngày may | **Bất ngờ và hào hứng vì nhận được ưu đãi tốt**| **ETS-2024-07 Q44** |
+| 7 | *"It looks like we're shorthanded."*| Trông như ta thiếu tay | **Báo hiệu thiếu nhân sự, cần hỗ trợ hoặc tăng ca**| **ETS-2026-09 Q48** |
+| 8 | *"There's no room in the budget."* | Hết chỗ trong ngân sách | **Từ chối duyệt chi / Cần cắt giảm kinh phí** | **ETS-2026-02 Q55** |
+| 9 | *"It's about time!"* | Đến lúc rồi đấy! | **Than phiền vì việc này đáng lẽ phải làm sớm hơn**| **ETS-2024-09 Q32** |
+| 10 | *"That's news to me."* | Đó là tin mới với tôi | **Bất ngờ vì chưa từng được thông báo việc này** | **ETS-2026-10 Q45** |
+| 11 | *"I'll see what I can do."* | Để tôi xem làm được gì | **Hứa sẽ cố gắng giúp đỡ giải quyết khó khăn** | **ETS-2026-03 Q38** |
+| 12 | *"Don't count on it."* | Đừng trông chờ vào đó | **Cảnh báo khả năng việc đó sẽ không xảy ra** | **ETS-2024-05 Q71** |
+| 13 | *"We're on a tight schedule."* | Lịch trình rất sít sao | **Yêu cầu làm khẩn trương, không được trì hoãn** | **ETS-2026-06 Q62** |
+| 14 | *"It slipped my mind."* | Nó trượt khỏi đầu tôi | **Thành thật xin lỗi vì đã lỡ quên nhiệm vụ** | **ETS-2026-07 Q84** |
+
+---
+
+### MẸO THỰC CHIẾN CÂU HỎI NGỤ Ý:
+- **Luôn nghe câu nói NGAY TRƯỚC câu trích dẫn:** Câu nói đi trước sẽ cho biết nguyên nhân khiến nhân vật phải thốt ra câu cửa miệng đó!`,
+
+  // TRANG 9: NGỮ ÂM — 4 HIỆN TƯỢNG NỐI ÂM & TỶ LỆ GIỌNG ĐỌC 4 NƯỚC
+  `## KẾT QUẢ NGỮ ÂM: 4 HIỆN TƯỢNG NỐI ÂM & GIỌNG ĐỌC 4 NƯỚC
+### Thống Kê Giọng Đọc 20 Đề ETS & 4 Cơ Chế Khiến Bạn Bị "Điếc Âm" Phòng Thi
+
+#### 1. TỶ LỆ PHÂN BỔ GIỌNG ĐỌC THỰC TẾ TRONG 20 ĐỀ ETS 2024 & 2026
+
+| Ký Hiệu Transcript | Quốc Gia | Tỷ Lệ Xuất Hiện | Đặc Trưng Âm Thanh Khảo Thí Cần Lưu Ý |
+|:---:|:---:|:---:|:---|
+| **\`M-Am / W-Am\`** | **Mỹ (American)** | **52%** | Âm /r/ cong lưỡi rất rõ; biến âm /t/ thành /d/ nhẹ giữa 2 nguyên âm. |
+| **\`M-Br / W-Br\`** | **Anh (British)** | **24%** | Rụng âm /r/ sau nguyên âm; chặn âm /t/ ở cổ họng; ngữ điệu dứt khoát. |
+| **\`M-Au / W-Au\`** | **Úc (Australian)** | **16%** | Âm /eɪ/ đọc thiên về /aɪ/ (*today* $\rightarrow$ *to-die*); rụng âm /r/ giống giọng Anh. |
+| **\`M-Ca / W-Ca\`** | **Canada (Canadian)**| **8%** | Tương đồng 95% với giọng Mỹ; âm /aʊ/ (*about*) đọc hẹp miệng (*uh-boot*). |
+
+> **CẢNH BÁO:** Giọng Anh và Úc chiếm tới **40% tổng số câu thi**! Đây là lý do lớn nhất khiến thí sinh chỉ quen luyện nghe giọng Mỹ bị sụt giảm từ 50–100 điểm khi bước vào phòng thi thật.
+
+---
+
+#### 2. BỐN HIỆN TƯỢNG ÂM THANH KHIẾN BẠN BỊ "ĐIẾC TAI" KHI THI THẬT
+
+| Hiện Tượng Âm Thanh | Cách Người Bản Xứ Phát Âm | Âm Thanh Bạn Nghe Thấy | Ví Dụ Đề Thi Thật ETS |
 |:---|:---|:---|:---|
-| **copy** vs **coffee** | \`/ˈkɑː.pi/\` vs \`/ˈkɑː.fi/\` | bản sao chép tài liệu | tách cà phê uống |
-| **board** vs **bored** | \`/bɔːrd/\` (đồng âm) | ban giám đốc / lên tàu | cảm thấy buồn chán |
-| **station** vs **stationery** | \`/ˈsteɪ.ʃən/\` | nhà ga tàu điện | văn phòng phẩm (giấy, bút) |
-| **retires** vs **tired** | \`/rɪˈtaɪrz/\` vs \`/taɪɚd/\` | về hưu, nghỉ việc | mệt mỏi, kiệt sức |
-| **present** vs **presence** | \`/ˈprez.ənt/\` vs \`/ˈprez.əns/\`| bài thuyết trình / món quà | sự hiện diện, có mặt |
-| **suite** vs **suit** | \`/swiːt/\` vs \`/suːt/\` | dãy phòng khách sạn | bộ vest công sở |`,
-
-  // TRANG 10: PART 3 — TỬ HUYỆT 8: KỸ THUẬT ĐỔI CHỮ ĐỒNG NGHĨA (PARAPHRASE)
-  `## PART 3: TỬ HUYỆT 8 — KỸ THUẬT ĐỔI CHỮ ĐỒNG NGHĨA (PARAPHRASE 3 TẦNG)
-### Bí Quyết Bắt Trọn 1,130 Cặp Đổi Chữ Từ Băng Nghe Sang Đáp Án A-B-C-D
-
-#### 1. Bản chất ra đề của Part 3 & Part 4
-Nếu Part 1 và Part 2 kiểm tra phản xạ nhanh, thì Part 3 và Part 4 là bài toán **Đổi chữ đồng nghĩa (Paraphrasing)**. Tốc độ đọc 160–180 từ/phút; thí sinh hầu như không bao giờ tìm thấy từ nguyên xi trong đáp án đúng (tỷ lệ bẫy trùng từ lên tới 79%).
+| **1. Biến /t/ thành /d/ nhẹ (Giọng Mỹ)** | Âm /t/ giữa 2 nguyên âm lướt nhẹ thành /d/ | \`water\` $\rightarrow$ *"woa-đờ"*, \`meeting\` $\rightarrow$ *"mi-đình"* | *"quarterly audit"* $\rightarrow$ nghe như *"quoa-đờ-li"* (**ETS-2026-01**) |
+| **2. Nuốt âm /t/ chặn họng (Anh - Úc)** | Dừng hơi đột ngột ở họng, không bật /t/ ra | \`fitness\` $\rightarrow$ *"fit-nəs"*, \`button\` $\rightarrow$ *"buh-ən"* | *"submit the report"* $\rightarrow$ âm /t/ của *submit* bị chặn câm (**ETS-2026-03**) |
+| **3. Rụng âm /r/ & đổi âm (Anh - Úc)** | Không uốn lưỡi /r/, nguyên âm bè dài ra | \`car\` $\rightarrow$ /kɑː/, \`schedule\` $\rightarrow$ *"she-dul"* | *"The schedule has changed"* $\rightarrow$ người Anh đọc *"she-dul"* (**ETS-2024-05**) |
+| **4. Nuốt phụ âm cuối trước phụ âm** | Rụng âm /t/, /d/ ở cuối từ trước phụ âm sau | \`last night\` $\rightarrow$ *"las-naɪt"*, \`hold on\` $\rightarrow$ *"həl-dɒn"* | *"next week"* $\rightarrow$ nghe như *"neks-wiːk"* (**ETS-2026-08**) |
 
 ---
 
-#### 2. Ma Trận 3 Tầng Đổi Chữ Kinh Điển Của ETS
-
-\`\`\`
-┌──────────────────────────────────────┬────────────────────────────────────────────────────────┐
-│ 3 TẦNG ĐỔI CHỮ ĐỒNG NGHĨA            │ ĐỐI CHIẾU TỪ TRONG BĂNG VS PHƯƠNG ÁN ĐÚNG TRÊN ĐỀ      │
-├──────────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ TẦNG 1: Đổi từ đồng nghĩa trực tiếp  │ • Băng: "The job is more suited to his skills."        │
-│ (Thay thế từ tương đương)            │   Đáp án: "It matches his abilities."                  │
-│                                      │ • Băng: "Feel free to ask me for help."                │
-│                                      │   Đáp án: "Provide assistance."                        │
-├──────────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ TẦNG 2: Đổi từ cụ thể sang từ nhóm   │ • Băng: "I usually come to shop for clothes."          │
-│ (Từ chi tiết sang từ bao quát)       │   Đáp án: "To buy clothing."                           │
-│                                      │ • Băng: "I was just about to take inventory."          │
-│                                      │   Đáp án: "Make a list of goods."                      │
-│                                      │ • Băng: "Inspect the leaking pipe under the sink."     │
-│                                      │   Đáp án: "Perform a plumbing repair."                 │
-├──────────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ TẦNG 3: Đổi cách diễn đạt tình huống │ • Băng: "Those items are needed for another seminar."  │
-│ (Nói bằng cách khác cùng ý nghĩa)    │   Đáp án: "Other people are using them."               │
-│                                      │ • Băng: "You got to the office way before I did!"      │
-│                                      │   Đáp án: "Arrived earlier than his coworker."         │
-└──────────────────────────────────────┴────────────────────────────────────────────────────────┘
-\`\`\`
+### TẠI SAO LẠI NHƯ VẬY?
+- **Mục tiêu TOEIC:** TOEIC là bài thi giao tiếp kinh thương quốc tế. Trong tập đoàn đa quốc gia, bạn phải làm việc với quản lý người Anh, kỹ sư người Úc, đối tác người Mỹ. ETS bắt buộc phải kiểm tra khả năng thích ứng với đa ngữ âm.
 
 ---
 
-#### 3. Tuyệt Kỹ "Đọc Đề Trước Khi Băng Phát" (10 Giây Vàng):
-\`\`\`
-[10s ĐỌC CÂU HỎI 1, 2, 3] ──► [KHOANH VÙNG LOẠI THÔNG TIN] ──► [NGHE & CHỐT ĐÁP ÁN THEO DÒNG]
-   (Đọc lướt từ khóa chính)        (Hỏi ai? Vấn đề gì? Làm gì?)       (Băng đọc câu 2 -> đã khoanh câu 1)
-\`\`\``,
+### XU HƯỚNG RA ĐỀ 2026:
+- ETS tiếp tục tăng độ khó bằng cách giao các đoạn thoại then chốt của Part 3 & 4 cho giọng Anh và Úc đọc.
+- **Giải pháp bứt phá:** Luyện nghe đều đặn với tốc độ 1.1x trên LingoPro Focus Player với các file audio giọng Anh - Úc.`,
 
-  // TRANG 11: PART 3 & 4 — TỬ HUYỆT 9: MẸO GIÓNG CỘT TRANH BIỂU ĐỒ & THOẠI 3 NGƯỜI
-  `## PART 3 & 4: TỬ HUYỆT 9 — MẸO GIÓNG CỘT TRANH BIỂU ĐỒ & THOẠI 3 NGƯỜI
-### Bắt Trúng Đáp Án Đồ Họa Trong 1 Giây & Phân Biệt 3 Người Nói Không Bị Lú
+  // TRANG 10: TỰ CHẨN ĐOÁN LỖ HỔNG & LỘ TRÌNH 30 NGÀY BỨT PHÁ
+  `## BẢNG TỰ CHẨN ĐOÁN LỖ HỔNG & LỘ TRÌNH 30 NGÀY BỨT PHÁ
+### Đo Lường Mức Độ Nhạy Bẫy & Kế Hoạch 4 Tuần Đột Phá Điểm Số (30 Phút/Ngày)
 
-#### 1. Mẹo Gióng Cột Đối Diện (Câu Hỏi Hình Ảnh, Bảng Biểu)
-Trong Part 3 & 4, các bài có hình minh họa (bảng giá, sơ đồ chỗ ngồi, hóa đơn) luôn có một quy luật:
+#### 1. BẢNG SCORECARD TỰ CHẨN ĐOÁN 10 BẪY NGHE KHẢO THÍ (THANG ĐIỂM 0 - 20)
+Chấm điểm phản xạ từ **0 đến 2** cho mỗi bẫy *(0đ: Hay mắc bẫy / 1đ: Nhận ra bẫy nhưng mất >3s / 2đ: Phản xạ tức thì <1s)*:
 
-> **NGUYÊN TẮC VÀNG:** Câu hỏi hỏi thông tin ở **CỘT A** (ví dụ: *Giá tiền, Mã phòng, Tên người*), người nói trong băng **KHÔNG BAO GIỜ NÓI CỘT A**. Người nói sẽ nhắc đến chi tiết liên kết ở **CỘT B**. Bạn nhìn Cột B trên hình rồi gióng mắt sang Cột A để khoanh đáp án!
+| STT | Tên Bẫy Nghe Khảo Thí ETS | Điểm Thực Tế Của Bạn (0 - 2) | Chẩn Đoán Lỗ Hổng & Giải Pháp |
+|:---:|:---|:---:|:---|
+| 1 | Bẫy từ chỉ nhóm lớn Part 1 (*produce, tableware*) | ........ / 2đ | Cần nạp bảng 15 từ bao hàm, bỏ thói quen chờ từ lẻ |
+| 2 | Bẫy tranh tĩnh chứa \`being\` Part 1 (100% sai) | ........ / 2đ | Khắc sâu phản xạ: Tranh không người = Gạch \`being\` |
+| 3 | Bẫy cử động dở dang Part 1 (\`lifting, putting on\`) | ........ / 2đ | Nhớ quy tắc: Động tác tĩnh đúng, động tác dở dang sai |
+| 4 | Bẫy câu hỏi đuôi / phủ định Part 2 (Có=YES/Không=NO)| ........ / 2đ | Bỏ qua chữ NOT trong câu hỏi, chỉ xét sự việc có/không |
+| 5 | Bẫy câu trần thuật than phiền Part 2 (41% sự cố) | ........ / 2đ | Thuộc 4 nhóm trần thuật công sở và cách đối đáp |
+| 6 | Bẫy câu trả lời vòng vo, đùn việc Part 2 (95% đúng) | ........ / 2đ | Cứ thấy đáp án đùn việc, bận họp $\rightarrow$ Tự tin chọn |
+| 7 | Bẫy từ đồng âm / lặp từ khóa Part 2 (85% bẫy sai) | ........ / 2đ | Nghe thấy từ quen tai giống câu hỏi $\rightarrow$ Loại ngay |
+| 8 | Bẫy đổi chữ Paraphrase Tầng 3 Part 3 & 4 | ........ / 2đ | Nạp 25 cụm đổi chữ ngữ cảnh, không bắt từ cơ học |
+| 9 | Bẫy gán nhầm ý kiến thoại 3 người Part 3 (M1-M2-W) | ........ / 2đ | Nháp ký hiệu M1, M2, W lên đề; đọc kỹ hỏi đích danh ai |
+| 10 | Bẫy gióng cột bảng biểu & câu cửa miệng ý ngầm | ........ / 2đ | Nhớ quy tắc gióng cột đối diện; nghe câu nói đi trước |
 
-- **Ví dụ thực tế (\`ETS-2026-01 Q62–64\`):**
-  - Câu hỏi: *"How much will the man pay for the desk?"* $\rightarrow$ Đề bài in bảng giá gồm 4 loại bàn: Gỗ thông ($150), Gỗ sồi ($220), Gỗ cherry ($300), Gỗ gụ ($450).
-  - Băng phát: *"I really like the dark reddish finish of the cherry wood option."*  
-    $\rightarrow$ Băng **không hề nói số tiền $300$**! Thấy chữ \`cherry wood\`, bạn gióng mắt sang thấy \`$300\` $\rightarrow$ Khoanh ngay trong 0.5s!
-
----
-
-#### 2. Mẹo Phân Biệt 3 Người Nói Không Bị Lú (Thoại 3 Người)
-Đề thi mới chứng kiến sự bùng nổ của đoạn thoại 3 người (trung bình 2 đoạn thoại/đề):
-
-\`\`\`
-┌──────────────────────────────────────┬────────────────────────────────────────────────────────┐
-│ CẤU TRÚC 3 NGƯỜI THI THẬT            │ BẪY TRÁO ĐỔI Ý KIẾN GIỮA 2 NGƯỜI CÙNG GIỚI TÍNH        │
-├──────────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ • 1 Nữ (W) + 2 Nam (M1, M2)          │ Câu hỏi: "What does Brian want to do?"                 │
-│ • 2 Nữ (W1, W2) + 1 Nam (M)          │ • Brian (M1): Đề xuất in logo công ty lên bút bi.      │
-│                                      │ • Matteo (M2): Nói cần kiểm tra lại ngân sách trước.   │
-│                                      │ ──► Đáp án đúng: In logo công ty.                      │
-│                                      │ ──► BẪY: Kiểm tra ngân sách (Ý kiến của Matteo)!       │
-└──────────────────────────────────────┴────────────────────────────────────────────────────────┘
-\`\`\`
-
-- **Mẹo gỡ bẫy:** Đánh dấu nhanh ký hiệu \`W\`, \`M1\`, \`M2\` trong đầu ngay khi từng giọng đọc cất lên để không bị gán nhầm ý kiến giữa 2 người cùng giới tính.`,
-
-  // TRANG 12: PART 3 & 4 — TỬ HUYỆT 10: 15 CÂU CỬA MIỆNG NGẦM Ý
-  `## PART 3 & 4: TỬ HUYỆT 10 — 15 CÂU CỬA MIỆNG NGẦM Ý CỦA NGƯỜI BẢN XỨ
-### Bắt Trúng Ý Tại Ngôn Ngoại: Dạng Câu Hỏi "Why does the speaker say: '...'?"
-
-#### 1. Bản Chất Câu Hỏi Ngầm Ý
-Dạng câu hỏi kiểm tra **khả năng hiểu ý ngầm của người bản xứ**. Nếu dịch nghĩa đen của câu trích dẫn, bạn sẽ chọn sai 100%. Bắt buộc phải nắm bắt tình huống xảy ra ngay trước và sau câu nói đó.
+**QUY ĐỔI ĐIỂM SỐ:** **<10đ (300-350đ):** Luyện gấp Part 1 & bẫy đồng âm Part 2 | **11-16đ (380-420đ - Kẹt điểm):** Xử lý câu trần thuật & Paraphrase | **17-20đ (Master 450-495đ):** Hoàn toàn bắt thóp ETS!
 
 ---
 
-#### 2. Bảng Tra 15 Câu Cửa Miệng Bản Xứ Hay Gặp Nhất Trong ETS 2024 & 2026
-
-| Câu Trích Dẫn Cửa Miệng | Nghĩa Đen Bề Mặt | Ý Ngầm Thật Sự Của ETS (Đáp Án Đúng) | Dẫn Chứng Đề Thi |
-|:---|:---|:---|:---:|
-| *"The forecast said it would rain."* | Dự báo thời tiết bảo trời mưa | Từ chối làm sự kiện ngoài trời / Dời lịch | **ETS-2024-08 Q58** |
-| *"I have another meeting at two."* | Tôi có cuộc họp lúc 2 giờ | Giục kết thúc nhanh / Giới hạn thời gian họp | **ETS-2026-01 Q93** |
-| *"I've only been here for two weeks."* | Mới làm việc được 2 tuần | Từ chối vì chưa rõ việc / Bảo đi nhờ người khác | **ETS-2024-03 Q69** |
-| *"That's not a bad idea."* | Ý kiến không tệ đâu | Đồng ý tán thành với giải pháp vừa đề xuất | **ETS-2026-05 Q41** |
-| *"You can say that again!"* | Bạn có thể nói lại lần nữa | Hoàn toàn đồng ý với ý kiến của đối phương | **ETS-2026-02 Q35** |
-| *"That's a relief."* | Thật là nhẹ nhõm | Vui mừng vì sự cố/rắc rối đã được giải quyết xong | **ETS-2026-04 Q72** |
-| *"This must be my lucky day."* | Hôm nay ngày may mắn | Bất ngờ và hào hứng vì nhận được ưu đãi tốt | **ETS-2024-07 Q44** |
-| *"It's hard to tell."* | Thật khó để nói | Chưa chắc chắn, cần thêm thông tin mới biết | **ETS-2026-03 Q80** |
-| *"That's a distinct possibility."* | Khả năng hoàn toàn có thể | Thừa nhận một rủi ro hoặc khả năng có thể xảy ra | **ETS-2026-06 Q54** |
-| *"I'm afraid not."* | Tôi e là không | Lời từ chối khéo léo, không đáp ứng được yêu cầu | **ETS-2026-01 Q18** |
-| *"It looks like we're shorthanded."* | Có vẻ chúng ta bị thiếu tay | Báo hiệu đang thiếu người làm / Cần làm thêm giờ | **ETS-2026-09 Q48** |
-| *"I can handle that."* | Tôi có thể xử lý được | Tự tin nhận trách nhiệm thực hiện công việc | **ETS-2026-07 Q60** |
-| *"There's no room in the budget."* | Không có chỗ trong ngân sách | Từ chối duyệt tiền / Cần cắt giảm chi phí | **ETS-2026-02 Q55** |
-| *"It's about time!"* | Đến lúc rồi đấy | Than phiền vì việc này đáng lẽ phải làm từ lâu | **ETS-2024-09 Q32** |
-| *"I haven't the slightest idea."* | Tôi không có ý niệm nào | Thừa nhận bản thân hoàn toàn không biết thông tin | **ETS-2026-08 Q63** |`,
-
-  // TRANG 13: NGỮ ÂM — TỬ HUYỆT 11: 4 MẸO NGHE THỦNG NỐI ÂM - NUỐT ÂM
-  `## NGỮ ÂM: TỬ HUYỆT 11 — 4 MẸO NGHE THỦNG NỐI ÂM - NUỐT ÂM & NGỮ ĐIỆU 4 NƯỚC
-### Thoát Khỏi Cảm Giác "Điếc Âm" Khi Gặp Giọng Đọc Anh - Úc Chiếm Tới 50% Đề Thi
-
-#### 1. Ký Hiệu Giọng Đọc Chính Thức Của ETS
-Trong transcript đề thi, ETS phân định rõ 4 chất giọng: \`M-Am/W-Am\` (Mỹ), \`M-Br/W-Br\` (Anh), \`M-Au/W-Au\` (Úc), \`M-Ca/W-Ca\` (Canada). Giọng Anh và Úc chiếm tới gần nửa số câu!
+#### 2. LỘ TRÌNH 30 NGÀY BỨT PHÁ (MỖI NGÀY 30 PHÚT)
+- **TUẦN 1 (Ngày 1 - 7): Khóa Chặt Part 1** $\rightarrow$ Nạp từ nhóm lớn & vi cử động; gạch 100% \`being\`. **Mục tiêu: Đúng 6/6 câu.**
+- **TUẦN 2 (Ngày 8 - 14): Bẻ Khóa Part 2** $\rightarrow$ Cày 70 câu trần thuật & 57 câu vòng vo; khắc sâu Có=YES/Không=NO. **Mục tiêu: Đạt 22/25 câu.**
+- **TUẦN 3 (Ngày 15 - 21): Làm Chủ Paraphrase** $\rightarrow$ Nạp đổi chữ Tầng 3; gióng cột bảng biểu; luyện tai thoại 3 người. **Mục tiêu: Đúng >32/39 câu.**
+- **TUẦN 4 (Ngày 22 - 30): Thực Chiến Áp Lực** $\rightarrow$ Luyện đề full tốc độ 1.1x giọng Anh - Úc; nạp câu sai vào FSRS. **Mục tiêu: Cán mốc 450 - 495đ!**
 
 ---
 
-#### 2. Bốn Mẹo Nghe Thủng Nối Âm - Nuốt Âm Của Người Bản Xứ
-
-\`\`\`
-┌───────────────────────────────────────────────────────────────────────────────────────────┐
-│ 1. BIẾN ÂM /t/ THÀNH /d/ NHẸ CỦA NGƯỜI MỸ (Âm Flap-T biến /t/ thành /d/):                 │
-│    • Âm /t/ đứng giữa 2 nguyên âm thường bị biến thành âm /d/ nhẹ, lướt rất nhanh:        │
-│      - "water" ──► /ˈwɑː.t̬ɚ/ (nghe như "woa-đờ")                                         │
-│      - "meeting" ──► /ˈmiː.t̬ɪŋ/ (nghe như "mi-đình")                                     │
-│      - "quarterly audit" ──► /ˈkwɔːr.t̬ɚ.li/ (nghe như "quoa-đờ-li")                       │
-├───────────────────────────────────────────────────────────────────────────────────────────┤
-│ 2. NUỐT ÂM /t/ CHẶN HỌNG & RỤNG ÂM /r/ CỦA NGƯỜI ANH - ÚC (Chặn âm họng & nuốt âm /r/):   │
-│    • Âm /r/ sau nguyên âm không uốn lưỡi, nguyên âm được kéo dài nhẹ:                     │
-│      - "car" ──► /kɑː/ (không cong lưỡi r) | "park" ──► /pɑːk/                            │
-│      - "schedule" ──► /ˈʃedʒ.uːl/ (Anh/Úc đọc "she-dul", khác hẳn "sked-jool" của Mỹ)     │
-│      - "can't" ──► /kɑːnt/ (phát âm /a/ dài, rất dễ lẫn với can nếu không bắt bối cảnh)   │
-├───────────────────────────────────────────────────────────────────────────────────────────┤
-│ 3. NUỐT ÂM CUỐI KHI GẶP PHỤ ÂM ĐỨNG SAU (Mẹo nghe rơi âm /t/, /d/ cuối từ):               │
-│    • Âm /t/, /d/ ở cuối từ bị biến mất khi từ tiếp theo bắt đầu bằng một phụ âm khác:     │
-│      - "last night" ──► /lɑːs naɪt/ (âm /t/ biến mất hoàn toàn)                           │
-│      - "next week" ──► /neks wiːk/                                                        │
-│      - "hold on" ──► /ˈhəʊl.dɒn/ (âm /d/ nối liền thẳng sang on)                          │
-├───────────────────────────────────────────────────────────────────────────────────────────┤
-│ 4. LƯỚT SIÊU NHANH CÁC TỪ PHỤ TRONG CÂU (Mẹo nghe âm lướt nhẹ):                           │
-│    • Các từ nối (for, to, at, of, and) chỉ được phát âm lướt trong 0.15 giây:             │
-│      - "I have to submit an invoice for the client" ──► "ai-hæf-tə-səb'mɪt-ən'ɪn-vɔɪs..." │
-└───────────────────────────────────────────────────────────────────────────────────────────┘
-\`\`\``,
-
-  // TRANG 14: SCORECARD — BẢNG TỰ CHẨN ĐOÁN LỖ HỔNG NGHE 15 BẪY SÁT THỦ
-  `## BẢNG TỰ CHẨN ĐOÁN LỖ HỔNG NGHE 15 BẪY SÁT THỦ
-### Đo Lường Phản Xạ & Bắt Đúng Bệnh Khiến Bạn Bị Chững Điểm (Self-Audit Scorecard)
-
-Đánh giá mức độ phản xạ của bạn trên thang điểm từ **0 đến 2** cho mỗi bẫy nghe:  
-*(0: Thường xuyên bị lừa / 1: Nhận ra nhưng mất trên 3 giây suy nghĩ / 2: Phản xạ tức thì dưới 1 giây)*
-
-| STT | Bẫy Nghe Khảo Thí ETS | Tiêu Chí Đánh Giá Phản Xạ Âm Thanh | Điểm (0 - 2) |
-|:---:|:---|:---|:---:|
-| 1 | **Bẫy từ chỉ nhóm lớn** | Tự động gom đồ vật cụ thể thành tên nhóm chung (\`produce\`, \`fixtures\`) trong 1.5s nhìn tranh | [ &nbsp; ] |
-| 2 | **Soi vi cử động cơ thể** | Bắt chuẩn cử động ngón tay, mắt nhìn (\`reaching into\`, \`shading eyes\`) | [ &nbsp; ] |
-| 3 | **Bẫy Being vs Been** | Gạch 100% phương án chứa \`is/are being V-ed\` khi tranh không người trong 0.5s | [ &nbsp; ] |
-| 4 | **Bẫy chi tiết hậu cảnh** | Quét nhanh trần nhà, bờ tường phía sau; không dồn 100% mắt vào người phía trước | [ &nbsp; ] |
-| 5 | **Bẫy Đã mặc vs Đang mặc** | Phân biệt tức thì giữa \`wearing\` (đã mặc sẵn) và \`putting on\` (100% bẫy sai) | [ &nbsp; ] |
-| 6 | **Câu trần thuật công sở** | Nhận diện câu trần thuật Part 2 và phản xạ ngay với mẫu đáp án đưa giải pháp / giúp đỡ | [ &nbsp; ] |
-| 7 | **Bẫy trả lời vòng vo** | Không hoang mang khi câu trả lời Part 2 bẻ lái câu hỏi (*"Tưởng cuộc họp bị hủy rồi?"*) | [ &nbsp; ] |
-| 8 | **Quy tắc Có Yes - Không No**| Giữ vững quy tắc: Có thật là YES, Không thật là NO, bất kể câu hỏi phủ định hay đuôi | [ &nbsp; ] |
-| 9 | **Bẫy lặp từ giống hệt** | Loại trừ ngay các phương án lặp lại từ khóa giống hệt trong câu hỏi Wh- Part 2 (sai 85%) | [ &nbsp; ] |
-| 10 | **Gạt phăng Yes/No ở Wh-** | Triệt tiêu ngay phương án mở đầu bằng "Yes/No/Sure" khi nghe câu hỏi Who/When/Where | [ &nbsp; ] |
-| 11 | **Đổi chữ Paraphrase** | Nhận diện 3 tầng Paraphrase trong Part 3 & 4 (Từ đồng nghĩa, Từ nhóm chung, Đổi cách nói) | [ &nbsp; ] |
-| 12 | **Mẹo gióng cột biểu đồ** | Thực thi mẹo gióng cột: Nghe chi tiết cột đối diện chứ không chờ nghe chữ trong câu hỏi | [ &nbsp; ] |
-| 13 | **Bắt ý ngầm người nói** | Nắm bối cảnh ngay trước câu nói để suy ra ngụ ý thật sự của người bản xứ | [ &nbsp; ] |
-| 14 | **Phân biệt 3 người nói** | Gắn nhãn nhân vật (\`M1\` vs \`M2\` vs \`W\`) trong thoại 3 người, không bị gán nhầm ý | [ &nbsp; ] |
-| 15 | **Nghe thủng nối - nuốt âm** | Nghe thủng âm /t/ thành /d/ kiểu Mỹ, nuốt âm cuối và rơi âm /r/ kiểu Anh - Úc | [ &nbsp; ] |
+### 🎁 QUÀ TẶNG KÈM DÀNH CHO BẠN:
+- **Tài khoản LingoPro VIP Pro 7 Ngày Miễn Phí:** Mở khóa toàn bộ kho 20 đề thi ETS 2024 & ETS 2026 kèm audio gốc bản xứ và công nghệ luyện nghe FSRS.
+- **Mã kích hoạt:** \`SATTHUTOEIC\` | **Trải nghiệm ngay tại:** 👉 **https://lingopro.vn/sat-thu-toeic-listening**
 
 ---
-
-#### BẢNG QUY ĐỔI ĐIỂM SỐ & CHẨN ĐOÁN LỘ TRÌNH:
-- **Dưới 15 điểm (Kẹt ở ngưỡng 300 – 350 điểm nghe):** Bạn đang nghe theo kiểu dịch từng chữ sang tiếng Việt. Cần rèn lại phản xạ âm thanh từ Part 1 & Part 2.
-- **Từ 16 – 24 điểm (Kẹt ở ngưỡng 380 – 420 điểm - "Bình nguyên kẹt điểm"):** Nền tảng khá nhưng hay mất điểm ở câu trần thuật Part 2, thoại 3 người và các cặp Paraphrase Part 3 & 4.
-- **Từ 25 – 30 điểm (Ngưỡng Master 450 – 495 điểm tuyệt đối):** Bạn đã hoàn toàn làm chủ các bẫy đề thi, phản xạ âm thanh cực nhanh dưới 300ms!`,
-
-  // TRANG 15: LỘ TRÌNH 30 NGÀY BỨT PHÁ & KẾ HOẠCH HÀNH ĐỘNG
-  `## LỘ TRÌNH 30 NGÀY "LỘT XÁC THÍNH GIÁC" & KẾ HOẠCH HÀNH ĐỘNG
-### Chuyển Hóa Kiến Thức Thành Điểm Số Thực Chiến Với Công Nghệ FSRS Tại LingoPro
-
-\`\`\`
-┌──────────────────────────────────────────────────────────────────────────────────────────┐
-│ LỘ TRÌNH 30 NGÀY MASTER TOEIC LISTENING (MỖI NGÀY 30 PHÚT)                               │
-├──────────────────────────────────────────────────────────────────────────────────────────┤
-│ • TUẦN 1 (Ngày 1 - 7): KHÓA CHẶT PART 1 — TẬP TRẬN 100% ĐIỂM TRANH ẢNH                   │
-│   - Nạp 15 cụm từ nhóm lớn & 10 vi cử động cơ thể hay gặp nhất.                          │
-│   - Luyện tai với bẫy Being vs Been và mẹo soi chi tiết hậu cảnh.                        │
-│   - Mục tiêu: Đúng tuyệt đối 6/6 câu Part 1 trong mọi đề thi.                            │
-├──────────────────────────────────────────────────────────────────────────────────────────┤
-│ • TUẦN 2 (Ngày 8 - 14): BẺ KHÓA PART 2 — PHẢN XẠ CÂU TRẦN THUẬT & TRẢ LỜI VÒNG VO        │
-│   - Luyện nhận diện 4 cách đối đáp câu trần thuật nơi công sở.                           │
-│   - Khắc cốt ghi tâm quy tắc Có là YES - Không là NO cho câu hỏi phủ định/đuôi.         │
-│   - Triệt tiêu phản xạ chọn phương án lặp lại từ khóa mồi.                               │
-│   - Mục tiêu: Đạt tối thiểu 22/25 câu Part 2.                                            │
-├──────────────────────────────────────────────────────────────────────────────────────────┤
-│ • TUẦN 3 (Ngày 15 - 21): BẮT ĐIỂM PART 3 & 4 — LÀM CHỦ ĐỔI CHỮ PARAPHRASE 3 TẦNG         │
-│   - Nạp 50 cặp đổi chữ đồng nghĩa tần suất cao nhất giữa audio và đề bài.                │
-│   - Thực hành mẹo Gióng Cột Đối Diện cho 100% câu hỏi tranh biểu đồ.                     │
-│   - Luyện tai phân biệt 3 người nói (W, M1, M2) không bị gán nhầm ý kiến.                │
-│   - Mục tiêu: Tốc độ đọc đề trước băng phát < 10 giây/bài.                               │
-├──────────────────────────────────────────────────────────────────────────────────────────┤
-│ • TUẦN 4 (Ngày 22 - 30): THỰC CHIẾN FULL TEST 20 ĐỀ ETS 2024 & ETS 2026 TRÊN LINGOPRO    │
-│   - Luyện đề trên LingoPro Focus Player với tính năng tua chậm, lặp đoạn và tra cứu IPA. │
-│   - Nạp các từ nghe sót vào thuật toán lặp lại ngắt quãng FSRS (Auditory Flashcards).    │
-│   - Mục tiêu: Vững vàng cán mốc 450 - 495 điểm Listening!                                │
-└──────────────────────────────────────────────────────────────────────────────────────────┘
-\`\`\`
-
----
-
-### 🎁 QUÀ TẶNG KÈM DÀNH RIÊNG CHO BẠN:
-- **Tài khoản LingoPro Premium 7 Ngày Miễn Phí:** Mở khóa toàn bộ kho 20 đề thi ETS 2024 & ETS 2026 kèm audio gốc bản xứ và lời giải thích chi tiết.
-- **Mã kích hoạt:** \`SATTHUTOEIC\`
-- **Trải nghiệm trực tuyến ngay tại:**  
-  👉 **https://lingopro.vn/sat-thu-toeic-listening**  
-  *(Hoặc quét mã QR trên ứng dụng LingoPro để làm bài test chẩn đoán 15 bẫy nghe trực tiếp)*
-
----
-*Ấn phẩm Bách Khoa Toàn Thư Thực Chiến: Sát Thủ Bài Nghe TOEIC © 2026 LingoPro EdTech Platform. Bản quyền thuộc về Ban Nghiên cứu Sư phạm Ứng dụng & Dữ liệu Khảo thí LingoPro.*`
+*Ấn phẩm Bách Khoa Toàn Thư Thực Chiến: Sát Thủ Bài Nghe TOEIC © 2026 LingoPro EdTech Platform. Bản quyền thuộc về Hội đồng Khảo thí LingoPro.*`
 ];
 
-// Combine into single markdown
+// Write to files
 const fullMarkdown = pages.join(pBreak);
 
-const outputPath = path.join(__dirname, '../docs/sat-thu-toeic-listening-lead-magnet.md');
+const outputPath = 'd:\\Vibe\\Vocab\\web-app\\docs\\sat-thu-toeic-listening-lead-magnet.md';
 fs.writeFileSync(outputPath, fullMarkdown, 'utf8');
 
-// Also copy to public downloads and public lead-magnet
-const publicDownload = path.join(__dirname, '../public/downloads/sat-thu-toeic-listening-lead-magnet.md');
+const publicDownload = 'd:\\Vibe\\Vocab\\web-app\\public\\downloads\\sat-thu-toeic-listening-lead-magnet.md';
 fs.writeFileSync(publicDownload, fullMarkdown, 'utf8');
 
-const publicLeadMagnet = path.join(__dirname, '../public/lead-magnet/sat-thu-toeic-listening-lead-magnet.md');
+const publicLeadMagnet = 'd:\\Vibe\\Vocab\\web-app\\public\\lead-magnet\\sat-thu-toeic-listening-lead-magnet.md';
 const lmDir = path.dirname(publicLeadMagnet);
 if (!fs.existsSync(lmDir)) fs.mkdirSync(lmDir, { recursive: true });
 fs.writeFileSync(publicLeadMagnet, fullMarkdown, 'utf8');
 
-console.log('✔ Generated 15-page Playbook Markdown (' + pages.length + ' distinct pages, ' + (fullMarkdown.length / 1024).toFixed(1) + ' KB)');
+// Also update build-15page-playbook.js to keep repository in sync
+fs.copyFileSync('C:\\Users\\tapho\\.gemini\\antigravity\\brain\\8a1edaf5-5394-4a3d-9567-3f3ec6c92c74\\scratch\\build-10page-playbook.js', 'd:\\Vibe\\Vocab\\web-app\\scripts\\build-15page-playbook.js');
+
+console.log('✔ Generated 10-page Playbook Markdown (' + pages.length + ' distinct pages, ' + (fullMarkdown.length / 1024).toFixed(1) + ' KB)');

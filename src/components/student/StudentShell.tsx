@@ -8,6 +8,7 @@ import {
   ArrowDownToLine,
   Brain,
   ChevronDown,
+  Crown,
   GraduationCap,
   Loader2,
   LogOut,
@@ -627,6 +628,29 @@ export function StudentShell({
 
             {/* Footer drawer: Linear workspace card + actions */}
             <div className="shrink-0 space-y-1.5 border-t border-slate-100 px-3 pb-3 pt-2.5 dark:border-slate-800">
+              {/* Nâng cấp Pro CTA */}
+              <Link
+                href="/upgrade"
+                onClick={() => setIsMenuOpen(false)}
+                aria-current={isUpgradeActive ? 'page' : undefined}
+                className={cn(
+                  'group flex min-h-[36px] items-center justify-between rounded-lg px-2.5 py-1.5 text-[13px] font-bold transition-all',
+                  isUpgradeActive
+                    ? 'bg-amber-500/15 text-amber-900 border border-amber-300 dark:bg-amber-950/50 dark:text-amber-300 dark:border-amber-800 font-black'
+                    : 'bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 text-amber-900 hover:from-amber-500/20 hover:to-orange-500/20 border border-amber-200/80 shadow-[0_1px_2px_rgba(245,158,11,0.08)] dark:border-amber-900/50 dark:text-amber-300 dark:from-amber-950/30 dark:to-orange-950/20',
+                )}
+              >
+                <div className="flex items-center gap-2 min-w-0">
+                  <Crown className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" />
+                  <span className="truncate">
+                    {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}
+                  </span>
+                </div>
+                <span className="shrink-0 rounded bg-gradient-to-r from-amber-500 to-orange-500 px-1.5 py-0.5 text-[9px] font-black uppercase text-white shadow-xs">
+                  {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? effectiveProfile.plan : 'ƯU ĐÃI'}
+                </span>
+              </Link>
+
               <Link
                 href="/student/profile"
                 onClick={() => setIsMenuOpen(false)}
@@ -650,8 +674,8 @@ export function StudentShell({
                     {effectiveProfile.plan}
                   </span>
                 ) : (
-                  <span className="px-1.5 py-0.5 rounded bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 text-[9px] font-bold text-indigo-600 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800 shrink-0">
-                    Pro
+                  <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200/80 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700 text-[9px] font-bold uppercase shrink-0">
+                    Free
                   </span>
                 )}
               </Link>
@@ -744,6 +768,28 @@ export function StudentShell({
           )}
         </nav>
         <div className="mt-auto shrink-0 space-y-1.5 border-t border-slate-100 pt-2.5 dark:border-slate-800">
+          {/* Nâng cấp Pro CTA */}
+          <Link
+            href="/upgrade"
+            aria-current={isUpgradeActive ? 'page' : undefined}
+            className={cn(
+              'group flex min-h-[36px] items-center justify-between rounded-lg px-2.5 py-1.5 text-[13px] font-bold transition-all',
+              isUpgradeActive
+                ? 'bg-amber-500/15 text-amber-900 border border-amber-300 dark:bg-amber-950/50 dark:text-amber-300 dark:border-amber-800 font-black'
+                : 'bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 text-amber-900 hover:from-amber-500/20 hover:to-orange-500/20 border border-amber-200/80 shadow-[0_1px_2px_rgba(245,158,11,0.08)] dark:border-amber-900/50 dark:text-amber-300 dark:from-amber-950/30 dark:to-orange-950/20',
+            )}
+          >
+            <div className="flex items-center gap-2 min-w-0">
+              <Crown className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" />
+              <span className="truncate">
+                {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}
+              </span>
+            </div>
+            <span className="shrink-0 rounded bg-gradient-to-r from-amber-500 to-orange-500 px-1.5 py-0.5 text-[9px] font-black uppercase text-white shadow-xs">
+              {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? effectiveProfile.plan : 'ƯU ĐÃI'}
+            </span>
+          </Link>
+
           {/* User / Workspace Card */}
           <Link
             href="/student/profile"
@@ -767,8 +813,8 @@ export function StudentShell({
                 {effectiveProfile.plan}
               </span>
             ) : (
-              <span className="px-1.5 py-0.5 rounded bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 text-[9px] font-bold text-indigo-600 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800 shrink-0">
-                Pro
+              <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200/80 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700 text-[9px] font-bold uppercase shrink-0">
+                Free
               </span>
             )}
           </Link>
@@ -925,6 +971,14 @@ export function StudentShell({
                       )}
                     </div>
                     <div className="my-1 h-px bg-[#f1f1f5] dark:bg-slate-800" />
+                    <Link
+                      href="/upgrade"
+                      onClick={() => setIsProfileOpen(false)}
+                      className="flex min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-bold text-amber-700 hover:bg-amber-50 dark:text-amber-400 dark:hover:bg-amber-950/30"
+                    >
+                      <Crown className="h-[17px] w-[17px] text-amber-600 dark:text-amber-400" />
+                      <span>{effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}</span>
+                    </Link>
                     {effectiveIsTeacher && (
                       <Link
                         href="/teacher"

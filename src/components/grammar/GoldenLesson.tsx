@@ -38,16 +38,20 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative bg-card border border-border rounded-xl p-5 sm:p-6 shadow-xs">
-      <span className="absolute top-3.5 right-4 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground bg-muted border border-border/70 rounded-md px-2 py-0.5">
-        {tag}
-      </span>
-      <h2 className="text-base sm:text-lg font-semibold text-foreground mb-3.5 flex items-center gap-2.5 pr-24">
-        <div className="h-7 w-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-          {icon}
+    <div className="py-6 sm:py-8 space-y-3.5 border-b border-border/30 last:border-b-0">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
+          <div className="h-7 w-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            {icon}
+          </div>
+          <h2 className="text-lg sm:text-xl font-serif font-semibold text-foreground">
+            {title}
+          </h2>
         </div>
-        <span>{title}</span>
-      </h2>
+        <span className="text-[11px] font-mono tracking-widest text-muted-foreground/70 uppercase">
+          {tag}
+        </span>
+      </div>
       {children}
     </div>
   );
@@ -81,10 +85,10 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
 
   const badge = { mcq: 'Trắc nghiệm', fill: 'Điền từ', tf: 'Đúng / Sai', error: 'Sửa lỗi' }[type];
   const bcol = {
-    mcq: 'bg-primary/10 text-primary border border-primary/20',
-    fill: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20',
-    tf: 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20',
-    error: 'bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20',
+    mcq: 'bg-primary/10 text-primary',
+    fill: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300',
+    tf: 'bg-amber-500/10 text-amber-700 dark:text-amber-300',
+    error: 'bg-rose-500/10 text-rose-700 dark:text-rose-300',
   }[type];
 
   const isAnswerTrue =
@@ -115,7 +119,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl p-4 space-y-2.5 shadow-xs">
+    <div className="bg-muted/20 rounded-xl p-4 space-y-2.5">
       <div className="flex items-center gap-2">
         <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md ${bcol}`}>
           {badge}
@@ -131,12 +135,12 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
           {(opts ?? []).map((o: string) => {
             const isCorrect = isOptionCorrect(o);
             const show = done && (picked === o || isCorrect);
-            let btnClass = 'bg-muted/40 hover:bg-muted text-foreground border-border hover:border-primary/40';
+            let btnClass = 'bg-muted/30 hover:bg-muted/60 text-foreground';
             if (show) {
               if (isCorrect) {
-                btnClass = 'bg-emerald-500/10 border-emerald-500/40 text-emerald-800 dark:text-emerald-300 font-semibold ring-1 ring-emerald-500/20';
+                btnClass = 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 font-semibold ring-1 ring-emerald-500/30';
               } else {
-                btnClass = 'bg-rose-500/10 border-rose-500/40 text-rose-800 dark:text-rose-300 font-semibold ring-1 ring-rose-500/20';
+                btnClass = 'bg-rose-500/15 text-rose-800 dark:text-rose-300 font-semibold ring-1 ring-rose-500/30';
               }
             }
             return (
@@ -147,7 +151,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
                   setPicked(o);
                   setDone(true);
                 }}
-                className={`text-left rounded-lg border px-3.5 py-2 text-xs sm:text-sm font-medium transition-colors flex items-center justify-between gap-2 ${btnClass}`}
+                className={`text-left rounded-lg px-3.5 py-2 text-xs sm:text-sm font-medium transition-colors flex items-center justify-between gap-2 ${btnClass}`}
               >
                 <span>{o}</span>
                 {show && isCorrect && <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />}
@@ -285,7 +289,7 @@ export default function GoldenLesson({
         <Card tag="Khi nào dùng" icon={<Bookmark className="h-4 w-4" />} title="Các trường hợp dùng">
           <div className="grid sm:grid-cols-2 gap-2.5">
             {s.usage.map((u, i) => (
-              <div key={i} className="bg-muted/40 border border-border rounded-xl p-3.5 space-y-1">
+              <div key={i} className="bg-muted/20 rounded-xl p-3.5 space-y-1">
                 <div className="font-semibold text-sm text-foreground flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
                   <span>{u.label}</span>
@@ -300,12 +304,12 @@ export default function GoldenLesson({
 
       {!!s.formula?.rows?.length && (
         <Card tag="Công thức" icon={<Boxes className="h-4 w-4" />} title="Cấu trúc">
-          <div className="overflow-x-auto rounded-xl border border-border shadow-2xs">
-            <table className="w-full text-left text-xs sm:text-sm text-foreground border-collapse">
-              <thead className="bg-muted/60 text-xs uppercase font-semibold text-foreground border-b border-border">
+          <div className="overflow-x-auto my-4 -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full text-left text-xs sm:text-sm text-foreground border-collapse border-b border-border/60">
+              <thead className="border-b border-border/60 text-xs uppercase font-semibold text-muted-foreground tracking-wider">
                 <tr>
                   {Object.keys(s.formula.rows[0]).map((k) => (
-                    <th key={k} className="px-3.5 py-2.5 font-semibold text-foreground">
+                    <th key={k} className="py-3 px-3.5 font-semibold text-foreground">
                       {k}
                     </th>
                   ))}
@@ -313,9 +317,9 @@ export default function GoldenLesson({
               </thead>
               <tbody>
                 {s.formula.rows.map((r, i) => (
-                  <tr key={i} className="border-t border-border/70 even:bg-muted/20">
+                  <tr key={i} className="border-t border-border/30 hover:bg-muted/30 transition-colors">
                     {Object.keys(s.formula!.rows![0]).map((k) => (
-                      <td key={k} className="px-3.5 py-2.5 font-medium text-foreground">
+                      <td key={k} className="py-3 px-3.5 font-medium text-foreground">
                         {r[k]}
                       </td>
                     ))}
@@ -325,7 +329,7 @@ export default function GoldenLesson({
             </table>
           </div>
           {s.formula.note && (
-            <div className="mt-3 text-xs sm:text-sm bg-amber-500/10 border-l-3 border-amber-500 rounded-r-lg px-3.5 py-2.5 text-foreground leading-relaxed">
+            <div className="mt-3 text-xs sm:text-sm bg-amber-500/[0.04] border-l-2 border-amber-500/60 rounded-r-lg px-3.5 py-2.5 text-foreground leading-relaxed">
               {md(s.formula.note)}
             </div>
           )}
@@ -334,21 +338,21 @@ export default function GoldenLesson({
 
       {!!s.rules?.length && (
         <Card tag="Quy tắc" icon={<PenLine className="h-4 w-4" />} title="Quy tắc biến đổi">
-          <div className="overflow-x-auto rounded-xl border border-border shadow-2xs">
-            <table className="w-full text-left text-xs sm:text-sm text-foreground border-collapse">
-              <thead className="bg-muted/60 text-xs uppercase font-semibold text-foreground border-b border-border">
+          <div className="overflow-x-auto my-4 -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full text-left text-xs sm:text-sm text-foreground border-collapse border-b border-border/60">
+              <thead className="border-b border-border/60 text-xs uppercase font-semibold text-muted-foreground tracking-wider">
                 <tr>
-                  <th className="px-3.5 py-2.5 font-semibold">Trường hợp</th>
-                  <th className="px-3.5 py-2.5 font-semibold">Quy tắc</th>
-                  <th className="px-3.5 py-2.5 font-semibold">Ví dụ</th>
+                  <th className="py-3 px-3.5 font-semibold">Trường hợp</th>
+                  <th className="py-3 px-3.5 font-semibold">Quy tắc</th>
+                  <th className="py-3 px-3.5 font-semibold">Ví dụ</th>
                 </tr>
               </thead>
               <tbody>
                 {s.rules.map((r, i) => (
-                  <tr key={i} className="border-t border-border/70 even:bg-muted/20">
-                    <td className="px-3.5 py-2.5 font-medium text-foreground">{r.case}</td>
-                    <td className="px-3.5 py-2.5 font-semibold text-primary">{r.rule}</td>
-                    <td className="px-3.5 py-2.5 text-muted-foreground">{r.example}</td>
+                  <tr key={i} className="border-t border-border/30 hover:bg-muted/30 transition-colors">
+                    <td className="py-3 px-3.5 font-medium text-foreground">{r.case}</td>
+                    <td className="py-3 px-3.5 font-semibold text-primary">{r.rule}</td>
+                    <td className="py-3 px-3.5 text-muted-foreground">{r.example}</td>
                   </tr>
                 ))}
               </tbody>
@@ -370,12 +374,12 @@ export default function GoldenLesson({
               icon={<Library className="h-4 w-4" />}
               title={wb.title || 'Danh sách đặc biệt'}
             >
-              <div className="overflow-x-auto rounded-xl border border-border max-h-[28rem] overflow-y-auto shadow-2xs">
-                <table className="w-full text-left text-xs sm:text-sm text-foreground border-collapse">
-                  <thead className="bg-muted/80 backdrop-blur text-xs uppercase font-semibold text-foreground sticky top-0 border-b border-border z-10">
+              <div className="overflow-x-auto my-4 -mx-4 sm:mx-0 px-4 sm:px-0 max-h-[28rem] overflow-y-auto">
+                <table className="w-full text-left text-xs sm:text-sm text-foreground border-collapse border-b border-border/60">
+                  <thead className="bg-muted/80 backdrop-blur text-xs uppercase font-semibold text-muted-foreground sticky top-0 border-b border-border/60 z-10 tracking-wider">
                     <tr>
                       {keys.map((k) => (
-                        <th key={k} className="px-3.5 py-2.5 font-semibold">
+                        <th key={k} className="py-3 px-3.5 font-semibold">
                           {k}
                         </th>
                       ))}
@@ -383,11 +387,11 @@ export default function GoldenLesson({
                   </thead>
                   <tbody>
                     {rows.map((r, i) => (
-                      <tr key={i} className="border-t border-border/70 even:bg-muted/20">
+                      <tr key={i} className="border-t border-border/30 hover:bg-muted/30 transition-colors">
                         {keys.map((k) => (
                           <td
                             key={k}
-                            className={`px-3.5 py-2.5 ${
+                            className={`py-3 px-3.5 ${
                               k === keys[0] ? 'font-semibold text-foreground' : 'text-muted-foreground'
                             }`}
                           >
@@ -400,7 +404,7 @@ export default function GoldenLesson({
                 </table>
               </div>
               {wb.note && (
-                <div className="mt-3 text-xs sm:text-sm bg-amber-500/10 border-l-3 border-amber-500 rounded-r-lg px-3.5 py-2.5 text-foreground leading-relaxed">
+                <div className="mt-3 text-xs sm:text-sm bg-amber-500/[0.04] border-l-2 border-amber-500/60 rounded-r-lg px-3.5 py-2.5 text-foreground leading-relaxed">
                   {md(wb.note)}
                 </div>
               )}
@@ -417,7 +421,7 @@ export default function GoldenLesson({
             {s.signals.map((x, i) => (
               <span
                 key={i}
-                className="bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-300 font-medium text-xs sm:text-sm px-3 py-1 rounded-lg"
+                className="bg-amber-500/10 text-amber-800 dark:text-amber-300 font-medium text-xs sm:text-sm px-3 py-1 rounded-lg"
               >
                 {x}
               </span>
@@ -430,13 +434,13 @@ export default function GoldenLesson({
         <Card tag="Lỗi thường gặp" icon={<AlertTriangle className="h-4 w-4" />} title="Tránh các lỗi này">
           <div className="space-y-2.5">
             {s.mistakes.map((m, i) => (
-              <div key={i} className="p-3 bg-muted/40 border border-border rounded-xl text-xs sm:text-sm space-y-1">
+              <div key={i} className="p-3 bg-muted/20 rounded-xl text-xs sm:text-sm space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-rose-600 dark:text-rose-400 line-through font-medium">{m.wrong}</span>
                   <span className="text-muted-foreground">→</span>
                   <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{m.right}</span>
                 </div>
-                {m.why && <div className="text-xs text-muted-foreground pt-1 border-t border-border/50">{m.why}</div>}
+                {m.why && <div className="text-xs text-muted-foreground pt-1 border-t border-border/30">{m.why}</div>}
               </div>
             ))}
           </div>
