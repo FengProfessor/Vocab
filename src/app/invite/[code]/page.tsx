@@ -53,18 +53,20 @@ export default function InviteLandingPage({
 
     async function checkUserAndResolve() {
       try {
-        // 1. Check if user is logged in
-        const { data: { session } } = await supabase.auth.getSession();
+        // 1 & 2. Concurrently check auth session and resolve referrer info
+        const [sessionRes, resolveRes] = await Promise.all([
+          supabase.auth.getSession(),
+          fetch('/api/referral/resolve', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code }),
+          }),
+        ]);
+
+        const session = sessionRes.data?.session;
         setCurrentUser(session?.user || null);
 
-        // 2. Resolve referrer info
-        const res = await fetch('/api/referral/resolve', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ code }),
-        });
-
-        const json = await res.json();
+        const json = await resolveRes.json();
         if (json.success) {
           setResolveData(json);
           try {

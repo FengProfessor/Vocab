@@ -126,6 +126,17 @@ export default function ReferralHubPage() {
     if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
       setCanNativeShare(true);
     }
+    // Frame-0 instant cache hydration to eliminate loading delay on revisit
+    try {
+      const cached = sessionStorage.getItem('lp_ref_hub_cache');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        setData(parsed);
+        setIsLoading(false);
+      }
+    } catch {
+      // ignore
+    }
   }, []);
 
   const fetchHubData = async () => {
@@ -143,6 +154,11 @@ export default function ReferralHubPage() {
       const json = await res.json();
       if (json.success) {
         setData(json);
+        try {
+          sessionStorage.setItem('lp_ref_hub_cache', JSON.stringify(json));
+        } catch {
+          // ignore
+        }
       }
     } catch (err: any) {
       console.error(err);

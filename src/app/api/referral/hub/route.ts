@@ -33,13 +33,30 @@ export async function GET(req: NextRequest) {
     const { data: { user } } = await supabase.auth.getUser(token);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    // 1. Fetch or auto-create referral link
-    let { data: link } = await supabase
-      .from('referral_links')
-      .select('*')
-      .eq('user_id', user.id)
-      .maybeSingle();
+    // 1. Fetch referral link, logs, ledger transactions, and payout requests concurrently
+    const [linkRes, logsRes, txsRes, payoutsRes] = await Promise.all([
+      supabase
+        .from('referral_links')
+        .select('*')
+        .eq('user_id', user.id)
+        .maybeSingle(),
+      supabase
+        .from('referral_logs')
+        .select('id, referee_id, status, created_at, activated_at, converted_at')
+        .eq('referrer_id', user.id)
+        .order('created_at', { ascending: false }),
+      supabase
+        .from('reward_transactions')
+        .select('*')
+        .eq('user_id', user.id),
+      supabase
+        .from('payout_requests')
+        .select('id, amount, bank_name, bank_account_number, bank_account_holder, status, admin_note, created_at, processed_at')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false }),
+    ]);
 
+    let link = linkRes.data;
     if (!link) {
       const code = generateRandomCode(6);
       const { data: newLink } = await supabase
@@ -54,14 +71,8 @@ export async function GET(req: NextRequest) {
     const referralCode = link?.referral_code || '';
     const shareUrl = referralCode ? `${origin}/invite/${referralCode}` : '';
 
-    // 2. Fetch referral logs
-    const { data: logs } = await supabase
-      .from('referral_logs')
-      .select('id, referee_id, status, created_at, activated_at, converted_at')
-      .eq('referrer_id', user.id)
-      .order('created_at', { ascending: false });
-
-    const logsList = logs || [];
+    // 2. Process referral logs
+    const logsList = logsRes.data || [];
     const totalInvited = logsList.length;
     const activatedCount = logsList.filter((l) => l.status === 'activated' || l.status === 'converted').length;
     const convertedCount = logsList.filter((l) => l.status === 'converted').length;
@@ -81,16 +92,12 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    // 3. Fetch Ledger Transactions
-    const { data: txs } = await supabase
-      .from('reward_transactions')
-      .select('*')
-      .eq('user_id', user.id);
-
-    const txList = txs || [];
+    // 3. Process Ledger Transactions
+    const txList = txsRes.data || [];
     let totalProDays = 0;
     let availableCash = 0;
     let pendingCash = 0;
+    const maturedIds: string[] = [];
 
     for (const tx of txList) {
       if (tx.reward_type === 'pro_days' && tx.status === 'available') {
@@ -102,10 +109,7 @@ export async function GET(req: NextRequest) {
           const isMatured = new Date(tx.available_at).getTime() <= Date.now();
           if (isMatured) {
             availableCash += Number(tx.amount || 0);
-            void supabase
-              .from('reward_transactions')
-              .update({ status: 'available' })
-              .eq('id', tx.id);
+            maturedIds.push(tx.id);
           } else {
             pendingCash += Number(tx.amount || 0);
           }
@@ -113,6 +117,14 @@ export async function GET(req: NextRequest) {
       } else if (tx.reward_type === 'payout_debit' && tx.status === 'deducted') {
         availableCash += Number(tx.amount || 0); // amount is negative for debit
       }
+    }
+
+    // Batch update all matured transactions in a single query
+    if (maturedIds.length > 0) {
+      void supabase
+        .from('reward_transactions')
+        .update({ status: 'available' })
+        .in('id', maturedIds);
     }
 
     if (availableCash < 0) availableCash = 0;
@@ -152,12 +164,8 @@ export async function GET(req: NextRequest) {
       convertedAt: log.converted_at,
     }));
 
-    // 5. Fetch user payout requests
-    const { data: payouts } = await supabase
-      .from('payout_requests')
-      .select('id, amount, bank_name, bank_account_number, bank_account_holder, status, admin_note, created_at, processed_at')
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false });
+    // 5. Format payout requests
+    const payouts = payoutsRes.data;
 
     const formattedPayouts = (payouts || []).map((p) => ({
       id: p.id,

@@ -28,6 +28,7 @@ function isLightPath(pathname: string): boolean {
   const light = [
     '/auth',
     '/landing',
+    '/invite',
     '/for-teachers',
     '/privacy',
     '/terms',
