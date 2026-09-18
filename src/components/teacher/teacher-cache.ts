@@ -34,6 +34,15 @@ export interface StudentErrorItem {
   nextReviewDate: string;
 }
 
+const MAX_CACHE_ENTRIES = 120;
+
+function enforceLimit<K, V>(map: Map<K, V>, max: number) {
+  if (map.size >= max) {
+    const firstKey = map.keys().next().value;
+    if (firstKey !== undefined) map.delete(firstKey);
+  }
+}
+
 const detailCache = new Map<string, StudentDetailPayload>();
 const errorsCache = new Map<string, StudentErrorItem[]>();
 const aiInsightCache = new Map<string, string>();
@@ -48,6 +57,7 @@ export function getCachedStudentDetail(studentId: string, classroomId: string): 
 }
 
 export function setCachedStudentDetail(studentId: string, classroomId: string, data: StudentDetailPayload): void {
+  enforceLimit(detailCache, MAX_CACHE_ENTRIES);
   detailCache.set(makeKey(studentId, classroomId), data);
 }
 
@@ -56,6 +66,7 @@ export function getCachedStudentErrors(studentId: string, classroomId: string): 
 }
 
 export function setCachedStudentErrors(studentId: string, classroomId: string, data: StudentErrorItem[]): void {
+  enforceLimit(errorsCache, MAX_CACHE_ENTRIES);
   errorsCache.set(makeKey(studentId, classroomId), data);
 }
 
@@ -64,6 +75,7 @@ export function getCachedAiInsight(studentId: string): string | undefined {
 }
 
 export function setCachedAiInsight(studentId: string, text: string): void {
+  enforceLimit(aiInsightCache, MAX_CACHE_ENTRIES);
   aiInsightCache.set(studentId, text);
 }
 

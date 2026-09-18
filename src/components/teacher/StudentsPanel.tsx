@@ -12,6 +12,18 @@ import StudentDetailSheet from './StudentDetailSheet';
 import { prefetchStudent } from './teacher-cache';
 
 export type StudentFilter = 'all' | 'at_risk' | 'cramming' | 'dormant' | 'rising_star';
+export type StudentStatusKey = 'at_risk' | 'cramming' | 'dormant' | 'rising_star' | 'normal';
+
+export interface StudentStatusInfo {
+  key: StudentStatusKey;
+  dot: string;
+  label: string;
+  badgeClass: string;
+  color: string;
+  tag: string;
+  title: string;
+  advice: string;
+}
 
 interface StudentsPanelProps {
   classroomId: string;
@@ -23,12 +35,7 @@ interface StudentsPanelProps {
   onFilterChange?: (filter: StudentFilter) => void;
 }
 
-export function getStudentStatus(s: StudentProgress): {
-  key: 'at_risk' | 'cramming' | 'dormant' | 'rising_star' | 'normal';
-  dot: string;
-  label: string;
-  badgeClass: string;
-} {
+export function getStudentStatus(s: StudentProgress): StudentStatusInfo {
   const isDormant = Boolean(s.last_active && Date.now() - new Date(s.last_active).getTime() > 3 * 86_400_000);
   if (isDormant) {
     return {
@@ -36,6 +43,10 @@ export function getStudentStatus(s: StudentProgress): {
       dot: '💤',
       label: 'Vắng mặt',
       badgeClass: 'bg-rose-50 text-rose-700 border-rose-200',
+      color: 'bg-rose-100 text-rose-700 border-rose-200',
+      tag: 'DORMANT',
+      title: 'Học sinh ngừng hoạt động > 3 ngày',
+      advice: 'Cần gửi tin nhắn nhắc nhở ngay để học sinh không bị rơi rụng từ vựng theo đường cong lãng quên Ebbinghaus.',
     };
   }
 
@@ -46,6 +57,10 @@ export function getStudentStatus(s: StudentProgress): {
       dot: '🔴',
       label: 'Cần củng cố',
       badgeClass: 'bg-rose-50 text-rose-700 border-rose-200',
+      color: 'bg-rose-100 text-rose-700 border-rose-200',
+      tag: 'AT RISK',
+      title: 'Gặp khó khăn trong việc ghi nhớ',
+      advice: 'Độ bền ghi nhớ (VMS) dưới 30% dù đã học nhiều từ. Hãy giao bài tập củng cố (Drill) các từ hay quên.',
     };
   }
 
@@ -56,6 +71,10 @@ export function getStudentStatus(s: StudentProgress): {
       dot: '🟡',
       label: 'Học dồn',
       badgeClass: 'bg-amber-50 text-amber-700 border-amber-200',
+      color: 'bg-amber-100 text-amber-700 border-amber-200',
+      tag: 'CRAMMING',
+      title: 'Học sinh có dấu hiệu học dồn',
+      advice: 'Điểm quiz cao nhưng tính đều đặn thấp. Học dồn chỉ nhớ ngắn hạn; cần hướng dẫn học sinh phân bổ 5-10 phút mỗi ngày.',
     };
   }
 
@@ -66,6 +85,10 @@ export function getStudentStatus(s: StudentProgress): {
       dot: '🟢',
       label: 'Tích cực',
       badgeClass: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+      color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+      tag: 'RISING STAR',
+      title: 'Tiến độ học xuất sắc & đều đặn',
+      advice: 'Học sinh duy trì tính kỷ luật rất tốt (LCS > 80% & điểm quiz cao). Nên khen ngợi kịp thời và mở rộng danh mục từ vựng.',
     };
   }
 
@@ -74,6 +97,10 @@ export function getStudentStatus(s: StudentProgress): {
     dot: '⚪',
     label: 'Bình thường',
     badgeClass: 'bg-slate-50 text-slate-600 border-slate-200',
+    color: 'bg-slate-100 text-slate-700 border-slate-200',
+    tag: 'NORMAL',
+    title: 'Tiến độ học tập ổn định',
+    advice: 'Học sinh duy trì học tập bình thường. Khuyến khích tiếp tục giữ vững nhịp độ ôn tập hàng ngày.',
   };
 }
 
@@ -112,12 +139,21 @@ export default function StudentsPanel({
   // Sync deep link ?student=UUID on initial load and handle browser back/forward
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const params = new URLSearchParams(window.location.search);
-    const studentParam = params.get('student');
-    if (studentParam && students.some((s) => s.student_id === studentParam)) {
-      setSelectedStudentId(studentParam);
-      setIsSheetOpen(true);
-    }
+
+    const syncFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const studentParam = params.get('student');
+      if (studentParam && students.some((s) => s.student_id === studentParam)) {
+        setSelectedStudentId(studentParam);
+        setIsSheetOpen(true);
+      } else if (!studentParam) {
+        setIsSheetOpen(false);
+      }
+    };
+
+    syncFromUrl();
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
   }, [students]);
 
   // Update URL query param when sheet opens / closes
@@ -179,6 +215,15 @@ export default function StudentsPanel({
     return filteredStudents.findIndex((s) => s.student_id === selectedStudentId);
   }, [selectedStudentId, filteredStudents]);
 
+  const sheetStudents = useMemo(() => {
+    return filteredStudents.length > 0 && currentIndex !== -1 ? filteredStudents : students;
+  }, [filteredStudents, currentIndex, students]);
+
+  const effectiveIndex = useMemo(() => {
+    if (currentIndex !== -1) return currentIndex;
+    return students.findIndex((s) => s.student_id === selectedStudentId);
+  }, [currentIndex, students, selectedStudentId]);
+
   const selectedStudent = useMemo(() => {
     if (!selectedStudentId) return null;
     return students.find((s) => s.student_id === selectedStudentId) || null;
@@ -186,12 +231,12 @@ export default function StudentsPanel({
 
   const handleNavigate = useCallback(
     (newIndex: number) => {
-      if (newIndex >= 0 && newIndex < filteredStudents.length) {
-        const next = filteredStudents[newIndex];
+      if (newIndex >= 0 && newIndex < sheetStudents.length) {
+        const next = sheetStudents[newIndex];
         if (next) openSheetForStudent(next.student_id);
       }
     },
-    [filteredStudents, openSheetForStudent]
+    [sheetStudents, openSheetForStudent]
   );
 
   const handleAddStudent = async (e: React.FormEvent) => {
@@ -562,8 +607,8 @@ export default function StudentsPanel({
         student={selectedStudent}
         classroomId={classroomId}
         classroomName={classroomName}
-        allStudents={filteredStudents}
-        currentIndex={currentIndex}
+        allStudents={sheetStudents}
+        currentIndex={effectiveIndex}
         isOpen={isSheetOpen}
         onClose={closeSheet}
         onNavigate={handleNavigate}

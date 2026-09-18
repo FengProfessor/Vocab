@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import {
   Brain, Plus, Users, BookOpen, LogOut, Copy, Zap,
   Loader2, Trash2, TrendingUp, GraduationCap, ChevronDown, Check,
-  AlertCircle, HelpCircle, Link2, Search, BarChart3
+  AlertCircle, HelpCircle, Link2, Search, BarChart3, Settings, X
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -53,6 +53,10 @@ export default function TeacherDashboard() {
   const [classSearchQuery, setClassSearchQuery] = useState('');
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [studentFilter, setStudentFilter] = useState<StudentFilter>('all');
+  const [showSettingsModal, setShowSettingsModal] = useState(false);
+  const [settingsName, setSettingsName] = useState('');
+  const [settingsDesc, setSettingsDesc] = useState('');
+  const [isSavingSettings, setIsSavingSettings] = useState(false);
 
   const classSwitcherRef = useRef<HTMLDivElement>(null);
   const profileMenuRef = useRef<HTMLDivElement>(null);
@@ -229,6 +233,47 @@ export default function TeacherDashboard() {
     toast.success('Đã xóa lớp.');
   };
 
+  const openClassSettings = () => {
+    if (!selectedClass) return;
+    setSettingsName(selectedClass.name);
+    setSettingsDesc(selectedClass.description || '');
+    setIsClassSwitcherOpen(false);
+    setShowSettingsModal(true);
+  };
+
+  const handleUpdateClassSettings = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selectedClass || !settingsName.trim()) return;
+    setIsSavingSettings(true);
+    try {
+      const { error } = await supabase
+        .from('classrooms')
+        .update({
+          name: settingsName.trim(),
+          description: settingsDesc.trim() || null,
+        })
+        .eq('id', selectedClass.id);
+
+      if (error) throw error;
+
+      const updatedClass: Classroom = {
+        ...selectedClass,
+        name: settingsName.trim(),
+        description: settingsDesc.trim() || undefined,
+      };
+
+      setSelectedClass(updatedClass);
+      setClassrooms((prev) => prev.map((c) => (c.id === selectedClass.id ? updatedClass : c)));
+      setShowSettingsModal(false);
+      toast.success('Đã cập nhật cài đặt lớp học!');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Lỗi khi cập nhật lớp học';
+      toast.error(msg);
+    } finally {
+      setIsSavingSettings(false);
+    }
+  };
+
   const copyInviteCode = (code: string) => {
     navigator.clipboard.writeText(code);
     setCopiedCode(code);
@@ -295,9 +340,11 @@ export default function TeacherDashboard() {
       };
     }
 
+    const now = Date.now();
+
     // 1. Sĩ số hoạt động (7 ngày qua)
     const activeCount = students.filter(
-      (s) => s.last_active && Date.now() - new Date(s.last_active).getTime() <= 7 * 86_400_000
+      (s) => s.last_active && now - new Date(s.last_active).getTime() <= 7 * 86_400_000
     ).length;
     const activePct = Math.round((activeCount / total) * 100);
 
@@ -305,14 +352,14 @@ export default function TeacherDashboard() {
     const avgVms = Math.round(students.reduce((acc, s) => acc + (s.vms || 0), 0) / total);
     const avgActiveVms = Math.round(students.reduce((acc, s) => acc + (s.active_vms || 0), 0) / total);
 
-    // 3. Cần can thiệp gấp (at_risk + dormant)
+    // 3. Cần can thiệp gấp (🔴 Cần củng cố - at_risk)
     const atRiskCount = students.filter((s) => {
       const st = getStudentStatus(s);
-      return st.key === 'at_risk' || st.key === 'dormant';
+      return st.key === 'at_risk';
     }).length;
 
-    // 4. Độ chăm chỉ (LCS >= 70%)
-    const highLcsCount = students.filter((s) => (s.lcs || 0) >= 70).length;
+    // 4. Độ chăm chỉ (LCS > 70%)
+    const highLcsCount = students.filter((s) => (s.lcs || 0) > 70).length;
     const highLcsPct = Math.round((highLcsCount / total) * 100);
     const avgLcs = Math.round(students.reduce((acc, s) => acc + (s.lcs || 0), 0) / total);
 
@@ -454,6 +501,14 @@ export default function TeacherDashboard() {
 
                   {selectedClass && (
                     <>
+                      <button
+                        onClick={openClassSettings}
+                        className="w-full flex items-center gap-2 p-2 rounded-xl text-foreground font-medium hover:bg-muted transition-colors"
+                      >
+                        <Settings className="h-3.5 w-3.5 text-primary" />
+                        <span>Cài đặt lớp</span>
+                      </button>
+
                       <button
                         onClick={() => copyInviteCode(selectedClass.invite_code)}
                         className="w-full flex items-center justify-between p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
@@ -796,6 +851,109 @@ export default function TeacherDashboard() {
                 >
                   {isCreating ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
                   Tạo lớp
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Class Settings Modal */}
+      {showSettingsModal && selectedClass && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
+          <div className="bg-background border rounded-2xl p-6 w-full max-w-md shadow-2xl relative">
+            <button
+              onClick={() => !isSavingSettings && setShowSettingsModal(false)}
+              className="absolute top-4 right-4 p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-primary/10 p-2.5 rounded-xl text-primary">
+                <Settings className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg">Cài đặt lớp học</h3>
+                <p className="text-xs text-muted-foreground">Chỉnh sửa thông tin và cấu hình lớp</p>
+              </div>
+            </div>
+            <form onSubmit={handleUpdateClassSettings} className="space-y-4">
+              <div>
+                <label className="text-sm font-medium mb-1 block">Tên lớp học *</label>
+                <input
+                  type="text"
+                  value={settingsName}
+                  onChange={(e) => setSettingsName(e.target.value)}
+                  placeholder="vd: Luyện thi TOEIC Cấp Tốc 2026"
+                  required
+                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium mb-1 block">Mô tả lớp (tùy chọn)</label>
+                <textarea
+                  value={settingsDesc}
+                  onChange={(e) => setSettingsDesc(e.target.value)}
+                  placeholder="vd: Khóa học từ vựng nền tảng mục tiêu 750+"
+                  rows={2}
+                  className="w-full border rounded-xl px-4 py-2.5 text-sm bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
+                />
+              </div>
+
+              {/* Invite Code & Link quick copy */}
+              <div className="p-3 bg-muted/40 border rounded-xl space-y-2 text-xs">
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">Mã mời học sinh:</span>
+                  <span className="font-mono font-bold text-primary">{selectedClass.invite_code}</span>
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => copyInviteCode(selectedClass.invite_code)}
+                    className="flex-1 py-1.5 px-2 bg-background border rounded-lg hover:bg-muted font-medium flex items-center justify-center gap-1"
+                  >
+                    <Copy className="h-3 w-3" />
+                    <span>{copiedCode === selectedClass.invite_code ? 'Đã copy!' : 'Copy mã'}</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => copyInviteLink(selectedClass.invite_code)}
+                    className="flex-1 py-1.5 px-2 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-lg hover:bg-emerald-100 font-medium flex items-center justify-center gap-1"
+                  >
+                    <Link2 className="h-3 w-3" />
+                    <span>{copiedLink ? 'Đã copy!' : 'Copy link mời'}</span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowSettingsModal(false)}
+                  className="flex-1 border rounded-xl py-2.5 text-sm font-semibold hover:bg-muted transition-colors"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSavingSettings || !settingsName.trim()}
+                  className="flex-1 bg-primary text-white rounded-xl py-2.5 text-sm font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  {isSavingSettings ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Lưu thay đổi'}
+                </button>
+              </div>
+
+              <div className="pt-2 border-t flex justify-between items-center">
+                <span className="text-xs text-muted-foreground">Xóa toàn bộ lớp học</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowSettingsModal(false);
+                    void handleDeleteClass(selectedClass.id);
+                  }}
+                  className="text-xs text-destructive hover:underline font-semibold flex items-center gap-1"
+                >
+                  <Trash2 className="h-3.5 w-3.5" /> Xóa lớp
                 </button>
               </div>
             </form>

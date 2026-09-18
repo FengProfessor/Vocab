@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useTransition } from 'react';
+import { useState, useEffect, useCallback, useTransition, useRef } from 'react';
 import type { StudentProgress } from '@/lib/supabase';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
+import { getStudentStatus } from './StudentsPanel';
 import {
   getCachedStudentDetail,
   setCachedStudentDetail,
@@ -49,6 +50,33 @@ interface StudentDetailSheetProps {
   onNavigate: (newIndex: number) => void;
 }
 
+async function copyTextToClipboard(text: string): Promise<boolean> {
+  if (typeof window === 'undefined') return false;
+  try {
+    if (navigator?.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+    // fallback to execCommand below
+  }
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    ta.style.pointerEvents = 'none';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    const success = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return success;
+  } catch {
+    return false;
+  }
+}
+
 type SheetTab = 'intervention' | 'charts' | 'errors';
 
 export default function StudentDetailSheet({
@@ -73,75 +101,52 @@ export default function StudentDetailSheet({
   const [copiedMsg, setCopiedMsg] = useState(false);
   const [, startTransition] = useTransition();
 
-  // Determine pedagogical status
-  const isDormant = Boolean(student?.last_active && Date.now() - new Date(student.last_active).getTime() > 3 * 86_400_000);
-  const isCramming = Boolean((student?.lcs || 0) < 30 && (student?.avg_quiz_accuracy || 0) > 0.8 && (student?.quizzes_taken || 0) > 2);
-  const isRisingStar = Boolean((student?.lcs || 0) > 80 && (student?.avg_quiz_accuracy || 0) > 0.8);
-  const isAtRisk = Boolean((student?.vms || 0) < 30 && (student?.words_reviewed || 0) > 10);
+  // Active student ref to prevent async race conditions when navigating rapidly
+  const currentStudentIdRef = useRef<string | undefined>(student?.student_id);
+  useEffect(() => {
+    currentStudentIdRef.current = student?.student_id;
+  }, [student?.student_id]);
 
-  const getStatusInfo = () => {
-    if (isDormant) return {
-      dot: '💤',
-      label: 'Vắng mặt',
-      color: 'bg-rose-100 text-rose-700 border-rose-200',
-      tag: 'DORMANT',
-      title: 'Học sinh ngừng hoạt động > 3 ngày',
-      advice: 'Cần gửi tin nhắn nhắc nhở ngay để học sinh không bị rơi rụng từ vựng theo đường cong lãng quên Ebbinghaus.'
-    };
-    if (isRisingStar) return {
-      dot: '🟢',
-      label: 'Tiến bộ nhanh',
-      color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
-      tag: 'RISING STAR',
-      title: 'Tiến độ học xuất sắc & đều đặn',
-      advice: 'Học sinh duy trì tính kỷ luật rất tốt (LCS > 80% & điểm quiz cao). Nên khen ngợi kịp thời và mở rộng danh mục từ vựng.'
-    };
-    if (isCramming) return {
-      dot: '🟡',
-      label: 'Học dồn',
-      color: 'bg-amber-100 text-amber-700 border-amber-200',
-      tag: 'CRAMMING',
-      title: 'Học sinh có dấu hiệu học dồn',
-      advice: 'Điểm quiz cao nhưng tính đều đặn thấp. Học dồn chỉ nhớ ngắn hạn; cần hướng dẫn học sinh phân bổ 5-10 phút mỗi ngày.'
-    };
-    if (isAtRisk) return {
-      dot: '🔴',
-      label: 'Cần củng cố',
-      color: 'bg-rose-100 text-rose-700 border-rose-200',
-      tag: 'AT RISK',
-      title: 'Gặp khó khăn trong việc ghi nhớ',
-      advice: 'Độ bền ghi nhớ (VMS) dưới 30% dù đã học nhiều từ. Hãy giao bài tập củng cố (Drill) các từ hay quên.'
-    };
-    return {
-      dot: '⚪',
-      label: 'Bình thường',
-      color: 'bg-slate-100 text-slate-700 border-slate-200',
-      tag: 'NORMAL',
-      title: 'Tiến độ học tập ổn định',
-      advice: 'Học sinh duy trì học tập bình thường. Khuyến khích tiếp tục giữ vững nhịp độ ôn tập hàng ngày.'
-    };
+  // Pedagogical status from shared single source of truth
+  const status = student ? getStudentStatus(student) : {
+    key: 'normal' as const,
+    dot: '⚪',
+    label: 'Bình thường',
+    badgeClass: 'bg-slate-50 text-slate-600 border-slate-200',
+    color: 'bg-slate-100 text-slate-700 border-slate-200',
+    tag: 'NORMAL',
+    title: 'Tiến độ học tập ổn định',
+    advice: 'Học sinh duy trì học tập bình thường.',
   };
-
-  const status = getStatusInfo();
 
   const getFallbackSuggestion = useCallback(() => {
     if (!student) return '';
     const firstName = student.student_name.split(' ')[0] || 'em';
-    if (isDormant) return `Chào ${firstName}! Thầy thấy em đã vài ngày chưa vào ôn tập từ vựng. Mỗi ngày chỉ cần 5 phút là đủ để giữ vững chuỗi học và không bị quên từ. Cố lên nhé!`;
-    if (isRisingStar) return `Chào ${firstName}! Kết quả học tập của em rất ấn tượng, đặc biệt là tính kỷ luật (chăm chỉ ${student.lcs}%). Tiếp tục phát huy phong độ này nhé!`;
-    if (isCramming) return `Chào ${firstName}! Điểm bài quiz của em rất tốt, nhưng thầy thấy em đang có xu hướng học dồn. Hãy thử chia nhỏ thời gian ra ôn mỗi ngày 5-10 phút để nhớ sâu hơn nhé.`;
-    if (isAtRisk) return `Chào ${firstName}! Thầy thấy độ bền ghi nhớ từ vựng của em (VMS ${student.vms}%) đang hơi thấp. Em nên dành thêm chút thời gian xem lại các từ khó hay sai nhé.`;
+    if (status.key === 'dormant') {
+      return `Chào ${firstName}! Thầy thấy em đã vài ngày chưa vào ôn tập từ vựng. Mỗi ngày chỉ cần 5 phút là đủ để giữ vững chuỗi học và không bị quên từ. Cố lên nhé!`;
+    }
+    if (status.key === 'rising_star') {
+      return `Chào ${firstName}! Kết quả học tập của em rất ấn tượng, đặc biệt là tính kỷ luật (chăm chỉ ${student.lcs}%). Tiếp tục phát huy phong độ này nhé!`;
+    }
+    if (status.key === 'cramming') {
+      return `Chào ${firstName}! Điểm bài quiz của em rất tốt, nhưng thầy thấy em đang có xu hướng học dồn. Hãy thử chia nhỏ thời gian ra ôn mỗi ngày 5-10 phút để nhớ sâu hơn nhé.`;
+    }
+    if (status.key === 'at_risk') {
+      return `Chào ${firstName}! Thầy thấy độ bền ghi nhớ từ vựng của em (VMS ${student.vms}%) đang hơi thấp. Em nên dành thêm chút thời gian xem lại các từ khó hay sai nhé.`;
+    }
     return `Chào ${firstName}! Thầy đang theo dõi tiến độ của em. Nếu gặp khó khăn hay cần hỗ trợ thêm phần từ vựng nào thì nhắn thầy ngay nhé!`;
-  }, [student, isDormant, isRisingStar, isCramming, isAtRisk]);
+  }, [student, status.key]);
 
-  // 1. Fetch AI Coaching Suggestion with Caching
+  // 1. Fetch AI Coaching Suggestion with Caching & Race Condition Guard
   const loadAiSuggestion = useCallback(async (currentStudent: StudentProgress) => {
-    const cached = getCachedAiInsight(currentStudent.student_id);
+    const sId = currentStudent.student_id;
+    const cached = getCachedAiInsight(sId);
     if (cached) {
       setAiSuggestion(cached);
       return;
     }
 
+    setAiSuggestion('');
     setIsAiLoading(true);
     try {
       const res = await authFetch('/api/teacher/coaching-insight', {
@@ -160,16 +165,22 @@ export default function StudentDetailSheet({
       });
       const json = await res.json() as { suggestion?: string };
       const suggestionText = json.suggestion || getFallbackSuggestion();
-      setAiSuggestion(suggestionText);
-      setCachedAiInsight(currentStudent.student_id, suggestionText);
+      setCachedAiInsight(sId, suggestionText);
+      if (currentStudentIdRef.current === sId) {
+        setAiSuggestion(suggestionText);
+      }
     } catch {
-      setAiSuggestion(getFallbackSuggestion());
+      if (currentStudentIdRef.current === sId) {
+        setAiSuggestion(getFallbackSuggestion());
+      }
     } finally {
-      setIsAiLoading(false);
+      if (currentStudentIdRef.current === sId) {
+        setIsAiLoading(false);
+      }
     }
   }, [status.tag, status.title, getFallbackSuggestion]);
 
-  // 2. Fetch Detail & Quizzes with in-memory caching
+  // 2. Fetch Detail & Quizzes with in-memory caching & Race Condition Guard
   const loadDetail = useCallback(async (studentId: string) => {
     const cached = getCachedStudentDetail(studentId, classroomId);
     if (cached) {
@@ -178,23 +189,29 @@ export default function StudentDetailSheet({
       return;
     }
 
+    setHistory([]);
+    setQuizzes([]);
     setIsLoadingDetail(true);
     try {
       const res = await authFetch(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`);
       const json = await res.json();
       if (json.success) {
-        setHistory(json.history || []);
-        setQuizzes(json.quizzes || []);
         setCachedStudentDetail(studentId, classroomId, json);
+        if (currentStudentIdRef.current === studentId) {
+          setHistory(json.history || []);
+          setQuizzes(json.quizzes || []);
+        }
       }
     } catch (err) {
       console.error('[StudentDetailSheet] Error loading detail:', err);
     } finally {
-      setIsLoadingDetail(false);
+      if (currentStudentIdRef.current === studentId) {
+        setIsLoadingDetail(false);
+      }
     }
   }, [classroomId]);
 
-  // 3. Fetch Struggling Words Errors with in-memory caching
+  // 3. Fetch Struggling Words Errors with in-memory caching & Race Condition Guard
   const loadErrors = useCallback(async (studentId: string) => {
     const cached = getCachedStudentErrors(studentId, classroomId);
     if (cached) {
@@ -202,18 +219,23 @@ export default function StudentDetailSheet({
       return;
     }
 
+    setErrorsList([]);
     setIsLoadingErrors(true);
     try {
       const res = await authFetch(`/api/teacher/student-errors?studentId=${studentId}&classroomId=${classroomId}`);
       const json = await res.json();
       if (json.success && Array.isArray(json.data)) {
-        setErrorsList(json.data);
         setCachedStudentErrors(studentId, classroomId, json.data);
+        if (currentStudentIdRef.current === studentId) {
+          setErrorsList(json.data);
+        }
       }
     } catch (err) {
       console.error('[StudentDetailSheet] Error loading errors:', err);
     } finally {
-      setIsLoadingErrors(false);
+      if (currentStudentIdRef.current === studentId) {
+        setIsLoadingErrors(false);
+      }
     }
   }, [classroomId]);
 
@@ -239,15 +261,19 @@ export default function StudentDetailSheet({
     }
   }, [student, isOpen, classroomId, currentIndex, allStudents, loadDetail, loadErrors, loadAiSuggestion]);
 
-  // Copy Zalo message action
-  const handleCopyZaloMessage = useCallback(() => {
+  // Copy Zalo message action with robust clipboard fallback
+  const handleCopyZaloMessage = useCallback(async () => {
     const text = aiSuggestion || getFallbackSuggestion();
     if (!text) return;
-    navigator.clipboard.writeText(text);
-    setCopiedMsg(true);
-    toast.success('Đã copy tin nhắn Zalo vào bộ nhớ tạm!');
-    setTimeout(() => setCopiedMsg(false), 2000);
-  }, [aiSuggestion]);
+    const ok = await copyTextToClipboard(text);
+    if (ok) {
+      setCopiedMsg(true);
+      toast.success('Đã copy tin nhắn Zalo vào bộ nhớ tạm!');
+      setTimeout(() => setCopiedMsg(false), 2000);
+    } else {
+      toast.error('Không thể sao chép vào bộ nhớ tạm');
+    }
+  }, [aiSuggestion, getFallbackSuggestion]);
 
   // Assign Drill 5 Words
   const handleAssignDrill = async () => {
@@ -277,13 +303,17 @@ export default function StudentDetailSheet({
   };
 
   // Keyboard navigation: ↓ (next), ↑ (prev), Esc (close), C (copy Zalo message)
+  // Crucial: Do NOT intercept standard OS shortcuts like Ctrl+C, Cmd+C, Ctrl+K, etc.
   useEffect(() => {
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Ignore if user is currently typing in an input/textarea
+      // Ignore if user is currently typing in an input/textarea or editable element
       const target = e.target as HTMLElement;
-      if (target?.tagName === 'INPUT' || target?.tagName === 'TEXTAREA') return;
+      if (target?.tagName === 'INPUT' || target?.tagName === 'TEXTAREA' || target?.isContentEditable) return;
+
+      // DO NOT intercept any modifier key combos (Ctrl+C, Cmd+C, Alt+Tab, etc.)
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
 
       if (e.key === 'Escape') {
         e.preventDefault();
@@ -300,7 +330,7 @@ export default function StudentDetailSheet({
         }
       } else if (e.key === 'c' || e.key === 'C') {
         e.preventDefault();
-        handleCopyZaloMessage();
+        void handleCopyZaloMessage();
       }
     };
 
@@ -312,7 +342,8 @@ export default function StudentDetailSheet({
 
   const isPro = student.plan === 'pro' || student.plan === 'premium';
   const hasPrev = currentIndex > 0;
-  const hasNext = currentIndex < allStudents.length - 1;
+  const hasNext = currentIndex >= 0 && currentIndex < allStudents.length - 1;
+  const indexDisplay = currentIndex >= 0 ? `${currentIndex + 1}/${allStudents.length}` : `1/${allStudents.length || 1}`;
 
   // Chart data formatting
   const formattedHistory = history.map((h) => ({
@@ -363,9 +394,9 @@ export default function StudentDetailSheet({
 
       {/* Slide-over Container: 580px on desktop, bottom sheet on mobile (<640px) */}
       <div
-        className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10 z-50 pointer-events-none"
+        className="fixed inset-y-0 right-0 max-w-full flex sm:pl-10 z-50 pointer-events-none max-sm:inset-x-0 max-sm:top-auto max-sm:bottom-0"
       >
-        <div className="w-screen sm:max-w-[580px] pointer-events-auto bg-background border-l shadow-2xl flex flex-col h-full animate-in slide-in-from-right duration-200 sm:rounded-none rounded-t-3xl max-sm:fixed max-sm:inset-x-0 max-sm:bottom-0 max-sm:top-auto max-sm:max-h-[92vh]">
+        <div className="w-full sm:w-[580px] sm:max-w-[580px] pointer-events-auto bg-background border-l shadow-2xl flex flex-col h-full sm:h-full max-sm:h-[90vh] max-sm:max-h-[90vh] sm:rounded-none rounded-t-3xl border-t sm:border-t-0 animate-in max-sm:slide-in-from-bottom sm:slide-in-from-right duration-200">
           
           {/* Header Bar */}
           <div className="p-4 sm:p-5 border-b bg-background/95 backdrop-blur shrink-0">
@@ -421,7 +452,7 @@ export default function StudentDetailSheet({
                     <ChevronUp className="h-4 w-4" />
                   </button>
                   <span className="px-1.5 text-[11px] tabular-nums text-muted-foreground">
-                    {currentIndex + 1}/{allStudents.length}
+                    {indexDisplay}
                   </span>
                   <button
                     disabled={!hasNext}
