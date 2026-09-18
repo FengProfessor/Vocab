@@ -150,12 +150,13 @@ export function fetchTeacherCheckOnce(userId: string): Promise<boolean> {
 
   const promise = (async () => {
     try {
-      const { count, error } = await supabase
+      const { data, error } = await supabase
         .from('classrooms')
-        .select('id', { count: 'exact', head: true })
+        .select('id')
         .eq('teacher_id', userId)
-        .neq('name', '__personal__');
-      const isTeacher = !error && (count ?? 0) > 0;
+        .neq('name', '__personal__')
+        .limit(1);
+      const isTeacher = !error && Boolean(data && data.length > 0);
       setStoredTeacher(userId, isTeacher);
       return isTeacher;
     } catch {

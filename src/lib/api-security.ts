@@ -91,13 +91,19 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
     return result;
   }
 
-  const { data, error } = await supabase.auth.getUser(token);
+  const authTimeout = new Promise<{ data: { user: null }; error: Error }>((resolve) =>
+    setTimeout(() => resolve({ data: { user: null }, error: new Error('Supabase Auth timeout') }), 5000)
+  );
+  const { data, error } = await Promise.race([
+    supabase.auth.getUser(token),
+    authTimeout,
+  ]);
   if (error || !data.user) {
     cacheSet(authCacheKey, null, 5_000);
     return null;
   }
   const result = { userId: data.user.id, email: data.user.email };
-  cacheSet(authCacheKey, result, 30_000);
+  cacheSet(authCacheKey, result, 120_000);
   return result;
 }
 

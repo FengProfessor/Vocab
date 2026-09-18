@@ -193,13 +193,13 @@ export function buildStudentNavSections(opts?: {
     },
     {
       id: 'referral',
-      title: 'Lan tỏa & Thưởng',
+      title: 'Cộng đồng & Quà tặng',
       items: [
         {
           href: '/student/referral',
-          label: 'Mời bạn nhận quà',
+          label: 'Mời bạn học nhận VIP',
           icon: Gift,
-          badge: '+7d Pro',
+          badge: '+7 ngày VIP',
           match: (pathname) => pathname.startsWith('/student/referral') || pathname === '/referral',
           onboardingId: 'referral-hub',
         },

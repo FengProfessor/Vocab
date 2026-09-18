@@ -184,17 +184,7 @@ export async function playWordAudio(
     urlCache.delete(cacheKey);
   }
 
-  // 1) Từ đơn: Oxford Gstatic Studio Human Voice (chuẩn 100% người thật)
-  if (!isPhrase) {
-    if (!alive()) return 'tts';
-    const gs = gstaticUrl(text.toLowerCase(), region);
-    if (gs && (await playUrl(gs, mp3Rate, myGen))) {
-      urlCache.set(cacheKey, gs);
-      return 'real';
-    }
-  }
-
-  // 2) URL truyền vào (DB audio_real)
+  // 1) URL truyền vào (DB audio_real)
   if (audioUrl) {
     if (!alive()) return 'tts';
     if (await playUrl(audioUrl, mp3Rate, myGen)) {
@@ -203,12 +193,22 @@ export async function playWordAudio(
     }
   }
 
-  // 3) Youdao direct voice theo vùng (UK type=1 / US type=2)
-  // Ưu tiên cao: Youdao là direct MP3 stream (~300ms), không bị timeout/treo API như FreeDict.
+  // 2) Youdao direct voice theo vùng (UK type=1 / US type=2)
+  // Ưu tiên cao nhất: Youdao là direct MP3 stream (~200ms), không bị 404 như gstatic và không timeout như FreeDict
   const ydUrl = youdaoUrl(text, region);
   if (await playUrl(ydUrl, mp3Rate, myGen)) {
     urlCache.set(cacheKey, ydUrl);
     return 'real';
+  }
+
+  // 3) Từ đơn: Oxford Gstatic Studio Human Voice (chuẩn 100% người thật)
+  if (!isPhrase) {
+    if (!alive()) return 'tts';
+    const gs = gstaticUrl(text.toLowerCase(), region);
+    if (gs && (await playUrl(gs, mp3Rate, myGen))) {
+      urlCache.set(cacheKey, gs);
+      return 'real';
+    }
   }
 
   // 4) Wikimedia Commons / Free Dictionary API (fallback sau Youdao với timeout 1.5s)

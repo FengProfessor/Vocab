@@ -21,6 +21,7 @@ import {
   Repeat2,
   ExternalLink,
   Copy,
+  Gift,
 } from 'lucide-react';
 import type { UserRole } from '@/lib/supabase';
 import { toast } from 'sonner';
@@ -57,6 +58,7 @@ export default function AuthPage() {
   const [showManualRedirect, setShowManualRedirect] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const [inApp, setInApp] = useState<ReturnType<typeof detectInAppBrowser> | null>(null);
+  const [hasReferralGift, setHasReferralGift] = useState(false);
 
   const authUrl = useMemo(() => {
     if (typeof window === 'undefined') return 'https://lingopro.online/auth';
@@ -68,8 +70,17 @@ export default function AuthPage() {
     setInApp(info);
 
     const params = new URLSearchParams(window.location.search);
+    const refInUrl = params.get('ref') || params.get('invite');
+    const storedRef = getStoredReferralCode();
+    if (refInUrl || storedRef) {
+      setHasReferralGift(true);
+    }
+
     const timer = window.setTimeout(() => {
-      if (params.get('mode') === 'signup') setMode('signup');
+      const explicitMode = params.get('mode');
+      if (explicitMode === 'signup' || (!explicitMode && refInUrl)) {
+        setMode('signup');
+      }
       if (params.get('role') === 'teacher') setRole('teacher');
 
       // Lỗi OAuth từ callback / Google
@@ -478,6 +489,15 @@ export default function AuthPage() {
                     : 'Bắt đầu miễn phí — không cần thẻ.'}
                 </p>
               </div>
+
+              {hasReferralGift && (
+                <div className="mb-4 flex items-center gap-2.5 rounded-2xl border border-amber-400/40 bg-amber-500/15 p-3 text-xs text-amber-100 font-semibold shadow-xs">
+                  <Gift className="h-5 w-5 shrink-0 text-amber-400 animate-pulse" />
+                  <p className="leading-relaxed">
+                    <span className="font-bold text-white">Quà tặng bạn mới:</span> Đăng ký ngay để nhận <span className="font-bold text-amber-300">7 ngày Pro VIP</span> học tập cùng bạn bè!
+                  </p>
+                </div>
+              )}
 
               <div className="mb-4 flex rounded-2xl border border-white/10 bg-white/[0.06] p-1 sm:mb-5">
                 {(['login', 'signup'] as Mode[]).map((m) => (

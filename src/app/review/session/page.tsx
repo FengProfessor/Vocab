@@ -84,6 +84,7 @@ function SessionContent() {
   const [canSkip, setCanSkip] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const accessTokenRef = useRef<string | null>(null);
   const startedAt = useRef<number>(0);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const advanceFn = useRef<(() => void) | null>(null);
@@ -176,15 +177,16 @@ function SessionContent() {
         }
         const user = session.user;
         const token = session.access_token;
+        accessTokenRef.current = token;
         setUserId(user.id);
 
         const base = classroomId
           ? `/api/words?classroomId=${classroomId}`
           : `/api/words`;
-        // Pool nhẹ (30 từ) cho distractor MCQ; queue due cap SESSION_CAP
+        // Pool nhẹ (30 từ) cho distractor MCQ (kèm noCount=1 để bỏ qua đếm full bảng); queue due cap SESSION_CAP
         // Truyền token sẵn → authFetch không gọi getSession() lại (tiết kiệm ~400ms)
         const [allRes, dueRes] = await Promise.all([
-          authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=30`, {}, token),
+          authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=30&noCount=1`, {}, token),
           authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {}, token),
         ]);
         const allJson = await allRes.json().catch(() => ({ success: false }));
@@ -326,7 +328,7 @@ function SessionContent() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wordId: current.id, quality }),
-      }).catch((err) => console.error('[ReviewSession] SRS:', err));
+      }, accessTokenRef.current).catch((err) => console.error('[ReviewSession] SRS:', err));
 
       // Mở skip sau lock — nếu user đã bấm Enter/Space trước đó thì advance ngay
       if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);

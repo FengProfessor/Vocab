@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
 
     if (linkErr || !link) {
       return NextResponse.json(
-        { error: 'Mã giới thiệu không tồn tại hoặc đã bị hủy' },
+        { error: 'Mã quà tặng không tồn tại hoặc đã hết hiệu lực' },
         { status: 404 },
       );
     }
@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
     // Prevent self-referral
     if (link.user_id === user.id) {
       return NextResponse.json(
-        { error: 'Bạn không thể tự giới thiệu chính mình' },
+        { error: 'Bạn không thể tự áp dụng mã quà tặng của chính mình' },
         { status: 400 },
       );
     }
@@ -125,7 +125,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: 'Gắn mã giới thiệu thành công! Hoàn thành 3 ngày streak hoặc 30 từ để mở khóa +7 ngày Pro VIP.',
+      message: 'Nhận quà thành công! Hãy học bài liên tục 3 ngày hoặc lưu 30 từ vựng để mở khóa trọn vẹn 7 ngày Pro VIP nhé.',
     });
   } catch (err: any) {
     return NextResponse.json({ error: err.message || 'Internal error' }, { status: 500 });

@@ -99,7 +99,16 @@ export async function GET(req: NextRequest) {
         if (tx.status === 'available') {
           availableCash += Number(tx.amount || 0);
         } else if (tx.status === 'pending_clearance') {
-          pendingCash += Number(tx.amount || 0);
+          const isMatured = new Date(tx.available_at).getTime() <= Date.now();
+          if (isMatured) {
+            availableCash += Number(tx.amount || 0);
+            void supabase
+              .from('reward_transactions')
+              .update({ status: 'available' })
+              .eq('id', tx.id);
+          } else {
+            pendingCash += Number(tx.amount || 0);
+          }
         }
       } else if (tx.reward_type === 'payout_debit' && tx.status === 'deducted') {
         availableCash += Number(tx.amount || 0); // amount is negative for debit
@@ -110,7 +119,7 @@ export async function GET(req: NextRequest) {
 
     // 4. Milestone calculation
     // Bronze: 0-2 friends | Silver: 3-9 friends (+30d Pro) | Gold Ambassador: >=10 friends (+20% comm + 200k)
-    let currentRank = 'Bronze';
+    let currentRank = 'Học viên Khởi đầu';
     let nextMilestone = {
       target: 3,
       current: activatedCount,
@@ -118,18 +127,18 @@ export async function GET(req: NextRequest) {
     };
 
     if (activatedCount >= 10) {
-      currentRank = 'Gold Ambassador';
+      currentRank = 'Đại sứ LingoPro';
       nextMilestone = {
         target: 20,
         current: activatedCount,
-        reward: 'Nhận 20% hoa hồng vĩnh viễn & Quà tặng Đại sứ LingoPro',
+        reward: 'Nhận 20% tiền thưởng & Quà lưu niệm Đại sứ',
       };
     } else if (activatedCount >= 3) {
-      currentRank = 'Silver';
+      currentRank = 'Bạn Đồng Hành';
       nextMilestone = {
         target: 10,
         current: activatedCount,
-        reward: 'Thăng hạng Gold Ambassador + Thưởng nóng 200.000đ tiền mặt',
+        reward: 'Thăng hạng Đại sứ (20% tiền thưởng) + Tặng 200.000đ vào tài khoản',
       };
     }
 

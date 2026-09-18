@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
 
       if (!parsed.valid) {
         return NextResponse.json(
-          { error: parsed.reason || 'Mã giới thiệu không hợp lệ' },
+          { success: false, error: parsed.reason || 'Mã quà tặng không hợp lệ hoặc đã hết hạn' },
           { status: 404 },
         );
       }
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     if (linkErr || !link) {
       return NextResponse.json(
-        { error: 'Mã giới thiệu không tồn tại hoặc đã hết hạn' },
+        { success: false, error: 'Mã quà tặng không tồn tại hoặc đã hết hạn' },
         { status: 404 },
       );
     }

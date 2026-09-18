@@ -10,33 +10,44 @@ import { cacheGet, cacheSet } from '@/lib/ttl-cache';
  * Mirror student progress to enrolled classrooms and personal classroom in background.
  * Uses targeted single-row indexed queries and TTL caches to avoid blocking the client.
  */
+interface MirrorWord {
+  id?: string;
+  word?: string;
+  classroom_id?: string;
+}
+
+interface MirrorEnrollment {
+  classroom_id: string;
+  classroom?: { id?: string; teacher_id?: string; name?: string } | null;
+}
+
 async function mirrorSrsProgress(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
-  word: any,
-  newSRS: any
+  word: MirrorWord | null | undefined,
+  newSRS: ReturnType<typeof scheduleNext>
 ) {
   try {
     const enrollCacheKey = `student-enrollments:${userId}`;
-    let enrollments = cacheGet<any[]>(enrollCacheKey);
+    let enrollments = cacheGet<MirrorEnrollment[]>(enrollCacheKey);
     if (!enrollments) {
       const { data } = await supabase
         .from('enrollments')
         .select('classroom_id, classroom:classrooms(id, teacher_id, name)')
         .eq('student_id', userId);
-      enrollments = data || [];
+      enrollments = (data || []) as unknown as MirrorEnrollment[];
       cacheSet(enrollCacheKey, enrollments, 2 * 60_000);
     }
 
     if (enrollments && enrollments.length > 0 && word?.word) {
       const cleanWord = word.word.trim();
       const targetEnrollments = enrollments.filter(
-        (e: any) => e.classroom_id !== word.classroom_id && (e.classroom as any)?.teacher_id
+        (e) => e.classroom_id !== word.classroom_id && e.classroom?.teacher_id
       );
 
       for (const enr of targetEnrollments) {
         const targetClassroomId = enr.classroom_id;
-        const classTeacherId = (enr.classroom as any)?.teacher_id;
+        const classTeacherId = enr.classroom?.teacher_id;
         if (!targetClassroomId || !classTeacherId) continue;
 
         // Check if word already exists in target classroom (single row query)
@@ -173,11 +184,21 @@ export async function POST(req: Request) {
 
     const supabase = createServiceClient();
 
-    const { data: word } = await supabase
-      .from('words')
-      .select('id, word, added_by, classroom_id, classroom:classrooms(teacher_id, name)')
-      .eq('id', wordId)
-      .maybeSingle();
+    const [wordRes, srsRes] = await Promise.all([
+      supabase
+        .from('words')
+        .select('id, word, added_by, classroom_id, classroom:classrooms(teacher_id, name)')
+        .eq('id', wordId)
+        .maybeSingle(),
+      supabase
+        .from('srs_progress')
+        .select('stability, difficulty, interval_days, review_count, state, lapses, learning_steps, last_reviewed_at')
+        .eq('user_id', userId)
+        .eq('word_id', wordId)
+        .maybeSingle(),
+    ]);
+
+    const word = wordRes.data;
     if (!word) {
       return NextResponse.json({ success: false, error: 'Word not found' }, { status: 404 });
     }
@@ -197,14 +218,7 @@ export async function POST(req: Request) {
     }
 
     const rating = mapQualityToRating(quality);
-
-    const { data: existingSRS } = await supabase
-      .from('srs_progress')
-      .select('stability, difficulty, interval_days, review_count, state, lapses, learning_steps, last_reviewed_at')
-      .eq('user_id', userId)
-      .eq('word_id', wordId)
-      .maybeSingle();
-
+    const existingSRS = srsRes.data;
     const newSRS = scheduleNext(existingSRS, rating);
 
     // Upsert into srs_progress with FSRS columns (chỉ select id để nhẹ payload DB)

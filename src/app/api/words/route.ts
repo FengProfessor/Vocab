@@ -12,7 +12,7 @@ import {
   userCanWriteClassroom,
 } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
-import { checkWordSaveQuota, resolvePlanByUserId, invalidateWordSaveUsage, recordWordSaved } from '@/lib/entitlement-server';
+import { checkWordSaveQuota, resolvePlanByUserId, recordWordSaved } from '@/lib/entitlement-server';
 import { cacheGet, cacheSet, cacheDelete } from '@/lib/ttl-cache';
 import { parseIpa } from '@/lib/study';
 
@@ -498,25 +498,40 @@ export async function POST(req: Request): Promise<NextResponse> {
       }
     }
 
-    // ── Check duplicate (case-insensitive) ──
-    const { data: existing } = await supabase
-      .from('words')
-      .select('id, word, translation')
-      .eq('classroom_id', classroomId)
-      .ilike('word', word.trim())
-      .maybeSingle();
+    // ── Pre-checks in Parallel: Duplicate Check + Plan Resolution + Global Dict Lookup ──
+    const lower = word.toLowerCase().trim();
+    let initialTranslation = body.translation || '⏳ Analyzing...';
+    let initialIpa = body.ipa || '';
+    let initialPos = body.pos || '';
+    const needsGdLookup = initialTranslation === '⏳ Analyzing...';
 
-    if (existing) {
+    const [existingRes, plan, gdRes] = await Promise.all([
+      supabase
+        .from('words')
+        .select('id, word, translation')
+        .eq('classroom_id', classroomId)
+        .ilike('word', word.trim())
+        .maybeSingle(),
+      resolvePlanByUserId(supabase, userId),
+      needsGdLookup
+        ? supabase
+            .from('global_dictionary')
+            .select('data')
+            .eq('word', lower)
+            .maybeSingle()
+        : Promise.resolve({ data: null }),
+    ]);
+
+    if (existingRes.data) {
       return NextResponse.json({
         success: true,
         alreadyExists: true,
         message: `"${word}" already in your list!`,
-        wordId: existing.id,
+        wordId: existingRes.data.id,
       });
     }
 
     // Free: tối đa 200 từ mới/tháng (không đếm duplicate; từ cũ vẫn ôn được)
-    const plan = await resolvePlanByUserId(supabase, userId);
     const saveQuota = await checkWordSaveQuota(supabase, userId, plan, 1);
     if (!saveQuota.allowed) {
       return NextResponse.json(
@@ -542,20 +557,9 @@ export async function POST(req: Request): Promise<NextResponse> {
     type DictApiResponse = { results?: DictApiResult[] } & DictionaryData;
 
     let dictData: DictApiResponse | null = null;
-    let initialTranslation = body.translation || '⏳ Analyzing...';
-    let initialIpa = body.ipa || '';
-    let initialPos = body.pos || '';
 
-    // Only fetch if data was not manually selected or imported (kiểm tra global_dictionary trước ~5ms, timeout fallback 1200ms)
-    if (initialTranslation === '⏳ Analyzing...') {
-      const lower = word.toLowerCase();
-      const { data: gd } = await supabase
-        .from('global_dictionary')
-        .select('data')
-        .eq('word', lower)
-        .maybeSingle();
-
-      const gdData = (gd?.data ?? null) as GdData | null;
+    if (needsGdLookup) {
+      const gdData = (gdRes.data?.data ?? null) as GdData | null;
       const gdMeaning = gdData?.results?.[0]?.meanings?.[0];
       if (gdMeaning?.definition) {
         initialTranslation = gdMeaning.definition;
@@ -704,8 +708,66 @@ export async function GET(req: Request): Promise<NextResponse> {
     // ── Chế độ REVIEW: từ ĐÃ học & ĐẾN HẠN + từ MỚI chưa học (cap theo limit, default 100) ──
     // Từ mới (chưa có srs_progress) cũng được trộn vào để HS tạo từ xong ôn ngay.
     if (filter === 'review') {
-      const nowIso = new Date().toISOString();
       const reviewCap = Math.min(limit, 100);
+
+      // Fast-path: RPC get_due_words_list (1 query duy nhất ~200ms thay vì 3-4 roundtrips mạng)
+      if (!requestedIds) {
+        const { data: rpcWords, error: rpcErr } = await supabase.rpc('get_due_words_list', {
+          p_user_id: userId,
+          p_classroom_id: classroomId,
+          p_limit: reviewCap,
+        });
+
+        if (!rpcErr && Array.isArray(rpcWords) && rpcWords.length > 0) {
+          const enriched = (rpcWords as Array<{
+            id: string;
+            word: string;
+            translation: string;
+            ipa?: string | null;
+            pos?: string | null;
+            example?: string | null;
+            example_vi?: string | null;
+            synonyms?: string[] | null;
+            antonyms?: string[] | null;
+            image_url?: string | null;
+            review_count?: number | null;
+          }>)
+            .filter((w) =>
+              w.word && w.translation &&
+              !w.translation.includes('failed') &&
+              !w.translation.includes('Analyzing') &&
+              !w.translation.includes('⏳'))
+            .map((w) => {
+              const reviewCount = Number(w.review_count ?? 0);
+              const isNew = reviewCount === 0;
+              return {
+                id: w.id,
+                word: w.word,
+                translation: w.translation,
+                ipa: w.ipa || '',
+                pos: w.pos || '',
+                example: w.example || '',
+                example_vi: w.example_vi || null,
+                image_url: w.image_url || null,
+                synonyms: w.synonyms || [],
+                antonyms: w.antonyms || [],
+                classroom_id: classroomId,
+                srs: null,
+                isDue: true,
+                reviewCount,
+                srsLevel: isNew ? 0 : 1,
+                mastery: isNew ? 0 : 20,
+                status: isNew ? 'new' : 'learning',
+              };
+            });
+
+          return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
+            headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+          });
+        }
+      }
+
+      const nowIso = new Date().toISOString();
       const { data: dueSrs, error: dueErr } = await supabase
         .from('srs_progress')
         .select('word_id, user_id, next_review_date, review_count, stability, difficulty, ease_factor, interval_days, last_reviewed_at')
@@ -892,6 +954,7 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     // List words + total count. Counts full (new/reviewDue): ?includeCounts=1 (tránh đếm đôi với summary=1)
     const includeCounts = searchParams.get('includeCounts') === '1';
+    const noCount = searchParams.get('noCount') === '1';
     let countQuery = supabase
       .from('words')
       .select('id', { count: 'exact', head: true })
@@ -907,7 +970,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     const [countResult, wordsResult, summaryCounts] = await Promise.all([
-      includeCounts ? Promise.resolve({ count: null as number | null }) : countQuery,
+      (includeCounts || noCount) ? Promise.resolve({ count: null as number | null }) : countQuery,
       wordsQuery
         .order('created_at', { ascending: false })
         .range(offset, offset + limit - 1),
@@ -963,7 +1026,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     const msg = error instanceof Error
       ? error.message
       : typeof error === 'object' && error !== null && 'message' in error
-        ? String((error as any).message)
+        ? String((error as { message?: unknown }).message)
         : 'Unknown error';
     console.error('GET /api/words Error:', msg, error);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
