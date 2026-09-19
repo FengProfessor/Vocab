@@ -32,6 +32,7 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { supabase } from '@/lib/supabase';
 import { formatVND } from '@/lib/billing';
+import { getClientShareUrl } from '@/lib/referral-tracker';
 
 interface ReferralStats {
   totalInvited: number;
@@ -131,7 +132,8 @@ export default function ReferralHubPage() {
       const cached = sessionStorage.getItem('lp_ref_hub_cache');
       if (cached) {
         const parsed = JSON.parse(cached);
-        if (parsed?.referralCode && parsed?.shareUrl) {
+        if (parsed?.referralCode) {
+          parsed.shareUrl = getClientShareUrl(parsed.referralCode, parsed.shareUrl);
           setData(parsed);
           setIsLoading(false);
         } else {
@@ -157,6 +159,7 @@ export default function ReferralHubPage() {
       if (!res.ok) throw new Error('Không thể tải dữ liệu');
       const json = await res.json();
       if (json.success && json.referralCode) {
+        json.shareUrl = getClientShareUrl(json.referralCode, json.shareUrl);
         setData(json);
         try {
           sessionStorage.setItem('lp_ref_hub_cache', JSON.stringify(json));
@@ -176,6 +179,10 @@ export default function ReferralHubPage() {
     void fetchHubData();
   }, []);
 
+  const effectiveShareUrl = data?.referralCode
+    ? getClientShareUrl(data.referralCode, data.shareUrl)
+    : data?.shareUrl || '';
+
   const triggerConfetti = () => {
     try {
       confetti({
@@ -189,8 +196,8 @@ export default function ReferralHubPage() {
   };
 
   const handleCopyLink = () => {
-    if (!data?.shareUrl) return;
-    navigator.clipboard.writeText(data.shareUrl);
+    if (!effectiveShareUrl) return;
+    navigator.clipboard.writeText(effectiveShareUrl);
     setCopiedLink(true);
     toast.success('Đã sao chép liên kết mời bạn bè!');
     triggerConfetti();
@@ -207,11 +214,11 @@ export default function ReferralHubPage() {
   };
 
   const getInviteMessage = () => {
-    if (!data?.shareUrl) return '';
+    if (!effectiveShareUrl) return '';
     if (msgTone === 'study') {
-      return `Xin chào! Mình đang học từ vựng và luyện thi trên LingoPro. Gửi bạn gói 7 ngày Pro VIP trải nghiệm trọn vẹn toàn bộ tính năng cao cấp và kho bài học nhé: ${data.shareUrl}`;
+      return `Xin chào! Mình đang học từ vựng và luyện thi trên LingoPro. Gửi bạn gói 7 ngày Pro VIP trải nghiệm trọn vẹn toàn bộ tính năng cao cấp và kho bài học nhé: ${effectiveShareUrl}`;
     }
-    return `Chào bạn! Mình gửi tặng bạn 7 ngày Pro VIP học tiếng Anh trên LingoPro nè. Ở đây học từ vựng theo phương pháp lặp lại ngắt quãng FSRS nhớ sâu lắm, lại có AI trợ lý chấm sửa câu cực hay. Bấm vào link nhận quà và học cùng mình nhé: ${data.shareUrl}`;
+    return `Chào bạn! Mình gửi tặng bạn 7 ngày Pro VIP học tiếng Anh trên LingoPro nè. Ở đây học từ vựng theo phương pháp lặp lại ngắt quãng FSRS nhớ sâu lắm, lại có AI trợ lý chấm sửa câu cực hay. Bấm vào link nhận quà và học cùng mình nhé: ${effectiveShareUrl}`;
   };
 
   const handleCopyMessage = () => {
@@ -225,12 +232,12 @@ export default function ReferralHubPage() {
   };
 
   const handleNativeShare = async () => {
-    if (!data?.shareUrl) return;
+    if (!effectiveShareUrl) return;
     try {
       await navigator.share({
         title: 'Tặng bạn 7 ngày Pro VIP học tiếng Anh trên LingoPro',
         text: 'Cùng học tiếng Anh thông minh với AI và phương pháp FSRS trên LingoPro nha! Bấm vào link nhận ngay 7 ngày Pro VIP cùng mình:',
-        url: data.shareUrl,
+        url: effectiveShareUrl,
       });
     } catch {
       // Fallback copy if cancelled or rejected
@@ -238,14 +245,14 @@ export default function ReferralHubPage() {
   };
 
   const handleShareZalo = () => {
-    if (!data?.shareUrl) return;
-    const url = `https://zalo.me/share?url=${encodeURIComponent(data.shareUrl)}`;
+    if (!effectiveShareUrl) return;
+    const url = `https://zalo.me/share?url=${encodeURIComponent(effectiveShareUrl)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const handleShareFacebook = () => {
-    if (!data?.shareUrl) return;
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(data.shareUrl)}`;
+    if (!effectiveShareUrl) return;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(effectiveShareUrl)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -329,11 +336,13 @@ export default function ReferralHubPage() {
     }
   };
 
-  // Rank checks
+  // Rank checks (5-Tier Ladder)
   const activatedCount = data?.stats.activatedCount || 0;
-  const isGold = activatedCount >= 10;
-  const isSilver = activatedCount >= 3 && activatedCount < 10;
-  const isBronze = activatedCount < 3;
+  const isTier1 = activatedCount < 3;
+  const isTier2 = activatedCount >= 3 && activatedCount < 6;
+  const isTier3 = activatedCount >= 6 && activatedCount < 11;
+  const isTier4 = activatedCount >= 11 && activatedCount < 20;
+  const isTier5 = activatedCount >= 20;
 
   return (
     <StudentShell title="Mời bạn bè — Nhận quà VIP">
@@ -564,12 +573,12 @@ export default function ReferralHubPage() {
               <div className="relative flex-1">
                 <Input
                   readOnly
-                  value={data?.shareUrl || 'Đang tạo liên kết mời...'}
+                  value={effectiveShareUrl || 'Đang tạo liên kết mời...'}
                   className="pr-36 font-mono text-xs sm:text-sm bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 h-10"
                 />
                 <Button
                   size="sm"
-                  disabled={!data?.shareUrl}
+                  disabled={!effectiveShareUrl}
                   onClick={handleCopyLink}
                   className="absolute right-1 top-1 h-8 text-xs bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-xs"
                 >
@@ -749,88 +758,162 @@ export default function ReferralHubPage() {
               />
             </div>
 
-            {/* 3 Tier Cards with Active State */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
+            {/* 5 Tier Cards with Active State */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 pt-2 text-xs">
+              {/* Tier 1 */}
               <div
-                className={`rounded-xl border p-3.5 transition-all ${
-                  isBronze
-                    ? 'border-indigo-400 bg-indigo-50/50 dark:border-indigo-600 dark:bg-indigo-950/30 ring-2 ring-indigo-500/20'
-                    : 'border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-800/30'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-slate-900 dark:text-slate-100">
-                    🥉 Khởi đầu (0 – 2 bạn)
-                  </span>
-                  {isBronze && (
-                    <Badge variant="outline" className="text-[10px] font-bold border-indigo-300 text-indigo-700 dark:text-indigo-300">
-                      Cấp hiện tại
-                    </Badge>
-                  )}
-                  {!isBronze && (
-                    <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-0.5">
-                      <CheckCircle2 className="h-3 w-3" /> Đã mở
-                    </span>
-                  )}
-                </div>
-                <div className="text-slate-500 text-[11px] mt-1.5 leading-relaxed">
-                  15% hoa hồng + 7 ngày Pro VIP cho mỗi bạn học cùng.
-                </div>
-              </div>
-
-              <div
-                className={`rounded-xl border p-3.5 transition-all ${
-                  isSilver
+                className={`rounded-xl border p-3.5 transition-all flex flex-col justify-between ${
+                  isTier1
                     ? 'border-indigo-400 bg-indigo-50/60 dark:border-indigo-600 dark:bg-indigo-950/40 ring-2 ring-indigo-500/20'
                     : 'border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-800/30'
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-slate-900 dark:text-slate-100">
-                    🥈 Bạn Đồng Hành (3 – 9 bạn)
-                  </span>
-                  {isSilver ? (
-                    <Badge variant="outline" className="text-[10px] font-bold border-indigo-300 text-indigo-700 dark:text-indigo-300">
-                      Cấp hiện tại
-                    </Badge>
-                  ) : isGold ? (
-                    <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-0.5">
-                      <CheckCircle2 className="h-3 w-3" /> Đã mở
+                <div>
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="font-bold text-slate-900 dark:text-slate-100 truncate">
+                      🥉 Khởi đầu (0 – 2)
                     </span>
-                  ) : (
-                    <span className="text-[10px] font-semibold text-slate-400">
-                      Cần {Math.max(0, 3 - activatedCount)} bạn
-                    </span>
-                  )}
-                </div>
-                <div className="text-slate-500 text-[11px] mt-1.5 leading-relaxed">
-                  15% hoa hồng + Thưởng thêm 30 ngày Pro VIP khi đạt mốc.
+                    {isTier1 ? (
+                      <Badge variant="outline" className="text-[10px] font-bold border-indigo-300 text-indigo-700 dark:text-indigo-300 px-1.5 py-0">
+                        Hiện tại
+                      </Badge>
+                    ) : (
+                      <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-0.5 whitespace-nowrap">
+                        <CheckCircle2 className="h-3 w-3" /> Đã mở
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-slate-500 text-[11px] mt-1.5 leading-relaxed">
+                    15% hoa hồng + 7 ngày Pro VIP cho mỗi bạn học cùng.
+                  </div>
                 </div>
               </div>
 
+              {/* Tier 2 */}
               <div
-                className={`rounded-xl border p-3.5 transition-all ${
-                  isGold
-                    ? 'border-amber-400 bg-amber-50/60 dark:border-amber-600 dark:bg-amber-950/40 ring-2 ring-amber-500/20'
+                className={`rounded-xl border p-3.5 transition-all flex flex-col justify-between ${
+                  isTier2
+                    ? 'border-indigo-400 bg-indigo-50/60 dark:border-indigo-600 dark:bg-indigo-950/40 ring-2 ring-indigo-500/20'
                     : 'border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-800/30'
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-slate-900 dark:text-slate-100">
-                    🥇 Đại sứ LingoPro (10+ bạn)
-                  </span>
-                  {isGold ? (
-                    <Badge className="bg-amber-500 text-white text-[10px] font-bold">
-                      Đạt Đại Sứ ⭐
-                    </Badge>
-                  ) : (
-                    <span className="text-[10px] font-semibold text-slate-400">
-                      Cần {Math.max(0, 10 - activatedCount)} bạn
+                <div>
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="font-bold text-slate-900 dark:text-slate-100 truncate">
+                      🥈 Đồng Hành (3 – 5)
                     </span>
-                  )}
+                    {isTier2 ? (
+                      <Badge variant="outline" className="text-[10px] font-bold border-indigo-300 text-indigo-700 dark:text-indigo-300 px-1.5 py-0">
+                        Hiện tại
+                      </Badge>
+                    ) : activatedCount >= 6 ? (
+                      <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-0.5 whitespace-nowrap">
+                        <CheckCircle2 className="h-3 w-3" /> Đã mở
+                      </span>
+                    ) : (
+                      <span className="text-[10px] font-semibold text-slate-400 whitespace-nowrap">
+                        Cần {Math.max(0, 3 - activatedCount)} bạn
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-slate-500 text-[11px] mt-1.5 leading-relaxed">
+                    15% hoa hồng + Thưởng nóng <span className="font-semibold text-indigo-600 dark:text-indigo-400">+15 ngày Pro VIP</span>.
+                  </div>
                 </div>
-                <div className="text-slate-500 text-[11px] mt-1.5 leading-relaxed">
-                  Nâng hoa hồng lên 20% + Thưởng 200.000đ tiền mặt vào ví.
+              </div>
+
+              {/* Tier 3 */}
+              <div
+                className={`rounded-xl border p-3.5 transition-all flex flex-col justify-between ${
+                  isTier3
+                    ? 'border-indigo-400 bg-indigo-50/60 dark:border-indigo-600 dark:bg-indigo-950/40 ring-2 ring-indigo-500/20'
+                    : 'border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-800/30'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="font-bold text-slate-900 dark:text-slate-100 truncate">
+                      🏅 Dẫn Đường (6 – 10)
+                    </span>
+                    {isTier3 ? (
+                      <Badge variant="outline" className="text-[10px] font-bold border-indigo-300 text-indigo-700 dark:text-indigo-300 px-1.5 py-0">
+                        Hiện tại
+                      </Badge>
+                    ) : activatedCount >= 11 ? (
+                      <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-0.5 whitespace-nowrap">
+                        <CheckCircle2 className="h-3 w-3" /> Đã mở
+                      </span>
+                    ) : (
+                      <span className="text-[10px] font-semibold text-slate-400 whitespace-nowrap">
+                        Cần {Math.max(0, 6 - activatedCount)} bạn
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-slate-500 text-[11px] mt-1.5 leading-relaxed">
+                    15% hoa hồng + Thưởng nóng <span className="font-semibold text-indigo-600 dark:text-indigo-400">+30 ngày Pro VIP</span> (1 tháng).
+                  </div>
+                </div>
+              </div>
+
+              {/* Tier 4 */}
+              <div
+                className={`rounded-xl border p-3.5 transition-all flex flex-col justify-between ${
+                  isTier4
+                    ? 'border-indigo-400 bg-indigo-50/60 dark:border-indigo-600 dark:bg-indigo-950/40 ring-2 ring-indigo-500/20'
+                    : 'border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-800/30'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="font-bold text-slate-900 dark:text-slate-100 truncate">
+                      🎖️ Thủ Lĩnh (11 – 19)
+                    </span>
+                    {isTier4 ? (
+                      <Badge variant="outline" className="text-[10px] font-bold border-indigo-300 text-indigo-700 dark:text-indigo-300 px-1.5 py-0">
+                        Hiện tại
+                      </Badge>
+                    ) : activatedCount >= 20 ? (
+                      <span className="text-[10px] font-bold text-emerald-600 flex items-center gap-0.5 whitespace-nowrap">
+                        <CheckCircle2 className="h-3 w-3" /> Đã mở
+                      </span>
+                    ) : (
+                      <span className="text-[10px] font-semibold text-slate-400 whitespace-nowrap">
+                        Cần {Math.max(0, 11 - activatedCount)} bạn
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-slate-500 text-[11px] mt-1.5 leading-relaxed">
+                    15% hoa hồng + Thưởng nóng <span className="font-semibold text-indigo-600 dark:text-indigo-400">+60 ngày Pro VIP</span> (2 tháng).
+                  </div>
+                </div>
+              </div>
+
+              {/* Tier 5 */}
+              <div
+                className={`rounded-xl border p-3.5 transition-all flex flex-col justify-between ${
+                  isTier5
+                    ? 'border-amber-400 bg-amber-50/70 dark:border-amber-600 dark:bg-amber-950/50 ring-2 ring-amber-500/30'
+                    : 'border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-800/30'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-1">
+                    <span className="font-bold text-slate-900 dark:text-slate-100 truncate">
+                      👑 Đại Sứ (20+ bạn)
+                    </span>
+                    {isTier5 ? (
+                      <Badge className="bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0">
+                        Đạt Đại Sứ ⭐
+                      </Badge>
+                    ) : (
+                      <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 whitespace-nowrap">
+                        Cần {Math.max(0, 20 - activatedCount)} bạn
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-slate-600 dark:text-slate-300 text-[11px] mt-1.5 leading-relaxed">
+                    <span className="font-bold text-amber-700 dark:text-amber-400">Nâng hoa hồng 20% trọn đời</span> + Thưởng nóng <span className="font-bold text-emerald-600 dark:text-emerald-400">200.000đ tiền mặt</span> vào ví.
+                  </div>
                 </div>
               </div>
             </div>

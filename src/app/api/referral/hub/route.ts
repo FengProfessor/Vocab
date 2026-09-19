@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { resolvePublicOrigin } from '@/lib/referral-tracker';
 
 export const dynamic = 'force-dynamic';
 
@@ -84,7 +85,7 @@ export async function GET(req: NextRequest) {
       link = newLink;
     }
 
-    const origin = req.nextUrl.origin || 'https://lingopro.online';
+    const origin = resolvePublicOrigin(req);
     const referralCode = link?.referral_code || '';
     const shareUrl = referralCode ? `${origin}/invite/${referralCode}` : '';
 
@@ -138,7 +139,7 @@ export async function GET(req: NextRequest) {
 
     // Batch update all matured transactions in a single query
     if (maturedIds.length > 0) {
-      void supabase
+      await supabase
         .from('reward_transactions')
         .update({ status: 'available' })
         .in('id', maturedIds);
@@ -146,28 +147,46 @@ export async function GET(req: NextRequest) {
 
     if (availableCash < 0) availableCash = 0;
 
-    // 4. Milestone calculation
-    // Bronze: 0-2 friends | Silver: 3-9 friends (+30d Pro) | Gold Ambassador: >=10 friends (+20% comm + 200k)
-    let currentRank = 'Học viên Khởi đầu';
+    // 4. Milestone calculation (5-Tier Ladder)
+    // Tier 1: 0 - 2 friends (Người Khởi Xướng) -> Target 3 (+15 ngày Pro VIP)
+    // Tier 2: 3 - 5 friends (Bạn Đồng Hành) -> Target 6 (+30 ngày Pro VIP - 1 tháng)
+    // Tier 3: 6 - 10 friends (Người Dẫn Đường) -> Target 11 (+60 ngày Pro VIP - 2 tháng)
+    // Tier 4: 11 - 19 friends (Thủ Lĩnh Học Tập) -> Target 20 (20% hoa hồng vĩnh viễn + 200.000đ tiền mặt)
+    // Tier 5: >= 20 friends (Đại Sứ Toàn Năng) -> Đạt đỉnh cao vinh danh
+    let currentRank = 'Người Khởi Xướng';
     let nextMilestone = {
       target: 3,
       current: activatedCount,
-      reward: 'Tặng thêm 30 ngày Pro VIP miễn phí',
+      reward: 'Thưởng nóng +15 ngày Pro VIP miễn phí',
     };
 
-    if (activatedCount >= 10) {
-      currentRank = 'Đại sứ LingoPro';
+    if (activatedCount >= 20) {
+      currentRank = 'Đại Sứ Toàn Năng';
       nextMilestone = {
         target: 20,
         current: activatedCount,
-        reward: 'Nhận 20% tiền thưởng & Quà lưu niệm Đại sứ',
+        reward: 'Đã đạt mốc vinh danh tối đa: 20% hoa hồng trọn đời & Thưởng 200.000đ tiền mặt',
+      };
+    } else if (activatedCount >= 11) {
+      currentRank = 'Thủ Lĩnh Học Tập';
+      nextMilestone = {
+        target: 20,
+        current: activatedCount,
+        reward: 'Thăng hạng Đại Sứ (20% hoa hồng trọn đời) + Thưởng 200.000đ tiền mặt',
+      };
+    } else if (activatedCount >= 6) {
+      currentRank = 'Người Dẫn Đường';
+      nextMilestone = {
+        target: 11,
+        current: activatedCount,
+        reward: 'Thưởng nóng +60 ngày Pro VIP (2 tháng)',
       };
     } else if (activatedCount >= 3) {
       currentRank = 'Bạn Đồng Hành';
       nextMilestone = {
-        target: 10,
+        target: 6,
         current: activatedCount,
-        reward: 'Thăng hạng Đại sứ (20% tiền thưởng) + Tặng 200.000đ vào tài khoản',
+        reward: 'Thưởng nóng +30 ngày Pro VIP (1 tháng)',
       };
     }
 

@@ -102,3 +102,57 @@ export function clearStoredReferralCode(): void {
     // ignore
   }
 }
+
+/**
+ * Resolves the canonical public origin for referral share links.
+ * Strictly avoids internal binding IPs like 0.0.0.0 or private addresses.
+ */
+export function resolvePublicOrigin(req?: Request): string {
+  const envUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL;
+  if (envUrl && !envUrl.includes('0.0.0.0')) {
+    return envUrl.replace(/\/$/, '');
+  }
+
+  if (req) {
+    const forwardedHost = req.headers.get('x-forwarded-host') || req.headers.get('host');
+    const forwardedProto = req.headers.get('x-forwarded-proto') || 'https';
+
+    if (forwardedHost && !forwardedHost.includes('0.0.0.0')) {
+      if (
+        (forwardedHost.includes('localhost') || forwardedHost.includes('127.0.0.1')) &&
+        process.env.NODE_ENV === 'development'
+      ) {
+        return `${forwardedProto}://${forwardedHost}`.replace(/\/$/, '');
+      }
+
+      if (forwardedHost.includes('lingopro.online')) {
+        return `https://${forwardedHost}`.replace(/\/$/, '');
+      }
+    }
+  }
+
+  return 'https://lingopro.online';
+}
+
+/**
+ * Ensures the share URL in the browser always uses a valid routable host.
+ * Guarantees 0.0.0.0 or internal dev hosts are replaced with the browser's origin or lingopro.online.
+ */
+export function getClientShareUrl(code?: string, rawShareUrl?: string): string {
+  const cleanCode = (code || '').trim();
+  if (typeof window !== 'undefined') {
+    const currentOrigin = window.location.origin;
+    if (currentOrigin && !currentOrigin.includes('0.0.0.0')) {
+      return cleanCode
+        ? `${currentOrigin}/invite/${cleanCode}`
+        : rawShareUrl?.replace(/https?:\/\/0\.0\.0\.0(:\d+)?/, currentOrigin) || '';
+    }
+  }
+
+  if (rawShareUrl && !rawShareUrl.includes('0.0.0.0')) {
+    return rawShareUrl;
+  }
+
+  return cleanCode ? `https://lingopro.online/invite/${cleanCode}` : 'https://lingopro.online';
+}
+

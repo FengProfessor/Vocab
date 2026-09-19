@@ -541,12 +541,12 @@ BEGIN
     END IF;
   END IF;
 
-  -- 5. Check Ambassador Tier: If referrer has >= 10 converted referrals, upgrade to 20%
+  -- 5. Check Ambassador Tier: If referrer has >= 20 converted referrals (Mốc 5), upgrade to 20%
   SELECT count(*) INTO v_referrer_active_count
   FROM public.referral_logs
   WHERE referrer_id = v_log.referrer_id AND status = 'converted';
 
-  IF v_referrer_active_count >= 10 THEN
+  IF v_referrer_active_count >= 20 THEN
     v_comm_pct := greatest(v_comm_pct, 20);
   END IF;
 

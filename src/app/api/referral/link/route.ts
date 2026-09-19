@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
+import { resolvePublicOrigin } from '@/lib/referral-tracker';
 
 export const dynamic = 'force-dynamic';
 
@@ -33,7 +34,7 @@ export async function GET(req: NextRequest) {
     }
 
     if (link) {
-      const origin = req.nextUrl.origin || 'https://lingopro.online';
+      const origin = resolvePublicOrigin(req);
       return NextResponse.json({
         success: true,
         referralCode: link.referral_code,
@@ -68,7 +69,7 @@ export async function POST(req: NextRequest) {
       .eq('user_id', user.id)
       .maybeSingle();
 
-    const origin = req.nextUrl.origin || 'https://lingopro.online';
+    const origin = resolvePublicOrigin(req);
 
     if (existingLink) {
       return NextResponse.json({
