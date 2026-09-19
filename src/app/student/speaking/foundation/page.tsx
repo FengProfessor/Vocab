@@ -13,6 +13,8 @@ import {
   Headphones,
   Zap,
   Award,
+  Brain,
+  Compass,
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { StageProgressNav } from '@/components/speaking/foundation/StageProgressNav';
@@ -23,6 +25,25 @@ export default function SpeakingFoundationHubPage() {
   const stats = getSpeakingStats();
 
   const stages = [
+    {
+      id: 'stage-mindset',
+      href: '/student/speaking/foundation/stage-mindset',
+      number: 'Khởi động',
+      title: 'Hệ điều hành Tư duy nói (Mindset OS)',
+      tag: 'Bắt buộc trước tiên',
+      badge: '6 Bài học tư duy',
+      description:
+        'Giải phẫu "vết thương ngữ pháp" 12 năm phổ thông, phá vỡ vòng lặp dịch thầm, và cài đặt 5 mô hình tư duy: Kết nối hơn hoàn hảo, Khối Lego, và Ranh giới ĐỦ.',
+      highlights: [
+        'Phá vỡ vòng lặp dịch thầm & tê liệt ngữ pháp',
+        'Tư duy: Kết nối hơn hoàn hảo (Communication)',
+        'Quy tắc Khối Lego: Nhả âm <0.3s không ghép từ',
+        'Bảng cam kết giải phóng tâm lý (Pledges)',
+      ],
+      icon: Brain,
+      accentColor: 'from-indigo-500/20 to-purple-500/15 border-indigo-500/40 text-indigo-500',
+      btnText: 'Vào học Khởi động Tư duy',
+    },
     {
       id: 'stage-0',
       href: '/student/speaking/foundation/stage-0',
@@ -116,8 +137,12 @@ export default function SpeakingFoundationHubPage() {
                 CEFR A0 – A1 (False Beginners)
               </span>
               <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex items-center gap-1">
+                <Brain className="w-3.5 h-3.5" />
+                Khởi động Tư duy Nói (Mindset First)
+              </span>
+              <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                Công nghệ Safe Harbor không phán xét
+                Safe Harbor không phán xét
               </span>
             </div>
 
@@ -126,13 +151,20 @@ export default function SpeakingFoundationHubPage() {
             </h1>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Phương pháp 4 chặng khoa học: từ khai thông cơ miệng qua video khẩu hình Rachel’s
+              Lộ trình toàn diện: bắt đầu từ việc khai phóng tư duy xóa bỏ nỗi sợ sai, khai thông cơ miệng qua video khẩu hình Rachel’s
               English, nạp 28 khung câu sống còn không chia thì, tự động hóa phản xạ Lego &lt;1s, đến
               nở câu 3 nhịp và đối thoại tự tin.
             </p>
 
             {/* Overall Stats Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-2">
+              <div className="p-3 rounded-xl bg-indigo-500/15 border border-indigo-500/30 backdrop-blur-sm">
+                <div className="text-2xl font-black text-indigo-400">
+                  {stats.totalMindsetLessons || 6}
+                </div>
+                <div className="text-xs text-indigo-200 font-medium">Trụ cột Tư duy nói</div>
+              </div>
+
               <div className="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <div className="text-2xl font-black text-amber-400">
                   {stats.totalPhoneticLessons}
@@ -162,6 +194,36 @@ export default function SpeakingFoundationHubPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* PROMINENT MINDSET BANNER (START HERE) */}
+        <div className="relative overflow-hidden rounded-2xl border-2 border-indigo-500/50 bg-gradient-to-r from-indigo-950/90 via-slate-900 to-purple-950/90 p-6 sm:p-7 text-white shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+          <div className="space-y-2 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-amber-400 text-slate-950 flex items-center gap-1">
+                <Sparkles className="w-3.5 h-3.5" />
+                KHUYÊN NGHỊ HỌC ĐẦU TIÊN
+              </span>
+              <span className="text-xs text-indigo-300 font-semibold flex items-center gap-1">
+                <Brain className="w-3.5 h-3.5" />
+                Chặng Khởi Động (Mindset OS)
+              </span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-black text-white">
+              Đừng vội luyện phát âm nếu chưa gỡ bỏ nỗi sợ sai!
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Giải mã tại sao bạn học 10 năm ngữ pháp vẫn câm nín, cách xóa bỏ thói quen dịch thầm từ tiếng Việt,
+              và cài đặt 5 mô hình tư duy cốt lõi (Khối Lego, Nở câu 3 nhịp, Phao cứu sinh bí từ).
+            </p>
+          </div>
+
+          <Link href="/student/speaking/foundation/stage-mindset" className="flex-shrink-0">
+            <Button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold gap-2 px-5 py-5 text-sm shadow-lg shadow-indigo-500/25">
+              Học Ngay: Khởi Động Tư Duy
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
         </div>
 
         {/* Methodology Feature Strip */}
@@ -211,10 +273,10 @@ export default function SpeakingFoundationHubPage() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-                Lộ trình 4 Chặng Luyện nói Nền tảng
+                Lộ trình 5 Bước Khởi Động & Luyện Nói Nền Tảng
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                Học tuần tự theo từng chặng vi mô để xây dựng phản xạ cơ miệng vững chắc
+                Bắt đầu từ việc thông suốt tư duy, khai thông cơ miệng đến đàm thoại vi mô tự tin
               </p>
             </div>
           </div>
@@ -222,10 +284,15 @@ export default function SpeakingFoundationHubPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {stages.map((stage) => {
               const Icon = stage.icon;
+              const isMindset = stage.id === 'stage-mindset';
               return (
                 <div
                   key={stage.id}
-                  className="group relative flex flex-col justify-between rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 p-6 shadow-sm hover:shadow-md transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-700"
+                  className={`group relative flex flex-col justify-between rounded-2xl border p-6 shadow-sm hover:shadow-md transition-all duration-200 ${
+                    isMindset
+                      ? 'md:col-span-2 border-indigo-500/40 bg-gradient-to-br from-indigo-50/70 via-white to-purple-50/50 dark:from-indigo-950/40 dark:via-slate-900 dark:to-purple-950/30 hover:border-indigo-500'
+                      : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 hover:border-slate-300 dark:hover:border-slate-700'
+                  }`}
                 >
                   <div className="space-y-4">
                     {/* Top Row: Tag & Badge */}

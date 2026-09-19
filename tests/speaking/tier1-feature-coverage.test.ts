@@ -18,6 +18,8 @@ import {
   getThreeBeatExpansions,
   getMicroDialogues,
   getSpeakingStats,
+  getMindsetLessons,
+  getMindsetPledges,
   type Stage0PhoneticLesson,
   type SurvivalFrame,
   type LegoSlotLesson,
@@ -489,6 +491,7 @@ export async function runTier1Tests(runner: TestRunner): Promise<void> {
     runner.it('7.5: Validates clean kebab-case URL formatting without trailing slashes', () => {
       const routes = [
         '/student/speaking/foundation',
+        '/student/speaking/foundation/stage-mindset',
         '/student/speaking/foundation/stage-0',
         '/student/speaking/foundation/stage-1',
         '/student/speaking/foundation/stage-2',
@@ -497,6 +500,80 @@ export async function runTier1Tests(runner: TestRunner): Promise<void> {
       for (const r of routes) {
         expect(r).toMatch(/^\/[a-z0-9\-/]+[a-z0-9]$/);
         expect(r.endsWith('/')).toBe(false);
+      }
+    });
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Feature 8: Chặng Khởi Động — Hệ Điều Hành Tư Duy Nói (Speaking Mindset OS)
+  // ──────────────────────────────────────────────────────────────────────────
+  runner.describe('Tier 1 — Feature 8: Chặng Khởi Động Hệ Điều Hành Tư Duy (Speaking Mindset OS)', () => {
+    const mindsetLessons = getMindsetLessons();
+    const mindsetPledges = getMindsetPledges();
+    const stats = getSpeakingStats();
+
+    runner.it('8.1: Validates exactly 6 foundational mindset lessons covering false-beginner psychology', () => {
+      expect(mindsetLessons.length).toBe(6);
+      expect(stats.totalMindsetLessons).toBe(6);
+
+      const expectedLessonIds = [
+        'mindset-01-paralysis',
+        'mindset-02-communication',
+        'mindset-03-lego-chunk',
+        'mindset-04-three-beat',
+        'mindset-05-survival-cushions',
+        'mindset-06-finite-game',
+      ];
+
+      for (const expectedId of expectedLessonIds) {
+        const found = mindsetLessons.find((l) => l.id === expectedId);
+        expect(found).toBeDefined();
+        expect(found?.title.length).toBeGreaterThan(10);
+        expect(found?.corePrincipleVi.length).toBeGreaterThan(10);
+        expect(found?.psychologyRootVi.length).toBeGreaterThan(10);
+        expect(found?.actionableTechniqueVi.length).toBeGreaterThan(10);
+        expect(found?.keyTakeaways.length).toBe(3);
+      }
+    });
+
+    runner.it('8.2: Validates deep psychological root cause analysis and practical action shift', () => {
+      for (const lesson of mindsetLessons) {
+        expect(lesson.psychologyRootVi.length).toBeGreaterThan(30);
+        expect(lesson.actionableTechniqueVi.length).toBeGreaterThan(20);
+        expect(lesson.taglineVi.length).toBeGreaterThan(10);
+      }
+    });
+
+    runner.it('8.3: Validates Before vs After mindset contrasts with auditory models', () => {
+      for (const lesson of mindsetLessons) {
+        expect(lesson.comparison.beforeTitle.length).toBeGreaterThan(5);
+        expect(lesson.comparison.beforeExample.length).toBeGreaterThan(5);
+        expect(lesson.comparison.afterTitle.length).toBeGreaterThan(5);
+        expect(lesson.comparison.afterExample.length).toBeGreaterThan(5);
+        expect(lesson.audioExampleSentence).toBeDefined();
+        expect(lesson.audioExampleSentence!.length).toBeGreaterThan(5);
+      }
+    });
+
+    runner.it('8.4: Validates Lesson 5 contains 6 practical stalling cushions with audio & guidance', () => {
+      const lesson5 = mindsetLessons.find((l) => l.id === 'mindset-05-survival-cushions');
+      expect(lesson5).toBeDefined();
+      expect(lesson5?.stallingPhrases).toBeDefined();
+      expect(lesson5?.stallingPhrases?.length).toBe(6);
+
+      for (const cushion of lesson5!.stallingPhrases!) {
+        expect(cushion.phraseEn.length).toBeGreaterThan(5);
+        expect(cushion.meaningVi.length).toBeGreaterThan(5);
+        expect(cushion.usageNoteVi.length).toBeGreaterThan(10);
+      }
+    });
+
+    runner.it('8.5: Validates 5 Mental Liberation Pledges with clear commitments', () => {
+      expect(mindsetPledges.length).toBe(5);
+      for (const pledge of mindsetPledges) {
+        expect(pledge.id).toBeDefined();
+        expect(pledge.titleVi.length).toBeGreaterThan(5);
+        expect(pledge.descriptionVi.length).toBeGreaterThan(15);
       }
     });
   });

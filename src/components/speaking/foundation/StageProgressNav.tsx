@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ChevronRight, Home, CheckCircle2, Sparkles, Volume2, MessageSquare, Layers, Mic } from 'lucide-react';
+import { ChevronRight, Home, CheckCircle2, Sparkles, Volume2, MessageSquare, Layers, Mic, Brain } from 'lucide-react';
 import type { SpeakingStageId } from '@/types/speaking-foundation';
 
 export interface StageNavInfo {
@@ -16,6 +16,15 @@ export interface StageNavInfo {
 }
 
 export const FOUNDATION_STAGES: StageNavInfo[] = [
+  {
+    id: 'stage-mindset',
+    stageNumber: -1,
+    title: 'Khởi động: Hệ điều hành Tư duy nói',
+    shortTitle: 'Khởi động: Tư duy',
+    href: '/student/speaking/foundation/stage-mindset',
+    tag: 'Gỡ bỏ sợ sai',
+    icon: Brain,
+  },
   {
     id: 'stage-0',
     stageNumber: 0,

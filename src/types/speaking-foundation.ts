@@ -13,9 +13,38 @@
 import type { RachelVideoMeta } from '@/types/pronunciation';
 
 // ── Common Stage Identifiers ──────────────────────────────────────────────────
-export type SpeakingStageId = 'stage-0' | 'stage-1' | 'stage-2' | 'stage-3';
+export type SpeakingStageId = 'stage-mindset' | 'stage-0' | 'stage-1' | 'stage-2' | 'stage-3';
 
-// ── Stage 0: Phonetics & Mouth Articulation ───────────────────────────────────
+// ── Stage Mindset: Foundational Mindset OS ─────────────────────────────────────
+export interface MindsetComparison {
+  beforeTitle: string;
+  beforeDescription: string;
+  beforeExample: string;
+  afterTitle: string;
+  afterDescription: string;
+  afterExample: string;
+}
+
+export interface MindsetLesson {
+  id: string;
+  order: number;
+  slug: string;
+  title: string;
+  taglineVi: string;
+  corePrincipleVi: string;
+  psychologyRootVi: string;
+  actionableTechniqueVi: string;
+  comparison: MindsetComparison;
+  keyTakeaways: string[];
+  audioExampleSentence?: string;
+  stallingPhrases?: Array<{ phraseEn: string; meaningVi: string; usageNoteVi: string }>;
+}
+
+export interface MindsetPledge {
+  id: string;
+  titleVi: string;
+  descriptionVi: string;
+}
 export interface Stage0VideoMeta {
   youtubeVideoId: string;
   channelName: string; // Typically "Rachel's English"
@@ -228,6 +257,7 @@ export interface SafeHarborEvaluationResult {
 
 // ── Aggregated Dataset Statistics ─────────────────────────────────────────────
 export interface SpeakingStats {
+  totalMindsetLessons?: number;
   totalPhoneticLessons: number;
   totalSurvivalFrames: number;
   totalDomains: number;

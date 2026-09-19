@@ -4,11 +4,14 @@
  * File: src/data/speaking/foundation/index.ts
  */
 
+import { STAGE_MINDSET_LESSONS, MINDSET_PLEDGES } from './stage-mindset';
 import { STAGE_0_PHONETIC_LESSONS } from './stage-0-phonetics';
 import { STAGE_1_SURVIVAL_FRAMES } from './stage-1-survival-frames';
 import { STAGE_2_LEGO_LESSONS } from './stage-2-lego-slots';
 import { STAGE_3_EXPANSIONS, STAGE_3_MICRO_DIALOGUES } from './stage-3-expansions';
 import type {
+  MindsetLesson,
+  MindsetPledge,
   Stage0PhoneticLesson,
   SurvivalFrame,
   SurvivalDomainId,
@@ -19,6 +22,7 @@ import type {
 } from '@/types/speaking-foundation';
 
 // Re-export raw datasets
+export { STAGE_MINDSET_LESSONS, MINDSET_PLEDGES } from './stage-mindset';
 export { STAGE_0_PHONETIC_LESSONS } from './stage-0-phonetics';
 export { STAGE_1_SURVIVAL_FRAMES } from './stage-1-survival-frames';
 export { STAGE_2_LEGO_LESSONS } from './stage-2-lego-slots';
@@ -26,6 +30,19 @@ export { STAGE_3_EXPANSIONS, STAGE_3_MICRO_DIALOGUES } from './stage-3-expansion
 
 // Re-export types
 export * from '@/types/speaking-foundation';
+
+// ── Stage Mindset Lookup Functions ────────────────────────────────────────────
+export function getMindsetLessons(): MindsetLesson[] {
+  return STAGE_MINDSET_LESSONS;
+}
+
+export function getMindsetLessonById(id: string): MindsetLesson | undefined {
+  return STAGE_MINDSET_LESSONS.find((lesson) => lesson.id === id || lesson.slug === id);
+}
+
+export function getMindsetPledges(): MindsetPledge[] {
+  return MINDSET_PLEDGES;
+}
 
 // ── Stage 0 Lookup Functions ──────────────────────────────────────────────────
 export function getStage0Lessons(): Stage0PhoneticLesson[] {
@@ -93,6 +110,7 @@ export function getSpeakingStats(): SpeakingStats {
   const domainSet = new Set(STAGE_1_SURVIVAL_FRAMES.map((frame) => frame.domain));
 
   return {
+    totalMindsetLessons: STAGE_MINDSET_LESSONS.length,
     totalPhoneticLessons: STAGE_0_PHONETIC_LESSONS.length,
     totalSurvivalFrames: STAGE_1_SURVIVAL_FRAMES.length,
     totalDomains: domainSet.size,
