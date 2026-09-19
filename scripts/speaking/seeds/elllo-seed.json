@@ -1,0 +1,832 @@
+[
+  {
+    "id": "elllo-a1-1501-morning-routines",
+    "source": "elllo",
+    "title": "Todd & Katia: Simple Morning Routines",
+    "cefrLevel": "A1",
+    "topic": "Daily Routines & Habits",
+    "audioUrl": "https://www.elllo.org/audio/1501/1501-routines.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1501/1501-routines-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1501/1501-Morning-Routines.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Todd",
+        "textEn": "Good morning Katia! What time do you usually wake up on weekdays?",
+        "textVi": "Chào buổi sáng Katia! Bạn thường thức dậy lúc mấy giờ vào các ngày trong tuần?",
+        "audioUrl": "https://www.elllo.org/audio/1501/turns/t01.mp3",
+        "coreKeywords": ["morning", "usually", "wake", "weekdays"]
+      },
+      {
+        "speaker": "Katia",
+        "textEn": "I usually get up around six thirty because I like to brew fresh coffee.",
+        "textVi": "Tôi thường dậy vào khoảng 6 giờ 30 vì tôi thích tự pha cà phê tươi.",
+        "audioUrl": "https://www.elllo.org/audio/1501/turns/t02.mp3",
+        "coreKeywords": ["usually", "around", "brew", "fresh", "coffee"]
+      },
+      {
+        "speaker": "Todd",
+        "textEn": "That sounds peaceful. Do you exercise or stretch before breakfast?",
+        "textVi": "Nghe thật thanh bình. Bạn có tập thể dục hay giãn cơ trước bữa sáng không?",
+        "audioUrl": "https://www.elllo.org/audio/1501/turns/t03.mp3",
+        "coreKeywords": ["sounds", "peaceful", "exercise", "stretch", "breakfast"]
+      },
+      {
+        "speaker": "Katia",
+        "textEn": "Yes, I always stretch for fifteen minutes and eat some oatmeal with fruits.",
+        "textVi": "Có chứ, tôi luôn giãn cơ 15 phút và ăn một ít yến mạch với trái cây.",
+        "audioUrl": "https://www.elllo.org/audio/1501/turns/t04.mp3",
+        "coreKeywords": ["always", "stretch", "fifteen", "minutes", "oatmeal", "fruits"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "wake up",
+        "ipa": "/weɪk ʌp/",
+        "meaningVi": "thức giấc, mở mắt sau giấc ngủ",
+        "exampleEn": "I wake up at seven o'clock every day.",
+        "exampleVi": "Tôi thức dậy lúc bảy giờ mỗi ngày."
+      },
+      {
+        "term": "brew",
+        "ipa": "/bruː/",
+        "meaningVi": "pha (trà, cà phê)",
+        "exampleEn": "She likes to brew herbal tea in the afternoon.",
+        "exampleVi": "Cô ấy thích pha trà thảo mộc vào buổi chiều."
+      },
+      {
+        "term": "peaceful",
+        "ipa": "/ˈpiːsfəl/",
+        "meaningVi": "thanh bình, yên tĩnh",
+        "exampleEn": "The early morning park is very peaceful.",
+        "exampleVi": "Công viên vào sáng sớm rất thanh bình."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "What time do you usually wake up in the morning?",
+        "promptVi": "Bạn thường thức dậy lúc mấy giờ vào buổi sáng?",
+        "responseEn": "I usually wake up at six thirty and drink warm water.",
+        "responseVi": "Tôi thường thức dậy lúc 6 giờ 30 và uống nước ấm.",
+        "coreKeywords": ["usually", "wake", "thirty", "drink", "warm", "water"],
+        "audioUrl": "https://www.elllo.org/audio/1501/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "Do you eat breakfast at home before leaving?",
+        "promptVi": "Bạn có ăn sáng ở nhà trước khi đi làm không?",
+        "responseEn": "Yes, I always eat breakfast before I leave for work.",
+        "responseVi": "Vâng, tôi luôn ăn sáng trước khi đi làm.",
+        "coreKeywords": ["always", "breakfast", "leave", "work"],
+        "audioUrl": "https://www.elllo.org/audio/1501/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-a1-1502-ordering-coffee",
+    "source": "elllo",
+    "title": "Meg & Mark: At the Corner Coffee Shop",
+    "cefrLevel": "A1",
+    "topic": "Ordering Food & Drinks",
+    "audioUrl": "https://www.elllo.org/audio/1502/1502-coffee.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1502/1502-coffee-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1502/1502-Coffee-Shop.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Mark",
+        "textEn": "Hi Meg, can I get you something from the counter?",
+        "textVi": "Chào Meg, tôi có thể lấy cho bạn món gì từ quầy được không?",
+        "audioUrl": "https://www.elllo.org/audio/1502/turns/t01.mp3",
+        "coreKeywords": ["something", "counter"]
+      },
+      {
+        "speaker": "Meg",
+        "textEn": "I would love a medium iced latte with oat milk, please.",
+        "textVi": "Tôi muốn một ly latte đá cỡ vừa với sữa yến mạch, làm ơn.",
+        "audioUrl": "https://www.elllo.org/audio/1502/turns/t02.mp3",
+        "coreKeywords": ["love", "medium", "iced", "latte", "oat", "milk"]
+      },
+      {
+        "speaker": "Mark",
+        "textEn": "Would you like any sugar or flavor syrup in that?",
+        "textVi": "Bạn có muốn thêm đường hay si-rô hương vị gì không?",
+        "audioUrl": "https://www.elllo.org/audio/1502/turns/t03.mp3",
+        "coreKeywords": ["sugar", "flavor", "syrup"]
+      },
+      {
+        "speaker": "Meg",
+        "textEn": "No sugar for me, just a little cinnamon on top.",
+        "textVi": "Tôi không lấy đường đâu, chỉ cần rắc một chút bột quế lên trên thôi.",
+        "audioUrl": "https://www.elllo.org/audio/1502/turns/t04.mp3",
+        "coreKeywords": ["sugar", "little", "cinnamon"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "counter",
+        "ipa": "/ˈkaʊntər/",
+        "meaningVi": "quầy phục vụ, quầy thu ngân",
+        "exampleEn": "Please order your drinks at the counter.",
+        "exampleVi": "Vui lòng gọi đồ uống tại quầy."
+      },
+      {
+        "term": "syrup",
+        "ipa": "/ˈsɪrəp/",
+        "meaningVi": "si-rô đường hương vị",
+        "exampleEn": "Vanilla syrup adds sweet fragrance to iced coffee.",
+        "exampleVi": "Si-rô vani tạo thêm mùi thơm ngọt ngào cho cà phê đá."
+      },
+      {
+        "term": "cinnamon",
+        "ipa": "/ˈsɪnəmən/",
+        "meaningVi": "bột quế",
+        "exampleEn": "A sprinkle of cinnamon makes the drink cozy.",
+        "exampleVi": "Một chút bột quế giúp đồ uống trở nên ấm áp."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Can I get you something to drink?",
+        "promptVi": "Tôi có thể lấy cho bạn món gì uống không?",
+        "responseEn": "I'd like an iced latte with oat milk, please.",
+        "responseVi": "Cho tôi một ly latte đá với sữa yến mạch nhé.",
+        "coreKeywords": ["iced", "latte", "oat", "milk", "please"],
+        "audioUrl": "https://www.elllo.org/audio/1502/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "Would you like any extra sugar in your coffee?",
+        "promptVi": "Bạn có muốn thêm đường vào cà phê không?",
+        "responseEn": "No thank you, no sugar for me.",
+        "responseVi": "Không cảm ơn, tôi không dùng đường.",
+        "coreKeywords": ["thank", "sugar"],
+        "audioUrl": "https://www.elllo.org/audio/1502/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-a1-1503-weekend-activities",
+    "source": "elllo",
+    "title": "Sarah & Daniel: What Are You Doing This Weekend?",
+    "cefrLevel": "A1",
+    "topic": "Weekend Leisure & Hobbies",
+    "audioUrl": "https://www.elllo.org/audio/1503/1503-weekend.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1503/1503-weekend-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1503/1503-Weekend-Plans.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Sarah",
+        "textEn": "Daniel, do you have any fun plans for this Saturday?",
+        "textVi": "Daniel, thứ Bảy này bạn có kế hoạch vui chơi gì chưa?",
+        "audioUrl": "https://www.elllo.org/audio/1503/turns/t01.mp3",
+        "coreKeywords": ["daniel", "plans", "saturday"]
+      },
+      {
+        "speaker": "Daniel",
+        "textEn": "I'm going to ride my bicycle around the city lake with my cousin.",
+        "textVi": "Tôi dự định đạp xe quanh hồ thành phố cùng người anh họ.",
+        "audioUrl": "https://www.elllo.org/audio/1503/turns/t02.mp3",
+        "coreKeywords": ["going", "ride", "bicycle", "around", "city", "lake", "cousin"]
+      },
+      {
+        "speaker": "Sarah",
+        "textEn": "That sounds healthy! What about Sunday afternoon?",
+        "textVi": "Nghe lành mạnh quá! Còn chiều Chủ nhật thì sao?",
+        "audioUrl": "https://www.elllo.org/audio/1503/turns/t03.mp3",
+        "coreKeywords": ["sounds", "healthy", "sunday", "afternoon"]
+      },
+      {
+        "speaker": "Daniel",
+        "textEn": "On Sunday, I usually clean my room and read a novel.",
+        "textVi": "Vào Chủ nhật, tôi thường dọn dẹp phòng và đọc tiểu thuyết.",
+        "audioUrl": "https://www.elllo.org/audio/1503/turns/t04.mp3",
+        "coreKeywords": ["sunday", "usually", "clean", "room", "read", "novel"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "bicycle",
+        "ipa": "/ˈbaɪsɪkl/",
+        "meaningVi": "xe đạp",
+        "exampleEn": "He rides his bicycle to the market.",
+        "exampleVi": "Anh ấy đạp xe ra chợ."
+      },
+      {
+        "term": "lake",
+        "ipa": "/leɪk/",
+        "meaningVi": "hồ nước",
+        "exampleEn": "The breeze near the lake feels refreshing.",
+        "exampleVi": "Làn gió gần bờ hồ cho cảm giác rất sảng khoái."
+      },
+      {
+        "term": "novel",
+        "ipa": "/ˈnɑːvl/",
+        "meaningVi": "cuốn tiểu thuyết",
+        "exampleEn": "She enjoys reading adventure novels.",
+        "exampleVi": "Cô ấy thích đọc các cuốn tiểu thuyết phiêu lưu."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "What are you doing this Saturday morning?",
+        "promptVi": "Bạn làm gì vào sáng thứ Bảy này?",
+        "responseEn": "I am riding my bicycle around the lake.",
+        "responseVi": "Tôi sẽ đạp xe quanh hồ.",
+        "coreKeywords": ["riding", "bicycle", "around", "lake"],
+        "audioUrl": "https://www.elllo.org/audio/1503/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "How do you usually spend your Sundays?",
+        "promptVi": "Bạn thường dành ngày Chủ nhật để làm gì?",
+        "responseEn": "I usually relax at home and read a book.",
+        "responseVi": "Tôi thường thư giãn ở nhà và đọc sách.",
+        "coreKeywords": ["usually", "relax", "home", "read", "book"],
+        "audioUrl": "https://www.elllo.org/audio/1503/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-a2-1520-renting-apartment",
+    "source": "elllo",
+    "title": "Liam & Hana: Searching for a Shared Apartment",
+    "cefrLevel": "A2",
+    "topic": "Housing & Neighborhood",
+    "audioUrl": "https://www.elllo.org/audio/1520/1520-apartment.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1520/1520-apartment-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1520/1520-Apartment-Search.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Liam",
+        "textEn": "Hana, did you find any good apartments near the subway station?",
+        "textVi": "Hana, bạn có tìm thấy căn hộ nào tốt gần ga tàu điện ngầm không?",
+        "audioUrl": "https://www.elllo.org/audio/1520/turns/t01.mp3",
+        "coreKeywords": ["hana", "find", "good", "apartments", "near", "subway", "station"]
+      },
+      {
+        "speaker": "Hana",
+        "textEn": "I saw a bright two-bedroom flat, but the monthly rent is slightly over budget.",
+        "textVi": "Tôi thấy một căn hộ 2 phòng ngủ nhiều ánh sáng, nhưng tiền thuê tháng hơi vượt ngân sách.",
+        "audioUrl": "https://www.elllo.org/audio/1520/turns/t02.mp3",
+        "coreKeywords": ["bright", "bedroom", "flat", "monthly", "rent", "slightly", "over", "budget"]
+      },
+      {
+        "speaker": "Liam",
+        "textEn": "Does the rent include water and high-speed internet bills?",
+        "textVi": "Tiền thuê nhà có bao gồm hóa đơn nước và mạng internet tốc độ cao chưa?",
+        "audioUrl": "https://www.elllo.org/audio/1520/turns/t03.mp3",
+        "coreKeywords": ["rent", "include", "water", "high-speed", "internet", "bills"]
+      },
+      {
+        "speaker": "Hana",
+        "textEn": "Water is included, but we need to split electricity and internet separately.",
+        "textVi": "Tiền nước đã có sẵn, nhưng chúng ta phải chia đôi tiền điện và internet riêng.",
+        "audioUrl": "https://www.elllo.org/audio/1520/turns/t04.mp3",
+        "coreKeywords": ["water", "included", "need", "split", "electricity", "internet", "separately"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "subway station",
+        "ipa": "/ˈsʌbweɪ ˈsteɪʃn/",
+        "meaningVi": "ga tàu điện ngầm",
+        "exampleEn": "Living near a subway station saves commute time.",
+        "exampleVi": "Sống gần ga tàu điện ngầm giúp tiết kiệm thời gian đi lại."
+      },
+      {
+        "term": "monthly rent",
+        "ipa": "/ˈmʌnθli rent/",
+        "meaningVi": "tiền thuê nhà hàng tháng",
+        "exampleEn": "The monthly rent is due on the first day.",
+        "exampleVi": "Tiền thuê nhà hàng tháng đến hạn thanh toán vào ngày đầu tiên."
+      },
+      {
+        "term": "split bills",
+        "ipa": "/splɪt bɪlz/",
+        "meaningVi": "chia đều hóa đơn",
+        "exampleEn": "Roommates usually split the utility bills equally.",
+        "exampleVi": "Bạn cùng phòng thường chia đều hóa đơn tiền ích."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Is the apartment located close to public transit?",
+        "promptVi": "Căn hộ có nằm gần các phương tiện công cộng không?",
+        "responseEn": "Yes, it is only five minutes walk from the subway.",
+        "responseVi": "Có, nó chỉ cách ga tàu điện ngầm năm phút đi bộ.",
+        "coreKeywords": ["five", "minutes", "walk", "subway"],
+        "audioUrl": "https://www.elllo.org/audio/1520/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "How much is the deposit for this apartment?",
+        "promptVi": "Tiền đặt cọc cho căn hộ này là bao nhiêu?",
+        "responseEn": "The landlord requires one month deposit upfront.",
+        "responseVi": "Chủ nhà yêu cầu đặt cọc trước một tháng.",
+        "coreKeywords": ["landlord", "requires", "month", "deposit", "upfront"],
+        "audioUrl": "https://www.elllo.org/audio/1520/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-a2-1521-doctor-consultation",
+    "source": "elllo",
+    "title": "Dr. Evans & Carlos: Describing Health Symptoms",
+    "cefrLevel": "A2",
+    "topic": "Healthcare & Wellness",
+    "audioUrl": "https://www.elllo.org/audio/1521/1521-doctor.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1521/1521-doctor-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1521/1521-Doctor-Visit.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Dr. Evans",
+        "textEn": "Hello Carlos, what seems to be troubling you today?",
+        "textVi": "Chào Carlos, hôm nay có vấn đề sức khỏe gì làm phiền bạn vậy?",
+        "audioUrl": "https://www.elllo.org/audio/1521/turns/t01.mp3",
+        "coreKeywords": ["hello", "carlos", "seems", "troubling", "today"]
+      },
+      {
+        "speaker": "Carlos",
+        "textEn": "I have had a throbbing headache and a sore throat since yesterday evening.",
+        "textVi": "Tôi bị đau đầu nhức nhối và viêm họng rát từ tối hôm qua.",
+        "audioUrl": "https://www.elllo.org/audio/1521/turns/t02.mp3",
+        "coreKeywords": ["throbbing", "headache", "sore", "throat", "since", "yesterday", "evening"]
+      },
+      {
+        "speaker": "Dr. Evans",
+        "textEn": "Let me check your temperature and listen to your chest.",
+        "textVi": "Để tôi đo nhiệt độ cho bạn và nghe tim phổi nhé.",
+        "audioUrl": "https://www.elllo.org/audio/1521/turns/t03.mp3",
+        "coreKeywords": ["check", "temperature", "listen", "chest"]
+      },
+      {
+        "speaker": "Carlos",
+        "textEn": "Thank you doctor. Do you think I should take time off work?",
+        "textVi": "Cảm ơn bác sĩ. Bác sĩ nghĩ tôi có nên xin nghỉ làm vài ngày không?",
+        "audioUrl": "https://www.elllo.org/audio/1521/turns/t04.mp3",
+        "coreKeywords": ["thank", "doctor", "think", "take", "time", "work"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "sore throat",
+        "ipa": "/sɔːr θroʊt/",
+        "meaningVi": "đau họng, viêm họng",
+        "exampleEn": "Warm honey water helps soothe a sore throat.",
+        "exampleVi": "Nước mật ong ấm giúp làm dịu cổ họng đau rát."
+      },
+      {
+        "term": "temperature",
+        "ipa": "/ˈtemprətʃər/",
+        "meaningVi": "thân nhiệt, sốt",
+        "exampleEn": "The nurse measured my temperature with an ear probe.",
+        "exampleVi": "Y tá đã đo nhiệt độ của tôi bằng nhiệt kế tai."
+      },
+      {
+        "term": "take time off",
+        "ipa": "/teɪk taɪm ɔːf/",
+        "meaningVi": "xin nghỉ ngơi tạm thời khỏi công việc",
+        "exampleEn": "You should take two days off to recover completely.",
+        "exampleVi": "Bạn nên nghỉ hai ngày để hồi phục hoàn toàn."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "How long have you been feeling unwell?",
+        "promptVi": "Bạn thấy không khỏe từ bao lâu rồi?",
+        "responseEn": "I have felt feverish since yesterday evening.",
+        "responseVi": "Tôi cảm thấy sốt hâm hấp từ tối qua.",
+        "coreKeywords": ["felt", "feverish", "since", "yesterday", "evening"],
+        "audioUrl": "https://www.elllo.org/audio/1521/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "Are you allergic to any prescription medications?",
+        "promptVi": "Bạn có bị dị ứng với loại thuốc kê đơn nào không?",
+        "responseEn": "No, I am not allergic to any antibiotics.",
+        "responseVi": "Không, tôi không dị ứng với thuốc kháng sinh nào cả.",
+        "coreKeywords": ["allergic", "antibiotics"],
+        "audioUrl": "https://www.elllo.org/audio/1521/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-a2-1522-cooking-dinner",
+    "source": "elllo",
+    "title": "Rachel & Ken: Preparing a Traditional Stew",
+    "cefrLevel": "A2",
+    "topic": "Cooking & Culinary Arts",
+    "audioUrl": "https://www.elllo.org/audio/1522/1522-stew.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1522/1522-stew-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1522/1522-Cooking-Stew.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Ken",
+        "textEn": "Rachel, what ingredients do we need for the beef stew tonight?",
+        "textVi": "Rachel, tối nay chúng ta cần những nguyên liệu gì cho món bò hầm?",
+        "audioUrl": "https://www.elllo.org/audio/1522/turns/t01.mp3",
+        "coreKeywords": ["rachel", "ingredients", "need", "beef", "stew", "tonight"]
+      },
+      {
+        "speaker": "Rachel",
+        "textEn": "We need lean beef, two carrots, three potatoes, and fresh garlic.",
+        "textVi": "Chúng ta cần thịt bò nạc, 2 củ cà rốt, 3 củ khoai tây và tỏi tươi.",
+        "audioUrl": "https://www.elllo.org/audio/1522/turns/t02.mp3",
+        "coreKeywords": ["need", "lean", "beef", "carrots", "potatoes", "fresh", "garlic"]
+      },
+      {
+        "speaker": "Ken",
+        "textEn": "Should I slice the onions thinly or chop them into cubes?",
+        "textVi": "Tôi nên thái hành tây lát mỏng hay cắt thành từng khối vuông?",
+        "audioUrl": "https://www.elllo.org/audio/1522/turns/t03.mp3",
+        "coreKeywords": ["slice", "onions", "thinly", "chop", "cubes"]
+      },
+      {
+        "speaker": "Rachel",
+        "textEn": "Chop them roughly because they will soften after simmering for an hour.",
+        "textVi": "Cắt khúc to một chút nhé, vì chúng sẽ mềm nhừ sau khi ninh một tiếng.",
+        "audioUrl": "https://www.elllo.org/audio/1522/turns/t04.mp3",
+        "coreKeywords": ["chop", "roughly", "soften", "simmering", "hour"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "simmer",
+        "ipa": "/ˈsɪmər/",
+        "meaningVi": "ninh nhỏ lửa, đun liu riu",
+        "exampleEn": "Let the broth simmer on low heat for thirty minutes.",
+        "exampleVi": "Hãy để nước dùng ninh lửa nhỏ trong ba mươi phút."
+      },
+      {
+        "term": "ingredients",
+        "ipa": "/ɪnˈɡriːdiənts/",
+        "meaningVi": "các nguyên liệu nấu ăn",
+        "exampleEn": "Make sure all fresh ingredients are washed clean.",
+        "exampleVi": "Đảm bảo tất cả nguyên liệu tươi đều đã được rửa sạch."
+      },
+      {
+        "term": "roughly",
+        "ipa": "/ˈrʌfli/",
+        "meaningVi": "sơ sơ, kích thước lớn thô",
+        "exampleEn": "Chop the parsley roughly for garnish.",
+        "exampleVi": "Băm ngò tây to bản để rắc trang trí."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "How long does the stew take to cook properly?",
+        "promptVi": "Món hầm này mất bao lâu để chín ngon?",
+        "responseEn": "It takes about forty-five minutes on gentle simmer.",
+        "responseVi": "Mất khoảng 45 phút đun lửa nhỏ liu riu.",
+        "coreKeywords": ["takes", "about", "forty-five", "minutes", "gentle", "simmer"],
+        "audioUrl": "https://www.elllo.org/audio/1522/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "What seasoning should we add at the end?",
+        "promptVi": "Chúng ta nên nêm gia vị gì vào cuối cùng?",
+        "responseEn": "Add a pinch of sea salt and crushed black pepper.",
+        "responseVi": "Thêm một nhúm muối biển và tiêu đen giã nhỏ.",
+        "coreKeywords": ["pinch", "salt", "crushed", "black", "pepper"],
+        "audioUrl": "https://www.elllo.org/audio/1522/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-b1-1540-remote-work",
+    "source": "elllo",
+    "title": "Emma & Julian: Balancing Remote Work and Flexibility",
+    "cefrLevel": "B1",
+    "topic": "Career & Modern Workplace",
+    "audioUrl": "https://www.elllo.org/audio/1540/1540-remote.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1540/1540-remote-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1540/1540-Remote-Work.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Julian",
+        "textEn": "Emma, has your company decided on returning to the corporate office full-time?",
+        "textVi": "Emma, công ty bạn đã quyết định việc quay lại văn phòng làm toàn thời gian chưa?",
+        "audioUrl": "https://www.elllo.org/audio/1540/turns/t01.mp3",
+        "coreKeywords": ["emma", "company", "decided", "returning", "corporate", "office", "full-time"]
+      },
+      {
+        "speaker": "Emma",
+        "textEn": "No, management implemented a hybrid schedule where we come in twice a week.",
+        "textVi": "Chưa, ban giám đốc áp dụng lịch làm việc kết hợp, chúng tôi chỉ đến văn phòng 2 lần một tuần.",
+        "audioUrl": "https://www.elllo.org/audio/1540/turns/t02.mp3",
+        "coreKeywords": ["management", "implemented", "hybrid", "schedule", "twice", "week"]
+      },
+      {
+        "speaker": "Julian",
+        "textEn": "Do you find that setup more productive, or is it hard to disconnect?",
+        "textVi": "Bạn thấy sắp xếp như vậy năng suất hơn, hay khó ngắt kết nối với công việc?",
+        "audioUrl": "https://www.elllo.org/audio/1540/turns/t03.mp3",
+        "coreKeywords": ["find", "setup", "productive", "hard", "disconnect"]
+      },
+      {
+        "speaker": "Emma",
+        "textEn": "It definitely eliminates the brutal morning commute, but setting boundaries requires discipline.",
+        "textVi": "Chắc chắn là bớt được cảnh kẹt xe mệt mỏi buổi sáng, nhưng việc vạch ranh giới đòi hỏi kỷ luật cao.",
+        "audioUrl": "https://www.elllo.org/audio/1540/turns/t04.mp3",
+        "coreKeywords": ["definitely", "eliminates", "brutal", "morning", "commute", "setting", "boundaries", "requires", "discipline"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "hybrid schedule",
+        "ipa": "/ˈhaɪbrɪd ˈskedʒuːl/",
+        "meaningVi": "lịch làm việc kết hợp (vừa ở nhà vừa đến công ty)",
+        "exampleEn": "A hybrid schedule gives workers greater work-life balance.",
+        "exampleVi": "Lịch làm việc kết hợp mang lại sự cân bằng cuộc sống và công việc tốt hơn."
+      },
+      {
+        "term": "commute",
+        "ipa": "/kəˈmjuːt/",
+        "meaningVi": "quãng đường đi lại hàng ngày giữa nhà và chỗ làm",
+        "exampleEn": "Her daily commute takes nearly forty minutes.",
+        "exampleVi": "Chuyến đi làm hàng ngày của cô ấy mất gần 40 phút."
+      },
+      {
+        "term": "boundaries",
+        "ipa": "/ˈbaʊndriz/",
+        "meaningVi": "ranh giới, giới hạn cá nhân",
+        "exampleEn": "Establish clear boundaries between office tasks and personal family time.",
+        "exampleVi": "Hãy thiết lập ranh giới rõ ràng giữa công việc và thời gian dành cho gia đình."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "What is the biggest advantage of working from home?",
+        "promptVi": "Lợi thế lớn nhất của làm việc tại nhà là gì?",
+        "responseEn": "It saves valuable commute time and provides flexible focus hours.",
+        "responseVi": "Nó giúp tiết kiệm thời gian đi lại quý báu và cho phép tập trung linh hoạt.",
+        "coreKeywords": ["saves", "valuable", "commute", "time", "provides", "flexible", "focus", "hours"],
+        "audioUrl": "https://www.elllo.org/audio/1540/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "How do you avoid burnout when working remotely?",
+        "promptVi": "Bạn làm thế nào để tránh kiệt sức khi làm việc từ xa?",
+        "responseEn": "I shut down my laptop promptly at six and go for a brisk walk.",
+        "responseVi": "Tôi tắt laptop đúng sáu giờ và đi bộ thư giãn ngoài trời.",
+        "coreKeywords": ["shut", "laptop", "promptly", "brisk", "walk"],
+        "audioUrl": "https://www.elllo.org/audio/1540/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-b1-1541-travel-challenges",
+    "source": "elllo",
+    "title": "Marco & Sophia: Dealing with Travel Delays",
+    "cefrLevel": "B1",
+    "topic": "Travel & Transportation",
+    "audioUrl": "https://www.elllo.org/audio/1541/1541-travel.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1541/1541-travel-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1541/1541-Travel-Delays.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Sophia",
+        "textEn": "Marco, did you finally arrive in Madrid after that storm canceled your flight?",
+        "textVi": "Marco, cuối cùng bạn đã đến Madrid sau khi cơn bão làm hủy chuyến bay chưa?",
+        "audioUrl": "https://www.elllo.org/audio/1541/turns/t01.mp3",
+        "coreKeywords": ["marco", "finally", "arrive", "madrid", "storm", "canceled", "flight"]
+      },
+      {
+        "speaker": "Marco",
+        "textEn": "Yes, but the airline rebooked me through Frankfurt, adding six agonizing hours of waiting.",
+        "textVi": "Đến rồi, nhưng hãng bay đã đổi vé chuyển tiếp qua Frankfurt, khiến tôi phải chờ thêm 6 tiếng mệt mỏi.",
+        "audioUrl": "https://www.elllo.org/audio/1541/turns/t02.mp3",
+        "coreKeywords": ["airline", "rebooked", "frankfurt", "adding", "agonizing", "hours", "waiting"]
+      },
+      {
+        "speaker": "Sophia",
+        "textEn": "Did your checked baggage make it onto the connecting aircraft safely?",
+        "textVi": "Thế hành lý ký gửi của bạn có được chuyển lên chuyến bay nối an toàn không?",
+        "audioUrl": "https://www.elllo.org/audio/1541/turns/t03.mp3",
+        "coreKeywords": ["checked", "baggage", "make", "connecting", "aircraft", "safely"]
+      },
+      {
+        "speaker": "Marco",
+        "textEn": "Thankfully my backpack arrived on the carousel, so I didn't have to file a claim.",
+        "textVi": "May mắn là balo của tôi vẫn chạy ra trên băng chuyền, nên không phải làm đơn khiếu nại.",
+        "audioUrl": "https://www.elllo.org/audio/1541/turns/t04.mp3",
+        "coreKeywords": ["thankfully", "backpack", "arrived", "carousel", "file", "claim"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "rebook",
+        "ipa": "/ˌriːˈbʊk/",
+        "meaningVi": "đặt lại vé hoặc lịch trình mới",
+        "exampleEn": "The ground agent kindly rebooked our delayed flight.",
+        "exampleVi": "Nhân viên mặt đất đã nhiệt tình đổi lại chuyến bay bị hoãn cho chúng tôi."
+      },
+      {
+        "term": "carousel",
+        "ipa": "/ˌkærəˈsel/",
+        "meaningVi": "băng chuyền trả hành lý tại sân bay",
+        "exampleEn": "Passengers gathered around carousel number four.",
+        "exampleVi": "Hành khách tập trung quanh băng chuyền số bốn."
+      },
+      {
+        "term": "file a claim",
+        "ipa": "/faɪl ə kleɪm/",
+        "meaningVi": "nộp đơn khiếu nại hoặc yêu cầu bồi thường",
+        "exampleEn": "You can file a claim online for lost luggage.",
+        "exampleVi": "Bạn có thể nộp đơn trực tuyến yêu cầu bồi thường hành lý thất lạc."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "What should travelers do when their flight gets unexpectedly canceled?",
+        "promptVi": "Du khách nên làm gì khi chuyến bay bị hủy bất ngờ?",
+        "responseEn": "They should immediately contact airline staff and request rebooking options.",
+        "responseVi": "Họ nên liên hệ ngay với nhân viên hãng bay và yêu cầu các phương án đổi vé.",
+        "coreKeywords": ["immediately", "contact", "airline", "staff", "request", "rebooking", "options"],
+        "audioUrl": "https://www.elllo.org/audio/1541/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "Do you prefer flying direct or booking cheaper connecting flights?",
+        "promptVi": "Bạn thích bay thẳng hay đặt các chuyến bay nối giá rẻ hơn?",
+        "responseEn": "I prefer flying direct because connecting flights risk losing checked bags.",
+        "responseVi": "Tôi thích bay thẳng hơn vì chuyến bay nối có rủi ro thất lạc hành lý.",
+        "coreKeywords": ["prefer", "flying", "direct", "connecting", "flights", "risk", "losing", "checked", "bags"],
+        "audioUrl": "https://www.elllo.org/audio/1541/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-b2-1560-environmental-policy",
+    "source": "elllo",
+    "title": "Dr. Aris & Claire: Urban Sustainability and Plastic Bans",
+    "cefrLevel": "B2",
+    "topic": "Environment & Social Policy",
+    "audioUrl": "https://www.elllo.org/audio/1560/1560-environment.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1560/1560-environment-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1560/1560-Plastic-Ban.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Claire",
+        "textEn": "Dr. Aris, do municipal plastic bag surcharges genuinely curb consumption, or do they merely inconvenience shoppers?",
+        "textVi": "Thưa Tiến sĩ Aris, việc thu thêm phụ phí túi nilon của đô thị có thực sự giảm lượng tiêu thụ, hay chỉ gây phiền toái cho người mua hàng?",
+        "audioUrl": "https://www.elllo.org/audio/1560/turns/t01.mp3",
+        "coreKeywords": ["aris", "municipal", "plastic", "surcharges", "genuinely", "curb", "consumption", "merely", "inconvenience", "shoppers"]
+      },
+      {
+        "speaker": "Dr. Aris",
+        "textEn": "Empirical studies indicate that even a modest fee alters behavioral default, prompting citizens to adopt reusable canvas totes.",
+        "textVi": "Các nghiên cứu thực nghiệm chỉ ra rằng ngay cả một khoản phí nhỏ cũng thay đổi thói quen mặc định, thúc đẩy người dân chuyển sang dùng túi vải tái sử dụng.",
+        "audioUrl": "https://www.elllo.org/audio/1560/turns/t02.mp3",
+        "coreKeywords": ["empirical", "studies", "indicate", "modest", "alters", "behavioral", "default", "prompting", "citizens", "adopt", "reusable", "canvas", "totes"]
+      },
+      {
+        "speaker": "Claire",
+        "textEn": "However, critics contend that manufacturing cotton tote bags incurs a substantial carbon footprint upfront.",
+        "textVi": "Tuy nhiên, các nhà phê bình cho rằng việc sản xuất túi vải cotton tạo ra lượng phát thải carbon đáng kể ngay từ đầu.",
+        "audioUrl": "https://www.elllo.org/audio/1560/turns/t03.mp3",
+        "coreKeywords": ["critics", "contend", "manufacturing", "cotton", "tote", "bags", "incurs", "substantial", "carbon", "footprint", "upfront"]
+      },
+      {
+        "speaker": "Dr. Aris",
+        "textEn": "That is valid, which is why durability matters; a canvas bag must be reused hundreds of times to yield ecological dividends.",
+        "textVi": "Điểm đó hoàn toàn đúng, đó là lý do độ bền rất quan trọng; một chiếc túi vải cần được dùng lại hàng trăm lần mới tạo ra lợi ích sinh thái thực sự.",
+        "audioUrl": "https://www.elllo.org/audio/1560/turns/t04.mp3",
+        "coreKeywords": ["valid", "durability", "matters", "canvas", "reused", "hundreds", "times", "yield", "ecological", "dividends"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "curb",
+        "ipa": "/kɜːrb/",
+        "meaningVi": "kìm hãm, hạn chế lại",
+        "exampleEn": "Strict measures were introduced to curb carbon emissions.",
+        "exampleVi": "Các biện pháp nghiêm ngặt đã được áp dụng để kìm hãm lượng khí thải carbon."
+      },
+      {
+        "term": "empirical",
+        "ipa": "/ɪmˈpɪrɪkl/",
+        "meaningVi": "dựa trên bằng chứng thực nghiệm",
+        "exampleEn": "We base our decisions on rigorous empirical data.",
+        "exampleVi": "Chúng tôi đưa ra quyết định dựa trên dữ liệu thực nghiệm chặt chẽ."
+      },
+      {
+        "term": "ecological dividends",
+        "ipa": "/ˌiːkəˈlɑːdʒɪkl ˈdɪvɪdendz/",
+        "meaningVi": "những lợi ích, thành quả sinh thái dài hạn",
+        "exampleEn": "Reforestation projects will yield great ecological dividends.",
+        "exampleVi": "Các dự án tái trồng rừng sẽ mang lại những thành quả sinh thái to lớn."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Do you believe financial incentives are the most effective method to encourage recycling?",
+        "promptVi": "Bạn có tin rằng các đòn bẩy tài chính là phương pháp hiệu quả nhất để khuyến khích tái chế?",
+        "responseEn": "Yes, financial incentives create immediate behavioral adjustments alongside long-term public awareness campaigns.",
+        "responseVi": "Có, các biện pháp tài chính tạo ra sự điều chỉnh hành vi tức thì bên cạnh các chiến dịch nâng cao nhận thức cộng đồng dài hạn.",
+        "coreKeywords": ["financial", "incentives", "create", "immediate", "behavioral", "adjustments", "alongside", "long-term", "public", "awareness", "campaigns"],
+        "audioUrl": "https://www.elllo.org/audio/1560/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "How can modern cities address the tradeoff between convenience and sustainability?",
+        "promptVi": "Các thành phố hiện đại làm sao có thể giải quyết bài toán đánh đổi giữa sự tiện lợi và tính bền vững?",
+        "responseEn": "Municipalities should subsidize accessible biodegradable alternatives so sustainable habits become the easiest choice.",
+        "responseVi": "Chính quyền đô thị nên trợ giá các sản phẩm phân hủy sinh học dễ tiếp cận để thói quen bền vững trở thành lựa chọn dễ dàng nhất.",
+        "coreKeywords": ["municipalities", "subsidize", "accessible", "biodegradable", "alternatives", "sustainable", "habits", "become", "easiest", "choice"],
+        "audioUrl": "https://www.elllo.org/audio/1560/reflex/r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "elllo-b2-1561-cultural-adaptation",
+    "source": "elllo",
+    "title": "Nathan & Yuka: Cross-Cultural Communication Nuances",
+    "cefrLevel": "B2",
+    "topic": "Culture & Interpersonal Communication",
+    "audioUrl": "https://www.elllo.org/audio/1561/1561-culture.mp3",
+    "slowAudioUrl": "https://www.elllo.org/audio/1561/1561-culture-slow.mp3",
+    "sourceUrl": "https://www.elllo.org/english/1561/1561-Cross-Culture.htm",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Nathan",
+        "textEn": "Yuka, when you first transferred from Tokyo to London, what was the most striking communication disparity?",
+        "textVi": "Yuka, khi bạn lần đầu chuyển công tác từ Tokyo sang London, sự khác biệt giao tiếp nào làm bạn ngạc nhiên nhất?",
+        "audioUrl": "https://www.elllo.org/audio/1561/turns/t01.mp3",
+        "coreKeywords": ["yuka", "transferred", "tokyo", "london", "striking", "communication", "disparity"]
+      },
+      {
+        "speaker": "Yuka",
+        "textEn": "British indirectness was fascinating; when colleagues said 'with greatest respect', they often meant the exact opposite.",
+        "textVi": "Cách nói gián tiếp của người Anh thật thú vị; khi đồng nghiệp nói 'với sự tôn trọng cao nhất', họ thường mang ý hoàn toàn ngược lại.",
+        "audioUrl": "https://www.elllo.org/audio/1561/turns/t02.mp3",
+        "coreKeywords": ["british", "indirectness", "fascinating", "colleagues", "said", "greatest", "respect", "often", "meant", "exact", "opposite"]
+      },
+      {
+        "speaker": "Nathan",
+        "textEn": "Did decoding subtle sarcasm and irony pose significant hurdles in negotiations?",
+        "textVi": "Việc giải mã sự mỉa mai ngầm và lối nói châm biếm có gây trở ngại đáng kể trong các cuộc đàm phán không?",
+        "audioUrl": "https://www.elllo.org/audio/1561/turns/t03.mp3",
+        "coreKeywords": ["decoding", "subtle", "sarcasm", "irony", "pose", "significant", "hurdles", "negotiations"]
+      },
+      {
+        "speaker": "Yuka",
+        "textEn": "Initially yes, but once I recognized that self-deprecating humor eases tension, collaboration flourished smoothly.",
+        "textVi": "Ban đầu thì có, nhưng khi tôi nhận ra rằng sự tự giễu hài hước giúp giải tỏa căng thẳng, việc hợp tác đã diễn ra rất suôn sẻ.",
+        "audioUrl": "https://www.elllo.org/audio/1561/turns/t04.mp3",
+        "coreKeywords": ["initially", "recognized", "self-deprecating", "humor", "eases", "tension", "collaboration", "flourished", "smoothly"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "disparity",
+        "ipa": "/dɪˈspærəti/",
+        "meaningVi": "sự khác biệt, sự chênh lệch lớn",
+        "exampleEn": "The disparity between verbal words and body language is telling.",
+        "exampleVi": "Sự chênh lệch giữa lời nói bằng miệng và ngôn ngữ cơ thể nói lên rất nhiều điều."
+      },
+      {
+        "term": "self-deprecating",
+        "ipa": "/ˌself ˈdeprəkeɪtɪŋ/",
+        "meaningVi": "tự giễu, khiêm tốn bằng cách đùa về bản thân",
+        "exampleEn": "His self-deprecating wit made everyone feel comfortable.",
+        "exampleVi": "Sự hóm hỉnh tự giễu của anh ấy khiến mọi người đều cảm thấy dễ chịu."
+      },
+      {
+        "term": "flourish",
+        "ipa": "/ˈflɜːrɪʃ/",
+        "meaningVi": "phát triển rực rỡ, thăng hoa",
+        "exampleEn": "Creative partnerships flourish when trust is established.",
+        "exampleVi": "Mối quan hệ hợp tác sáng tạo phát triển rực rỡ khi niềm tin được gây dựng."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "How should professionals navigate unfamiliar cultural etiquette in multinational teams?",
+        "promptVi": "Các chuyên gia nên xử trí phép lịch sự văn hóa mới lạ trong nhóm đa quốc gia như thế nào?",
+        "responseEn": "They should practice active listening and clarify implicit assumptions with humble curiosity.",
+        "responseVi": "Họ nên rèn luyện kỹ năng lắng nghe chủ động và làm rõ các giả định ngầm với sự tò mò khiêm tốn.",
+        "coreKeywords": ["practice", "active", "listening", "clarify", "implicit", "assumptions", "humble", "curiosity"],
+        "audioUrl": "https://www.elllo.org/audio/1561/reflex/r01.mp3"
+      },
+      {
+        "promptEn": "What role does humor play in breaking professional communication barriers?",
+        "promptVi": "Sự hài hước đóng vai trò gì trong việc phá bỏ rào cản giao tiếp trong công việc?",
+        "responseEn": "Appropriate light humor disarms defensiveness and builds genuine interpersonal rapport across diverse teams.",
+        "responseVi": "Sự hài hước nhẹ nhàng đúng lúc giúp giải tỏa tâm lý phòng thủ và xây dựng sự thấu hiểu thân thiện giữa các nhóm nhân sự đa dạng.",
+        "coreKeywords": ["appropriate", "light", "humor", "disarms", "defensiveness", "builds", "genuine", "interpersonal", "rapport", "across", "diverse", "teams"],
+        "audioUrl": "https://www.elllo.org/audio/1561/reflex/r02.mp3"
+      }
+    ]
+  }
+]

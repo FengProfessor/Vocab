@@ -1,0 +1,402 @@
+[
+  {
+    "id": "youtube-a1-rachel-th-sound",
+    "source": "youtube",
+    "title": "Rachel's English: How to Pronounce the TH Sounds (/θ/ and /ð/)",
+    "cefrLevel": "A1",
+    "topic": "Phonetics & Mouth Articulation",
+    "audioUrl": "https://www.youtube.com/watch?v=dJ4kPGdUShQ",
+    "slowAudioUrl": "https://www.youtube.com/watch?v=dJ4kPGdUShQ&speed=0.8",
+    "sourceUrl": "https://www.youtube.com/watch?v=dJ4kPGdUShQ",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "rawMetadata": {
+      "youtubeVideoId": "dJ4kPGdUShQ",
+      "channelName": "Rachel's English",
+      "channelUrl": "https://www.youtube.com/@RachelsEnglish",
+      "thumbnailUrl": "https://i.ytimg.com/vi/dJ4kPGdUShQ/hqdefault.jpg",
+      "startSeconds": 14,
+      "endSeconds": 85,
+      "embedHtml": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dJ4kPGdUShQ\" frameborder=\"0\" allowfullscreen></iframe>"
+    },
+    "turns": [
+      {
+        "speaker": "Rachel",
+        "textEn": "Welcome back everyone! Today we are learning how to pronounce the two TH sounds correctly.",
+        "textVi": "Chào mừng các bạn quay trở lại! Hôm nay chúng ta sẽ học cách phát âm chính xác 2 âm TH.",
+        "startTime": 14.5,
+        "endTime": 22.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/rachel_th_01.mp3",
+        "coreKeywords": ["welcome", "everyone", "learning", "pronounce", "correctly"]
+      },
+      {
+        "speaker": "Rachel",
+        "textEn": "For the unvoiced TH as in 'think', place your tongue tip gently between your upper and lower teeth.",
+        "textVi": "Với âm TH vô thanh như trong từ 'think', hãy đặt đầu lưỡi nhẹ nhàng kẹp giữa răng trên và răng dưới.",
+        "startTime": 22.5,
+        "endTime": 31.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/rachel_th_02.mp3",
+        "coreKeywords": ["unvoiced", "think", "place", "tongue", "gently", "between", "upper", "lower", "teeth"]
+      },
+      {
+        "speaker": "Rachel",
+        "textEn": "Do not press hard with your teeth; let the smooth stream of air escape freely.",
+        "textVi": "Đừng cắn chặt răng; hãy để luồng hơi êm dịu thoát ra ngoài một cách tự nhiên.",
+        "startTime": 31.5,
+        "endTime": 38.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/rachel_th_03.mp3",
+        "coreKeywords": ["press", "hard", "teeth", "smooth", "stream", "escape", "freely"]
+      },
+      {
+        "speaker": "Rachel",
+        "textEn": "For the voiced TH as in 'this', vibrate your vocal cords while maintaining the exact same mouth shape.",
+        "textVi": "Với âm TH hữu thanh như trong từ 'this', hãy rung dây thanh quản trong khi giữ nguyên khẩu hình miệng.",
+        "startTime": 38.5,
+        "endTime": 48.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/rachel_th_04.mp3",
+        "coreKeywords": ["voiced", "this", "vibrate", "vocal", "cords", "maintaining", "exact", "mouth", "shape"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "tongue tip",
+        "ipa": "/tʌŋ tɪp/",
+        "meaningVi": "đầu lưỡi",
+        "exampleEn": "Rest your tongue tip lightly on the front teeth.",
+        "exampleVi": "Đặt nhẹ đầu lưỡi chạm vào các răng cửa."
+      },
+      {
+        "term": "vocal cords",
+        "ipa": "/ˈvoʊkl kɔːrdz/",
+        "meaningVi": "dây thanh quản (bộ phận phát ra âm thanh trong cổ họng)",
+        "exampleEn": "Touch your throat to feel your vocal cords vibrating.",
+        "exampleVi": "Chạm tay vào cổ họng để cảm nhận dây thanh quản đang rung."
+      },
+      {
+        "term": "unvoiced sound",
+        "ipa": "/ʌnˈvɔɪst saʊnd/",
+        "meaningVi": "âm vô thanh (chỉ có luồng hơi, không rung thanh quản)",
+        "exampleEn": "The sound /p/ is an unvoiced consonant.",
+        "exampleVi": "Âm /p/ là một phụ âm vô thanh."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Where should your tongue tip be when pronouncing 'three' and 'thought'?",
+        "promptVi": "Đầu lưỡi của bạn nên ở đâu khi phát âm từ 'three' và 'thought'?",
+        "responseEn": "The tongue tip should gently extend between the front teeth.",
+        "responseVi": "Đầu lưỡi nên thò nhẹ ra giữa hai hàm răng cửa.",
+        "coreKeywords": ["tongue", "gently", "extend", "between", "front", "teeth"],
+        "audioUrl": "https://audio.lingopro.online/youtube/reflex/rachel_th_r01.mp3"
+      },
+      {
+        "promptEn": "How do you distinguish the TH in 'bath' versus 'bathe'?",
+        "promptVi": "Bạn phân biệt âm TH trong từ 'bath' và 'bathe' như thế nào?",
+        "responseEn": "In bath it is unvoiced air, while in bathe the vocal cords vibrate.",
+        "responseVi": "Trong bath đó là luồng hơi vô thanh, còn trong bathe thì dây thanh quản rung lên.",
+        "coreKeywords": ["bath", "unvoiced", "bathe", "vocal", "cords", "vibrate"],
+        "audioUrl": "https://audio.lingopro.online/youtube/reflex/rachel_th_r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "youtube-a2-rachel-american-t",
+    "source": "youtube",
+    "title": "Rachel's English: American Flap T and Stop T Pronunciation",
+    "cefrLevel": "A2",
+    "topic": "American English Flap T & Connected Speech",
+    "audioUrl": "https://www.youtube.com/watch?v=kY67K4hK7mE",
+    "slowAudioUrl": "https://www.youtube.com/watch?v=kY67K4hK7mE&speed=0.8",
+    "sourceUrl": "https://www.youtube.com/watch?v=kY67K4hK7mE",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "rawMetadata": {
+      "youtubeVideoId": "kY67K4hK7mE",
+      "channelName": "Rachel's English",
+      "channelUrl": "https://www.youtube.com/@RachelsEnglish",
+      "thumbnailUrl": "https://i.ytimg.com/vi/kY67K4hK7mE/hqdefault.jpg",
+      "startSeconds": 20,
+      "endSeconds": 95,
+      "embedHtml": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/kY67K4hK7mE\" frameborder=\"0\" allowfullscreen></iframe>"
+    },
+    "turns": [
+      {
+        "speaker": "Rachel",
+        "textEn": "In American English, the letter T has several different sounds depending on surrounding vowels.",
+        "textVi": "Trong tiếng Anh-Mỹ, chữ T có nhiều cách phát âm khác nhau tùy thuộc vào các nguyên âm xung quanh.",
+        "startTime": 20.0,
+        "endTime": 28.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/rachel_t_01.mp3",
+        "coreKeywords": ["american", "letter", "several", "different", "sounds", "depending", "surrounding", "vowels"]
+      },
+      {
+        "speaker": "Rachel",
+        "textEn": "When T comes between two vowel sounds, like in 'water' or 'city', it becomes a flap T.",
+        "textVi": "Khi chữ T đứng giữa hai nguyên âm, như trong từ 'water' hoặc 'city', nó biến thành âm vỗ flap T.",
+        "startTime": 28.5,
+        "endTime": 37.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/rachel_t_02.mp3",
+        "coreKeywords": ["comes", "between", "vowel", "sounds", "water", "city", "becomes", "flap"]
+      },
+      {
+        "speaker": "Rachel",
+        "textEn": "The tongue bounces quickly against the roof of your mouth, sounding very similar to a light D sound.",
+        "textVi": "Lưỡi bật nhẹ và rất nhanh chạm vào vòm miệng trên, nghe rất giống âm D nhẹ.",
+        "startTime": 37.5,
+        "endTime": 46.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/rachel_t_03.mp3",
+        "coreKeywords": ["tongue", "bounces", "quickly", "against", "roof", "mouth", "sounding", "similar", "light", "sound"]
+      },
+      {
+        "speaker": "Rachel",
+        "textEn": "Practicing this flap will immediately make your conversational English sound more natural and fluent.",
+        "textVi": "Luyện tập âm flap này sẽ giúp tiếng Anh giao tiếp của bạn nghe tự nhiên và trôi chảy hơn ngay tức khắc.",
+        "startTime": 46.5,
+        "endTime": 56.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/rachel_t_04.mp3",
+        "coreKeywords": ["practicing", "flap", "immediately", "conversational", "sound", "natural", "fluent"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "flap T",
+        "ipa": "/flæp tiː/",
+        "meaningVi": "âm T vỗ (phát âm lướt nhanh như âm D nhẹ giữa 2 nguyên âm)",
+        "exampleEn": "Americans use a flap T in the word 'butter'.",
+        "exampleVi": "Người Mỹ dùng âm flap T trong từ 'butter'."
+      },
+      {
+        "term": "roof of mouth",
+        "ipa": "/ruːf əv maʊθ/",
+        "meaningVi": "vòm miệng trên (ngạc cứng)",
+        "exampleEn": "Tap the tongue against the roof of the mouth.",
+        "exampleVi": "Chạm nhẹ lưỡi vào vòm miệng trên."
+      },
+      {
+        "term": "fluent",
+        "ipa": "/ˈfluːənt/",
+        "meaningVi": "trôi chảy, lưu loát",
+        "exampleEn": "Consistent daily speaking practice makes you fluent.",
+        "exampleVi": "Luyện nói đều đặn hàng ngày sẽ giúp bạn lưu loát."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "How does an American speaker pronounce 'better' in normal speech?",
+        "promptVi": "Người Mỹ phát âm từ 'better' như thế nào trong giao tiếp hàng ngày?",
+        "responseEn": "They pronounce it with a quick flap T like 'bedder'.",
+        "responseVi": "Họ phát âm bằng âm flap T lướt nhanh nghe như 'bedder'.",
+        "coreKeywords": ["pronounce", "quick", "flap", "like", "bedder"],
+        "audioUrl": "https://audio.lingopro.online/youtube/reflex/rachel_t_r01.mp3"
+      },
+      {
+        "promptEn": "When does the flap T rule apply across word boundaries?",
+        "promptVi": "Khi nào quy tắc flap T được áp dụng nối giữa các từ?",
+        "responseEn": "It applies when a word ending in T is followed by a vowel, like 'get it'.",
+        "responseVi": "Quy tắc áp dụng khi từ kết thúc bằng T đi liền sau là một nguyên âm, ví dụ như 'get it'.",
+        "coreKeywords": ["applies", "word", "ending", "followed", "vowel", "like"],
+        "audioUrl": "https://audio.lingopro.online/youtube/reflex/rachel_t_r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "youtube-b1-lucy-british-intonation",
+    "source": "youtube",
+    "title": "English with Lucy: Master British Intonation and Connected Speech",
+    "cefrLevel": "B1",
+    "topic": "British Pronunciation & Rhythm",
+    "audioUrl": "https://www.youtube.com/watch?v=wXQJ5Lh_0sM",
+    "slowAudioUrl": "https://www.youtube.com/watch?v=wXQJ5Lh_0sM&speed=0.8",
+    "sourceUrl": "https://www.youtube.com/watch?v=wXQJ5Lh_0sM",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "rawMetadata": {
+      "youtubeVideoId": "wXQJ5Lh_0sM",
+      "channelName": "English with Lucy",
+      "channelUrl": "https://www.youtube.com/@EnglishWithLucy",
+      "thumbnailUrl": "https://i.ytimg.com/vi/wXQJ5Lh_0sM/hqdefault.jpg",
+      "startSeconds": 15,
+      "endSeconds": 90,
+      "embedHtml": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/wXQJ5Lh_0sM\" frameborder=\"0\" allowfullscreen></iframe>"
+    },
+    "turns": [
+      {
+        "speaker": "Lucy",
+        "textEn": "Hello beautiful people! Today we are looking at British intonation patterns that make your English sing.",
+        "textVi": "Xin chào các bạn tuyệt vời! Hôm nay chúng ta cùng khám phá các mẫu ngữ điệu tiếng Anh-Anh giúp lời nói của bạn có giai điệu uyển chuyển.",
+        "startTime": 15.0,
+        "endTime": 24.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/lucy_intonation_01.mp3",
+        "coreKeywords": ["hello", "beautiful", "people", "looking", "british", "intonation", "patterns", "sing"]
+      },
+      {
+        "speaker": "Lucy",
+        "textEn": "Unlike monotone delivery, native British speakers employ pitch variations to convey politeness and interest.",
+        "textVi": "Khác với cách nói đều đều đơn điệu, người bản xứ Anh sử dụng các biến chuyển cao độ để truyền tải sự lịch thiệp và hào hứng.",
+        "startTime": 24.5,
+        "endTime": 34.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/lucy_intonation_02.mp3",
+        "coreKeywords": ["unlike", "monotone", "delivery", "native", "british", "speakers", "employ", "pitch", "variations", "convey", "politeness", "interest"]
+      },
+      {
+        "speaker": "Lucy",
+        "textEn": "When asking open questions starting with wh-words, let your pitch fall gently at the end of the sentence.",
+        "textVi": "Khi đặt câu hỏi mở bắt đầu bằng từ để hỏi Wh-, hãy để ngữ điệu hạ nhẹ xuống ở cuối câu.",
+        "startTime": 34.5,
+        "endTime": 43.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/lucy_intonation_03.mp3",
+        "coreKeywords": ["asking", "open", "questions", "starting", "wh-words", "pitch", "fall", "gently", "sentence"]
+      },
+      {
+        "speaker": "Lucy",
+        "textEn": "Conversely, for yes-no confirmation questions, an upward inflection signals you are inviting confirmation.",
+        "textVi": "Ngược lại, với các câu hỏi Yes-No, ngữ điệu đi lên ở cuối câu phát tín hiệu rằng bạn đang mong đợi sự xác nhận.",
+        "startTime": 43.5,
+        "endTime": 53.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/lucy_intonation_04.mp3",
+        "coreKeywords": ["conversely", "yes-no", "confirmation", "questions", "upward", "inflection", "signals", "inviting"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "monotone",
+        "ipa": "/ˈmɑːnətoʊn/",
+        "meaningVi": "đều đều, không đổi cao độ, tẻ nhạt",
+        "exampleEn": "Avoid speaking in a monotone during presentations.",
+        "exampleVi": "Tránh nói bằng giọng đều đều buồn ngủ trong lúc thuyết trình."
+      },
+      {
+        "term": "pitch variation",
+        "ipa": "/pɪtʃ ˌverieɪʃn/",
+        "meaningVi": "sự thay đổi cao độ trong giọng nói",
+        "exampleEn": "Pitch variation keeps listeners engaged.",
+        "exampleVi": "Sự thay đổi cao độ giúp người nghe luôn chú ý lắng nghe."
+      },
+      {
+        "term": "upward inflection",
+        "ipa": "/ˈʌpwərd ɪnˈflekʃn/",
+        "meaningVi": "ngữ điệu lên giọng ở cuối câu",
+        "exampleEn": "An upward inflection often indicates a friendly question.",
+        "exampleVi": "Ngữ điệu lên giọng thường biểu thị một câu hỏi thân thiện."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Should your voice rise or fall at the end of 'Where do you live?'",
+        "promptVi": "Giọng của bạn nên lên hay xuống ở cuối câu 'Where do you live?'",
+        "responseEn": "Your voice should fall gently at the end because it is a wh-question.",
+        "responseVi": "Giọng bạn nên hạ nhẹ ở cuối câu vì đó là câu hỏi bắt đầu bằng từ Wh-.",
+        "coreKeywords": ["voice", "fall", "gently", "because", "wh-question"],
+        "audioUrl": "https://audio.lingopro.online/youtube/reflex/lucy_intonation_r01.mp3"
+      },
+      {
+        "promptEn": "How do you signal politeness when making a request in British English?",
+        "promptVi": "Bạn phát tín hiệu lịch sự khi đưa ra lời yêu cầu trong tiếng Anh-Anh như thế nào?",
+        "responseEn": "Use a warm, rising-falling pitch contour on phrases like 'Could you possibly...'.",
+        "responseVi": "Sử dụng đường cong ngữ điệu lên rồi xuống ấm áp trên các mẫu câu như 'Could you possibly...'.",
+        "coreKeywords": ["warm", "rising-falling", "pitch", "contour", "phrases", "could", "possibly"],
+        "audioUrl": "https://audio.lingopro.online/youtube/reflex/lucy_intonation_r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "youtube-b2-bbc-polite-disagreement",
+    "source": "youtube",
+    "title": "BBC Learning English: How to Disagree Politely in Academic Discussions",
+    "cefrLevel": "B2",
+    "topic": "Academic Debate & Nuanced Discussion",
+    "audioUrl": "https://www.youtube.com/watch?v=p4U2vWf2m7Y",
+    "slowAudioUrl": "https://www.youtube.com/watch?v=p4U2vWf2m7Y&speed=0.8",
+    "sourceUrl": "https://www.youtube.com/watch?v=p4U2vWf2m7Y",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "rawMetadata": {
+      "youtubeVideoId": "p4U2vWf2m7Y",
+      "channelName": "BBC Learning English",
+      "channelUrl": "https://www.youtube.com/@bbclearningenglish",
+      "thumbnailUrl": "https://i.ytimg.com/vi/p4U2vWf2m7Y/hqdefault.jpg",
+      "startSeconds": 10,
+      "endSeconds": 80,
+      "embedHtml": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/p4U2vWf2m7Y\" frameborder=\"0\" allowfullscreen></iframe>"
+    },
+    "turns": [
+      {
+        "speaker": "Presenter",
+        "textEn": "In academic seminars and formal business debates, bluntly saying 'You are wrong' immediately damages constructive dialogue.",
+        "textVi": "Trong các hội thảo học thuật và tranh biện kinh doanh trang trọng, việc nói thẳng thừng 'Bạn sai rồi' sẽ ngay lập tức làm hỏng cuộc đối thoại mang tính xây dựng.",
+        "startTime": 10.0,
+        "endTime": 19.5,
+        "audioUrl": "https://audio.lingopro.online/youtube/bbc_debate_01.mp3",
+        "coreKeywords": ["academic", "seminars", "formal", "business", "debates", "bluntly", "wrong", "immediately", "damages", "constructive", "dialogue"]
+      },
+      {
+        "speaker": "Presenter",
+        "textEn": "Instead, sophisticated speakers preface counterarguments by validating part of the opposing stance first.",
+        "textVi": "Thay vào đó, những người nói tinh tế sẽ mở đầu phản biện bằng cách công nhận một phần quan điểm của đối phương trước.",
+        "startTime": 20.0,
+        "endTime": 29.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/bbc_debate_02.mp3",
+        "coreKeywords": ["instead", "sophisticated", "speakers", "preface", "counterarguments", "validating", "opposing", "stance", "first"]
+      },
+      {
+        "speaker": "Presenter",
+        "textEn": "Phrases like 'I take your point regarding costs, however...' allow you to introduce contradictory data gracefully.",
+        "textVi": "Các cụm từ như 'Tôi hiểu quan điểm của bạn về chi phí, tuy nhiên...' cho phép bạn đưa ra dữ liệu trái chiều một cách hòa nhã.",
+        "startTime": 29.5,
+        "endTime": 39.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/bbc_debate_03.mp3",
+        "coreKeywords": ["phrases", "point", "regarding", "costs", "however", "allow", "introduce", "contradictory", "data", "gracefully"]
+      },
+      {
+        "speaker": "Presenter",
+        "textEn": "By softening your disagreement with hedging modal verbs, your arguments remain persuasive and diplomatically sound.",
+        "textVi": "Bằng cách làm mềm sự bất đồng quan điểm với các động từ tình thái giảm nhẹ, luận điểm của bạn vẫn giữ được sức thuyết phục và tính ngoại giao khéo léo.",
+        "startTime": 39.5,
+        "endTime": 49.0,
+        "audioUrl": "https://audio.lingopro.online/youtube/bbc_debate_04.mp3",
+        "coreKeywords": ["softening", "disagreement", "hedging", "modal", "verbs", "arguments", "remain", "persuasive", "diplomatically", "sound"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "bluntly",
+        "ipa": "/ˈblʌntli/",
+        "meaningVi": "thẳng thừng, không kiêng nể",
+        "exampleEn": "She expressed her dissatisfaction somewhat bluntly.",
+        "exampleVi": "Cô ấy bày tỏ sự không hài lòng hơi thẳng thừng quá mức."
+      },
+      {
+        "term": "preface",
+        "ipa": "/ˈprefəs/",
+        "meaningVi": "mở đầu, dẫn dắt trước khi nói điều chính",
+        "exampleEn": "He prefaced his critical remarks with warm praise.",
+        "exampleVi": "Anh ấy mở đầu lời nhận xét phê bình bằng lời khen ngợi nồng nhiệt."
+      },
+      {
+        "term": "hedging",
+        "ipa": "/ˈhedʒɪŋ/",
+        "meaningVi": "lối nói rào đón, dè dặt cẩn trọng",
+        "exampleEn": "Academic writers use hedging to avoid absolute generalizations.",
+        "exampleVi": "Các tác giả học thuật dùng lối nói rào đón để tránh sự khái quát hóa tuyệt đối."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "How would you counter a proposal without appearing confrontational?",
+        "promptVi": "Làm thế nào để bạn phản biện một đề xuất mà không có vẻ đối đầu gay gắt?",
+        "responseEn": "I would say: 'I see what you mean, but could we also consider the long-term maintenance implications?'",
+        "responseVi": "Tôi sẽ nói: 'Tôi hiểu ý bạn, nhưng liệu chúng ta có thể cân nhắc thêm các hệ lụy bảo trì dài hạn không?'",
+        "coreKeywords": ["mean", "could", "also", "consider", "long-term", "maintenance", "implications"],
+        "audioUrl": "https://audio.lingopro.online/youtube/reflex/bbc_debate_r01.mp3"
+      },
+      {
+        "promptEn": "What phrasing helps bridge two competing perspectives in a committee?",
+        "promptVi": "Cách diễn đạt nào giúp kết nối hai quan điểm đối nghịch trong một ủy ban?",
+        "responseEn": "Say: 'While both perspectives hold merit, perhaps an incremental synthesis best addresses our immediate objectives.'",
+        "responseVi": "Hãy nói: 'Mặc dù cả hai quan điểm đều có giá trị, có lẽ giải pháp tổng hợp từng bước sẽ giải quyết tốt nhất các mục tiêu trước mắt của chúng ta.'",
+        "coreKeywords": ["while", "perspectives", "hold", "merit", "perhaps", "incremental", "synthesis", "addresses", "immediate", "objectives"],
+        "audioUrl": "https://audio.lingopro.online/youtube/reflex/bbc_debate_r02.mp3"
+      }
+    ]
+  }
+]

@@ -1,0 +1,417 @@
+[
+  {
+    "id": "talkenglish-a1-b01-good-at",
+    "source": "talkenglish",
+    "title": "Basics Pattern: I'm Good At [Skill/Activity]",
+    "cefrLevel": "A1",
+    "topic": "Personal Strengths & Abilities",
+    "audioUrl": "https://www.talkenglish.com/audio/basics/lesson01.mp3",
+    "slowAudioUrl": "https://www.talkenglish.com/audio/basics/lesson01_slow.mp3",
+    "sourceUrl": "https://www.talkenglish.com/speaking/basics/basics1.aspx",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Person A",
+        "textEn": "What hobbies or activities do you excel at in your free time?",
+        "textVi": "Bạn có sở thích hay hoạt động nào bạn làm rất giỏi khi rảnh rỗi không?",
+        "audioUrl": "https://www.talkenglish.com/audio/basics/turns/b01_01.mp3",
+        "coreKeywords": ["hobbies", "activities", "excel", "free", "time"]
+      },
+      {
+        "speaker": "Person B",
+        "textEn": "I'm good at baking sourdough bread and playing acoustic guitar.",
+        "textVi": "Tôi rất giỏi nướng bánh mì men tự nhiên và chơi đàn guitar mộc.",
+        "audioUrl": "https://www.talkenglish.com/audio/basics/turns/b01_02.mp3",
+        "coreKeywords": ["good", "baking", "sourdough", "bread", "playing", "acoustic", "guitar"]
+      },
+      {
+        "speaker": "Person A",
+        "textEn": "Really? Did you take lessons or are you completely self-taught?",
+        "textVi": "Thật sao? Bạn có đi học lớp không hay hoàn toàn tự học?",
+        "audioUrl": "https://www.talkenglish.com/audio/basics/turns/b01_03.mp3",
+        "coreKeywords": ["really", "take", "lessons", "completely", "self-taught"]
+      },
+      {
+        "speaker": "Person B",
+        "textEn": "I am self-taught; I just practiced thirty minutes every evening.",
+        "textVi": "Tôi tự học thôi; tôi chỉ tập đều đặn 30 phút mỗi buổi tối.",
+        "audioUrl": "https://www.talkenglish.com/audio/basics/turns/b01_04.mp3",
+        "coreKeywords": ["self-taught", "practiced", "thirty", "minutes", "every", "evening"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "excel at",
+        "ipa": "/ɪkˈsel æt/",
+        "meaningVi": "vượt trội, rất giỏi về một lĩnh vực nào đó",
+        "exampleEn": "She excels at organizing community charity drives.",
+        "exampleVi": "Cô ấy rất giỏi trong việc tổ chức các đợt từ thiện cộng đồng."
+      },
+      {
+        "term": "self-taught",
+        "ipa": "/ˌself ˈtɔːt/",
+        "meaningVi": "tự học mà thành",
+        "exampleEn": "He is a brilliant self-taught software programmer.",
+        "exampleVi": "Anh ấy là một lập trình viên phần mềm tài năng tự học."
+      },
+      {
+        "term": "acoustic",
+        "ipa": "/əˈkuːstɪk/",
+        "meaningVi": "nhạc cụ mộc, không dùng điện",
+        "exampleEn": "The soft sound of an acoustic guitar brings peace.",
+        "exampleVi": "Âm thanh êm dịu của cây đàn guitar mộc đem lại cảm giác bình yên."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Are you good at organizing team events?",
+        "promptVi": "Bạn có giỏi tổ chức các sự kiện tập thể không?",
+        "responseEn": "Yes, I'm good at planning schedules and managing logistics.",
+        "responseVi": "Có chứ, tôi rất giỏi lên lịch trình và quản lý khâu hậu cần.",
+        "coreKeywords": ["good", "planning", "schedules", "managing", "logistics"],
+        "audioUrl": "https://www.talkenglish.com/audio/basics/reflex/b01_r01.mp3"
+      },
+      {
+        "promptEn": "What sports are you skilled at playing?",
+        "promptVi": "Bạn chơi thạo môn thể thao nào?",
+        "responseEn": "I'm good at playing badminton and swimming laps.",
+        "responseVi": "Tôi chơi cầu lông giỏi và bơi lội cũng khá thành thạo.",
+        "coreKeywords": ["good", "playing", "badminton", "swimming", "laps"],
+        "audioUrl": "https://www.talkenglish.com/audio/basics/reflex/b01_r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "talkenglish-a1-b02-trying-to",
+    "source": "talkenglish",
+    "title": "Basics Pattern: I'm Trying To [Action/Goal]",
+    "cefrLevel": "A1",
+    "topic": "Efforts, Habits & Intentions",
+    "audioUrl": "https://www.talkenglish.com/audio/basics/lesson02.mp3",
+    "slowAudioUrl": "https://www.talkenglish.com/audio/basics/lesson02_slow.mp3",
+    "sourceUrl": "https://www.talkenglish.com/speaking/basics/basics2.aspx",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Person A",
+        "textEn": "You look very focused this morning. What are you working on?",
+        "textVi": "Trông bạn sáng nay rất tập trung. Bạn đang làm việc gì thế?",
+        "audioUrl": "https://www.talkenglish.com/audio/basics/turns/b02_01.mp3",
+        "coreKeywords": ["look", "focused", "morning", "working"]
+      },
+      {
+        "speaker": "Person B",
+        "textEn": "I'm trying to finish this budget spreadsheet before my ten o'clock meeting.",
+        "textVi": "Tôi đang cố gắng hoàn thành bảng tính ngân sách này trước cuộc họp lúc mười giờ.",
+        "audioUrl": "https://www.talkenglish.com/audio/basics/turns/b02_02.mp3",
+        "coreKeywords": ["trying", "finish", "budget", "spreadsheet", "meeting"]
+      },
+      {
+        "speaker": "Person A",
+        "textEn": "Would you like me to proofread the final numbers for you?",
+        "textVi": "Bạn có muốn tôi đọc soát lại các con số tổng kết giúp bạn không?",
+        "audioUrl": "https://www.talkenglish.com/audio/basics/turns/b02_03.mp3",
+        "coreKeywords": ["proofread", "final", "numbers"]
+      },
+      {
+        "speaker": "Person B",
+        "textEn": "That would be fantastic; I'm trying to avoid any computational mistakes.",
+        "textVi": "Được thế thì tuyệt quá; tôi đang cố gắng tránh mọi sai sót tính toán.",
+        "audioUrl": "https://www.talkenglish.com/audio/basics/turns/b02_04.mp3",
+        "coreKeywords": ["fantastic", "trying", "avoid", "computational", "mistakes"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "proofread",
+        "ipa": "/ˈpruːfriːd/",
+        "meaningVi": "đọc soát lỗi chính tả, số liệu",
+        "exampleEn": "Always proofread your report before clicking submit.",
+        "exampleVi": "Luôn đọc soát lại báo cáo trước khi nhấn nút nộp."
+      },
+      {
+        "term": "spreadsheet",
+        "ipa": "/ˈspredʃiːt/",
+        "meaningVi": "bảng tính (như Excel/Google Sheets)",
+        "exampleEn": "The financial team updated the quarterly spreadsheet.",
+        "exampleVi": "Nhóm tài chính đã cập nhật bảng tính quý."
+      },
+      {
+        "term": "avoid",
+        "ipa": "/əˈvɔɪd/",
+        "meaningVi": "né tránh, phòng ngừa",
+        "exampleEn": "Drink plenty of water to avoid afternoon headaches.",
+        "exampleVi": "Hãy uống nhiều nước để phòng ngừa chứng đau đầu buổi chiều."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Why are you waking up an hour earlier this month?",
+        "promptVi": "Tại sao tháng này bạn lại dậy sớm hơn một tiếng?",
+        "responseEn": "I'm trying to build a consistent morning jogging habit.",
+        "responseVi": "Tôi đang cố gắng xây dựng thói quen chạy bộ buổi sáng đều đặn.",
+        "coreKeywords": ["trying", "build", "consistent", "morning", "jogging", "habit"],
+        "audioUrl": "https://www.talkenglish.com/audio/basics/reflex/b02_r01.mp3"
+      },
+      {
+        "promptEn": "Are you reducing your daily caffeine intake?",
+        "promptVi": "Bạn có đang giảm bớt lượng caffeine nạp vào hàng ngày không?",
+        "responseEn": "Yes, I'm trying to limit myself to one cup of coffee a day.",
+        "responseVi": "Vâng, tôi đang cố gắng giới hạn bản thân chỉ uống một cốc cà phê mỗi ngày.",
+        "coreKeywords": ["trying", "limit", "coffee"],
+        "audioUrl": "https://www.talkenglish.com/audio/basics/reflex/b02_r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "talkenglish-a2-reg01-directions",
+    "source": "talkenglish",
+    "title": "Regular Lesson: Asking for Directions to the Central Library",
+    "cefrLevel": "A2",
+    "topic": "City Navigation & Landmark Directions",
+    "audioUrl": "https://www.talkenglish.com/audio/regular/lesson01.mp3",
+    "slowAudioUrl": "https://www.talkenglish.com/audio/regular/lesson01_slow.mp3",
+    "sourceUrl": "https://www.talkenglish.com/speaking/regular/regular1.aspx",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Visitor",
+        "textEn": "Excuse me officer, could you point me toward the city central library?",
+        "textVi": "Xin lỗi viên chức cảnh sát, anh có thể chỉ đường giúp tôi đến thư viện trung tâm thành phố không?",
+        "audioUrl": "https://www.talkenglish.com/audio/regular/turns/r01_01.mp3",
+        "coreKeywords": ["excuse", "officer", "point", "city", "central", "library"]
+      },
+      {
+        "speaker": "Officer",
+        "textEn": "Sure thing! Walk straight two blocks along Main Street until you spot the fountain.",
+        "textVi": "Dĩ nhiên rồi! Bạn cứ đi thẳng qua 2 dãy nhà dọc theo phố Main cho đến khi nhìn thấy đài phun nước.",
+        "audioUrl": "https://www.talkenglish.com/audio/regular/turns/r01_02.mp3",
+        "coreKeywords": ["sure", "walk", "straight", "blocks", "along", "main", "street", "spot", "fountain"]
+      },
+      {
+        "speaker": "Visitor",
+        "textEn": "Should I turn left or right once I reach the fountain square?",
+        "textVi": "Khi đến quảng trường đài phun nước thì tôi rẽ trái hay rẽ phải?",
+        "audioUrl": "https://www.talkenglish.com/audio/regular/turns/r01_03.mp3",
+        "coreKeywords": ["turn", "left", "right", "reach", "fountain", "square"]
+      },
+      {
+        "speaker": "Officer",
+        "textEn": "Take a left onto Oak Avenue; the library is a tall glass building opposite the park.",
+        "textVi": "Hãy rẽ trái vào Đại lộ Oak; thư viện là tòa nhà kính cao tầng đối diện công viên.",
+        "audioUrl": "https://www.talkenglish.com/audio/regular/turns/r01_04.mp3",
+        "coreKeywords": ["take", "left", "onto", "avenue", "library", "tall", "glass", "building", "opposite", "park"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "two blocks",
+        "ipa": "/tuː blɑːks/",
+        "meaningVi": "hai dãy nhà phố",
+        "exampleEn": "The pharmacy is only two blocks away from our hotel.",
+        "exampleVi": "Hiệu thuốc chỉ cách khách sạn chúng tôi hai dãy nhà."
+      },
+      {
+        "term": "fountain",
+        "ipa": "/ˈfaʊntn/",
+        "meaningVi": "đài phun nước",
+        "exampleEn": "Children gathered around the marble fountain.",
+        "exampleVi": "Trẻ em tụ tập xung quanh đài phun nước bằng đá cẩm thạch."
+      },
+      {
+        "term": "opposite",
+        "ipa": "/ˈɑːpəzɪt/",
+        "meaningVi": "đối diện bên kia đường",
+        "exampleEn": "The bakery sits directly opposite the post office.",
+        "exampleVi": "Tiệm bánh nằm ngay đối diện bưu điện."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Excuse me, how far is the nearest bank from this corner?",
+        "promptVi": "Xin lỗi, ngân hàng gần nhất cách góc phố này bao xa?",
+        "responseEn": "It is about three hundred meters straight ahead on your right hand side.",
+        "responseVi": "Cách đây khoảng ba trăm mét đi thẳng, nằm ở phía tay phải của bạn.",
+        "coreKeywords": ["about", "three", "hundred", "meters", "straight", "ahead", "right", "side"],
+        "audioUrl": "https://www.talkenglish.com/audio/regular/reflex/r01_r01.mp3"
+      },
+      {
+        "promptEn": "Is there a taxi stand nearby where I can catch a cab?",
+        "promptVi": "Gần đây có bến đón taxi nào tôi có thể bắt xe được không?",
+        "responseEn": "Yes, there is an active taxi stand right beside the subway entrance.",
+        "responseVi": "Có, có một điểm đón taxi ngay cạnh lối vào ga tàu điện ngầm.",
+        "coreKeywords": ["active", "taxi", "stand", "beside", "subway", "entrance"],
+        "audioUrl": "https://www.talkenglish.com/audio/regular/reflex/r01_r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "talkenglish-b1-biz01-project-timeline",
+    "source": "talkenglish",
+    "title": "Business Speaking: Proposing a Realistic Project Timeline",
+    "cefrLevel": "B1",
+    "topic": "Workplace Meetings & Milestones",
+    "audioUrl": "https://www.talkenglish.com/audio/business/lesson01.mp3",
+    "slowAudioUrl": "https://www.talkenglish.com/audio/business/lesson01_slow.mp3",
+    "sourceUrl": "https://www.talkenglish.com/speaking/business/business1.aspx",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Product Manager",
+        "textEn": "Team, can we realistically deliver the mobile app beta by the end of next month?",
+        "textVi": "Chào cả nhóm, chúng ta có thể bàn giao bản thử nghiệm ứng dụng di động vào cuối tháng sau một cách thực tế không?",
+        "audioUrl": "https://www.talkenglish.com/audio/business/turns/b01_01.mp3",
+        "coreKeywords": ["team", "realistically", "deliver", "mobile", "beta", "next", "month"]
+      },
+      {
+        "speaker": "Lead Developer",
+        "textEn": "If we freeze UI feature requests today, our engineering team can hit that deployment target.",
+        "textVi": "Nếu chúng ta chốt cố định các yêu cầu tính năng giao diện từ hôm nay, đội kỹ thuật có thể đạt được mốc triển khai đó.",
+        "audioUrl": "https://www.talkenglish.com/audio/business/turns/b01_02.mp3",
+        "coreKeywords": ["freeze", "feature", "requests", "today", "engineering", "team", "deployment", "target"]
+      },
+      {
+        "speaker": "Product Manager",
+        "textEn": "What contingency buffers have we allocated for third-party API payment integration?",
+        "textVi": "Chúng ta đã phân bổ khoảng dự phòng rủi ro nào cho việc tích hợp cổng thanh toán API bên thứ ba chưa?",
+        "audioUrl": "https://www.talkenglish.com/audio/business/turns/b01_03.mp3",
+        "coreKeywords": ["contingency", "buffers", "allocated", "third-party", "payment", "integration"]
+      },
+      {
+        "speaker": "Lead Developer",
+        "textEn": "We reserved a five-day buffer period specifically for stress testing and sandbox compliance.",
+        "textVi": "Chúng tôi đã dành riêng một khoảng đệm năm ngày chuyên biệt để kiểm thử chịu tải và đối soát điều khoản môi trường thử nghiệm.",
+        "audioUrl": "https://www.talkenglish.com/audio/business/turns/b01_04.mp3",
+        "coreKeywords": ["reserved", "five-day", "buffer", "period", "specifically", "stress", "testing", "sandbox", "compliance"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "freeze requests",
+        "ipa": "/friːz rɪˈkwests/",
+        "meaningVi": "đóng băng yêu cầu, không nhận thêm thay đổi mới",
+        "exampleEn": "The committee decided to freeze scope to ensure quality.",
+        "exampleVi": "Hội đồng quyết định đóng băng phạm vi tính năng để đảm bảo chất lượng."
+      },
+      {
+        "term": "contingency buffer",
+        "ipa": "/kənˈtɪndʒənsi ˈbʌfər/",
+        "meaningVi": "khoảng đệm thời gian dự phòng phát sinh",
+        "exampleEn": "Always build a contingency buffer into client project budgets.",
+        "exampleVi": "Luôn luôn lập thêm khoảng đệm dự phòng vào ngân sách dự án của khách hàng."
+      },
+      {
+        "term": "compliance",
+        "ipa": "/kəmˈplaɪəns/",
+        "meaningVi": "sự tuân thủ các quy định chuẩn mực",
+        "exampleEn": "Security compliance audits are performed annually.",
+        "exampleVi": "Các đợt kiểm toán tuân thủ bảo mật được thực hiện hàng năm."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Can we launch the software update ahead of schedule?",
+        "promptVi": "Chúng ta có thể phát hành bản cập nhật phần mềm sớm hơn lịch trình không?",
+        "responseEn": "We can accelerate release only if QA finishes validation testing without blockers.",
+        "responseVi": "Chúng ta chỉ có thể đẩy nhanh việc phát hành nếu nhóm QA hoàn tất kiểm thử mà không phát sinh lỗi chặn.",
+        "coreKeywords": ["accelerate", "release", "finishes", "validation", "testing", "without", "blockers"],
+        "audioUrl": "https://www.talkenglish.com/audio/business/reflex/b01_r01.mp3"
+      },
+      {
+        "promptEn": "Who will present the roadmap milestone summary to executives?",
+        "promptVi": "Ai sẽ trình bày bản tóm tắt cột mốc lộ trình cho ban giám đốc?",
+        "responseEn": "I will lead the slide presentation and summarize our key deliverables.",
+        "responseVi": "Tôi sẽ chủ trì phần trình chiếu và tóm tắt các sản phẩm bàn giao cốt lõi của chúng ta.",
+        "coreKeywords": ["lead", "slide", "presentation", "summarize", "deliverables"],
+        "audioUrl": "https://www.talkenglish.com/audio/business/reflex/b01_r02.mp3"
+      }
+    ]
+  },
+  {
+    "id": "talkenglish-b2-biz02-contract-negotiation",
+    "source": "talkenglish",
+    "title": "Business Speaking: Negotiating Service Level Agreements",
+    "cefrLevel": "B2",
+    "topic": "Executive Contract Negotiations",
+    "audioUrl": "https://www.talkenglish.com/audio/business/lesson02.mp3",
+    "slowAudioUrl": "https://www.talkenglish.com/audio/business/lesson02_slow.mp3",
+    "sourceUrl": "https://www.talkenglish.com/speaking/business/business2.aspx",
+    "crawledAt": "2026-09-19T04:30:00.000Z",
+    "qualityScore": 95,
+    "turns": [
+      {
+        "speaker": "Client Director",
+        "textEn": "While we appreciate your enterprise platform features, your ninety-nine percent uptime guarantee falls short of our institutional requirements.",
+        "textVi": "Mặc dù chúng tôi đánh giá cao các tính năng nền tảng doanh nghiệp của bạn, cam kết thời gian hoạt động 99% vẫn chưa đáp ứng yêu cầu của tổ chức chúng tôi.",
+        "audioUrl": "https://www.talkenglish.com/audio/business/turns/b02_01.mp3",
+        "coreKeywords": ["appreciate", "enterprise", "platform", "features", "ninety-nine", "uptime", "guarantee", "falls", "short", "institutional", "requirements"]
+      },
+      {
+        "speaker": "Account Executive",
+        "textEn": "We can upgrade your tier to four-nines availability provided we formalize a multi-year service commitment.",
+        "textVi": "Chúng tôi có thể nâng cấp gói dịch vụ của quý vị lên độ sẵn sàng 99.99% với điều kiện chúng ta chính thức ký cam kết hợp đồng nhiều năm.",
+        "audioUrl": "https://www.talkenglish.com/audio/business/turns/b02_02.mp3",
+        "coreKeywords": ["upgrade", "tier", "four-nines", "availability", "provided", "formalize", "multi-year", "service", "commitment"]
+      },
+      {
+        "speaker": "Client Director",
+        "textEn": "If you include round-the-clock dedicated technical support engineers, our executive committee will sign off on the three-year contract.",
+        "textVi": "Nếu quý vị bao gồm đội ngũ kỹ sư hỗ trợ kỹ thuật chuyên biệt phục vụ 24/7, ban điều hành của chúng tôi sẽ phê duyệt ký hợp đồng 3 năm.",
+        "audioUrl": "https://www.talkenglish.com/audio/business/turns/b02_03.mp3",
+        "coreKeywords": ["include", "round-the-clock", "dedicated", "technical", "support", "engineers", "executive", "committee", "sign", "three-year", "contract"]
+      },
+      {
+        "speaker": "Account Executive",
+        "textEn": "That represents a mutually advantageous compromise; I will have legal draft the amended agreement before close of business.",
+        "textVi": "Thỏa thuận này mang lại lợi ích chung cho cả hai bên; tôi sẽ yêu cầu bộ phận pháp chế soạn thảo phụ lục sửa đổi trước khi kết thúc ngày làm việc.",
+        "audioUrl": "https://www.talkenglish.com/audio/business/turns/b02_04.mp3",
+        "coreKeywords": ["represents", "mutually", "advantageous", "compromise", "legal", "draft", "amended", "agreement", "close", "business"]
+      }
+    ],
+    "vocabulary": [
+      {
+        "term": "four-nines availability",
+        "ipa": "/fɔːr naɪnz əˌveɪləˈbɪləti/",
+        "meaningVi": "độ sẵn sàng 99.99% (thời gian ngừng hoạt động dưới 52 phút/năm)",
+        "exampleEn": "Mission-critical financial infrastructure mandates four-nines availability.",
+        "exampleVi": "Hạ tầng tài chính trọng yếu bắt buộc phải đạt độ sẵn sàng 99.99%."
+      },
+      {
+        "term": "mutually advantageous",
+        "ipa": "/ˈmjuːtʃuəli ˌædvənˈteɪdʒəs/",
+        "meaningVi": "đôi bên cùng có lợi (win-win)",
+        "exampleEn": "A lasting alliance requires a mutually advantageous balance of interests.",
+        "exampleVi": "Liên minh bền vững đòi hỏi sự cân bằng lợi ích đôi bên cùng có lợi."
+      },
+      {
+        "term": "amended agreement",
+        "ipa": "/əˈmendɪd əˈɡriːmənt/",
+        "meaningVi": "thỏa thuận đã được điều chỉnh, bổ sung phụ lục",
+        "exampleEn": "Both corporate signatories initialed each page of the amended agreement.",
+        "exampleVi": "Đại diện ký kết của cả hai doanh nghiệp đã ký nháy từng trang của thỏa thuận sửa đổi."
+      }
+    ],
+    "reflexPairs": [
+      {
+        "promptEn": "Are your rates flexible if we expand license seats across all our branch offices?",
+        "promptVi": "Giá cả có linh hoạt không nếu chúng tôi mở rộng số lượng tài khoản cho tất cả các văn phòng chi nhánh?",
+        "responseEn": "Yes, we provide tiered volume discounting based on aggregate enterprise seat counts.",
+        "responseVi": "Có, chúng tôi áp dụng mức chiết khấu theo bậc thang dựa trên tổng số tài khoản doanh nghiệp.",
+        "coreKeywords": ["provide", "tiered", "volume", "discounting", "based", "aggregate", "enterprise", "seat", "counts"],
+        "audioUrl": "https://www.talkenglish.com/audio/business/reflex/b02_r01.mp3"
+      },
+      {
+        "promptEn": "What liability protections do we have in the event of unscheduled downtime?",
+        "promptVi": "Chúng tôi có những biện pháp bảo vệ trách nhiệm nào trong trường hợp hệ thống gặp sự cố bất ngờ?",
+        "responseEn": "Our SLA provides automatic service credit rebates commensurate with downtime duration.",
+        "responseVi": "Thỏa thuận SLA của chúng tôi cung cấp khoản hoàn tín dụng dịch vụ tự động tương xứng với thời gian gặp sự cố.",
+        "coreKeywords": ["provides", "automatic", "service", "credit", "rebates", "commensurate", "downtime", "duration"],
+        "audioUrl": "https://www.talkenglish.com/audio/business/reflex/b02_r02.mp3"
+      }
+    ]
+  }
+]

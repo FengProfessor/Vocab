@@ -7,7 +7,8 @@ import { supabase } from "@/lib/supabase";
 import { authFetch } from "@/lib/auth-fetch";
 import {
   ChevronLeft, Loader2, Volume2, Bot, User, Sparkles,
-  MessageSquare, VolumeX, Send, RefreshCw, Filter, Lightbulb
+  MessageSquare, VolumeX, Send, RefreshCw, Filter, Lightbulb,
+  BookOpen, Zap, ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SpeechRecorder } from "@/components/speaking/SpeechRecorder";
@@ -187,6 +188,100 @@ export default function StudentSpeakingPage() {
             </Button>
           </div>
         </header>
+
+        {/* Master Speaking Hub 3-Track Navigation */}
+        <div className="border-b border-slate-800/80 bg-slate-950/80 px-4 py-4 sm:px-6 backdrop-blur">
+          <div className="max-w-6xl mx-auto space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                <Sparkles className="size-3.5 text-indigo-400" /> Chọn Lộ Trình Luyện Nói (3 Learning Tracks)
+              </span>
+              <span className="text-[11px] text-slate-400 hidden sm:inline">
+                Toàn diện từ A0 đến 6.5 IELTS &amp; AI Chat Realtime
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {/* Track 1: 3-Tier Curriculum */}
+              <Link
+                href="/student/speaking/curriculum"
+                className="group p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex items-start gap-3"
+              >
+                <div className="size-9 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <BookOpen className="size-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors">
+                      Track 1: Lộ Trình 32 Bài
+                    </span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300">
+                      0 - 6.5 IELTS
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 mt-1 line-clamp-2">
+                    Curriculum 3 chặng khép kín: Ngữ âm, Khối Lego &lt;1s, Hội thoại &amp; SafeHarbor.
+                  </p>
+                  <div className="mt-2 text-[11px] text-indigo-400 font-semibold flex items-center gap-1">
+                    <span>Khám phá 32 bài học</span>
+                    <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+              </Link>
+
+              {/* Track 2: Foundational Speaking Hub */}
+              <Link
+                href="/student/speaking/foundation"
+                className="group p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 hover:bg-slate-900/90 transition-all flex items-start gap-3"
+              >
+                <div className="size-9 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <Zap className="size-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-white group-hover:text-amber-300 transition-colors">
+                      Track 2: Khóa Nền Tảng A0-A1
+                    </span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">
+                      Chống dịch thầm
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 mt-1 line-clamp-2">
+                    Stage Mindset &amp; Chặng 0-3 cho người mất gốc: Khung câu, nối âm &amp; nhả âm tức thì.
+                  </p>
+                  <div className="mt-2 text-[11px] text-amber-400 font-semibold flex items-center gap-1">
+                    <span>Vào học Chặng 0 - 3</span>
+                    <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+              </Link>
+
+              {/* Track 3: AI Speaking Tutor (Active Track) */}
+              <div className="p-3.5 rounded-xl border-2 border-emerald-500/40 bg-emerald-950/15 flex items-start gap-3 relative">
+                <div className="size-9 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                  <Bot className="size-5" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-white">
+                      Track 3: AI Speaking Tutor
+                    </span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 flex items-center gap-1">
+                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Đang mở
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-300 mt-1 line-clamp-2">
+                    24+ Kịch bản hội thoại AI tương tác thực tế, phản hồi phát âm &amp; gợi ý tự nhiên.
+                  </p>
+                  <div className="mt-2 text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+                    <span>Luyện nói tự do bên dưới</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div className="flex-1 max-w-6xl w-full mx-auto p-3 sm:p-6 flex flex-col md:flex-row gap-4 sm:gap-6 overflow-hidden">
           {/* Topic sidebar selection */}
