@@ -22,6 +22,10 @@ import {
   HeartHandshake,
   ShieldCheck,
   ChevronRight,
+  Trophy,
+  Crown,
+  Flame,
+  TrendingUp,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { toast } from 'sonner';
@@ -103,6 +107,100 @@ const POPULAR_BANKS = [
   'MoMo',
   'ZaloPay',
   'Ngân hàng khác (Tự nhập tên)',
+];
+
+interface LeaderboardEntry {
+  rank: number;
+  name: string;
+  avatarBg: string;
+  badge: string;
+  invitedCount: number;
+  rewardCash: number;
+  rewardDays: number;
+  schoolOrCity: string;
+}
+
+const MOCK_LEADERBOARD: LeaderboardEntry[] = [
+  {
+    rank: 1,
+    name: 'Nguyễn Hoàng M***',
+    avatarBg: 'bg-amber-100 text-amber-800 dark:bg-amber-950/90 dark:text-amber-300',
+    badge: '👑 Đại Sứ Toàn Năng',
+    invitedCount: 46,
+    rewardCash: 3850000,
+    rewardDays: 210,
+    schoolOrCity: 'FTU Hà Nội',
+  },
+  {
+    rank: 2,
+    name: 'Lê Thu Th***',
+    avatarBg: 'bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200',
+    badge: '👑 Đại Sứ Toàn Năng',
+    invitedCount: 35,
+    rewardCash: 2920000,
+    rewardDays: 175,
+    schoolOrCity: 'TP. Hồ Chí Minh',
+  },
+  {
+    rank: 3,
+    name: 'Trần Đức H***',
+    avatarBg: 'bg-orange-100 text-orange-800 dark:bg-orange-950/90 dark:text-orange-300',
+    badge: '👑 Đại Sứ Toàn Năng',
+    invitedCount: 28,
+    rewardCash: 2340000,
+    rewardDays: 140,
+    schoolOrCity: 'ĐH Đà Nẵng',
+  },
+  {
+    rank: 4,
+    name: 'Phạm Hải Đ***',
+    avatarBg: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950/90 dark:text-indigo-300',
+    badge: '🎖️ Thủ Lĩnh Học Tập',
+    invitedCount: 19,
+    rewardCash: 1450000,
+    rewardDays: 95,
+    schoolOrCity: 'Hà Nội',
+  },
+  {
+    rank: 5,
+    name: 'Vũ Quỳnh Ch***',
+    avatarBg: 'bg-purple-100 text-purple-800 dark:bg-purple-950/90 dark:text-purple-300',
+    badge: '🎖️ Thủ Lĩnh Học Tập',
+    invitedCount: 16,
+    rewardCash: 1180000,
+    rewardDays: 80,
+    schoolOrCity: 'Cần Thơ',
+  },
+  {
+    rank: 6,
+    name: 'Đặng Quang V***',
+    avatarBg: 'bg-blue-100 text-blue-800 dark:bg-blue-950/90 dark:text-blue-300',
+    badge: '🏅 Người Dẫn Đường',
+    invitedCount: 10,
+    rewardCash: 720000,
+    rewardDays: 50,
+    schoolOrCity: 'Hải Phòng',
+  },
+  {
+    rank: 7,
+    name: 'Bùi Phương L***',
+    avatarBg: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/90 dark:text-emerald-300',
+    badge: '🏅 Người Dẫn Đường',
+    invitedCount: 8,
+    rewardCash: 540000,
+    rewardDays: 40,
+    schoolOrCity: 'Huế',
+  },
+  {
+    rank: 8,
+    name: 'Ngô Tuấn K***',
+    avatarBg: 'bg-teal-100 text-teal-800 dark:bg-teal-950/90 dark:text-teal-300',
+    badge: '🥈 Bạn Đồng Hành',
+    invitedCount: 5,
+    rewardCash: 310000,
+    rewardDays: 25,
+    schoolOrCity: 'Bình Dương',
+  },
 ];
 
 export default function ReferralHubPage() {
@@ -343,6 +441,12 @@ export default function ReferralHubPage() {
   const isTier3 = activatedCount >= 6 && activatedCount < 11;
   const isTier4 = activatedCount >= 11 && activatedCount < 20;
   const isTier5 = activatedCount >= 20;
+
+  // Leaderboard positioning
+  const userRank =
+    activatedCount > 0
+      ? MOCK_LEADERBOARD.filter((item) => item.invitedCount > activatedCount).length + 1
+      : null;
 
   return (
     <StudentShell title="Mời bạn bè — Nhận quà VIP">
@@ -917,6 +1021,276 @@ export default function ReferralHubPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Leaderboard / Bảng Vàng Đại Sứ LingoPro */}
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-2xs dark:border-slate-800 dark:bg-slate-900 space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4 dark:border-slate-800">
+            <div>
+              <div className="flex items-center gap-2">
+                <div className="rounded-lg bg-amber-100 p-1.5 text-amber-700 dark:bg-amber-950/80 dark:text-amber-400">
+                  <Trophy className="h-5 w-5" />
+                </div>
+                <h2 className="text-base font-bold text-slate-900 dark:text-white">
+                  Bảng Vàng Đại Sứ LingoPro
+                </h2>
+                <Badge className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-300 font-semibold border-emerald-200 text-[10px] flex items-center gap-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Cập nhật tuần này
+                </Badge>
+              </div>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                Tôn vinh những bạn học lan tỏa phương pháp FSRS tích cực và tích lũy phần thưởng tri ân cao nhất
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 self-start sm:self-auto text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
+              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+              <span>Đã trao thưởng: <strong className="text-emerald-600 dark:text-emerald-400 font-bold">14.800.000đ</strong> &amp; <strong className="text-indigo-600 dark:text-indigo-400 font-bold">1.250+ ngày VIP</strong></span>
+            </div>
+          </div>
+
+          {/* Top 3 Podium Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            {/* Top 2 - Silver */}
+            <div className="order-2 sm:order-1 rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50/80 to-white p-4.5 shadow-2xs dark:border-slate-800 dark:from-slate-800/50 dark:to-slate-900 flex flex-col justify-between relative">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 text-xs font-black text-slate-700 dark:text-slate-200 shadow-2xs">
+                    🥈 2
+                  </span>
+                  <Badge variant="outline" className="text-[10px] font-bold border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">
+                    {MOCK_LEADERBOARD[1].badge}
+                  </Badge>
+                </div>
+
+                <div className="mt-3 flex items-center gap-2.5">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 text-sm font-black text-slate-700 dark:text-slate-200">
+                    {MOCK_LEADERBOARD[1].name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 dark:text-slate-100 text-sm">
+                      {MOCK_LEADERBOARD[1].name}
+                    </div>
+                    <div className="text-[11px] text-slate-400">
+                      {MOCK_LEADERBOARD[1].schoolOrCity}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/60 space-y-1">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-500">Đã kích hoạt:</span>
+                  <span className="font-bold text-indigo-600 dark:text-indigo-400 font-mono">
+                    {MOCK_LEADERBOARD[1].invitedCount} bạn
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-500">Tổng thưởng:</span>
+                  <span className="font-bold text-emerald-600 dark:text-emerald-400 font-mono">
+                    {formatVND(MOCK_LEADERBOARD[1].rewardCash)}
+                  </span>
+                </div>
+                <div className="text-right text-[10px] text-slate-400 font-medium">
+                  +{MOCK_LEADERBOARD[1].rewardDays} ngày Pro VIP
+                </div>
+              </div>
+            </div>
+
+            {/* Top 1 - Champion Gold (Taller, Glowing) */}
+            <div className="order-1 sm:order-2 rounded-2xl border-2 border-amber-400 bg-gradient-to-b from-amber-50/80 via-amber-50/30 to-white p-5 shadow-md dark:border-amber-500/80 dark:from-amber-950/40 dark:via-slate-900 dark:to-slate-900 flex flex-col justify-between relative sm:-translate-y-1 ring-4 ring-amber-400/10">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-3 py-0.5 text-[10px] font-black text-white shadow-sm tracking-wide">
+                <Crown className="h-3 w-3 fill-white" /> QUÁN QUÂN
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-400 text-sm font-black text-white shadow-xs">
+                    🥇 1
+                  </span>
+                  <Badge className="bg-amber-500 text-white font-bold text-[10px] px-2">
+                    {MOCK_LEADERBOARD[0].badge}
+                  </Badge>
+                </div>
+
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-amber-600 text-base font-black text-white shadow-xs">
+                    {MOCK_LEADERBOARD[0].name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-black text-slate-900 dark:text-white text-base">
+                      {MOCK_LEADERBOARD[0].name}
+                    </div>
+                    <div className="text-[11px] font-medium text-amber-700 dark:text-amber-300">
+                      {MOCK_LEADERBOARD[0].schoolOrCity}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-amber-200/60 dark:border-amber-900/60 space-y-1">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-600 dark:text-slate-300 font-medium">Đã kích hoạt:</span>
+                  <span className="font-black text-indigo-700 dark:text-indigo-300 font-mono text-sm">
+                    {MOCK_LEADERBOARD[0].invitedCount} bạn
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-600 dark:text-slate-300 font-medium">Tổng thưởng nhận:</span>
+                  <span className="font-black text-emerald-600 dark:text-emerald-400 font-mono text-sm">
+                    {formatVND(MOCK_LEADERBOARD[0].rewardCash)}
+                  </span>
+                </div>
+                <div className="text-right text-[11px] text-amber-700 dark:text-amber-400 font-bold">
+                  +{MOCK_LEADERBOARD[0].rewardDays} ngày Pro VIP
+                </div>
+              </div>
+            </div>
+
+            {/* Top 3 - Bronze */}
+            <div className="order-3 sm:order-3 rounded-2xl border border-slate-200 bg-gradient-to-b from-orange-50/50 to-white p-4.5 shadow-2xs dark:border-slate-800 dark:from-slate-800/40 dark:to-slate-900 flex flex-col justify-between relative">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-200 dark:bg-orange-950 text-xs font-black text-orange-800 dark:text-orange-300 shadow-2xs">
+                    🥉 3
+                  </span>
+                  <Badge variant="outline" className="text-[10px] font-bold border-orange-300 dark:border-orange-800 text-orange-700 dark:text-orange-300">
+                    {MOCK_LEADERBOARD[2].badge}
+                  </Badge>
+                </div>
+
+                <div className="mt-3 flex items-center gap-2.5">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 dark:bg-orange-950 text-sm font-black text-orange-800 dark:text-orange-300">
+                    {MOCK_LEADERBOARD[2].name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 dark:text-slate-100 text-sm">
+                      {MOCK_LEADERBOARD[2].name}
+                    </div>
+                    <div className="text-[11px] text-slate-400">
+                      {MOCK_LEADERBOARD[2].schoolOrCity}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/60 space-y-1">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-500">Đã kích hoạt:</span>
+                  <span className="font-bold text-indigo-600 dark:text-indigo-400 font-mono">
+                    {MOCK_LEADERBOARD[2].invitedCount} bạn
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-500">Tổng thưởng:</span>
+                  <span className="font-bold text-emerald-600 dark:text-emerald-400 font-mono">
+                    {formatVND(MOCK_LEADERBOARD[2].rewardCash)}
+                  </span>
+                </div>
+                <div className="text-right text-[10px] text-slate-400 font-medium">
+                  +{MOCK_LEADERBOARD[2].rewardDays} ngày Pro VIP
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Table for Rank 4 to 8 */}
+          <div className="overflow-x-auto rounded-xl border border-slate-100 dark:border-slate-800">
+            <table className="w-full text-left text-xs">
+              <thead>
+                <tr className="border-b border-slate-100 bg-slate-50/70 text-slate-500 dark:border-slate-800 dark:bg-slate-800/50">
+                  <th className="py-2.5 pl-3 font-semibold text-center w-12">Hạng</th>
+                  <th className="py-2.5 font-semibold">Đại sứ</th>
+                  <th className="py-2.5 font-semibold hidden sm:table-cell">Danh hiệu</th>
+                  <th className="py-2.5 font-semibold text-center">Đã kích hoạt</th>
+                  <th className="py-2.5 pr-3 font-semibold text-right">Tổng thưởng đạt được</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                {MOCK_LEADERBOARD.slice(3).map((item) => (
+                  <tr key={item.rank} className="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+                    <td className="py-2.5 pl-3 text-center">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] font-bold text-slate-600 dark:text-slate-300">
+                        {item.rank}
+                      </span>
+                    </td>
+                    <td className="py-2.5 font-semibold text-slate-800 dark:text-slate-200">
+                      <div className="flex items-center gap-2">
+                        <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${item.avatarBg}`}>
+                          {item.name.charAt(0)}
+                        </div>
+                        <div>
+                          <span>{item.name}</span>
+                          <span className="text-[10px] text-slate-400 ml-1.5 hidden sm:inline">
+                            · {item.schoolOrCity}
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="py-2.5 hidden sm:table-cell">
+                      <span className="text-[11px] font-medium text-slate-600 dark:text-slate-300">
+                        {item.badge}
+                      </span>
+                    </td>
+                    <td className="py-2.5 text-center font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                      {item.invitedCount} bạn
+                    </td>
+                    <td className="py-2.5 pr-3 text-right">
+                      <div className="font-bold text-emerald-600 dark:text-emerald-400 font-mono">
+                        {formatVND(item.rewardCash)}
+                      </div>
+                      <div className="text-[10px] text-slate-400 font-medium">
+                        +{item.rewardDays} ngày VIP
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* User's Current Stand Pinned Row */}
+          <div className="rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/50 p-3.5 dark:border-indigo-900/60 dark:bg-indigo-950/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2.5">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-black text-xs shadow-2xs">
+                Bạn
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-slate-900 dark:text-white text-xs">
+                    Vị trí hiện tại của bạn:
+                  </span>
+                  {userRank ? (
+                    <Badge className="bg-indigo-600 text-white text-[10px] font-bold">
+                      Hạng #{userRank}
+                    </Badge>
+                  ) : (
+                    <Badge variant="outline" className="text-slate-500 border-slate-300 text-[10px]">
+                      Chưa xếp hạng
+                    </Badge>
+                  )}
+                  <span className="text-[11px] text-indigo-700 dark:text-indigo-300 font-semibold hidden sm:inline">
+                    · {data?.rank.currentRank || 'Người Khởi Xướng'}
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                  {activatedCount > 0
+                    ? `Bạn đã kích hoạt thành công ${activatedCount} bạn học và nhận ${data?.stats.totalProDays || 0} ngày Pro VIP!`
+                    : 'Rủ ngay 1 bạn học cùng kích hoạt để nhận 7 ngày VIP và bắt đầu ghi danh lên Bảng Vàng!'}
+                </p>
+              </div>
+            </div>
+
+            <Button
+              size="sm"
+              onClick={handleCopyLink}
+              className="text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shrink-0 h-8 shadow-2xs"
+            >
+              <Copy className="h-3.5 w-3.5 mr-1" />
+              Lấy link đua top ngay
+            </Button>
           </div>
         </div>
 
