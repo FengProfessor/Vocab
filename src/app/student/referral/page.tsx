@@ -131,8 +131,12 @@ export default function ReferralHubPage() {
       const cached = sessionStorage.getItem('lp_ref_hub_cache');
       if (cached) {
         const parsed = JSON.parse(cached);
-        setData(parsed);
-        setIsLoading(false);
+        if (parsed?.referralCode && parsed?.shareUrl) {
+          setData(parsed);
+          setIsLoading(false);
+        } else {
+          sessionStorage.removeItem('lp_ref_hub_cache');
+        }
       }
     } catch {
       // ignore
@@ -152,7 +156,7 @@ export default function ReferralHubPage() {
 
       if (!res.ok) throw new Error('Không thể tải dữ liệu');
       const json = await res.json();
-      if (json.success) {
+      if (json.success && json.referralCode) {
         setData(json);
         try {
           sessionStorage.setItem('lp_ref_hub_cache', JSON.stringify(json));

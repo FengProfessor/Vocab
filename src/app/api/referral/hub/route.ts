@@ -56,14 +56,31 @@ export async function GET(req: NextRequest) {
         .order('created_at', { ascending: false }),
     ]);
 
+    // Check if referral_links table query errored (e.g. table not yet created in DB)
+    if (linkRes.error && linkRes.error.code !== 'PGRST116') {
+      console.error('[ReferralHub] referral_links query error:', linkRes.error);
+      return NextResponse.json({
+        error: 'Chương trình giới thiệu đang khởi tạo cơ sở dữ liệu. Vui lòng thử lại sau ít phút.',
+        details: linkRes.error.message,
+      }, { status: 503 });
+    }
+
     let link = linkRes.data;
     if (!link) {
       const code = generateRandomCode(6);
-      const { data: newLink } = await supabase
+      const { data: newLink, error: insertError } = await supabase
         .from('referral_links')
         .insert({ user_id: user.id, referral_code: code })
         .select()
         .single();
+
+      if (insertError) {
+        console.error('[ReferralHub] Error creating referral link:', insertError);
+        return NextResponse.json({
+          error: 'Không thể tạo mã giới thiệu lúc này. Vui lòng thử lại sau.',
+          details: insertError.message,
+        }, { status: 500 });
+      }
       link = newLink;
     }
 
