@@ -103,73 +103,72 @@ function ReviewHubContent() {
             </p>
             {dueCount === 0 && (
               <p className="mt-1.5 text-sm font-medium text-indigo-600 leading-snug">
-                Muốn luyện thêm? Vào{' '}
+                Bạn đã hoàn thành lịch ôn FSRS hôm nay! Bạn vẫn có thể chọn chế độ bên dưới để ôn tập tự do củng cố trí nhớ, hoặc vào{' '}
                 <Link href={withClass('/practice')} className="font-bold underline underline-offset-2 hover:text-indigo-800">
                   Sử dụng từ
                 </Link>{' '}
-                để làm quiz mà không ảnh hưởng thuật toán ghi nhớ.
+                để làm bài tập trắc nghiệm.
               </p>
             )}
           </div>
         )}
 
-        {dueCount !== null && dueCount > 0 && (
-          <>
-            <div className="grid gap-3">
-              {HUB_MODES.map((m) => (
-                <Link
-                  key={m.id}
-                  href={withClass(m.href)}
-                  className={`group flex items-start gap-3 rounded-2xl border p-4 shadow-sm transition-all active:scale-[0.98] ${
-                    m.highlight
-                      ? 'border-indigo-200 bg-indigo-600 text-white shadow-indigo-200/60'
-                      : 'border-slate-200 bg-white hover:border-indigo-200 hover:bg-indigo-50/40'
+        <div className="grid gap-3">
+          {HUB_MODES.map((m) => {
+            const isHighlighted = m.highlight && (dueCount ?? 0) > 0;
+            return (
+              <Link
+                key={m.id}
+                href={withClass(m.href)}
+                className={`group flex items-start gap-3 rounded-2xl border p-4 shadow-sm transition-all active:scale-[0.98] ${
+                  isHighlighted
+                    ? 'border-indigo-200 bg-indigo-600 text-white shadow-indigo-200/60'
+                    : 'border-slate-200 bg-white hover:border-indigo-200 hover:bg-indigo-50/40'
+                }`}
+              >
+                <span
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl ${
+                    isHighlighted ? 'bg-white/15' : 'bg-slate-50'
                   }`}
                 >
-                  <span
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl ${
-                      m.highlight ? 'bg-white/15' : 'bg-slate-50'
-                    }`}
-                  >
-                    {m.emoji}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
-                      <h2
-                        className={`text-base font-black ${m.highlight ? 'text-white' : 'text-slate-900'}`}
-                      >
-                        {m.title}
-                      </h2>
-                      {m.highlight && (
-                        <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-black uppercase tracking-wide text-indigo-50">
-                          Gợi ý
-                        </span>
-                      )}
-                    </div>
-                    <p
-                      className={`mt-0.5 text-sm font-medium leading-snug ${
-                        m.highlight ? 'text-indigo-100' : 'text-slate-500'
-                      }`}
+                  {m.emoji}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <h2
+                      className={`text-base font-black ${isHighlighted ? 'text-white' : 'text-slate-900'}`}
                     >
-                      {m.desc}
-                    </p>
+                      {m.title}
+                    </h2>
+                    {isHighlighted && (
+                      <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-black uppercase tracking-wide text-indigo-50">
+                        Gợi ý
+                      </span>
+                    )}
                   </div>
-                  <span
-                    className={`mt-1 shrink-0 text-lg font-black ${
-                      m.highlight ? 'text-white/70' : 'text-slate-300 group-hover:text-indigo-400'
+                  <p
+                    className={`mt-0.5 text-sm font-medium leading-snug ${
+                      isHighlighted ? 'text-indigo-100' : 'text-slate-500'
                     }`}
                   >
-                    →
-                  </span>
-                </Link>
-              ))}
-            </div>
+                    {m.desc}
+                  </p>
+                </div>
+                <span
+                  className={`mt-1 shrink-0 text-lg font-black ${
+                    isHighlighted ? 'text-white/70' : 'text-slate-300 group-hover:text-indigo-400'
+                  }`}
+                >
+                  →
+                </span>
+              </Link>
+            );
+          })}
+        </div>
 
-            <p className="px-1 text-center text-[11px] font-medium text-slate-400">
-              MCQ đúng tối đa Good · gõ/nghe nhanh có thể Easy · sai = Again
-            </p>
-          </>
-        )}
+        <p className="px-1 text-center text-[11px] font-medium text-slate-400">
+          MCQ đúng tối đa Good · gõ/nghe nhanh có thể Easy · sai = Again
+        </p>
       </div>
     </StudentShell>
   );

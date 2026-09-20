@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getAuthUser, isValidString } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase';
+import { invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 
 export const dynamic = 'force-dynamic';
 
@@ -149,6 +150,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (srsErr) {
       console.warn('[SaveWord] SRS upsert error:', srsErr.message);
     }
+
+    invalidateServerWordSummaryCache(auth.userId);
 
     return NextResponse.json({
       success: true,

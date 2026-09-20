@@ -11,6 +11,7 @@ import { ChevronLeft, Loader2, RotateCcw, Pencil, ArrowRight } from 'lucide-reac
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { levenshtein, verdictToQuality, parseIpa, canAutoFocus, speak, type Verdict } from '@/lib/study';
+import { playWordWithBuffer } from '@/lib/audio-sync';
 import { stopWordAudio } from '@/lib/audio';
 import { StudentShell } from '@/components/student/StudentShell';
 
@@ -52,6 +53,7 @@ function WritingContent() {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const advanceFn = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     const init = async () => {
@@ -67,8 +69,8 @@ function WritingContent() {
 
         // Từ đã học & đến hạn (server lọc toàn bộ srs_progress, không kẹt pagination)
         const url = classroomId
-          ? `/api/words?classroomId=${classroomId}&filter=review`
-          : `/api/words?filter=review`;
+          ? `/api/words?classroomId=${classroomId}&filter=review&limit=30`
+          : `/api/words?filter=review&limit=30`;
 
         const res = await authFetch(url);
         const data = await res.json();
@@ -117,6 +119,7 @@ function WritingContent() {
 
   // wasWrong: từ sai quay lại cuối hàng để luyện lại (như flashcard); không tính tiến độ.
   const goNext = useCallback((wasWrong = false) => {
+    advanceFn.current = null;
     if (advanceTimer.current) {
       clearTimeout(advanceTimer.current);
       advanceTimer.current = null;
@@ -144,8 +147,8 @@ function WritingContent() {
       clearTimeout(advanceTimer.current);
       advanceTimer.current = null;
     }
-    goNext(verdict === 'wrong');
-  }, [verdict, goNext]);
+    advanceFn.current?.();
+  }, [verdict]);
 
   const handleSubmit = useCallback(() => {
     if (!current || !userId || verdict !== null) return;
@@ -165,8 +168,6 @@ function WritingContent() {
       close: v === 'close' ? prev.close + 1 : prev.close,
       wrong: v === 'wrong' ? prev.wrong + 1 : prev.wrong,
     }));
-    // Phát âm từ vừa chấm để củng cố nghe (đồng bộ với LearnMode)
-    speak(current.word, 1.0);
 
     // Background SRS sync (fire-and-forget)
     const quality = verdictToQuality(v);
@@ -176,11 +177,33 @@ function WritingContent() {
       body: JSON.stringify({ wordId: current.id, quality }),
     }).catch((err) => console.error('[Writing] Failed to save SRS:', err));
 
-    // Auto next: sai → quay lại cuối hàng + đợi lâu hơn để nhìn đáp án
-    advanceTimer.current = setTimeout(
-      () => goNext(v === 'wrong'),
-      v === 'correct' ? NEXT_DELAY_MS : WRONG_DELAY_MS,
-    );
+    const advance = () => {
+      if (advanceFn.current !== advance) return;
+      advanceFn.current = null;
+      goNext(v === 'wrong');
+    };
+    advanceFn.current = advance;
+
+    if (v === 'correct') {
+      if (advanceTimer.current) {
+        clearTimeout(advanceTimer.current);
+        advanceTimer.current = null;
+      }
+      // CORRECT: Await pronunciation completion + 400ms buffer before advancing
+      void playWordWithBuffer(current.word, 400).then(() => {
+        if (advanceFn.current === advance) {
+          advance();
+        }
+      });
+    } else {
+      // WRONG / CLOSE: Play pronunciation for reinforcement, but pause indefinitely.
+      // Requires user to press Enter, Space, or click Tiếp theo button.
+      speak(current.word, 1.0);
+      if (advanceTimer.current) {
+        clearTimeout(advanceTimer.current);
+        advanceTimer.current = null;
+      }
+    }
   }, [current, userId, verdict, input, goNext]);
 
   // Lưu session accuracy khi xong
@@ -208,13 +231,27 @@ function WritingContent() {
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
+      if (verdict !== null) e.stopPropagation();
       if (verdict === null) handleSubmit();
       else skipWait(); // Nhấn Enter khi đã chấm → bỏ qua đợi, tiếp theo ngay
     } else if (e.key === ' ' && verdict !== null) {
       e.preventDefault();
+      e.stopPropagation();
       skipWait(); // Nhấn Space khi đã chấm → bỏ qua đợi
     }
   };
+
+  useEffect(() => {
+    const onGlobalKey = (e: KeyboardEvent) => {
+      if (verdict === null || done || isLoading || !current) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        skipWait();
+      }
+    };
+    window.addEventListener('keydown', onGlobalKey);
+    return () => window.removeEventListener('keydown', onGlobalKey);
+  }, [verdict, done, isLoading, current, skipWait]);
 
   if (isLoading) {
     return (
@@ -434,7 +471,7 @@ function WritingContent() {
             </button>
           ) : (
             <button
-              onClick={() => goNext(verdict === 'wrong')}
+              onClick={skipWait}
               className="w-full h-16 rounded-[28px] bg-white border-b-4 border-slate-200 text-slate-800 font-black text-lg shadow-sm hover:bg-slate-50 transition-all active:translate-y-1 active:border-b-0 flex items-center justify-center gap-2"
             >
               Tiếp theo <ArrowRight className="h-5 w-5" />

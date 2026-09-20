@@ -13,7 +13,7 @@ import {
 } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { checkWordSaveQuota, resolvePlanByUserId, resolveUserPlanInfo, recordWordSaved } from '@/lib/entitlement-server';
-import { cacheGet, cacheSet, cacheDelete } from '@/lib/ttl-cache';
+import { cacheGet, cacheSet, cacheDelete, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 import { parseIpa } from '@/lib/study';
 
 /**
@@ -189,6 +189,15 @@ async function fetchLevelCounts(
 
 const inFlightWordSummaryCounts = new Map<string, Promise<WordSummaryCounts>>();
 
+function purgeLocalWordSummaryCache(userId: string): void {
+  invalidateServerWordSummaryCache(userId);
+  for (const k of inFlightWordSummaryCounts.keys()) {
+    if (k.startsWith(`wsum:${userId}:`)) {
+      inFlightWordSummaryCounts.delete(k);
+    }
+  }
+}
+
 /**
  * Đếm total / new / review-due — RPC + fallback.
  * levelCounts (O(n) quét full kho) CHỈ khi includeLevels=true — poll 30s không được gọi.
@@ -210,23 +219,26 @@ async function fetchWordSummaryCounts(
 
   const promise = (async () => {
     try {
-      // Ưu tiên RPC (migration 20260709_word_summary_perf)
+      // Ưu tiên RPC (migration 20260919_optimize_word_summary_rpc)
       const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
         p_user_id: userId,
-        p_classroom_id: classroomId,
+        p_classroom_id: classroomId || null,
       });
       if (!rpcErr && rpcRows) {
         const row = Array.isArray(rpcRows) ? rpcRows[0] : rpcRows;
         if (row) {
           const total = Number(row.total ?? 0);
+          const rawLevels = row.level_counts;
+          const parsedLevels: number[] = Array.isArray(rawLevels)
+            ? rawLevels.map((n: unknown) => Number(n) || 0)
+            : [0, 0, 0, 0, 0, 0];
+
           const result: WordSummaryCounts = {
             total,
             newCount: Number(row.new_count ?? 0),
             reviewDueCount: Number(row.review_due_count ?? 0),
             dueCount: Number(row.due_count ?? 0),
-            levelCounts: includeLevels
-              ? await fetchLevelCounts(supabase, userId, classroomId, total)
-              : [0, 0, 0, 0, 0, 0],
+            levelCounts: includeLevels ? parsedLevels : [0, 0, 0, 0, 0, 0],
           };
           cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
           return result;
@@ -247,22 +259,26 @@ async function fetchWordSummaryCounts(
           .eq('classroom_id', classroomId),
         supabase
           .from('srs_progress')
-          .select('id', { count: 'exact', head: true })
+          .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
           .eq('user_id', userId)
+          .eq('words.classroom_id', classroomId)
           .lte('next_review_date', now),
         supabase
           .from('srs_progress')
-          .select('id', { count: 'exact', head: true })
-          .eq('user_id', userId),
+          .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
+          .eq('user_id', userId)
+          .eq('words.classroom_id', classroomId),
         supabase
           .from('srs_progress')
-          .select('id', { count: 'exact', head: true })
+          .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
           .eq('user_id', userId)
+          .eq('words.classroom_id', classroomId)
           .gt('review_count', 0),
         supabase
           .from('srs_progress')
-          .select('id', { count: 'exact', head: true })
+          .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
           .eq('user_id', userId)
+          .eq('words.classroom_id', classroomId)
           .gt('review_count', 0)
           .lte('next_review_date', now),
       ]);
@@ -677,7 +693,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       limit != null ? Math.max(0, limit - usedAfter) : null;
 
     recordWordSaved(userId);
-    cacheDelete(`user-learning-words:${userId}`);
+    purgeLocalWordSummaryCache(userId);
 
     return NextResponse.json({
       success: true,
@@ -853,27 +869,24 @@ export async function GET(req: Request): Promise<NextResponse> {
       const remaining = reviewCap - dueIds.length;
       let newWordIds: string[] = [];
       if (remaining > 0) {
-        // Lấy từ trong classroom, mới nhất trước — chỉ lấy dư gấp 3 limit (nhẹ)
+        // Lấy danh sách ID từ trong classroom để lọc từ mới chính xác
         const dueIdSet = new Set(dueIds);
-        const { data: candidateRows } = await supabase
+        const { data: idRows } = await supabase
           .from('words')
           .select('id')
           .eq('classroom_id', classroomId)
-          .order('created_at', { ascending: false })
-          .limit(remaining * 3);
+          .order('created_at', { ascending: false });
 
-        // Lọc bỏ các từ đã due (đã có ở trên)
-        const candidateIds = (candidateRows || [])
+        const candidateIds = (idRows || [])
           .map((r) => r.id as string)
           .filter((id) => !dueIdSet.has(id));
 
         if (candidateIds.length > 0) {
-          // Chỉ check srs_progress cho candidate nhỏ (~30-75 rows) thay vì scan 10k
           const { data: hasSrsRows } = await supabase
             .from('srs_progress')
             .select('word_id')
             .eq('user_id', userId)
-            .in('word_id', candidateIds);
+            .gt('review_count', 0);
           const hasSrsSet = new Set((hasSrsRows || []).map((r) => r.word_id as string));
 
           newWordIds = candidateIds
@@ -932,36 +945,91 @@ export async function GET(req: Request): Promise<NextResponse> {
     // ── Chế độ NEW: trả từ CHƯA học (không có SRS hoặc review_count=0) trên TOÀN BỘ words ──
     // LearnMode dùng — không kẹt pagination 300 từ mới nhất, không bỏ sót từ cũ chưa học.
     if (filter === 'new') {
-      // 1. Tập word_id ĐÃ học của user (review_count > 0)
-      // ⚠️ Perf cliff: user học >10k từ → hàng vượt limit bị drop → từ đã học hiện lại như "mới".
-      // Khi chạm ngưỡng: chuyển sang RPC đếm phía DB hoặc paginate vòng lặp.
-      const { data: learnedRows, error: lErr } = await supabase
+      // Fast-path: RPC get_new_words_list (indexed query via LEFT JOIN, ~15ms)
+      if (!requestedIds) {
+        const { data: rpcWords, error: rpcErr } = await supabase.rpc('get_new_words_list', {
+          p_user_id: userId,
+          p_classroom_id: classroomId,
+          p_limit: limit,
+        });
+
+        if (!rpcErr && Array.isArray(rpcWords)) {
+          if (rpcWords.length === 0) {
+            return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
+              headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+            });
+          }
+
+          const enriched = (rpcWords as Array<{
+            id: string;
+            word: string;
+            translation: string;
+            ipa?: string | null;
+            pos?: string | null;
+            example?: string | null;
+            example_vi?: string | null;
+            synonyms?: string[] | null;
+            antonyms?: string[] | null;
+            image_url?: string | null;
+            review_count?: number | null;
+          }>)
+            .filter((w) =>
+              w.word && w.translation &&
+              !w.translation.includes('failed') &&
+              !w.translation.includes('Analyzing') &&
+              !w.translation.includes('⏳'))
+            .map((w) => ({
+              id: w.id,
+              word: w.word,
+              translation: w.translation,
+              ipa: w.ipa || '',
+              pos: w.pos || '',
+              example: w.example || '',
+              example_vi: w.example_vi || null,
+              image_url: w.image_url || null,
+              synonyms: w.synonyms || [],
+              antonyms: w.antonyms || [],
+              classroom_id: classroomId,
+              srs: null,
+              isDue: true,
+              reviewCount: 0,
+              srsLevel: 0,
+              mastery: 0,
+              status: 'learning',
+            }));
+
+          return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
+            headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+          });
+        }
+      }
+
+      // Fallback / requestedIds path:
+      // 1. Lấy danh sách ID các từ đã học (review_count > 0)
+      const { data: srsRows, error: sErr } = await supabase
         .from('srs_progress')
         .select('word_id')
         .eq('user_id', userId)
-        .gt('review_count', 0)
-        .limit(10000);
-      if (lErr) throw lErr;
-      const learnedIds = new Set((learnedRows || []).map((r) => r.word_id));
+        .gt('review_count', 0);
+      if (sErr) throw sErr;
+      const learnedIds = new Set((srsRows || []).map((r) => r.word_id as string));
 
-      // 2. Id mọi từ trong classroom (nhẹ — chỉ id) theo thứ tự mới nhất trước
-      let wordIdsQuery = supabase
-        .from('words')
-        .select('id')
-        .eq('classroom_id', classroomId);
+      // 2. Tìm danh sách candidate ID chưa học
+      let candidateIds: string[] = [];
       if (requestedIds) {
-        wordIdsQuery = wordIdsQuery.in('id', requestedIds);
+        candidateIds = requestedIds.filter((id) => !learnedIds.has(id)).slice(0, limit);
+      } else {
+        const { data: idRows, error: idErr } = await supabase
+          .from('words')
+          .select('id')
+          .eq('classroom_id', classroomId)
+          .order('created_at', { ascending: false });
+        if (idErr) throw idErr;
+        candidateIds = (idRows || [])
+          .map((r) => r.id as string)
+          .filter((id) => !learnedIds.has(id))
+          .slice(0, limit);
       }
-      const { data: idRows, error: idErr } = await wordIdsQuery
-        .order('created_at', { ascending: false })
-        .limit(5000);
-      if (idErr) throw idErr;
-
-      // 3. Lấy dư gấp 3 limit để còn lọc từ chưa enrich xong
-      const candidateIds = (idRows || [])
-        .map((r) => r.id)
-        .filter((id) => !learnedIds.has(id))
-        .slice(0, limit * 3);
 
       if (candidateIds.length === 0) {
         return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
@@ -969,33 +1037,29 @@ export async function GET(req: Request): Promise<NextResponse> {
         });
       }
 
+      // 3. Chỉ fetch full chi tiết cho đúng các candidateIds cần học (tối đa limit từ)
       const { data: wordsData, error: wErr } = await supabase
         .from('words')
-        .select('*, srs_progress(*)')
+        .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at')
         .in('id', candidateIds);
       if (wErr) throw wErr;
 
-      const order = new Map(candidateIds.map((id, i) => [id, i]));
-      const enriched = ((wordsData || []) as WordWithSrsList[])
-        .filter((w) =>
-          w.word && w.translation &&
+      const wordsMap = new Map((wordsData || []).map((w) => [w.id, w as Word]));
+      const enriched = candidateIds
+        .map((id) => wordsMap.get(id))
+        .filter((w): w is Word => Boolean(w && w.word && w.translation &&
           !w.translation.includes('failed') &&
           !w.translation.includes('Analyzing') &&
-          !w.translation.includes('⏳'))
-        .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0))
-        .slice(0, limit)
-        .map((w) => {
-          const srs = (w.srs_progress || []).find((s) => s.user_id === userId) || null;
-          return {
-            ...w,
-            srs,
-            isDue: true,
-            reviewCount: 0,
-            srsLevel: stabilityToLevel(srs?.stability || 0),
-            mastery: 0,
-            status: 'learning',
-          };
-        });
+          !w.translation.includes('⏳')))
+        .map((w) => ({
+          ...w,
+          srs: null,
+          isDue: true,
+          reviewCount: 0,
+          srsLevel: 0,
+          mastery: 0,
+          status: 'learning',
+        }));
 
       return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
         headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -1008,9 +1072,10 @@ export async function GET(req: Request): Promise<NextResponse> {
       return new NextResponse(JSON.stringify({
         success: true,
         classroomId,
+        totalWords: counts.total,
         ...counts,
       }), {
-        headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+        headers: { 'Cache-Control': 'private, no-cache, stale-while-revalidate=15' },
       });
     }
 
@@ -1167,6 +1232,7 @@ export async function DELETE(req: Request): Promise<NextResponse> {
 
     const { error } = await supabase.from('words').delete().eq('id', wordId);
     if (error) throw error;
+    purgeLocalWordSummaryCache(auth.userId);
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : 'Unknown error';

@@ -150,56 +150,93 @@ function finishLocalSpeak(
   rate: number,
   lang: SpeakLang,
   myEpoch: number,
-): void {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return;
-  if (myEpoch !== speechEpoch) return;
+): Promise<void> {
+  return new Promise<void>((resolve) => {
+    if (typeof window === 'undefined' || !window.speechSynthesis) {
+      resolve();
+      return;
+    }
+    if (myEpoch !== speechEpoch) {
+      resolve();
+      return;
+    }
 
-  window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.rate = rate === 1.0 ? 0.92 : rate;
-  u.pitch = 0.95;
-  u.volume = 1;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = rate === 1.0 ? 0.92 : rate;
+    u.pitch = 0.95;
+    u.volume = 1;
 
-  const voice = pickEnglishVoice(lang, 'male');
-  if (voice) {
-    u.voice = voice;
-    u.lang = voice.lang || lang;
-  } else {
-    u.lang = lang;
-  }
+    const voice = pickEnglishVoice(lang, 'male');
+    if (voice) {
+      u.voice = voice;
+      u.lang = voice.lang || lang;
+    } else {
+      u.lang = lang;
+    }
 
-  if (myEpoch !== speechEpoch) return;
-  window.speechSynthesis.speak(u);
+    if (myEpoch !== speechEpoch) {
+      resolve();
+      return;
+    }
+
+    let settled = false;
+    const done = () => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timer);
+      resolve();
+    };
+
+    u.onend = done;
+    u.onerror = done;
+    // 3500ms safety watchdog (Chrome/Edge bug where onend fails to fire on muted/headless)
+    const timer = window.setTimeout(done, 3500);
+
+    window.speechSynthesis.speak(u);
+  });
 }
 
 /**
  * Web Speech fallback (robot) — chỉ dùng khi mp3 neural/người thật fail.
  * Prefer: playWordAudio / speak() → cascade chất lượng cao.
  */
-export function speakLocal(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void {
-  if (typeof window === 'undefined' || !window.speechSynthesis) return;
+export function speakLocal(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): Promise<void> {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return Promise.resolve();
   const trimmed = text?.trim();
-  if (!trimmed) return;
+  if (!trimmed) return Promise.resolve();
 
   const myEpoch = ++speechEpoch;
   attachVoicesListener();
 
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) {
-    const retry = () => {
-      window.speechSynthesis.removeEventListener('voiceschanged', retry);
-      // Đã có speak/silence mới → bỏ, không đọc từ cũ
-      if (myEpoch !== speechEpoch) return;
-      finishLocalSpeak(trimmed, rate, lang, myEpoch);
-    };
-    window.speechSynthesis.addEventListener('voiceschanged', retry);
-    window.setTimeout(() => {
-      window.speechSynthesis.removeEventListener('voiceschanged', retry);
-    }, 2500);
-    return;
+    return new Promise<void>((resolve) => {
+      let settled = false;
+      const done = () => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(timeoutId);
+        window.speechSynthesis?.removeEventListener('voiceschanged', retry);
+        resolve();
+      };
+
+      const retry = () => {
+        if (myEpoch !== speechEpoch) {
+          done();
+          return;
+        }
+        window.speechSynthesis?.removeEventListener('voiceschanged', retry);
+        window.clearTimeout(timeoutId);
+        finishLocalSpeak(trimmed, rate, lang, myEpoch).then(resolve);
+      };
+
+      window.speechSynthesis.addEventListener('voiceschanged', retry);
+      const timeoutId = window.setTimeout(done, 2500);
+    });
   }
 
-  finishLocalSpeak(trimmed, rate, lang, myEpoch);
+  return finishLocalSpeak(trimmed, rate, lang, myEpoch);
 }
 
 /** Cache dynamic import (tránh circular audio ↔ study; tránh import lại mỗi lần speak). */
@@ -213,20 +250,27 @@ function loadAudioMod(): Promise<AudioMod> {
 /**
  * Phát âm tiếng Anh chất lượng cao (mp3 người thật → neural TTS → Web Speech).
  * rate: 1.0 = thường, 0.6 = chậm.
- * Fire-and-forget — flashcard/learn không cần await.
+ * Returns Promise<void> resolving upon playback completion or safety timeout.
  * Mỗi lần gọi tự vô hiệu hóa lookup/play trước đó (generation trong audio.ts).
  */
-export function speak(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): void {
-  if (typeof window === 'undefined') return;
+export function speak(text: string, rate = 1.0, lang: SpeakLang = 'en-US'): Promise<void> {
+  if (typeof window === 'undefined') return Promise.resolve();
   const trimmed = text?.trim();
-  if (!trimmed) return;
+  if (!trimmed) return Promise.resolve();
   // Sync: chặn utterance/voiceschanged cũ trước khi cascade async chạy
   silenceSpeech();
   const region: 'UK' | 'US' = String(lang).includes('GB') || String(lang).includes('UK') ? 'UK' : 'US';
   // Dynamic import tránh circular: audio.ts → speakLocal từ study.ts
-  void loadAudioMod()
+  const audioPromise = loadAudioMod()
     .then(({ playWordAudio }) => playWordAudio(trimmed, null, rate, region))
+    .then(() => {})
     .catch(() => speakLocal(trimmed, rate, lang));
+
+  const raceGuard = new Promise<void>((resolve) => {
+    window.setTimeout(resolve, 3500);
+  });
+
+  return Promise.race([audioPromise, raceGuard]);
 }
 
 /**

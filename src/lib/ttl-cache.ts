@@ -63,3 +63,23 @@ export async function cacheGetOrSet<T>(
 export function cacheDelete(key: string): void {
   store.delete(key);
 }
+
+/**
+ * Xoá mọi cache entries có key bắt đầu bằng prefix chỉ định.
+ */
+export function cacheDeletePrefix(prefix: string): void {
+  for (const k of store.keys()) {
+    if (k.startsWith(prefix)) {
+      store.delete(k);
+    }
+  }
+}
+
+/**
+ * Xóa toàn bộ cache word summary phía server (RAM) cho một user.
+ * Tự động xóa mọi classroom ID và mọi chế độ (levels / non-levels).
+ */
+export function invalidateServerWordSummaryCache(userId: string): void {
+  cacheDeletePrefix(`wsum:${userId}:`);
+  cacheDelete(`user-learning-words:${userId}`);
+}

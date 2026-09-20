@@ -41,6 +41,7 @@ import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
 import {
   readWordSummaryCache,
+  readLastWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
 import {
@@ -101,8 +102,16 @@ export function StudentShell({
   const [profileEmail, setProfileEmail] = useState('');
   const [isTeacherUser, setIsTeacherUser] = useState(false);
   const [classroomId, setClassroomId] = useState<string | null>(null);
-  const [reviewDueCount, setReviewDueCount] = useState(0);
-  const [newCount, setNewCount] = useState(0);
+  const [reviewDueCount, setReviewDueCount] = useState<number>(() => {
+    if (context?.wordSummary) return context.wordSummary.reviewDueCount;
+    const cached = readLastWordSummaryCache();
+    return cached?.reviewDueCount ?? 0;
+  });
+  const [newCount, setNewCount] = useState<number>(() => {
+    if (context?.wordSummary) return context.wordSummary.newCount;
+    const cached = readLastWordSummaryCache();
+    return cached?.newCount ?? 0;
+  });
   const [grammarDue, setGrammarDue] = useState(0);
   const [isBootstrapping, setIsBootstrapping] = useState(!context?.profile);
   const [isMenuOpen, setIsMenuOpen] = useState(false);

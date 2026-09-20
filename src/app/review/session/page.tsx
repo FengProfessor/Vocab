@@ -20,6 +20,7 @@ import { StudentShell } from '@/components/student/StudentShell';
 import {
   speak, canAutoFocus, parseIpa, type Verdict,
 } from '@/lib/study';
+import { playWordWithBuffer } from '@/lib/audio-sync';
 import { stopWordAudio } from '@/lib/audio';
 import {
   type ItemMode,
@@ -329,14 +330,17 @@ function SessionContent() {
         wrong: s.wrong + (!isCorrect && !isClose ? 1 : 0),
       }));
 
-      // Phát âm củng cố
-      speak(current.word, 1.0);
-
       authFetch('/api/words/srs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wordId: current.id, quality }),
       }, accessTokenRef.current).catch((err) => console.error('[ReviewSession] SRS:', err));
+
+      const advance = () => {
+        if (advanceFn.current !== advance) return;
+        goNext(!isCorrect && !isClose);
+      };
+      advanceFn.current = advance;
 
       // Mở skip sau lock — nếu user đã bấm Enter/Space trước đó thì advance ngay
       if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
@@ -349,14 +353,27 @@ function SessionContent() {
         }
       }, FEEDBACK_LOCK_MS);
 
-      const delay = isCorrect ? NEXT_OK_MS : NEXT_BAD_MS;
-      const advance = () => {
-        if (advanceFn.current !== advance) return;
-        goNext(!isCorrect && !isClose);
-      };
-      advanceFn.current = advance;
-      if (advanceTimer.current) clearTimeout(advanceTimer.current);
-      advanceTimer.current = setTimeout(advance, delay);
+      if (isCorrect) {
+        if (advanceTimer.current) {
+          clearTimeout(advanceTimer.current);
+          advanceTimer.current = null;
+        }
+        // CORRECT: Await pronunciation completion + 400ms buffer before advancing
+        void playWordWithBuffer(current.word, 400).then(() => {
+          if (advanceFn.current === advance) {
+            advance();
+          }
+        });
+      } else {
+        // INCORRECT / ALMOST CORRECT:
+        // Play pronunciation for reinforcement, but DO NOT set auto-advance timer.
+        // Card pauses indefinitely until manual action (Enter, Space, or "Tiếp theo").
+        speak(current.word, 1.0);
+        if (advanceTimer.current) {
+          clearTimeout(advanceTimer.current);
+          advanceTimer.current = null;
+        }
+      }
     },
     [current, userId, goNext],
   );
@@ -450,11 +467,14 @@ function SessionContent() {
             Muốn luyện thêm? Vào <strong>Sử dụng từ</strong> để làm quiz mà không ảnh hưởng FSRS.
           </p>
           <div className="flex w-full flex-col gap-2">
+            <Link href={classroomId ? `/flashcard?class=${classroomId}` : '/flashcard'}>
+              <Button className="h-12 w-full rounded-2xl bg-indigo-600 font-bold">🗂️ Ôn thẻ Flashcard tự do</Button>
+            </Link>
             <Link href={classroomId ? `/practice?class=${classroomId}` : '/practice'}>
-              <Button className="h-12 w-full rounded-2xl bg-indigo-600 font-bold">🧠 Sử dụng từ — Quiz luyện tập</Button>
+              <Button variant="outline" className="h-12 w-full rounded-2xl font-bold">🧠 Sử dụng từ — Quiz luyện tập</Button>
             </Link>
             <Link href={hubHref}>
-              <Button variant="outline" className="h-12 w-full rounded-2xl font-bold">← Hub ôn tập</Button>
+              <Button variant="ghost" className="h-10 w-full rounded-2xl font-semibold text-slate-500">← Hub ôn tập</Button>
             </Link>
           </div>
         </div>

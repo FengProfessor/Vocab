@@ -18,6 +18,9 @@ import { cn } from '@/lib/utils';
 import { SentenceTranslator } from '@/components/dictionary/SentenceTranslator';
 import { SentenceStructureView } from '@/components/dictionary/SentenceStructureView';
 import type { SentenceAnalysisData } from '@/types/sentence-analysis';
+import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
+import { notifyWordSavedOptimistic, notifyWordSaveRollback } from '@/lib/word-summary-cache';
+import { getCachedDictionaryEntry, setCachedDictionaryEntry } from '@/lib/dict-cache';
 
 const HISTORY_KEY = 'lingo_dict_history';
 const MAX_HISTORY = 20;
@@ -271,6 +274,15 @@ export default function DictionaryPage() {
   /** Kiểm tra từ đã có trong sổ user chưa (gọi sau khi có kết quả tra) */
   const checkWordSaved = useCallback(async (word: string) => {
     setWordAlreadySaved(false);
+    if (!word) return;
+    const cleanWord = word.trim().toLowerCase();
+
+    // 0ms Local Cache Check (không tốn roundtrip Supabase)
+    if (isWordSavedLocally(cleanWord)) {
+      setWordAlreadySaved(true);
+      return;
+    }
+
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.user) return;
@@ -292,7 +304,10 @@ export default function DictionaryPage() {
         .ilike('word', word.trim())
         .maybeSingle();
 
-      if (existing?.id) setWordAlreadySaved(true);
+      if (existing?.id) {
+        setWordAlreadySaved(true);
+        saveWordLocally(cleanWord);
+      }
     } catch {
       // không chặn UX nếu check fail
     }
@@ -305,6 +320,20 @@ export default function DictionaryPage() {
     ): Promise<LookupResult | null> => {
       const isPhrase = kind === 'phrase';
       const cacheKey = trimmed.toLowerCase();
+
+      // 0ms Unified Dict Cache Hit (In-Memory + SessionStorage + Lemma expansion)
+      const cachedEntry = getCachedDictionaryEntry(trimmed);
+      if (cachedEntry && cachedEntry.data) {
+        const resObj: LookupResult = {
+          data: cachedEntry.data,
+          source: (cachedEntry.source as SourceBadge) || (isPhrase ? 'Cụm · kho' : 'Kho từ điển'),
+          imageUrl: cachedEntry.imageUrl,
+          queriedWord: trimmed,
+          kind,
+        };
+        clientLexicalCache.set(cacheKey, resObj);
+        return resObj;
+      }
 
       // 0ms Cache Hit
       const cached = clientLexicalCache.get(cacheKey);
@@ -331,6 +360,7 @@ export default function DictionaryPage() {
                 kind,
               };
               clientLexicalCache.set(cacheKey, resObj);
+              setCachedDictionaryEntry(trimmed, data, resObj.source, json.image_url);
               return resObj;
             }
           }
@@ -707,26 +737,39 @@ export default function DictionaryPage() {
     const translation = meaning.definition ?? '';
     if (!translation) return;
 
-    setSavingIndexes(prev => new Set(prev).add(index));
+    // 1. OPTIMISTIC UI: Hiển thị trạng thái Đã lưu ngay lập tức (<10ms)
+    setSavedIndexes(prev => new Set(prev).add(index));
+    setWordAlreadySaved(true);
+    saveWordLocally(word);
+    notifyWordSavedOptimistic();
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('lingo_word_saved', { detail: { word } }));
+    }
+
     try {
       const res = await authFetch('/api/words', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ word, translation }),
       });
-      const json = await res.json();
+      const json = await res.json().catch(() => ({}));
       if (res.status === 429) {
         toast.error('Quá nhiều yêu cầu, thử lại sau');
       } else if (json.error === 'FREE_WORD_LIMIT' || (res.status === 403 && json.error === 'FREE_WORD_LIMIT')) {
+        // Rollback optimistic state khi chạm hạn mức gói Free
+        setSavedIndexes(prev => {
+          const next = new Set(prev);
+          next.delete(index);
+          return next;
+        });
+        notifyWordSaveRollback();
         const { requestUpsell, upsellFromWordLimitError } = await import('@/lib/upsell');
         requestUpsell(upsellFromWordLimitError(json));
         toast.error(json.message ?? 'Đã đủ hạn mức lưu từ tháng này');
       } else if (json.alreadyExists) {
         toast.info('Từ đã có trong sổ của bạn');
-        setWordAlreadySaved(true);
       } else if (json.success) {
         toast.success(`Đã lưu "${word}" vào sổ từ vựng`);
-        setSavedIndexes(prev => new Set(prev).add(index));
         // Soft near-limit khi còn ≤50 (từ mốc 150)
         if (
           typeof json.wordQuota?.used === 'number' &&
@@ -742,9 +785,23 @@ export default function DictionaryPage() {
           });
         }
       } else {
+        // Rollback on server error
+        setSavedIndexes(prev => {
+          const next = new Set(prev);
+          next.delete(index);
+          return next;
+        });
+        notifyWordSaveRollback();
         toast.error(json.error ?? 'Lưu thất bại');
       }
     } catch {
+      // Rollback on network failure
+      setSavedIndexes(prev => {
+        const next = new Set(prev);
+        next.delete(index);
+        return next;
+      });
+      notifyWordSaveRollback();
       toast.error('Lỗi kết nối, thử lại');
     } finally {
       setSavingIndexes(prev => {

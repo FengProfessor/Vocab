@@ -14,6 +14,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
+import { playWordWithBuffer } from '@/lib/audio-sync';
 import { stopWordAudio } from '@/lib/audio';
 import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
@@ -37,6 +38,8 @@ interface WordItem {
 
 const NEW_BATCH = 8;       // số từ mới mỗi phiên học
 const NEXT_DELAY_MS = 1400;  // chỉ auto-next khi đúng; sai/gần đúng chờ user bấm Tiếp
+/** Chống double-tap/nảy phím khi bấm Enter/Space sau khi có kết quả */
+const FEEDBACK_LOCK_MS = 100;
 
 type Phase = 'loading' | 'empty' | 'ready' | 'introduce' | 'recall' | 'done';
 
@@ -57,8 +60,13 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const [input, setInput] = useState('');
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [results, setResults] = useState({ correct: 0, close: 0, wrong: 0 });
+  const [canSkip, setCanSkip] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const feedbackLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const advanceFn = useRef<(() => void) | null>(null);
+  const pendingSkipRef = useRef(false);
+  const canSkipRef = useRef(false);
 
   // Hướng dẫn cơ chế — tự hiện lần đầu (dùng chung key với /flashcard ôn), mở lại qua nút "?"
   const [showGuide, setShowGuide] = useState(false);
@@ -85,7 +93,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
         const loadWords = async (filter: 'new' | null): Promise<{ words: WordItem[]; classroomId?: string }> => {
           const query = new URLSearchParams({
-            limit: idsParam === null ? '100' : '20',
+            limit: idsParam === null ? '16' : '20',
           });
           if (filter) query.set('filter', filter);
           if (initialClassroomId) query.set('classroomId', initialClassroomId);
@@ -114,6 +122,13 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         } else if (result.words.length === 0 && idsParam !== null) {
           // replay hoặc ngoài lộ trình: load full ids để ôn lại
           result = await loadWords(null);
+        } else if (result.words.length === 0) {
+          // Tự do vào học từ mới nhưng đã học hết từ mới -> nạp từ đã lưu để củng cố
+          const allSaved = await loadWords(null);
+          if (allSaved.words.length > 0) {
+            result = allSaved;
+            toast.info('Bạn đã học hết từ mới! Đang mở chế độ củng cố các từ đã lưu.');
+          }
         }
 
         if (!initialClassroomId && result.classroomId) setClassroomId(result.classroomId);
@@ -154,6 +169,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // Cleanup timer + audio
   useEffect(() => () => {
     if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
     stopWordAudio();
   }, []);
 
@@ -181,6 +197,10 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       setRecallIndex(0);
       setInput('');
       setVerdict(null);
+      setCanSkip(false);
+      canSkipRef.current = false;
+      pendingSkipRef.current = false;
+      advanceFn.current = null;
       setTimeout(() => inputRef.current?.focus(), 80);
     } else {
       setIntroIndex((i) => i + 1);
@@ -195,8 +215,19 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
   const recallWord = batch[recallIndex];
 
-  const goNextRecall = useCallback(() => {
-    if (advanceTimer.current) { clearTimeout(advanceTimer.current); advanceTimer.current = null; }
+  const advanceRecall = useCallback(() => {
+    advanceFn.current = null;
+    if (advanceTimer.current) {
+      clearTimeout(advanceTimer.current);
+      advanceTimer.current = null;
+    }
+    if (feedbackLockTimer.current) {
+      clearTimeout(feedbackLockTimer.current);
+      feedbackLockTimer.current = null;
+    }
+    setCanSkip(false);
+    canSkipRef.current = false;
+    pendingSkipRef.current = false;
     // Chặn tiếng từ vừa chấm phát trễ khi UI đã sang từ mới
     stopWordAudio();
     if (recallIndex + 1 >= batch.length) {
@@ -209,17 +240,32 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     }
   }, [recallIndex, batch.length]);
 
+  const goNextRecall = useCallback(() => {
+    if (verdict !== null) {
+      if (!advanceFn.current) return;
+      if (!canSkipRef.current) {
+        pendingSkipRef.current = true;
+        return;
+      }
+      advanceFn.current();
+      return;
+    }
+    advanceRecall();
+  }, [verdict, advanceRecall]);
+
   // Chốt kết quả 1 từ: ghi điểm + phát âm + sync SRS.
-  // Đúng → auto-next; sai/gần đúng → hiện đáp án, chờ bấm Tiếp (để đọc kỹ chỗ sai).
+  // Đúng → auto-next với playWordWithBuffer; sai/gần đúng → hiện đáp án, chờ bấm Tiếp (để đọc kỹ chỗ sai).
   const finalizeRecall = useCallback((v: Verdict) => {
     if (!recallWord) return;
     setVerdict(v);
+    setCanSkip(false);
+    canSkipRef.current = false;
+    pendingSkipRef.current = false;
     setResults((p) => ({
       correct: v === 'correct' ? p.correct + 1 : p.correct,
       close: v === 'close' ? p.close + 1 : p.close,
       wrong: v === 'wrong' ? p.wrong + 1 : p.wrong,
     }));
-    speak(recallWord.word, 1.0);
 
     // Ghi SRS (fire-and-forget) → FSRS lên lịch learning step
     authFetch('/api/words/srs', {
@@ -231,6 +277,23 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       invalidateWordSummaryCache(session?.user?.id);
     }).catch((err) => console.error('[Learn] save SRS failed:', err));
 
+    const advance = () => {
+      if (advanceFn.current !== advance) return;
+      advanceRecall();
+    };
+    advanceFn.current = advance;
+
+    if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
+    feedbackLockTimer.current = setTimeout(() => {
+      setCanSkip(true);
+      canSkipRef.current = true;
+      feedbackLockTimer.current = null;
+      if (pendingSkipRef.current) {
+        pendingSkipRef.current = false;
+        advanceFn.current?.();
+      }
+    }, FEEDBACK_LOCK_MS);
+
     if (v === 'correct') {
       try {
         const raw = localStorage.getItem('vocab_station_mastered_words');
@@ -240,10 +303,25 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       } catch {
         /* ignore */
       }
-      advanceTimer.current = setTimeout(goNextRecall, NEXT_DELAY_MS);
+      if (advanceTimer.current) {
+        clearTimeout(advanceTimer.current);
+        advanceTimer.current = null;
+      }
+      // CORRECT: Await pronunciation completion + 400ms buffer before advance
+      void playWordWithBuffer(recallWord.word, 400).then(() => {
+        if (advanceFn.current === advance) {
+          advance();
+        }
+      });
+    } else {
+      // wrong / close: không auto-next — phát âm củng cố, user bấm «Tiếp theo» hoặc Enter/Space
+      speak(recallWord.word, 1.0);
+      if (advanceTimer.current) {
+        clearTimeout(advanceTimer.current);
+        advanceTimer.current = null;
+      }
     }
-    // wrong / close: không auto-next — user bấm «Tiếp theo» hoặc Enter/Space
-  }, [recallWord, goNextRecall]);
+  }, [recallWord, advanceRecall]);
 
   const submitRecall = useCallback(() => {
     if (!recallWord || verdict !== null) return;
@@ -321,17 +399,17 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     return (
       <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
         <div className="space-y-3 text-center">
-          <div className="mb-2 text-6xl">{fromJourney ? '🗺️' : '🎉'}</div>
+          <div className="mb-2 text-6xl">{fromJourney ? '🗺️' : '📚'}</div>
           <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
-            {fromJourney ? 'Chưa mở được gói từ' : 'Hết từ mới rồi!'}
+            {fromJourney ? 'Chưa mở được gói từ' : 'Kho từ của bạn đang trống'}
           </h1>
-          <p className="text-base font-medium text-slate-500 sm:text-lg">
+          <p className="max-w-md text-base font-medium text-slate-500 sm:text-lg">
             {fromJourney
               ? 'Gói đang được chuẩn bị hoặc bạn đã học hết. Quay lại lộ trình để thử lại / sang bước khác.'
-              : 'Bạn đã học hết các từ chưa thuộc. Giờ chuyển sang ôn tập nhé.'}
+              : 'Hãy tra cứu và lưu các từ vựng mới vào kho từ cá nhân để bắt đầu phiên học nhé.'}
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-3">
           {fromJourney ? (
             <Button
               className="h-14 px-7 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
@@ -340,17 +418,18 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               <ChevronLeft className="mr-2 h-5 w-5" /> Về lộ trình
             </Button>
           ) : (
-            <Button variant="outline" className="h-14 px-7 rounded-2xl font-bold border-2" onClick={() => router.push('/student')}>
-              <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
-            </Button>
+            <>
+              <Button
+                className="h-14 px-7 rounded-2xl bg-indigo-600 text-white font-bold shadow-md hover:bg-indigo-700"
+                onClick={() => router.push('/dictionary')}
+              >
+                🔍 Tra & lưu từ ngay
+              </Button>
+              <Button variant="outline" className="h-14 px-7 rounded-2xl font-bold border-2" onClick={() => router.push('/student')}>
+                <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
+              </Button>
+            </>
           )}
-          <Button
-            variant={fromJourney ? 'outline' : 'default'}
-            className="h-14 px-7 rounded-2xl font-bold border-2"
-            onClick={() => router.push(classroomId ? `/flashcard?class=${classroomId}` : '/flashcard')}
-          >
-            <GraduationCap className="mr-2 h-5 w-5" /> Ôn tập ngay
-          </Button>
         </div>
       </div>
     );

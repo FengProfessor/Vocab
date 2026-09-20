@@ -232,7 +232,7 @@ export async function playWordAudio(
 
   // 6) Web Speech robot — chỉ khi request còn là latest
   if (!alive()) return 'tts';
-  speakLocal(text, rate, region === 'UK' ? 'en-GB' : 'en-US');
+  await speakLocal(text, rate, region === 'UK' ? 'en-GB' : 'en-US');
   if (!alive()) {
     silenceSpeech();
     return 'tts';

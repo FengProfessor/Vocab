@@ -125,6 +125,34 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     init();
   }, [initialClassroomId]);
 
+  const loadFreeReview = async () => {
+    setIsLoading(true);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+      const url = classroomId
+        ? `/api/words?classroomId=${classroomId}&limit=40`
+        : `/api/words?limit=40`;
+      const res = await fetch(url, {
+        headers: { Authorization: `Bearer ${session.access_token}` },
+      });
+      const data = await res.json();
+      if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+        const freeQueue: WordItem[] = data.data;
+        setQueue([...freeQueue]);
+        setCurrent(freeQueue[0] || null);
+        setTotal(freeQueue.length);
+        toast.info(`Đã nạp ${freeQueue.length} từ đã lưu để ôn tập tự do!`);
+      } else {
+        toast.error('Chưa có từ nào trong kho từ.');
+      }
+    } catch {
+      toast.error('Không tải được từ vựng.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   // Clean up auto advance timer on unmount
   useEffect(() => {
     return () => {
@@ -335,7 +363,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     );
   }
 
-  if (done || !current) {
+  if (done) {
     const goalReached = gamification.today_xp >= gamification.daily_goal;
     return (
       <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
@@ -397,6 +425,38 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
             <RotateCcw className="mr-2 h-5 w-5" /> Ôn lại
           </Button>
         </div>
+      </div>
+    );
+  }
+
+  if (!current) {
+    return (
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 text-center font-sans">
+        <div className="space-y-3">
+          <div className="text-6xl mb-2">🎉</div>
+          <h1 className="text-3xl font-black text-slate-900 tracking-tight">Hôm nay không có từ đến hạn ôn</h1>
+          <p className="max-w-md text-slate-500 font-medium leading-relaxed">
+            Bạn đã hoàn thành các từ đến hạn theo thuật toán FSRS. Bạn có thể ôn tự do các từ đã lưu để củng cố trí nhớ bất cứ lúc nào!
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
+          <Button
+            onClick={loadFreeReview}
+            className="h-12 w-full rounded-2xl bg-indigo-600 font-bold text-white shadow-md hover:bg-indigo-700"
+          >
+            🔄 Ôn tập tự do (Từ đã lưu)
+          </Button>
+          <Link href="/flashcard?mode=learn" className="w-full">
+            <Button variant="outline" className="h-12 w-full rounded-2xl font-bold border-2">
+              📖 Học từ mới
+            </Button>
+          </Link>
+        </div>
+
+        <Link href="/student" className="text-sm font-semibold text-slate-400 hover:text-slate-600">
+          ← Quay lại Dashboard
+        </Link>
       </div>
     );
   }

@@ -17,6 +17,7 @@ import {
   readWordSummaryCache,
   readLastWordSummaryCache,
   writeWordSummaryCache,
+  WORD_SUMMARY_EVENTS,
 } from '@/lib/word-summary-cache';
 
 export type ShellProfile = Profile & {
@@ -266,7 +267,7 @@ export function useStudentContext() {
   return useContext(StudentContext);
 }
 
-export function StudentProvider({ children }: { children: ReactNode }) {
+function StudentProviderInner({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<ShellProfile | null>(null);
   const [gamification, setGamification] = useState<UserGamification>(DEFAULT_GAMIFICATION);
@@ -445,6 +446,59 @@ export function StudentProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
+  // Optimistic badge event listeners (+1 on save, rollback on error, -1 on review)
+  useEffect(() => {
+    const onWordSaved = () => {
+      setWordSummary((prev) => {
+        const next = {
+          ...prev,
+          total: prev.total + 1,
+          newCount: prev.newCount + 1,
+          dueCount: prev.dueCount + 1,
+        };
+        if (session?.user?.id) writeWordSummaryCache(session.user.id, next);
+        return next;
+      });
+    };
+
+    const onWordSaveRollback = () => {
+      setWordSummary((prev) => {
+        const next = {
+          ...prev,
+          total: Math.max(0, prev.total - 1),
+          newCount: Math.max(0, prev.newCount - 1),
+          dueCount: Math.max(0, prev.dueCount - 1),
+        };
+        if (session?.user?.id) writeWordSummaryCache(session.user.id, next);
+        return next;
+      });
+    };
+
+    const onWordReviewed = () => {
+      setWordSummary((prev) => {
+        const next = {
+          ...prev,
+          reviewDueCount: Math.max(0, prev.reviewDueCount - 1),
+          dueCount: Math.max(0, prev.dueCount - 1),
+        };
+        if (session?.user?.id) writeWordSummaryCache(session.user.id, next);
+        return next;
+      });
+    };
+
+    window.addEventListener(WORD_SUMMARY_EVENTS.SAVED, onWordSaved);
+    window.addEventListener(WORD_SUMMARY_EVENTS.SAVE_ROLLBACK, onWordSaveRollback);
+    window.addEventListener(WORD_SUMMARY_EVENTS.REVIEWED, onWordReviewed);
+    window.addEventListener('lingo_word_saved', onWordSaved);
+
+    return () => {
+      window.removeEventListener(WORD_SUMMARY_EVENTS.SAVED, onWordSaved);
+      window.removeEventListener(WORD_SUMMARY_EVENTS.SAVE_ROLLBACK, onWordSaveRollback);
+      window.removeEventListener(WORD_SUMMARY_EVENTS.REVIEWED, onWordReviewed);
+      window.removeEventListener('lingo_word_saved', onWordSaved);
+    };
+  }, [session?.user?.id]);
+
   const value = useMemo<StudentContextValue>(
     () => ({
       session,
@@ -471,4 +525,12 @@ export function StudentProvider({ children }: { children: ReactNode }) {
   );
 
   return <StudentContext.Provider value={value}>{children}</StudentContext.Provider>;
+}
+
+export function StudentProvider({ children }: { children: ReactNode }) {
+  const existing = useContext(StudentContext);
+  if (existing) {
+    return <>{children}</>;
+  }
+  return <StudentProviderInner>{children}</StudentProviderInner>;
 }

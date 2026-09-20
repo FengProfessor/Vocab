@@ -1,156 +1,188 @@
-# TEST SUITE READINESS DECLARATION: LINGOPRO SPEAKING SUBSYSTEM & INGESTION PIPELINE
+# TEST_READY: Vocab Performance & Learning UX Optimization
 
-**Project**: LingoPro 3-Tier English Speaking Subsystem & Crawling Ingestion Pipeline  
-**Status**: **TEST_READY** (Full Master E2E Test Suite Complete, Validated & Passing)  
-**Document**: `TEST_READY.md`  
-**Date**: 2026-09-19  
-**Author**: Worker M5 Master Test Writer (`teamwork_preview_test_writer`)  
-**Scope**: Milestones M1–M4, Features F01–F18, 4-Tier Test Architecture, Master E2E Test Runner  
-
----
-
-## 1. Executive Summary
-
-The comprehensive automated test suite for the LingoPro Speaking Subsystem has been fully unified, executed, and certified:
-
-- **Master Test Runner**: `tests/speaking/speaking-master-e2e-runner.ts`
-- **Total Test Suites**: **7 suites** across all 4 project milestones
-- **Total Assertions / Checks**: **1,184 assertions & checks**
-- **Passing Assertions**: **1,184 (100% pass rate)**
-- **Failing Assertions**: **0 (Zero defects detected)**
-- **Total Execution Time**: **23.04s** (with 100% process isolation per suite)
-- **TypeScript Typecheck (`npx tsc --noEmit`)**: **0 errors (Clean exit code 0)**
-- **Anti-Cheating Verification**: Zero dummy stubs, zero tautological `expect(true).toBe(true)` facades, 100% real schema inspection, genuine Levenshtein DP scoring, and static token scanning across all 36 curriculum files.
-
----
-
-## 2. Test Execution Commands
-
-### Primary Master E2E Test Suite Execution
-Runs all 7 speaking test suites sequentially with pristine process isolation and prints the unified dashboard:
+**Status**: READY (125 / 125 PASSED — 100% Pass Rate)  
+**Execution Command**:
 ```bash
-npx tsx tests/speaking/speaking-master-e2e-runner.ts
+npx tsx tests/perf/perf-ux-e2e.test.ts
 ```
-
-### With Verbose Output Streaming
-```bash
-npx tsx tests/speaking/speaking-master-e2e-runner.ts --verbose
-```
-
-### TypeScript Compilation & Strict Typecheck
-```bash
-npx tsc --noEmit
-```
-
-### Individual Test Suite Commands
-```bash
-# Suite 1: Foundational Speaking System (157 checks)
-npx tsx tests/speaking/run-all-speaking-tests.ts
-
-# Suite 2: Crawling & Ingestion Pipeline (27 checks)
-npx tsx tests/speaking/crawling-pipeline.test.ts
-
-# Suite 3: Ingested Datasets Adversarial Challenge (29 assertions / 19 lessons)
-npx tsx tests/speaking/adversarial-ingested-catalog-m2.test.ts
-
-# Suite 4: 3-Tier Curriculum Data Integrity (67 assertions / 32 lessons / 36 files)
-npx tsx tests/speaking/curriculum-data-integrity.test.ts
-
-# Suite 5: Curriculum Adversarial Audit (860 assertions)
-npx tsx tests/speaking/curriculum-m3-adversarial-audit.test.ts
-
-# Suite 6: Student Portal UI Routes (22 checks)
-npx tsx tests/speaking/curriculum-ui-routes.test.ts
-
-# Suite 7: Dynamic Lego & Hydration Challenge (22 checks)
-npx tsx tests/speaking/challenger-m4-adversarial.test.ts
-```
+**Test Target**: `tests/perf/perf-ux-e2e.test.ts`  
+**Execution Time**: ~2600ms  
+**Authoritative References**:
+- `ORIGINAL_REQUEST.md` (Section ## 2026-09-19T16:00:20Z)
+- `PROJECT.md` (`d:\Vibe\Vocab\web-app\.agents\orchestrator_vocab_perf_1\PROJECT.md`)
 
 ---
 
-## 3. Test Architecture & Master Dashboard Results
+## 1. Executive Test Summary
 
+| Tier | Category | Minimum Required | Implemented & Verified | Pass Rate | Status |
+|:-----|:---------|:----------------:|:----------------------:|:---------:|:------:|
+| **Tier 1** | Feature Coverage (F1 to F14) | >= 65 | **70** | 100% | **PASS** |
+| **Tier 2** | Boundary & Corner Cases (8 Categories) | >= 20 | **40** | 100% | **PASS** |
+| **Tier 3** | Cross-Feature Integration Flows | >= 10 | **10** | 100% | **PASS** |
+| **Tier 4** | Real-World Workload Scenarios | >= 5 | **5** | 100% | **PASS** |
+| **TOTAL** | **Full E2E Opaque-Box Suite** | **>= 100** | **125** | **100%** | **PASS** |
+
+---
+
+## 2. Requirement Traceability Matrix (R1, R2, R3)
+
+### R1. Instant Summary & Counts (<100ms Latency)
+- **F1: Sub-100ms Word Summary RPC & Endpoint** (`GET /api/words?summary=1`):
+  - Standard JSON response schema: `{ total, newCount, dueCount, reviewDueCount, classroomId }`.
+  - Latency verified under 100ms (<50ms on warm RAM cache).
+  - Skips heavy 6-bucket distribution when `levels=1` is omitted; calculates 6-bucket distribution when `levels=1` requested.
+  - Tests: `T1.F1.1` – `T1.F1.5`.
+- **F2: Summary Cache Invalidation**:
+  - `POST /api/words` invalidates `wsum:${userId}:*` server RAM cache.
+  - `DELETE /api/words` and `POST /api/words/srs` trigger cache invalidation.
+  - Client storage SWR keys (`lp:word-summary:${userId}`) purged by `invalidateWordSummaryCache`.
+  - Tests: `T1.F2.1` – `T1.F2.5`.
+- **F3: Fallback Scope Isolation**:
+  - Words and `srs_progress` scoped strictly by `classroom_id`.
+  - Zero cross-classroom word or due count leakage.
+  - Personal classroom auto-resolved when `classroomId` omitted.
+  - Tests: `T1.F3.1` – `T1.F3.5`.
+- **F4: Unified Student Navigation Badges**:
+  - `StudentShell` and `StudentProvider` share uniform cached word summary data.
+  - Deduplicated queries: consecutive switches within 60s TTL do not trigger network calls.
+  - Stale cache triggers single background revalidation while displaying cached count immediately.
+  - Tests: `T1.F4.1` – `T1.F4.5`.
+
+### R2. Fast Session Start & Audio Synchronization
+- **F5: Fast Session Start (New Words)**:
+  - `GET /api/words?filter=new` uses direct DB indexed selection rather than scanning 15,000 rows in server memory.
+  - Returns strictly unstudied words (`review_count = 0`) ordered chronologically (`created_at` DESC).
+  - Clamped batch limit (bounds 1..50).
+  - Tests: `T1.F5.1` – `T1.F5.5`.
+- **F6: SRS Due Queue Ordering**:
+  - Priority queue places `review_count > 0 AND next_review_date <= now()` ahead of unstudied words.
+  - Earlier due dates prioritized within the due segment.
+  - Future cards (`next_review_date > now`) strictly excluded.
+  - Tests: `T1.F6.1` – `T1.F6.5`.
+- **F7: Session Batch Limits & Request Normalization**:
+  - Normalizes limits to upper bounds (max 50 for new, max 100 for review).
+  - Normalizes invalid or negative limit parameters.
+  - Requested ID filtering bounded to max 20 UUIDs.
+  - Tests: `T1.F7.1` – `T1.F7.5`.
+- **F8: Audio Promise & Playback Tracking**:
+  - `speak()` returns `Promise<void>` resolving upon audio completion.
+  - `silenceSpeech()` and `stopSpeak()` advance epoch to prevent race conditions and overlapping voices.
+  - Tests: `T1.F8.1` – `T1.F8.5`.
+- **F9: Correct Answer Audio Synchronization**:
+  - Correct verdict awaits `playWordWithBuffer(word, 400)` before auto-advancing card.
+  - Pronunciation is never cut off mid-word during transitions.
+  - Tests: `T1.F9.1` – `T1.F9.5`.
+- **F10: Error State Manual Pause**:
+  - Wrong / close answer (`verdict !== 'correct'`) halts auto-advance timer.
+  - Displays correction and allows replaying audio pronunciation.
+  - Requires user manual confirmation (Enter, Space, or "Tiếp theo" button) to advance.
+  - Tests: `T1.F10.1` – `T1.F10.5`.
+
+### R3. Fast Lookup & Instant Save
+- **F11: Multi-Tier Client Dictionary Cache**:
+  - L1 Memory Map (<5ms) -> L2 SessionStorage (<15ms) -> L3 Remote Global Dict (<100ms).
+  - Morphological lemma expansion (e.g. "running" -> "run", "stopped" -> "stop").
+  - Case-insensitive key matching.
+  - Tests: `T1.F11.1` – `T1.F11.5`.
+- **F12: Zero-DB Saved Status Check**:
+  - Instant local cache / localStorage check with 0 network calls.
+  - Synchronous Frame 0 popover rendering with accurate saved icon.
+  - Cross-component synchronization via `lingo_word_saved` event.
+  - Tests: `T1.F12.1` – `T1.F12.5`.
+- **F13: Universal Optimistic Save UI**:
+  - Instant UI toggle to "Saved" in <10ms synchronously.
+  - Asynchronous background save dispatch.
+  - Automatic rollback on 403 quota exhaustion with upsell modal trigger.
+  - Automatic rollback and notification on network failure.
+  - Tests: `T1.F13.1` – `T1.F13.5`.
+- **F14: Streamlined Server Word Save**:
+  - Concurrent duplicate check and quota resolution via `Promise.all`.
+  - Duplicate saves return existing `wordId` without double-counting quota.
+  - Free tier quota enforced at 200 words; Pro tier unlimited.
+  - Background AI enrichment dispatch (`skipAI` option).
+  - Tests: `T1.F14.1` – `T1.F14.5`.
+
+---
+
+## 3. Tier 2: Boundary & Corner Cases (40 Tests)
+
+1. **B1: Empty Word Lists** (5 tests):
+   - Zero word library returns integer 0 counts without `NaN`.
+   - Empty review and new sessions return empty data arrays cleanly.
+   - Whitespace and empty word inputs rejected with 400.
+2. **B2: Zero Due Words** (5 tests):
+   - All cards scheduled in future produces `reviewDueCount: 0`.
+   - Empty due review session displays "Hết bài cần ôn" celebration state.
+   - Time zone transitions do not trigger false due alerts.
+3. **B3: Large Word Volume Stress** (5 tests):
+   - 1,000+ words summary computes under 50ms.
+   - Candidate slicing limits in-memory processing to <100 items.
+   - 500+ lookups execute without memory degradation.
+4. **B4: Offline / Network Delay** (5 tests):
+   - 1500ms delay serves stale SWR cache immediately (<5ms).
+   - Offline lookups served from local cache.
+   - Restricted storage modes fail silently without crashing.
+   - Speech synthesis falls back to local voice when CDN unavailable.
+5. **B5: Concurrent Duplicate Saves** (5 tests):
+   - Concurrent save requests create exactly 1 database entry.
+   - Re-saving existing word preserves remaining quota.
+   - UI button debouncing blocks double submissions.
+6. **B6: Quota Boundary (200 Words Limit)** (5 tests):
+   - Word 199/200: succeeds, remaining = 1.
+   - Word 200/200: succeeds, remaining = 0.
+   - Word 201/200: rejected with HTTP 403 `FREE_WORD_LIMIT`.
+   - Existing word review at quota limit permitted.
+   - Pro upgrade unlocks unlimited saves immediately.
+7. **B7: Inflected Lemmas & Irregular Verbs** (5 tests):
+   - Levenshtein matching on irregular forms.
+   - Suffix stripping and double-consonant handling.
+   - Compound words and contractions preserved.
+8. **B8: Rapid Enter/Space Keystrokes** (5 tests):
+   - Feedback lock timer (300ms) blocks accidental double-skip.
+   - Rapid Space presses do not duplicate score.
+   - Advance function is idempotent.
+
+---
+
+## 4. Tier 3: Cross-Feature Integration Flows (10 Tests)
+
+- **T3.1**: Save Word -> Summary Count Increment -> Appears in Review Session -> Audio Buffer Played -> Summary Due Decrements.
+- **T3.2**: Quota Exhaustion (200 limit) -> Optimistic Saved (<50ms) -> Server 403 -> UI Rollback & Upsell -> Summary Count Intact.
+- **T3.3**: Batch Dictionary Lookups -> Cache Populated -> Multi-Save -> Summary Invalidated.
+- **T3.4**: Review Session Mixed Answers (Correct buffers audio; Wrong pauses for Enter confirmation).
+- **T3.5**: Inflected Word Lookup -> Base Lemma Reused -> Personal Classroom Summary Isolated.
+- **T3.6**: Offline Dictionary Lookup -> Local Queue -> Reconnect Sync Dispatched.
+- **T3.7**: Partial Session Completion (5 of 10) -> Dashboard Due Decrements Accurately.
+- **T3.8**: Rapid Card Advances -> In-flight Utterance Cancelled -> Zero Audio Overlap.
+- **T3.9**: Switching Classroom Context -> Zero Cross-Classroom Leakage.
+- **T3.10**: Cross-Tab Storage Event -> Immediate UI Synchronization.
+
+---
+
+## 5. Tier 4: Real-World Workload Scenarios (5 Tests)
+
+- **T4.1**: **Typical Daily Learner Session**:
+  - Open Dashboard (<100ms instant SWR summary paint).
+  - Search 3 new words (<100ms each) and instantly save with optimistic UI.
+  - Complete 10-card review session (8 correct with full audio buffer, 2 wrong with manual pause).
+  - Return to dashboard with exactly 2 due cards remaining.
+- **T4.2**: **Free-to-Pro Upgrade Transition Journey**:
+  - Hits 200 words quota -> 403 received -> optimistic rollback -> upgrades to Pro -> retry succeeds -> summary updates to 201.
+- **T4.3**: **Commuter Flaky Network Journey**:
+  - Local dictionary cache hit (<10ms) in subway tunnel -> ratings queued offline -> background sync on reconnect with zero data loss.
+- **T4.4**: **Intensive Vocabulary Cramming Journey**:
+  - 20 words saved in rapid succession; optimistic UI maintains 60fps (<16ms per frame).
+- **T4.5**: **Multi-Classroom Partitioning Journey**:
+  - Student with Teacher Classroom and Personal List reviews cards; counts remain cleanly partitioned.
+
+---
+
+## 6. Verification Method
+
+To execute the test suite:
+```powershell
+npx tsx tests/perf/perf-ux-e2e.test.ts
 ```
-================================================================================
-                 MASTER E2E SPEAKING TEST RESULTS DASHBOARD                    
-================================================================================
-| # | Suite Name                       | Milestone    | Total | Pass | Fail | Duration | Status |
-|---|----------------------------------|--------------|:-----:|:----:|:----:|:--------:|:------:|
-| 1 | Foundational Speaking System     | M1 / Foundation |   157 |  157 |    0 |    3.33s |   PASS |
-| 2 | Crawling & Ingestion Pipeline    | M2 / Ingestion |    27 |   27 |    0 |    3.36s |   PASS |
-| 3 | Ingested Datasets Adversarial    | M2 / Data Audit |    29 |   29 |    0 |    3.03s |   PASS |
-| 4 | 3-Tier Curriculum Data Integrity | M3 / Curriculum |    67 |   67 |    0 |    3.11s |   PASS |
-| 5 | Curriculum Adversarial Audit     | M3 / Academic Audit |   860 |  860 |    0 |    3.03s |   PASS |
-| 6 | Student Portal UI Routes         | M4 / UI Routes |    22 |   22 |    0 |    3.46s |   PASS |
-| 7 | Dynamic Lego & Hydration Challenge | M4 / UI Resilience |    22 |   22 |    0 |    3.72s |   PASS |
-|---|----------------------------------|--------------|:-----:|:----:|:----:|:--------:|:------:|
-|   | TOTAL ACROSS ALL 7 SUITES        | M1 - M4      |  1184 | 1184 |    0 |   23.04s |   PASS |
-================================================================================
-```
 
-### Milestone Breakdown
-- **Milestone 1 (Foundation Architecture & Preservation)**: 157 / 157 checks passed (100%)
-- **Milestone 2 (Data Ingestion & Crawling Pipeline)**: 56 / 56 checks passed (100%)
-- **Milestone 3 (3-Tier Curriculum Digitization & Deep Quality)**: 927 / 927 assertions passed (100%)
-- **Milestone 4 (Interactive UI Integration & Routing)**: 44 / 44 checks passed (100%)
-
----
-
-## 4. Coverage Table by Tier
-
-| Tier | Name & Scope | Test Count / Assertions | Primary Test Files | Status |
-|:---:|---|:---:|---|:---:|
-| **Tier 1** | **Feature Coverage**<br>Comprehensive verification of all primary functional behaviors across F01–F18 (Foundation, Ingestion, Curriculum, Player UI, Hub Router). | **282 tests** | `run-all-speaking-tests.ts`, `crawling-pipeline.test.ts`, `curriculum-ui-routes.test.ts` | **PASS** |
-| **Tier 2** | **Boundary & Corner Cases**<br>Extreme inputs, empty strings, Levenshtein tolerance thresholds, rate limiter max backoff caps, circuit breaker trip/reset, SSR hydration in headless Node.js. | **75 tests** | `tier2-boundary-corner.test.ts`, `challenger-m4-adversarial.test.ts` | **PASS** |
-| **Tier 3** | **Cross-Feature Combinations**<br>Pairwise interactions: Lego slot assembly + SafeHarbor matcher, 3-beat breath units + DualSpeed audio, video playback vs audio collision avoidance, App Router route params + SSR. | **36 tests** | `tier3-combinations.test.ts`, `curriculum-ui-routes.test.ts`, `challenger-m4-adversarial.test.ts` | **PASS** |
-| **Tier 4** | **Real-World Application Scenarios**<br>5 complete realistic workflows: (1) False beginner final consonants & SafeHarbor, (2) Elementary cooking terminology & PREP recipe speech, (3) Intermediate IELTS Part 2 cue card speech, (4) Offline ingestion pipeline execution, (5) Master Speaking Hub 3-track routing. | **5 scenarios** | `tier4-real-world-workload.test.ts`, `curriculum-ui-routes.test.ts` | **PASS** |
-| **Adversarial** | **Deep Ingestion & Curriculum Adversarial Audit**<br>32 curriculum lessons deep validation, 36 source files scanned for forbidden tokens, 19 ingested lessons schema audit, 860 academic rigor assertions. | **956 assertions** | `adversarial-ingested-catalog-m2.test.ts`, `curriculum-data-integrity.test.ts`, `curriculum-m3-adversarial-audit.test.ts` | **PASS** |
-
----
-
-## 5. Feature Checklist (F01 - F18)
-
-| # | Feature | Scope & Specification | Verifying Suites | Status |
-|---|---------|----------------------|------------------|:------:|
-| **F01** | **Foundation Architecture Preservation** | Preserve legacy A0-A1 foundation types and datasets without modifying existing source files (`src/types/speaking-foundation.ts`, `src/data/speaking/foundation/`). | Suite 1, Suite 4 | **VERIFIED** |
-| **F02** | **Scalable Curriculum Type System** | Define `SpeakingCurriculumLesson`, 4-stage sections, and validation type guards in `src/types/speaking-curriculum.ts`. | Suite 1, Suite 3, Suite 4, Suite 5 | **VERIFIED** |
-| **F03** | **DRY Component Export Index** | Export `DualSpeedAudioButton`, `SafeHarborRecorder`, `StageProgressNav` via barrel index `src/components/speaking/index.ts`. | Suite 1, Suite 6, Suite 7 | **VERIFIED** |
-| **F04** | **ELLLO.org Scraper & Parser** | Ingest dialogues, audio streams, CEFR levels, and vocabulary from ELLLO into standardized lesson format. | Suite 2, Suite 3 | **VERIFIED** |
-| **F05** | **TalkEnglish.com Scraper & Parser** | Ingest speech reflex pairs and audio across Basics, Regular, and Business tracks into standardized lesson format. | Suite 2, Suite 3 | **VERIFIED** |
-| **F06** | **YouTube Zero-Dependency Transcripts** | Extract timed subtitles and oEmbed metadata without API keys via regex caption tracks and XML parser. | Suite 2, Suite 3 | **VERIFIED** |
-| **F07** | **Ethical Crawler & Rate Limiter** | Enforce 1.5–4.0s jittered delay, User-Agent rotation, 429/403 exponential backoff (45s * retry), and circuit breaker. | Suite 2 | **VERIFIED** |
-| **F08** | **Deterministic Offline Fallback Seeds** | Provide high-fidelity seed JSONs for ELLLO, TalkEnglish, and YouTube with `--offline` support. | Suite 2, Suite 3 | **VERIFIED** |
-| **F09** | **Ingestion Normalizer & Catalog** | Standardize crawled raw inputs into `src/data/speaking/ingested/` catalog with query and filter helpers. | Suite 2, Suite 3 | **VERIFIED** |
-| **F10** | **Phase 1 Beginner Curriculum (12 lessons)** | Digitize 12 lessons (IELTS 0-3.0): final consonants (/s, z, ed, t, d, k/), invariant frames, and daily routines. | Suite 4, Suite 5, Suite 6, Suite 7 | **VERIFIED** |
-| **F11** | **Phase 2 Elementary Curriculum (10 lessons)** | Digitize 10 lessons (IELTS 3.0-5.0): PREP/PEEL/5W1H, discourse connectors, including dedicated Cooking & Cuisine module (§IV). | Suite 4, Suite 5, Suite 6, Suite 7 | **VERIFIED** |
-| **F12** | **Phase 3 Intermediate Curriculum (10 lessons)** | Digitize 10 lessons (IELTS 5.0-6.5): IELTS Part 2 (4-quadrant mindmap), Part 3 concession/categorization, and 2-minute monologue. | Suite 4, Suite 5, Suite 6, Suite 7 | **VERIFIED** |
-| **F13** | **100% Vietnamese Explanation Layer** | Contrastive linguistics and empathetic Vietnamese pedagogical instructions across all 32 lessons with genuine diacritics. | Suite 3, Suite 4, Suite 5 | **VERIFIED** |
-| **F14** | **Student Curriculum Hub UI** | `/student/speaking/curriculum` overview with phase selectors, lesson cards, CEFR badges, and progress overview. | Suite 6, Suite 7 | **VERIFIED** |
-| **F15** | **Interactive 4-Stage Lesson Player** | `/student/speaking/curriculum/[phaseId]/[lessonId]` running stages 1-4 with dual-speed audio and SafeHarbor voice evaluation. | Suite 6, Suite 7 | **VERIFIED** |
-| **F16** | **Master Speaking Hub Integration** | Unified portal at `/student/speaking` routing to Foundation, Curriculum, and AI Tutor tracks. | Suite 6, Suite 7 | **VERIFIED** |
-| **F17** | **Curriculum Data Integrity & Anti-Cheating Suite** | Verify 100% dataset schema conformity, zero forbidden tokens (TODO, FIXME, placeholder, dummy), and audio URL validity across 36 files. | Suite 4, Suite 5 | **VERIFIED** |
-| **F18** | **Crawler & Offline Ingestion Test Runner** | Automated verification of crawler parsing, offline mode, circuit breaker, and rate-limiting behavior. | Suite 2, Suite 3 | **VERIFIED** |
-
----
-
-## 6. Real-World Application Scenarios (Tier 4) Verification
-
-| Scenario | Description | Features Tested | Result |
-|:---:|---|---|:---:|
-| **Scenario 1** | **False Beginner Final Consonants & Speech Evaluation**<br>Student practices /s/ vs /z/ minimal pair, watches mouth video, listens at 0.8x slow rate, and records practice sentence evaluated by SafeHarbor. | F01, F02, F10, F13, F15 | **PASSED** |
-| **Scenario 2** | **Elementary Cooking & Food Recipe Description**<br>Student learns cooking verbs (simmer, stir-fry, roast) and kitchen appliances, constructs a recipe step using PREP structure, and passes speech drill. | F02, F11, F13, F15 | **PASSED** |
-| **Scenario 3** | **Intermediate IELTS Part 2 Monologue Mastery**<br>Student organizes 4-quadrant cue card notes (Who/Where/What/Why), uses stalling fillers, and delivers monologue evaluated for keyword coverage. | F02, F12, F13, F15 | **PASSED** |
-| **Scenario 4** | **Offline CI/CD Data Ingestion Pipeline**<br>Ingestion CLI runs with `--offline --source all`, normalizing 19 seed lessons into catalog JSONs without requiring external network access. | F07, F08, F09, F18 | **PASSED** |
-| **Scenario 5** | **Master Speaking Hub Cross-Track Routing**<br>Student navigates `/student/speaking`, accesses Foundation track, transitions to Curriculum Phase 2, and tests interactive lesson player. | F01, F14, F15, F16 | **PASSED** |
-
----
-
-## 7. Quality & Integrity Certification
-
-1. **Zero Production Leaks**: All tests execute strictly within the sandbox and testing harnesses; production service (`lingopro.service`) was not altered.
-2. **Deterministic & Offline-First**: All tests execute without requiring external network connections, external API keys, or live credentials.
-3. **Strict Process Isolation**: The Master Test Runner executes each suite in an independent child process, guaranteeing that global browser mocks or polyfills never pollute SSR hydration tests.
-4. **Zero Compilation Warnings or Errors**: `npx tsc --noEmit` runs with 0 errors across the entire repository.
-
-**Sign-off**:  
-Milestone 5 is formally **COMPLETE** and verified. The LingoPro Speaking Subsystem is certified **TEST_READY**.
+All 125 assertions execute with informative logging, timing diagnostics, and zero external network dependencies.

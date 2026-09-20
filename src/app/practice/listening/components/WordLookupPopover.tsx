@@ -7,6 +7,7 @@ import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
 import { tokenizeSentence, type WordToken } from '@/lib/listening-utils';
 import type { CoreVocabulary } from '@/types/listening';
+import { notifyWordSavedOptimistic, notifyWordSaveRollback } from '@/lib/word-summary-cache';
 
 export interface WordLookupPopoverProps {
   sentence: string;
@@ -229,8 +230,26 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
     e.stopPropagation();
     if (!selectedWord || isSaving) return;
 
-    setIsSaving(true);
     const wordKey = selectedWord.word.toLowerCase();
+
+    // 1. OPTIMISTIC UI: Cập nhật giao diện ngay lập tức (<10ms)
+    try {
+      const localWords: string[] = JSON.parse(localStorage.getItem('lingo_saved_words') || '[]');
+      if (!localWords.includes(wordKey)) {
+        localWords.push(wordKey);
+        localStorage.setItem('lingo_saved_words', JSON.stringify(localWords));
+      }
+    } catch {}
+    setSavedWordsMap((prev) => ({ ...prev, [wordKey]: true }));
+    setSelectedWord((prev) => (prev ? { ...prev, isSaved: true } : null));
+    notifyWordSavedOptimistic();
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(
+        new CustomEvent('lingo_word_saved', { detail: { word: wordKey } })
+      );
+    }
+
+    setIsSaving(true);
 
     try {
       const { data: { session } } = await supabase.auth.getSession();
@@ -246,51 +265,26 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
           }),
         });
 
-        if (res.ok) {
-          try {
-            const localWords: string[] = JSON.parse(localStorage.getItem('lingo_saved_words') || '[]');
-            if (!localWords.includes(wordKey)) {
-              localWords.push(wordKey);
-              localStorage.setItem('lingo_saved_words', JSON.stringify(localWords));
-            }
-          } catch {}
-          setSavedWordsMap((prev) => ({ ...prev, [wordKey]: true }));
-          setSelectedWord((prev) => (prev ? { ...prev, isSaved: true } : null));
-          if (typeof window !== 'undefined') {
-            window.dispatchEvent(
-              new CustomEvent('lingo_word_saved', { detail: { word: wordKey } })
-            );
+        if (!res.ok) {
+          const json = await res.json().catch(() => ({}));
+          // Rollback on quota exceeded or failure
+          if (res.status === 403 || json.error === 'FREE_WORD_LIMIT') {
+            setSavedWordsMap((prev) => {
+              const next = { ...prev };
+              delete next[wordKey];
+              return next;
+            });
+            setSelectedWord((prev) => (prev ? { ...prev, isSaved: false } : null));
+            notifyWordSaveRollback();
+            try {
+              const { requestUpsell, upsellFromWordLimitError } = await import('@/lib/upsell');
+              requestUpsell(upsellFromWordLimitError(json));
+            } catch {}
           }
-          return;
         }
-      }
-
-      // Guest / offline fallback: persist to localStorage
-      try {
-        const localWords: string[] = JSON.parse(localStorage.getItem('lingo_saved_words') || '[]');
-        if (!localWords.includes(wordKey)) {
-          localWords.push(wordKey);
-          localStorage.setItem('lingo_saved_words', JSON.stringify(localWords));
-        }
-      } catch {
-        // Ignore localStorage error
-      }
-      setSavedWordsMap((prev) => ({ ...prev, [wordKey]: true }));
-      setSelectedWord((prev) => (prev ? { ...prev, isSaved: true } : null));
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(
-          new CustomEvent('lingo_word_saved', { detail: { word: wordKey } })
-        );
       }
     } catch (err) {
-      console.error('Failed to save word:', err);
-      setSavedWordsMap((prev) => ({ ...prev, [wordKey]: true }));
-      setSelectedWord((prev) => (prev ? { ...prev, isSaved: true } : null));
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(
-          new CustomEvent('lingo_word_saved', { detail: { word: wordKey } })
-        );
-      }
+      console.error('Failed to sync save word:', err);
     } finally {
       setIsSaving(false);
     }

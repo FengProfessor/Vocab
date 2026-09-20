@@ -4,7 +4,7 @@ import { mapQualityToRating } from '@/lib/srs';
 import { scheduleNext } from '@/lib/fsrs';
 import { XP_BY_QUALITY } from '@/lib/gamification';
 import { getAuthUser, unauthorized, isValidString, safeErrorResponse } from '@/lib/api-security';
-import { cacheGet, cacheSet } from '@/lib/ttl-cache';
+import { cacheGet, cacheSet, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 
 /**
  * Mirror student progress to enrolled classrooms and personal classroom in background.
@@ -157,6 +157,7 @@ async function mirrorSrsProgress(
         }, { onConflict: 'user_id,word_id' });
       }
     }
+    invalidateServerWordSummaryCache(userId);
   } catch (mirrorErr) {
     console.warn('[SRS] Failed to mirror progress:', mirrorErr);
   }
@@ -247,6 +248,9 @@ export async function POST(req: Request) {
     if (error) {
       return safeErrorResponse(error, 'Failed to save progress');
     }
+
+    // Purge server word summary RAM cache so next summary query reflects review changes immediately
+    invalidateServerWordSummaryCache(userId);
 
     // Background mirroring and side-effects — does NOT block the HTTP response!
     void mirrorSrsProgress(supabase, userId, word, newSRS);

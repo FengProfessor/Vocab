@@ -104,3 +104,60 @@ export function invalidateWordSummaryCache(userId?: string | null): void {
     // silent
   }
 }
+
+export const WORD_SUMMARY_EVENTS = {
+  SAVED: 'lp:word_saved_optimistic',
+  SAVE_ROLLBACK: 'lp:word_save_rollback',
+  REVIEWED: 'lp:word_reviewed_optimistic',
+} as const;
+
+export function notifyWordSavedOptimistic(userId?: string | null): void {
+  const cached = userId ? readWordSummaryCache(userId) : readLastWordSummaryCache();
+  if (cached) {
+    const updated: WordSummaryCache = {
+      ...cached,
+      total: cached.total + 1,
+      newCount: cached.newCount + 1,
+      dueCount: (cached.dueCount ?? cached.reviewDueCount + cached.newCount) + 1,
+      ts: Date.now(),
+    };
+    if (userId) writeWordSummaryCache(userId, updated);
+  }
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(WORD_SUMMARY_EVENTS.SAVED));
+  }
+}
+
+export function notifyWordSaveRollback(userId?: string | null): void {
+  const cached = userId ? readWordSummaryCache(userId) : readLastWordSummaryCache();
+  if (cached) {
+    const updated: WordSummaryCache = {
+      ...cached,
+      total: Math.max(0, cached.total - 1),
+      newCount: Math.max(0, cached.newCount - 1),
+      dueCount: Math.max(0, (cached.dueCount ?? 1) - 1),
+      ts: Date.now(),
+    };
+    if (userId) writeWordSummaryCache(userId, updated);
+  }
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(WORD_SUMMARY_EVENTS.SAVE_ROLLBACK));
+  }
+}
+
+export function notifyWordReviewedOptimistic(userId?: string | null): void {
+  const cached = userId ? readWordSummaryCache(userId) : readLastWordSummaryCache();
+  if (cached) {
+    const updated: WordSummaryCache = {
+      ...cached,
+      reviewDueCount: Math.max(0, cached.reviewDueCount - 1),
+      dueCount: Math.max(0, (cached.dueCount ?? 1) - 1),
+      ts: Date.now(),
+    };
+    if (userId) writeWordSummaryCache(userId, updated);
+  }
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(WORD_SUMMARY_EVENTS.REVIEWED));
+  }
+}
+
