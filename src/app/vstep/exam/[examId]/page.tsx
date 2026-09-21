@@ -72,6 +72,7 @@ function VstepExamPageInner() {
   // Đồng hồ đếm ngược
   const [timeLeft, setTimeLeft] = useState<number>(172 * 60);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const submissionStartedRef = useRef<boolean>(false);
   const [submitModalOpen, setSubmitModalOpen] = useState<boolean>(false);
 
   // Màn hình kết quả
@@ -369,7 +370,8 @@ function VstepExamPageInner() {
   };
 
   const submitExam = async () => {
-    if (isSubmitting || !exam) return;
+    if (submissionStartedRef.current || isSubmitting || !exam) return;
+    submissionStartedRef.current = true;
     setIsSubmitting(true);
     setSubmitModalOpen(false);
 
@@ -390,6 +392,7 @@ function VstepExamPageInner() {
       const data = await res.json();
       if (!data.success) {
         toast.error(data.error || 'Có lỗi khi nộp bài.');
+        submissionStartedRef.current = false;
         setIsSubmitting(false);
         return;
       }
@@ -468,6 +471,7 @@ function VstepExamPageInner() {
     } catch (err) {
       console.error('Lỗi nộp bài:', err);
       toast.error('Không thể kết nối máy chủ để nộp bài.');
+      submissionStartedRef.current = false;
     } finally {
       setIsSubmitting(false);
     }

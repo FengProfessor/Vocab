@@ -101,7 +101,8 @@ export async function GET(request: NextRequest) {
         );
       }
 
-      const sessionToken = generateVstepSessionToken(clientIp, practiceExam.id);
+      // Phiên thi được nộp bằng ID trên URL, dù nội dung là bộ luyện tập nội bộ.
+      const sessionToken = generateVstepSessionToken(clientIp, testId || practiceExam.id);
 
       return NextResponse.json({
         success: true,
@@ -227,7 +228,8 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const sessionToken = generateVstepSessionToken(clientIp, practiceExam.id);
+      // Giữ ID phiên khớp với testId mà client gửi lại khi nộp bài.
+      const sessionToken = generateVstepSessionToken(clientIp, testId || practiceExam.id);
 
       return NextResponse.json({
         success: true,
