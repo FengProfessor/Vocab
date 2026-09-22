@@ -646,7 +646,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     }
 
     // ── Stage 1: Fast Local Dictionary Check (Không chặn network ngoài trên foreground) ──
-    let dictData: DictionaryData | null = null;
+    const dictData: DictionaryData | null = null;
 
     if (needsGdLookup) {
       const gdData = (gdRes.data?.data ?? null) as GdData | null;
@@ -777,8 +777,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       classroomId = await getOrCreatePersonalClassroom(supabase, userId);
     }
 
-    // ── Chế độ REVIEW: từ ĐÃ học & ĐẾN HẠN + từ MỚI chưa học (cap theo limit, default 100) ──
-    // Từ mới (chưa có srs_progress) cũng được trộn vào để HS tạo từ xong ôn ngay.
+    // ── Chế độ REVIEW: chỉ từ ĐÃ học & ĐẾN HẠN. Từ mới thuộc filter=new/LearnMode. ──
     if (filter === 'review') {
       const reviewCap = Math.min(limit, 100);
 
@@ -848,8 +847,9 @@ export async function GET(req: Request): Promise<NextResponse> {
       const nowIso = new Date().toISOString();
       const { data: dueSrs, error: dueErr } = await supabase
         .from('srs_progress')
-        .select('word_id, user_id, next_review_date, review_count, stability, difficulty, ease_factor, interval_days, last_reviewed_at')
+        .select('word_id, user_id, next_review_date, review_count, stability, difficulty, ease_factor, interval_days, last_reviewed_at, words!inner(classroom_id)')
         .eq('user_id', userId)
+        .eq('words.classroom_id', classroomId)
         .gt('review_count', 0)
         .lte('next_review_date', nowIso)
         .order('next_review_date', { ascending: true })
@@ -862,40 +862,10 @@ export async function GET(req: Request): Promise<NextResponse> {
         .filter((id) => !requestedIdSet || requestedIdSet.has(id));
 
       const srsByWord = new Map(
-        (dueSrs || []).map((s) => [s.word_id as string, s as SRSProgressWithStability]),
+        (dueSrs || []).map((s) => [s.word_id as string, s as unknown as SRSProgressWithStability]),
       );
 
-      // ── Bổ sung từ MỚI (chưa có srs_progress) để HS tạo từ xong ôn ngay ──
-      const remaining = reviewCap - dueIds.length;
-      let newWordIds: string[] = [];
-      if (remaining > 0) {
-        // Lấy danh sách ID từ trong classroom để lọc từ mới chính xác
-        const dueIdSet = new Set(dueIds);
-        const { data: idRows } = await supabase
-          .from('words')
-          .select('id')
-          .eq('classroom_id', classroomId)
-          .order('created_at', { ascending: false });
-
-        const candidateIds = (idRows || [])
-          .map((r) => r.id as string)
-          .filter((id) => !dueIdSet.has(id));
-
-        if (candidateIds.length > 0) {
-          const { data: hasSrsRows } = await supabase
-            .from('srs_progress')
-            .select('word_id')
-            .eq('user_id', userId)
-            .gt('review_count', 0);
-          const hasSrsSet = new Set((hasSrsRows || []).map((r) => r.word_id as string));
-
-          newWordIds = candidateIds
-            .filter((id) => !hasSrsSet.has(id))
-            .slice(0, remaining);
-        }
-      }
-
-      const allIds = [...dueIds, ...newWordIds];
+      const allIds = dueIds;
       if (allIds.length === 0) {
         return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
           headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -913,8 +883,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       const { data: wordsData, error: wErr } = await dueWordsQuery;
       if (wErr) throw wErr;
 
-      const newIdSet = new Set(newWordIds);
-      const order = new Map(allIds.map((id, i) => [id, i])); // due trước, mới sau
+      const order = new Map(allIds.map((id, i) => [id, i]));
       const enriched = ((wordsData || []) as Word[])
         .filter((w) =>
           w.word && w.translation &&
@@ -922,17 +891,16 @@ export async function GET(req: Request): Promise<NextResponse> {
           !w.translation.includes('Analyzing') &&
           !w.translation.includes('⏳'))
         .map((w) => {
-          const isNew = newIdSet.has(w.id);
-          const srs = isNew ? null : (srsByWord.get(w.id) || null);
-          const srsLevel = isNew ? 0 : stabilityToLevel(srs?.stability || 0);
+          const srs = srsByWord.get(w.id) || null;
+          const srsLevel = stabilityToLevel(srs?.stability || 0);
           return {
             ...w,
             srs,
             isDue: true,
-            reviewCount: isNew ? 0 : (srs?.review_count || 0),
+            reviewCount: srs?.review_count || 0,
             srsLevel,
-            mastery: isNew ? 0 : Math.min(100, srsLevel * 20),
-            status: isNew ? 'new' : (srsLevel >= 5 ? 'mastered' : 'learning'),
+            mastery: Math.min(100, srsLevel * 20),
+            status: srsLevel >= 5 ? 'mastered' : 'learning',
           };
         })
         .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));

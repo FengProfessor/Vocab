@@ -308,13 +308,14 @@ export function levenshtein(a: string, b: string): number {
   return prev[n];
 }
 
-/** So khớp đáp án: trùng = correct; Levenshtein ≤2 = close; còn lại = wrong. */
+/** So khớp đáp án: sai số tỷ lệ theo độ dài, tránh từ ngắn sai gần hết vẫn được tính Hard. */
 export function judgeAnswer(guess: string, answer: string): Verdict {
   const g = guess.trim().toLowerCase();
   const a = answer.trim().toLowerCase();
   if (!g) return 'wrong';
   if (g === a) return 'correct';
-  if (levenshtein(g, a) <= 2) return 'close';
+  const maxDistance = a.length >= 8 ? 2 : a.length >= 4 ? 1 : 0;
+  if (maxDistance > 0 && levenshtein(g, a) <= maxDistance) return 'close';
   return 'wrong';
 }
 

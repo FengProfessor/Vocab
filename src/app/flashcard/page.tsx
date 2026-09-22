@@ -22,6 +22,7 @@ import { stopWordAudio } from '@/lib/audio';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { resolveImageSrc } from '@/lib/media-url';
+import { saveSrsReview } from '@/lib/save-srs-review';
 
 interface WordItem {
   id: string;
@@ -79,6 +80,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   // Hướng dẫn bấm nút — tự hiện lần đầu (localStorage), mở lại qua nút "?"
   const [showGuide, setShowGuide] = useState(false);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const ratingSavingRef = useRef(false);
   const { data: gamification, refresh: refreshGamification } = useGamification(userId);
 
   useEffect(() => {
@@ -255,7 +257,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   };
 
   const handleRate = async (quality: 0 | 3 | 4 | 5) => {
-    if (!current || !userId) return;
+    if (!current || !userId || ratingSavingRef.current) return;
+    ratingSavingRef.current = true;
 
     // Hủy bộ hẹn giờ tự động chuyển thẻ nếu người dùng tự ấn rating
     if (autoAdvanceRef.current) {
@@ -269,6 +272,22 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     // 1. Snapshot for the background sync
     const currentWordId = current.id;
     const currentWord = current;
+
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      ratingSavingRef.current = false;
+      toast.error('Phiên đăng nhập đã hết hạn.');
+      return;
+    }
+    try {
+      await saveSrsReview(currentWordId, quality, session.access_token);
+      invalidateWordSummaryCache(session.user.id);
+    } catch (error) {
+      ratingSavingRef.current = false;
+      const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
+      toast.error(message);
+      return;
+    }
 
     setIsSwapping(true);
     setSessionResults(prev => ({
@@ -303,7 +322,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     setHasSpelledCorrectly(false);
     
     // Briefly disable transition to "warp" to front of next card
-    setTimeout(() => setIsSwapping(false), 50);
+    setTimeout(() => {
+      setIsSwapping(false);
+      ratingSavingRef.current = false;
+    }, 50);
 
     if (newQueue.length === 0) {
       setDone(true);
@@ -311,22 +333,9 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
       setTimeout(() => refreshGamification(), 1500);
     }
 
-    // 3. BACKGROUND SYNC (No 'await' to keep UI fast)
+    // Lưu thống kê phiên ở nền; SRS phía trên đã được server xác nhận.
     (async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) return;
       const authHeaders = { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` };
-
-      fetch('/api/words/srs', {
-        method: 'POST',
-        headers: authHeaders,
-        body: JSON.stringify({ wordId: currentWordId, quality: quality as 0|3|4|5 }),
-      }).then(() => {
-        invalidateWordSummaryCache(session.user.id);
-      }).catch(err => {
-        console.error('Failed to save SRS result:', err);
-        // We don't rollback to avoid UI flickering, just log it.
-      });
 
       if (newQueue.length === 0) {
         try {

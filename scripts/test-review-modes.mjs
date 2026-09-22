@@ -127,6 +127,14 @@ console.log('\nverdictAndQuality');
   const r = verdictAndQuality('apple', 'decision', 'mcq_vi_en');
   assert('wrong → wrong + 0', r.verdict === 'wrong' && r.quality === 0);
 }
+{
+  const r = verdictAndQuality('to', 'at', 'type_vi_en');
+  assert('short word distance 2 → wrong', r.verdict === 'wrong' && r.quality === 0);
+}
+{
+  const r = verdictAndQuality('book', 'boot', 'type_vi_en');
+  assert('4-char typo distance 1 → close', r.verdict === 'close' && r.quality === 3);
+}
 
 // --- pickItemMode ---
 console.log('\npickItemMode');

@@ -144,11 +144,12 @@ export function buildWordChoices(
   n = 4,
 ): string[] {
   const correctVal = (field === 'word' ? correct.word : correct.translation).trim();
-  const others = shuffle(
-    pool.filter((w) => w.id !== correct.id && (field === 'word' ? w.word : w.translation)?.trim()),
-  )
-    .slice(0, Math.max(0, n - 1))
-    .map((w) => (field === 'word' ? w.word : w.translation).trim());
+  const others = [...new Set(
+    shuffle(pool.filter((w) => w.id !== correct.id))
+      .map((w) => (field === 'word' ? w.word : w.translation)?.trim())
+      .filter((value): value is string => Boolean(value))
+      .filter((value) => value.toLowerCase() !== correctVal.toLowerCase()),
+  )].slice(0, Math.max(0, n - 1));
 
   // Không đủ distractor → pad bằng placeholder (hiếm)
   while (others.length < n - 1) {
@@ -166,7 +167,7 @@ export function buildWordChoices(
 export function pickItemMode(
   word: ReviewWordLike,
   session: ReviewSessionMode,
-  poolHasExamples: boolean,
+  _poolHasExamples: boolean,
 ): ItemMode {
   const level = word.srsLevel ?? 0;
   // Chỉ coi cloze-able khi example thực sự chứa target (không fallback stem "___")
@@ -177,7 +178,7 @@ export function pickItemMode(
   const r = Math.random();
 
   if (session === 'cloze') {
-    if (!hasExample && !poolHasExamples) return 'type_vi_en';
+    if (!hasExample) return 'type_vi_en';
     return r < 0.55 ? 'cloze_type' : 'cloze_mcq';
   }
 

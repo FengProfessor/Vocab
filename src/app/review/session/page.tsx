@@ -36,6 +36,7 @@ import {
   verdictAndQuality,
 } from '@/lib/review-modes';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
+import { saveSrsReview } from '@/lib/save-srs-review';
 
 interface WordItem extends ReviewWordLike {
   ipa?: string;
@@ -316,10 +317,19 @@ function SessionContent() {
   }, [pool, sessionMode, setupCard, total]);
 
   const finalize = useCallback(
-    (isCorrect: boolean, isClose: boolean, quality: 0 | 3 | 4 | 5) => {
+    async (isCorrect: boolean, isClose: boolean, quality: 0 | 3 | 4 | 5) => {
       // Guard ref — không dùng verdict state (stale closure / double-tap)
       if (!current || !userId || answeredRef.current) return;
       answeredRef.current = true;
+
+      try {
+        await saveSrsReview(current.id, quality, accessTokenRef.current);
+      } catch (error) {
+        answeredRef.current = false;
+        const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
+        toast.error(message);
+        return;
+      }
 
       const v: Verdict = isCorrect ? 'correct' : isClose ? 'close' : 'wrong';
       setVerdict(v);
@@ -329,12 +339,6 @@ function SessionContent() {
         close: s.close + (isClose && !isCorrect ? 1 : 0),
         wrong: s.wrong + (!isCorrect && !isClose ? 1 : 0),
       }));
-
-      authFetch('/api/words/srs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ wordId: current.id, quality }),
-      }, accessTokenRef.current).catch((err) => console.error('[ReviewSession] SRS:', err));
 
       const advance = () => {
         if (advanceFn.current !== advance) return;
@@ -391,7 +395,7 @@ function SessionContent() {
       itemMode,
       elapsedMs: Date.now() - startedAt.current,
     });
-    finalize(ok, false, quality);
+    void finalize(ok, false, quality);
   };
 
   const handleTypeSubmit = () => {
@@ -404,7 +408,7 @@ function SessionContent() {
       itemMode,
       Date.now() - startedAt.current,
     );
-    finalize(v === 'correct', v === 'close', quality);
+    void finalize(v === 'correct', v === 'close', quality);
   };
 
   const skipWait = () => {

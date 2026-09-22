@@ -6,6 +6,8 @@ import { XP_BY_QUALITY } from '@/lib/gamification';
 import { getAuthUser, unauthorized, isValidString, safeErrorResponse } from '@/lib/api-security';
 import { cacheGet, cacheSet, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
 /**
  * Mirror student progress to enrolled classrooms and personal classroom in background.
  * Uses targeted single-row indexed queries and TTL caches to avoid blocking the client.
@@ -174,30 +176,23 @@ export async function POST(req: Request) {
     if (!auth) return unauthorized();
     const userId = auth.userId;
 
-    const { wordId, quality } = await req.json();
+    const { wordId, quality, reviewId } = await req.json();
 
-    if (!isValidString(wordId, 100) || ![0, 3, 4, 5].includes(quality)) {
+    const validReviewId = typeof reviewId === 'string' && UUID_PATTERN.test(reviewId);
+    if (!isValidString(wordId, 100) || ![0, 3, 4, 5].includes(quality) || !validReviewId) {
       return NextResponse.json(
-        { success: false, error: 'wordId (string) and quality (0|3|4|5) are required' },
+        { success: false, error: 'wordId, reviewId (UUID) and quality (0|3|4|5) are required' },
         { status: 400 }
       );
     }
 
     const supabase = createServiceClient();
 
-    const [wordRes, srsRes] = await Promise.all([
-      supabase
+    const wordRes = await supabase
         .from('words')
         .select('id, word, added_by, classroom_id, classroom:classrooms(teacher_id, name)')
         .eq('id', wordId)
-        .maybeSingle(),
-      supabase
-        .from('srs_progress')
-        .select('stability, difficulty, interval_days, review_count, state, lapses, learning_steps, last_reviewed_at')
-        .eq('user_id', userId)
-        .eq('word_id', wordId)
-        .maybeSingle(),
-    ]);
+        .maybeSingle();
 
     const word = wordRes.data;
     if (!word) {
@@ -219,58 +214,66 @@ export async function POST(req: Request) {
     }
 
     const rating = mapQualityToRating(quality);
-    const existingSRS = srsRes.data;
-    const newSRS = scheduleNext(existingSRS, rating);
+    let newSRS: ReturnType<typeof scheduleNext> | null = null;
+    let applyStatus: 'applied' | 'duplicate' | 'conflict' = 'conflict';
 
-    // Upsert into srs_progress with FSRS columns (chỉ select id để nhẹ payload DB)
-    const { data, error } = await supabase
-      .from('srs_progress')
-      .upsert(
-        {
-          user_id: userId,
-          word_id: wordId,
-          stability: newSRS.stability,
-          difficulty: newSRS.difficulty,
-          interval_days: newSRS.interval_days,
-          review_count: newSRS.review_count,
-          state: newSRS.state,
-          lapses: newSRS.lapses,
-          learning_steps: newSRS.learning_steps,
-          next_review_date: newSRS.next_review_date,
-          last_reviewed_at: newSRS.last_reviewed_at,
-          algorithm_version: 'ts-fsrs',
-        },
-        { onConflict: 'user_id,word_id' }
-      )
-      .select('id')
-      .maybeSingle();
+    // CAS retry: không để hai lượt chấm gần nhau cùng ghi đè từ một trạng thái cũ.
+    for (let attempt = 0; attempt < 3 && applyStatus === 'conflict'; attempt += 1) {
+      const { data: existingSRS, error: readError } = await supabase
+        .from('srs_progress')
+        .select('stability, difficulty, interval_days, review_count, state, lapses, learning_steps, next_review_date, last_reviewed_at')
+        .eq('user_id', userId)
+        .eq('word_id', wordId)
+        .maybeSingle();
+      if (readError) return safeErrorResponse(readError, 'Failed to read progress');
 
-    if (error) {
-      return safeErrorResponse(error, 'Failed to save progress');
+      newSRS = scheduleNext(existingSRS, rating);
+      const { data: rpcStatus, error: applyError } = await supabase.rpc('apply_srs_review', {
+        p_user_id: userId,
+        p_word_id: wordId,
+        p_review_id: reviewId,
+        p_quality: quality,
+        p_expected_last_reviewed_at: existingSRS?.last_reviewed_at ?? null,
+        p_stability: newSRS.stability,
+        p_difficulty: newSRS.difficulty,
+        p_interval_days: newSRS.interval_days,
+        p_review_count: newSRS.review_count,
+        p_state: newSRS.state,
+        p_lapses: newSRS.lapses,
+        p_learning_steps: newSRS.learning_steps,
+        p_next_review_date: newSRS.next_review_date,
+        p_last_reviewed_at: newSRS.last_reviewed_at,
+      });
+      if (applyError) return safeErrorResponse(applyError, 'Failed to save progress');
+      applyStatus = rpcStatus as typeof applyStatus;
+    }
+
+    if (!newSRS || applyStatus === 'conflict') {
+      return NextResponse.json({ success: false, error: 'Concurrent review conflict; please retry' }, { status: 409 });
     }
 
     // Purge server word summary RAM cache so next summary query reflects review changes immediately
     invalidateServerWordSummaryCache(userId);
 
     // Background mirroring and side-effects — does NOT block the HTTP response!
-    void mirrorSrsProgress(supabase, userId, word, newSRS);
+    if (applyStatus === 'applied') void mirrorSrsProgress(supabase, userId, word, newSRS);
 
     // Award XP + streak (only if xp > 0, to avoid DB exception on zero XP)
     const xp = XP_BY_QUALITY[quality] ?? 5;
-    if (xp > 0) {
+    if (applyStatus === 'applied' && xp > 0) {
       void supabase.rpc('award_xp', { p_user_id: userId, p_xp: xp }).then(({ error: xpError }) => {
         if (xpError) console.error('[Gamification] award_xp failed:', xpError.message);
       });
     }
 
-    void supabase
+    if (applyStatus === 'applied') void supabase
       .rpc('refresh_vocab_pack_progress', { p_user_id: userId, p_word_id: wordId })
       .then(({ error: progressError }) => {
         if (progressError) console.error('[VocabPack] Progress refresh failed:', progressError.message);
       });
 
     return NextResponse.json(
-      { success: true, srs: newSRS, data, xpAwarded: xp },
+      { success: true, duplicate: applyStatus === 'duplicate', srs: newSRS, xpAwarded: applyStatus === 'applied' ? xp : 0 },
       {
         headers: {
           // Dữ liệu SRS riêng từng user → tuyệt đối không cache

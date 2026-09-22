@@ -20,6 +20,7 @@ import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-clie
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { resolveImageSrc } from '@/lib/media-url';
+import { saveSrsReview } from '@/lib/save-srs-review';
 
 interface WordItem {
   id: string;
@@ -67,6 +68,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const advanceFn = useRef<(() => void) | null>(null);
   const pendingSkipRef = useRef(false);
   const canSkipRef = useRef(false);
+  const savingRecallRef = useRef(false);
 
   // Hướng dẫn cơ chế — tự hiện lần đầu (dùng chung key với /flashcard ôn), mở lại qua nút "?"
   const [showGuide, setShowGuide] = useState(false);
@@ -255,8 +257,20 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
   // Chốt kết quả 1 từ: ghi điểm + phát âm + sync SRS.
   // Đúng → auto-next với playWordWithBuffer; sai/gần đúng → hiện đáp án, chờ bấm Tiếp (để đọc kỹ chỗ sai).
-  const finalizeRecall = useCallback((v: Verdict) => {
-    if (!recallWord) return;
+  const finalizeRecall = useCallback(async (v: Verdict) => {
+    if (!recallWord || savingRecallRef.current) return;
+    savingRecallRef.current = true;
+    try {
+      await saveSrsReview(recallWord.id, verdictToQuality(v));
+      const { data: { session } } = await supabase.auth.getSession();
+      invalidateWordSummaryCache(session?.user?.id);
+    } catch (error) {
+      savingRecallRef.current = false;
+      const message = error instanceof Error ? error.message : 'Không lưu được lịch học';
+      toast.error(message);
+      return;
+    }
+    savingRecallRef.current = false;
     setVerdict(v);
     setCanSkip(false);
     canSkipRef.current = false;
@@ -266,16 +280,6 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       close: v === 'close' ? p.close + 1 : p.close,
       wrong: v === 'wrong' ? p.wrong + 1 : p.wrong,
     }));
-
-    // Ghi SRS (fire-and-forget) → FSRS lên lịch learning step
-    authFetch('/api/words/srs', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ wordId: recallWord.id, quality: verdictToQuality(v) }),
-    }).then(async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      invalidateWordSummaryCache(session?.user?.id);
-    }).catch((err) => console.error('[Learn] save SRS failed:', err));
 
     const advance = () => {
       if (advanceFn.current !== advance) return;
@@ -327,13 +331,13 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     if (!recallWord || verdict !== null) return;
     const guess = input.trim();
     if (!guess) return;
-    finalizeRecall(judgeAnswer(guess, recallWord.word));
+    void finalizeRecall(judgeAnswer(guess, recallWord.word));
   }, [recallWord, verdict, input, finalizeRecall]);
 
   // "Không nhớ" — không bắt user gõ bừa; tính là sai (Again) và hiện đáp án
   const giveUpRecall = useCallback(() => {
     if (!recallWord || verdict !== null) return;
-    finalizeRecall('wrong');
+    void finalizeRecall('wrong');
   }, [recallWord, verdict, finalizeRecall]);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
