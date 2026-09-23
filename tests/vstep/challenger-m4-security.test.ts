@@ -6,7 +6,7 @@
  * 1. Cryptographic Session Token Tampering Attacks:
  *    - Altered IPs, Past Timestamps, Mismatched testIds, Flipped Signature Bits,
  *      Truncated Base64, Delimiter Injections, Route Guarding (401 verification).
- * 2. Comprehensive Zero-Bulk-Leak Sweep across ALL 190 Catalog Items:
+ * 2. Comprehensive Zero-Bulk-Leak Sweep across ALL 192 Catalog Items:
  *    - Recursive scan for all 10 sensitive keys on safe objects vs raw integrity across all 4 sources.
  * 3. Cache Immutability Stress Testing:
  *    - Multi-pass mutation isolation, rogue property injection, concurrent interleaved mutation defense.
@@ -413,18 +413,18 @@ export async function runChallengerSecurityTests(
   });
 
   // ═════════════════════════════════════════════════════════════════════════════
-  // SUITE 2: Comprehensive Zero-Bulk-Leak Sweep across ALL 190 Catalog Items
+  // SUITE 2: Comprehensive Zero-Bulk-Leak Sweep across ALL 192 Catalog Items
   // ═════════════════════════════════════════════════════════════════════════════
-  await runner.describe('Challenger M4.1 - Suite 2: 190 Catalog Items Zero-Bulk-Leak Sweep', async () => {
-    await runner.it('SEC-2.1: Catalog index integrity verifies precisely 190 items', () => {
+  await runner.describe('Challenger M4.1 - Suite 2: 192 Catalog Items Zero-Bulk-Leak Sweep', async () => {
+    await runner.it('SEC-2.1: Catalog index integrity verifies precisely 192 items', () => {
       const catalog = getVstepCatalog();
       expect(catalog).toBeDefined();
       expect(catalog.items).toBeDefined();
-      expect(catalog.items.length).toBe(190);
-      expect(catalog.totalExams + catalog.totalPracticeSets).toBe(190);
+      expect(catalog.items.length).toBe(192);
+      expect(catalog.totalExams + catalog.totalPracticeSets).toBe(192);
     });
 
-    await runner.it('SEC-2.2: Deep recursive audit on ALL 190 catalog items proves EXACTLY 0 sensitive keys in safe mode', () => {
+    await runner.it('SEC-2.2: Deep recursive audit on ALL 192 catalog items proves EXACTLY 0 sensitive keys in safe mode', () => {
       const catalog = getVstepCatalog();
       let auditedExams = 0;
       let auditedSections = 0;
@@ -471,13 +471,13 @@ export async function runChallengerSecurityTests(
       }
 
       console.log(`    [Audited Sources] ${JSON.stringify(sourceCounts)}`);
-      console.log(`    [Audited Metrics] Exams: ${auditedExams}/190 | Sections: ${auditedSections} | Tasks: ${auditedTasks} | Questions: ${auditedQuestions}`);
+      console.log(`    [Audited Metrics] Exams: ${auditedExams}/192 | Sections: ${auditedSections} | Tasks: ${auditedTasks} | Questions: ${auditedQuestions}`);
 
       if (totalViolations > 0) {
         console.error('    [LEAK DETECTED]:', violationDetails.slice(0, 5));
       }
 
-      expect(auditedExams).toBe(190);
+      expect(auditedExams).toBe(192);
       expect(auditedQuestions).toBeGreaterThan(3000);
       expect(totalViolations).toBe(0);
     });

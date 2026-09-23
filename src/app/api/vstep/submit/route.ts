@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     const clientIp = forwarded ? forwarded.split(',')[0].trim() : '127.0.0.1';
 
     const payload = (await request.json().catch(() => ({}))) as VstepSubmitPayload;
-    const { testId, answers = {}, sessionToken, _hp_trap, questionIds } = payload;
+    const { testId, answers = {}, sessionToken, _hp_trap, questionIds, examMode, practiceSkill } = payload;
 
     if (!testId || typeof testId !== 'string') {
       return NextResponse.json(
@@ -86,7 +86,9 @@ export async function POST(request: NextRequest) {
     > = {};
     const watermarkPayload = `IP:${clientIp}|T:${Date.now()}`;
 
-    if (!rawExam) {
+    const isPracticeSubmission = examMode === 'practice' || !rawExam;
+
+    if (isPracticeSubmission) {
       // Chấm điểm cho dynamic practice sets thông qua master questionIds
       if (!Array.isArray(questionIds) || questionIds.length === 0) {
         return NextResponse.json(
@@ -103,11 +105,16 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const isListeningExam = testId.includes('listening');
-      const targetSkill: VstepSkillType = isListeningExam ? 'listening' : 'reading';
+      const targetSkill: VstepSkillType =
+        practiceSkill === 'listening' || practiceSkill === 'reading'
+          ? practiceSkill
+          : testId.includes('listening')
+          ? 'listening'
+          : 'reading';
+      const isListeningExam = targetSkill === 'listening';
 
       for (const q of masterQuestions) {
-        const userAnswer = answers[q.id] ?? (q.canonicalId ? answers[q.canonicalId] : undefined);
+        const userAnswer = (q.canonicalId ? answers[q.canonicalId] : undefined) ?? answers[q.id];
         const isCorrect = typeof userAnswer === 'number' && userAnswer === q.answer;
         const partKey = q.part || (isListeningExam ? 'listening_part' : 'reading_part');
 

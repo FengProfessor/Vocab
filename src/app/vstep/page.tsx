@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -11,6 +11,8 @@ import {
   Layers,
   Headphones,
   BookOpen,
+  PenLine,
+  Mic2,
   Award,
   ShieldCheck,
   CheckCircle2,
@@ -38,8 +40,6 @@ import {
   VstepPracticeFilterMode,
 } from '@/lib/vstep-history';
 import {
-  VstepSkillType,
-  VstepCefrLevel,
   VstepExamCatalogItem,
   VstepSourceType,
   VstepExamSummary,
@@ -68,6 +68,31 @@ interface VstepCatalogIndex {
 const catalog = catalogDataRaw as unknown as VstepCatalogIndex;
 
 export const ITEMS_PER_PAGE = 12;
+
+type VstepPracticeSkill = 'listening' | 'reading' | 'writing' | 'speaking';
+
+const PRACTICE_SKILL_META: Record<VstepPracticeSkill, { label: string; title: string; help: string }> = {
+  listening: {
+    label: 'KỸ NĂNG NGHE',
+    title: 'Luyện Nghe Chuyên Sâu (Part 1–3) Kèm Audio CDN & Tapescript',
+    help: 'Rèn luyện phản xạ nghe hiểu thông tin chi tiết, hội thoại đời sống và bài giảng học thuật chuẩn B1-B2-C1.',
+  },
+  reading: {
+    label: 'KỸ NĂNG ĐỌC',
+    title: 'Luyện Đọc Hiểu Chuyên Đề (Passage 1–4) Phân Tích Ý Chính',
+    help: 'Rèn luyện kỹ năng đọc lướt (Skimming), quét chi tiết (Scanning) và suy luận ngữ cảnh từ các bài báo và đoạn văn học thuật.',
+  },
+  writing: {
+    label: 'KỸ NĂNG VIẾT',
+    title: 'Luyện Writing Task 1–2: Email/Letter & Academic Essay',
+    help: 'Mỗi bộ gồm Task 1 tối thiểu 120 từ và Task 2 tối thiểu 250 từ, có hướng dẫn triển khai ý và bài mẫu khi hoàn thành.',
+  },
+  speaking: {
+    label: 'KỸ NĂNG NÓI',
+    title: 'Luyện Speaking Part 1–3 Theo Đồng Hồ 12 Phút',
+    help: 'Luyện Social Interaction, Solution Discussion và Topic Development theo đúng cấu trúc VSTEP, kèm gợi ý sau khi hoàn thành.',
+  },
+};
 
 export function normalizeViText(str: string): string {
   if (!str) return '';
@@ -119,9 +144,13 @@ function VstepCatalogContent() {
 
   const [activeTab, setActiveTab] = useState<'full_mock' | 'skill_practice'>(initialTab);
 
-  // Sub-skill when in 'skill_practice': 'listening' | 'reading' | 'writing_speaking'
-  const initialSkill = searchParams.get('skill') === 'reading' ? 'reading' : 'listening';
-  const [selectedPracticeSkill, setSelectedPracticeSkill] = useState<'listening' | 'reading' | 'writing_speaking'>(initialSkill);
+  // Sub-skill when in 'skill_practice': đủ cả 4 kỹ năng VSTEP.
+  const requestedSkill = searchParams.get('skill');
+  const initialSkill =
+    requestedSkill === 'reading' || requestedSkill === 'writing' || requestedSkill === 'speaking'
+      ? requestedSkill
+      : 'listening';
+  const [selectedPracticeSkill, setSelectedPracticeSkill] = useState<VstepPracticeSkill>(initialSkill);
 
   // Filtering & View Mode
   const [testFilter, setTestFilter] = useState<'all' | 'unattempted' | 'completed' | 'b1_b2' | 'c1'>('all');
@@ -143,12 +172,15 @@ function VstepCatalogContent() {
   // Restore layout preference from localStorage
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    try {
-      const savedLayout = localStorage.getItem('lingo_vstep_catalog_layout');
-      if (savedLayout === 'list' || savedLayout === 'grid') {
-        setDisplayLayout(savedLayout);
-      }
-    } catch {}
+    const frame = window.requestAnimationFrame(() => {
+      try {
+        const savedLayout = localStorage.getItem('lingo_vstep_catalog_layout');
+        if (savedLayout === 'list' || savedLayout === 'grid') {
+          setDisplayLayout(savedLayout);
+        }
+      } catch {}
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const handleLayoutChange = (layout: 'list' | 'grid') => {
@@ -170,27 +202,49 @@ function VstepCatalogContent() {
     }));
   }, []);
 
-  // Dynamic Bank Totals calculation (5,604 objective questions across 190 tests)
+  // Dynamic bank totals derived from the live catalog.
   const bankTotals = useMemo(() => {
     let listening = 0;
     let reading = 0;
+    let fullMocks = 0;
+    let listeningPracticeSets = 0;
+    let readingPracticeSets = 0;
+    let writingPracticeSets = 0;
+    let speakingPracticeSets = 0;
+    let writingTasks = 0;
+    let speakingTasks = 0;
     for (const item of catalog.items) {
       if (item.category === 'full_mock') {
+        fullMocks++;
         listening += 35;
         reading += 40;
       } else if (item.category === 'listening' || item.skills?.includes('listening')) {
+        listeningPracticeSets++;
         listening += item.totalQuestions || 0;
       } else if (item.category === 'reading' || item.skills?.includes('reading')) {
+        readingPracticeSets++;
         reading += item.totalQuestions || 0;
+      } else if (item.category === 'writing') {
+        writingPracticeSets++;
+        writingTasks += item.totalTasks || 0;
+      } else if (item.category === 'speaking') {
+        speakingPracticeSets++;
+        speakingTasks += item.totalTasks || 0;
       }
     }
     return {
-      totalListening: listening, // 2,960
-      totalReading: reading,     // 2,644
-      totalQuestions: listening + reading, // 5,604
-      totalExams: catalog.items.length,    // 190
-      totalMockExams: 24,
-      totalPracticeSets: 166,
+      totalListening: listening,
+      totalReading: reading,
+      totalQuestions: listening + reading,
+      totalExams: catalog.items.length,
+      totalMockExams: fullMocks,
+      totalPracticeSets: catalog.items.length - fullMocks,
+      listeningPracticeSets,
+      readingPracticeSets,
+      writingPracticeSets,
+      speakingPracticeSets,
+      writingTasks,
+      speakingTasks,
     };
   }, []);
 
@@ -208,55 +262,28 @@ function VstepCatalogContent() {
     mistakeCount: 0,
   });
 
-  const refreshHistory = () => {
+  const refreshHistory = useCallback(() => {
     setListeningStats(getVstepProgressStats('listening', bankTotals.totalListening));
     setReadingStats(getVstepProgressStats('reading', bankTotals.totalReading));
     setExamSummaries(getVstepExamSummaries());
-  };
+  }, [bankTotals.totalListening, bankTotals.totalReading]);
 
   useEffect(() => {
-    setHasMounted(true);
-    refreshHistory();
+    const frame = window.requestAnimationFrame(() => {
+      setHasMounted(true);
+      refreshHistory();
+    });
 
     const handleUpdate = () => refreshHistory();
     window.addEventListener(VSTEP_HISTORY_UPDATED_EVENT, handleUpdate);
     window.addEventListener('storage', handleUpdate);
 
     return () => {
+      window.cancelAnimationFrame(frame);
       window.removeEventListener(VSTEP_HISTORY_UPDATED_EVENT, handleUpdate);
       window.removeEventListener('storage', handleUpdate);
     };
-  }, [bankTotals]);
-
-  // Aggregate completion stats for Full Mock and exams
-  const examCompletionStats = useMemo(() => {
-    let completedMockCount = 0;
-    let highestScore = 0;
-    let highestCefr: VstepCefrLevel = 'A2';
-
-    if (!hasMounted) {
-      return { completedMockCount: 0, highestScore: 0, highestCefr: 'A2' as VstepCefrLevel };
-    }
-
-    for (const item of catalog.items) {
-      const summary = examSummaries[item.id];
-      if (summary?.isCompleted) {
-        if (item.category === 'full_mock') {
-          completedMockCount++;
-        }
-        if (summary.highestScore > highestScore) {
-          highestScore = summary.highestScore;
-          highestCefr = summary.highestCefr;
-        }
-      }
-    }
-
-    return {
-      completedMockCount,
-      highestScore,
-      highestCefr,
-    };
-  }, [examSummaries, hasMounted]);
+  }, [refreshHistory]);
 
   // Synchronize state changes with URL query parameters without full reload
   useEffect(() => {
@@ -276,7 +303,8 @@ function VstepCatalogContent() {
 
   // Reset to page 1 on filter/search/tab changes
   useEffect(() => {
-    setCurrentPage(1);
+    const frame = window.requestAnimationFrame(() => setCurrentPage(1));
+    return () => window.cancelAnimationFrame(frame);
   }, [activeTab, selectedPracticeSkill, testFilter, selectedLevel, selectedSource, searchQuery]);
 
   // Filter items for current active tab
@@ -290,17 +318,7 @@ function VstepCatalogContent() {
       itemsToFilter = itemsToFilter.filter((item) => item.category === 'full_mock');
     } else {
       // Skill Practice Tab
-      if (selectedPracticeSkill === 'listening') {
-        itemsToFilter = itemsToFilter.filter(
-          (item) => item.category === 'listening' || item.skills?.includes('listening')
-        );
-      } else if (selectedPracticeSkill === 'reading') {
-        itemsToFilter = itemsToFilter.filter(
-          (item) => item.category === 'reading' || item.skills?.includes('reading')
-        );
-      } else {
-        itemsToFilter = itemsToFilter.filter((item) => item.category === 'writing' || item.category === 'speaking');
-      }
+      itemsToFilter = itemsToFilter.filter((item) => item.category === selectedPracticeSkill);
     }
 
     const levelCounts: Record<string, number> = { all: 0, B1: 0, B2: 0, C1: 0 };
@@ -443,7 +461,17 @@ function VstepCatalogContent() {
     setIsResetModalOpen(false);
   };
 
+  const isObjectivePractice = selectedPracticeSkill === 'listening' || selectedPracticeSkill === 'reading';
   const currentSkillProgress = selectedPracticeSkill === 'listening' ? listeningStats : readingStats;
+  const selectedSkillMeta = PRACTICE_SKILL_META[selectedPracticeSkill];
+  const getPracticeHref = (item: VstepExamCatalogItem) =>
+    item.category === 'writing' || item.category === 'speaking'
+      ? `/vstep/exam/${item.id}`
+      : `/vstep/exam/${item.id}?filter=${filterMode}`;
+  const getPracticeWorkload = (item: VstepExamCatalogItem) =>
+    item.category === 'writing' || item.category === 'speaking'
+      ? `${item.totalTasks || 0} ${item.category === 'writing' ? 'task' : 'part'}`
+      : `${item.totalQuestions || 0} câu hỏi`;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased font-sans pb-20">
@@ -466,12 +494,12 @@ function VstepCatalogContent() {
 
           {/* Compact Subtitle */}
           <p className="mt-2 max-w-3xl text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Phòng thi máy tính trực tuyến chuẩn định dạng B1-B2-C1: 24 Đề Full Mock 4 kỹ năng, 166 bài luyện chuyên sâu, chống trùng đề và barem điểm 10.0.
+            Phòng thi máy tính trực tuyến chuẩn định dạng B1-B2-C1: {bankTotals.totalMockExams} Đề Full Mock 4 kỹ năng, {bankTotals.totalPracticeSets} bài luyện chuyên sâu, chống trùng đề và barem điểm 10.0.
           </p>
 
           {/* ── Prominent Stat Cards Grid (Identical to TOEIC) ── */}
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {/* Card 1: 5.604 Câu Hỏi (Hero Metric) */}
+            {/* Card 1: Tổng ngân hàng câu hỏi (Hero Metric) */}
             <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
               <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
                 <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Kho Câu Hỏi</span>
@@ -484,11 +512,11 @@ function VstepCatalogContent() {
                 <span className="font-mono text-xs font-semibold text-slate-500">câu</span>
               </div>
               <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                Nghe 2.960 · Đọc 2.644 câu
+                Nghe {bankTotals.totalListening.toLocaleString('vi-VN')} · Đọc {bankTotals.totalReading.toLocaleString('vi-VN')} câu
               </p>
             </div>
 
-            {/* Card 2: 24 Đề Full Mock */}
+            {/* Card 2: Đề Full Mock */}
             <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
               <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
                 <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Đề Full Mock</span>
@@ -505,7 +533,7 @@ function VstepCatalogContent() {
               </p>
             </div>
 
-            {/* Card 3: 166 Bài Luyện */}
+            {/* Card 3: Bài luyện chuyên sâu */}
             <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
               <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
                 <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Bài Luyện Tập</span>
@@ -639,7 +667,7 @@ function VstepCatalogContent() {
                           : 'text-slate-500 dark:text-slate-400'
                       }`}
                     >
-                      Luyện Nghe & Đọc với cơ chế chống trùng & ôn câu sai
+                      Luyện đủ Nghe · Đọc · Viết · Nói theo từng kỹ năng
                     </p>
                   </div>
                 </div>
@@ -1056,9 +1084,11 @@ function VstepCatalogContent() {
             <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
               <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 px-1 flex items-center justify-between">
                 <span>CHỌN KỸ NĂNG LUYỆN TẬP CHUYÊN SÂU:</span>
-                <span className="font-mono tabular-nums">Tổng cộng: 166 Bài Luyện | 5.604 Câu Hỏi</span>
+                <span className="font-mono tabular-nums">
+                  {bankTotals.totalPracticeSets} bài · {bankTotals.totalQuestions.toLocaleString('vi-VN')} câu trắc nghiệm · {bankTotals.writingTasks + bankTotals.speakingTasks} task/part tự luận
+                </span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                 {/* Listening Card */}
                 <button
                   type="button"
@@ -1080,7 +1110,7 @@ function VstepCatalogContent() {
                           : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
                       }`}
                     >
-                      56 Đề
+                      {bankTotals.listeningPracticeSets} Đề
                     </span>
                   </div>
                   <span className="text-xs mt-1 truncate w-full">Listening Part 1–3 Audio R2</span>
@@ -1091,7 +1121,7 @@ function VstepCatalogContent() {
                         : 'text-slate-500 dark:text-slate-400'
                     }`}
                   >
-                    2.960 câu hỏi
+                    {bankTotals.totalListening.toLocaleString('vi-VN')} câu hỏi
                   </span>
                 </button>
 
@@ -1116,7 +1146,7 @@ function VstepCatalogContent() {
                           : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
                       }`}
                     >
-                      110 Bài
+                      {bankTotals.readingPracticeSets} Bài
                     </span>
                   </div>
                   <span className="text-xs mt-1 truncate w-full">Reading Passage 1–4 Chuyên Đề</span>
@@ -1127,30 +1157,71 @@ function VstepCatalogContent() {
                         : 'text-slate-500 dark:text-slate-400'
                     }`}
                   >
-                    2.644 câu hỏi
+                    {bankTotals.totalReading.toLocaleString('vi-VN')} câu hỏi
                   </span>
                 </button>
 
-                {/* Writing & Speaking Card */}
+                {/* Writing Card */}
                 <button
                   type="button"
-                  onClick={() => {
-                    setActiveTab('full_mock');
-                    toast.info('Kỹ năng Viết & Nói được tích hợp trọn vẹn trong 24 Đề Thi Full Mock.');
-                  }}
-                  className="flex flex-col items-start p-3 rounded-sm border text-left transition-colors cursor-pointer border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  onClick={() => setSelectedPracticeSkill('writing')}
+                  className={`flex flex-col items-start p-3 rounded-sm border text-left transition-colors cursor-pointer ${
+                    selectedPracticeSkill === 'writing'
+                      ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold'
+                      : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  }`}
                 >
                   <div className="flex items-center justify-between w-full">
                     <span className="font-mono text-xs font-extrabold uppercase flex items-center gap-1.5">
-                      <Award className="w-4 h-4 text-amber-500" /> Viết & Nói
+                      <PenLine className="w-4 h-4" /> Kỹ Năng Viết
                     </span>
-                    <span className="font-mono text-[10px] px-1 py-0.2 rounded-xs uppercase bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
-                      Full Mock
+                    <span className={`font-mono text-[10px] px-1 py-0.2 rounded-xs uppercase tabular-nums ${
+                      selectedPracticeSkill === 'writing'
+                        ? 'bg-slate-800 dark:bg-slate-100 text-slate-200 dark:text-slate-800'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                    }`}>
+                      {bankTotals.writingPracticeSets} Đề
                     </span>
                   </div>
-                  <span className="text-xs mt-1 truncate w-full">Task 1–2 Viết & Part 1–3 Nói</span>
-                  <span className="font-mono text-[11px] mt-0.5 text-slate-500 dark:text-slate-400">
-                    Trong 24 Đề Toàn Diện
+                  <span className="text-xs mt-1 truncate w-full">Email/Letter + Academic Essay</span>
+                  <span className={`font-mono text-[11px] mt-0.5 tabular-nums ${
+                    selectedPracticeSkill === 'writing'
+                      ? 'text-slate-300 dark:text-slate-600'
+                      : 'text-slate-500 dark:text-slate-400'
+                  }`}>
+                    {bankTotals.writingTasks} task luyện viết
+                  </span>
+                </button>
+
+                {/* Speaking Card */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedPracticeSkill('speaking')}
+                  className={`flex flex-col items-start p-3 rounded-sm border text-left transition-colors cursor-pointer ${
+                    selectedPracticeSkill === 'speaking'
+                      ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold'
+                      : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  <div className="flex items-center justify-between w-full">
+                    <span className="font-mono text-xs font-extrabold uppercase flex items-center gap-1.5">
+                      <Mic2 className="w-4 h-4" /> Kỹ Năng Nói
+                    </span>
+                    <span className={`font-mono text-[10px] px-1 py-0.2 rounded-xs uppercase tabular-nums ${
+                      selectedPracticeSkill === 'speaking'
+                        ? 'bg-slate-800 dark:bg-slate-100 text-slate-200 dark:text-slate-800'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                    }`}>
+                      {bankTotals.speakingPracticeSets} Đề
+                    </span>
+                  </div>
+                  <span className="text-xs mt-1 truncate w-full">Social · Solution · Topic Development</span>
+                  <span className={`font-mono text-[11px] mt-0.5 tabular-nums ${
+                    selectedPracticeSkill === 'speaking'
+                      ? 'text-slate-300 dark:text-slate-600'
+                      : 'text-slate-500 dark:text-slate-400'
+                  }`}>
+                    {bankTotals.speakingTasks} part luyện nói
                   </span>
                 </button>
               </div>
@@ -1162,12 +1233,10 @@ function VstepCatalogContent() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3.5">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tabular-nums">
-                    {selectedPracticeSkill === 'listening' ? 'KỸ NĂNG NGHE' : 'KỸ NĂNG ĐỌC'}
+                    {selectedSkillMeta.label}
                   </span>
                   <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
-                    {selectedPracticeSkill === 'listening'
-                      ? 'Luyện Nghe Chuyên Sâu (Part 1–3) Kèm Audio CDN & Tapescript'
-                      : 'Luyện Đọc Hiểu Chuyên Đề (Passage 1–4) Phân Tích Ý Chính'}
+                    {selectedSkillMeta.title}
                   </h2>
                 </div>
 
@@ -1175,14 +1244,13 @@ function VstepCatalogContent() {
                   <Info className="h-3.5 w-3.5 text-slate-400" />
                   <span className="underline decoration-dotted text-[11px] font-medium">Hướng dẫn kỹ năng</span>
                   <div className="absolute right-0 top-full mt-1.5 hidden w-80 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 text-xs text-slate-600 dark:text-slate-300 shadow-lg group-hover:block z-30 leading-relaxed">
-                    {selectedPracticeSkill === 'listening'
-                      ? 'Rèn luyện phản xạ nghe hiểu thông tin chi tiết, hội thoại đời sống và bài giảng học thuật chuẩn B1-B2-C1.'
-                      : 'Rèn luyện kỹ năng đọc lướt (Skimming), quét chi tiết (Scanning) và suy luận ngữ cảnh từ các bài báo và đoạn văn học thuật.'}
+                    {selectedSkillMeta.help}
                   </div>
                 </div>
               </div>
 
               {/* Visual Progress Bar & 3-Column Stats (Identical to TOEIC) */}
+              {isObjectivePractice && (
               <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/40 p-4 space-y-3">
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
@@ -1232,8 +1300,10 @@ function VstepCatalogContent() {
                   </div>
                 </div>
               </div>
+              )}
 
               {/* Step 1: Chế độ chống trùng (Anti-duplication Mode) */}
+              {isObjectivePractice && (
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
@@ -1354,12 +1424,32 @@ function VstepCatalogContent() {
                   </button>
                 </div>
               </div>
+              )}
+
+              {!isObjectivePractice && (
+                <div className="rounded-sm border border-amber-200 dark:border-amber-900/60 bg-amber-50/60 dark:bg-amber-950/20 p-4 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                  <div className="font-bold text-slate-900 dark:text-white mb-1">
+                    {selectedPracticeSkill === 'writing'
+                      ? `${bankTotals.writingPracticeSets} bộ · ${bankTotals.writingTasks} task Writing`
+                      : `${bankTotals.speakingPracticeSets} bộ · ${bankTotals.speakingTasks} part Speaking`}
+                  </div>
+                  <p>
+                    Đây là bài luyện tự luận theo đề hoàn chỉnh. Chọn nguồn và cấp độ bên dưới rồi vào bài;
+                    hướng dẫn/bài mẫu chỉ được mở trong luồng review để tránh lộ đáp án trước khi luyện.
+                  </p>
+                  {selectedPracticeSkill === 'speaking' && (
+                    <Link href="/vstep/speaking" className="mt-2 inline-flex font-bold text-amber-800 dark:text-amber-300 hover:underline">
+                      Mở Speaking Lab 12 phút →
+                    </Link>
+                  )}
+                </div>
+              )}
 
               {/* Step 2: Bộ lọc nguồn & cấp bậc */}
               <div className="space-y-2.5 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-2">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
-                    2
+                    {isObjectivePractice ? '2' : '1'}
                   </span>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
                     Bộ lọc nguồn đề & cấp bậc:
@@ -1393,7 +1483,7 @@ function VstepCatalogContent() {
                   {/* 1-Click Launch Button for Skill Practice */}
                   {filteredItems.length > 0 && (
                     <Link
-                      href={`/vstep/exam/${filteredItems[0].id}?filter=${filterMode}`}
+                      href={getPracticeHref(filteredItems[0])}
                       className="ml-auto inline-flex items-center gap-2 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-2 px-4 text-xs font-bold transition-colors shadow-xs"
                     >
                       <Play className="h-3.5 w-3.5 fill-current" />
@@ -1412,8 +1502,8 @@ function VstepCatalogContent() {
                   <span>
                     Hiển thị <strong className="text-slate-900 dark:text-white tabular-nums">{filteredItems.length}</strong> bài luyện phù hợp
                   </span>
-                  <span>•</span>
-                  <span>Chế độ: <strong className="text-slate-900 dark:text-white uppercase">{filterMode}</strong></span>
+                  {isObjectivePractice && <span>•</span>}
+                  {isObjectivePractice && <span>Chế độ: <strong className="text-slate-900 dark:text-white uppercase">{filterMode}</strong></span>}
                 </div>
 
                 <div className="flex items-center gap-3 font-sans">
@@ -1501,7 +1591,7 @@ function VstepCatalogContent() {
                               {item.duration} phút
                             </span>
                             <span>•</span>
-                            <span>{item.totalQuestions || 35} câu hỏi</span>
+                            <span>{getPracticeWorkload(item)}</span>
                             {item.totalTasks && (
                               <>
                                 <span>•</span>
@@ -1513,7 +1603,7 @@ function VstepCatalogContent() {
 
                         <div className="flex items-center gap-2 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-slate-100 dark:border-slate-800">
                           <Link
-                            href={`/vstep/exam/${item.id}?filter=${filterMode}`}
+                            href={getPracticeHref(item)}
                             className="inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-1.5 px-3.5 text-xs font-bold transition-colors whitespace-nowrap"
                           >
                             <Play className="h-3.5 w-3.5 fill-current" />
@@ -1552,14 +1642,14 @@ function VstepCatalogContent() {
                         <div className="flex items-center gap-2 pt-1">
                           {getSourceBadge(item.source)}
                           <span className="font-mono text-xs text-slate-500">
-                            {item.totalQuestions || 35} câu hỏi
+                            {getPracticeWorkload(item)}
                           </span>
                         </div>
                       </div>
 
                       <div className="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800">
                         <Link
-                          href={`/vstep/exam/${item.id}?filter=${filterMode}`}
+                          href={getPracticeHref(item)}
                           className="w-full inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-2 px-3 text-xs font-bold transition-colors text-center"
                         >
                           <Play className="h-3.5 w-3.5 fill-current" />
@@ -1730,7 +1820,7 @@ function VstepCatalogContent() {
                     3. Đặt lại Bảng Điểm & Lịch Sử Đề Thi (Exam Records)
                   </span>
                   <p className="text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
-                    Xóa các bản ghi nộp bài, điểm số cao nhất của toàn bộ 190 đề thi.
+                    Xóa các bản ghi nộp bài, điểm số cao nhất của toàn bộ {bankTotals.totalExams} đề thi.
                   </p>
                 </div>
               </label>
@@ -1755,7 +1845,7 @@ function VstepCatalogContent() {
                     4. Đặt Lại Toàn Bộ (Full Reset Khảo Thí)
                   </span>
                   <p className="text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
-                    Xóa sạch toàn bộ lịch sử 5.604 câu hỏi và bảng điểm đề thi, khôi phục trạng thái ban đầu.
+                    Xóa sạch toàn bộ lịch sử {bankTotals.totalQuestions.toLocaleString('vi-VN')} câu hỏi và bảng điểm đề thi, khôi phục trạng thái ban đầu.
                   </p>
                 </div>
               </label>

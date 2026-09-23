@@ -1,0 +1,778 @@
+{
+  "totalTsFiles": 55,
+  "indexFilesCount": 5,
+  "nonIndexTopicFilesCount": 50,
+  "totalSubtopics": 229,
+  "totalVocabulary": 1145,
+  "existingActionsCount": 0,
+  "existingImagesCount": 0,
+  "distinctTermsCount": 580,
+  "levelsCount": {
+    "A1": 33,
+    "A2": 105,
+    "B1": 79,
+    "B2": 12
+  },
+  "quoteStyles": {
+    "jsonQuoted": 9,
+    "jsUnquoted": 41
+  },
+  "categoryCounts": {
+    "daily-situations": 20,
+    "describing": 9,
+    "social": 11,
+    "workplace-extended": 10
+  },
+  "fileDetails": [
+    {
+      "category": "daily-situations",
+      "fileName": "asking-for-help.ts",
+      "relPath": "daily-situations/asking-for-help.ts",
+      "namedExports": [
+        "ASKING_FOR_HELP_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14219
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "at-the-bank.ts",
+      "relPath": "daily-situations/at-the-bank.ts",
+      "namedExports": [
+        "AT_THE_BANK_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14291
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "at-the-gym.ts",
+      "relPath": "daily-situations/at-the-gym.ts",
+      "namedExports": [
+        "AT_THE_GYM_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14260
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "at-the-hairdresser.ts",
+      "relPath": "daily-situations/at-the-hairdresser.ts",
+      "namedExports": [
+        "AT_THE_HAIRDRESSER_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 13800
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "at-the-laundry.ts",
+      "relPath": "daily-situations/at-the-laundry.ts",
+      "namedExports": [
+        "AT_THE_LAUNDRY_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 4,
+      "vocabCount": 20,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 11345
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "at-the-pharmacy.ts",
+      "relPath": "daily-situations/at-the-pharmacy.ts",
+      "namedExports": [
+        "AT_THE_PHARMACY_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14642
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "at-the-post-office.ts",
+      "relPath": "daily-situations/at-the-post-office.ts",
+      "namedExports": [
+        "AT_THE_POST_OFFICE_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 4,
+      "vocabCount": 20,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 11199
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "at-the-supermarket.ts",
+      "relPath": "daily-situations/at-the-supermarket.ts",
+      "namedExports": [
+        "AT_THE_SUPERMARKET_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16775
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "celebrations-holidays.ts",
+      "relPath": "daily-situations/celebrations-holidays.ts",
+      "namedExports": [
+        "CELEBRATIONS_HOLIDAYS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16835
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "delivery-services.ts",
+      "relPath": "daily-situations/delivery-services.ts",
+      "namedExports": [
+        "DELIVERY_SERVICES_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14164
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "home-repairs.ts",
+      "relPath": "daily-situations/home-repairs.ts",
+      "namedExports": [
+        "HOME_REPAIRS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14090
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "lost-items-problems.ts",
+      "relPath": "daily-situations/lost-items-problems.ts",
+      "namedExports": [
+        "LOST_ITEMS_PROBLEMS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14148
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "making-appointments.ts",
+      "relPath": "daily-situations/making-appointments.ts",
+      "namedExports": [
+        "MAKING_APPOINTMENTS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14049
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "making-complaints.ts",
+      "relPath": "daily-situations/making-complaints.ts",
+      "namedExports": [
+        "MAKING_COMPLAINTS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16883
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "neighbors-community.ts",
+      "relPath": "daily-situations/neighbors-community.ts",
+      "namedExports": [
+        "NEIGHBORS_COMMUNITY_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14417
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "online-shopping.ts",
+      "relPath": "daily-situations/online-shopping.ts",
+      "namedExports": [
+        "ONLINE_SHOPPING_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14378
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "parking-driving.ts",
+      "relPath": "daily-situations/parking-driving.ts",
+      "namedExports": [
+        "PARKING_DRIVING_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 13909
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "pets-vet.ts",
+      "relPath": "daily-situations/pets-vet.ts",
+      "namedExports": [
+        "PETS_VET_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14113
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "phone-calls.ts",
+      "relPath": "daily-situations/phone-calls.ts",
+      "namedExports": [
+        "PHONE_CALLS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16899
+    },
+    {
+      "category": "daily-situations",
+      "fileName": "public-transport.ts",
+      "relPath": "daily-situations/public-transport.ts",
+      "namedExports": [
+        "PUBLIC_TRANSPORT_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16420
+    },
+    {
+      "category": "describing",
+      "fileName": "animals-pets.ts",
+      "relPath": "describing/animals-pets.ts",
+      "namedExports": [
+        "ANIMALS_PETS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 1,
+      "vocabCount": 5,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 3395
+    },
+    {
+      "category": "describing",
+      "fileName": "buildings-streets.ts",
+      "relPath": "describing/buildings-streets.ts",
+      "namedExports": [
+        "BUILDINGS_STREETS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 1,
+      "vocabCount": 5,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 3623
+    },
+    {
+      "category": "describing",
+      "fileName": "charts-graphs.ts",
+      "relPath": "describing/charts-graphs.ts",
+      "namedExports": [
+        "CHARTS_GRAPHS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 1,
+      "vocabCount": 5,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 3906
+    },
+    {
+      "category": "describing",
+      "fileName": "food-drinks.ts",
+      "relPath": "describing/food-drinks.ts",
+      "namedExports": [
+        "FOOD_DRINKS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 1,
+      "vocabCount": 5,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 3522
+    },
+    {
+      "category": "describing",
+      "fileName": "objects-around-me.ts",
+      "relPath": "describing/objects-around-me.ts",
+      "namedExports": [
+        "OBJECTS_AROUND_ME"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 2,
+      "vocabCount": 10,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 7151
+    },
+    {
+      "category": "describing",
+      "fileName": "people-appearance.ts",
+      "relPath": "describing/people-appearance.ts",
+      "namedExports": [
+        "PEOPLE_APPEARANCE"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 1,
+      "vocabCount": 5,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 3597
+    },
+    {
+      "category": "describing",
+      "fileName": "pictures-photos.ts",
+      "relPath": "describing/pictures-photos.ts",
+      "namedExports": [
+        "PICTURES_PHOTOS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 1,
+      "vocabCount": 5,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 3666
+    },
+    {
+      "category": "describing",
+      "fileName": "rooms-spaces.ts",
+      "relPath": "describing/rooms-spaces.ts",
+      "namedExports": [
+        "ROOMS_SPACES"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 1,
+      "vocabCount": 5,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 3609
+    },
+    {
+      "category": "describing",
+      "fileName": "weather-nature.ts",
+      "relPath": "describing/weather-nature.ts",
+      "namedExports": [
+        "WEATHER_NATURE"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 1,
+      "vocabCount": 5,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 3544
+    },
+    {
+      "category": "social",
+      "fileName": "agreeing-disagreeing.ts",
+      "relPath": "social/agreeing-disagreeing.ts",
+      "namedExports": [
+        "AGREEING_DISAGREEING_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 21416
+    },
+    {
+      "category": "social",
+      "fileName": "apologizing.ts",
+      "relPath": "social/apologizing.ts",
+      "namedExports": [
+        "APOLOGIZING_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 21287
+    },
+    {
+      "category": "social",
+      "fileName": "congratulating.ts",
+      "relPath": "social/congratulating.ts",
+      "namedExports": [
+        "CONGRATULATING_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 17401
+    },
+    {
+      "category": "social",
+      "fileName": "expressing-opinions.ts",
+      "relPath": "social/expressing-opinions.ts",
+      "namedExports": [
+        "EXPRESSING_OPINIONS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 8,
+      "vocabCount": 40,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 30155
+    },
+    {
+      "category": "social",
+      "fileName": "giving-advice.ts",
+      "relPath": "social/giving-advice.ts",
+      "namedExports": [
+        "GIVING_ADVICE_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 21941
+    },
+    {
+      "category": "social",
+      "fileName": "giving-directions.ts",
+      "relPath": "social/giving-directions.ts",
+      "namedExports": [
+        "GIVING_DIRECTIONS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 19672
+    },
+    {
+      "category": "social",
+      "fileName": "gossiping-rumors.ts",
+      "relPath": "social/gossiping-rumors.ts",
+      "namedExports": [
+        "GOSSIPING_RUMORS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 18596
+    },
+    {
+      "category": "social",
+      "fileName": "inviting-declining.ts",
+      "relPath": "social/inviting-declining.ts",
+      "namedExports": [
+        "INVITING_DECLINING_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 21256
+    },
+    {
+      "category": "social",
+      "fileName": "making-friends.ts",
+      "relPath": "social/making-friends.ts",
+      "namedExports": [
+        "MAKING_FRIENDS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 20217
+    },
+    {
+      "category": "social",
+      "fileName": "small-talk.ts",
+      "relPath": "social/small-talk.ts",
+      "namedExports": [
+        "SMALL_TALK_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 8,
+      "vocabCount": 40,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 25535
+    },
+    {
+      "category": "social",
+      "fileName": "telling-stories.ts",
+      "relPath": "social/telling-stories.ts",
+      "namedExports": [
+        "TELLING_STORIES_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 6,
+      "vocabCount": 30,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 21195
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "email-recap-verbal.ts",
+      "relPath": "workplace-extended/email-recap-verbal.ts",
+      "namedExports": [
+        "EMAIL_RECAP_VERBAL_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 4,
+      "vocabCount": 20,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 13961
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "IT-helpdesk.ts",
+      "relPath": "workplace-extended/IT-helpdesk.ts",
+      "namedExports": [
+        "IT_HELPDESK_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16764
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "lunch-break-chat.ts",
+      "relPath": "workplace-extended/lunch-break-chat.ts",
+      "namedExports": [
+        "LUNCH_BREAK_CHAT_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16301
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "meeting-small-talk.ts",
+      "relPath": "workplace-extended/meeting-small-talk.ts",
+      "namedExports": [
+        "MEETING_SMALL_TALK_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16374
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "networking-events.ts",
+      "relPath": "workplace-extended/networking-events.ts",
+      "namedExports": [
+        "NETWORKING_EVENTS_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 17232
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "onboarding-first-day.ts",
+      "relPath": "workplace-extended/onboarding-first-day.ts",
+      "namedExports": [
+        "ONBOARDING_FIRST_DAY_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16580
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "project-handover.ts",
+      "relPath": "workplace-extended/project-handover.ts",
+      "namedExports": [
+        "PROJECT_HANDOVER_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16990
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "quarterly-review.ts",
+      "relPath": "workplace-extended/quarterly-review.ts",
+      "namedExports": [
+        "QUARTERLY_REVIEW_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 18389
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "remote-collaboration.ts",
+      "relPath": "workplace-extended/remote-collaboration.ts",
+      "namedExports": [
+        "REMOTE_COLLABORATION_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 5,
+      "vocabCount": 25,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 16952
+    },
+    {
+      "category": "workplace-extended",
+      "fileName": "resignation-farewell.ts",
+      "relPath": "workplace-extended/resignation-farewell.ts",
+      "namedExports": [
+        "RESIGNATION_FAREWELL_ITEMS"
+      ],
+      "hasDefaultExport": false,
+      "hasTopicLibraryItemType": true,
+      "subtopicCount": 4,
+      "vocabCount": 20,
+      "actionsCount": 0,
+      "imageCount": 0,
+      "sizeBytes": 14112
+    }
+  ]
+}

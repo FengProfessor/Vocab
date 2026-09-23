@@ -375,5 +375,10 @@
     "comparison": "**Danh hóa vs mệnh đề động từ:** Danh hóa biến động từ/tính từ thành danh từ để câu trang trọng, học thuật: *APOLOGIZING to them is important* (V-ing làm chủ ngữ) thay vì *To apologize...* Văn academic chuộng danh hóa: decide → decision, explain → explanation.",
     "definition": "**Danh từ hóa (Nominalisation)** là quá trình biến đổi một động từ hoặc tính từ thành danh từ, giúp tóm lược ý tưởng và tạo ra một văn phong trang trọng, cô đọng hơn. Việc sử dụng cấu trúc này cho phép chúng ta diễn đạt các hành động, sự kiện hoặc khái niệm một cách trừu tượng và hàm súc trong câu."
   },
-  "exercises": []
+  "exercises": [
+    {"type":"multiple_choice","question":"Danh từ của 'decide' là gì?","options":["decisive","decision","deciding"],"correct_answer":"decision","explanation":"Decision là danh từ chỉ quyết định; decisive là tính từ."},
+    {"type":"multiple_choice","question":"'We investigated the problem' có thể danh từ hóa thành câu nào?","options":["We conducted an investigation of the problem.","We conducted an investigate of the problem.","We conducted an investigative of the problem."],"correct_answer":"We conducted an investigation of the problem.","explanation":"Investigate → investigation (danh từ)."},
+    {"type":"multiple_choice","question":"Chọn danh từ của 'improve'.","options":["improvingly","improvement","improved"],"correct_answer":"improvement","explanation":"Improve → improvement."},
+    {"type":"multiple_choice","question":"'The company expanded rapidly' → 'The company's rapid ___'.","options":["expansion","expand","expansive"],"correct_answer":"expansion","explanation":"Expansion là danh từ của expand."}
+  ]
 }

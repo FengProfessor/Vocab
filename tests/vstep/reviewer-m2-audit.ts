@@ -247,7 +247,7 @@ async function main() {
   }
 
   // -------------------------------------------------------------
-  // 5. AUDIT ALL 190 CATALOG ITEMS FOR ZERO-BULK-LEAK
+  // 5. AUDIT ALL 192 CATALOG ITEMS FOR ZERO-BULK-LEAK
   // -------------------------------------------------------------
   console.log('\n--- 5. Comprehensive Zero-Bulk-Leak Audit Across Entire Catalog ---');
   const catalog = getVstepCatalogIndex();

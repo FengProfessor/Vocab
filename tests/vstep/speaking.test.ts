@@ -14,6 +14,7 @@ import {
   getVstepPart2ScenarioById,
   getVstepPart3TopicById,
 } from '@/data/vstep/speaking';
+import { getVstepCatalogIndex, loadRawVstepExam } from '@/lib/vstep-test-loader';
 
 export async function runVstepSpeakingTests(runner?: TestRunner): Promise<TestRunner> {
   const r = runner || new TestRunner();
@@ -148,6 +149,21 @@ export async function runVstepSpeakingTests(runner?: TestRunner): Promise<TestRu
       const exam = getVstepSpeakingExamById('vstep-speaking-exam-01');
       expect(exam).toBeDefined();
       expect(exam!.targetLevel).toBe('B2');
+    });
+
+    await r.it('VSP-FULL.3: Every catalog full mock reserves exactly 12 minutes for Speaking', () => {
+      const fullMocks = getVstepCatalogIndex().items.filter((item) => item.category === 'full_mock');
+      expect(fullMocks.length).toBeGreaterThan(0);
+
+      for (const item of fullMocks) {
+        const exam = loadRawVstepExam(item.id);
+        expect(exam).toBeDefined();
+        const speaking = exam!.sections.find((section) => section.type === 'speaking');
+        expect(speaking).toBeDefined();
+        expect(speaking!.timeLimit).toBe(12);
+        const taskMinutes = speaking!.tasks.reduce((sum, task) => sum + (task.timeLimit || 0), 0);
+        expect(taskMinutes).toBe(12);
+      }
     });
   });
 

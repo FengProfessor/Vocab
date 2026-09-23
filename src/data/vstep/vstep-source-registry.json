@@ -1,0 +1,122 @@
+{
+  "version": "2026-09-23",
+  "sources": [
+    {
+      "id": "ulis-vnu-official",
+      "name": "ULIS-VNU VSTEP",
+      "sourceType": "official",
+      "trustScore": 100,
+      "seedUrls": [
+        "https://vstep.vnu.edu.vn/sample-test/",
+        "https://vstep.vn/test-format/"
+      ],
+      "allowedHosts": ["vstep.vnu.edu.vn", "vstep.vn"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "ufl-udn-official",
+      "name": "ĐH Ngoại ngữ - ĐH Đà Nẵng VSTEP",
+      "sourceType": "official",
+      "trustScore": 100,
+      "seedUrls": [
+        "https://vstep.ufl.udn.vn/NLTA/Dinhdang/2025/De-thi-mau-Vstep-bac-3-52025.9.10067"
+      ],
+      "allowedHosts": ["vstep.ufl.udn.vn"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "hcmue-official-sample",
+      "name": "ĐH Sư phạm TP.HCM - Đề mẫu VSTEP",
+      "sourceType": "official",
+      "trustScore": 95,
+      "seedUrls": [
+        "https://cn6sp.hcmue.edu.vn/cau-truc-de-thi-b1-va-bo-de-mau-vstep-theo-khung-chau-au.html"
+      ],
+      "allowedHosts": ["cn6sp.hcmue.edu.vn"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "aceofenglish-free",
+      "name": "Ace of English VSTEP",
+      "sourceType": "practice_site",
+      "trustScore": 70,
+      "seedUrls": ["https://aceofenglish.com/vstep"],
+      "allowedHosts": ["aceofenglish.com"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "vstepup-free",
+      "name": "VSTEPUP",
+      "sourceType": "practice_site",
+      "trustScore": 70,
+      "seedUrls": [
+        "https://www.vstepup.vn/full-test",
+        "https://www.vstepup.vn/thi-thu-vstep"
+      ],
+      "allowedHosts": ["vstepup.vn", "www.vstepup.vn"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "vstep-edu-free",
+      "name": "VSTEP.edu.vn",
+      "sourceType": "practice_site",
+      "trustScore": 65,
+      "seedUrls": ["https://vstep.edu.vn/"],
+      "allowedHosts": ["vstep.edu.vn"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "vstepowl-free",
+      "name": "VSTEP Owl",
+      "sourceType": "practice_site",
+      "trustScore": 75,
+      "seedUrls": ["https://vstepowl.com/"],
+      "allowedHosts": ["vstepowl.com"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "tuhocvstep-community",
+      "name": "Tự Học VSTEP Community",
+      "sourceType": "community",
+      "trustScore": 60,
+      "seedUrls": ["https://tuhocvstep.com/"],
+      "allowedHosts": ["tuhocvstep.com"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "evstep-recalled-2026",
+      "name": "eVSTEP - Review đề thi thực tế 2026",
+      "sourceType": "recalled",
+      "trustScore": 55,
+      "seedUrls": [
+        "https://evstep.edu.vn/tin-tuc/de-thi-vstep-dai-hoc-ngan-hang"
+      ],
+      "allowedHosts": ["evstep.edu.vn"],
+      "crawlPublicPages": true
+    },
+    {
+      "id": "public-drive-seed-01",
+      "name": "Public VSTEP Drive Seed",
+      "sourceType": "public_drive",
+      "trustScore": 45,
+      "seedUrls": [
+        "https://drive.google.com/file/d/1b4BNBCrF6ef6T-RVE7tnxITnq6pz0TC_/view"
+      ],
+      "allowedHosts": ["drive.google.com"],
+      "crawlPublicPages": false
+    },
+    {
+      "id": "public-drive-community-2026",
+      "name": "Community VSTEP public Drive collections",
+      "sourceType": "public_drive",
+      "trustScore": 35,
+      "seedUrls": [
+        "https://drive.google.com/drive/folders/1fMwGu23M8OSa-44q8Tos7uxnSLmjhGBY?usp=sharing",
+        "https://drive.google.com/drive/folders/1V_bMOHPqfopAwjuKqwa_eqkSQ03JXoyp?usp=sharing",
+        "https://docs.google.com/document/d/145qwHL5ebfdZ9cHUDWUgwIy9lvBiz-8C0RjXcf8KykA/edit?usp=sharing"
+      ],
+      "allowedHosts": ["drive.google.com", "docs.google.com"],
+      "crawlPublicPages": false
+    }
+  ]
+}

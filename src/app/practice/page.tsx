@@ -11,6 +11,17 @@ import { StudentShell } from '@/components/student/StudentShell';
 
 const MODES = [
   {
+    href: '/practice/games',
+    emoji: '🎮',
+    title: 'Sân chơi tiếng Anh · 6 mini game',
+    desc: 'Lật cặp · đua từ · giải mã chữ · xếp câu · cầu ngữ pháp · thám tử săn lỗi',
+    ring: 'border-violet-200 bg-violet-50/70 hover:border-violet-400 hover:bg-violet-100 dark:border-violet-800 dark:bg-violet-950/30',
+    badge: 'bg-violet-600',
+    text: 'text-violet-950 dark:text-violet-100',
+    sub: 'text-violet-800/80 dark:text-violet-300',
+    arrow: 'text-violet-400',
+  },
+  {
     href: '/practice/vocab-station',
     emoji: '🌟',
     title: '100 Động từ Cốt lõi & Luyện ngữ cảnh',

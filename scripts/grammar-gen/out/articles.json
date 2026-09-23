@@ -359,39 +359,83 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "If the weather ____ (be) fine, we would have gone to the beach.",
-      "opts": [],
-      "answer": "had been",
-      "fb": "Vế If của loại 3 → had + V3"
+      "type": "mcq",
+      "q": "I have ___ book.",
+      "opts": [
+        "a",
+        "an",
+        "the"
+      ],
+      "answer": "a",
+      "fb": "Book bắt đầu bằng âm phụ âm; nhắc lần đầu dùng a."
+    },
+    {
+      "type": "mcq",
+      "q": "She has ___ apple.",
+      "opts": [
+        "an",
+        "a",
+        "some"
+      ],
+      "answer": "an",
+      "fb": "Apple bắt đầu bằng âm nguyên âm; dùng an."
     },
     {
       "type": "fill",
-      "q": "If she had asked me last night, I ____ (help) her.",
-      "opts": [],
-      "answer": "would have helped",
-      "fb": "Vế chính của loại 3 → would have + V3"
+      "q": "He is ___ teacher. (a / an)",
+      "answer": [
+        "a"
+      ],
+      "fb": "Teacher bắt đầu bằng âm /t/; dùng a."
+    },
+    {
+      "type": "mcq",
+      "q": "I saw a dog. ___ dog was black.",
+      "opts": [
+        "The",
+        "A",
+        "An"
+      ],
+      "answer": "The",
+      "fb": "Đã nhắc a dog rồi, lần sau dùng the dog."
     },
     {
       "type": "fill",
-      "q": "He ____ (not / fail) the exam if he had revised carefully.",
-      "opts": [],
-      "answer": "wouldn't have failed",
-      "fb": "Vế kia là had + V3 → vế này would have + V3"
+      "q": "This is ___ orange. (a / an)",
+      "answer": [
+        "an"
+      ],
+      "fb": "Orange bắt đầu bằng âm nguyên âm; dùng an."
+    },
+    {
+      "type": "mcq",
+      "q": "Choose the correct phrase.",
+      "opts": [
+        "an umbrella",
+        "a umbrella",
+        "the umbrella for the first mention"
+      ],
+      "answer": "an umbrella",
+      "fb": "Umbrella bắt đầu bằng âm nguyên âm; lần đầu nhắc dùng an umbrella."
     },
     {
       "type": "fill",
-      "q": "If Lan ____ (not / forget) her key, she wouldn't have waited outside.",
-      "opts": [],
-      "answer": "hadn't forgotten",
-      "fb": "Vế If phủ định của loại 3 → hadn't + V3"
+      "q": "Please close ___ door. (the / a; both people know which door)",
+      "answer": [
+        "the"
+      ],
+      "fb": "Hai người đều biết cánh cửa nào nên dùng the."
     },
     {
-      "type": "fill",
-      "q": "We had ____ breakfast at six this morning.",
-      "opts": [],
-      "answer": "∅",
-      "fb": "tên bữa ăn không dùng mạo từ"
+      "type": "mcq",
+      "q": "She bought a pen. Where is ___ pen now?",
+      "opts": [
+        "the",
+        "a",
+        "an"
+      ],
+      "answer": "the",
+      "fb": "Chiếc bút đã được xác định ở câu trước."
     }
   ]
 }

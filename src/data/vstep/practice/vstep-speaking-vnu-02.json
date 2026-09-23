@@ -1,0 +1,58 @@
+{
+  "id": "vstep-speaking-vnu-02",
+  "title": "Speaking Practice — Đề Khảo Thí VSTEP B2-C1 Sau Đại Học — Đại Học Quốc Gia Hà Nội",
+  "duration": 12,
+  "category": "speaking",
+  "targetLevel": "C1",
+  "sections": [
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimit": 12,
+      "tasks": [
+        {
+          "id": "vnu2-s-part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "What inspired you to pursue postgraduate academic research in your discipline?",
+            "How do you manage your time between research commitments and personal responsibilities?",
+            "What role does peer collaboration play in your academic laboratory?",
+            "Do you prefer reading physical academic monographs or digital journal articles?",
+            "What strategies do you employ when confronting research methodology roadblocks?",
+            "How do you envision your professional career five years post-graduation?"
+          ],
+          "suggestion": "<p><b>VNU Sau Đại Học Speaking Part 1:</b> Thể hiện phong thái học giả chững chạc. Sử dụng thuật ngữ chuyên môn chính xác, trả lời gãy gọn theo mô hình ARE (Answer - Reason - Example) trong 25-35 giây mỗi câu.</p>"
+        },
+        {
+          "id": "vnu2-s-part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class=\"mb-1\"><b>Situation:</b> The University Research Council has allocated a special budget to cultivate academic integrity and prevent research misconduct among graduate scholars.</p><p>Three institutional proposals are under review:</p><ul><li><b>Option 1:</b> Investing in university-wide automated plagiarism and AI-generated text detection software licenses.</li><li><b>Option 2:</b> Mandating a credit-bearing semester course on Research Ethics and Data Management for all incoming candidates.</li><li><b>Option 3:</b> Imposing severe financial penalties and automatic expulsion for any confirmed plagiarism violation.</li></ul><p>Select the most effective option and defend your choice while demonstrating why the alternative measures are less constructive.</p>",
+          "suggestion": "<p><b>VNU Sau Đại Học Speaking Part 2:</b> Áp dụng mô hình ICE (Intro - Comparison - End). Phân tích toàn diện: Giáo dục phòng ngừa chủ động (Option 2) bền vững và giải quyết gốc rễ hơn nhiều so với việc chỉ dựa vào phần mềm (Option 1) hay xử phạt thụ động (Option 3).</p>"
+        },
+        {
+          "id": "vnu2-s-part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The impact of international publication metrics on university research quality",
+          "mindmap": {
+            "title": "Impact of International Publication Metrics (Scopus/WoS)",
+            "ideas": [
+              "Benchmarking domestic science against global empirical standards",
+              "Attracting foreign faculty recruitment and international research grants",
+              "Risk of neglecting locally relevant socio-economic community problems",
+              "[Your own creative perspective]"
+            ]
+          },
+          "followUp": [
+            "Should Vietnamese universities prioritize publishing in high-impact international journals over solving immediate domestic industrial challenges?",
+            "How can academic institutions effectively discourage predatory journal publishing among junior researchers?",
+            "In what ways will generative artificial intelligence reshape the traditional peer-review publication ecosystem?"
+          ],
+          "suggestion": "<p><b>VNU Sau Đại Học Speaking Part 3:</b> Phát triển luận điểm đa chiều (IDEA). Đề xuất nhánh ý riêng về chính sách đánh giá cân bằng (Balanced research evaluation) giữa công bố quốc tế và ứng dụng thực tiễn cho địa phương.</p>"
+        }
+      ]
+    }
+  ]
+}

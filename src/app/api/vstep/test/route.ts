@@ -3,7 +3,6 @@ import {
   loadVstepExamSafe,
   loadRawVstepExam,
   loadVstepSkillPractice,
-  stripSensitiveVstepData,
   getVstepCatalog,
 } from '@/lib/vstep-test-loader';
 import {
@@ -13,7 +12,25 @@ import {
   flagClientAsBot,
   poisonVstepQuestion,
 } from '@/lib/vstep-anti-scraping';
-import { VstepExam, VstepSkillType } from '@/lib/vstep-types';
+import { VstepSkillType } from '@/lib/vstep-types';
+
+function getCatalogPracticeSkill(testId?: string | null): VstepSkillType | null {
+  if (!testId) return null;
+  const item = getVstepCatalog().items.find((candidate) => candidate.id === testId);
+  if (
+    item?.category === 'listening' ||
+    item?.category === 'reading' ||
+    item?.category === 'writing' ||
+    item?.category === 'speaking'
+  ) {
+    return item.category;
+  }
+  return null;
+}
+
+function isProductiveSkill(skill: VstepSkillType | null): skill is 'writing' | 'speaking' {
+  return skill === 'writing' || skill === 'speaking';
+}
 
 export async function GET(request: NextRequest) {
   try {
@@ -82,10 +99,26 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // 4. Client chân chính: Nếu yêu cầu skill-specific practice hoặc testId là practice/bank
-    if (skillParam || testId === 'practice' || testId === 'bank') {
+    // 4. Client chân chính: chỉ coi là practice nếu có skill rõ ràng hoặc catalog xác nhận đề kỹ năng.
+    // Không dùng filterMode để suy đoán vì full mock cũng có thể mang query ?filter=unseen.
+    const catalogPracticeSkill = getCatalogPracticeSkill(testId);
+    if (testId && isProductiveSkill(catalogPracticeSkill)) {
+      const safeExam = loadVstepExamSafe(testId);
+      if (!safeExam) {
+        return NextResponse.json(
+          { success: false, error: 'Không thể nạp bài luyện tập VSTEP yêu cầu.' },
+          { status: 404 }
+        );
+      }
+      return NextResponse.json({
+        success: true,
+        exam: safeExam,
+        sessionToken: generateVstepSessionToken(clientIp, testId),
+      });
+    }
+    if (skillParam || catalogPracticeSkill || testId === 'practice' || testId === 'bank') {
       const targetSkill: VstepSkillType =
-        skillParam || (testId?.includes('reading') ? 'reading' : 'listening');
+        skillParam || catalogPracticeSkill || (testId?.includes('reading') ? 'reading' : 'listening');
 
       const practiceExam = loadVstepSkillPractice({
         skill: targetSkill,
@@ -107,7 +140,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({
         success: true,
         exam: practiceExam,
-        metadata: (practiceExam as any).metadata,
+        metadata: practiceExam.metadata,
         sessionToken,
       });
     }
@@ -197,18 +230,31 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 3. Xử lý luyện tập kỹ năng hoặc bốc đề chống trùng qua POST (tránh lỗi 414 URI Too Long)
-    const isPracticeQuery =
-      body.skill ||
-      testId === 'practice' ||
-      testId === 'bank' ||
-      (Array.isArray(body.excludedIds) && body.excludedIds.length > 0) ||
-      (Array.isArray(body.mistakeIds) && body.mistakeIds.length > 0) ||
-      Boolean(body.filterMode || body.filter);
+    // 3. Xử lý luyện tập kỹ năng hoặc bốc đề chống trùng qua POST (tránh lỗi 414 URI Too Long).
+    // Full mock vẫn gửi filter/history từ UI, nên không được dùng các field đó để phân loại practice.
+    const catalogPracticeSkill = getCatalogPracticeSkill(testId);
+    if (testId && isProductiveSkill(catalogPracticeSkill)) {
+      const safeExam = loadVstepExamSafe(testId);
+      if (!safeExam) {
+        return NextResponse.json(
+          { success: false, error: 'Không thể nạp bài luyện tập VSTEP yêu cầu.' },
+          { status: 404 }
+        );
+      }
+      return NextResponse.json({
+        success: true,
+        exam: safeExam,
+        sessionToken: generateVstepSessionToken(clientIp, testId),
+      });
+    }
+    const isPracticeQuery = Boolean(
+      body.skill || catalogPracticeSkill || testId === 'practice' || testId === 'bank'
+    );
 
     if (isPracticeQuery) {
       const targetSkill: VstepSkillType =
         body.skill ||
+        catalogPracticeSkill ||
         (testId?.includes('reading') ? 'reading' : 'listening');
 
       const practiceExam = loadVstepSkillPractice({
@@ -234,7 +280,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         exam: practiceExam,
-        metadata: (practiceExam as any).metadata,
+        metadata: practiceExam.metadata,
         sessionToken,
       });
     }

@@ -463,14 +463,20 @@
       "type": "fill",
       "q": "The man ____ is standing at the door is my father.",
       "opts": [],
-      "answer": "who (hoặc that)",
+      "answer": [
+        "who",
+        "that"
+      ],
       "fb": "the man = người → who"
     },
     {
       "type": "fill",
       "q": "I like the picture ____ hangs on the wall.",
       "opts": [],
-      "answer": "which (hoặc that)",
+      "answer": [
+        "which",
+        "that"
+      ],
       "fb": "the picture = vật → which"
     },
     {
@@ -491,14 +497,20 @@
       "type": "fill",
       "q": "The people ____ live upstairs are very noisy.",
       "opts": [],
-      "answer": "who (hoặc that)",
+      "answer": [
+        "who",
+        "that"
+      ],
       "fb": "people = người → who"
     },
     {
       "type": "fill",
       "q": "This is the dictionary ____ I borrowed from Lan.",
       "opts": [],
-      "answer": "which (hoặc that)",
+      "answer": [
+        "which",
+        "that"
+      ],
       "fb": "the dictionary = vật → which"
     },
     {
@@ -519,7 +531,10 @@
       "type": "fill",
       "q": "The song ____ we heard on the radio is very old.",
       "opts": [],
-      "answer": "which (hoặc that)",
+      "answer": [
+        "which",
+        "that"
+      ],
       "fb": "the song = vật → which"
     },
     {

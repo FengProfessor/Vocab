@@ -16,6 +16,7 @@ import SvoSentenceDiagram from '@/components/grammar/SvoSentenceDiagram';
 import GrammarVideoPlayer from '@/components/grammar/GrammarVideoPlayer';
 import GrammarCheatSheet from '@/components/grammar/GrammarCheatSheet';
 import GrammarVisualConcept from '@/components/grammar/GrammarVisualConcept';
+import GrammarTopicMicroDeck from '@/components/grammar/GrammarTopicMicroDeck';
 import {
   isGrammarAnswerCorrect,
   isOptionMatchingCorrect,
@@ -27,6 +28,7 @@ import {
 import { toast } from 'sonner';
 import { speak } from '@/lib/study';
 import { resolveImageSrc } from '@/lib/media-url';
+import { GRAMMAR_LEVEL_MAP, LEVELS } from '../../../../scripts/roadmap-gen/level-map';
 import {
   buildGrammarLessonPdfHtml,
   downloadGrammarPdfHtml,
@@ -104,6 +106,9 @@ const STAGES = [
     range: [22, 25],
   },
 ] as const;
+
+/** Chủ đề không thuộc 25 buổi vẫn phải xuất hiện trong lộ trình. */
+const isLegacyTopic = (topic: GrammarTopic): boolean => /^buoi-\d+/i.test(topic.slug) || /^Buổi\s+\d+\s*[:\-–—]/i.test(topic.title);
 
 function parseTopicTitle(raw: string): { badge: string; displayTitle: string; buoiNum: number } {
   if (!raw) return { badge: 'NGỮ PHÁP', displayTitle: '', buoiNum: 1 };
@@ -1455,6 +1460,7 @@ function GrammarLearnContent() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
   const [activeLesson, setActiveLesson] = useState<GrammarLesson | null>(null);
+  const [microTheoryLessonId, setMicroTheoryLessonId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const topicRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [loadingTopic, setLoadingTopic] = useState<string | null>(null);
@@ -1589,16 +1595,16 @@ function GrammarLearnContent() {
    * - Bài đã từng học (đang due/learned) → accuracy 0.8 ≈ Good → khoảng cách review tăng theo FSRS.
    * Để có Good/Easy thực sự, học sinh phải làm bài tập (route /api/grammar/progress nhận accuracy thật từ quiz).
    */
-  const markAsLearned = async () => {
+  const markAsLearned = async (practiceAccuracy?: number) => {
     if (!activeLesson || !userId) {
       toast.error('Bạn cần đăng nhập để lưu tiến độ.');
-      return;
+      return false;
     }
     setMarking(true);
     try {
       const { data: { session } } = await supabase.auth.getSession();
       const hasPriorProgress = !!progressMap[activeLesson.id];
-      const accuracy = hasPriorProgress ? 0.8 : 0.55;
+      const accuracy = typeof practiceAccuracy === 'number' ? practiceAccuracy : hasPriorProgress ? 0.8 : 0.55;
       const res = await fetch('/api/grammar/progress', {
         method: 'POST',
         headers: {
@@ -1655,7 +1661,12 @@ function GrammarLearnContent() {
         }
       } else {
         toast.error('Lỗi: ' + (data.error || 'không rõ'));
+        return false;
       }
+      return true;
+    } catch {
+      toast.error('Chưa lưu được tiến độ. Vui lòng thử lại.');
+      return false;
     } finally {
       setMarking(false);
     }
@@ -1785,6 +1796,26 @@ function GrammarLearnContent() {
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </main>
     );
+  }
+
+  if (activeLesson && activeLesson.topic && !isLegacyTopic(activeLesson.topic)
+    && microTheoryLessonId !== activeLesson.id && (activeLesson.sections?.usage?.length ?? 0) >= 3) {
+    const stage = LEVELS.find((level) => GRAMMAR_LEVEL_MAP[level.id].includes(activeLesson.topic!.slug));
+    const sequence = LEVELS.flatMap((level) => GRAMMAR_LEVEL_MAP[level.id]);
+    const position = sequence.indexOf(activeLesson.topic.slug);
+    const nextSlug = position >= 0 ? sequence[position + 1] ?? null : null;
+    const nextTopic = topics.find((topic) => topic.slug === nextSlug);
+    return <GrammarTopicMicroDeck
+      key={activeLesson.id}
+      lesson={activeLesson}
+      level={stage?.id ?? 'Ngữ pháp'}
+      onComplete={markAsLearned}
+      onBack={() => setActiveLesson(null)}
+      onNext={nextTopic ? () => { setActiveLesson(null); router.push(`/grammar/learn?topic=${encodeURIComponent(nextTopic.slug)}`); } : null}
+      nextTopicTitle={nextTopic?.title_vi || nextTopic?.title || null}
+      onOpenTheory={() => setMicroTheoryLessonId(activeLesson.id)}
+      saving={marking}
+    />;
   }
 
   if (activeLesson) {
@@ -1996,10 +2027,25 @@ function GrammarLearnContent() {
             {activeTab === 'summary' && (
               <div className="space-y-6 animate-in fade-in duration-200">
                 {/* Interactive Visual Infographic & Diagram with Audio Pronunciation */}
-                <GrammarVisualConcept
-                  buoiNum={parseTopicTitle(activeLesson.topic?.title || activeLesson.title).buoiNum || activeLesson.order_index || 1}
-                  lessonTitle={activeLesson.title}
-                />
+                {activeLesson.topic && isLegacyTopic(activeLesson.topic) ? (
+                  <GrammarVisualConcept
+                    buoiNum={parseTopicTitle(activeLesson.topic.title).buoiNum || activeLesson.order_index || 1}
+                    lessonTitle={activeLesson.title}
+                  />
+                ) : (
+                  <div className="rounded-2xl border border-primary/15 bg-primary/[0.03] p-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-primary">Câu mẫu để nghe và hiểu</p>
+                      <h3 className="mt-1 text-lg font-semibold">{activeLesson.title}</h3>
+                    </div>
+                    {(activeLesson.examples || []).slice(0, 3).map((example, index) => (
+                      <div key={`${example.en}-${index}`} className="flex items-center gap-3 rounded-xl bg-card p-3">
+                        <button type="button" onClick={() => speakEnglish(example.en)} aria-label={`Nghe ${example.en}`} className="rounded-full bg-primary p-2 text-primary-foreground"><Volume2 className="h-4 w-4" /></button>
+                        <div><p className="font-semibold">{example.en}</p><p className="text-sm text-muted-foreground">{example.vi}</p></div>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Traps & Exam Warnings */}
                 {activeLesson.sections?.traps && activeLesson.sections.traps.length > 0 && (() => {
@@ -2156,7 +2202,7 @@ function GrammarLearnContent() {
                   <Dumbbell className="h-4 w-4" /> Bắt đầu làm bài tập
                 </button>
                 <button
-                  onClick={markAsLearned}
+                  onClick={() => { void markAsLearned(); }}
                   disabled={marking}
                   className="font-medium py-3 px-5 rounded-xl bg-muted/50 hover:bg-muted text-foreground transition-colors flex items-center justify-center gap-2 text-sm sm:text-base disabled:opacity-50 cursor-pointer"
                 >
@@ -2293,6 +2339,10 @@ function GrammarLearnContent() {
 
         {/* ─── Main content ─── */}
         <div className="flex-1 min-w-0 space-y-3">
+          <Link href="/grammar/foundation" className="block rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-950 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-100">
+            <span className="font-semibold">Bắt đầu từ số 0 →</span>
+            <span className="mt-1 block text-sm">Học từng câu ngắn bằng tranh, nghe phát âm và chọn đáp án. Bắt đầu với “I am…” trước các chuyên đề bên dưới.</span>
+          </Link>
           {/* Mobile & Tablet collapsible sidebar */}
           {sidebarOpen && (
             <div className="lg:hidden bg-muted/20 rounded-xl p-4 mb-4">
@@ -2310,9 +2360,42 @@ function GrammarLearnContent() {
             </div>
           )}
 
+          {topics.filter((topic) => !isLegacyTopic(topic)).length > 0 && (
+            <section className="space-y-3 pt-4">
+              <h2 className="text-lg font-semibold">Lộ trình ngữ pháp theo cấp độ</h2>
+              <p className="text-sm text-muted-foreground">Học tiếp từ nền tảng, theo thứ tự từ dễ đến khó.</p>
+              {LEVELS.map((level) => {
+                const stageTopics = GRAMMAR_LEVEL_MAP[level.id]
+                  .map((slug) => topics.find((topic) => topic.slug === slug && !isLegacyTopic(topic)))
+                  .filter((topic): topic is GrammarTopic => Boolean(topic));
+                if (stageTopics.length === 0) return null;
+                return <div key={level.id} className="space-y-2">
+                  <h3 className="pt-4 text-base font-semibold">{level.id} · {level.titleVi}</h3>
+                  {level.id === 'A1' && <Link href="/grammar/foundation/a1" className="block rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-950 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-100">Học 16 bước A1 bằng tranh và âm thanh →</Link>}
+                  {stageTopics.map((topic) => (
+                    <div key={topic.id} className="rounded-xl border border-border/60 bg-card">
+                      <button type="button" onClick={() => toggleTopic(topic.id)} className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left">
+                        <span><span className="mr-2 text-xs uppercase text-primary">{level.id}</span><span className="font-semibold">{topic.title_vi || topic.title}</span></span>
+                        <ChevronDown className={`h-4 w-4 shrink-0 ${expandedTopic === topic.id ? 'rotate-180' : ''}`} />
+                      </button>
+                      {expandedTopic === topic.id && <div className="border-t border-border/50 px-4 py-3">
+                        {loadingTopic === topic.id && <p className="text-sm text-muted-foreground">Đang tải...</p>}
+                        {loadingTopic !== topic.id && (lessonsByTopic[topic.id] || []).length === 0 && <p className="text-sm text-muted-foreground">Chưa có bài học.</p>}
+                        {(lessonsByTopic[topic.id] || []).map((lesson) => <button key={lesson.id} type="button" onClick={() => setActiveLesson({ ...lesson, topic })} className="block w-full rounded-lg px-2 py-2 text-left text-sm hover:bg-muted/50">{lesson.title}</button>)}
+                      </div>}
+                    </div>
+                  ))}
+                </div>;
+              })}
+            </section>
+          )}
+
+          {topics.some(isLegacyTopic) && <h2 className="pt-6 text-lg font-semibold">Kho chuyên đề 25 buổi</h2>}
+
           {STAGES.map((stg) => {
             const stgTopics = topics.filter((t) => {
-              const parsed = parseTopicTitle(t.title_vi || t.title);
+              if (!isLegacyTopic(t)) return false;
+              const parsed = parseTopicTitle(t.title);
               return parsed.buoiNum >= stg.range[0] && parsed.buoiNum <= stg.range[1];
             });
             if (stgTopics.length === 0) return null;
@@ -2359,7 +2442,7 @@ function GrammarLearnContent() {
                     ? (typeof tp.learnedLessons === 'number' ? tp.learnedLessons : tp.masteredLessons)
                     : 0;
                   const isDue = tp?.nextDueDate != null && new Date(tp.nextDueDate).getTime() <= now;
-                  const parsed = parseTopicTitle(topic.title_vi || topic.title);
+                  const parsed = parseTopicTitle(topic.title);
 
                   return (
                     <div
@@ -2464,6 +2547,7 @@ function GrammarLearnContent() {
               </section>
             );
           })}
+
         </div>
       </div>
     </main>

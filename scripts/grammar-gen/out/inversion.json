@@ -398,5 +398,10 @@
     "comparison": "**Đảo ngữ vs câu hỏi:** Cả hai đều đặt trợ động từ trước chủ ngữ, nhưng đảo ngữ là CÂU KỂ trang trọng nhấn mạnh, kết thúc bằng dấu chấm: *Never have I seen such beauty.* Câu hỏi thật kết thúc bằng dấu hỏi: *Have I ever seen such beauty?* Trạng ngữ phủ định đầu câu → bắt buộc đảo.",
     "definition": "**Đảo ngữ** là cấu trúc đảo ngược trật tự chủ ngữ-động từ thông thường, thường xảy ra sau các trạng từ phủ định hoặc hạn định ở đầu câu như *never, rarely, not only*. Mục đích chính là để nhấn mạnh hoặc tạo sắc thái trang trọng, văn phong học thuật."
   },
-  "exercises": []
+  "exercises": [
+    {"type":"multiple_choice","question":"Never ___ such a beautiful view.","options":["I have seen","have I seen","I saw have"],"correct_answer":"have I seen","explanation":"Sau Never ở đầu câu, đảo trợ động từ have lên trước chủ ngữ I."},
+    {"type":"multiple_choice","question":"Rarely ___ late.","options":["is she","she is","does she is"],"correct_answer":"is she","explanation":"Rarely đứng đầu câu kéo động từ to be lên trước chủ ngữ."},
+    {"type":"multiple_choice","question":"Not only ___ English, but she also speaks French.","options":["she speaks","does she speak","she does speak"],"correct_answer":"does she speak","explanation":"Sau Not only ở đầu câu, dùng đảo ngữ does + chủ ngữ + động từ nguyên thể."},
+    {"type":"multiple_choice","question":"Only then ___ the mistake.","options":["did I understand","I understood","I did understood"],"correct_answer":"did I understand","explanation":"Only then ở đầu câu cần đảo trợ động từ did; động từ chính dùng nguyên thể."}
+  ]
 }

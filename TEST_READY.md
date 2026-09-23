@@ -1,188 +1,183 @@
-# TEST_READY: Vocab Performance & Learning UX Optimization
+# TEST_READY: LingoPro Speaking Module Scaffolding E2E Test Suite
 
-**Status**: READY (125 / 125 PASSED — 100% Pass Rate)  
+**Status**: READY (78 / 78 PASSED — 100% Pass Rate)  
 **Execution Command**:
 ```bash
-npx tsx tests/perf/perf-ux-e2e.test.ts
+npx tsx tests/speaking/run-scaffolding-tests.ts
 ```
-**Test Target**: `tests/perf/perf-ux-e2e.test.ts`  
-**Execution Time**: ~2600ms  
+**Typecheck Verification**:
+```bash
+npx tsc --noEmit
+```
+(Exit Code 0 — 0 TypeScript errors)
+
+**Non-Regression Verification**:
+```bash
+npx tsx tests/speaking/speaking-master-e2e-runner.ts
+```
+(1,184 / 1,184 checks PASSED — 100% Pass Rate in 36.4s)
+
+**Test Target Directory**: `tests/speaking/`  
+**Execution Duration**: ~24ms  
 **Authoritative References**:
-- `ORIGINAL_REQUEST.md` (Section ## 2026-09-19T16:00:20Z)
-- `PROJECT.md` (`d:\Vibe\Vocab\web-app\.agents\orchestrator_vocab_perf_1\PROJECT.md`)
+- `ORIGINAL_REQUEST.md` (Section `## 2026-09-23T05:44:21Z`)
+- `PROJECT.md` (`d:\Vibe\Vocab\web-app\.agents\orchestrator_speaking_3\PROJECT.md`)
+- Technical Surveys (`explorer_survey_1`, `explorer_survey_2`, `explorer_survey_3`)
 
 ---
 
 ## 1. Executive Test Summary
 
-| Tier | Category | Minimum Required | Implemented & Verified | Pass Rate | Status |
-|:-----|:---------|:----------------:|:----------------------:|:---------:|:------:|
-| **Tier 1** | Feature Coverage (F1 to F14) | >= 65 | **70** | 100% | **PASS** |
-| **Tier 2** | Boundary & Corner Cases (8 Categories) | >= 20 | **40** | 100% | **PASS** |
-| **Tier 3** | Cross-Feature Integration Flows | >= 10 | **10** | 100% | **PASS** |
-| **Tier 4** | Real-World Workload Scenarios | >= 5 | **5** | 100% | **PASS** |
-| **TOTAL** | **Full E2E Opaque-Box Suite** | **>= 100** | **125** | **100%** | **PASS** |
+| Tier / Suite Name | Category | Minimum Required | Implemented & Verified | Pass Rate | Status | Duration |
+|:------------------|:---------|:----------------:|:----------------------:|:---------:|:------:|:--------:|
+| **Tier 1** | Feature Coverage (F1 to F5) | $\ge 25$ | **30** | 100% | **PASS** | 10ms |
+| **Tier 2** | Boundary & Corner Cases (5 Domains) | $\ge 20$ | **30** | 100% | **PASS** | 7ms |
+| **Tier 3** | Cross-Feature Combinations (Pairwise Cascades) | $\ge 10$ | **12** | 100% | **PASS** | 3ms |
+| **Tier 4** | Real-World Application Scenarios | $\ge 5$ | **6** | 100% | **PASS** | 4ms |
+| **TOTAL** | **Full Opaque-Box Scaffolding Suite** | **$\ge 60$** | **78** | **100%** | **PASS** | **24ms** |
 
 ---
 
-## 2. Requirement Traceability Matrix (R1, R2, R3)
+## 2. Requirement Traceability Matrix (R1, R2, R3, R4)
 
-### R1. Instant Summary & Counts (<100ms Latency)
-- **F1: Sub-100ms Word Summary RPC & Endpoint** (`GET /api/words?summary=1`):
-  - Standard JSON response schema: `{ total, newCount, dueCount, reviewDueCount, classroomId }`.
-  - Latency verified under 100ms (<50ms on warm RAM cache).
-  - Skips heavy 6-bucket distribution when `levels=1` is omitted; calculates 6-bucket distribution when `levels=1` requested.
-  - Tests: `T1.F1.1` – `T1.F1.5`.
-- **F2: Summary Cache Invalidation**:
-  - `POST /api/words` invalidates `wsum:${userId}:*` server RAM cache.
-  - `DELETE /api/words` and `POST /api/words/srs` trigger cache invalidation.
-  - Client storage SWR keys (`lp:word-summary:${userId}`) purged by `invalidateWordSummaryCache`.
-  - Tests: `T1.F2.1` – `T1.F2.5`.
-- **F3: Fallback Scope Isolation**:
-  - Words and `srs_progress` scoped strictly by `classroom_id`.
-  - Zero cross-classroom word or due count leakage.
-  - Personal classroom auto-resolved when `classroomId` omitted.
-  - Tests: `T1.F3.1` – `T1.F3.5`.
-- **F4: Unified Student Navigation Badges**:
-  - `StudentShell` and `StudentProvider` share uniform cached word summary data.
-  - Deduplicated queries: consecutive switches within 60s TTL do not trigger network calls.
-  - Stale cache triggers single background revalidation while displaying cached count immediately.
-  - Tests: `T1.F4.1` – `T1.F4.5`.
+### R1. Architecture & Domain Types ("Chuẩn bị tài liệu & Data Model")
+- **SpeakingStageId Progression**:
+  - Validates 3 progressive learning stages: `stage-1-survival`, `stage-2-conversational`, `stage-3-debate`.
+  - Rejects out-of-bound stages.
+  - Tests: `1.1`, `B1.3`, `C10`, `S1`, `S2`, `S3`.
+- **Stimulus & Prompt Contracts**:
+  - `VisualStimulus` schema integrity (required `imageUrl`, `imageAlt`, optional `caption`, `sourceAttribution`).
+  - `AudioStimulus` schema integrity (required `audioUrl`, optional `durationSeconds`, `slowAudioUrl` 0.8x, `transcript`).
+  - `SpeakingPrompt` bilingual context validation (Vietnamese setting + English task guidance).
+  - Tests: `1.2`, `1.3`, `1.4`, `B2.1`, `B2.2`, `B2.3`, `B2.4`.
+- **Alignment with Topic Library**:
+  - Integrates with the real 229-item topic-library catalog (`src/data/speaking/topic-library/index.ts`).
+  - Validates prompt association with describing, daily situations, social, and workplace categories.
+  - Tests: `1.5`, `S1`, `S2`.
+- **Evaluation Criteria**:
+  - `SpeakingEvaluationCriteria` thresholds (`minimumPassingScore` $\ge 70$, `maxReflexLatencyMs`, `coreKeywords`).
+  - Tests: `1.6`, `S2`.
 
-### R2. Fast Session Start & Audio Synchronization
-- **F5: Fast Session Start (New Words)**:
-  - `GET /api/words?filter=new` uses direct DB indexed selection rather than scanning 15,000 rows in server memory.
-  - Returns strictly unstudied words (`review_count = 0`) ordered chronologically (`created_at` DESC).
-  - Clamped batch limit (bounds 1..50).
-  - Tests: `T1.F5.1` – `T1.F5.5`.
-- **F6: SRS Due Queue Ordering**:
-  - Priority queue places `review_count > 0 AND next_review_date <= now()` ahead of unstudied words.
-  - Earlier due dates prioritized within the due segment.
-  - Future cards (`next_review_date > now`) strictly excluded.
-  - Tests: `T1.F6.1` – `T1.F6.5`.
-- **F7: Session Batch Limits & Request Normalization**:
-  - Normalizes limits to upper bounds (max 50 for new, max 100 for review).
-  - Normalizes invalid or negative limit parameters.
-  - Requested ID filtering bounded to max 20 UUIDs.
-  - Tests: `T1.F7.1` – `T1.F7.5`.
-- **F8: Audio Promise & Playback Tracking**:
-  - `speak()` returns `Promise<void>` resolving upon audio completion.
-  - `silenceSpeech()` and `stopSpeak()` advance epoch to prevent race conditions and overlapping voices.
-  - Tests: `T1.F8.1` – `T1.F8.5`.
-- **F9: Correct Answer Audio Synchronization**:
-  - Correct verdict awaits `playWordWithBuffer(word, 400)` before auto-advancing card.
-  - Pronunciation is never cut off mid-word during transitions.
-  - Tests: `T1.F9.1` – `T1.F9.5`.
-- **F10: Error State Manual Pause**:
-  - Wrong / close answer (`verdict !== 'correct'`) halts auto-advance timer.
-  - Displays correction and allows replaying audio pronunciation.
-  - Requires user manual confirmation (Enter, Space, or "Tiếp theo" button) to advance.
-  - Tests: `T1.F10.1` – `T1.F10.5`.
+### R2. Hybrid STT Interface Contracts & Adapters
+- **ISTTService Common Interface**:
+  - Signature contract: `start()`, `stop()`, `abort()`, `onResult()`, `onError()`, `onStatusChange()`.
+  - Event schemas: `STTRecognitionResult` (`transcript`, `isFinal`, `confidence` 0..1), `STTError` (`code`, `message`).
+  - Finite State Machine: `idle` -> `starting` -> `listening` -> `recognizing` -> `stopped` / `error`.
+  - Tests: `2.1`, `2.2`, `2.3`, `2.4`.
+- **Memory & Listener Safety**:
+  - Unsubscribe hook unregisters listeners and eliminates memory leaks.
+  - Multi-subscriber fan-out guarantees all listeners receive identical speech events.
+  - Self-unsubscribing inside callback does not throw.
+  - Tests: `2.5`, `2.6`, `B5.6`.
+- **WebSpeechProvider Lifecycle**:
+  - `start()` transitions to `listening`.
+  - Streams interim transcripts (`isFinal: false`) and resolves final transcript (`isFinal: true`).
+  - `stop()` accumulates and returns final transcript string.
+  - `abort()` immediately halts recognition and resets to `idle`.
+  - Tests: `3.1`, `3.2`, `3.3`, `3.4`, `B1.1`, `B5.2`, `B5.3`.
+- **WhisperProvider Adapter**:
+  - Implements `ISTTService` with audio chunk ingestion (`feedAudioChunk`).
+  - Handles cloud transcription resolution on `stop()`.
+  - Handles empty audio buffer without errors.
+  - Tests: `3.5`, `B5.4`, `C1`, `C8`, `S5`.
+- **STT Factory (`createSTTService`) & Fallback**:
+  - Detects browser speech recognition capabilities.
+  - Seamlessly falls back to `WhisperProvider` in environments without `SpeechRecognition` (e.g. mobile webviews).
+  - Tests: `3.6`, `B3.1`, `S5`.
+- **Error Codes & Resilience**:
+  - Handles `not-allowed` (mic permission denied), `no-speech` (silence timeout), `audio-capture` (hardware failure), `network` (connection lost).
+  - Idempotent multiple `abort()` calls.
+  - Double `start()` prevention.
+  - Error recovery pipeline restores `idle` and allows clean restart.
+  - Tests: `B3.2`, `B3.3`, `B3.4`, `B3.5`, `B3.6`, `B5.1`, `B5.5`, `C3`, `S4`.
 
-### R3. Fast Lookup & Instant Save
-- **F11: Multi-Tier Client Dictionary Cache**:
-  - L1 Memory Map (<5ms) -> L2 SessionStorage (<15ms) -> L3 Remote Global Dict (<100ms).
-  - Morphological lemma expansion (e.g. "running" -> "run", "stopped" -> "stop").
-  - Case-insensitive key matching.
-  - Tests: `T1.F11.1` – `T1.F11.5`.
-- **F12: Zero-DB Saved Status Check**:
-  - Instant local cache / localStorage check with 0 network calls.
-  - Synchronous Frame 0 popover rendering with accurate saved icon.
-  - Cross-component synchronization via `lingo_word_saved` event.
-  - Tests: `T1.F12.1` – `T1.F12.5`.
-- **F13: Universal Optimistic Save UI**:
-  - Instant UI toggle to "Saved" in <10ms synchronously.
-  - Asynchronous background save dispatch.
-  - Automatic rollback on 403 quota exhaustion with upsell modal trigger.
-  - Automatic rollback and notification on network failure.
-  - Tests: `T1.F13.1` – `T1.F13.5`.
-- **F14: Streamlined Server Word Save**:
-  - Concurrent duplicate check and quota resolution via `Promise.all`.
-  - Duplicate saves return existing `wordId` without double-counting quota.
-  - Free tier quota enforced at 200 words; Pro tier unlimited.
-  - Background AI enrichment dispatch (`skipAI` option).
-  - Tests: `T1.F14.1` – `T1.F14.5`.
+### R3. Audio Storage Architecture & Backend Upload API
+- **Payload & Schema Validation**:
+  - `AudioUploadPayload` structure: audio binary/blob, `mimeType`, `fileSizeBytes`, optional metadata (`promptId`, `stageId`, `durationSeconds`).
+  - `AudioUploadApiResponse` contract: `{ success: boolean, data: { audioUrl, storagePath, fileSize, mimeType }, error?: string }`.
+  - Tests: `4.1`, `4.4`, `C4`.
+- **MIME Type Whitelist Enforcement**:
+  - Accepts `audio/webm`, `audio/mp4`, `audio/wav`, `audio/aac`, `audio/ogg`, `audio/x-m4a`.
+  - Strips codecs parameters (e.g. `audio/webm;codecs=opus`).
+  - Rejects non-audio MIME types (`image/png`, `application/pdf`) with HTTP 415 Unsupported Media Type.
+  - Rejects disguised text/plain and application/octet-stream without audio extension.
+  - Tests: `4.2`, `4.6`, `B4.4`, `B4.5`, `B4.6`.
+- **Payload Size Boundaries**:
+  - Validates sizes up to 10MB ceiling (10,485,760 bytes).
+  - Rejects 0-byte blobs with HTTP 400 Bad Request.
+  - Rejects boundary overflow (10MB + 1 byte) with HTTP 413 Payload Too Large.
+  - Rejects extreme oversized uploads (50MB) immediately.
+  - Tests: `4.3`, `B1.2`, `B4.1`, `B4.2`, `B4.3`.
+- **Predictable Storage Path Generator**:
+  - Generates format `recordings/{stageId}/{promptId}/{timestamp}.{ext}`.
+  - Correlates `promptId` and `stageId` from active drill.
+  - Defaults missing metadata to `unassigned`.
+  - Tests: `4.5`, `B2.5`, `C4`, `S1`, `S2`, `S3`, `S6`.
+- **Network Resilience & Retry**:
+  - Handles transient HTTP 503 Service Unavailable with automatic client blob retry.
+  - Tests: `C9`, `S4`.
 
----
-
-## 3. Tier 2: Boundary & Corner Cases (40 Tests)
-
-1. **B1: Empty Word Lists** (5 tests):
-   - Zero word library returns integer 0 counts without `NaN`.
-   - Empty review and new sessions return empty data arrays cleanly.
-   - Whitespace and empty word inputs rejected with 400.
-2. **B2: Zero Due Words** (5 tests):
-   - All cards scheduled in future produces `reviewDueCount: 0`.
-   - Empty due review session displays "Hết bài cần ôn" celebration state.
-   - Time zone transitions do not trigger false due alerts.
-3. **B3: Large Word Volume Stress** (5 tests):
-   - 1,000+ words summary computes under 50ms.
-   - Candidate slicing limits in-memory processing to <100 items.
-   - 500+ lookups execute without memory degradation.
-4. **B4: Offline / Network Delay** (5 tests):
-   - 1500ms delay serves stale SWR cache immediately (<5ms).
-   - Offline lookups served from local cache.
-   - Restricted storage modes fail silently without crashing.
-   - Speech synthesis falls back to local voice when CDN unavailable.
-5. **B5: Concurrent Duplicate Saves** (5 tests):
-   - Concurrent save requests create exactly 1 database entry.
-   - Re-saving existing word preserves remaining quota.
-   - UI button debouncing blocks double submissions.
-6. **B6: Quota Boundary (200 Words Limit)** (5 tests):
-   - Word 199/200: succeeds, remaining = 1.
-   - Word 200/200: succeeds, remaining = 0.
-   - Word 201/200: rejected with HTTP 403 `FREE_WORD_LIMIT`.
-   - Existing word review at quota limit permitted.
-   - Pro upgrade unlocks unlimited saves immediately.
-7. **B7: Inflected Lemmas & Irregular Verbs** (5 tests):
-   - Levenshtein matching on irregular forms.
-   - Suffix stripping and double-consonant handling.
-   - Compound words and contractions preserved.
-8. **B8: Rapid Enter/Space Keystrokes** (5 tests):
-   - Feedback lock timer (300ms) blocks accidental double-skip.
-   - Rapid Space presses do not duplicate score.
-   - Advance function is idempotent.
+### R4. Minimalist Split-Pane UI Scaffolding
+- **SplitPaneLayout Props & Responsive Grid**:
+  - `SplitPaneLayoutProps` schema: `leftPane`, `rightPane`, `ratio` (`50/50`, `60/40`, `40/60`).
+  - Defaults ratio to `50/50` when omitted.
+  - Rejects invalid ratio specifications.
+  - Mobile active tab navigation (`stimulus` vs `interaction`).
+  - Tests: `5.1`, `5.2`, `5.3`, `B2.6`, `C5`, `S4`.
+- **RecordingButton 6-State Machine**:
+  - Discrete states: `idle`, `preparing`, `recording`, `processing`, `disabled`, `error`.
+  - Priority mapping: `disabled` overrides `recording`.
+  - Callback triggers for `onStartRecording` and `onStopRecording`.
+  - Tests: `5.4`, `5.5`, `C2`, `C3`.
+- **Audio Level Clamping & Ripple Reactivity**:
+  - Clamps audio level within `[0.0, 1.0]`.
+  - Converts level to concentric pulse animation scale without dropping STT frames.
+  - Tests: `B1.5`, `C11`.
+- **Accessibility & Touch Surfaces**:
+  - Accessible touch target $\ge 44 \times 44\text{ px}$ (w-14 h-14 = 56px).
+  - ARIA attributes: `role="button"`, `aria-label`, `aria-pressed`, `aria-disabled`.
+  - Tests: `5.6`.
+- **Media Collision & Auto-Pause**:
+  - Reference audio playback automatically silenced when recording starts to prevent microphone feedback.
+  - Split-pane unmount cleans up active STT and audio playback.
+  - Tests: `C6`, `C12`, `S1`.
 
 ---
 
-## 4. Tier 3: Cross-Feature Integration Flows (10 Tests)
+## 3. Test Suites & File Ownership
 
-- **T3.1**: Save Word -> Summary Count Increment -> Appears in Review Session -> Audio Buffer Played -> Summary Due Decrements.
-- **T3.2**: Quota Exhaustion (200 limit) -> Optimistic Saved (<50ms) -> Server 403 -> UI Rollback & Upsell -> Summary Count Intact.
-- **T3.3**: Batch Dictionary Lookups -> Cache Populated -> Multi-Save -> Summary Invalidated.
-- **T3.4**: Review Session Mixed Answers (Correct buffers audio; Wrong pauses for Enter confirmation).
-- **T3.5**: Inflected Word Lookup -> Base Lemma Reused -> Personal Classroom Summary Isolated.
-- **T3.6**: Offline Dictionary Lookup -> Local Queue -> Reconnect Sync Dispatched.
-- **T3.7**: Partial Session Completion (5 of 10) -> Dashboard Due Decrements Accurately.
-- **T3.8**: Rapid Card Advances -> In-flight Utterance Cancelled -> Zero Audio Overlap.
-- **T3.9**: Switching Classroom Context -> Zero Cross-Classroom Leakage.
-- **T3.10**: Cross-Tab Storage Event -> Immediate UI Synchronization.
+All test files are located in `tests/speaking/` and executed by the master test runner:
 
----
-
-## 5. Tier 4: Real-World Workload Scenarios (5 Tests)
-
-- **T4.1**: **Typical Daily Learner Session**:
-  - Open Dashboard (<100ms instant SWR summary paint).
-  - Search 3 new words (<100ms each) and instantly save with optimistic UI.
-  - Complete 10-card review session (8 correct with full audio buffer, 2 wrong with manual pause).
-  - Return to dashboard with exactly 2 due cards remaining.
-- **T4.2**: **Free-to-Pro Upgrade Transition Journey**:
-  - Hits 200 words quota -> 403 received -> optimistic rollback -> upgrades to Pro -> retry succeeds -> summary updates to 201.
-- **T4.3**: **Commuter Flaky Network Journey**:
-  - Local dictionary cache hit (<10ms) in subway tunnel -> ratings queued offline -> background sync on reconnect with zero data loss.
-- **T4.4**: **Intensive Vocabulary Cramming Journey**:
-  - 20 words saved in rapid succession; optimistic UI maintains 60fps (<16ms per frame).
-- **T4.5**: **Multi-Classroom Partitioning Journey**:
-  - Student with Teacher Classroom and Personal List reviews cards; counts remain cleanly partitioned.
-
----
-
-## 6. Verification Method
-
-To execute the test suite:
-```powershell
-npx tsx tests/perf/perf-ux-e2e.test.ts
+```
+tests/speaking/
+├── test-harness.ts                      # Shared TestRunner, expect() matchers & mock browser env
+├── speaking-scaffolding-tier1.test.ts   # Tier 1: Feature Coverage (30 tests)
+├── speaking-scaffolding-tier2.test.ts   # Tier 2: Boundary & Corner Cases (30 tests)
+├── speaking-scaffolding-tier3.test.ts   # Tier 3: Cross-Feature Combinations (12 tests)
+├── speaking-scaffolding-tier4.test.ts   # Tier 4: Real-World Scenarios (6 tests)
+└── run-scaffolding-tests.ts             # Master CLI Test Runner with formatted ASCII table
 ```
 
-All 125 assertions execute with informative logging, timing diagnostics, and zero external network dependencies.
+---
+
+## 4. Verification Instructions
+
+To independently verify the complete test suite:
+
+1. **Run the Speaking Scaffolding E2E Test Suite**:
+   ```bash
+   npx tsx tests/speaking/run-scaffolding-tests.ts
+   ```
+   *Expected Output*: 78/78 tests passed, 0 failures, exit code 0.
+
+2. **Verify TypeScript Compilation**:
+   ```bash
+   npx tsc --noEmit
+   ```
+   *Expected Output*: Exit code 0, 0 errors.
+
+3. **Verify Non-Regression on Speaking Foundation & TOEIC**:
+   ```bash
+   npx tsx tests/speaking/speaking-master-e2e-runner.ts
+   ```
+   *Expected Output*: 1,184/1,184 tests passed, 0 failures, exit code 0.

@@ -28,6 +28,7 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   outputFileTracingIncludes: {
     '/api/toeic/**': ['./src/data/toeic/datasets/**/*'],
+    '/api/vstep/**': ['./src/data/vstep/**/*.json'],
   },
   // Tránh Turbopack nhầm root lên D:\Vibe (nhiều lockfile) → API 404
   turbopack: {

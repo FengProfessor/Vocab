@@ -399,5 +399,10 @@
     "comparison": "**Hedging vs khẳng định thẳng:** Ngôn ngữ rào đón dùng would/might/perhaps để mềm hóa nhận định, dễ được đồng tình: *Many WOULD think he is too young* (nhiều người có lẽ sẽ nghĩ...). Khẳng định thẳng dùng will/hiện tại đơn: *Many WILL think...* Văn học thuật và giao tiếp lịch sự chuộng hedging.",
     "definition": "**Ngôn ngữ rào đón (Hedging Language)** là việc sử dụng các từ hoặc cụm từ để giảm bớt tính chắc chắn hoặc mạnh mẽ của một phát ngôn, giúp thể hiện sự lịch sự, khiêm tốn hoặc duy trì khoảng cách chuyên nghiệp. Chúng ta dùng hedging để làm cho lời nói hoặc văn viết trở nên mềm mại, ít mang tính khẳng định tuyệt đối hơn."
   },
-  "exercises": []
+  "exercises": [
+    {"type":"multiple_choice","question":"Cách nói nào thể hiện sự chưa chắc chắn?","options":["This is certainly the only cause.","This might be one cause.","This must be the only cause."],"correct_answer":"This might be one cause.","explanation":"Might làm giảm mức độ chắc chắn của nhận định."},
+    {"type":"multiple_choice","question":"___, the results suggest a small improvement.","options":["It seems that","It proves beyond doubt that","It guarantees that"],"correct_answer":"It seems that","explanation":"It seems that báo hiệu kết luận thận trọng."},
+    {"type":"multiple_choice","question":"Chọn câu lịch sự hơn khi góp ý.","options":["Your plan is wrong.","Your plan may need some changes.","Your plan can never work."],"correct_answer":"Your plan may need some changes.","explanation":"May need làm lời góp ý mềm hơn mà vẫn rõ ý."},
+    {"type":"multiple_choice","question":"Từ nào là dấu hiệu rào đón?","options":["definitely","perhaps","always"],"correct_answer":"perhaps","explanation":"Perhaps nghĩa là có lẽ, không khẳng định tuyệt đối."}
+  ]
 }

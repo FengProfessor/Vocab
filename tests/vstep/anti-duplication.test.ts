@@ -240,8 +240,8 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
       expect(rAll.size).toBe(2);
       expect(lP1.size).toBe(2);
       expect(lP2.size).toBe(1);
-      expect(lP1.has('L1Q1')).toBe(true);
-      expect(rAll.has('R1Q1')).toBe(true);
+      expect(lP1.has('vstep-listening-01:L1Q1')).toBe(true);
+      expect(rAll.has('vstep-reading-01:R1Q1')).toBe(true);
     });
 
     await runner.it('F-VAD1.6: getIncorrectVstepQuestionIds filters strictly to latest incorrect attempts', () => {
@@ -256,9 +256,9 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
       const allMistakes = getIncorrectVstepQuestionIds();
 
       expect(lMistakes.size).toBe(1);
-      expect(lMistakes.has('L1Q2')).toBe(true);
+      expect(lMistakes.has('vstep-listening-01:L1Q2')).toBe(true);
       expect(rMistakes.size).toBe(1);
-      expect(rMistakes.has('R1Q1')).toBe(true);
+      expect(rMistakes.has('vstep-reading-01:R1Q1')).toBe(true);
       expect(allMistakes.size).toBe(2);
     });
 
@@ -270,7 +270,7 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
         isCorrect: false,
         examId: 'vstep-listening-01',
       });
-      expect(getIncorrectVstepQuestionIds('listening').has('L1Q3')).toBe(true);
+      expect(getIncorrectVstepQuestionIds('listening').has('vstep-listening-01:L1Q3')).toBe(true);
 
       recordVstepQuestionAnswer({
         questionId: 'L1Q3',
@@ -279,7 +279,7 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
         isCorrect: true,
         examId: 'vstep-listening-01',
       });
-      expect(getIncorrectVstepQuestionIds('listening').has('L1Q3')).toBe(false);
+      expect(getIncorrectVstepQuestionIds('listening').has('vstep-listening-01:L1Q3')).toBe(false);
       expect(getIncorrectVstepQuestionIds('listening').size).toBe(0);
     });
 
@@ -523,7 +523,7 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
       expect(exam!.metadata.totalQuestions).toBe(0);
     });
 
-    await runner.it('B-VAD2.3: Exhaustion fallback when unseen questions are completely exhausted (100% excluded)', () => {
+    await runner.it('B-VAD2.3: Exhausted unseen mode returns completion state without repeating seen questions', () => {
       const raw = loadRawVstepExam('vstep-reading-01');
       const allIds: string[] = [];
       raw!.sections[0].tasks.forEach((t) => {
@@ -541,7 +541,8 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
       });
       expect(exhausted).toBeDefined();
       expect(exhausted!.metadata.isFallbackUsed).toBe(true);
-      expect(exhausted!.sections[0].tasks.length).toBeGreaterThan(0);
+      expect(exhausted!.metadata.totalQuestions).toBe(0);
+      expect(exhausted!.sections[0].tasks.length).toBe(0);
     });
 
     await runner.it('B-VAD2.4: Extreme limit boundaries: limit = 1 and limit > bank capacity safely clamped', () => {
@@ -587,10 +588,37 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
       const qHistory = getVstepHistory();
       expect(typeof qHistory).toBe('object');
       expect(Object.keys(qHistory).length).toBe(0);
+      expect(storage.getItem(VSTEP_HISTORY_STORAGE_KEY)).toBeNull();
 
       const examHistory = getVstepExamHistory();
       expect(examHistory.version).toBe(1);
       expect(examHistory.records.length).toBe(0);
+      expect(storage.getItem(VSTEP_EXAM_HISTORY_STORAGE_KEY)).toBeNull();
+    });
+
+    await runner.it('B-VAD2.6b: Same raw question ID from two exams persists as two canonical history records', () => {
+      const storage = setupTestEnvironment();
+      recordVstepQuestionAnswer({
+        questionId: 'R1Q1',
+        examId: 'vstep-exam-01',
+        skill: 'reading',
+        part: 'part1',
+        isCorrect: true,
+        selectedOption: 0,
+      });
+      recordVstepQuestionAnswer({
+        questionId: 'R1Q1',
+        examId: 'vstep-exam-02',
+        skill: 'reading',
+        part: 'part1',
+        isCorrect: false,
+        selectedOption: 1,
+      });
+
+      const raw = JSON.parse(storage.getItem(VSTEP_HISTORY_STORAGE_KEY) || '{}');
+      expect(Object.keys(raw).length).toBe(2);
+      expect(raw['vstep-exam-01:R1Q1'].isCorrect).toBe(true);
+      expect(raw['vstep-exam-02:R1Q1'].isCorrect).toBe(false);
     });
 
     await runner.it('B-VAD2.7: Malformed records missing optional fields handled gracefully during calculations', () => {
@@ -776,9 +804,9 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
       ]);
       const answered = getAnsweredVstepQuestionIds('listening');
       expect(answered.size).toBe(2);
-      expect(answered.has('L1Q1')).toBe(true);
-      expect(answered.has('L1Q3')).toBe(true);
-      expect(answered.has('L1Q2')).toBe(false);
+      expect(answered.has('vstep-listening-01:L1Q1')).toBe(true);
+      expect(answered.has('vstep-listening-01:L1Q3')).toBe(true);
+      expect(answered.has('vstep-listening-01:L1Q2')).toBe(false);
     });
 
     await runner.it('C-VAD3.5: CustomEvent lingo_vstep_history_updated fires on question write, batch write, exam attempt, and resets', () => {
@@ -1243,6 +1271,115 @@ export async function runVstepAntiDuplicationTests(runner: TestRunner): Promise<
       expect(getAnsweredVstepQuestionIds('reading').size).toBe(servedIds.length);
       expect(getVstepExamHistory().records.length).toBe(1);
       expect(getVstepExamSummaries()[dynamicTestId].isCompleted).toBe(true);
+    });
+
+    await runner.it('S-VAD4.7: Full mock POST with filter/history fields stays a 4-skill full exam', async () => {
+      const clientIp = '127.0.0.21';
+      const request = new NextRequest('http://localhost:3000/api/vstep/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-forwarded-for': clientIp },
+        body: JSON.stringify({
+          testId: 'vstep-mock-01',
+          filterMode: 'unseen',
+          excludedIds: ['vstep-reading-01:R1Q1'],
+          mistakeIds: ['vstep-reading-01:R1Q2'],
+        }),
+      });
+
+      const response = await testVstepExamApiPost(request);
+      expect(response.status).toBe(200);
+      const body = await response.json();
+      expect(body.success).toBe(true);
+      expect(body.exam.id).toBe('vstep-mock-01');
+      expect(body.exam.sections.length).toBe(4);
+      expect(body.exam.sections.map((section: any) => section.type)).toEqual([
+        'listening',
+        'reading',
+        'writing',
+        'speaking',
+      ]);
+    });
+
+    await runner.it('S-VAD4.8: Skill practice using an existing source testId grades only the delivered subset', async () => {
+      const clientIp = '127.0.0.22';
+      const testId = 'vstep-reading-01';
+      const testRequest = new NextRequest('http://localhost:3000/api/vstep/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-forwarded-for': clientIp },
+        body: JSON.stringify({
+          testId,
+          filterMode: 'mistakes',
+          mistakeIds: [`${testId}:R1Q1`, `${testId}:R1Q2`],
+        }),
+      });
+
+      const testResponse = await testVstepExamApiPost(testRequest);
+      expect(testResponse.status).toBe(200);
+      const testBody = await testResponse.json();
+      const delivered = testBody.exam.sections[0].tasks.flatMap((task: any) => task.questions || []);
+      expect(delivered.length).toBe(2);
+
+      const questionIds = delivered.map((question: any) => question.canonicalId || `${testId}:${question.id}`);
+      const masterQuestions = loadVstepQuestionsByIds(questionIds);
+      const answers: Record<string, number> = {};
+      masterQuestions.forEach((question) => {
+        answers[question.canonicalId || question.id] = question.answer ?? 0;
+      });
+
+      const submitRequest = new NextRequest('http://localhost:3000/api/vstep/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-forwarded-for': clientIp },
+        body: JSON.stringify({
+          testId,
+          examMode: 'practice',
+          practiceSkill: 'reading',
+          sessionToken: testBody.sessionToken,
+          questionIds,
+          answers,
+        }),
+      });
+
+      const submitResponse = await submitVstepExamApi(submitRequest);
+      expect(submitResponse.status).toBe(200);
+      const submitBody = await submitResponse.json();
+      expect(submitBody.success).toBe(true);
+      expect(submitBody.scoreResult.readingTotal).toBe(2);
+      expect(submitBody.scoreResult.readingCorrect).toBe(2);
+      const reviewed = submitBody.reviewExam.sections[0].tasks.flatMap((task: any) => task.questions || []);
+      expect(reviewed.length).toBe(2);
+    });
+
+    await runner.it('S-VAD4.9: Canonical IDs prevent collisions when two source exams reuse the same raw question ID', async () => {
+      const clientIp = '127.0.0.23';
+      const testId = 'vstep-practice-reading';
+      const questionIds = ['vstep-reading-01:R1Q1', 'vstep-reading-02:R1Q1'];
+      const masterQuestions = loadVstepQuestionsByIds(questionIds);
+      expect(masterQuestions.length).toBe(2);
+      expect(masterQuestions.map((question) => question.canonicalId)).toEqual(questionIds);
+
+      const answers: Record<string, number> = {};
+      masterQuestions.forEach((question) => {
+        answers[question.canonicalId!] = question.answer ?? 0;
+      });
+
+      const submitRequest = new NextRequest('http://localhost:3000/api/vstep/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-forwarded-for': clientIp },
+        body: JSON.stringify({
+          testId,
+          examMode: 'practice',
+          practiceSkill: 'reading',
+          sessionToken: generateVstepSessionToken(clientIp, testId),
+          questionIds,
+          answers,
+        }),
+      });
+
+      const submitResponse = await submitVstepExamApi(submitRequest);
+      expect(submitResponse.status).toBe(200);
+      const submitBody = await submitResponse.json();
+      expect(submitBody.scoreResult.readingTotal).toBe(2);
+      expect(submitBody.scoreResult.readingCorrect).toBe(2);
     });
   });
 }

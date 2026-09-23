@@ -149,14 +149,17 @@ export async function runVnuEnrichmentTests(runner?: TestRunner): Promise<TestRu
       }
     });
 
-    await r.it('VNU-4.2: Catalog metadata reflects VNU source update with 3 items', () => {
+    await r.it('VNU-4.2: Catalog metadata reflects 3 VNU full mocks plus 6 productive practice sets', () => {
       const catalog = catalogDataRaw as any;
       const vnuSource = catalog.sources.find((s: any) => s.id === 'vnu');
       expect(vnuSource).toBeDefined();
-      expect(vnuSource.totalItems).toBe(3);
+      expect(vnuSource.totalItems).toBe(9);
 
       const vnuItems = catalog.items.filter((it: any) => it.source === 'vnu');
-      expect(vnuItems.length).toBe(3);
+      expect(vnuItems.length).toBe(9);
+      expect(vnuItems.filter((it: any) => it.category === 'full_mock').length).toBe(3);
+      expect(vnuItems.filter((it: any) => it.category === 'writing').length).toBe(3);
+      expect(vnuItems.filter((it: any) => it.category === 'speaking').length).toBe(3);
     });
   });
 

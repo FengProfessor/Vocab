@@ -113,6 +113,11 @@ function ReviewHubContent() {
           </div>
         )}
 
+        <Link href="/practice/games" className="flex items-center gap-3 rounded-2xl border border-violet-200 bg-violet-50 p-4 text-violet-950">
+          <span className="text-3xl" aria-hidden="true">🎮</span>
+          <div><p className="font-black">Đổi gió với 6 mini game</p><p className="mt-1 text-sm">Lật cặp, đua từ, xếp câu và săn lỗi ngữ pháp →</p></div>
+        </Link>
+
         <div className="grid gap-3">
           {HUB_MODES.map((m) => {
             const isHighlighted = m.highlight && (dueCount ?? 0) > 0;

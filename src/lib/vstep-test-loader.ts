@@ -9,7 +9,6 @@ import path from 'path';
 import catalogIndexRaw from '@/data/vstep/vstep-catalog-index.json';
 import {
   VstepExam,
-  VstepSection,
   VstepTask,
   VstepQuestion,
   VstepSkillType,
@@ -43,6 +42,11 @@ const examMemoryCache = new Map<string, VstepExam>();
  * Keyed by canonical ID `${examId}:${q.id}` and raw `q.id`.
  */
 const globalMasterVstepQuestionIndex = new Map<string, VstepQuestion>();
+
+type VstepPracticeExam = VstepExam & {
+  metadata: VstepPracticeResponse['metadata'];
+};
+type VstepTaskWithSource = VstepTask & { _examId?: string };
 
 /**
  * Indexes questions from a raw exam into globalMasterVstepQuestionIndex.
@@ -100,7 +104,36 @@ export const EXAM_ROUTE_RULES: ExamRouteRule[] = [
     targetDir: 'practice',
     filenamePrefix: 'vstep-reading-',
   },
-  // 4. OnThiVSTEP Reading Practice Sets (M2: 75 sets)
+  // 4. Productive-skill practice split from validated full mocks
+  {
+    regex: /^vstep-writing-(\d{1,3})$/,
+    min: 1,
+    max: 23,
+    targetDir: 'practice',
+    filenamePrefix: 'vstep-writing-',
+  },
+  {
+    regex: /^vstep-speaking-(\d{1,3})$/,
+    min: 1,
+    max: 23,
+    targetDir: 'practice',
+    filenamePrefix: 'vstep-speaking-',
+  },
+  {
+    regex: /^vstep-writing-vnu-(\d{1,3})$/,
+    min: 1,
+    max: 10,
+    targetDir: 'practice',
+    filenamePrefix: 'vstep-writing-vnu-',
+  },
+  {
+    regex: /^vstep-speaking-vnu-(\d{1,3})$/,
+    min: 1,
+    max: 10,
+    targetDir: 'practice',
+    filenamePrefix: 'vstep-speaking-vnu-',
+  },
+  // 8. OnThiVSTEP Reading Practice Sets (M2: 75 sets)
   {
     regex: /^vstep-reading-onthi-(\d{1,3})$/,
     min: 1,
@@ -108,7 +141,7 @@ export const EXAM_ROUTE_RULES: ExamRouteRule[] = [
     targetDir: 'practice',
     filenamePrefix: 'vstep-reading-onthi-',
   },
-  // 5. OnThiVSTEP Listening Practice Sets (M2)
+  // 9. OnThiVSTEP Listening Practice Sets (M2)
   {
     regex: /^vstep-listening-onthi-(\d{1,3})$/,
     min: 1,
@@ -116,7 +149,7 @@ export const EXAM_ROUTE_RULES: ExamRouteRule[] = [
     targetDir: 'practice',
     filenamePrefix: 'vstep-listening-onthi-',
   },
-  // 6. OnThiVSTEP Mock Exams (M2)
+  // 10. OnThiVSTEP Mock Exams (M2)
   {
     regex: /^vstep-(?:mock|exam)-onthi-(\d{1,3})$/,
     min: 1,
@@ -125,7 +158,7 @@ export const EXAM_ROUTE_RULES: ExamRouteRule[] = [
     filenamePrefix: 'vstep-exam-onthi-',
     alternatePrefix: 'vstep-mock-onthi-',
   },
-  // 7. EnglishTestStore Reading Practice Tests (M2: 50 tests)
+  // 11. EnglishTestStore Reading Practice Tests (M2: 50 tests)
   {
     regex: /^vstep-reading-ets-(\d{1,3})$/,
     min: 1,
@@ -133,7 +166,7 @@ export const EXAM_ROUTE_RULES: ExamRouteRule[] = [
     targetDir: 'practice',
     filenamePrefix: 'vstep-reading-ets-',
   },
-  // 8. EnglishTestStore Listening Practice Tests (M2: 50 tests)
+  // 12. EnglishTestStore Listening Practice Tests (M2: 50 tests)
   {
     regex: /^vstep-listening-ets-(\d{1,3})$/,
     min: 1,
@@ -141,7 +174,7 @@ export const EXAM_ROUTE_RULES: ExamRouteRule[] = [
     targetDir: 'practice',
     filenamePrefix: 'vstep-listening-ets-',
   },
-  // 9. EnglishTestStore Full Mock Tests (M2: 50 tests)
+  // 13. EnglishTestStore Full Mock Tests (M2: 50 tests)
   {
     regex: /^vstep-(?:mock|exam)-ets-(\d{1,3})$/,
     min: 1,
@@ -150,7 +183,7 @@ export const EXAM_ROUTE_RULES: ExamRouteRule[] = [
     filenamePrefix: 'vstep-exam-ets-',
     alternatePrefix: 'vstep-mock-ets-',
   },
-  // 10. VNU Official Sample Mock Exam (M2)
+  // 14. VNU Official Sample Mock Exam (M2)
   {
     regex: /^vstep-(?:mock|exam)-vnu-(\d{1,3})$/,
     min: 1,
@@ -208,9 +241,10 @@ export function resolveExamFilePath(testId: string): string | null {
   }
 
   const normalized = trimmed.toLowerCase();
-  const root = process.cwd();
-  const testsDir = path.resolve(root, 'src', 'data', 'vstep', 'tests');
-  const practiceDir = path.resolve(root, 'src', 'data', 'vstep', 'practice');
+  // Keep the dynamic filesystem lookup statically scoped so Turbopack/NFT only
+  // traces the VSTEP data folders instead of conservatively tracing the project.
+  const testsDir = path.join(/* turbopackIgnore: true */ process.cwd(), 'src', 'data', 'vstep', 'tests');
+  const practiceDir = path.join(/* turbopackIgnore: true */ process.cwd(), 'src', 'data', 'vstep', 'practice');
 
   // Layer 2: Anchored Exact Regex Matching & Range Clamping
   let matchedRule: ExamRouteRule | null = null;
@@ -260,7 +294,7 @@ export function resolveExamFilePath(testId: string): string | null {
       continue;
     }
 
-    if (fs.existsSync(fullPath)) {
+    if (fs.existsSync(/* turbopackIgnore: true */ fullPath)) {
       return fullPath;
     }
   }
@@ -308,7 +342,7 @@ export function loadRawVstepExam(testId: string): VstepExam | null {
   if (!filePath) return null;
 
   try {
-    const rawContent = fs.readFileSync(filePath, 'utf-8');
+    const rawContent = fs.readFileSync(/* turbopackIgnore: true */ filePath, 'utf-8');
     const exam = JSON.parse(rawContent) as VstepExam;
 
     // Schema validation
@@ -359,14 +393,15 @@ export const SENSITIVE_VSTEP_KEYS = [
 /**
  * Làm sạch dữ liệu đề thi trước khi gửi về client (Zero Bulk Leaks)
  */
-export function stripSensitiveVstepData(exam: VstepExam): VstepExam {
-  const cloned: VstepExam = JSON.parse(JSON.stringify(exam));
+export function stripSensitiveVstepData<T extends VstepExam>(exam: T): T {
+  const cloned = JSON.parse(JSON.stringify(exam)) as T;
 
-  const purgeObject = (obj: any) => {
+  const purgeObject = (obj: unknown) => {
     if (!obj || typeof obj !== 'object') return;
+    const record = obj as Record<string, unknown>;
     for (const key of SENSITIVE_VSTEP_KEYS) {
-      if (key in obj) {
-        delete obj[key];
+      if (key in record) {
+        delete record[key];
       }
     }
   };
@@ -393,16 +428,17 @@ export function stripSensitiveVstepData(exam: VstepExam): VstepExam {
   }
 
   // Quét đệ quy toàn diện đảm bảo không bỏ sót bất kỳ object lồng nhau nào
-  const purgeRecursive = (obj: any) => {
+  const purgeRecursive = (obj: unknown) => {
     if (!obj || typeof obj !== 'object') return;
+    const record = obj as Record<string, unknown>;
     for (const key of SENSITIVE_VSTEP_KEYS) {
-      if (key in obj) {
-        delete obj[key];
+      if (key in record) {
+        delete record[key];
       }
     }
-    for (const k of Object.keys(obj)) {
-      if (obj[k] && typeof obj[k] === 'object') {
-        purgeRecursive(obj[k]);
+    for (const value of Object.values(record)) {
+      if (value && typeof value === 'object') {
+        purgeRecursive(value);
       }
     }
   };
@@ -540,7 +576,11 @@ export function loadVstepQuestionsByIds(questionIds: string[]): VstepQuestion[] 
     }
 
     if (found) {
-      result.push(JSON.parse(JSON.stringify(found)));
+      const cloned = JSON.parse(JSON.stringify(found)) as VstepQuestion;
+      if (trimmedId.includes(':')) {
+        cloned.canonicalId = trimmedId;
+      }
+      result.push(cloned);
     }
   }
 
@@ -597,21 +637,10 @@ function isQuestionExcluded(
   return false;
 }
 
-function isQuestionMistake(
-  q: VstepQuestion,
-  examId: string,
-  mistakeSet: Set<string>
-): boolean {
-  if (mistakeSet.has(q.id)) return true;
-  if (q.canonicalId && mistakeSet.has(q.canonicalId)) return true;
-  if (examId && mistakeSet.has(`${examId}:${q.id}`)) return true;
-  return false;
-}
-
 /**
  * Nạp luyện tập chuyên sâu theo kỹ năng kèm bộ lọc chống trùng
  * Hỗ trợ 3 chế độ:
- * - unseen: Lọc bỏ 100% câu đã làm, fallback câu ôn tập khi thiếu đề
+ * - unseen: Lọc bỏ 100% câu đã làm; hết câu thì trả bộ rỗng để UI báo hoàn tất
  * - mistakes: Bốc chính xác các câu làm sai gần nhất để remediation
  * - all_random: Xáo trộn ngẫu nhiên ngân hàng câu hỏi
  */
@@ -619,7 +648,7 @@ export function loadVstepSkillPractice(
   optionsOrSkill: VstepSkillType | VstepPracticeOptions,
   filterModeArg?: VstepPracticeFilterMode,
   excludedIdsArg?: string[]
-): (VstepExam & { metadata?: any }) | null {
+): VstepPracticeExam | null {
   let skill: VstepSkillType;
   let filterMode: VstepPracticeFilterMode = 'unseen';
   let excludedIds: string[] = [];
@@ -651,7 +680,7 @@ export function loadVstepSkillPractice(
     testId === 'all' ||
     (!isLegacyCall && !testId && (limit !== undefined || mistakeIds.length > 0));
 
-  let baseExamId =
+  const baseExamId =
     testId && testId !== 'bank' && testId !== 'all'
       ? testId
       : skill === 'listening'
@@ -680,7 +709,7 @@ export function loadVstepSkillPractice(
   // ── MODE 1: MISTAKES (Chỉ bốc câu làm sai) ─────────────────────────────────
   if (filterMode === 'mistakes') {
     if (mistakeSet.size === 0) {
-      const emptyExam: VstepExam & { metadata?: any } = {
+      const emptyExam: VstepPracticeExam = {
         id: `vstep-practice-${skill}`,
         title: `Luyện Tập ${skill === 'listening' ? 'Kỹ Năng Nghe' : 'Kỹ Năng Đọc'} — Ôn Câu Sai`,
         duration: skill === 'listening' ? 40 : 60,
@@ -709,7 +738,7 @@ export function loadVstepSkillPractice(
       candidateExamIds.unshift(baseExamId);
     }
 
-    let selectedTasks: VstepTask[] = [];
+    let selectedTasks: VstepTaskWithSource[] = [];
     const satisfiedMistakeIds = new Set<string>();
 
     for (const mId of mistakeIds) {
@@ -736,7 +765,7 @@ export function loadVstepSkillPractice(
           );
           if (matchingQs.length > 0) {
             const existingTask = selectedTasks.find(
-              (t) => t.id === task.id && (t as any)._examId === eId
+              (t) => t.id === task.id && t._examId === eId
             );
             if (existingTask) {
               for (const mq of matchingQs) {
@@ -749,7 +778,7 @@ export function loadVstepSkillPractice(
                 ...task,
                 _examId: eId,
                 questions: [...matchingQs],
-              } as any);
+              });
             }
             satisfiedMistakeIds.add(mId);
             satisfiedMistakeIds.add(rawQId);
@@ -760,8 +789,8 @@ export function loadVstepSkillPractice(
       }
     }
 
-    selectedTasks.forEach((t) => delete (t as any)._examId);
-    let accumulatedCount = selectedTasks.reduce((acc, t) => acc + (t.questions?.length || 0), 0);
+    selectedTasks.forEach((t) => delete t._examId);
+    const accumulatedCount = selectedTasks.reduce((acc, t) => acc + (t.questions?.length || 0), 0);
 
     if (seed !== undefined) {
       selectedTasks = shuffleArray(selectedTasks, seed);
@@ -770,7 +799,7 @@ export function loadVstepSkillPractice(
     const allQIds: string[] = [];
     selectedTasks.forEach((t) => t.questions?.forEach((q) => allQIds.push(q.canonicalId || q.id)));
 
-    const resultExam: VstepExam & { metadata?: any } = {
+    const resultExam: VstepPracticeExam = {
       id: `vstep-practice-${skill}`,
       title: `Luyện Tập ${skill === 'listening' ? 'Kỹ Năng Nghe' : 'Kỹ Năng Đọc'} — Ôn Câu Sai`,
       duration: skill === 'listening' ? 40 : 60,
@@ -807,7 +836,7 @@ export function loadVstepSkillPractice(
 
     allTasks = shuffleArray(allTasks, seed);
 
-    let selectedTasks: VstepTask[] = [];
+    const selectedTasks: VstepTask[] = [];
     let accumulatedCount = 0;
 
     for (const task of allTasks) {
@@ -819,7 +848,7 @@ export function loadVstepSkillPractice(
     const allQIds: string[] = [];
     selectedTasks.forEach((t) => t.questions?.forEach((q) => allQIds.push(q.canonicalId || q.id)));
 
-    const resultExam: VstepExam & { metadata?: any } = {
+    const resultExam: VstepPracticeExam = {
       id: `vstep-practice-${skill}`,
       title: `Luyện Tập ${skill === 'listening' ? 'Kỹ Năng Nghe' : 'Kỹ Năng Đọc'} — Ngẫu Nhiên`,
       duration: skill === 'listening' ? 40 : 60,
@@ -892,23 +921,10 @@ export function loadVstepSkillPractice(
       }
     }
 
-    // Graceful Fallback: nếu toàn bộ câu hỏi bị loại bỏ (100% excluded) hoặc không còn câu mới
-    if (selectedTasks.length === 0 || count === 0) {
+    // Đã học hết: giữ đúng cam kết "unseen", tuyệt đối không âm thầm lặp lại câu cũ.
+    if (count === 0) {
       isFallbackUsed = true;
-      // Fallback 1: bổ sung câu làm sai nếu có
-      if (mistakeSet.size > 0) {
-        for (const task of baseTasks) {
-          if (!task.questions) continue;
-          const mistakeQs = task.questions.filter((q) => isQuestionMistake(q, baseExamId, mistakeSet));
-          if (mistakeQs.length > 0) {
-            selectedTasks.push({ ...task, questions: mistakeQs });
-          }
-        }
-      }
-      // Fallback 2: nếu vẫn rỗng, trả về nguyên bản baseTasks để không bao giờ bị crash
-      if (selectedTasks.length === 0) {
-        selectedTasks = baseTasks;
-      }
+      selectedTasks = [];
     }
   }
 
@@ -916,7 +932,7 @@ export function loadVstepSkillPractice(
   const allQIds: string[] = [];
   selectedTasks.forEach((t) => t.questions?.forEach((q) => allQIds.push(q.canonicalId || q.id)));
 
-  const practiceExam: VstepExam & { metadata?: any } = {
+  const practiceExam: VstepPracticeExam = {
     id: `vstep-practice-${skill}`,
     title: `Luyện Tập ${skill === 'listening' ? 'Kỹ Năng Nghe' : 'Kỹ Năng Đọc'} — Chế Độ ${filterMode.toUpperCase()}`,
     duration: skill === 'listening' ? 40 : 60,

@@ -5,7 +5,6 @@
 
 import {
   VstepSkillType,
-  VstepCefrLevel,
   VstepExamAttemptRecord,
   VstepExamSummary,
   VstepExamHistoryStore,
@@ -60,7 +59,7 @@ export function parseCanonicalVstepQuestionId(id: string): { examId?: string; qu
 export function createHistoryStoreProxy(target: VstepHistoryStore): VstepHistoryStore {
   return new Proxy(target, {
     get(obj, prop: string | symbol) {
-      if (typeof prop === 'symbol' || prop in obj) return (obj as any)[prop];
+      if (typeof prop === 'symbol' || prop in obj) return Reflect.get(obj, prop);
       if (typeof prop === 'string') {
         // 1. Tra cứu trực tiếp theo questionId hoặc canonicalId
         for (const val of Object.values(obj)) {
@@ -91,12 +90,16 @@ export function getVstepHistory(): VstepHistoryStore {
     const raw = localStorage.getItem(VSTEP_HISTORY_STORAGE_KEY);
     if (!raw) return {};
     const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === 'object') {
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
       return createHistoryStoreProxy(parsed as VstepHistoryStore);
     }
+    localStorage.removeItem(VSTEP_HISTORY_STORAGE_KEY);
     return {};
-  } catch (err) {
-    console.error('Lỗi khi đọc VSTEP question history:', err);
+  } catch {
+    // Storage hỏng không nên làm nhiễu console hoặc tiếp tục gây lỗi ở lần đọc sau.
+    try {
+      localStorage.removeItem(VSTEP_HISTORY_STORAGE_KEY);
+    } catch {}
     return {};
   }
 }
@@ -122,7 +125,8 @@ export function recordVstepQuestionAnswer(
 
     const existing = store[record.questionId] || (canonicalId ? store[canonicalId] : undefined);
 
-    store[record.questionId] = {
+    const storeKey = canonicalId || record.questionId;
+    store[storeKey] = {
       ...record,
       questionId: rawQId,
       lastAnsweredAt: new Date().toISOString(),
@@ -174,7 +178,7 @@ export function batchRecordVstepAnswers(
         : item.questionId;
 
       const existing = store[item.questionId] || (canonicalId ? store[canonicalId] : undefined);
-      const storeKey = item.questionId;
+      const storeKey = canonicalId || item.questionId;
 
       store[storeKey] = {
         questionId: rawQId,
@@ -337,9 +341,12 @@ export function getVstepExamHistory(): VstepExamHistoryStore {
         records: parsed.records,
       };
     }
+    localStorage.removeItem(VSTEP_EXAM_HISTORY_STORAGE_KEY);
     return { version: 1, updatedAt: '', records: [] };
-  } catch (err) {
-    console.error('Lỗi khi đọc VSTEP exam history:', err);
+  } catch {
+    try {
+      localStorage.removeItem(VSTEP_EXAM_HISTORY_STORAGE_KEY);
+    } catch {}
     return { version: 1, updatedAt: '', records: [] };
   }
 }

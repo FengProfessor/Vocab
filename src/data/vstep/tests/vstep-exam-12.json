@@ -1024,6 +1024,7 @@
     {
       "type": "speaking",
       "label": "Speaking",
+      "timeLimit": 12,
       "tasks": [
         {
           "id": "part1",

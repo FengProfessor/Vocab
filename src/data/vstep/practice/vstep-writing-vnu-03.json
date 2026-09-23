@@ -1,0 +1,36 @@
+{
+  "id": "vstep-writing-vnu-03",
+  "title": "Writing Practice — Đề Thi Chuẩn Đầu Ra Cử Nhân B1-B2 — ULIS Đại Học Quốc Gia Hà Nội",
+  "duration": 60,
+  "category": "writing",
+  "targetLevel": "B2",
+  "sections": [
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "vnu3-w-task1",
+          "type": "email",
+          "formatType": "semi_formal",
+          "minWords": 120,
+          "title": "<p class=\"mb-1\"><b>Task 1:</b> You should spend about 20 minutes on this task.</p><p>You are an undergraduate student who has been accepted for a 2-month summer internship at a partner enterprise of Vietnam National University. However, your university has just scheduled compulsory graduation thesis defense sessions during your first internship week.</p>",
+          "content": "<p>Write an email to the Human Resources Manager, Ms. Le Thu Trang:</p><ul><li>Politely explain your situation regarding the mandatory university thesis defense.</li><li>Request permission to postpone your internship start date by one week.</li><li>Propose how you will compensate for the missed time (such as working extra hours or extending your internship duration).</li></ul>",
+          "description": "Write at least 120 words. Evaluated on Task Fulfillment, Organization, Vocabulary, and Grammar.",
+          "suggestion": "<div class=\"space-y-3 font-sans text-sm\">\n  <div class=\"p-3 bg-amber-50 rounded-lg border border-amber-200\">\n    <p class=\"font-bold text-amber-900\">⭐ BÀI MẪU BAND 8.0 - B2/C1 (138 từ):</p>\n    <div class=\"mt-2 text-slate-800 space-y-2 leading-relaxed\">\n      <p><b>Dear Ms. Le Thu Trang,</b></p>\n      <p>I am writing to express my sincere gratitude for offering me the Summer Marketing Intern position at your esteemed corporation, scheduled to commence on July 1st.</p>\n      <p>Unfortunately, Vietnam National University has just issued an official announcement scheduling compulsory undergraduate thesis defense sessions between July 1st and July 5th. As my oral defense panel is scheduled on Wednesday of that week, attendance is strictly mandatory for my degree conferral.</p>\n      <p>Consequently, I respectfully request permission to defer my official internship start date by one week, to Monday, July 8th. To ensure that my departmental contributions remain uncompromised, I would be delighted to work additional evening hours or extend my final internship commitment by a week in late August.</p>\n      <p>Thank you very much for your kind understanding and accommodation.</p>\n      <p><b>Sincerely yours,<br/>Pham Quang Minh</b></p>\n    </div>\n  </div>\n</div>"
+        },
+        {
+          "id": "vnu3-w-task2",
+          "type": "essay",
+          "formatType": "opinion_essay",
+          "minWords": 250,
+          "title": "<p class=\"mb-1\"><b>Task 2:</b> You should spend about 40 minutes on this task.</p>",
+          "content": "<p>Many university students today engage in part-time jobs while pursuing their full-time undergraduate degrees. Some believe that working part-time provides indispensable practical life skills and financial self-sufficiency. Others argue that employment distracts students from their academic studies and leads to lower academic performance.</p><p><b>Discuss both views and give your own opinion.</b></p>",
+          "description": "Write an essay of at least 250 words to an educated reader. Include relevant examples from your observations or personal experience.",
+          "suggestion": "<div class=\"space-y-3 font-sans text-sm\">\n  <div class=\"p-3 bg-indigo-50 rounded-lg border border-indigo-200\">\n    <p class=\"font-bold text-indigo-900\">⭐ BÀI MẪU BAND 8.0 - B2/C1 (278 từ):</p>\n    <div class=\"mt-2 text-slate-800 space-y-2 leading-relaxed\">\n      <p>The prevalence of undergraduate students undertaking part-time employment during their university studies has sparked significant discussion among educators. While some critics contend that external work commitments undermine academic excellence, proponents assert that practical employment instills vital life capabilities and financial independence. In my perspective, while excessive working hours can undoubtedly jeopardize study outcomes, balanced part-time employment provides invaluable experiential learning that theoretical lectures cannot replicate.</p>\n      <p>Opponents of student employment raise legitimate concerns regarding academic distraction. Tertiary education demands rigorous cognitive dedication, including extensive reading, laboratory experimentation, and independent research. When students dedicate twenty to thirty hours weekly to service industry or delivery jobs, chronic physical exhaustion frequently ensues. Consequently, working students often experience irregular lecture attendance, missed assignment deadlines, and suboptimal examination performance. In extreme scenarios, severe academic fatigue can precipitate university dropout.</p>\n      <p>Conversely, the practical dividends of moderate part-time employment are profound. Engaging in the workplace cultivates indispensable soft skills that are paramount for future employability, such as time management, interpersonal negotiation, team coordination, and crisis resolution. Furthermore, earning a wage fosters financial self-sufficiency and budgeting maturity, easing financial burdens on low-income families. Most significantly, internships directly related to an undergraduate major allow students to apply theoretical concepts to real-world commercial challenges, rendering them far more attractive to corporate recruiters upon graduation.</p>\n      <p>In conclusion, although unmoderated work commitments can compromise academic performance, moderate and well-structured part-time employment equips students with essential professional maturity and resilience. Universities should therefore provide career counseling to help undergraduates strike an optimal equilibrium between academic obligations and workplace exposure.</p>\n    </div>\n  </div>\n</div>"
+        }
+      ]
+    }
+  ]
+}

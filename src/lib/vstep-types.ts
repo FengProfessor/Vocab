@@ -59,6 +59,8 @@ export interface VstepExam {
   title: string;
   duration: number; // in minutes
   date?: string;
+  category?: 'full_mock' | 'listening' | 'reading' | 'writing' | 'speaking';
+  targetLevel?: VstepCefrLevel;
   sections: VstepSection[];
 }
 
@@ -108,6 +110,7 @@ export interface VstepSubmitPayload {
   examMode: VstepExamMode;
   answers: Record<string, number>; // questionId -> selectedOptionIndex (0-3)
   questionIds?: string[]; // Allows grading dynamic practice sets
+  practiceSkill?: VstepSkillType; // Skill delivered by dynamic practice session
   writingSubmissions?: Record<string, string>; // taskId -> essay text
   sessionToken?: string;
   _hp_trap?: string;

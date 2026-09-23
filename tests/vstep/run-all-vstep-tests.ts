@@ -22,6 +22,7 @@ import { runTier4Tests } from './tier4-scenarios.test';
 import { runVstepAntiDuplicationTests } from './anti-duplication.test';
 import { runVnuEnrichmentTests } from './vnu-enrichment.test';
 import { runVstepSpeakingTests } from './speaking.test';
+import { runProductivePracticeTests } from './productive-practice.test';
 
 async function main() {
   console.log('================================================================================');
@@ -87,6 +88,14 @@ async function main() {
   const statsSpeaking = runnerSpeaking.getStats();
   tierStats.push({ tierName: 'VSTEP Speaking Ecosystem', stats: statsSpeaking, minRequired: 8 });
   console.log(`✓ VSTEP Speaking Finished: ${statsSpeaking.passed}/${statsSpeaking.total} passed (${statsSpeaking.durationMs}ms)\n`);
+
+  // Productive skills + public-source discovery integrity
+  console.log('▶ Running Suite: VSTEP Writing/Speaking Practice & Source Discovery (min 10 required)...');
+  const runnerProductive = new TestRunner();
+  await runProductivePracticeTests(runnerProductive);
+  const statsProductive = runnerProductive.getStats();
+  tierStats.push({ tierName: 'Productive Practice & Source Discovery', stats: statsProductive, minRequired: 10 });
+  console.log(`✓ Productive/Source Finished: ${statsProductive.passed}/${statsProductive.total} passed (${statsProductive.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

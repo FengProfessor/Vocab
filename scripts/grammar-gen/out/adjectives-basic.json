@@ -312,32 +312,83 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Đổi sang gián tiếp: “How many people are there in your family?” she asked Lan.",
-      "opts": [],
-      "answer": "She asked Lan how many people there were in her family.",
-      "fb": "Wh- + S + V · are lùi thành were"
+      "type": "mcq",
+      "q": "She has a ___ dress.",
+      "opts": [
+        "beautiful",
+        "beautifully",
+        "beauty"
+      ],
+      "answer": "beautiful",
+      "fb": "Trước danh từ dress dùng tính từ beautiful."
+    },
+    {
+      "type": "mcq",
+      "q": "The soup smells ___.",
+      "opts": [
+        "delicious",
+        "deliciously",
+        "delight"
+      ],
+      "answer": "delicious",
+      "fb": "Sau động từ nối smells dùng tính từ delicious."
     },
     {
       "type": "fill",
-      "q": "Đổi sang gián tiếp: The captain said to them: “Wait here until I come back.”",
-      "opts": [],
-      "answer": "The captain told them to wait there until he came back.",
-      "fb": "mệnh lệnh nên dùng told sb to V · here → there"
+      "q": "I am ___ today. (happy / happily)",
+      "answer": [
+        "happy"
+      ],
+      "fb": "Sau am dùng tính từ happy."
+    },
+    {
+      "type": "mcq",
+      "q": "Choose the correct sentence.",
+      "opts": [
+        "She is tired.",
+        "She is tiredly.",
+        "She tired is."
+      ],
+      "answer": "She is tired.",
+      "fb": "Be + tính từ: She is tired."
     },
     {
       "type": "fill",
-      "q": "Đổi sang gián tiếp: “Don't forget to phone the police,” she told him.",
-      "opts": [],
-      "answer": "She told him not to forget to phone the police.",
-      "fb": "mệnh lệnh phủ định nên dùng not to V"
+      "q": "This is a ___ book. (new / newly)",
+      "answer": [
+        "new"
+      ],
+      "fb": "Trước danh từ book dùng tính từ new."
+    },
+    {
+      "type": "mcq",
+      "q": "The flowers look ___.",
+      "opts": [
+        "nice",
+        "nicely",
+        "niceness"
+      ],
+      "answer": "nice",
+      "fb": "Look là động từ nối ở đây, sau đó dùng tính từ nice."
     },
     {
       "type": "fill",
-      "q": "Đổi sang gián tiếp: “How do you go to the airport?” his friend asked him.",
-      "opts": [],
-      "answer": "His friend asked him how he went to the airport.",
-      "fb": "Wh- + S + V · go lùi thành went"
+      "q": "The room is ___. (small / smallly)",
+      "answer": [
+        "small"
+      ],
+      "fb": "Sau is dùng tính từ small."
+    },
+    {
+      "type": "mcq",
+      "q": "Which phrase describes a big house?",
+      "opts": [
+        "a big house",
+        "a house big",
+        "a bigly house"
+      ],
+      "answer": "a big house",
+      "fb": "Tính từ big đứng trước danh từ house."
     }
   ]
 }

@@ -258,11 +258,168 @@ export function expect<T>(actual: T) {
 // 3. Mock Browser Environment
 // ──────────────────────────────────────────────────────────────────────────
 
+export class MockSpeechRecognition {
+  static activeInstances: MockSpeechRecognition[] = [];
+
+  continuous = true;
+  interimResults = true;
+  lang = 'en-US';
+  maxAlternatives = 1;
+
+  onstart: (() => void) | null = null;
+  onresult: ((event: any) => void) | null = null;
+  onerror: ((event: any) => void) | null = null;
+  onend: (() => void) | null = null;
+
+  state: 'inactive' | 'starting' | 'listening' = 'inactive';
+  aborted = false;
+
+  constructor() {
+    MockSpeechRecognition.activeInstances.push(this);
+  }
+
+  start() {
+    this.state = 'starting';
+    this.aborted = false;
+    setTimeout(() => {
+      if (!this.aborted && this.state === 'starting') {
+        this.state = 'listening';
+        this.onstart?.();
+      }
+    }, 1);
+  }
+
+  stop() {
+    this.state = 'inactive';
+    setTimeout(() => {
+      this.onend?.();
+    }, 1);
+  }
+
+  abort() {
+    this.aborted = true;
+    this.state = 'inactive';
+    setTimeout(() => {
+      this.onend?.();
+    }, 1);
+  }
+
+  emitResult(transcript: string, isFinal: boolean, confidence = 0.95) {
+    if (this.onresult) {
+      const event = {
+        resultIndex: 0,
+        results: [
+          Object.assign([{ transcript, confidence }], {
+            isFinal,
+            length: 1,
+          }),
+        ],
+      };
+      this.onresult(event);
+    }
+  }
+
+  emitNativeError(error: string, message?: string) {
+    if (this.onerror) {
+      this.onerror({ error, message });
+    }
+    setTimeout(() => {
+      this.onend?.();
+    }, 1);
+  }
+}
+
+export class MockMediaStreamTrack {
+  kind = 'audio';
+  enabled = true;
+  readyState: 'live' | 'ended' = 'live';
+  id = `mock-track-${Math.random().toString(36).substring(2, 9)}`;
+
+  stop() {
+    this.readyState = 'ended';
+  }
+}
+
+export class MockMediaStream {
+  private tracks: MockMediaStreamTrack[];
+
+  constructor(tracks?: MockMediaStreamTrack[]) {
+    this.tracks = tracks || [new MockMediaStreamTrack()];
+  }
+
+  getAudioTracks(): MockMediaStreamTrack[] {
+    return this.tracks.filter((t) => t.kind === 'audio');
+  }
+
+  getTracks(): MockMediaStreamTrack[] {
+    return this.tracks;
+  }
+}
+
+export class MockMediaRecorder {
+  state: 'inactive' | 'recording' | 'paused' = 'inactive';
+  stream: MockMediaStream;
+  mimeType: string;
+  ondataavailable: ((e: { data: Blob }) => void) | null = null;
+  onstop: (() => void) | null = null;
+
+  static supportedMimes = new Set([
+    'audio/webm;codecs=opus',
+    'audio/webm',
+    'audio/mp4',
+    'audio/aac',
+    'audio/wav',
+  ]);
+
+  static isTypeSupported(mime: string): boolean {
+    return MockMediaRecorder.supportedMimes.has(mime) || mime.startsWith('audio/');
+  }
+
+  constructor(stream: MockMediaStream, options?: { mimeType?: string }) {
+    this.stream = stream;
+    this.mimeType = options?.mimeType || 'audio/webm';
+  }
+
+  start(timeslice?: number) {
+    this.state = 'recording';
+    if (timeslice) {
+      setTimeout(() => {
+        if (this.state === 'recording' && this.ondataavailable) {
+          this.ondataavailable({ data: new Blob(['mock-audio'], { type: this.mimeType }) });
+        }
+      }, timeslice);
+    }
+  }
+
+  stop() {
+    this.state = 'inactive';
+    setTimeout(() => {
+      this.onstop?.();
+    }, 1);
+  }
+}
+
 let originalWindow: unknown;
+let originalNavigator: unknown;
+let originalMediaRecorder: unknown;
+let originalMediaStream: unknown;
+let originalSpeechRecognition: unknown;
+let originalWebkitSpeechRecognition: unknown;
 
 export function setupMockBrowserEnvironment(): void {
   originalWindow = (global as any).window;
-  (global as any).window = {
+  originalNavigator = (global as any).navigator;
+  originalMediaRecorder = (global as any).MediaRecorder;
+  originalMediaStream = (global as any).MediaStream;
+  originalSpeechRecognition = (global as any).SpeechRecognition;
+  originalWebkitSpeechRecognition = (global as any).webkitSpeechRecognition;
+
+  (global as any).SpeechRecognition = MockSpeechRecognition;
+  (global as any).webkitSpeechRecognition = MockSpeechRecognition;
+  (global as any).MediaStream = MockMediaStream;
+  (global as any).MediaRecorder = MockMediaRecorder;
+
+  const mockWindow: any = {
     location: {
       origin: 'http://localhost:3000',
       pathname: '/student/speaking/foundation',
@@ -283,7 +440,33 @@ export function setupMockBrowserEnvironment(): void {
       },
       cancel: () => {},
     },
+    SpeechRecognition: MockSpeechRecognition,
+    webkitSpeechRecognition: MockSpeechRecognition,
+    MediaStream: MockMediaStream,
+    MediaRecorder: MockMediaRecorder,
   };
+
+  const mockNavigator = {
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) MockBrowser/1.0',
+    mediaDevices: {
+      getUserMedia: async () => {
+        return new MockMediaStream();
+      },
+    },
+  };
+
+  mockWindow.navigator = mockNavigator;
+  (global as any).window = mockWindow;
+
+  try {
+    Object.defineProperty(global, 'navigator', {
+      value: mockNavigator,
+      configurable: true,
+      writable: true,
+    });
+  } catch {
+    (global as any).navigator = mockNavigator;
+  }
 }
 
 export function teardownMockBrowserEnvironment(): void {
@@ -291,6 +474,43 @@ export function teardownMockBrowserEnvironment(): void {
     (global as any).window = originalWindow;
   } else {
     delete (global as any).window;
+  }
+  if (originalNavigator !== undefined) {
+    try {
+      Object.defineProperty(global, 'navigator', {
+        value: originalNavigator,
+        configurable: true,
+        writable: true,
+      });
+    } catch {
+      (global as any).navigator = originalNavigator;
+    }
+  } else {
+    try {
+      delete (global as any).navigator;
+    } catch {
+      // Ignore if non-configurable
+    }
+  }
+  if (originalMediaRecorder !== undefined) {
+    (global as any).MediaRecorder = originalMediaRecorder;
+  } else {
+    delete (global as any).MediaRecorder;
+  }
+  if (originalMediaStream !== undefined) {
+    (global as any).MediaStream = originalMediaStream;
+  } else {
+    delete (global as any).MediaStream;
+  }
+  if (originalSpeechRecognition !== undefined) {
+    (global as any).SpeechRecognition = originalSpeechRecognition;
+  } else {
+    delete (global as any).SpeechRecognition;
+  }
+  if (originalWebkitSpeechRecognition !== undefined) {
+    (global as any).webkitSpeechRecognition = originalWebkitSpeechRecognition;
+  } else {
+    delete (global as any).webkitSpeechRecognition;
   }
 }
 

@@ -2,7 +2,7 @@
  * VSTEP Catalog UI/UX Scaling & Anti-Duplication Verification Suite
  * Milestone 3: Tests pagination (12 items/page, smart ellipsis),
  * multi-facet filter matrix, instant search with accent normalization,
- * dynamic question bank capacity (5,604 Qs), and anti-duplication exam URL generation.
+ * dynamic question bank capacity (5,754 Qs), and anti-duplication exam URL generation.
  */
 
 import { TestRunner, expect, setupMockBrowserEnvironment, teardownMockBrowserEnvironment } from './test-harness';
@@ -28,12 +28,12 @@ export async function runCatalogScalingTests(): Promise<void> {
   const { localStorage } = setupMockBrowserEnvironment();
 
   await runner.describe('1. VSTEP Catalog Scaling — Pagination & Ellipsis Engine', async () => {
-    await runner.it('P1.1: Global catalog contains 190 items and divides into exactly 16 pages at 12 items/page', () => {
-      expect(catalogItems.length).toBe(190);
+    await runner.it('P1.1: Global catalog contains 244 items and divides into exactly 21 pages at 12 items/page', () => {
+      expect(catalogItems.length).toBe(244);
       expect(ITEMS_PER_PAGE).toBe(12);
 
       const totalPages = Math.max(1, Math.ceil(catalogItems.length / ITEMS_PER_PAGE));
-      expect(totalPages).toBe(16);
+      expect(totalPages).toBe(21);
     });
 
     await runner.it('P1.2: First page (page 1) slices items 1 to 12 with correct zero-based indices', () => {
@@ -62,16 +62,16 @@ export async function runCatalogScalingTests(): Promise<void> {
       expect(pageItems[11].id).toBe('vstep-listening-01');
     });
 
-    await runner.it('P1.4: Last page (page 16) holds remaining 10 items (items 181 to 190)', () => {
-      const page = 16;
+    await runner.it('P1.4: Last page (page 21) holds remaining 4 items (items 241 to 244)', () => {
+      const page = 21;
       const startIndex = (page - 1) * ITEMS_PER_PAGE;
       const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, catalogItems.length);
       const pageItems = catalogItems.slice(startIndex, endIndex);
 
-      expect(pageItems.length).toBe(10);
-      expect(startIndex).toBe(180);
-      expect(endIndex).toBe(190);
-      expect(pageItems[9].id).toBe('vstep-exam-vnu-01');
+      expect(pageItems.length).toBe(4);
+      expect(startIndex).toBe(240);
+      expect(endIndex).toBe(244);
+      expect(pageItems[3].id).toBe('vstep-speaking-vnu-03');
     });
 
     await runner.it('P1.5: Smart ellipsis displays all pages when totalPages <= 7', () => {
@@ -83,24 +83,24 @@ export async function runCatalogScalingTests(): Promise<void> {
     });
 
     await runner.it('P1.6: Smart ellipsis formats left cluster when current page <= 4', () => {
-      const pagesStart = getPaginationPages(1, 16);
-      expect(pagesStart).toEqual([1, 2, 3, 4, 5, 'ellipsis', 16]);
+      const pagesStart = getPaginationPages(1, 21);
+      expect(pagesStart).toEqual([1, 2, 3, 4, 5, 'ellipsis', 21]);
 
-      const pagesPage4 = getPaginationPages(4, 16);
-      expect(pagesPage4).toEqual([1, 2, 3, 4, 5, 'ellipsis', 16]);
+      const pagesPage4 = getPaginationPages(4, 21);
+      expect(pagesPage4).toEqual([1, 2, 3, 4, 5, 'ellipsis', 21]);
     });
 
     await runner.it('P1.7: Smart ellipsis formats right cluster when current page >= total - 3', () => {
-      const pagesEnd = getPaginationPages(16, 16);
-      expect(pagesEnd).toEqual([1, 'ellipsis', 12, 13, 14, 15, 16]);
+      const pagesEnd = getPaginationPages(21, 21);
+      expect(pagesEnd).toEqual([1, 'ellipsis', 17, 18, 19, 20, 21]);
 
-      const pagesPage13 = getPaginationPages(13, 16);
-      expect(pagesPage13).toEqual([1, 'ellipsis', 12, 13, 14, 15, 16]);
+      const pagesPage18 = getPaginationPages(18, 21);
+      expect(pagesPage18).toEqual([1, 'ellipsis', 17, 18, 19, 20, 21]);
     });
 
     await runner.it('P1.8: Smart ellipsis formats double ellipsis when current page is in the middle', () => {
-      const pagesMid = getPaginationPages(8, 16);
-      expect(pagesMid).toEqual([1, 'ellipsis', 7, 8, 9, 'ellipsis', 16]);
+      const pagesMid = getPaginationPages(11, 21);
+      expect(pagesMid).toEqual([1, 'ellipsis', 10, 11, 12, 'ellipsis', 21]);
     });
   });
 
@@ -158,29 +158,29 @@ export async function runCatalogScalingTests(): Promise<void> {
 
     await runner.it('F2.1: Baseline unconstrained counts match exact catalog distribution', () => {
       const res = applyFilters('all', 'all', 'all', '');
-      expect(res.filtered.length).toBe(190);
-      expect(res.skillCounts.all).toBe(190);
-      expect(res.skillCounts.full_mock).toBe(24);
+      expect(res.filtered.length).toBe(244);
+      expect(res.skillCounts.all).toBe(244);
+      expect(res.skillCounts.full_mock).toBe(26);
       expect(res.skillCounts.listening).toBe(61);
       expect(res.skillCounts.reading).toBe(105);
-      expect(res.skillCounts.writing).toBe(0);
-      expect(res.skillCounts.speaking).toBe(0);
+      expect(res.skillCounts.writing).toBe(26);
+      expect(res.skillCounts.speaking).toBe(26);
 
-      expect(res.levelCounts.all).toBe(190);
+      expect(res.levelCounts.all).toBe(244);
       expect(res.levelCounts.B1).toBe(15);
-      expect(res.levelCounts.B2).toBe(140);
-      expect(res.levelCounts.C1).toBe(35);
+      expect(res.levelCounts.B2).toBe(191);
+      expect(res.levelCounts.C1).toBe(38);
 
-      expect(res.sourceCounts.all).toBe(190);
-      expect(res.sourceCounts.vstepowl).toBe(99);
+      expect(res.sourceCounts.all).toBe(244);
+      expect(res.sourceCounts.vstepowl).toBe(145);
       expect(res.sourceCounts.onthivstep).toBe(75);
       expect(res.sourceCounts.englishteststore).toBe(15);
-      expect(res.sourceCounts.vnu).toBe(1);
+      expect(res.sourceCounts.vnu).toBe(9);
     });
 
-    await runner.it('F2.2: Skill filtering isolates Full Mock (24), Listening (61), and Reading (105)', () => {
+    await runner.it('F2.2: Skill filtering isolates all five catalog categories', () => {
       const fullMockRes = applyFilters('full_mock', 'all', 'all', '');
-      expect(fullMockRes.filtered.length).toBe(24);
+      expect(fullMockRes.filtered.length).toBe(26);
       expect(fullMockRes.filtered.every(i => i.category === 'full_mock' || i.skill === 'full_mock')).toBeTruthy();
 
       const listeningRes = applyFilters('listening', 'all', 'all', '');
@@ -190,9 +190,17 @@ export async function runCatalogScalingTests(): Promise<void> {
       const readingRes = applyFilters('reading', 'all', 'all', '');
       expect(readingRes.filtered.length).toBe(105);
       expect(readingRes.filtered.every(i => i.category === 'reading' || i.skill === 'reading')).toBeTruthy();
+
+      const writingRes = applyFilters('writing', 'all', 'all', '');
+      expect(writingRes.filtered.length).toBe(26);
+      expect(writingRes.filtered.every(i => i.category === 'writing' || i.skill === 'writing')).toBeTruthy();
+
+      const speakingRes = applyFilters('speaking', 'all', 'all', '');
+      expect(speakingRes.filtered.length).toBe(26);
+      expect(speakingRes.filtered.every(i => i.category === 'speaking' || i.skill === 'speaking')).toBeTruthy();
     });
 
-    await runner.it('F2.3: Source filtering isolates OnThiVSTEP (75), EnglishTestStore (15), and VNU (1)', () => {
+    await runner.it('F2.3: Source filtering isolates OnThiVSTEP (75), EnglishTestStore (15), and VNU (9)', () => {
       const onthiRes = applyFilters('all', 'all', 'onthivstep', '');
       expect(onthiRes.filtered.length).toBe(75);
       expect(onthiRes.filtered.every(i => i.source === 'onthivstep')).toBeTruthy();
@@ -202,8 +210,11 @@ export async function runCatalogScalingTests(): Promise<void> {
       expect(etsRes.filtered.every(i => i.source === 'englishteststore')).toBeTruthy();
 
       const vnuRes = applyFilters('all', 'all', 'vnu', '');
-      expect(vnuRes.filtered.length).toBe(1);
-      expect(vnuRes.filtered[0].id).toBe('vstep-exam-vnu-01');
+      expect(vnuRes.filtered.length).toBe(9);
+      expect(vnuRes.filtered.every((item) => item.source === 'vnu')).toBeTruthy();
+      expect(vnuRes.filtered.map((item) => item.id).includes('vstep-exam-vnu-01')).toBeTruthy();
+      expect(vnuRes.filtered.map((item) => item.id).includes('vstep-writing-vnu-01')).toBeTruthy();
+      expect(vnuRes.filtered.map((item) => item.id).includes('vstep-speaking-vnu-01')).toBeTruthy();
     });
 
     await runner.it('F2.4: Multi-facet intersection (Reading + C1 + OnThiVSTEP) yields exactly 35 sets', () => {
@@ -254,13 +265,16 @@ export async function runCatalogScalingTests(): Promise<void> {
         const key = normalizeViText([item.id, item.title, item.titleVi, item.badge].filter(Boolean).join(' '));
         return key.includes(normQ);
       });
-      expect(matches.length).toBe(1);
-      expect(matches[0].id).toBe('vstep-exam-vnu-01');
+      expect(matches.length).toBe(9);
+      expect(matches.every((item) => item.source === 'vnu')).toBeTruthy();
+      expect(matches.some((item) => item.id === 'vstep-exam-vnu-01')).toBeTruthy();
+      expect(matches.some((item) => item.id === 'vstep-writing-vnu-01')).toBeTruthy();
+      expect(matches.some((item) => item.id === 'vstep-speaking-vnu-01')).toBeTruthy();
     });
   });
 
   await runner.describe('4. Dynamic Question Bank Capacity & Stats Aggregation', async () => {
-    await runner.it('Q4.1: Dynamic calculation yields 2,960 listening and 2,644 reading questions (5,604 total)', () => {
+    await runner.it('Q4.1: Dynamic calculation yields 3,030 listening and 2,724 reading questions (5,754 total)', () => {
       let listening = 0;
       let reading = 0;
       for (const item of catalogItems) {
@@ -274,23 +288,23 @@ export async function runCatalogScalingTests(): Promise<void> {
         }
       }
 
-      expect(listening).toBe(2960);
-      expect(reading).toBe(2644);
-      expect(listening + reading).toBe(5604);
+      expect(listening).toBe(3030);
+      expect(reading).toBe(2724);
+      expect(listening + reading).toBe(5754);
     });
 
     await runner.it('Q4.2: Progress stats return 0% and zero answered on clean state', () => {
       localStorage.clear();
-      const statsL = getVstepProgressStats('listening', 2960);
-      const statsR = getVstepProgressStats('reading', 2644);
+      const statsL = getVstepProgressStats('listening', 3030);
+      const statsR = getVstepProgressStats('reading', 2724);
 
       expect(statsL.answeredCount).toBe(0);
-      expect(statsL.totalCount).toBe(2960);
+      expect(statsL.totalCount).toBe(3030);
       expect(statsL.percentage).toBe(0);
       expect(statsL.mistakeCount).toBe(0);
 
       expect(statsR.answeredCount).toBe(0);
-      expect(statsR.totalCount).toBe(2644);
+      expect(statsR.totalCount).toBe(2724);
       expect(statsR.percentage).toBe(0);
     });
 
@@ -303,8 +317,8 @@ export async function runCatalogScalingTests(): Promise<void> {
         { questionId: 'read-q1', skill: 'reading', part: 'passage1', isCorrect: false, selectedOption: 3 },
       ]);
 
-      const statsL = getVstepProgressStats('listening', 2960);
-      const statsR = getVstepProgressStats('reading', 2644);
+      const statsL = getVstepProgressStats('listening', 3030);
+      const statsR = getVstepProgressStats('reading', 2724);
 
       expect(statsL.answeredCount).toBe(3);
       expect(statsL.correctCount).toBe(2);
@@ -316,8 +330,8 @@ export async function runCatalogScalingTests(): Promise<void> {
 
     await runner.it('Q4.4: Resetting skill progress clears only target skill', () => {
       resetVstepSkillProgress('listening');
-      const statsL = getVstepProgressStats('listening', 2960);
-      const statsR = getVstepProgressStats('reading', 2644);
+      const statsL = getVstepProgressStats('listening', 3030);
+      const statsR = getVstepProgressStats('reading', 2724);
 
       expect(statsL.answeredCount).toBe(0);
       expect(statsL.mistakeCount).toBe(0);
@@ -325,7 +339,7 @@ export async function runCatalogScalingTests(): Promise<void> {
       expect(statsR.mistakeCount).toBe(1);
 
       resetAllVstepProgress();
-      const statsRClean = getVstepProgressStats('reading', 2644);
+      const statsRClean = getVstepProgressStats('reading', 2724);
       expect(statsRClean.answeredCount).toBe(0);
     });
   });
@@ -341,12 +355,25 @@ export async function runCatalogScalingTests(): Promise<void> {
       }
     });
 
-    await runner.it('U5.2: API query string constructs valid parameters including filter mode', () => {
+    await runner.it('U5.2: API POST body carries test/filter/history state without query-string growth', () => {
       const examId = 'vstep-mock-01';
       const filterMode: VstepPracticeFilterMode = 'unseen';
+      const excludedIds = ['vstep-mock-01:q1', 'vstep-mock-01:q2'];
+      const mistakeIds = ['vstep-mock-01:q2'];
 
-      const queryUrl = `/api/vstep/test?testId=${encodeURIComponent(examId)}&filter=${encodeURIComponent(filterMode)}`;
-      expect(queryUrl).toBe('/api/vstep/test?testId=vstep-mock-01&filter=unseen');
+      const request = {
+        url: '/api/vstep/test',
+        method: 'POST',
+        body: JSON.stringify({ testId: examId, filterMode, excludedIds, mistakeIds }),
+      };
+      const body = JSON.parse(request.body);
+
+      expect(request.url).toBe('/api/vstep/test');
+      expect(request.method).toBe('POST');
+      expect(body.testId).toBe(examId);
+      expect(body.filterMode).toBe(filterMode);
+      expect(body.excludedIds).toEqual(excludedIds);
+      expect(body.mistakeIds).toEqual(mistakeIds);
     });
   });
 

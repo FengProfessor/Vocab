@@ -1,25 +1,20 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import {
   ChevronLeft,
   Volume2,
   VolumeX,
   Play,
-  Square,
-  RotateCcw,
   Sparkles,
   BookOpen,
   CheckCircle2,
   Clock,
   Layers,
   Award,
-  ChevronRight,
   HelpCircle,
-  ListFilter,
   Lightbulb,
-  Headphones,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -73,26 +68,7 @@ export default function VstepSpeakingPage() {
     };
   }, [activeTab]);
 
-  // Simulation Timer Hook
-  useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
-    if (isTimerRunning && examTimer > 0) {
-      interval = setInterval(() => {
-        setExamTimer((prev) => {
-          if (prev <= 1) {
-            handleExamTimerExpired();
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isTimerRunning, examTimer, examStep]);
-
-  const handleExamTimerExpired = () => {
+  const handleExamTimerExpired = useCallback(() => {
     setIsTimerRunning(false);
     toast.info('Hết thời gian của phần này! Đang chuyển tiếp bước tiếp theo...');
     if (examStep === 'part1') {
@@ -114,7 +90,20 @@ export default function VstepSpeakingPage() {
     } else if (examStep === 'part3_speak') {
       setExamStep('finished');
     }
-  };
+  }, [examStep]);
+
+  // Simulation timer: mỗi tick đọc state hiện tại, không gọi side effect trong state updater.
+  useEffect(() => {
+    if (!isTimerRunning || examTimer <= 0) return;
+    const timeout = window.setTimeout(() => {
+      if (examTimer <= 1) {
+        handleExamTimerExpired();
+      } else {
+        setExamTimer(examTimer - 1);
+      }
+    }, 1000);
+    return () => window.clearTimeout(timeout);
+  }, [examTimer, handleExamTimerExpired, isTimerRunning]);
 
   const startExamSimulation = () => {
     setExamStep('part1');

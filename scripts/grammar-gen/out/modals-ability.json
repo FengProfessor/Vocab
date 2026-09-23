@@ -352,67 +352,83 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Your car can ____ (fix) in two hours.",
-      "opts": [],
-      "answer": "be fixed",
-      "fb": "sau can → be + V3"
+      "type": "mcq",
+      "q": "I ___ swim.",
+      "opts": [
+        "can",
+        "cans",
+        "can to"
+      ],
+      "answer": "can",
+      "fb": "Can + động từ nguyên thể swim."
+    },
+    {
+      "type": "mcq",
+      "q": "She can ___ English.",
+      "opts": [
+        "speak",
+        "speaks",
+        "to speak"
+      ],
+      "answer": "speak",
+      "fb": "Sau can dùng speak, không thêm -s hoặc to."
     },
     {
       "type": "fill",
-      "q": "Chinese bicycles are ____ (bad) than Japanese ones.",
-      "opts": [],
-      "answer": "worse",
-      "fb": "bad là bất quy tắc → worse"
+      "q": "He ___ ride a bike. (can / cans)",
+      "answer": [
+        "can"
+      ],
+      "fb": "Can không đổi theo chủ ngữ he."
+    },
+    {
+      "type": "mcq",
+      "q": "Choose the negative sentence.",
+      "opts": [
+        "I cannot swim.",
+        "I not can swim.",
+        "I can not to swim."
+      ],
+      "answer": "I cannot swim.",
+      "fb": "Phủ định của can là cannot hoặc can't."
     },
     {
       "type": "fill",
-      "q": "He speaks English ____ (fluent) as his teacher.",
-      "opts": [],
-      "answer": "as fluently",
-      "fb": "bổ nghĩa cho speaks nên là trạng từ fluently, kẹp giữa hai chữ as thì giữ nguyên"
+      "q": "___ you help me? (Can / Cans)",
+      "answer": [
+        "Can"
+      ],
+      "fb": "Câu hỏi: Can + you + động từ nguyên thể?"
+    },
+    {
+      "type": "mcq",
+      "q": "Can Mai sing? Choose the short positive answer.",
+      "opts": [
+        "Yes, she can.",
+        "Yes, she cans.",
+        "Yes, she is."
+      ],
+      "answer": "Yes, she can.",
+      "fb": "Trả lời ngắn với can: Yes, she can."
     },
     {
       "type": "fill",
-      "q": "The music was ____ loud that we couldn't talk. (so / such)",
-      "opts": [],
-      "answer": "so",
-      "fb": "loud đứng trơ, không có danh từ theo sau → so"
+      "q": "They ___ play football. (can / cans)",
+      "answer": [
+        "can"
+      ],
+      "fb": "Với they vẫn dùng can."
     },
     {
-      "type": "fill",
-      "q": "Ann ____ at home — I saw her at the supermarket ten minutes ago. (can't be / must be)",
-      "opts": [],
-      "answer": "can't be",
-      "fb": "vừa gặp ở siêu thị nên không thể ở nhà → can't be"
-    },
-    {
-      "type": "fill",
-      "q": "Could you give me ____ (a little / a few) water?",
-      "opts": [],
-      "answer": "a little",
-      "fb": "water không đếm được → a little"
-    },
-    {
-      "type": "fill",
-      "q": "It rained all day, ____ we cancelled the picnic.",
-      "opts": [],
-      "answer": "so",
-      "fb": "kết quả nằm giữa câu, ngay sau dấu phẩy → so"
-    },
-    {
-      "type": "fill",
-      "q": "Please speak more ____ (slow); I can't follow you.",
-      "opts": [],
-      "answer": "slowly",
-      "fb": "sau động từ speak → trạng từ -ly"
-    },
-    {
-      "type": "fill",
-      "q": "Mai's brother can't swim, ____?",
-      "opts": [],
-      "answer": "can he",
-      "fb": "vế trước phủ định → đuôi khẳng định"
+      "type": "mcq",
+      "q": "Which sentence asks about ability?",
+      "opts": [
+        "Can you cook?",
+        "You can cook?",
+        "Do can you cook?"
+      ],
+      "answer": "Can you cook?",
+      "fb": "Đưa can lên trước chủ ngữ để hỏi."
     }
   ]
 }

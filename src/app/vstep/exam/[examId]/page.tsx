@@ -10,8 +10,6 @@ import {
   ChevronRight,
   Send,
   AlertTriangle,
-  CheckCircle2,
-  XCircle,
   Headphones,
   BookOpen,
   PenTool,
@@ -24,8 +22,6 @@ import {
   Layers,
   ArrowLeft,
   ShieldCheck,
-  Check,
-  Sparkles,
   Info
 } from 'lucide-react';
 import { toast } from 'sonner';
@@ -47,12 +43,17 @@ import {
 import { stripHtmlTags } from '@/components/toeic/ToeicSplitPane';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
+function getVstepQuestionKey(question: VstepQuestion): string {
+  return question.canonicalId || question.id;
+}
+
 function VstepExamPageInner() {
   const params = useParams();
   const searchParams = useSearchParams();
   const router = useRouter();
   const examId = params.examId as string;
   const filterMode = searchParams.get('filter') || 'unseen';
+  const draftStorageKey = `vstep_draft_${examId}_${filterMode}`;
 
   // State nạp đề
   const [exam, setExam] = useState<VstepExam | null>(null);
@@ -73,13 +74,13 @@ function VstepExamPageInner() {
   const [timeLeft, setTimeLeft] = useState<number>(172 * 60);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const submissionStartedRef = useRef<boolean>(false);
+  const autoSubmitRef = useRef<() => void>(() => {});
   const [submitModalOpen, setSubmitModalOpen] = useState<boolean>(false);
 
   // Màn hình kết quả
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [scoreResult, setScoreResult] = useState<VstepScoreResult | null>(null);
   const [reviewExam, setReviewExam] = useState<VstepExam | null>(null);
-  const [reviewFilter, setReviewFilter] = useState<'all' | 'mistakes'>('all');
 
   // Audio Player State cho Listening
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -97,6 +98,19 @@ function VstepExamPageInner() {
     async function fetchExam() {
       try {
         setLoading(true);
+        setError(null);
+        setExam(null);
+        setSessionToken('');
+        setActiveSectionIdx(0);
+        setActiveTaskIdx(0);
+        setActiveQuestionIdx(0);
+        setUserAnswers({});
+        setWritingAnswers({});
+        setFlaggedQuestionIds(new Set());
+        setIsCompleted(false);
+        setScoreResult(null);
+        setReviewExam(null);
+        submissionStartedRef.current = false;
         const answeredIds = Array.from(getAnsweredVstepQuestionIds());
         const mistakeIds = Array.from(getIncorrectVstepQuestionIds());
 
@@ -122,7 +136,9 @@ function VstepExamPageInner() {
         setTimeLeft(data.exam.duration * 60);
 
         // Khôi phục câu trả lời từ localStorage nếu làm dang dở
-        const savedDraft = localStorage.getItem(`vstep_draft_${examId}`);
+        const savedDraft =
+          localStorage.getItem(draftStorageKey) ||
+          (filterMode === 'unseen' ? localStorage.getItem(`vstep_draft_${examId}`) : null);
         if (savedDraft) {
           try {
             const parsed = JSON.parse(savedDraft);
@@ -142,7 +158,7 @@ function VstepExamPageInner() {
     }
 
     if (examId) fetchExam();
-  }, [examId, filterMode]);
+  }, [draftStorageKey, examId, filterMode]);
 
   // Tự động lưu tiến độ vào localStorage
   useEffect(() => {
@@ -153,26 +169,27 @@ function VstepExamPageInner() {
       flags: Array.from(flaggedQuestionIds),
       updatedAt: Date.now(),
     };
-    localStorage.setItem(`vstep_draft_${examId}`, JSON.stringify(draft));
-  }, [userAnswers, writingAnswers, flaggedQuestionIds, exam, examId, isCompleted]);
+    localStorage.setItem(draftStorageKey, JSON.stringify(draft));
+  }, [userAnswers, writingAnswers, flaggedQuestionIds, exam, draftStorageKey, isCompleted]);
+
+  const examHasTasks = Boolean(exam?.sections.some((section) => section.tasks.length > 0));
 
   // Đếm ngược thời gian
   useEffect(() => {
-    if (loading || isCompleted || timeLeft <= 0) return;
+    if (loading || isCompleted || !examHasTasks) return;
 
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          handleAutoSubmit();
-          return 0;
-        }
-        return prev - 1;
-      });
+      setTimeLeft((prev) => Math.max(0, prev - 1));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [loading, isCompleted, timeLeft]);
+  }, [examHasTasks, loading, isCompleted]);
+
+  useEffect(() => {
+    if (!loading && !isCompleted && examHasTasks && timeLeft === 0) {
+      autoSubmitRef.current();
+    }
+  }, [examHasTasks, isCompleted, loading, timeLeft]);
 
   // Format thời gian MM:SS hoặc HH:MM:SS
   const formatTime = (seconds: number) => {
@@ -189,7 +206,12 @@ function VstepExamPageInner() {
   const currentExam = isCompleted && reviewExam ? reviewExam : exam;
   const currentSection: VstepSection | undefined = currentExam?.sections[activeSectionIdx];
   const currentTask: VstepTask | undefined = currentSection?.tasks[activeTaskIdx];
-  const currentQuestions: VstepQuestion[] = currentTask?.questions || [];
+  const currentQuestions: VstepQuestion[] =
+    currentSection?.type === 'listening' || currentSection?.type === 'reading'
+      ? (currentTask?.questions || []).filter(
+          (question) => typeof question === 'object' && question !== null && Array.isArray(question.options)
+        )
+      : [];
   const currentQuestion: VstepQuestion | undefined = currentQuestions[activeQuestionIdx];
 
   // Danh sách toàn bộ câu hỏi để hiển thị Question Palette
@@ -207,9 +229,11 @@ function VstepExamPageInner() {
 
     let count = 1;
     currentExam.sections.forEach((sec, sIdx) => {
+      if (sec.type !== 'listening' && sec.type !== 'reading') return;
       sec.tasks.forEach((tsk, tIdx) => {
         if (tsk.questions) {
           tsk.questions.forEach((q, qIdx) => {
+            if (typeof q !== 'object' || q === null || !Array.isArray(q.options)) return;
             list.push({
               q,
               sectionIdx: sIdx,
@@ -227,27 +251,16 @@ function VstepExamPageInner() {
     return list;
   }, [currentExam]);
 
+  const answeredQuestionCount = useMemo(
+    () =>
+      allFlattenedQuestions.filter(({ q }) => {
+        const key = getVstepQuestionKey(q);
+        return typeof userAnswers[key] === 'number' || typeof userAnswers[q.id] === 'number';
+      }).length,
+    [allFlattenedQuestions, userAnswers]
+  );
+
   const currentAudioSrc = currentTask?.media?.audio;
-
-  // Tự động đồng bộ và nạp audio khi chuyển Task / Part bài nghe
-  useEffect(() => {
-    setIsPlaying(false);
-    setCurrentTime(0);
-    setAudioDuration(0);
-    setAudioError(null);
-
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-      if (currentAudioSrc) {
-        setIsAudioLoading(true);
-        audioRef.current.src = currentAudioSrc;
-        audioRef.current.playbackRate = playbackSpeed;
-        audioRef.current.volume = isAudioMuted ? 0 : audioVolume;
-        audioRef.current.load();
-      }
-    }
-  }, [currentAudioSrc]);
 
   // Điều khiển Play / Pause an toàn
   const toggleAudioPlay = () => {
@@ -363,12 +376,6 @@ function VstepExamPageInner() {
     setPaletteOpen(false);
   };
 
-  // Xử lý nộp bài
-  const handleAutoSubmit = () => {
-    toast.warning('Đã hết thời gian làm bài! Hệ thống đang tự động nộp bài...');
-    submitExam();
-  };
-
   const submitExam = async () => {
     if (submissionStartedRef.current || isSubmitting || !exam) return;
     submissionStartedRef.current = true;
@@ -376,14 +383,17 @@ function VstepExamPageInner() {
     setSubmitModalOpen(false);
 
     try {
+      const practiceSkill = exam.id.startsWith('vstep-practice-') ? exam.sections[0]?.type : undefined;
+      const isPracticeSession = practiceSkill === 'listening' || practiceSkill === 'reading';
       const res = await fetch('/api/vstep/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           testId: examId,
-          examMode: 'full_simulation',
+          examMode: isPracticeSession ? 'practice' : 'full_simulation',
+          practiceSkill: isPracticeSession ? practiceSkill : undefined,
           answers: userAnswers,
-          questionIds: allFlattenedQuestions.map((item) => item.q.id),
+          questionIds: allFlattenedQuestions.map((item) => getVstepQuestionKey(item.q)),
           writingSubmissions: writingAnswers,
           sessionToken,
         }),
@@ -415,9 +425,10 @@ function VstepExamPageInner() {
         for (const task of section.tasks) {
           if (task.questions) {
             for (const q of task.questions) {
-              const uAns = userAnswers[q.id];
+              const questionKey = getVstepQuestionKey(q);
+              const uAns = userAnswers[questionKey] ?? userAnswers[q.id];
               historyItems.push({
-                questionId: q.id,
+                questionId: questionKey,
                 skill: section.type,
                 part: task.id || 'part1',
                 isCorrect: uAns === q.answer,
@@ -448,8 +459,8 @@ function VstepExamPageInner() {
         examId,
         examTitle: exam.title,
         category:
-          (exam as any).category ||
-          (exam.sections.length > 1 ? 'full_mock' : (exam.sections[0]?.type as any) || 'listening'),
+          exam.category ||
+          (exam.sections.length > 1 ? 'full_mock' : exam.sections[0]?.type || 'listening'),
         completedAt: new Date().toISOString(),
         durationSeconds: (exam.duration || 172) * 60 - Math.max(0, timeLeft),
         overallScore: data.scoreResult.overallScore,
@@ -463,9 +474,10 @@ function VstepExamPageInner() {
         speakingScore: data.scoreResult.speakingScore,
         listeningCorrect: data.scoreResult.listeningCorrect,
         readingCorrect: data.scoreResult.readingCorrect,
-        targetLevel: (exam as any).targetLevel || 'B2',
+        targetLevel: exam.targetLevel || 'B2',
       });
 
+      localStorage.removeItem(draftStorageKey);
       localStorage.removeItem(`vstep_draft_${examId}`);
       toast.success('Nộp bài thành công! Bảng điểm VSTEP đã sẵn sàng.');
     } catch (err) {
@@ -476,6 +488,13 @@ function VstepExamPageInner() {
       setIsSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    autoSubmitRef.current = () => {
+      toast.warning('Đã hết thời gian làm bài! Hệ thống đang tự động nộp bài...');
+      void submitExam();
+    };
+  });
 
   if (loading) {
     return (
@@ -506,11 +525,50 @@ function VstepExamPageInner() {
     );
   }
 
+  if (!examHasTasks) {
+    const isMistakeMode = filterMode === 'mistakes';
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 p-4">
+        <div className="max-w-lg w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-7 text-center space-y-5 shadow-sm">
+          <ShieldCheck className="w-12 h-12 text-emerald-600 mx-auto" />
+          <div className="space-y-2">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+              {isMistakeMode ? 'Không còn câu sai cần ôn' : 'Bạn đã hoàn thành toàn bộ câu mới'}
+            </h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              {isMistakeMode
+                ? 'Hiện không có câu trả lời sai nào trong lịch sử của bạn cho bộ luyện tập này.'
+                : 'Chế độ “Chưa từng làm” không lặp lại câu cũ. Bạn có thể luyện ngẫu nhiên hoặc quay lại danh mục.'}
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-2">
+            <Link
+              href={`/vstep/exam/${encodeURIComponent(examId)}?filter=all_random`}
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700"
+            >
+              <Layers className="w-4 h-4" /> Luyện ngẫu nhiên
+            </Link>
+            <Link
+              href="/vstep"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+            >
+              <ArrowLeft className="w-4 h-4" /> Về danh mục
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const supportsQuestionFilter =
+    exam.sections.length === 1 &&
+    (exam.sections[0]?.type === 'listening' || exam.sections[0]?.type === 'reading');
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 select-none">
       {/* ── HEADER PHÒNG THI STICKY TECHNICAL MINIMALIST ── */}
-      <header className="sticky top-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-2.5 flex items-center justify-between gap-3 shadow-sm">
-        <div className="flex items-center gap-3">
+      <header className="sticky top-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-3 sm:px-4 py-2.5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3 shadow-sm">
+        <div className="flex min-w-0 w-full md:w-auto items-center gap-2 sm:gap-3">
           <Link
             href="/vstep"
             className="p-1.5 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors"
@@ -519,27 +577,27 @@ function VstepExamPageInner() {
             <ArrowLeft className="w-4 h-4" />
           </Link>
 
-          <div>
+          <div className="min-w-0 flex-1 md:flex-none">
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 font-semibold">
                 VSTEP TEST
               </span>
-              {filterMode === 'unseen' && (
+              {supportsQuestionFilter && filterMode === 'unseen' && (
                 <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 px-1.5 py-0.5 rounded font-medium">
                   <ShieldCheck className="w-3 h-3" /> Chế độ: Chưa từng làm
                 </span>
               )}
-              {filterMode === 'mistakes' && (
+              {supportsQuestionFilter && filterMode === 'mistakes' && (
                 <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 px-1.5 py-0.5 rounded font-medium">
                   <RotateCcw className="w-3 h-3" /> Chế độ: Luyện câu sai
                 </span>
               )}
-              {filterMode === 'all_random' && (
+              {supportsQuestionFilter && filterMode === 'all_random' && (
                 <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-1.5 py-0.5 rounded font-medium">
                   <Layers className="w-3 h-3" /> Chế độ: Ngẫu nhiên
                 </span>
               )}
-              <h1 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate max-w-[200px] sm:max-w-md">
+              <h1 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate max-w-[calc(100vw-110px)] sm:max-w-md">
                 {exam.title}
               </h1>
             </div>
@@ -569,7 +627,7 @@ function VstepExamPageInner() {
         </div>
 
         {/* Đồng hồ + Điều khiển Question Palette + Nộp bài */}
-        <div className="flex items-center gap-2">
+        <div className="flex w-full md:w-auto items-center justify-between md:justify-start gap-2">
           {!isCompleted && (
             <div
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded border text-xs font-mono font-bold tabular-nums ${
@@ -591,7 +649,7 @@ function VstepExamPageInner() {
           >
             <Layers className="w-3.5 h-3.5 text-blue-600" />
             <span className="hidden sm:inline">Câu hỏi:</span>
-            <span className="font-bold text-blue-600">{Object.keys(userAnswers).length}/{allFlattenedQuestions.length}</span>
+            <span className="font-bold text-blue-600">{answeredQuestionCount}/{allFlattenedQuestions.length}</span>
           </button>
 
           {!isCompleted ? (
@@ -614,6 +672,30 @@ function VstepExamPageInner() {
           )}
         </div>
       </header>
+
+      {/* Mobile section switcher: full mocks must allow moving across all 4 skills. */}
+      {currentExam && currentExam.sections.length > 1 && (
+        <div className="md:hidden flex items-center gap-1.5 overflow-x-auto border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-2 scrollbar-none">
+          {currentExam.sections.map((sec, idx) => (
+            <button
+              key={`mobile-${sec.type}`}
+              type="button"
+              onClick={() => {
+                setActiveSectionIdx(idx);
+                setActiveTaskIdx(0);
+                setActiveQuestionIdx(0);
+              }}
+              className={`shrink-0 px-3 py-1.5 rounded-md border text-[11px] font-medium transition-colors ${
+                activeSectionIdx === idx
+                  ? 'bg-blue-50 dark:bg-blue-950/60 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 font-bold'
+                  : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300'
+              }`}
+            >
+              {sec.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* ── MÀN HÌNH BÁO CÁO KẾT QUẢ KHI NỘP BÀI ── */}
       {isCompleted && scoreResult && (
@@ -765,13 +847,24 @@ function VstepExamPageInner() {
                   </div>
 
                   <audio
+                    key={currentAudioSrc}
                     ref={audioRef}
                     src={currentAudioSrc}
+                    onLoadStart={() => {
+                      setIsPlaying(false);
+                      setCurrentTime(0);
+                      setAudioDuration(0);
+                      setAudioError(null);
+                      setIsAudioLoading(true);
+                    }}
                     onTimeUpdate={() => {
                       if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
                     }}
                     onLoadedMetadata={() => {
                       if (audioRef.current) {
+                        audioRef.current.playbackRate = playbackSpeed;
+                        audioRef.current.volume = isAudioMuted ? 0 : audioVolume;
+                        audioRef.current.muted = isAudioMuted;
                         setAudioDuration(audioRef.current.duration);
                         setIsAudioLoading(false);
                         setAudioError(null);
@@ -971,7 +1064,7 @@ function VstepExamPageInner() {
                       <ul className="list-disc pl-5 text-xs text-slate-700 dark:text-slate-300 space-y-1">
                         {currentTask.questions.map((qText, idx) => (
                           <li key={idx}>
-                            {typeof qText === 'string' ? qText : (qText as any).question}
+                            {typeof qText === 'string' ? qText : qText.question}
                           </li>
                         ))}
                       </ul>
@@ -1029,6 +1122,20 @@ function VstepExamPageInner() {
                 className="flex-1 w-full p-4 text-sm font-serif leading-relaxed bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none min-h-[320px]"
               />
             </div>
+          ) : currentSection?.type === 'speaking' ? (
+            <div className="flex flex-col items-center justify-center min-h-[320px] text-center px-6 space-y-3">
+              <Mic className="w-9 h-9 text-blue-600" />
+              <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200">Trả lời thành tiếng</h3>
+              <p className="max-w-sm text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                Đọc câu hỏi ở khung đề bên trái và trả lời theo thời lượng của từng phần. Dùng các nút Phần ở phía trên để chuyển giữa Part 1, Part 2 và Part 3.
+              </p>
+              <Link
+                href="/vstep/speaking"
+                className="text-xs font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-2"
+              >
+                Mở Speaking Lab để luyện ghi âm riêng
+              </Link>
+            </div>
           ) : currentQuestion ? (
             /* Giao Diện Câu Hỏi Trắc Nghiệm (Listening / Reading) */
             <div className="space-y-4">
@@ -1038,7 +1145,7 @@ function VstepExamPageInner() {
                   <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
                     Câu {activeQuestionIdx + 1} / {currentQuestions.length}
                   </span>
-                  {flaggedQuestionIds.has(currentQuestion.id) && (
+                  {flaggedQuestionIds.has(getVstepQuestionKey(currentQuestion)) && (
                     <span className="inline-flex items-center gap-1 text-[11px] font-mono text-amber-600 font-semibold">
                       <Flag className="w-3 h-3 fill-current" /> Đã gắn cờ
                     </span>
@@ -1048,14 +1155,14 @@ function VstepExamPageInner() {
                 {!isCompleted && (
                   <button
                     type="button"
-                    onClick={() => handleToggleFlag(currentQuestion.id)}
+                    onClick={() => handleToggleFlag(getVstepQuestionKey(currentQuestion))}
                     className={`inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium border transition-colors ${
-                      flaggedQuestionIds.has(currentQuestion.id)
+                      flaggedQuestionIds.has(getVstepQuestionKey(currentQuestion))
                         ? 'border-amber-400 text-amber-700 bg-amber-50 dark:bg-amber-950 dark:text-amber-300'
                         : 'border-slate-200 text-slate-500 hover:text-slate-800 dark:border-slate-700'
                     }`}
                   >
-                    <Flag className={`w-3.5 h-3.5 ${flaggedQuestionIds.has(currentQuestion.id) ? 'fill-current' : ''}`} />
+                    <Flag className={`w-3.5 h-3.5 ${flaggedQuestionIds.has(getVstepQuestionKey(currentQuestion)) ? 'fill-current' : ''}`} />
                     <span>Gắn cờ</span>
                   </button>
                 )}
@@ -1076,7 +1183,9 @@ function VstepExamPageInner() {
               {/* Options A, B, C, D */}
               <div className="space-y-2.5 pt-2">
                 {currentQuestion.options.map((optText, optIdx) => {
-                  const isSelected = userAnswers[currentQuestion.id] === optIdx;
+                  const currentQuestionKey = getVstepQuestionKey(currentQuestion);
+                  const selectedAnswer = userAnswers[currentQuestionKey] ?? userAnswers[currentQuestion.id];
+                  const isSelected = selectedAnswer === optIdx;
                   const isCorrect = isCompleted && currentQuestion.answer === optIdx;
                   const isWrong = isCompleted && isSelected && !isCorrect;
 
@@ -1094,7 +1203,7 @@ function VstepExamPageInner() {
                   return (
                     <div
                       key={optIdx}
-                      onClick={() => handleSelectOption(currentQuestion.id, optIdx)}
+                      onClick={() => handleSelectOption(currentQuestionKey, optIdx)}
                       className={`p-3 rounded-lg border flex items-start gap-3 transition-all ${
                         isCompleted ? 'cursor-default' : 'cursor-pointer'
                       } ${cardStyle}`}
@@ -1232,8 +1341,10 @@ function VstepExamPageInner() {
                           activeSectionIdx === item.sectionIdx &&
                           activeTaskIdx === item.taskIdx &&
                           activeQuestionIdx === item.qIdx;
-                        const isAnswered = typeof userAnswers[item.q.id] === 'number';
-                        const isFlagged = flaggedQuestionIds.has(item.q.id);
+                        const questionKey = getVstepQuestionKey(item.q);
+                        const isAnswered =
+                          typeof userAnswers[questionKey] === 'number' || typeof userAnswers[item.q.id] === 'number';
+                        const isFlagged = flaggedQuestionIds.has(questionKey);
 
                         let btnClass = 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700';
                         if (isCurrent) {
@@ -1289,11 +1400,11 @@ function VstepExamPageInner() {
               </div>
               <div className="flex items-center justify-between p-2 bg-emerald-50 dark:bg-emerald-950/40 rounded text-emerald-700 dark:text-emerald-300">
                 <span>Số câu đã trả lời:</span>
-                <span className="font-bold">{Object.keys(userAnswers).length} câu</span>
+                <span className="font-bold">{answeredQuestionCount} câu</span>
               </div>
               <div className="flex items-center justify-between p-2 bg-rose-50 dark:bg-rose-950/40 rounded text-rose-700 dark:text-rose-300">
                 <span>Số câu chưa làm:</span>
-                <span className="font-bold">{allFlattenedQuestions.length - Object.keys(userAnswers).length} câu</span>
+                <span className="font-bold">{allFlattenedQuestions.length - answeredQuestionCount} câu</span>
               </div>
               <div className="flex items-center justify-between p-2 bg-amber-50 dark:bg-amber-950/40 rounded text-amber-700 dark:text-amber-300">
                 <span>Số câu đang gắn cờ (Flag):</span>

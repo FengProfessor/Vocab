@@ -2,7 +2,7 @@
  * Challenger M2 2: Empirical Verification & Stress Test Suite
  *
  * Comprehensive audit of:
- *  1. Referential Integrity & Schema Conformance across all 190 catalog items
+ *  1. Referential Integrity & Schema Conformance across the current catalog
  *  2. Anti-Duplication Stress Testing (unseen, mistakes, multi-source question history)
  *  3. Scoring Engine Robustness & Extreme Boundary Stress
  */
@@ -66,15 +66,17 @@ async function runEmpiricalVerification() {
   setupMockBrowserEnvironment();
 
   // ============================================================================
-  // SECTION 1: REFERENTIAL INTEGRITY & SCHEMA CONFORMANCE ACROSS ALL 190 ITEMS
+  // SECTION 1: REFERENTIAL INTEGRITY & SCHEMA CONFORMANCE ACROSS CURRENT CATALOG
   // ============================================================================
-  console.log('▶ [1/3] Testing Referential Integrity Across All 190 Catalog Items...');
+  const expectedCatalogCount = catalog.items.length;
+  console.log(`▶ [1/3] Testing Referential Integrity Across All ${expectedCatalogCount} Catalog Items...`);
 
   // 1.1 Catalog index structure
-  assert(catalog.items.length === 190, `Catalog items count is exactly 190 (got ${catalog.items.length})`);
-  assert(catalog.totalExams === 24, `Catalog totalExams is 24 (got ${catalog.totalExams})`);
-  assert(catalog.totalPracticeSets === 166, `Catalog totalPracticeSets is 166 (got ${catalog.totalPracticeSets})`);
-  assert(catalog.totalExams + catalog.totalPracticeSets === 190, 'totalExams + totalPracticeSets === 190');
+  assert(catalog.items.length === 244, `Catalog items count is exactly 244 (got ${catalog.items.length})`);
+  assert(catalog.totalExams === 26, `Catalog totalExams is 26 (got ${catalog.totalExams})`);
+  assert(catalog.totalPracticeSets === 218, `Catalog totalPracticeSets is 218 (got ${catalog.totalPracticeSets})`);
+  assert(catalog.totalExams + catalog.totalPracticeSets === expectedCatalogCount,
+    'totalExams + totalPracticeSets equals current catalog size');
 
   // 1.2 Unique IDs in catalog
   const catalogIds = new Set<string>();
@@ -86,7 +88,8 @@ async function runEmpiricalVerification() {
     catalogIds.add(item.id);
   }
   assert(duplicateIds.length === 0, 'No duplicate IDs in catalog items', `Duplicates: ${duplicateIds.join(', ')}`);
-  assert(catalogIds.size === 190, `Unique catalog ID count is 190 (got ${catalogIds.size})`);
+  assert(catalogIds.size === expectedCatalogCount,
+    `Unique catalog ID count matches catalog size (${catalogIds.size}/${expectedCatalogCount})`);
 
   // 1.3 Sources breakdown check
   const sourceCounts: Record<string, number> = {};
@@ -95,12 +98,12 @@ async function runEmpiricalVerification() {
     sourceCounts[src] = (sourceCounts[src] || 0) + 1;
   }
   console.log('    Sources breakdown:', sourceCounts);
-  assert(sourceCounts['vstepowl'] === 99, `vstepowl count is 99 (got ${sourceCounts['vstepowl']})`);
+  assert(sourceCounts['vstepowl'] === 145, `vstepowl count is 145 (got ${sourceCounts['vstepowl']})`);
   assert(sourceCounts['onthivstep'] === 75, `onthivstep count is 75 (got ${sourceCounts['onthivstep']})`);
   assert(sourceCounts['englishteststore'] === 15, `englishteststore count is 15 (got ${sourceCounts['englishteststore']})`);
-  assert(sourceCounts['vnu'] === 1, `vnu count is 1 (got ${sourceCounts['vnu']})`);
+  assert(sourceCounts['vnu'] === 9, `vnu count is 9 (got ${sourceCounts['vnu']})`);
 
-  // 1.4 Deep examination of all 190 items
+  // 1.4 Deep examination of all current items
   let validFilesCount = 0;
   let validExamsCount = 0;
   let totalObjectiveQuestionsAcrossAllTests = 0;
@@ -114,13 +117,13 @@ async function runEmpiricalVerification() {
     // 1.4.1 File path resolution
     const filePath = resolveExamFilePath(itemId);
     const hasPath = filePath !== null && typeof filePath === 'string';
-    assert(hasPath, `Item [${idx + 1}/190] (${itemId}): resolveExamFilePath returns non-null path`);
+    assert(hasPath, `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): resolveExamFilePath returns non-null path`);
 
     if (!hasPath || !filePath) continue;
 
     // 1.4.2 File existence on disk
     const fileExists = fs.existsSync(filePath);
-    assert(fileExists, `Item [${idx + 1}/190] (${itemId}): file exists at ${filePath}`);
+    assert(fileExists, `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): file exists at ${filePath}`);
     if (!fileExists) continue;
     validFilesCount++;
 
@@ -130,16 +133,16 @@ async function runEmpiricalVerification() {
       const fileContent = fs.readFileSync(filePath, 'utf-8');
       exam = JSON.parse(fileContent) as VstepExam;
     } catch (e: any) {
-      assert(false, `Item [${idx + 1}/190] (${itemId}): parses as valid JSON`, e.message);
+      assert(false, `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): parses as valid JSON`, e.message);
       continue;
     }
 
-    assert(exam !== null && typeof exam === 'object', `Item [${idx + 1}/190] (${itemId}): is valid object`);
+    assert(exam !== null && typeof exam === 'object', `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): is valid object`);
     if (!exam) continue;
 
     // 1.4.4 Sections and tasks integrity
     assert(Array.isArray(exam.sections) && exam.sections.length >= 1,
-      `Item [${idx + 1}/190] (${itemId}): has at least 1 section (got ${exam.sections?.length})`);
+      `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): has at least 1 section (got ${exam.sections?.length})`);
 
     let objectiveQCount = 0;
     let speakingPromptCount = 0;
@@ -181,7 +184,7 @@ async function runEmpiricalVerification() {
       if (hasInvalidTask) break;
     }
 
-    assert(!hasInvalidTask, `Item [${idx + 1}/190] (${itemId}): all sections and tasks valid`, invalidTaskReason);
+    assert(!hasInvalidTask, `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): all sections and tasks valid`, invalidTaskReason);
 
     // 1.4.5 Question counts consistency
     totalObjectiveQuestionsAcrossAllTests += objectiveQCount;
@@ -190,9 +193,9 @@ async function runEmpiricalVerification() {
     const expectedQuestions = (item as any).totalQuestions || (item as any).questionsCount;
     if (typeof expectedQuestions === 'number') {
       assert(objectiveQCount === expectedQuestions,
-        `Item [${idx + 1}/190] (${itemId}): question count matches catalog item (${objectiveQCount} === ${expectedQuestions})`);
+        `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): question count matches catalog item (${objectiveQCount} === ${expectedQuestions})`);
     } else {
-      assert(objectiveQCount > 0, `Item [${idx + 1}/190] (${itemId}): has >0 questions (${objectiveQCount})`);
+      assert(objectiveQCount > 0, `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): has >0 questions (${objectiveQCount})`);
     }
 
     // 1.4.6 Duplicate question IDs within the exam
@@ -214,7 +217,7 @@ async function runEmpiricalVerification() {
       }
       if (duplicateQIdFound) break;
     }
-    assert(!duplicateQIdFound, `Item [${idx + 1}/190] (${itemId}): 0 duplicate question IDs within exam`,
+    assert(!duplicateQIdFound, `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): 0 duplicate question IDs within exam`,
       `Duplicate ID: ${duplicateQIdFound}`);
 
     // 1.4.7 Zero-Bulk-Leak Sanitization check
@@ -236,18 +239,18 @@ async function runEmpiricalVerification() {
         }
       }
     }
-    assert(leaksDetected === 0, `Item [${idx + 1}/190] (${itemId}): 100% Zero-Bulk-Leak compliant`);
+    assert(leaksDetected === 0, `Item [${idx + 1}/${expectedCatalogCount}] (${itemId}): 100% Zero-Bulk-Leak compliant`);
     if (leaksDetected === 0) zeroBulkLeakPassCount++;
 
     validExamsCount++;
   }
 
-  console.log(`    Total valid files verified: ${validFilesCount}/190`);
-  console.log(`    Total valid exams verified: ${validExamsCount}/190`);
-  console.log(`    Total objective questions across all 190 tests: ${totalObjectiveQuestionsAcrossAllTests}`);
-  console.log(`    Zero-Bulk-Leak verified: ${zeroBulkLeakPassCount}/190`);
-  assert(validFilesCount === 190, 'All 190 files verified on disk');
-  assert(validExamsCount === 190, 'All 190 exams parsed conforming to VstepExam');
+  console.log(`    Total valid files verified: ${validFilesCount}/${expectedCatalogCount}`);
+  console.log(`    Total valid exams verified: ${validExamsCount}/${expectedCatalogCount}`);
+  console.log(`    Total objective questions across all ${expectedCatalogCount} tests: ${totalObjectiveQuestionsAcrossAllTests}`);
+  console.log(`    Zero-Bulk-Leak verified: ${zeroBulkLeakPassCount}/${expectedCatalogCount}`);
+  assert(validFilesCount === expectedCatalogCount, `All ${expectedCatalogCount} files verified on disk`);
+  assert(validExamsCount === expectedCatalogCount, `All ${expectedCatalogCount} exams parsed conforming to VstepExam`);
   assert(totalObjectiveQuestionsAcrossAllTests >= 3000,
     `Expanded question bank has >= 3,000 questions (got ${totalObjectiveQuestionsAcrossAllTests})`);
 
@@ -622,7 +625,7 @@ async function runEmpiricalVerification() {
     }
     process.exit(1);
   } else {
-    console.log('✅ VERDICT: APPROVE (All 190 catalog items and engine operations verified 100%)');
+    console.log(`✅ VERDICT: APPROVE (All ${expectedCatalogCount} catalog items and engine operations verified 100%)`);
     process.exit(0);
   }
 }

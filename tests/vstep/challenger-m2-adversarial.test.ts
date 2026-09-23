@@ -160,7 +160,7 @@ async function runAdversarialAudit() {
     { route: 'vstep-exam-vnu-999', description: 'VNU Mock: 3-digit extreme (999)' },
     { route: 'vstep-mock-vnu-00', description: 'VNU Mock alias: zero prefix (00)' },
     { route: 'vstep-mock-vnu-11', description: 'VNU Mock alias: upper bound overflow (11)' },
-    { route: 'vstep-exam-vnu-02', description: 'VNU Mock: within range (1-10) but non-existent file' },
+    { route: 'vstep-exam-vnu-04', description: 'VNU Mock: within range (1-10) but non-existent file' },
 
     // OnThi Listening boundary targets (Rule: min: 1, max: 30)
     { route: 'vstep-listening-onthi-00', description: 'OnThi Listening: zero prefix (00)' },

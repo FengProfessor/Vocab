@@ -363,5 +363,10 @@
     "comparison": "**Câu tường thuật vs trực tiếp:** Trực tiếp = trích NGUYÊN VĂN, giữ thì gốc (*He said \"I have to go\"*). Tường thuật = thuật lại, LÙI THÌ về quá khứ khi không còn đúng ở hiện tại (*He said he had to go*).",
     "definition": "Reported Speech dùng **câu tường thuật** để kể lại lời nói mà không lặp nguyên văn. Bài học tập trung vào **ý nghĩa**, **cấu trúc** và cách tránh lỗi dịch máy móc thường gặp ở người Việt."
   },
-  "exercises": []
+  "exercises": [
+    {"type":"multiple_choice","question":"She said, 'I am tired.' → She said that she ___ tired.","options":["is","was","were"],"correct_answer":"was","explanation":"Với động từ tường thuật said ở quá khứ, am thường lùi thành was."},
+    {"type":"multiple_choice","question":"He said, 'I will call you.' → He said he ___ call me.","options":["will","would","can"],"correct_answer":"would","explanation":"Will thường lùi thành would trong lời tường thuật quá khứ."},
+    {"type":"multiple_choice","question":"She asked me, 'Where do you live?' → She asked me where ___ .","options":["did I live","I lived","do I live"],"correct_answer":"I lived","explanation":"Câu hỏi tường thuật dùng trật tự câu kể: chủ ngữ + động từ."},
+    {"type":"multiple_choice","question":"He said, 'I saw her yesterday.' → He said he had seen her ___ .","options":["the day before","tomorrow","next day"],"correct_answer":"the day before","explanation":"Yesterday thường đổi thành the day before."}
+  ]
 }

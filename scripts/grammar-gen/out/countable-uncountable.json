@@ -35,22 +35,22 @@
     "formula": {
       "rows": [
         {
-          "form": "(+) Khẳng định",
-          "base": "S + V (danh từ đếm được)",
-          "note": "Sử dụng số đếm trước danh từ đếm được."
+          "form": "Danh từ đếm được số ít",
+          "base": "a/an + danh từ",
+          "note": "a book, an apple"
         },
         {
-          "form": "(−) Phủ định",
-          "base": "S + don't + V (danh từ đếm được)",
-          "note": "Sử dụng 'don't' với danh từ đếm được."
+          "form": "Danh từ đếm được số nhiều",
+          "base": "số đếm + danh từ số nhiều",
+          "note": "two books, three apples"
         },
         {
-          "form": "(?) Nghi vấn",
-          "base": "Do + S + V? (danh từ đếm được)",
-          "note": "Sử dụng 'Do' với danh từ đếm được."
+          "form": "Danh từ không đếm được",
+          "base": "some + danh từ; đơn vị + of + danh từ",
+          "note": "some water, two bottles of water"
         }
       ],
-      "note": "Danh từ không đếm được không sử dụng số đếm, nhưng có thể sử dụng 'some', 'any', 'much', 'little' để chỉ lượng."
+      "note": "Không đặt số đếm hoặc a/an trực tiếp trước water, advice, furniture. Muốn đếm, dùng đơn vị như bottle hoặc piece."
     },
     "rules": [
       {
@@ -317,115 +317,113 @@
   "exercises": [
     {
       "type": "mcq",
-      "q": "Tôi có _______ cuốn sách.",
+      "q": "I have ___ book on my desk.",
       "opts": [
-        "một",
-        "hai",
-        "nhiều"
+        "a",
+        "an",
+        "two"
       ],
-      "answer": "một",
-      "fb": "Sử dụng số đếm với danh từ đếm được."
+      "answer": "a",
+      "fb": "Book đếm được, số ít và bắt đầu bằng âm /b/: a book."
     },
     {
       "type": "mcq",
-      "q": "Tôi cần _______ nước để uống.",
+      "q": "She has ___ apples.",
       "opts": [
-        "một chút",
-        "nhiều",
-        "ít"
+        "two",
+        "a",
+        "an"
       ],
-      "answer": "một chút",
-      "fb": "Sử dụng 'một chút' với danh từ không đếm được."
+      "answer": "two",
+      "fb": "Apples là số nhiều, có thể đi với số đếm two."
     },
     {
       "type": "fill",
-      "q": "Tôi có _______ (book) trên bàn.",
+      "q": "I need ___ water. (some / a)",
       "answer": [
-        "một cuốn sách"
+        "some"
       ],
-      "fb": "Sử dụng 'một' với danh từ đếm được."
+      "fb": "Water không đếm được; dùng some water."
     },
     {
       "type": "fill",
-      "q": "Tôi cần _______ (water) để uống.",
+      "q": "We bought two ___ of water. (bottle)",
       "answer": [
-        "nước",
-        "một chút nước"
+        "bottles"
       ],
-      "fb": "Sử dụng 'nước' hoặc 'một chút nước' với danh từ không đếm được."
+      "fb": "Đếm đơn vị chứa nước: two bottles of water."
     },
     {
       "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → 'Tôi có hai nước.'",
-      "answer": false,
-      "fb": "Sai. Danh từ không đếm được không sử dụng số đếm."
-    },
-    {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → 'Tôi cần một chút nước.'",
+      "q": "Is this standard English? 'I have two books.'",
       "answer": true,
-      "fb": "Đúng. Sử dụng 'một chút' với danh từ không đếm được."
+      "fb": "Books đếm được và ở dạng số nhiều sau two."
+    },
+    {
+      "type": "tf",
+      "q": "Is this standard English? 'She gave me two advices.'",
+      "answer": false,
+      "fb": "Advice không đếm được; nói two pieces of advice."
     },
     {
       "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
+      "q": "Which sentence is incorrect?",
       "opts": [
-        "Tôi có một cuốn sách.",
-        "Tôi cần nước.",
-        "Tôi có hai nước."
+        "I have two books.",
+        "I need some water.",
+        "I need a water to drink."
       ],
-      "answer": "Tôi có hai nước.",
-      "fb": "Sai. Danh từ không đếm được không sử dụng số đếm."
+      "answer": "I need a water to drink.",
+      "fb": "Khi nói chung về nước, dùng some water; a water chỉ có thể dùng trong ngữ cảnh gọi một phần nước."
     },
     {
       "type": "mcq",
-      "q": "Dạng phủ định của 'Tôi có sách' là:",
+      "q": "Which noun is usually uncountable?",
       "opts": [
-        "Tôi không có sách.",
-        "Tôi không có một cuốn sách.",
-        "Tôi không có nhiều sách."
+        "furniture",
+        "chair",
+        "table"
       ],
-      "answer": "Tôi không có sách.",
-      "fb": "Sử dụng 'không có' với danh từ đếm được."
+      "answer": "furniture",
+      "fb": "Furniture không có dạng số nhiều furnitures trong tiếng Anh chuẩn."
     },
     {
       "type": "fill",
-      "q": "Tôi cần _______ (water) để uống.",
+      "q": "She gave me a piece of ___. (advice / advices)",
       "answer": [
-        "nước",
-        "một chút nước"
+        "advice"
       ],
-      "fb": "Sử dụng 'nước' hoặc 'một chút nước' với danh từ không đếm được."
+      "fb": "Advice không thêm -s; dùng a piece of advice."
     },
     {
       "type": "mcq",
-      "q": "Chọn từ đúng để điền vào chỗ trống: 'Tôi có _______ quả táo.'",
+      "q": "Choose the natural phrase for two individual items of furniture.",
       "opts": [
-        "một",
-        "hai",
-        "nhiều"
+        "two pieces of furniture",
+        "two furnitures",
+        "two furniture"
       ],
-      "answer": "một",
-      "fb": "Sử dụng 'một' với danh từ đếm được."
+      "answer": "two pieces of furniture",
+      "fb": "Đếm furniture qua đơn vị: two pieces of furniture."
     },
     {
       "type": "fill",
-      "q": "Tôi có _______ (book) trên bàn.",
+      "q": "There are three ___ on the table. (apple)",
       "answer": [
-        "một cuốn sách"
+        "apples"
       ],
-      "fb": "Sử dụng 'một' với danh từ đếm được."
+      "fb": "Sau three, danh từ đếm được apple chuyển thành apples."
     },
     {
       "type": "mcq",
-      "q": "Dạng nghi vấn của 'Tôi có sách' là:",
+      "q": "Which phrase names one apple?",
       "opts": [
-        "Tôi có sách không?",
-        "Tôi có một cuốn sách không?",
-        "Tôi có nhiều sách không?"
+        "an apple",
+        "a apple",
+        "one apples"
       ],
-      "answer": "Tôi có sách không?",
-      "fb": "Sử dụng 'có' với danh từ đếm được."
+      "answer": "an apple",
+      "fb": "Apple bắt đầu bằng âm nguyên âm: an apple."
     },
     {
       "type": "multiple_choice",

@@ -3,11 +3,11 @@
  * Verifies dynamic question counts, progress bar calculation, and anti-duplication query parameter forwarding.
  *
  * Requirements tested:
- * 1. Dynamic bank aggregation from src/data/vstep/vstep-catalog-index.json (5,604 objective Qs: 2,960 L + 2,644 R).
- * 2. LocalStorage history simulation: empty state (0 Qs), partial states (500 Qs, 1,000 Qs), and complete state (5,604 Qs),
+ * 1. Dynamic bank aggregation from src/data/vstep/vstep-catalog-index.json (5,754 objective Qs: 3,030 L + 2,724 R).
+ * 2. LocalStorage history simulation: empty state (0 Qs), partial states (500 Qs, 1,000 Qs), and complete state (5,754 Qs),
  *    with percentage calculations, clamping (0..100%), zero-division guard, and selective skill resetting.
- * 3. Action URL parameter generation: for all 190 items, verify /vstep/exam/${item.id}?filter=${mode} for unseen, mistakes, all_random.
- * 4. Exam room integration: verify src/app/vstep/exam/[examId]/page.tsx forwards &filter= to /api/vstep/test and renders mode badges.
+ * 3. Action URL parameter generation: for all 192 items, verify /vstep/exam/${item.id}?filter=${mode} for unseen, mistakes, all_random.
+ * 4. Exam room integration: verify src/app/vstep/exam/[examId]/page.tsx forwards filter/history via POST and renders mode badges.
  */
 
 import fs from 'node:fs';
@@ -34,8 +34,8 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
   // Suite 1: Full Aggregation of Question Counts from Catalog
   // ──────────────────────────────────────────────────────────────────────────
   await runner.describe('1. Empirical Aggregation of Question Counts & Bank Capacity', async () => {
-    await runner.it('C1.1: Global catalog contains exactly 190 items with 0 duplicate IDs', () => {
-      expect(catalogItems.length).toBe(190);
+    await runner.it('C1.1: Global catalog contains exactly 192 items with 0 duplicate IDs', () => {
+      expect(catalogItems.length).toBe(192);
 
       const idSet = new Set<string>();
       for (const item of catalogItems) {
@@ -43,23 +43,23 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
         expect(idSet.has(item.id)).toBeFalsy();
         idSet.add(item.id);
       }
-      expect(idSet.size).toBe(190);
+      expect(idSet.size).toBe(192);
     });
 
-    await runner.it('C1.2: Full Mock exams count is exactly 24, contributing 840 Listening and 960 Reading Qs', () => {
+    await runner.it('C1.2: Full Mock exams count is exactly 26, contributing 910 Listening and 1,040 Reading Qs', () => {
       const fullMocks = catalogItems.filter(i => i.category === 'full_mock');
-      expect(fullMocks.length).toBe(24);
+      expect(fullMocks.length).toBe(26);
 
-      // 24 Full Mocks * 35 = 840 Listening
+      // 26 Full Mocks * 35 = 910 Listening
       const listeningFromMocks = fullMocks.length * 35;
-      expect(listeningFromMocks).toBe(840);
+      expect(listeningFromMocks).toBe(910);
 
-      // 24 Full Mocks * 40 = 960 Reading
+      // 26 Full Mocks * 40 = 1,040 Reading
       const readingFromMocks = fullMocks.length * 40;
-      expect(readingFromMocks).toBe(960);
+      expect(readingFromMocks).toBe(1040);
 
-      // Objective questions per mock = 75, total = 1,800
-      expect(listeningFromMocks + readingFromMocks).toBe(1800);
+      // Objective questions per mock = 75, total = 1,950
+      expect(listeningFromMocks + readingFromMocks).toBe(1950);
     });
 
     await runner.it('C1.3: Standalone Listening sets count is exactly 61, contributing 2,120 Listening Qs', () => {
@@ -86,7 +86,7 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
       expect(totalQuestions).toBe(1684);
     });
 
-    await runner.it('C1.5: Total Listening questions in bank equals exactly 2,960 (840 Mock + 2,120 Sets)', () => {
+    await runner.it('C1.5: Total Listening questions in bank equals exactly 3,030 (910 Mock + 2,120 Sets)', () => {
       let listeningTotal = 0;
       for (const item of catalogItems) {
         if (item.category === 'full_mock') {
@@ -95,10 +95,10 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
           listeningTotal += (item.totalQuestions || 0);
         }
       }
-      expect(listeningTotal).toBe(2960);
+      expect(listeningTotal).toBe(3030);
     });
 
-    await runner.it('C1.6: Total Reading questions in bank equals exactly 2,644 (960 Mock + 1,684 Sets)', () => {
+    await runner.it('C1.6: Total Reading questions in bank equals exactly 2,724 (1,040 Mock + 1,684 Sets)', () => {
       let readingTotal = 0;
       for (const item of catalogItems) {
         if (item.category === 'full_mock') {
@@ -107,10 +107,10 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
           readingTotal += (item.totalQuestions || 0);
         }
       }
-      expect(readingTotal).toBe(2644);
+      expect(readingTotal).toBe(2724);
     });
 
-    await runner.it('C1.7: Total Objective Question Bank capacity equals exactly 5,604 questions', () => {
+    await runner.it('C1.7: Total Objective Question Bank capacity equals exactly 5,754 questions', () => {
       let listening = 0;
       let reading = 0;
       for (const item of catalogItems) {
@@ -125,12 +125,12 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
       }
 
       const totalQuestions = listening + reading;
-      expect(totalQuestions).toBe(5604);
-      expect(listening).toBe(2960);
-      expect(reading).toBe(2644);
+      expect(totalQuestions).toBe(5754);
+      expect(listening).toBe(3030);
+      expect(reading).toBe(2724);
     });
 
-    await runner.it('C1.8: Order invariance: bank calculation yields 5,604 regardless of item permutation', () => {
+    await runner.it('C1.8: Order invariance: bank calculation yields 5,754 regardless of item permutation', () => {
       // Reverse order test
       const reversed = [...catalogItems].reverse();
       let listeningRev = 0;
@@ -145,9 +145,9 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
           readingRev += (item.totalQuestions || 0);
         }
       }
-      expect(listeningRev).toBe(2960);
-      expect(readingRev).toBe(2644);
-      expect(listeningRev + readingRev).toBe(5604);
+      expect(listeningRev).toBe(3030);
+      expect(readingRev).toBe(2724);
+      expect(listeningRev + readingRev).toBe(5754);
     });
 
     await runner.it('C1.9: Full Mock items are NOT double-counted despite containing listening/reading in skills', () => {
@@ -157,7 +157,7 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
       expect(sampleMock.skills).toContain('listening');
       expect(sampleMock.skills).toContain('reading');
 
-      // If else-if was naive or broken, listening would have been 840 + sampleMock.totalQuestions!
+      // If else-if was naive or broken, listening would have been 910 + sampleMock.totalQuestions!
       // Verify that category === 'full_mock' guards correctly.
       let mockListening = 0;
       for (const item of fullMocks) {
@@ -167,7 +167,7 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
           mockListening += 999999;
         }
       }
-      expect(mockListening).toBe(840);
+      expect(mockListening).toBe(910);
     });
   });
 
@@ -178,21 +178,21 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
     await runner.it('C2.1: Clean state (0 Qs answered) yields 0% for L, R, and Overall with 0 mistakes', () => {
       localStorage.clear();
 
-      const statsL = getVstepProgressStats('listening', 2960);
-      const statsR = getVstepProgressStats('reading', 2644);
+      const statsL = getVstepProgressStats('listening', 3030);
+      const statsR = getVstepProgressStats('reading', 2724);
 
       expect(statsL.answeredCount).toBe(0);
-      expect(statsL.totalCount).toBe(2960);
+      expect(statsL.totalCount).toBe(3030);
       expect(statsL.percentage).toBe(0);
       expect(statsL.mistakeCount).toBe(0);
 
       expect(statsR.answeredCount).toBe(0);
-      expect(statsR.totalCount).toBe(2644);
+      expect(statsR.totalCount).toBe(2724);
       expect(statsR.percentage).toBe(0);
       expect(statsR.mistakeCount).toBe(0);
 
       const totalAnswered = statsL.answeredCount + statsR.answeredCount;
-      const overallPercentage = 5604 > 0 ? Math.round((totalAnswered / 5604) * 100) : 0;
+      const overallPercentage = 5754 > 0 ? Math.round((totalAnswered / 5754) * 100) : 0;
       expect(overallPercentage).toBe(0);
     });
 
@@ -219,26 +219,26 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
 
       batchRecordVstepAnswers([...listeningRecords, ...readingRecords]);
 
-      const statsL = getVstepProgressStats('listening', 2960);
-      const statsR = getVstepProgressStats('reading', 2644);
+      const statsL = getVstepProgressStats('listening', 3030);
+      const statsR = getVstepProgressStats('reading', 2724);
 
       expect(statsL.answeredCount).toBe(300);
       expect(statsL.correctCount).toBe(260);
       expect(statsL.mistakeCount).toBe(40);
-      // 300 / 2960 = 0.10135... -> 10%
+      // 300 / 3030 = 0.099... -> 10%
       expect(statsL.percentage).toBe(10);
 
       expect(statsR.answeredCount).toBe(200);
       expect(statsR.correctCount).toBe(170);
       expect(statsR.mistakeCount).toBe(30);
-      // 200 / 2644 = 0.07564... -> 8%
-      expect(statsR.percentage).toBe(8);
+      // 200 / 2724 = 0.0734... -> 7%
+      expect(statsR.percentage).toBe(7);
 
       const totalAnswered = statsL.answeredCount + statsR.answeredCount;
       expect(totalAnswered).toBe(500);
 
-      // Overall: 500 / 5604 = 0.08922... -> 9%
-      const overallPercentage = Math.round((totalAnswered / 5604) * 100);
+      // Overall: 500 / 5754 = 0.0869... -> 9%
+      const overallPercentage = Math.round((totalAnswered / 5754) * 100);
       expect(overallPercentage).toBe(9);
 
       const totalMistakes = statsL.mistakeCount + statsR.mistakeCount;
@@ -266,30 +266,30 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
 
       batchRecordVstepAnswers([...listeningRecords, ...readingRecords]);
 
-      const statsL = getVstepProgressStats('listening', 2960);
-      const statsR = getVstepProgressStats('reading', 2644);
+      const statsL = getVstepProgressStats('listening', 3030);
+      const statsR = getVstepProgressStats('reading', 2724);
 
       expect(statsL.answeredCount).toBe(600);
-      // 600 / 2960 = 0.2027... -> 20%
+      // 600 / 3030 = 0.198... -> 20%
       expect(statsL.percentage).toBe(20);
 
       expect(statsR.answeredCount).toBe(400);
-      // 400 / 2644 = 0.15128... -> 15%
+      // 400 / 2724 = 0.1468... -> 15%
       expect(statsR.percentage).toBe(15);
 
       const totalAnswered = statsL.answeredCount + statsR.answeredCount;
       expect(totalAnswered).toBe(1000);
 
-      // Overall: 1000 / 5604 = 0.1784... -> 18%
-      const overallPercentage = Math.round((totalAnswered / 5604) * 100);
-      expect(overallPercentage).toBe(18);
+      // Overall: 1000 / 5754 = 0.1738... -> 17%
+      const overallPercentage = Math.round((totalAnswered / 5754) * 100);
+      expect(overallPercentage).toBe(17);
     });
 
-    await runner.it('C2.4: Complete state (5,604 Qs: 2,960 L + 2,644 R) yields exactly 100% across all bars', () => {
+    await runner.it('C2.4: Complete state (5,754 Qs: 3,030 L + 2,724 R) yields exactly 100% across all bars', () => {
       localStorage.clear();
 
-      // Seed all 2,960 listening questions in batches of 500
-      const allL = Array.from({ length: 2960 }, (_, i) => ({
+      // Seed all 3,030 listening questions in batches of 500
+      const allL = Array.from({ length: 3030 }, (_, i) => ({
         questionId: `full-lis-${i + 1}`,
         skill: 'listening' as const,
         part: 'part1',
@@ -297,8 +297,8 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
         selectedOption: 0,
       }));
 
-      // Seed all 2,644 reading questions in batches of 500
-      const allR = Array.from({ length: 2644 }, (_, i) => ({
+      // Seed all 2,724 reading questions in batches of 500
+      const allR = Array.from({ length: 2724 }, (_, i) => ({
         questionId: `full-read-${i + 1}`,
         skill: 'reading' as const,
         part: 'reading_p1',
@@ -308,28 +308,28 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
 
       batchRecordVstepAnswers([...allL, ...allR]);
 
-      const statsL = getVstepProgressStats('listening', 2960);
-      const statsR = getVstepProgressStats('reading', 2644);
+      const statsL = getVstepProgressStats('listening', 3030);
+      const statsR = getVstepProgressStats('reading', 2724);
 
-      expect(statsL.answeredCount).toBe(2960);
-      expect(statsL.totalCount).toBe(2960);
+      expect(statsL.answeredCount).toBe(3030);
+      expect(statsL.totalCount).toBe(3030);
       expect(statsL.percentage).toBe(100);
 
-      expect(statsR.answeredCount).toBe(2644);
-      expect(statsR.totalCount).toBe(2644);
+      expect(statsR.answeredCount).toBe(2724);
+      expect(statsR.totalCount).toBe(2724);
       expect(statsR.percentage).toBe(100);
 
       const totalAnswered = statsL.answeredCount + statsR.answeredCount;
-      expect(totalAnswered).toBe(5604);
+      expect(totalAnswered).toBe(5754);
 
-      const overallPercentage = Math.round((totalAnswered / 5604) * 100);
+      const overallPercentage = Math.round((totalAnswered / 5754) * 100);
       expect(overallPercentage).toBe(100);
     });
 
     await runner.it('C2.5: Overflow & Clamping: answering > totalInBank clamps to 100% (never > 100%)', () => {
       localStorage.clear();
 
-      // Seed 3,500 listening questions (more than the 2,960 bank)
+      // Seed 3,500 listening questions (more than the 3,030 bank)
       const excessRecords = Array.from({ length: 3500 }, (_, i) => ({
         questionId: `excess-lis-${i + 1}`,
         skill: 'listening' as const,
@@ -339,9 +339,9 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
 
       batchRecordVstepAnswers(excessRecords);
 
-      const statsL = getVstepProgressStats('listening', 2960);
+      const statsL = getVstepProgressStats('listening', 3030);
       expect(statsL.answeredCount).toBe(3500);
-      // effectiveTotal is Math.max(2960, 3500) = 3500
+      // effectiveTotal is Math.max(3030, 3500) = 3500
       expect(statsL.totalCount).toBe(3500);
       // Math.min(100, Math.round((3500/3500)*100)) = 100
       expect(statsL.percentage).toBe(100);
@@ -377,14 +377,14 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
         { questionId: 'r1', skill: 'reading', part: 'p1', isCorrect: false },
       ]);
 
-      expect(getVstepProgressStats('listening', 2960).answeredCount).toBe(2);
-      expect(getVstepProgressStats('reading', 2644).answeredCount).toBe(1);
+      expect(getVstepProgressStats('listening', 3030).answeredCount).toBe(2);
+      expect(getVstepProgressStats('reading', 2724).answeredCount).toBe(1);
 
       // Reset Listening
       resetVstepSkillProgress('listening');
 
-      const afterL = getVstepProgressStats('listening', 2960);
-      const afterR = getVstepProgressStats('reading', 2644);
+      const afterL = getVstepProgressStats('listening', 3030);
+      const afterR = getVstepProgressStats('reading', 2724);
 
       expect(afterL.answeredCount).toBe(0);
       expect(afterL.mistakeCount).toBe(0);
@@ -396,7 +396,7 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
 
       // Reset Reading
       resetVstepSkillProgress('reading');
-      expect(getVstepProgressStats('reading', 2644).answeredCount).toBe(0);
+      expect(getVstepProgressStats('reading', 2724).answeredCount).toBe(0);
     });
 
     await runner.it('C2.8: Reset All VSTEP Progress clears the entire storage key', () => {
@@ -409,26 +409,26 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
 
       resetAllVstepProgress();
       expect(localStorage.getItem(VSTEP_HISTORY_STORAGE_KEY)).toBeNull();
-      expect(getVstepProgressStats('listening', 2960).answeredCount).toBe(0);
-      expect(getVstepProgressStats('reading', 2644).answeredCount).toBe(0);
+      expect(getVstepProgressStats('listening', 3030).answeredCount).toBe(0);
+      expect(getVstepProgressStats('reading', 2724).answeredCount).toBe(0);
     });
 
     await runner.it('C2.9: Malformed JSON in localStorage is safely trapped without throwing runtime errors', () => {
       localStorage.setItem(VSTEP_HISTORY_STORAGE_KEY, 'CORRUPTED_NON_JSON_DATA_{{[[');
 
-      const stats = getVstepProgressStats('listening', 2960);
+      const stats = getVstepProgressStats('listening', 3030);
       expect(stats.answeredCount).toBe(0);
       expect(stats.percentage).toBe(0);
     });
   });
 
   // ──────────────────────────────────────────────────────────────────────────
-  // Suite 3: Action URL Parameter Generation for All 190 Items
+  // Suite 3: Action URL Parameter Generation for All 192 Items
   // ──────────────────────────────────────────────────────────────────────────
-  await runner.describe('3. Action URL Generation & Anti-Duplication Encoding for All 190 Items', async () => {
+  await runner.describe('3. Action URL Generation & Anti-Duplication Encoding for All 192 Items', async () => {
     const modes: VstepPracticeFilterMode[] = ['unseen', 'mistakes', 'all_random'];
 
-    await runner.it('C3.1: All 190 items generate valid action URLs for mode "unseen"', () => {
+    await runner.it('C3.1: All 192 items generate valid action URLs for mode "unseen"', () => {
       for (const item of catalogItems) {
         const url = `/vstep/exam/${item.id}?filter=unseen`;
         expect(url.startsWith('/vstep/exam/')).toBeTruthy();
@@ -441,7 +441,7 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
       }
     });
 
-    await runner.it('C3.2: All 190 items generate valid action URLs for mode "mistakes"', () => {
+    await runner.it('C3.2: All 192 items generate valid action URLs for mode "mistakes"', () => {
       for (const item of catalogItems) {
         const url = `/vstep/exam/${item.id}?filter=mistakes`;
         const parsed = new URL(`https://lingopro.edu.vn${url}`);
@@ -450,7 +450,7 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
       }
     });
 
-    await runner.it('C3.3: All 190 items generate valid action URLs for mode "all_random"', () => {
+    await runner.it('C3.3: All 192 items generate valid action URLs for mode "all_random"', () => {
       for (const item of catalogItems) {
         const url = `/vstep/exam/${item.id}?filter=all_random`;
         const parsed = new URL(`https://lingopro.edu.vn${url}`);
@@ -459,7 +459,7 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
       }
     });
 
-    await runner.it('C3.4: Total 570 URLs (190 items * 3 modes) adhere to strict URL format regex', () => {
+    await runner.it('C3.4: Total 576 URLs (192 items * 3 modes) adhere to strict URL format regex', () => {
       const urlRegex = /^\/vstep\/exam\/([a-zA-Z0-9_\-]+)\?filter=(unseen|mistakes|all_random)$/;
       let totalTested = 0;
 
@@ -470,7 +470,7 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
           totalTested++;
         }
       }
-      expect(totalTested).toBe(570);
+      expect(totalTested).toBe(576);
     });
 
     await runner.it('C3.5: No item ID contains illegal URL characters (whitespace, hash, query, slashes)', () => {
@@ -499,13 +499,17 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
       expect(examPageSource).toContain("const filterMode = searchParams.get('filter') || 'unseen';");
     });
 
-    await runner.it('C4.2: Exam room forwards &filter= to /api/vstep/test using encodeURIComponent', () => {
-      // Expect fetch call to include testId and filter parameter
-      expect(examPageSource).toContain('/api/vstep/test?testId=${encodeURIComponent(examId)}&filter=${encodeURIComponent(filterMode)}');
+    await runner.it('C4.2: Exam room POSTs filter/history state to /api/vstep/test without URL-length risk', () => {
+      expect(examPageSource).toContain("fetch('/api/vstep/test', {");
+      expect(examPageSource).toContain("method: 'POST'");
+      expect(examPageSource).toContain('testId: examId');
+      expect(examPageSource).toContain('filterMode');
+      expect(examPageSource).toContain('excludedIds: answeredIds');
+      expect(examPageSource).toContain('mistakeIds');
     });
 
-    await runner.it('C4.3: useEffect dependency array includes [examId, filterMode] for reactive re-fetching', () => {
-      expect(examPageSource).toContain('[examId, filterMode]');
+    await runner.it('C4.3: useEffect dependency array tracks draft key, examId, and filterMode', () => {
+      expect(examPageSource).toContain('[draftStorageKey, examId, filterMode]');
     });
 
     await runner.it('C4.4: Mode badge for "unseen" renders "Chế độ: Chưa từng làm" with ShieldCheck icon', () => {
@@ -526,28 +530,29 @@ export async function runChallengerM3AntiDupTests(): Promise<void> {
       expect(examPageSource).toContain('Layers');
     });
 
-    await runner.it('C4.7: Adversarial query parameter simulation: sanitizes hostile inputs safely', () => {
-      // Simulation of searchParams and API query construction
-      const simulateForwarding = (examIdInput: string, rawQueryParam: string | null) => {
-        const filterMode = rawQueryParam || 'unseen';
-        return `/api/vstep/test?testId=${encodeURIComponent(examIdInput)}&filter=${encodeURIComponent(filterMode)}`;
-      };
+    await runner.it('C4.7: Adversarial filter text remains inert JSON data in POST body', () => {
+      const simulateBody = (examIdInput: string, rawQueryParam: string | null) => JSON.stringify({
+        testId: examIdInput,
+        filterMode: rawQueryParam || 'unseen',
+        excludedIds: ['q-1'],
+        mistakeIds: ['q-2'],
+      });
 
-      // 1. Missing filter -> defaults to unseen
-      expect(simulateForwarding('vstep-mock-01', null)).toBe('/api/vstep/test?testId=vstep-mock-01&filter=unseen');
+      const defaultBody = JSON.parse(simulateBody('vstep-mock-01', null));
+      expect(defaultBody.filterMode).toBe('unseen');
 
-      // 2. Hostile query injection attempt
-      const injected = simulateForwarding('vstep-mock-01', 'unseen&dump=1&poison=0');
-      expect(injected).toBe('/api/vstep/test?testId=vstep-mock-01&filter=unseen%26dump%3D1%26poison%3D0');
-      expect(injected.includes('&dump=1')).toBeFalsy(); // parameter injection prevented
+      const hostile = 'unseen&dump=1&poison=0';
+      const hostileBody = JSON.parse(simulateBody('vstep-mock-01', hostile));
+      expect(hostileBody.filterMode).toBe(hostile);
+      expect(hostileBody.testId).toBe('vstep-mock-01');
 
-      // 3. XSS injection attempt
-      const xss = simulateForwarding('vstep-mock-01', '<script>alert(1)</script>');
-      expect(xss).toBe('/api/vstep/test?testId=vstep-mock-01&filter=%3Cscript%3Ealert(1)%3C%2Fscript%3E');
+      const xss = '<script>alert(1)</script>';
+      const xssBody = JSON.parse(simulateBody('vstep-mock-01', xss));
+      expect(xssBody.filterMode).toBe(xss);
 
-      // 4. Special unicode test ID
-      const unicodeId = simulateForwarding('vstep-mock-đề-01', 'mistakes');
-      expect(unicodeId).toBe('/api/vstep/test?testId=vstep-mock-%C4%91%E1%BB%81-01&filter=mistakes');
+      const unicodeBody = JSON.parse(simulateBody('vstep-mock-đề-01', 'mistakes'));
+      expect(unicodeBody.testId).toBe('vstep-mock-đề-01');
+      expect(unicodeBody.filterMode).toBe('mistakes');
     });
   });
 

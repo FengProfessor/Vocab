@@ -390,5 +390,10 @@
     "comparison": "**Participle clause vs mệnh đề trạng ngữ:** Mệnh đề phân từ rút gọn thời gian/lý do bằng V-ing/P2 nhưng CHỈ đúng khi hai vế CÙNG chủ ngữ: *Being a vegetarian, he doesn't eat meat* = *Because HE is a vegetarian, HE doesn't eat meat.* Khác chủ ngữ mà rút gọn → lỗi dangling modifier.",
     "definition": "**Mệnh đề phân từ (participle clauses)** sử dụng hiện tại phân từ (V-ing) hoặc quá khứ phân từ (V-ed) để rút gọn các mệnh đề dài, giúp văn phong trở nên súc tích và chuyên nghiệp hơn. Chúng mô tả hành động xảy ra đồng thời hoặc làm rõ thông tin cho chủ thể, tạo ra sự liên kết logic chặt chẽ trong câu."
   },
-  "exercises": []
+  "exercises": [
+    {"type":"multiple_choice","question":"___ home, I met an old friend.","options":["Walking","Walked","To walking"],"correct_answer":"Walking","explanation":"Walking home rút gọn mệnh đề khi cùng chủ ngữ I."},
+    {"type":"multiple_choice","question":"___ by the noise, the baby woke up.","options":["Frightening","Frightened","Frighten"],"correct_answer":"Frightened","explanation":"Baby bị làm cho sợ, nên dùng phân từ quá khứ Frightened."},
+    {"type":"multiple_choice","question":"Câu nào rút gọn đúng từ 'While she was waiting, she read a book'?","options":["Waiting, she read a book.","Waited, she read a book.","To waited, she read a book."],"correct_answer":"Waiting, she read a book.","explanation":"Hai vế cùng chủ ngữ she; dùng V-ing cho hành động chủ động."},
+    {"type":"multiple_choice","question":"___ in 1990, the bridge is still in use.","options":["Building","Built","Build"],"correct_answer":"Built","explanation":"Cây cầu được xây, nên dùng phân từ quá khứ Built."}
+  ]
 }
