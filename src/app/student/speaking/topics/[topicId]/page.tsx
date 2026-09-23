@@ -13,7 +13,7 @@ import {
   type SpeakingEvaluationFeedback,
 } from '@/components/speaking/split-pane';
 import { getTopicById, allTopicLibraryItems } from '@/data/speaking/topic-library';
-import { createSTTService, type ISTTService, type STTTranscriptResult } from '@/lib/speaking/stt';
+import { createSTTService, type ISTTService, type STTRecognitionResult } from '@/lib/speaking/stt';
 import { useAudioRecorder } from '@/hooks/use-audio-recorder';
 import { speak, silenceSpeech } from '@/lib/study';
 
@@ -45,7 +45,7 @@ export default function SpeakingTopicDetailPage() {
   // Init STT engine
   useEffect(() => {
     const service = createSTTService('auto', {
-      language: 'en-US',
+      lang: 'en-US',
       continuous: true,
       interimResults: true,
     });
@@ -106,12 +106,12 @@ export default function SpeakingTopicDetailPage() {
 
       const stt = sttServiceRef.current;
       if (stt) {
-        stt.onResult((res: STTTranscriptResult) => {
+        stt.onResult((res: STTRecognitionResult) => {
           if (res.isFinal) {
-            setFinalTranscript((prev) => (prev ? `${prev} ${res.text}` : res.text));
+            setFinalTranscript((prev) => (prev ? `${prev} ${res.transcript}` : res.transcript));
             setInterimTranscript('');
           } else {
-            setInterimTranscript(res.text);
+            setInterimTranscript(res.transcript);
           }
         });
 
@@ -211,10 +211,10 @@ export default function SpeakingTopicDetailPage() {
       'Sử dụng các cấu trúc mẫu được gợi ý bên phải.',
     ],
     keyVocabulary: topic.keyVocabulary?.map((v) => ({
-      word: v.term,
+      term: v.term,
       ipa: v.ipa,
       meaningVi: v.meaningVi,
-      exampleEn: v.exampleEn,
+      audioUrl: v.exampleEn,
     })),
   };
 
@@ -223,18 +223,21 @@ export default function SpeakingTopicDetailPage() {
     (v) => v.associatedActions?.map((a) => a.en) || []
   );
 
-  const starters = [
-    ...(topic.usefulPhrases || []).map((p) => p.phrase),
-    ...actionPhrases,
-  ].slice(0, 6);
+  const rawPhrases = (topic.usefulPhrases || []).map((p) =>
+    typeof p === 'string' ? p : p.phrase || p.text || ''
+  ).filter(Boolean);
 
-  const hintsVi = [
-    ...(topic.usefulPhrases || []).map((p) => p.meaningVi || p.phrase),
-    ...(topic.keyVocabulary || []).flatMap(
-      (v) => v.associatedActions?.map((a) => `${v.term}: ${a.vi}`) || []
-    ),
-  ].slice(0, 5);
+  const starters = [...rawPhrases, ...actionPhrases].slice(0, 6);
 
+  const rawHints = (topic.usefulPhrases || []).map((p) =>
+    typeof p === 'string' ? p : p.meaningVi || p.phrase || p.text || ''
+  ).filter(Boolean);
+
+  const actionHints = (topic.keyVocabulary || []).flatMap(
+    (v) => v.associatedActions?.map((a) => `${v.term}: ${a.vi}`) || []
+  );
+
+  const hintsVi = [...rawHints, ...actionHints].slice(0, 5);
   const targetKeywords = (topic.keyVocabulary || []).map((v) => v.term);
 
   return (
@@ -271,7 +274,7 @@ export default function SpeakingTopicDetailPage() {
             ratio="50/50"
             leftPane={
               <div className="p-3 sm:p-5 h-full overflow-y-auto">
-                <SpeakingStimulusPane data={stimulusData} isRecording={isRecording} />
+                <SpeakingStimulusPane stimulus={stimulusData} isRecording={isRecording} />
               </div>
             }
             rightPane={
