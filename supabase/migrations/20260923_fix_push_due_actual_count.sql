@@ -1,7 +1,7 @@
 -- Thông báo chỉ hiển thị số từ đã học và thực sự đến hạn ôn.
 -- Trước đây RPC cộng cả từ mới chưa có SRS, khiến số thông báo tăng theo kho từ.
 
-CREATE OR REPLACE FUNCTION public.push_due_counts(
+CREATE OR REPLACE FUNCTION public.push_actual_due_counts(
   p_user_ids uuid[],
   p_now timestamptz
 )
@@ -31,5 +31,5 @@ AS $$
   LEFT JOIN actual_due d ON d.user_id = c.user_id;
 $$;
 
-REVOKE ALL ON FUNCTION public.push_due_counts(uuid[], timestamptz) FROM PUBLIC, anon, authenticated;
-GRANT EXECUTE ON FUNCTION public.push_due_counts(uuid[], timestamptz) TO service_role;
+REVOKE ALL ON FUNCTION public.push_actual_due_counts(uuid[], timestamptz) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.push_actual_due_counts(uuid[], timestamptz) TO service_role;

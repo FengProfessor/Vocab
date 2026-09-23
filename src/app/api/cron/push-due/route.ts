@@ -234,16 +234,16 @@ export async function GET(req: Request): Promise<NextResponse> {
     );
 
     // ── Bulk-count từ đến hạn qua RPC (1 query cho CẢ trang, thay N+1) ──
-    // Nếu RPC chưa tồn tại (migration 20260714 chưa chạy prod) → dueMap=null → fallback
-    // tính inline từng user như cũ. Deploy trước migration KHÔNG vỡ.
+    // Dùng RPC tên mới để không vô tình gọi bản push_due_counts cũ vốn cộng cả từ chưa học.
+    // Nếu migration chưa chạy prod → dueMap=null → fallback chính xác theo từng user.
     let dueMap: Map<string, number> | null = null;
     {
-      const { data: counts, error: rpcErr } = await supabase.rpc('push_due_counts', {
+      const { data: counts, error: rpcErr } = await supabase.rpc('push_actual_due_counts', {
         p_user_ids: profiles.map(p => p.id),
         p_now: now,
       });
       if (rpcErr) {
-        console.warn('[Cron/push-due] push_due_counts RPC unavailable → fallback inline:', rpcErr.message);
+        console.warn('[Cron/push-due] push_actual_due_counts RPC unavailable → fallback inline:', rpcErr.message);
       } else if (counts) {
         dueMap = new Map(
           (counts as { user_id: string; due_count: number | string }[])
