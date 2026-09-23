@@ -117,22 +117,11 @@ export function buildStudentNavSections(opts?: {
           match: (pathname) => pathname.startsWith('/practice/games'),
         },
         {
-          href: '/student/speaking/foundation',
-          label: 'Luyện nói Nền tảng',
-          icon: Sparkles,
-          badge: 'A0–A1',
-          match: (pathname) => pathname.startsWith('/student/speaking/foundation'),
-          onboardingId: 'speaking-foundation',
-        },
-        {
-          href: '/student/speaking',
-          label: 'Luyện nói AI (MVA)',
+          href: '/student/speaking/topics',
+          label: 'Thư viện Luyện nói',
           icon: Mic,
-          badge: '24+ Chủ đề',
-          match: (pathname) =>
-            pathname === '/student/speaking' ||
-            (pathname.startsWith('/student/speaking') &&
-              !pathname.startsWith('/student/speaking/foundation')),
+          badge: '250+ Chủ đề',
+          match: (pathname) => pathname.startsWith('/student/speaking'),
           onboardingId: 'speaking-ai',
         },
         {
