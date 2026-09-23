@@ -59,3 +59,8 @@ export function getTopicLibraryStats(): TopicLibraryStats {
     byLevel: stats.byLevel,
   } as unknown as TopicLibraryStats;
 }
+
+export function getTopicById(id: string): TopicLibraryItem | undefined {
+  return allTopicLibraryItems.find(item => item.id === id);
+}
+
