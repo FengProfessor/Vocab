@@ -252,34 +252,16 @@ export async function GET(req: Request): Promise<NextResponse> {
       }
     }
 
-    // Fallback: đếm due cho 1 user bằng nhiều query (dùng khi RPC chưa có).
+    // Fallback: chỉ đếm từ đã học và thực sự đến hạn, khớp reviewDueCount trên UI.
+    // Không cộng từ mới chưa có lịch SRS vì đó chưa phải là từ "đến hạn ôn".
     const computeDueInline = async (profile: ProfileRow): Promise<number> => {
       const { count: dueStarted } = await supabase
         .from('srs_progress')
         .select('id', { count: 'exact', head: true })
         .eq('user_id', profile.id)
+        .gt('review_count', 0)
         .lte('next_review_date', now);
-      let dueCount = dueStarted ?? 0;
-
-      let classroomIds: string[] = [];
-      if (profile.role === 'teacher') {
-        const { data } = await supabase.from('classrooms').select('id').eq('teacher_id', profile.id);
-        classroomIds = data?.map(c => c.id) || [];
-      } else {
-        const { data } = await supabase.from('enrollments').select('classroom_id').eq('student_id', profile.id);
-        classroomIds = data?.map(e => e.classroom_id) || [];
-      }
-      if (classroomIds.length) {
-        const { data: classWords } = await supabase.from('words').select('id').in('classroom_id', classroomIds);
-        if (classWords?.length) {
-          const { data: srsRows } = await supabase
-            .from('srs_progress').select('word_id')
-            .eq('user_id', profile.id).in('word_id', classWords.map(w => w.id));
-          const started = new Set(srsRows?.map(s => s.word_id) || []);
-          dueCount += classWords.filter(w => !started.has(w.id)).length;
-        }
-      }
-      return dueCount;
+      return dueStarted ?? 0;
     };
 
     // Xử lý 1 user: lấy dueCount (từ RPC map hoặc inline) → gửi push. Null nếu không có từ due.
