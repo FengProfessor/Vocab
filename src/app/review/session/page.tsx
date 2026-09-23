@@ -317,19 +317,17 @@ function SessionContent() {
   }, [pool, sessionMode, setupCard, total]);
 
   const finalize = useCallback(
-    async (isCorrect: boolean, isClose: boolean, quality: 0 | 3 | 4 | 5) => {
+    (isCorrect: boolean, isClose: boolean, quality: 0 | 3 | 4 | 5) => {
       // Guard ref — không dùng verdict state (stale closure / double-tap)
       if (!current || !userId || answeredRef.current) return;
       answeredRef.current = true;
 
-      try {
-        await saveSrsReview(current.id, quality, accessTokenRef.current);
-      } catch (error) {
-        answeredRef.current = false;
+      // Phản hồi đúng/sai phải hiện ngay; lưu SRS chạy nền để độ trễ mạng
+      // không làm chậm nhịp học hoặc giữ giao diện ở trạng thái chưa chấm.
+      void saveSrsReview(current.id, quality, accessTokenRef.current).catch((error: unknown) => {
         const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
         toast.error(message);
-        return;
-      }
+      });
 
       const v: Verdict = isCorrect ? 'correct' : isClose ? 'close' : 'wrong';
       setVerdict(v);
@@ -395,7 +393,7 @@ function SessionContent() {
       itemMode,
       elapsedMs: Date.now() - startedAt.current,
     });
-    void finalize(ok, false, quality);
+    finalize(ok, false, quality);
   };
 
   const handleTypeSubmit = () => {
@@ -408,7 +406,7 @@ function SessionContent() {
       itemMode,
       Date.now() - startedAt.current,
     );
-    void finalize(v === 'correct', v === 'close', quality);
+    finalize(v === 'correct', v === 'close', quality);
   };
 
   const skipWait = () => {
