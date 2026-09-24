@@ -36,14 +36,9 @@ fi
 
 docker exec "$container" createdb -U postgres restore_test
 if ! gzip -dc "$backup_file" | docker exec -i "$container" \
-  psql -X -q -v ON_ERROR_STOP=1 -U postgres -d restore_test >"$restore_log" 2>&1; then
-  if grep -Eq 'role .* does not exist' "$restore_log"; then
-    echo '[BackupRestore] Restore FAILED: missing role in isolated PostgreSQL' >&2
-  elif grep -Eq 'extension .* is not available' "$restore_log"; then
-    echo '[BackupRestore] Restore FAILED: missing extension in isolated PostgreSQL' >&2
-  else
-    echo '[BackupRestore] Restore FAILED; SQL output suppressed to protect backup contents' >&2
-  fi
+  psql -X -q -v ON_ERROR_STOP=1 -v VERBOSITY=sqlstate -U postgres -d restore_test >"$restore_log" 2>&1; then
+  sqlstate="$(sed -nE 's/.*ERROR:[[:space:]]*([0-9A-Z]{5}).*/\1/p' "$restore_log" | head -n 1)"
+  echo "[BackupRestore] Restore FAILED; first SQLSTATE: ${sqlstate:-UNKNOWN}. SQL output suppressed." >&2
   exit 1
 fi
 
