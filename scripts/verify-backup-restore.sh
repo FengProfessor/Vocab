@@ -36,10 +36,18 @@ fi
 
 docker exec "$container" createdb -U postgres restore_test
 if ! gzip -dc "$backup_file" | docker exec -i "$container" \
-  psql -X -q -v ON_ERROR_STOP=1 -v VERBOSITY=sqlstate -U postgres -d restore_test >"$restore_log" 2>&1; then
-  sqlstate="$(sed -nE 's/.*ERROR:[[:space:]]*([0-9A-Z]{5}).*/\1/p' "$restore_log" | head -n 1)"
-  line_number="$(sed -nE 's/.*:([0-9]+): ERROR:.*/\1/p' "$restore_log" | head -n 1)"
-  echo "[BackupRestore] Restore FAILED; first SQLSTATE: ${sqlstate:-UNKNOWN}; dump line: ${line_number:-UNKNOWN}. SQL output suppressed." >&2
+  psql -X -q -v ON_ERROR_STOP=1 -v VERBOSITY=verbose -U postgres -d restore_test >"$restore_log" 2>&1; then
+  sqlstate="$(sed -nE 's/.*ERROR:[[:space:]]*([0-9A-Z]{5}):.*/\1/p' "$restore_log" | head -n 1)"
+  line_number="$(sed -nE 's/.*stdin:([0-9]+):.*/\1/p' "$restore_log" | head -n 1)"
+  cause='OTHER'
+  if grep -Eiq 'pg_cron|cron\.database_name' "$restore_log"; then cause='PG_CRON';
+  elif grep -Eiq 'supabase_vault|vault extension' "$restore_log"; then cause='VAULT_EXTENSION';
+  elif grep -Eiq 'role .*does not exist' "$restore_log"; then cause='MISSING_ROLE';
+  elif grep -Eiq 'extension .*not available|extension .*not installed' "$restore_log"; then cause='MISSING_EXTENSION';
+  elif grep -Eiq 'schema .*already exists|relation .*already exists' "$restore_log"; then cause='DUPLICATE_OBJECT';
+  elif grep -Eiq 'permission denied|must be superuser' "$restore_log"; then cause='PERMISSION';
+  fi
+  echo "[BackupRestore] Restore FAILED; SQLSTATE: ${sqlstate:-UNKNOWN}; dump line: ${line_number:-UNKNOWN}; class: $cause. SQL output suppressed." >&2
   exit 1
 fi
 
