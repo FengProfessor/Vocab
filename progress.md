@@ -279,3 +279,43 @@
 - P0-DOC: fixed in repository; this entry records the failed preflight.
 - Root cron and ownership of some listeners remain audit limitations.
 - Residual architectural risk remains: server rebuild happens after migration. Future work: CI build once, immutable artifact, migration, deploy exact prebuilt artifact. No redesign in this attempt.
+
+## P0-BACKUP — Restore verification and backup repair (2026-09-24)
+
+### Backup inspected
+
+- Workflow: `.github/workflows/db-backup.yml`. `pg_dump --no-owner --no-privileges` writes **plain SQL**, gzip compresses it, validates nonempty content and `gunzip -t`, uploads a 30-day GitHub artifact, then uploads to Google Drive. The Drive action uses base64 service-account credentials and a folder ID from GitHub secrets; values were not read or printed.
+- Source run: `35926321842` (23 September 2026 UTC). Artifact: `lingopro-backup-20260923_220540`, ID `10779865508`, created `2026-09-23T22:07:03Z`, expires `2026-10-23T22:07:02Z`.
+
+### Artifact integrity
+
+- Download: PASS. Extracted file `lingopro_backup_20260923_220540.sql.gz`, 19,770,335 bytes; SHA-256 `13fa0f546f543ad813c4dac4e8cc371b2dd432011350aea9a80e9ee1299374cd`.
+- Gzip decompression: PASS; uncompressed SQL 97,301,602 bytes. Header reports PostgreSQL database dump from server 17.6, pg_dump 17.11. Structural scan found SQL metadata, 81 `CREATE TABLE` and 83 `COPY` statements. No customer rows or dump contents printed.
+
+### Restore test
+
+- Environment: GitHub hosted runner, disposable `supabase/postgres:17.6.1.175` container; no connection to production app or DB. Container server version was not captured.
+- Result: **NOT RESTORE VERIFIED**. Manual restore-only workflow runs `35997795653`, `35998017473`, `35998253237`, `35998476794`, `35998677868`, `35998964133` all failed. The SQL was accepted far enough to encounter `pg_cron` constraint (`P0001`) in a new database, then a preinitialized-schema collision (`42P06`) when restoring into `postgres`. Suppressing image init scripts caused the disposable container to exit before PostgreSQL readiness. No successful full restore or post-restore schema query.
+- These failures show the test environment is not yet suitable; they do not prove the downloaded dump is corrupt or restorable. The temporary restore job/script was removed from the final branch after the unsuccessful diagnostic attempts.
+
+### Google Drive
+
+- Failure cause: logs of source run and two earlier runs show unsupported action input `uploadFrom`, followed by `missing input 'filename'`. The action manifest at commit `935eccf4c2812e4d492c3d7c7ff59ca7520bf129` requires `filename`.
+- Fix on P0 branch: change only the input to `filename` and pin the third-party action to that reviewed commit SHA. No secret changes.
+- Verification: `actionlint` on all workflows and `git diff --check` PASS. No fresh backup run was triggered after restore test failed. Google Drive upload remains **UNVERIFIED/FAILED on main** until the fix runs through the canonical backup workflow. Backup workflow was not made reporting-only.
+
+### Backup state
+
+- Creation: **PASS** in run `35926321842`.
+- GitHub copy: **PASS**, artifact nonexpired and downloadable.
+- Secondary copy: **FAIL** in that run; branch fix unverified.
+- Restoreability: **NOT VERIFIED**; isolated restore test failed.
+
+### Rollout readiness
+
+- **BACKUP NOT READY**. No merge `main`, production migration, deploy or restart in this task. P0 rollout must not resume automatically.
+
+### Remaining risks
+
+- Existing GitHub artifacts expire after 30 days; current main backup workflow still uses the bad input until a separately authorized main update occurs.
+- A matching disposable Supabase PostgreSQL restore environment, including required extensions/roles and clean schema, is needed to validate a backup end to end. Only after restore verification should a new canonical backup run test the Drive fix.
