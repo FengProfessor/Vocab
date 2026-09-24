@@ -107,3 +107,80 @@
 - Build quality trên GitHub chạy trước migration, nhưng server rebuild sau migration; khác biệt môi trường có thể làm build server fail sau khi DB đã thay đổi. Giải pháp build artifact immutable ở CI để dành cho cải thiện sau P0.
 - Chưa chứng minh webhook/PM2/automation ngoài repo không thể deploy độc lập. Không thể đóng P0-4/P0-5 đến khi được phép audit runtime và xác minh GitHub workflow thật.
 - Rollback folders có thể tích lũy; không xóa khi chưa xác minh bản rollback tốt và dung lượng host.
+
+## P0-CLOSEOUT — Remote push and read-only runtime audit (2026-09-24)
+
+### Remote branch
+
+- local SHA: `b94796fd31ab37289d0536fc18f6100ced79f6c3` trên `codex/fix-migration-workflow`; working tree sạch trước audit.
+- remote SHA: branch `codex/fix-migration-workflow` chưa tồn tại sau lần push bị từ chối; `origin/main` vẫn là `29585fb7b55a28bb303dbf3885145087b50a4fb8`.
+- push result: **FAIL**. GitHub từ chối OAuth App cập nhật `.github/workflows/apply-p0-migrations.yml` vì token không có scope `workflow`. Không retry bằng credential khác, không force push, không merge.
+
+### Canonical runtime
+
+- host: Tailscale peer `lingo-sever`, Ubuntu 24.04.4 LTS, user audit `ubuntu`. Chỉ chạy lệnh read-only.
+- `lingopro.service`: loaded, active/running, enabled, MainPID `875781`, `Restart=always`.
+- WorkingDirectory: `/home/ubuntu/Vocab`.
+- ExecStart: `/usr/bin/node /home/ubuntu/Vocab/.next/standalone/server.js` (chỉ ghi executable/script path).
+- EnvironmentFiles path: `/home/ubuntu/Vocab/.env.local`; không đọc nội dung.
+- app path: `/home/ubuntu/Vocab` và `/home/ubuntu/Vocab-build` đều tồn tại. Live Git branch `main`, HEAD `da6e196b964a3b05dacd0fec003b28e9208461a0`, có untracked `test-fcm.js`. Build Git branch `main`, HEAD `29585fb7b55a28bb303dbf3885145087b50a4fb8`, tracked `package-lock.json` sửa và untracked `test-fcm.js`.
+- release SHA: `.next/.release-commit` không có ở live hoặc staging; **ACTIVE RELEASE SHA UNKNOWN**, không thể so bằng chứng với Git HEAD. Live standalone server tồn tại. Helper/activation script P0 chưa có trên staging.
+- health: GET `http://127.0.0.1:3000/api/health` trả HTTP `404`, `text/html`, `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate`; không có JSON `{status:"ok"}`. Đây là release cũ, chưa rollout P0.
+- disk: `/` còn khoảng `89G`/`124G`; chưa có `.next-previous.*` ở live. Không xóa gì.
+- preflight blocker: `prepare-source.sh` mới từ chối staging có untracked `test-fcm.js`; tracked `package-lock.json` sẽ được force checkout về commit nhưng file untracked vẫn tồn tại. Cần operator quyết định xử lý trước rollout; không tự dọn.
+
+### Legacy controllers
+
+- webhook: **LEGACY ACTIVE (cấu hình)**. GitHub repo có một push webhook active tới host `lingopro.online`; 10 delivery gần nhất (21–23/09) đều HTTP `404`. Không tìm thấy process/unit listener deploy tương ứng trong audit giới hạn; khả năng deploy hiện tại **UNKNOWN**. Không tắt webhook.
+- PM2: daemon `PM2 v7.0.4` đang chạy dưới `ubuntu`, nhưng dump/process con chỉ có `bot-trudo` ở `/home/ubuntu/bot-trudo`; không thấy Vocab qua PM2. Không có PM2 systemd unit trong đường đã kiểm tra. Phân loại cho Vocab: **LEGACY INACTIVE** trong phạm vi quan sát; PM2 đang active cho ứng dụng khác.
+- cron: crontab `ubuntu` có một `curl` tới `/api/cron/push-due` mỗi 15 phút, không có lệnh deploy. System cron files không match mẫu deploy; root crontab không đọc được bằng quyền hiện có, nên tổng thể **UNKNOWN**.
+- systemd timers: không thấy timer deploy; chỉ timer hệ thống/Cloudflared thông thường, **NOT PRESENT** cho deploy trong danh sách đã kiểm tra.
+- legacy scripts: `deploy/update.sh` có bản copy ở live và staging; không thấy caller trong user cron/systemd đã kiểm tra. **LEGACY INACTIVE** theo bằng chứng hiện có; root cron/automation ngoài phạm vi vẫn unknown.
+- other controllers: không thấy Docker CLI, Watchtower, self-hosted GitHub runner, Supervisor hoặc forever trong process/path đã kiểm tra. Cloudflared/Tailscale đang active như mạng, không có bằng chứng tự deploy. Một số listening ports không gắn được PID bằng quyền `ubuntu`, nên controller ngoài phạm vi vẫn **UNKNOWN**.
+
+### P0-4 assessment
+
+- **PARTIALLY FIXED**. Code exact SHA đã commit local nhưng push bị từ chối; active release không có SHA metadata, webhook push legacy vẫn active ở GitHub, staging hiện có untracked file chặn helper. Chưa có production rollout/verification.
+
+### P0-5 assessment
+
+- **PARTIALLY FIXED**. Quality → migration → deploy mới chưa lên GitHub/chưa chạy thật; không thể chứng minh active webhook hoặc automation ngoài repo không bypass gate. Không trigger production deploy.
+
+### Required operator actions
+
+1. Cấp credential có scope GitHub `workflow` phù hợp hoặc tự push branch P0 qua quy trình được phép; sau đó xác nhận remote SHA. Không thay branch protection.
+2. Review push webhook legacy còn active nhưng đang trả 404; phê duyệt riêng nếu muốn disable/chuyển thành notification.
+3. Quyết định xử lý `test-fcm.js` untracked ở staging trước rollout; không tự xóa/move. Xác minh thêm root cron/ports chưa phân loại nếu cần khép kín audit controller.
+4. Phê duyệt riêng cho merge, migration, deploy hoặc bất kỳ thay đổi production nào. Lượt này không thực hiện các hành động đó.
+
+## P0-PREP — Canonical rollout preparation (2026-09-24)
+
+### Remote branch
+
+- local SHA: checkpoint audit đang chờ commit riêng; P0 implementation và checkpoint trước ở `b94796fd31ab37289d0536fc18f6100ced79f6c3`.
+- remote SHA: branch `codex/fix-migration-workflow` chưa có trên `origin` theo lần kiểm tra gần nhất.
+- push: **BLOCKED**. `gh auth status` vẫn chỉ có scopes `gist`, `read:org`, `repo`; thiếu `workflow`. Không retry, không bỏ workflow files, không force push.
+
+### Staging cleanliness
+
+- `test-fcm.js` classification: **UNKNOWN**; file untracked được phát hiện ở staging trong audit trước, chưa điều tra nội dung/caller lượt này vì Phase A bị chặn.
+- action: NONE; chưa move/delete/reset.
+- final git status trên staging: chưa kiểm tra lại lượt này; audit trước thấy `package-lock.json` modified và `test-fcm.js` untracked.
+
+### Legacy webhook
+
+- purpose: **UNKNOWN**; audit trước xác nhận một GitHub push webhook tới `lingopro.online`.
+- previous status: active, 10 delivery gần nhất trả 404.
+- final status: chưa kiểm tra lại hoặc disable lượt này do Phase A dừng ở auth.
+
+### Controller audit
+
+- root cron: UNKNOWN (quyền audit trước không đọc được).
+- systemd: audit trước thấy `lingopro.service` active; không thấy timer deploy.
+- PM2: audit trước chỉ thấy `bot-trudo`, không thấy Vocab.
+- other: một số listener chưa gắn được PID; chưa audit thêm lượt này.
+
+### Rollout readiness
+
+- **NOT READY**.
+- Reasons: branch P0 chưa lên remote; credential thiếu scope `workflow`; staging còn blocker chưa phân loại/xử lý; webhook legacy còn active theo audit trước; root cron/listener chưa khép kín. Không merge/deploy/migrate.
