@@ -11,14 +11,17 @@ gzip -t "$backup_file"
 
 container="p0-backup-restore-${GITHUB_RUN_ID:-local}-${GITHUB_RUN_ATTEMPT:-1}"
 restore_log="$(mktemp)"
+empty_init_dir="$(mktemp -d)"
 cleanup() {
   docker rm -f "$container" >/dev/null 2>&1 || true
   rm -f "$restore_log"
+  rmdir "$empty_init_dir" 2>/dev/null || true
 }
 trap cleanup EXIT
 
 docker run --rm -d --name "$container" \
   -e POSTGRES_PASSWORD=restore-test-only \
+  -v "$empty_init_dir:/docker-entrypoint-initdb.d:ro" \
   supabase/postgres:17.6.1.175 >/dev/null
 
 ready=0
