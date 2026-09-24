@@ -38,7 +38,8 @@ docker exec "$container" createdb -U postgres restore_test
 if ! gzip -dc "$backup_file" | docker exec -i "$container" \
   psql -X -q -v ON_ERROR_STOP=1 -v VERBOSITY=sqlstate -U postgres -d restore_test >"$restore_log" 2>&1; then
   sqlstate="$(sed -nE 's/.*ERROR:[[:space:]]*([0-9A-Z]{5}).*/\1/p' "$restore_log" | head -n 1)"
-  echo "[BackupRestore] Restore FAILED; first SQLSTATE: ${sqlstate:-UNKNOWN}. SQL output suppressed." >&2
+  line_number="$(sed -nE 's/.*:([0-9]+): ERROR:.*/\1/p' "$restore_log" | head -n 1)"
+  echo "[BackupRestore] Restore FAILED; first SQLSTATE: ${sqlstate:-UNKNOWN}; dump line: ${line_number:-UNKNOWN}. SQL output suppressed." >&2
   exit 1
 fi
 
