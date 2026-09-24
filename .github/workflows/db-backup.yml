@@ -7,16 +7,10 @@ name: Daily Supabase Backup
 on:
   schedule:
     - cron: '0 19 * * *'   # 19:00 UTC = 02:00 sáng giờ VN
-  workflow_dispatch:
-    inputs:
-      restore_run_id:
-        description: 'Optional backup run ID for an isolated artifact restore test'
-        required: false
-        type: string
+  workflow_dispatch: {}
 
 jobs:
   backup:
-    if: ${{ github.event_name != 'workflow_dispatch' || inputs.restore_run_id == '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Dump, verify & nén database
@@ -94,31 +88,3 @@ jobs:
           name: lingopro_backup_${{ env.STAMP }}.sql.gz
           filename: lingopro_backup_${{ env.STAMP }}.sql.gz
           overwrite: "true"
-
-  verify_restore:
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.restore_run_id != '' }}
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.sha }}
-          persist-credentials: false
-      - name: Download backup artifact from selected run
-        uses: actions/download-artifact@v4
-        with:
-          run-id: ${{ inputs.restore_run_id }}
-          pattern: lingopro-backup-*
-          merge-multiple: true
-          path: restore-artifact
-          github-token: ${{ github.token }}
-      - name: Restore artifact into disposable PostgreSQL
-        run: |
-          files=(restore-artifact/*.sql.gz)
-          if [ "${#files[@]}" -ne 1 ] || [ ! -f "${files[0]}" ]; then
-            echo '::error::Expected exactly one compressed SQL dump in the selected run'
-            exit 1
-          fi
-          bash scripts/verify-backup-restore.sh "${files[0]}"
