@@ -69,7 +69,7 @@
 ### Git state
 
 - branch: `codex/fix-migration-workflow`
-- commit: ghi sau khi tạo commit P0 local; không chứa hash tự tham chiếu trong cùng commit.
+- commit: P0 implementation `2c234877c3cdb3bf2355fb98bd962caca6afe18b` (local). Bản checkpoint này sẽ nằm trong commit tài liệu kế tiếp.
 - remote SHA: `origin/main` được `git ls-remote` xác nhận là `29585fb7b55a28bb303dbf3885145087b50a4fb8`; branch P0 chưa có trên remote tại thời điểm kiểm tra. Chưa push vì operator chưa cho phép.
 
 ### GitHub validation
