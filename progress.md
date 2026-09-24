@@ -184,3 +184,62 @@
 
 - **NOT READY**.
 - Reasons: branch P0 chưa lên remote; credential thiếu scope `workflow`; staging còn blocker chưa phân loại/xử lý; webhook legacy còn active theo audit trước; root cron/listener chưa khép kín. Không merge/deploy/migrate.
+
+## P0-PREP — Authorized branch push and read-only follow-up (2026-09-24)
+
+### Push
+
+- `gh auth status` đã có scope `workflow`; trước push working tree sạch, branch `codex/fix-migration-workflow`, HEAD `c9c10c7e6d4a4d498bcc2e4fe344849ecf5b655b` gồm các commit P0/checkpoint.
+- `deploy-server.yml` chỉ auto-trigger trên push `main`; push branch P0 không trigger production deploy. `git push origin refs/heads/codex/fix-migration-workflow:refs/heads/codex/fix-migration-workflow` PASS.
+- `git ls-remote origin refs/heads/codex/fix-migration-workflow` trả đúng `c9c10c7e6d4a4d498bcc2e4fe344849ecf5b655b`, khớp local HEAD. `gh run list --branch` trả `[]`: không thấy Actions tự chạy trên branch. Không dispatch, merge hoặc deploy production.
+
+### Staging blocker
+
+- `/home/ubuntu/Vocab-build` hiện ` M package-lock.json` và `?? test-fcm.js`.
+- `test-fcm.js`: `ubuntu:ubuntu`, mode `664`, 1395 bytes, mtime 07/09/2026; không tracked hiện tại và không có commit trong Git history đã kiểm tra. Nội dung là script thử FCM dùng tên biến env Supabase/Firebase, gọi Firebase messaging send; không phát hiện literal private key/token theo mẫu quét. Không in giá trị env.
+- Không thấy reference tới file trong repo script/config, systemd, user cron hoặc active Node process đã kiểm tra. Phân loại **TEMP DEBUG** theo bằng chứng hiện có; root cron không đọc được nên không tuyên bố phủ định tuyệt đối. Action: NONE, chưa move/delete. Helper exact-SHA sẽ fail-closed vì file untracked vẫn ở staging; `git checkout --force` chỉ phục hồi tracked `package-lock.json`, không dọn file này.
+
+### Legacy webhook
+
+- GitHub hook `661520620`: **ACTIVE**, event `push`, target path `/api/deploy` trên `lingopro.online` (URL có query; không ghi/query secret), tạo/cập nhật 05/08/2026. Delivery từ push branch P0 ngày 24/09/2026 trả HTTP 404; 10 delivery trước cũng 404.
+- Không có route `/api/deploy` trong source live/staging đã kiểm tra. README cũ mô tả webhook tự pull/deploy; không có bằng chứng hook phục vụ notification khác. Phân loại **LEGACY ACTIVE (configured, endpoint đang 404)**; khả năng deploy hiện tại chưa chứng minh. Action: NONE, không disable/delete.
+
+### Root automation / other controllers
+
+- `sudo -n -l` chỉ cho restart/status một số systemd service; không cho đọc root crontab hoặc owner các listener bằng sudo. Root crontab **UNKNOWN**.
+- `/etc/crontab`, `/etc/cron.d` và unit files đọc được không match mẫu `git pull/fetch`, build, `update.sh`, webhook deploy; không thấy systemd timer/service deploy khác ngoài `lingopro.service`. User cron không reference `test-fcm.js` hay lệnh deploy.
+- PM2 audit trước: daemon active cho `bot-trudo`, không thấy Vocab. Một số listening ports chưa gắn được PID với quyền hiện tại; controller ở đó vẫn **UNKNOWN**.
+
+### P0 rollout readiness
+
+- **NOT READY**: remote branch/commit đã đúng và workflow files đã lên remote, nhưng staging còn untracked debug file làm helper fail, webhook legacy còn active, root cron/listener chưa phân loại hết. Chưa có GitHub quality/migration/deploy run trên code P0 và production vẫn chạy release cũ.
+- Cần operator phê duyệt riêng nếu muốn move `test-fcm.js`, disable webhook, cấp quyền đọc root automation bổ sung, merge/deploy/migration. Lượt này không thay đổi production.
+
+## P0-PREP FINAL — Staging blocker and legacy webhook (2026-09-24)
+
+### Staging
+
+- Previous: `/home/ubuntu/Vocab-build` có ` M package-lock.json` và `?? test-fcm.js`. File debug thuộc `ubuntu:ubuntu`, mode `664`, 1395 bytes, mtime 07/09/2026; không có caller rõ ràng trong audit đã thực hiện.
+- Action: operator cho phép **MOVE** `test-fcm.js`; đã move, không delete/execute, không sửa source hay reset `package-lock.json`.
+- Archive path: `/home/ubuntu/legacy-debug/test-fcm.js` ngoài hai repo; metadata owner/mode/size/mtime giữ nguyên, archive tồn tại và original path không còn.
+- Final git status: chỉ ` M package-lock.json`; không có untracked file. `git checkout --detach --force` trong canonical workflow sẽ ghi đè tracked modification khi rollout; chưa chạy lệnh đó trên host.
+- Classification: **TEMP DEBUG** theo nội dung và audit caller trước đó.
+
+### Webhook
+
+- Previous: hook GitHub `661520620`, active, event `push`, target `/api/deploy` trên `lingopro.online` (query không ghi), delivery gần nhất HTTP 404.
+- Action: operator cho phép **DISABLE**; PATCH chỉ `active=false`, không delete hoặc test delivery.
+- Final status: GET độc lập xác nhận hook `661520620` **inactive**, event vẫn `push`, host/path không đổi.
+
+### Known controller state
+
+- Canonical service: `lingopro.service` active theo audit trước; không restart/deploy lượt này.
+- PM2: đang phục vụ `bot-trudo`, không thấy Vocab.
+- cron: user cron không có deploy; root crontab chưa đọc được theo quyền hiện có.
+- timers: không thấy timer deploy trong danh sách đã kiểm tra.
+- unknown audit areas: owner một số listener và root cron vẫn UNKNOWN; không có bằng chứng controller Vocab khác đang active trong phạm vi audit hiện có.
+
+### Rollout readiness
+
+- **READY WITH DOCUMENTED AUDIT LIMITATION**: branch remote khớp P0 SHA `c9c10c7e6d4a4d498bcc2e4fe344849ecf5b655b` trước checkpoint này, staging không còn untracked blocker, webhook legacy đã disabled, không phát hiện controller deploy Vocab khác đang active.
+- Giới hạn: root cron/listener chưa quan sát đủ; `package-lock.json` tracked vẫn modified đến khi canonical checkout; quality/migration/deploy production chưa chạy; build server diễn ra sau migration. Cần phê duyệt riêng để merge/rollout P0.
