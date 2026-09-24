@@ -243,3 +243,39 @@
 
 - **READY WITH DOCUMENTED AUDIT LIMITATION**: branch remote khớp P0 SHA `c9c10c7e6d4a4d498bcc2e4fe344849ecf5b655b` trước checkpoint này, staging không còn untracked blocker, webhook legacy đã disabled, không phát hiện controller deploy Vocab khác đang active.
 - Giới hạn: root cron/listener chưa quan sát đủ; `package-lock.json` tracked vẫn modified đến khi canonical checkout; quality/migration/deploy production chưa chạy; build server diễn ra sau migration. Cần phê duyệt riêng để merge/rollout P0.
+
+## P0-ROLLOUT — Preflight stopped on backup health (2026-09-24)
+
+### Merge
+
+- Reviewed P0 branch SHA: `312c6a3fe1db20a785fb3f461b79c3e30af47c3f`.
+- `origin/main` before rollout: `29585fb7b55a28bb303dbf3885145087b50a4fb8`.
+- Merge-base is the same `origin/main` SHA; main has 0 commits unique to it and P0 has 4 commits unique to it. No main advancement or overlapping new main changes.
+- Result: **NOT MERGED**. `ROLLOUT_SHA`: none. GitHub PR/merge, production workflow and migration not triggered.
+
+### Quality and migration
+
+- Required local/CI quality checks were not run in this rollout attempt because backup precheck stopped the rollout before merge. Earlier P0 local tests remain historical evidence only.
+- Migration SQL was not executed. Final SQL safety review and production migration status remain pending.
+
+### Backup precheck — STOP reason
+
+- Current mechanism: `.github/workflows/db-backup.yml` runs nightly PostgreSQL dump, verifies nonempty SQL and gzip integrity, uploads a 30-day GitHub artifact, then archives to Google Drive.
+- 10 most recent workflow runs (14–23 September 2026 UTC) all have overall conclusion `failure`.
+- Latest run `35926321842` (23 September 2026 UTC): dump/verification and GitHub artifact upload steps succeeded, Google Drive archival step failed, overall run failed.
+- Latest artifact `lingopro-backup-20260923_220540` (ID `10779865508`, about 19.8 MB) is listed nonexpired in GitHub, expiring 23 October 2026. This supports a recent GitHub copy, but the backup workflow's permanent-copy path is unhealthy; artifact download/restore was not tested here.
+- Per rollout stop rule for clearly unhealthy backup status: **STOP before merge/migration**. Do not treat the partial backup success as a healthy end-to-end backup system.
+
+### Deployment and runtime
+
+- Deployment, activation, service restart, production health, public smoke: **NOT RUN**.
+- Rollback: **NOT TRIGGERED**.
+- Webhook `661520620` was disabled before this attempt; no new rollout event was emitted.
+
+### P0 status and audit limits
+
+- P0-1, P0-2, P0-3: fixed in source and locally verified; production verification pending.
+- P0-4, P0-5: partially fixed; GitHub/production end-to-end verification pending.
+- P0-DOC: fixed in repository; this entry records the failed preflight.
+- Root cron and ownership of some listeners remain audit limitations.
+- Residual architectural risk remains: server rebuild happens after migration. Future work: CI build once, immutable artifact, migration, deploy exact prebuilt artifact. No redesign in this attempt.
