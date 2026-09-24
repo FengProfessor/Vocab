@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Cập nhật code trên VPS (git pull + rebuild)
+# LEGACY / NON-CANONICAL: không dùng cho production; xem docs/operations/production-deploy.md.
 set -euo pipefail
 APP_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$APP_DIR"

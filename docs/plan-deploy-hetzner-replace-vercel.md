@@ -1,5 +1,7 @@
 # Plan: Deploy LingoPro lên Hetzner (thay Vercel)
 
+> LEGACY / NON-CANONICAL: kế hoạch lịch sử, không dùng các lệnh deploy trong tài liệu này cho production. Xem [production-deploy.md](operations/production-deploy.md).
+
 **Ngày:** 2026-07-21  
 **Phạm vi:** Chỉ thay **host Next.js** (Vercel → Hetzner VPS).  
 **Không đụng:** Supabase Pro (Auth, Postgres, Storage, RLS, RPC).

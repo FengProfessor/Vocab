@@ -148,6 +148,7 @@ ALTER TABLE public.reward_transactions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.payout_requests ENABLE ROW LEVEL SECURITY;
 
 -- 2.1. referral_campaigns RLS: Anyone can view active campaigns
+DROP POLICY IF EXISTS "Active campaigns viewable by all" ON public.referral_campaigns;
 CREATE POLICY "Active campaigns viewable by all"
   ON public.referral_campaigns
   FOR SELECT
@@ -156,18 +157,21 @@ CREATE POLICY "Active campaigns viewable by all"
 -- 2.2. referral_links RLS: Tightened security (NO unrestricted USING (true) dump)
 -- Authenticated users can view, create, and update their own referral link.
 -- Public code resolution MUST use the security definer function fn_resolve_referral_code().
+DROP POLICY IF EXISTS "Users can view own referral link" ON public.referral_links;
 CREATE POLICY "Users can view own referral link"
   ON public.referral_links
   FOR SELECT
   TO authenticated
   USING (auth.uid() = user_id);
 
+DROP POLICY IF EXISTS "Users can create own referral link" ON public.referral_links;
 CREATE POLICY "Users can create own referral link"
   ON public.referral_links
   FOR INSERT
   TO authenticated
   WITH CHECK (auth.uid() = user_id);
 
+DROP POLICY IF EXISTS "Users can update own referral link" ON public.referral_links;
 CREATE POLICY "Users can update own referral link"
   ON public.referral_links
   FOR UPDATE
@@ -176,6 +180,7 @@ CREATE POLICY "Users can update own referral link"
   WITH CHECK (auth.uid() = user_id);
 
 -- 2.3. referral_logs RLS: Referrers can view their invitees; Mutations strictly restricted
+DROP POLICY IF EXISTS "Referrers can view their invited friends" ON public.referral_logs;
 CREATE POLICY "Referrers can view their invited friends"
   ON public.referral_logs
   FOR SELECT
@@ -185,6 +190,7 @@ CREATE POLICY "Referrers can view their invited friends"
 REVOKE INSERT, UPDATE, DELETE ON TABLE public.referral_logs FROM anon, authenticated;
 
 -- 2.4. reward_transactions RLS: Users can view their own reward ledger; Mutations forbidden
+DROP POLICY IF EXISTS "Users can view own reward ledger" ON public.reward_transactions;
 CREATE POLICY "Users can view own reward ledger"
   ON public.reward_transactions
   FOR SELECT
@@ -195,6 +201,7 @@ REVOKE INSERT, UPDATE, DELETE ON TABLE public.reward_transactions FROM anon, aut
 
 -- 2.5. payout_requests RLS: Direct client INSERTs forbidden; Exclusive access via fn_request_payout()
 -- Users can only SELECT their own payout requests.
+DROP POLICY IF EXISTS "Users can view own payout requests" ON public.payout_requests;
 CREATE POLICY "Users can view own payout requests"
   ON public.payout_requests
   FOR SELECT

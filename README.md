@@ -2,19 +2,16 @@
 
 Ứng dụng học từ vựng & ngữ pháp Tiếng Anh thông minh LingoPro.
 
-> **Lưu ý quan trọng:**  
-> Dự án LingoPro (Vocab) hiện đã chuyển 100% sang vận hành trên PC Server cá nhân (Self-Hosted) qua Cloudflare Tunnel ([https://lingopro.online](https://lingopro.online)). Dự án không còn dùng Vercel nữa nên bạn không cần chỉnh sửa `vercel.json` hay quan tâm giới hạn Vercel Hobby nhé.  
->  
-> Từ bây giờ khi bạn làm xong tính năng mới, bạn chỉ cần gõ `git push origin main` là PC Server ở nhà sẽ tự động nhận Webhook và cập nhật phiên bản mới nhất ra trang chủ!
+> **Production:** Luồng chuẩn trong repo là GitHub Actions `deploy-server.yml`: quality → migration → deploy đúng event SHA → health check. Xem [production-deploy.md](docs/operations/production-deploy.md). Các mô tả webhook tự pull dưới đây là **LEGACY / NON-CANONICAL**; trạng thái webhook ngoài repo chưa được xác minh.
 
 ---
 
-## 🚀 Kiến Trúc & Vận Hành (Self-Hosted PC Server)
+## 🚀 Kiến Trúc & Vận Hành (thông tin host lịch sử, chưa xác minh)
 
 - **Main Server:** PC Server cá nhân chạy Node.js / Next.js (`http://localhost:3000`)
 - **Networking & SSL:** Cloudflare Tunnel (`https://lingopro.online`)
 - **Database & Auth:** Supabase Cloud
-- **Workflow:** `git push origin main` $\rightarrow$ Webhook tự động pull + build + reload trên Server.
+- **Workflow:** push `main` kích hoạt GitHub Actions; deploy chỉ thành công sau quality, migration và health check. Chi tiết trong [runbook](docs/operations/production-deploy.md).
 
 ---
 
@@ -34,12 +31,4 @@ Mở [http://localhost:3000](http://localhost:3000) trên trình duyệt để k
 
 ## 📦 Quy Trình Deploy Tính Năng Mới
 
-Khi hoàn tất chỉnh sửa hoặc thêm tính năng:
-
-```bash
-git add .
-git commit -m "feat: mô tả thay đổi"
-git push origin main
-```
-
-PC Server sẽ tự động nhận thông báo từ GitHub Webhook và cập nhật trang web chính thức [https://lingopro.online](https://lingopro.online).
+Khi hoàn tất thay đổi, tạo commit và đưa qua quy trình review/merge của repository. Push vào `main` sau khi được phép mới kích hoạt GitHub Actions; chỉ khi toàn bộ gate và deploy pass mới coi là cập nhật thành công. `workflow_dispatch` phải chọn `main`. Xem [runbook](docs/operations/production-deploy.md); không dùng webhook tự pull hay script deploy legacy.

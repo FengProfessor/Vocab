@@ -1,4 +1,5 @@
 # Chạy trên Windows (máy dev) SAU KHI có IP VPS.
+# LEGACY / NON-CANONICAL: không dùng để deploy production; xem docs/operations/production-deploy.md.
 # Usage:
 #   .\deploy\push-to-vps.ps1 -Ip 1.2.3.4
 #   .\deploy\push-to-vps.ps1 -Ip 1.2.3.4 -User root -Domain lingopro.online

@@ -11,6 +11,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { createHash } from 'crypto';
 import { fileURLToPath } from 'url';
 import pg from 'pg';
 
@@ -82,14 +83,64 @@ async function main() {
   console.log('[ApplyMigrations] connected');
 
   try {
+    if (!dryRun) {
+      await client.query('begin');
+      try {
+        // Transaction lock hoạt động cả với Supabase transaction pooler (port 6543).
+        await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', ['lingopro-app-migrations']);
+        await client.query(fs.readFileSync(
+          path.join(root, 'supabase/migrations/20260924_migration_history.sql'),
+          'utf8',
+        ));
+        await client.query('commit');
+      } catch (err) {
+        await client.query('rollback');
+        throw err;
+      }
+    }
+    const { rows: historyTable } = await client.query(
+      "SELECT to_regclass('app_migrations.applied') AS name",
+    );
+
     for (const rel of MIGRATIONS) {
       const full = path.join(root, rel);
       const sql = fs.readFileSync(full, 'utf8');
-      console.log(`[ApplyMigrations] >>> ${rel} (${sql.length} bytes)`);
-      if (dryRun) continue;
+      // Checkout Windows có CRLF; checksum phải giống runner Linux dùng LF.
+      const checksum = createHash('sha256').update(sql.replace(/\r\n/g, '\n')).digest('hex');
+      if (dryRun) {
+        const recorded = historyTable[0].name
+          ? await client.query(
+            'SELECT checksum FROM app_migrations.applied WHERE filename = $1',
+            [rel],
+          )
+          : { rows: [] };
+        if (recorded.rows.length > 0 && recorded.rows[0].checksum !== checksum) {
+          throw new Error(`Migration checksum changed after apply: ${rel}`);
+        }
+        console.log(`[ApplyMigrations] ${recorded.rows.length > 0 ? 'APPLIED' : 'PENDING'} ${rel}`);
+        continue;
+      }
       await client.query('begin');
       try {
+        await client.query('SELECT pg_advisory_xact_lock(hashtext($1))', ['lingopro-app-migrations']);
+        const { rows } = await client.query(
+          'SELECT checksum FROM app_migrations.applied WHERE filename = $1',
+          [rel],
+        );
+        if (rows.length > 0) {
+          if (rows[0].checksum !== checksum) {
+            throw new Error(`Migration checksum changed after apply: ${rel}`);
+          }
+          await client.query('commit');
+          console.log(`[ApplyMigrations] SKIP already applied: ${rel}`);
+          continue;
+        }
+        console.log(`[ApplyMigrations] >>> ${rel} (${sql.length} bytes)`);
         await client.query(sql);
+        await client.query(
+          'INSERT INTO app_migrations.applied (filename, checksum) VALUES ($1, $2)',
+          [rel, checksum],
+        );
         await client.query('commit');
         console.log(`[ApplyMigrations] OK ${rel}`);
       } catch (err) {
@@ -98,6 +149,8 @@ async function main() {
         throw err;
       }
     }
+
+    if (dryRun) return;
 
     // Post-apply probes
     const probes = [

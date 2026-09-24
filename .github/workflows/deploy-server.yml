@@ -4,12 +4,77 @@ on:
   push:
     branches:
       - main
-      - codex/grammar-research
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
 jobs:
+  quality:
+    name: Validate exact source before production changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require main branch and immutable event SHA
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          if [ "$GITHUB_REF" != 'refs/heads/main' ] || ! [[ "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo '::error::Production deployment requires main and an exact commit SHA'
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verify checkout identity
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+      - name: Validate workflow definitions
+        run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.11 -color=false
+      - name: Validate deployment scripts and migration runner syntax
+        run: |
+          bash -n deploy/activate-release.sh deploy/prepare-source.sh tests/deploy/activate-release.test.sh tests/deploy/prepare-source.test.sh
+          node --check scripts/apply-p0-migrations.mjs
+      - name: Deployment safety tests
+        run: |
+          bash tests/deploy/prepare-source.test.sh
+          bash tests/deploy/activate-release.test.sh
+      - name: Lint changed TypeScript deployment route
+        run: npx eslint src/app/api/health/route.ts
+      - name: Build application
+        run: npm run build
+      - name: Full typecheck (known baseline debt; reporting only)
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        run: npm run typecheck
+      - name: Full lint (known baseline debt; reporting only)
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        run: npm run lint
+
+  migrate:
+    name: Apply required database migrations
+    needs: quality
+    uses: ./.github/workflows/apply-p0-migrations.yml
+    secrets: inherit
+
   deploy:
     name: Deploy to LingoPro Ubuntu Server
+    needs: migrate
     runs-on: ubuntu-latest
     steps:
       - name: Connect to Tailscale VPN
@@ -28,8 +93,9 @@ jobs:
           command_timeout: 30m
           script_stop: true
           script: |
-            set -x
-            echo "🚀 [CI/CD] Starting Zero-Downtime Auto-Deployment on Ubuntu Server..."
+            set -eu
+            EXPECTED_SHA="${{ github.sha }}"
+            echo "[CI/CD] Starting deployment on Ubuntu Server..."
             
             LIVE_DIR="$HOME/Vocab"
             BUILD_DIR="$HOME/Vocab-build"
@@ -40,15 +106,21 @@ jobs:
             cd "$BUILD_DIR"
             echo "📍 Staging directory: $(pwd)"
             
-            if [ ! -d ".git" ]; then
-              echo "Cloning repository to staging directory..."
-              git clone https://github.com/FengProfessor/Vocab.git .
+            # Bootstrap the checkout before the versioned helper exists locally.
+            case "$EXPECTED_SHA" in
+              *[!0-9a-f]*|'') echo '[CI/CD] Invalid expected SHA' >&2; exit 1 ;;
+            esac
+            if [ "${#EXPECTED_SHA}" -ne 40 ]; then echo '[CI/CD] Invalid expected SHA length' >&2; exit 1; fi
+            if [ ! -d .git ]; then
+              if [ -n "$(ls -A .)" ]; then echo '[CI/CD] Staging directory is nonempty without Git' >&2; exit 1; fi
+              git init -q
+              git remote add origin https://github.com/FengProfessor/Vocab.git
+            else
+              git remote set-url origin https://github.com/FengProfessor/Vocab.git
             fi
-            
-            echo "Fetching latest code into staging..."
-            git remote set-url origin https://github.com/FengProfessor/Vocab.git 2>/dev/null || true
-            git fetch origin main || echo "git fetch warning"
-            git reset --hard origin/main || echo "git reset warning"
+            git fetch --no-tags origin "$EXPECTED_SHA"
+            git checkout --detach --force "$EXPECTED_SHA"
+            bash "$BUILD_DIR/deploy/prepare-source.sh" "$EXPECTED_SHA" "$BUILD_DIR"
             
             if [ -d "web-app" ]; then
               cd web-app
@@ -72,7 +144,7 @@ jobs:
             echo "CRON_SECRET=\"${{ secrets.CRON_SECRET }}\"" >> .env.local
             
             echo "📦 Installing dependencies in staging..."
-            npm install --production=false
+            npm ci
             
             echo "🏗️ Building Next.js application in staging..."
             export NODE_OPTIONS="--max-old-space-size=4096"
@@ -82,6 +154,7 @@ jobs:
               echo "❌ Build failed: .next/standalone was not generated!"
               exit 1
             fi
+            printf '%s\n' "$EXPECTED_SHA" > .next/.release-commit
             
             echo "Copying static assets to standalone bundle in staging..."
             cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
@@ -89,8 +162,8 @@ jobs:
             mkdir -p .next/standalone/src 2>/dev/null || true
             cp -r src/data .next/standalone/src/ 2>/dev/null || true
             
-            # --- PHASE 2: ATOMIC SWAP TO LIVE (Downtime < 1 second) ---
-            echo "🔄 Staging build verified! Performing atomic swap to LIVE..."
+            # --- PHASE 2: ACTIVATE WITH HEALTH-CHECKED ROLLBACK ---
+            echo "[CI/CD] Staging build verified; preparing activation..."
             cd "$LIVE_DIR"
             if [ -d "web-app" ]; then
               cd web-app
@@ -98,24 +171,9 @@ jobs:
             LIVE_APP_DIR="$(pwd)"
             echo "📍 Live App directory: $LIVE_APP_DIR"
             
-            # Sync repo tracking and env in live
-            git remote set-url origin https://github.com/FengProfessor/Vocab.git 2>/dev/null || true
-            git fetch origin main || true
-            git reset --hard origin/main || true
-            cp "$STAGING_APP_DIR/.env" .env 2>/dev/null || true
-            cp "$STAGING_APP_DIR/.env.local" .env.local 2>/dev/null || true
-            
-            # Atomic directory swap: copy to .next.new then atomic rename
-            rm -rf .next.new
-            cp -r "$STAGING_APP_DIR/.next" .next.new
-            if [ -d ".next" ]; then
-              mv .next .next.old && mv .next.new .next
-              rm -rf .next.old
-            else
-              mv .next.new .next
+            if ! bash "$BUILD_DIR/deploy/activate-release.sh" "$STAGING_APP_DIR" "$LIVE_APP_DIR" "$EXPECTED_SHA"; then
+              echo "[CI/CD] Deployment FAILED; see activation and rollback status above" >&2
+              exit 1
             fi
-            
-            echo "🔄 Restarting lingopro.service..."
-            sudo systemctl restart lingopro.service 2>/dev/null || sudo -n systemctl restart lingopro.service 2>/dev/null || systemctl restart lingopro.service 2>/dev/null || pm2 restart all 2>/dev/null || echo "Service restart fallback attempted"
-            
-            echo "✅ [CI/CD] Zero-Downtime Deployment Completed Successfully!"
+
+            echo "[CI/CD] Deployment completed after service and HTTP readiness checks"
