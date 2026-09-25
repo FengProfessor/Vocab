@@ -398,3 +398,13 @@
 - Repository secret `GDRIVE_RCLONE_CONFIG` was created at `2026-09-25T11:49:50Z` through stdin; its value was not printed. The pinned Windows and Linux rclone archives both matched their official SHA-256 checksums, and the expected Linux executable layout was confirmed.
 - Verification: `actionlint v1.7.12` **PASS** and `git diff --check` **PASS**. A canonical backup run is still required to verify folder creation, upload, and remote checksum.
 - Final status remains **BACKUP NOT READY**. No merge, migration, deploy, production restart, or manual production action occurred.
+
+### Google Drive OAuth verification (2026-09-25)
+
+- OAuth workflow commit `4fe41f7bf4fc2f3e1913bfa4e517e92b13c3a208` was pushed to `codex/fix-migration-workflow`; remote SHA matched local SHA. The production deploy workflow remained restricted to pushes on `main`, and no deploy run was triggered by the branch push.
+- Canonical backup run `36131664615`: database dump **PASS**, gzip validation **PASS**, GitHub Artifact **PASS**, pinned rclone checksum/install **PASS**, Google Drive OAuth upload **PASS**, remote checksum **PASS**, overall **PASS**.
+- Backup file `lingopro_backup_20260925_115121.sql.gz` is visible through the OAuth remote under `LingoPro Automated Backups`. GitHub artifact `lingopro-backup-20260925_115121`, ID `10861689980`, size `19,910,241` bytes, expires `2026-10-25T11:52:51Z`.
+- Existing recent backup artifacts were already restored successfully in isolated Supabase-compatible runs `36113337536` and `36113855566`; no new restore defect was introduced by changing only the secondary upload mechanism.
+- **BACKUP READY** for P0 rollout: a current verified dump exists in both GitHub Artifact storage and Google Drive, and restoreability has been demonstrated independently.
+- Follow-up: the Google OAuth app was authorized while in Testing mode. Publish the personal-use app before the seven-day test grant expires so future scheduled uploads keep working without weekly reauthorization.
+- No merge to `main`, production migration, deployment, or production restart occurred. Resume P0 rollout only under separate operator authorization.
