@@ -14,6 +14,17 @@ Push `main` hoặc dispatch trên `main` → quality gate → migration → chec
 
 Chỉ một controller được phép triển khai production: workflow chuẩn. Truy cập SSH production, trigger deploy, migration, restart hoặc vô hiệu hóa automation trên host cần operator cho phép rõ ràng. Kiểm tra read-only trên host cũng cần quyền truy cập được cấp.
 
+## Lệnh tắt của người dùng
+
+| Lệnh | Ý nghĩa |
+|---|---|
+| `commit đi` | Commit thay đổi hiện tại; không push. |
+| `push đi` | Commit nếu cần rồi push branch hiện tại; không merge `main`. |
+| `deploy đi` | Commit, push và release production qua canonical workflow của repo; không deploy thủ công. |
+| `lên production` | Giống `deploy đi`. |
+
+Với mọi deploy, tuân thủ workflow chuẩn và các preflight/điểm dừng trong repo. Không SSH deploy thủ công, `git pull`, dùng PM2 hoặc đi vòng CI, migration, health check.
+
 ## NEVER
 
 - Không deploy production bằng `git pull`, `origin/main`, Docker/PM2 script cũ, hoặc webhook tự pull không qua quality/migration.
