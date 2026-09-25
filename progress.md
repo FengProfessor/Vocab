@@ -369,3 +369,12 @@
 
 - **BACKUP NOT READY**. Restoreability is verified for both the prior and newly generated artifacts, but secondary durable storage is still failing and no operator acceptance of redundancy debt was given.
 - Do not resume P0 rollout automatically. `main`, production migrations, deployment, and production service remain untouched.
+
+### Google Drive credential retry (2026-09-25)
+
+- Operator added repository secrets named `GDRIVE_CREDENTIALS` and `GDRIVE_FOLDER_ID`; names and update timestamps were confirmed without reading values.
+- Canonical backup retry run `36122073995`: dump **PASS**, gzip validation **PASS**, GitHub Artifact **PASS**, Google Drive **FAIL**, overall **FAIL**.
+- New GitHub artifact: `lingopro-backup-20260925_100601`, ID `10858082671`, created `2026-09-25T10:07:35Z`, expires `2026-10-25T10:07:34Z`.
+- Exact Drive failure: `base64 decoding of 'credentials' failed with error: illegal base64 data at input byte 0`. The pinned action contract requires `GDRIVE_CREDENTIALS` to contain the service-account JSON encoded as base64, not raw JSON. No secret value was printed.
+- `GDRIVE_CREDENTIALS` must be replaced with a base64 encoding of the complete service-account JSON. Folder access remains unverified until a subsequent run reaches the Drive API.
+- Final status remains **BACKUP NOT READY**; no merge, migration, deploy, or production restart occurred.
