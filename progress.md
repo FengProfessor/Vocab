@@ -378,3 +378,23 @@
 - Exact Drive failure: `base64 decoding of 'credentials' failed with error: illegal base64 data at input byte 0`. The pinned action contract requires `GDRIVE_CREDENTIALS` to contain the service-account JSON encoded as base64, not raw JSON. No secret value was printed.
 - `GDRIVE_CREDENTIALS` must be replaced with a base64 encoding of the complete service-account JSON. Folder access remains unverified until a subsequent run reaches the Drive API.
 - Final status remains **BACKUP NOT READY**; no merge, migration, deploy, or production restart occurred.
+
+### Google Drive quota retry (2026-09-25)
+
+- Retry `36123775829` confirmed the repository still held the earlier non-base64 credential value: dump **PASS**, gzip validation **PASS**, GitHub Artifact **PASS**, Google Drive **FAIL** with the same base64 decode error.
+- `GDRIVE_CREDENTIALS` was then replaced from the operator-provided service-account JSON through a direct base64 pipe; credential content was neither displayed nor written into the repository. The secret timestamp advanced to `2026-09-25T10:26:36Z`.
+- Canonical backup retry `36124014754` on branch HEAD `8725283dab06d223016830e1b73d8eafd4428833`: dump **PASS**, gzip validation **PASS**, GitHub Artifact **PASS**, Google Drive **FAIL**, overall **FAIL**.
+- New GitHub artifact: `lingopro-backup-20260925_102712`, ID `10859491161`, size `19,909,241` bytes, created `2026-09-25T10:29:01Z`, expires `2026-10-25T10:28:59Z`.
+- Exact Drive failure: HTTP `403 storageQuotaExceeded`; Google reports that service accounts have no Drive storage quota. Sharing an ordinary My Drive folder with Editor permission does not provide quota because the service account would own the uploaded file.
+- The pinned action supports Shared Drives (`SupportsAllDrives(true)`) but authenticates only with service-account credentials. The next remediation is either a folder in a supported Google Workspace Shared Drive, or a separately reviewed workflow change to OAuth 2.0 user authentication.
+- Final status remains **BACKUP NOT READY**. No merge, migration, deploy, production restart, or manual production action occurred.
+
+### Google Drive OAuth preparation (2026-09-25)
+
+- Operator selected OAuth 2.0 with the personal Gmail account. Local workflow now replaces the service-account upload action with rclone `1.75.1`, downloaded from the official release URL and verified against SHA-256 `982b5aa772841168f8e380f139e9e787b2a105403e32b94da8676a0e1c0a13ab`.
+- The workflow expects one GitHub secret, `GDRIVE_RCLONE_CONFIG`, writes it to a permission-restricted runner temp file, uploads with retries, and performs a post-upload checksum check. The config file is removed when the step exits.
+- OAuth scope is `drive.file`; the workflow targets `LingoPro Automated Backups`, which limits access to files and folders created by this OAuth application. The manually created folder shared with the service account is not reused.
+- OAuth client type `installed` was confirmed without printing its ID or secret. Browser authorization for `taphong2002@gmail.com` completed with `drive.file`; a credential-free `rclone lsd` access test **PASS**.
+- Repository secret `GDRIVE_RCLONE_CONFIG` was created at `2026-09-25T11:49:50Z` through stdin; its value was not printed. The pinned Windows and Linux rclone archives both matched their official SHA-256 checksums, and the expected Linux executable layout was confirmed.
+- Verification: `actionlint v1.7.12` **PASS** and `git diff --check` **PASS**. A canonical backup run is still required to verify folder creation, upload, and remote checksum.
+- Final status remains **BACKUP NOT READY**. No merge, migration, deploy, production restart, or manual production action occurred.

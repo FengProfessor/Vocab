@@ -80,11 +80,61 @@ jobs:
           path: lingopro_backup_*.sql.gz
           retention-days: 30
 
-      - name: Lưu trữ vĩnh viễn lên Google Drive
-        uses: adityak74/google-drive-upload-git-action@935eccf4c2812e4d492c3d7c7ff59ca7520bf129
-        with:
-          credentials: ${{ secrets.GDRIVE_CREDENTIALS }}
-          folderId: ${{ secrets.GDRIVE_FOLDER_ID }}
-          name: lingopro_backup_${{ env.STAMP }}.sql.gz
-          filename: lingopro_backup_${{ env.STAMP }}.sql.gz
-          overwrite: "true"
+      - name: Cài đặt rclone đã xác minh
+        env:
+          RCLONE_VERSION: 1.75.1
+          RCLONE_SHA256: 982b5aa772841168f8e380f139e9e787b2a105403e32b94da8676a0e1c0a13ab
+        run: |
+          set -euo pipefail
+
+          ARCHIVE="rclone-v${RCLONE_VERSION}-linux-amd64.zip"
+          curl --fail --silent --show-error --location \
+            "https://downloads.rclone.org/v${RCLONE_VERSION}/${ARCHIVE}" \
+            --output "$RUNNER_TEMP/$ARCHIVE"
+          echo "$RCLONE_SHA256  $RUNNER_TEMP/$ARCHIVE" | sha256sum --check --strict
+
+          unzip -q "$RUNNER_TEMP/$ARCHIVE" -d "$RUNNER_TEMP"
+          install -m 0755 \
+            "$RUNNER_TEMP/rclone-v${RCLONE_VERSION}-linux-amd64/rclone" \
+            "$RUNNER_TEMP/rclone"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+
+      - name: Lưu trữ vĩnh viễn lên Google Drive bằng OAuth
+        env:
+          GDRIVE_RCLONE_CONFIG: ${{ secrets.GDRIVE_RCLONE_CONFIG }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${GDRIVE_RCLONE_CONFIG:-}" ]; then
+            echo "::error::Thiếu GitHub secret GDRIVE_RCLONE_CONFIG."
+            exit 1
+          fi
+
+          GZ_FILE="lingopro_backup_${STAMP}.sql.gz"
+          TARGET_DIR="LingoPro Automated Backups"
+          TARGET_FILE="${TARGET_DIR}/${GZ_FILE}"
+          RCLONE_CONFIG_FILE="$RUNNER_TEMP/rclone.conf"
+
+          umask 077
+          printf '%s' "$GDRIVE_RCLONE_CONFIG" > "$RCLONE_CONFIG_FILE"
+          trap 'rm -f "$RCLONE_CONFIG_FILE"' EXIT
+
+          if [ ! -s "$GZ_FILE" ]; then
+            echo "::error::Không tìm thấy file backup để tải lên Google Drive."
+            exit 1
+          fi
+
+          rclone copyto "$GZ_FILE" "gdrive:$TARGET_FILE" \
+            --config "$RCLONE_CONFIG_FILE" \
+            --checksum \
+            --drive-chunk-size 32M \
+            --retries 3 \
+            --low-level-retries 10 \
+            --stats-one-line \
+            --verbose
+
+          rclone check "$GZ_FILE" "gdrive:$TARGET_DIR" \
+            --config "$RCLONE_CONFIG_FILE" \
+            --one-way
+
+          echo "OK Google Drive OAuth upload verified: $TARGET_FILE"
