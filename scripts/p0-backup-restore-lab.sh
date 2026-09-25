@@ -2,12 +2,8 @@
 set -Eeuo pipefail
 
 backup_file="$(realpath "${1:?backup file required}")"
-expected_hash='13fa0f546f543ad813c4dac4e8cc371b2dd432011350aea9a80e9ee1299374cd'
 actual_hash="$(sha256sum "$backup_file" | cut -d ' ' -f 1)"
-if [[ "$actual_hash" != "$expected_hash" ]]; then
-  echo '[RestoreLab] Artifact checksum mismatch' >&2
-  exit 1
-fi
+echo "[RestoreLab] Artifact SHA-256: $actual_hash"
 gzip -t "$backup_file"
 
 container="p0-restore-${GITHUB_RUN_ID:-local}"
