@@ -25,6 +25,7 @@ gzip -dc "$backup_file" > "$sql_dir/backup.sql"
 chmod 644 "$sql_dir/backup.sql"
 
 docker run -d --name "$container" --network none \
+  -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=restore-lab-only \
   -v "$init_dir:/docker-entrypoint-initdb.d:ro" \
   -v "$sql_dir:/restore:ro" \
