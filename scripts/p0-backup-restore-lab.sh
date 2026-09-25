@@ -25,7 +25,6 @@ gzip -dc "$backup_file" > "$sql_dir/backup.sql"
 chmod 644 "$sql_dir/backup.sql"
 
 docker run -d --name "$container" --network none \
-  -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=restore-lab-only \
   -v "$init_dir:/docker-entrypoint-initdb.d:ro" \
   -v "$sql_dir:/restore:ro" \
@@ -34,7 +33,7 @@ docker run -d --name "$container" --network none \
 
 ready=0
 for attempt in {1..60}; do
-  if docker exec "$container" pg_isready -q -U postgres; then
+  if docker exec "$container" pg_isready -q -U supabase_admin; then
     ready=1
     break
   fi
@@ -49,6 +48,11 @@ if (( ready == 0 )); then
   echo '[RestoreLab] Isolated PostgreSQL not ready' >&2
   exit 1
 fi
+
+# Khi bỏ init SQL mặc định, image chỉ tạo supabase_admin.
+# Dump và extension nguồn còn cần role postgres chuẩn trong môi trường thử.
+docker exec "$container" psql -X -q -U supabase_admin -d postgres -c \
+  'CREATE ROLE postgres LOGIN SUPERUSER' >/dev/null
 
 version="$(docker exec "$container" psql -X -A -t -U postgres -d postgres -c 'SHOW server_version')"
 cron_state="$(docker exec "$container" psql -X -A -t -U postgres -d postgres -c 'SHOW cron.launch_active_jobs')"
