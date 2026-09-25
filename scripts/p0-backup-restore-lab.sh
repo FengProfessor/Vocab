@@ -27,7 +27,8 @@ docker run -d --name "$container" --network none \
 
 ready=0
 for attempt in {1..60}; do
-  if docker exec "$container" pg_isready -q -U supabase_admin; then
+  if docker logs "$container" 2>&1 | grep -q 'PostgreSQL init process complete' &&
+     docker exec "$container" pg_isready -q -U supabase_admin; then
     ready=1
     break
   fi
