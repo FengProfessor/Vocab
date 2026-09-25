@@ -1,0 +1,29 @@
+name: P0 Backup Restore Lab
+
+on:
+  push:
+    branches:
+      - codex/fix-migration-workflow
+    paths:
+      - .github/workflows/p0-backup-restore-lab.yml
+      - scripts/p0-backup-restore-lab.sh
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: '35926321842'
+          name: lingopro-backup-20260923_220540
+          path: backup-artifact
+          github-token: ${{ github.token }}
+      - name: Restore into isolated Supabase PostgreSQL
+        run: bash scripts/p0-backup-restore-lab.sh backup-artifact/lingopro_backup_20260923_220540.sql.gz
