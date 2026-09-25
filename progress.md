@@ -319,3 +319,53 @@
 
 - Existing GitHub artifacts expire after 30 days; current main backup workflow still uses the bad input until a separately authorized main update occurs.
 - A matching disposable Supabase PostgreSQL restore environment, including required extensions/roles and clean schema, is needed to validate a backup end to end. Only after restore verification should a new canonical backup run test the Drive fix.
+
+## P0-BACKUP2 — Supabase-aware restore verification (2026-09-25)
+
+### Source backup
+
+- Method: **CURRENT BACKUP FORMAT: RAW LOGICAL PG_DUMP**. Exact credential-free command shape: `docker run --rm postgres:17-alpine pg_dump --no-owner --no-privileges -U "$PG_USER" "$PG_URL"`; output is plain SQL compressed with gzip. It is not `supabase db dump`.
+- PostgreSQL source version: `17.6`, inferred from the dump header; dump client version `17.11`. A direct production `select version()` was not run because this task used the existing read-only backup path and did not expose DB credentials.
+- Original artifact: `lingopro-backup-20260923_220540`, run `35926321842`, ID `10779865508`, SHA-256 `13fa0f546f543ad813c4dac4e8cc371b2dd432011350aea9a80e9ee1299374cd`.
+
+### Restore environment
+
+- Type: isolated GitHub-hosted Docker container using `supabase/postgres:17.6.1.175`; server PostgreSQL `17.6`. No production application connection or credentials were provided to the restore job.
+- Safety: Docker network `none`; `cron.launch_active_jobs=off`; `pg_cron` moved from bootstrap database to the clean restore database before loading SQL. No restored cron/webhook could reach an external endpoint.
+- Supabase bootstrap supplied required reserved roles. Restore target was a new `restore_test` database with no preexisting `auth`, `storage`, `extensions`, `cron`, `graphql`, `graphql_public`, `realtime`, or `vault` schema.
+- Extensions represented in the dump: `pg_cron`, `pg_stat_statements`, `pgcrypto`, `supabase_vault`, `uuid-ossp`.
+
+### Restore result
+
+- Existing artifact restore run `36113337536`: **PASS / RESTORE VERIFIED**.
+- New artifact restore run `36113855566`: **PASS / RESTORE VERIFIED** on the same isolated process. Artifact `lingopro-backup-20260925_083237`, ID `10853968048`, SHA-256 `9c63fc6a4e6454a611963bd971a00e73d0584727e12acb42cb8dc103a0bc93cb`.
+- Schema/table verification: `public.profiles`, `public.words`, `public.orders`, `public.srs_progress`, `public.referral_links`, `public.reward_transactions`, `auth.users`, and `storage.objects` exist. These names were selected from the actual dump and repository migrations, not guessed.
+- Safe count queries completed for representative application tables without printing row data or counts. Critical functions `confirm_paid_order`, `get_word_summary`, `fn_resolve_referral_code`, `claim_onboarding_xp` and public policies were inspectable.
+- Container restart completed; restored database remained queryable and critical tables remained present. `app_migrations.applied` was not expected in the 23 September artifact because the P0 migration/history system had not run on production.
+
+### Errors classified
+
+- **EXPECTED / BENIGN:** schema/object conflicts when attempting to restore a full raw dump into the image's already initialized `postgres` database.
+- **ENVIRONMENT MISMATCH:** generic/incorrect database placement for `pg_cron`; default image init suppressed required Supabase roles/schemas.
+- **FIXABLE RESTORE PREREQUISITE:** standard `postgres`/reserved roles needed by extensions such as `supabase_vault`; resolved by retaining Supabase's normal bootstrap and restoring into a separate clean database.
+- **ENVIRONMENT RACE:** temporary PostgreSQL opened during image init before final server startup; resolved by waiting for the image's init-complete marker.
+- **FATAL BACKUP DEFECT:** none observed in the two successful final restores.
+- **UNKNOWN fatal errors:** none remain in the successful restore path.
+
+### Google Drive
+
+- Fix in branch: action input changed from invalid `uploadFrom` to `filename`; third-party action pinned to immutable commit `935eccf4c2812e4d492c3d7c7ff59ca7520bf129`.
+- New canonical backup workflow run: `36113438708` on `codex/fix-migration-workflow`.
+- Database dump: **PASS**. Gzip validation: **PASS**. GitHub Artifact: **PASS**. Google Drive: **FAIL**. Overall: **FAIL**.
+- Exact failure class: configuration/secret missing. Repository secret inventory does not contain `GDRIVE_FOLDER_ID` or `GDRIVE_CREDENTIALS`; action stopped at `missing input 'folderId'`. No secret value was read or printed. Operator must provision both secret types and share the Drive folder with the service account before another validation run.
+
+### Backup format assessment
+
+- Raw `pg_dump` did restore successfully, but only after reproducing Supabase roles/extensions, isolating a clean database, relocating `pg_cron`, and handling Supabase bootstrap behavior. It includes Supabase internal schemas and cron metadata, increasing restore risk and operational complexity.
+- Supabase's documented CLI flow separates roles, schema, and data and applies Supabase-specific filtering for internal schemas/reserved roles. Recommendation: **MIGRATE BACKUP FORMAT TO SUPABASE CLI** as a separate reviewed change; do not switch format inside the P0 rollout.
+- The temporary hard-coded restore-lab workflow/script was removed from the final tree after capturing successful run evidence, so it cannot accidentally become a stale production workflow.
+
+### Final status
+
+- **BACKUP NOT READY**. Restoreability is verified for both the prior and newly generated artifacts, but secondary durable storage is still failing and no operator acceptance of redundancy debt was given.
+- Do not resume P0 rollout automatically. `main`, production migrations, deployment, and production service remain untouched.
