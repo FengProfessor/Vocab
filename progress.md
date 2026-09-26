@@ -501,7 +501,10 @@
 - Repo public; GitHub yêu cầu đăng nhập để xem workflow logs. Run không có artifact. Log đã được stream một lần vào Codex task để review, không lưu thành workspace file.
 - Log deletion: GitHub REST delete trả HTTP 204; HEAD logs endpoint sau đó trả 404 trong khi run metadata vẫn còn. **PII LOG = REMOVED** khỏi GitHub; prior viewer/download/transcript copies là residual exposure.
 - Implementation trên PR `#8`: `/api/cron/auth-check` dùng shared `assertCronAuthorized`, valid secret trả 204 bodyless, reject trả 401, không có DB/service-role/Storage/email/push/business mutation. `workflow_dispatch` chỉ gọi probe; schedule mới gọi real `push-due`; curl luôn discard body và log endpoint/status/PASS.
-- Regression test mới cover missing/malformed/wrong/missing-env/valid auth, bodyless 204, zero side effects và workflow không in response body. Canonical rollout và production verification pending; Critical/P1 Phase 1A vẫn OPEN; sáu High findings chưa xử lý.
+- Regression test mới cover missing/malformed/wrong/missing-env/valid auth, bodyless 204, zero side effects và workflow không in response body. Clean PR CI run `36277817759` PASS trên Node 22; PR `#8` merge tại SHA `d9842de4647338745c7e4a4a92fa8c41a23af83c`.
+- Canonical run `36277966926`: quality, migration, exact-SHA deploy/activation và health đều **PASS**. Public `/api/health` HTTP 200 `{"status":"ok"}` với `no-store`; root HTTP 200. Build HEAD, build/live `.next/.release-commit` cùng bằng merge SHA; `lingopro.service` active/MainPID hợp lệ.
+- Production auth-check: missing/malformed/synthetic invalid đều 401. Safe workflow-dispatch run `36278918835` dùng current repository secret, skip `push-due`, gọi riêng `/api/cron/auth-check` và nhận HTTP 204 bodyless. Log mới chỉ có endpoint/status/PASS, không có response body hoặc PII; verification không tạo notification, email hoặc DB mutation.
+- Final: **Cron auth vulnerability = CLOSED**; **Verification incident = RESIDUAL RISK DOCUMENTED** do prior viewer/download/transcript copies không thể thu hồi; **P1 Phase 1A = DONE**; Remaining High findings = **6 OPEN**.
 
 ## 2026-09-23 · TOEIC TikTok 100-video campaign
 

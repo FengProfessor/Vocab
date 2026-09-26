@@ -237,7 +237,11 @@ Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLin
 - Remediation code: thêm `/api/cron/auth-check`, gọi trực tiếp shared `assertCronAuthorized()`, trả 204 rỗng khi hợp lệ và không import/call database, service role, Storage, email, push hoặc business mutation.
 - `push-cron.yml`: `workflow_dispatch` chỉ gọi `auth-check`; event `schedule` mới được gọi `push-due`. Cả hai curl đều discard body và chỉ log endpoint, HTTP status, PASS/FAIL. Không đổi quiet-window hoặc notification product policy.
 - Regression coverage kiểm tra 401 cho missing/malformed/wrong/missing-server-secret, 204 bodyless cho secret đúng, zero side-effect markers/counters, và cấm workflow dùng response file, `cat`, `jq` hoặc `tee` để in body.
-- Status: implementation đang ở PR `#8`; production verification/canonical rollout pending. Sáu High findings giữ nguyên OPEN.
+- PR `#8` merge tại SHA `d9842de4647338745c7e4a4a92fa8c41a23af83c` sau clean PR CI run `36277817759` PASS trên Node 22. Canonical run `36277966926` PASS toàn bộ quality, migration, exact-SHA deploy/activation và health.
+- Production verification: public `/api/health` trả HTTP 200 `{"status":"ok"}` với `Cache-Control: no-store`; root trả HTTP 200. Build HEAD, build `.next/.release-commit` và live `.next/.release-commit` đều bằng merge SHA; `lingopro.service` active và MainPID hợp lệ.
+- Production auth contract: missing, malformed và synthetic invalid auth đều trả 401. Safe workflow-dispatch run `36278918835` tại đúng merge SHA dùng repository `CRON_SECRET`, bỏ qua step `push-due`, gọi riêng `/api/cron/auth-check` và nhận HTTP 204 bodyless.
+- Log của run mới chỉ chứa endpoint `/api/cron/auth-check`, HTTP 204 và PASS; không có response body hoặc PII. Route không có DB/service-role/Storage/email/push/business mutation; regression test và step selection xác nhận verification không tạo notification, email hoặc DB mutation.
+- Final status: **Cron auth vulnerability = CLOSED**; **Verification incident = RESIDUAL RISK DOCUMENTED** vì prior viewer/download/transcript copies không thể thu hồi; **P1 Phase 1A = DONE**. Sáu High findings giữ nguyên **OPEN** và chưa bắt đầu.
 
 ## Thứ tự xử lý đề xuất
 
