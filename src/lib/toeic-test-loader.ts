@@ -13,9 +13,21 @@ import type {
   ToeicUnifiedQuestion,
   ToeicTestMetadata,
   ToeicSanitizedQuestion,
+  ToeicClientQuestion,
   ToeicReadingContent,
   ToeicOptionKey,
+  ToeicClusterType,
+  ToeicQuestionCluster,
+  ToeicSanitizedQuestionCluster,
+  ToeicClientQuestionCluster,
 } from '@/types/toeic';
+
+export type {
+  ToeicClusterType,
+  ToeicQuestionCluster,
+  ToeicSanitizedQuestionCluster,
+  ToeicClientQuestionCluster,
+};
 
 // ── Catalog Index Interfaces ──
 
@@ -1044,14 +1056,18 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
   // Extract all 13 conversation audios
   const p3Group = listeningData.part3.find((x) => x.testId === cleanId);
   if (p3Group) {
-    const part3Audios = p3Group.questions
-      .map((q) => q.audio_url)
-      .filter((url): url is string => Boolean(url && url.trim()));
+    const part3Audios = Array.from(
+      new Set(
+        p3Group.questions
+          .map((q) => q.audio_url)
+          .filter((url): url is string => Boolean(url && url.trim()))
+      )
+    );
 
     p3Group.questions.forEach((q, idx) => {
       const qnum = idx + 32; // 32 to 70
       const groupIndex = Math.floor((qnum - 32) / 3); // 0 to 12
-      const alignedAudio = part3Audios[groupIndex] || q.audio_url;
+      const alignedAudio = q.audio_url || part3Audios[groupIndex];
 
       const fallbackKeys: ('A' | 'B' | 'C' | 'D')[] = ['A', 'B', 'C', 'D'];
       const parsedOptions = (q.options || []).map((opt, optIdx) =>
@@ -1084,14 +1100,18 @@ export function loadFullToeicTest(testId: unknown = '6852'): ToeicUnifiedQuestio
   // Extract all 10 talk audios
   const p4Group = listeningData.part4.find((x) => x.testId === cleanId);
   if (p4Group) {
-    const part4Audios = p4Group.questions
-      .map((q) => q.audio_url)
-      .filter((url): url is string => Boolean(url && url.trim()));
+    const part4Audios = Array.from(
+      new Set(
+        p4Group.questions
+          .map((q) => q.audio_url)
+          .filter((url): url is string => Boolean(url && url.trim()))
+      )
+    );
 
     p4Group.questions.forEach((q, idx) => {
       const qnum = idx + 71; // 71 to 100
       const groupIndex = Math.floor((qnum - 71) / 3); // 0 to 9
-      const alignedAudio = part4Audios[groupIndex] || q.audio_url;
+      const alignedAudio = q.audio_url || part4Audios[groupIndex];
 
       const fallbackKeys: ('A' | 'B' | 'C' | 'D')[] = ['A', 'B', 'C', 'D'];
       const parsedOptions = (q.options || []).map((opt, optIdx) =>
@@ -1721,6 +1741,265 @@ export function stripSensitiveToeicData(
     const { correctAnswer, explanationVi, transcript, ...sanitized } = q;
     return sanitized;
   });
+}
+
+/**
+ * Resolves the 3-question cluster for any question number in Part 3 or Part 4.
+ * Supports both signatures for maximum caller compatibility:
+ *   getToeicClusterForQuestion(qnum, questions)
+ *   getToeicClusterForQuestion(questions, qnum)
+ * Natively supports both 'text_dialogue' (Study4 / Estudyme) and 'scanned_image' (ETS 2024 / 2026).
+ */
+export function getToeicClusterForQuestion<
+  T extends ToeicUnifiedQuestion | ToeicSanitizedQuestion | ToeicClientQuestion = ToeicUnifiedQuestion,
+>(
+  arg1: number | T[],
+  arg2?: number | T[]
+): {
+  clusterId: string;
+  groupId: string;
+  testId?: string;
+  part: ToeicPart;
+  clusterType: ToeicClusterType;
+  startQuestionNumber: number;
+  endQuestionNumber: number;
+  audioUrl: string;
+  imageUrl?: string | null;
+  transcript?: string | null;
+  explanationVi?: string | null;
+  questions: T[];
+} | null {
+  let qnum: number = -1;
+  let questions: T[] = [];
+
+  if (typeof arg1 === 'number') {
+    qnum = arg1;
+    questions = Array.isArray(arg2) ? arg2 : [];
+  } else {
+    questions = Array.isArray(arg1) ? arg1 : [];
+    qnum = typeof arg2 === 'number' ? arg2 : -1;
+  }
+
+  // Guard against non-integer, negative, or invalid question numbers
+  if (!Number.isInteger(qnum) || qnum <= 0) return null;
+  if (!Array.isArray(questions) || questions.length === 0) return null;
+
+  let part: ToeicPart = 3;
+  let start = 32;
+  let end = 34;
+
+  // Check if target question exists in the provided array
+  const targetQ = questions.find((q) => q.questionNumber === qnum);
+
+  if (targetQ) {
+    // If the question is Part 1, 2, 5, 6, 7 -> never in a listening cluster
+    if (targetQ.part !== 3 && targetQ.part !== 4) {
+      return null;
+    }
+
+    part = targetQ.part;
+
+    // Check if this part in questions[] uses 1-based relative renumbering
+    const isRelative = questions.some((q) => q.part === part && q.questionNumber === 1);
+
+    if (isRelative) {
+      // 1-based relative clustering (e.g. Part 3 practice 1..39, Part 4 practice 1..30)
+      const clusterIdx = Math.floor((qnum - 1) / 3);
+      start = 1 + clusterIdx * 3;
+      end = start + 2;
+    } else {
+      // Standard 200Q absolute clustering
+      if (part === 3) {
+        if (qnum < 32 || qnum > 70) return null;
+        const clusterIdx = Math.floor((qnum - 32) / 3);
+        start = 32 + clusterIdx * 3;
+        end = start + 2;
+      } else {
+        if (qnum < 71 || qnum > 100) return null;
+        const clusterIdx = Math.floor((qnum - 71) / 3);
+        start = 71 + clusterIdx * 3;
+        end = start + 2;
+      }
+    }
+  } else {
+    // Fallback if targetQ is not present in questions array (e.g. subset query)
+    if (qnum >= 32 && qnum <= 70) {
+      part = 3;
+      const clusterIdx = Math.floor((qnum - 32) / 3);
+      start = 32 + clusterIdx * 3;
+      end = start + 2;
+    } else if (qnum >= 71 && qnum <= 100) {
+      part = 4;
+      const clusterIdx = Math.floor((qnum - 71) / 3);
+      start = 71 + clusterIdx * 3;
+      end = start + 2;
+    } else {
+      return null;
+    }
+  }
+
+  const childQuestions = questions
+    .filter((q) => q.part === part && q.questionNumber >= start && q.questionNumber <= end)
+    .sort((a, b) => a.questionNumber - b.questionNumber);
+
+  if (childQuestions.length === 0) return null;
+
+  const firstQ = childQuestions[0];
+  const audioUrl = childQuestions.find((q) => q.audioUrl)?.audioUrl || '';
+  const imageUrl = childQuestions.find((q) => q.imageUrl)?.imageUrl || null;
+  const transcript = (childQuestions.find((q) => (q as any).transcript) as any)?.transcript || null;
+  const explanationVi = (childQuestions.find((q) => (q as any).explanationVi) as any)?.explanationVi || null;
+
+  // Determine cluster type: if question prompt is empty but image exists -> scanned_image
+  const hasEmptyPrompts = childQuestions.every(
+    (q) => !q.prompt || q.prompt.trim() === '' || q.prompt === null
+  );
+  const clusterType: ToeicClusterType =
+    hasEmptyPrompts && imageUrl ? 'scanned_image' : 'text_dialogue';
+
+  const clusterId = `cluster-${firstQ.testId || 'test'}-p${part}-q${start}-${end}`;
+
+  return {
+    clusterId,
+    groupId: clusterId,
+    testId: firstQ.testId,
+    part,
+    clusterType,
+    startQuestionNumber: start,
+    endQuestionNumber: end,
+    audioUrl,
+    imageUrl,
+    transcript,
+    explanationVi,
+    questions: childQuestions,
+  };
+}
+
+/**
+ * Resolves the 3-question client cluster for Part 3 or Part 4 questions.
+ */
+export function getToeicClientClusterForQuestion(
+  arg1: number | ToeicClientQuestion[],
+  arg2?: number | ToeicClientQuestion[]
+): ToeicClientQuestionCluster | null {
+  return getToeicClusterForQuestion<ToeicClientQuestion>(arg1 as any, arg2 as any) as ToeicClientQuestionCluster | null;
+}
+
+/**
+ * Partitions listening questions into Part 3 and Part 4 clusters (up to 23 clusters).
+ *
+ * Supports both:
+ * 1. Full 200Q tests (13 Part 3 clusters Q32-70, 10 Part 4 clusters Q71-100)
+ * 2. Renumbered Part Practice sets (Part 3: 13 clusters Q1-39; Part 4: 10 clusters Q1-30)
+ */
+export function clusterToeicQuestions<
+  T extends ToeicUnifiedQuestion | ToeicSanitizedQuestion | ToeicClientQuestion,
+>(
+  questions: T[]
+): Array<{
+  clusterId: string;
+  groupId: string;
+  testId?: string;
+  part: ToeicPart;
+  clusterType: ToeicClusterType;
+  startQuestionNumber: number;
+  endQuestionNumber: number;
+  audioUrl: string;
+  imageUrl?: string | null;
+  transcript?: string | null;
+  explanationVi?: string | null;
+  questions: T[];
+}> {
+  if (!questions || !Array.isArray(questions) || questions.length === 0) return [];
+
+  const clusters: Array<{
+    clusterId: string;
+    groupId: string;
+    testId?: string;
+    part: ToeicPart;
+    clusterType: ToeicClusterType;
+    startQuestionNumber: number;
+    endQuestionNumber: number;
+    audioUrl: string;
+    imageUrl?: string | null;
+    transcript?: string | null;
+    explanationVi?: string | null;
+    questions: T[];
+  }> = [];
+
+  const p3Questions = questions.filter((q) => q.part === 3);
+  const p4Questions = questions.filter((q) => q.part === 4);
+
+  // ── Part 3 Clusters ──
+  if (p3Questions.length > 0) {
+    const isP3Relative = p3Questions.some((q) => q.questionNumber === 1);
+    if (isP3Relative) {
+      // Renumbered Part 3 practice (1..N, e.g. 1..39 for 13 clusters)
+      const maxP3 = Math.max(...p3Questions.map((q) => q.questionNumber));
+      for (let qnum = 1; qnum <= maxP3; qnum += 3) {
+        const cluster = getToeicClusterForQuestion<T>(questions, qnum);
+        if (cluster) clusters.push(cluster);
+      }
+    } else {
+      // Standard absolute Part 3 (Q32..Q70, 13 clusters)
+      for (let i = 0; i < 13; i++) {
+        const qnum = 32 + i * 3;
+        const cluster = getToeicClusterForQuestion<T>(questions, qnum);
+        if (cluster) clusters.push(cluster);
+      }
+    }
+  }
+
+  // ── Part 4 Clusters ──
+  if (p4Questions.length > 0) {
+    const isP4Relative = p4Questions.some((q) => q.questionNumber === 1);
+    if (isP4Relative) {
+      // Renumbered Part 4 practice (1..N, e.g. 1..30 for 10 clusters)
+      const maxP4 = Math.max(...p4Questions.map((q) => q.questionNumber));
+      for (let qnum = 1; qnum <= maxP4; qnum += 3) {
+        const cluster = getToeicClusterForQuestion<T>(questions, qnum);
+        if (cluster) clusters.push(cluster);
+      }
+    } else {
+      // Standard absolute Part 4 (Q71..Q100, 10 clusters)
+      for (let i = 0; i < 10; i++) {
+        const qnum = 71 + i * 3;
+        const cluster = getToeicClusterForQuestion<T>(questions, qnum);
+        if (cluster) clusters.push(cluster);
+      }
+    }
+  }
+
+  return clusters;
+}
+
+/**
+ * Strips sensitive data from a question cluster for client delivery (Zero Bulk Leaks).
+ */
+export function stripSensitiveClusterData(
+  cluster: ToeicQuestionCluster
+): ToeicSanitizedQuestionCluster {
+  return {
+    clusterId: cluster.clusterId,
+    groupId: cluster.groupId || cluster.clusterId,
+    testId: cluster.testId,
+    part: cluster.part,
+    clusterType: cluster.clusterType,
+    startQuestionNumber: cluster.startQuestionNumber,
+    endQuestionNumber: cluster.endQuestionNumber,
+    audioUrl: cluster.audioUrl,
+    imageUrl: cluster.imageUrl,
+    questions: cluster.questions.map((q) => {
+      const sanitized = {
+        ...q,
+        options: q.options ? q.options.map((o) => ({ ...o })) : [],
+      };
+      delete (sanitized as any).correctAnswer;
+      delete (sanitized as any).explanationVi;
+      delete (sanitized as any).transcript;
+      return sanitized as ToeicSanitizedQuestion;
+    }),
+  };
 }
 
 /**

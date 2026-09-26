@@ -502,3 +502,12 @@
 - Log deletion: GitHub REST delete trả HTTP 204; HEAD logs endpoint sau đó trả 404 trong khi run metadata vẫn còn. **PII LOG = REMOVED** khỏi GitHub; prior viewer/download/transcript copies là residual exposure.
 - Implementation trên PR `#8`: `/api/cron/auth-check` dùng shared `assertCronAuthorized`, valid secret trả 204 bodyless, reject trả 401, không có DB/service-role/Storage/email/push/business mutation. `workflow_dispatch` chỉ gọi probe; schedule mới gọi real `push-due`; curl luôn discard body và log endpoint/status/PASS.
 - Regression test mới cover missing/malformed/wrong/missing-env/valid auth, bodyless 204, zero side effects và workflow không in response body. Canonical rollout và production verification pending; Critical/P1 Phase 1A vẫn OPEN; sáu High findings chưa xử lý.
+
+## 2026-09-23 · TOEIC TikTok 100-video campaign
+
+- Tạo campaign 100 video TOEIC Listening: 25 video cho mỗi Part 1–4, mỗi video 3 câu.
+- Thêm tracker JSON + checklist Markdown; render thành công tự chuyển `todo -> rendered`, lưu `questionIds`, output và thời gian.
+- Pipeline campaign dùng `filterMode=unseen` + history injection để loại câu đã dùng qua các lần render.
+- Thêm lệnh `video:toeic:100` và `video:toeic:status`.
+- Smoke test 2 slot Part 1 liên tiếp lấy 2 question ID khác nhau và render thành công sau khi làm selector nút đáp án ổn định hơn.
+- Tracker production vẫn ở 0/100, chưa tiêu hao slot thật.

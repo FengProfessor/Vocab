@@ -7,6 +7,7 @@ import {
   loadToeicPartPractice,
   loadToeicQuestionsByIds,
   convertLegacyMiniTest,
+  clusterToeicQuestions,
 } from '@/lib/toeic-test-loader';
 import { calculateToeicScore } from '@/lib/toeic-scoring';
 import {
@@ -22,6 +23,7 @@ import type {
   ToeicExamMode,
   ToeicOptionKey,
   ToeicUnifiedQuestion,
+  ToeicClientQuestionCluster,
 } from '@/types/toeic';
 
 interface SubmitRequestBody {
@@ -211,10 +213,12 @@ export async function POST(req: NextRequest) {
 
     if (isPoisonedTarget) {
       const poisonedReview = masterQuestions.map((q) => poisonUnifiedQuestion(q, ip));
+      const poisonedClusters = clusterToeicQuestions(poisonedReview) as ToeicClientQuestionCluster[];
       return NextResponse.json({
         success: true,
         scoreResult,
         reviewQuestions: poisonedReview,
+        reviewClusters: poisonedClusters.length > 0 ? poisonedClusters : undefined,
         savedToHistory: false,
         isGuest: true,
         isPoisoned: true,
@@ -230,10 +234,13 @@ export async function POST(req: NextRequest) {
       ),
     }));
 
+    const reviewClusters = clusterToeicQuestions(watermarkedReview) as ToeicClientQuestionCluster[];
+
     return NextResponse.json({
       success: true,
       scoreResult,
       reviewQuestions: watermarkedReview,
+      reviewClusters: reviewClusters.length > 0 ? reviewClusters : undefined,
       savedToHistory,
       isGuest: !auth?.userId,
     });

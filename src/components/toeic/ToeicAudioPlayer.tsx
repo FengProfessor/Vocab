@@ -23,7 +23,7 @@ export interface ToeicAudioPlayerProps {
   className?: string;
 }
 
-export function ToeicAudioPlayer({
+export function ToeicAudioPlayerComponent({
   src,
   title = 'Âm thanh bài thi',
   mode = 'real',
@@ -34,6 +34,11 @@ export function ToeicAudioPlayer({
   const isExamMode = mode === 'real' || mode === 'full_simulation';
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const onEndedRef = useRef(onEnded);
+  useEffect(() => {
+    onEndedRef.current = onEnded;
+  }, [onEnded]);
+
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
@@ -177,7 +182,16 @@ export function ToeicAudioPlayer({
   };
 
   if (!src) {
-    return null;
+    return (
+      <div
+        className={`rounded-sm border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-300 ${className}`}
+      >
+        <div className="flex items-center gap-2">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          <span>File âm thanh đang được cập nhật từ Viện Khảo thí.</span>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -188,6 +202,13 @@ export function ToeicAudioPlayer({
         ref={audioRef}
         src={src}
         preload="auto"
+        onPlay={() => {
+          setIsPlaying(true);
+          setHasPlayedOnce(true);
+        }}
+        onPause={() => {
+          setIsPlaying(false);
+        }}
         onTimeUpdate={() => {
           if (audioRef.current) {
             setCurrentTime(audioRef.current.currentTime);
@@ -201,7 +222,8 @@ export function ToeicAudioPlayer({
         }}
         onEnded={() => {
           setIsPlaying(false);
-          if (onEnded) onEnded();
+          setHasPlayedOnce(true);
+          if (onEndedRef.current) onEndedRef.current();
         }}
         onError={() => {
           setHasError(true);
@@ -402,3 +424,16 @@ export function ToeicAudioPlayer({
     </div>
   );
 }
+
+export const ToeicAudioPlayer = React.memo(
+  ToeicAudioPlayerComponent,
+  (prevProps, nextProps) => {
+    return (
+      prevProps.src === nextProps.src &&
+      prevProps.title === nextProps.title &&
+      prevProps.mode === nextProps.mode &&
+      prevProps.autoPlayInExamMode === nextProps.autoPlayInExamMode &&
+      prevProps.className === nextProps.className
+    );
+  }
+);
