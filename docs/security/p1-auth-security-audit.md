@@ -10,7 +10,7 @@ Không được merge/deploy P1 trước khi xóa bypass, rotate `CRON_SECRET`, 
 
 ### Phase 1A remediation status
 
-Branch `codex/p1a-remove-cron-bypass` đã chuẩn hóa bốn cron endpoint về một contract `Authorization: Bearer <CRON_SECRET>`. PR `#7` đã merge tại SHA `3e2dad3324387f1b0301bcc0ac0975841e196768`; canonical rollout và secret rotation đều PASS. Production chấp nhận secret mới và từ chối secret cũ. Critical vẫn **OPEN** vì verification của GitHub scheduler ngoài quiet window đã gửi push ngoài dự kiến và ghi response chứa PII vào Actions log; cần xử lý incident/logging trước khi đóng.
+Branch `codex/p1a-remove-cron-bypass` đã chuẩn hóa bốn cron endpoint về một contract `Authorization: Bearer <CRON_SECRET>`. PR `#7` đã merge tại SHA `3e2dad3324387f1b0301bcc0ac0975841e196768`; canonical rollout và secret rotation đều PASS. Production chấp nhận secret mới và từ chối secret cũ. Phase 1A.1 đã xóa log sự cố khỏi GitHub và chuẩn bị auth-only probe không side effect; Critical vẫn **OPEN** tới khi probe được deploy và verify trên production.
 
 ## Phạm vi và số lượng
 
@@ -226,7 +226,18 @@ Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLin
 - Secret mới được sinh bằng CSPRNG 256-bit và ghi vào GitHub repository secret qua stdin; không in hoặc lưu giá trị vào repo/report. Canonical workflow-dispatch run `36258210217` tại cùng exact SHA: Quality **PASS**, Migration **PASS**, deploy/activation/health **PASS**.
 - Sau rotation: new secret trả 200; old secret, no auth, malformed auth và synthetic invalid đều 401. Ubuntu user crontab được thay đúng token, giữ nguyên schedule/endpoint, không restart service; secret cũ không còn trong active crontab.
 - GitHub caller verification run `36276708098` trả HTTP 200 bằng secret mới. Run bắt đầu lúc 05:34 VN, bốn phút sau quiet window kết thúc, nên route đã gửi **77 push notifications** và workflow đã ghi response chứa user identifiers/names vào Actions log. Đây là side effect ngoài dự kiến; không chạy lại endpoint và không xóa run để tránh tự ý phá evidence.
-- Status: `CRON_SECRET` rotation và auth contract production **VERIFIED**, nhưng Critical vẫn **OPEN** cho tới khi xử lý incident/log exposure và có safe caller verification không tạo side effect. Sáu High findings hiện có vẫn OPEN và không được sửa trong Phase 1A.
+- Status: `CRON_SECRET` rotation và auth contract production **VERIFIED**, nhưng Critical vẫn **OPEN** cho tới khi safe probe được deploy/verify. Sáu High findings hiện có vẫn OPEN và không được sửa trong Phase 1A.
+
+## Phase 1A.1 — Safe cron verification và PII log remediation (2026-09-27)
+
+- Incident root cause: `workflow_dispatch` run `36276708098`, step `Trigger push-due`, gọi endpoint nghiệp vụ thật. Workflow ghi toàn bộ `/tmp/resp.json` bằng `cat` trước khi chạy `jq`. Run bắt đầu `2026-09-26T22:34:21Z`, tương ứng 05:34 VN; quiet window kết thúc lúc 05:30 nên route được phép gửi và tạo 77 push ngoài dự kiến.
+- Exposed categories: user identifier, display name, due-word count và notification delivery status. Không thấy email, FCM token, Authorization header, `CRON_SECRET` hoặc credential khác trong response/log; không cần rotate thêm credential từ incident này.
+- Repository là public. Trước remediation, GitHub yêu cầu người xem đăng nhập nhưng authenticated GitHub users có thể xem run logs. Run không tạo Actions artifact. Log được stream một lần qua `gh run view --log` để review trong Codex task, không lưu thành workspace file; transcript/platform retention là residual exposure không thể thu hồi từ GitHub.
+- GitHub REST `DELETE /repos/FengProfessor/Vocab/actions/runs/36276708098/logs` trả HTTP 204; HEAD cùng logs endpoint sau đó trả 404. Run metadata vẫn được giữ làm evidence. **PII LOG = REMOVED** khỏi GitHub Actions; bản sao đã được tải/xem trước lúc xóa không thể bị GitHub thu hồi.
+- Remediation code: thêm `/api/cron/auth-check`, gọi trực tiếp shared `assertCronAuthorized()`, trả 204 rỗng khi hợp lệ và không import/call database, service role, Storage, email, push hoặc business mutation.
+- `push-cron.yml`: `workflow_dispatch` chỉ gọi `auth-check`; event `schedule` mới được gọi `push-due`. Cả hai curl đều discard body và chỉ log endpoint, HTTP status, PASS/FAIL. Không đổi quiet-window hoặc notification product policy.
+- Regression coverage kiểm tra 401 cho missing/malformed/wrong/missing-server-secret, 204 bodyless cho secret đúng, zero side-effect markers/counters, và cấm workflow dùng response file, `cat`, `jq` hoặc `tee` để in body.
+- Status: implementation đang ở PR `#8`; production verification/canonical rollout pending. Sáu High findings giữ nguyên OPEN.
 
 ## Thứ tự xử lý đề xuất
 

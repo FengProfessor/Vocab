@@ -494,3 +494,11 @@
 - Post-rotation contract: new secret 200; old secret/no auth/malformed/synthetic invalid đều 401. Secret cũ không còn trong active host crontab.
 - Caller verification run `36276708098` **PASS** auth/HTTP 200 nhưng chạy lúc 05:34 VN, ngoài quiet window bốn phút, nên đã gửi **77 push notifications**. Workflow cũng ghi response chứa user identifiers/names vào GitHub Actions log. Đã dừng mọi endpoint verification tiếp theo; không tự ý xóa run/evidence.
 - Status: rollout và secret rotation hoàn tất, production exact SHA/health/auth đã verified. Critical vẫn **OPEN** vì điều kiện không tạo push ngoài dự kiến không đạt và log exposure cần xử lý. Sáu High findings vẫn OPEN; chưa bắt đầu Phase 1B.
+
+## P1 PHASE 1A.1 — Safe cron verification và PII log remediation (2026-09-27)
+
+- Incident `36276708098`: workflow-dispatch step `Trigger push-due` gọi endpoint nghiệp vụ thật lúc 05:34 VN, sau quiet window 05:30, và `cat /tmp/resp.json` ghi response vào Actions log. Kết quả: 77 push ngoài dự kiến; exposed categories gồm user ID, display name, due-word count và delivery status. Không có email, FCM token, Authorization header, `CRON_SECRET` hoặc credential khác.
+- Repo public; GitHub yêu cầu đăng nhập để xem workflow logs. Run không có artifact. Log đã được stream một lần vào Codex task để review, không lưu thành workspace file.
+- Log deletion: GitHub REST delete trả HTTP 204; HEAD logs endpoint sau đó trả 404 trong khi run metadata vẫn còn. **PII LOG = REMOVED** khỏi GitHub; prior viewer/download/transcript copies là residual exposure.
+- Implementation trên PR `#8`: `/api/cron/auth-check` dùng shared `assertCronAuthorized`, valid secret trả 204 bodyless, reject trả 401, không có DB/service-role/Storage/email/push/business mutation. `workflow_dispatch` chỉ gọi probe; schedule mới gọi real `push-due`; curl luôn discard body và log endpoint/status/PASS.
+- Regression test mới cover missing/malformed/wrong/missing-env/valid auth, bodyless 204, zero side effects và workflow không in response body. Canonical rollout và production verification pending; Critical/P1 Phase 1A vẫn OPEN; sáu High findings chưa xử lý.
